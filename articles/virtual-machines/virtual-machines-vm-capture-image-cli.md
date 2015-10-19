@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Acquisire l'immagine di una macchina virtuale che esegue Linux utilizzando l'interfaccia CLI"
+	pageTitle="Acquisire l'immagine di una macchina virtuale che esegue Linux utilizzando l'interfaccia CLI | Microsoft Azure"
 	description="Informazioni su come acquisire un'immagine di una macchina virtuale di Azure che esegue Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="madhana"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,7 +22,7 @@
 
 # Come acquisire una macchina virtuale Linux da usare come modello con l'interfaccia della riga di comando##
 
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 Questo articolo illustra come acquisire una macchina virtuale di Azure che esegue Linux in modo da usarla come modello per creare altre macchine virtuali. Questo modello include il disco del sistema operativo e gli eventuali dischi dati connessi alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si creano le altre macchine virtuali che usano il modello.
 
@@ -162,4 +163,4 @@ Per ulteriori informazioni e comandi aggiuntivi, visitare la [pagina della docum
 [Come collegare un disco dati a una macchina virtuale]: storage-windows-attach-disk.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

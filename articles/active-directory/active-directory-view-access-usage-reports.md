@@ -256,6 +256,7 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
 	- Fino a 1000 eventi saranno visualizzati nel portale di gestione di Azure.
 5. Se applicabile, fare clic su **Download** per scaricare il report in un file compresso in formato valori separati da virgole (CSV) per visualizzarlo offline o a scopo di archiviazione.
 	- Fino a 75.000 eventi verranno inclusi nel file scaricato.
+	- Per ulteriori dati, consultare la [l'API di Reporting AD Azure](active-directory-reporting-api-getting-started.md).
 
 ## Ignorare un evento
 
@@ -270,4 +271,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

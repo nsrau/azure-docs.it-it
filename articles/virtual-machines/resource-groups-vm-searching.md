@@ -1,25 +1,28 @@
 <properties
-   pageTitle="Esplorazione e selezione di immagini delle macchine virtuali di Azure con PowerShell e l'interfaccia della riga di comando di Azure"
-	description="Informazioni su come determinare l'editore, l'offerta e lo SKU per le immagini durante la creazione di una macchina virtuale di Azure con Gestione risorse."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+   pageTitle="Individuare e selezionare immagini VM | Microsoft Azure"
+   description="Informazioni su come determinare l'editore, l'offerta e lo SKU per le immagini durante la creazione di una macchina virtuale di Azure con il modello di distribuzione di Gestione risorse."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="squillace"
+   manager="timlt"
+   editor=""
+   tags="azure-resource-manager"
+   />
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="command-line-interface"
-	ms.workload="infrastructure"
-	ms.date="08/25/2015"
-	ms.author="rasquill"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="command-line-interface"
+   ms.workload="infrastructure"
+   ms.date="08/25/2015"
+   ms.author="rasquill"/>
 
 # Esplorazione e selezione di immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure
 
-> [AZURE.NOTE]Quando si cercano immagini di macchine virtuali in questo argomento, si usa la [modalità Gestione risorse di Azure](../resource-group-overview.md) con un'installazione recente dell'interfaccia della riga di comando di Azure (per Mac, Linux e Windows) o di Windows PowerShell. Con l'interfaccia della riga di comando di Azure, immettere tale modalità digitando `azure config mode arm`. Con PowerShell digitare `Switch-AzureMode AzureResourceManager`. Per informazioni più complete sull'aggiornamento e la configurazione, vedere [Interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md) e [Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo è dedicato alla ricerca di immagini di macchine virtuali nel modello di distribuzione di Gestione risorse. È inoltre possibile cercare immagini nel [modello di distribuzione classica](https://msdn.microsoft.com/library/azure/dn499770.aspx).
+
+Questo articolo descrive come individuare e selezionare le immagini di macchina virtuale, utilizzando un'installazione recente di Azure PowerShell o Azure CLI. Come prerequisito, è necessario modificare la modalità di gestione delle risorse. Con l'interfaccia della riga di comando di Azure, immettere tale modalità digitando `azure config mode arm`. Con PowerShell digitare `Switch-AzureMode AzureResourceManager`. Per informazioni più complete sull'aggiornamento e la configurazione, vedere [Interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md) e [Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
 
 ## Tabella delle immagini di uso comune
 
@@ -240,4 +243,4 @@ Questo video illustra i passaggi precedenti usando PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

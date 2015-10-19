@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Panoramica di Hub eventi"
+   pageTitle="Panoramica degli Hub di eventi di Azure | Microsoft Azure"
    description="Introduzione e panoramica di Hub eventi di Azure."
    services="event-hubs"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/09/2015"
+   ms.date="09/30/2015"
    ms.author="sethm" />
 
 # Panoramica di Hub eventi di Azure
@@ -41,9 +41,9 @@ Le partizioni conservano i dati per un periodo di conservazione configurato che 
 
 ![Hub eventi](./media/event-hubs-overview/IC759858.png)
 
-Il numero di partizioni specificato in fase di creazione dell'Hub eventi e deve essere compreso tra 8 e 32. Le partizioni sono un meccanismo di organizzazione dei dati e sono più strettamente correlate al grado di parallelismo a valle necessario nell'utilizzo di applicazioni rispetto alla velocità effettiva degli Hub eventi. In questo modo la scelta del numero di partizioni in un Hub eventi è direttamente correlato al numero di lettori simultanei previsti. Dopo la creazione di Hub eventi, il numero di partizioni non può essere modificato. Tale numero deve essere considerato in termini di scalabilità prevista a lungo termine. È possibile aumentare il limite di 32 partizioni contattando il team di Bus di servizio di Azure.
+Il numero di partizioni è specificato in fase di creazione dell'Hub eventi e deve essere compreso tra 2 e 32 (il valore predefinito è 4). Le partizioni sono un meccanismo di organizzazione dei dati e sono più strettamente correlate al grado di parallelismo a valle necessario nell'utilizzo di applicazioni rispetto alla velocità effettiva degli Hub eventi. In questo modo la scelta del numero di partizioni in un Hub eventi è direttamente correlato al numero di lettori simultanei previsti. Dopo la creazione di Hub eventi, il numero di partizioni non può essere modificato. Tale numero deve essere considerato in termini di scalabilità prevista a lungo termine. È possibile aumentare il limite di 32 partizioni contattando il team di Bus di servizio di Azure.
 
-Anche se le partizioni sono identificabili e possono costituire destinazioni dirette, in genere è preferibile evitare l'invio di dati a partizioni specifiche. Al contrario, è possibile utilizzare costrutti di livello superiori introdotti nelle sezioni [Autore di eventi](#Event-publisher) e [Criteri di autore](#Capacity-and-security).
+Anche se le partizioni sono identificabili e possono costituire destinazioni dirette, in genere è preferibile evitare l'invio di dati a partizioni specifiche. Al contrario, è possibile utilizzare costrutti di livello superiori introdotti nelle sezioni [Autore di eventi](#event-publisher) e [Criteri di autore](#capacity-and-security).
 
 Nel contesto di Hub eventi, i messaggi vengono definiti come *dati dell'evento*. I dati dell'evento contengono il corpo dell'evento, un contenitore di proprietà definito dall’utente e diversi metadati sull'evento, ad esempio l'offset nella partizione e il relativo numero nella sequenza di flusso. Le partizioni vengono riempite con una sequenza di dati dell'evento.
 
@@ -51,15 +51,15 @@ Nel contesto di Hub eventi, i messaggi vengono definiti come *dati dell'evento*.
 
 Qualsiasi entità che invia eventi o dati a un Hub di eventi è un *autore di eventi*. Gli autori di eventi possono pubblicare eventi utilizzando HTTPS o AMQP 1.0. Gli autori di eventi utilizzano un token di firma di accesso condiviso (SAS) per identificarsi con un Hub eventi e possono avere un'identità univoca oppure utilizzare un token SAS comune, a seconda dei requisiti dello scenario.
 
-Per altre informazioni sull’uso di SAS, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://msdn.microsoft.com/library/dn170477.aspx).
+Per altre informazioni sull’uso di SAS, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-shared-access-signature-authentication.md).
 
 ### Attività comuni degli autori
 
 In questa sezione vengono descritte attività comuni per gli autori di eventi.
 
-#### Acquisizione di un token SAS
+#### Acquisire un token SAS
 
-Firma di accesso condiviso (SAS) è il meccanismo di autenticazione di Hub eventi. Bus di servizio fornisce criteri di firma di accesso condiviso a livello di Hub eventi e spazio dei nomi. Un token SAS viene generato da una chiave SAS ed è un hash SHA di un URL, codificato in un formato specifico. Utilizzando il nome della chiave (criterio) e il token, Bus di servizio può rigenerare l'hash e pertanto autenticare il mittente. In genere, i token SAS per gli autori di eventi vengono creati con soli privilegi di **invio** su un Hub eventi specifico. Questo meccanismo di URL token SAS costituisce la base per l'identificazione dell’autore introdotta nei criteri di autore. Per altre informazioni sull’uso di SAS, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://msdn.microsoft.com/library/dn170477.aspx).
+Firma di accesso condiviso (SAS) è il meccanismo di autenticazione di Hub eventi. Bus di servizio fornisce criteri di firma di accesso condiviso a livello di Hub eventi e spazio dei nomi. Un token SAS viene generato da una chiave SAS ed è un hash SHA di un URL, codificato in un formato specifico. Utilizzando il nome della chiave (criterio) e il token, Bus di servizio può rigenerare l'hash e pertanto autenticare il mittente. In genere, i token SAS per gli autori di eventi vengono creati con soli privilegi di **invio** su un Hub eventi specifico. Questo meccanismo di URL token SAS costituisce la base per l'identificazione dell’autore introdotta nei criteri di autore. Per altre informazioni sull’uso di SAS, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-shared-access-signature-authentication.md).
 
 #### Pubblicazione di un evento
 
@@ -108,11 +108,11 @@ Il *checkpoint* è un processo mediante il quale i lettori contrassegnano o eseg
 
 In questa sezione vengono descritte le attività comuni per i consumer di eventi o i lettori di Hub eventi. Tutti i consumer di Hub eventi si connettono tramite AMQP 1.0. AMQP 1.0 è un canale di comunicazione bidirezionale che riconosce sessione e stato. Ogni partizione dispone di una sessione di collegamento AMQP 1.0 che facilita il trasporto di eventi separati dalla partizione.
 
-##### Connessione a una partizione
+##### Connettersi a una partizione
 
 Per utilizzare gli eventi da un Hub eventi, un consumer deve connettersi a una partizione. Come accennato in precedenza, alle partizioni si accede sempre tramite un gruppo di consumer. Come parte del modello consumer partizionato, un unico lettore deve essere attivo in una partizione in qualsiasi momento all'interno di un gruppo di consumer. È pratica comune quando ci si connette direttamente a partizioni l’uso di un meccanismo di leasing per coordinare le connessioni di lettura per partizioni specifiche. In questo modo è possibile per ogni partizione in un gruppo di consumer avere un solo lettore attivo. La gestione di posizione nella sequenza di un lettore è un'importante attività che è possibile ottenere tramite i checkpoint. Questa funzionalità viene semplificata dall'utilizzo della classe [EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx) per i client .NET. [EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx) è un agente consumer intelligente e viene descritto nella sezione successiva.
 
-##### Lettura degli eventi
+##### Leggere gli eventi
 
 Dopo l'apertura di una sessione AMQP 1.0 e del collegamento per una partizione specifica, gli eventi vengono recapitati al client AMQP 1.0 dal servizio Hub eventi. Questo meccanismo di recapito permette una velocità effettiva più elevata e una latenza più bassa rispetto ai meccanismi basati su pull, ad esempio HTTP GET. Quando gli eventi vengono inviati al client, ogni istanza dei dati dell'evento contiene metadati importanti, ad esempio l’offset e il numero di sequenza utilizzati per facilitare il checkpoint sulla in sequenza di eventi.
 
@@ -132,7 +132,7 @@ La capacità di velocità effettiva di Hub eventi è controllata dalle unità el
 
 - In uscita: fino a 2 MB al secondo.
 
-L’ingresso è limitato dalla quantità di capacità fornita dal numero di unità elaborate acquistate. L'invio di dati oltre questa quantità causa un'eccezione di "quota superata". Questa quantità è 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo. L’uscita non genera eccezioni di limitazione, ma è limitata alla quantità di trasferimento dei dati fornito dalle unità elaborate acquistate: 2 MB al secondo per ogni unità elaborata. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi in cui è stato creato l'Hub eventi. Per ottenere ulteriori unità elaborate è possibile modificare l'impostazione nella pagina **Spazi dei nomi** della scheda **Configura** nel portale di gestione di Azure. È inoltre possibile modificare questa impostazione utilizzando le API di Azure.
+L’ingresso è limitato dalla quantità di capacità fornita dal numero di unità elaborate acquistate. L'invio di dati oltre questa quantità causa un'eccezione di "quota superata". Questa quantità è 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo. L’uscita non genera eccezioni di limitazione, ma è limitata alla quantità di trasferimento dei dati fornito dalle unità elaborate acquistate: 2 MB al secondo per ogni unità elaborata. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi in cui è stato creato l'Hub eventi. Per ottenere ulteriori unità elaborate è possibile modificare l'impostazione nella pagina **Spazi dei nomi** della scheda **Scalabilità** nel portale di gestione di Azure. È inoltre possibile modificare questa impostazione utilizzando le API di Azure.
 
 Mentre le partizioni sono un concetto di organizzazione di dati, le unità elaborate sono semplicemente un concetto di capacità. Le unità elaborate vengo o fatturate su base oraria e sono pre-acquistate. Una volta acquistate, le unità elaborate vengono fatturate per un minimo di un'ora. Fino a 20 velocità elaborate possono essere acquistate per uno spazio dei nomi del Bus di servizio ed è previsto un limite di account Azure di 20 unità elaborate. Tali unità elaborate sono condivise tra tutti gli Hub eventi in un determinato spazio dei nomi.
 
@@ -148,11 +148,11 @@ Hub eventi consente un controllo granulare dei producer di eventi tramite *crite
 
 	//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
-Non è necessario creare nomi di autore prima di procedere, ma devono corrispondere al token SAS utilizzato quando si pubblica un evento, al fine di garantire le identità di autore indipendenti. Per altre informazioni sulle firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://msdn.microsoft.com/library/dn170477.aspx). Quando si utilizzano criteri di autore, il valore **PartitionKey** è impostato sul nome dell’autore. Per il corretto funzionamento, questi valori devono corrispondere.
+Non è necessario creare nomi di autore prima di procedere, ma devono corrispondere al token SAS utilizzato quando si pubblica un evento, al fine di garantire le identità di autore indipendenti. Per altre informazioni sulle firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-shared-access-signature-authentication.md). Quando si utilizzano criteri di autore, il valore **PartitionKey** è impostato sul nome dell’autore. Per il corretto funzionamento, questi valori devono corrispondere.
 
 ## Riepilogo
 
-Hub eventi di Azure fornisce un servizio di elaborazione di telemetria ed eventi iperscalabili che può essere utilizzato per il monitoraggio del flusso di lavoro utente e applicazione comune a qualsiasi scala. Con la possibilità di fornire funzionalità di pubblicazione-sottoscrizione con una latenza bassa e su larga scala, Hub eventi funge da "rampa di ingresso" per Big Data. Con l'identità basata sull’autore e gli elenchi di revoche, queste funzionalità sono estese agli scenari comuni di Internet delle cose. Per ulteriori informazioni sullo sviluppo di applicazioni Hub eventi vedere il [Guida alla programmazione di Hub eventi](https://msdn.microsoft.com/library/dn789972.aspx).
+Hub eventi di Azure fornisce un servizio di elaborazione di telemetria ed eventi iperscalabili che può essere utilizzato per il monitoraggio del flusso di lavoro utente e applicazione comune a qualsiasi scala. Con la possibilità di fornire funzionalità di pubblicazione-sottoscrizione con una latenza bassa e su larga scala, Hub eventi funge da "rampa di ingresso" per Big Data. Con l'identità basata sull’autore e gli elenchi di revoche, queste funzionalità sono estese agli scenari comuni di Internet delle cose. Per ulteriori informazioni sullo sviluppo di applicazioni Hub eventi vedere il [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md).
 
 ## Passaggi successivi
 
@@ -162,9 +162,9 @@ Ora che i concetti di Hub eventi sono chiari, è possibile passare agli scenari 
 - Un'[applicazione di esempio completa che usa Hub eventi].
 - Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
 
-[esercitazione di Hub eventi]: service-bus-event-hubs-csharp-ephcs-getstarted.md
+[esercitazione di Hub eventi]: event-hubs-csharp-ephcs-getstarted.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[soluzione di messaggistica accodata]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
+[soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

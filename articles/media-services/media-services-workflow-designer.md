@@ -20,7 +20,7 @@
 #Creazione di flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro
 
 ##Panoramica
-**Progettazione flussi di lavoro** è uno strumento autonomo che consente di creare flussi di lavoro e/o grafici per la codifica con il **Flusso di lavoro Premium del codificatore multimediale**.
+**Progettazione flussi di lavoro** è uno strumento desktop di Windows che consente di progettare e costruire flussi di lavoro per la codifica con il **Flusso di lavoro Premium del codificatore multimediale**.
 
 Questo strumento può essere usato anche per modificare [flussi di lavoro esistenti](media-services-workflow-designer.md#existing_workflows).
 
@@ -79,4 +79,4 @@ Il video del giorno 3 riguarda:
 
 [Video di formazione sulla finestra di progettazione del flusso di lavoro del codificatore Premium di Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

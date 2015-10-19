@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Come usare Docker Machine in Azure"
-   description="Viene illustrato come avviare ed eseguire Docker Machine su Ubuntu in Azure."
+   pageTitle="Usare Docker Machine con Azure | Microsoft Azure"
+   description="Viene illustrato come avviare ed eseguire Docker Machine su Ubuntu in Azure, utilizzando il modello di distribuzione classica."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -211,6 +212,5 @@ Consultare il [manuale dell'utente di Docker](https://docs.docker.com/userguide/
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
- 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -44,8 +44,8 @@ Eliminazione di un utente. | È stato eliminato un utente dalla directory.
 Impostazione delle proprietà della licenza | Sono state impostate le proprietà della licenza per un utente nella directory.
 Reimpostazione password utente | È stata reimpostata la password per un utente nella directory.
 Modifica password utente | È stata modificata la password per un utente nella directory.
-Modifica licenza utente | È stata modificata la licenza assegnata a un utente nella directory.
-Aggiornamento utente | È stato aggiornato un utente nella directory.
+Modifica licenza utente | È stata modificata la licenza assegnata a un utente nella directory. Per vedere quali licenze sono state aggiornate, esaminare l'evento "Aggiornamento utente" immediatamente prima o dopo questo evento.
+Aggiornamento utente | È stato aggiornato un utente nella directory. [Vedere di seguito](#quotupdate-userquot-attributes) per gli attributi che possono essere aggiornati.
 Impostazione forzatura per la modifica delle password utente | È stata impostata la proprietà che obbliga un utente a modificare la password all'accesso.
 **Eventi del gruppo** |
 Creare un gruppo | È stato creato un gruppo nella directory.
@@ -58,9 +58,9 @@ Aggiunta di un'entità servizio | È stata aggiunta un'entità servizio alla dir
 Rimozione di un'entità servizio | È stata rimossa un'entità servizio dalla directory.
 Aggiunta delle credenziali dell'entità servizio | Sono state aggiunte le credenziali a un'entità servizio.
 Rimozione delle credenziali dell'entità servizio | Sono state rimosse le credenziali da un'entità servizio.
-Aggiunta di una voce di delega | È stata aggiunta una voce di delega alla directory.
-Impostazione voce di delega | È stata aggiornata una voce di delega nella directory.
-Rimozione voce di delega | È stata rimossa una voce di delega dalla directory.
+Aggiunta di una voce di delega | Creazione di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) nella directory.
+Impostazione voce di delega | Aggiornamento di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) nella directory.
+Rimozione voce di delega | Eliminazione di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) nella directory.
 **Eventi del ruolo** |
 Aggiunta di un membro del ruolo al ruolo | È stato aggiunto un utente a un ruolo della directory.
 Rimozione di un membro ruolo dal ruolo | È stato rimosso un utente da un ruolo della directory.
@@ -89,7 +89,7 @@ Promote tenant to partner
 
 --->
 
-### Attributi utente inclusi nell'evento di controllo di aggiornamento utente
+## Attributi "Aggiornamento utente"
 L'evento di controllo di aggiornamento dell'utente include informazioni aggiuntive sugli attributi utente che sono stati aggiornati. Per ogni attributo, sono inclusi sia il valore precedente che quello nuovo.
 
 Attributo | Descrizione
@@ -108,4 +108,4 @@ TelephoneNumber | Numero di telefono dell'utente.
 
 I record di controllo rappresentano un controllo obbligatorio per molte normative per la conformità. Per i clienti che usano i report di controllo di Azure Active Directory per garantire la conformità alle normative, è consigliabile inviare una copia di questo argomento della guida insieme al report di controllo esportato del cliente per fornire una descrizione delle informazioni contenute nel report. Per altre informazioni sulle normative di conformità attualmente soddisfatte da Azure, suggerire al revisore di visitare la pagina relativa alla [conformità](http://azure.microsoft.com/support/trust-center/compliance/) del Centro protezione Microsoft Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

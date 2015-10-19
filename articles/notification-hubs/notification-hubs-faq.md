@@ -47,7 +47,7 @@ Sono forniti SDK ed esempi per .NET, Java, PHP, Python, Node. js in modoack-end 
 È supportato l'invio di notifiche alle piattaforme Apple iOS, Android, Windows Universal e Windows Phone, Kindle, Android China (via Baidu), Xamarin (iOS e Android), Chrome Apps. Esercitazioni introduttive passo passo per queste piattaforme sono disponibili qui: [NH - Esercitazioni introduttive]
 
 ###3\. Sono supportate le notifiche SMS/Email/Web?
-Hub di notifica è progettato principalmente per inviare notifiche alle app mobili utilizzando le piattaforme elencate sopra. Microsoft non fornisce funzionalità di invio di posta elettronica o SMS, tuttavia piattaforme di terze parti che forniscono queste funzionalità possono essere integrate con Hub di notifica per inviare notifiche push nativo tramite Servizi mobili di Azure. Ad esempio, in questa esercitazione viene illustrato come inviare notifiche SMS tramite Servizi Mobili di Azure - [Inviare SMS con Servizi mobili] Non viene fornita alcuna notifica push in browser pronta per l’uso. I clienti possono scegliere di implementarla mediante SignalR. È fornita un'esercitazione per l'invio di notifiche push alle app Chrome, che funzioneranno nel browser Google Chrome. Vedere - [Esercitazione per app Chrome]
+Hub di notifica è progettato principalmente per inviare notifiche alle app mobili utilizzando le piattaforme elencate sopra. Microsoft non fornisce funzionalità di invio di posta elettronica o SMS, tuttavia piattaforme di terze parti che forniscono queste funzionalità possono essere integrate con Hub di notifica per inviare notifiche push nativo tramite Servizi mobili di Azure. Microsoft non fornisce, inoltre, una notifica push interna al browser preconfezionata. I clienti possono scegliere di implementarla mediante SignalR. È fornita un'esercitazione per l'invio di notifiche push alle app Chrome, che funzioneranno nel browser Google Chrome. Vedere - [Esercitazione per app Chrome]
 
 ###4\. Qual è la relazione tra Servizi mobili di Azure e Hub di notifica di Azure e quando si utilizzano?
 Se si dispone di un back-end di app mobile esistente e si desidera solo aggiungere la funzionalità di invio di notifiche push, è necessario utilizzare Hub di notifica di Azure. Per impostare il back-end dell'app mobile da zero, è opportuno valutare l'utilizzo di Servizi mobili di Azure. Un servizio mobile di Azure esegue automaticamente il provisioning di un Hub di notifica per consentire l'invio di notifiche push dal back-end dell'app mobile. Il prezzo dei Servizi mobili di Azure include le spese di base per un Hub di notifica e deve essere pagato solo quando si superano i push inclusi. Ulteriori informazioni qui - [ Prezzi di Servizi mobili]
@@ -119,7 +119,6 @@ Gli Hub di notifica di Azure consentono la visualizzazione di dati di telemetria
 [Caso studio - 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [NH - API REST]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [NH - Esercitazioni introduttive]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Inviare SMS con Servizi mobili]: http://azure.microsoft.com/documentation/articles/partner-twilio-mobile-services-how-to-use-voice-sms/
 [Esercitazione per app Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [ Prezzi di Servizi mobili]: http://azure.microsoft.com/pricing/details/mobile-services/
 [Guida alla registrazione back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
@@ -131,4 +130,4 @@ Gli Hub di notifica di Azure consentono la visualizzazione di dati di telemetria
 [NH - Esempio di metriche]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Esportazione/importazione di registrazioni]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

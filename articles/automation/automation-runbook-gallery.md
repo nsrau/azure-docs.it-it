@@ -93,17 +93,17 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
 6. Il portale di anteprima di Azure viene visualizzato in un riquadro **Distribuzione personalizzata**. Specificare se si installerà il modulo in un **account di automazione nuovo o esistente** e immettere il **nome dell'account di automazione**. Se si usa un account esistente, la **posizione dell'account di automazione** viene ignorata. 
 7. Selezionare **Gruppo di risorse** e specificare un gruppo di risorse esistente o crearne uno nuovo per il modulo.
 6. È necessario selezionare **Note legali** e fare clic su **Acquista**. Si noti che nonostante il nome di questo pulsante non viene effettivamente addebitato alcun costo per l'installazione di un modulo.
-7. Per importare il modulo, fare clic su **Crea**.  
+7. Per importare il modulo, fare clic su **Crea**. Poiché ogni attività deve essere estratta potrebbero volerci alcuni minuti.  
 8. Si riceverà una notifica indicante che è in corso la distribuzione del modulo e quindi un'altra notifica quando l'operazione è completata. 
 
 
 ## Richiesta di un runbook o un modulo
 
-È possibile inviare richieste a [User Voice](http://feedback.azure.com/[forum](http://social.msdn.microsoft.com/Forums/windowsazure/it-IT/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)s/246290-azure-automation). Se è necessario supporto per la scrittura di un runbook o per inviare domande relative a PowerShell, inserire una domanda nel [forum](http://social.msdn.microsoft.com/Forums/windowsazure/it-IT/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+È possibile inviare richieste a [User Voice](http://feedback.azure.com/forums/246290-azure-automation). Se è necessario supporto per la scrittura di un runbook o per inviare domande relative a PowerShell, inserire una domanda nel [forum](http://social.msdn.microsoft.com/Forums/windowsazure/it-IT/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Articoli correlati
 
 - [Creazione o importazione di un runbook in Automazione di Azure](automation-creating-importing-runbook.md)
 - [Informazioni sul flusso di lavoro PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

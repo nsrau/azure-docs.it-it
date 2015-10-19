@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="YuriD"
    manager="swadhwa"
-   editor=""/>
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="azure-security"
@@ -17,7 +18,6 @@
    ms.author="yurid"/>
 
 #Procedure consigliate per gli aggiornamenti software nell'ambiente IaaS di Microsoft Azure
-
 
 Prima di addentrarsi in una qualsiasi discussione sulle procedure consigliate per un ambiente IaaS di Azure, è importante comprendere quali sono gli scenari che richiedono la gestione degli aggiornamenti software. Il diagramma sottostante dovrebbe risultare utile in questo senso:
 
@@ -71,7 +71,7 @@ Nelle organizzazioni di grandi dimensioni è spesso utile suddividere i computer
 
 Dopo aver eseguito un controllo iniziale del software in uso nell'azienda, è necessario determinare il metodo migliore per ricevere le notifiche di nuovi aggiornamenti software per ogni prodotto software e versione. A seconda del prodotto software, i metodi di notifica migliori potrebbero essere notifiche tramite posta elettronica, siti Web o pubblicazioni su computer.
 
-Ad esempio, Microsoft Security Response Center (MSRC) risponde a tutte le problematiche relative alla sicurezza dei prodotti Microsoft e fornisce il Bollettino Microsoft sulla sicurezza, un servizio gratuito di notifica tramite posta elettronica sulle ultime vulnerabilità identificate e sugli aggiornamenti software rilasciati per risolvere tali vulnerabilità. È possibile sottoscrivere questo servizio all'indirizzo <http://www.microsoft.com/technet/security/bulletin/notify.mspx>
+Ad esempio, Microsoft Security Response Center (MSRC) risponde a tutte le problematiche relative alla sicurezza dei prodotti Microsoft e fornisce il Bollettino Microsoft sulla sicurezza, un servizio gratuito di notifica tramite posta elettronica sulle ultime vulnerabilità identificate e sugli aggiornamenti software rilasciati per risolvere tali vulnerabilità. È possibile sottoscrivere questo servizio all'indirizzo http://www.microsoft.com/technet/security/bulletin/notify.mspx
 
 ## Considerazioni sugli aggiornamenti software
 
@@ -99,7 +99,7 @@ Ecco alcune opzioni di backup per l'ambiente IaaS di Azure:
 
 -   [Protezione del carico di lavoro IaaS di Azure tramite Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Eseguire il backup di macchine virtuali di Azure](https://azure.microsoft.com/it-IT/documentation/articles/backup-azure-vms/)
+-   [Eseguire il backup di macchine virtuali di Azure](../backup/backup-azure-vms.md)
 
 ### Monitoraggio
 
@@ -119,4 +119,4 @@ Oltre alle considerazioni generali descritte in questo articolo, è consigliabil
 
 Usare le linee guida descritte in questo articolo per determinare le opzioni migliori per gli aggiornamenti software delle macchine virtuali nell'ambiente IaaS di Azure. Esistono molte analogie tra le procedure consigliate per gli aggiornamenti software in un data center tradizionale e un ambiente IaaS di Azure, quindi è consigliabile valutare i criteri di aggiornamento software attuali e includere nel processo di aggiornamento software globale le macchine virtuali di Azure e le procedure consigliate pertinenti descritte in questo articolo.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

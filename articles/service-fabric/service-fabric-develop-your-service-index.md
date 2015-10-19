@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sviluppare un servizio di Service Fabric"
+   pageTitle="Sviluppare un servizio di Service Fabric | Microsoft Azure"
    description="Informazioni concettuali ed esercitazioni utili per comprendere come sviluppare un servizio di Service Fabric usando il modello di programmazione Reliable Actors o Reliable Services."
    services="service-fabric"
    documentationCenter=".net"
@@ -87,4 +87,4 @@ I servizi Reliable Services emettono eventi e contatori delle prestazioni utiliz
 
 - [Diagnostica di Reliable Services con stato](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

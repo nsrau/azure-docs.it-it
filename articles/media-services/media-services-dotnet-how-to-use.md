@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 #Sviluppo di applicazioni di Servizi multimediali con .NET 
@@ -28,9 +28,9 @@ La libreria di **Azure Media Services .NET SDK** consente di programmare per Ser
 ##Prerequisiti
 
 -   Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-create-account.md).
--   Sistemi operativi: Windows 7, Windows 2008 R2 o Windows 8.
--   .NET Framework 4.5.
--   Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express). 
+-   Sistemi operativi: Windows 10, Windows 7, Windows 2008 R2 o Windows 8.
+-   .NET Framework 4.5
+-    Visual Studio 2015, Visual Studio 2013 o Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express). 
   
 
 ##Creare e configurare un progetto di Visual Studio 
@@ -75,15 +75,9 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
 	Per ottenere le informazioni sul **nome dell'account** e sulla **chiave dell'account**, aprire il **portale di gestione di Azure**, selezionare l'account di Servizi multimediali e fare clic sul pulsante **GESTISCI CHIAVI**.
 
 
-	<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
-
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>
 
 5. Sovrascrivere le istruzioni using esistenti all'inizio del file Program.cs con il seguente codice.
 
@@ -108,4 +102,4 @@ A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Serviz
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

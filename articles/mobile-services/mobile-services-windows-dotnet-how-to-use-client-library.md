@@ -22,7 +22,7 @@
 
 ##Panoramica
 
-In questa guida viene illustrato come eseguire scenari comuni utilizzando un client .NET per Servizi mobili di Azure in app di Windows Store e Windows Phone. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Se non si ha familiarità con Servizi mobili, si consiglia di completare prima l'esercitazione di [introduzione per Servizi mobili](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) o l'esercitazione relativa all'[aggiunta dell'autenticazione a un'app esistente di Servizi mobili](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
+In questa guida viene illustrato come eseguire scenari comuni utilizzando un client .NET per Servizi mobili di Azure in app di Windows Store e Windows Phone. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Se non si ha familiarità con Servizi mobili, si consiglia di completare prima il progetto dell’esercitazione [guida introduttiva per Servizi mobili](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -742,7 +742,6 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [API personalizzata nei Servizi mobili di Azure - SDK client]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

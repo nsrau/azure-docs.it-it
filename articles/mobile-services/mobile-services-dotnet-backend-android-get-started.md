@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="Introduzione a Servizi mobili di Azure per le app per Android" 
-	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Android." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introduzione a Servizi mobili di Azure per le app per Android"
+	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Android."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="get-started-article"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
@@ -26,7 +26,7 @@ Questa esercitazione illustra come aggiungere un servizio back-end basato sul cl
 
 Di seguito è riportata una schermata dell'app completata:
 
-![][0]
+![](./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png)
 
 Per completare questa esercitazione, è necessario disporre di [Android Developer Tools][Android Studio] che include l'ambiente di sviluppo integrato di Android Studio e la piattaforma Android più recente. È necessario Android 4.2 o versione successiva.
 
@@ -71,7 +71,7 @@ In questa sezione si creerà una nuova app per Android connessa al servizio mobi
 1. Nel [portale di gestione] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 2. Nella scheda Quickstart fare clic su **Android** in **Choose platform** ed espandere **Create a new Android app**.
- 
+
 	![][2]
 
 3. Se necessario, scaricare e installare [Android Developer Tools][Android SDK] nel computer locale o nella macchina virtuale.
@@ -87,9 +87,9 @@ In questa sezione si creerà una nuova app per Android connessa al servizio mobi
 ## <a name="next-steps"> </a>Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
-* [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere notifiche push all'app] <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-* [Introduzione alle notifiche push] <br/>Informazioni sull'invio di una notifica push di base all'app.
+* [Aggiungere l'autenticazione all'app] <br/>Informazioni su come limitare l'accesso ai dati di back-end per specifici utenti registrati dell'app.
 
 * [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili] <br/> Informazioni su come diagnosticare e correggere i problemi che possono verificarsi con un back-end .NET di Servizi mobili.
 
@@ -118,15 +118,13 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 <!-- URLs. -->
 [Introduzione (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
-[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
-[Introduzione all'autenticazione]: mobile-services-dotnet-backend-android-get-started-users.md
-[Introduzione alle notifiche push]: mobile-services-dotnet-backend-android-get-started-push.md
+[Aggiungere notifiche push all'app]: mobile-services-dotnet-backend-android-get-started-push.md
+[Aggiungere l'autenticazione all'app]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [portale di gestione]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

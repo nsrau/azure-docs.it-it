@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Collegare un disco a una macchina virtuale Linux | Microsoft Azure"
-	description="Informazioni su come collegare un disco dati a una macchina virtuale Linux e inizializzarlo in modo che sia pronto per l'uso."
+	description="Informazioni su come collegare un disco dati a una macchina virtuale Azure e inizializzarlo in modo che sia pronto per l'uso."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -150,7 +150,7 @@
 
 	Oppure, su sistemi basati su SUSE Linux potrebbe essere necessario usare un formato leggermente diverso:
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
 	Per verificare che il file system venga montato correttamente, è sufficiente smontarlo e rimontarlo, usando ad esempio il punto di montaggio `/datadrive` creato nei passaggi precedenti:
 
@@ -173,4 +173,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

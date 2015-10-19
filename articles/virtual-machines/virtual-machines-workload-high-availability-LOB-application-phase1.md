@@ -44,7 +44,7 @@ Elemento | Elemento di configurazione | Descrizione | Valore
 5\. | Spazio degli indirizzi di rete virtuale | Lo spazio degli indirizzi (definito in un singolo prefisso di indirizzo privato) per la rete virtuale. Collaborare con il reparto IT per determinare questo spazio degli indirizzi. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 6\. | Primo server DNS per la rete virtuale | Il quarto indirizzo IP possibile per lo spazio degli indirizzi della seconda subnet della rete virtuale (vedere la Tabella S). Collaborare con il reparto IT per determinare questo indirizzo. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 7\. | Secondo server DNS per la rete virtuale | Il quinto indirizzo IP possibile per lo spazio degli indirizzi della seconda subnet della rete virtuale (vedere la Tabella S). Collaborare con il reparto IT per determinare questo indirizzo. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-8\. | Chiave condivisa IPSec | Stringa alfanumerica casuale composta da 128 caratteri che verrà usata per l'autenticazione di entrambi i lati della connessione VPN da sito a sito. Collaborare con il reparto IT o addetto alla sicurezza per stabilire il valore di questa chiave. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+8\. | Chiave condivisa IPSec | Stringa alfanumerica casuale composta da 32 caratteri che verrà usata per l'autenticazione di entrambi i lati della connessione VPN da sito a sito. Collaborare con il reparto IT o addetto alla sicurezza per stabilire il valore di questa chiave. In alternativa, vedere [Creare una stringa casuale per una chiave precondivisa IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx).| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 
 **Tabella V: Configurazione della rete virtuale cross-premise**
@@ -86,11 +86,9 @@ Elemento | Spazio degli indirizzi della rete virtuale
 
 **Tabella L: Prefissi degli indirizzi per la rete locale**
 
-A questo punto, è necessario aver installato Azure PowerShell 0.9.5 o versione successiva. Per verificare la versione installata di Azure PowerShell, eseguire il comando seguente:
+> [AZURE.NOTE]Questo articolo contiene comandi per le versioni di Azure PowerShell da 0.9.5 *esclusa* in su e versioni 1.0.0 e successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**. I blocchi di comando di Azure PowerShell in questo articolo sono ora testati e aggiornati per supportare i nuovi cmdlet nelle versioni di Azure PowerShell 1.0.0 e versioni successive. Grazie per la pazienza dimostrata.
 
-	Get-Module azure | format-table version
-
-Se è necessario installare la versione più recente di Azure PowerShell, usare **Pannello di controllo - Programmi e funzionalità** per rimuovere la versione corrente. Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell](../install-configure-powershell.md) per installare Azure PowerShell nel computer locale. Aprire un prompt dei comandi di Azure PowerShell.
+Aprire un prompt dei comandi di Azure PowerShell.
 
 Selezionare innanzitutto la sottoscrizione di Azure corretta con questi comandi. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
 
@@ -251,4 +249,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 2: C
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare la prima pipeline di Data factory di Azure con Data Factory Editor"
-	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure utilizzando Data Factory Editor nel portale di Azure."
+	pageTitle="Creare la prima pipeline di Data factory di Azure con l'editor di Data factory"
+	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando l'editor di Data factory nel portale di Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
-# Creare la prima pipeline di Data factory di Azure con Data Factory Editor (Portale di Azure)
+# Creare la prima pipeline di Data factory di Azure con l'editor di Data factory (portale di Azure)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -27,35 +27,37 @@
 Questo articolo descrive come usare il [portale di anteprima di Azure](https://portal.azure.com/) per creare la prima pipeline. Questa esercitazione include i passaggi seguenti:
 
 1.	Creazione della data factory
-2.	Creazione dei servizi collegati (archivi dati, risorse di calcolo) e set di dati
+2.	Creazione dei servizi collegati (archivi dati, risorse di calcolo) e dei set di dati
 3.	Creazione della pipeline
 
 Questo articolo non fornisce una panoramica concettuale del servizio Data factory di Azure. Per una panoramica dettagliata del servizio, vedere l'articolo [Introduzione al servizio Data factory di Azure](data-factory-introduction.md).
 
+> [AZURE.IMPORTANT]Leggere l'articolo [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) e completare i prerequisiti prima di eseguire questa esercitazione.
+
 ## Passaggio 1: Creazione della data factory
 
-1.	Dopo l'accesso al [portale di anteprima di Azure](http://portal.azure.com/), eseguire le operazioni seguenti:
+1.	Dopo l'accesso al [portale di anteprima di Azure](http://portal.azure.com/), seguire questa procedura:
 	1.	Fare clic su **NUOVO** nel menu a sinistra. 
 	2.	Fare clic su **Analisi dei dati** nel pannello **Crea**.
 	3.	Fare clic su **Data factory** nel pannello **Analisi dei dati**.
 
 		![Pannello Crea](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-2.	Nel pannello **Nuova data factory** immettere **DataFactoryMyFirstPipeline** come Nome.
+2.	Nel pannello **Nuova data factory** immettere **DataFactoryMyFirstPipeline** nel campo Nome.
 
 	![Pannello Nuova data factory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]I nomi di Azure Data Factory sono univoci. È necessario anteporre al nome della data factory il proprio nome, per consentire la corretta creazione della factory. 
-3.	Se non è stato creato un gruppo di risorse, sarà necessario crearne uno. A tale scopo, effettuare l'operazione seguente:
-	1.	Fare clic su **NOME DEL GRUPPO DI RISORSE**.
+	> [AZURE.IMPORTANT]I nomi di Data factory di Azure sono univoci. È necessario anteporre al nome della data factory il proprio nome, per consentire la corretta creazione della factory. 
+3.	Se non è stato creato un gruppo di risorse, sarà necessario crearne uno. A tale scopo, seguire questa procedura:
+	1.	Fare clic su **NOME GRUPPO DI RISORSE**.
 	2.	Selezionare **Crea un nuovo gruppo di risorse** nel pannello **Gruppo di risorse**.
-	3.	Immettere **ADF** come **Nome** nel pannello **Crea gruppo di risorse**.
+	3.	Immettere **ADF** nel campo **Nome** nel pannello **Crea gruppo di risorse**.
 	4.	Fare clic su **OK**.
 	
 		![Creare gruppo di risorse](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
 4.	Dopo aver selezionato il gruppo di risorse, verificare se la sottoscrizione in cui si vuole creare la data factory è quella corretta.
 5.	Fare clic su **Crea** nel pannello **Nuova data factory**.
-6.	Nella **Schermata iniziale** del portale di anteprima di Azure verrà visualizzata la data factory che si sta creando:   
+6.	Nella **Schermata iniziale** del portale di anteprima di Azure verrà visualizzata la data factory in fase di creazione:   
 
 	![Stato creazione della data factory](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. Congratulazioni. La creazione della prima data factory è così completata. Dopo aver creato la data factory, verrà visualizzata la pagina corrispondente con elencato il contenuto della data factory. 	
@@ -68,15 +70,15 @@ Nei passaggi successivi si apprenderà come creare i servizi collegati, i set di
 In questo passaggio si procederà al collegamento dell'account di archiviazione di Azure e di un cluster HDInsight di Azure su richiesta alla data factory e quindi alla creazione di un set di dati per rappresentare i dati di output dell'elaborazione Hive.
 
 ### Creare il servizio collegato Archiviazione di Azure
-1.	Fare clic su **Creare e distribuire** nel pannello **DATA FACTORY** per **DataFactoryFirstPipeline**. Verrà avviato l'editor di Data factory. 
+1.	Fare clic su **Crea e distribuisci** nel pannello **DATA FACTORY** per **DataFactoryFirstPipeline**. Verrà avviato l'editor di Data factory. 
 	 
 	![Riquadro Creare e distribuire](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
-2.	Fare clic su **Nuovo archivio dati** e scegliere **Archiviazione di Azure**
+2.	Fare clic su **Nuovo archivio dati** e scegliere **Archiviazione di Azure**.
 	
 	![Servizio collegato Archiviazione di Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Nell'editor verrà visualizzato lo script JSON per la creazione di un servizio collegato Archiviazione di Azure. 
-4. Sostituire **account name** con il nome dell'account di archiviazione di Azure e **account key** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
+4. Sostituire **account name** con il nome dell'account di archiviazione di Azure e **account key** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
 5. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
 	![Pulsante Distribuisci](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -84,7 +86,7 @@ In questo passaggio si procederà al collegamento dell'account di archiviazione 
 ### Creare un servizio collegato Azure HDInsight
 Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che sarà usato per eseguire lo script Hive.
 
-1. Nell'**Editor di Data factory** fare clic su **Nuovo calcolo** sulla barra dei comandi e selezionare **Cluster HDInsight su richiesta**.
+1. Nell'**editor di Data factory** fare clic su **Nuovo calcolo** sulla barra dei comandi e selezionare **Cluster HDInsight su richiesta**.
 
 	![Nuovo calcolo](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1. Il frammento di codice JSON descrive le proprietà che saranno usate per creare il cluster HDInsight su richiesta. 
@@ -120,10 +122,10 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 ### Creare il set di dati di output
 Si creerà ora il set di dati di output per rappresentare i dati archiviati nell'archivio BLOB di Azure.
 
-1. In **Editor di Data factory** fare clic su **Nuovo set di dati** sulla barra dei comandi e selezionare **Archivio BLOB di Azure**.  
+1. Nell'**editor di Data factory** fare clic su **Nuovo set di dati** sulla barra dei comandi e selezionare **Archivio BLOB di Azure**.  
 
 	![Nuovo set di dati](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1. Nel frammento di codice JSON si crea un set di dati denominato **AzureBlobOutput** e si specifica la struttura dei dati che saranno generati dallo script Hive. Si specifica anche che i risultati vengono archiviati nel contenitore BLOB denominato **data** e nella cartella denominata **partitioneddata**. La sezione **availability** specifica che il set di dati di output viene generato su base mensile.
+2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1. Nel frammento di codice JSON si crea un set di dati denominato **AzureBlobOutput** e si specifica la struttura dei dati che verranno generati dallo script Hive. Si specifica anche che i risultati vengono archiviati nel contenitore BLOB denominato **data** e nella cartella denominata **partitioneddata**. La sezione **availability** specifica che il set di dati di output viene generato su base mensile.
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -144,7 +146,7 @@ Si creerà ora il set di dati di output per rappresentare i dati archiviati nell
 		  }
 		}
 
-3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline creata.
+3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il set di dati creato.
 4. Verificare se il set di dati è stato creato correttamente.
 
 	![Visualizzazione albero con servizi collegati](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
@@ -152,7 +154,7 @@ Si creerà ora il set di dati di output per rappresentare i dati archiviati nell
 ## Passaggio 3: Creazione della prima pipeline
 In questo passaggio si creerà la prima pipeline.
 
-1. Nell'**Editor di Data factory** fare clic sui **puntini di sospensione (…)** e quindi su **Nuova pipeline**.
+1. Nell'**editor di Data factory** fare clic sui **puntini di sospensione (…)** e quindi su **Nuova pipeline**.
 	
 	![Pulsante Nuova pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1.
@@ -197,11 +199,11 @@ In questo passaggio si creerà la prima pipeline.
  
 	Nel frammento di codice JSON si crea una pipeline costituita da una singola attività che usa Hive per elaborare i dati in un cluster HDInsight.
 	
-	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **StorageLinkedService**), e in un contenitore denominato **script**.
+	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **StorageLinkedService**) e in un contenitore denominato **script**.
 
 	La sezione **extendedProperties** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive (ad esempio, ${hiveconf:PartitionedData}).
 
-	Le proprietà **start** e **end** della pipeline specificano il periodo attivo della pipeline.
+	Le proprietà **start** ed **end** della pipeline specificano il periodo attivo della pipeline.
 
 	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata dal servizio collegato, **HDInsightOnDemandLinkedService**.
 3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline.
@@ -209,13 +211,13 @@ In questo passaggio si creerà la prima pipeline.
 
 	![Visualizzazione albero con pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 5. La creazione della prima pipeline è così completata.
-6. Fare clic su **X** per chiudere i pannelli dell'editor di Data factory e quindi su**Diagramma**.
+6. Fare clic su **X** per chiudere i pannelli dell'editor di Data factory, tornare al pannello Data factory e quindi fare clic su **Diagramma**.
   
 	![Riquadro Diagramma](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
-7. Nella visualizzazione Diagramma saranno visualizzati una panoramica della pipeline e i set di dati usati in questa esercitazione.
+7. In Vista diagramma saranno visualizzati una panoramica della pipeline e i set di dati usati in questa esercitazione.
 	
-	![Vista Diagramma](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
-8. Nella vista diagramma fare doppio clic sul set di dati **AzureBlobOutput**. Verrà visualizzata la sezione in fase di elaborazione.
+	![Vista diagramma](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
+8. In Vista diagramma fare doppio clic sul set di dati **AzureBlobOutput**. Verrà visualizzata la sezione in fase di elaborazione.
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Al termine dell'elaborazione lo stato della sezione sarà **Pronto**. La creazione di un cluster HDInsight su richiesta di solito richiede tempo. 
@@ -231,6 +233,6 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
   
 
 ## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md) richiede solo alcuni minuti.
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md) richiede solo alcuni minuti.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

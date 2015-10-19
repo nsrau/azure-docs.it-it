@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso di castLabs per distribuire licenze DRM a Servizi multimediali di Azure" 
+	pageTitle="Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure" 
 	description="Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine. La licenza per PlayReady viene distribuita dal server licenze PlayReady di Servizi multimediali, mentre la licenza per Widevine viene distribuita dal server licenze castLabs." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="10/07/2015"  
 	ms.author="juliako"/>
 
 
-#Uso di castLabs per distribuire licenze DRM a Servizi multimediali di Azure
+#Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure
+
+> [AZURE.SELECTOR]
+- [Axinom](media-services-axinom-integration.md)
+- [castLabs](media-services-castlabs-integration.md)
 
 ##Panoramica
 
@@ -120,4 +124,4 @@ Per riprodurre il video protetto in HTML5 con Chrome tramite il lettore castLabs
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

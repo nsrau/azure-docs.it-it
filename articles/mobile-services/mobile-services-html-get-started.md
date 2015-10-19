@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione a Servizi mobili di Azure per le app HTML 5"
+	pageTitle="Introduzione a Servizi mobili di Azure per le app HTML/JavaScript | Microsoft Azure"
 	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo HTML."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,14 +12,16 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
-	ms.topic="article" 
-	ms.date="07/25/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Panoramica 
 
@@ -46,7 +48,7 @@ Per completare l'esercitazione è necessario quanto segue:
 	È possibile utilizzare qualsiasi server Web per ospitare l'app, tuttavia quelli indicati sono i server Web supportati dagli script scaricati.
 
 + Un Web browser che supporta HTML5.
-+ Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
@@ -117,13 +119,12 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 ## <a name="next-steps"> </a>Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
-* **[Introduzione ai dati]** <br/>Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
+* **[Aggiungere l'autenticazione all'app]** Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* **[Chiamare un'API personalizzata da un'applicazione HTML]** <br/>Connettere l'applicazione HTML a un'API personalizzata ospitata in Servizi mobili.
+* **[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]** Ulteriori informazioni su come utilizzare Servizi mobili con HTML/JavaScript
 
-* **[Introduzione all'autenticazione]** <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* **[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]** <br/>Ulteriori informazioni su come utilizzare Servizi mobili con HTML/JavaScript
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -144,9 +145,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 
 <!-- URLs. -->
-[Introduzione ai dati]: mobile-services-html-get-started-data.md
-[Introduzione all'autenticazione]: mobile-services-html-get-started-users.md
-[Chiamare un'API personalizzata da un'applicazione HTML]: mobile-services-html-call-custom-api.md
+[Aggiungere l'autenticazione all'app]: mobile-services-html-get-started-users.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Installazione guidata piattaforma Web Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
@@ -155,4 +154,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

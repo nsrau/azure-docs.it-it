@@ -1,5 +1,5 @@
 <properties
- pageTitle="Dimensioni delle macchine virtuali"
+ pageTitle="Dimensioni delle macchine virtuali | Microsoft Azure"
  description="Elenca le diverse dimensioni per le macchine virtuali e le relative capacità."
  services="virtual-machines"
  documentationCenter=""
@@ -85,11 +85,11 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 |Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|
-|A0\\molto piccola|1|768 MB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x500|
+|A0\\ExtraSmall|1|768 MB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x500|
 |A1\\piccola|1|1,75 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 70 GB</p>|2|2x500|
 |A2\\media|2|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 135 GB</p>|4|4x500|
 |A3\\grande|4|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 285 GB</p>|8|8x500|
-|A4\\molto grande|8|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 605 GB</p>|16|16x500|
+|A4\\ExtraLarge|8|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 605 GB</p>|16|16x500|
 |A5\\uguale|2|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 135 GB</p>|4|4X500|
 |A6\\uguale|4|28 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 285 GB</p>|8|8x500|
 |A7\\uguale|8|56 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 605 GB</p>|16|16x500|
@@ -167,4 +167,4 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

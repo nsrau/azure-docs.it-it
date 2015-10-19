@@ -1,26 +1,18 @@
-<properties 
-	pageTitle="Eseguire Cassandra con Linux in Azure"
-	description="Spiega come eseguire un cluster Cassandra in Linux in Macchine virtuali di Azure da un’app Node.js"
-	services="virtual-machines"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
-	editor=""/>
+< proprietà pageTitle = "eseguire Cassandra con Linux in Azure | Descrizione di Microsoft Azure"="Come eseguire un cluster Cassandra su Linux in macchine virtuali di Azure da un'applicazione Node. js"services = documentationCenter"-macchine virtuali"="nodejs"autori ="MikeWasson"gestore ="wpickett"editor =" "gestione servizi di azure" / >
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/30/2015" 
 	ms.author="mwasson"/>
 
 
-
-
-
 # Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica. È inoltre possibile creare una risorsa con il [modello di distribuzione di Gestione risorse](virtual-machines-datastax-template.md) utilizzando un modello.
 
 ## Panoramica
 Microsoft Azure è una piattaforma cloud aperta che esegue software sia Microsoft che non Microsoft, inclusi sistemi operativi, server applicazioni, middleware di messaggistica, oltre a database SQL e NoSQL da modelli sia commerciali che open source. La compilazione di servizi resilienti su cloud pubblici, incluso Azure, richiede un'attenta pianificazione e un'architettura mirata sia per i server applicazioni che per i livelli di archiviazione. L'architettura di archiviazione distribuita di Cassandra aiuta a compilare con facilità sistemi a disponibilità elevata a tolleranza di errore del cluster. Cassandra è un database NoSQL con scalabilità cloud gestito da Apache Software Foundation all'indirizzo cassandra.apache.org. Cassandra, essendo scritto in Java, viene eseguito su piattaforme sia Windows che Linux.
@@ -124,7 +116,7 @@ Durante la distribuzione vengono usate le seguenti versioni software:
 
 Poiché il download di JRE richiede di accettare manualmente la licenza Oracle, per semplificare la distribuzione, scaricare tutto il software necessario nel desktop per caricarlo in seguito nell'immagine modello di Ubuntu che verrà creata come precursore della distribuzione cluster.
 
-Scaricare il software citato sopra in una directory per i download nota (ad esempio, %TEMP%/downloads in Windows o ~/downloads in Linux o Mac) nel desktop locale.
+Scaricare il software citato sopra in una directory per i download nota (ad esempio, %TEMP%/Downloads in Windows o ~/nella maggior parte di distribuzioni Linux o Mac) nel computer locale.
 
 ### CREARE UNA MACCHINA VIRTUALE UBUNTU
 In questo passaggio del processo verrà creata l'immagine di Ubuntu con i prerequisiti software per poter riusare l'immagine per il provisioning di più nodi di Cassandra.
@@ -700,4 +692,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

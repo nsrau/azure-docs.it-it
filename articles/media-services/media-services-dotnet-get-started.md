@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione a Distribuzione di contenuti Video on Demand (VoD) tramite .NET SDK"
-	description="Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) con Servizi multimediali di Azure tramite .NET."
+	pageTitle="Introduzione alla distribuzione di contenuti su richiesta utilizzando .NET SDK"
+	description="Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti su richiesta con Servizi multimediali di Azure tramite .NET."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# Introduzione a Distribuzione di contenuti Video on Demand (VoD) tramite .NET SDK
+# Introduzione alla distribuzione di contenuti su richiesta utilizzando .NET SDK
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -34,7 +34,7 @@ Per iniziare l'attività di sviluppo con l'SDK di Servizi multimediali per .NET 
 
 - Sistemi operativi: Windows 8 o versione successiva, Windows 2008 R2, Windows 7.
 - .NET Framework 4.5 o .NET Framework 4.0
-- Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express).
+- Visual Studio 2010, SP1 (Professional, Premium, Ultimate, o Express) o versioni successive.
 
 
 Questa guida rapida illustra come effettuare le seguenti attività.
@@ -118,14 +118,9 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 
 4. Aprire il file App.config (aggiungere il file al progetto, se non è stato aggiunto per impostazione predefinita) e aggiungere una sezione *appSettings* al file. Impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure, come visualizzato nel seguente esempio. Per ottenere le informazioni sul nome e la chiave dell'account, aprire il portale di Azure, selezionare l'account di Servizi multimediali e fare clic sul pulsante **GESTISCI CHIAVI**.
 
-	 <pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>ion&gt; </code></pre>
 
 5. Sovrascrivere le istruzioni **using** esistenti all'inizio del file Program.cs con il seguente codice.
 
@@ -418,13 +413,18 @@ Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](h
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
 
 
+##Passaggi successivi
 
-##Percorsi di apprendimento di Media Services
+###Percorsi di apprendimento di Media Services
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
 
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Se si è alla ricerca di qualcos’altro.
+
+Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
 
 
 <!-- Anchors. -->
@@ -434,4 +434,4 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

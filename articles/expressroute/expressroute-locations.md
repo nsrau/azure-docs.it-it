@@ -66,7 +66,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[InterCloud](https://www.intercloud.com/)** | Supportato | Non supportato | Amsterdam, Londra, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supportato | Non supportato | Amsterdam, Londra |
 | **Interxion** | Supportato | Non supportato | Amsterdam |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Non supportato | Chicago, Dallas, Londra, Seattle, Silicon Valley, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Non supportato | Amsterdam, Chicago, Dallas, Londra, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Supportato | Non supportato | Melbourne, Sydney |
 | **MTN** | Supportato | Non supportato | Londra |
 | **NTT Communications** | Imminente | Non supportato | Tokyo+ |
@@ -127,4 +127,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

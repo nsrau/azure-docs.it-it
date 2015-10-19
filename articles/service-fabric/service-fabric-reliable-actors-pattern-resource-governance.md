@@ -3,7 +3,7 @@
    description="Modello di progettazione sull'uso di Service Fabric Actors per modellare un'applicazione su cui sia possibile applicare la scalabilità ma che usi risorse vincolate"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Modello di progettazione di Reliable Actors: governance delle risorse
 Questo modello e i relativi scenari sono facilmente riconoscibili dagli sviluppatori (aziendali e non solo) che dispongono di risorse vincolate in locale o nel cloud, non immediatamente scalabili, e che desiderano inviare nel cloud dati e applicazioni su larga scala.
@@ -417,4 +417,4 @@ Questo modello è molto comune negli scenari in cui gli sviluppatori dispongono 
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

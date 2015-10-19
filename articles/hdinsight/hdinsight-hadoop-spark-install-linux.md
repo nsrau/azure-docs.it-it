@@ -22,7 +22,6 @@ In questo documento si apprenderà come installare Spark usando l'azione di scri
 
 > [AZURE.NOTE]Poiché HDInsight fornisce anche Spark come tipo di cluster, è possibile effettuare direttamente il provisioning di un cluster Spark senza modificare un cluster Hadoop. Attualmente questa funzione è tuttavia limitata ai cluster di Windows. Usando il tipo di cluster Spark, si ottiene un cluster HDInsight versione 3.2 basato su Windows con Spark versione 1.3.1. Per altre informazioni, vedere l'articolo di [introduzione a Spark Apache in HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
 
-
 ## <a name="whatis"></a>Che cos'è Spark?
 
 <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a> è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Le funzionalità di elaborazione in memoria rendono Spark un valido strumento per l'esecuzione di algoritmi iterativi in calcoli grafici e di Machine Learning.
@@ -33,21 +32,21 @@ Questo argomento fornisce istruzioni su come personalizzare un cluster HDInsight
 
 ## <a name="whatis"></a>Quale versione di Spark è possibile installare?
 
-In questo argomento, viene usato uno script personalizzato di azione script per installare Spark in un cluster HDInsight. Questo script consente di installare Spark 1.5.0.
+In questo argomento, viene usato uno script personalizzato di azione script per installare Spark in un cluster HDInsight. Questo script consente di installare Spark 1.5.1.
 
 È possibile modificare questo script o crearne uno personalizzato per installare altre versioni di Spark.
 
 ## Funzionalità dello script
 
-Questo script consente di installare Spark 1.5.0 in `/usr/hdp/current/spark`.
+Questo script consente di installare Spark 1.5.1 in `/usr/hdp/current/spark`.
 
 ## <a name="install"></a>Installare Spark mediante azioni di script
 
-Uno script di esempio per l'installazione di Spark in un cluster HDInsight è disponibile in un BLOB di archiviazione di sola lettura di Azure all'indirizzo [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Questa sezione fornisce istruzioni su come usare lo script di esempio quando si effettua il provisioning del cluster usando il portale di Azure.
+Uno script di esempio per l'installazione di Spark in un cluster HDInsight è disponibile in un BLOB di archiviazione di sola lettura di Azure all'indirizzo [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Questa sezione fornisce istruzioni su come usare lo script di esempio quando si crea il cluster usando il portale di Azure.
 
 > [AZURE.NOTE]È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere la pagina relativa alla [personalizzazione di cluster HDInsight mediante azioni di script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Avviare il provisioning di un cluster seguendo i passaggi descritti nella pagina relativa al [provisioning di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal) senza tuttavia completarlo.
+1. Avviare la creazione di un cluster utilizzando la procedura descritta in [Creazione di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal), ma non completare la creazione.
 
 2. Nel pannello **Configurazione facoltativa** selezionare **Azioni di script** e specificare le informazioni seguenti:
 
@@ -60,11 +59,11 @@ Uno script di esempio per l'installazione di Spark in un cluster HDInsight è di
 
 3. Nella parte inferiore di **Azioni di script** usare il pulsante **Seleziona** per salvare la configurazione. Usare infine il pulsante **Seleziona** nella parte inferiore del pannello **Configurazione facoltativa** per salvare le informazioni relative alla configurazione facoltativa.
 
-4. Continuare il provisioning del cluster come descritto nella pagina relativa al [provisioning di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continuare il provisioning del cluster come descritto nella pagina relativa al [Creazione di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal).
 
 ## <a name="usespark"></a>Come si usa Spark in HDInsight?
 
-Spark fornisce API in Scala, Python e Java. Inoltre, è possibile usare la shell interattiva di Spark per eseguire query di Spark. Al termine del provisioning del cluster, usare il comando seguente per connettersi al cluster HDInsight:
+Spark fornisce API in Scala, Python e Java. Inoltre, è possibile usare la shell interattiva di Spark per eseguire query di Spark. Al termine della creazione del cluster, usare il comando seguente per connettersi al cluster HDInsight:
 
 	ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 	
@@ -109,7 +108,7 @@ Dopo aver effettuato la connessione, usare le sezioni seguenti per la procedura 
 
 ###<a name="sparksql"></a>Uso della shell di Spark per eseguire query Spark SQL
 
-Spark SQL consente di usare Spark per eseguire query relazionali espresse in SQL (Structured Query Language), HiveQL o Scala. Questa sezione spiega come usare Spark per eseguire una query Hive su una tabella Hive di esempio. La tabella Hive usata in questa sezione (chiamata **hivesampletable**) è disponibile per impostazione predefinita quando si effettua il provisioning di un cluster.
+Spark SQL consente di usare Spark per eseguire query relazionali espresse in SQL (Structured Query Language), HiveQL o Scala. Questa sezione spiega come usare Spark per eseguire una query Hive su una tabella Hive di esempio. La tabella Hive usata in questa sezione (chiamata **hivesampletable**) è disponibile per impostazione predefinita quando si crea un cluster.
 
 1. Eseguire il comando seguente per avviare la shell di Spark:
 
@@ -235,4 +234,4 @@ In questa sezione verrà creata un'applicazione Scala che conta il numero di rig
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

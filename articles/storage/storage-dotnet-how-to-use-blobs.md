@@ -327,8 +327,8 @@ Nell'esempio seguente si crea un nuovo blob di accodamento e vi si aggiungono al
     //Simulate a logging operation by writing text data and byte data to the end of the append blob.
     for (int i = 0; i < numBlocks; i++)
     {
-        appendBlob.AppendText(String.Format("Timestamp: {0} \tLog Entry: {1}{2}",
-            DateTime.Now.ToUniversalTime().ToString(), bytes[i], Environment.NewLine));
+        appendBlob.AppendText(String.Format("Timestamp: {0:u} \tLog Entry: {1}{2}",
+            DateTime.UtcNow, bytes[i], Environment.NewLine));
     }
 
     //Read the append blob to the console window.
@@ -353,4 +353,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

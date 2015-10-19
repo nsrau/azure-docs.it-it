@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Configurare la protezione tra siti VMM locali con SAN" 
-	description="Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali Hyper-V tra siti locali usando la replica SAN." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
+<properties
+	pageTitle="Configurare la protezione tra siti VMM locali con SAN"
+	description="Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali Hyper-V tra siti locali usando la replica SAN."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2015" 
+<tags
+	ms.service="site-recovery"
+	ms.workload="backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="raynew"/>
 
 # Configurare la protezione tra siti VMM locali con SAN
@@ -26,7 +26,7 @@ I vantaggi aziendali includono:
 
 - Fornire una soluzione di replica scalabile aziendale automatizzata mediante Site Recovery.
 - Sfruttare le funzionalità di replica SAN fornite dai partner di archiviazione aziendali attraverso fibre channel e archiviazione iSCSI. Vedere [partner di archiviazione SAN](http://go.microsoft.com/fwlink/?LinkId=518669).
-- Sfruttare l'infrastruttura SAN esistente per proteggere le applicazioni di importanza strategica distribuite in cluster Hyper-V. 
+- Sfruttare l'infrastruttura SAN esistente per proteggere le applicazioni di importanza strategica distribuite in cluster Hyper-V.
 - Fornire supporto per i cluster guest.
 - Garantire la replica coerente tra i diversi livelli di un'applicazione mediante una replica sincronizzata con valori RTO e RPO bassi e una replica non sincronizzata per elevata flessibilità, in base alle caratteristiche dell'array di archiviazione.  
 - L'integrazione con VMM fornisce la gestione SAN all'interno della console VMM e SMI-S in VMM individua lo spazio di archiviazione esistente.  
@@ -64,7 +64,7 @@ Questo scenario consente di proteggere i carichi di lavoro tramite il backup di 
 	- Uno o più gruppi host VMM
 	- Uno o più cluster Hyper-V in ogni gruppo host.
 	- Una o più macchine virtuali situate nel server Hyper-V di origine nel cloud.
-		
+
 ### Requisiti Hyper-V
 
 - È necessario un cluster host Hyper-V distribuito sia nel sito primario sia in quello secondario, che esegua almeno Windows Server 2012 con gli aggiornamenti più recenti.
@@ -139,10 +139,10 @@ Aggiungere e classificazione SAN nella console VMM:
 
 1. Dopo aver integrato l'archiviazione SAN in VMM, eseguire il provisioning di (ovvero creare) unità logiche (LUN).
 
-- [Come selezionare un metodo per la creazione di unità logiche in VMM](http://go.microsoft.com/fwlink/?LinkId=518490)
-- [Come eseguire il provisioning di unità logiche di archiviazione in VMM](http://go.microsoft.com/fwlink/?LinkId=518491)
+	- [Come selezionare un metodo per la creazione di unità logiche in VMM](http://go.microsoft.com/fwlink/?LinkId=518490)
+	- [Come eseguire il provisioning di unità logiche di archiviazione in VMM](http://go.microsoft.com/fwlink/?LinkId=518491)
 
-2. Allocare quindi capacità di archiviazione al cluster host Hyper-V, in modo che VMM possa distribuire i dati delle macchine virtuali nell'archiviazione su cui è stato eseguito il provisioning: 
+2. Allocare quindi capacità di archiviazione al cluster host Hyper-V, in modo che VMM possa distribuire i dati delle macchine virtuali nell'archiviazione su cui è stato eseguito il provisioning:
 
 	- Prima di allocare capacità di archiviazione al cluster, è necessario allocare capacità di archiviazione al gruppo host VMM in cui risiede il cluster. Vedere [Modalità di allocazione delle unità logiche di archiviazione a un gruppo Host](http://go.microsoft.com/fwlink/?LinkId=518493) e [Modalità di allocazione di pool di archiviazione a un gruppo Host](http://go.microsoft.com/fwlink/?LinkId=518492).</a>
 	- Allocare la capacità di archiviazione al cluster, come descritto in [Come configurare l'archiviazione in un cluster host Hyper-V in VMM](http://go.microsoft.com/fwlink/?LinkId=513017).</a>.
@@ -162,7 +162,7 @@ Se si desidera configurare il mapping di rete procedere come segue:
 
 1. Leggere le informazioni su [Mapping di rete](https://msdn.microsoft.com/library/azure/dn801052.aspx).
 2. Preparare le reti VM in VMM:
- 
+
 	- Leggere le informazioni su [Configurazione di reti logiche](http://go.microsoft.com/fwlink/?LinkId=386307). Configurare le reti logiche: leggere Configurazione di reti logiche in Panoramica su VMM.
 	- [Configurare le reti VM](http://go.microsoft.com/fwlink/?LinkId=386308).
 
@@ -176,7 +176,7 @@ Se si desidera configurare il mapping di rete procedere come segue:
 
 
 3. Fare clic su **Crea nuovo** > **Creazione rapida**.
-	
+
 4. In **Name** immettere un nome descrittivo per identificare l'insieme di credenziali.
 
 5. In **Region** selezionare l'area geografica per l'insieme di credenziali. Per informazioni sulla disponibilità a livello geografico e sulle aree supportate, vedere la pagina relativa ai [dettagli sui prezzi per Azure Site Recovery](href="http://go.microsoft.com/fwlink/?LinkId=389880).
@@ -203,7 +203,7 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 2. Eseguire il file nel server VMM di origine. Se VMM viene distribuito in un cluster e si installa il provider per la prima volta, installarlo in un nodo attivo nel cluster e completare l'installazione per registrare il server VMM nell'insieme di credenziali. Quindi, installare il provider sugli altri nodi. Si noti che se si sta aggiornando il provider sarà necessario eseguire l'aggiornamento su tutti i nodi, in quanto dovrebbero eseguire tutti la stessa versione del provider.
 
 
-3. Il programma di installazione effettua una **Verifica prerequisiti** e chiede l'autorizzazione ad arrestare il servizio VMM per avviare l'installazione del provider. Il servizio VMM verrà riavviato automaticamente al termine dell'installazione. Se si esegue l'installazione in un cluster VMM, verrà richiesto di interrompere il ruolo Cluster.
+3. Il programma di installazione esegue una **Verifica prerequisiti** e chiede l'autorizzazione ad arrestare il servizio VMM per avviare l'installazione del provider. Il servizio VMM verrà riavviato automaticamente al termine dell'installazione. Se si esegue l'installazione in un cluster VMM, verrà richiesto di interrompere il ruolo Cluster.
 
 4. In **Microsoft Update** è possibile fornire il consenso esplicito agli aggiornamenti. Se questa impostazione è abilitata, gli aggiornamenti del provider verranno installati in base ai criteri indicati in Microsoft Update.
 
@@ -218,7 +218,7 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 
 5. Nella pagina **Connessione Internet** specificare la modalità di connessione Internet del provider in esecuzione sul server VMM. Selezionare *Usa impostazioni proxy del sistema predefinite* per usare le impostazioni di connessione a Internet predefinite configurate nel server.
 
-	![Internet Settings](./media/site-recovery-vmm-san/VMMASRRegisterProxyDetailsScreen.png) - Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider. Quando si configurano impostazioni proxy personalizzate, verrà eseguito un test per verificare la connessione proxy. Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo e la porta. Gli URL seguenti dovrebbero essere accessibili dal Server VMM e dagli host Hyper-V - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Consentire l’uso degli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e del protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
+	![Internet Settings](./media/site-recovery-vmm-san/VMMASRRegisterProxyDetailsScreen.png) - Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider. Quando si configurano impostazioni proxy personalizzate, verrà eseguito un test per verificare la connessione proxy. - Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo e la porta. - Gli URL seguenti dovrebbero essere accessibili dal server VMM e dagli host Hyper-V: - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Consentire l'uso degli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e del protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
 
 	- Se si usa un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro Impostazioni, espandere Sicurezza, fare clic su Account RunAs, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
 
@@ -234,16 +234,16 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 
 8. In **Nome server** specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali. In una configurazione cluster specificare il nome del ruolo relativo al cluster VMM.
 
-8. In **Initial cloud metadata** selezionare l'opzione relativa alla sincronizzazione dei metadati per tutti i cloud presenti sul server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si vogliono sincronizzare tutti i cloud, è possibile lasciare deselezionata questa opzione e sincronizzare ogni cloud singolarmente nelle proprietà del cloud nella console VMM. ![Server registration](./media/site-recovery-vmm-san/VMMASRRegisterFriendlyName.png)
+8. In **Initial cloud metadata** selezionare l'opzione relativa alla sincronizzazione dei metadati per tutti i cloud presenti sul server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si intende sincronizzare tutti i cloud, è possibile lasciare deselezionata questa impostazione e sincronizzare ogni cloud singolarmente nelle relative proprietà nella console VMM. ![Server registration](./media/site-recovery-vmm-san/VMMASRRegisterFriendlyName.png)
 
 
 8. Fare clic su *Avanti* per completare il processo. Dopo la registrazione, i metadati del server VMM vengono recuperati da Azure Site Recovery. Il server viene visualizzato nella scheda *Server VMM* della pagina **Server** nell'insieme di credenziali.
 
->[AZURE.NOTE]Il provider di Azure Site Recovery può essere installato anche usando la riga di comando seguente. In questo modo il provider viene installato in Server CORE per Windows Server 2012 R2.
+>[AZURE.NOTE]Il provider di Azure Site Recovery può essere installato anche usando la riga di comando seguente. In questo modo il provider viene installato in un Server CORE per Windows Server 2012 R2.
 >
 >1. Scaricare il file di installazione del provider e il codice di registrazione in una cartella, ad esempio C:\\ASR.
 >2. Arrestare il servizio System Center Virtual Machine Manager.
->3. Estrarre il programma di installazione del provider eseguendo i comandi seguenti dal prompt dei comandi con privilegi di **amministratore**. 
+>3. Estrarre il programma di installazione del provider eseguendo i comandi seguenti dal prompt dei comandi con privilegi di **amministratore**.
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -256,13 +256,13 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
     	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
  ####Elenco dei parametri di installazione dalla riga di comando####
 >
- - **/Credentials** : parametro obbligatorio che specifica la posizione in cui si trova il file del codice di registrazione.  
- - **/FriendlyName** : parametro obbligatorio per il nome del server host Hyper-V che viene visualizzato nel portale di Azure Site Recovery.
+ - **/Credentials**: parametro obbligatorio che specifica la posizione in cui si trova il file della chiave di registrazione.  
+ - **/FriendlyName**: parametro obbligatorio per il nome del server host Hyper-V che viene visualizzato nel portale di Azure Site Recovery.
  - **/EncryptionEnabled**: parametro facoltativo da usare solo nello scenario da VMM ad Azure se è necessario che la crittografia delle macchine virtuali sia inattiva in Azure. Assicurarsi che il nome del file specificato abbia l'estensione **pfx**.
  - **/proxyAddress**: parametro facoltativo che specifica l'indirizzo del server proxy.
  - **/proxyport**: parametro facoltativo che specifica la porta del server proxy.
  - **/proxyUsername**: parametro facoltativo che specifica il nome utente proxy (se il proxy richiede l'autenticazione).
- - **/proxyPassword**: parametro facoltativo che specifica la password per l'autenticazione nel server proxy (se il proxy richiede l'autenticazione). 
+ - **/proxyPassword**: parametro facoltativo che specifica la password per l'autenticazione nel server proxy (se il proxy richiede l'autenticazione).
 
 
 ## Passaggio 4: eseguire il mapping di array e pool di archiviazione
@@ -329,7 +329,7 @@ Dopo aver avviato la replica di un gruppo di archiviazione, è necessario abilit
 
 
 	![Abilita protezione](./media/site-recovery-vmm-san/SRSAN_EnableProtection.png)
-	
+
 
 <P>Una volta abilitate per la protezione, le macchine virtuali vengono visualizzate nella console di Azure Site Recovery. È possibile ora visualizzare le proprietà delle macchine virtuali, monitorarne lo stato ed eseguire il failover dei gruppi di replica che contengono più macchine virtuali. Tenere presente che nella replica SAN tutte le macchine virtuali associate a un gruppo di replica devono essere sottoposte a failover insieme. Il failover, infatti, viene eseguito prima a livello di archiviazione. È importante, quindi, raggruppare correttamente i gruppi di replica e collocare insieme solo le macchine virtuali associate.</P>
 
@@ -344,8 +344,8 @@ Eseguire il test della distribuzione per verificare che il failover delle macchi
 
 4. In **Seleziona macchine virtuali** selezionare i gruppi di replica. Tutte le macchine virtuali associate al gruppo di replica verranno selezionate e aggiunte al piano di ripristino. In questa esercitazione, le macchine virtuali vengono aggiunte al gruppo predefinito del piano di ripristino Gruppo 1. Se necessario, è possibile aggiungere altri gruppi. Al termine della replica, le macchine virtuali verranno avviate in base all'ordine dei gruppi del piano di ripristino.
 
-	![Aggiungi macchine virtuali.](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)	
-5. Una volta creato, il piano di ripristino verrà visualizzato nell'elenco all'interno della scheda **Piani di ripristino**. 
+	![Aggiungi macchine virtuali.](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
+5. Una volta creato, il piano di ripristino verrà visualizzato nell'elenco all'interno della scheda **Piani di ripristino**.
 6. Nella scheda **Piani di ripristino** selezionare il piano e fare clic su **Failover di test**.
 7. Nella pagina **Conferma failover di test** selezionare **Nessuno**. Se si abilita questa opzione, le macchine virtuali di replica su cui è stato eseguito il failover non verranno connesse in rete. Il test, infatti, controlla che il failover delle macchine virtuali venga eseguito correttamente ma non verifica l'ambiente di rete di replica. Se si vuole eseguire un failover di test più completo, vedere <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Testare una distribuzione locale su MSDN</a>.
 
@@ -381,7 +381,5 @@ Nella scheda **Processi** è possibile visualizzare i processi, eseguire il dril
 Nel **Dashboard** è possibile scaricare le versioni più recenti dei file di installazione del provider e dell'agente, ottenere informazioni di configurazione per l'insieme di credenziali, visualizzare il numero di macchine virtuali la cui protezione è gestita dall'insieme di credenziali, visualizzare i processi recenti, gestire il certificato dell'insieme di credenziali e risincronizzare le macchine virtuali.
 
 Per altre informazioni sull'interazione con i processi e il dashboard, vedere la [guida alle operazioni e al monitoraggio](http://go.microsoft.com/fwlink/?LinkId=398534).
-	
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

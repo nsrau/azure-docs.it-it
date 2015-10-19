@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="10/02/2015" 
 	ms.author="omark"/>
 
 # Informazioni sul servizio app di Azure
@@ -43,20 +43,20 @@ Il servizio app consente di creare i tipi di app seguenti in una singola esperie
 
 - [**Web Apps**](../app-service-web-overview): creazione e distribuzione rapida di app Web di importanza strategica scalabili in base alle esigenze aziendali.
 - [**App per dispositivi mobili**](../app-service-mobile-value-prop-preview): coinvolgimento di dipendenti, partner e clienti con qualsiasi dispositivo e in qualsiasi momento.
-- [**App per le API**](../app-service-api-apps-why-best-platform): creazione semplificata e uso di API cloud e partecipazione nell'economia delle API.
+- [**API Apps**](../app-service-api-apps-why-best-platform) - Crea e usa facilmente API cloud
 - [**App per la logica**](../app-service-logic-what-are-logic-apps): automazione dell'accesso e dell'uso dei dati nei cloud senza necessità di scrivere codice.
 
 In qualità di singolo servizio integrato, il servizio app semplifica la combinazione dei tipi di app descritti sopra in un'unica soluzione e consente la facile creazione di app indirizzate ai client (sia Web che mobili) usando lo stesso back-end e ottenendo l'integrazione con sistemi locali nonché con servizi diffusi come Office 365 e salesforce.com.
 
 ### Piani di servizio app
-I piani di servizio app rappresentano un set di funzionalità e capacità che è possibile condividere tra le app. I piani di servizio app supportano alcuni livelli di prezzo, ad esempio modalità gratuita, condivisa, base e standard, con ciascun livello che presenta funzionalità proprie. È possibile modificare rapidamente il tipo di piano di servizio in cui è ospitata una determinata app senza alcun tempo di inattività. [Informazioni sui piani di servizio app](../web-sites-web-hosting-plan-overview.md).
+I piani di servizio app rappresentano un set di funzionalità e capacità che è possibile condividere tra le app. I piani di servizio app supportano alcuni livelli di prezzo, (ad esempio modalità gratuita, condivisa, base, standard e premium), con ciascun livello che presenta funzionalità proprie. È possibile modificare rapidamente il tipo di piano di servizio in cui è ospitata una determinata app senza alcun tempo di inattività. [Informazioni sui piani di servizio app](../web-sites-web-hosting-plan-overview.md).
 
 ##Introduzione al servizio app
 Perché non provarlo? È possibile renderlo operativo in pochi secondi.
 
 Per l'impostazione del servizio app di Azure è sufficiente selezionare un linguaggio.
 
-[Creare una nuova app Web](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito. Non è necessaria alcuna carta di credito. Nessun impegno, nessun grattacapo.
+[Creare una nuova app](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito. Non è necessaria alcuna carta di credito. Nessun impegno, nessun grattacapo.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

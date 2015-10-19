@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
+	ms.date="09/28/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -19,11 +19,29 @@
 
 # Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio
 
-I database basati sull'edizione Web e sull'edizione Business del database SQL di Azure stanno per essere deprecati e [verranno ritirati a settembre 2015](http://msdn.microsoft.com/library/azure/dn741330.aspx). È pertanto necessario iniziare a pianificare l'aggiornamento dei database Web o Business esistenti ai livelli di servizio Basic, Standard o Premium.
+I [database basati sull'edizione Web e sull'edizione Business del database SQL di Azure stanno per essere ritirati](sql-database-web-business-sunset-faq.md), pertanto è necessario aggiornare i database Web o Business esistenti ai [livelli di servizio Basic, Standard, Premium o Elastic](sql-database-service-tiers.md).
 
-Scaricare la [guida di riferimento dettagliata per la migrazione dei database Web e Business](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf).
 
-> [AZURE.NOTE] [Pricing tier recommendations](sql-database-service-tier-advisor.md) per database Web e Business sono ora disponibili.
+> [AZURE.IMPORTANT]Quando si esegue l'aggiornamento a un nuovo livello di servizio, i database Web o Business restano online. Il database rimarrà online e disponibile per tutta l'operazione di aggiornamento.
+
+
+A questo scopo, il servizio database SQL consiglia un livello di servizio e un livello di prestazioni appropriato (piano tariffario) per ogni database. Analizzando l'utilizzo cronologico di ogni database, il servizio consiglia un livello più adatto per l'esecuzione del carico di lavoro del database esistente.
+
+Il piano tariffario consigliato per ciascun database viene specificato durante il processo di modifica del livello del servizio di un database Web o Business o durante l'aggiornamento alla versione 12 del database SQL.
+
+A seconda dell'ambiente specifico, il servizio potrebbe consigliare l'aggiornamento di alcuni o di tutti i database in un [pool di database elastici](sql-database-elastic-pool.md).
+
+Per visualizzare i livelli di servizio consigliati per i database ritirati, è possibile usare il [portale di anteprima di Azure](https://portal.azure.com) o PowerShell. Per istruzioni dettagliate, vedere:
+
+- [Eseguire l'aggiornamento alla versione 12 del database SQL (portale di anteprima di Azure)](sql-database-v12-upgrade.md)
+- [Eseguire l'aggiornamento alla versione 12 del database SQL (PowerShell)](sql-database-upgrade-server.md)
+
+
+È importante tenere presente che i database SQL non sono bloccati in un livello di servizio o di prestazioni specifico e che pertanto è possibile passare facilmente a un altro dei vari livelli di servizio e di prestazioni disponibili quando cambiano i requisiti del database. I database SQL Basic, Standard e Premium vengono infatti fatturati su base oraria e si ha la possibilità di aumentare o ridurre le risorse di ognuno di essi fino a quattro volte nell'arco di un periodo di 24 ore. Questo significa che è possibile cambiare livello di servizio e di prestazioni per massimizzare le prestazioni, sfruttare al meglio il set di funzionalità e ridurre al minimo i costi del database in base ai requisiti e al carico di lavoro variabile dell'applicazione. Ciò significa anche che la valutazione e la modifica del livello di servizio e di prestazioni del database (ai fini dell'aumento o della riduzione delle risorse) rappresentano un processo in continua evoluzione che deve essere parte integrante delle procedure pianificate per la manutenzione e l'ottimizzazione delle prestazioni.
+ 
+Per altre informazioni sulle differenze tra Web/Business e i nuovi livelli di servizio e per dettagli aggiuntivi sulla migrazione, scaricare il [cookbook delle istruzioni per la migrazione dei database Web e Business](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf).
+
+
 
 ## Panoramica
 
@@ -36,8 +54,6 @@ Queste modifiche fanno nascere domande su come valutare e decidere quale sia il 
 In definitiva, la scelta migliore è costituita dalla combinazione di livello di servizio e livello di prestazioni in grado di garantire un equilibrio ottimale tra funzionalità, prestazioni e costo, ma anche di soddisfare pienamente le esigenze e i requisiti aziendali dell'applicazione.
 
 Questo documento presenta una metodologia guidata per l'aggiornamento dei database Web o Business ai nuovi livelli di servizio/livelli di prestazioni.
-
-È importante tenere presente che i database SQL di Azure non sono bloccati in un livello di servizio o di prestazioni specifico e che pertanto è possibile passare facilmente a un altro dei vari livelli di servizio e di prestazioni disponibili quando cambiano i requisiti del database . I database SQL Basic, Standard e Premium vengono in effetti fatturati su base oraria e si ha la possibilità di aumentare o ridurre le risorse di ognuno di essi quattro volte nell'arco di un periodo di 24 ore (mediante il [Portale di Azure o a livello di codice](http://msdn.microsoft.com/library/azure/ff394116.aspx)). Questo significa che è possibile cambiare livello di servizio e di prestazioni per massimizzare le prestazioni, sfruttare al meglio il set di funzionalità e ridurre al minimo i costi del database in base ai requisiti e al carico di lavoro variabile dell'applicazione. Ciò significa anche che la valutazione e la modifica del livello di servizio e di prestazioni del database (ai fini dell'aumento o della riduzione delle risorse) rappresentano un processo in continua evoluzione che deve essere parte integrante delle procedure pianificate per la manutenzione e l'ottimizzazione delle prestazioni.
 
 
 ## Aggiornare database Web e Business
@@ -61,7 +77,7 @@ L'aggiornamento di un database Web o Business a un nuovo livello di servizio pre
 
 I livelli di servizio Basic, Standard e Premium offrono set di funzionalità diversi. Pertanto, per scegliere un livello appropriato, è innanzitutto necessario determinare il livello di servizio in grado di garantire il livello minimo di funzionalità necessario per l'applicazione e la propria azienda.
 
-Ad esempio, considerare per quanto tempo è necessario conservare i backup, se sono richieste funzionalità di [replica geografica standard o attiva](http://msdn.microsoft.com/library/azure/dn783447.aspx) le dimensioni massime complessive necessarie per i database e così via. Questi requisiti determinano la scelta del livello di servizio minimo.
+Ad esempio, considerare per quanto tempo è necessario conservare i backup, se sono richieste funzionalità di [replica geografica standard o attiva](sql-database-business-continuity.md) le dimensioni massime complessive necessarie per i database e così via. Questi requisiti determinano la scelta del livello di servizio minimo.
 
 Il livello "Basic" viene usato soprattutto per database molto piccoli con un'attività ridotta. Quindi, quando si sceglie il livello di servizio per un aggiornamento, in genere è consigliabile iniziare con il livello "Standard" o "Premium" in base al livello minimo di funzionalità necessarie.
 
@@ -73,10 +89,8 @@ I livelli di prestazioni e le funzionalità del nuovo livello di servizio vengon
 
 | Articolo | Descrizione |
 |:--|:--|
-|[Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md)
-| Panoramica, metriche e funzionalità di ogni livello di servizio (e istruzioni su come monitorare l'uso dei database nel portale di gestione o mediante viste a gestione dinamica). |
-|[Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
-|Dettagli delle funzionalità di continuità aziendale e ripristino di emergenza (ripristino a un momento specifico, ripristino geografico, replica geografica) disponibili per i diversi livelli di servizio.|
+|[Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md)| Panoramica, metriche e funzionalità di ogni livello di servizio (e istruzioni su come monitorare l'uso dei database nel portale di gestione o mediante viste a gestione dinamica). |
+|[Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)|Dettagli delle funzionalità di continuità aziendale e ripristino di emergenza (ripristino a un momento specifico, ripristino geografico, replica geografica) disponibili per i diversi livelli di servizio.|
 |[Database SQL - Prezzi](http://azure.microsoft.com/pricing/details/sql-database/)|Informazioni dettagliate sui prezzi per i diversi livelli di servizio e di prestazioni.|
 
 <br>
@@ -85,23 +99,23 @@ Dopo la selezione del livello di servizio adatto a soddisfare i requisiti del da
 
 
 
-## 2. Determinare un livello di prestazioni accettabile in base alla cronologia d'uso delle risorse
+## 2\. Determinare un livello di prestazioni accettabile in base alla cronologia d'uso delle risorse
 
 Il servizio database SQL di Azure espone informazioni nel portale di gestione e in viste di sistema per fornire il nuovo livello di servizio e di prestazioni comparabile suggerito per il database Web o Business esistente.
 
 Poiché ai database Web e Business non sono associati limiti di DTU/risorse garantiti, i valori delle percentuali vengono normalizzati in termini di quantità di risorse disponibili per un database nel livello di prestazioni S2. Il consumo percentuale di DTU medio di un database in qualsiasi intervallo specifico può essere calcolato come il valore percentuale più alto tra utilizzo di CPU, IO e log in tale intervallo.
 
 
-Usare il portale di gestione per avere una panoramica generale dell'uso percentuale di DTU, quindi esaminare i dettagli usando le viste di sistema.
+Usare il portale di anteprima di Azure per avere una panoramica generale dell'uso percentuale di DTU, quindi esaminare i dettagli usando le viste di sistema.
 
-È inoltre possibile usare il nuovo portale di gestione di Azure per visualizzare il livello di servizio consigliato per il database Web o Business in uso quando si aggiorna un server al database SQL di Azure versione 12 ([in anteprima in alcune aree geografiche](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+È anche possibile usare il nuovo portale di anteprima di Azure per visualizzare il livello di servizio consigliato per il database Web o Business in uso quando si aggiorna un server alla versione 12 del database SQL di Azure.
 
-### Come visualizzare il livello di servizio consigliato nel nuovo portale di gestione di Azure
-Nel portale di gestione viene suggerito il livello di servizio appropriato per il database Web o Business in uso durante la procedura di aggiornamento di un server al database SQL di Azure versione 12. Il suggerimento si basa su un'analisi cronologica del consumo delle risorse del database.
+### Come visualizzare il livello di servizio consigliato nel portale di anteprima di Azure
+Nel portale di Azure viene suggerito il livello di servizio appropriato per il database Web o Business in uso durante la procedura di aggiornamento di un server alla versione 12 del database SQL. Il suggerimento si basa su un'analisi cronologica del consumo delle risorse del database.
 
 **Nuovo portale di gestione**
 
-1. Accedere al [nuovo portale di gestione ](https://portal.azure.com) e passare a un server contenente un database Web o Business.
+1. Accedere al [portale di anteprima di Azure ](https://portal.azure.com) e passare a un server contenente un database Web o Business.
 2. Fare clic sulla parte **Aggiornamento più recente** nel pannello del server.
 3. Fare clic su **Aggiorna questo server**.
 
@@ -134,9 +148,9 @@ Per esaminare i dettagli relativi al consumo di risorse di un database, è possi
 ### Viste di sistema
 
 
-I dati relativi al consumo di risorse dei database Web e Business sono accessibili tramite la vista [sys.resource_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) nel database master del server logico in cui si trova il database corrente. Visualizza i dati sul consumo delle risorse come percentuali del limite del livello di prestazioni. Questa vista fornisce i dati fino a un massimo di 14 giorni fa, a intervalli di 5 minuti.
+I dati relativi al consumo di risorse dei database Web e Business sono accessibili tramite la vista [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) nel database master del server logico in cui si trova il database corrente. Visualizza i dati sul consumo delle risorse come percentuali del limite del livello di prestazioni. Questa vista fornisce i dati fino a un massimo di 14 giorni fa, a intervalli di 5 minuti.
 
-> [AZURE.NOTE]È ora possibile usare la vista [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) nei database Web e Business per un livello di granularità più elevato (ogni 15 secondi) di dati relativi al consumo di risorse. Poiché sys.dm_db_resource_stats consente di mantenere solo i dati cronologici per un'ora, è possibile eseguire una query per la DMV ogni ora e archiviare i dati per un'ulteriore analisi.
+> [AZURE.NOTE]È ora possibile usare la vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) nei database Web e Business per un livello di granularità più elevato (ogni 15 secondi) di dati relativi al consumo di risorse. Poiché sys.dm\_db\_resource\_stats consente di mantenere solo i dati cronologici per un'ora, è possibile eseguire una query per la DMV ogni ora e archiviare i dati per un'ulteriore analisi.
 
 Per recuperare il consumo di DTU medio per un database, inoltrare la seguente query sul database master:
 
@@ -152,9 +166,9 @@ Per recuperare il consumo di DTU medio per un database, inoltrare la seguente qu
     WHERE database_name = '<your db name>'
     ORDER BY end_time DESC;
 
-I dati restituiti da [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) e [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) per i livelli Web e Business indicano le percentuali in termini di livello delle prestazioni standard S2. Ad esempio, in presenza di un database Web o Business, se i valori restituiscono il 70% viene indicato il 70% del limite del livello S2. Per Web e Business, inoltre, le percentuali possono restituire cifre che superano il 100%, in base al limite del livello S2.
+I dati restituiti da [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) e [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) per i livelli Web e Business indicano le percentuali in termini di livello delle prestazioni standard S2. Ad esempio, in presenza di un database Web o Business, se i valori restituiscono il 70% viene indicato il 70% del limite del livello S2. Per Web e Business, inoltre, le percentuali possono restituire cifre che superano il 100%, in base al limite del livello S2.
 
-Le informazioni sul consumo di DTU in termini di livello di database S2 consentono di normalizzare il consumo corrente dei database Web e Business in termini di database con nuovi livelli e di verificare dove funzionano meglio. Se, ad esempio, il consumo percentuale di DTU medio mostra un valore pari all'80%, significa che il database sta usando DTU a un tasso dell'80% del limite di un database al livello di prestazioni S2. Se nella vista **sys.resource_stats** appaiono valori superiori al 100%, significa che è necessario un livello di prestazioni superiore a S2. Prendiamo l'esempio di un picco con un valore percentuale di DTU pari al 300%. Significa che si stanno usando tre volte più risorse di quelle disponibili in un livello S2. Per determinare una dimensione iniziale ragionevole, confrontare le DTU disponibili in un livello S2 (50 DTU) con le dimensioni più elevate successive (S3/P1 = 100 DTU o 200% di S2, P2 = 200 DTU o 400% di S2). Poiché si è al 300% di S2, è preferibile iniziare con un livello P2 e ripetere il test.
+Le informazioni sul consumo di DTU in termini di livello di database S2 consentono di normalizzare il consumo corrente dei database Web e Business in termini di database con nuovi livelli e di verificare dove funzionano meglio. Se, ad esempio, il consumo percentuale di DTU medio mostra un valore pari all'80%, significa che il database sta usando DTU a un tasso dell'80% del limite di un database al livello di prestazioni S2. Se nella vista **sys.resource\_stats** appaiono valori superiori al 100%, significa che è necessario un livello di prestazioni superiore a S2. Prendiamo l'esempio di un picco con un valore percentuale di DTU pari al 300%. Significa che si stanno usando tre volte più risorse di quelle disponibili in un livello S2. Per determinare una dimensione iniziale ragionevole, confrontare le DTU disponibili in un livello S2 (50 DTU) con le dimensioni più elevate successive (S3/P1 = 100 DTU o 200% di S2, P2 = 200 DTU o 400% di S2). Poiché si è al 300% di S2, è preferibile iniziare con un livello P2 e ripetere il test.
 
 In base alla percentuale d'uso di DTU e all'edizione massima necessaria per il carico di lavoro, è possibile determinare il livello di servizio e il livello di prestazioni più adatti al carico di lavoro del database (come indicato dalla percentuale di DTU e dalle potenze di DTU relative di diversi [livelli di prestazioni)](sql-database-service-tiers.md). Ecco una tabella che illustra il mapping della percentuale di consumo di risorse Web/Business ai gradi di prestazioni dei nuovi livelli equivalenti:
 
@@ -198,11 +212,11 @@ Il grafico rappresenta la tendenza del consumo percentuale medio di DTU nel cors
 
 ![Uso di DTU](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
-**Impatto della memoria sulle prestazioni:** anche se la memoria è una delle dimensioni delle risorse che contribuisce alla classificazione DTU, il database SQL è progettato per usare tutta la memoria disponibile per le operazioni del database. Per questo motivo il consumo della memoria non è incluso nel consumo di DTU medio nella query precedente. D'altra parte, se si passa a un livello di prestazioni inferiore, la memoria disponibile per il database viene ridotta. Ciò può comportare un consumo di IO più elevato che influisce sul consumo di DTU. Pertanto, quando si passa a un livello di prestazioni inferiore, assicurarsi di avere abbastanza capacità aggiuntiva nella percentuale di IO. Usare la DMV [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) citata sopra per monitorarla.
+**Impatto della memoria sulle prestazioni:** anche se la memoria è una delle dimensioni delle risorse che contribuisce alla classificazione DTU, il database SQL è progettato per usare tutta la memoria disponibile per le operazioni del database. Per questo motivo il consumo della memoria non è incluso nel consumo di DTU medio nella query precedente. D'altra parte, se si passa a un livello di prestazioni inferiore, la memoria disponibile per il database viene ridotta. Ciò può comportare un consumo di IO più elevato che influisce sul consumo di DTU. Pertanto, quando si passa a un livello di prestazioni inferiore, assicurarsi di avere abbastanza capacità aggiuntiva nella percentuale di IO. Usare la DMV [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) citata sopra per monitorarla.
 
 
 
-## 3. Determinare i motivi per cui le prestazioni correnti del database Web o Business tendono ai livelli Premium più elevati
+## 3\. Determinare i motivi per cui le prestazioni correnti del database Web o Business tendono ai livelli Premium più elevati
 
 Per i singoli database Web e Business non viene riservata alcuna quantità specifica di capacità delle risorse. Inoltre, non è disponibile alcun meccanismo mediante il quale i clienti possano aumentare o ridurre le prestazioni per un database Web o Business. Le prestazioni dei database Web e Business possono pertanto essere molto variabili, passando inaspettatamente da un livello minimo a un livello Premium. Questa variabilità delle prestazioni dipende *parzialmente* dal livello generale di consumo delle risorse in un determinato momento da parte degli altri database dell'ambiente multi-tenant che condividono le risorse.
 
@@ -215,7 +229,7 @@ Per comprendere più chiaramente le differenze tra i livelli Web/Business e i li
 Se la percentuale di DTU complessiva è particolarmente elevata, iniziare a studiare le metriche dettagliate che costituiscono le DTU, ad esempio esaminando specificamente i dettagli del log di I/O e uso della memoria del database. Questa analisi può essere utile per individuare potenziali aree in cui ottimizzare e ridurre il consumo di DTU.
 
 
-## 4. Ottimizzare il carico di lavoro in base a un livello di prestazioni inferiore
+## 4\. Ottimizzare il carico di lavoro in base a un livello di prestazioni inferiore
 Se l'analisi della cronologia relativa all'uso delle risorse del database indica la necessità di effettuare l'aggiornamento a un livello di prestazioni più costoso del previsto, è possibile esaminare aree in cui può essere utile ottimizzare ulteriormente le prestazioni.
 
 Sulla base della propria conoscenza dei dettagli dell'applicazione, se l'uso delle risorse risulta notevolmente elevato rispetto al tipico carico di lavoro previsto, l'applicazione può ancora trarre vantaggio in qualche misura dall'ottimizzazione delle prestazioni.
@@ -234,7 +248,7 @@ Oltre alle consuete attività di manutenzione volte all'ottimizzazione, tra cui 
 
 
 
-## 5. Eseguire l'aggiornamento al nuovo livello di prestazioni/livello di servizio
+## 5\. Eseguire l'aggiornamento al nuovo livello di prestazioni/livello di servizio
 Dopo aver determinato il livello di servizio e il livello di prestazioni appropriati per il database Web o Business, è possibile aggiornare il database al nuovo livello in diversi modi:
 
 | Strumento di gestione | Per cambiare il livello di servizio e il livello di prestazioni di un database|
@@ -244,7 +258,7 @@ Dopo aver determinato il livello di servizio e il livello di prestazioni appropr
 | [API REST di gestione dei servizi](http://msdn.microsoft.com/library/azure/dn505719.aspx) | usare il comando [Aggiorna database](http://msdn.microsoft.com/library/dn505718.aspx).|
 | [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | usare l'istruzione [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx). |
 
-Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei livelli di prestazioni di un database](http://msdn.microsoft.com/library/dn369872.aspx)
+Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei livelli di prestazioni di un database](sql-database-scale-up.md)
 
 
 ## 6\. Monitorare l'aggiornamento al nuovo livello di servizio/prestazioni
@@ -260,15 +274,11 @@ Il database SQL di Azure fornisce informazioni di stato sulle operazioni di gest
 
 Se per l'aggiornamento è stato usato il portale di gestione, nel portale è disponibile anche una notifica per l'operazione.
 
-### Cosa accade quando il carico di lavoro del database raggiunge i limiti delle risorse dopo l'aggiornamento?
-I livelli di prestazioni vengono calibrati e gestiti per poter fornire le risorse necessarie per eseguire il carico di lavoro del database fino ai limiti massimi consentiti per il livello di servizio/livello di prestazioni selezionato (consumo delle risorse al 100%). Se il carico di lavoro raggiunge uno dei limiti di CPU/IO dati/IO di log, si continuerà a ricevere le risorse al massimo livello consentito, ma probabilmente si noterà un aumento delle latenze per le query. Se viene raggiunto uno di questi limiti, non si verificheranno errori, ma solo un rallentamento nel carico di lavoro, a meno che il rallentamento non diventi così grave da provocare il timeout delle query. Se si raggiungono i limiti relativi al numero massimo di richieste o di sessioni utente simultanee (thread di lavoro), verrà visualizzato l'[errore 10928 o 10929](http://msdn.microsoft.com/library/azure/dn338078.aspx).
-
-
-## 7. Monitorare il database dopo l'aggiornamento
+## 7\. Monitorare il database dopo l'aggiornamento
 Dopo l'aggiornamento del database Web/Business al nuovo livello, è consigliabile monitorare attivamente il database per verificare che le applicazioni siano in esecuzione con le prestazioni desiderate e ottimizzare l'utilizzo in base alle esigenze. Per monitorare il database, è consigliata la seguente procedura aggiuntiva.
 
 
-**Dati sul consumo delle risorse:** per i database Basic, Standard e Premium sono disponibili dati più granulari sul consumo delle risorse in una nuova DMV denominata [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) nel database utente. Questa DMV fornisce informazioni sul consumo delle risorse in tempo reale con una granularità di 15 secondi per l'ora precedente di funzionamento. Il consumo percentuale di DTU per un intervallo viene calcolato come consumo percentuale massimo delle dimensioni di CPU, IO e log. Ecco una query per calcolare il consumo percentuale medio di DTU nell'ultima ora:
+**Dati sul consumo delle risorse:** per i database Basic, Standard e Premium sono disponibili dati più granulari sul consumo delle risorse in una nuova DMV denominata [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) nel database utente. Questa DMV fornisce informazioni sul consumo delle risorse in tempo reale con una granularità di 15 secondi per l'ora precedente di funzionamento. Il consumo percentuale di DTU per un intervallo viene calcolato come consumo percentuale massimo delle dimensioni di CPU, IO e log. Ecco una query per calcolare il consumo percentuale medio di DTU nell'ultima ora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -285,17 +295,17 @@ Informazioni dettagliate sull'uso di questa DMV, sono disponibili nella [documen
 
 - **Avvisi:** configurare "Avvisi" nel portale di gestione di Azure per ricevere una notifica quando il consumo di DTU per un database aggiornato si avvicina a un determinato livello elevato. Nel portale di gestione di Azure si possono configurare avvisi di database per diverse metriche delle prestazioni, come DTU, CPU, IO e log. 
 
-	Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentuale DTU se il valore medio della percentuale DTU supera il 75% negli ultimi 5 minuti. fare riferimento a [Ricevere notifiche di avviso e gestire le relative regole in Azure](http://msdn.microsoft.com/library/azure/dn306638.aspx) per altre informazioni sulla configurazione di notifiche di avviso.
+	Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentuale DTU se il valore medio della percentuale DTU supera il 75% negli ultimi 5 minuti. Fare riferimento a [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) per altre informazioni sulla configurazione di notifiche di avviso.
 
 
-- **Aggiornamento/Downgrade pianificato del livello di prestazioni:** se ci sono scenari specifici dell'applicazione che richiedono prestazioni maggiori solo in determinati momenti della giornata/settimana, è possibile usare [Automazione di Azure](http://msdn.microsoft.com/library/azure/dn643629.aspx) per pianificare un'operazione per aumentare/ridurre il livello di prestazioni del database.
+- **Aggiornamento/Downgrade pianificato del livello di prestazioni:** se ci sono scenari specifici dell'applicazione che richiedono prestazioni maggiori solo in determinati momenti della giornata/settimana, è possibile usare [Automazione di Azure](https://azure.microsoft.com/documentation/services/automation/) per pianificare un'operazione per aumentare/ridurre il livello di prestazioni del database.
 
 	Ad esempio, aggiornare il database a un livello di prestazioni più elevato per la durata di un processo batch/di manutenzione settimanale e ridurlo al termine del processo. Questo tipo di pianificazione è utile anche per grandi operazioni a elevato utilizzo di risorse, come il caricamento di dati, la ricompilazione di indici e così via. Tenere presente che il modello di fatturazione del database SQL di Azure si basa sull'utilizzo orario di un livello di servizio/livello di prestazioni. Questa flessibilità consente di programmare o pianificare gli aggiornamenti in modo economicamente più vantaggioso.
 
 
 
 ## Riepilogo
-Il servizio Database SQL di Azure fornisce i dati di telemetria e gli strumenti per valutare i carichi di lavoro dei database Web/Business e di determinare il livello di servizio più adatto per l'aggiornamento. Il processo di aggiornamento è abbastanza semplice e può essere eseguito senza disconnettere il database o perdere dati. I database aggiornati usufruiscono delle prestazioni prevedibili e delle altre funzionalità offerte dai nuovi livelli di servizio.
+Il servizio Database SQL di Azure fornisce i dati di telemetria e gli strumenti per valutare i carichi di lavoro dei database Web/Business e di determinare il livello di servizio a cui passare con l'aggiornamento. Il processo di aggiornamento è abbastanza semplice e può essere eseguito senza disconnettere il database o perdere dati. I database aggiornati usufruiscono delle prestazioni prevedibili e delle altre funzionalità offerte dai nuovi livelli di servizio.
 
 
 
@@ -307,4 +317,4 @@ Il servizio Database SQL di Azure fornisce i dati di telemetria e gli strumenti 
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

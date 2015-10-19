@@ -158,7 +158,7 @@ Il filtro predefinito **MatchAll** viene utilizzato se non vengono specificati a
 
 È inoltre possibile impostare i filtri che consentono di specificare quali messaggi inviati a un argomento devono essere presenti in una specifica sottoscrizione dell'argomento.
 
-Il tipo di filtro più flessibile supportato dalle sottoscrizioni è la classe [SqlFilter] che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che possono essere usate con un filtro SQL, vedere la sintassi [SqlFilter.SqlExpression][].
+Il tipo di filtro più flessibile supportato dalle sottoscrizioni è la classe [SqlFilter][] che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che possono essere usate con un filtro SQL, vedere la sintassi [SqlFilter.SqlExpression][].
 
 L'esempio seguente crea una sottoscrizione denominata **HighMessages** con un oggetto [SqlFilter] che seleziona solo i messaggi che dispongono di una proprietà personalizzata **MessageNumber** maggiore di 3.
 
@@ -299,4 +299,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sot
   [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [esempi di Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

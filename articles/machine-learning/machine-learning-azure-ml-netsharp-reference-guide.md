@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeannt"/>
 
 
@@ -72,7 +72,7 @@ Per esempi relativi alla definizione di reti neurali per alcune attività comuni
 La specifica della struttura di una rete neurale è composta da tre sezioni: la **dichiarazione della costante**, la **dichiarazione dei livelli** e la **dichiarazione della connessione**. È inoltre disponibile una sezione facoltativa la **dichiarazione delle condivisioni**. Le sezioni possono essere specificate in qualsiasi ordine.
 
 ## Dichiarazione della costante 
-Una dichiarazione della costante è facoltativa. Fornisce un mezzo per definire i valori utilizzati in una qualunque posizione nella definizione della rete neurale. L'istruzione di dichiarazione è costituita da un identificatore seguito da un segno di uguale e un'espressione valore.
+Una dichiarazione della costante è facoltativa. Fornisce un mezzo per definire i valori usati in una qualunque posizione nella definizione della rete neurale. L'istruzione di dichiarazione è costituita da un identificatore seguito da un segno di uguale e un'espressione valore.
 
 Ad esempio, l'istruzione seguente definisce una costante **x**:
 
@@ -111,7 +111,7 @@ Ad esempio, la definizione di rete seguente permette la determinazione automatic
 	output Result auto from Hidden all;  
 
 
-La dichiarazione dei livelli per livelli che possono essere sottoposti a training, ovvero i livelli nascosti o di output, può includere facoltativamente la funzione di output, definita anche funzione di attivazione, che assume il valore predefinito **sigmoid** per i modelli di classificazione e **linear** per i modelli di regressione. (Anche se si utilizza l'impostazione predefinita, è possibile dichiarare in modo esplicito la funzione di attivazione, se lo si desidera per maggiore chiarezza.)
+La dichiarazione dei livelli per livelli che possono essere sottoposti a training, ovvero i livelli nascosti o di output, può includere facoltativamente la funzione di output, definita anche funzione di attivazione, che assume il valore predefinito **sigmoid** per i modelli di classificazione e **linear** per i modelli di regressione. (Anche se si usa l'impostazione predefinita, è possibile dichiarare in modo esplicito la funzione di attivazione, se lo si desidera per maggiore chiarezza.)
 
 Sono supportate le funzioni di output seguenti:
 
@@ -159,6 +159,11 @@ Una specifica di aggregazione di connessioni filtrata include un predicato, espr
 
 I valori dei pesi sono raggruppati in base all'indice dei nodi di destinazione, ovvero il primo nodo di destinazione è connesso ai nodi di origine K, quindi i primi elementi _K_ della tupla **Weights** rappresentano i pesi per il primo nodo di destinazione, in base all'ordine dell'indice di origine. La stessa procedura è applicabile ai nodi di destinazione rimanenti.
 
+È possibile specificare i pesi direttamente come valori costanti. Se ad esempio si sono appresi in precedenza i pesi, è possibile specificarli come costanti usando questa sintassi:
+
+	const Weights_1 = [0.0188045055, 0.130500451, ...]
+
+
 ## Aggregazioni convoluzionali
 Quando i dati di training hanno una struttura omogenea, le connessioni convoluzionali vengono solitamente usate per ottenere funzionalità di livello elevato dei dati. Ad esempio, nei dati di tipo immagine, audio o video è possibile che la dimensionalità spaziale o temporale sia abbastanza uniforme.
 
@@ -166,7 +171,7 @@ Le aggregazioni convoluzionali usano **kernel** rettangolari inseriti nelle dime
 
 Le aggregazioni convoluzionali supportano gli attributi seguenti:
 
-**InputShape** definisce la dimensionalità del livello di origine ai fini di questa aggregazione convoluzionale. Il valore deve essere una tupla di valori Integer positivi. Il prodotto dei valori Integer deve essere uguale al numero di nodi del livello di origine, ma non deve corrispondere in altro modo alla dimensionalità dichiarata per il livello di origine. La lunghezza di questa tupla diventa il valore di **arietà** per l'aggregazione convoluzionale. In genere, il grado fa riferimento al numero di argomenti oppure operandi che una funziona può accettare.
+**InputShape** definisce la dimensionalità del livello di origine ai fini di questa aggregazione convoluzionale. Il valore deve essere una tupla di valori Integer positivi. Il prodotto dei valori Integer deve essere uguale al numero di nodi del livello di origine, ma non deve corrispondere in altro modo alla dimensionalità dichiarata per il livello di origine. La lunghezza di questa tupla diventa il valore di **grado** per l'aggregazione convoluzionale. In genere, il grado fa riferimento al numero di argomenti oppure operandi che una funziona può accettare.
 
 Per definire la forma e le posizioni dei kernel, usare gli attributi **KernelShape**, **Stride**, **Padding**, **LowerPad** e **UpperPad**:
 
@@ -178,7 +183,7 @@ Per definire la forma e le posizioni dei kernel, usare gli attributi **KernelSha
 
 Sono disponibili due set di proprietà che controllano la spaziatura interna e che si escludono a vicenda:
 
--	**Padding**: (facoltativo) determina se l'input deve essere riempito usando uno **schema di riempimento predefinito**. Il valore può essere un singolo valore booleano o una tupla di valori booleani, con lunghezza corrispondente al valore del grado dell'aggregazione. Un singolo valore booleano viene esteso in modo da diventare una tupla di lunghezza corretta con tutti i componenti uguali al valore specificato. Se il valore per una dimensione è True, l'origine sarà riempita in modo logico in quella dimensione con celle a valore zero per supportare altre applicazioni di kernel, in modo che i nodi centrali del primo e dell'ultimo kernel in quella dimensione siano i primi e gli ultimi nodi di quella dimensione nel livello di origine. Il numero di nodi "fittizi" in ogni dimensione viene quindi determinato automaticamente, in modo da inserire esattamente _(InputShape[d] - 1) / Stride[d] + 1_ kernel nel livello di origine riempito. Se il valore per una dimensione è False, i kernel verranno definiti in modo che il numero di nodi esclusi in ogni lato sia uguale (con una differenza massima di 1). Il valore predefinito di questo attributo è una tupla con tutti i componenti uguali a False.
+-	**Padding**: (facoltativo) determina se l'input deve essere riempito usando uno **schema di riempimento predefinito**. Il valore può essere un singolo valore booleano o una tupla di valori booleani, con lunghezza corrispondente al valore del grado dell'aggregazione. Un singolo valore booleano viene esteso in modo da diventare una tupla di lunghezza corretta con tutti i componenti uguali al valore specificato. Se il valore per una dimensione è True, l'origine sarà riempita in modo logico in quella dimensione con celle a valore zero per supportare altre applicazioni di kernel, in modo che i nodi centrali del primo e dell'ultimo kernel in quella dimensione siano i primi e gli ultimi nodi di quella dimensione nel livello di origine. Il numero di nodi "fittizi" in ogni dimensione viene quindi determinato automaticamente, in modo da inserire esattamente i kernel _(InputShape[d] - 1) / Stride[d] + 1_ nel livello di origine riempito. Se il valore per una dimensione è False, i kernel verranno definiti in modo che il numero di nodi esclusi in ogni lato sia uguale (con una differenza massima di 1). Il valore predefinito di questo attributo è una tupla con tutti i componenti uguali a False.
 -	**UpperPad** e **LowerPad**: (facoltativi) consentono un maggiore controllo sulla quantità di riempimento da usare. **Importante:** questi attributi possono essere definiti se e solo se la proprietà **Padding** precedente ***non*** è stata definita. I valori devono essere tuple con numeri interi con lunghezza corrispondente al grado dell'aggregazione. Quando questi attributi sono specificati, i nodi "fittizi" vengono aggiunti alle estremità superiori e inferiori di ogni dimensione del livello di input. Il numero di nodi aggiunti alle estremità inferiori e superiori in ogni dimensione è determinato rispettivamente da **LowerPad**[i] e **UpperPad**[i]. Per assicurare che i kernel corrispondano solo a nodi "effettivi" e non a nodi "fittizi", è necessario che siano soddisfatte le condizioni seguenti:
 	-	Ogni componente di **LowerPad** deve essere rigorosamente inferiore a KernelShape[d]/2. 
 	-	Ogni componente di **UpperPad** non deve essere superiore a KernelShape[d]/2. 
@@ -206,7 +211,7 @@ L'esempio seguente illustra un'aggregazione di pooling:
 	    Stride      = [ 1,  2,  2];
 	  }  
 
--	L'arietà dell'aggregazione è pari a 3, ovvero alla lunghezza delle tuple **InputShape**, **KernelShape** e **Stride**. 
+-	Il grado dell'aggregazione è pari a 3, ovvero alla lunghezza delle tuple **InputShape**, **KernelShape** e **Stride**. 
 -	Il numero di nodi del livello di origine è pari a _5 * 24 * 24 = 2880_. 
 -	Questo è un livello di pooling locale tradizionale, poiché **KernelShape** e **Stride** sono uguali. 
 -	Il numero di nodi del livello di destinazione è pari a _5 * 12 * 12 = 1440_.  
@@ -218,7 +223,7 @@ Per altre informazioni sui livelli di pooling, vedere gli articoli seguenti:
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ## Aggregazioni di normalizzazione delle risposte
-La **normalizzazione delle risposte** è uno schema di normalizzazione locale introdotto per la prima volta da Geoffrey Hinton e altri in un articolo relativo alla [classificazione ImageNet con reti neurali convoluzionali avanzate](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). La normalizzazione delle risposte viene usata per semplificare la generalizzazione nelle reti neurali. Quando un neurone opera a un livello di attivazione molto elevato, un livello di normalizzazione delle risposte locale sopprime il livello di attivazione dei neuroni circostanti. Per ottenere questo risultato vengono usati tre parametri, ovvero ***α***, ***β*** e ***k***, e una struttura convoluzionale (o forma di intorno). Ogni neurone nel livello di destinazione ***y*** corrisponde a un neurone ***x*** nel livello di origine. Il livello di attivazione di ***y*** è definito dalla formula seguente, dove ***f*** corrisponde al livello di attivazione di un neurone e ***Nx*** è il kernel o l'insieme contenente i neuroni nell'intorno di ***x***, come definito dalla struttura convoluzionale seguente:
+La **normalizzazione delle risposte** è uno schema di normalizzazione locale introdotto per la prima volta da Geoffrey Hinton e altri in un articolo relativo alla [classificazione ImageNet con reti neurali convoluzionali avanzate](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). La normalizzazione delle risposte viene usata per semplificare la generalizzazione nelle reti neurali. Quando un neurone opera a un livello di attivazione molto elevato, un livello di normalizzazione delle risposte locale sopprime il livello di attivazione dei neuroni circostanti. Per ottenere questo risultato vengono usati tre parametri, ovvero ***α***, ***β*** e ***k***, nonché una struttura convoluzionale (o forma di intorno). Ogni neurone nel livello di destinazione ***y*** corrisponde a un neurone ***x*** nel livello di origine. Il livello di attivazione di ***y*** è definito dalla formula seguente, dove ***f*** corrisponde al livello di attivazione di un neurone e ***Nx*** è il kernel o l'insieme contenente i neuroni nell'intorno di ***x***, come definito dalla struttura convoluzionale seguente:
 
 ![][1]
 
@@ -229,7 +234,7 @@ Le aggregazioni di normalizzazione delle risposte supportano tutti gli attributi
 
 Poiché le aggregazioni di normalizzazione delle risposte applicano una funzione predefinita ai valori del nodo di origine per determinare il valore del nodo di destinazione, non hanno stati sottoponibili a training (pesi o distorsioni).
 
-**Alert**: i nodi del livello di destinazione corrispondono ai neuroni che costituiscono i nodi centrali dei kernel. Ad esempio, se KernelShape[d] è dispari, _KernelShape[d]/2_ corrisponderà al nodo centrale del kernel. Se _KernelShape[d]_ è pari, il nodo centrale si trova in _KernelShape[d]/2 - 1_. Quindi, se **Padding**[d] è False, il primo e l'ultimo nodo _KernelShape[d]/2_ non dispongono di nodi corrispondenti nel livello di destinazione. Per evitare questa situazione, definire **Padding** come [true, true, …, true].
+**Alert**: i nodi del livello di destinazione corrispondono ai neuroni che costituiscono i nodi centrali dei kernel. Se KernelShape[d] è ad esempio dispari, _KernelShape[d]/2_ corrisponderà al nodo centrale del kernel. Se _KernelShape[d]_ è pari, il nodo centrale si trova in _KernelShape[d]/2 - 1_. Quindi, se **Padding**[d] è False, il primo e l'ultimo nodo _KernelShape[d]/2_ non dispongono di nodi corrispondenti nel livello di destinazione. Per evitare questa situazione, definire **Padding** come [true, true, …, true].
 
 Oltre ai quattro attributi descritti precedentemente, le aggregazioni di normalizzazione delle risposte supportano anche gli attributi seguenti:
 
@@ -302,7 +307,7 @@ Ad esempio, la dichiarazione di condivisioni seguente specifica i nomi dei livel
 
 -	Le funzionalità di input sono partizionate in due livelli di input di dimensioni identiche. 
 -	I livelli nascosti calcolano quindi le funzionalità di livello superiore nei due livelli di input. 
--	La dichiarazione delle condivisione specifica che _H1_ e _H2_ devono essere calcolati in modo analogo ai rispettivi input.  
+-	La dichiarazione della condivisione specifica che _H1_ e _H2_ devono essere calcolati in modo analogo ai rispettivi input.  
  
 In alternativa, è possibile specificare questo concetto con due dichiarazioni delle condivisioni separate, come indicato di seguito:
 
@@ -326,9 +331,9 @@ Questo esempio illustra come creare un modello di rete neurale con un singolo li
 
 L'esempio illustra alcuni comandi di base come indicato di seguito:
 
--	La prima riga definisce il livello di input (denominato _Data_). Quando si utilizza la parola chiave **auto**, la rete neurale include automaticamente tutte le colonne di funzionalità negli esempi di input. 
+-	La prima riga definisce il livello di input (denominato _Data_). Quando si usa la parola chiave **auto**, la rete neurale include automaticamente tutte le colonne di funzionalità negli esempi di input. 
 -	La seconda riga crea il livello nascosto. Il nome _H_ è assegnato al livello nascosto, che include 200 nodi. Questo livello è completamente connesso al livello di input.
--	La terza riga definisce il livello di output (denominato _O_) e contiene 10 nodi di output. Se la reti neurale è utilizzata per la classificazione è disponibile un nodo di output per ogni classe. La parola chiave **sigmoid** indica la funzione di output applicata al livello di output.   
+-	La terza riga definisce il livello di output (denominato _O_) e contiene 10 nodi di output. Se la rete neurale viene usata per la classificazione, è disponibile un nodo di output per ogni classe. La parola chiave **sigmoid** indica la funzione di output applicata al livello di output.   
 
 ### Definire più livelli nascosti: esempio obiettivo computer
 L'esempio seguente illustra come definire una rete neurale leggermente più complessa, con più livelli nascosti personalizzati.
@@ -391,22 +396,22 @@ La definizione della rete seguente è progettata per riconoscere numeri e illust
 -	La parola chiave **convolve** indica che i livelli _Conv1_ e _Conv2_ sono livelli convoluzionali. Tutte queste dichiarazioni di livelli sono seguite da un elenco di attributi convoluzionali.
 -	La rete ha un terzo livello nascosto, _Hid3_, che è completamente connesso al secondo livello nascosto, _Conv2_.
 -	Il livello di output, _Digit_, è connesso solo al terzo livello nascosto, _Hid3_. La parola chiave **all** indica che il livello di output è completamente connesso a _Hid3_.
--	L'aretà della convoluzione è uguale a tre, ovvero alla lunghezza delle tuple **InputShape**, **KernelShape**, **Stride** e **Sharing**. 
--	Il numero di pesi per kernel è _1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Oppure 26 * 50 = 1300_.
+-	Il grado della convoluzione è uguale a tre, ovvero alla lunghezza delle tuple **InputShape**, **KernelShape**, **Stride** e **Sharing**. 
+-	Il numero di pesi per kernel è _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Oppure 26 * 50 = 1300_.
 -	È possibile calcolare i nodi in ogni livello nascosto come indicato di seguito:
-	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
--	Il numero totale di nodi può essere calcolato usando la dimensionalità dichiarata del livello, [50, 5, 5], come indicato di seguito: _**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
+	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
+-	Il numero totale di nodi può essere calcolato usando la dimensionalità dichiarata del livello, [50, 5, 5], come indicato di seguito: _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
 -	Poiché **Sharing**[d] è False solo per _d == 0_, il numero di kernel è _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
 
 ## Riconoscimenti
 
-Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stato sviluppato presso Microsoft da Shon Katzenberger (progettista, Machine Learning) e Alexey Kamenev (ingegnere di software, Microsoft Research). Viene utilizzato internamente per progetti Machine Learning e le applicazioni che vanno dal rilevamento immagine alle analisi di testo. Per ulteriori informazioni, vedere [Reti neurali in Azure ML - Introduzione a Net #](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stato sviluppato presso Microsoft da Shon Katzenberger (progettista, Machine Learning) e Alexey Kamenev (ingegnere di software, Microsoft Research). Viene usato internamente per progetti Machine Learning e le applicazioni che vanno dal rilevamento immagine alle analisi di testo. Per altre informazioni, vedere il post di blog relativo alle [reti neurali in Azure ML - Introduzione a Net #](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
 
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!-----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

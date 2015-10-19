@@ -1,20 +1,20 @@
 <properties 
    pageTitle="Configurazione di Expressroute con i provider di servizi di rete"
-	description="Questa esercitazione illustra in modo dettagliato la configurazione di ExpressRoute tramite i provider di servizi di rete"
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Questa esercitazione illustra in modo dettagliato la configurazione di ExpressRoute tramite i provider di servizi di rete"
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="adinah"
+   editor="tysonn"/>
 
 <tags 
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/29/2015"
+   ms.author="cherylmc"/>
 
 #  Configurare una connessione ExpressRoute tramite un provider di servizi di rete
 
@@ -150,4 +150,4 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 		
 		Provisioned 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

@@ -1,21 +1,21 @@
 
 <properties 
-   pageTitle="Note sulla versione di Azure SDK per .NET 2.7 e .NET 2.7.1"
-	description="Note sulla versione di Azure SDK per .NET 2.7 e .NET 2.7.1"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Juliako"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Note sulla versione di Azure SDK per .NET 2.7 e .NET 2.7.1" 
+   description="Note sulla versione di Azure SDK per .NET 2.7 e .NET 2.7.1" 
+   services="app-service\web" 
+   documentationCenter=".net" 
+   authors="Juliako" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/26/2015"
-	ms.author="juliako"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/26/2015"
+   ms.author="juliako"/>
 
 
 # Note sulla versione di Azure SDK per .NET 2.7 e .NET 2.7.1
@@ -150,6 +150,7 @@ Per informazioni più dettagliate sugli aggiornamenti degli strumenti di HDInsig
 
 Se si installa Azure SDK 2.6 o 2.7.1 per Visual Studio Community 2013 in un sistema operativo con lingua diversa dall'inglese, verrà visualizzato un avviso che indica un rischio di mancata corrispondenza tra le risorse di Visual Studio in inglese e in lingue diverse dall'inglese. L'avviso può essere tranquillamente ignorato. Tale condizione si verifica solo se il computer non contiene un'installazione precedente di Visual Studio Community 2013 e si installa l'SDK in un sistema operativo con lingua diversa dall'inglese. L'avviso viene visualizzato dopo l'applicazione delle risorse RTM in Visual Studio tramite il Language Pack, ma prima dell'applicazione di Update 4. Se si ignora l'avviso, il Language Pack potrà completare l'applicazione della versione Update 4 del contenuto del Language Pack.
 
+I Progetti LightSwitch non sono compatibili con questa versione. Questo problema verrà risolto con la prossima versione SDK.
 
 ##Vedere anche
 [Post di annuncio di Azure SDK 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850)
@@ -158,4 +159,4 @@ Se si installa Azure SDK 2.6 o 2.7.1 per Visual Studio Community 2013 in un sist
 
 [Informazioni sul Supporto e il Ritiro di Azure SDK per .NET e API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

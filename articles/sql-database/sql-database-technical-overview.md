@@ -20,14 +20,11 @@
 
 Il database SQL è un servizio di database relazionale nel cloud basato sul motore di Microsoft SQL Server leader nel mercato e con funzionalità di importanza strategica. Il database SQL offre prestazioni prevedibili, scalabilità senza tempi di inattività, continuità aziendale e protezione dei dati con esigenze di amministrazione quasi nulle. È possibile concentrarsi sullo sviluppo rapido di app e accelerare i tempi di mercato, piuttosto che gestire le macchine virtuali e l’infrastruttura. Poiché si basa sul motore [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), il Database SQL supporta strumenti del server SQL, librerie e API esistenti, il che rende più facile spostare ed estendere al cloud.
 
-
-Se si è pronti a iniziare è possibile... in pochi minuti e se si desiderano ulteriori approfondimenti, guardare questo video di 30 minuti.
+In questo articolo vengono introdotti i concetti di base e le funzionalità di Database SQL correlate a prestazioni, scalabilità e gestibilità, con collegamenti per esplorare i dettagli. Se si è pronti per passare, è possibile [Creare un database SQL](sql-database-get-started.md) o [Creare un pool di database elastici](sql-database-elastic-pool-portal.md) in pochi minuti. Se si desiderano ulteriori approfondimenti, guardare questo video di 30 minuti.
 
 
 > [AZURE.VIDEO azurecon-2015-get-started-with-azure-sql-database]
 
-
-Nel presente articolo vengono introdotti i concetti di base e le funzionalità di Database SQL correlate a prestazioni, scalabilità e gestibilità, con collegamenti per esplorare i dettagli. Se si è pronti per passare, è possibile [Creare un database SQL](sql-database-get-started.md) o [Creare un pool di database elastici](sql-database-elastic-pool-portal.md) in pochi minuti.
 
 ## Regolare le prestazioni e scalabilità senza tempi di inattività
 I database SQL sono disponibile in anteprima per i *livelli di servizio* Basic, Standard e Premium. Ogni livello di servizio offre [diversi livelli di prestazioni e capacità](sql-database-service-tiers.md) per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app su un database di piccole dimensioni per pochi soldi mese, poi [modificare il livello di servizio](sql-database-scale-up.md) manualmente o a livello di codice in qualsiasi momento mentre l'app diventa virale in tutto il mondo, senza tempi di inattività per l'applicazione e gli utenti.
@@ -72,4 +69,4 @@ Il server SQL vanta una tradizione di sicurezza dei dati continua che rispetta i
 
 - Per iniziare, [creare il primo database](sql-database-get-started.md). Poi costruire la prima app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

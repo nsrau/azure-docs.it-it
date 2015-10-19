@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # Farm di SharePoint Server
@@ -52,7 +52,8 @@ Per creare la farm di SharePoint con il modello Farm di SharePoint Server, esegu
 7. Per configurare i server di SharePoint, fare clic sulla freccia. È possibile specificare un prefisso di nome host (il valore predefinito è il nome del gruppo di risorse), le dimensioni dei server di SharePoint (il valore predefinito è A2), un account utente per SharePoint (il valore predefinito è sp\_setup) e la relativa password, il nome dell'account della farm di SharePoint (il valore predefinito è sp\_farm) e la relativa password e una passphrase per la farm di SharePoint. Per impostazione predefinita, in genere viene usata la password dell'amministratore per l'account utente, l'account della farm e la passphrase di SharePoint.
 8. Per configurare le impostazioni facoltative per la rete virtuale, l'account di archiviazione o la diagnostica, fare clic sulla freccia corrispondente.
 9. Per specificare la sottoscrizione, fare clic sulla freccia.
-10. Al termine dell'operazione, scegliere **Crea**.
+10. Per specificare la località di Azure, fare clic sulla freccia.
+11. Al termine dell'operazione, scegliere **Crea**.
 
 > [AZURE.NOTE]Nel controller di dominio per impostazione predefinita non sono installati gli strumenti di gestione di Active Directory. Per installarli, eseguire il comando **Install-WindowsFeature AD-Domain-Services -IncludeManagementTools** da un prompt dei comandi di Windows PowerShell a livello di amministratore nella macchina virtuale del controller di dominio.
 
@@ -81,9 +82,8 @@ Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti 
 
 Note:
 
-- Il Portale di anteprima di Azure crea queste macchine virtuali all'interno della sottoscrizione specificata.
 - Il portale di anteprima di Azure crea entrambe queste farm in una rete virtuale solo cloud con una presenza Web con connessione Internet. Non esiste alcuna connessione VPN o ExpressRoute da sito a sito alla rete dell'organizzazione.
-- È possibile amministrare questi server tramite connessioni Desktop Remoto. Per altre informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-log-on-windows-server.md).
+- È possibile amministrare questi server tramite connessioni Desktop Remoto. Per ulteriori informazioni, vedere [Accedere alla macchina virtuale](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine).
 
 ## Gestione risorse di Azure
 
@@ -93,10 +93,8 @@ La funzionalità di Farm di SharePoint Server del Portale di anteprima di Azure 
 
 [Dettagli di configurazione della farm di SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
-[SharePoint nei servizi infrastruttura di Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015"
+	ms.date="10/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -50,6 +50,6 @@ Dopo aver ottenuto un certificato di gestione creato, (file con estensione .cer 
 
 ## Passaggi successivi
 
-Ora che si dispone di un certificato di gestione associato a una sottoscrizione, è possibile (dopo aver installato il certificato corrispondente in locale) a livello di programmazione connettersi alla[API REST di Gestione servizio](https://msdn.microsoft.com/library/azure/ee460799.aspx)e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.
+Ora che si dispone di un certificato di gestione associato a una sottoscrizione, è possibile (dopo aver installato il certificato corrispondente in locale) a livello di programmazione connettersi alla[API REST di Gestione servizio](https://msdn.microsoft.com/library/azure/mt420159.aspx)e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

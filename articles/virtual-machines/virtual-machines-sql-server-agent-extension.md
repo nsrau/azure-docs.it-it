@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="06/17/2015"
+	ms.date="10/02/2015"
 	ms.author="jeffreyg"/>
 
 # Estensione Agente IaaS di SQL Server
@@ -77,4 +77,4 @@ Se si desidera rimuovere l'estensione da una macchina virtuale, è possibile usa
 ### Sintassi
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

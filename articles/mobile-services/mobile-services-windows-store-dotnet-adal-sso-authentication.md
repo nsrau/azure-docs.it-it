@@ -35,7 +35,7 @@ Per poter autenticare gli utenti è necessario registrare l'app in Azure Active 
 Per completare questa esercitazione, è necessario disporre di:
 
 * Visual Studio 2013 in esecuzione su Windows 8.1.
-* Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati].
+* Esercitazione [Introduzione a Servizi mobili] completata
 * Pacchetto NuGet Microsoft Azure Mobile Services SDK
 * Pacchetto NuGet Active Directory Authentication Library
 
@@ -212,8 +212,7 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
 <!-- URLs. -->
 [modalità di registrazione in Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [portale di gestione di Azure]: https://manage.windowsazure.com/
-[Introduzione ai dati]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [dashboard di Windows Dev Center]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,6 +18,8 @@
 
 # DataStax in Ubuntu con un modello di Gestione risorse
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse.
+
 DataStax è una nota azienda leader nel settore dello sviluppo e della fornitura di soluzioni basate su Apache Cassandra, la tecnologia per database NoSQL distribuiti di livello aziendale, supportata in commercio e ampiamente riconosciuta per le caratteristiche di flessibilità, disponibilità e scalabilità per qualsiasi esigenza. DataStax offre versioni sia Enterprise (DSE) che Community (DSC). Offre inoltre funzionalità di elaborazione in memoria, di sicurezza a livello aziendale, di analisi rapida e potente integrata e funzioni di ricerca a livello aziendale.
 
 Oltre alle funzionalità già disponibili in Azure Marketplace, ora è possibile distribuire facilmente un nuovo cluster DataStax nelle macchine virtuali Ubuntu usando un modello di Gestione risorse distribuito tramite [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
@@ -28,11 +30,11 @@ La topologia dei cluster appena distribuiti basati su questo modello è descritt
 
 Mediante i parametri, è possibile definire il numero di nodi che verranno distribuiti nel nuovo cluster Apache Cassandra. Un'istanza del servizio DataStax Operations Center verrà inoltre distribuita in una macchina virtuale autonoma all'interno della stessa rete virtuale, offrendo la possibilità di monitorare lo stato del cluster e di tutti i singoli nodi, di aggiungere o rimuovere nodi e di eseguire tutte le attività amministrative correlate a tale cluster.
 
-Una volta completata la distribuzione, è possibile accedere all'istanza della macchina virtuale di DataStax Operations Center usando l'indirizzo DNS configurato. La macchina virtuale dell’Operations Center ha la porta SSH 22 abilitata, ma anche la porta 8443 per la modalità HTTPS. L'indirizzo DNS per l'Operations Center includerà *dnsName* e *region* immessi come parametri, dando luogo al formato `{dnsName}.{region}.cloudapp.azure.com`. Se è stata creata una distribuzione con il parametro *dnsName* impostato su "datastax” nell'area "West US", è possibile accedere alla macchina virtuale di DataStax Operations Center per la distribuzione all'indirizzo `https://datastax.westus.cloudapp.azure.com:8443`.
+Una volta completata la distribuzione, è possibile accedere all'istanza della macchina virtuale di DataStax Operations Center usando l'indirizzo DNS configurato. La macchina virtuale dell'Operations Center ha la porta SSH 22 abilitata, ma anche la porta 8443 per la modalità HTTPS. L'indirizzo DNS per l'Operations Center includerà *dnsName* e *region* immessi come parametri, restituendo il formato `{dnsName}.{region}.cloudapp.azure.com`. Se è stata creata una distribuzione con il parametro *dnsName* impostato su "datastax" nell'area "West US", è possibile accedere alla macchina virtuale di DataStax Operations Center per la distribuzione all'indirizzo `https://datastax.westus.cloudapp.azure.com:8443`.
 
-> [AZURE.NOTE]Il certificato utilizzato nella distribuzione è un certificato autofirmato che consente di creare un avviso visualizzato tramite il browser. È possibile attenersi alla procedura indicata nel sito Web [DataStax](http://www.datastax.com/) per la sostituzione del certificato con il proprio certificato SSL.
+> [AZURE.NOTE]Il certificato usato nella distribuzione è un certificato autofirmato che consente di creare un avviso visualizzato tramite il browser. È possibile attenersi alla procedura indicata nel sito Web [DataStax](http://www.datastax.com/) per la sostituzione del certificato con il proprio certificato SSL.
 
-Prima di addentrarsi in ulteriori dettagli relativi a Gestione risorse di Azure e al modello utilizzato per la distribuzione, assicurarsi che Azure PowerShell o l’interfaccia della riga di comando di Azure sia configurata correttamente.
+Prima di addentrarsi in ulteriori dettagli relativi a Gestione risorse di Azure e al modello usato per la distribuzione, assicurarsi che Azure PowerShell o l'interfaccia della riga di comando di Azure sia configurata correttamente.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
@@ -40,9 +42,9 @@ Prima di addentrarsi in ulteriori dettagli relativi a Gestione risorse di Azure 
 
 ## Creare un cluster Cassandra basato su DataStax con un modello di Gestione risorse
 
-Seguire questa procedura per creare un cluster Apache Cassandra, basato su DataStax, usando un modello di Gestione risorse dall'archivio dei modelli GitHub. Ogni passaggio includerà le indicazioni sia per Azure PowerShell che per l’interfaccia della riga di comando di Azure.
+Seguire questa procedura per creare un cluster Apache Cassandra, basato su DataStax, usando un modello di Gestione risorse dall'archivio dei modelli GitHub. Ogni passaggio includerà le indicazioni sia per Azure PowerShell che per l'interfaccia della riga di comando di Azure.
 
-### Passaggio 1-a: Scaricare i file di modello utilizzando Azure PowerShell
+### Passaggio 1-a: Scaricare i file di modello usando Azure PowerShell
 
 Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\\Azure\\Templates\\DataStax).
 
@@ -80,7 +82,7 @@ Sostituire il nome di cartella della cartella locale ed eseguire questi comandi:
 
 ### Passaggio 1-b: Scaricare i file di modello tramite l'interfaccia della riga di comando di Azure
 
-Clonare l’intero repository dei modelli utilizzando un client Git a propria scelta, ad esempio:
+Clonare l'intero repository dei modelli usando un client Git a propria scelta, ad esempio:
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
@@ -169,11 +171,11 @@ Nella sezione "parameters" nella parte superiore del file azuredeploy.json, si i
 		}
 	}
 
-Ogni parametro include dettagli quali il tipo di dati e i valori consentiti. Ciò consente la convalida dei parametri passati durante l'esecuzione del modello in modalità interattiva (ad esempio, Azure PowerShell o l’interfaccia della riga di comando di Azure) e un'interfaccia utente di individuazione automatica che può essere compilata dinamicamente analizzando l'elenco dei parametri richiesti e le relative descrizioni.
+Ogni parametro include dettagli quali il tipo di dati e i valori consentiti. Ciò consente la convalida dei parametri passati durante l'esecuzione del modello in modalità interattiva (ad esempio, Azure PowerShell o l'interfaccia della riga di comando di Azure) e un'interfaccia utente di individuazione automatica che può essere compilata dinamicamente analizzando l'elenco dei parametri richiesti e le relative descrizioni.
 
 ### Passaggio 3-a: distribuire un cluster DataStax usando un modello tramite Azure PowerShell
 
-Preparare un file dei parametri per la distribuzione creando un file JSON contenente i valori di runtime per tutti i parametri. Questo file verrà quindi passato al comando di distribuzione come singola entità. Se non si include un file dei parametri, in Azure PowerShell verranno utilizzati tutti i valori predefiniti specificati nel modello, quindi verrà richiesto di inserire i valori rimanenti.
+Preparare un file dei parametri per la distribuzione creando un file JSON contenente i valori di runtime per tutti i parametri. Questo file verrà quindi passato al comando di distribuzione come singola entità. Se non si include un file dei parametri, in Azure PowerShell verranno usati tutti i valori predefiniti specificati nel modello, quindi verrà richiesto di inserire i valori rimanenti.
 
 Di seguito viene riportato un set di parametri di esempio dal file azuredeploy-parameters.json.
 
@@ -229,11 +231,11 @@ Durante la distribuzione tenere presente che è necessario creare un nuovo accou
 
 Durante e dopo la distribuzione, è possibile controllare tutte le richieste effettuate durante il provisioning, compresi gli errori che si sono verificati.
 
-A tale scopo, visitare il [portale di Azure](https://portal.azure.com) e seguire questa procedura:
+A tale scopo, visitare il [portale di Azure](https://portal.azure.com) ed effettuare le operazioni seguenti:
 
 - Fare clic su **Sfoglia** nella barra di spostamento a sinistra, quindi scorrere verso il basso e fare clic su **Gruppi di risorse**.  
 - Fare clic sul gruppo di risorse appena creato, per visualizzare il pannello "Gruppo di risorse".  
-- Facendo clic sul grafico a barre "Eventi" nella sezione **Monitoraggio** del pannello "Gruppo di risorse", è possibile visualizzare gli eventi relativi alla distribuzione.
+- Facendo clic sul grafico a barre "Eventi" nella parte relativa al **Monitoraggio** del pannello "Gruppo di risorse", sarà possibile visualizzare gli eventi per la distribuzione.
 - Facendo clic su singoli eventi è possibile esaminare i dettagli di ogni operazione eseguita per conto del modello.
 
 Dopo aver effettuato i test, per rimuovere il gruppo di risorse e tutte le relative risorse (l'account di archiviazione, la macchina virtuale e la rete virtuale), usare il comando seguente:
@@ -250,19 +252,19 @@ Passare il nome di questo gruppo di risorse, il percorso del file di modello JSO
 
 	azure group deployment create dsc -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
-È possibile controllare lo stato delle distribuzioni delle singole risorse utilizzando il comando seguente:
+È possibile controllare lo stato delle distribuzioni delle singole risorse usando il comando seguente:
 
 	azure group deployment list dsc
 
 ## Panoramica della struttura del modello DataStax e dell'organizzazione dei file
 
-Per progettare un modello di Gestione risorse efficace e riutilizzabile, è necessaria un’ulteriore valutazione per organizzare la serie di attività complesse e correlate necessarie durante la distribuzione di una soluzione complessa come DataStax. Sfruttando le funzionalità di ciclo delle risorse e di collegamento dei modelli di Gestione risorse, oltre all'esecuzione di script mediante estensioni correlate, è possibile implementare un approccio modulare riutilizzabile praticamente con qualsiasi distribuzione complessa basata su un modello.
+Per progettare un modello di Gestione risorse efficace e riutilizzabile, è necessaria un'ulteriore valutazione per organizzare la serie di attività complesse e correlate necessarie durante la distribuzione di una soluzione complessa come DataStax. Sfruttando le funzionalità di ciclo delle risorse e di collegamento dei modelli di Gestione risorse, oltre all'esecuzione di script mediante estensioni correlate, è possibile implementare un approccio modulare riutilizzabile praticamente con qualsiasi distribuzione complessa basata su un modello.
 
 Questa sezione illustra in dettaglio la struttura del file azuredeploy.json per il cluster DataStax.
 
 ### sezione "parametri"
 
-Nella sezione “parametri” di azuredeploy.json vengono specificati i parametri modificabili utilizzati in questo modello. Il file azuredeploy-parameters.json menzionato in precedenza viene utilizzato per passare i valori nella sezione "parametri" di azuredeploy.json durante l'esecuzione del modello.
+Nella sezione “parametri” di azuredeploy.json vengono specificati i parametri modificabili usati in questo modello. Il file azuredeploy-parameters.json menzionato in precedenza viene usato per passare i valori nella sezione "parametri" di azuredeploy.json durante l'esecuzione del modello.
 
 ### sezione "variabili"
 
@@ -361,14 +363,14 @@ Da questo primo esempio, è chiaro come il file azuredeploy.json in questo scena
 
 In particolare, i seguenti modelli collegati verranno usati per la distribuzione:
 
--	**shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise all'interno della distribuzione. Come esempi considerare gli account di archiviazione usati per archiviare i dischi del sistema operativo di una macchina virtuale e le reti virtuali.
+-	**shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Come esempi considerare gli account di archiviazione usati per archiviare i dischi del sistema operativo di una macchina virtuale e le reti virtuali.
 -	**opscenter-resources.json**: distribuisce una macchina virtuale OpsCenter e tutte le risorse correlate, inclusi un'interfaccia di rete e un indirizzo IP pubblico.
 -	**opscenter-install-resources.json**: distribuisce l'estensione della macchina virtuale OpsCenter (script personalizzato per Linux) che richiamerà il file di script bash specifico (opscenter.sh) necessario per configurare il servizio OpsCenter all'interno della macchina virtuale.
 -	**ephemeral-nodes-resources.json**: distribuisce tutte le macchine virtuali dei nodi del cluster e le risorse connesse (schede di rete, IP privati e così via). Questo modello consentirà inoltre di distribuire le estensioni della macchina virtuale (gli script personalizzati per Linux) e di richiamare uno script bash (dsenode.sh) per installare fisicamente parti del server Cassandra Apache su ciascun nodo.
 
-Esaminiamo questo ultimo modello, poiché è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **creazione di cicli di risorse**.
+Esaminiamo questo ultimo modello, poiché è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **Resource Looping (ciclo delle risorse)**.
 
-Quando il file ephemeral-nodes-resources.json viene richiamato dall'interno del file azuredeploy.json principale, viene fornito un parametro denominato *nodeCount* come parte dell'elenco di parametri. All'interno del modello figlio, *nodeCount* (numero di nodi da distribuire nel cluster ) verrà usato nell'elemento **copy** di ogni risorsa da distribuire in più copie, come mostrato nel frammento seguente. Per tutte le impostazioni in cui sono necessari valori univoci tra istanze diverse della risorsa distribuita, è possibile utilizzare la funzione **copyindex()** per ottenere un valore numerico che indica l'indice corrente nella creazione di quel particolare ciclo di risorse. Nel frammento seguente è possibile vedere questo concetto applicato a più macchine virtuali da creare per i nodi del cluster DataStax:
+Quando il file ephemeral-nodes-resources.json viene richiamato dall'interno del file azuredeploy.json principale, viene fornito un parametro denominato *nodeCount* come parte dell'elenco di parametri. All'interno del modello figlio, *nodeCount* (numero di nodi da distribuire nel cluster ) verrà usato nell'elemento **copy** di ogni risorsa da distribuire in più copie, come mostrato nel frammento seguente. Per tutte le impostazioni in cui sono necessari valori univoci tra istanze diverse della risorsa distribuita, è possibile usare la funzione **copyindex()** per ottenere un valore numerico che indica l'indice corrente nella creazione di quel particolare ciclo di risorse. Nel frammento seguente è possibile vedere questo concetto applicato a più macchine virtuali da creare per i nodi del cluster DataStax:
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -429,13 +431,13 @@ Quando il file ephemeral-nodes-resources.json viene richiamato dall'interno del 
 			      }
 			    },
 
-Un altro concetto importante nella creazione delle risorse è la possibilità di specificare le dipendenze e le priorità tra risorse, come è possibile vedere nella matrice JSON **dependsOn**. In questo particolare modello, ogni nodo sarà collegato a un disco da 1 TB (vedere "dataDisks") che può essere utilizzato per l'hosting dei backup e degli snapshot dell'istanza di Apache Cassandra.
+Un altro concetto importante nella creazione delle risorse è la possibilità di specificare le dipendenze e le priorità tra risorse, come è possibile vedere nella matrice JSON **dependsOn**. In questo particolare modello, ogni nodo sarà collegato a un disco da 1 TB (vedere "dataDisks") che può essere usato per l'hosting dei backup e degli snapshot dell'istanza di Apache Cassandra.
 
-I Dischi collegati sono formattati nell’ambito delle attività di preparazione del nodo attivate dall'esecuzione del file di script dsenode.sh. La prima riga di tale script, infatti, richiama un altro script:
+I Dischi collegati sono formattati nell'ambito delle attività di preparazione del nodo attivate dall'esecuzione del file di script dsenode.sh. La prima riga di tale script, infatti, richiama un altro script:
 
 	bash vm-disk-utils-0.1.sh
 
-Il file vm-disk-utils-0.1.sh fa parte della cartella **shared\_scripts\\ubuntu** all'interno del repository GitHub azure-quickstart-templates e contiene funzioni molto utili per il montaggio, la formattazione e lo striping dei dischi. che possono essere utilizzate in tutti i modelli del repository.
+Il file vm-disk-utils-0.1.sh fa parte della cartella **shared\_scripts\\ubuntu** all'interno del repository GitHub azure-quickstart-templates e contiene funzioni molto utili per il montaggio, la formattazione e lo striping dei dischi. Queste funzioni possono essere usate in tutti i modelli del repository.
 
 Un altro frammento interessante da esplorare è quello correlato alle estensioni delle macchine virtuali CustomScriptForLinux. Queste vengono installate come tipo di risorsa separato, con una dipendenza in ogni nodo del cluster (e l'istanza OpsCenter). Le estensioni si avvalgono dello stesso meccanismo di ciclo delle risorse descritto per le macchine virtuali:
 
@@ -475,6 +477,6 @@ In pratica, questo approccio suggerisce di:
 -	Per i membri identici di un gruppo di risorse (nodi in un cluster e così via), creare modelli specifici che sfruttano il ciclo di risorse per poter distribuire più istanze con proprietà univoche.
 -	Per tutte le attività di post distribuzione (installazione del prodotto, configurazioni e così via), usare estensioni di distribuzione di script e creare script specifici per ogni tecnologia.
 
-Per altre informazioni, vedere l'articolo relativo al [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+Per altre informazioni, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

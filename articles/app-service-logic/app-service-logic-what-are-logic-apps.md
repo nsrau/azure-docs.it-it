@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="10/08/2015"
 	ms.author="klam"/>
 
 #Cosa sono le app per la logica?
@@ -21,8 +21,8 @@
 | Riferimento rapido |
 | --------------- |
 | [Linguaggio di definizione delle app per la logica](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Documentazione del connettore delle app per la logica](https://azure.microsoft.com/it-IT/documentation/articles/app-service-logic-connectors-list/) |
-| [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurelogicapps) |
+| [Documentazione del connettore delle app per la logica](https://azure.microsoft.com/IT-IT/documentation/articles/app-service-logic-connectors-list/) |
+| [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/IT-IT/home?forum=azurelogicapps) |
 
 Azure App Service è una piattaforma distribuita come servizio (PaaS) completamente gestita per gli sviluppatori e facilita la creazione di app Web, mobili e di integrazione. Le app per la logica rappresentano una parte di questa suite e consentono a qualsiasi utente o sviluppatore tecnico di automatizzare l'esecuzione e il flusso di lavoro dei processi aziendali tramite una finestra di progettazione visiva facile da usare.
 
@@ -75,4 +75,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

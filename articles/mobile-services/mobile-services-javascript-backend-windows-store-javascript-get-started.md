@@ -12,17 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.topic="get-started-article"
+	ms.date="10/06/2015"
 	ms.author="glenga"/>
 
 # Introduzione a Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app JavaScript di Windows Store mediante Servizi mobili di Azure.
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
-In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà utilizzato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la [versione per back-end .NET di questo argomento](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
+In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app JavaScript di Windows Store mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà utilizzato JavaScript per la logica di business sul lato server.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -37,12 +37,10 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Dopo avere creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app JavaScript di Windows Store 8.1 che permetta la connessione al servizio mobile.
 
-1.  Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
+1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
 
 
 2. Nella scheda Quickstart fare clic su **Windows** in **Choose platform** ed espandere **Create a new Windows Store app**.
-
-   	![](./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png)
 
 3. Se necessario, scaricare e installare [Visual Studio 2013][Visual Studio 2013 Express for Windows] nel computer locale o nella macchina virtuale.
 
@@ -72,6 +70,11 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 >[AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file default.js.
 
+## Passaggi successivi
+Ora che è stata completata la Guida introduttiva, acquisire familiarità con il [client di servizi mobili per HTML/JavaScript](mobile-services-html-how-to-use-client-library.md).
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
 [Create a new mobile service]: #create-new-service
@@ -81,12 +84,9 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with data]: ../mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md
-[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
-[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Visual Studio 2013 Express per Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

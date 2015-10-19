@@ -12,17 +12,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 
 # Requisiti per il routing di ExpressRoute  
 
-Per connettersi ai servizi cloud Microsoft tramite ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. In caso contrario, è necessario rispettare i requisiti seguenti.
+Per connettersi ai servizi cloud Microsoft tramite ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti.
 
 Vedere l'articolo relativo a [circuiti e domini di routing](expressroute-circuit-peerings.md) per una descrizione delle sessioni di routing da configurare per facilitare la connettività.
 
-**Nota:** Microsoft non supporta alcun protocollo di ridondanza router (HSRP e VRRP, solo per citarne alcuni) per le configurazioni con disponibilità elevata. Per la disponibilità elevata, Microsoft si avvale invece di una coppia ridondante di sessioni BGP per peering.
+**Nota:** Microsoft non supporta alcun protocollo di ridondanza router (ad esempio, HSRP e VRRP) per le configurazioni con disponibilità elevata. Per la disponibilità elevata, Microsoft si avvale invece di una coppia ridondante di sessioni BGP per peering.
 
 ## Indirizzi IP per i peering
 
@@ -36,9 +36,9 @@ Per configurare i peering, è possibile usare sia indirizzi IP privati sia indir
  - Le subnet usate per il routing possono essere costituite sia da indirizzi IP privati sia da indirizzi IP pubblici.
  - Le subnet non devono essere in conflitto con l'intervallo riservato dal cliente per l'uso in Microsoft Cloud.
  - Se viene usata una subnet /29, questa verrà divisa in due subnet /30. 
- - La prima subnet /30 verrà usata per il collegamento primario e la seconda per il collegamento secondario.
- - Per ogni subnet /30, è necessario usare il primo indirizzo IP della subnet /30 nel router. Microsoft userà il secondo indirizzo IP della subnet /30 per configurare una sessione BGP.
- - È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](http://azure.microsoft.com/support/legal/sla/) sia valido.  
+	 - La prima subnet /30 verrà usata per il collegamento primario e la seconda per il collegamento secondario.
+	 - Per ogni subnet /30, è necessario usare il primo indirizzo IP della subnet /30 nel router. Microsoft userà il secondo indirizzo IP della subnet /30 per configurare una sessione BGP.
+	 - È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](http://azure.microsoft.com/support/legal/sla/) sia valido.  
 
 #### Esempio per il peering privato
 
@@ -46,7 +46,7 @@ Se si sceglie di usare la subnet a.b.c.d/29 per configurare il peering, verrà d
 
 La subnet a.b.c.d/29 verrà divisa in a.b.c.d/30 e a.b.c.d+4/30 e passata a Microsoft tramite le API di provisioning. Si userà l'indirizzo a.b.c.d+1 come indirizzo IP VRF per il router PE (Provider Edge) primario e Microsoft userà l'indirizzo a.b.c.d+2 come indirizzo IP VRF per il router MSEE primario. Si userà l'indirizzo a.b.c.d+5 come indirizzo IP VRF per il router PE (Provider Edge) secondario e Microsoft userà l'indirizzo a.b.c.d+6 come indirizzo IP VRF per il router MSEE secondario.
 
-Si consideri il caso in cui sia stato selezionato l'indirizzo 192.168.100.128/29 per configurare il peering privato. L'intervallo 192.168.100.128/29 include gli indirizzi IP da 192.168.100.128 a 192.168.100.133, tra cui:
+Si consideri un caso in cui si selezioni l'indirizzo 192.168.100.128/29 per configurare il peering privato. L'intervallo 192.168.100.128/29 include gli indirizzi IP da 192.168.100.128 a 192.168.100.135, tra cui:
 
 - 192\.168.100.128/30 che verrà assegnato a link1, con il provider che usa 192.168.100.129 e Microsoft che usa 192.168.100.130.
 - 192\.168.100.132/30 che verrà assegnato a link2, con il provider che usa 192.168.100.133 e Microsoft che usa 192.168.100.134.
@@ -70,12 +70,12 @@ Assicurarsi che l'indirizzo IP e il numero AS siano registrati all'utente in uno
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](rr.Level3.net)
+- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Scambio di route dinamico
 
-Lo scambio di routing avviene tramite il protocollo eBGP. Vengono stabilite sessioni eBGP tramite i router MSEE e i propri router. L'autenticazione delle sessioni eBGP non è un requisito. Se necessario, è possibile configurare un hash MD5. Per informazioni su come configurare le sessioni BGP, osservare il flusso di lavoro per la configurazione del routing.
+Lo scambio di routing avviene tramite il protocollo eBGP. Vengono stabilite sessioni eBGP tramite i router MSEE e i propri router. L'autenticazione delle sessioni eBGP non è un requisito. Se necessario, è possibile configurare un hash MD5. Vedere il [Configura routing](expressroute-howto-routing-classic.md) e il [Circuito flussi di lavoro di provisioning e circuito stati](expressroute-workflows.md) per informazioni sulla configurazione delle sessioni BGP.
 
 ## Numeri AS (Autonomous System)
 
@@ -91,7 +91,7 @@ La sessione BGP verrà rimossa se il numero di prefissi supera il limite previst
 
 ## Routing di transito e routing tra aree
 
-Non è possibile configurare ExpressRoute come router di transito. Per i servizi di transito è necessario rivolgersi al provider di connettività.
+Non è possibile configurare ExpressRoute come router di transito. Per i servizi di routing di transito è necessario rivolgersi al provider di connettività.
 
 ## Annuncio delle route predefinite
 
@@ -161,8 +161,9 @@ Microsoft non riconosce eventuali valori della community BGP impostati dall'uten
 ## Passaggi successivi
 
 - Configurare la connessione ExpressRoute.
+
 	- [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

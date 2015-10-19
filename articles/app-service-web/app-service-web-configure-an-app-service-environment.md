@@ -20,7 +20,7 @@
 
 ## Panoramica ##
 
-Ambienti del servizio app è una nuova funzionalità del piano tariffario Premium offerta in anteprima. Offre nuove funzionalità di scalabilità e accesso alla rete. La nuova funzionalità di scalabilità consente di posizionare un'istanza del servizio app di Azure nella propria rete virtuale. Se non si ha familiarità con la funzionalità Ambiente del servizio app, leggere il documento disponible qui [Informazioni sull'ambiente del servizio app]/app-service-app-service-environment-intro.md). Per informazioni su come creare un ambiente del servizio app, leggere il documento [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
+Ambienti di servizio di app è una nuova funzionalità di livello Premium nel servizio di app di Azure che offre nuove scalabilità e funzionalità di accesso di rete. La nuova funzionalità di scalabilità consente di posizionare un'istanza del servizio app di Azure nella propria rete virtuale. Se non si ha familiarità con la funzionalità Ambiente del servizio app, leggere il documento [Informazioni sull'ambiente del servizio app](app-service-app-service-environment-intro.md) Per informazioni su come creare un ambiente del servizio app, leggere il documento [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
 
 In generale, un ambiente del servizio app è costituito da vari componenti principali:
 
@@ -133,4 +133,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

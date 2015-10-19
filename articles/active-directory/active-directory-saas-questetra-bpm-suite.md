@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/02/2015"
 	ms.author="markusvi"/>
 
 
@@ -77,7 +77,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Questetra BPM
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente test di Questetra BPM Suite ](#creating-a-halogen-software-test-user)**: per avere una controparte di Britta Simon in Questetra BPM Suite collegata alla relativa rappresentazione in Azure AD.
+4. **[Creazione di un utente test di Questetra BPM Suite ](#creating-a-questetra-bpm-suite-test-user)**: per avere una controparte di Britta Simon in Questetra BPM Suite collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
@@ -105,12 +105,12 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
     b. Nella sezione SP Information del sito aziendale di **Questetra BPM Suite** copiare il valore di **Entity ID** e incollarlo nella casella di testo **URL autorità di certificazione**.
 
-    c. Nella sezione SP Information del sito aziendale di **Questetra BPM Suite** copiare il valore di **Entity ID** e incollarlo nella casella di testo **URL di risposta**.
+    c. Nella sezione SP Information del sito aziendale di **Questetra BPM Suite** copiare il valore di **ACS URL** e incollarlo nella casella di testo **URL di risposta**.
 
     d. Fare clic su **Avanti**.
 
  
-7. Nella pagina **Configura accesso Single Sign-On in Questetra BPM Suite** fare clic su **Download certificato** e quindi salvare il certificato localmente nel computer. <br><br>![Configura accesso Single Sign-On][14]
+7. Nella pagina **Configura accesso Single Sign-On in Questetra BPM Suite** fare clic su **Download certificato** e quindi salvare il file del certificato localmente nel computer.<br><br>![Configura accesso Single Sign-On][14]
 
 
 8. Nel sito aziendale di **Questetra BPM Suite** seguire questa procedura: <br><br>![Configura accesso Single Sign-On][15]
@@ -146,9 +146,9 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 ### Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test nel portale di Azure chiamato Britta Simon.
 
-**Per creare un utente test in Azure AD, seguire questa procedura:**
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel pannello di navigazione sinistro. <br><br>![Creare un utente test di Azure AD][100] 
+1. Nel pannello di navigazione sinistro del **portale di gestione di Azure** fare clic su **Active Directory**. <br><br>![Creare un utente test di Azure AD][100] 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -179,7 +179,7 @@ Questa sezione descrive come creare un utente test nel portale di Azure chiamato
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creare un utente test di Azure AD][106]
   1. Prendere nota del valore in **Nuova password**.
-  2. Fare clic su **Completa**.   
+  2. Fare clic su **Complete**.   
   
  
 ### Creazione di un utente test di Questetra BPM Suite
@@ -210,15 +210,15 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
 
 1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br>![Cos'è Azure AD Connect][201]
 2. Nell'elenco delle applicazioni selezionare **Questetra BPM Suite**. <br><br>![Cos'è Azure AD Connect][205]
-1. Nel menu in alto fare clic su **Utenti**. <br><br>![Cos'è Azure AD Connect][202]
-1. Nell'elenco utenti selezionare **Britta Simon**. <br><br>![Cos'è Azure AD Connect][203]
+1. Nel menu in alto fare clic su **Utenti**.<br> <br>![Cos'è Azure AD Connect][202]
+1. Nell'elenco di utenti selezionare **Britta Simon**. <br><br>![Cos'è Azure AD Connect][203]
 2. Sulla barra degli strumenti in basso fare clic su **Assegna**. <br><br>![Cos'è Azure AD Connect][204]
 
 
 
 ### Test dell'accesso Single Sign-On
 
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro Questetra BPM Suite nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Questetra BPM Suite.
+L'obiettivo di questa sezione è testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro Questetra BPM Suite nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Questetra BPM Suite.
 
 
 ## Risorse aggiuntive
@@ -265,4 +265,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

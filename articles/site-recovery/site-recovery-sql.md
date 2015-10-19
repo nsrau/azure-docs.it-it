@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="10/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -51,10 +51,12 @@ Site Recovery può essere integrato con le tecnologie di continuità aziendale e
 
 
 
+
+
 Nella tabella seguente vengono riepilogati i suggerimenti per l'integrazione delle tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server nella distribuzione di Site Recovery.
 
 **Versione** |**Edizione** | **Distribuzione** | **Da locale a locale** | **Da locale ad Azure** 
----|---|---|---|
+---|---|---|---|---
 SQL Server 2014 o 2012 | Enterprise | Istanza del cluster di failover | Gruppi di disponibilità AlwaysOn | Gruppi di disponibilità AlwaysOn
  | Enterprise | Gruppi di disponibilità AlwaysOn per la disponibilità elevata | Gruppo di disponibilità AlwaysOn | Gruppo di disponibilità AlwaysOn
  | Standard | Istanza del cluster di failover | Replica di Site Recovery con mirror locale | Replica di Site Recovery con mirror locale
@@ -362,4 +364,4 @@ Per i cluster SQL standard, il failback dopo un failover non pianificato richied
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

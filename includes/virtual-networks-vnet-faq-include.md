@@ -58,7 +58,7 @@ Non esiste alcun limite al numero di subnet che si usano all'interno di una rete
 
 ### Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?
 
-Azure riserva alcuni indirizzi IP all'interno di ogni subnet. Il primo e l’ultimo indirizzo IP delle subnet sono riservati per conformità al protocollo, con altri due indirizzi usati per i servizi di Azure.
+Azure riserva alcuni indirizzi IP all'interno di ogni subnet. Il primo e l’ultimo indirizzo IP delle subnet sono riservati per conformità al protocollo, con altri 3 indirizzi usati per i servizi di Azure.
 
 ### Quanto piccole o grandi possono essere le reti virtuali e le subnet?
 
@@ -221,7 +221,8 @@ All’interno delle reti virtuali, è possibile usare solo servizi di calcolo. I
 
 No, un'app Web di Azure non può essere distribuita in una rete virtuale. Tuttavia, le app Web possono eseguire la connessione e l'accesso alle risorse in una rete virtuale di Azure in modo sicuro se si dispone di point-to-site configurati per la rete virtuale. Per altre informazioni, vedere quanto segue:
 
-- [Integrazione della rete virtuale di app Web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Integrazione della rete virtuale di app Web](http://azure.microsoft.com/blog/
+- 014/09/15/azure-websites-virtual-network-integration/)
 
 - [Utilizzo dell’integrazione della rete virtuale e delle connessioni ibride con app Web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
@@ -264,4 +265,4 @@ Sì. È possibile usare le API REST per gestire le reti virtuali e la connettivi
 
 Sì. È possibile usare gli strumenti di PowerShell e della riga di comando per un'ampia gamma di piattaforme. Ulteriori informazioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

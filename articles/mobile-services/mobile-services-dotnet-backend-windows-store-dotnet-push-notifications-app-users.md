@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inviare notifiche push agli utenti autenticati (Piattaforma UWP 8.1) | Microsoft Azure" 
+	pageTitle="Inviare notifiche push agli utenti autenticati (Piattaforma UWP 8.1) | Servizi mobili di Azure" 
 	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push a un utente autenticato specifico che esegue l'app per la piattaforma UWP 8.1." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="10/05/2015" 
 	ms.author="glenga"/>
 
 # Inviare notifiche push agli utenti autenticati
@@ -30,9 +30,9 @@ Questa esercitazione supporta app sia di Windows Store che di Windows Phone Stor
 
 Prima di iniziare questa esercitazione, è necessario aver già completato queste esercitazioni su Servizi mobili:
 
-+ [Introduzione all'autenticazione]<br/>Aggiunge un requisito di accesso all'app di esempio TodoList.
++ [Introduzione all'autenticazione] Aggiunge un requisito di accesso all'app di esempio TodoList.
 
-+ [Introduzione alle notifiche push]<br/>Configura l'app di esempio TodoList per le notifiche push con Hub di notifica.
++ [Introduzione alle notifiche push] Configura l'app di esempio TodoList per le notifiche push con Hub di notifica.
 
 Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utenti non autenticati di effettuare la registrazione per le notifiche push dal servizio mobile.
 
@@ -66,4 +66,4 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

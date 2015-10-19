@@ -3,7 +3,7 @@
    description="Service Fabric Reliable Actors è la soluzione ideale per la messaggistica asincrona parallela, per il calcolo parallelo e per la semplicità di gestione degli stati distribuiti."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/08/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Modello di progettazione di Reliable Actors: calcolo distribuito
 Questo modello è stato realizzato dopo aver osservato un cliente estrarre un calcolo finanziario in Service Fabric Reliable Actors in un intervallo di tempo molto breve: una simulazione Monte Carlo per un calcolo preciso dei rischi.
@@ -206,4 +206,4 @@ Con questo non si desidera in alcun modo affermare che Azure Service Fabric debb
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->
