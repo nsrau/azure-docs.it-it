@@ -4,7 +4,7 @@
    description="Service Fabric Reliable Actors costituisce il componente principale (come un livello intermedio) di un sistema che integra il front-end di un sistema di messaggistica, in grado di supportare più protocolli di trasporto, tra cui HTTPS, MQTT o AMQP, e comunica con gli attori che rappresentano i singoli dispositivi."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Modello di progettazione di Reliable Actors: Internet delle cose
 Poiché l'Internet delle cose è diventato la nuova tendenza e uno dei principali progressi tecnologici nel campo dei dispositivi e dei servizi cloud, gli sviluppatori hanno iniziato a creare i propri sistemi sulla base dei componenti principali di questa nuova realtà. Il diagramma seguente illustra i principali scenari ottenuti con Service Fabric Reliable Actors:
@@ -217,4 +217,4 @@ Azure Service Fabric Actors si occupa anche della durata degli attori. Da questo
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

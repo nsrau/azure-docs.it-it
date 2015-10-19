@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come usare le code del bus di servizio (Java) | Microsoft Azure"
+	pageTitle="Come usare le code del bus di servizio con Java | Microsoft Azure"
 	description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -13,27 +13,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
 
-Questa guida illustra come usare le code del bus di servizio. Gli esempi sono scritti in Java e utilizzano [Azure SDK for Java][]. Gli scenari presentati includono **creazione di code**, **invio e ricezione di messaggi**, nonché **eliminazione di code**.
+Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono scritti in Java e utilizzano [Azure SDK for Java][]. Gli scenari presentati includono **creazione di code**, **invio e ricezione di messaggi**, nonché **eliminazione di code**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
 ## Configurare l'applicazione per l'uso del bus di servizio
-Assicurarsi di aver installato [Azure SDK per Java][] prima di compilare questo esempio. Se si utilizza Eclipse, è possibile installare [Azure Toolkit per Eclipse][] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto: ![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Aggiungere le seguenti istruzioni import all'inizio del file Java:
+Assicurarsi di aver installato [Azure SDK per Java][] prima di compilare questo esempio. Se si utilizza Eclipse, è possibile installare [Azure Toolkit per Eclipse][] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
 
-	// Include the following imports to use Service Bus APIs
-	import com.microsoft.windowsazure.services.servicebus.*;
-	import com.microsoft.windowsazure.services.servicebus.models.*;
-	import com.microsoft.windowsazure.core.*;
-	import javax.xml.datatype.*;
+![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-## Come creare una coda
+Aggiungere le seguenti istruzioni `import` all'inizio del file Java:
+
+```
+// Include the following imports to use Service Bus APIs
+import com.microsoft.windowsazure.services.servicebus.*;
+import com.microsoft.windowsazure.services.servicebus.models.*;
+import com.microsoft.windowsazure.core.*;
+import javax.xml.datatype.*;
+```
+
+## Creare una coda
 
 Per eseguire operazioni di gestione per le code del bus di servizio, è possibile utilizzare la classe **ServiceBusContract** class. Un oggetto **ServiceBusContract** è costruito con una configurazione appropriata che incapsula il token di firma di accesso condiviso con le autorizzazioni necessarie a gestirlo. La classe **ServiceBusContract** rappresenta l'unico punto di comunicazione con Azure.
 
@@ -60,7 +65,7 @@ La classe **ServiceBusService** fornisce i metodi per creare, enumerare ed elimi
         System.exit(-1);
     }
 
-In QueueInfo sono disponibili metodi che consentono di ottimizzare le proprietà della coda, ad esempio per impostare il valore di durata TTL predefinito da applicare ai messaggi inviati alla coda. Il seguente esempio illustra come creare una coda denominata "TestQueue" con una dimensione massima pari a 5 GB:
+In **QueueInfo** sono disponibili metodi che consentono di ottimizzare le proprietà della coda, ad esempio per impostare il valore di durata (TTL) predefinito da applicare ai messaggi inviati alla coda. Il seguente esempio illustra come creare una coda denominata `TestQueue` con una dimensione massima pari a 5 GB:
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
@@ -69,9 +74,9 @@ In QueueInfo sono disponibili metodi che consentono di ottimizzare le proprietà
 
 Si noti che è possibile utilizzare il metodo **listQueues** su oggetti **ServiceBusContract** per verificare se in uno spazio dei nomi servizio esiste già una coda con il nome specificato.
 
-## Come inviare messaggi a una coda
+## Inviare messaggi a una coda
 
-Per inviare un messaggio a una coda del bus di servizio, l'applicazione otterrà un oggetto **ServiceBusContract**. Il codice seguente illustra come inviare un messaggio per la coda "TestQueue" creata in precedenza all'interno dello spazio dei nomi servizio "HowToSample":
+Per inviare un messaggio a una coda del bus di servizio, l'applicazione ottiene un oggetto **ServiceBusContract**. Il seguente codice illustra come inviare un messaggio per la coda `TestQueue` creata in precedenza all'interno dello spazio dei nomi `HowToSample`.
 
     try
     {
@@ -85,9 +90,9 @@ Per inviare un messaggio a una coda del bus di servizio, l'applicazione otterrà
         System.exit(-1);
     }
 
-I messaggi inviati e ricevuti dalla coda del bus di servizio sono istanze della classe **BrokeredMessage**. Gli oggetti **BrokeredMessage** includono un set di metodi standard, ad esempio **getLabel**, **getTimeToLive**, **setLabel** e **setTimeToLive**, un dizionario utilizzato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Per impostare il corpo del messaggio, un'applicazione può passare qualsiasi oggetto serializzabile nel costruttore di **BrokeredMessage**. In tal caso, per serializzare l'oggetto verrà utilizzato il serializzatore appropriato. In alternativa, è possibile fornire un oggetto **java.IO.InputStream**.
+I messaggi inviati e ricevuti dalla coda del bus di servizio sono istanze della classe [BrokeredMessage][]. [Gli oggetti ][]BrokeredMessage[ includono un insieme di proprietà standard, ad esempio ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)Label[ e ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)TimeToLive, un dizionario utilizzato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Per impostare il corpo del messaggio, un'applicazione può passare qualsiasi oggetto serializzabile nel costruttore di [BrokeredMessage][]. In tal caso, per serializzare l'oggetto verrà utilizzato il serializzatore appropriato. In alternativa, è possibile fornire un oggetto **java. / O. InputStream**.
 
-Nell'esempio seguente viene illustrato come inviare cinque messaggi di prova all'oggetto **MessageSender** "TestQueue" ottenuto nel frammento di codice sopra riportato:
+L'esempio seguente illustra come inviare cinque messaggi di prova all'oggetto `TestQueue` **MessageSender** ottenuto nel frammento di codice precedente.
 
     for (int i=0; i<5; i++)
     {
@@ -101,7 +106,7 @@ Nell'esempio seguente viene illustrato come inviare cinque messaggi di prova all
 
 Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB, in cui la dimensione massima dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non può superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB.
 
-## Come ricevere messaggi da una coda
+## Ricevere messaggi da una coda
 
 Il modo principale per ricevere i messaggi da una coda consiste nell'utilizzare un oggetto **ServiceBusContract**. I messaggi ricevuti possono essere utilizzati in due modalità diverse: **ReceiveAndDelete** e **PeekLock**.
 
@@ -109,7 +114,7 @@ Quando si utilizza la modalità **ReceiveAndDelete**, l'operazione di ricezione 
 
 Nella modalità **PeekLock** l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando **Delete** sul messaggio ricevuto. Quando il bus di servizio vede la chiamata **Delete**, contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
 
-Nell'esempio seguente viene illustrato come ricevere ed elaborare messaggi utilizzando la modalità **PeekLock** non predefinita. Nel seguente esempio viene creato un ciclo infinito e i messaggi vengono elaborati non appena arrivano in "TestQueue":
+L'esempio seguente illustra come ricevere ed elaborare messaggi usando la modalità **PeekLock** (non quella predefinita). Nel seguente esempio viene creato un ciclo infinito e i messaggi vengono elaborati non appena arrivano in "TestQueue":
 
     	try
 	{
@@ -174,23 +179,15 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, Argomenti e Sottoscrizioni][] per altre informazioni.
 
-Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/develop/java/).
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
 
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure SDK per Java]: http://azure.microsoft.com/develop/java/
-  [Azure Toolkit per Eclipse]: https://msdn.microsoft.com/it-IT/library/azure/hh694271.aspx
-  [What are Service Bus Queues?]: #what-are-service-bus-queues
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigApp
-  [How to: Create a Security Token Provider]: #bkmk_HowToCreateQueue
-  [How to: Send Messages to a Queue]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Queue]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
-  [Next Steps]: #bkmk_NextSteps
+  [Azure Toolkit per Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Azure Management Portal]: http://manage.windowsazure.com/
   [Code, Argomenti e Sottoscrizioni]: service-bus-queues-topics-subscriptions.md
- 
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+  [Gli oggetti ]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

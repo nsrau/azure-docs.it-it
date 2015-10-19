@@ -1,5 +1,5 @@
 <properties
-        pageTitle="Autenticare gli utenti della propria app iOS con Single Sign-On di Azure Active Directory"
+        pageTitle="Autenticare gli utenti della propria app iOS con Sign-On di Azure Active Directory"
         description="Informazioni su come fornire accesso agli utenti alla propria app iOS usando Active Directory Authentication Library."
         documentationCenter="Mobile"
         authors="mattchenderson"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.date="09/14/2015"
 ms.author="mahender" />
 
-# Aggiungere Single Sign-On di Azure Active Directory alla propria app iOS
+# Aggiungere Sign-On di Azure Active Directory all'app iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
@@ -123,4 +123,4 @@ Sarà ora possibile fare riferimento ad Active Directory Authentication Library 
  [Introduzione ad App per dispositivi mobili]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [Aggiungere l'autenticazione all'app]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

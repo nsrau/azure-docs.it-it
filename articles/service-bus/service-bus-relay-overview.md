@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Messaggistica inoltrata del bus di servizio"
+	pageTitle="Panoramica della messaggistica inoltrata del bus di servizio | Microsoft Azure"
 	description="Panoramica dell'inoltro del bus di servizio."
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/04/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 
@@ -31,12 +31,12 @@ Nel modello di messaggistica inoltrata, un servizio locale si connette al serviz
 
 ## Passaggi successivi
 
-Per ulteriori informazioni sull’inoltro del bus di servizio, vedere gli argomenti seguenti.
+Per ulteriori dettagli sull’inoltro del bus di servizio, vedere gli argomenti seguenti.
 
-- [Panoramica dell'architettura del bus di servizio di Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
 
 - [Come usare il servizio Inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

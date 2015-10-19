@@ -58,8 +58,6 @@ Viene mostrato come eseguire la nuova app client nel servizio mobile in esecuzio
 
 Informazioni su come eseguire altre importanti attività in Servizi mobili:
 
-* [Aggiungere Servizi mobili a un'app esistente] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
-
 * [Introduzione alla sincronizzazione dei dati offline] <br/>Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
 * [Aggiungere l'autenticazione a un'app esistente] <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
@@ -88,7 +86,6 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 
 
 <!-- URLs. -->
-[Aggiungere Servizi mobili a un'app esistente]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Introduzione alla sincronizzazione dei dati offline]: mobile-services-ios-get-started-offline-data.md
 [Aggiungere l'autenticazione a un'app esistente]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Aggiungere notifiche push a un'app esistente]: mobile-services-dotnet-backend-ios-get-started-push.md
@@ -100,4 +97,4 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Versione per back-end JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -13,21 +13,20 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/02/2015" 
 	ms.author="sdanie"/>
 
 # Introduzione al livello di Azure Redis Cache Premium
 Cache Redis di Azure è una cache distribuita e gestita che consente di creare applicazioni estremamente scalabili e reattive fornendo un accesso molto veloce ai dati.
 
-Il nuovo livello Premium è un livello pronto aziendale che include tutte le funzionalità di livello Standard e altro ancora, come prestazioni migliori, carichi di lavoro maggiori, ripristino di emergenza e sicurezza avanzata. Le altre funzionalità includono:
+Il nuovo livello Premium è un livello pronto aziendale che include tutte le funzionalità di livello Standard e altro ancora, come prestazioni migliori, carichi di lavoro maggiori, ripristino di emergenza e sicurezza avanzata. Continuare a leggere per ulteriori informazioni sulle funzionalità aggiuntive del livello di cache Premium.
 
+## Prestazioni migliori rispetto al livello Standard o base
 **Prestazioni migliori a livello Standard o di base.** Le cache nel livello Premium sono distribuite su un hardware che dispone di processori più veloci e che offre prestazioni migliori rispetto al livello Standard o di base. Le cache di livello Premium dispongono di velocità effettiva più elevata e minori latenze.
 
 **La velocità effettiva per la Cache della stessa dimensione è superiore nel Premium rispetto al livello Standard.** Ad esempio. Per una Cache di GB 53, la velocità effettiva di P4 (Premium) è 250K richieste al secondo rispetto a 150 K per C6 (Standard).
 
-Vedere le [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) per altrui dettagli sulle dimensioni, la velocità effettiva e la larghezza di banda con le cache Premium.
-
->[AZURE.NOTE]Il livello di Azure Redis Cache Premium è attualmente in anteprima.
+Vedere [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) per altri dettagli sulle dimensioni, la velocità effettiva e la larghezza di banda con le cache Premium.
 
 ## Persistenza dei dati Redis:
 Il livello Premium consente la persistenza dei dati della cache in un account di archiviazione di Azure. In una cache Basic/Standard tutti i dati vengono archiviati solo in memoria. In caso di problemi per l'infrastruttura sottostante esiste il rischio di una potenziale perdita di dati. È consigliabile usare la funzionalità di persistenza dei dati Redis nel livello Premium per aumentare la resilienza contro la perdita di dati. Cache Redis di Azure offre le opzioni RDB e AOF (presto disponibile) per la [Persistenza di Redis](http://redis.io/topics/persistence).
@@ -37,7 +36,7 @@ Per istruzioni sulla configurazione di persistenza, vedere [Come configurare la 
 ##Cluster Redis
 Se si desidera creare cache di dimensioni superiori a 53 GB o desidera partizionare i dati tra più nodi Redis, è possibile usare le funzionalità di clustering Redis, disponibili nel livello Premium. Ogni nodo è costituito da una coppia di cache primaria/di replica gestita da Azure per la disponibilità elevata.
 
-**Il clustering di Redis consente una scalabilità massima e in tutti i periodi.** La velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà 250 KB * 10 = 2,5 milioni di richieste al secondo. Vedere le [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) per altrui dettagli sulle dimensioni, la velocità effettiva e la larghezza di banda con le cache Premium.
+**Il clustering di Redis consente una scalabilità massima e in tutti i periodi.** La velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà 250 KB * 10 = 2,5 milioni di richieste al secondo. Vedere [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) per altri dettagli sulle dimensioni, la velocità effettiva e la larghezza di banda con le cache Premium.
 
 Per avviare il clustering, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 
@@ -55,4 +54,4 @@ Creare una cache ed esplorare le nuove funzionalità del livello premium.
 -	[Come configurare il servizio cluster per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

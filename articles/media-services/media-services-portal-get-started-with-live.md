@@ -190,12 +190,19 @@ Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui 
 - È possibile arrestare l'endpoint di streaming, a meno che non si voglia continuare a fornire l'archivio dell'evento live come flusso su richiesta. Se il canale è arrestato, non subirà modifiche.
 
 
-##Percorsi di apprendimento di Media Services
+##Passaggi successivi
+
+###Percorsi di apprendimento di Media Services
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
 
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Se si è alla ricerca di qualcos’altro.
+
+Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
+
 
 ## Risorse aggiuntive
 - [Guida introduttiva a Live Streaming tramite il portale di gestione di Azure](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
@@ -205,4 +212,4 @@ Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui 
 
 <!-- Images -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

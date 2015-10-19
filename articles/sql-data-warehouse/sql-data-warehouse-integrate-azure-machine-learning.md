@@ -13,14 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="sahajs"/>
 
 # Usare Azure Machine Learning con SQL Data Warehouse
 
 Azure Machine Learning è un servizio di analisi predittive completamente gestito, che può essere usato per creare modelli predittivi dei dati in SQL Data Warehouse e pubblicarli come servizi pronti all'uso. Per le nozioni di base sull'analisi predittiva e su Machine Learning, vedere [Introduzione a Machine Learning in Azure][]. Sarà quindi possibile imparare a creare, eseguire il training, assegnare punteggi e testare un modello di Machine Learning usando l'[esercitazione per la creazione di esperimenti][].
 
-In questo articolo si apprenderà come eseguire le operazioni seguenti tramite [Azure Machine Learning Studio][]\: leggere i dati dal database per creare, eseguire il training e assegnare punteggi a un modello predittivo e scrivere dati nel database
+In questo articolo verrà descritto come fare quanto segue utilizzando il [Azure Machine Learning Studio][]\:
+
+- Leggere i dati dal database da creare, eseguire il training e il punteggio di un modello di stima
+- Scrivere dati nel database 
 
 
 ## Leggere dati da SQL Data Warehouse
@@ -72,8 +75,13 @@ FROM dbo.DimProduct;
 
 ## Creare, eseguire il training e assegnare un punteggio a un modello
 
-A questo punto è possibile usare questo set di dati per: - Creare un modello: elaborare i dati e definire le funzionalità - Eseguire il training del modello: scegliere e applicare un algoritmo di apprendimento - Assegnare un punteggio e testare il modello: stimare un nuovo prezzo per le biciclette
-	
+A questo punto è possibile utilizzare questo set di dati per:
+
+- Creare un modello: elaborare i dati e definire le funzionalità
+- Il training del modello: selezionare e applicare un algoritmo di apprendimento
+- Assegnare un punteggio e testare il modello: stima di un nuovo prezzo di biciclette
+ 
+
 ![][model]
 
 Per imparare a creare, eseguire il training, assegnare punteggi e testare un modello di Machine Learning, usare l'[esercitazione per la creazione di esperimenti][].
@@ -130,8 +138,8 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 [Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
 [Panoramica dell'integrazione di SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
-[esercitazione per la creazione di esperimenti]: ./machine-learning-create-experiment/
-[Introduzione a Machine Learning in Azure]: ./machine-learning-what-is-machine-learning/
+[esercitazione per la creazione di esperimenti]: https://azure.microsoft.com/it-IT/documentation/articles/machine-learning-create-experiment/
+[Introduzione a Machine Learning in Azure]: https://azure.microsoft.com/it-IT/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
 [portale di Azure]: https://portal.azure.com/
 
@@ -141,4 +149,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

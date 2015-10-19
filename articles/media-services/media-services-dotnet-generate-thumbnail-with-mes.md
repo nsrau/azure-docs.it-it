@@ -21,10 +21,7 @@
 
 In questo argomento viene illustrato come utilizzare Media Services .NET SDK per codificare un asset e generare anteprime utilizzando Media Encoder Standard. L'argomento definisce i set di impostazioni dell'anteprima XML e JSON che è possibile utilizzare per creare un'attività che esegue la codifica e genera anteprime nello stesso momento. [Questo](https://msdn.microsoft.com/library/mt269962.aspx) documento contiene descrizioni degli elementi che vengono utilizzati da questi predefiniti.
 
-Si applicano le considerazioni seguenti:
-
-- L'utilizzo di timestamp espliciti per Inizio/Passaggio/Intervallo presuppone che l'origine dell'input duri almeno 1 minuto.
-
+Assicurarsi di esaminare la sezione [Considerazioni](media-services-dotnet-generate-thumbnail-with-mes.md#considerations).
 
 ##Esempio
 
@@ -355,6 +352,25 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
 	  </Outputs>
 	</Preset>
 
+##Considerazioni
+
+Si applicano le considerazioni seguenti:
+
+- L'utilizzo di timestamp espliciti per Inizio/Passaggio/Intervallo presuppone che l'origine dell'input duri almeno 1 minuto.
+- Gli elementi Jpg/Png/BmpVideo hanno gli attributi inizio, passaggio e intervallo della stringa - questi possono essere interpretati come:
+
+	- Se sono numeri interi non negativi, numero di frame, ad esempio "Start": "120",
+	- Relativi alla durata di origine se espressi con il suffisso %, ad esempio. "Start": "15%", OPPURE
+	- Timestamp se espressi nel formato HH:MM:SS. ed esempio "Start" : "00:01:00"
+
+	È possibile combinare e associare le notazioni a piacimento.
+	
+	Inoltre, Inizio supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" della NOTA contenuto: (Passaggio e Intervallo vengono ignorati quando Inizio è impostato su {Best})
+	
+	- Impostazioni predefinite: Start: {Best}
+- Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, AMS collegherà JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
+
+
 ##Percorsi di apprendimento di Media Services
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
@@ -366,4 +382,4 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

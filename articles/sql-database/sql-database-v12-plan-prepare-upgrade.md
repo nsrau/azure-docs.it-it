@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/01/2015"
 	ms.author="genemi"/>
 
 
@@ -33,8 +33,7 @@ Nella seguente tabella vengono elencati altri argomenti della Guida relativi all
 | Titolo e collegamento | Descrizione del contenuto |
 | :--- | :--- |
 | [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md) | Fornisce informazioni dettagliate sulle funzionalità della versione 12 che avvicinano il database SQL di Azure a Microsoft SQL Server. |
-| [Procedura dettagliata: effettuare l'iscrizione all'ultimo aggiornamento alla versione 12 del database SQL](sql-database-v12-sign-up.md) | Viene descritta la procedura da eseguire per aggiornare i database SQL di Azure alla versione 12. |
-| [Creare un database nella versione 12 di aggiornamento del database SQL](sql-database-create.md) | Viene descritto come creare un nuovo database SQL di Azure versione 12. Illustra le varie opzioni oltre alla semplice creazione di un database vuoto. |
+| [Creare un database nella versione 12 del database SQL](sql-database-get-started.md) | Viene descritto come creare un nuovo database SQL di Azure versione 12. Illustra le varie opzioni oltre alla semplice creazione di un database vuoto. |
 
 
 ## Pianificazione
@@ -60,9 +59,9 @@ A partire dalla versione 12, il database SQL di Azure supporterà solo i livelli
 
 Per informazioni dettagliate sui livelli di servizio Basic, Standard e Premium, vedere:
 
-
+- [Livelli di servizio del database SQL](sql-database-service-tiers.md)
 - [Aggiornare le edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-new-service-tiers.md)
-- [Database SQL di Azure - Prezzi](http://azure.microsoft.com/pricing/details/sql-database/)
+
 
 
 ### Rivedere la configurazione della replica geografica
@@ -254,4 +253,4 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

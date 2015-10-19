@@ -102,6 +102,8 @@ Utilizzare la [procedura di accesso a una macchina virtuale con una connessione 
 
 Utilizzare la procedura [Per verificare la connettività](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) quattro volte, una per ogni server SharePoint, per testare la connettività ai percorsi nella rete dell'organizzazione.
 
+> [AZURE.NOTE]I server di SharePoint vengono creati dall'immagine di traccia di SharePoint Server 2013 versione di prova. È necessario convertire l'installazione per l'utilizzo di una chiave Retail o Volume License per le edizioni Standard o Enterprise di SharePoint Server 2013.
+
 ## Configurare la farm di SharePoint
 
 Utilizzare questi passaggi per configurare il primo server SharePoint nella farm:
@@ -195,4 +197,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

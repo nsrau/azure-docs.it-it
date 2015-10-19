@@ -1,21 +1,21 @@
 <properties
    pageTitle="Usare Hive di Hadoop e SSH in HDInsight | Microsoft Azure"
-	description="Informazioni su come usare SSH per connettersi a un cluster Hadoop in HDInsight e quindi inviare in modo interattivo query Hive usando l'interfaccia della riga di comando di Hive."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="Informazioni su come usare SSH per connettersi a un cluster Hadoop in HDInsight e quindi inviare in modo interattivo query Hive usando l'interfaccia della riga di comando di Hive."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/28/2015"
+   ms.author="larryfr"/>
 
 #Uso di Hive con Hadoop in HDInsight tramite SSH
 
@@ -23,7 +23,7 @@
 
 In questo articolo si apprenderà come usare SSH (Secure Shell) per connettersi a un cluster Hadoop in Azure HDInsight e quindi inviare in modo interattivo query Hive mediante l'interfaccia della riga di comando di Hive.
 
-> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere [Informazioni utili su Hadoop in HDInsight basato su Linux](hdinsight-hadoop-linux-information.md).
+> [AZURE.IMPORTANT]Anche se il comando Hive è disponibile nei cluster HDInsight basati su Linux, è consigliabile utilizzare Beeline. Beeline è un client più recente per l'utilizzo di Hive ed è incluso con il cluster HDInsight. Per ulteriori informazioni sull'utilizzo di questo, vedere [Utilizzo di Hive con Hadoop in HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -147,4 +147,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

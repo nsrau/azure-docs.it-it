@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 
@@ -64,7 +64,7 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 
 ####<a name="land"></a> Cosa fa il comando 'Aggiungi Application Insights'
 
-Il comando permette le seguenti fasi (che potrebbero invece essere eseguite manualmente se si preferisce):
+Il comando permette le seguenti fasi (che potrebbero invece essere eseguite [manualmente](app-insights-start-monitoring-app-health-usage.md) se si preferisce):
 
 * Creazione di una risorsa Application Insights nel [portale di Azure][portal]. E’ qui che verranno visualizzati i dati. Recupera la *chiave di strumentazione*, che identifica la risorsa.
 * Aggiunge il pacchetto NuGet di SDK di Application Insights Web al progetto. In Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet.
@@ -99,8 +99,9 @@ Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipel
 
 #### Dati non visualizzati
 
-* Aprire il riquadro [Ricerca][diagnostic] per visualizzare i singoli eventi.
+* Verificare che si sta osservando la cosa giusta. Accedere al [Portale di Azure](https://portal.azure.com), fare clic su "Sfoglia >", "Application Insights", quindi selezionare l'applicazione.
 * Usare l'applicazione, aprendo pagine diverse in modo da generare alcuni dati di telemetria.
+* Aprire il pannello [Ricerca][diagnostic] per visualizzare i singoli eventi. Talvolta gli eventi richiedono un po' più di tempo per passare attraverso la pipeline delle metriche.
 * Attendere alcuni secondi e fare clic su Aggiorna.
 * Vedere [Risoluzione dei problemi][qna].
 
@@ -111,15 +112,13 @@ Vedere [questa sezione sulla risoluzione dei problemi](app-insights-troubleshoot
 
 ## Aggiungere il monitoraggio del browser
 
-Il monitoraggio sul lato browser o client fornisce dati su utenti, sessioni, visualizzazioni di pagina ed eventuali eccezioni o arresti anomali verificatisi nel browser.
+Il monitoraggio del browser fornisce dati su utenti, sessioni, visualizzazioni di pagina ed eventuali eccezioni o arresti anomali verificatisi nel browser.
 
 ![Scegliere Nuovo, quindi Servizi per gli sviluppatori, Application Insights.](./media/app-insights-asp-net/16-page-views.png)
 
-Sarà anche possibile scrivere il proprio codice personalizzato per tenere traccia dei modi in cui gli utenti interagiscono con l'app, a un livello di dettaglio che include i clic e le sequenze di tasto.
+Sarà anche possibile scrivere codice personalizzato per tenere traccia del modi in cui gli utenti interagiscono con l'app, a un livello di dettaglio che include i clic e le sequenze di tasto.
 
-#### Se i client sono Web browser
-
-Se l'app visualizza pagine Web, aggiungere un frammento di codice JavaScript in ogni pagina. Ottenere il codice dalla risorsa di Application Insights:
+Aggiungere un frammento di codice JavaScript in ogni pagina. Ottenere il codice dalla risorsa di Application Insights:
 
 ![Nell'app Web scegliere Avvio rapido, quindi ottenere il codice per monitorare le pagine Web.](./media/app-insights-asp-net/02-monitor-web-page.png)
 
@@ -127,11 +126,6 @@ Si noti che il codice contiene la chiave di strumentazione che identifica la ris
 
 [Altre informazioni sul rilevamento delle pagine Web.](app-insights-web-track-usage.md)
 
-#### Se i client sono app per dispositivi
-
-Se l'applicazione soddisfa le richieste di client quali telefono o altri dispositivi, aggiungere l'[SDK appropriato](app-insights-platforms.md) all'app per dispositivi.
-
-Se si configura l'SDK client con la stessa chiave di strumentazione dell'SDK del server, i due flussi verranno integrati e sarà possibile visualizzarli insieme.
 
 ## Monitoraggio dell'utilizzo
 
@@ -196,7 +190,7 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 ![Nell'app Web scegliere Impostazioni, Estensioni, Aggiungi, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
-Quest’estensione è applicabile solo a un'app compilata con l'SDK. A differenza di Status Monitor, non è in grado di instrumentare un'app esistente.
+(È possibile inoltre aggiungere l'estensione a un'applicazione che è già attiva, anche se non è stato installato il SDK in essa.)
 
 #### Ruoli di servizi per il monitoraggio cloud di Azure
 
@@ -248,4 +242,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

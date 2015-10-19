@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Confronto: Apache Storm e Analisi di flusso di Azure | Microsoft Azure"
 	description="Imparare a utilizzare Analisi di flusso per l'analisi dei sentimenti di Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale."
+	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/13/2015"
+	ms.date="10/05/2015"
 	ms.author="jeffstok"/>
 
 # Confronto tra Apache Storm e Analisi di flusso di Azure #
@@ -123,7 +124,7 @@ Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si
                     Il prezzo di Analisi di flusso viene determinato dal volume dei dati elaborati e dal numero di unità di streaming (per ogni ora di esecuzione del processo) necessarie.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/it-it/pricing/details/stream-analytics/">Altre informazioni sui prezzi sono disponibili qui</a>.
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Altre informazioni sui prezzi sono disponibili qui</a>.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -131,7 +132,7 @@ Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si
                     Per Apache Storm in HDInsight, l'unità di acquisto è basata su cluster e l'addebito avviene in base al tempo di esecuzione del cluster, indipendentemente dai processi distribuiti.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/it-it/pricing/details/hdinsight/">Altre informazioni sui prezzi sono disponibili qui</a>.
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Altre informazioni sui prezzi sono disponibili qui</a>.
                 </p>
             </td>
         </tr>
@@ -589,4 +590,4 @@ Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si
     </tbody>
 </table>
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

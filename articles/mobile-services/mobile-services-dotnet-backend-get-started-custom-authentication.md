@@ -390,7 +390,7 @@ Questa sezione descrive i passaggi necessari per accedere agli endpoint di auten
 
 	È necessario chiamare l'endpoint **CustomRegistration** solo una volta per creare un account per un determinato utente, purché si mantengano le informazioni di accesso utente nella tabella degli account. Per esempi relativi alla chiamata di un'API personalizzata nelle varie piattaforme client supportate, vedere l'articolo relativo all'uso di un'[API personalizzata negli SDK dei client per Servizi mobili di Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 	 
-	> [AZURE.IMPORTANT]Poiché questo passaggio di provisioning utente viene eseguito solo una volta, è consigliabile creare l'account utente in modalità fuori banda. Per un endpoint di registrazione pubblico è consigliabile anche implementare un processo di verifica basato su SMS o e-mail o un'altra misura di protezione per impedire la generazione di account fraudolenti. È possibile usare Twilio per inviare messaggi SMS da Servizi mobili. Per altre informazioni, vedere la sezione [Procedura: Inviare un messaggio SMS](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms). È anche possibile usare SendGrid per inviare e-mail da Servizi mobili. Per altre informazioni, vedere l'articolo relativo all'[invio di e-mail da Servizi mobili con SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+	> [AZURE.IMPORTANT]Poiché questo passaggio di provisioning utente viene eseguito solo una volta, è consigliabile creare l'account utente in modalità fuori banda. Per un endpoint di registrazione pubblico è consigliabile anche implementare un processo di verifica basato su SMS o e-mail o un'altra misura di protezione per impedire la generazione di account fraudolenti. È possibile usare Twilio per inviare messaggi SMS da Servizi mobili. È anche possibile usare SendGrid per inviare e-mail da Servizi mobili. Per altre informazioni sull’utilizzo di SendGrid, vedere l'articolo relativo all'[invio di e-mail da Servizi mobili con SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
 	
 3. Usare nuovamente il metodo appropriato **invokeApi**, questa volta per chiamare l'endpoint **CustomLogin**, passando il nome utente e la password forniti dal runtime nel corpo del messaggio.
 
@@ -420,4 +420,4 @@ L'esercitazione è terminata.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

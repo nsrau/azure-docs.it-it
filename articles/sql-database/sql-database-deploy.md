@@ -3,7 +3,7 @@
 	description="Distribuire un database di SQL Server nel database SQL di Azure tramite la procedura guidata in SQL Server 2016 Management Studio." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sidneyh" 
+	authors="CarlRabeler" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
-	ms.author="sidneyh"/>
+	ms.date="10/08/2015" 
+	ms.author="carlrab"/>
 
 
 # Informazioni su come distribuire un database di SQL Server in Azure.
@@ -593,4 +593,4 @@ Per un'esercitazione sulla creazione di un nuovo database SQL Azure, vedere [Int
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

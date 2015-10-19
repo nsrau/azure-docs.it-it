@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: esempi di codice e procedure dettagliate
@@ -35,7 +35,7 @@ Questo articolo illustra esempi di codice relativi all'uso di [Application Insig
 Per analizzare i dati di telemetria con strumenti personalizzati, [esportarli](app-insights-export-telemetry.md) nell'archivio, in cui è possibile analizzarli ed elaborarli.
 
 * [Esportare in Power BI](app-insights-export-power-bi.md) 
-* [Eseguire l'esportazione in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Analizzare i dati esportati con un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Eseguire l'esportazione in SQL usando l'analisi di flusso](app-insights-code-sample-export-sql-stream-analytics.md)
 * [Abilitazione della telemetria per Microsoft CRM](app-insights-sample-mscrm.md)
 
@@ -53,4 +53,4 @@ Per analizzare i dati di telemetria con strumenti personalizzati, [esportarli](a
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

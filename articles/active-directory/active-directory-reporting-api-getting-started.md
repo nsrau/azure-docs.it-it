@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introduzione all'API di creazione report di Azure AD"
-	description="Come iniziare a usare l'API di creazione report di Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
-	editor=""/>
+   description="Come iniziare a usare l'API di creazione report di Azure Active Directory"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/17/2015"
-	ms.author="kenhoff;yossib"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="07/17/2015"
+   ms.author="kenhoff;yossib"/>
 
 
 # Introduzione all'API di creazione report di Azure AD
@@ -157,10 +157,15 @@ Una volta modificato lo script, eseguirlo e verificare che vengano restituiti i 
 
 Lo script restituisce l'elenco di tutti i report disponibili e restituisce l'output del report AccountProvisioningEvents nella finestra di PowerShell in formato JSON. Crea anche i file con lo stesso output in formato JSON, testo e XML. È possibile sperimentare ulteriormente modificando lo script inserendo commenti affinché restituisca i dati da altri report e rimuovere i commenti per i formati di output non necessari.
 
+## Note
+
+- Non esiste alcun limite al numero di eventi restituiti da Azure AD Reporting API (utilizzando l’impaginazione OData).
+	- Per i limiti di memorizzazione sui dati di report, consultare [Criteri di conservazione Reporting](active-directory-reporting-retention.md).
+
 
 ## Passaggi successivi
 - Per informazioni sui report di sicurezza, controllo e attività disponibili, vedere [Report di sicurezza, controllo e attività di Azure AD](active-directory-view-access-usage-reports.md)
 - Per informazioni dettagliate sul report di controllo, vedere [Eventi dei report di controllo di Azure AD](active-directory-reporting-audit-events.md)
 - Per informazioni dettagliate sul servizio REST dell'API Graph, vedere [Report ed eventi di Azure AD (anteprima)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

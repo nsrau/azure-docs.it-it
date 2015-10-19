@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione a Distribuzione di Video on Demand (VoD) tramite API REST" 
-	description="Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando le API REST di Servizi multimediali di Azure." 
+	pageTitle="Introduzione alla distribuzione di contenuti su richiesta utilizzando l'API REST" 
+	description="Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti su richiesta con Servizi multimediali di Azure tramite REST API." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -16,7 +16,7 @@
 	ms.date="09/18/2015" 
 	ms.author="juliako"/>
 
-#Introduzione a Distribuzione di Video on Demand (VoD) tramite API REST 
+#Introduzione alla distribuzione di contenuti su richiesta utilizzando l'API REST
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -1190,15 +1190,18 @@ Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](h
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
 
 
+##Passaggi successivi
 
-##Percorsi di apprendimento di Media Services
+###Percorsi di apprendimento di Media Services
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
 
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+### Se si è alla ricerca di qualcos’altro.
 
+Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
 
 ##Risorse aggiuntive
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servizi multimediali di Azure 101 - Pubblicare un video online</a>
@@ -1212,4 +1215,4 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

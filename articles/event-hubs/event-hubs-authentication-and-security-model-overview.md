@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Panoramica sull’autenticazione di Hub eventi e sul modello di protezione"
+   pageTitle="Panoramica sul modello di autenticazione e di sicurezza di Hub di eventi | Microsoft Azure"
    description="Domande frequenti su Hub eventi"
    services="event-hubs"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="sethm" />
 
 # Panoramica sull’autenticazione di Hub eventi e sul modello di protezione
@@ -20,14 +20,12 @@
 Il modello di protezione di Hub eventi soddisfa i requisiti seguenti:
 
 - Solo i dispositivi che presentano le credenziali valide possono inviare dati a un Hub eventi.
-
 - Un dispositivo non può rappresentare un altro dispositivo.
-
 - A un dispositivo non autorizzato può essere impedito l’invio di dati a un Hub eventi.
 
 ## Autenticazione del dispositivo
 
-Il modello di protezione di Hub eventi si basa su una combinazione di token [Shared Access Signature (SAS)](https://msdn.microsoft.com/library/dn170477.aspx) e autori di eventi. Un autore di eventi definisce un endpoint virtuale per un Hub eventi. L’autore è utilizzabile solo per inviare messaggi a un Hub eventi. Non è possibile ricevere messaggi da un autore.
+Il modello di protezione di Hub eventi si basa su una combinazione di token [Shared Access Signature (SAS)](service-bus-shared-access-signature-authentication.md) e autori di eventi. Un autore di eventi definisce un endpoint virtuale per un Hub eventi. L’autore è utilizzabile solo per inviare messaggi a un Hub eventi. Non è possibile ricevere messaggi da un autore.
 
 In genere, un Hub eventi utilizza un autore per ogni dispositivo. Tutti i messaggi inviati a uno qualsiasi degli autori di un Hub eventi vengono accodati all'interno di tale Hub eventi. Gli autori consentono la limitazione e il controllo dell’accesso con granularità fine.
 
@@ -37,14 +35,13 @@ Sebbene non sia consigliato, è possibile dotare i dispositivi di token che conc
 
 Tutti i token sono firmati con una chiave SAS. In genere, tutti i token sono firmati con la stessa chiave. I dispositivi non conoscono la chiave, per cui non possono produrre token.
 
-### Creazione della chiave
+### Creare la chiave SAS
 
 Quando si crea uno spazio dei nomi, Bus di servizio genera una chiave SAS a 256 bit denominata **RootManageSharedAccessKey**. Tale chiave concede diritti di invio, attesa e gestione allo spazio dei nomi. È possibile creare ulteriori chiavi. Si consiglia di produrre una chiave che concede le autorizzazioni di invio allo specifico Hub eventi. Nella parte restante di questo argomento, si presuppone che questa chiave sia denominata `EventHubSendKey`.
 
 Nell'esempio seguente viene creata una chiave di solo invio durante la creazione dell'Hub eventi:
 
-```C#
-
+```
 // Create namespace manager.
 string serviceNamespace = "YOUR_NAMESPACE";
 string namespaceManageKeyName = "RootManageSharedAccessKey";
@@ -60,24 +57,29 @@ string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
 SharedAccessAuthorizationRule eventHubSendRule = new SharedAccessAuthorizationRule(eventHubSendKeyName, eventHubSendKey, new[] { AccessRights.Send });
 ed.Authorization.Add(eventHubSendRule); 
 nm.CreateEventHub(ed);
-
 ```
 
-### Generazione di token
+### Generare token
 
 È possibile generare token utilizzando la chiave SAS. È necessario ottenere solo un token per dispositivo. È possibile produrre token utilizzando il metodo riportato di seguito. Tutti i token vengono generati utilizzando la chiave **EventHubSendKey**. A ogni token viene assegnato un URI univoco.
 
-	public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
+```
+public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
+```
 
 Quando si chiama questo metodo, l'URI deve essere specificato come `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Per tutti i token l'URI è identico, ad eccezione di `PUBLISHER_NAME`, che deve essere diverso per ogni token. In teoria, `PUBLISHER_NAME` rappresenta l'ID del dispositivo che riceve il token.
 
 Questo metodo genera un token con la struttura seguente:
 
-	SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
+```
+SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
+```
 
 L'ora di scadenza del token è espressa in secondi dal 1 gennaio 1970. Di seguito è riportato un esempio di token:
 
-	SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
+```
+SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
+```
 
 In genere, i token hanno una durata simile o superiore a quella del dispositivo. Se il dispositivo è in grado di ottenere un nuovo token, è possibile utilizzare token con una durata più breve.
 
@@ -101,31 +103,43 @@ In assenza di autenticazione SAS per gruppi di consumer singoli, è possibile ut
 
 ### Creazione di identità del servizio, relying party e regole in ACS
 
-ACS supporta diversi modi per creare identità del servizio, relying party e regole, ma il modo più semplice consiste nell'utilizzare il [SBAZTool](http://code.msdn.microsoft.com/windowsazure/Authorization-SBAzTool-6fd76d93). Ad esempio:
+ACS supporta diversi modi per creare identità del servizio, relying party e regole, ma il modo più semplice consiste nell'utilizzare il [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Ad esempio:
 
 1. Creare un'identità del servizio per un **EventHubSender**. Restituisce il nome dell'identità del servizio creato e la relativa chiave:
 
-		sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
+	```
+	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
+	```
 
 2. Concedere a **EventHubSender** l’invio di attestazioni per l'Hub eventi:
 
-		sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
+	```
+	sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
+	```
 
 3. Creare un'identità del servizio per un destinatario del gruppo di consumer 1:
 
-		sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
+	```
+	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
+	```
 
 4. Concedere a `consumergroup1receiver` l’attesa di attestazioni per **ConsumerGroup1**:
 
-		sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
+	```
+	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
+	```
 
 5. Creare un'identità del servizio per un destinatario per il **gruppo di consumer 2**:
 
-		sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
+	```
+	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
+	```
 
 6. Concedere a `consumergroup2receiver` l’attesa di attestazioni a **ConsumerGroup2**:
 
-		sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
+	```
+	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
+	```
 
 ## Passaggi successivi
 
@@ -136,8 +150,8 @@ Per ulteriori informazioni su Hub eventi, visitare i seguenti argomenti:
 - Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
 
 [Panoramica di Hub eventi]: event-hubs-overview.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[soluzione di messaggistica accodata]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
+[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

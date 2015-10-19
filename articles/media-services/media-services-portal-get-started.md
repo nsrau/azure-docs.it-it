@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione alla distribuzione di video on demand (VoD) tramite il portale di Azure | Microsoft Azure"
+	pageTitle="Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure | Microsoft Azure"
 	description="Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti video on demand (VoD) con Servizi multimediali di Azure tramite il portale di Azure."
 	services="media-services"
 	documentationCenter=""
@@ -11,13 +11,14 @@
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
+	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# Introduzione alla distribuzione di video on demand (VoD) tramite il portale di Azure
+# Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -222,12 +223,18 @@ Considerazioni applicabili:
 
 
 
-##Percorsi di apprendimento di Media Services
+##Passaggi successivi
+
+###Percorsi di apprendimento di Media Services
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
 
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Se si è alla ricerca di qualcos’altro.
+
+Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
 
 ### Risorse aggiuntive
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servizi multimediali di Azure 101 - Pubblicare un video online</a>
@@ -254,4 +261,4 @@ Considerazioni applicabili:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -82,7 +82,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 
 1. In **Esplora soluzioni** aprire il file *Layout.cshtml* nella cartella *Views\\Shared*.
 
-	![_Layout.cshtml in Solution Explorer][newapp004]
+	![\_Layout.cshtml in Solution Explorer][newapp004]
 
 1. Sostituire il markup nel file *Layout.cshtml* con il codice seguente. Le modifiche sono evidenziate qui di seguito.
 
@@ -97,7 +97,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverase navbar-fixed-top">
+		    <div class="navbar navbar-inverse navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -212,7 +212,7 @@ Creare innanzitutto un semplice modello di dati nel codice.
 
 	![Finestra di dialogo Aggiungi nuovo elemento][adddb002]
 
-3. Sostituire il contenuto del file Contacts.cs con il codice seguente.
+3. Sostituire il contenuto del file Contact.cs con il codice seguente.
 
         using System.ComponentModel.DataAnnotations;
         using System.Globalization;
@@ -230,7 +230,7 @@ Creare innanzitutto un semplice modello di dati nel codice.
                 public string Email { get; set; }
             }
         }
-La classe **Contacts** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, *ContactID*, necessaria per il database.
+La classe **Contact** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, *ContactID*, necessaria per il database.
 
 ### Creare pagine Web che consentono agli utenti dell'app di utilizzare i contatti
 
@@ -720,4 +720,4 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

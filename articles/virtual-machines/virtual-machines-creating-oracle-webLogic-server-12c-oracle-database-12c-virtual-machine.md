@@ -1,9 +1,26 @@
-<properties pageTitle="Creazione di una macchina virtuale Oracle WebLogic Server 12c e Oracle Database 12c in Azure" description="Seguire un esempio di creazione di un’immagine Oracle WebLogic Server 12c e Oracle Database 12c in esecuzione su Windows Server 2012 in Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Oracle WebLogic Server e Database VM | Microsoft Azure"
+	description="Creare un’immagine Oracle WebLogic Server c 12 e Database Oracle 12c Azure in esecuzione su Windows Server 2012, utilizzando il modello di distribuzione di gestione delle risorse."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
 
 #Creare una macchina virtuale Oracle WebLogic Server 12c e Oracle Database 12c in Azure
 
 Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su un'immagine Oracle WebLogic Server 12c e Oracle Database 12c fornita da Microsoft in esecuzione su Windows Server 2012 in Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la creazione di una macchina virtuale e database Oracle WebLogic Server mediante il modello di distribuzione di Gestione risorse.
+
 
 ##Per creare una macchina virtuale Oracle WebLogic Server 12c e Oracle Database 12c in Azure
 
@@ -19,7 +36,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 6.	Specificare e confermare una password per la macchina virtuale o fornire una chiave pubblica Secure Shell (SSH).
 
-7.	Scegliere un **livello di prezzo**. Si noti che i livelli di prezzo consigliati vengono visualizzati per impostazione predefinita. Per visualizzare tutte le opzioni di configurazione, fare clic su**Visualizza tutto**in alto a destra.
+7.	Scegliere un **piano tariffario**. Si noti che i livelli di prezzo consigliati vengono visualizzati per impostazione predefinita. Per visualizzare tutte le opzioni di configurazione, fare clic su**Visualizza tutto**in alto a destra.
 
 8. Impostare le configurazioni facoltative in base alle esigenze. Seguire queste considerazioni:
 
@@ -29,11 +46,11 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 	c. Al momento non aggiungere alcun endpoint.
 
-9.	Scegliere o creare un gruppo di risorse. Per ulteriori informazioni, vedere[Utilizzare il portale di anteprima di Azure per gestire le risorse di Azure](resource-group-portal.md).
+9.	Scegliere o creare un gruppo di risorse. Per ulteriori informazioni, vedere [Utilizzare il portale di anteprima di Azure per gestire le risorse di Azure](resource-group-portal.md).
 
 10. Scegliere una **Sottoscrizione**.
 
-11. Selezionare un **Percorso**.
+11. Scegliere una **Posizione**.
 
 
 ##Per creare il database ospitato in questa macchina virtuale
@@ -54,4 +71,4 @@ Seguire le istruzioni in [Creazione di una macchina virtuale Oracle WebLogic Ser
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

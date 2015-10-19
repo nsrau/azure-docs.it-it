@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Distribuire le risorse di Azure utilizzando librerie di calcolo, rete e archiviazione .NET"
-	description="Informazioni su come utilizzare alcuni dei client disponibili nelle librerie di calcolo, archiviazione e rete .NET per creare ed eliminare le risorse in Microsoft Azure"
+	pageTitle="Distribuire le risorse usando le librerie .NET | Microsoft Azure"
+	description="Informazioni su come utilizzare le librerie di calcolo, archiviazione e rete .NET per creare ed eliminare le risorse in Microsoft Azure utilizzando Gestione risorse."
 	services="virtual-machines,virtual-network,storage"
 	documentationCenter=""
 	authors="davidmu1"
@@ -29,7 +29,7 @@ Per completare questa esercitazione sono inoltre necessari:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Account di archiviazione di Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/IT-IT/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/IT-IT/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/it-IT/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/it-IT/download/details.aspx?id=40855)
 - [Azure PowerShell](../install-configure-powershell.md)
 
 L'esecuzione di questi passaggi richiede circa 30 minuti.
@@ -189,7 +189,7 @@ Le risorse vengono sempre distribuite per un gruppo di risorse. È possibile usa
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
-###Crea rete virtuale
+###Creare la configurazione di rete
 
 Una macchina virtuale è più produttiva quando viene aggiunta a una rete virtuale.
 
@@ -390,4 +390,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio | Microsoft Azure"
-	description="Debug di un servizio cloud o di una macchina virtuale in Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Debug di un servizio cloud o di una macchina virtuale in Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 # Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio
 
@@ -190,4 +190,4 @@ I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina v
 - Usare **Intellitrace** per raccogliere un registro degli eventi e delle chiamate da un server di rilascio. Vedere [Debug di un servizio cloud pubblicato con IntelliTrace e Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Usare **Diagnostica di Azure** per registrare informazioni dettagliate dal codice eseguito all'interno dei ruoli, sia che essi siano eseguiti nell'ambiente di sviluppo o in Azure. Vedere [Raccogliere dati di registrazione usando Diagnostica di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

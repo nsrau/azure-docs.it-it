@@ -1,6 +1,6 @@
 <properties      
     pageTitle="Partizione e dati di scalabilità in DocumentDB con partizionamento orizzontale | Microsoft Azure"      
-    description="Esaminare la scalabilità dei dati con una tecnica denominata partizionamento orizzontale. Informazioni sui partizionamento, su come eseguire il partizionamento dei dati in DocumentDB e su quando usare il partizionamento hash, per intervalli e basato su ricerca."         
+    description="Esaminare la scalabilità dei dati con una tecnica denominata partizionamento orizzontale. Informazioni sui partizionamento, su come eseguire il partizionamento dei dati in DocumentDB e su quando usare il partizionamento hash, e per intervalli."         
     keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
 	services="documentdb"      
     authors="arramac"      
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="09/14/2015"      
+    ms.date="10/05/2015"      
     ms.author="arramac"/>
 
 # Dati di partizione e di scalabilità in DocumentDB
@@ -24,7 +24,7 @@ Grazie al **partizionamento orizzontale** dei dati, è possibile ottenere una sc
 
 Dopo la lettura di questo articolo sui dati di scalabilità, si potrà rispondere alle domande seguenti:
 
- - Cos'è il partizionamento hash, per intervalli e basato su ricerca?
+ - Che cos'è l'hash e il partizionamento per intervalli?
  - Quando è perché è consigliabile usare ogni tecnica di partizionamento?
  - Come procedere alla compilazione di un'applicazione partizionata in Azure DocumentDB?
 
@@ -56,13 +56,13 @@ Un caso speciale di partizionamento per intervalli è quando l'intervallo è un 
 
 Nel partizionamento hash le partizioni vengono assegnate in base al valore di una funzione hash, permettendo di distribuire uniformemente richieste e dati tra diverse partizioni. Questo approccio viene generalmente usato per il partizionamento dei dati prodotti o utilizzati da un numero elevato di client distinti e risulta utile per l'archiviazione di profili utente, elementi del catalogo e dati di telemetria del dispositivo IoT ("Internet of Things").
 
-> [AZURE.TIP]È consigliabile usare il partizionamento hash ogni volta che sono presenti troppe entità per l'enumerazione tramite il partizionamento basato su ricerca (ad esempio, utenti o dispositivi) e la frequenza delle richieste è abbastanza uniforme tra le entità.
+> [AZURE.TIP]È consigliabile usare il partizionamento hash ogni volta che sono presenti troppe entità per l'enumerazione (ad esempio, utenti o dispositivi) e la frequenza delle richieste è abbastanza uniforme tra le entità.
 
 ## Scelta della tecnica di partizionamento corretta
 
 Quale tecnica di partizionamento è quindi adatta alle proprie esigenze ? Dipende dal tipo di dati e dai modelli di accesso comuni. La scelta della tecnica di partizionamento corretta in fase di progettazione permette di evitare il debito tecnico e di gestire la crescita delle dimensioni dei dati e dei volumi delle richieste.
 
-- **Partizionamento per intervalli**: viene usato in genere nel contesto delle date, in quanto offre un meccanismo semplice e naturale per definire la durata delle partizioni in base al timestamp. È utile anche quando le query vengono generalmente vincolate a un intervallo di tempo, dal momento che viene allineato con i limiti del partizionamento. Permette anche di raggruppare e organizzare in modo naturale set di dati non ordinati e non correlati, ad esempio, raggruppare tenant per organizzazione o stati per area geografica. La ricerca offre inoltre un controllo dettagliato per la migrazione dei dati tra raccolte. 
+- **Partizionamento per intervalli**: viene usato in genere nel contesto delle date, in quanto offre un meccanismo semplice e naturale per definire la durata delle partizioni in base al timestamp. È utile anche quando le query vengono generalmente vincolate a un intervallo di tempo, dal momento che viene allineato con i limiti del partizionamento. Permette anche di raggruppare e organizzare in modo naturale set di dati non ordinati e non correlati, ad esempio, raggruppare tenant per organizzazione o stati per area geografica. L’intervallo offre inoltre un controllo dettagliato per la migrazione dei dati tra raccolte. 
 - **Partizionamento hash**: è utile per il bilanciamento uniforme del carico delle richieste per rendere effettivo l’uso di risorse di archiviazione e velocità effettiva con provisioning. L'uso di algoritmi di *hashing coerente* consente di ridurre al minimo la quantità di dati da spostare quando si aggiunge o si rimuove una partizione.
 
 Non è necessario scegliere una sola tecnica di partizionamento. A seconda dello scenario, può anche essere utile un *insieme* di queste tecniche. Ad esempio, se si archiviano i dati di telemetria di un veicolo, un buon approccio consiste nel partizionare i dati di telemetria del dispositivo per intervalli in base al timestamp per una migliore gestibilità delle partizioni, quindi creare una partizione secondaria basata sul numero di identificazione del veicolo per applicare la scalabilità orizzontale ai fini della velocità effettiva (partizionamento composito per intervalli-hash).
@@ -78,7 +78,7 @@ Queste aree saranno ora esaminate in maggiore dettaglio.
 
 ## Instradamento di elementi creati e query
 
-L'instradamento delle richieste di creazione di un documento è semplice sia per il partizionamento per intervalli che per quello hash. Il documento viene creato nella partizione dal valore di hash, ricerca o intervallo corrispondente alla chiave di partizione.
+L'instradamento delle richieste di creazione di un documento è semplice sia per il partizionamento per intervalli che per quello hash. Il documento viene creato nella partizione dal valore di hash, o intervallo corrispondente alla chiave di partizione.
 
 Query e richieste di lettura dovrebbero, in genere, essere limitate a una singola chiave di partizione, in modo da effettuare il fan-out delle query solo alle partizioni corrispondenti. Per le query su tutti i dati sarebbe tuttavia necessario *effettuare il fan-out* della richiesta tra più partizioni e quindi unire i risultati. Tenere presente che per alcune query potrebbe essere necessario eseguire una logica personalizzata per unire i risultati, ad esempio si recuperano i primi N risultati.
 
@@ -92,7 +92,7 @@ In caso contrario, è possibile archiviarla in qualsiasi archivio permanente. Un
 
 Con DocumentDB è possibile aggiungere e rimuovere raccolte in qualsiasi momento e usarle per archiviare nuovi dati in ingresso o ribilanciare i dati disponibili nelle raccolte esistenti. Per il numero di raccolte, vedere la pagina relativa ai [limiti](documentdb-limits.md). È sempre possibile contattare Microsoft per aumentare tali limiti.
 
-L'aggiunta e la rimozione di una nuova partizione con il partizionamento basato su ricerca o per intervalli sono operazioni semplici. Ad esempio, per aggiungere una nuova area geografica o un nuovo intervallo di tempo per i dati recenti, è sufficiente aggiungere le nuove partizioni alla mappa partizioni. La suddivisione di una partizione esistente in più partizioni oppure l'unione di due partizioni sono operazioni leggermente più complesse. È necessario
+L'aggiunta e la rimozione di una nuova partizione con il partizionamento basato su intervalli sono operazioni semplici. Ad esempio, per aggiungere una nuova area geografica o un nuovo intervallo di tempo per i dati recenti, è sufficiente aggiungere le nuove partizioni alla mappa partizioni. La suddivisione di una partizione esistente in più partizioni oppure l'unione di due partizioni sono operazioni leggermente più complesse. È necessario
 
 - Portare offline la partizione per le letture.
 - Instradare le letture a entrambe le partizioni usando la configurazione di partizionamento precedente, nonché la nuova configurazione di partizionamento durante la migrazione. Si noti che le transazioni e garanzie del livello di coerenza non saranno disponibili fino al completamento della migrazione.
@@ -112,4 +112,4 @@ In questo articolo sono state introdotte alcune tecniche su come partizionare i 
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

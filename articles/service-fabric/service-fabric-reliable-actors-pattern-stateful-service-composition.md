@@ -4,7 +4,7 @@
    description="Modello di progettazione di Service Fabric Reliable Actors che usa attori con stato per mantenere lo stato tra più chiamate al servizio e memorizzare nella cache i risultati dei servizi precedenti. Lo stato, inoltre, può essere salvato in modo permanente o temporaneo."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Modello di progettazione di Reliable Actors: composizione dei servizi con stato
 Gli sviluppatori hanno trascorso gli ultimi quindici anni cercando di creare servizi senza stato a N livelli. Hanno realizzato servizi basati su database, compilato servizi di ordine superiore basati su altri servizi e sviluppato motori di orchestrazione e middleware orientato ai messaggi per coordinare questi servizi. Con l'evolversi dei carichi di lavoro utente, e il conseguente aumento della domanda di interattività e scalabilità, un'architettura basata su servizi senza stato ha iniziato a rivelarsi inadeguata.
@@ -91,4 +91,4 @@ I punti deboli dei servizi senza stato appaiono evidenti nella creazione dei ser
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

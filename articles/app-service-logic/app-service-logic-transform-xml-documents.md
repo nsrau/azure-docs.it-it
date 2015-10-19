@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="anuragdalmia"/>
 
 #BizTalk Transform
@@ -22,7 +22,7 @@
 ## Panoramica
 In parole semplici, l'app per le API BizTalk Transform converte i dati da un formato a un altro. Ad esempio, è possibile ricavare gli indirizzi di spedizione e fatturazione da un ordine di acquisto e inserirli in un documento di fatturazione. Se invece si è ricevuto un messaggio contenente la data corrente nel formato *YearMonthDay*, può essere opportuno riformattarla nel formato *MonthDayYear*.
 
-A tale scopo, è possibile usare l'app per le API Transform nel servizio app di Microsoft Azure. Un'app per le API Transform o Map consiste in uno schema XML di origine (input) e in uno schema XML di destinazione (output). È possibile usare diverse funzioni predefinite per contribuire a gestire o controllare i dati, incluse la modifica di stringhe, le operazioni Conditional Assignment, le espressioni aritmetiche, i formattatori di data/ora e persino i costrutti a ciclo continuo.
+A tale scopo, è possibile usare l'app per le API Transform nel servizio app di Microsoft Azure. Un'app per le API Transform, conosciuta anche come Map, consiste in uno schema XML di origine (input) e in uno schema XML di destinazione (output). È possibile usare diverse funzioni predefinite per contribuire a gestire o controllare i dati, incluse la modifica di stringhe, le operazioni Conditional Assignment, le espressioni aritmetiche, i formattatori di data/ora e persino i costrutti a ciclo continuo.
 
 Le mappe vengono create in Visual Studio usando i [SDK di Servizi BizTalk di Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087). Al termine della creazione e del test della mappa, caricare il relativo file con estensione trfm nell'app per le API BizTalk Transform.
 
@@ -116,4 +116,4 @@ Una volta che la mappa è stata creata e verificata, è pronta per l'uso.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

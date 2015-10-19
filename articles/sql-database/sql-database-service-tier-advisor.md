@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/22/2015"
+   ms.date="10/02/2015"
    ms.author="sstein"/>
 
 # Indicazioni sui livelli di prezzo del database SQL
@@ -27,12 +27,16 @@ Ottenere consigli sul livello dei prezzi durante le operazioni seguenti:
 
 - [Modificare il livello di servizio e il livello di prestazioni (livello di prezzo) di un database SQL](sql-database-scale-up.md)
 - [Aggiornare il server SQL Azure a V12](sql-database-v12-upgrade.md)
+- Passare al server V12 - se i database possono [trarre dei vantaggi in un pool di database elastici](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), nel pannello del server verrà visualizzato un messaggio che indica un pool consigliato. Fare clic sul messaggio per creare il pool consigliato.
 - [Creare un pool di database elastici](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+
+
+
 
 
 ## Panoramica
 
-Il servizio Database SQL consente di analizzare le prestazioni e i requisiti di funzionalità correnti valutando l'utilizzo delle risorse cronologiche per un database SQL. Inoltre, il livello di servizio accettabile minimo viene determinato in base alle dimensioni del database e vengono abilitate le funzionalità di [continuità aziendale](https://msdn.microsoft.com/library/azure/hh852669.aspx) funzionalità.
+Il servizio Database SQL consente di analizzare le prestazioni e i requisiti di funzionalità correnti valutando l'utilizzo delle risorse cronologiche per un database SQL. Inoltre, il livello di servizio accettabile minimo viene determinato in base alle dimensioni del database e vengono abilitate le funzionalità di [continuità aziendale](sql-database-business-continuity.md) funzionalità.
 
 Le informazioni vengono analizzate e viene suggerito il livello di prestazioni e il livello di servizio più adatti per l'esecuzione del carico di lavoro tipico del database e la gestione del set di funzionalità correnti.
 
@@ -55,9 +59,8 @@ In base all'utilizzo del database, esistono 2 categorie di indicazioni che posso
 È possibile ottenere le indicazioni sui livelli di prezzo selezionando un database Web o Business esistente e facendo clic sul riquadro **Livello di prezzo**. (I consigli sul livello dei prezzi sono disponibili anche quando si [Esegue l'aggiornamento del server SQL Azure a V12](sql-database-v12-upgrade.md).)
 
 1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
-2. Fare clic su **SFOGLIA** nel menu a sinistra.
-3. Fare clic su **Database SQL** nel pannello **Sfoglia**.
-4. Nel pannello relativo ai **database SQL**, fare clic sul database che si desidera venga analizzato dal servizio.
+2. Fare clic su **ESPLORA** > **database SQL**.
+4. Nel pannello dei **database SQL**, fare clic sul database di cui si desidera visualizzare un suggerimento:
 
     ![Selezionare il database][1]
 
@@ -97,4 +100,4 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Creazione di set di dati"
-	description="Comprendere i set di dati di Data Factory di Azure e come crearli."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Creazione di set di dati" 
+	description="Comprendere i set di dati di Data Factory di Azure e come crearli." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/05/2015" 
 	ms.author="spelluru"/>
 
 # Set di dati
@@ -48,12 +48,12 @@ Un set di dati è una descrizione logica dei dati. I dati descritti possono vari
 
 | Proprietà | Descrizione | Obbligatorio | Default |
 | -------- | ----------- | -------- | ------- |
-| Nome | Nome del set di dati | Sì | ND |
-| Structure | <p>Schema del set di dati</p><p>Vedere la sezione[Struttura del Dataset](#Structure)per ulteriori dettagli</p> | No. | ND |
-| Tipo | Tipo del set di dati | Sì | ND |
+| name | Nome del set di dati | Sì | ND |
+| structure | <p>Schema del set di dati</p><p>Vedere la sezione[Struttura del Dataset](#Structure)per ulteriori dettagli</p> | No. | ND |
+| type | Tipo del set di dati | Sì | ND |
 | typeProperties | <p>Proprietà corrispondente al tipo selezionato</p><p>Vedere la sezione [Tipo Dataset](#Type)per ulteriori informazioni sui tipi supportati e le relative proprietà.</p> | Sì | ND |
 | external | Flag booleano per specificare se un set di dati in modo è generato in modo esplicito da una pipeline di data factory o meno | No | false | 
-| Availability | <p>Definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati. </p><p>Vedere l’argomento[Disponibilità Dataset](#Availability)per ulteriori informazioni</p><p>Vedere[Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md)per ulteriori dettagli sul modello di sezionamento del set di dati </p> | Sì | ND
+| disponibilità | <p>Definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati. </p><p>Vedere l’argomento[Disponibilità Dataset](#Availability)per ulteriori informazioni</p><p>Vedere[Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md)per ulteriori dettagli sul modello di sezionamento del set di dati </p> | Sì | ND
 | policy | Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <p>Vedere l’argomento[Criteri Dataset](#Policy)per ulteriori informazioni</p> | No | ND |
 
 ### Esempio
@@ -109,9 +109,9 @@ La sezione Disponibilità in un set di dati definisce la finestra di elaborazion
 | -------- | ----------- | -------- | ------- |
 | frequency | Specifica l'unità di tempo per la produzione di sezioni di set di dati.<p>** Frequenza supportata **: minuto, ora, giorno, settimana, mese</p> | Sì | ND |
 | interval | Consente di specificare un moltiplicatore di frequenza<p>"Frequency x interval" determina la frequenza con cui il sezionamento viene generato.</p><p>Se è necessario che il set di dati venga sezionato su base oraria, impostare**Frequency**su**Hour**e**interval**su**1**.</p><p> **Nota:** se si specifica la frequenza in minuti, è consigliabile impostare interval su non meno di 15</p> | Sì | ND |
-| style | Specifica se il sezionamento deve essere generato all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>Se frequency è impostata su Month e style è impostato su EndOfInterval, il sezionamento viene generato l'ultimo giorno del mese. Se style è impostato su StartOfInterval, il sezionamento viene generato il primo giorno del mese.<.p><p>Se frequency viene impostata su Day e style è impostato su EndOfInterval, il sezionamento viene generato durante l'ultima ora del giorno.</p>Se frequency è impostata su Hour e style è impostato su EndOfInterval, il sezionamento viene generato alla fine dell'ora. Ad esempio, per una sezione per periodo 1 PM – 2 PM, il sezionamento viene generato alle 2 del pomeriggio.</p> | No | EndOfInterval |
+| style | Specifica se il sezionamento deve essere generato all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>Se frequency è impostata su Month e style è impostato su EndOfInterval, il sezionamento viene generato l'ultimo giorno del mese. Se style è impostato su StartOfInterval, il sezionamento viene generato il primo giorno del mese.</p><p>Se frequency viene impostata su Day e style è impostato su EndOfInterval, il sezionamento viene generato durante l'ultima ora del giorno.</p>Se frequency è impostata su Hour e style è impostato su EndOfInterval, il sezionamento viene generato alla fine dell'ora. Ad esempio, per una sezione per periodo 1 PM – 2 PM, il sezionamento viene generato alle 2 del pomeriggio.</p> | No | EndOfInterval |
 | anchorDateTime | Definisce la posizione assoluta nel tempo utilizzato dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati.<p>** Nota:** se la AnchorDateTime ha parti della data che sono più granulari rispetto alla frequenza allora le parti più granulari vengono ignorate. Ad esempio, se **interval** è **hourly** (frequenza: ora e intervallo: 1) e **AnchorDateTime** contiene **minutes and seconds**, allora le parti **minutes and seconds** dell’AnchorDateTime vengono ignorate.</p>| No | 01/01/0001 |
-| Offset | Intervallo di tempo mediante il quale l'inizio e la fine di tutti i sezionamenti dei set di dati vengono spostati.<p>**Nota:** se vengono specificati sia l’anchorDateTime sia l’offset, il risultato è il turno combinato.</p> | No | ND |
+| offset | Intervallo di tempo mediante il quale l'inizio e la fine di tutti i sezionamenti dei set di dati vengono spostati.<p>**Nota:** se vengono specificati sia l’anchorDateTime sia l’offset, il risultato è il turno combinato.</p> | No | ND |
 
 ### esempi di anchorDateTime
 
@@ -217,4 +217,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L'inv
 
   
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -103,21 +103,21 @@ A questo punto è stata creata una nuova app di Windows universale in cui si int
 
 Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necessario inviare almeno una schermata (Activity) al back-end di Mobile Engagement.
 
-1. 	Nel **MainPage.xaml.cs**, aggiungere l’istruzione `using`:
+1. 	Nel **MainPage.xaml.cs**, aggiungere la seguente istruzione `using`:
 
-		using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement.Overlay;
 
-2. Sostituire la classe di base **MainPage** da **Page** a **EngagementPage**:
+2. Sostituire la classe di base **MainPage** da **Page** a **EngagementPageOverlay**:
 
-		class MainPage : EngagementPage
+		class MainPage : EngagementPageOverlay
 
 3. Nel file `MainPage.xaml`:
 
 	a. Aggiungere le dichiarazioni di spazi dei nomi:
 
-		xmlns:engagement="using:Microsoft.Azure.Engagement"
+		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-	b. Sostituire **Page** nel nome del tag XML con **engagement:EngagementPage**.
+	b. Sostituire **Page** nel nome del tag XML con **engagement:EngagementPageOverlay**.
 	
 > [AZURE.IMPORTANT]Se la pagina esegue l'override del metodo `OnNavigatedTo`, accertarsi di chiamare `base.OnNavigatedTo(e)`. In caso contrario, l'attività non verrà segnalata (`EngagementPage` chiama `StartActivity` all'interno del relativo metodo `OnNavigatedTo`). Ciò è particolarmente importante in un progetto Windows Phone in cui il modello predefinito ha un metodo `OnNavigatedTo`.
 
@@ -171,13 +171,15 @@ Ora la configurazione per l’invio di popup è pronta. Ora è necessario verifi
 
 [AZURE.INCLUDE [Creare una campagna Push Windows](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Dovrebbe essere possibile visualizzare una notifica popup inviata dalla campagna sul dispositivo. Per visualizzare questa notifica, è necessario chiudere l'app. Se l'app era in esecuzione, per ricevere la notifica popup assicurarsi quindi di averla chiusa per alcuni minuti prima di attivare la campagna. Se si vuole integrare la notifica in-app in modo da visualizzare la notifica all'apertura, vedere [App di Windows universali - Integrazione di sovrimpressioni].
+Se l'app era in esecuzione verrà visualizzata una notifica all'interno dell'app, in caso contrario verrà visualizzato una notifica popup se l'applicazione è stata chiusa. Se appare una notifica all'interno dell'app ma non una notifica popup e si esegue l'applicazione in modalità di debug in Visual Studio, allora provare a eseguire **Eventi del ciclo di vita -> Sospendere** nella barra degli strumenti per assicurarsi che l'applicazione venga effettivamente sospesa. Se è stato appena fatto clic sul pulsante Home durante il debug dell'applicazione in Visual Studio, allora non sempre viene sospeso e durante la notifica verrà visualizzato come in-app, non verrà visualizzato come notifica popup.
+
+![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
 [Windows Store Dev Center]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
-[App di Windows universali - Integrazione di sovrimpressioni]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
+[Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
@@ -186,5 +188,6 @@ Dovrebbe essere possibile visualizzare una notifica popup inviata dalla campagna
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
+[8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

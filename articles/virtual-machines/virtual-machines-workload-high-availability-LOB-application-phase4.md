@@ -29,6 +29,8 @@ In questa fase della distribuzione di un'applicazione line-of-business a disponi
 
 Sono due le macchine virtuali del server Web in cui distribuire le applicazioni ASP.NET o applicazioni meno recenti che possono essere ospitate in Internet Information Services (IIS) 8 in Windows Server 2012 R2.
 
+> [AZURE.NOTE]Questo articolo contiene comandi per le versioni di Azure PowerShell fino alle versione 1.0.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**. I blocchi di comando di Azure PowerShell in questo articolo sono ora testati e aggiornati per supportare i nuovi cmdlet nelle versioni di Azure PowerShell 1.0.0 e versioni successive. Grazie per la pazienza dimostrata.
+
 Innanzitutto, è necessario configurare il bilanciamento del carico interno in modo che Azure distribuisca in modo uniforme tra i due server Web il traffico dei client destinato all'applicazione line-of-business. A tale scopo è necessario specificare un'istanza del servizio di bilanciamento del carico interno con un nome e un proprio indirizzo IP, assegnato dallo spazio degli indirizzi di subnet assegnato alla rete virtuale di Azure. Per stabilire se un indirizzo IP scelto per il servizio di bilanciamento del carico interno è disponibile, usare i comandi seguenti al prompt di Azure PowerShell: Specificare i valori per le variabili e rimuovere i caratteri < and >.
 
 	Switch-AzureMode AzureServiceManagement
@@ -172,4 +174,4 @@ Per continuare con la configurazione di questo carico di lavoro, passare a [Fase
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

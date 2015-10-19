@@ -24,13 +24,13 @@ Questo articolo illustra come usare l'attività di copia in una data factory di 
 
 L'esempio seguente mostra:
 
-1. Un servizio collegato di tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+1. Un servizio collegato di tipo [AzureSqlDatabase](#azure-sql-linked-service-properties).
 2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties). 
+3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [AzureSqlTable](#azure-sql-dataset-type-properties). 
 4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+4. Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [SqlSource](#azure-sql-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-Nell’esempio vengono copiati dati appartenenti a una serie temporale da una tabella nel database SQL di Azure a un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
+L'esempio copia dati appartenenti a una serie temporale da una tabella nel database SQL di Azure a un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
 **Servizio collegato SQL di Azure**
 
@@ -44,6 +44,8 @@ Nell’esempio vengono copiati dati appartenenti a una serie temporale da una ta
 	  }
 	}
 
+Vedere la sezione sul [servizio collegato SQL di Azure](#azure-sql-linked-service-properties) per l'elenco delle proprietà supportate da questo servizio collegato.
+
 **Servizio collegato di archiviazione BLOB di Azure**
 
 	{
@@ -55,6 +57,8 @@ Nell’esempio vengono copiati dati appartenenti a una serie temporale da una ta
 	    }
 	  }
 	}
+
+Vedere l'articolo del [blog di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) per l'elenco delle proprietà supportate da questo servizio collegato.
 
 **Set di dati di input di SQL Azure**
 
@@ -84,6 +88,8 @@ Impostando "external" su "true" e specificando i criteri externalData, si comuni
 	    }
 	  }
 	}
+
+Vedere la sezione sulle [proprietà del tipo di set di dati SQL di Azure](#azure-sql-dataset-type-properties) per l'elenco delle proprietà supportate da questo tipo di set di dati.
 
 **Set di dati di output del BLOB di Azure**
 
@@ -143,6 +149,8 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 	  }
 	}
 
+Vedere la sezione sulle [proprietà del tipo di set di dati BLOB di Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) per l'elenco delle proprietà supportate da questo tipo di set di dati.
+
 **Pipeline con attività di copia**
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **SqlSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
@@ -192,6 +200,16 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	   }
 	}
 
+> [AZURE.NOTE]Nell'esempio precedente, la proprietà **sqlReaderQuery** è specificata per SqlSource. L'attività di copia esegue questa query nell'origine del database SQL di Azure per ottenere i dati.
+>  
+> In alternativa, è possibile specificare una stored procedure specificando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se la stored procedure accetta parametri).
+>  
+> Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, le colonne definite nella sezione della struttura del set di dati JSON vengono usate per compilare una query (selezionare column1, column2 da mytable) da eseguire nel database SQL di Azure. Se la definizione del set di dati non dispone della struttura, vengono selezionate tutte le colonne della tabella.
+
+
+Vedere la sezione [SqlSource](#sqlsource) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) per l'elenco delle proprietà supportate da SqlSource e BlobSink.
+
+
 ## Esempio: Copiare i dati dal BLOB di Azure in SQL Azure
 
 L'esempio seguente mostra:
@@ -202,7 +220,7 @@ L'esempio seguente mostra:
 4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-Nell’esempio vengono copiati dati appartenenti a una serie temporale dal BLOB di Azure a una tabella nel database SQL di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
+L'esempio copia dati appartenenti a una serie temporale dal BLOB di Azure a una tabella nel database SQL di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
 
 **Servizio collegato SQL di Azure**
@@ -217,6 +235,8 @@ Nell’esempio vengono copiati dati appartenenti a una serie temporale dal BLOB 
 	  }
 	}
 
+Vedere la sezione sul [servizio collegato SQL di Azure](#azure-sql-linked-service-properties) per l'elenco delle proprietà supportate da questo servizio collegato.
+
 **Servizio collegato di archiviazione BLOB di Azure**
 
 	{
@@ -228,6 +248,8 @@ Nell’esempio vengono copiati dati appartenenti a una serie temporale dal BLOB 
 	    }
 	  }
 	}
+
+Vedere l'articolo del [blog di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) per l'elenco delle proprietà supportate da questo servizio collegato.
 
 **Set di dati di input del BLOB di Azure**
 
@@ -296,9 +318,11 @@ I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 
 	  }
 	}
 
+Vedere la sezione sulle [proprietà del tipo di set di dati BLOB di Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) per l'elenco delle proprietà supportate da questo tipo di set di dati.
+
 **Set di dati di output di SQL Azure**
 
-Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in SQL Azure. È necessario creare la tabella in SQL Azure con lo stesso numero di colonne di quelle contenute nel file con estensione csv del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
+L'esempio copia dati in una tabella denominata "MyTable" in SQL Azure. È necessario creare la tabella in SQL Azure con lo stesso numero di colonne di quelle contenute nel file con estensione csv del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
 
 	{
 	  "name": "AzureSqlOutput",
@@ -314,6 +338,8 @@ Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in SQL A
 	    }
 	  }
 	}
+
+Vedere la sezione sulle [proprietà del tipo di set di dati SQL di Azure](#azure-sql-dataset-type-properties) per l'elenco delle proprietà supportate da questo tipo di set di dati.
 
 **Pipeline con attività di copia**
 
@@ -364,6 +390,9 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	   }
 	}
 
+Vedere la sezione [SqlSink](#sqlsink) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) per l'elenco delle proprietà supportate da SqlSink e BlobSink.
+
+
 ## Proprietà del servizio collegato SQL di Azure
 
 La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato SQL di Azure.
@@ -373,7 +402,7 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 | type | La proprietà del tipo deve essere impostata su: AzureSqlDatabase | Sì |
 | connectionString | Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. | Sì |
 
-**Nota:** è necessario configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). È necessario configurare il server del database per [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Inoltre, se si copiano dati in SQL Azure dall’esterno di Azure e da origini dati locali con gateway di data factory, sarà necessario configurare un intervallo di indirizzi IP appropriato per la macchina che sta inviando dati a SQL Azure.
+**Nota:** è necessario configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). È necessario configurare il server del database per [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Inoltre, se si copiano dati in SQL Azure dall'esterno di Azure e da origini dati locali con gateway di data factory, sarà necessario configurare un intervallo di indirizzi IP appropriato per la macchina che sta inviando dati a SQL Azure.
 
 ## Proprietà del tipo del set di dati di SQL Azure
 
@@ -401,7 +430,13 @@ In caso di attività di copia con origine di tipo **SqlSource**, sono disponibil
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. Ad esempio: selezionare * da MyTable. Se non specificato, l'istruzione SQL eseguita: selezionare da MyTable. | No |
 | sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. | Nome della stored procedure. | No |
-| storedProcedureParameters | Parametri per la stored procedure. | Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No | 
+| storedProcedureParameters | Parametri per la stored procedure. | Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No |
+
+Se la proprietà **sqlReaderQuery** è specificata per SqlSource, l'attività di copia esegue questa query nell'origine del database SQL di Azure per ottenere i dati.
+
+In alternativa, è possibile specificare una stored procedure specificando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se la stored procedure accetta parametri).
+
+Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, le colonne definite nella sezione della struttura del set di dati JSON vengono usate per compilare una query (selezionare column1, column2 da mytable) da eseguire nel database SQL di Azure. Se la definizione del set di dati non dispone della struttura, vengono selezionate tutte le colonne della tabella.
 
 ### Esempio SqlSource
 
@@ -442,7 +477,7 @@ In caso di attività di copia con origine di tipo **SqlSource**, sono disponibil
 | writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. | Numero intero. (Unità = conteggio righe) | No. (Predefinito = 10000)
 | sqlWriterCleanupScript | Query specificata dall'utente per l'attività di copia da eseguire in modo che i dati di una sezione specifica vengano eliminati. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Istruzione di query. | No |
 | sliceIdentifierColumnName | Nome di colonna specificato dall'utente per l'attività di copia da riempire con l'identificatore di sezione generato automaticamente, che verrà usato per eliminare i dati di una sezione specifica quando viene nuovamente eseguita. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Nome di colonna di una colonna con tipo di dati binario (32). | No |
-| sqlWriterStoredProcedureName | Nome della stored procedure che esegue l’upsert (aggiornamenti/inserimenti) nella tabella di destinazione. | Nome della stored procedure. | No |
+| sqlWriterStoredProcedureName | Nome della stored procedure che esegue l'upsert (aggiornamenti/inserimenti) nella tabella di destinazione. | Nome della stored procedure. | No |
 | storedProcedureParameters | Parametri per la stored procedure. | Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No | 
 | sqlWriterTableType | Nome del tipo di tabella specificato dall'utente da usare nella stored procedure precedente. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. | Nome del tipo di tabella. | No |
 
@@ -471,7 +506,7 @@ In caso di attività di copia con origine di tipo **SqlSource**, sono disponibil
 
 ### Mapping dei tipi di SQL Server e SQL Azure
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
+Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -490,21 +525,21 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| Decimale | Decimale |
+| Decimal | Decimal |
 | FILESTREAM attribute (varbinary(max)) | Byte |
 | Float | Double |
-| immagine | Byte | 
+| image | Byte | 
 | int | Int32 | 
-| money | Decimale |
+| money | Decimal |
 | nchar | String, Char |
 | ntext | String, Char |
-| numeric | Decimale |
+| numeric | Decimal |
 | nvarchar | String, Char |
 | real | Single |
 | rowversion | Byte |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Decimale | 
+| smallmoney | Decimal | 
 | sql\_variant | Object * |
 | text | String, Char |
 | time | TimeSpan |
@@ -527,4 +562,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L'inv
 
 	 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

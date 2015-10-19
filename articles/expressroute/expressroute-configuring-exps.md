@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
+   ms.date="09/28/2015"
    ms.author="cherylmc"/>
 
 #  Configurare una connessione ExpressRoute mediante un provider di Exchange
@@ -231,4 +231,4 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

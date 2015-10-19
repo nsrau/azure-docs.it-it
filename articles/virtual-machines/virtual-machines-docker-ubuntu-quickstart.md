@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="05/20/2015"
+	ms.date="10/04/2015"
 	ms.author="rasquill"/>
 
 # Come iniziare a usare rapidamente Docker in Azure Marketplace
@@ -24,7 +24,7 @@ Il modo più rapido per iniziare a utilizzare [Docker] consiste nell’andare in
 
 È possibile connettersi immediatamente alla VM usando SSH e iniziare a lavorare con Docker direttamente, senza che sia necessario intraprendere altre azioni.
 
-> [AZURE.NOTE]La VM creata dal modello di Azure Marketplace non ospita l'API remota del Docker per la gestione da parte di un client Docker remoto. Per abilitare il controllo dell'host Docker in questa macchina virtuale in remoto, vedere [Esecuzione di Docker con HTTPS](https://docs.docker.com/articles/https/) o seguire i passaggi descritti in [Using the Docker VM Extension from the Azure Portal](virtual-machines-docker-with-portal.md) o [Using the Docker VM Extension from the Azure CLI](virtual-machines-docker-with-xplat-cli-install.md). Gli utenti più avanzati possono compilare il [client Windows Docker](https://github.com/ahmetalpbalkan/Docker.DotNet) da Github e provare anche quello (oppure ottenerlo da [nuget](https://www.nuget.org/packages/Docker.DotNet/)).
+> [AZURE.NOTE]La VM creata dal modello di Azure Marketplace non ospita l'API remota del Docker per la gestione da parte di un client Docker remoto. Per abilitare il controllo dell'host Docker in questa macchina virtuale in remoto, vedere [Esecuzione di Docker con HTTPS](https://docs.docker.com/articles/https/) o seguire i passaggi descritti in [Using the Docker VM Extension from the Azure Portal](virtual-machines-docker-with-portal.md) o [Using the Docker VM Extension from the Azure CLI](virtual-machines-docker-with-xplat-cli-install.md). <!-- --> Se si desidera automatizzare la macchina virtuale Docker di Azure da Windows, è possibile [installare la casella degli strumenti Docker](https://docs.docker.com/installation/windows/) o ottenere Docker.exe [da Chocolatey](https://chocolatey.org/packages/docker).
 
 ## Accedere al portale
 
@@ -40,7 +40,7 @@ Questa è la parte più facile, a meno che non si sia ancora privi di un account
 
 > ![Individuare l'immagine nella raccolta immagini](./media/virtual-machines-docker-ubuntu-quickstart/DockerOnUbuntuServerMSOpenTech.png)
 
-3. Fornire il nome utente e la password per l'istanza oppure un file **.pem** per abilitare SSH con l'uso di un certificato. Il grafico in basso mostra l'immissione di una combinazione di nome utente e password. Premere quindi **Crea** nella parte inferiore dello schermo.
+3. Fornire il nome utente e una password per l'istanza o il contenuto di un file **.pub** (formato ssh rsa) per abilitare SSH mediante un certificato. Il grafico in basso mostra l'immissione di una combinazione di nome utente e password. Premere quindi **Crea** nella parte inferiore dello schermo.
 
 > ![Scegliere un’istanza di macchina virtuale](./media/virtual-machines-docker-ubuntu-quickstart/CreateVMDockerUbuntuPwd.png)
 
@@ -77,4 +77,4 @@ Ora è possibile iniziare a usare [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

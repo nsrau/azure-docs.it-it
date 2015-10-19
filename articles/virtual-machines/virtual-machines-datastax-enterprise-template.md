@@ -1,12 +1,13 @@
 <properties
-	pageTitle="DataStax Enterprise su Ubuntu con un modello di Gestione risorse"
+	pageTitle="DataStax Enterprise in Ubuntu con un modello di Gestione risorse | Microsoft Azure"
 	description="Ulteriori informazioni su come distribuire con facilità un nuovo cluster DataStax Enterprise in macchine virtuali Ubuntu utilizzando Azure PowerShell o l’interfaccia della riga di comando di Azure e un modello di Gestione risorse"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+	editor="tysonn"
+	tags="azure-resource-manager"/>
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -17,6 +18,8 @@
 	ms.author="scoriani"/>
 
 # DataStax Enterprise su Ubuntu con un modello di Gestione risorse
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse.
 
 DataStax è leader del settore nello sviluppo e nella fornitura di soluzioni basate su Apache Cassandra™ la tecnologia di database NoSQL distribuita, di livello enterprise supportata in commercio ampiamente riconosciuta per le caratteristiche di flessibilità, disponibilità e scalabilità per qualsiasi esigenza. DataStax offre versioni sia Enterprise (DSE) che Community (DSC). Oltre alle funzionalità offerte dalla versione Community, Datastax Enterprise è certificato per la produzione con funzionalità di elaborazione in memoria, protezione a livello aziendale, analisi integrata veloce e potente e gestione aziendale.
 
@@ -46,7 +49,7 @@ Attenersi alla seguente procedura per creare un cluster Apache Cassandra, basato
 
 ### Passaggio 1-a: Scaricare i file di modello tramite PowerShell
 
-Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\Azure\Templates\DataStax).
+Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\\Azure\\Templates\\DataStax).
 
 Sostituire il nome della cartella della cartella locale ed eseguire questi comandi:
 
@@ -500,4 +503,4 @@ Questo approccio suggerisce che è:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

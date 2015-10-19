@@ -7,7 +7,14 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/05/2015"
+	ms.author="jimpark; aashishr; giridham"/>
 
 
 # Gestire server e insiemi di credenziali di Backup di Azure
@@ -37,11 +44,14 @@ Fare clic su **Elementi registrati** per visualizzare i nomi dei server registra
 
 ![Deleted Server](./media/backup-azure-manage-windows-server/RS_deletedserver.png)
 
-Da qui è possibile eseguire le attività seguenti:- **Consentire una nuova registrazione**. Quando questa opzione è selezionata per un server è possibile utilizzare la **Registrazione guidata** nell’agente per registrare il server con l’insieme di credenziali per il backup una seconda volta. La ri-registrazione di un server può essere necessaria per un errore nel certificato, oppure se è stato necessario ricreare il server. La ri-registrazione è consentita una sola volta per nome server. - **Elimina** - Cancella un server dall’insieme di credenziali per il backup. Tutti i dati archiviati associati al server verranno eliminati immediatamente.
+Da questo punto è possibile eseguire le attività seguenti:
+
+- **Consentire una nuova registrazione** - Quando questa opzione è selezionata per un server, è possibile usare la **Procedura di registrazione guidata** nell'agente per registrare nuovamente il server con l'insieme di credenziali per il backup. La ri-registrazione di un server può essere necessaria per un errore nel certificato, oppure se è stato necessario ricreare il server.
+- **Eliminare** - Consente di eliminare un server dall'insieme di credenziali per il backup. Tutti i dati archiviati associati al server verranno eliminati immediatamente.
 
 ## Passaggi successivi
 - [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
-- Per ulteriori informazioni sul servizio Backup di Azure, vedere [Panoramica di Azure Backup](backup-introduction-to-azure-backup.md).
+- Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

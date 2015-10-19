@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="07/08/2015"
+   ms.date="10/06/2015"
    ms.author="brjohnst"/>
 
 # Come utilizzare Ricerca di Azure da un'applicazione .NET #
@@ -31,7 +31,7 @@ La libreria client definisce classi come `Index`, `Field`, e `Document`, nonché
 
 La versione corrente .NET SDK di Ricerca di Azure è la versione non definitiva. Per fornire a Microsoft commenti e suggerimenti da incorporare nella prima versione stabile, visitare la [pagina dei commenti](http://feedback.azure.com/forums/263029-azure-search).
 
-.NET SDK supporta la versione `2015-02-28` dell'API REST di Ricerca di Azure, documentata su [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Nuove funzionalità che *non* fanno parte di questa versione, ad esempio il supporto per i processori del linguaggio naturale di Microsoft o il parametro di ricerca `moreLikeThis`, sono in [anteprima](search-api-2015-02-28-preview.md) e non ancora disponibili nell'SDK. È possibile consultare [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) o [Latest updates to Azure Search](search-latest-updates.md) per gli aggiornamenti dello stato di tali funzionalità.
+.NET SDK supporta la versione `2015-02-28` dell'API REST di Ricerca di Azure, documentata su [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Questa versione include il supporto per l'analisi del linguaggio Microsoft. Le più recenti funzionalità che *non* fanno parte di questa versione, ad esempio il supporto il parametro di ricerca `moreLikeThis`, sono in [anteprima](search-api-2015-02-28-preview.md) e non ancora disponibili nell'SDK. È possibile consultare [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) o [Latest updates to Azure Search](search-latest-updates.md) per gli aggiornamenti dello stato di tali funzionalità.
 
 Altre funzionalità non supportate in questo SDK sono:
 
@@ -335,7 +335,9 @@ Per capire in che modo .NET SDK di Ricerca di Azure è in grado di caricare le i
 
 La prima cosa da notare è che ogni proprietà pubblica di `Hotel` corrisponde a un campo nella definizione dell'indice, ma con una differenza fondamentale: il nome di ogni campo inizia con una lettera minuscola ("convenzione camel"), mentre il nome di ogni proprietà pubblica di `Hotel` inizia con una lettera maiuscola ("convenzione Pascal"). Si tratta di uno scenario comune in applicazioni .NET che consentono di eseguire l'associazione dati in cui lo schema di destinazione è fuori dal controllo dello sviluppatore dell'applicazione. Anziché dover violare linee guida sulla denominazione di .NET seguendo la convenzione camel per i nomi delle proprietà, è possibile indicare a SDK di eseguire automaticamente il mapping dei nomi delle proprietà alla convenzione camel con l’attributo `[SerializePropertyNamesAsCamelCase]`.
 
-Il secondo aspetto importante della classe `Hotel` è costituita dai tipi di dati delle proprietà pubbliche. Viene eseguito il mapping dei tipi .NET di queste proprietà ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `Edm.String`. Esistono mapping di tipi simili tra `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` ecc. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` su [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx). Si noti che i tipi di valore come `bool` e `int` ammettono valori null nella classe `Hotel` perché tutti i tipi primitivi di campo in Ricerca di Azure ammettono valori null.
+Il secondo aspetto importante della classe `Hotel` è costituita dai tipi di dati delle proprietà pubbliche. Viene eseguito il mapping dei tipi .NET di queste proprietà ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `Edm.String`. Esistono mapping di tipi simili tra `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` ecc. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` su [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
+ 
+> [AZURE.NOTE]Quando si progettano le proprie classi di modello per eseguire il mapping a un indice di ricerca di Azure, assicurarsi di dichiarare le proprietà dei tipi di valore, ad esempio `bool` e `int` da rendere come nullable (ad esempio: `bool?` anziché `bool`). Ciò è necessario perché tutti i tipi primitivi campo nella ricerca di Azure sono nullable. Se si utilizzano tipi non nullable, è possibile ottenere risultati imprevisti durante l'indicizzazione dei valori predefiniti come `0` e `false`.
 
 La possibilità di utilizzare le proprie classi come documenti funziona in entrambe le direzioni; è possibile, inoltre, recuperare i risultati della ricerca e far sì che SDK li deserializzi automaticamente in un tipo di propria scelta, come sarà illustrato nella prossima sezione.
 
@@ -625,4 +627,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

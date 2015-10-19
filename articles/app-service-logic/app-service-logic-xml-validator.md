@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 # BizTalk XML Validator
 
-Il connettore BizTalk XML Validate consente all'app di convalidare i dati XML in base a schemi XML predefiniti. È possibile usare gli schemi esistenti o generare schemi basati su un'istanza di file flat, su un'istanza JSON o su connettori esistenti.
+Utilizzare il connettore BizTalk XML Validator nell'app per convalidare i dati XML in base a schemi XML predefiniti. È possibile usare gli schemi esistenti o generare schemi basati su un'istanza di file flat, su un'istanza JSON o su connettori esistenti.
 
 ##Uso di BizTalk XML Validator
-1. Per usare BizTalk XML Validator, è prima di tutto necessario creare un'istanza dell'app per le API BizTalk XML Validator. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API BizTalk XML Validator da Azure Marketplace.
+Per usare BizTalk XML Validator, prima di tutto creare un'istanza dell'app per le API BizTalk XML Validator. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API BizTalk XML Validator da Azure Marketplace.
 
 ###Configurare BizTalk XML Validator
 BizTalk XML Validator accetta schemi come parte della configurazione. Gli utenti possono avviare il pannello di configurazione dell'app per le API avviando l'app per le API direttamente dal portale di Azure oppure facendo doppio clic sull'app per le API nell'area di progettazione.
 
 ![Configurazione di BizTalk XML Validator][1]
 
-Nel pannello dell'app per le API gli utenti possono configurare gli schemi facendo clic sulla parte *Schemi*
+Nel pannello dell'app per le API gli utenti possono configurare gli schemi selezionando *Schemi*.
 
 ![Parte Schemi di BizTalk XML Validator][2]
 
@@ -38,7 +38,7 @@ Gli utenti possono caricare gli schemi dal disco o generarne uno da un'istanza d
 
 
 ###Uso di BizTalk Flat File Encoder nell'area di progettazione
-Dopo la configurazione, gli utenti possono fare clic su *->* e scegliere un'azione da un elenco di azioni.
+Dopo la configurazione, gli utenti possono selezionare *->* e scegliere un'azione da un elenco di azioni.
 
 ![Elenco di azioni di BizTalk XML Validator][4]
 
@@ -52,9 +52,8 @@ Parametro|Tipo|Descrizione del parametro
 ---|---|---
 XML di input|stringa|XML di input da convalidare.
 
-L'azione restituisce l'output sotto forma di oggetto. L'output contiene il modello che rappresenta la risposta di BizTalk XML Validator, costituita da risultato, nome dello schema, nodo radice e descrizione dell'errore.
+L'azione restituisce l'output sotto forma di oggetto. L'output contiene il modello che rappresenta la risposta dalla convalida da Xml. costituita da risultato, nome dello schema, nodo radice e descrizione dell'errore.
 
-![6]
 
 <!-- References -->
 [1]: ./media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.PNG
@@ -62,7 +61,5 @@ L'azione restituisce l'output sotto forma di oggetto. L'output contiene il model
 [3]: ./media/app-service-logic-xml-validator/XmlValidator.SchemaUpload.PNG
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
-[6]: ./media/app-service-logic-xml-validator/img1.PNG
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->
