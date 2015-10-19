@@ -47,9 +47,9 @@ Nel riquadro **SQL Data Warehouse** compilare i campi seguenti. I campi **Server
      
     ![Nome e DWU](./media/sql-data-warehouse-get-started-provision/name-and-dwu.png)
 
-    > [AZURE.NOTE]Le prestazioni vengono misurate in unità Data Warehouse (DWU, Data Warehouse Unit). Con l'aumento delle unità DWU, SQL Data Warehouse aumenta le risorse di elaborazione disponibili per le operazioni con il database di data warehouse.
+    > [AZURE.NOTE] Le prestazioni vengono misurate in unità Data Warehouse (DWU, Data Warehouse Unit). Con l'aumento delle unità DWU, SQL Data Warehouse aumenta le risorse di elaborazione disponibili per le operazioni con il database di data warehouse.
 
-	> [AZURE.NOTE]È possibile modificare rapidamente e facilmente il livello di prestazioni dopo la creazione del database. Ad esempio, se non si usa il database, spostare il dispositivo di scorrimento verso sinistra per ridurre i costi. Oppure, aumentare le prestazioni quando sono necessarie ulteriori risorse. Questo è il vantaggio a livello di scalabilità offerto da SQL Data Warehouse.
+	> [AZURE.NOTE] È possibile modificare rapidamente e facilmente il livello di prestazioni dopo la creazione del database. Ad esempio, se non si usa il database, spostare il dispositivo di scorrimento verso sinistra per ridurre i costi. Oppure, aumentare le prestazioni quando sono necessarie ulteriori risorse. Questo è il vantaggio a livello di scalabilità offerto da SQL Data Warehouse.
 	
 
 2. **Gruppo di risorse**. Mantenere i valori predefiniti. I gruppi di risorse sono contenitori progettati per facilitare la gestione di una raccolta di risorse di Azure. Per altre informazioni, vedere [gruppi di risorse](../azure-portal/resource-group-portal.md).
@@ -62,11 +62,15 @@ Nel riquadro **SQL Data Warehouse** compilare i campi seguenti. I campi **Server
 
     ![Creare un nuovo server](./media/sql-data-warehouse-get-started-provision/create-new-server.png)
 
-    >[AZURE.NOTE]In SQL Data Warehouse e database SQL, un server fornisce un sistema coerente per configurare i database basati su cloud. In Azure, anche se un server è associato a un singolo data center, non è hardware fisico, come nel caso di un'istanza locale di SQL Server, ma fa parte del software del servizio. Ecco perché viene chiamato server logico. Si noti che, a differenza del mondo reale, i carichi di lavoro che eseguono database e data warehouse nello stesso server non avranno un impatto sulle prestazioni reciproche.
+    >[AZURE.NOTE] In SQL Data Warehouse e database SQL, un server fornisce un sistema coerente per configurare i database basati su cloud. In Azure, anche se un server è associato a un singolo data center, non è hardware fisico, come nel caso di un'istanza locale di SQL Server, ma fa parte del software del servizio. Ecco perché viene chiamato server logico. Si noti che, a differenza del mondo reale, i carichi di lavoro che eseguono database e data warehouse nello stesso server non avranno un impatto sulle prestazioni reciproche.
 
 1. Nella finestra **Nuovo server** compilare le informazioni richieste.
 
-    Assicurarsi di registrare il nome del server, il nome dell'amministratore e la password per conservarli in un luogo sicuro. Queste informazioni saranno necessarie per accedere al server. - **Nome server**. Immettere un nome per il server logico. - **Nome amministratore server**. Immettere un nome utente per l'account amministratore del server. - **Password**. Immettere la password dell'amministratore per il server. - **Località**. Scegliere una posizione geografica vicina o in prossimità delle altre risorse di Azure. Ciò riduce la latenza di rete poiché tutti i database e tutte le risorse che appartengono al server logico verranno posizionati fisicamente nella stessa area geografica.
+    Assicurarsi di registrare il nome del server, il nome dell'amministratore e la password per conservarli in un luogo sicuro. Queste informazioni saranno necessarie per accedere al server.
+	- **Nome server**. Immettere un nome per il server logico.
+	- **Nome amministratore server**. Immettere un nome utente per l'account amministratore del server.
+	- **Password**. Immettere la password dell'amministratore per il server.
+	- **Località**. Scegliere una posizione geografica vicina o in prossimità delle altre risorse di Azure. Ciò riduce la latenza di rete poiché tutti i database e tutte le risorse che appartengono al server logico verranno posizionati fisicamente nella stessa area geografica.
 
     ![Configurare il nuovo server](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
 
@@ -92,6 +96,6 @@ Dopo avere creato un database di esempio per SQL Data Warehouse, è possibile sc
 
 - [Connettersi ed eseguire query](./sql-data-warehouse-get-started-connect-query.md).
 
-	> [AZURE.NOTE]Si desidera migliorare questo articolo. Se si sceglie di rispondere "no" alla domanda "È stato utile questo articolo?", includere un suggerimento breve su cosa manca o su come migliorare l'articolo. Grazie in anticipo!!
+	> [AZURE.NOTE] Si desidera migliorare questo articolo. Se si sceglie di rispondere "no" alla domanda "È stato utile questo articolo?", includere un suggerimento breve su cosa manca o su come migliorare l'articolo. Grazie in anticipo!!
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
