@@ -192,6 +192,9 @@ Per combinare i filtri, è necessario impostare i nomi dei filtri per il manifes
 
 È possibile combinare fino a 3 filtri.
 
+Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+
+
 ##Problemi noti e limitazioni
 
 - Il manifesto dinamico opera nei limiti dell'intervallo GOP (fotogrammi chiave) e, pertanto, il trimming eredita la precisione del GOP. 
@@ -230,4 +233,4 @@ Per combinare i filtri, è necessario impostare i nomi dei filtri per il manifes
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

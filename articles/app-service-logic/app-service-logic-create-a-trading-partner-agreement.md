@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 
@@ -63,10 +63,10 @@ Come indicato in precedenza, per le app per le API AS2, X12 ed EDIFACT è necess
 Per creare accordi tra partner commerciali:
 
 1. Creare un'istanza del connettore **BizTalk Trading Partner Management**. Per il funzionamento dell'app per le API è necessario un database SQL vuoto. Prima di iniziare, assicurarsi che sia disponibile e pronto per l'uso un database vuoto.
-2. Caricare gli schemi e i certificati richiesti dai contratti. Per eseguire questa operazione, passare all'istanza TPM creata e quindi alla sezione "Schemi" e/o "Certificati"
+2. Caricare gli schemi e i certificati richiesti dai contratti. Eseguire questa operazione passando all'istanza TPM creata e quindi alla sezione "Schemi" e/o "Certificati"
 3. Passare all'istanza TPM creata e quindi alla sezione **Partner**
 4. Creare i partner desiderati. Modificare anche i profili in base alle proprie esigenze e aggiungere le identità necessarie
-5. Usare quindi la sezione **Contratti** per creare i contratti. Uno dei passaggi iniziali della creazione dei contratti è la scelta del protocollo. In base al protocollo scelto vengono eseguiti gli altri passaggi di configurazione del contratto.
+5. Usare quindi la sezione **Contratti** per creare i contratti. Quando si crea un contratto, è necessario selezionare il protocollo che verrà utilizzato. Le opzioni di configurazione rimanenti sono basate sul protocollo selezionato.
 
 ![][2]
 
@@ -78,4 +78,4 @@ Per creare accordi tra partner commerciali:
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

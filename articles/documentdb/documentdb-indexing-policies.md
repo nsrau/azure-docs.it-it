@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/03/2015" 
+    ms.date="10/05/2015" 
     ms.author="mimig"/>
 
 
@@ -541,7 +541,7 @@ Di seguito sono elencati i tipi di indice supportati e gli esempi di query che p
 
 Per impostazione predefinita, viene restituito un errore per le query con operatori intervallo, ad esempio >= se non esiste alcun indice di intervallo (di qualsiasi precisione) per segnalare che un'analisi potrebbe essere necessaria per soddisfare la query. Le query di intervallo possono essere eseguite senza un indice di intervallo usando l'intestazione x-ms-documentdb-enable-scans nell'API REST o nell'opzione della richiesta EnableScanInQuery usando .NET SDK. Se sono disponibili altri i filtri nella query che DocumentDB può utilizzare l'indice per filtrare i dati, quindi non verrà restituito alcun errore.
 
-Le stesse regole sono valide per le query spaziali. Per impostazione predefinita, per le query spaziali viene restituito un errore se non esiste alcun indice spaziale. Possono essere eseguite come una scansione con x-ms-documentdb-enable-scan/EnableScanInQuery.
+Le stesse regole sono valide per le query spaziali. Per impostazione predefinita, viene restituito un errore per le query spaziali se non esiste alcun indice spaziale e non sono presenti altri filtri che possono essere serviti dall'indice. Possono essere eseguite come una scansione con x-ms-documentdb-enable-scan/EnableScanInQuery.
 
 #### Precisione indice
 
@@ -664,6 +664,8 @@ Quando si vogliono effettuare modifiche ai criteri di indicizzazione per le racc
 - Ottimizzare la precisione dell'indicizzazione per migliorare le prestazioni delle query o ridurre l'archiviazione utilizzata
 
 >[AZURE.NOTE]Per modificare i criteri di indicizzazione mediante ReplaceDocumentCollectionAsync, è necessaria la versione > = 1.3.0 di .NET SDK
+>
+> Affinché la trasformazione di indice venga completata correttamente, è necessario assicurarsi che vi sia sufficiente spazio di archiviazione disponibile nella raccolta. Se la raccolta raggiunge la quota di archiviazione, la trasformazione di indice viene sospesa. La trasformazione di indice verrà ripresa automaticamente quando lo spazio di archiviazione sarà disponibile, ad esempio, se si eliminano alcuni documenti.
 
 ## Ottimizzazione delle prestazioni
 
@@ -767,4 +769,4 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -14,31 +14,38 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/05/2015"
 	ms.author="cynthn"/>
 
 
-# Accedere a una macchina virtuale di Windows creata con il modello di distribuzione classico.
+# Accedere a una macchina virtuale di Windows tramite il portale di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione delle risorse con il modello di distribuzione classica.
 
-Si userà il pulsante **Connetti** nel portale di anteprima di Azure per avviare una sessione di Desktop Remoto. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
+
+Nel portale di Azure, si utilizza il pulsante **Connetti** per avviare una sessione di Desktop remoto e accedere a una macchina virtuale Windows.
 
 Si desidera effettuare la connessione a una macchina virtuale Linux? Vedere [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md).
 
-## Connettersi alla macchina virtuale
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione delle risorse con il modello di distribuzione classica.
 
-Di seguito è riportata una procedura dettagliata dei passaggi in questa esercitazione.
+## Video con la procedura dettagliata
+
+Di seguito è riportata una procedura video dettagliata dei passaggi in questa esercitazione. Vengono inoltre descritti gli endpoint e le porte pubbliche e private utilizzate per la connessione a una macchina virtuale di Windows in Azure.
 
 [AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
 
-1. Accedere al [portale di Azure](http://manage.windowsazure.com), se questa operazione non è già stata eseguita.
 
-2. Fare clic su **Macchine virtuali** e quindi selezionare la macchina virtuale appropriata.
+## Connettersi alla macchina virtuale
 
-3. Nella barra dei comandi fare clic su **Connect**.
+1. Accedere al [portale di Azure](http://manage.windowsazure.com).
+
+2. Fare clic su **Macchine virtuali**, quindi selezionare la macchina virtuale.
+
+3. In fondo alla pagina, nella barra dei comandi, fare clic su **Connetti**.
 
 	![Accesso alla macchina virtuale](./media/virtual-machines-log-on-windows-server/connectwindows.png)
+	
+> [AZURE.TIP]Se il pulsante di connessione non è disponibile, vedere i suggerimenti sulla risoluzione dei problemi alla fine di questo articolo.
 
 ## Accesso alla macchina virtuale
 
@@ -46,11 +53,11 @@ Di seguito è riportata una procedura dettagliata dei passaggi in questa esercit
 
 ## Suggerimenti per la risoluzione dei problemi
 
-Ecco alcuni aspetti da provare rapidamente nel portale:
+Ecco alcuni aspetti da provare:
 
--	Per problemi di connessione al Desktop remoto, provare a reimpostare la configurazione. Dal dashboard della macchina virtuale, in **Riepilogo rapido**, fare clic su **Reimposta configurazione remota**.
+-	Se il pulsante **Connetti** non è attivo o si verificano altri problemi di connessione per il Desktop remoto, provare a reimpostare la configurazione. Dal dashboard della macchina virtuale, in **Riepilogo rapido**, fare clic su **Reimposta configurazione remota**.
 -	Per problemi con la password, provare a reimpostarla. Dal dashboard della macchina virtuale, in **Riepilogo rapido**, fare clic su **Reimposta password**.
 
 Se le precedenti istruzioni non sono sufficienti o non sono quelle necessarie, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

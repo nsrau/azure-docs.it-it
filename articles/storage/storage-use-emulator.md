@@ -203,6 +203,10 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ## Note sulla versione dell'emulatore di archiviazione
 
+### Versione 4.2
+
+- L'emulatore di archiviazione supporta ora la versione 2015-04-05 dei servizi di archiviazione per gli endpoint dei servizi BLOB, di accodamento e tabelle.
+
 ### Versione 4.1
 
 - L'emulatore di archiviazione supporta ora la versione 2015-02-21 di servizi di archiviazione su BLOB, code ed endpoints di servizio tabelle, fatta eccezione per le nuove funzionalità di BLOB di Accodamento . 
@@ -228,4 +232,4 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 - La versione 2013-08-15 dei servizi di archiviazione di Azure è ora completamente supportata. (In precedenza questa versione era supportata solo dalla versione 2.2.1 dell'emulatore di archiviazione di anteprima.)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

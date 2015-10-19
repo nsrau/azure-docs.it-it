@@ -3,7 +3,7 @@
    description="modelli di progettazione che funzionano bene con Service Fabric Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Introduzione ai modelli di progettazione di Reliable Actors
 Il modello Reliable Actors di Service Fabric è una piattaforma basata sul modello Actor per risolvere problemi reali a livello di cloud. Azure Service Fabric costituisce invece una piattaforma per la realizzazione di applicazioni altamente affidabili e scalabili, da implementare sia in locale sia nel cloud, di facile sviluppo e gestione. Questo articolo è da intendere come una guida pratica a problemi pratici. Dopo aver acquisito informazioni sui vari modelli, sarà possibile capire come poter usare il modello Actor di Service Fabric per creare soluzioni "enterprise" o "cloud".
@@ -70,4 +70,4 @@ I principali vantaggi offerti da Azure Fabric Actors sono: 1) **la produttività
 
 * *Modalità asincrona esplicita.* Il modello di programmazione di Azure Fabric Actors rende esplicita la natura asincrona di un'applicazione distribuita e guida i programmatori nella scrittura di codice asincrono non di blocco. Consente inoltre un alto grado di parallelismo distribuito e un'elevata velocità effettiva globale, senza l'uso esplicito del multi-threading.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

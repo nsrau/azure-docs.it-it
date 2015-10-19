@@ -30,7 +30,7 @@ Questa esercitazione viene illustrata anche da Nick Harris nel video seguente:
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare l'esercitazione [Aggiungere Servizi mobili a un'app esistente].
 
->[AZURE.NOTE]Questa esercitazione illustra il flusso di autenticazione gestito da Servizi mobili mediante vari provider di identità. Questo metodo è semplice da configurare e supporta più provider, Per usare invece Live Connect con l'autenticazione gestita dal client e offrire un ambiente Single Sign-On nella propria app per Windows Phone, vedere l'argomento [Autenticazione dell'app per Windows Phone con l'accesso Single Sign-On di Live Connect]. L'uso dell'autenticazione gestita dal client consente all'app di accedere a dati utente aggiuntivi mantenuti dal provider di identità. È possibile ottenere gli stessi dati utente nel servizio mobile chiamando la funzione **user.getIdentities()** negli script del server. Per altre informazioni, vedere [questo post](http://go.microsoft.com/fwlink/p/?LinkId=506605).
+>[AZURE.NOTE]Questa esercitazione illustra il flusso di autenticazione gestito da Servizi mobili mediante vari provider di identità. Questo metodo è semplice da configurare e supporta più provider, L'uso dell'autenticazione gestita dal client consente all'app di accedere a dati utente aggiuntivi mantenuti dal provider di identità. È possibile ottenere gli stessi dati utente nel servizio mobile chiamando la funzione **user.getIdentities()** negli script del server. Per altre informazioni, vedere [questo post](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
@@ -77,7 +77,6 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Autenticazione dell'app per Windows Phone con l'accesso Single Sign-On di Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

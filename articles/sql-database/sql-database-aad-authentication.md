@@ -97,7 +97,7 @@ Se si ha già un database, verificare che sia ospitato nella versione 12 del dat
 
 Se il database non è ospitato nella versione 12 del database SQL, vedere [Pianificazione e predisposizione dell'aggiornamento alla versione 12 del database SQL](sql-database-v12-plan-prepare-upgrade.md) e quindi visitare il portale di Azure per eseguire la migrazione del database alla versione 12 del database SQL.
 
-In alternativa è possibile creare un nuovo database nella versione 12 del database SQL eseguendo i passaggi descritti in [Creare un database nella versione 12 del database SQL](sql-database-create.md). **Suggerimento**: leggere il passaggio successivo prima di selezionare una sottoscrizione per il nuovo database.
+In alternativa è possibile creare un nuovo database nella versione 12 del database SQL eseguendo i passaggi descritti in [Creare il primo database SQL di Azure](sql-database-get-started.md). **Suggerimento**: leggere il passaggio successivo prima di selezionare una sottoscrizione per il nuovo database.
 
 ## 3\. Facoltativo: associare o modificare l'istanza di Active Directory attualmente associata alla sottoscrizione di Azure
 
@@ -322,4 +322,4 @@ Per esempi di codice specifici relativi all'autenticazione di Azure AD, vedere i
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

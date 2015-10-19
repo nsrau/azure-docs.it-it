@@ -50,4 +50,4 @@ Se non è stato svolto il passaggio 2 precedente e si tenta di creare una richie
 
 ![Supporto - Nessuna sottoscrizione](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

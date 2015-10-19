@@ -1,6 +1,6 @@
 <properties
- pageTitle="Usare macchine virtuali di calcolo Linux in un cluster HPC Pack | Microsoft Azure"
- description="Informazioni su come creare uno script di distribuzione di un cluster HPC Pack in Azure contenente un nodo head che esegue Windows Server con nodi di calcolo Linux."
+ pageTitle="Macchine virtuali di calcolo Linux in un cluster HPC Pack | Microsoft Azure"
+ description="Come creare uno script di distribuzione di un cluster HPC Pack in Azure contenente un nodo head che esegue Windows Server con nodi di calcolo Linux."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -16,9 +16,11 @@
  ms.date="09/01/2015"
  ms.author="danlep"/>
 
-# Introduzione all’uso di nodi di calcolo Linux in un cluster HPC Pack in Azure
+# Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure
 
-In questo articolo viene illustrato come utilizzare uno script di Azure PowerShell per configurare un cluster di Microsoft HPC Pack in Azure contenente un nodo head che esegue Windows Server e vari nodi di calcolo che eseguono una distribuzione Linux CentOS. Vengono inoltre illustrati vari metodi per spostare i file di dati nei nodi di calcolo Linux. È possibile utilizzare questo cluster per l'esecuzione di carichi di lavoro HPC Linux in Azure.
+In questo articolo viene illustrato come usare uno script di Azure PowerShell per configurare un cluster di Microsoft HPC Pack in Azure contenente un nodo head che esegue Windows Server e vari nodi di calcolo che eseguono una distribuzione Linux CentOS. Vengono inoltre illustrati vari metodi per spostare i file di dati nei nodi di calcolo Linux. È possibile usare questo cluster per l'esecuzione di carichi di lavoro HPC Linux in Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la creazione delle risorse mediante il modello di distribuzione classica.
 
 Nel seguente diagramma viene illustrato il cluster HPC Pack che verrà creato, a livello elevato.
 
@@ -26,9 +28,9 @@ Nel seguente diagramma viene illustrato il cluster HPC Pack che verrà creato, a
 
 ## Distribuzione di un cluster HPC Pack con nodi di calcolo Linux
 
-Verrà utilizzato lo script di distribuzione Microsoft HPC Pack IaaS (**New-HpcIaaSCluster.ps1**) per automatizzare la distribuzione di cluster in servizi di infrastruttura di Azure (IaaS). In questo script di Azure PowerShell viene utilizzata un'immagine di macchina virtuale di HPC Pack in Azure Marketplace per accelerare la distribuzione e viene fornito un set completo di parametri di configurazione per rendere la distribuzione semplice e flessibile. Lo script distribuisce rete virtuale di Azure, account di archiviazione, servizi cloud, controller di dominio, server di database SQL Server separato facoltativo, nodo head del cluster, nodi di calcolo, nodi broker, nodi di Azure PaaS ("burst") e nodi di calcolo Linux (supporto di Linux introdotto in [HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
+Verrà usato lo script di distribuzione Microsoft HPC Pack IaaS (**New-HpcIaaSCluster.ps1**) per automatizzare la distribuzione di cluster nei servizi di infrastruttura di Azure (IaaS). In questo script di Azure PowerShell viene usata un'immagine di macchina virtuale di HPC Pack in Azure Marketplace per accelerare la distribuzione e viene fornito un set completo di parametri di configurazione per rendere la distribuzione semplice e flessibile. Lo script distribuisce rete virtuale di Azure, account di archiviazione, servizi cloud, controller di dominio, server di database SQL Server separato facoltativo, nodo head del cluster, nodi di calcolo, nodi broker, nodi di Azure PaaS ("burst") e nodi di calcolo Linux (supporto di Linux introdotto in [HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
 
-Per una panoramica delle opzioni di distribuzione del cluster HPC Pack, vedere la [Guida introduttiva per HPC Pack 2012 R2 e HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx).
+Per una panoramica delle opzioni di distribuzione del cluster HPC Pack, vedere la pagina relativa alla [guida introduttiva per HPC Pack 2012 R2 e HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx).
 
 ### Prerequisiti
 
@@ -36,14 +38,14 @@ Per una panoramica delle opzioni di distribuzione del cluster HPC Pack, vedere l
 
 * **Azure PowerShell**: [installare e configurare Azure PowerShell](../powershell-install-configure.md) (versione 0.8.10 o versione successiva) nel computer client.
 
-* **Script di distribuzione di HPC Pack IaaS**: scaricare e decomprimere la versione più recente dello script dal [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). È possibile controllare la versione dello script eseguendo `New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione dello script 4.4.0 o versione successiva.
+* **Script di distribuzione di HPC Pack IaaS**: scaricare e decomprimere la versione più recente dello script dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). È possibile controllare la versione dello script eseguendo `New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione dello script 4.4.0 o versione successiva.
 
-* **Sottoscrizione Azure**: è possibile utilizzare una sottoscrizione nel servizio Azure globale o Azure Cina. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Sottoscrizione Azure**: è possibile usare una sottoscrizione nel servizio Azure globale o Azure Cina. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 * **Quota di core**: potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi del cluster con dimensioni delle macchine virtuali multicore. Ad esempio in questo articolo, sono necessari almeno 24 core. Per aumentare una quota, [aprire una richiesta di assistenza clienti online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 ### Creazione del file di configurazione
-Lo script di distribuzione di HPC Pack IaaS utilizza come input un file di configurazione XML che descrive l'infrastruttura del cluster HPC. Per distribuire un cluster di dimensioni ridotte costituito da un nodo head e 2 nodi di calcolo Linux, sostituire i valori per il proprio ambiente nel file di configurazione di esempio riportato di seguito. Per ulteriori informazioni sul file di configurazione, vedere il file Manual.rtf nella cartella dello script e [Creare un cluster HPC con lo script di distribuzione di HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
+Lo script di distribuzione di HPC Pack IaaS usa come input un file di configurazione XML che descrive l'infrastruttura del cluster HPC. Per distribuire un cluster di dimensioni ridotte costituito da un nodo head e 2 nodi di calcolo Linux, sostituire i valori per il proprio ambiente nel file di configurazione di esempio riportato di seguito. Per altre informazioni sul file di configurazione, vedere il file Manual.rtf nella cartella dello script e l'articolo relativo alla [creazione di un cluster HPC con lo script di distribuzione di HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -85,21 +87,21 @@ Di seguito sono riportate brevi descrizioni degli elementi del file di configura
 
 * **IaaSClusterConfig**: elemento radice del file di configurazione.
 
-* **Sottoscrizione**: sottoscrizione di Azure utilizzata per distribuire il cluster HPC Pack. Utilizzare il comando riportato di seguito per verificare che il nome della sottoscrizione Azure sia configurato e univoco nel computer client. In questo esempio, viene utilizzata la sottoscrizione di Azure "Sottoscrizione-1".
+* **Subscription**: sottoscrizione di Azure usata per distribuire il cluster HPC Pack. Usare il comando riportato di seguito per verificare che il nome della sottoscrizione Azure sia configurato e univoco nel computer client. In questo esempio, viene usata la sottoscrizione di Azure "Sottoscrizione-1".
 
     ```
     PS > Get-AzureSubscription –SubscriptionName <SubscriptionName>
     ```
 
-    >[AZURE.NOTE]In alternativa, è possibile utilizzare l'ID sottoscrizione per specificare la sottoscrizione che si desidera utilizzare. Vedere il file Manual.rtf nella cartella dello script.
+    >[AZURE.NOTE]In alternativa, è possibile usare l'ID sottoscrizione per specificare la sottoscrizione che si desidera usare. Vedere il file Manual.rtf nella cartella dello script.
 
-* **StorageAccount**: tutti i dati persistenti per il cluster HPC Pack verranno archiviati nell'account di archiviazione specificato (allvhdsje in questo esempio). Se l'account di archiviazione non esiste, lo script lo crea nell'area specificata in **Località**.
+* **StorageAccount**: tutti i dati persistenti per il cluster HPC Pack verranno archiviati nell'account di archiviazione specificato (allvhdsje in questo esempio). Se l'account di archiviazione non esiste, lo script lo crea nell'area specificata in **Location**.
 
-* **Località**: area di Azure in cui verrà distribuito il cluster HPC Pack (Giappone orientale in questo esempio).
+* **Location**: area di Azure in cui verrà distribuito il cluster HPC Pack (Giappone orientale in questo esempio).
 
 * **VNet**: impostazioni della rete virtuale e subnet in cui verrà creato il cluster HPC. La rete virtuale e la subnet possono essere create manualmente prima di eseguire questo script, oppure lo script crea una rete virtuale con spazio di indirizzo 192.168.0.0/20 e una subnet con spazio di indirizzo 192.168.0.0/23. In questo esempio, lo script crea la rete virtuale centos7rdmavnetje e la subnet CentOS7RDMACluster.
 
-* **Dominio**: impostazioni del dominio Active Directory per il cluster HPC Pack. Tutte le VM di Windows create dallo script vengono aggiunte al dominio. Attualmente, lo script supporta tre opzioni di dominio: ExistingDC, NewDC e HeadNodeAsDC. In questo esempio viene configurato il nodo head come controller di dominio con nome di dominio completo hpc.local.
+* **Domain**: impostazioni del dominio di Active Directory per il cluster HPC Pack. Tutte le VM di Windows create dallo script vengono aggiunte al dominio. Attualmente, lo script supporta tre opzioni di dominio: ExistingDC, NewDC e HeadNodeAsDC. In questo esempio viene configurato il nodo head come controller di dominio con nome di dominio completo hpc.local.
 
 * **Database**: impostazioni database per il cluster HPC Pack. Attualmente, lo script supporta tre opzioni di database: ExistingDB, NewRemoteDB e LocalDB. In questo esempio, verrà creato un database locale nel nodo head.
 
@@ -111,15 +113,15 @@ Di seguito sono riportate brevi descrizioni degli elementi del file di configura
 
 * HPC Pack supporta attualmente le seguenti distribuzioni Linux per nodi di calcolo: Ubuntu Server 14.10, CentOS 6.6, CentOS 7.0 e SUSE Linux Enterprise Server 12.
 
-* Nell'esempio riportato in questo articolo viene utilizzata una versione specifica di CentOS disponibile in Azure Marketplace per creare il cluster. Se si desidera utilizzare altre immagini disponibili, utilizzare il cmdlet di Azure PowerShell **get-azurevmimage** per trovare l’immagine necessaria Per elencare tutte le immagini CentOS 7.0, ad esempio, eseguire il comando seguente: ```
+* Nell'esempio riportato in questo articolo viene usata una versione specifica di CentOS disponibile in Azure Marketplace per creare il cluster. Se si desidera usare altre immagini disponibili, usare il cmdlet di Azure PowerShell **get-azurevmimage** per trovare l'immagine necessaria. Per elencare tutte le immagini CentOS 7.0, ad esempio, eseguire il comando seguente: ```
     get-azurevmimage | ?{$_.Label -eq "OpenLogic 7.0"}
     ```
 
-    Individuare l’immagine necessaria e sostituire il valore **ImageName** nel file di configurazione.
+    Individuare l'immagine necessaria e sostituire il valore **ImageName** nel file di configurazione.
 
-* Sono disponibili immagini Linux che supportano la connettività RDMA per VM di dimensioni A8 e A9. Se si specifica un'immagine con i driver RDMA Linux installati e attivati, lo script di distribuzione di HPC Pack IaaS li distribuisce. Ad esempio, specificare il nome dell'immagine `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` per il SUSE Linux Enterprise Server 12 corrente: ottimizzato per l'immagine di calcolo ad alte prestazioni presente in Marketplace.
+* Sono disponibili immagini Linux che supportano la connettività RDMA per VM di dimensioni A8 e A9. Se si specifica un'immagine con i driver RDMA Linux installati e attivati, lo script di distribuzione di HPC Pack IaaS li distribuisce. Specificare ad esempio il nome dell'immagine `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` per il SUSE Linux Enterprise Server 12 corrente: ottimizzato per l'immagine di calcolo ad alte prestazioni presente in Marketplace.
 
-* Per abilitare Linux RDMA nelle VM Linux create dalle immagini supportate per l'esecuzione di processi MPI, installare e configurare una libreria specifica MPI nei nodi di Linux dopo la distribuzione del cluster in base alle esigenze dell’applicazione. Per ulteriori informazioni su come utilizzare RDMA nei nodi Linux in Azure, vedere [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md).
+* Per abilitare Linux RDMA nelle VM Linux create dalle immagini supportate per l'esecuzione di processi MPI, installare e configurare una libreria specifica MPI nei nodi di Linux dopo la distribuzione del cluster in base alle esigenze dell'applicazione. Per altre informazioni su come usare RDMA nei nodi Linux in Azure, vedere [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md).
 
 * Distribuire tutti i nodi di Linux RDMA all'interno di un singolo servizio in modo che la connessione di rete RDMA possa funzionare tra i nodi.
 
@@ -148,7 +150,7 @@ Di seguito sono riportate brevi descrizioni degli elementi del file di configura
 
     ![Convalida][validate]
 
-    c. una volta superate le convalide, lo script elenca le risorse che verranno create per il cluster HPC. Immettere *y* per continuare.
+    c. una volta superate le convalide, lo script elenca le risorse che verranno create per il cluster HPC. Immettere *Y* per continuare.
 
     ![Risorse][resources]
 
@@ -156,7 +158,7 @@ Di seguito sono riportate brevi descrizioni degli elementi del file di configura
 
     ![Distribuire][deploy]
 
-4. Una volta completata correttamente la configurazione, utilizzare Desktop remoto per il nodo head e aprire HPC Cluster Manager per controllare lo stato del cluster HPC Pack. È possibile gestire e monitorare i nodi di calcolo di Linux nello stesso modo dei nodi di calcolo di Windows. Ad esempio, i nodi di Linux saranno elencati nella gestione dei nodi.
+4. Una volta completata correttamente la configurazione, usare Desktop remoto per il nodo head e aprire HPC Cluster Manager per controllare lo stato del cluster HPC Pack. È possibile gestire e monitorare i nodi di calcolo di Linux nello stesso modo dei nodi di calcolo di Windows. Ad esempio, i nodi di Linux saranno elencati nella gestione dei nodi.
 
     ![Gestione dei nodi][management]
 
@@ -176,18 +178,18 @@ Sono disponibili varie opzioni per spostare dati tra i nodi Linux e il nodo head
 
 ### File di Azure
 
-Il servizio [File di Azure](https://azure.microsoft.com/services/storage/files/) espone condivisioni di file utilizzando il protocollo SMB 2.1 standard. Le VM e i servizi cloud di Azure possono condividere i dati dei file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati dei file in una condivisione tramite l'API della risorsa di archiviazione File. Per ulteriori informazioni, vedere [Come utilizzare l'archiviazione file di Azure con PowerShell e .NET](../storage/storage-dotnet-how-to-use-files.md).
+Il servizio [File di Azure](https://azure.microsoft.com/services/storage/files/) espone condivisioni di file usando il protocollo SMB 2.1 standard. Le VM e i servizi cloud di Azure possono condividere i dati dei file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati dei file in una condivisione tramite l'API della risorsa di archiviazione File. Per altre informazioni, vedere [Come usare l'archiviazione file di Azure con PowerShell e .NET](../storage/storage-dotnet-how-to-use-files.md).
 
-Per creare una condivisione di File di Azure, vedere la procedura dettagliata in [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx). Per configurare connessioni persistenti, vedere [Connessioni persistenti a file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Per creare una condivisione di File di Azure, vedere la procedura dettagliata nell'[introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx). Per configurare connessioni persistenti, vedere la pagina relativa alle [connessioni persistenti a file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
-In questo esempio, verrà creata una condivisione di File di Azure denominata rdma nell’account di archiviazione allvhdsje. Per il mount della condivisione nel nodo head, aprire una finestra di comando e immettere i comandi seguenti:
+In questo esempio, verrà creata una condivisione di File di Azure denominata rdma nell'account di archiviazione allvhdsje. Per il mount della condivisione nel nodo head, aprire una finestra di comando e immettere i comandi seguenti:
 
 ```
 > cmdkey /add:allvhdsje.file.core.windows.net /user:allvhdsje /pass:<storageaccountkey>
 > net use Z: \\allvhdje.file.core.windows.net\rdma /persistent:yes
 ```
 
-In questo esempio, allvhdsje è il nome dell’account di archiviazione, storageaccountkey è la chiave dell’account di archiviazione e rdma è il nome della condivisione di File di Azure. La condivisione di File di Azure verrà montata su Z: nel nodo head.
+In questo esempio, allvhdsje è il nome dell'account di archiviazione, storageaccountkey è la chiave dell'account di archiviazione e rdma è il nome della condivisione di File di Azure. La condivisione di File di Azure verrà montata su Z: nel nodo head.
 
 Per il mount della condivisione di File di Azure su nodi di Linux, eseguire un comando **clusrun** sul nodo head. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** è uno strumento di HPC Pack utile per eseguire attività amministrative su più nodi. Vedere anche [CLusrun per nodi Linux](#CLusrun-for-Linux-nodes) in questo articolo.
 
@@ -199,7 +201,7 @@ PS > clusrun /nodegroup:LinuxNodes mkdir -p /rdma
 PS > clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rdma /rdma -o vers=2.1`,username=allvhdsje`,password=<storageaccountkey>'`,dir_mode=0777`,file_mode=0777
 ```
 
-Il primo comando crea una cartella denominata /rdma su tutti i nodi del gruppo LinuxNodes. Il secondo comando consente di montare la condivisione di File di Azure allvhdsjw.file.core.windows.net/rdma nella cartella /rdma con dir e bit di modalità file impostati su 777. Nel secondo comando, allvhdsje è il nome dell’account di archiviazione e storageaccountkey è la chiave dell’account di archiviazione.
+Il primo comando crea una cartella denominata /rdma su tutti i nodi del gruppo LinuxNodes. Il secondo comando consente di montare la condivisione di File di Azure allvhdsjw.file.core.windows.net/rdma nella cartella /rdma con dir e bit di modalità file impostati su 777. Nel secondo comando, allvhdsje è il nome dell'account di archiviazione e storageaccountkey è la chiave dell'account di archiviazione.
 
 >[AZURE.NOTE]Il simbolo "`" nel secondo comando è un simbolo di escape per PowerShell. "`," significa che "," (virgola) è una parte del comando.
 
@@ -228,9 +230,9 @@ Il primo comando crea una cartella denominata /openfoam su tutti i nodi del grup
 
 ### Server NFS
 
-Il servizio NFS consente agli utenti di condividere e migrare i file tra computer che eseguono il sistema operativo Windows Server 2012 utilizzando il protocollo SMB e i computer basati su Linux mediante il protocollo NFS. Il server NFS e tutti gli altri nodi devono essere distribuiti nella stessa rete virtuale. Consente di migliorare la compatibilità con i nodi di Linux rispetto a una condivisione SMB; ad esempio, supporta il collegamento di file.
+Il servizio NFS consente agli utenti di condividere e migrare i file tra computer che eseguono il sistema operativo Windows Server 2012 usando il protocollo SMB e i computer basati su Linux mediante il protocollo NFS. Il server NFS e tutti gli altri nodi devono essere distribuiti nella stessa rete virtuale. Consente di migliorare la compatibilità con i nodi di Linux rispetto a una condivisione SMB; ad esempio, supporta il collegamento di file.
 
-1. Per installare e configurare un server NFS, seguire la procedura riportata in [Server per condivisione file system di rete end-to-end](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
+1. Per installare e configurare un server NFS, seguire la procedura riportata nel post di blog relativo al [server per condivisione file system di rete end-to-end](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
 
     Ad esempio, creare una condivisione NFS denominata nfs con le seguenti proprietà.
 
@@ -260,13 +262,13 @@ Esistono vari metodi per inviare i processi al cluster HPC Pack
 
 * API REST
 
-La procedura di invio di processi al cluster in Azure tramite gli strumenti dell’interfaccia utente grafica di HPC Pack e il portale Web HPC è uguale a quella utilizzata per i nodi di calcolo di Windows. Vedere [Gestione processi di HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) e [Invio di processi da un client locale](https://msdn.microsoft.com/library/azure/dn689084.aspx).
+La procedura di invio di processi al cluster in Azure tramite gli strumenti dell'interfaccia utente grafica di HPC Pack e il portale Web HPC è uguale a quella usata per i nodi di calcolo di Windows. Vedere l'articolo relativo alla [gestione di processi di HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) e [Inviare processi a una macchina virtuale del nodo head di HPC Pack](https://msdn.microsoft.com/library/azure/dn689084.aspx).
 
-Per inviare processi tramite l'API REST, fare riferimento a [Creazione e invio di processi tramite uso dell’API REST in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Fare inoltre riferimento all'esempio Python in [SDK HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) per inviare processi da un client Linux.
+Per inviare processi tramite l'API REST, fare riferimento all'articolo relativo a [creazione e invio di processi tramite uso dell'API REST in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Fare riferimento anche all'esempio Python nella pagina relativa all'[SDK HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) per inviare processi da un client Linux.
 
 ## ClusRun per i nodi Linux
 
-Lo strumento **clusrun** di HPC Pack può essere utilizzato per eseguire comandi su nodi Linux tramite una finestra di comando o Gestione cluster HPC. Di seguito sono riportati alcuni esempi.
+Lo strumento **clusrun** di HPC Pack può essere usato per eseguire comandi su nodi Linux tramite una finestra di comando o Gestione cluster HPC. Di seguito sono riportati alcuni esempi.
 
 * Visualizzare i nomi utente correnti di tutti i nodi nel cluster
 
@@ -310,4 +312,4 @@ Lo strumento **clusrun** di HPC Pack può essere utilizzato per eseguire comandi
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

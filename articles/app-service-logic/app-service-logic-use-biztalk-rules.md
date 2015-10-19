@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="10/01/2015"
    ms.author="andalmia"/>
 
 #BizTalk Rules
@@ -34,9 +34,9 @@ Esistono tre motivi principali che giustificano l'uso delle regole di business d
 
 ##Vocabolario
 
-I termini usati per definire azioni e condizioni delle regole vengono solitamente espressi tramite il dominio o la nomenclatura specifica del settore. Ad esempio, un utente di posta elettronica scrive regole in termini di messaggi "ricevuti da" e di messaggi "ricevuti dopo", mentre un business analyst assicurativo scrive regole in termini di "fattori di rischio" e "importo di copertura". Alla base di questa terminologia specifica del dominio vi sono gli elementi della tecnologia (oggetti, tabelle di database e documenti XML) che implementano le condizioni e azioni delle regole. I vocabolari sono progettati per colmare il divario tra la semantica di business e l'implementazione.
+Un _vocabolario_ è una raccolta di definizioni costituite da nomi descrittivi per gli oggetti di elaborazione usati nelle condizioni e azioni. Le definizioni del vocabolario semplificano la lettura, la comprensione e la condivisione delle regole da parte degli utenti in un dominio aziendale specifico.
 
-Ad esempio, un data binding per uno stato di approvazione potrebbe puntare a una determinata colonna di una determinata riga in un determinato database, rappresentato come una query SQL. Anziché inserire questo tipo di rappresentazione complessa in una regola, è invece possibile creare una definizione del vocabolario, associata a tale data binding, con un nome descrittivo "Stato". Successivamente è possibile includere "Stato" in un numero qualsiasi di regole e il motore di regole può recuperare i dati corrispondenti dalla tabella. Un _vocabolario_ è una raccolta di definizioni costituite da nomi descrittivi per gli oggetti di elaborazione usati nelle condizioni e azioni. Le definizioni del vocabolario semplificano la lettura, la comprensione e la condivisione delle regole da parte degli utenti in un dominio aziendale specifico.
+I vocabolari sono progettati per colmare il divario tra la semantica di business e l'implementazione. Ad esempio, un data binding per uno stato di approvazione potrebbe puntare a una determinata colonna di una determinata riga in un determinato database, rappresentato come una query SQL. Anziché inserire questo tipo di rappresentazione complessa in una regola, è invece possibile creare una definizione del vocabolario, associata a tale data binding, con un nome descrittivo "Stato". Successivamente è possibile includere "Stato" in un numero qualsiasi di regole e il motore di regole può recuperare i dati corrispondenti dalla tabella.
 
 ##Regola
 
@@ -199,20 +199,20 @@ Di seguito è riportato un esempio di come è possibile usare questa API in C#
 
             JObject input = new JObject();
 
-			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>". 
-			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient". 
-			// This is CASE SENSITIVE. 
+			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
+			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
+			// This is CASE SENSITIVE.
             input.Add("insuranceclaimschema_Patient", xmlInstance);
             string stringContent = JsonConvert.SerializeObject(input);
 
 
             // Making REST call to Rules API App
             HttpClient httpClient = new HttpClient();
-	
+
 			// The url is the Host URL of the Rules API App
-            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");            
+            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");
             HttpContent httpContent = new StringContent(stringContent);
-            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");            
+            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
             // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
@@ -237,4 +237,4 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

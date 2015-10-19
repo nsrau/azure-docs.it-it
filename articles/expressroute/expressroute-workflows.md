@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Flussi di lavoro e stati di provisioning di un circuito ExpressRoute
@@ -30,9 +30,9 @@ La figura e i passaggi corrispondenti riportati di seguito descrivono le attivit
 
 4. Configurare i domini di routing. Se il provider di connettività gestisce il livello 3, configurerà il routing per il circuito. Se invece il provider di connettività offre solo servizi di livello 2, sarà necessario configurare il routing secondo le linee guida descritte nelle pagine relative ai [requisiti di routing](expressroute-routing.md) e alla [configurazione del routing](expressroute-howto-routing-classic.md).
 
-	1. Abilitare il peering privato di Azure: è necessario abilitare questo peering per la connessione alle macchine virtuali e ai servizi cloud distribuiti nelle reti virtuali. 
-	2. Abilitare il peering pubblico di Azure: è necessario abilitare questo peering se si desidera connettersi ai servizi di Azure ospitati in indirizzi IP pubblici. Questo è un requisito per accedere alle risorse di Azure se si è scelto di abilitare il routing predefinito per il peering privato di Azure.
-	3. Abilitare il peering Microsoft: è necessario abilitare questo peering per accedere ai servizi Office 365 e CRM Online. 
+	-  Abilitare il peering privato di Azure: è necessario abilitare questo peering per la connessione alle macchine virtuali e ai servizi cloud distribuiti nelle reti virtuali.
+	-  Abilitare il peering pubblico di Azure: è necessario abilitare questo peering se si desidera connettersi ai servizi di Azure ospitati in indirizzi IP pubblici. Questo è un requisito per accedere alle risorse di Azure se si è scelto di abilitare il routing predefinito per il peering privato di Azure.
+	-  Abilitare il peering Microsoft: è necessario abilitare questo peering per accedere ai servizi Office 365 e CRM Online. 
 	
 	>[AZURE.IMPORTANT]Se si abilita il peering Microsoft, assicurarsi che sia abilitato anche il peering pubblico di Azure per l'accesso ad Azure Active Directory. Per la connessione a Microsoft è necessario usare un server proxy/perimetrale separato rispetto a quello usato per Internet. Se si usa lo stesso server perimetrale per ExpressRoute e Internet, si verificherà un routing asimmetrico con interruzioni della connettività di rete.
 
@@ -116,8 +116,9 @@ Se invece è impostato lo stato *validation needed*, la sessione BGP non è abil
 ## Passaggi successivi
 
 - Configurare la connessione ExpressRoute.
+
 	- [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

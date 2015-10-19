@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/10/2015"
+   ms.date="10/07/2015"
    ms.author="seanmck"/>
 
 # Configurare l'ambiente di sviluppo di Service Fabric
@@ -66,7 +66,7 @@ Un cluster locale rappresenta in un singolo computer di sviluppo la topologia co
     ```powershell
     cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
     ```
-    
+
 3. Esegui
 
     ```powershell
@@ -81,7 +81,7 @@ Dopo qualche secondo come output verranno visualizzate le informazioni relative 
 
 È possibile verificare che il cluster sia stato creato correttamente usando lo strumento Service Fabric Explorer incluso nell'SDK.
 
-1. Per avviare Service Fabric Explorer, eseguire 
+1. Per avviare Service Fabric Explorer, eseguire
 
     ```powershell
     . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
@@ -106,4 +106,4 @@ Ora che l'ambiente di sviluppo è pronto, è possibile iniziare a compilare ed e
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

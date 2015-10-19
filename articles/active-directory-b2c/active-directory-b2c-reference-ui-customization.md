@@ -33,7 +33,7 @@ Contenuto dell'articolo:
 
 ## Funzionalità di personalizzazione dell'interfaccia utente della pagina
 
-La funzionalità di personalizzazione dell'interfaccia utente della pagina permette di personalizzare l'aspetto delle pagine di iscrizione, accesso e modifica del profilo visualizzate dagli utenti, tramite la configurazione di [criteri](active-directory-b2c-references.policies.md). Gli utenti potranno usufruire di un'esperienza coerente durante lo spostamento tra le pagine dell'applicazione e le pagine gestite dal servizio Azure AD B2C.
+La funzionalità di personalizzazione dell'interfaccia utente della pagina permette di personalizzare l'aspetto delle pagine di iscrizione, accesso e modifica del profilo visualizzate dagli utenti, tramite la configurazione di [criteri](active-directory-b2c-reference-policies.md). Gli utenti potranno usufruire di un'esperienza coerente durante lo spostamento tra le pagine dell'applicazione e le pagine gestite dal servizio Azure AD B2C.
 
 Diversamente da altri servizi in cui le opzioni sono limitate o sono disponibili solo tramite le API, Azure AD B2C usa un approccio moderno e più semplice rispetto alla personalizzazione dell'interfaccia utente della pagina. Ecco come funziona: Azure AD B2C esegue il codice nel browser dell'utente e usa un approccio moderno denominato [Condivisione di risorse tra le origini (CORS)](http://www.w3.org/TR/cors/) per caricare il contenuto da un URL specificato nei criteri. È possibile specificare URL diversi per pagine diverse. Il codice unisce il contenuto (elementi dell'interfaccia utente) di Azure AD B2C e il contenuto caricato dall'URL e mostra la pagina agli utenti. È quindi sufficiente creare contenuto HTML5 con un formato valido con un elemento `<div id="api"></div>` collocato da qualche parte nell'elemento `<body>`, ovvero il punto in cui viene unito il contenuto di Azure AD B2C. E ospitare il contenuto in un endpoint HTTPS in cui è consentita la condivisione CORS. È anche possibile definire completamente lo stile degli elementi dell'interfaccia utente di Azure AD B2C.
 
@@ -276,4 +276,4 @@ Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia ut
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

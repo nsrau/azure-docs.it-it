@@ -1,24 +1,26 @@
 <properties
- pageTitle="Informazioni sull'agente e sulle estensioni di macchine virtuali | Microsoft Azure"
- description="Fornisce una panoramica dell'agente e delle estensioni e informazioni su come installare l'agente."
+ pageTitle="Agente ed estensioni di macchine Virtuali di Azure | Microsoft Azure"
+ description="Fornisce una panoramica dell'agente e delle estensioni e informazioni su come installare l'agente utilizzando il modello di distribuzione classica."
  services="virtual-machines"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-service-management"/>
+
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
  ms.date="09/22/2015"
  ms.author="rasquill"/>
- 
+
 #Informazioni sull'agente e sulle estensioni di macchine virtuali
 L'agente macchine virtuali di Azure (agente VM) viene usato per installare, configurare, gestire ed eseguire estensioni di macchine virtuali di Azure (estensioni VM). Le estensioni VM offrono funzionalità dinamiche sviluppate da Microsoft e da terze parti. L'agente e le estensioni vengono aggiunti principalmente tramite il portale di gestione, ma è anche possibile usare i cmdlet di [Powershell](../install-configure-powershell.md) o l'interfaccia [Azure CLI](xplat-install.md) per le operazioni di aggiunta e configurazione al momento della creazione di una macchina virtuale o su macchine virtuali esistenti.
 
-> [AZURE.NOTE]In questo argomento vengono trattati PowerShell e Azure CLI, ma si riferisce alle chiamate di distribuzione per il modello di distribuzione classica e non il modello di distribuzione di gestione delle risorse. Per [Provider di calcolo, rete e di archiviazione in Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md) per ulteriori informazioni sui modelli di distribuzione.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo si riferisce alle chiamate di distribuzione per il modello di distribuzione classica.
 
 
 Con le estensioni VM è possibile:
@@ -52,7 +54,7 @@ L'agente VM è abilitato nelle seguenti situazioni:
         $vm.VM.ProvisionGuestAgent = $TRUE
         Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
--   Quando si crea un'immagine di macchina virtuale con l'agente VM installato prima del caricamento in Azure. Per una macchina virtuale Windows, scaricare il [file con estensione msi dell'agente VM di Windows](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) e installare l'agente VM. Per una macchina virtuale Linux, il componente verrà installato dall'archivio github all'indirizzo <https://github.com/Azure/WALinuxAgent>. Per altre informazioni sull'installazione dell'agente VM in Linux, vedere [Guida per l'utente dell'agente VM Linux di Azure](virtual-machines-linux-agent-user-guide.md).
+-   Quando si crea un'immagine di macchina virtuale con l'agente VM installato prima del caricamento in Azure. Per una macchina virtuale Windows, scaricare il [file con estensione .msi dell'agente VM di Windows](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) e installare l'agente VM. Per una macchina virtuale Linux, il componente verrà installato dall'archivio github all'indirizzo <https://github.com/Azure/WALinuxAgent>. Per altre informazioni sull'installazione dell'agente VM in Linux, vedere [Guida per l'utente dell'agente VM Linux di Azure](virtual-machines-linux-agent-user-guide.md).
 
 >[AZURE.NOTE]Nelle soluzioni PaaS l'agente VM è denominato **GuestAgent** ed è sempre disponibile in macchine virtuali con ruoli Web e di lavoro. Per altre informazioni, vedere il post di blog relativo all'[architettura dei ruoli di Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx). L'agente VM per le macchine virtuali del ruolo può ora aggiungere estensioni alle macchine virtuali del servizio cloud in modo analogo alle macchine virtuali persistenti. La differenza principale tra le estensioni VM su macchine virtuali del ruolo e quelle su macchine virtuali persistenti è data dal fatto che nel primo caso le estensioni vengono aggiunte prima al servizio cloud e dopo le distribuzioni all'interno di tale servizio.
 
@@ -62,4 +64,4 @@ L'agente VM è abilitato nelle seguenti situazioni:
 
 Per informazioni dettagliate sulle attività, vedere [Aggiungere, trovare, aggiornare e rimuovere estensioni VM di Azure](virtual-machines-extensions-install.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

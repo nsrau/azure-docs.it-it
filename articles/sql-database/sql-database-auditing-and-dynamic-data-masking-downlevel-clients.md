@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Database SQL - Supporto client di livello inferiore per controllo e maschera dati dinamica | Microsoft Azure" 
-	description="Database SQL - Supporto client di livello inferiore per controllo e maschera dati dinamica" 
+	description="Informazioni sul supporto client di livello inferiore del database SQL per controllo e maschera dati dinamica | Azure" 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="09/01/2015" 
 	ms.author="nadavhelfman"/>
  
 # Database SQL - Supporto client di livello inferiore per controllo e maschera dati dinamica 
@@ -33,11 +33,11 @@ Un elenco parziale di "client di livello inferiore" include:
 
 - .NET 4.0 e versioni precedenti,
 - ODBC 10.0 e versioni precedenti.
-- JDBC 4.0 e versioni precedenti (mentre JDBC 4.0 supporta TDS 7.4, la funzionalità di reindirizzamento TDS non è del tutto supportata)
+- JDBC (mentre JDBC supporta TDS 7.4, la funzionalità di reindirizzamento TDS non è del tutto supportata)
 - Tedious (per Node.JS)
 
 **Nota:** la modifica del nome di dominio completo del server citata in precedenza può risultare utile per applicare un criterio di controllo a livello di server SQL senza la necessità di una procedura di configurazione in ogni database (attenuazione temporanea).
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

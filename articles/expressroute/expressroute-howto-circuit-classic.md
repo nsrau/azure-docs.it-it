@@ -13,14 +13,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Creare e modificare un circuito ExpressRoute
 
 Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite i cmdlet di PowerShell e il modello di distribuzione classica. I passaggi che seguono descrivono anche come controllare lo stato, eseguire l'aggiornamento o effettuare l'eliminazione e il deprovisioning di un circuito ExpressRoute.
 
->[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione di Azure](../azure-classic-rm.md)
+>[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione di Azure](../azure-classic-rm.md).
 
 ## Prerequisiti di configurazione
 
@@ -153,21 +153,21 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 	Quando si crea un nuovo circuito ExpressRoute, il circuito avrà lo stato seguente:
 	
-		**ServiceProviderProvisioningState :** NotProvisioned
+		ServiceProviderProvisioningState : NotProvisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
-	ServiceProviderProvisioningState fornisce informazioni sullo stato corrente di provisioning sul lato provider del servizio, mentre Status fornisce lo stato sul lato Microsoft. Un circuito ExpressRoute può essere usato solo se è associato allo stato seguente.
+	*ServiceProviderProvisioningState* fornisce informazioni sullo stato corrente di provisioning sul lato provider del servizio, mentre Status fornisce lo stato sul lato Microsoft. Un circuito ExpressRoute può essere usato solo se è associato allo stato seguente.
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 	Il circuito passa allo stato seguente quando è in corso l'abilitazione da parte del provider di connettività.
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 
 
@@ -196,7 +196,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 ##  Come ottenere lo stato di un circuito ExpressRoute
 
-È possibile recuperare queste informazioni in qualsiasi momento usando il cmdlet *Get-AzureCircuit*. Se si effettua la chiamata senza parametri, verranno elencati tutti i circuiti.
+Si possono recuperare queste informazioni in qualsiasi momento usando il cmdlet *Get-AzureCircuit*. Se si effettua la chiamata senza parametri, verranno elencati tutti i circuiti.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -243,7 +243,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 A questo punto è possibile eseguire le attività seguenti:
 
 - Abilitare o disabilitare il componente aggiuntivo ExpressRoute Premium per un circuito ExpressRoute senza tempo di inattività.
-- Aumentare la larghezza di banda dei circuito ExpressRoute senza alcun tempo di inattività.
+- Aumentare la larghezza di banda del circuito ExpressRoute senza alcun tempo di inattività.
 
 Per altre informazioni su limiti e limitazioni, fare riferimento alla pagina delle [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
@@ -276,8 +276,8 @@ Il circuito avrà le funzionalità del componente aggiuntivo ExpressRoute Premiu
 		ServiceKey                       : *********************************
 		ServiceProviderName              : equinix
 		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Premium
-		Status                           : Standard
+		Sku                              : Standard
+		Status                           : Enabled
 
 Il componente aggiuntivo Premium è ora disabilitato per il circuito.
 
@@ -321,7 +321,7 @@ Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di p
 
 ## Passaggi successivi
 
-- [Configurare il routing di ExpressRoute (gestione dei peering del circuito)](expressroute-howto-routing-classic.md)
-- [Collegare le reti virtuali a un circuito ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
+- [Configurare il routing](expressroute-howto-routing-classic.md)
+- [Collegare una rete virtuale a un circuito ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

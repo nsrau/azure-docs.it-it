@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure usando Powershell"
+	pageTitle="Creazione e caricamento di un disco rigido virtuale con Windows Server usando Powershell | Microsoft Azure"
 	description="Viene illustrato come creare e caricare un disco rigido virtuale (VHD) basato su Server Windows utilizzando il modello di distribuzione classica e Azure Powershell."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,15 +17,19 @@
 	ms.date="09/10/2015"
 	ms.author="cynthn"/>
 
-# Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure#
+# Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 Questo articolo illustra come caricare un disco rigido virtuale (VHD, Virtual Hard Disk) con un sistema operativo in modo da poterlo usare come immagine in base alla quale creare macchine virtuali. Per informazioni dettagliate sui dischi e sui dischi rigidi virtuali in Microsoft Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-disks-vhds.md).
 
-## Prerequisiti##
+
+
+## Prerequisiti
 
 Questo articolo presuppone che l'utente abbia:
 
-1. **Una sottoscrizione di Microsoft Azure**: se non già disponibile è possibile [aprire un account Microsoft Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Si riceveranno dei crediti da usare per provare i servizi di Microsoft Azure a pagamento e, anche dopo avere esaurito i crediti, sarà possibile mantenere comunque l'account per usare i servizi di Microsoft Azure gratuiti, ad esempio Siti Web. Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito. È possibile inoltre [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Microsoft Azure a pagamento.
+1. **Una sottoscrizione di Microsoft Azure**: se non già disponibile è possibile [aprire un account Microsoft Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Si riceveranno dei crediti da usare per provare i servizi di Microsoft Azure a pagamento e, anche dopo avere esaurito i crediti, sarà possibile mantenere comunque l'account per usare i servizi di Microsoft Azure gratuiti, ad esempio Siti Web. Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito. È possibile inoltre [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile utilizzare per i servizi di Microsoft Azure a pagamento.
 
 2. **Microsoft Azure PowerShell**: è necessario che il modulo di Microsoft Azure PowerShell sia installato e configurato per l’uso della sottoscrizione. Per scaricare il modulo, vedere la pagina dei [download di Microsoft Azure](http://azure.microsoft.com/downloads/). Un'esercitazione per installare e configurare in modulo è disponibile [qui](../powershell-install-configure.md). Per caricare il VHD, usare il cmdlet [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) di Azure.
 
@@ -33,9 +37,9 @@ Questo articolo presuppone che l'utente abbia:
 
 > [AZURE.IMPORTANT]il formato VHDX non è supportato in Microsoft Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Per informazioni dettagliate, vedere questo [post di blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
-## Passaggio 1: Preparare il disco rigido virtuale ##
+## Passaggio 1: Preparare il disco rigido virtuale 
 
-Prima di caricare il disco rigido virtuale in Azure, è necessario generalizzarlo usando lo strumento Sysprep, che prepara il disco rigido virtuale in modo che possa essere usato come immagine. Per informazioni dettagliate su Sysprep, vedere [Come usare Sysprep: introduzione](http://technet.microsoft.com/library/bb457073.aspx).
+Prima di caricare il disco rigido virtuale in Azure, è necessario generalizzarlo usando lo strumento Sysprep, che prepara il disco rigido virtuale in modo che possa essere usato come immagine. Per ulteriori informazioni su Sysprep, vedere [Introduzione: Introduzione](http://technet.microsoft.com/library/bb457073.aspx).
 
 Dalla macchina virtuale su cui è stato installato il sistema operativo, completare la seguente procedura:
 
@@ -55,7 +59,7 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 6.  Fare clic su **OK**.
 
-## Passaggio 2: Creare oppure ottenere informazioni dall'account di archiviazione di Azure##
+## Passaggio 2: Creare oppure ottenere informazioni dall'account di archiviazione di Azure
 
 È necessario un account di archiviazione di Azure in cui caricare il file con estensione vhd. Questo passaggio illustra come creare un account o come ottenere le informazioni necessarie da un account esistente.
 
@@ -135,7 +139,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 4. Digitare: `Import-AzurePublishSettingsFile <PathToFile>`
 
-	Dove `<PathToFile>` è il percorso completo del file con estensione publishsettings.
+	Dove `<PathToFile>` è il percorso completo del file .publishsettings.
 
 ## Passaggio 4: caricare il file VHD
 
@@ -198,4 +202,4 @@ Dopo aver creato una macchina virtuale, provare a creare una macchina virtuale d
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

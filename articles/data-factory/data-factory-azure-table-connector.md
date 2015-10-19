@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
 
-Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati nelle tabelle di Azure da un altro archivio dati e spostare data da un altro archivio dati alle tabelle di Azure. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
+Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati da un altro archivio dati alle tabelle di Azure e spostare i dati dalle tabelle di Azure a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
 ## Esempio: Copiare i dati dalle tabelle di Azure al BLOB di Azure
 
@@ -384,11 +384,31 @@ azureTableInsertType | La modalità per inserire dati in tabelle di Azure. | uni
 writeBatchSize | Inserisce dati nella tabella di Azure quando viene raggiunto il writeBatchSize o writeBatchTimeout. | Numero intero compreso tra 1 e 100 (unità = conteggio righe) | No. (Predefinito = 100) 
 writeBatchTimeout | Inserisce i dati nella tabella di Azure quando viene raggiunto writeBatchSize o writeBatchTimeout | (Unità = intervallo di tempo)Esempio: "00:20:00" (20 minuti). | No. (il valore predefinito è il timeout del client di archiviazione pari a 90 secondi)
 
+### azureTablePartitionKeyName
+È necessario eseguire il mapping di una colonna di origine a una colonna di destinazione utilizzando la funzione di conversione proprietà JSON prima di poter utilizzare la colonna di destinazione come il azureTablePartitionKeyName.
+
+Nell'esempio seguente, la colonna di origine DivisionID viene eseguito il mapping alla colonna di destinazione: DivisionID.
+
+	"translator": {
+		"type": "TabularTranslator",
+		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
+	} 
+
+L’EmpID specifica come chiave di partizione.
+
+	"sink": {
+		"type": "AzureTableSink",
+		"azureTablePartitionKeyName": "DivisionID",
+		"writeBatchSize": 100,
+		"writeBatchTimeout": "01:00:00"
+	}
+
+
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Mapping dei tipi per tabelle di Azure
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi.
+Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -484,4 +504,4 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

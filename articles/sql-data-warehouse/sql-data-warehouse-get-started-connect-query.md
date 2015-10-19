@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/01/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Introduzione: Connettersi ad Azure SQL Data Warehouse
@@ -179,9 +179,9 @@ Dopo avere registrato il server, è possibile scrivere una query.
 	Per eseguire la query, fare clic sulla freccia verde oppure usare la combinazione di tasti seguente: `CTRL`+`SHIFT`+`F5`.
 
 ## Passaggi successivi ##
-Ora che è possibile connettersi ed eseguire query, tentare il [caricamento dei dati di esempio][] o lo [sviluppo di codice][].
+Ora che è possibile connettersi ed eseguire query, tentare il [caricamento dei dati di esempio][].
 
 [caricamento dei dati di esempio]: ./sql-data-warehouse-get-started-load-samples.md
-[sviluppo di codice]: ./articles/sql-data-warehouse-overview-develop/
+[developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

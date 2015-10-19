@@ -3,7 +3,7 @@
    description="Modello di progettazione su come usare Reliable Actors come infrastruttura di caching in applicazioni basate sul Web"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Modello di progettazione di Reliable Actors: Smart Cache
 Le nuove applicazioni sono generalmente costituite dalla combinazione di un livello Web, un livello di caching, un livello di archiviazione e, in alcuni casi, un livello di lavoro. Il livello di caching, in genere, è essenziale per le prestazioni e può essere costituito da più sotto-livelli. In molti casi, le cache sono costituite da semplici coppie chiave-valore. In altri casi, vengono usati come cache sistemi simili a [Redis](http://redis.io), che offrono una semantica più completa. Seppur speciale, tuttavia, qualsiasi livello di caching è limitato nella semantica e, soprattutto, costituisce un ulteriore livello da gestire. E se invece gli oggetti si limitassero a mantenere lo stato in variabili locali e potessero essere automaticamente salvati in uno snapshot o in modo permanente in un archivio stabile? Raccolte complete come elenchi, set ordinati, code e altri tipi personalizzati verrebbero semplicemente modellate come metodi e variabili membro.
@@ -302,4 +302,4 @@ Il modello Smart Cache offre, essenzialmente, i seguenti vantaggi:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="ricksal"/>
 
 # Aggiungere la sincronizzazione offline dei dati all'app di Servizi mobili per Android
@@ -33,7 +33,6 @@ Indipendentemente dallo stato offline o connesso, è possibile che si verifichin
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-
 ## Aggiornare l'app per supportare la sincronizzazione offline
 
 Con la sincronizzazione offline si legge e si scrive da una *tabella di sincronizzazione* (usando l'interfaccia *IMobileServiceSyncTable*), che fa parte di un database **SQL Light** nel dispositivo.
@@ -48,14 +47,14 @@ Per eseguire il push e il pull delle modifiche tra il dispositivo e Servizi mobi
 2. Aggiungere le istruzioni **import** seguenti a *ToDoActivity.java*:
 
 		import java.util.Map;
-		
+
 		import android.widget.Toast;
-		
-		import com.microsoft.windowsazure.mobileservices.table.query.Query; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore; 
+
+		import com.microsoft.windowsazure.mobileservices.table.query.Query;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
 
 3. Accanto alla parte superiore della classe `ToDoActivity`, cambiare la dichiarazione della variabile `mToDoTable` da una classe `MobileServiceTable<ToDoItem>` a una classe `MobileServiceSyncTable<ToDoItem>`.
 
@@ -109,7 +108,7 @@ Per eseguire il push e il pull delle modifiche tra il dispositivo e Servizi mobi
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
 				new AsyncTask<Void, Void, Void>() {
-	
+
 					@Override
 					protected Void doInBackground(Void... params) {
 						try {
@@ -136,7 +135,7 @@ Per eseguire il push e il pull delle modifiche tra il dispositivo e Servizi mobi
 	In fase di avvio, il dispositivo si sincronizzerà con la tabella di Azure. In caso contrario, verranno visualizzati i contenuti offline più recenti dell'archivio locale.
 
 
- 
+
 9. Aggiornare il codice nel metodo `refreshItemsFromTable` in modo da usare questa query (prima riga di codice nel blocco `try`):
 
 		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
@@ -162,8 +161,8 @@ Quando si preme il pulsante, viene avviata una nuova attività in background e v
 
 È possibile testare gli scenari seguenti.
 
-1. Aggiungere nuovi elementi al dispositivo. 
-2. Verificare che gli elementi non vengano visualizzati nel portale. 
+1. Aggiungere nuovi elementi al dispositivo.
+2. Verificare che gli elementi non vengano visualizzati nel portale.
 3. Premere quindi il pulsante di **aggiornamento** e verificare che vengano visualizzati.
 4. Cambiare o aggiungere un elemento nel portale, quindi premere il pulsante di **aggiornamento** e verificare che le modifiche vengano visualizzate nel dispositivo.
 
@@ -212,7 +211,6 @@ One thing which is important to point out: if there are pending changes in the l
 
 
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]: mobile-services-android-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
@@ -221,4 +219,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [esercitazione Guida introduttiva per Servizi mobili]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

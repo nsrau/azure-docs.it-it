@@ -1,25 +1,25 @@
-<properties 
-   pageTitle="Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure"
+<properties
+   pageTitle="Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure | Microsoft Azure"
    description="Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure"
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
    manager="douge"
    editor="tlee" />
-<tags 
+<tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="10/02/2015"
    ms.author="kempb" />
 
 # Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure
 
-Il modello di progetto di distribuzione **Gruppo di risorse di Azure** è disponibile in Visual Studio quando è installato Azure SDK 2.6. Il progetto Gruppo di risorse di Azure consente di raggruppare e pubblicare con un'unica operazione di distribuzione più risorse di Azure correlate. Per il funzionamento dei progetti Gruppo di risorse di Azure, viene usata la tecnologia **Gestione risorse di Azure**. **Gestione risorse di Azure** è un servizio API REST che consente di definire gruppi di risorse di Azure, contenenti più risorse di Azure che vengono in genere usate insieme e hanno un ciclo di vita analogo. L'uso dei gruppi di risorse permette di operare su tutte le risorse in un gruppo con una sola chiamata della funzione, invece di chiamare funzioni diverse per ogni singola risorsa. Per altre informazioni sui gruppi di risorse di Azure, vedere [Uso dei gruppi di risorse per gestire le risorse di Azure](./azure-portal/azure-preview-portal-using-resource-groups/).
+Il modello di progetto di distribuzione **Gruppo di risorse di Azure** è disponibile in Visual Studio quando è installato Azure SDK 2.6. Il progetto Gruppo di risorse di Azure consente di raggruppare e pubblicare con un'unica operazione di distribuzione più risorse di Azure correlate. Per il funzionamento dei progetti Gruppo di risorse di Azure, viene usata la tecnologia **Gestione risorse di Azure**. **Gestione risorse di Azure** è un servizio API REST che consente di definire gruppi di risorse di Azure, contenenti più risorse di Azure che vengono in genere usate insieme e hanno un ciclo di vita analogo. L'uso dei gruppi di risorse permette di operare su tutte le risorse in un gruppo con una sola chiamata della funzione, invece di chiamare funzioni diverse per ogni singola risorsa. Per altre informazioni sui gruppi di risorse di Azure, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](resource-group-portal.md). Per uno scenario end-to-end più dettagliato relativo alla distribuzione dei gruppi di risorse di Azure, vedere [Gruppi di risorse di Azure per Visual Studio](https://azure.microsoft.com/it-IT/blog/azure-resource-manager-2-5-for-visual-studio/).
 
-I progetti di tipo Gruppo di risorse di Azure contengono modelli JSON di Gestione risorse di Azure, che definiscono gli elementi distribuiti in un gruppo di risorse. Per altre informazioni, vedere [Linguaggio del modello di Gestione risorse di Azure](resource-group-authoring-templates.md).
+I progetti di tipo Gruppo di risorse di Azure contengono modelli JSON di Gestione risorse di Azure, che definiscono gli elementi distribuiti in un gruppo di risorse. Per altre informazioni, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
 Gestione risorse di Azure include diversi provider di risorse, che possono essere usati per distribuire risorse quali Ubuntu Server e Windows Server 2012 R2. Questo argomento usa una risorsa **App Web**, che distribuisce un sito Web vuoto di base in Azure.
 
@@ -47,13 +47,13 @@ In questa procedura viene illustrato come creare un progetto di tipo Gruppo di r
 
     Poiché per questo esempio è stato scelto il modello App Web, verranno visualizzati i file seguenti.
 
-|Nome file|Descrizione|
-|---|---|
-|Deploy-AzureResourceGroup.ps1|Script di PowerShell che richiama i comandi PowerShell da distribuire in Gestione risorse di Azure.
+    |Nome file|Descrizione|
+    |---|---|
+    |Deploy-AzureResourceGroup.ps1|Script di PowerShell che richiama i comandi PowerShell da distribuire in Gestione risorse di Azure.
 
-**Nota** Questo script di PowerShell viene usato da Visual Studio per distribuire il modello. Eventuali modifiche apportate allo script influiranno anche sulla distribuzione in Visual Studio. Occorre quindi prestare attenzione.| !WebSite.json|File di configurazione che specifica tutti i dettagli da distribuire in Gestione risorse di Azure.| |WebSite.param.dev.json|File dei parametri contenente valori specifici necessari per il file di configurazione.| |AzCopy.exe|Strumento usato dallo script di PowerShell per copiare i file dal percorso di destinazione dell'archivio locale al contenitore dell'account di archiviazione. Questo strumento viene usato solo se si configura il progetto di distribuzione per distribuire il codice insieme al modello.|
+    **Nota** Questo script di PowerShell viene usato da Visual Studio per distribuire il modello. Eventuali modifiche apportate allo script influiranno anche sulla distribuzione in Visual Studio. Occorre quindi prestare attenzione.| !WebSite.json|File di configurazione che specifica tutti i dettagli da distribuire in Gestione risorse di Azure.| |WebSite.param.dev.json|File dei parametri contenente valori specifici necessari per il file di configurazione.| |AzCopy.exe|Strumento usato dallo script di PowerShell per copiare i file dal percorso di destinazione dell'archivio locale al contenitore dell'account di archiviazione. Questo strumento viene usato solo se si configura il progetto di distribuzione per distribuire il codice insieme al modello.|
 
-Tutti i progetti di distribuzione di tipo Gruppo di risorse di Azure contengono questi quattro file di base. Altri progetti potrebbero includere file aggiuntivi per supportare altre funzionalità.
+    Tutti i progetti di distribuzione di tipo Gruppo di risorse di Azure contengono questi quattro file di base. Altri progetti potrebbero includere file aggiuntivi per supportare altre funzionalità.
 
 ## Personalizzazione di un progetto Gruppo di risorse di Azure
 
@@ -63,7 +63,7 @@ I progetti Gruppo di risorse di Azure includono due file di modello nel nodo **M
 
 - I **file di modello di Gestione risorse di Azure** (con estensione json) specificano i file contenenti le risorse desiderate, oltre ai parametri necessari per il progetto di distribuzione, ad esempio nome del sito e posizione. Specificano anche le dipendenze dei componenti nel Gruppo di risorse di Azure e le rispettive proprietà, ad esempio nomi, tag e regole per i trigger. È possibile modificare questo file per aggiungere funzionalità personalizzate. Ad esempio, è possibile aggiungere un database al modello. Per informazioni sui parametri da specificare, vedere la documentazione di ogni provider di risorse. Per altre informazioni, vedere [Provider di risorse](https://msdn.microsoft.com/library/azure/dn790572.aspx).
 
-- I **file dei parametri** (con estensione param.*.json) contengono i valori per i parametri specificati nel file di configurazione, necessari per ogni provider di risorse. In questo esempio il file di configurazione per un'app Web (WebSite.json) definisce parametri per siteName e siteLocation. Durante la distribuzione viene richiesto di fornire valori per i parametri nel file di modello e tali valori vengono archiviati nel file dei parametri. È anche possibile modificare direttamente il file dei parametri."
+- I **file dei parametri** (con estensione `.param.*.json`) contengono i valori per i parametri specificati nel file di configurazione, necessari per ogni provider di risorse. In questo esempio il file di configurazione per un'app Web (WebSite.json) definisce i parametri per *siteName* e *siteLocation*. Durante la distribuzione viene richiesto di fornire valori per i parametri nel file di modello e tali valori vengono archiviati nel file dei parametri. È anche possibile modificare direttamente il file dei parametri.
 
 I file JSON possono essere modificati nell'editor di Visual Studio. Se si installa [PowerShell Tools for Visual Studio](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597), si otterrà anche l'evidenziazione della sintassi, la corrispondenza delle parentesi graffe e IntelliSense per semplificare la lettura e la modifica degli script di PowerShell. Un collegamento per l'installazione di PowerShell Tools viene visualizzato nella parte superiore dell'editor, se non è già installato.
 
@@ -105,9 +105,9 @@ Quando si distribuisce un progetto di tipo Gruppo di risorse di Azure, il proget
 
 1. Nella finestra di dialogo **Modifica parametri** immettere il nome del sito, la posizione del sito, il nome del piano di hosting e verificare i valori delle eventuali altre proprietà. Al termine, scegliere il pulsante **Salva**.
 
-    - Il parametro *siteName* è la prima parte dell'URL della pagina Web. Ad esempio, per l'URL mywebsitename.azurewebsites.net, il nome del sito è mywebsitename.
+    - Il parametro *siteName* è la prima parte dell'URL della pagina Web. Ad esempio, per l'URL mywebsitename.azurewebsites.net, il nome del sito è **mywebsitename**.
 
-    - Il parametro *hostingPlanName* specifica il piano di hosting. Per questo esempio è possibile usare "Gratuito". Per altre informazioni sui piani di hosting, vedere [Panoramica approfondita dei piani di hosting di Siti Web di Azure](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/).
+    - Il parametro *hostingPlanName* specifica il piano di hosting. Per questo esempio è possibile usare "Gratuito". Per altre informazioni sui piani di hosting, vedere [Panoramica approfondita dei piani del servizio app di Azure](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/).
 
     - Il parametro *siteLocation* fa riferimento all'area di Azure in cui il sito deve essere ospitato, ad esempio "Stati Uniti occidentali". Per un elenco delle aree disponibili, vedere [Aree di Azure](http://azure.microsoft.com/regions/).
 
@@ -117,7 +117,7 @@ Quando si distribuisce un progetto di tipo Gruppo di risorse di Azure, il proget
 
     >[AZURE.NOTE]Potrebbe essere necessario installare i cmdlet di Microsoft Azure PowerShell. Poiché questi cmdlet sono necessari per distribuire i gruppi di risorse di Azure, sarà necessario installarli.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) da un browser. Poiché si tratta di una nuova modifica, nella scheda **Notifiche** dovrebbe essere disponibile un nuovo messaggio di notifica. Scegliere il messaggio per visualizzare i dettagli relativi al nuovo gruppo di risorse di Azure. Per visualizzare un elenco di tutti i gruppi di risorse disponibili, scegliere la scheda **Sfoglia** e quindi scegliere **Gruppi di risorse**.
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/) da un browser. Poiché si tratta di una nuova modifica, nella scheda **Notifiche** dovrebbe essere disponibile un nuovo messaggio di notifica. Scegliere il messaggio per visualizzare i dettagli relativi al nuovo gruppo di risorse di Azure. Per visualizzare un elenco di tutti i gruppi di risorse disponibili, scegliere la scheda **Sfoglia** e quindi scegliere **Gruppi di risorse**.
 
     ![Gruppo di risorse di Azure di cui è stato effettuato il provisioning](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796676.png)
 
@@ -129,18 +129,18 @@ Quando si distribuisce un progetto di tipo Gruppo di risorse di Azure, il proget
 
 ## Uso di progetti Distribuzione cloud di Azure SDK 2.5 con Azure SDK 2.6
 
-Se si usano progetti di tipo Distribuzione cloud creati con Azure SDK 2.5, è consigliabile eseguire l'aggiornamento ad Azure SDK 2.6 per poter usare le nuove funzionalità per la modifica e la distribuzione di modelli di risorsa di Azure. Il modo più semplice per riutilizzare i modelli creati con Azure SDK 2.5 consiste nel creare la versione di Azure SDK 2.6 del progetto, spostare i modelli in tale progetto e apportare alcune modifiche.
+Se si usano progetti di tipo Distribuzione cloud creati con Azure SDK 2.5, è consigliabile eseguire l'aggiornamento ad Azure SDK 2.6 o versione successiva per poter usare le nuove funzionalità per la modifica e la distribuzione di modelli di risorsa di Azure. Il modo più semplice per riutilizzare i modelli creati con Azure SDK 2.5 consiste nel creare la versione di Azure SDK 2.6 o successiva del progetto, spostare i modelli in tale progetto e apportare alcune modifiche.
 
-### Per usare progetti Distribuzione cloud di Azure SDK 2.5 con Azure SDK 2.6
+### Per usare progetti Distribuzione cloud di Azure SDK 2.5 con Azure SDK 2.6 o versione successiva
 
-1. Aggiungere un nuovo progetto di tipo Gruppo di risorse di Azure di Azure SDK 2.6 alla soluzione.
+1. Aggiungere un nuovo progetto di tipo Gruppo di risorse di Azure di Azure SDK 2.6 o versione successiva alla soluzione.
 
     1. Aprire la soluzione che include il progetto Distribuzione cloud di Azure SDK 2.5.
 
     1. Scegliere **Nuovo**, **Progetto** dal menu **File**.
 
     1. Nella finestra di dialogo **Nuovo progetto** trovare il progetto **Gruppo di risorse di Azure **in **Visual C#**/**Cloud** o **Visual Basic**/**Cloud**.
-    
+
          Il nome del modello di progetto è stato cambiato da **Distribuzione cloud** a Gruppo di risorse di Azure.
 
     1. Assegnare un nome al progetto.
@@ -150,49 +150,49 @@ Se si usano progetti di tipo Distribuzione cloud creati con Azure SDK 2.5, è co
     1. Verrà quindi richiesto di selezionare un modello. Poiché i modelli esistenti verranno spostati dal progetto di tipo Distribuzione cloud di Azure SDK 2.5, è possibile scegliere qualsiasi modello. In questo esempio verrà selezionato il modello vuoto alla fine dell'elenco.
 
     1. Fare clic su **OK**.
-    
+
         Il nuovo progetto viene aggiunto alla soluzione.
 
-1. Copiare il modello e i file dei parametri dal progetto di tipo Distribuzione cloud di Azure SDK 2.5 nel progetto di tipo Gruppo di risorse di Azure SDK 2.6.
+1. Copiare i file di modello e dei parametri dal progetto di tipo Distribuzione cloud di Azure SDK 2.5 nel progetto di tipo Gruppo di risorse di Azure SDK 2.6 o versione successiva.
 
     1. In Esplora soluzioni trovare il modello e i file dei parametri da copiare nel progetto di distribuzione di Azure SDK 2.5, selezionarli e quindi copiarli.
-    
-    2. Incollare i file nella cartella **Modelli** del nuovo progetto di tipo Gruppo di risorse di Azure SDK 2.6.
+
+    2. Incollare i file nella cartella **Modelli** del nuovo progetto di tipo Gruppo di risorse di Azure SDK 2.6 o versione successiva.
 
 1. In Esplora soluzioni trovare il modello e i file dei parametri da copiare nel progetto di distribuzione di Azure SDK 2.5, selezionarli e quindi copiarli.
 
-1. Incollare i file nella cartella Modelli del nuovo progetto di tipo Gruppo di risorse di Azure SDK 2.6.
+1. Incollare i file nella cartella Modelli del nuovo progetto di tipo Gruppo di risorse di Azure SDK 2.6 o versione successiva.
 
-1. Se con il modello si distribuisce anche un'applicazione Web, sarà necessario creare un riferimento dal nuovo progetto di tipo Gruppo di risorse di Azure SDK 2.6 all'applicazione Web.
+1. Se con il modello si distribuisce anche un'applicazione Web, sarà necessario creare un riferimento dal nuovo progetto di tipo Gruppo di risorse di Azure SDK 2.6 o versione successiva all'applicazione Web.
 
-    1. Dal menu contestuale del nodo **Riferimenti** del nuovo progetto di tipo Gruppo di risorse di Azure SDK 2.6 in Esplora soluzioni scegliere **Aggiungi riferimento**.
+    1. Dal menu contestuale del nodo **Riferimenti** del nuovo progetto di tipo Gruppo di risorse di Azure SDK 2.6 o versione successiva in Esplora soluzioni scegliere **Aggiungi riferimento**.
 
     1. Selezionare la casella accanto all'applicazione Web nell'elenco di progetti e quindi fare clic su **OK**.
 
-1. Dal menu contestuale del nodo Riferimenti del nuovo progetto di tipo Gruppo di risorse di Azure SDK 2.6 in Esplora soluzioni scegliere Aggiungi riferimento.
+1. Dal menu contestuale del nodo Riferimenti del nuovo progetto di tipo Gruppo di risorse di Azure SDK 2.6 o versione successiva in Esplora soluzioni scegliere Aggiungi riferimento.
 
 1. Selezionare la casella accanto all'applicazione Web nell'elenco di progetti e quindi fare clic su OK.
 
 1. Rinominare tutte le occorrenze dei parametri *dropLocation* e *dropLocationSasToken* in *\_artifactsLocation* e *\_artifactsLocationSasToken*.
 
-1. Se non si prevede di usarli, sarà possibile eliminare il modello vuoto e i file dei parametri aggiunti automaticamente al progetto di Azure SDK 2.6 durante la creazione.
+1. Se non si prevede di usarli, sarà possibile eliminare il modello vuoto e i file dei parametri aggiunti automaticamente al progetto di Azure SDK 2.6 o versione successiva durante la creazione.
 
     1. Eliminare il file DeployTemplate.json.
 
     1. Eliminare il file DeploymentTemplate.param.dev.json.
 
-1. Se sono state apportate modifiche allo script Publish-AzureResourceGroup.ps1 nel progetto di Azure SDK 2.5, sarà necessario spostare tali modifiche nello script Deploy-AzureResourceGroup.ps1 del progetto di Azure SDK 2.6.
+1. Se sono state apportate modifiche allo script Publish-AzureResourceGroup.ps1 nel progetto di Azure SDK 2.5, sarà necessario spostare tali modifiche nello script Deploy-AzureResourceGroup.ps1 del progetto di Azure SDK 2.6 o versione successiva.
 
-    Ora è possibile distribuire il modello usando il comando di distribuzione nel progetto di tipo Gruppo di risorse di Azure di Azure SDK 2.6 e sfruttare i vantaggi offerti dalle nuove funzionalità per la modifica dei modelli in Azure SDK 2.6. Quando il progetto di Azure SDK 2.6 funziona correttamente, sarà possibile rimuovere il progetto di Azure SDK 2.5 dalla soluzione.
+    Ora è possibile distribuire il modello usando il comando di distribuzione nel progetto di tipo Gruppo di risorse di Azure di Azure SDK 2.6 o versione successiva e sfruttare i vantaggi offerti dalle nuove funzionalità per la modifica dei modelli in Azure SDK 2.6. Quando il progetto di Azure SDK 2.6 o versione successiva funziona correttamente, sarà possibile rimuovere il progetto di Azure SDK 2.5 dalla soluzione.
 
 ## Motivi che hanno richiesto l'aggiornamento del progetto
 
-Sono state apportate alcune modifiche ai modelli distribuiti in Azure SDK 2.6 che provocano l'incompatibilità con lo script di distribuzione e i modelli di Azure SDK 2.5. La prima nonché principale modifica consiste nel fatto che la distribuzione viene avviata. In Azure SDK 2.5 è disponibile codice compilato che usa le API REST di Azure per caricare il modello e avviare la distribuzione. Molti sviluppatori hanno segnalato di preferire che Visual Studio avvii semplicemente lo script di PowerShell incluso nel progetto. In Azure SDK 2.6, quindi, il comando di distribuzione avvia lo script di PowerShell incluso nel progetto per distribuire il modello. Ciò permette di personalizzare la distribuzione e di eseguire sempre le personalizzazioni, indipendentemente dal fatto che si esegua la distribuzione dalla riga di comando usando Azure PowerShell o con il comando di distribuzione di Visual Studio. Per eseguire la distribuzione da Visual Studio, quando è installato Azure SDK 2.6 sarà necessario usare lo script di PowerShell di distribuzione di Azure SDK 2.6.
+Sono state apportate alcune modifiche ai modelli distribuiti in Azure SDK 2.6 che provocano l'incompatibilità con lo script di distribuzione e i modelli di Azure SDK 2.5. La prima nonché principale modifica consiste nel fatto che la distribuzione viene avviata. In Azure SDK 2.5 è disponibile codice compilato che usa le API REST di Azure per caricare il modello e avviare la distribuzione. Gli sviluppatori hanno segnalato di preferire che Visual Studio avvii semplicemente lo script di PowerShell incluso nel progetto. In Azure SDK 2.6, quindi, il comando di distribuzione avvia lo script di PowerShell incluso nel progetto per distribuire il modello. Ciò permette di personalizzare la distribuzione e di eseguire sempre le personalizzazioni, indipendentemente dal fatto che si esegua la distribuzione dalla riga di comando usando Azure PowerShell o con il comando di distribuzione di Visual Studio. Per eseguire la distribuzione da Visual Studio, quando è installato Azure SDK 2.6 o versione successiva sarà necessario usare lo script di PowerShell di distribuzione di Azure SDK 2.6 (o versione successiva).
 
 Sono state apportate modifiche anche ad alcuni nomi di variabile e attività di compilazione per un migliore allineamento con le convenzioni di denominazione nelle compilazioni automatizzate di TFS e altri progetti in Microsoft. Il codice di Visual Studio che raccoglie le variabili e i valori necessari per l'avvio dello script di PowerShell cercherà i nuovi nomi.
 
 ## Passaggi successivi
 
-Per informazioni su come aggiungere risorse al gruppo di risorse di Azure in Visual Studio, vedere [Aggiunta di risorse a un gruppo di risorse di Azure](https://msdn.microsoft.com/library/azure/mt125415.aspx).
+Per informazioni su come aggiungere risorse al gruppo di risorse di Azure in Visual Studio, vedere [Aggiunta di risorse a un gruppo di risorse di Azure](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

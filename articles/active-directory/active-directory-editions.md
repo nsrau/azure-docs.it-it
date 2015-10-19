@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/01/2015"
 	ms.author="markvi"/>
 
 # Edizioni di Azure Active Directory
@@ -56,9 +56,9 @@ L'edizione Premium di Active Directory è un'offerta a pagamento di Azure Active
 
     Per ulteriori informazioni, vedere [Che cos'è Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 
-- **Microsoft Identity Manager (MIM)**: l'edizione Premium consente di concedere i diritti per usare un server MIM (e le licenze CAL) nella rete locale per supportare qualsiasi combinazione di soluzioni di identità ibride. Si tratta di un'ottima opzione se è presente una variazione nelle directory e nei database locali che si vuole sincronizzare direttamente ad Azure Active Directory. Non sono previsti limiti per il numero di server FIM che è possibile usare, ma le licenze CAL MIM vengono concesse in base all'allocazione di una licenza utente di Azure Active Directory Premium.
+- **Microsoft Identity Manager**: l'edizione Premium consente di concedere i diritti per usare un server MIM (e le licenze CAL) nella rete locale per supportare qualsiasi combinazione di soluzioni di identità ibride. Si tratta di un'ottima opzione se è presente una variazione nelle directory e nei database locali che si vuole sincronizzare direttamente ad Azure Active Directory. Non sono previsti limiti per il numero di server MIM che è possibile usare, ma le licenze CAL MIM vengono concesse in base all'allocazione di una licenza utente di Azure Active Directory Premium.
 
-    Per altre informazioni, vedere [Distribuire MIM 2010 R2](https://www.microsoft.com/server-cloud/products/forefront-identity-manager/features.aspx).
+    Per ulteriori informazioni, vedere [Microsoft Identity Manager](http://www.microsoft.com/it-IT/server-cloud/products/microsoft-identity-manager/default.aspx).
 
 - **Contratto di servizio aziendale del 99,9%**: è garantita una disponibilità minima del 99,9% del servizio Azure Active Directory Premium.
 
@@ -450,4 +450,4 @@ Le funzionalità seguenti sono attualmente disponibili in anteprima pubblica e v
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -139,6 +139,5 @@ Eseguire il movimento di aggiornamento nelle istanze delle app mediante trascina
 [Introduzione ai dati Offline]: mobile-services-ios-get-started-offline-data.md
 [Introduzione ai dati non in linea]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

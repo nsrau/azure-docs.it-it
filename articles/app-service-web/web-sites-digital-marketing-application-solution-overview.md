@@ -7,16 +7,14 @@
 	services="app-service\web" 
 	documentationCenter=""/>
 
-
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
-
 
 # Creare una campagna di marketing digitale in App Web di Azure App Service
 App Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) offre una soluzione ottimale per le campagne di marketing digitali. Le campagne di questo tipo in genere sono di breve durata e hanno la funzione di realizzare obiettivi di marketing a breve termine. È necessario prendere in considerazione due scenari principali. Nel primo scenario una società di marketing di terze parti crea e gestisce la campagna per conto del cliente, per l'intera durata della promozione. Nel secondo scenario la società di marketing crea la campagna marketing digitale, quindi trasferisce al cliente la proprietà delle risorse corrispondenti. La campagna di marketing digitale verrà quindi eseguita e gestita autonomamente dal cliente. Siti Web di Azure è la soluzione perfetta in entrambi gli scenari.
@@ -142,4 +140,4 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

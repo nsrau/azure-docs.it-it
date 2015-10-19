@@ -140,8 +140,6 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di Windows Store di usare Servizi mobili e Hub di notifica per l'invio delle notifiche push. In seguito, è consigliabile eseguire una delle esercitazioni seguenti:
 
-+ [Inviare notifiche push agli utenti autenticati](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md) <br/>Informazioni sull'uso dei tag per inviare notifiche push dal servizio mobile solo agli utenti autenticati.
-
 + [Inviare notifiche di trasmissione ai sottoscrittori](../notification-hubs-windows-phone-send-breaking-news.md) <br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie a cui sono interessati.
 
 + [Inviare notifiche indipendenti dalla piattaforma ad altri sottoscrittori](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Informazioni su come usare i modelli per inviare notifiche push dal servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
@@ -180,4 +178,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -3,7 +3,7 @@
    description="Introduzione al modello di programmazione di Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Introduzione a Service Fabric Reliable Actors
 Le API Reliable Actors sono uno dei due Framework ad alto livello forniti da[Service Fabric](service-fabric-technical-overview.md)insieme alle[API Reliable Services](service-fabric-reliable-services-introduction.md).
@@ -198,4 +198,4 @@ I callback di timer possono essere contrassegnati in modo analogo con l'attribut
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

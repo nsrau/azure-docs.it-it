@@ -28,7 +28,7 @@ In questo esempio verranno usate tre origini dati simulate: temperatura esterna,
 
 ### Effettuare il provisioning della suite IoT
 
-Se non si è ancora effettuato il provisioning della soluzione preconfigurata di monitoraggio remoto, è possibile farlo [qui](www.internetofyourthings.com).
+Se non si è ancora effettuato il provisioning della soluzione preconfigurata di monitoraggio remoto, è possibile farlo [qui](http://www.microsoft.com/it-IT/server-cloud/internet-of-things/getting-started.aspx).
 
 
 ### Effettuare il provisioning del dispositivo nella soluzione di monitoraggio remoto
@@ -149,7 +149,7 @@ Connettere il dispositivo
 
 - Connettere la scheda alla rete con un cavo Ethernet. Questo passaggio è obbligatorio, perché l'esempio dipende dall'accesso a Internet.
 
-- Collegare il dispositivo al computer con un cavo USB micro. Assicurarsi di collegare il cavo alla porta USB corretta sul dispositivo, come illustrato [qui](https://developer.mbed.org/platforms/IBMEthernetKit/), nella sezione introduttiva.
+- Collegare il dispositivo al computer con un cavo USB micro. Assicurarsi di collegare il cavo alla porta USB corretta sul dispositivo, come illustrato [qui](https://developer.mbed.org/platforms/frdm-k64f/), nella sezione introduttiva.
 
 - Seguire le [istruzioni del manuale di mbed](https://developer.mbed.org/handbook/SerialPC) per configurare la connessione seriale al dispositivo dal computer di sviluppo. Se si usa Windows, installare i driver della porta seriale Windows disponibili [qui](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
 
@@ -199,7 +199,6 @@ Compilare ed eseguire il programma
 
 - Connettersi al dispositivo con un'applicazione client SSH, ad esempio PuTTY. È possibile determinare la porta seriale usata dal dispositivo controllando Gestione dispositivi di Windows:
 
-	![][10]
 
 - In PuTTY fare clic sul tipo di connessione **Serial**. Il dispositivo molto probabilmente si connette a 115200, quindi immettere tale valore nella casella **Speed**. Fare quindi clic su **Open**:
 
@@ -293,7 +292,8 @@ Ora che il dispositivo è connesso e invia dati sulla temperatura generati autom
 - Selezionare il comando da eseguire: In questo caso scegliere "Set temperature", perché si vuole modificare la temperatura su cui è impostato il dispositivo. Selezionare il comando e scegliere il valore della temperatura. Fare clic su Invia comando per inviare la nuova temperatura al dispositivo. Nota: è possibile osservare che nella cronologia dei comandi il risultato del comando è "In sospeso". Infatti, per semplicità, questo esempio non ha implementato alcuna logica nel dispositivo per rispondere all'hub IoT. A tale scopo, è possibile estendere la soluzione.
 
 	![][14]
-- Tornare al dashboard e verificare che i dati aggiornati vengano visualizzati. Dovrebbero essere visualizzate le statistiche aggiornate sulla temperatura e i nuovi dati dovrebbero essere inclusi nella cronologia della telemetria. ![][15]
+- Tornare al dashboard e verificare che i dati aggiornati vengano visualizzati. Dovrebbero essere visualizzate le statistiche aggiornate sulla temperatura e i nuovi dati dovrebbero essere inclusi nella cronologia della telemetria.
+
 
 
 
@@ -305,8 +305,8 @@ Ora che il dispositivo è connesso e invia dati sulla temperatura generati autom
 [18]: ./media/iot-suite-connecting-devices/suite10.png
 
 
-## Estensione della soluzione
+## Passaggi successivi
 
-Esistono diversi modi per estendere la funzionalità di questo esempio: connettere un vero sensore al dispositivo per inviare dati reali, implementare la funzionalità di comando e controllo e così via. Per altre informazioni in proposito, usare la guida su come estendere la soluzione di monitoraggio remoto.
+Esistono diversi modi per estendere la funzionalità di questo esempio: connettere un vero sensore al dispositivo per inviare dati reali, implementare la funzionalità di comando e controllo e così via. Per altre informazioni in proposito, usare la [guida](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) su come estendere la soluzione di monitoraggio remoto.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

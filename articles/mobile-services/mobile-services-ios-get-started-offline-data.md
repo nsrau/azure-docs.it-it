@@ -261,7 +261,6 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Gestione dei conflitti con il supporto offline per Servizi mobili]: mobile-services-ios-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 [eliminazione temporanea]: mobile-services-using-soft-delete.md
@@ -271,4 +270,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

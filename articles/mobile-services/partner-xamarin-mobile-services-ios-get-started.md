@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione a Servizi mobili per app per Xamarin"
+	pageTitle="Introduzione a Servizi mobili per app per Xamarin iOS | Microsoft Azure"
 	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Xamarin iOS."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -7,30 +7,28 @@
 	manager="dwrede"
 	editor=""/>
 
-
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="hero-article"
+	ms.date="10/06/2015"
 	ms.author="craig.dunn@xamarin.com"/>
-
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin.iOS mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app <em>To do list</em> che archivia i dati dell'app nel nuovo servizio mobile.
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin.iOS mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile.
 
 Se si preferisce guardare un video, nel clip seguente vengono eseguiti gli stessi passaggi dell'esercitazione.
 
 Video "Introduzione a Xamarin e a Servizi mobili di Azure" con Craig Dunn, Developer Evangelist per Xamarin (durata: 10:05 min)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
-
-
 
 Di seguito è riportata una schermata dell'app completata:
 
@@ -100,17 +98,16 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 ## Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
-* [iniziare a usare i dati] <br/>
-informazioni su come aggiungere una nuova tabella a un servizio mobile, quindi leggere e scrivere in tale tabella.
+* [Introduzione alla sincronizzazione dei dati offline] Informazioni sull'uso della sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
-* [Introduzione alla sincronizzazione dei dati offline] <br/>
-Informazioni sull'uso della sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
+* [Introduzione all'autenticazione] Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Introduzione all'autenticazione] <br/>
-Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Introduzione alle notifiche push] Informazioni sull'invio di una notifica push di base all'app.
 
-* [Introduzione alle notifiche push] <br/>
-Informazioni sull'invio di una notifica push di base all'app.
+* [Come utilizzare il client componente Xamarin per Servizi mobili di Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Informazioni su come eseguire una query nel servizio mobile, utilizzare i dati e accedere alle API personalizzate.
+  
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -130,7 +127,6 @@ Informazioni sull'invio di una notifica push di base all'app.
 
 
 <!-- URLs. -->
-[iniziare a usare i dati]: partner-xamarin-mobile-services-ios-get-started-data.md
 [Introduzione alla sincronizzazione dei dati offline]: mobile-services-xamarin-ios-get-started-offline-data.md
 [Introduzione all'autenticazione]: partner-xamarin-mobile-services-ios-get-started-users.md
 [Introduzione alle notifiche push]: partner-xamarin-mobile-services-ios-get-started-push.md
@@ -140,4 +136,4 @@ Informazioni sull'invio di una notifica push di base all'app.
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

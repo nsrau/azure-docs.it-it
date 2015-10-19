@@ -6,7 +6,7 @@
     ms.tgt_pltfrm="universal" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="10/06/2015" 
     ms.author="crystk"/>
 
 # Application Insights per le app C++
@@ -136,8 +136,8 @@ Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esemp
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

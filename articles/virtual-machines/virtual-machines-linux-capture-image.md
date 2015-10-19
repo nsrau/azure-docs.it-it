@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Acquisire un'immagine di una macchina virtuale Linux | Microsoft Azure"
-	description="Informazioni su come acquisire un'immagine di una macchina virtuale di Azure creata con il modello di distribuzione classica che esegue Linux."
+	description="Informazioni su come acquisire un'immagine di una macchina virtuale di Azure basata su Linux creata con il modello di distribuzione classica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -99,4 +99,4 @@ L'immagine è pronta per essere usata come modello per la creazione di macchine 
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Come creare una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

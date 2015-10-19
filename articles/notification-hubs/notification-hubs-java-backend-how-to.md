@@ -17,11 +17,7 @@
 	ms.author="yuaxu"/>
 
 # Come usare Hub di notifica da Java
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 Questo argomento descrive le funzionalità principali del nuovo ufficiale SDK per Java di Hub di notifica di Azure, completamente supportato. Si tratta di un progetto open source ed è possibile visualizzare il codice SDK completo nell'articolo relativo all'[SDK per Java].
 
@@ -307,4 +303,4 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

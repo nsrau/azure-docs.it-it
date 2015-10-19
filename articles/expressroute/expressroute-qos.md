@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Requisiti ExpressRoute QoS
@@ -44,9 +44,10 @@ La tabella seguente fornisce un elenco di contrassegni DSCP utilizzati da Skype 
 ## Passaggi successivi
 
 - Fare riferimento ai requisiti per [Routing](expressroute-routing.md) e [NAT](expressroute-nat.md).
-- Configurare la connessione ExpressRoute.
+- Vedere i collegamenti seguenti per configurare la connessione ExpressRoute.
+
 	- [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

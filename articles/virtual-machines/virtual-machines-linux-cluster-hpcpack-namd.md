@@ -8,7 +8,7 @@
  editor=""
  tags="azure-service-management"/>
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
@@ -20,6 +20,9 @@ ms.service="virtual-machines"
 
 Questo articolo illustra come distribuire un cluster Microsoft HPC Pack su Azure ed eseguire un processo [NAMD](http://www.ks.uiuc.edu/Research/namd/) con **charmrun** su più nodi di calcolo Linux in una rete di cluster virtuale per calcolare e visualizzare la struttura di un grande sistema biomolecolare.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la creazione delle risorse mediante il modello di distribuzione classica.
+
+
 NAMD (ovvero programma Nanoscale Molecular Dynamics) è un pacchetto di dinamica molecolare parallela progettato per una simulazione a prestazioni elevate di grandi sistemi biomolecolari contenenti fino a milioni di atomi, ad esempio virus, strutture di celle e proteine di grandi dimensioni. NAMD è scalabile fino a centinaia di core per simulazioni tipiche e fino a più di 500.000 core per le simulazioni più grandi.
 
 Microsoft HPC Pack fornisce le funzionalità necessarie per eseguire svariate applicazioni HPC e parallele su larga scala, incluse le applicazioni MPI, in cluster di macchine virtuali di Microsoft Azure. A partire da Microsoft HPC Pack 2012 R2, HPC Pack supporta anche l'esecuzione di applicazioni HPC Linux su macchine virtuali del nodo di calcolo Linux distribuite in un cluster HPC Pack. Per informazioni introduttive sull'uso dei nodi di calcolo Linux con HPC Pack, vedere [Introduzione ai nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster-hpcpack.md).
@@ -27,7 +30,7 @@ Microsoft HPC Pack fornisce le funzionalità necessarie per eseguire svariate ap
 
 ## Prerequisiti
 
-* **Cluster HPC Pack con nodi di calcolo Linux** - Vedere [Introduzione ai nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster-hpcpack.md) per informazioni sui prerequisiti e sui passaggi da eseguire per distribuire un cluster HPC Pack con nodi di calcolo Linux in Azure usando uno script Azure PowerShell e immagini HPC Pack in Azure Marketplace.
+* **Cluster HPC Pack con nodi di calcolo Linux** - Vedere [Introduzione ai nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster-hpcpack.md) per informazioni sui prerequisiti e sui passaggi da eseguire per distribuire un cluster HPC Pack con nodi di calcolo Linux in Azure usando uno script di Azure PowerShell e immagini HPC Pack in Azure Marketplace.
 
     Di seguito è disponibile un file di configurazione XML di esempio, che può essere usato con lo script per distribuire un cluster HPC Pack basato su Azure, costituito da un nodo head Windows Server 2012 R2 e 4 nodi di calcolo CentOS 6.6 di tipo Grande (A3). Sostituire i valori dell'esempio con i valori appropriati per la sottoscrizione e i nomi dei servizi.
 
@@ -139,7 +142,7 @@ Configurare ora una condivisione SMB standard su una cartella nel nodo head, qui
 
 Il primo comando crea una cartella denominata /namd2 su tutti i nodi del gruppo LinuxNodes. Il secondo comando monta la cartella condivisa //CentOS66HN/Namd/namd2 nella cartella con i bit dir\_mode e file\_mode impostati su 777. I valori *username* e *password* nel comando devono corrispondere alle credenziali di un utente nel nodo head.
 
->[AZURE.NOTE]Il simbolo "`" nel secondo comando è un simbolo di escape per PowerShell. "`," significa che "," (una virgola) è una parte del comando.
+>[AZURE.NOTE]Il simbolo "`" nel secondo comando è un simbolo di escape per PowerShell. "`," significa che "," (virgola) è una parte del comando.
 
 
 ## Preparare l'esecuzione di un processo NAMD
@@ -404,4 +407,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

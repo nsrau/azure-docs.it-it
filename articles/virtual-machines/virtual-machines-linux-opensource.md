@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Computing Linux e open source in Azure"
-	description="Questo argomento contiene un elenco relativo al computing Linux e open source in Azure, incluse informazioni di base sull'utilizzo di Linux, alcuni concetti fondamentali sull'esecuzione o il caricamento di immagini Linux in Azure e altri contenuti relativi a tecnologie e ottimizzazioni specifiche."
+	pageTitle="Computing Linux e open source in Azure | Microsoft Azure"
+	description="Elenco relativo ad articoli sul computing Linux e open source in Azure, incluse informazioni di base sull'utilizzo di Linux, alcuni concetti fondamentali sull'esecuzione o il caricamento di immagini Linux in Azure e altri contenuti relativi a tecnologie e ottimizzazioni specifiche."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,6 +22,8 @@
 # Computing Linux e open source in Azure
 
 Lo scopo di questo documento consiste nell'offrire un elenco completo di tutti gli argomenti scritti da Microsoft e dai partner sull'esecuzione di macchine virtuali basate su Linux e altri ambienti di calcolo e applicazioni open source in Microsoft Azure. Poiché sia Azure sia l'ambito del computing open source sono in continua evoluzione, il documento risulterà quasi sicuramente non aggiornato, *nonostante* il constante impegno di Microsoft nell'aggiunta degli argomenti più recenti e nella rimozione di quelli obsoleti. Segnalare eventuali articoli da aggiungere inserendo un commento oppure inviare una richiesta di rimozione al [repository Github](https://github.com/Azure/azure-content/).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo vengono elencati argomenti a prescindere dal modello di distribuzione.
 
 ## Note generali
 Le sezioni sono suddivise sulla destra della pagina. È possibile che alcuni collegamenti siano disponibili in più sezioni, in quanto relativi a più concetti, distribuzioni o tecnologie. Sono anche disponibili alcuni argomenti che descrivono le diverse opzioni di Linux, i repository di immagini, i case study e le procedure pratiche per il caricamento di immagini personalizzate:
@@ -307,4 +310,4 @@ Questa sezione inizia con un post di blog contenente una serie di video in [Vide
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

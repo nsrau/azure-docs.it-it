@@ -18,7 +18,7 @@
 
 # Come creare un ambiente del servizio app #
 
-Gli ambienti del servizio app sono un'opzione del servizio Premium del servizio app di Azure attualmente in anteprima. Offre una funzionalità di configurazione migliorata non disponibile negli stamp multi-tenant. Per informazioni approfondite delle funzionalità offerte dagli ambienti del servizio app, vedere [Informazioni sull'ambiente del servizio app][WhatisASE].
+Gli Ambienti di servizio app (ASE) sono un'opzione di servizio Premium del servizio app di Azure che offre una funzionalità avanzata che non è disponibile negli indicatori di multi-tenant. Per informazioni approfondite delle funzionalità offerte dagli ambienti del servizio app, vedere [Informazioni sull'ambiente del servizio app][WhatisASE].
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -145,4 +145,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

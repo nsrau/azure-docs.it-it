@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Funzionalità del sistema operativo in App Web del servizio app di Azure #
@@ -111,4 +111,4 @@ L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi ch
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

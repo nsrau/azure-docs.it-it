@@ -58,7 +58,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[Aryaka Networks](http://www.aryaka.com/)** | Supportato | Non supportato | Silicon Valley, Singapore, Washington DC |
 | **[AT & T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Imminente | Amsterdam+, Londra+, Dallas, Silicon Valley, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supportato | Supportato | Amsterdam, Londra, Silicon Valley+, Washington DC |
-|**China Telecom Global** | Imminente | Non supportato | Hong Kong+ |
+|**China Telecom Global** | Imminente | Non supportato | Regione amministrativa speciale di Hong Kong+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Non supportato | Amsterdam, Londra |
 | **Comcast** | Supportato | Non supportato | Silicon Valley, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, San Paolo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
@@ -66,7 +66,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[InterCloud](https://www.intercloud.com/)** | Supportato | Non supportato | Amsterdam, Londra, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supportato | Non supportato | Amsterdam, Londra |
 | **Interxion** | Supportato | Non supportato | Amsterdam |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Non supportato | Chicago, Dallas, Londra, Seattle, Silicon Valley, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Non supportato | Amsterdam, Chicago, Dallas, Londra, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Supportato | Non supportato | Melbourne, Sydney |
 | **MTN** | Supportato | Non supportato | Londra |
 | **NTT Communications** | Imminente | Non supportato | Tokyo+ |
@@ -120,11 +120,11 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 |**Integratore di sistemi**|**Continente**|
 |---|---|
 |**[Nimbo](http://www.nimbo.com/)**|Stati Uniti||
-|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europa, Medio Oriente e Africa|
+|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europa, Asia orientale e Africa|
 
 ## Passaggi successivi
 
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

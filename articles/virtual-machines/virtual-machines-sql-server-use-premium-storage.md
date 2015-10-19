@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/02/2015"
+	ms.date="10/02/2015"
 	ms.author="jroth"/>
 
 # Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
@@ -401,7 +401,7 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 1. Copiare i backup completi e ripristinare con **NORECOVERY**.
 1. Copiare gli oggetti dipendenti esterni al database utente, ad esempio nomi di accesso e così via.
 1. Crea un nuovo servizio di carico bilanciamento interno (ILB) oppure utilizzare un servizio di bilanciamento del carico esterno (ELB) e quindi impostare gli endpoint con bilanciamento del carico in entrambi i nodi nuovi.
-> [AZURE.NOTE] Prima di continuare, verificare che tutti i nodi abbiano la configurazione dell'endpoint corretta
+> [AZURE.NOTE]Prima di continuare, verificare che tutti i nodi abbiano la configurazione dell'endpoint corretta
 
 1. Impedire all'utente/applicazione l’accesso a SQL Server (se si utilizzano pool di archiviazione).
 1. Arrestare i servizi motore di SQL Server in tutti i nodi (se si utilizzano il pool di archiviazione).
@@ -1148,4 +1148,4 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/01/2015"
 	ms.author="jhubbard"/>
 
 
@@ -195,11 +195,11 @@ A questo punto è stato creato un gruppo di sincronizzazione che include sia un'
 ## Passaggi successivi
 Per altre informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
 
-* [Contenuti relativi alla sincronizzazione dati SQL in MSDN Library](https://msdn.microsoft.com/library/azure/hh456371.aspx)
+* [Scaricare la documentazione tecnica di sincronizzazione dati SQL](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [Panoramica del database SQL](sql-database-technical-overview.md)
 * [Gestione del ciclo di vita del database](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

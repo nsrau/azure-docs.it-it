@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
@@ -113,7 +113,7 @@ Ecco i dettagli di configurazione:
 -	Server di database:
 	-	Immagine di macchina virtuale: SQL Server 2014 RTM Enterprise in Windows Server 2012 R2
 	-	Prefisso nome host: specificato durante la configurazione iniziale.
-	-	Dimensioni: A5 (impostazione predefinita) per server di database, A0 (impostazione predefinita) per il controllo della condivisione dei file.
+	-	Dimensioni: A5 (impostazione predefinita) per server di database, A0 (impostazione predefinita) per il controllo della condivisione dei file (SQL0).
 	-	Nome account di accesso al database: specificato durante la configurazione iniziale.
 	-	Password account di accesso al database: specificata durante la configurazione iniziale.
 	-	Nome account del servizio SQL Server: sqlservice (impostazione predefinita).
@@ -137,8 +137,8 @@ La funzionalità di Farm di SharePoint Server del Portale di anteprima di Azure 
 
 [Farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[SharePoint in Macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Configurare una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+[Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

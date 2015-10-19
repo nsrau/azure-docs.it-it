@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
@@ -72,15 +72,17 @@ L'elenco seguente include alcuni errori di configurazione comuni che possono imp
 -	Macchine virtuali dell'istanza del ruolo Redis che non possono comunicare tra loro all'interno della subnet. Dovrebbe essere consentita la comunicazione tra le istanze del ruolo Redis tramite TCP su qualsiasi porta usata, soggetta a variazione, ma come minimo su tutte le porte usate nel file CSDEF di Redis.
 -	Il servizio di bilanciamento del carico di Azure non può connettersi alle macchine virtuali di Redis sulla porta TCP/HTTP 16001. Cache Redis di Azure dipende dal probe predefinito del servizio di bilanciamento del carico di Azure per determinare quali istanze del ruolo sono attive. Il probe predefinito del servizio di bilanciamento del carico si basa sull'esecuzione del ping dell'agente guest di Azure sulla porta 16001. Solo le istanze del ruolo che rispondono al ping verranno inserite nella rotazione per ricevere il traffico inoltrato da ILB. Quando la rotazione non include alcuna istanza perché il ping non riesce a causa del blocco delle porte, ILB non accetterà connessioni TCP in ingresso.
 -	Blocco del traffico Web dell'applicazione client usato per la convalida della chiave pubblica SSL. I client di Redis (all'interno della rete virtuale) devono essere in grado di eseguire il traffico HTTP verso la rete Internet pubblica per scaricare i certificati CA e gli elenchi di revoche di certificati per eseguire la convalida dei certificati SSL quando usano la porta 6380 per connettersi a Redis ed eseguire l'autenticazione server SSL.
--	Il servizio di bilanciamento del carico di Azure non riesce a connettersi alle macchine virtuali di Resid in un cluster tramite TCP sulla porta 1300x (13000, 13001 e così via) o 1500x (15000, 15001 e così via). Le reti virtuali sono configurate nel file csdef con un probe di bilanciamento del carico per aprire queste porte. Il servizio di bilanciamento del carico di Azure deve essere consentito dai gruppi di sicurezza di rete. I gruppi di sicurezza di rete predefiniti gestiscono questa condizione con il tag AZURE\_LOADBALANCER. Il servizio di bilanciamento del carico di Azure dispone di un singolo indirizzo IP statico: 168.63.126.16. Per altre informazioni, vedere [Che cos'è un Gruppo di sicurezza di rete?](..\virtual-network\virtual-networks-nsg.md).
+-	Il servizio di bilanciamento del carico di Azure non riesce a connettersi alle macchine virtuali di Resid in un cluster tramite TCP sulla porta 1300x (13000, 13001 e così via) o 1500x (15000, 15001 e così via). Le reti virtuali sono configurate nel file csdef con un probe di bilanciamento del carico per aprire queste porte. Il servizio di bilanciamento del carico di Azure deve essere consentito dai gruppi di sicurezza di rete. I gruppi di sicurezza di rete predefiniti gestiscono questa condizione con il tag AZURE\_LOADBALANCER. Il servizio di bilanciamento del carico di Azure dispone di un singolo indirizzo IP statico: 168.63.126.16. Per altre informazioni, vedere [Che cos’è un Gruppo di sicurezza di rete (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
 ## È possibile usare reti virtuali con una cache Standard o Basic?
 
 Le reti virtuali possono essere usate solo con cache Premium.
 
 ## Passaggi successivi
+Informazioni su come utilizzare altre funzionalità di cache premium.
 
-Informazioni su come usare altre funzionalità per la cache Premium. - [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md) - [Come configurare il clustering Redis per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md)
+-	[Come configurare la persistenza per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md)
+-	[Come configurare il servizio cluster per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md)
 
 
 
@@ -101,4 +103,4 @@ Informazioni su come usare altre funzionalità per la cache Premium. - [Come con
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -41,6 +41,8 @@ Usare il seguente blocco di comandi di PowerShell per creare le macchine virtual
 
 È importante ricordare che la Tabella M è stata definita nella [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e le Tabelle V, S, ST e A sono state definite nella [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
+> [AZURE.NOTE]Questo articolo contiene comandi per le versioni di Azure PowerShell fino alle versione 1.0.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**. I blocchi di comando di Azure PowerShell in questo articolo sono ora testati e aggiornati per supportare i nuovi cmdlet nelle versioni di Azure PowerShell 1.0.0 e versioni successive. Grazie per la pazienza dimostrata.
+
 Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante al prompt di Azure PowerShell.
 
 	# Set up subscription and key variables
@@ -114,7 +116,7 @@ Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante 
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Poiché queste macchine virtuali sono per un'applicazione intranet, non sono assegnate a un indirizzo IP pubblico o a un'etichetta di nome di dominio DNS ed esposti in Internet. Tuttavia, questo significa anche che non è possibile connettersi a esse dal portale di anteprima di Azure. Il pulsante **Connettere** non è disponibile quando si visualizzano le proprietà della macchina virtuale. Utilizzare l'accessorio connessione Desktop remoto o un altro strumento di Desktop remoto per connettersi alla macchina virtuale utilizzando l’indirizzo IP privato o il nome DNS di intranet.
+> [AZURE.NOTE]Poiché queste macchine virtuali sono per un'applicazione intranet, non sono assegnate a un indirizzo IP pubblico o a un'etichetta di nome di dominio DNS ed esposti in Internet. Tuttavia, questo significa anche che non è possibile connettersi a esse dal portale di anteprima di Azure. Il pulsante **Connetti** non è disponibile quando si visualizzano le proprietà della macchina virtuale. Utilizzare l'accessorio connessione Desktop remoto o un altro strumento di Desktop remoto per connettersi alla macchina virtuale utilizzando l’indirizzo IP privato o il nome DNS di intranet.
 
 ## Configurare i computer che eseguono SQL Server
 
@@ -181,7 +183,7 @@ Il servizio SQL Server richiede una porta usata dai client per accedere al serve
 
 Per ognuna delle macchine virtuali SQL Server disconnettersi come amministratore locale.
 
-Per informazioni sull'ottimizzazione delle prestazioni di SQL Server in Azure, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-performance-best-practices.md). È anche possibile disabilitare l'archiviazione con ridondanza geografica per l'account di archiviazione dell'applicazione line-of-business e usare gli spazi di archiviazione per ottimizzare gli IOPS.
+Per informazioni sull'ottimizzazione delle prestazioni di SQL Server in Azure, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼](virtual-machines-sql-server-performance-best-practices.md). È anche possibile disabilitare l'archiviazione con ridondanza geografica per l'account di archiviazione dell'applicazione line-of-business e usare gli spazi di archiviazione per ottimizzare gli IOPS.
 
 ## Configurare il server del nodo di maggioranza cluster
 
@@ -219,7 +221,7 @@ A causa di un comportamento corrente non conforme a RFC da parte del DHCP in Azu
 4.	Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
 5.	Nella pagina **Selezione server** digitare il nome del computer SQL Server primario, fare clic su **Aggiungi**, quindi scegliere **Avanti**.
 6.	Nella pagina **Avviso di convalida** fare clic su **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti verrà proseguita la creazione del cluster.**, quindi fare clic su **Avanti**.
-7.	Nella casella di testo **Nome cluster** della pagina **Punto di accesso per l'amministrazione del cluster**, digitare il nome del cluster, quindi fare clic su **Avanti**.
+7.	ìNella casella di testo **Nome cluster** della pagina **Punto di accesso per l'amministrazione del cluster**, digitare il nome del cluster, quindi fare clic su **Avanti**.
 8.	Nella pagina di **Conferma**, fare clic su **Avanti** per iniziare la creazione del cluster. 
 9.	Nella pagina **Riepilogo** fare clic su **Fine**.
 10.	Nel riquadro sinistro fare clic sul nuovo cluster. Nella sezione **Risorse principali del cluster** del riquadro del contenuto, aprire il nome del cluster del server. La risorsa **Indirizzo IP** verrà visualizzata nello stato **Non riuscito**. Non è possibile connettere la risorsa indirizzo IP perché al cluster è assegnato lo stesso indirizzo IP della macchina. Il risultato è un indirizzo duplicato. 
@@ -248,7 +250,7 @@ Usare questi passaggi per abilitare i gruppi di disponibilità AlwaysOn di SQL S
 3.	Nel riquadro sinistro fare clic su **Servizi di SQL Server**.
 4.	Nel riquadro del contenuto, fare doppio clic su **SQL Server (MSSQLSERVER)**.
 5.	In **Proprietà SQL Server (MSSQLSERVER)**, fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita i gruppi di disponibilità AlwaysOn**s fare clic su **Applica**, quindi fare clic su **OK** quando richiesto. Non chiudere ancora la finestra Proprietà. 
-6.	Fare clic sulla scheda Macchine virtuali > Gestisci disponibilità, quindi digitare [Domain]**\\sqlservice** in **Nome account**. Digitare la password dell'account sqlservice in **Password** e **confermare la password**, quindi fare clic su **OK**.
+6.	Fare clic sulla scheda Macchine virtuali > Gestisci disponibilità, quindi digitare [Domain]**\\sqlservice** in **Nome account**. Digitare la password dell'account sqlservice in **Password** e **Confermare la password**, quindi fare clic su **OK**.
 7.	Nella finestra di messaggio, fare clic su **Sì** per riavviare il servizio SQL Server.
 8.	Accedere alla macchina virtuale SQL Server secondaria con l'account sqladmin e ripetere i passaggi da 2 a 7. 
 
@@ -272,4 +274,4 @@ Per continuare con la configurazione di questo carico di lavoro, passare a [Fase
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

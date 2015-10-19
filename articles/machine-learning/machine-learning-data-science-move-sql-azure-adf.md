@@ -1,20 +1,22 @@
-<properties 
+<properties
 	pageTitle="Spostare i dati da un Server SQL locale a SQL Azure con data factory di Azure | Azure"
 	description="È necessario impostare una pipeline ADF che comprende due attività di migrazione di dati che insieme spostano i dati su base giornaliera tra un database locale e un database nel cloud."
 	services="machine-learning"
 	documentationCenter=""
 	authors="fashah"
 	manager="jacob.spoelstra"
-	editor=""/>
+	editor=""
+	videoId=""
+	scriptId="" />
 
-<tags 
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="fashah;bradsev"/>
+	ms.date="10/06/2015"
+	ms.author="fashah;bradsev" />
 
 
 # Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure
@@ -33,7 +35,7 @@ Con ADF, i servizi di elaborazione dei dati esistenti possono essere composti in
 
 È necessario impostare una pipeline ADF che comprende due attività di migrazione di dati che insieme spostano i dati su base giornaliera tra un database SQL locale e un database di SQL Azure nel cloud. Le due attività sono:
 
-* Copiare dati da un database di SQL Server locale su un BLOB Azure; 
+* Copiare dati da un database di SQL Server locale su un BLOB Azure;
 * Copiare i dati dall'account di archiviazione BLOB di Azure a un Database di SQL Azure.
 
 **Riferimenti**: i passaggi illustrati di seguito sono stati adattati dal tutorial specifico [Consentire alle pipeline di usare dati locali](data-factory-use-onpremises-datasources.md) forniti dal team ADF e i riferimenti nelle sezioni pertinenti all'argomento sono disponibili quando necessario.
@@ -49,10 +51,10 @@ Il tutorial presuppone:
 
 > [AZURE.NOTE]In questa procedura viene utilizzato il [portale di anteprima di Azure](https://ms.portal.azure.com/).
 
-##<a name="upload-data"></a> Caricare i dati sul SQL Server locale 
+##<a name="upload-data"></a> Caricare i dati sul SQL Server locale
 
 Utilizziamo il [set di dati NYC Taxi](http://chriswhong.com/open-data/foil_nyc_taxi/) per illustrare il processo di migrazione. Il set di dati NYC Taxi è disponibile, come indicato nel post, sull'archiviazione BLOB di Azure [qui](http://www.andresmh.com/nyctaxitrips/). I dati dispongono di due file, il file trip\_data.csv che contiene i dettagli relativi alle corse e il file trip\_far.csv che contiene i dettagli della tariffa pagata per ogni corsa. Un esempio e una descrizione di questi file sono inclusi in [Descrizione del set di dati relativo alle corse dei taxi di New York](machine-learning-data-science-process-sql-walkthrough.md#dataset).
- 
+
 
 È possibile adattare le procedure riportate di seguito a un set di dati personalizzati o seguire i passaggi come descritto utilizzando il set di dati NYC Taxi. Per caricare il set di dati NYC Taxi nel database di SQL Server locale, attenersi alla procedura descritta in [Importazione in blocco dei dati nel database SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Queste istruzioni sono per un Server SQL in una macchina virtuale di Azure, ma la procedura per il caricamento nel Server SQL locale è la stessa.
 
@@ -68,7 +70,7 @@ Per abilitare la pipeline in una data factory di Azure per il funzionamento con 
 Per le istruzioni di configurazione e i dettagli sul Gateway di gestione dati, vedere [Consentire alle pipeline di usare dati locali](data-factory-use-onpremises-datasources.md)
 
 
-## <a name="adflinkedservices"></a>Creare servizi collegati per connettersi alle risorse di dati 
+## <a name="adflinkedservices"></a>Creare servizi collegati per connettersi alle risorse di dati
 
 I servizi collegati definiscono le informazioni necessarie affinché il servizio data factory si connetta a risorse dati. In [Creazione di servizi collegati](data-factory-use-onpremises-datasources.md#step-2-create-linked-services) viene fornita la procedura dettagliata per la creazione di servizi collegati.
 
@@ -93,8 +95,8 @@ Per creare il servizio collegato per database SQL Azure, fare clic su **Archivio
 
 Creare tabelle che specificano la struttura, la posizione e la disponibilità dei set di dati con le seguenti procedure basate su script. I file JSON vengono utilizzati per definire le tabelle. Per ulteriori informazioni sulla struttura di questi file, vedere[Set di dati](data-factory-create-datasets.md).
 
-> [AZURE.NOTE]È necessario eseguire `Switch-AzureMode -Name AzureResourceManager` e `Add-AzureAccount` cmdlet prima di eseguire il cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) per verificare che siano disponibili i cmdlet PowerShell di Azure e che sia selezionata la sottoscrizione di Azure giusta per l'esecuzione del comando. Per la documentazione di questi cmdlet, vedere[Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) e [Add-AzureAccoun](https://msdn.microsoft.com/library/azure/dn790372.aspx).
- 
+> [AZURE.NOTE]È necessario eseguire il cmdlet `Add-AzureAccount` prima di eseguire il cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) per verificare che sia selezionata la sottoscrizione di Azure giusta per l'esecuzione del comando. Per la documentazione di questo cmdlet, vedere [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx).
+
 Le definizioni basate su JSON nelle tabelle utilizzano i nomi seguenti:
 
 * il **nome tabella** nel Server SQL locale è*nyctaxi\_data*
@@ -122,7 +124,7 @@ La definizione della tabella di SQL Server locale viene specificata nel file JSO
 		    	"tableName": "nyctaxi_data",
 		    	"linkedServiceName": "adfonpremsql"
 		    	},
-		    	"availability": 
+		    	"availability":
 		    	{
 		    	"frequency": "Day",
 		    	"interval": 1,   
@@ -132,7 +134,7 @@ La definizione della tabella di SQL Server locale viene specificata nel file JSO
 		    	"retryTimeout": "00:10:00",
 		    	"maximumRetry": 3
 		    	}
-		    	
+
 		    	}
 	    	}
     	}
@@ -150,7 +152,7 @@ Definizione della tabella per la posizione di output del BLOB è il seguente (qu
 		    "name": "OutputBlobTable",
 		    "properties":
 		    {
-			    "location": 
+			    "location":
 			    {
 			    "type": "AzureBlobLocation",
 			    "folderPath": "containername",
@@ -161,14 +163,14 @@ Definizione della tabella per la posizione di output del BLOB è il seguente (qu
 			    },
 			    "linkedServiceName": "adfds"
 			    },
-			    "availability": 
+			    "availability":
 			    {
 			    "frequency": "Day",
 			    "interval": 1
 			    }
 		    }
 	    }
- 
+
 Copiare la definizione JSON della tabella in un file denominata *bloboutputtabledef.json* e salvarlo in una posizione nota (generalmente *C:\\temp\\bloboutputtabledef.json*). Creare la tabella nel file ADF con il seguente cmdlet PowerShell di Azure.
 
 	New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
@@ -191,14 +193,14 @@ La definizione della tabella per l’output SQL Azure è la seguente (questo sch
 	            "tableName": "your_db_name",
 	            "linkedServiceName": "adfdssqlazure_linked_servicename"
 	        },
-	        "availability": 
+	        "availability":
 	        {
 	            "frequency": "Day",
 	            "interval": 1            
 	        }
 	    }
 	}
-  
+
 Copiare la definizione JSON della tabella in un file denominata *AzureSqlTable.json* e salvarlo in una posizione nota (generalmente *C:\\temp\\AzureSqlTable.json*). Creare la tabella nel file ADF con il seguente cmdlet PowerShell di Azure.
 
 	New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
@@ -213,7 +215,7 @@ Specificare le attività che appartengono alla pipeline e creare la pipeline con
 > [AZURE.NOTE]Le procedure seguenti utilizzano Azure PowerShell per definire e creare la pipeline del file ADF. Tuttavia, questa attività può inoltre essere eseguita tramite il portale di anteprima Azure. Per ulteriori informazioni, vedere [Creazione ed esecuzione di una pipeline](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
 
 Se si utilizzano le definizioni di tabella sopra riportate, la definizione della pipeline per il file ADF viene specificata come segue:
-    
+
 		{
 		    "name": "AMLDSProcessPipeline",
 		    "properties":
@@ -247,7 +249,7 @@ Se si utilizzano le definizioni di tabella sopra riportate, la definizione della
 		                    "retry": 0,
 		                    "timeout": "01:00:00"
 		                }       
-		
+
 		             },
 
 					{
@@ -255,7 +257,7 @@ Se si utilizzano le definizioni di tabella sopra riportate, la definizione della
 						"description": "Push data to Sql Azure",		
 						"type": "CopyActivity",
 						"inputs": [ {"name": "OutputBlobTable"} ],
-						"outputs": [ {"name": "OutputSQLAzureTable"} ],	
+						"outputs": [ {"name": "OutputSQLAzureTable"} ],
 						"transformation":
 						{
 							"source":
@@ -283,16 +285,16 @@ Se si utilizzano le definizioni di tabella sopra riportate, la definizione della
 
 Copiare la definizione JSON della pipeline in un file denominato *pipelinedef.json* e salvarlo in una posizione nota (generalmente *C:\\temp\\pipelinedef.json*). Creare la pipeline ADF con il seguente cmdlet PowerShell di Azure.
 
-	New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json 
+	New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
 Accertarsi che sia possibile visualizzare la pipeline nel file ADF sul portale Azure come indicato di seguito (quando si fa clic sul diagramma)
 
-![](http://i.imgur.com/DJP1kji.png)
+![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
 ##<a name="adf-pipeline-start"></a>Avviare la pipeline
 La pipeline è avviabile con il comando seguente:
 
-	Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline 
+	Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
 
 I valori del parametro *startdate* ed *enddate* devono essere sostituiti con le date effettive tra le quali si desidera eseguire la pipeline.
 
@@ -300,4 +302,4 @@ Una volta eseguita la pipeline, si dovrebbe poter visualizzare i dati visualizza
 
 Si noti che non abbiamo utilizzato la funzionalità fornita da ADF per dirigere i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

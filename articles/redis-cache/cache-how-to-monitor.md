@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # Come monitorare Cache Redis di Azure
@@ -64,6 +64,8 @@ Per visualizzare le metriche archiviate, esaminare le tabelle dell'account di ar
 
 Le metriche della cache vengono segnalate mediante vari intervalli di report, tra cui **Ultima ora**, **Oggi**, **Ultima settimana** e **Personalizza**. Nel pannello **Metrica** per ogni grafico delle metriche vengono visualizzati i valori medi, minimi e massimi per ogni metrica nel grafico e alcune metriche visualizzano un totale per l'intervallo di report.
 
+In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per l'intera cache e per le cache che utilizzano [clustering](cache-how-to-premium-clustering.md), una seconda versione della metrica che include `(Shard 0-9)` nel nome misura la prestazione per una singola partizione in una cache. Se ad esempio una cache ha 4 partizioni, `Cache Hits` è la quantità totale di riscontri per l'intera cache e `Cache Hits (Shard 3)` rappresenta le occorrenze di tale partizionamento della cache.
+
 >[AZURE.NOTE]Anche quando la cache è inattiva senza applicazioni client attive connesse, è possibile osservare una certa attività della cache, ad esempio client connessi, uso della memoria e operazioni eseguite. Questa attività è normale durante il funzionamento di un'istanza di Cache Redis di Azure.
 
 | Metrica | Descrizione |
@@ -77,7 +79,8 @@ Le metriche della cache vengono segnalate mediante vari intervalli di report, tr
 | Carico server Redis | La percentuale di cicli in cui il server di Redis è impegnato nell’elaborare e non inattivo in attesa di messaggi. Se il contatore raggiunge 100 significa che il server di Redis ha raggiunto un limite massimo delle prestazioni e la CPU non può elaborare il lavoro più velocemente. Se si osserva un elevato carico del server Redis si vedranno le eccezioni di timeout nel client. In tal caso, è necessario prendere in considerazione il dimensionamento o il partizionamento dei dati in più cache. |
 | Operazioni Set | Il numero di operazioni Set nella cache durante l'intervallo di report specificato. Questo valore è la somma dei seguenti valori del comando INFO di Redis (tutto): `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` e `cmdstat_setnx`. |
 | Totale operazioni | Numero totale di comandi elaborati dal server di cache durante l'intervallo di report specificato. Questo valore è associato al comando INFO `total_commands_processed` di Redis. Si noti che quando Cache Redis di Azure viene utilizzata esclusivamente per la pubblicazione o la sottoscrizione non saranno disponibili metriche per `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, ma saranno disponibili metriche `Total Operations` che riflettono l'utilizzo della cache per le operazioni di pubblicazione/sottoscrizione. |
-| Memoria utilizzata | La quantità di memoria cache utilizzata in MB durante l'intervallo di report specificato. Questo valore è associato al comando INFO `used_memory` di Redis. |
+| Memoria utilizzata | La quantità di memoria cache utilizzata per le coppie chiave/valore nella cache in MB durante l'intervallo di report specificato. Questo valore è associato al comando INFO `used_memory` di Redis. Non include i metadati o la frammentazione. |
+| Memoria utilizzata RSS | La quantità di memoria cache utilizzata in MB durante l'intervallo di report specificato, comprese la frammentazione e i metadati. Questo valore è associato al comando INFO `used_memory_rss` di Redis. |
 | CPU | L'utilizzo della CPU del server Cache Redis di Azure come percentuale durante l'intervallo di report specificato. Questo valore è associato al contatore delle prestazioni `\Processor(_Total)\% Processor Time` del sistema operativo. |
 | Lettura da cache | La quantità di dati letti dalla cache in KB/sec durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. |
 | Scrittura nella cache | La quantità di dati scritti nella cache in KB/sec durante l’intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. |
@@ -219,4 +222,4 @@ Per ulteriori informazioni sugli avvisi in Azure, vedere [Ricevere notifiche di 
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="06/02/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Uso di Inoltro del bus di servizio di Azure per creare applicazioni ibride cloud/locali .NET
@@ -551,8 +551,7 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
 
 Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
 
-* [Bus di servizio di Azure][sbmsdn]  
-* [Procedure relative al bus di servizio][sbwacom]  
+* [Bus di servizio di Azure][sbwacom]  
 * [Come usare le code del bus di servizio][sbwacomqhowto]  
 
 
@@ -561,7 +560,7 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [Ottieni strumenti ed SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   [2]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
-  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
+  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
   [portale di Azure]: http://manage.windowsazure.com
@@ -607,9 +606,8 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
 
-  [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

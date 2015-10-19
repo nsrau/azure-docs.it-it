@@ -22,9 +22,9 @@
 
    ![](./media/app-service-mobile-adal-register-app/aad-native-client-add-permissions.png)
 
-L'applicazione adesso è configurata in AAD in modo che gli utenti possano accedervi usando AAD Single Sign-On.
+L'applicazione adesso è configurata in AAD in modo che gli utenti possano accedervi usando AAD Sign-On.
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Come configurare l'app mobile con Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

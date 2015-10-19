@@ -87,7 +87,7 @@ Per informazioni su come abilitare l’inoltro IP per una macchina virtuale in A
 
 ## Passaggi successivi
 
-- Visualizzare le informazioni su come[creare route](../virtual-networks-udr-how-to#How-to-manage-routes)e associarle alle subnet.
-- Visualizzare le informazioni su come[attivare l'inoltro IP](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding)per una macchina virtuale in esecuzione su un dispositivo virtuale. 
+- Informazioni su come [creare route nel modello di distribuzione di Gestione risorse](../virtual-network-create-udr-arm-template) e associarle alle subnet. 
+- Informazioni su come [creare route nel modello di distribuzione classica](../virtual-network-create-udr-classic-ps) e associarle a subnet.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

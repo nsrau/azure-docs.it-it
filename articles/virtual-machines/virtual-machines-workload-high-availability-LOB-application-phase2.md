@@ -53,6 +53,8 @@ Usare il seguente blocco di comandi di Azure PowerShell per creare le macchine v
 
 È importante ricordare che le tabelle V, S, ST e A sono state definite nella [Fase 1: Configurare Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
+> [AZURE.NOTE]Questo articolo contiene comandi per le versioni di Azure PowerShell fino alle versione 1.0.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**. I blocchi di comando di Azure PowerShell in questo articolo sono ora testati e aggiornati per supportare i nuovi cmdlet nelle versioni di Azure PowerShell 1.0.0 e versioni successive. Grazie per la pazienza dimostrata.
+
 Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante al prompt di Azure PowerShell.
 
 	# Set up subscription and key variables
@@ -210,4 +212,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

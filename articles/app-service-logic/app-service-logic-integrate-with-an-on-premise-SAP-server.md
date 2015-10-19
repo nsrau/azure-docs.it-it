@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="10/01/2015"
 	ms.author="sameerch"/>
 
 
 # Integrazione con un server SAP locale
-Usando il connettore SAP è possibile connettere le app Web, mobili e per la logica dei Servizi app di Azure al server SAP esistente. È possibile richiamare RFC, BAPI, TRFC oltre che inviare IDOC al server SAP.
+Usando il connettore SAP è possibile connettere le app Web, mobili e per la logica dei Servizi app di Azure al server SAP esistente. In questo modo è possibile richiamare RFC, BAPI, tRFC nonché inviare IDoc al server SAP, anche se si trova dietro al firewall locale.
 
-Il server SAP può persino essere protetto dal firewall locale. In caso di server locale, la connettività viene stabilita attraverso un listener ibrido, come illustrato:
+Se si dispone di un server SAP locale, utilizzare un listener ibrido per stabilire la connessione con il connettore SAP, come illustrato:
 
 ![Flusso di connettività ibrida][1]
 
-Un connettore SAP nel cloud non può connettersi direttamente a un server SAP protetto da firewall. Il listener ibrido colma il divario ospitando un endpoint di inoltro che consente al connettore di stabilire in modo sicuro la connettività al server SAP.
+Sebbene un connettore SAP nel cloud non possa connettersi direttamente a un server SAP dietro un firewall locale, è possibile utilizzare il listener ibrido per colmare il divario. Si imposta questa funzionalità ospitando un endpoint di inoltro che consente al connettore di stabilire in modo sicuro la connettività al server SAP.
 
 
 ## Diverse modalità di integrazione con SAP
 Sono supportate le azioni seguenti:
 
 - Chiamare RFC
-- Chiamare TRFC
+- Chiamare tRFC
 - Chiamare BAPI
 - Inviare IDoc
 
@@ -39,7 +39,7 @@ Sono supportate le azioni seguenti:
 Le librerie client specifiche di SAP sono richieste sul computer client su cui è installato e in esecuzione il listener ibrido. Le informazioni precise sono indicate [qui][9] nella sezione relativa all'**adapter per SAP**.
 
 
-## Creare un nuovo adapter per SAP
+## Creare un nuovo connettore SAP
 1. Accedere al portale di gestione di Microsoft Azure.
 2. Selezionare **Nuovo**.
 3. Nel pannello di creazione, selezionare **Calcolo ** > **Azure Marketplace**.
@@ -77,13 +77,13 @@ Nel pannello del connettore, notare che lo stato di connessione ibrida è in sos
 
 ![Pannello Connessione ibrida][3]
 
-Copiare la stringa di configurazione del gateway primario. Verrà usata in seguito come parte della configurazione di installazione del listener ibrido.
+Copiare la stringa di configurazione del gateway primario. Verrà utilizzata in seguito come parte della configurazione del listener ibrido.
 
-Selezionare **Scarica e configura** ed eseguire il programma di installazione Click Once:
+Selezionare il collegamento **Scarica e configura**. Fare clic una volta aperto il programma di installazione:
 
 ![Programma di installazione Click Once di Connessione ibrida][4]
 
-Selezionare **installa**, quindi immettere l'impostazione di configurazione del gateway copiata in precedenza:
+Selezionare **Installa**, quindi immettere l'impostazione di configurazione primaria del gateway copiata in precedenza:
 
 ![Stringa di connessione del listener di inoltro][5]
 
@@ -102,11 +102,9 @@ Nel pannello del connettore, notare che lo stato di connessione ibrida è *Conne
 
 
 ## Uso del connettore SAP nelle app per la logica
-Dopo aver creato il connettore SAP è possibile usarlo all'interno del flusso di lavoro delle app per la logica.
+Dopo aver creato il connettore SAP è possibile usarlo all'interno del flusso di lavoro delle app per la logica. A tale scopo, creare una nuova app per la logica, scegliendo **Nuovo** > **App per la logica** > **Crea**. Immettere i metadati per l'app per la logica, incluso il gruppo di risorse.
 
-Per creare una nuova app per la logica, scegliere **Nuovo** > **App per la logica** > **Crea**. Immettere i metadati per l'app per la logica, incluso il gruppo di risorse.
-
-Selezionare T**rigger e azioni**. Viene visualizzata la finestra di progettazione del flusso di lavoro delle app per la logica.
+Selezionare **Trigger e azioni**. Viene visualizzata la finestra di progettazione del flusso di lavoro delle app per la logica.
 
 Selezionare il connettore SAP dal riquadro a destra e selezionare un'azione dalla scheda Azioni.
 
@@ -125,4 +123,4 @@ Per l'azione selezionata verranno visualizzati i parametri di input e output. È
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

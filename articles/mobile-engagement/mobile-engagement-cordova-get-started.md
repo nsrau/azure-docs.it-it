@@ -86,6 +86,10 @@ Verrà creata un'app di base con Xcode per illustrare l'integrazione.
 	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
 	        --variable AZME_ENABLE_LOG=true|false
 
+*Android Reach Icon*: deve essere il nome della risorsa senza estensioni né prefisso drawable (ad esempio mynotificationicon) e il file di icona deve essere copiato nel progetto Android (platforms/android/res/drawable)
+
+*iOS Reach Icon*: deve essere il nome della risorsa con la relativa estensione (ad esempio mynotificationicon.png) e il file di icona deve essere aggiunto al progetto iOS con XCode (usando il menu di aggiunta dei file)
+
 ##<a id="monitor"></a>Abilitazione del monitoraggio in tempo reale
 
 1. Nel progetto Cordova modificare **www/js/index.js** in modo da aggiungere la chiamata a Mobile Engagement per dichiarare una nuova attività dopo la ricezione dell'evento *deviceReady*.
@@ -148,7 +152,7 @@ Per consentire a Mobile Engagement di inviare notifiche push per conto dell'uten
 
 	**[Android]**
 
-	a. Fare clic sull'icona di modifica in primo piano **chiave dell'API** nella sezione Impostazioni GCM e nella finestra popup che viene visualizzata, incollare la chiave del Server GCM e fare clic su **OK**.
+	a. Fare clic sull'icona di modifica in primo piano **chiave dell'API** nella sezione Impostazioni GCM e, nella finestra popup che viene visualizzata, incollare la chiave del Server GCM e fare clic su **OK**.
 		
 	![][4]
 
@@ -183,32 +187,32 @@ Modificare **www/js/index.js** in modo da aggiungere la chiamata a Mobile Engage
 
 Si creerà ora una semplice campagna di notifica push per l'invio di un push all'app in esecuzione nel dispositivo.
 
-1. Passare alla scheda **Reach** nel portale di Mobile Engagement.
+1. Passare alla scheda **Coinvolgimento** nel portale di Mobile Engagement
 
-2. Fare clic su **Nuovo annuncio** per creare la campagna di push.
+2. Fare clic su **Nuovo annuncio** per creare la campagna di push
 
 	![][6]
 
 3. Specificare input per la creazione della campagna **[Android]**
 	
-	- Fornire un **Nome** per la campagna. 
-	- Selezionare il **Tipo di recapito** su *Notifica del sistema* *Semplice*
-	- Selezionare l'ora di recapito su *"Qualsiasi ora"*
-	- Fornire un **Titolo** per la notifica che sarà la prima riga nel push.
-	- Fornire un **Messaggio** per la notifica che verrà utilizzata come corpo del messaggio. 
+	- Specificare un **Nome** per la campagna 
+	- Selezionare come **Tipo di recapito** *Notifica di sistema* *Semplice*
+	- Selezionare come Ora di recapito *"In qualsiasi momento"*
+	- Specificare un **Titolo** per la notifica che sarà la prima riga nel push
+	- Specificare un **Messaggio** per la notifica che verrà usata come corpo del messaggio 
 
 	![][11]
 
 4. Specificare input per la creazione della campagna **[iOS]**
 
-	- Fornire un **Nome** per la campagna. 
-	- Selezionare l'ora di recapito su *"Solo all’esterno dell’app"*
-	- Fornire un **Titolo** per la notifica che sarà la prima riga nel push.
-	- Fornire un **Messaggio** per la notifica che verrà utilizzata come corpo del messaggio. 
+	- Specificare un **Nome** per la campagna 
+	- Selezionare come Ora di recapito *"Solo all'esterno dell'app"*
+	- Specificare un **Titolo** per la notifica che sarà la prima riga nel push
+	- Specificare un **Messaggio** per la notifica che verrà usata come corpo del messaggio 
  
 	![][12]
 
-5. Scorrere verso il basso e nella sezione contenuto selezionare **Solo notifica**.
+5. Scorrere verso il basso e nella sezione del contenuto selezionare **Solo notifica**.
 
 	![][8]
 
@@ -241,4 +245,4 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

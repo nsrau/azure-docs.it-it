@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Domande frequenti sulla disponibilità e il supporto di Hub eventi"
-   description="Prezzi e domande frequenti su Hub eventi."
+   pageTitle="Disponibilità di Hub di eventi e supporto | Microsoft Azure"
+   description="Domande frequenti sulla disponibilità e il supporto di Hub eventi."
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="sethm" />
 
 # Domande frequenti sulla disponibilità e il supporto di Hub eventi
 
 Hub eventi fornisce acquisizione, persistenza ed elaborazione su vasta scala di eventi di dati da origini dati ad alta velocità e/o milioni di dispositivi. Quando viene utilizzato con argomenti e code di Bus di servizio, Hub eventi consente distribuzioni di controllo e comando persistente per gli scenari Internet delle cose (Internet of Things).
 
-In questa sezione vengono fornite informazioni sulla disponibilità e le risposte ad alcune domande frequenti.
+In questo articolo vengono discusse informazioni sulla disponibilità e le risposte ad alcune domande frequenti.
 
 ## Informazioni sui prezzi
 
-Per informazioni sui prezzi di Hub eventi, vedere [Prezzi Hub eventi](http://azure.microsoft.com/pricing/details/event-hubs/).
+Per informazioni complete sui prezzi di Hub eventi, vedere [Prezzi Hub eventi](http://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Come vengono calcolati gli eventi in ingresso di Hub eventi?
 
@@ -100,15 +100,14 @@ Per ulteriori informazioni al riguardo, visitare la pagina [Contratti di servizi
 
 ## Passaggi successivi
 
-Per ulteriori informazioni su Hub eventi, visitare i seguenti argomenti:
+Per ulteriori informazioni su Hub eventi, vedere i seguenti articoli:
 
 - [Panoramica di Hub eventi]
 - Un'[applicazione di esempio completa che usa Hub eventi].
 - Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
 
 [Panoramica di Hub eventi]: event-hubs-overview.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[soluzione di messaggistica accodata]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
- 
+[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->
