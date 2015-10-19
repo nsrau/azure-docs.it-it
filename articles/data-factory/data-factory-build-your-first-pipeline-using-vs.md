@@ -39,7 +39,9 @@ Questo articolo non fornisce una panoramica concettuale del servizio Data factor
 
 ### Prerequisiti
 
-Nel computer deve essere installato Visual Studio 2013. Scaricare Azure SDK per Visual Studio 2013. Andare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **Installazione di Visual Studio 2013** nella sezione **.NET**. - Aggiornare "Strumenti di Visual Studio per Data factory di Azure" alla versione più recente passando a Visual Studio 2013 --> Strumenti --> Aggiornamenti --> Visual Studio Gallery e facendo clic su "Aggiorna" nella voce del plug-in "Strumenti di Visual Studio per Data factory di Azure".
+Nel computer deve essere installato 
+- Visual Studio 2013 
+- Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
 
 
 ### Creare il progetto di Visual Studio 

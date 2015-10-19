@@ -65,7 +65,7 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet](
 
 	Si noterà che il codice genera semplicemente una richiesta di autenticazione per l'utente mediante WS-Federation. Tutte le autenticazioni sono configurate in App\_Start\\Startup.Auth.cs.
 
-4.  Aprire App\_Start\\Startup.Auth.cs. Nel metodo `ConfigureAuth` notare la riga seguente:
+4.  Aprire App_Start\Startup.Auth.cs. Nel metodo `ConfigureAuth` notare la riga seguente:
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -79,7 +79,7 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet](
 	-	Identificatore della relying party: `https://contoso.com/MyLOBApp`
 	-	Indirizzo dei metadati: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-5.	In App\_Start\\Startup.Auth.cs, modificare le definizioni delle stringhe statiche come evidenziato di seguito:
+5.	In App_Start\Startup.Auth.cs, modificare le definizioni delle stringhe statiche come evidenziato di seguito:
 	<pre class="prettyprint">
 private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
 <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
@@ -103,8 +103,9 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
   <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
   <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
 
-&lt;/appSettings>
-</pre>Compilare i valori delle chiavi in base a quanto previsto per l'ambiente in uso.
+	&lt;/appSettings>
+	</pre>
+	Compilare i valori delle chiavi in base a quanto previsto per l'ambiente in uso.
 
 7.	Compilare l'applicazione e verificare che non siano presenti errori.
 
@@ -149,7 +150,7 @@ Se si desidera collegare l'app Web pubblicata di Azure al debugger (ad esempio s
 > [AZURE.NOTE]Assicurarsi di ripetere i passaggi riportati sotto per entrambi gli ambienti.
 
 4.	Accedere al server ADFS con le credenziali dotate di diritti di gestione per ADFS.
-5.	Aprire il componente di gestione di ADFS. Fare clic con il pulsante destro del mouse su **AD FS\\Trusted Relationships\\Relying Party Trusts** e selezionare **Add Relying Party Trust**.
+5.	Aprire il componente di gestione di ADFS. Fare clic con il pulsante destro del mouse su **AD FS\Trusted Relationships\Relying Party Trusts** e selezionare **Add Relying Party Trust**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
@@ -175,7 +176,7 @@ Se si desidera collegare l'app Web pubblicata di Azure al debugger (ad esempio s
 
 7.	Nella pagina **Configure Identifiers** verificare che l'URL SSL del progetto sia già elencato, quindi fare clic su **Next**. Fare clic su **Next** fino al termine della procedura guidata, accettando le impostazioni predefinite.
 
-	> [AZURE.NOTE]In App\_Start\\Startup.Auth.cs del progetto di Visual Studio questo identificatore viene confrontato con il valore di <code>WsFederationAuthenticationOptions.Wtrealm</code> durante l'autenticazione federata. Per impostazione predefinita, l'URL dell'applicazione nel passaggio precedente viene aggiunto come identificatore della relying party.
+	> [AZURE.NOTE]In App_Start\Startup.Auth.cs del progetto di Visual Studio questo identificatore viene confrontato con il valore di <code>WsFederationAuthenticationOptions.Wtrealm</code> durante l'autenticazione federata. Per impostazione predefinita, l'URL dell'applicazione nel passaggio precedente viene aggiunto come identificatore della relying party.
 
 8.	A questo punto la configurazione dell'applicazione relying party per il progetto in ADFS è completa. Si procederà quindi alla configurazione di tale applicazione per l'invio delle attestazioni richieste dalla propria applicazione. La finestra di dialogo **Edit Claim Rules** si apre per impostazione predefinita al termine della procedura guidata e sarà pertanto possibile iniziare immediatamente. Configurare almeno le attestazioni seguenti (con gli schemi tra parentesi):
 
@@ -208,7 +209,8 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 		param = c1.OriginalIssuer,
 		param = "",
 		param = c2.Value);
-</pre>Il ruolo personalizzato dovrebbe essere simile al seguente:
+	</pre>
+	Il ruolo personalizzato dovrebbe essere simile al seguente:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -274,16 +276,25 @@ public ActionResult Contact()
 {
     ViewBag.Message = "Your contact page.";
 
-    return View();
-}
-</pre>Poiché nell'ambiente lab ADFS è stato aggiunto **Test User** a **Test Group**, si userà Test Group per il test dell'autorizzazione in `About`. Per `Contact`, si testerà il caso negativo di **Domain Admins**, a cui **Test User** non appartiene.
+        return View();
+    }
+	</pre>
+
+	Poiché nell'ambiente lab ADFS è stato aggiunto **Test User** a **Test Group**, si userà Test Group per il test dell'autorizzazione in `About`. Per `Contact`, si testerà il caso negativo di **Domain Admins**, a cui **Test User** non appartiene.
 
 3. Avviare il debugger premendo `F5` e accedere, quindi fare clic su **About**. Dovrebbe ora essere possibile visualizzare la pagina `~/About/Index`, se l'utente autenticato è autorizzato per tale azione.
 4. Ora fare clic su **Contact**, che nel caso di questo esempio non autorizza **Test User** per l'azione. Tuttavia, il browser viene reindirizzato ad ADFS, che visualizzerà un messaggio analogo al seguente:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Se si esamina l'errore nel Visualizzatore eventi nel server ADFS, si vedrà questo messaggio di eccezione: <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
+	Se si esamina l'errore nel Visualizzatore eventi nel server ADFS, si vedrà questo messaggio di eccezione:  
+	<pre class="prettyprint"> 
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details. 
+	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+	</pre>
 
 	Il motivo di ciò è che, per impostazione predefinita, MVC restituisce un codice 401 Unauthorized quando i ruoli di un utente non sono autorizzati. Questo attiva una richiesta di ri-autenticazione al provider di identità (ovvero ADFS). Poiché l'utente è già autenticato, ADFS torna alla stessa pagina, che a sua volta invia un nuovo codice 401, creando un ciclo di reindirizzamento. Verrà eseguito l'override del metodo `HandleUnauthorizedRequest` di AuthorizeAttribute con una logica semplice per visualizzare qualcosa di sensato anziché continuare il ciclo di reindirizzamento.
 
