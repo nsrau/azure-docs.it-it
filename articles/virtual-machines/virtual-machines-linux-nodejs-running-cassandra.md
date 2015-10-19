@@ -1,5 +1,6 @@
 <properties 
-	pageTitle="eseguire Cassandra con Linux in Azure | Descrizione di Microsoft Azure="Come eseguire un cluster Cassandra su Linux in macchine virtuali di Azure da un'applicazione Node. js" 
+	pageTitle="eseguire Cassandra con Linux in Azure |  Microsoft Azure=" 
+	Description="Come eseguire un cluster Cassandra su Linux in macchine virtuali di Azure da un'applicazione Node. js" 
 	services="virtual-machines" 
 	documentationCenter="nodejs" 
 	authors="MikeWasson" 
@@ -699,4 +700,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 
  
 
-<!----HONumber=Oct15_HO2-->
+<!------HONumber=Oct15_HO2-->
