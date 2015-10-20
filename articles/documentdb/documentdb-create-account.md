@@ -41,9 +41,9 @@ Quando si hanno documenti in una raccolta, è possibile utilizzare [DocumentDB S
 
 Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
--	[Mappa di formazione per DocumentDB](documentdb-learning-map.md)
+-	[Percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modello di risorse e concetti relativi a DocumentDB](documentdb-resources.md)
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

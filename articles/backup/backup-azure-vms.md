@@ -207,4 +207,4 @@ Per altre informazioni sulle operazioni iniziali Backup di Azure, vedere:
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

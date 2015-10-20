@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/09/2015"
 	ms.author="genemi"/>
 
 
 # Connettersi al database SQL con C&#x23; ed eseguire query
 
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
 Informazioni su come scrivere un programma C# che usa ADO.NET per connettersi a un database SQL di Azure nel cloud.
 
@@ -31,17 +35,17 @@ Questo argomento descrive tutte le procedure necessarie ed è destinato agli ute
 Per eseguire l'esempio di codice in C#, sono necessari i prerequisiti seguenti:
 
 
-- Un account e una sottoscrizione di Azure. È possibile usare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 
 - Un database **AdventureWorksLT** dimostrativo nel servizio Database SQL di Azure.
  - È possibile [crearne uno](sql-database-get-started.md) in pochi minuti.
 
 
-- Visual Studio 2013 Update 4 o versioni successive. Microsoft fornisce Visual Studio Community *gratuitamente*.
+- Visual Studio 2013 Update 4 o versioni successive. Ora Microsoft fornisce Visual Studio Community *gratuitamente*.
  - [Download di Visual Studio Community](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Altre opzioni per la versione gratuita di Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - In alternativa, andare direttamente al [passaggio](#InstallVSForFree) corrispondente che descrive come installare Visual Studio dal [portale di anteprima di Azure](http://portal.azure.com/).
+ - In alternativa, andare direttamente al [passaggio](#InstallVSForFree) corrispondente più avanti in questo argomento che descrive come installare Visual Studio dal [portale di anteprima di Azure](http://portal.azure.com/).
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -54,7 +58,7 @@ Per eseguire l'esempio di codice in C#, sono necessari i prerequisiti seguenti:
 Per installare Visual Studio, è possibile:
 
 - Installare Visual Studio Community gratuitamente passando alle pagine Web dedicate a Visual Studio in cui sono disponibili download gratuiti o altre opzioni.
-- Accedere al [portale di anteprima di Azure](http://portal.azure.com/) e passare direttamente alla pagina Web per il download, procedura descritta qui di seguito.
+- Accedere al [portale di anteprima di Azure](http://portal.azure.com/) e passare direttamente alla pagina Web per il download, seguendo la procedura descritta di seguito.
 
 
 ### Visual Studio tramite il portale di anteprima di Azure
@@ -64,13 +68,13 @@ Per installare Visual Studio, è possibile:
 
 2. Fare clic su **ESPLORA* TUTTO** > **database SQL**. Verrà visualizzato un pannello in cui viene eseguita la ricerca dei database.
 
-3. Nella casella di testo del filtro verso l'alto digitare il nome del database **AdventureWorksLT**.
+3. Nella casella di testo del filtro in alto digitare il nome del database **AdventureWorksLT**.
 
 4. Quando viene visualizzata la riga corrispondente al database nel server, fare clic su di essa. Verrà visualizzato un pannello per il database.
 
 5. Per praticità, ridurre a icona i pannelli precedenti facendo clic sul controllo corrispondente.
 
-6. Fare clic sul pulsante **Apri in Visual Studio** nella parte superiore del pannello del database. Verrà visualizzato un nuovo pannello per Visual Studio con i collegamenti alle pagine da cui è possibile eseguire l'installazione di Visual Studio.
+6. Fare clic sul pulsante **Apri in Visual Studio** in alto nel pannello del database. Verrà visualizzato un nuovo pannello per Visual Studio con i collegamenti alle pagine da cui è possibile eseguire l'installazione di Visual Studio.
  
 	![Pulsante Apri in Visual Studio][20-OpenInVisualStudioButton]
 
@@ -81,21 +85,21 @@ Per installare Visual Studio, è possibile:
 9. Al termine dell'installazione di Visual Studio, nel pannello **Apri in Visual Studio** fare clic sul pulsante **Apri in Visual Studio**. Verrà aperto Visual Studio.
 
 10. Per poter usare il riquadro **Esplora oggetti di SQL Server**, in Visual Studio verrà visualizzata una finestra di dialogo in cui è necessario compilare i campi relativi alla stringa di connessione.
- - Scegliere **Autenticazione di SQL Server** e non **Autenticazione di Windows**.
- - Ricordare di specificare il database **AdventureWorksLT** (**Opzioni** > **Proprietà connessione** nella finestra di dialogo).
+ - Scegliere **Autenticazione di SQL Server**, non **Autenticazione di Windows**.
+ - Ricordare di specificare il database **AdventureWorksLT** in **Opzioni** > **Proprietà connessione** nella finestra di dialogo.
 
-11. In **Esplora oggetti di SQL Server** espandere nodo del database.
+11. In **Esplora oggetti di SQL Server** espandere il nodo del database.
 
 
 ## Passaggio 2: Creare un nuovo progetto in Visual Studio
 
 
-In Visual Studio creare un nuovo progetto basato sul modello di partenza per C# > Windows > **Applicazione console**.
+In Visual Studio creare un nuovo progetto basato sul modello di base per C# > Windows > **Applicazione console**.
 
 
 1. Fare clic su **File** > **Nuovo** > **Progetto**. Verrà visualizzata la finestra di dialogo ****.
 
-2. In **Installati** espandere fino a C# e Windows in modo da visualizzare l'opzione **Applicazione console** nel riquadro centrale.
+2. In **Installati** espandere fino a C# e Windows, in modo da visualizzare l'opzione **Applicazione console** nel riquadro centrale.
 
 	![Finestra di dialogo Nuovo progetto][30-VSNewProject]
 
@@ -105,10 +109,10 @@ In Visual Studio creare un nuovo progetto basato sul modello di partenza per C# 
 ## Passaggio 3: Aggiungere un riferimento all'assembly per l'elaborazione della configurazione
 
 
-L'esempio in C# usa l'assembly **System.Configuration.dll** di .NET Framework, quindi verrà aggiunto un riferimento ad esso.
+L'esempio in C# usa l'assembly **System.Configuration.dll** di .NET Framework, quindi verrà aggiunto un riferimento a tale assembly.
 
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliere **Aggiungi riferimento**. Verrà visualizzata la finestra **Gestione riferimenti**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti** > **Aggiungi riferimento**. Verrà visualizzata la finestra **Gestione riferimenti**.
 
 2. Espandere **Assembly** > **Framework**.
 
@@ -116,7 +120,7 @@ L'esempio in C# usa l'assembly **System.Configuration.dll** di .NET Framework, q
 
 4. Fare clic su **OK**.
 
-5. Per compilare il programma, scegliere **Compila soluzione** dal menu **COMPILA**.
+5. Per compilare il programma, scegliere **COMPILA** > **Compila soluzione**.
 
 
 ## Passaggio 4: Ottenere la stringa di connessione
@@ -280,7 +284,7 @@ namespace ConnectAndQuery_Example
 ### Compilare il programma
 
 
-1. Per compilare il programma in Visual Studio, scegliere **Compila soluzione** dal menu **Compila**.
+1. Per compilare il programma in Visual Studio, scegliere **Compila** > **Compila soluzione**.
 
 
 ### Riepilogo delle azioni nel programma di esempio
@@ -319,7 +323,7 @@ Per aggiungere l'indirizzo IP, è possibile usare il [portale di anteprima di Az
 
 
 
-Per altre informazioni, vedere <br/> [Procedura: configurare le impostazioni del firewall nel database SQL di Azure](sql-database-configure-firewall-settings.md).
+Per altre informazioni, vedere <br/> [Procedura: Configurare le impostazioni del firewall nel database SQL di Azure](sql-database-configure-firewall-settings.md).
 
 
 
@@ -353,4 +357,4 @@ Per altre informazioni, vedere <br/> [Procedura: configurare le impostazioni del
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

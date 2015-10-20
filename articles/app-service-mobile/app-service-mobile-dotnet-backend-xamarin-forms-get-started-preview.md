@@ -18,9 +18,7 @@
 
 #Creare un'app Xamarin.Forms
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]& nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ##Panoramica
 
@@ -176,4 +174,4 @@ Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mob
 [Installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!-----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

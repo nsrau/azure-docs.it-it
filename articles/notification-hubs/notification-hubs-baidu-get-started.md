@@ -478,4 +478,4 @@ Per inviare una notifica di prova quando si usa l'applicazione console .NET, è 
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di Baidu]: http://www.baidu.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

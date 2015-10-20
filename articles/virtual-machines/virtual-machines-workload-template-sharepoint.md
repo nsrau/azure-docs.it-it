@@ -19,7 +19,7 @@
 
 # Distribuzione delle farm di SharePoint con i modelli di Gestione risorse di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse. Non è possibile creare questa risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica. Non è possibile creare questa risorsa con il modello di distribuzione classica.
 
 Utilizzare le istruzioni riportate in questo articolo per distribuire una nuova farm di SharePoint Server 2013 a tre o nove server utilizzando i modelli di gestione risorse.
 
@@ -184,4 +184,4 @@ Al termine, si disporrà di una nuova farm di SharePoint Server 2013 a nove serv
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

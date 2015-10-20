@@ -136,4 +136,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

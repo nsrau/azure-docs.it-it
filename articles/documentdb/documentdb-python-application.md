@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Sviluppo di applicazioni web Python Flask con DocumentDB | Microsoft Azure"
+    pageTitle="Sviluppo di applicazioni Web Python Flask con DocumentDB | Microsoft Azure"
     description="Esaminare un'esercitazione del database sull'utilizzo di DocumentDB per archiviare e accedere ai dati da un'applicazione web Python Flask ospitata in Azure. Trovare soluzioni di sviluppo dell'applicazione." 
 	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
@@ -17,7 +17,13 @@
     ms.date="09/21/2015"
     ms.author="ryancraw"/>
 
-# Sviluppo di applicazioni web Python Flask con DocumentDB
+# Sviluppo di applicazioni Web Python Flask con DocumentDB
+
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
 
 Per evidenziare il modo in cui i clienti possono sfruttare efficientemente Azure DocumentDB per archiviare ed eseguire query su documenti JSON, questo argomento fornisce un'esercitazione di un’applicazione web Python end-to-end che mostra come creare un'applicazione Web di voto usando Azure DocumentDB.
 
@@ -47,23 +53,23 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
 
 ## Passaggio 1: Creare un account di database di DocumentDB
 
-Il primo passaggio consiste nella creazione di un account DocumentDB. Se si dispone già di un account, è possibile passare alla sezione [Passaggio 2: Creare una nuova applicazione web Python Flask](#Step-2:-Create-a-new-Python-Flask-Web-Application).
+Il primo passaggio consiste nella creazione di un account DocumentDB. Se si ha già un account, è possibile passare a [Passaggio 2: Creare una nuova applicazione Web Python Flask](#Step-2:-Create-a-new-Python-Flask-Web-Application).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-<br/> Verrà ora illustrata in modo dettagliato la procedura per creare un'applicazione Web Python Flask completamente nuova.
+<br/> Verrà ora illustrata in dettaglio la procedura per creare un'applicazione Web Python Flask completamente nuova.
 
 ## Passaggio 2: Creare una nuova applicazione Web Python Flask
 
-1. Aprire Visual Studio, quindi fare clic su **File** -> **Nuovo progetto** -> **Python** ->, **Flask Web Project**, e creare un nuovo progetto con il nome **esercitazione**.
+1. Aprire Visual Studio, quindi fare clic su **File** -> **Nuovo progetto** -> **Python** ->, **Flask Web Project** e creare un nuovo progetto con il nome **tutorial**.
 
-	Se è la prima volta che si usa Python Flask, si tratta di un framework di sviluppo di applicazioni web che consente di creare applicazioni Web in Python più velocemente. [Fare clic qui per accedere alle esercitazioni per Flask][].
+	Se è la prima volta che si usa Python Flask, si tratta di un framework di sviluppo di applicazioni Web che consente di creare applicazioni Web in Python più velocemente. [Fare clic qui per accedere alle esercitazioni per Flask][].
 
 	![Schermata della finestra Nuovo progetto in Visual Studio con Python selezionato a sinistra, progetto web Flask selezionato nella parte centrale ed esercitazioni sul nome nella casella nome](./media/documentdb-python-application/image9.png)
 
-2. Verrà chiesto se si vogliono installare pacchetti esterni. Selezionare **Installa in un ambiente virtuale**. Assicurarsi di usare Python 2.7 come ambiente di base, poiché PyDocumentDB attualmente non supporta Python 3.x. Questo configurerà l'ambiente virtuale Python per il progetto.
+2. Verrà chiesto se si vogliono installare pacchetti esterni. Selezionare **Install into a virtual environment**. Assicurarsi di usare Python 2.7 come ambiente di base, poiché PyDocumentDB attualmente non supporta Python 3.x. Questo configurerà l'ambiente virtuale Python per il progetto.
 
 	![Schermata dell'esercitazione del database - Python Tools per la finestra di Visual Studio](./media/documentdb-python-application/image10.png)
 
@@ -88,7 +94,7 @@ Dopo la configurazione del progetto sarà necessario aggiungere alcuni pacchetti
     	flup
     	pydocumentdb>=1.0.0
 
-2. Fare clic con il pulsante destro del mouse su **env**, quindi fare clic su **installa da requirements.txt**.
+2. Fare clic con il pulsante destro del mouse su **env**, quindi fare clic su **install from requirements.txt**.
 
 	![Schermata che mostra env (Python 2.7) selezionata con l'installazione da requirements.txt evidenziato nell'elenco](./media/documentdb-python-application/image11.png)
 
@@ -99,7 +105,7 @@ Dopo la configurazione del progetto sarà necessario aggiungere alcuni pacchetti
 
 È importante verificare che tutto sia installato correttamente.
 
-- Avviare il sito Web premendo **F5**; verrà avviato il server di sviluppo Flask e il browser Web. Dovrebbe essere visualizzata la pagina seguente:
+- Avviare il sito Web premendo **F5**. Verrà avviato il server di sviluppo Flask e il browser Web. Dovrebbe essere visualizzata la pagina seguente:
 
 	![Il progetto di sviluppo web Python Flask vuoto visualizzato in un browser](./media/documentdb-python-application/image12.png)
 
@@ -161,11 +167,11 @@ Verrà ora creata l'applicazione di polling.
             	year=datetime.now().year,
             	message='You just created a new database, collection, and document.  Your old votes have been deleted')
 
-> [AZURE.TIP]Il metodo **CreateCollection** accetta un **RequestOptions** facoltativo come 3° parametro. Consente di specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore offerType, la raccolta verrà creata usando il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di DocumentDB, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
+> [AZURE.TIP]Il metodo **CreateCollection** accetta un **RequestOptions** facoltativo come terzo parametro. Consente di specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore offerType, la raccolta verrà creata usando il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di DocumentDB, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
 >
 ### Leggere database, raccolta, documento e inviare il form
 
-- Aggiungere il codice seguente al file **views.py**. Verrà configurato il form e verranno letti il database, la raccolta e il documento. Non eliminare nessuna porzione del codice esistente dal file **views.py**. Aggiungere semplicemente la parte nuova alla fine del file.
+- Aggiungere il codice seguente al file **views.py**. Verrà configurato il form e verranno letti il database, la raccolta e il documento. Non eliminare alcuna parte del codice esistente dal file **views.py**. Aggiungere semplicemente la parte nuova alla fine del file.
 
     	@app.route('/vote', methods=['GET', 'POST'])
     	def vote():
@@ -302,17 +308,17 @@ Aggiungere i seguenti file HTML nella cartella templates: create.html, results.h
 	![Schermata della finestra Esplora soluzioni di Visual Studio](./media/documentdb-python-application/image15.png)
 
 
-## Passaggio 4: Esecuzione dell'applicazione web in locale
+## Passaggio 4: Esecuzione dell'applicazione Web in locale
 
-1. Premere F5 o il pulsante **Esegui** in Visual Studio. Sullo schermo verrà visualizzato quanto segue.
+1. Premere F5 o il pulsante **Esegui** in Visual Studio. Verrà visualizzato quanto segue.
 
 	![Schermata di Python + DocumentDB applicazione voto visualizzati in un browser web](./media/documentdb-python-application/image16.png)
 
-2. Fare clic su **Creare o deselezionare il Database di voto** per generare il database.
+2. Fare clic su **Create/Clear the Voting Database** per generare il database.
 
 	![Schermata della pagina di creazione dell'applicazione web - informazioni dettagliate sullo sviluppo](./media/documentdb-python-application/image17.png)
 
-3. Fare quindi clic su **Voto** e selezionare un'opzione.
+3. Fare quindi clic su **Vote** e selezionare un'opzione.
 
 	![Schermata dell'applicazione Web con una domanda relativa al voto](./media/documentdb-python-application/image18.png)
 
@@ -325,7 +331,7 @@ Aggiungere i seguenti file HTML nella cartella templates: create.html, results.h
 
 Ora che l'applicazione completa funziona correttamente con DocumentDB, sarà possibile distribuirla in Siti Web di Azure.
 
-1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni (assicurarsi che il progetto non sia ancora in esecuzione localmente) quindi selezionare **Pubblica**. Selezionare quindi **Siti Web di Microsoft Azure**.
+1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, assicurarsi che il progetto non sia ancora in esecuzione localmente e quindi selezionare **Pubblica**. Selezionare quindi **Siti Web di Microsoft Azure**.
 
  	![Schermata dell'esercitazione selezionata in Esplora soluzioni, con l'opzione Pubblica evidenziata](./media/documentdb-python-application/image20.png)
 
@@ -341,9 +347,9 @@ Congratulazioni. Si è creata la prima applicazione web Python usando Azure Docu
 
 Aggiorniamo e miglioriamo spesso questo argomento in base al feedback degli utenti. Dopo aver completato l'esercitazione, utilizzare i pulsanti per la votazione nella parte superiore e inferiore della pagina e assicurarsi di includere il feedback sui miglioramenti che si desidera vedere. Se si desidera contattarci, è possibile includere l'indirizzo di posta elettronica nel commento per il follow-up.
 
-Per aggiungere altre funzionalità all'applicazione web, esaminare le API disponibili nell'[SDK per Python di DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
+Per aggiungere altre funzionalità all'applicazione Web, esaminare le API disponibili in [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb).
 
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
+Per altre informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
 
   [Fare clic qui per accedere alle esercitazioni per Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
@@ -355,4 +361,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

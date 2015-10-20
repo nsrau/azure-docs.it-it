@@ -3,4 +3,4 @@ Per realizzare la procedura descritta in questo articolo, è necessario [install
 
 > [AZURE.NOTE]Se non si dispone di un account Azure, è necessario procurarsene uno. Usare la [versione di valutazione gratuita](sign-up-organization.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

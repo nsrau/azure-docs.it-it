@@ -46,7 +46,7 @@ Prima di tutto, è necessario creare i due connettori che verranno usati: [Dropb
 4. Selezionare **Impostazioni pacchetto**. Qui si dovranno immettere le informazioni dall'applicazione Twitter. È possibile configurare un'applicazione gratuita in tre passaggi:
 	1. Accedere alla [pagina per la registrazione di app Twitter](http://apps.twitter.com).
 	2. Creare una nuova app.
-	3. Assegnare all'app un nome e una descrizione. È possibile immettere un URL qualsiasi per il sito Web e lasciare vuota la casella per l'URL di callback.
+	3. Assegnare all'app un nome e una descrizione. È possibile immettere un URL qualsiasi per il sito Web e per l'URL di callback (non lasciare il campo vuoto).
 	4. Dopo aver completato la registrazione, copiare il valore di **Consumer Key** da Twitter nel campo **clientId** in Azure e il valore **Consumer Secret** da Twitter nel campo **clientSecret**.
 	5. Fare clic su **OK** nel riquadro Azure per tornare alle altre impostazioni dell'API.
 
@@ -184,4 +184,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

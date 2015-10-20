@@ -105,4 +105,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nessun mapping, per cui viene ut
 
 Ora che si dispone di maggiori informazioni sul mapping di archiviazione, iniziare a leggere le [procedure consigliate](site-recovery-best-practices.md) di preparazione alla distribuzione.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Esercitazione di HBase: Introduzione a HBase in Hadoop | Microsoft Azure"
 	description="Seguire questa esercitazione di HBase per iniziare a usare Apache HBase con Hadoop in HDInsight. Creare tabelle dalla shell HBase e sottoporle a query tramite Hive."
+	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -246,7 +247,7 @@ In un cluster a disponibilità elevata verrà invece visualizzato un collegament
 
 È necessario scaricare la libreria client delle API REST di HBase per .NET da GitHub e compilare il progetto in modo da potere usare .NET SDK per HBase. Nella procedura seguente sono incluse le istruzioni per l'attività.
 
-1. Creare una nuova applicazione console C#Desktop di Windows in Visual Studio.
+1. Creare una nuova applicazione console C# Desktop di Windows in Visual Studio.
 2. Aprire la console di Gestione pacchetti NuGet facendo clic sul menu **STRUMENTI** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 3. Eseguire il comando NuGet seguente nella console:
 
@@ -328,7 +329,7 @@ In un cluster a disponibilità elevata verrà invece visualizzato un collegament
 
 
 ## Passaggi successivi
-In questa esercitazione di HBase per HDInsight si è appreso come effettuare il provisioning di un cluster HBase e come creare tabelle e visualizzare i dati delle tabelle dalla shell HBase. Si è inoltre appreso come usare una query Hive sui dati nelle tabelle HBase e come usare le API REST C#di HBase per creare una tabella HBase e recuperare i dati dalla tabella.
+In questa esercitazione di HBase per HDInsight si è appreso come effettuare il provisioning di un cluster HBase e come creare tabelle e visualizzare i dati delle tabelle dalla shell HBase. Si è inoltre appreso come usare una query Hive sui dati nelle tabelle HBase e come usare le API REST C# di HBase per creare una tabella HBase e recuperare i dati dalla tabella.
 
 Per ulteriori informazioni, vedere:
 
@@ -364,4 +365,4 @@ Per ulteriori informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

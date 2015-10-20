@@ -36,4 +36,4 @@ Per dettagli su come denominare condivisioni, directory e file, vedere [Denomina
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

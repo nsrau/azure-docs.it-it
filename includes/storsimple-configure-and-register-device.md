@@ -57,7 +57,7 @@
 
      ![StorSimple registrare il dispositivo 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 
-     Per copiare il testo dalla finestra della console seriale, è sufficiente selezionarlo. È quindi possibile incollarlo negli Appunti o in qualsiasi editor di testo. NON utilizzare Ctrl + C per copiare la chiave DEK del servizio. Se si utilizza Ctrl + C l'installazione guidata verrà chiusa. Di conseguenza, la password di amministratore del dispositivo e la password di Gestione snapshot StorSimple non verranno modificate e verranno ripristinate le password predefinite del dispositivo.
+     Per copiare il testo dalla finestra della console seriale, è sufficiente selezionarlo. È quindi possibile incollarlo negli Appunti o in qualsiasi editor di testo. NON usare CTRL+C per copiare la chiave DEK del servizio. Se si utilizza Ctrl + C l'installazione guidata verrà chiusa. Di conseguenza, la password di amministratore del dispositivo e la password di Gestione snapshot StorSimple non verranno modificate e verranno ripristinate le password predefinite del dispositivo.
 
 13. Uscire dalla console seriale.
 
@@ -76,4 +76,4 @@ Dopo che il dispositivo è registrato correttamente ma non è in linea, è possi
 
 Per guardare un video che illustra come configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple, fare clic [qui](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

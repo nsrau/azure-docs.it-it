@@ -160,4 +160,4 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

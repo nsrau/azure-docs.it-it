@@ -59,4 +59,4 @@ Dopo due riavvii, se si verificano ancora problemi di connettività cross-premis
 	
 Per altre informazioni su questo cmdlet, vedere [Riferimenti PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

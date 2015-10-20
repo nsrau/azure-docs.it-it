@@ -4,4 +4,4 @@ Per ottenere l'assembly `Microsoft.WindowsAzure.Storage.dll`, è possibile usare
 
 `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal <a href="http://azure.microsoft.com/develop/net/#"> Centro per sviluppatori .NET</a>. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Azure\.NET SDK<sdk-version>\ref`.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

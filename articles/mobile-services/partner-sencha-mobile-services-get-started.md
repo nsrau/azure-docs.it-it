@@ -716,4 +716,4 @@ Per ulteriori informazioni introduttive su Sencha Touch, vedere l'insieme comple
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

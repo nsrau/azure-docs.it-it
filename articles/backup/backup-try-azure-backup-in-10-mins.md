@@ -46,4 +46,4 @@ Esaminare i passaggi illustrati in questo video[Introduzione a Backup di Azure 3
 - [Backup di Windows Server](backup-azure-backup-windows-server.md)
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -3,4 +3,4 @@
 
 2. Selezionare il servizio da **App Web esistenti**, fare clic su **OK**, quindi verificare le informazioni di pubblicazione e fare clic su **Pubblica**. Quando il back-end dell'app per dispositivi mobili ha eseguito la pubblicazione, viene visualizzata una pagina di destinazione.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

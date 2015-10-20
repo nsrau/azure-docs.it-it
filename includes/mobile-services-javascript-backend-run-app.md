@@ -19,4 +19,4 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

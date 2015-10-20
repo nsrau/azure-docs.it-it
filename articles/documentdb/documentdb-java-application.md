@@ -19,7 +19,13 @@
 
 # Creazione di un'applicazione Web Java con DocumentDB
 
-Questa esercitazione sull’applicazione web Java illustra come usare il servizio [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) per archiviare e accedere ai dati da un'applicazione Java ospitata in siti Web di Azure. In questo argomento, si apprenderà:
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
+Questa esercitazione sull'applicazione Web Java illustra come usare il servizio [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) per archiviare e accedere ai dati da un'applicazione Java ospitata in siti Web di Azure. In questo argomento, si apprenderà:
 
 - Come creare un'applicazione JSP di base in Eclipse.
 - Come usare il servizio Azure DocumentDB mediante [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
@@ -30,7 +36,7 @@ Questa esercitazione illustra come creare un'applicazione di gestione delle atti
 
 > [AZURE.TIP]Questa esercitazione sullo sviluppo dell’applicazione presuppone che l'utente abbia già acquisito familiarità con l'uso di Java. Se non si ha alcuna esperienza riguardo a Java o agli [strumenti richiesti come prerequisiti](#Prerequisites), è consigliabile scaricare il progetto [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) completo da [GitHub](https://github.com/Azure/azure-documentdb-java) e creare la soluzione usando le [istruzioni alla fine di questo articolo](#GetProject). Una volta creata la soluzione, è possibile leggere l'articolo per approfondire il codice nel contesto del progetto.
 
-##<a id="Prerequisites"></a>Prerequisiti per questa esercitazione sull’applicazione web Java
+##<a id="Prerequisites"></a>Prerequisiti per questa esercitazione sull'applicazione Web Java
 Prima di iniziare questa esercitazione sullo sviluppo dell’applicazione, è necessario disporre di quanto segue:
 
 - Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](../../pricing/free-trial/).
@@ -780,4 +786,4 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

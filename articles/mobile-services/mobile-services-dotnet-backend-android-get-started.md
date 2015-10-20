@@ -14,13 +14,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="10/07/2015"
 	ms.author="ricksal"/>
 
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Android mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile che verrà creato usa i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript](mobile-services-android-get-started.md) di questo argomento.
 
@@ -34,9 +36,6 @@ Il progetto di guida introduttiva scaricato contiene Mobile Services SDK per And
 
 > [AZURE.IMPORTANT]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
-<!-- -->
-
-> [AZURE.NOTE]Per visualizzare la versione per Eclipse di questa esercitazione, vedere [Introduzione (Eclipse)].
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
@@ -117,7 +116,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Introduzione (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
+[Get started (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
 [Aggiungere notifiche push all'app]: mobile-services-dotnet-backend-android-get-started-push.md
 [Aggiungere l'autenticazione all'app]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
@@ -127,4 +126,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 [portale di gestione]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

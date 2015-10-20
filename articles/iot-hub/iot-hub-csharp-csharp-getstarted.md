@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Introduzione all'hub IoT | Microsoft Azure"
+	pageTitle="Introduzione all'hub IoT di Azure | Microsoft Azure"
 	description="Seguire questa esercitazione per iniziare a usare l'hub IoT di Azure con C#."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
-     ms.topic="article"
+     ms.devlang="dotnet"
+     ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Introduzione all'hub IoT
+# Esercitazione: Introduzione all'hub IoT
 
 ## Introduzione
 
@@ -24,13 +24,13 @@ L'hub IoT di Azure è un servizio completamente gestito che consente comunicazio
 
 Questa esercitazione illustra non solo come usare il portale di Azure per creare un hub IoT, ma anche come creare un'identità di dispositivo nell'hub IoT e come creare un dispositivo simulato che invia messaggi da dispositivo a cloud e riceve questi messaggi dal back-end cloud.
 
-Al termine di questa esercitazione risulteranno create tre applicazioni console Windows:
+Al termine di questa esercitazione si avranno tre applicazioni console Windows:
 
 * **CreateDeviceIdentity**, che crea un'identità di dispositivo e la chiave di sicurezza associata per connettere il dispositivo simulato
 * **ReadDeviceToCloudMessages**, che legge i messaggi da dispositivo a cloud e ne visualizza il contenuto
 * **SimulatedDevice**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e invia un messaggio da dispositivo a cloud ogni secondo
 
-> [AZURE.NOTE]L'hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo Azure IoT. Consultare il [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure. Gli SDK del servizio Azure IoT per Java e Node saranno presto disponibili.
+> [AZURE.NOTE]L'hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo Azure IoT. Visitare il [Centro per sviluppatori Azure IoT][] per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure. Gli SDK del servizio Azure IoT per Java e Node saranno presto disponibili.
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
@@ -92,17 +92,17 @@ A questo punto è possibile eseguire le applicazioni.
 
 In questa esercitazione è stato configurato un nuovo hub IoT, è stata creata un'identità di dispositivo nel registro delle identità dell'hub e questa identità è stata usata per programmare un dispositivo simulato che invia messaggi da dispositivo a cloud. È possibile continuare a esplorare le funzionalità e lo scenario dell'hub IoT con le esercitazioni seguenti:
 
-- [Inviare messaggi da cloud a dispositivo con l'hub IoT] illustra come inviare messaggi ai dispositivi ed elaborare il feedback di recapito generato dall'hub IoT.
-- [Elaborare messaggi da dispositivo a cloud] illustra come elaborare in modo affidabile telemetria e messaggi interattivi provenienti dai dispositivi.
-- [Caricamento di file da dispositivi] descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
+- [Inviare messaggi da cloud a dispositivo con l'hub IoT][] illustra come inviare messaggi ai dispositivi ed elaborare il feedback di recapito generato dall'hub IoT.
+- [Elaborare messaggi da dispositivo a cloud][] illustra come elaborare in modo affidabile telemetria e messaggi interattivi provenienti dai dispositivi.
+- [Caricamento di file da dispositivi][] descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
 
 Altre informazioni sull'hub IoT:
 
-* [Panoramica dell'hub IoT]
-* [Guida per sviluppatori di hub IoT]
-* [Linee guida dell'hub IoT]
+* [Panoramica dell'hub IoT][]
+* [Guida per sviluppatori dell'hub IoT][]
+* [Indicazioni per l'hub IoT][]
 * [Piattaforme e linguaggi di dispositivi supportati][Supported devices]
-* [Centro per sviluppatori Azure IoT]
+* [Centro per sviluppatori Azure IoT][]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
@@ -122,15 +122,11 @@ Altre informazioni sull'hub IoT:
 [Caricamento di file da dispositivi]: iot-hub-csharp-csharp-file-upload.md
 
 [Panoramica dell'hub IoT]: iot-hub-what-is-iot-hub.md
-[Linee guida dell'hub IoT]: iot-hub-guidance.md
-[Guida per sviluppatori di hub IoT]: iot-hub-devguide.md
+[Indicazioni per l'hub IoT]: iot-hub-guidance.md
+[Guida per sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro per sviluppatori Azure IoT]: http://www.azure.com/iotdev
+[Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

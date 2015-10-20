@@ -19,4 +19,4 @@ Per creare un nuovo servizio mobile, attenersi alla procedura seguente.
 
 A questo punto è stato creato un nuovo servizio mobile che può essere usato dalle app per dispositivi mobili.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

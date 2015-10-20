@@ -37,26 +37,26 @@ Nella figura seguente è illustrata l'applicazione completata:
 Si apprenderà come:
 
 * Preparare il computer per lo sviluppo in Azure installando [Azure SDK per .NET](../dotnet-sdk/).
-* Configurare Visual Studio per creare una nuova app Web del servizio app durante la creazione di un progetto Web.
+* Come configurare Visual Studio per creare una nuova app Web del servizio app durante la creazione di un progetto Web ASP.NET MVC 5.
 * Distribuire un progetto Web in un'app Web del servizio app usando Visual Studio.
 * Usare il [portale di Azure](/overview/preview-portal/) per monitorare e gestire l'app Web.
 
-Questa esercitazione non insegna come scrivere codice per personalizzare l'applicazione web. Per informazioni introduttive avanzate su come usare un database e autenticare gli utenti, vedere [Distribuire un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un'app Web di Azure](/develop/net/tutorials/web-site-with-sql-database/).
+Questa è un'esercitazione semplice e veloce che non descrive come personalizzare il progetto Web creato. Per un'introduzione allo sviluppo di applicazioni Web ASP.NET MVC 5, vedere l'[introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) nel sito Web dedicato ad [ASP.NET](http://asp.net/). Per i collegamenti ad altri articoli che approfondiscono i concetti relativi alle applicazioni Web nel servizio app di Azure, vedere la sezione [Passaggi successivi](#next-steps).
 
 ##<a name="video"></a>Iscrizione a Microsoft Azure
 
 Per completare l'esercitazione, è necessario un account Azure. È possibile:
 
 * [Aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
-* [Attivare i benefici dell'abbonamento MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+* [Attivare i vantaggi dell'abbonamento MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con l'abbonamento MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
-> [AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> [AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 In questo video Scott Hanselman illustra la procedura di iscrizione per ottenere la versione di valutazione gratuita di Microsoft Azure. (Durata: 1:58)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
-[AZURE.INCLUDE [installare-sdk-2015 2013](../../includes/install-sdk-2015-2013.md)]
+[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
 ## Creare un progetto e un'app Web
 
@@ -76,7 +76,7 @@ Il diagramma illustra le operazioni eseguite nei passaggi di creazione e di dist
 
 3. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5.2**.
 
-4.  [Azure Application Insights](app-insights-overview.md) monitora disponibilità, prestazioni e uso delle app Web. Deselezionare la casella di controllo **Aggiungi Application Insights al progetto** se non si vuole provare questa funzionalità.
+4.  [Azure Application Insights](app-insights-overview.md) monitora disponibilità, prestazioni e utilizzo delle app Web. Deselezionare la casella di controllo **Aggiungi Application Insights al progetto** se non si vuole provare questa funzionalità.
 
 4. Assegnare all'applicazione il nome **MyExample**.
 
@@ -118,7 +118,7 @@ Il diagramma illustra le operazioni eseguite nei passaggi di creazione e di dist
 
 4. Nel **piano di servizio App** elenco a discesa, selezionare **Crea nuovo piano di servizio App**.
 
-	Nella sezione [Passaggi successivi](#next-steps) sono inclusi collegamenti a informazioni sui piani del servizio app.
+	Nella sezione [Passaggi successivi](#next-steps) sono inclusi collegamenti a informazioni sui piani di servizio app.
 
 5. Immettere **MyExamplePlan**, o un altro nome se si preferisce, il nome del piano.
 
@@ -164,7 +164,7 @@ In questa sezione si distribuisce il progetto Web nell'app Web, come illustrato 
 
 	![Scegliere Pubblica](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	Dopo pochi secondi verrà visualizzata la procedura guidata **Pubblica sul Web** Verrà visualizzata la procedura guidata per un *profilo di pubblicazione* che dispone di impostazioni per la distribuzione del progetto Web per la nuova app web. Se si desidera distribuire un'applicazione Web diversa, è possibile scegliere la scheda **Profilo** per creare un profilo diverso. Per questa esercitazione, verranno accettate le impostazioni per la distribuzione nell'applicazione Web creata in precedenza.
+	Dopo pochi secondi verrà visualizzata la procedura guidata **Pubblica sul Web** che visualizza un *profilo di pubblicazione* con le impostazioni per la distribuzione del progetto Web nella nuova app web. Per eseguire la distribuzione in un'app Web diversa, è possibile scegliere la scheda **Profilo** per creare un altro profilo. Per questa esercitazione, verranno accettate le impostazioni per la distribuzione nell'applicazione Web creata in precedenza.
 
 8. Nella scheda **Connessione** della procedura guidata **Pubblica sul Web** fare clic su **Avanti**.
 
@@ -208,7 +208,7 @@ Il [portale di Azure](/services/management-portal/) è un'interfaccia Web che co
 
 2. Fare clic su **App Web** e quindi fare clic sul nome dell'app Web.
 
-	Il pannello **App Web** consente di visualizzare una panoramica delle impostazioni e le statistiche di uso per l'app Web.
+	Il pannello **App Web** consente di visualizzare una panoramica delle impostazioni e le statistiche di utilizzo per l'app Web.
 
 	![Pannello dell'app Web](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
@@ -236,11 +236,11 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come aggiungere funzionalità di database e autorizzazione
 
-	Per un'esercitazione che mostra come accedere a un database e limitare alcune funzioni dell'applicazione a utenti autorizzati, vedere [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un'app Web di Azure](/develop/net/tutorials/web-site-with-sql-database/).
+	Per un'esercitazione che mostra come accedere a un database e limitare alcune funzioni dell'applicazione a utenti autorizzati, vedere [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un'app Web di Azure](/develop/net/tutorials/web-site-with-sql-database/). Questa esercitazione presuppone alcune conoscenze di base di MVC 5. Se non si ha familiarità con MVC 5, vedere l'articolo relativo all'[introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 
 * Altri modi per distribuire un progetto Web
 
-	Per informazioni su altre modalità di distribuzione di progetti Web in app Web tramite Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Come distribuire un'app Web di Azure](web-sites-deploy.md).
+	Per informazioni su altre modalità di distribuzione di progetti Web in app Web tramite Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Come distribuire un'app Web di Azure](web-sites-deploy.md).
 
 	Visual Studio consente anche di generare script di Windows PowerShell per automatizzare la distribuzione. Per ulteriori informazioni, vedere l'articolo relativo a come [automatizzare tutto e creare app per cloud reali con Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
@@ -261,14 +261,14 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come scegliere tra Servizio app, Servizi cloud di Azure e Macchine virtuali di Azure per le applicazioni Web
 
-	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra app Web, servizi cloud e VM di Azure](/manage/services/web-sites/choose-web-app-service/).
+	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra app Web, servizi cloud e macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
 
 * [Come scegliere o creare un piano di servizio App](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 * [Come scegliere o creare un gruppo di risorse](../azure-preview-portal-using-resource-groups.md)
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web a Servizio app, vedere [Servizio app di Azure e i servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

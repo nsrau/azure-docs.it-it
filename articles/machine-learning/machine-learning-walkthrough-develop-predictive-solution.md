@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
 
@@ -30,6 +30,8 @@ In questa procedura dettagliata verrà descritto il processo di sviluppo di un m
 
 Aprire Machine Learning Studio: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Per altre informazioni introduttive su Machine Learning Studio, vedere la [home page di Microsoft Azure Machine Learning Studio ](https://studio.azureml.net/).
 
+>[AZURE.TIP]Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+
 Per creare una soluzione di valutazione del rischio di credito, seguire la procedura seguente:
 
 1.	[Creare un'area di lavoro di Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -41,4 +43,4 @@ Per creare una soluzione di valutazione del rischio di credito, seguire la proce
 
 Questa procedura dettagliata è basata su una versione semplificata dell'esperimento di esempio [Credit risk prediction](../machine-learning-sample-credit-risk-prediction.md) incluso in Machine Learning Studio.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

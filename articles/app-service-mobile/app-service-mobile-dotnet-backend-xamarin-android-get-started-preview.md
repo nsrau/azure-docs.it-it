@@ -5,7 +5,7 @@
 	documentationCenter="xamarin"
 	authors="wesmc7777"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,13 +14,11 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="08/12/2015"
-	ms.author="normesta"/>
+	ms.author="normesta" />
 
 #Creare un'app per Xamarin.Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]& nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
  
 ##Panoramica
 
@@ -103,4 +101,4 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
  
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!-----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

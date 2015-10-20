@@ -332,4 +332,4 @@ Per ottenere altre informazioni sui cmdlet per il bilanciamento del carico inter
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

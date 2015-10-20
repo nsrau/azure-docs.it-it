@@ -106,4 +106,4 @@ Ora che l'ambiente di sviluppo è pronto, è possibile iniziare a compilare ed e
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

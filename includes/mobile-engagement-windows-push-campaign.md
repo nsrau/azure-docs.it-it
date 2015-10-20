@@ -30,4 +30,4 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->
