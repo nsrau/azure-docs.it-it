@@ -92,4 +92,4 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
   [portale di Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

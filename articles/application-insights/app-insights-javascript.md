@@ -2,7 +2,7 @@
 	pageTitle="Application Insights per app Web JavaScript | Microsoft Azure"
 	description="Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, i dati client Web e la traccia dei modelli di utilizzo. Rilevare le eccezioni e i problemi di prestazioni nelle pagine Web JavaScript."
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -48,7 +48,7 @@ In Avvio rapido ottenere lo script per le pagine Web:
 
 Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio:
 
-* Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\\Shared\\\_Layout.cshtml
+* Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\\Shared\\_Layout.cshtml
 * Nel pannello di controllo di un sito di SharePoint aprire [Impostazioni sito/pagina Master](app-insights-sharepoint.md).
 
 Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa di Application Insights.
@@ -128,7 +128,7 @@ Inserire una chiamata JavaScript simile a questa nel punto appropriato nel codic
 
     appInsights.trackPageView(myPageName);
 
-Il nome della pagina può contenere gli stessi caratteri di un URL, ma i caratteri successivi a "\#" o "?" verranno ignorati.
+Il nome della pagina può contenere gli stessi caratteri di un URL, ma i caratteri successivi a "#" o "?" verranno ignorati.
 
 
 ## Esaminare singoli eventi di visualizzazione pagina
@@ -147,7 +147,7 @@ Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei d
 
 ### Proprietà delle visualizzazioni di pagina
 
-* **Durata della visualizzazione di pagina**&\#151;tempo necessario per caricare la pagina e iniziare a eseguire gli script. In particolare, indica l'intervallo tra l'avvio del caricamento della pagina e l'esecuzione di trackPageView. Se si sposta trackPageView dalla posizione consueta dopo l'inizializzazione dello script, rifletterà un valore diverso.
+* **Durata della visualizzazione di pagina**&#151;tempo necessario per caricare la pagina e iniziare a eseguire gli script. In particolare, indica l'intervallo tra l'avvio del caricamento della pagina e l'esecuzione di trackPageView. Se si sposta trackPageView dalla posizione consueta dopo l'inizializzazione dello script, rifletterà un valore diverso.
 
 ## Traccia dell'utilizzo personalizzato
 
@@ -184,4 +184,4 @@ Se non è stata ancora eseguita questa operazione, è possibile ottenere informa
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

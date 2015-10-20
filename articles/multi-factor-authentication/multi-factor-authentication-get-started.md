@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Introduzione"
-	description="Scegliere la soluzione di sicurezza Multi-Factor Authentication adatta alle proprie esigenze ponendosi i relativi quesiti. Scegliere quindi cloud, Server di autenticazione a più fattori o AD FS."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication - Introduzione" 
+	description="Scegliere la soluzione di sicurezza Multi-Factor Authentication adatta alle proprie esigenze ponendosi i relativi quesiti. Scegliere quindi cloud, Server di autenticazione a più fattori o AD FS." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 #Scegliere la soluzione di sicurezza Multi-Factor più adatta
@@ -87,4 +87,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 * [Per gli utenti](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

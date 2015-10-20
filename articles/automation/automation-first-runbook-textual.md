@@ -122,4 +122,4 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 
 - [Il primo runbook grafico](automation-first-runbook-graphical.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -11,4 +11,4 @@ In questo scenario verrà creata una rete virtuale denominata **TestVNet** con u
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

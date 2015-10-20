@@ -145,9 +145,9 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
 
 	Usare l'esempio seguente, sostituendo i valori con quelli personalizzati.
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
 
-	**Nota:** se la rete locale include più route, è possibile passarle tutte come una matrice. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+	> [AZURE.NOTE]Se la rete locale include più route, è possibile passarle tutte come una matrice. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
 
 	Per recuperare le impostazioni del gateway di rete virtuale, inclusi l'ID del gateway e l'indirizzo IP pubblico, usare il cmdlet `Get-AzureVirtualNetworkGateway`. Vedere l'esempio seguente.
@@ -178,7 +178,7 @@ Se si dispone di una rete virtuale esistente, connessa tramite una connessione E
 
 **Prima di iniziare la configurazione:** verificare che nella rete virtuale siano rimasti indirizzi IP sufficienti per aumentare le dimensioni della subnet del gateway.
 
-1. Scaricare la versione più recente dei cmdlet di PowerShell. È possibile scaricare e installare i cmdlet di PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download](http://azure.microsoft.com/downloads/).
+1. Scaricare la versione più recente dei cmdlet di PowerShell. È possibile installare i cmdlet PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download](http://azure.microsoft.com/downloads/).
 
 2. Eliminare il gateway VPN da sito a sito esistente. Usare il cmdlet seguente, sostituendo i valori con quelli personalizzati.
 
@@ -194,7 +194,7 @@ Se si dispone di una rete virtuale esistente, connessa tramite una connessione E
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
           </Subnet>
 
-4. Se il gateway precedente era una VPN da sito a sito, è necessario modificare anche il tipo di connessione su **Dedicated**.
+4. Se il gateway precedente era una VPN da sito a sito, è necessario modificare anche il tipo di connessione su **Dedicato**.
 
 		         <Gateway>
 		          <ConnectionsToLocalNetwork>
@@ -208,6 +208,6 @@ Se si dispone di una rete virtuale esistente, connessa tramite una connessione E
 
 ## Passaggi successivi
 
-Per altre informazioni su ExpressRoute, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md).
+Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

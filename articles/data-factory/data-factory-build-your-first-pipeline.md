@@ -62,8 +62,8 @@ La disponibilità definita nel set di dati **AzureBlobOutput** determina la freq
 ## Preparare Archiviazione di Azure per l'esercitazione
 Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure con i file necessari per l'esercitazione.
 
-1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **partitionweblogs.hql** nella cartella C:\\adfgettingstarted sul disco rigido. Questo script Hive crea due tabelle esterne: **WebLogsRaw** e **WebLogsPartitioned**.
-
+1. Avviare il **Blocco note** e incollare lo script HQL seguente. Questo script Hive crea due tabelle esterne: **WebLogsRaw** e **WebLogsPartitioned**. Scegliere **Salva con nome** dal menu **File**. Passare alla cartella **C:\\adfgettingstarted** sul disco rigido. Selezionare **Tutti i file (*.*)** per il campo **Tipo file**. Immettere **partitionweblogs.hql** in **Nome file**. Verificare che il campo **Codifica** nella parte inferiore della finestra di dialogo sia impostato su **ANSI**. In caso contrario, impostarlo su **ANSI**.  
+	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -142,10 +142,9 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-	
- 
+	 
 2. Per preparare l'archiviazione di Azure per l'esercitazione:
-	1. Scaricare l'[ultima versione di **AzCopy**](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr). Vedere l’articolo [Come usare AzCopy](../storage/storage-use-azcopy.md)per istruzioni sull'utilizzo dell'utilità.
+	1. Scaricare la [versione più recente di **AzCopy**](http://aka.ms/downloadazcopy) o la [versione di anteprima più recente](http://aka.ms/downloadazcopypr). Per istruzioni sull'uso dell'utilità, vedere l'articolo [Come usare AzCopy](../storage/storage-use-azcopy.md).
 	2. Dopo avere installato AzCopy, è possibile aggiungerlo al percorso del sistema eseguendo il comando seguente al prompt dei comandi. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
@@ -154,7 +153,7 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE]Il comando precedente crea un contenitore denominato **script** nell'archiviazione BLOB di Azure e copia il file **partitionweblogs.hql** dall’unità locale al contenitore BLOB.
+		> [AZURE.NOTE]Il comando precedente crea un contenitore denominato **script** nell'archivio BLOB di Azure e copia il file **partitionweblogs.hql** dall'unità locale al contenitore BLOB.
 	>
 	5. Dopo avere completato il caricamento del file, verrà visualizzato il seguente output da AzCopy.
 	
@@ -176,4 +175,4 @@ Eseguire le operazioni seguenti:
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

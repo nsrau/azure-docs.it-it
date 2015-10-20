@@ -4,8 +4,8 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="joseidz"
-	manager="joseidz"
-	editor="joseidz"/>
+	manager="jeffreyg"
+	editor="jeffreyg"/>
 
 
 <tags
@@ -14,47 +14,58 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/09/2015"
+	ms.date="10/09/2015"
 	ms.author="joseidz"/>
 
 
 # Connettersi a un database SQL di Azure con Excel
-Connessione di Excel a un Database di SQL Azure e creare un report sui dati nel database.
 
-## Prerequisiti
-- Database SQL di Azure implementato e in esecuzione. Per creare un nuovo database SQL, vedere l'argomento [introduttivo al database SQL di Microsoft Azure](sql-database-get-started.md).
-- [Microsoft Excel 2013](https://products.office.com/en-US/)(o Microsoft Excel 2010)
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
-## Connettersi al Database SQL e creare il Report
-1.	Aprire Excel.
-2.	Nella barra dei menu nella parte superiore della pagina fare clic su**Dati**.
-3.	Fare clic su**Da altre fonti**quindi**da SQL Server**. Si apre la**Guida Connessione dati**.
+Questo articolo illustra come connettere Excel a un database SQL di Azure e creare un report sui dati nel database. È necessario prima di tutto un database SQL. Se non ne è disponibile uno, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md) per ottenere un database con dati di esempio operativi in pochi minuti. Questo articolo si basa sui diti di esempio di quell'articolo, ma si può seguire una procedura simile con dati personalizzati.
 
-	![Connessione dati guidata][1]
-4.	Nella casella del **nome Server**digitare il nome del server di Database SQL di Azure. Esempio:
+Sarà necessaria anche una copia di Excel. Questo articolo usa [Microsoft Excel 2016](https://products.office.com/it-IT/).
 
-	 	adventureserver.database.windows.net
-5.	Nella sezione **credenziali di accesso**selezionare**Utilizzare il nome utente e Password seguenti**e quindi digitare le credenziali appropriate per il server di Database SQL. Quindi fare clic su **Next**.
+## Connettersi e creare un report
 
-	Nota: Entrambi gli add-ins[PowerPivot](https://www.microsoft.com/download/details.aspx?id=102)e[Power Query](https://www.microsoft.com/download/details.aspx?id=39379)aggiuntivi per Excel hanno esperienze simili
+1.	Aprire Excel e creare una nuova cartella di lavoro o aprire la cartella di lavoro a cui connettersi.
 
-6. Nel**Database e tabella**di dialogo selezionati, selezionare il**AdventureWorks**del database dal menu a discesa e selezionare**vGetAllCategories**dall'elenco di tabelle e viste, fare clic su**Avanti**.
+2.	Nella barra dei menu nella parte superiore della pagina fare clic su **Dati**, fare clic su **Da altre origini** e quindi su **Da SQL Server**.
+	
+	![Selezionare l'origine dati](./media/sql-database-connect-excel/excel_data_source.png)
+
+	Si apre la Connessione guidata dati.
+
+3.	Nella finestra di dialogo**Connessione al server di database** digitare il **Nome server** che ospita il server logico da connettere nel formato **<*nomeserver*>.database.windows.net**. Ad esempio, **adventureserver.database.windows.net**.
+
+4.	Nella sezione **Credenziali di accesso** fare clic su **Usa nome utente e password seguenti**, digitare il **Nome utente** e la **Password** configurati per il server di database SQL quando è stato creato e quindi fare clic su **Avanti**.
+
+	> [AZURE.TIP]Entrambi i componenti aggiuntivi [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) e [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) per Excel presentano esperienze simili.
+
+5. Nella finestra di dialogo **Seleziona database e tabella** selezionare il database **AdventureWorks** dal menu a discesa e selezionare **vGetAllCategories** dall'elenco di tabelle e visualizzazioni, quindi fare clic su **Avanti**.
 
 	![Selezionare database e tabella][5]
-7. Nel**Salva File di connessione dati e di fine**finestra di dialogo, fare clic su**Fine**.
-8. Nel**Importazione dei dati**finestra di dialogo, seleziona**grafico pivot**e fare clic su**OK**.
+
+6. Nella finestra di dialogo **Salva file di connessione dati e chiudi** fare clic su **Fine**.
+
+7. Nella finestra di dialogo**Importa dati** selezionare **Grafico pivot** e fare clic su **OK**.
 
 	![Selezionare l'importazione dei dati][2]
-9. Nella finestra di **PivotChart Fields**, selezionare la configurazione seguente per creare un report per il conteggio dei prodotti per categoria.
+
+8. Nella finestra di dialogo **Campi grafico pivot** selezionare la configurazione seguente per creare un report per il conteggio dei prodotti per categoria.
 
 	![Configurazione][3]
-10.	Esito positivo è simile al seguente:
+
+	Esito positivo è simile al seguente:
 
 	![esito positivo][4]
 
 ## Passaggi successivi
 
-Se si è uno sviluppatore di servizio Software (SaaS), per ulteriori informazioni, vedere[pool di database elastici](sql-database-elastic-pool.md). È possibile gestire con facilità grandi raccolte di database utilizzando[processi di database elastici](sql-database-elastic-jobs-overview.md).
+Per gli sviluppatori di software come servizio (SaaS), vedere [Pool di database elastici](sql-database-elastic-pool.md) per altre informazioni. È possibile gestire con facilità grandi raccolte di database con [Processi di database elastici](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-connect-excel/connect-to-database-server.png
@@ -63,4 +74,4 @@ Se si è uno sviluppatore di servizio Software (SaaS), per ulteriori informazion
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

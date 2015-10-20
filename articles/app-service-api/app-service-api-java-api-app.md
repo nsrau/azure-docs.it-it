@@ -276,4 +276,4 @@ Per provare questa app per le API di esempio, usare il servizio di [prova del se
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

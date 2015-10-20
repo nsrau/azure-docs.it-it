@@ -176,4 +176,4 @@ Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mob
 [Installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!-----HONumber=Sept15_HO1-->
+<!----HONumber=Oct15_HO3-->

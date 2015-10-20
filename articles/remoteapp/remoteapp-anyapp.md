@@ -118,4 +118,4 @@ Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che
 
 <!--Image references-->
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

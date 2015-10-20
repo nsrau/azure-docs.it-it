@@ -14,12 +14,13 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="10/01/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Articoli sulle Macchine virtuali nella gestione dei servizi
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Si tratta di un elenco di articoli sulla creazione e la gestione delle risorse con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 ## Introduzione
 
@@ -87,8 +88,6 @@
 
 [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md)
 
-[Gestire le macchine virtuali tramite la CLI di Azure per Mac, Linux e Windows](virtual-machines-manage-vms-azure-cli.md)
-
 ## Creazione di carichi di lavoro
 
 [Active Directory](../active-directory/active-directory-new-forest-virtual-machine.md)
@@ -153,4 +152,4 @@
 
 [Riferimento all'API REST di gestione dei servizi](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

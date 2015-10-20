@@ -36,4 +36,4 @@ Per specificare un file di definizione dell'API [Swagger](http://swagger.io/) 2.
 
 Escludere `endpoints.apiDefinition` dal file *apiapp.json* o impostarne il valore su Null. Se si include sia un URL `endpoints.apiDefinition` che un file *apiDefinition.swagger.json*, l'URL avrà la precedenza e il file verrà ignorato.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

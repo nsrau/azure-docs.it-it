@@ -5,7 +5,7 @@
 	documentationCenter="Mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.author="piyushjo" />
 
 # Definire la strategia di Mobile Engagement
 
@@ -127,4 +127,4 @@ Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale 
 [Concetti relativi a Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Esercitazioni]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

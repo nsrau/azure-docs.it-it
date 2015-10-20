@@ -82,7 +82,7 @@ A prescindere dallo scenario VMM che si desidera distribuire con Site Recovery, 
 - [Novità del cloud privato con System Center 2012 R2 VMM](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=)
 - [VMM 2012 e i cloud](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
 - [Configurazione dell'infrastruttura cloud VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-- [Creazione di un cloud privato in VMM](https://technet.microsoft.com/it-it/library/jj860425.aspx)
+- [Creazione di un cloud privato in VMM](https://technet.microsoft.com/it-IT/library/jj860425.aspx)
 - [Procedura dettagliata: creazioni di cloud privati con System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 
 
@@ -157,7 +157,7 @@ I provider e gli agenti vengono installati su server locali in modo che possano 
 ## Ottimizzazione delle prestazioni
 
 - **Dimensioni del volume del sistema operativo**: quando si replica una macchina virtuale in Azure, il volume del sistema operativo deve essere inferiore a 1 TB. Se si dispone di volumi superiori, è possibile spostarli manualmente in un altro disco prima di iniziare la distribuzione.
-- **Dimensioni del disco dati**: se si esegue la replica ad Azure è possibile avere fino a 32 dischi dati in una macchina virtuale, ciascuno con un massimo di 1 TB. È possibile replicare in modo efficiente una macchina virtuale di \~32 TB ed eseguirne il failover.
+- **Dimensioni del disco dati**: se si esegue la replica ad Azure è possibile avere fino a 32 dischi dati in una macchina virtuale, ciascuno con un massimo di 1 TB. È possibile replicare in modo efficiente una macchina virtuale di ~32 TB ed eseguirne il failover.
 - **Limiti del piano di ripristino**: Site Recovery è in grado di supportare migliaia di macchine virtuali. I piani di ripristino sono progettati come modello per le applicazioni devono eseguire il failover insieme. Pertanto, il numero di macchine in un piano di ripristino viene limitato a 50.
 - **Limiti dei servizi Azure**: ogni sottoscrizione ad Azure include un insieme di limiti predefiniti su core, servizi cloud e via di seguito. Si consiglia di eseguire un failover di test per convalidare la disponibilità di risorse nella sottoscrizione. È possibile modificare questi limiti tramite il supporto di Azure.
 - **Pianificazione della capacità**: per indicazioni, utilizzare [lo strumento di pianificazione della capacità per la replica Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=39057).
@@ -194,4 +194,4 @@ Dopo aver esaminato queste procedure consigliate, è possibile avviare la distri
 - [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

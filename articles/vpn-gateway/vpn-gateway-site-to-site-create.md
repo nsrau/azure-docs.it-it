@@ -32,9 +32,9 @@ In questo argomento verrà illustrata la creazione di una rete virtuale e una co
  
 ## Prima di iniziare
 
-Prima di iniziare la configurazione, verificare che ci siano le condizioni seguenti:
+Prima di iniziare la configurazione, verificare che siano presenti le condizioni seguenti:
 
-- Un dispositivo VPN compatibile e un utente che sia in grado di configurarlo. Vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md).
+- Un dispositivo VPN compatibile e un utente in grado di configurarlo. Vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md).
 - Un indirizzo IP pubblico esterno per il dispositivo VPN. L’indirizzo IP non può trovarsi dietro un NAT.
 - Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -99,4 +99,4 @@ Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo 
 
 Se si desidera configurare una connessione tra la rete virtuale classica e una rete virtuale creata utilizzando la modalità di gestione risorse di Azure, vedere [Connessione di reti virtuali classiche a reti virtuali di Gestione risorse di Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

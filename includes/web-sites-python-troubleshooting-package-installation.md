@@ -41,13 +41,13 @@ Per includere tutte le dipendenze nella cartella \\wheelhouse senza usare del tu
 
 ### Personalizzare l'installazione
 
-È possibile personalizzare lo script di distribuzione in modo da installare un pacchetto nell'ambiente virtuale usando un programma di installazione alternativo, come easy\\\_install. Per un esempio impostato come commento, vedere deploy.cmd. Assicurarsi che questi pacchetti non siano elencati in requirements.txt, in modo da impedirne l'installazione da parte di pip.
+È possibile personalizzare lo script di distribuzione in modo da installare un pacchetto nell'ambiente virtuale usando un programma di installazione alternativo, come easy\\_install. Per un esempio impostato come commento, vedere deploy.cmd. Assicurarsi che questi pacchetti non siano elencati in requirements.txt, in modo da impedirne l'installazione da parte di pip.
 
 Aggiungere questa riga allo script di distribuzione:
 
     env\scripts\easy_install somepackage
 
-Potrebbe anche essere possibile usare easy\\\_install per eseguire l'installazione da un programma di installazione EXE (alcuni sono compatibili con il formato ZIP e quindi sono supportati da easy\\\_install). Aggiungere il programma di installazione nel repository e richiamare easy\\\_install passando il percorso del file eseguibile.
+Potrebbe anche essere possibile usare easy\\_install per eseguire l'installazione da un programma di installazione EXE (alcuni sono compatibili con il formato ZIP e quindi sono supportati da easy\\_install). Aggiungere il programma di installazione nel repository e richiamare easy\\_install passando il percorso del file eseguibile.
 
 Aggiungere questa riga allo script di distribuzione:
 
@@ -68,4 +68,4 @@ Se si include l'ambiente virtuale nel repository, è possibile impedire allo scr
 [Microsoft Visual C++ per Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

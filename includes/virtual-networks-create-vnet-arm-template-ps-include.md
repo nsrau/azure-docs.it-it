@@ -3,19 +3,10 @@
 Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla procedura seguente.
 
 1. Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione preferita.
-2. Eseguire il cmdlet **Switch-AzureMode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
-		Switch-AzureMode AzureResourceManager
+3. Se necessario, eseguire il cmdlet **New-AzureRMResourceGroup** per creare un nuovo gruppo di risorse. Il comando seguente consente di creare un gruppo di risorse denominato *TestRG* nell'area di Azure *Stati Uniti centrali*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
 
-	Di seguito è riportato l'output previsto per il comando precedente:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]Il cmdlet Switch-AzureMode verrà presto dichiarato obsoleto. Di conseguenza, tutti i cmdlet di Gestione risorse verranno rinominati.
-
-3. Se necessario, eseguire il cmdlet **New-AzureResourceGroup** per creare un nuovo gruppo di risorse. Il comando seguente consente di creare un gruppo di risorse denominato *TestRG* nell'area di Azure *Stati Uniti centrali*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
-
-		New-AzureResourceGroup -Name TestRG -Location centralus
+		New-AzureRMResourceGroup -Name TestRG -Location centralus
 		
 	Di seguito è riportato l'output previsto per il comando precedente:
 
@@ -27,11 +18,11 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-4. Eseguire il cmdlet **New-AzureResourceGroupDeployment** per distribuire la nuova rete virtuale utilizzando il modello e il parametro file scaricato e modificato in precedenza.
+4. Eseguire il cmdlet **New-AzureRMResourceGroupDeployment** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza.
 
-		New-AzureResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
+		New-AzureRMResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 			
 	Di seguito è riportato l'output previsto per il comando precedente:
@@ -55,18 +46,18 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		
 		Outputs           :
 
-5. Eseguire il comando **Get-AzureVirtualNetwork** per visualizzare le proprietà della nuova rete virtuale, come illustrato di seguito.
+5. Eseguire il comando **Get-AzureRMVirtualNetwork** per visualizzare le proprietà della nuova rete virtuale, come illustrato di seguito.
 
 
-		Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
 	Di seguito è riportato l'output previsto per il comando precedente:
 		
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
-		Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"
+		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              :
 		AddressSpace      : {
@@ -81,8 +72,8 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		Subnets           : [
 		                      {
 		                        "Name": "FrontEnd",
-		                        "Etag": "W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
 		                        "AddressPrefix": "192.168.1.0/24",
 		                        "IpConfigurations": [],
 		                        "NetworkSecurityGroup": null,
@@ -91,8 +82,8 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		                      },
 		                      {
 		                        "Name": "BackEnd",
-		                        "Etag": "W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
 		                        "AddressPrefix": "192.168.2.0/24",
 		                        "IpConfigurations": [],
 		                        "NetworkSecurityGroup": null,
@@ -101,4 +92,4 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		                      }
 		                    ]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

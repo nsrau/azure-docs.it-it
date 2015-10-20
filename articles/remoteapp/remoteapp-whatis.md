@@ -77,4 +77,4 @@ Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare 
 - [Domande frequenti su Azure RemoteApp](remoteapp-faq.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

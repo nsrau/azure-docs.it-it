@@ -89,4 +89,4 @@ Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'inte
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

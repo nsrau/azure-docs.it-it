@@ -69,4 +69,4 @@ Il servizio BLOB si basa su uno schema di archiviazione semplice. È possibile c
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

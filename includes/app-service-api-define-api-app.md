@@ -103,4 +103,4 @@ Per visualizzare la pagina di test dell'API, seguire questa procedura.
 
 3. In Visual Studio fare clic su **Debug > Interrompi debug**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

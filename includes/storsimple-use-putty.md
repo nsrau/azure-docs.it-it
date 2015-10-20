@@ -30,4 +30,4 @@
 7. Fare clic su **Apri** per avviare una sessione seriale.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->
