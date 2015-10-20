@@ -1,5 +1,5 @@
 
-1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sul servizio mobile.
+1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com/), fare clic su **Servizi mobili** e quindi sul servizio mobile.
 
 2. Fare clic sulla scheda **Push**, selezionare **Solo gli utenti autenticati** per **Autorizzazioni**, quindi fare clic su **Salva** e poi su **Modifica script**.
 	
@@ -42,4 +42,4 @@
 
 4. Fare clic sulla freccia indietro, fare clic sulla scheda **Dati**, su **TodoItem**, su **Script** e infine selezionare **Inserisci**.
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

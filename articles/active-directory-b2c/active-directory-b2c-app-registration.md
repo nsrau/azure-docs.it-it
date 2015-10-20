@@ -50,7 +50,7 @@ Accedere al [portale di Azure](https://manage.windowsazure.com/) come amministra
 4. Se si sta scrivendo un'applicazione basata su web, commutare **Includi app Web o API Web** su **Sì**. Gli **URL di risposta** sono endpoint in cui AD B2C di Azure restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44321/`. Se l'applicazione include un componente lato server (API) che deve essere protetto, è opportuno creare (e copiare) un **Applicazione segreta** anche facendo clic sul tasto **Genera chiave**.
 
     > [AZURE.NOTE]
-    **Applicazione Segreta**è una credenziale di sicurezza importante.
+    **Applicazione Segreta** è una credenziale di sicurezza importante.
 
 5. Se si sta scrivendo un'applicazione per dispositivi mobili, attivare o disattivare il **Includi native client** passare a **Sì**. Copia verso il basso il valore predefinito **URI di reindirizzamento** creato automaticamente per l'utente.
 6. Fare clic su **Crea** per registrare l'applicazione.
@@ -62,4 +62,4 @@ Dopo aver creato un'applicazione registrata con AD B2C di Azure, è possibile co
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!----HONumber=Oct15_HO1-->
+<!-----HONumber=Oct15_HO1-->
