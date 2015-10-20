@@ -18,4 +18,4 @@
 
 4. L'account di archiviazione appena creato verrà visualizzato nella pagina **Configura** in **Account di archiviazione**. Fare clic su **Salva** per salvare l’account di archiviazione appena creato. Fare clic su **OK** quando viene richiesto di confermare.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

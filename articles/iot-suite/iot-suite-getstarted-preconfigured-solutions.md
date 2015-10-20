@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Esercitazione introduttiva per le soluzioni preconfigurate per Microsoft Azure IoT Suite | Microsoft Azure"
+	pageTitle="Introduzione alle soluzioni preconfigurate IoT | Microsoft Azure"
 	description="Seguire questa esercitazione per apprendere come distribuire una soluzione preconfigurata di Azure IoT Suite."
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,11 +12,11 @@
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="araguila"/>
 
-# Iniziare a usare le soluzioni preconfigurate IoT
+# Esercitazione: Introduzione alle soluzioni preconfigurate IoT
 
 ## Introduzione
 
@@ -115,4 +115,4 @@ Dopo avere compilato una soluzione preconfigurata funzionante, è possibile pass
 [Guida alla personalizzazione di soluzioni preconfigurate]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
 [Panoramica della suite IoT]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

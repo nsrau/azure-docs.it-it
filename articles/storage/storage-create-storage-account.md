@@ -171,4 +171,4 @@ Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete**
 
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -162,4 +162,4 @@ Se si vuole configurare una connessione VPN da sito a sito, vedere[Configurare u
 
 È possibile aggiungere macchine virtuali nella rete virtuale. Vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

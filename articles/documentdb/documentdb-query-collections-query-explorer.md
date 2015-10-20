@@ -78,4 +78,4 @@ Esplora query consente di creare, modificare ed eseguire query in modo semplice 
 - Per altre informazioni sulla grammatica SQL DocumentDB supportata in Esplora query, fare clic [qui](documentdb-sql-query.md).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -20,4 +20,4 @@
 
 Visual Studio crea un progetto API Web configurato per la distribuzione come app per le API.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

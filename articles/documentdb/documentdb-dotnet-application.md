@@ -20,13 +20,19 @@
 
 #<a name="_Toc395809351"></a>Sviluppo di applicazioni Web con ASP.NET MVC usando DocumentDB
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md) 
+
 Per illustrare come sfruttare in modo efficiente Azure DocumentDB per archiviare ed eseguire query su documenti JSON, questo articolo include una procedura dettagliata end-to-end che mostra come creare un'applicazione Web per un elenco azioni usando Azure DocumentDB. Le attività verranno memorizzate come documenti JSON in Azure DocumentDB.
 
 ![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione](./media/documentdb-dotnet-application/image1.png)
 
 La procedura guidata mostra come usare il servizio DocumentDB fornito da Azure per archiviare i dati e accedervi da un'applicazione Web MCV ASP.NET ospitata in Azure.
 
-> [AZURE.TIP]Questa esercitazione presuppone già una certa esperienza nell'uso di MCV ASP.NET e di Siti Web di Azure. Se non si ha alcuna esperienza riguardo ad ASP.NET o agli [strumenti richiesti come prerequisiti](#_Toc395637760), è consigliabile scaricare il progetto completo dell'esercitazione da [GitHub][] e seguire istruzioni alla fine di questo esempio. Una volta creata la soluzione, è possibile leggere questo articolo per approfondire il codice nel contesto del progetto.
+> [AZURE.TIP]Questa esercitazione presuppone già una certa esperienza nell'uso di MCV ASP.NET e di Siti Web di Azure. Se non si ha alcuna esperienza riguardo ad ASP.NET o agli [strumenti richiesti come prerequisiti](#_Toc395637760), è consigliabile scaricare il progetto completo dell'esercitazione da [GitHub][] e seguire le istruzioni in questo esempio. Una volta creata la soluzione, è possibile leggere questo articolo per approfondire il codice nel contesto del progetto.
 
 ## <a name="_Toc395637760"></a>Prerequisiti per questa esercitazione del database
 
@@ -77,7 +83,7 @@ A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
 
   	Qui non è stato selezionato "Server di database" perché non si intende usare un server di database SQL di Azure, ma verrà creato un nuovo account Azure DocumentDB successivamente nel portale di anteprima di Azure.
 
-	Per ulteriori informazioni sulla scelta di un**piano di servizio App**e del **gruppo di risorse**vedere[approfondimenti su piani di servizio di Azure App](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Per altre informazioni sulla scelta di un **Piano di servizio app** e del **Gruppo di risorse**, vedere [Panoramica approfondita dei piani del servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
   	![Schermata della finestra di dialogo Configura sito Web di Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -85,7 +91,7 @@ A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
 
 	L'esecuzione locale del progetto verrà ignorata perché è già stata mostrata per l'applicazione ASP.NET "Hello World". Si passerà direttamente all'aggiunta di DocumentDB al progetto e alla compilazione dell'applicazione.
 
-## <a name="_Toc395637767"></a>Passaggio 3: Aggiungere DocumentDB al progetto dell’applicazione web
+## <a name="_Toc395637767"></a>Passaggio 3: Aggiungere DocumentDB al progetto dell'applicazione web
 
 Ora che si dispone della maggior parte del plumbing MVC ASP.NET necessario per questa soluzione, è possibile passare all'aggiunta di Azure DocumentDB all'applicazione Web.
 
@@ -400,7 +406,7 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. A questo punto, aggiornare i valori per*endpoint*e*authKey*utilizzando il pannello di chiavi del portale Azure Preview. Usare il valore di **URI** dal pannello Chiavi come valore dell'impostazione dell'endpoint e usare **CHIAVE PRIMARIA** oppure **CHIAVE SECONDARIA** dal pannello Chiavi come valore dell'impostazione authKey.
+4. A questo punto, aggiornare i valori per *endpoint* e *authKey* usando il pannello Chiavi del portale di anteprima di Azure. Usare il valore di **URI** dal pannello Chiavi come valore dell'impostazione dell'endpoint e usare **CHIAVE PRIMARIA** oppure **CHIAVE SECONDARIA** dal pannello Chiavi come valore dell'impostazione authKey.
 
 
     Che consente di collegare i repository DocumentDB, ora possibile aggiunta la logica dell'applicazione.
@@ -448,7 +454,7 @@ Aprire ***App\\_Start\\RouteConfig.cs***, trovare la riga che inizia con "defaul
 
 Questo codice indica a MVC ASP.NET che, se non è stato specificato alcun valore nell'URL per controllare il comportamento di routing, sarà necessario usare **Item** invece di **Home** come controller e **Index** come visualizzazione.
 
-A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo archivio e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\**Item**\**Index**.
+A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo repository e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\**Item**\**Index**.
 
 Se compilato ed eseguito ora, il progetto avrà un aspetto simile al seguente.
 
@@ -493,7 +499,7 @@ Sarà ora effettuata l'aggiunta di codice a DocumentDBRepository e ItemControlle
 		}
 	Tale codice chiama DocumentDBRepository e utilizza il metodo CreateItemAsync per rendere persistente la nuova voce al database.
  
-	**Nota sulla sicurezza**: l’attributo**ValidateAntiForgeryToken**viene utilizzato di seguito per proteggere l'applicazione da attacchi di richiesta intersito falsa. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per ulteriori informazioni sull'oggetto e sugli esempi di come implementarla correttamente, vedere[impedendo Cross-Site Request Forgery][]. Il codice sorgente fornito in[GitHub][] permette l'implementazione completa.
+	**Nota sulla sicurezza**: l’attributo**ValidateAntiForgeryToken**viene utilizzato di seguito per proteggere l'applicazione da attacchi di richiesta intersito false. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per ulteriori informazioni sull'oggetto e sugli esempi di come implementarla correttamente, vedere[impedendo Cross-Site Request Forgery][]. Il codice sorgente fornito in [GitHub][] permette l'implementazione completa.
 
 	**Nota sulla sicurezza**: È possibile utilizzare l’attributo**associare**sul parametro del metodo per proteggersi da attacchi di registrazione eccessiva. Per ulteriori informazioni, vedere[operazioni CRUD di base in ASP.NET MVC][].
 
@@ -627,4 +633,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
 [operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -25,4 +25,4 @@ Si noti l'endpoint `apiDefinition` `/swagger/docs/v1`: per impostazione predefin
 
 Per questa esercitazione è possibile accettare le impostazioni predefinite. La sezione [Metadati delle app per le API](#api-app-metadata) più avanti nell'esercitazione illustra come personalizzare i metadati.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

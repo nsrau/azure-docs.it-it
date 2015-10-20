@@ -72,4 +72,4 @@ In questa sezione si scriverà un'app console di Windows che simula un dispositi
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -178,4 +178,4 @@ Per informazioni dettagliate sulla pianificazione di questi componenti, leggere 
 
 Iniziare a configurare i componenti per lo scenario di distribuzione. [Altre informazioni](site-recovery-overview.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

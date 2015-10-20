@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+	ms.date="10/13/2015" 
 	ms.author="ccompy"/>
 
 # Come creare un ambiente del servizio app #
@@ -39,12 +39,12 @@ Ogni distribuzione dell'ambiente del servizio app è un servizio ospitato gestit
 È possibile accedere all'interfaccia utente di creazione dell'ambiente del servizio app in due modi. È possibile trovarla cercando ***Ambiente del servizio app*** in Azure Marketplace o facendo clic su Nuovo -> Web e dispositivi mobili.
 
 ### Creazione rapida ###
-Per creare un ambiente del servizio app nell'interfaccia utente di creazione, immettere un nome per la distribuzione. Verrà quindi creata una rete virtuale con 512 indirizzi, una subnet con 256 indirizzi all'interno della rete virtuale e un ambiente del servizio app con 2 server front-end e 2 processi di lavoro nel pool di lavoro 1. Assicurarsi di selezionare la località in cui deve essere creato il sistema e la sottoscrizione in cui si vuole includere l'ambiente. Gli unici account che possono usare l'ambiente del servizio app per ospitare il contenuto, devono appartenere alla sottoscrizione usata per crearlo.
+Per creare un ambiente del servizio app nell'interfaccia utente di creazione, immettere un nome per la distribuzione. Verrà quindi creata una rete virtuale con 512 indirizzi, una subnet con 256 indirizzi all'interno della rete virtuale e un ambiente del servizio app con 2 server front-end e 2 processi di lavoro nel pool di lavoro 1. Assicurarsi di creare un nuovo *piano di servizio app* o selezionarne uno esistente e specificare la sottoscrizione in cui verrà incluso. Gli unici account che possono usare l'ambiente del servizio app per ospitare il contenuto, devono appartenere alla sottoscrizione usata per crearlo.
 
-Il nome specificato per l'ambiente del servizio app verrà usato per le app Web create nell'ambiente stesso. Se il nome del servizio app è appsvcenvdemo, il nome di dominio sarà .*appsvcenvdemo.p.azurewebsites.net*. Se è stata creata un'app Web denominata mytestapp, questa sarà disponibile all'indirizzo *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Il nome non può contenere spazi. Anche se nel nome vengono usati caratteri maiuscoli, il nome di dominio corrisponderà alla versione in caratteri minuscoli del nome.
+Il nome specificato per l'ambiente del servizio app verrà usato per le app Web create nell'ambiente stesso. Se il nome dell'ambiente del servizio app è appsvcenvdemo, il nome di dominio sarà .*appsvcenvdemo.p.azurewebsites.net*. Se è stata creata un'app Web denominata mytestapp, questa sarà disponibile all'indirizzo *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Il nome non può contenere spazi. Anche se nel nome vengono usati caratteri maiuscoli, il nome di dominio corrisponderà alla versione in caratteri minuscoli del nome.
 
 
-![][1]
+![][1] ![][4]
 
 ### Pool di risorse di calcolo ###
 
@@ -138,6 +138,7 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseappserviceplan.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
@@ -145,4 +146,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -396,4 +396,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

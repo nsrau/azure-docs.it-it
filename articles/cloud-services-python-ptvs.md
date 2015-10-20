@@ -138,4 +138,4 @@ Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lav
 [Python 2.7 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

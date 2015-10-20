@@ -27,4 +27,4 @@
 
 	![Creare una rete virtuale nel portale di anteprima](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

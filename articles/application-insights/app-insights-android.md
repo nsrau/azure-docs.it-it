@@ -1,19 +1,19 @@
 <properties
     pageTitle="Application Insights per app per Android | Microsoft Azure"
-	description="Analizzare l'utilizzo e le prestazioni dell'app Android con Application Insights."
-	services="application-insights"
-	documentationCenter="android"
-	authors="alancameronwills"
-	manager="ronmart"/>
+    description="Analizzare l'utilizzo e le prestazioni dell'app Android con Application Insights."
+    services="application-insights"
+    documentationCenter="android"
+    authors="alancameronwills"
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="na"
-	ms.topic="get-started-article"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="na"
+    ms.topic="get-started-article"
 	ms.date="04/28/2015"
-	ms.author="awills"/>
+    ms.author="awills"/>
 
 # Application Insights per app per Android
 
@@ -197,4 +197,4 @@ Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esemp
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

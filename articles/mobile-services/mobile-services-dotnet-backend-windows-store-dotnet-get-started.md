@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+>[AZURE.TIP]Se non si ha familiarità con lo sviluppo per dispositivi mobili in Microsoft Azure, [iniziare dalle app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) invece che da Servizi mobili di Azure. In questo modo si avranno [vantaggi aggiuntivi](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
  
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app di Windows universale mediante Servizi mobili di Azure. Le soluzioni per app universali di Windows includono progetti di app per Windows Store 8.1 e Windows Phone Store 8.1 e un progetto condiviso comune. Per altre informazioni, vedere [Creare app Windows universali per Windows e Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
@@ -29,7 +29,7 @@ In questa esercitazione si creeranno sia un nuovo servizio mobile che una sempli
 
 >[AZURE.NOTE]Questo argomento descrive come creare un nuovo progetto di servizio mobile e un'app universale di Windows usando il portale di gestione di Azure. Visual Studio 2013 Update 3 consente di aggiungere un nuovo progetto di servizio mobile a una soluzione Visual Studio esistente. Per altre informazioni, vedere [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
->Per aggiungere un servizio mobile a un progetto app di Windows Phone 8.0 o Windows Phone Silverlight 8.1, vedere [Aggiungere Servizi mobili a un'app per Windows Phone esistente](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
+>Per aggiungere un servizio mobile a un progetto di app di Windows Phone 8.0 o Windows Phone Silverlight 8.1, vedere [Aggiungere Servizi mobili a un'app di Windows Phone esistente](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -128,4 +128,4 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

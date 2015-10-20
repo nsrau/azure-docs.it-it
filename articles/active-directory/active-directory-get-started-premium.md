@@ -4,6 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
+	writer="markvi"
 	manager="stevenpo" 
 	editor="LisaToft"/>
 
@@ -18,17 +19,17 @@
 
 # Introduzione ad Azure Active Directory Premium
 
-Azure Active Directory è disponibile in tre edizioni: gratuita, Basic e Premium. L'edizione gratuita è inclusa in una sottoscrizione di Azure o di Office 365. Le edizioni Basic e Premium sono disponibili tramite [Microsoft Enterprise Agreement](https://www.microsoft.com/it-it/licensing/licensing-programs/enterprise.aspx) o il programma [Open Volume License](https://www.microsoft.com/it-it/licensing/licensing-programs/open-license.aspx). I sottoscrittori di Azure e Office 365 possono acquistare Active Directory Premium anche online. Per acquistare Active Directory Premium [accedere qui](https://portal.office.com/Commerce/Catalog.aspx).
+Azure Active Directory è disponibile in tre edizioni: gratuita, Basic e Premium. L'edizione gratuita è inclusa in una sottoscrizione di Azure o di Office 365. Le edizioni Basic e Premium sono disponibili tramite [Microsoft Enterprise Agreement](https://www.microsoft.com/it-IT/licensing/licensing-programs/enterprise.aspx) o il programma [Open Volume License](https://www.microsoft.com/it-IT/licensing/licensing-programs/open-license.aspx). I sottoscrittori di Azure e Office 365 possono acquistare Active Directory Premium anche online. Per acquistare Active Directory Premium [accedere qui](https://portal.office.com/Commerce/Catalog.aspx).
 
 > [AZURE.NOTE]Le edizioni Premium e Basic di Azure Active Directory sono disponibili per i clienti in Cina tramite l'istanza globale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-Azure Active Directory Premium è incluso anche in **Enterprise Mobility Suite**, una soluzione economica, pensata per le organizzazioni, che consente di usare Microsoft Intune, Azure Rights Management e i servizi Active Directory Premium in base a un unico piano di licenze. Per altre informazioni, visitare il sito Web di [Enterprise Mobility Suite](https://www.microsoft.com/it-it/server-cloud/enterprise-mobility/overview.aspx).
+Azure Active Directory Premium è incluso anche in **Enterprise Mobility Suite**, una soluzione economica, pensata per le organizzazioni, che consente di usare Microsoft Intune, Azure Rights Management e i servizi Active Directory Premium in base a un unico piano di licenze. Per altre informazioni, visitare il sito Web di [Enterprise Mobility Suite](https://www.microsoft.com/it-IT/server-cloud/enterprise-mobility/overview.aspx).
 
 Per iniziare subito a usare le funzionalità di Azure Active Directory Premium, attenersi alla procedura seguente. La stessa procedura è applicabile all'edizione Basic di Azure Active Directory.
 
 ## Passaggio 1: Iscriversi ad Active Directory Premium
 
-Per iscriversi, visitare il sito Web relativo ai [contratti multilicenza](http://www.microsoft.com/it-it/licensing/how-to-buy/how-to-buy.aspx).
+Per iscriversi, visitare il sito Web relativo ai [contratti multilicenza](http://www.microsoft.com/it-IT/licensing/how-to-buy/how-to-buy.aspx).
 
 ## Passaggio 2: Attivare un piano di licenze
 
@@ -121,4 +122,4 @@ La disponibilità di servizi e funzionalità per un servizio cloud Microsoft var
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

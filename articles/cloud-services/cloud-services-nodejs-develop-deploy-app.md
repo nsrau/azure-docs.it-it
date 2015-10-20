@@ -41,7 +41,7 @@ L'applicazione è una semplice applicazione "hello world":
 > [AZURE.NOTE]Questa esercitazione usa Azure PowerShell, che richiede Windows.
 
 - Installare e configurare [Azure PowerShell](../install-configure-powershell.md).
-- Scaricare e installare [Azure SDK per .NET 2.7](http://www.microsoft.com/IT-IT/download/details.aspx?id=48178). Nel programma di installazione, selezionare:
+- Scaricare e installare [Azure SDK per .NET 2.7](http://www.microsoft.com/it-IT/download/details.aspx?id=48178). Nel programma di installazione, selezionare:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -197,4 +197,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js](/dev
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -198,4 +198,4 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

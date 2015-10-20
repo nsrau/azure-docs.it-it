@@ -12,12 +12,10 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="10/13/2015"
 	ms.author="awills"/>
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 Dopo aver distribuito l'applicazione Web, è possibile configurare test web per monitorarne la disponibilità e la velocità di risposta. Application Insights invia richieste Web a intervalli regolari da vari punti distribuiti in tutto il mondo e può inviare avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
 
@@ -51,19 +49,21 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - L'**URL **deve essere visibile dalla rete Internet pubblica. Può includere una stringa di query&#151;pertanto è possibile, ad esempio, esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione verrà effettuata fino a un numero massimo di 10 reindirizzamenti.
-
-- Se la casella **Abilitare tentativi** è selezionata, quando il test non riesce verrà riprovato dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti all'intervallo consueto. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni posizione di test.
-
+- **Analizza richieste dipendenti**: immagini, script, file di stile e altre risorse della pagina vengono richiesti come parte del test. Il test avrà esito negativo se non è possibile scaricare tutte queste risorse entro la scadenza definita per l'intero test.
+- Se la casella **Abilitare tentativi** è selezionata, quando il test non riesce verrà eseguito un nuovo tentativo dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni posizione di test. Questa è un'impostazione consigliata. In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.
+- **Frequenza test**: indica la frequenza di esecuzione dei test da ogni posizione di test. Con una frequenza di 5 minuti e cinque posizioni di test, il sito verrà testato in media ogni minuto.
 - Le **posizioni dei test** sono le ubicazioni da cui i server inviano richieste Web all'URL indicato. Sceglierne più di una, per poter distinguere i problemi del sito Web dai problemi di rete. È possibile selezionare fino a 16 posizioni.
 
 - **Criteri di successo**:
 
-    **Codice stato HTTP**: in genere 200.
+    **Timeout test**: diminuire questo valore per ricevere avvisi in merito alle risposte lente. Il test viene conteggiato come non riuscito se le risposte dal sito non sono state ricevute entro questo periodo. Se è stata selezionata l'opzione **Analizza richieste dipendenti**, tutti gli script, i file di stile, le immagini e altre risorse dipendenti devono essere stati ricevuti entro questo periodo.
+
+    **Risposta HTTP**: codice di stato restituito che indica un'operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web.
 
     Stringa relativa alla **corrispondenza di contenuto**, quale "Benvenuto!" Verrà verificato che sia presente in tutte le risposte. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa.
 
 
-- Gli **avvisi** vengono inviati, per impostazione predefinita, se si verificano errori ripetuti nell'arco di 15 minuti. È comunque possibile modificare l'impostazione in modo da aumentare la sensibilità del test e modificare gli indirizzi di posta elettronica a cui inviare la notifica.
+- Per impostazione predefinita, gli **Avvisi** vengono inviati se si verificano errori in tre posizioni in cinque minuti. Un errore in una posizione può indicare un errore di rete e non un problema con il sito. È comunque possibile modificare la soglia in modo da aumentare la sensibilità del test e modificare i destinatari a cui inviare i messaggi di posta elettronica.
 
 #### Testare più URL
 
@@ -72,7 +72,7 @@ Aggiungere altri test. Ad esempio, oltre a testare la home page, è possibile ve
 
 ### <a name="monitor"></a>3. Visualizzare i report di disponibilità
 
-Dopo 1-2 minuti fare clic su **Aggiorna** nel pannello della disponibilità o dei test Web. (l'aggiornamento non viene eseguito automaticamente).
+Dopo 1 o 2 minuti fare clic su **Aggiorna** nel pannello della disponibilità o dei test Web. (l'aggiornamento non viene eseguito automaticamente).
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -242,6 +242,6 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 [azure-availability]: ../insights-create-web-tests.md
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

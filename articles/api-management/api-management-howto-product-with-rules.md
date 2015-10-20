@@ -291,4 +291,4 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minut
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

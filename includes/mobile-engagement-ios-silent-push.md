@@ -20,10 +20,8 @@
 	    <array>
 	    <string>remote-notification</string>
 	    </array>
-	    ...
-    
-7. Se si utilizza **Xcode 7** e **iOS 9**, è necessario eseguire i seguenti passaggi aggiuntivi:
-	- Impostare **Abilita bitcode** su **No** in Destinazioni > Impostazioni di compilazione. Assicurarsi di selezionare TUTTO nella barra superiore. 
+
+7. Se si usano **Xcode 7+** e **iOS 9+**:
 	- Abilitare **Notifiche push** in Destinazioni > Nome della destinazione > Funzionalità.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

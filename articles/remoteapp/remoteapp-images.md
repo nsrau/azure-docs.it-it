@@ -1,19 +1,19 @@
 <properties
     pageTitle="Cosa è incluso nelle immagini modello di Azure RemoteApp"
-	description="Informazioni sulle immagini modello incluse con Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="Informazioni sulle immagini modello incluse con Azure RemoteApp."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
+    manager="mbaldwin" />
 
 <tags
     ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 # Cosa è incluso nelle immagini modello di Azure RemoteApp
 
@@ -105,4 +105,4 @@ Si tratta di un'estensione dell'immagine "vanilla" e presenta i seguenti compone
 > [AZURE.IMPORTANT]**Informazioni legali:** questa immagine non include una licenza di Microsoft Office e *non può essere usata per ambienti di produzione*. L'immagine di Office 2013 Professional Plus è destinata esclusivamente alla valutazione. Se si desidera usare le applicazioni Office in Azure RemoteApp per la produzione, è necessario usare l'immagine di Office 365 ProPlus. Per altre informazioni sulla licenza di Office, vedere [Usare Office 365 con Azure RemoteApp](remoteapp-o365.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

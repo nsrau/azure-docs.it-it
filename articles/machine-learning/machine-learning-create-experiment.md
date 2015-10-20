@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
-#Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio
+# Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio
 
 Nella prima esercitazione di Machine Learning, verrà creato un modello di regressione lineare che stima il prezzo di un'automobile in base a diverse variabili, come la marca e le specifiche tecniche. A tale scopo, si userà Azure Machine Learning Studio per sviluppare un semplice esperimento di analisi predittiva ed eseguirne l'iterazione.
 
@@ -27,10 +27,12 @@ Un esperimento Machine Learning Studio consiste in trascinare e rilasciare compo
 
 Immettere Machine Learning Studio:[https://studio.azureml.net](https://studio.azureml.net)e fare clic sul pulsante **Scarica subito**. È possibile scegliere l'accesso Guest o l’accesso con l'account Microsoft.
 
-Per informazioni più generali su Machine Learning Studio, vedere [Cos'è Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+Per informazioni più generali su Machine Learning Studio, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
+
+>[AZURE.TIP]Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 
-##Cinque passaggi per la creazione di un esperimento
+## Cinque passaggi per la creazione di un esperimento
 
 In questa esercitazione di Machine Learning, si seguiranno cinque passaggi di base per compilare un esperimento in Machine Learning Studio per creare, eseguire il training e classificare il modello:
 
@@ -54,9 +56,9 @@ In questa esercitazione di Machine Learning, si seguiranno cinque passaggi di ba
 
 In Machine Learning Studio sono disponibili numerosi set di dati di esempio ed è possibile importare dati da diverse origini. Per questo esempio verrà usato il set di dati di esempio incluso, **Automobile price data (Raw)**. Questo set di dati include voci per diverse singole automobili, tra cui informazioni come la marca, il modello, le specifiche tecniche e il prezzo.
 
-1. Avviare un nuovo esperimento facendo clic su **+NUOVO** nella parte inferiore della finestra di Machine Learning Studio, selezionare **ESPERIMENTO**, quindi **Esperimento vuoto**. Selezionare il nome dell'esperimento predefinito nella parte superiore dell'area di disegno e denominarlo in modo significativo, ad esempio **Stima prezzi automobili**.
+1. Avviare un nuovo esperimento facendo clic su **+NEW** nella parte inferiore della finestra di Machine Learning Studio, selezionare **EXPERIMENT** e quindi **Blank Experiment**. Selezionare il nome dell'esperimento predefinito nella parte superiore dell'area di disegno e denominarlo in modo significativo, ad esempio **Stima prezzi automobili**.
 
-2. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Digitare **automobile** nella casella di ricerca nella parte superiore della tavolozza per individuare il set di dati denominato **Automobile price data (Raw)**.
+2. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Digitare **automobile** nella casella di ricerca nella parte superiore della tavolozza per trovare il set di dati denominato **Automobile price data (Raw)**.
 
 	![Ricerca nella tavolozza][screen1a]
 
@@ -80,7 +82,7 @@ Verrà innanzitutto rimossa la colonna **normalized-losses** e quindi verranno r
 
 1. Digitare **project columns** nella casella di ricerca nella parte superiore della tavolozza dei moduli per trovare il modulo [Project Columns][project-columns], quindi trascinarlo nell'area di disegno dell'esperimento e connetterlo alla porta di output del set di dati **Automobile price data (Raw)**. Questo modulo consente di selezionare le colonne di dati da includere o escludere nel modello.
 
-2. Selezionare il modulo [Project Columns][project-columns] e fare clic su **Launch column selector** nel riquadro **Proprietà**.
+2. Selezionare il modulo [Project Columns][project-columns] e fare clic su **Launch column selector** nel riquadro **Properties**.
 
 	- Assicurarsi che nell'elenco a discesa dei filtri **Begin With** sia selezionato **All columns**. In questo modo, [Project Columns][project-columns] esaminerà tutte le colonne, ad eccezione di quelle che verranno escluse.
 	- Nella riga successiva selezionare **Exclude** e **column names**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
@@ -148,7 +150,7 @@ Volendo stimare il prezzo di un'automobile, che può essere un valore qualsiasi,
 
 	Per questo esperimento, selezionare il modulo [Linear Regression][linear-regression] nella categoria **Regression** (è anche possibile trovare il modulo digitando "linear regression" nella casella Search della tavolozza) e trascinarlo nell'area di disegno dell'esperimento.
 
-4. Individuare e trascinare il modulo [Train Model][train-model] nell'esperimento. Connettere la porta di input sinistra all'output del modulo [Linear Regression][linear-regression]. Connettere la porta di input destra all'output dei dati di training (porta sinistra) del modulo [Split][split].
+4. Trovare e trascinare il modulo [Train Model][train-model] nell'area di disegno dell'esperimento. Connettere la porta di input sinistra all'output del modulo [Linear Regression][linear-regression]. Connettere la porta di input destra all'output dei dati di training (porta sinistra) del modulo [Split][split].
 
 5. Selezionare il modulo [Train Model][train-model], fare clic su **Launch column selector** nel riquadro **Properties** e selezionare la colonna **price**. Questo è il valore che si intende stimare con il modello.
 
@@ -168,7 +170,7 @@ Dopo aver eseguito il training del modello usando il 75% dei dati, è possibile 
 
 	![Modulo Score Model][screen8a]
 
-2. Per eseguire l'esperimento e visualizzare l'output del modulo [Score Model][score-model], fare clic sulla porta di output e selezionare **Visualize**. L'output mostra i valori stimati per il prezzo e i valori noti dai dati di test.
+2. Per eseguire l'esperimento e visualizzare l'output del modulo [Score Model][score-model], fare clic sulla porta di output e quindi selezionare **Visualize**. L'output mostra i valori stimati per il prezzo e i valori noti dai dati di test.
 
 3. Infine, per verificare la qualità dei risultati, selezionare il modulo [Evaluate Model][evaluate-model], trascinarlo sull'area di disegno dell'esperimento e connettere la porta di input sinistra all'output del modulo [Score Model][score-model]. Sono disponibili due porte di input perché il modulo [Evaluate Model][evaluate-model] può essere usato per confrontare due modelli.
 
@@ -202,7 +204,7 @@ Una volta ottenuto il modello desiderato, è possibile distribuirlo come servizi
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Per una procedura più completa e dettagliata delle tecniche di modellazione predittiva per la creazione, il training, la valutazione e la distribuzione di un modello, vedere [Sviluppare una soluzione predittiva con Azure Machine Learning][walkthrough].
+Per una procedura più completa e dettagliata delle tecniche di modellazione predittiva per la creazione, il training, la valutazione e la distribuzione di un modello, vedere [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -232,4 +234,4 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

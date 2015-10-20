@@ -171,7 +171,7 @@ In questa sezione l'applicazione verrà eseguita localmente per verificare se fu
 
 In questa sezione verrà creato un repository Git locale e verrà eseguito il push da questo repository in Azure per distribuire l'applicazione di esempio nell'app per le API in esecuzione nel servizio app di Azure.
 
-1. Se Git non è installato, installarlo dalla [pagina di download di Git](http://git-scm.com/download%20target="_blank").
+1. Se Git non è installato, installarlo dalla [pagina di download di Git](http://git-scm.com/download).
 
 1. Dalla riga di comando passare alla directory dell'applicazione di esempio e immettere i comandi seguenti per inizializzare un repository Git locale.
 
@@ -249,4 +249,4 @@ Verrà mostrata la home page visualizzata in precedenza quando l'app di esempio 
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

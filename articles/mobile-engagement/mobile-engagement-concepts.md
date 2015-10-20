@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.author="piyushjo" />
 
 # Concetti relativi ad Azure Mobile Engagement
 
@@ -85,4 +85,4 @@ L'intero albero di coppie chiave/valore viene archiviato come oggetto JSON. Tutt
 - [iOS SDK per Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
 - [Android SDK per Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

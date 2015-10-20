@@ -462,4 +462,4 @@ Per una migliore comprensione dell'integrazione tra Ricerca di Azure e ASP.NET, 
 - [Case study per gli sviluppatori di Ricerca di Azure](search-dev-case-study-whattopedia.md)
 - [Flusso di lavoro tipico per lo sviluppo di Ricerca di Azure](search-workflow.md) 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -91,4 +91,4 @@ Per specificare gli endpoint dei servizi cloud o dei siti Web da monitorare tram
 
 [Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

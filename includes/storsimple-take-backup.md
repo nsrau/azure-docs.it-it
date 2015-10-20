@@ -29,4 +29,4 @@ La configurazione del dispositivo è stata completata.
 
 Per guardare un video che illustra come eseguire un backup StorSimple, fare clic [qui](http://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

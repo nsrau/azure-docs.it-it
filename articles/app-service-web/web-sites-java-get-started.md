@@ -104,4 +104,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop
 [Servizio app di Azure e i servizi di Azure esistenti]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Informazioni di riferimento per l'esplorazione del portale di Azure]: http://go.microsoft.com/fwlink/?LinkId=529715
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

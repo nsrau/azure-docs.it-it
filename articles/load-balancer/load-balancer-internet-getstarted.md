@@ -136,4 +136,4 @@ Nell'esempio seguente, si aggiungerà un servizio di bilanciamento del carico de
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

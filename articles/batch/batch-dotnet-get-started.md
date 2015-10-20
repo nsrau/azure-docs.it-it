@@ -495,4 +495,4 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 
 2. Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

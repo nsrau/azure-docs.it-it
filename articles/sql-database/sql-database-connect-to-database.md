@@ -1,23 +1,20 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SQL Server Management Studio (SSMS)"
-	pageTitle="Informazioni su come connettersi a un database SQL di Azure tramite SSMS | Microsoft Azure"
-	metaKeywords=""
-	description="Informazioni su come connettersi a un database SQL di Azure tramite SQL Server Management Studio."
-	metaCanonical=""
-	services="sql-database"
-	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
-
+   pageTitle="Informazioni su come connettersi a un database SQL di Azure tramite SSMS | Microsoft Azure"
+   description="Informazioni su come connettersi a un database SQL di Azure tramite SQL Server Management Studio."
+   services="sql-database"
+   documentationCenter=""
+   authors="sidneyh"
+   manager="jhubbard"
+   editor=""
+   tags=""/>
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/14/2015"
-	ms.author="sidneyh" />
+   ms.service="sql-database"
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="09/14/2015"
+   ms.author="sidneyh"/>
 
 # Connettersi con SQL Server Management Studio (SSMS)
 
@@ -26,7 +23,7 @@ Utilizzare i seguenti passaggi per installare e interrogare il database SQL tram
 ## Prerequisiti
 
 * SQL Server Management Studio (SSMS) - per scaricare la versione più recente di SSMS, vedere [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-* Un database di esempio AdventureWorks come descritto in[Guida introduttiva al Database SQL di Microsoft Azure](sql-database-get-started.md).
+* Un database di esempio AdventureWorks come descritto in[Introduzione al database SQL di Microsoft Azure](sql-database-get-started.md).
 
 
 ## Ottenere il nome completo del server SQL di Azure
@@ -98,4 +95,4 @@ Per creare o gestire i database è possibile usare istruzioni Transact-SQL. Per 
 [6]: ./media/sql-database-connect-to-database/server-name.png
 [7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->
