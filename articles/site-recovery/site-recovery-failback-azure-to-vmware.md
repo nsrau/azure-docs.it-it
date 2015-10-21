@@ -152,7 +152,7 @@ Per ottenere l'ID SCSI per ogni disco rigido SCSI in una macchina virtuale Linux
 
 Nota: assicurarsi che il sistema disponga della connettività Internet prima di scaricare e installare pacchetti aggiuntivi.
 
-#yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 Con il comando sopra verranno scaricati i 15 pacchetti menzionati di seguito dal repository di CentOS 6.6 e installarli.
 
@@ -557,4 +557,4 @@ Dopo aver completato il failback è possibile proteggere le macchine virtuali an
 
  
 
-<!----HONumber=Oct15_HO2-->
+<!-----HONumber=Oct15_HO2-->
