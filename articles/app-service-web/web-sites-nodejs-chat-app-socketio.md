@@ -209,7 +209,7 @@ Se i browser client continuano a eseguire il fallback al polling prolungato inve
 
 	> [AZURE.NOTE]Il file **web.config** viene generato da Siti Web di Azure solo se non viene fornito dall'applicazione. Se si fornisce un file **web.config** nella radice del progetto dell'applicazione, tale file verrà usato da App Web di Azure.
 
-	Se la voce non è presente, o è impostata su un valore di￼ `true`￼￼, è necessario creare un file **web.config** nella radice dell'applicazione Node.js e specificare un valore di `false`. Di seguito viene fornito, come riferimento, un file **web.config** predefinito per un'applicazione che usa **app.js** come punto di ingresso.
+	Se la voce non è presente, o è impostata su un valore di `true`, è necessario creare un file **web.config** nella radice dell'applicazione Node.js e specificare un valore di `false`. Di seguito viene fornito, come riferimento, un file **web.config** predefinito per un'applicazione che usa **app.js** come punto di ingresso.
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
