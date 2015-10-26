@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Indicatori di monitoraggio di StorSimple | Microsoft Azure"
-	description="Descrive i diodi a emissione luminosa (LED) e gli avvisi sonori utilizzati per monitorare lo stato del dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+    pageTitle="Indicatori di monitoraggio di StorSimple | Microsoft Azure" 
+    description="Descrive i diodi a emissione luminosa (LED) e gli avvisi sonori utilizzati per monitorare lo stato del dispositivo StorSimple."
+    services="storsimple"
+    documentationCenter="NA"
+    authors="SharS"
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="TBD"
+    ms.date="08/31/2015"
+    ms.author="v-sharos" />
 
 # Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo   
 
@@ -256,4 +256,4 @@ Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](sto
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

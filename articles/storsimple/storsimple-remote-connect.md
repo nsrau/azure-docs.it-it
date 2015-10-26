@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Connettersi in remoto al dispositivo StorSimple
@@ -234,7 +234,7 @@ Utilizzare Windows PowerShell e SSL per accedere a una sessione SSAdmin sul disp
 
 Eseguire la procedura seguente sul computer da cui si desidera effettuare la connessione remota di Windows PowerShell.
 
-### Per accedere a una sessione SSAdmin sul dispositivo tramite Windows PowerShell e SSL:
+#### Per accedere a una sessione SSAdmin sul dispositivo tramite Windows PowerShell e SSL:
 
 1. Avviare una sessione di Windows PowerShell come amministratore.
 
@@ -256,7 +256,7 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
 
      `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
 
-    Per il nome CN nel cmdlet, fornire *<serial number of target device>*. Questo numero di serie è stato mappato all'indirizzo IP di DATA 0 nel file hosts sull'host remoto; ad esempio, **SHX0991003G44MT** come illustrato nella figura seguente.
+    Per il nome CN nel cmdlet, fornire il <*il numero di serie del dispositivo di destinazione*>. Questo numero di serie è stato mappato all'indirizzo IP di DATA 0 nel file hosts sull'host remoto; ad esempio, **SHX0991003G44MT** come illustrato nella figura seguente.
 
 5. Digitare:
 
@@ -272,4 +272,4 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

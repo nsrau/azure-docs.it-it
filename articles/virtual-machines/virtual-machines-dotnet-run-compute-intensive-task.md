@@ -21,7 +21,8 @@
 
 Con Azure è possibile usare una macchina virtuale per gestire attività a elevato utilizzo di calcolo. Ad esempio, una macchina virtuale può gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver completato questa esercitazione, si potrà creare una macchina virtuale su cui si esegue un'applicazione .NET a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione .NET.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 Per questa esercitazione si presuppone che l'utente sia in grado di creare applicazioni console .NET. Non è richiesta alcuna conoscenza di Azure.
 
@@ -549,4 +550,4 @@ Per creare o eliminare la coda, è possibile utilizzare il [portale di Azure](ht
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

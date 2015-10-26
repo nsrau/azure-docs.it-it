@@ -8,4 +8,4 @@
 
 	Verrà scaricato il progetto di Visual Studio che implementerà il servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo"
+	pageTitle="Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo | Microsoft Azure"
 	description="Informazioni sulle espressioni di provisioning dichiarativo."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -66,9 +66,9 @@ Un parametro è definito da un connettore o da un amministratore tramite PowerSh
 
 Active Directory Connector fornisce i parametri seguenti per le regole di sincronizzazione in entrata:
 
- 
+
 | Domain.Netbios | Domain.FQDN | Domain.LDAP | | Forest.Netbios | Forest.FQDN | Forest.LDAP |
- 
+
 
 Il sistema fornisce il parametro seguente:
 
@@ -132,7 +132,7 @@ Per l'elenco completo delle funzioni, vedere [Servizio di sincronizzazione Azure
 
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

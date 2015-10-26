@@ -36,8 +36,7 @@ Per completare l'esercitazione, è necessario avere già creato un servizio mobi
 
 	I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere la sezione [Installazione di Git] per indicazioni specifiche del sistema operativo relative a distribuzioni e installazione.
 
-	> [AZURE.NOTE]
-	> In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si usa la versione da riga di comando.
+	> [AZURE.NOTE]In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si utilizza la versione da riga di comando.
 
 2. Aprire una riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale**.
 
@@ -94,8 +93,7 @@ Ora che il repository locale è stato creato, è possibile apportare modifiche a
 
 	Dovrebbe essere visualizzata una serie di comandi che indica che il commit è stato distribuito nel servizio mobile.
 
-6. Nel portale di gestione, fare clic sulla scheda **Data**, quindi sulla tabella **TodoItem**, selezionare **Script** e infine selezionare l'operazione **Inserisci**. 
-Si noti che lo script dell'operazione insert visualizzato è lo stesso del codice JavaScript appena caricato nell'archivio.
+6. Nel portale di gestione, fare clic sulla scheda **Data**, quindi sulla tabella **TodoItem**, selezionare **Script** e infine selezionare l'operazione **Inserisci**. Si noti che lo script dell'operazione insert visualizzato è lo stesso del codice JavaScript appena caricato nell'archivio.
 
 ##<a name="use-npm"></a>Usare codice condiviso e moduli Node.js negli script del server
 
@@ -132,8 +130,7 @@ Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste 
 
 In questa esercitazione si è appreso ad archiviare gli script nel controllo del codice sorgente. Per altre informazioni sugli script del server e sulle API personalizzate, vedere:
 
-+ [Utilizzo degli script del server in Servizi mobili] 
-	<br/>Ulteriori informazioni su come utilizzare gli script del server, l'utilità di pianificazione dei processi e le API personalizzate.
++ [Utilizzo degli script del server in Servizi mobili] <br/>Ulteriori informazioni su come utilizzare gli script del server, l'utilità di pianificazione dei processi e le API personalizzate.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -151,11 +148,9 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [Controllo del codice sorgente]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Introduzione a Servizi mobili]: mobile-services-ios-get-started.md
-[Aggiungere Servizi mobili a un'app esistente]: mobile-services-ios-get-started-data.md
 [Utilizzo degli script del server in Servizi mobili]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Chiamare un'API personalizzata dal client]: mobile-services-ios-call-custom-api.md
 [moduli]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

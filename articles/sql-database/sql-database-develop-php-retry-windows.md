@@ -130,11 +130,10 @@ Per recuperare un set di risultati di una query sul database SQL è possibile us
 		}
 	?>
 	
-## Altre informazioni
-
+## Passaggi successivi
 
 Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai database di SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

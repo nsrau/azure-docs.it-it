@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Panoramica di Microsoft Azure IoT Suite | Microsoft Azure"
-	description="Fornisce una panoramica di Azure IoT Suite."
+	description="Fornisce una panoramica di Azure IoT Suite compresa la creazione di pacchetti e le soluzioni preconfigurate."
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,7 +12,7 @@
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="10/06/2015"
      ms.author="araguila"/>
 
@@ -38,4 +38,4 @@ In Azure IoT Suite sono incluse soluzioni preconfigurate per consentire ai clien
 
 La prima soluzione preconfigurata disponibile è [Monitoraggio remoto](iot-suite-what-are-preconfigured-solutions.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -440,4 +440,4 @@ Questa configurazione include:
 
 [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Backup di Azure - Domande frequenti
 Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per altre domande su Backup di Azure, visitare il [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e inviare una domanda. Un membro dalla community fornirà supporto agli utenti per individuare le risposte. Se una domanda viene posta più volte, verrà aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -46,7 +46,7 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D9. Come si registra un server in un altro data center?**<br/> R9. In genere, i dati di backup sono inviati al data center del servizio di backup in cui sono registrati. Il modo più semplice per modificare il data center consiste nel disinstallare e reinstallare l'agente e registrarlo in un nuovo data center.
 
-**D10. Cosa accade se si rinomina un server Windows che esegue il backup dei dati in Azure?** <br/> R10. Tutti i backup attualmente configurati verranno arrestati. Il server dovrà essere nuovamente registrato nell'insieme di credenziali per il backup e verrà considerato come un nuovo server da Servizi di ripristino, pertanto la prima operazione che si verificherà in seguito alla registrazione consisterà in un backup completo di tutti i dati inclusi nel backup e non solo delle modifiche apportate dall'ultimo backup. Se tuttavia è necessario eseguire un'operazione di ripristino, è possibile ripristinare i dati sottoposti a backup mediante l'apposita opzione per il ripristino da un altro server. Per altre informazioni, vedere Rinominare un server.
+**D10. Cosa accade se si rinomina un server Windows che esegue il backup dei dati in Azure?** <br/> R10. Tutti i backup attualmente configurati verranno arrestati. Il server dovrà essere nuovamente registrato nell'insieme di credenziali per il backup e verrà considerato come un nuovo server da Servizi di ripristino, pertanto la prima operazione che si verificherà in seguito alla registrazione consisterà in un backup completo di tutti i dati inclusi nel backup e non solo delle modifiche apportate dall'ultimo backup. Se tuttavia è necessario eseguire un'operazione di ripristino, è possibile ripristinare i dati sottoposti a backup mediante l'apposita opzione per il ripristino da un altro server.
 
 **D11. Da quali tipi di unità è possibile eseguire il backup di file e cartelle?** <br/> R11. Non è possibile eseguire il backup del set di unità/volumi seguente:
 
@@ -99,10 +99,10 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 |Numero S. |	Sistema operativo |	Dimensione massima origine dati |
 | :-------------: |:-------------| :-----|
 |1| Windows Server 2012 o versioni successive| 54400 GB|
-|2| Windows Server 8 o versioni successive| 54400 GB|
+|2| Windows 8 o versione successiva| 54400 GB|
 |3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
 |4| Windows 7 | 1700 GB|
- 
+
 La modalità di misurazione delle dimensioni dell'origine dati è indicata di seguito
 
 |	Origine dati |	Dettagli |
@@ -120,7 +120,7 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 **D4. Esistono differenze tra i criteri di conservazione di DPM e di Backup di Azure (ad esempio, in Windows Server senza DPM)?**<br/> R4. No, le due soluzioni offrono le stesse funzionalità. È possibile specificare criteri di conservazione giornalieri, settimanali, mensili e annuali.
 
-**D5. È possibile configurare i criteri di conservazione in modo selettivo, ad esempio con frequenza settimanale e giornaliera ma non annuale e mensile?**<br/> R5. Con i criteri verrà visualizzato il set completo di funzionalità per definire in modo ottimale i requisiti di conformità/conservazione.
+**D5. È possibile configurare i criteri di conservazione in modo selettivo, ad esempio con frequenza settimanale e giornaliera ma non annuale e mensile?**<br/> R5. Sì, la struttura di memorizzazione del Backup di Azure consente di disporre della massima flessibilità nella definizione dei criteri di conservazione in base alle esigenze.
 
 **D6. È possibile "pianificare un backup" alle 18.00 e specificare i "criteri di conservazione" a un orario diverso?**<br/> R6. No. I criteri di conservazione possono essere applicati solo ai punti di backup. Nell'immagine seguente vengono specificati i criteri di conservazione per i backup eseguiti a mezzanotte e alle 18.00. <br/>
 
@@ -175,4 +175,4 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 Una volta che i backup funzionano correttamente con il nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

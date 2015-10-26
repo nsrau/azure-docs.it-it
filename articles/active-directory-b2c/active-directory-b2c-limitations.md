@@ -88,4 +88,4 @@ Se si reimposta la password per un consumer basato sull'account locale nel porta
 
 Non è possibile eliminare un tenant di Azure AD B2C nel portale di Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

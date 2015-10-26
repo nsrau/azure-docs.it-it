@@ -133,4 +133,4 @@ Per gli articoli sull'utilizzo di cluster Apache Spark nativi nel portale di ant
 * [Interpretare i messaggi di errore](hdinsight-debug-jobs.md)
 * [Ottenere informazioni sui forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

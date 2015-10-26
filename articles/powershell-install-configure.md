@@ -13,22 +13,24 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="10/13/2015"
 	ms.author="coreyp"/>
 
 # Come installare e configurare Azure PowerShell#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Interfaccia della riga di comando di Azure">Interfaccia della riga di comando di Azure</a></div>
 
+> [AZURE.NOTE]**Anteprima di Azure PowerShell 1.0** è ora disponibile nella [PowerShell Gallery](http://www.powershellgallery.com/). Esistono molte modifiche in questa anteprima e si desidera utilizzarla per raccogliere commenti e suggerimenti, che verranno incorporati in Azure PowerShell 1.0. **Questa anteprima non viene utilizzata per applicazioni di importanza strategica**. Se si eseguono tali applicazioni, continuare a utilizzare Azure PowerShell 0.9.8. Se si desidera utilizzare Anteprima 1.0 , è possibile disinstallarla in qualsiasi momento e tornare a 0.9.8. Per istruzioni complete sull'installazione, vedere questo [post di blog](https://azure.microsoft.com/it-IT/blog/azps-1-0-pre/).
+
 È possibile usare Windows PowerShell per eseguire numerose attività in Azure, sia in modo interattivo al prompt dei comandi che in modo automatico tramite script. Azure PowerShell è un modulo che offre i cmdlet per gestire Azure tramite Windows PowerShell. È possibile utilizzare i cmdlet per creare, testare, distribuire e gestire soluzioni e servizi offerti tramite la piattaforma Azure. Nella maggior parte dei casi è possibile usarli per eseguire le stesse attività eseguibili tramite il portale di gestione di Azure. È ad esempio possibile creare e configurare servizi cloud, macchine virtuali, reti virtuali e app Web.
 
 Il modulo viene distribuito come file scaricabile. Il codice sorgente viene gestito tramite un archivio disponibile pubblicamente. Nelle istruzioni per l'installazione più avanti in questo argomento è incluso un collegamenti ai file scaricabili. Per informazioni sul codice sorgente, vedere l'articolo sull'[archivio del codice di Azure PowerShell](https://github.com/Azure/azure-powershell).
 
-In questa guida vengono fornite informazioni di base sull'installazione e la configurazione di Azure PowerShell per la gestione della piattaforma Azure.
+Questa guida fornisce informazioni di base sull'installazione e la configurazione di Azure PowerShell per la gestione della piattaforma Azure.
 
 ### <a id="Prereq"></a>Prerequisiti per l'uso di Azure PowerShell
 
-Azure è una piattaforma basata su sottoscrizione. Ciò significa che per poter utilizzare la piattaforma è necessaria una sottoscrizione. Nella maggior parte dei casi significa inoltre che i cmdlet necessitano delle informazioni della sottoscrizione per eseguire le attività correlate alla sottoscrizione. Queste informazioni non sono invece necessarie per alcuni dei cmdlet correlati all'archiviazione. Per fornire tali informazioni, è necessario configurare il computer in modo che si connetta alla sottoscrizione, Le istruzioni sono fornite in questo articolo, nella sezione "Procedura: Connettersi alla sottoscrizione".
+Azure è una piattaforma basata su sottoscrizione. Ciò significa che per poter utilizzare la piattaforma è necessaria una sottoscrizione. Nella maggior parte dei casi significa inoltre che i cmdlet necessitano delle informazioni della sottoscrizione per eseguire le attività correlate alla sottoscrizione. Queste informazioni non sono invece necessarie per alcuni dei cmdlet correlati all'archiviazione. Per fornire tali informazioni, è necessario configurare il computer in modo che si connetta alla sottoscrizione. Le istruzioni sono fornite in questo articolo, nella sezione "Procedura: Connettersi alla sottoscrizione".
 
 > [AZURE.NOTE]A partire dalla versione 0.8.5, per i moduli Azure PowerShell è necessario disporre di Microsoft .NET Framework 4.5.
 
@@ -56,7 +58,7 @@ Il metodo utilizzato per aprire l'una o l'altra console varia a seconda della ve
 
 Per usare Azure, è necessaria una sottoscrizione. Se non si dispone di una sottoscrizione, vedere [Introduzione ad Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
-Per la gestione dei servizi da parte dei cmdlet, è necessario disporre di una sottoscrizione. Per fornire a Windows PowerShell le informazioni relative alla propria sottoscrizione, sono disponibili due metodi. È possibile usare un certificato di gestione contenente tali informazioni oppure accedere a Azure usando l'account Microsoft o un account aziendale o dell'istituto di istruzione. Una volta eseguito l'accesso, Azure Active Directory (Azure AD) esegue l'autenticazione delle credenziali e restituisce un token di accesso che consente ad Azure PowerShell di gestire l'account.
+Per la gestione dei servizi da parte dei cmdlet, è necessario disporre di una sottoscrizione. Per fornire a Windows PowerShell le informazioni relative alla propria sottoscrizione, sono disponibili due metodi. È possibile usare un certificato di gestione contenente tali informazioni oppure accedere ad Azure usando l'account Microsoft o un account aziendale o dell'istituto di istruzione. Una volta eseguito l'accesso, Azure Active Directory (Azure AD) esegue l'autenticazione delle credenziali e restituisce un token di accesso che consente ad Azure PowerShell di gestire l'account.
 
 Per scegliere facilmente il metodo di autenticazione più adatto alle proprie esigenze, tenere presente quanto segue:
 
@@ -69,13 +71,13 @@ Per ulteriori informazioni su autenticazione e gestione delle sottoscrizioni in 
 
 1. Aprire la console di Azure PowerShell, come descritto in [Procedura: Installare Azure PowerShell](#Install).
 
-2. Digitare il seguente comando:
+2. Digitare il comando seguente:
 
 		Add-AzureAccount
 
 3. Nella finestra digitare l'indirizzo di posta elettronica e la password associati all'account.
 
-4. Le informazioni delle credenziali vengono autenticate e salvate in Azure, quindi la finestra viene chiusa.
+4. Azure autentica e salva le informazioni delle credenziali, quindi la finestra si chiude.
 
 5. A partire dalla versione 0.8.6, se si accede usando un account aziendale o dell'istituto di istruzione, è possibile digitare il comando seguente per ignorare la finestra popup. Viene visualizzata la finestra standard delle credenziali di Windows PowerShell che consente di immettere la password e il nome utente dell'account aziendale o dell'istituto di istruzione.
 
@@ -151,7 +153,7 @@ Dopo aver installato il modulo e aver configurato il computer per la connessione
 
 2. Scegliere un nome per l'app web. È necessario sceglierne uno conforme alle convenzioni di denominazione DNS. I nomi validi possono contenere solo lettere dalla 'a' alla 'z', numeri da '0' a '9', nonché il segno meno ('-').
 
-	Il nome dell'app Web deve essere univoco in Azure. In questo esempio viene usato "mySite", assicurarsi tuttavia di scegliere un nome diverso da questo, ad esempio il nome del proprio account seguito da un numero.
+	Il nome dell'app Web deve essere univoco in Azure. In questo esempio viene usato "mySite". Assicurarsi tuttavia di scegliere un nome diverso da questo, ad esempio il nome del proprio account seguito da un numero.
 
 	Dopo aver selezionato un nome, digitare un comando simile al seguente. Sostituire il nome dell'app web per "mySite".
 
@@ -159,7 +161,7 @@ Dopo aver installato il modulo e aver configurato il computer per la connessione
 
 	Il cmdlet crea l'app web e restituisce un oggetto che rappresenta la nuova app Web. Le proprietà dell'oggetto includono informazioni utili sull'app Web.
 
-3. Per ottenere informazioni sull'app Web, digitare questo comando. Vengono restituite alcune informazioni su tutte le app Web nella sottoscrizione, inclusa quella appena creato.
+3. Per ottenere informazioni sull'app Web, digitare questo comando. Vengono restituite alcune informazioni su tutte le app Web nella sottoscrizione, inclusa quella appena creata.
 
 		Get-AzureWebsite
 
@@ -167,7 +169,7 @@ Dopo aver installato il modulo e aver configurato il computer per la connessione
 
 		Get-AzureWebsite -Name mySite
 
-5. Le app Web vengono avviate dopo la creazione. Per arrestare l'app Web, digitare il seguente comando, incluso il nome dell'app Web.
+5. Le app Web vengono avviate dopo la creazione. Per arrestare l'app Web, digitare il comando seguente, incluso il nome dell'app Web.
 
 		Stop-AzureWebsite -Name mySite
 
@@ -260,4 +262,4 @@ Di seguito sono elencate alcune risorse disponibili che è possibile usare per i
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

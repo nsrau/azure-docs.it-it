@@ -31,4 +31,4 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
 
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

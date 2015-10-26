@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per clonare un volume
@@ -21,7 +21,7 @@
 
 Nella pagina **Catalogo di backup** del servizio StorSimple Manager vengono visualizzati tutti i set di backup creati quando si eseguono backup manuali o automatizzati. È possibile utilizzare questa pagina per elencare tutti i backup per un criterio di backup o un volume, selezionare o eliminare i backup o utilizzare un backup per ripristinare o clonare un volume.
 
-  ![Pagina catalogo di backup](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
+![Pagina catalogo di backup](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 In questa esercitazione viene descritto come utilizzare un set di backup per clonare un singolo volume. Viene inoltre spiegata la differenza tra cloni *temporanei* e *permanenti*.
 
@@ -43,8 +43,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
 
   1. Identificare un dispositivo di destinazione. Si tratta del percorso in cui verrà creato il clone. È possibile scegliere lo stesso dispositivo o specificare un altro dispositivo. Se si sceglie un volume associato ad altri provider di servizi cloud (non Azure), nell'elenco a discesa per il dispositivo di destinazione verranno visualizzati solo i dispositivi fisici. Non è possibile clonare un volume associato con altri provider di servizi cloud in un dispositivo virtuale.
 
-        >  [AZURE.NOTE] Assicurarsi che la capacità richiesta per il clone sia inferiore a quella disponibile nel dispositivo di destinazione.
-
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Specificare un nome volume univoco per il clone. Il nome deve contenere tra 3 e 127 caratteri.
   3. Fare clic sull'icona di freccia ![icona a forma di freccia](./media/storsimple-clone-volume/HCS_ArrowIcon.png) per passare alla pagina successiva.
 
@@ -88,7 +87,6 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
 È necessario verificare un bug di test nell'ambiente di produzione. Viene creato un clone del volume nell'ambiente di produzione. Per migliorare le prestazioni, è necessario creare uno snapshot del cloud di questo clone. Il volume clonato è ora indipendente e di conseguenza le prestazioni sono più veloci. In questo scenario viene utilizzato un clone permanente.
 
-
 ## Passaggi successivi
 - Informazioni su come [ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
@@ -96,4 +94,4 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -102,10 +102,10 @@ Fare clic su Utenti per visualizzare i dettagli relativi a nuovi utenti e ai rel
 
 * [Test web](app-insights-monitor-web-app-availability.md) per monitorare la disponibilità del sito.
 
-* [Application Insights](app-insights-get-started.md) per altri tipi di app.
+* [Application Insights](app-insights-overview.md) per altri tipi di app.
 
 
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/07/2015"
    ms.author="tomfitz"/>
 
 # Comprendere la distribuzione di Gestione delle risorse e distribuzione classica
@@ -46,16 +46,20 @@ Le risorse create tramite Gestione risorse condividono le caratteristiche seguen
 
         ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Nel caso delle risorse di rete, archiviazione e calcolo, è possibile usare sia Gestione risorse sia la distribuzione classica. Selezionare **Gestione risorse**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Eseguire i comandi di PowerShell nella modalità **AzureResourceManager**.
+  - Per le versioni di Azure PowerShell precedenti alla versione di anteprima 1.0, i comandi vengono eseguiti nella modalità **AzureResourceManager**.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - [REST API di Gestione risorse di azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) per le operazioni REST.
-  - Comandi Azure CLI eseguiti nella modalità **arm**.
+  - Per l'anteprima di Azure PowerShell 1.0, usare la versione di Gestione risorse dei comandi. Questi comandi hanno il formato *verb-AzureRm*, come illustrato di seguito.
+
+            PS C:\> Get-AzureRmResourceGroupDeployment
+
+  - [API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) per le operazioni REST.
+  - Comandi dell'interfaccia della riga di comando di Azure eseguiti nella modalità **arm**.
 
             azure config mode arm
 
@@ -73,16 +77,20 @@ Le risorse create nel modello di distribuzione classica condividono le caratteri
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        o portale di anteprima. Specificare la distribuzione **classica** per i servizi di calcolo, archiviazione e rete.
+        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Eseguire i comandi di PowerShell nella modalità **AzureServiceManagement** (che è la modalità predefinita, pertanto, se non si passa in modo specifico a AzureResourceManager, viene eseguito in modalità AzureServiceManagement).
+  - Per le versioni di Azure PowerShell precedenti alla versione di anteprima 1.0, eseguire i comandi di PowerShell nella modalità **AzureServiceManagement** (che è la modalità predefinita, pertanto, se non si passa in modo specifico a AzureResourceManager, viene eseguito in modalità AzureServiceManagement).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - [REST API di Gestione del servizio](https://msdn.microsoft.com/library/azure/ee460799.aspx) per le operazioni REST.
-  - Comandi di Azure CLI eseguiti in **asm** o in modalità predefinita.
+  - Per l'anteprima di Azure PowerShell 1.0, usare la versione di Gestione servizi dei comandi. Questi nomi di comandi **non** hanno il formato *verb-AzureRm*, come illustrato di seguito.
+
+            PS C:\> Get-AzureDeployment
+
+  - [API REST di Gestione servizi](https://msdn.microsoft.com/library/azure/ee460799.aspx) per le operazioni REST.
+  - Comandi dell'interfaccia della riga di comando di Azure eseguiti in modalità **asm** o predefinita.
 - Il tipo di risorsa include **(classico)** nel nome. L'immagine seguente mostra il tipo come **Account di archiviazione (classico)**.
 
     ![tipo classico](./media/resource-manager-deployment-model/classic-type.png)
@@ -111,13 +119,13 @@ Utilizzando i modelli dichiarativi, potrebbe essere in grado di semplificare gli
 
 I Tag consentono di organizzare logicamente le risorse. Solo le risorse create tramite il tag di supporto di Gestione risorse. Non è possibile applicare i tag alle risorse classiche.
 
-Per altre informazioni sull’uso dei tag in Gestione risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
+Per altre informazioni sull'uso dei tag in Gestione risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
 ## Operazioni supportate per i modelli di distribuzione
 
 Le risorse create con il modello di distribuzione classica non supportano le operazioni di Gestione risorse. In alcuni casi, un comando di Gestione risorse può recuperare informazioni su una risorsa creata da una distribuzione classica o può eseguire attività amministrative, quali lo spostamento di una risorsa classica a un altro gruppo di risorse, ma questi casi non dovrebbero dare l'impressione che il tipo supporti operazioni di Gestione risorse. Si supponga, ad esempio, che si disponga di un gruppo di risorse contenente le macchine virtuali che sono stati creati con Gestione risorse e con il modello classico. Se si esegue il comando PowerShell seguente, si noteranno tutte le macchine virtuali:
 
-    PS C:\> Get-AzureResourceGroup -Name ExampleGroup
+    PS C:\> Get-AzureRmResourceGroup -Name ExampleGroup
     ...
     Resources :
      Name                 Type                                          Location
@@ -147,9 +155,9 @@ Esistono alcune importanti considerazioni da tenere presente quando si utilizzan
 - Le macchine virtuali distribuite con il modello di distribuzione di Gestione risorse deve essere incluso in una rete virtuale.
 - Le macchine virtuali distribuite con il modello di distribuzione di Gestione risorse deve essere incluso in una rete virtuale.
 
-Per un elenco di comandi equivalenti CLI Azure durante la transizione dalla distribuzione classica per Gestione risorse, vedere [Comandi della Gestione risorse equivalente e della gestione dei servizi per le operazioni della macchina virtuale](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
+Per un elenco di comandi equivalenti dell'interfaccia della riga di comando di Azure durante la transizione dalla distribuzione classica per Gestione risorse, vedere [Comandi della Gestione risorse equivalente e della gestione dei servizi per le operazioni della macchina virtuale](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
 
-Per ulteriori informazioni sul passaggio di calcolo, l’archiviazione e le risorse di rete, vedere [Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Per ulteriori informazioni sul passaggio di calcolo, l'archiviazione e le risorse di rete, vedere [Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Per altre informazioni sulla connessione di reti virtuali da diversi modelli di distribuzione, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
@@ -158,4 +166,4 @@ Per altre informazioni sulla connessione di reti virtuali da diversi modelli di 
 - Per altre informazioni sulla creazione dei modelli di distribuzione dichiarativa, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

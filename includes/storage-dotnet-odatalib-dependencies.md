@@ -2,4 +2,4 @@
 > 
 > Sebbene queste librerie vengono utilizzate dalle classi di archiviazione tabelle di Azure, sono dipendenze necessarie per la programmazione con la libreria client di archiviazione.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

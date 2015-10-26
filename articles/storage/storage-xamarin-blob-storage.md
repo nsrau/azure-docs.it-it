@@ -47,7 +47,7 @@ L'URI della firma di accesso condiviso per il nuovo contenitore deve essere simi
 
 	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 
-La firma di accesso condiviso creata per il contenitore rimarrà valida per il giorno successivo. La firma concede autorizzazioni complete (vale a dire di lettura, scrittura, eliminazione ed elenco) ai BLOB all'interno del contenitore.
+La firma di accesso condiviso creata per il contenitore rimarrà valida per il giorno successivo. La firma concede autorizzazioni complete (*vale a dire* di lettura, scrittura, eliminazione ed elenco) ai BLOB all'interno del contenitore.
 
 Per altre informazioni sulle firme di accesso condiviso, vedere l'[esercitazione sulla firma di accesso condiviso per .NET](storage-dotnet-shared-access-signature-part-2.md).
 
@@ -173,10 +173,7 @@ In questa esercitazione, è stato illustrato come utilizzare l'archivio BLOB di 
 
 È possibile ottenere ulteriori informazioni su BLOB, tabelle e code visitando i collegamenti seguenti:
 
-[Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md)  
-[Come usare l'archivio BLOB da .NET](storage-dotnet-how-to-use-blobs.md)  
-[Come usare l'archivio tabelle da .NET](storage-dotnet-how-to-use-tables.md)  
-[Come usare l'archiviazione delle code da .NET](storage-dotnet-how-to-use-queues.md)
+[Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) [Come usare l'archivio BLOB da .NET](storage-dotnet-how-to-use-blobs.md) [Come usare l'archivio tabelle da .NET](storage-dotnet-how-to-use-tables.md) [Come usare l'archiviazione delle code da .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

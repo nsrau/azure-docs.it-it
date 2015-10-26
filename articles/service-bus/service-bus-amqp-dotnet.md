@@ -168,10 +168,6 @@ Le API .NET espongono diverse impostazioni per controllare il comportamento del 
 Per altre informazioni, vedere i collegamenti seguenti:
 
 - [Panoramica di AMQP per il bus di servizio]
-- [Uso del bus di servizio da Java con AMQP]
-- [Uso del bus di servizio da Python con AMQP]
-- [Uso del bus di servizio da PHP con AMQP]
-- [Installazione di Apache Qpid Proton-C in una macchina virtuale Linux Azure]
 - [AMQP nel bus di servizio per Windows Server]
 
   [Come usare le code del bus di servizio]: service-bus-dotnet-how-to-use-queues.md
@@ -203,10 +199,6 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
-[Uso del bus di servizio da Java con AMQP]: service-bus-amqp-java.md
-[Uso del bus di servizio da Python con AMQP]: service-bus-amqp-python.md
-[Uso del bus di servizio da PHP con AMQP]: service-bus-amqp-php.md
-[Installazione di Apache Qpid Proton-C in una macchina virtuale Linux Azure]: service-bus-amqp-apache.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

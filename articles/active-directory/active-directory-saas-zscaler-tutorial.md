@@ -36,7 +36,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Zsca
 
 4.  Fare clic su **Aggiungi** nella parte inferiore della pagina.
 
-    ![Aggiungi applicazione](./media/active-directory-saas-zscaler-tutorial/IC749321.png "Aggiungi applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-zscaler-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -164,7 +164,7 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler, è necessario eseg
 
 5.  Nella sezione Add User seguire questa procedura:
 
-    ![Add User](./media/active-directory-saas-zscaler-tutorial/IC781038.png "Add User")
+    ![Aggiunta di un utente](./media/active-directory-saas-zscaler-tutorial/IC781038.png "Aggiunta di un utente")
 
     1.  Digitare **UserID**, **User Display Name**, **Password** e **Confirm Password** e quindi selezionare **Groups** e **Department** di un account Azure AD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Save**.
@@ -187,6 +187,6 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-zscaler-tutorial/IC767830.png "Sì")
   
-Se si desidera testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

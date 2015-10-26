@@ -3,8 +3,8 @@
    description="Vengono descritti i problemi comuni che possono verificarsi durante la distribuzione di risorse create usando il modello di distribuzione di Gestione risorse e viene illustrato come rilevare e risolvere questi problemi."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
-   authors="squillace"
-   manager="timlt"
+   authors="tfitzmac"
+   manager="wpickett"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="09/18/2015"
-   ms.author="rasquill"/>
+   ms.date="10/14/2015"
+   ms.author="tomfitz;rasquill"/>
 
 # Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure
 
@@ -26,14 +26,16 @@ Questo argomento spiega come recuperare le informazioni per la risoluzione dei p
 
 Questo argomento inoltre illustra le soluzioni relative agli errori comuni che possono verificarsi.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo tratta la risoluzione dei problemi dei gruppi di risorse creati con il modello di distribuzione di Gestione risorse. Non è possibile creare gruppi di risorse con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica. Non è possibile creare gruppi di risorse con il modello di distribuzione classica.
 
 
 ## Eseguire la risoluzione dei problemi con PowerShell
 
-Per ottenere lo stato complessivo di una distribuzione, è possibile usare il comando **Get-AzureResourceGroupDeployment**. Nell'esempio seguente la distribuzione ha avuto esito negativo.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-    PS C:\> Get-AzureResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
+Per ottenere lo stato complessivo di una distribuzione, è possibile usare il comando **Get-AzureRmResourceGroupDeployment**. Nell'esempio seguente la distribuzione ha avuto esito negativo.
+
+    PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 
     DeploymentName    : ExampleDeployment
     ResourceGroupName : ExampleGroup
@@ -52,9 +54,9 @@ Per ottenere lo stato complessivo di una distribuzione, è possibile usare il co
 
     Outputs           :
 
-Ciascuna distribuzione in genere è costituita da più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzureResourceGroupDeploymentOperation**.
+Ciascuna distribuzione in genere è costituita da più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzureRmResourceGroupDeploymentOperation**.
 
-    PS C:\> Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
+    PS C:\> Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
     Id                        OperationId          Properties         
     -----------               ----------           -------------
     /subscriptions/xxxxx...   347A111792B648D8     @{ProvisioningState=Failed; Timestam...
@@ -64,7 +66,7 @@ Tale comando mostra due operazioni nella distribuzione, una con stato di provisi
 
 È possibile recuperare il messaggio di stato con il comando seguente:
 
-    PS C:\> (Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
+    PS C:\> (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -99,7 +101,7 @@ Nei log di controllo è possibile trovare altre informazioni sui motivi per cui 
 
     azure group log show ExampleGroup --last-deployment
 
-Il comando **azure group log show** può restituire una notevole quantità di informazioni, ma per la risoluzione dei problemi in genere è necessario concentrarsi sulle operazioni che presentano errori. Lo script seguente usa l'opzione **--json** e **jq** per cercare nel log gli errori di distribuzione. Per informazioni sugli strumenti come **jq**, vedere [Strumenti utili per interagire con Azure](#useful-tools-to-interact-with-azure).
+Il comando **azure group log show** può restituire una notevole quantità di informazioni, ma per la risoluzione dei problemi in genere è necessario concentrarsi sulle operazioni che presentano errori. Lo script seguente usa l'opzione **--json** e **jq** per cercare nel log gli errori di distribuzione. Per informazioni su strumenti come **jq**, vedere [Strumenti utili per interagire con Azure](#useful-tools-to-interact-with-azure).
 
     azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
 
@@ -157,7 +159,7 @@ L'API REST di Gestione risorse fornisce URI che consentono di recuperare informa
 
 La distribuzione avrà esito negativo se le credenziali di Azure sono scadute o non si accede al proprio account Azure. Le credenziali possono scadere se la sessione rimane aperta troppo a lungo. Possono tuttavia essere aggiornate come segue:
 
-- Per PowerShell, usare il cmdlet **Add-AzureAccount**. Le credenziali di un file di impostazioni di pubblicazione non sono sufficienti per i cmdlet del modulo AzureResourceManager.
+- Per PowerShell, usare il cmdlet **Login-AzureRmAccount** (o **Add-AzureAccount** per le versioni di PowerShell precedenti all'anteprima 1.0). Le credenziali di un file di impostazioni di pubblicazione non sono sufficienti per i cmdlet del modulo AzureResourceManager.
 - Per l'interfaccia della riga di comando di Azure, usare **azure login**. Per informazioni sugli errori di autenticazione, assicurarsi di avere [configurato correttamente l'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
 ## Verifica del formato dei modelli e dei parametri
@@ -166,9 +168,9 @@ La distribuzione avrà esito negativo se il file del modello o dei parametri non
 
 ### PowerShell
 
-Per PowerShell, usare **Test-AzureResourceGroupTemplate**.
+Per PowerShell, usare **Test-AzureRmResourceGroupDeployment** (o **Test-AzureResourceGroupTemplate** per le versioni di PowerShell precedenti all'anteprima 1.0).
 
-    PS C:\> Test-AzureResourceGroupTemplate -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
+    PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
 
 ### Interfaccia della riga di comando di Azure
@@ -198,7 +200,7 @@ Quando si specifica un percorso per una risorsa, è necessario usare uno dei per
 
 ### PowerShell
 
-Per PowerShell, è possibile visualizzare l'elenco completo delle risorse e dei percorsi con il comando **Get-AzureLocation**.
+Per le versioni di PowerShell precedenti all'anteprima 1.0, è possibile visualizzare l'elenco completo delle risorse e dei percorsi con il comando **Get-AzureLocation**.
 
     PS C:\> Get-AzureLocation
 
@@ -218,6 +220,33 @@ Per PowerShell, è possibile visualizzare l'elenco completo delle risorse e dei 
     Microsoft.Compute/virtualMachines                           East US, East US 2, West US, Central US, South Central US,
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
+
+Per l'anteprima di PowerShell 1.0, usare **Get-AzureRmResourceProvider** per ottenere i percorsi supportati.
+
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+
+    ProviderNamespace RegistrationState ResourceTypes               Locations
+    ----------------- ----------------- -------------               ---------
+    Microsoft.Web     Registered        {sites/extensions}          {Brazil South, ...
+    Microsoft.Web     Registered        {sites/slots/extensions}    {Brazil South, ...
+    Microsoft.Web     Registered        {sites/instances}           {Brazil South, ...
+    ...
+
+È possibile specificare un tipo particolare di risorsa con il codice seguente:
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+
+    Brazil South
+    East Asia
+    East US
+    Japan East
+    Japan West
+    North Central US
+    North Europe
+    South Central US
+    West Europe
+    West US
+    Southeast Asia
 
 ### Interfaccia della riga di comando di Azure
 
@@ -239,11 +268,11 @@ Per alcune risorse, in particolare gli account di archiviazione, i server di dat
 
 ## Problemi di autenticazione, sottoscrizione, ruolo e quota
 
-Una corretta distribuzione può essere ostacolata da numerosi problemi, tra cui quelli relativi ad autenticazione, autorizzazione e Azure Active Directory. Indipendentemente da come vengono gestiti i gruppi di risorse di Azure, l'identità usata per accedere al proprio account deve essere un oggetto di Azure Active Directory o un'entità servizio, denominati anche ID del lavoro o dell'istituto di istruzione o ID aziendale.
+Una corretta distribuzione può essere ostacolata da numerosi problemi, tra cui quelli relativi ad autenticazione, autorizzazione e Azure Active Directory. Indipendentemente da come vengono gestiti i gruppi di risorse di Azure, l'identità usata per accedere all'account deve essere un oggetto di Azure Active Directory. Questa identità può essere un account aziendale o dell'istituto di istruzione creato dall'utente o assegnato a quest'ultimo oppure è possibile creare un'entità servizio per le applicazioni.
 
 Tuttavia, Azure Active Directory consente all'utente o all'amministratore di controllare con un'elevata precisione quali identità possono accedere e a quali risorse. Se le distribuzioni non riescono, esaminare le richieste per individuare eventuali problemi di autenticazione o di autorizzazione ed esaminare anche i log di distribuzione per il gruppo di risorse. È possibile che non si disponga delle autorizzazioni per tutte le risorse. Con l'interfaccia della riga di comando di Azure è possibile esaminare i tenant di Azure Active Directory e gli utenti che usano i comandi `azure ad`. Per un elenco completo dei comandi dell'interfaccia della riga di comando di Azure, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](azure-cli-arm-commands.md).
 
-Alcuni problemi potrebbero verificarsi anche quando una distribuzione raggiunge una quota predefinita, per ogni gruppo di risorse, sottoscrizioni, account o per altri ambiti. Confermare di disporre delle risorse necessarie per una corretta distribuzione. Per informazioni complete sulle quote, vedere [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md).
+Alcuni problemi potrebbero verificarsi anche quando una distribuzione raggiunge una quota predefinita, per ogni gruppo di risorse, sottoscrizioni, account o per altri ambiti. Confermare di disporre delle risorse necessarie per una corretta distribuzione. Per informazioni complete sulle quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
 Per esaminare le quote della sottoscrizione per i core, usare il comando `azure vm list-usage` nell'interfaccia della riga di comando di Azure e il cmdlet **Get-AzureVMUsage** in PowerShell. Di seguito viene mostrato il comando nell'interfaccia della riga di comando di Azure, che indica che la quota di core per un account di valutazione gratuita è 4:
 
@@ -272,7 +301,7 @@ Le risorse vengono gestite dai provider di risorse ed è possibile abilitare un 
 
 ### PowerShell
 
-Per ottenere un elenco di provider di risorse e il proprio stato di registrazione, usare **Get-AzureProvider**.
+Per ottenere un elenco di provider di risorse e il proprio stato di registrazione, usare **Get-AzureProvider** per le versioni di PowerShell precedenti all'anteprima 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -283,7 +312,19 @@ Per ottenere un elenco di provider di risorse e il proprio stato di registrazion
     microsoft.cache                         Registered                              {Redis, checkNameAvailability, opera...
     ...
 
-Per registrarsi per un provider, usae **Register-AzureProvider**.
+Per registrare un provider, usare **Register-AzureProvider**.
+
+Per l'anteprima di PowerShell 1.0, usare **Get-AzureRmResourceProvider**.
+
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    Microsoft.Batch                 Registered        {batchAccounts}
+
+Per registrare un provider, usare **Register-AzureRmResourceProvider**.
 
 ### Interfaccia della riga di comando di Azure
 
@@ -375,4 +416,4 @@ Per informazioni su come creare i modelli, leggere [Creazione di modelli di Gest
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

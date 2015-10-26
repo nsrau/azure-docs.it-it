@@ -273,4 +273,4 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

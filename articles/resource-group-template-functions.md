@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="10/13/2015"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
@@ -493,6 +493,41 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
     }
 
 
+## uniqueString
+
+**uniqueString (stringForCreatingUniqueString, ...)**
+
+Esegue un hash a 64 bit delle stringhe fornite per creare una stringa univoca. Questa funzione è utile quando è necessario creare un nome univoco per una risorsa. È possibile specificare i valori dei parametri che rappresentano il livello di univocità per il risultato. È possibile specificare se il nome è univoco per la sottoscrizione, il gruppo di risorse o la distribuzione.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| stringForCreatingUniqueString | Sì | Stringa di base usata nella funzione hash per creare una stringa univoca.
+| parametri aggiuntivi in base alle esigenze | No | È possibile aggiungere quante stringhe sono necessarie per creare il valore che specifica il livello di univocità.
+
+Il valore restituito non è una stringa completamente casuale, ma piuttosto il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è necessariamente univoco a livello globale. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome più descrittivo.
+
+Negli esempi seguenti viene illustrato come usare uniqueString per creare un valore univoco per diversi livelli di uso comune.
+
+Valore univoco basato su una sottoscrizione
+
+    "[uniqueString(subscription().subscriptionId)]"
+
+Valore univoco basato su un gruppo di risorse
+
+    "[uniqueString(resourceGroup().id)]"
+
+Valore univoco basato su una distribuzione per un gruppo di risorse
+
+    "[uniqueString(resourceGroup().id, deployment().name)]"
+    
+Nell'esempio seguente viene illustrato come creare un nome univoco per un account di archiviazione in base al gruppo di risorse.
+
+    "resources": [{ 
+        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "type": "Microsoft.Storage/storageAccounts", 
+        ...
+
+
 ## variables
 
 **variables (variableName)**
@@ -507,7 +542,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 ## Passaggi successivi
 - Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md)
-- Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
+- Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

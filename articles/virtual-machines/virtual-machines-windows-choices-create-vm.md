@@ -99,4 +99,4 @@ Usare un'immagine basata su una macchina virtuale di Azure esistente *acquisendo
 
 [Ambienti di test basati su cloud ibrido di Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -183,4 +183,4 @@ Il passaggio finale prevede il test dell'app e la convalida del completamento de
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

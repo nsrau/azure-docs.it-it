@@ -29,12 +29,14 @@ Questo articolo illustra la preparazione dell'ambiente per eseguire il backup de
 
 È anche possibile gestire la protezione delle diverse entità protetta (server e client) da un'unica interfaccia utente locale.
 
+>[AZURE.NOTE]Il server di Backup di Microsoft Azure eredita le funzionalità di Data Protection Manager (DPM) per il backup del carico di lavoro. Per alcune di queste funzionalità saranno presenti puntatori alla documentazione di DPM. Il server di Backup di Microsoft Azure, tuttavia, non fornisce la protezione su nastro o l'integrazione con System Center.
+
 È possibile distribuire il server di Backup di Microsoft Azure come:
 
 - Server fisico autonomo.
-- Macchina virtuale Hyper-V: è possibile eseguire DPM come una macchina virtuale ospitata in un server host Hyper-V locale per eseguire il backup dei dati locali. Per un elenco di considerazioni relative a questo ambiente, vedere [Installare DPM come macchina virtuale in un server Hyper-V locale](https://technet.microsoft.com/library/dn440941.aspx).
-- Macchina virtuale Windows in VMWare: è possibile distribuire DPM per fornire la protezione per i carichi di lavoro Microsoft in esecuzione su macchine virtuali Windows in VMWare. In questo scenario DPM può essere distribuito come server fisico autonomo, come macchina virtuale Hyper-V o come macchina virtuale Windows in VMWare.
-- Macchina virtuale di Azure: è possibile eseguire DPM come macchina virtuale in Azure per eseguire il backup dei carichi di lavoro nel cloud in esecuzione come macchine virtuali di Azure. Per informazioni su questa distribuzione vedere [Installare DPM come macchina virtuale di Azure](https://technet.microsoft.com/library/hh758176.aspx).
+- Macchina virtuale Hyper-V: è possibile eseguire il server di Backup di Microsoft Azure come una macchina virtuale ospitata in un server host Hyper-V locale per eseguire il backup dei dati locali. Per un elenco di considerazioni relative a questo ambiente, vedere [Installare DPM come macchina virtuale in un server Hyper-V locale](https://technet.microsoft.com/library/dn440941.aspx).
+- Macchina virtuale Windows in VMWare: è possibile distribuire il server di Backup di Microsoft Azure per fornire la protezione per i carichi di lavoro Microsoft in esecuzione su macchine virtuali Windows in VMWare. In questo scenario il server di Backup di Microsoft Azure può essere distribuito come server fisico autonomo, come macchina virtuale Hyper-V o come macchina virtuale Windows in VMWare.
+- Macchina virtuale di Azure: è possibile eseguire il server di Backup di Microsoft Azure come macchina virtuale in Azure per eseguire il backup dei carichi di lavoro nel cloud in esecuzione come macchine virtuali di Azure. Per informazioni su questa distribuzione vedere [Installare DPM come macchina virtuale di Azure](https://technet.microsoft.com/library/hh758176.aspx).
 
 Inoltre,
 
@@ -42,7 +44,7 @@ Inoltre,
 - Non è possibile installare il server di Backup di Microsoft Azure in un computer nel quale è installato l'agente SCDPM o SCDPM RA.
 - Non è possibile installare il server di Backup di Microsoft Azure in un computer nel quale l'agente di Backup di Microsoft Azure è installato e registrato con un insieme di credenziali di Backup di Azure.
 
->[AZURE.NOTE]Il server Backup di Microsoft Azure eredita le funzionalità di Data Protection Manager (DPM) per il backup dei carichi di lavoro, tuttavia non fornisce la protezione su nastro o l'integrazione con System Center.
+
 
 Dopo aver selezionato il server in cui installare Backup di Microsoft Azure, è necessario:
 
@@ -64,7 +66,7 @@ Per un'installazione senza problemi verificare che i prerequisiti seguenti siano
 - Il server di Backup di Microsoft Azure deve essere aggiunto al dominio.
 - Nel server di Backup di Microsoft Azure devono essere installate le funzionalità di .NET 3.5, .NET 4.0 e .NET 3.5 SP1. Per altre informazioni, vedere le [informazioni aggiuntive sull'abilitazione di .Net Framework](https://technet.microsoft.com/library/dn482071.aspx).
 - Nel server di Backup di Microsoft Azure deve essere installato Windows Management Framework 4.0. È possibile scaricarlo [qui](http://www.microsoft.com/download/details.aspx?id=40855).
-- Per il disco usato come spazio dedicato per l'archiviazione dei dati di DPM, le dimensioni del pool di archiviazione consigliate sono di 1,5 volte le dimensioni dei dati protetti. Per altre informazioni, vedere la sezione relativa ai dischi e all'archiviazione di [questo argomento] (Server https://technet.microsoft.com/library/hh758176.aspx#DPM).
+- Per il disco usato come spazio dedicato per l'archiviazione dei dati del server di Backup di Microsoft Azure, le dimensioni del pool di archiviazione consigliate sono di 1,5 volte le dimensioni dei dati protetti. Per altre informazioni, vedere la sezione relativa ai dischi e all'archiviazione di [questo argomento] (Server https://technet.microsoft.com/library/hh758176.aspx#DPM).
 
 Preparare il server di Backup di Microsoft Azure per eseguire il backup dei dati mediante le operazioni seguenti:
 
@@ -286,4 +288,4 @@ D: In che modo verrebbe addebitata un'origine dati protetta su disco e nel cloud
 - [Backup di SharePoint Server](backup-azure-backup-sharepoint.md)
 - [Backup del server alternativo](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -103,4 +103,4 @@ Per connettersi a un servizio Web di Azure ML, usare la libreria **urllib2** per
 2. Assegnare la chiave API con la chiave da un servizio Web. Scoprire come ottenere una chiave di autorizzazione ML di Azure.
 3. Assegnare l'URI del servizio con l'URI della richiesta. Scoprire come ottenere un URI della richiesta.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

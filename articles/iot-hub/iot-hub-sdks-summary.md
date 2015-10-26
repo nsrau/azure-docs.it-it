@@ -1,19 +1,19 @@
 <properties
  pageTitle="Elenco degli SDK hub IoT Azure | Microsoft Azure"
- description="Informazioni e collegamenti ai vari SDK per dispositivi e servizi hub IoT"
+ description="Informazioni e collegamenti ai vari SDK per dispositivi e servizi hub IoT di Azure."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="10/01/2015"
  ms.author="dobett"/>
 
 # SDK hub IoT
@@ -73,4 +73,4 @@ Di seguito è un elenco di collegamenti alla documentazione di riferimento API o
 [SDK per dispositivi Microsoft Azure IoT per Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [REST hub IoT]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

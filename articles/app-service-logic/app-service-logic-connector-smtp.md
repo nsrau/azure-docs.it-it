@@ -52,41 +52,37 @@ Nessuno | Send email
 	Server Port | Sì | Immettere il numero di porta del server SMTP.
 	Enable SSL | No | Immettere *true* per usare SMTP su un canale SSL/TLS sicuro.
 
-6. Selezionare **Crea**.
+6. Selezionare **Create**.
 
-> [AZURE.IMPORTANT]Alcuni server SMTP potrebbero riscontrare problemi relativi al funzionamento di questo connettore (SendGrid e Gmail). Se si vuole inviare posta elettronica da SendGrid, il [repository GitHub](https://github.com/logicappsio/SendGridAPI) include di un'API personalizzata che può interagire direttamente con le API SendGrid.
+> [AZURE.IMPORTANT]Alcuni server SMTP potrebbero riscontrare problemi relativi al funzionamento di questo connettore (SendGrid e Gmail). Se si desidera inviare posta elettronica da SendGrid, il nostro [archivio GitHub](https://github.com/logicappsio/SendGridAPI) dispone di un'API personalizzata in grado di interagire direttamente con le API SendGrid.
 
 ## Usare il connettore SMTP nell'app per la logica
 Dopo aver creato il connettore, è possibile usare il connettore SMTP come azione per l'app per la logica. A tale scopo, seguire questa procedura:
 
-1.	Creare una nuova app per la logica: 
-	![][2]
-2.	Aprire **Triggers e azioni** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro: 
-	![][3]
-3.	Il connettore SMTP viene elencato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta a destra. Selezionarlo: 
-	![][4]
+1.	Creare una nuova app per la logica: ![][2]
+2.	Aprire **Triggers e azioni** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro: ![][3]
+3.	Il connettore SMTP viene elencato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta a destra. Selezionarlo: ![][4]
 4.	Selezionare il connettore SMTP per aggiungerlo automaticamente alla finestra di progettazione del flusso di lavoro.
 
 È ora possibile configurare il connettore SMTP per usarlo nel flusso di lavoro. Selezionare l'azione **Invia posta elettronica** e configurare le proprietà di input:
 
-	Proprietà | Descrizione
+	Property | Description
 	--- | ---
-	A |Immettere l'indirizzo e-mail del/dei destinatario/i. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Immettere l'indirizzo e-mail del/dei destinatario/i in copia per conoscenza. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
-	Oggeto | Inserire l'oggetto dell'e-mail.
-	Corpo | Immettere il corpo del messaggio e-mail.
-	Is HTML | Se questa proprietà è impostata su true, i contenuti del corpo vengono inviati in formato HTML.
-	Bcc | Immettere l'indirizzo e-mail del/dei destinatario/i in copia per conoscenza nascosta.  Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
-	Priorità | Selezionare la priorità dell'e-mail. Le opzioni sono Normale, Bassa e Alta.
-	Attaccamento | Allegati da inviare insieme all'e-mail. Include i seguenti campi: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-![][5]
-![][6]
+![][5] ![][6]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova le app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -100,4 +96,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

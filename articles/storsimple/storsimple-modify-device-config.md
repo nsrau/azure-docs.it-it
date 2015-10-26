@@ -129,4 +129,4 @@ Per sostituire o riassegnare i VIP per qualsiasi interfaccia di rete, procedere 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

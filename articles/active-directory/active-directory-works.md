@@ -49,4 +49,4 @@ Si intende approfondire la conoscenza delle modalità di gestione di Azure AD? C
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

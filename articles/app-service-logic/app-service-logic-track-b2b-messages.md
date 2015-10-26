@@ -45,4 +45,4 @@ Se vengono creati dei batch come parte dei contratti X12 nell'app per le API Ges
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

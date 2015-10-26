@@ -19,7 +19,8 @@
 
 # Risoluzione degli errori delle estensioni della macchina virtuale di Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 ## Panoramica dei modelli di Gestione risorse di Azure
 
@@ -84,4 +85,4 @@ Dove "publsher-name" corrisponde al tipo di estensione dall'output di "azure vm 
 
 Una volta rimossa l'estensione, il modello può essere eseguito nuovamente per eseguire gli script nella macchina virtuale.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

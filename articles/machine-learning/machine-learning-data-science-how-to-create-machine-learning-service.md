@@ -2,8 +2,11 @@
 	pageTitle="Creazione di soluzioni di analisi avanzata in Azure | Microsoft Azure" 
 	description="Utilizzare questa guida per comprendere i passaggi per l'utilizzo di Azure per l'analisi scientifica dei dati e l'apprendimento automatico nel cloud." 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
+	videoId="" 
+	scriptId="" 
 	manager="paulettm" />
 
 <tags 
@@ -26,4 +29,4 @@ Il passaggio dal titolo **Elaborazione dati avanzata in Azure** collega a una se
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

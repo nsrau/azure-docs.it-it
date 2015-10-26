@@ -202,4 +202,4 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Eli
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 			
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

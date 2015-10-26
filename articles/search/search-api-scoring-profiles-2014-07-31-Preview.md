@@ -47,8 +47,7 @@ Fare clic su [Esempio](#bkmk_ex) per esaminare un esempio più dettagliato del p
 
 L'assegnazione di punteggio calcola un punteggio di ricerca per ogni elemento in un set di risultati ordinato in base a una classificazione. A ogni elemento nel set di risultati della ricerca viene assegnato un punteggio di ricerca e quindi gli elementi vengono classificati dal maggiore al minore. Gli elementi con i punteggi maggiori vengono restituiti all'applicazione. Per impostazione predefinita, vengono restituiti i primi 50 elementi, ma è possibile usare il parametro `$top` per restituire un numero minore o maggiore di elementi, fino a un massimo di 1000 elementi in una singola risposta.
 
-Per impostazione predefinita, un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei dati e della query. Ricerca di Azure trova documenti che includono i termini di ricerca nella stringa di query (alcuni o tutti, in base a `searchMode`), preferendo i documenti che includono più istanze del termine di ricerca. Il punteggio di ricerca aumenta ancora di più se il termine risulta raro nell'insieme di dati, ma comune all'interno del documento. I concetti di base per questo approccio alla rilevanza di calcolo sono noti come TF-IDF (Term Frequency-Inverse Document Frequency). 
-Se non è applicato alcun ordinamento personalizzato, i risultati vengono quindi classificati in base al punteggio di ricerca prima di essere restituiti all'applicazione chiamante. Se non viene specificato `$top`, verranno restituiti i 50 elementi con il punteggio di ricerca maggiore.
+Per impostazione predefinita, un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei dati e della query. Ricerca di Azure trova documenti che includono i termini di ricerca nella stringa di query (alcuni o tutti, in base a `searchMode`), preferendo i documenti che includono più istanze del termine di ricerca. Il punteggio di ricerca aumenta ancora di più se il termine risulta raro nell'insieme di dati, ma comune all'interno del documento. I concetti di base per questo approccio alla rilevanza di calcolo sono noti come TF-IDF (Term Frequency-Inverse Document Frequency). Se non è applicato alcun ordinamento personalizzato, i risultati vengono quindi classificati in base al punteggio di ricerca prima di essere restituiti all'applicazione chiamante. Se non viene specificato `$top`, verranno restituiti i 50 elementi con il punteggio di ricerca maggiore.
 
 I valori dei punteggi di ricerca possono essere ripetuti in un set di risultati. Ad esempio, possono essere presenti 10 elementi con punteggio pari a 1,2, 20 elementi con punteggio pari a 1,0 e 20 elementi con punteggio pari a 0,5. Quando più riscontri hanno lo stesso punteggio di ricerca, l'ordine degli stessi elementi con punteggio non è definito e non è quindi stabile. Se si esegue di nuovo la query, è possibile che gli elementi cambino posizione. Se due elementi hanno punteggio identico, non vi è alcuna garanzia su quale elemento verrà visualizzato per primo.
 
@@ -131,40 +130,7 @@ Specificare un nome. I profili di punteggio sono facoltativi, ma quando se ne ag
 
 Il corpo del profilo di punteggio è costituito da campi ponderati e funzioni.
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>Elemento</td><td>Descrizione</td></tr></thead>
-<tbody
-<tr>
-<td><b>Pesi</b></td>
-<td>
-Specificare coppie nome-valore che assegnano un peso relativo a un campo. In [Esempio](#bkmk_ex), ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1, 5 e Null. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore.
-</td>
-</tr>
-<tr>
-<td><b>Funzioni</b></td><td>Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi includono `freshness`, `magnitude` o `distance`. Ogni funzione ha parametri che la contraddistinguono.
-<br>
-- È consigliabile usare `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con i campi datetime (edm.DataTimeOffset). Si noti che l'attributo `boostingDuration` viene usato solo con la funzione freshness.
-<br>
-- È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con campi di tipo Double e Integer.
-<br>
-- È consigliabile usare `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `geo.distance`.
-<br>
-<b>Regole per l'uso delle funzioni</b>
-<br>
-Il tipo di funzione (freshness, magnitude, distance) deve essere scritto in lettere minuscole 
-<br>
-Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.
-<br>
-Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice (API di Ricerca di Azure)]().
-<br>
-Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice. 
-<td>
-</tr>
-</tbody>
-</table>
-</font>
+<font> <table style="font-size:12"> <thead> <tr><td>Elemento</td><td>Descrizione</td></tr></thead> <tbody <tr> <td><b>Pesi</b></td> <td> Specificare coppie nome-valore che assegnano un peso relativo a un campo. In [Esempio](#bkmk_ex), ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1, 5 e Null. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore. </td> </tr> <tr> <td><b>Funzioni</b></td><td>Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi includono `freshness`, `magnitude` o `distance`. Ogni funzione ha parametri che la contraddistinguono. <br> - È consigliabile usare `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con i campi datetime (edm.DataTimeOffset). Si noti che l'attributo `boostingDuration` viene usato solo con la funzione freshness. <br> - È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con campi di tipo Double e Integer. <br> - È consigliabile usare `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `geo.distance`. <br> <b>Regole per l'uso delle funzioni</b> <br> Il tipo di funzione (freshness, magnitude, distance) deve essere scritto in lettere minuscole <br> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore. <br> Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice (API di Ricerca di Azure)](). <br> Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice. <td> </tr> </tbody> </table> </font>
 
 Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni relative a queste operazioni, vedere [Creare un indice (API di Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) e [Aggiungere o aggiornare documenti (API di Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798930.aspx). Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.
 
@@ -217,8 +183,7 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 
 ##Riferimento agli attributi dell'indice
 
-**Nota**
-Una funzione di assegnazione di punteggio può essere applicata solo a campi filtrabili.
+**Nota** Una funzione di assegnazione di punteggio può essere applicata solo a campi filtrabili.
 
 <table style="font-size:12">
 <thead>
@@ -235,7 +200,7 @@ Una funzione di assegnazione di punteggio può essere applicata solo a campi fil
 <tr>
 <td>Functions</td>	<td>Facoltativo. Si noti che la funzione di assegnazione di punteggio può essere applicata solo a campi filtrabili.</td>
 </tr><tr>
-<td>Type</td>	<td>Obbligatorio per le funzioni di assegnazione di punteggio. Indica il tipo di funzione da usare. I valori validi includono magnitude, freshness e distance. È possibile includere più funzioni in ogni profilo di punteggio. Il nome della funzione deve essere scritto in lettere minuscole.</td>
+<td>Tipo</td>	<td>Obbligatorio per le funzioni di assegnazione di punteggio. Indica il tipo di funzione da usare. I valori validi includono magnitude, freshness e distance. È possibile includere più funzioni in ogni profilo di punteggio. Il nome della funzione deve essere scritto in lettere minuscole.</td>
 </tr><tr>
 <td>Boost</td>	<td>Obbligatorio per le funzioni di assegnazione di punteggio. Numero positivo usato come moltiplicatore per un punteggio non elaborato. Non può essere uguale a 1.</td>
 </tr><tr>
@@ -324,4 +289,4 @@ Creare un indice dell’API REST di Ricerca di Azure (API di Ricerca di Azure)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -94,4 +94,4 @@ Dopo essersi esercitati con i dati di esempio, è possibile vedere come [svilupp
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

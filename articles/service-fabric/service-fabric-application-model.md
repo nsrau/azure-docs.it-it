@@ -232,4 +232,4 @@ Dopo aver inserito correttamente l'applicazione nel pacchetto e aver superato la
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

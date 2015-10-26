@@ -27,11 +27,12 @@
 
 In questo articolo viene descritta la procedura per creare una macchina virtuale SQL Server in Azure usando i cmdlet di PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica. Se si desidera creare una macchina virtuale di SQL Server con Gestione risorse di PowerShell, vedere le istruzioni generiche per le macchine virtuali della Gestione risorse nel seguente argomento:[Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 ## Installare e configurare PowerShell
 
-1. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](https://azure.microsoft.com/IT-IT/pricing/free-trial/). 
+1. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/). 
  
 2. [Installare i cmdlet di Azure PowerShell più recenti](../powershell-install-configure.md/#how-to-install-azure-powershell).
 
@@ -173,4 +174,4 @@ Se si è interessati alla modalità di esecuzione di questi passaggi dal portale
 
 Oltre a queste risorse, è consigliabile esaminare [altri argomenti relativi all'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

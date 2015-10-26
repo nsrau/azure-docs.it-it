@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Esercitazione: creare una rete virtuale cross-premise per la connettività da sito a sito"
-	description="In questa esercitazione vengono fornite informazioni su come creare una rete virtuale di Azure con connettività cross-premise."
-	services="virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
+	pageTitle="Esercitazione: creare una rete virtuale cross-premise per la connettività da sito a sito" 
+	description="In questa esercitazione vengono fornite informazioni su come creare una rete virtuale di Azure con connettività cross-premise." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 
@@ -64,8 +64,7 @@ Se si intende usare questa esercitazione per configurare una rete virtuale cross
 
 -  Dispositivo VPN con un indirizzo IPv4 pubblico. L'indirizzo IP è necessario per completare la procedura guidata. Il dispositivo VPN non può essere protetto tramite NAT (Network Address Translator) e deve soddisfare gli standard del dispositivo minimi. Per ulteriori informazioni, vedere [Informazioni sui dispositivi VPN per Rete virtuale](http://go.microsoft.com/fwlink/p/?LinkID=248098).
 
-	Nota: è possibile usare il servizio Routing e Accesso remoto in Windows Server come parte della soluzione VPN. Tuttavia, in questa esercitazione non vengono descritte le procedure di configurazione del servizio Routing e Accesso remoto.
-	Per informazioni sulla configurazione del servizio Routing e Accesso remoto, vedere [Modelli del servizio Routing e Accesso remoto](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
+	Nota: è possibile usare il servizio Routing e Accesso remoto in Windows Server come parte della soluzione VPN. Tuttavia, in questa esercitazione non vengono descritte le procedure di configurazione del servizio Routing e Accesso remoto. Per informazioni sulla configurazione del servizio Routing e Accesso remoto, vedere [Modelli del servizio Routing e Accesso remoto](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
 
 -  Esperienza nella configurazione di un router per una connessione in modalità tunnel IPsec o assistenza da parte di una persona esperta.
 
@@ -99,7 +98,7 @@ Per creare una rete virtuale di esempio per la connessione a una rete aziendale:
 	
 4.	Nella pagina **DNS Servers and VPN Connectivity** immettere le informazioni seguenti e quindi fare clic sulla freccia avanti in basso a destra.
 
-> [AZURE.NOTE] È possibile selezionare contemporaneamente in questa pagina entrambe le configurazioni **Point-To-Site** e **Site-To-Site**. Ai fini di questa esercitazione, si selezionerà solo la configurazione **Site-To-Site**. Per altre informazioni sulle impostazioni disponibili in questa pagina, vedere **Server DNS e connettività VPN** in [Informazioni sulla configurazione di una rete virtuale nel portale di gestione](http://go.microsoft.com/fwlink/p/?LinkID=248092).
+> [AZURE.NOTE]È possibile selezionare contemporaneamente in questa pagina entrambe le configurazioni **Point-To-Site** e **Site-To-Site**. Ai fini di questa esercitazione, si selezionerà solo la configurazione **Site-To-Site**. Per altre informazioni sulle impostazioni disponibili in questa pagina, vedere **Server DNS e connettività VPN** in [Informazioni sulla configurazione di una rete virtuale nel portale di gestione](http://go.microsoft.com/fwlink/p/?LinkID=248092).
 
 	-  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. For the example in this tutorial, type **YourDNS** for the name and **10.1.0.4** for the IP address.
 	-  **Configure Point-To-Site VPN:** Leave this field blank. 
@@ -216,30 +215,30 @@ Per questa procedura, si presuppone quanto segue:
 3.	Per verificare la connessione, eseguire uno dei comandi seguenti:
 
 	<table border="1">
-	<tr>
-	<th>-</th>
-	<th>Cisco ASA</th>
-	<th>Cisco ISR/ASR</th>
-	<th>Juniper SSG/ISG</th>
-	<th>Juniper SRX/J</th>
-	</tr>
-	
-	<tr>
-	<td><b>Check main mode SAs</b></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-	</tr>
+<tr>
+<th>-</th>
+<th>Cisco ASA</th>
+<th>Cisco ISR/ASR</th>
+<th>Juniper SSG/ISG</th>
+<th>Juniper SRX/J</th>
+</tr>
 
-	<tr>
-	<td><b>Check quick mode SAs</b></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-	</tr>
-	</table>
+<tr>
+<td><b>Check main mode SAs</b></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+</tr>
+
+<tr>
+<td><b>Check quick mode SAs</b></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+</tr>
+</table>
 
 
 ##  Passaggi successivi
@@ -272,4 +271,4 @@ Per esportare le impostazioni della rete virtuale in un file di configurazione d
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

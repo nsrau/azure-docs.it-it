@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Effettuare l’accesso all'app per dispositivi mobili utilizzando la notifica con Azure Multi-Factor Authentication"
-	description="Questa pagina descriverà come un utente può accedere utilizzando una notifica dell’app per dispositivi mobili con Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Effettuare l’accesso all'app per dispositivi mobili utilizzando la notifica con Azure Multi-Factor Authentication" 
+	description="Questa pagina descriverà come un utente può accedere utilizzando una notifica dell’app per dispositivi mobili con Azure MFA." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Effettuare l’accesso all'app per dispositivi mobili utilizzando la notifica con Azure Multi-Factor Authentication
@@ -29,13 +29,13 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 <li>Microsoft invierà una notifica.</li>
 
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-app-notify/notify.png)</center>
 
 <li>Rispondere al telefono e premere il tasto di verifica.</li>
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-app-notify/phone.png)</center>
 
 
 <li>Ora dovrebbe essere stato effettuato l’accesso.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

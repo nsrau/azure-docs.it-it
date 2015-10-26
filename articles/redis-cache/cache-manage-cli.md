@@ -254,4 +254,4 @@ Per ulteriori informazioni su questo comando, eseguire il comando `azure redisca
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

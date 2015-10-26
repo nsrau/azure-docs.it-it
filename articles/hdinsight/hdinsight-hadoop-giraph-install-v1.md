@@ -48,19 +48,19 @@ Informazioni su come personalizzare i cluster HDInsight basati su Windows con Gi
 1. Per avviare la creazione di un cluster usare l'opzione **CREAZIONE PERSONALIZZATA**, come descritto in [Creare cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md#portal). 
 2. Nella pagina **Azioni di script** della procedura guidata fare clic su **aggiungi azione di script** per specificare i dettagli relativi all'azione di script, come descritto di seguito:
 
-	![Usare Azione di script per personalizzare un cluster](./media/hdinsight-hadoop-giraph-install-v1/hdi-script-action-giraph.png "Usare Azione di script per personalizzare un cluster")
+	![Usare Azione di script per personalizzare un cluster](./media/hdinsight-hadoop-giraph-install-v1/hdi-script-action-giraph.png "Usare l'azione script per personalizzare un cluster")
 	
 	<table border='1'>
 	<tr><th>Proprietà</th><th>Valore</th></tr>
 	<tr><td>Nome</td>
-		<td>Specificare un nome per l'azione di script. Ad esempio, <b>Installare Giraph</b>.</td></tr>
+		<td>Specificare un nome per l'azione script. Ad esempio, <b>Installare Giraph</b>.</td></tr>
 	<tr><td>URI script</td>
 		<td>Specificare l'URI (Uniform Resource Identifier) dello script da richiamare per personalizzare il cluster. Ad esempio, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
 	<tr><td>Tipo di nodo</td>
 		<td>Specificare i nodi in cui viene eseguito lo script di personalizzazione. È possibile scegliere <b>Tutti i nodi</b>, <b>Solo nodi head</b> o <b>Solo nodi di lavoro</b>.
 	<tr><td>Parametri</td>
 		<td>Specificare i parametri, se richiesti dallo script. Lo script per installare Giraph non richiede alcun parametro, di conseguenza è possibile lasciare vuoto questo campo.</td></tr>
-</table>È possibile aggiungere altre azioni di script per installare più componenti nel cluster. Dopo aver aggiunto gli script, fare clic sul segno di spunta per avviare la creazione del cluster.
+</table>È possibile aggiungere altre azioni script per installare più componenti nel cluster. Dopo aver aggiunto gli script, fare clic sul segno di spunta per avviare la creazione del cluster.
 
 È inoltre possibile usare lo script per installare Giraph in HDInsight usando Azure PowerShell o HDInsight .NET SDK. Le istruzioni relative a queste procedure vengono fornite più avanti in questo argomento.
 
@@ -160,7 +160,7 @@ L'esempio SimpleShortestPathsComputation viene usato per illustrare l'implementa
 
 
 
-## Installare Giraph tramite Azure PowerShell
+## Installare Giraph tramite Aure PowerShell
 
 Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell). L'esempio illustra come installare Spark tramite Azure PowerShell. È necessario personalizzare lo script da usare [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
@@ -190,4 +190,4 @@ Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-ha
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

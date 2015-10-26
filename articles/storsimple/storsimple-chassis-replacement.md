@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Sostituire lo chassis sul dispositivo StorSimple | Microsoft Azure"
-	description="Viene descritto come rimuovere e sostituire lo chassis nel dispositivo primario StorSimple o lo chassis EBOD."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Viene descritto come rimuovere e sostituire lo chassis nel dispositivo primario StorSimple o lo chassis EBOD."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Sostituire lo chassis sul dispositivo StorSimple
 
@@ -63,4 +63,4 @@ Eseguire i passaggi seguenti per installare lo chassis in un dispositivo Microso
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

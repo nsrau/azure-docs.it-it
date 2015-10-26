@@ -3,7 +3,7 @@
 
 È possibile utilizzare SQL Server Management Studio (SSMS) per amministrare i server logici e i database del database SQL di Azure. In questo argomento vengono illustrate le attività comuni con SSMS. Prima di iniziare, è necessario disporre già di un server logico e di un database creati nel database SQL di Azure. Per iniziare, leggere [Creare il primo database SQL di Azure](sql-database-get-started.md), quindi tornare e proseguire.
 
-Quando si lavora con il database SQL di Azure, si consiglia di utilizzare la versione più recente di SSMS. Per ottenerla, visitare [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/it-it/library/mt238290.aspx).
+Quando si lavora con il database SQL di Azure, si consiglia di utilizzare la versione più recente di SSMS. Per ottenerla, visitare [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/it-IT/library/mt238290.aspx).
 
 
 ## Connessione a un server logico del database SQL
@@ -166,4 +166,4 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

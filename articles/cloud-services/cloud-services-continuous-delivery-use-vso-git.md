@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Recapito continuo con Git e Visual Studio Online in Azure"
+	pageTitle="Recapito continuo con Git e Visual Studio Online in Azure" 
 	description="Informazioni sulla configurazione dei progetti team di Visual Studio Online per usare Git per la compilazione e la distribuzione automatiche alla funzionalità App Web nel Servizio app di Azure o nei servizi cloud."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -23,8 +23,7 @@
 È necessario che siano installati Visual Studio 2013 e Azure SDK. Se non si dispone ancora di Visual Studio 2013, scaricarlo scegliendo il collegamento **Inizia gratuitamente** all'indirizzo [www.visualstudio.com](http://www.visualstudio.com). Installare Azure SDK da [questa pagina](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account di Visual Studio Online:
-> è possibile [aprire un account di Visual Studio Online gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account di Visual Studio Online: è possibile [aprire un account di Visual Studio Online gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Per configurare un servizio cloud da compilare e distribuire automaticamente in Azure tramite Visual Studio Online, seguire questa procedura.
 
@@ -273,4 +272,4 @@ Per altri suggerimenti su come usare Git con Visual Studio Online, vedere [Svilu
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -38,4 +38,4 @@ Per informazioni su MySQL, vedere la [Documentazione di MySQL][MySQLDocs].
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="msolhab"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -14,9 +14,13 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="mohabib;xibingao;bradsev"/>
+	ms.author="mohabib;xibingao;bradsev" />
 
 # Macchine virtuali per l'analisi scientifica dei dati in Azure
+
+Questo menu si collega ad argomenti che descrivono come configurare i diversi ambienti di scienza dei dati utilizzati da Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 È possibile eseguire il provisioning di diversi tipi di macchine virtuali di Azure e configurarle per usarle come parte di un ambiente di analisi scientifica dei dati basato su cloud. La scelta della versione di macchina virtuale da usare dipende dal tipo e dalla quantità di dati da modellare con l'apprendimento automatico e dalla destinazione di quei dati nel cloud.
 
@@ -36,4 +40,4 @@ In seguito al provisioning e alla configurazione delle macchine virtuali, è pos
 > [AZURE.NOTE]Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non subire addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)** dal [portale di gestione di Azure](http://manage.windowsazure.com/). Per istruzioni dettagliate su come deallocare la macchina virtuale, vedere [Arresto e deallocazione della macchina virtuale quando non in uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

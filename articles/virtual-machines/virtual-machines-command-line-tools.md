@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Uso dell'interfaccia della riga di comando di Azure con Gestione dei servizi | Microsoft Azure"
-	description="Imparare a utilizzare gli strumenti da riga di comando per Mac, Linux e Windows per gestire Azure utilizzando la modalità dell’interfaccia della riga di comando di Azure nella distribuzione classica (Gestione del servizio)."
+	description="Imparare a usare gli strumenti da riga di comando per Mac, Linux e Windows per gestire Azure tramite la modalità dell'interfaccia della riga di comando di Azure nella modalità classica (Gestione servizi di Azure)."
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,24 +14,26 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica. È inoltre possibile creare una risorsa con il [modello di distribuzione di Gestione risorse](virtual-machines-deploy-rmtemplates-azure-cli.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo vengono illustrate la creazione e la gestione di una risorsa con i comandi dell'interfaccia della riga di comando nel modello di distribuzione classica. È inoltre possibile creare e gestire una risorsa con i comandi dell'interfaccia della riga di comando nel [modello di distribuzione di Gestione risorse](azure-cli-arm-commands.md).
 
-In questo argomento viene descritto come utilizzare l’interfaccia della riga di comando di Azure in modalità **asm** per creare, gestire ed eliminare servizi nella riga di comando di computer Mac, Linux e Windows. Questa funzionalità è simile a quella fornita dai cmdlet di Windows PowerShell installati con Azure SDK per .NET, Node.JS e PHP.
+In questo articolo viene descritto come usare l'interfaccia della riga di comando di Azure in modalità Gestione dei servizi (asm) per creare, gestire ed eliminare servizi nella riga di comando di computer Mac, Linux e Windows. È possibile eseguire molte delle stesse attività usando le diverse librerie di Azure SDK con Azure PowerShell e tramite il portale di Azure. L'uso dei servizi di Azure in modalità Gestione dei servizi è simile alla creazione e alla gestione di singoli concetti e servizi di Azure come Siti Web, Macchine virtuali, Reti virtuali, Archiviazione e così via.
 
-> [AZURE.NOTE]Il concetto di utilizzo dei servizi di Azure in modalità **asm** è simile al concetto di utilizzo dei singoli servizi di Azure come Siti Web, Macchine virtuali, Reti virtuali, Archiviazione e così via. Funzionalità più complete con un modello gerarchico raggruppato logicamente di risorse è disponibile nella riga di comando mediante la modalità **arm**. Per passare a tale modalità, vedere [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE]Per iniziare, innanzitutto [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [accedere per usare le risorse di Azure associate al proprio account](../xplat-cli-connect.md).
 
-Per le istruzioni per l’installazione, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli-install.md).
+## Ambito dell'articolo
+
+In questo articolo vengono fornite la sintassi e le opzioni per i comandi dell'interfaccia della riga di comando di Azure usati comunemente per il modello di distribuzione classica (Gestione dei servizi). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare alcuni comandi o parametri diversi. Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Gestione dei servizi, digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
 
 I parametri facoltativi sono indicati tra parentesi quadre (ad esempio [parametro]). Tutti gli altri parametri sono obbligatori.
 
 Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro -v fornisce output dettagliato, mentre il parametro -vv fornisce un output con un dettaglio ancor maggiore. Utilizzando l'opzione --json verrà visualizzato il risultato in formato json non elaborato.
 
-## Impostazione della modalità **asm**
+## Impostazione della modalità Gestione dei servizi
 
 La modalità di gestione servizi è attualmente abilitata per impostazione predefinita durante l’installazione dell’interfaccia della riga di comando. Se necessario, utilizzare il comando seguente per abilitare i comandi di gestione dei servizi dell’interfaccia della riga di comando di Azure.
 
@@ -789,7 +791,7 @@ Questo comando scambia gli slot di due app Web.
 
 Il comando supporta l'opzione aggiuntiva seguente:
 
-****-q or **--quiet**: non chiedere conferma. Utilizzare questa opzione negli script automatici.
+****-q o **--quiet**: non chiedere conferma. Utilizzare questa opzione negli script automatici.
 
 
 **site start [opzioni] [nome]**
@@ -2348,4 +2350,4 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

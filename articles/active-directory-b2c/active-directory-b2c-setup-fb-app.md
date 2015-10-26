@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: fornire la registrazione e l’accesso agli utenti con account su Facebook
@@ -63,11 +63,11 @@ Per utilizzare Facebook come provider di identità in Azure Active Directory (AD
 ## Configurare Facebook come Provider di identità nella Directory
 
 1. [Passare al pannello delle funzionalità B2C nel portale di anteprima di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Nel pannello delle funzionalità di B2C, fare clic su **Provider di identità Social**.
+2. Nel pannello delle funzionalità di B2C, fare clic su **Provider di identità**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Fornire un **Nome** per la configurazione del provider di identità. Ad esempio, immettere "FB".
 5. Fare clic su **Tipo di provider di identità**, selezionare **Facebook** e fare clic su **OK**.
 6. Fare clic su **Impostare il provider di identità** e immettere l’**ID App** e l’**App segreta** dell'applicazione Facebook creata in precedenza rispettivamente nei campi’**ID Client** e **Client segreto**.
 7. Fare clic su **OK** e poi su **Crea** per salvare la configurazione di Facebook.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

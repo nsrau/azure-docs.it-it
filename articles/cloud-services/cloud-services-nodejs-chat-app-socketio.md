@@ -32,7 +32,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 Assicurarsi che i seguenti prodotti e versioni siano installati per completare correttamente l'esempio in questo articolo:
 
-* Installare [Visual Studio 2013](https://www.visualstudio.com/IT-IT/downloads/download-visual-studio-vs.aspx)
+* Installare [Visual Studio 2013](https://www.visualstudio.com/it-IT/downloads/download-visual-studio-vs.aspx)
 * Installare [Node.js](https://nodejs.org/download/)
 * Installare [Python versione 2.7.10](https://www.python.org/)
 
@@ -174,4 +174,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node. js
   
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

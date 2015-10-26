@@ -65,4 +65,4 @@ Questa regola di avviso può chiaramente essere modificata e **disabilitata** o 
 * [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

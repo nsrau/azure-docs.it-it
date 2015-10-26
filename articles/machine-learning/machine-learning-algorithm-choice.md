@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="09/28/2015"
+	ms.date="10/13/2015"
 	ms.author="brohrer;garye" />
 
 # Come scegliere gli algoritmi di Microsoft Azure Machine Learning
@@ -37,6 +37,8 @@ Leggere il percorso e le etichette degli algoritmi sul grafico come "Per *&lt;pa
 
 Ecco un esempio tratto dalla [raccolta di Cortana Analytics](http://gallery.azureml.net/) di un esperimento che prova diversi algoritmi sugli stessi dati e ne confronta i risultati: [Confrontare classificatori multiclasse: riconoscimento di lettere](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
+>[AZURE.TIP]Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+
 ## Varianti di Machine Learning
 
 ### Supervisionato
@@ -47,9 +49,9 @@ Questo tipo di Machine Learning è utile e diffuso. Con una eccezione, tutti i m
 
 * **Classificazione** Quando i dati vengono utilizzati per prevedere una categoria, l’apprendimento supervisionato è chiamato anche classificazione. Ciò avviene quando si assegna un'immagine, come un’immagine di "gatto" o "cane". Quando sono disponibili solo due opzioni, è chiamato **a due classi** o **classificazione binomiale**. Quando sono presenti più categorie, come quando si prevede il vincitore di un torneo, questo problema è noto come **classificazione multi-classe**.
 
-* **Regressione** Quando un valore viene previsto, come con i prezzi dei titoli, l’apprendimento supervisionato viene chiamato regressione.
+* **Regressione**. Quando un valore viene previsto, come con i prezzi dei titoli, l’apprendimento supervisionato viene chiamato regressione.
 
-* **Rilevamento delle anomalie** Talvolta l'obiettivo consiste nell'identificare punti dati che sono semplicemente insoliti. Nel rilevamento delle frodi, ad esempio, i modelli di spesa della carta di credito altamente insoliti sono sospetti. Le possibili variazioni sono così numerose e gli esempi di formazione così pochi, che non è possibile conoscere l’aspetto delle attività illecite. L'approccio del rilevamento delle anomalie è semplicemente apprendere l’aspetto delle attività normali (utilizzando la cronologia delle transazioni non fraudolente) e identificare ciò che è molto diverso.
+* **Rilevamento delle anomalie**. Talvolta l'obiettivo consiste nell'identificare punti dati che sono semplicemente insoliti. Nel rilevamento delle frodi, ad esempio, i modelli di spesa della carta di credito altamente insoliti sono sospetti. Le possibili variazioni sono così numerose e gli esempi di formazione così pochi, che non è possibile conoscere l’aspetto delle attività illecite. L'approccio del rilevamento delle anomalie è semplicemente apprendere l’aspetto delle attività normali (utilizzando la cronologia delle transazioni non fraudolente) e identificare ciò che è molto diverso.
 
 ### Non supervisionato
 
@@ -79,7 +81,7 @@ Un numero elevato di algoritmi di Machine Learning utilizza la linearità. Gli a
 
 ![Dati con una tendenza non lineare][2]
 
-***Dati con una tendenza lineare****: l’utilizzo di un metodo di regressione lineare genera errori maggiori del necessario*
+***Dati con una tendenza non lineare****: l'uso di un metodo di regressione lineare genera errori più grandi del necessario*
 
 Nonostante i loro pericoli, gli algoritmi lineari sono molto popolari come prima linea di attacco. Tendono ad essere algoritmicamente semplici e rapidi da addestrare.
 
@@ -129,7 +131,7 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 
 ### Linear regression
 
-Come accennato in precedenza, la [regressione lineare](https://msdn.microsoft.com/library/azure/dn905978.aspx) adatta una riga (o piano o iperpiano) al set di dati. È un ottimo strumento di lavoro, semplice e veloce, ma potrebbe essere troppo semplicistica per alcuni problemi. Qui è disponibile un’[esercitazione sulla regressione lineare](machine-learning-linear-regression-in-azure.md).
+Come accennato in precedenza, la [regressione lineare](https://msdn.microsoft.com/library/azure/dn905978.aspx) adatta una riga (o piano o iperpiano) al set di dati. È un ottimo strumento di lavoro, semplice e veloce, ma potrebbe essere troppo semplicistica per alcuni problemi. Qui è disponibile un'[esercitazione sulla regressione lineare](machine-learning-linear-regression-in-azure.md).
 
 ![Dati con una tendenza lineare][3]
 
@@ -180,17 +182,17 @@ Le macchine a vettori di supporto (SVM) consentono di individuare il limite che 
 
 Un altro prodotto di Microsoft Research, la [SVM localmente approfondita a due classi](https://msdn.microsoft.com/library/azure/dn913070.aspx) è una variante non lineare di SVM che mantiene la maggior parte della velocità e dell'efficienza della memoria della versione non lineare. È ideale per i casi in cui l'approccio lineare non fornisce risposte sufficientemente precise. Gli sviluppatori l’hanno mantenuta rapida per scomporre il problema in una serie di piccoli problemi di SVM lineare. Leggere la [descrizione completa](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) per i dettagli su come hanno ottenuto questo risultato.
 
-Utilizzando un'estensione intelligente delle SVM non lineari, la [SVM a una classe](https://msdn.microsoft.com/library/azure/dn913103.aspx) consente di tracciare un limite che delinea strettamente l'intero set di dati. È utile per il rilevamento delle anomalie. Eventuali nuovi punti dati che superano di molto tale limite sono sufficientemente insoliti da essere degni di nota.
+Usando un'estensione intelligente delle SVM non lineari, la [SVM a una classe](https://msdn.microsoft.com/library/azure/dn913103.aspx) consente di tracciare un limite che delinea strettamente l'intero set di dati. È utile per il rilevamento delle anomalie. Eventuali nuovi punti dati che superano di molto tale limite sono sufficientemente insoliti da essere degni di nota.
 
 ### Metodi bayesiani
 
 I metodi bayesiani hanno una qualità estremamente utile: evitare il sovradattamento. Ottengono questo risultato facendo ipotesi in anticipo sulla probabile distribuzione della risposta. Un altro risultato di questo approccio è che dispongono di parametri in numero molto ridotto. Azure Machine Learning dispone di algoritmi bayesiani per entrambe le classificazioni ([la Bayes Point Machine a due classi](https://msdn.microsoft.com/library/azure/dn905930.aspx)) e la regressione ([regressione lineare bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)). Si noti che questi ipotizzano che i dati possano essere suddivisi o adattati con una linea retta.
 
-Dal punto di vista storico, le Bayes Point Machine sono state sviluppate presso Microsoft Research. Si basano su un lavoro teorico estremamente interessante. Lo studente interessato viene indirizzato all’[articolo originale in JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e a un [blog dettagliato di Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+Dal punto di vista storico, le Bayes Point Machine sono state sviluppate presso Microsoft Research. Si basano su un lavoro teorico estremamente interessante. Lo studente interessato viene indirizzato all'[articolo originale in JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e a un [blog dettagliato di Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### Algoritmi specializzati
 
-Se si dispone di un obiettivo molto specifico si potrebbe essere fortunati. All'interno della raccolta di Azure Machine Learning sono disponibili algoritmi specializzati nella previsione delle classifiche ([regressione ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)), nella precisione del conteggio ([regressione di Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)) e nel rilevamento delle anomalie (uno basato sull’[analisi dei componenti principali](https://msdn.microsoft.com/library/azure/dn913102.aspx) e uno basato sulle [macchine a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)). Esiste anche un algoritmo di clustering unico ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
+Se si dispone di un obiettivo molto specifico si potrebbe essere fortunati. All'interno della raccolta di Azure Machine Learning sono disponibili algoritmi specializzati nella previsione delle classifiche ([regressione ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)), nella precisione del conteggio ([regressione di Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)) e nel rilevamento delle anomalie (uno basato sull'[analisi dei componenti principali](https://msdn.microsoft.com/library/azure/dn913102.aspx) e uno basato sulle [macchine a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)). Esiste anche un algoritmo di clustering unico ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
 
 ![Rilevamento delle anomalie basato su PCA][8]
 
@@ -198,7 +200,7 @@ Se si dispone di un obiettivo molto specifico si potrebbe essere fortunati. All'
 
 ![Set di dati raggruppati utilizzando K-means][9]
 
-***Un set di dati viene raggruppato in 5 cluster utilizzando K-means***
+***Un set di dati viene raggruppato in 5 cluster usando K-means***
 
 Inoltre è disponibile un insieme [classificatore multiclasse one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) che interrompe il problema di classificazione di classe N in problemi di classificazione a due classi N-1. Precisione, tempi di addestramento e proprietà di linearità dipendono dai classificatori a due classi utilizzati.
 
@@ -222,4 +224,4 @@ Azure Machine Learning include inoltre l'accesso a una struttura di Machine Lear
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

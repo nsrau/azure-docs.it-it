@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Foglio informativo sulle query di DocumentDB | Microsoft Azure"
-	description="Un foglio informativo sulle query che consente di utilizzare la grammatica in stile SQL di DocumentDB per eseguire query in documenti JSON nel database NoSQL."
-	services="documentdb"
-	documentationCenter=""
-	authors="mimig1"
-	manager="jhubbard"
+	pageTitle="Foglio informativo sulle query di DocumentDB | Microsoft Azure" 
+	description="Un foglio informativo sulle query che consente di utilizzare la grammatica in stile SQL di DocumentDB per eseguire query in documenti JSON nel database NoSQL." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/20/2015" 
 	ms.author="mimig"/>
 
 # Foglio informativo sulle query SQL di DocumentDB scaricabile
@@ -38,4 +38,4 @@ DocumentDB supporta l'esecuzione di query relazionali, gerarchiche e spaziali de
 - Per un esplorare le opzioni delle query disponibili in DocumentDB, vedere [Query di DocumentDB](documentdb-sql-query.md).
 - Per la documentazione di riferimento correlata, vedere [Linguaggio delle query SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -76,4 +76,4 @@ Questa operazione ha un'opzione "-q" facoltativa, che elimina la richiesta di co
 
 [Automatizzare le operazioni usando .NET SDK](dns-sdk.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

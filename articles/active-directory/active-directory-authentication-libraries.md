@@ -63,4 +63,4 @@ In questo scenario, uno sviluppatore ha un'applicazione in esecuzione in un serv
 
 [Esempi di codice per Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

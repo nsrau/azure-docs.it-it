@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Gestione delle macchine virtuali di Azure utilizzando l’interfaccia della riga di comando | Microsoft Azure"
-   description="Descrive come gestire le macchine virtuali di Azure tramite la CLI di Azure per Mac, Linux e Windows."
+   pageTitle="Gestire macchine virtuali con CLI| Microsoft Azure"
+   description="Automatizzare la gestione delle macchine virtuali di gestione delle risorse di Azure tramite l'interfaccia della riga di comando di Azure (CLI)."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 
    <tags
    ms.service="virtual-machines"
@@ -14,16 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="danlep"/>
 
-# Gestire le macchine virtuali tramite la CLI di Azure per Mac, Linux e Windows
+# Gestire le macchine virtuali di Gestione risorse tramite la CLI di Azure per Mac, Linux e Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione di una risorsa creata con il modello di distribuzione classica. È inoltre possibile gestire una risorsa creata con il [modello di distribuzione di Gestione risorse](virtual-machines-how-to-automate-azure-resource-manager.md).
 
-Molte attività che è possibile eseguire ogni giorno per gestire le macchine virtuali possono essere automatizzate da tramite la CLI di Azure. In questo articolo offre esempi di comandi per le attività più semplici e collegamenti ad articoli in cui visualizzare i comandi per attività più complesse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-how-to-automate-azure-resource-manager.md).
 
->[AZURE.NOTE]Se non ancora stato installato e configurato Azure PowerShell, è possibile ottenere istruzioni [qui](../xplat-cli-install.md). Se si desidera una Guida introduttiva per le stesse attività in PowerShell, vedere [gestire le macchine virtuali con Azure PowerShell](virtual-machines-manage-vms-powershell.md).
+Molte attività che è possibile eseguire ogni giorno per gestire le macchine virtuali possono essere automatizzate da tramite l’interfaccia della riga di comando di Azure per Mac, Linux e Windows. In questo articolo offre esempi di comandi per le attività più semplici e collegamenti ad articoli in cui visualizzare i comandi per attività più complesse.
+
+>[AZURE.NOTE]Se non è ancora installata la CLI di Azure, è possibile ottenere istruzioni [qui](../xplat-cli-install.md) e informazioni su come connettersi alla sottoscrizione [qui](../xplat-cli-connect.md). È inoltre necessario configurare la CLI in modalità di gestione risorse di Azure (arm).
 
 ## Come utilizzare i comandi di esempio
 È necessario sostituire una parte del testo nei comandi con il testo appropriato per l'ambiente. Il < and > simboli indicano è necessario sostituire il testo. Quando si sostituisce il testo, rimuovere i simboli ma mantenere le virgolette.
@@ -81,6 +82,8 @@ Naturalmente, se si dispone già di tali valori è possibile trovare le opzioni 
 
 ## Passaggi successivi
 
-Per ulteriori esempi di utilizzo dell'interfaccia della riga di comando di Azure in modalità **arm**, vedere il documento relativo all'[utilizzo dell'interfaccia della riga di comando di Microsoft Azure per Mac, Linux e Windows con Gestione risorse di Microsoft Azure.](../xplat-cli-resource-manager.md). Per ulteriori informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md).
+* Per ulteriori esempi di utilizzo dell'interfaccia della riga di comando con la modalità di Gestione risorse di Azure, vedere [utilizzo dell'interfaccia della riga di comando di Microsoft Azure per Mac, Linux e Windows con Gestione risorse di Microsoft Azure.](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=Oct15_HO1-->
+* Per ulteriori informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md).
+
+<!---HONumber=Oct15_HO3-->

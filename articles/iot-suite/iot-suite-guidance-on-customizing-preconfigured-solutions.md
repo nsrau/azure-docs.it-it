@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Guida di Microsoft Azure IoT Suite sulla personalizzazione di soluzioni preconfigurate | Microsoft Azure"
+	pageTitle="Personalizzazione di soluzioni preconfigurate | Microsoft Azure"
 	description="Fornisce una guida alla personalizzazione delle soluzioni preconfigurate di Azure IoT Suite."
 	services=""
 	documentationCenter=".net"
 	authors="stevehob"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="na"
-     ms.devlang="na"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="stevehob"/>
 
@@ -69,4 +69,4 @@ Per altre informazioni sui dispositivi IoT, vedere il [Sito per sviluppatori Azu
 
 [SDK per dispositivi IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

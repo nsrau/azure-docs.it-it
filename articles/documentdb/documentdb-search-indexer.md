@@ -270,4 +270,4 @@ Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerc
  - Per altre informazioni su Ricerca di Azure, fare clic [qui](/services/search/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

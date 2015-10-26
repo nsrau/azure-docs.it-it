@@ -128,4 +128,4 @@ In questa esercitazione vengono descritte tali azioni e viene illustrato come ut
 - Ulteriori informazioni sull'[interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md).
 - Ulteriori informazioni sull’[utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

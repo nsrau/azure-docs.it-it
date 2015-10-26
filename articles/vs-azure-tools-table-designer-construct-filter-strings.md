@@ -99,4 +99,4 @@ L'esempio seguente restituisce le entità in cui la proprietà CustomerSince è 
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

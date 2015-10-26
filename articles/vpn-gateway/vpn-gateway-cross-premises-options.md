@@ -91,4 +91,4 @@ Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a Ex
 
 Vedere [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) e [Domande frequenti su Gateway VPN](vpn-gateway-vpn-faq.md) per ulteriori informazioni.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

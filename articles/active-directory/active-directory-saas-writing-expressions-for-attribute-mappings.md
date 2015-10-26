@@ -307,4 +307,4 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> Ad ese
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

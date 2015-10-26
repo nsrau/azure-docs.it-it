@@ -1,52 +1,39 @@
 <properties 
-	pageTitle="Spostare i dati in SQL Server in un macchina virtuale di Azure | Azure"
-	description="Spostare i dati da file flat o da un Server SQL locale a SQL Server su VM di Azure"
-	services="machine-learning"
-	documentationCenter=""
-	authors="msolhab"
-	manager="paulettm"
-	editor="cgronlun"/>
+	pageTitle="Spostare i dati in SQL Server in un macchina virtuale di Azure | Azure" 
+	description="Spostare i dati da file flat o da un Server SQL locale a SQL Server su VM di Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="fashah;mohabib;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
+	ms.author="fashah;mohabib;bradsev" />
 
 # Spostamento dei dati in SQL Server in una macchina virtuale di Azure
 
-In questo documento vengono descritte le opzioni per lo spostamento dei dati da file flat (formati CSV o TSV) o da un Server SQL locale a SQL Server o in una macchina virtuale Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte di ADAPT (Advanced Analytics Process and Technology), un processo fornito da Azure Machine Learning.
+Questo **menu** si collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante il Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+
+## Introduzione
+**In questo documento** vengono descritte le opzioni per lo spostamento dei dati da file flat (formati CSV o TSV) o da un Server SQL locale a SQL Server o in una macchina virtuale Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Cortana Analytics Process fornito da Azure.
 
 Per un argomento che descrive le opzioni per lo spostamento dei dati a un Database di SQL Azure per Machine Learning, vedere [Spostare i dati a un Database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
-Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dati in SQL Server in una macchina virtuale Azure.<table>
+Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dati in SQL Server in una macchina virtuale Azure.
 
-<tr>
-<td><b>ORIGINE</b></td>
-<td colspan="2" align="center"><b>DESTINAZIONE: SQL Server in VM di Azure</b></td>
-</tr>
-
-<tr>
-  <td><b>File flat</b></td>  
-  <td>
-    1. <a href="#insert-tables-bcp">Utilità copia di massa della riga di comando (BCP) </a><br>
-    2. <a href="#insert-tables-bulkquery">Inserimento di massa query SQL </a><br>
-    3. <a href="#sql-builtin-utilities">Utilità grafiche integrate in SQL Server </a>
-  </td>
-</tr>
-<tr>
-  <td><b>Server locale SQL</b> </td>
-  <td>
-    1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure</a><br>
-    2. <a href="#export-flat-file">Esportazione in un file flat </a><br>
-    3. <a href="#sql-migration">Migrazione guidata database SQL </a> <br>    
-    4. <a href="#sql-backup">Backup e ripristino database </a> <br>
-  </td>
-</tr>
-</table>
+<b>SOURCE</b> |<b>DESTINAZIONE: SQL Server in VM di Azure</b> |
+------------------ |-------------------- |
+<b>File Flat</b> |1\. <a href="#insert-tables-bcp">Utilità copia di massa della riga di comando (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Inserimento di massa query SQL</a><br> 3. <a href="#sql-builtin-utilities">Utilità grafiche integrate in SQL Server</a>
+<b>Server SQL locale</b> | 1\. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure</a><br> 2. <a href="#export-flat-file">Esportazione in un file flat </a><br> 3. <a href="#sql-migration">Migrazione guidata database SQL </a> <br> 4. <a href="#sql-backup">Backup e ripristino database </a><br>
 
 Tenere presente che il presente documento presuppone che i comandi SQL vengano eseguiti da SQL Server Management Studio o Visual Studio Database Explorer.
 
@@ -56,10 +43,10 @@ Tenere presente che il presente documento presuppone che i comandi SQL vengano e
 ## <a name="prereqs"></a>Prerequisiti
 Il tutorial presuppone:
 
-* Una **sottoscrizione di Azure**. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Un **account di archiviazione di Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Un **sottoscrizione Azure**. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Provisioning di **SQL Server in una VM di Azure**. Per le istruzioni, vedere [Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-* **Azure PowerShell** installato e configurato localmente. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+* Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
 
 ## <a name="filesource_to_sqlonazurevm"></a> Spostamento di dati da un'origine di file flat a SQL Server su una VM di Azure
@@ -236,4 +223,4 @@ Seguito è riportata una schermata delle opzioni di backup e ripristino del data
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

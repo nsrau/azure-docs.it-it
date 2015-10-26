@@ -1,20 +1,20 @@
 <properties
    pageTitle="Panoramica del modello di comunicazione con i servizi"
-	description="Questo articolo descrive le nozioni di base relative al modello di comunicazione supportato dall'API di Reliable Services."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="vipulm"
-	editor=""/>
+   description="Questo articolo descrive le nozioni di base relative al modello di comunicazione supportato dall'API di Reliable Services."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="vipulm"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # Modello di comunicazione con i servizi
 
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [Scrittura di un servizio tramite l'API di Reliable Services che usa lo stack di comunicazione WebAPI](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

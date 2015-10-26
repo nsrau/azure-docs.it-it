@@ -108,4 +108,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

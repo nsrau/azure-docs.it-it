@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configurare un metodo di routing del traffico delle prestazioni | Microsoft Azure"
-	description="Questo articolo aiuterà a configurare il metodo di routing del traffico failover in Gestione traffico"
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Questo articolo aiuterà a configurare il metodo di routing del traffico failover in Gestione traffico"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Configurare un metodo di routing del traffico delle prestazioni
 
@@ -51,4 +51,4 @@ Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) c
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

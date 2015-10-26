@@ -54,4 +54,4 @@ Da questo punto è possibile eseguire le attività seguenti:
 - Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

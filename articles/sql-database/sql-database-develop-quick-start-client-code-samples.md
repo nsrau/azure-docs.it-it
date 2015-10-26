@@ -94,4 +94,4 @@ Questa sezione fornisce collegamenti ad argomenti con esempi di codice per progr
 - [Creare il primo database SQL di Azure](sql-database-get-started.md)
 - [Entity Framework 6 qui, EF 7 su GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

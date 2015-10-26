@@ -89,4 +89,4 @@ Time|Dati|Tspike|Zspike|Valori martingale|Indicatore di avviso|Valori martingale
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

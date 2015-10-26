@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Panoramica dell'infrastruttura di servizi | Microsoft Azure"
-	description="Panoramica di Service Fabric, in cui le applicazioni sono costituite da microservizi. Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor="masnider"/>
+   pageTitle="Panoramica dell'infrastruttura di servizi | Microsoft Azure" 
+   description="Panoramica di Service Fabric, in cui le applicazioni sono costituite da microservizi. Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor="masnider"/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/25/2015"
+   ms.author="mfussell"/>
 
 # Panoramica di Service Fabric
 Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud. Service Fabric fa fronte alle principali problematiche correlate allo sviluppo e alla gestione delle applicazioni cloud. Grazie a Service Fabric, gli sviluppatori e gli amministratori non devono più occuparsi di complessi problemi di infrastruttura e possono concentrarsi sull'implementazione di carichi di lavoro cruciali e articolati, avendo la consapevolezza che siano scalabili affidabili e gestibili. Service Fabric rappresenta la piattaforma middleware di prossima generazione per la creazione e la gestione di tali servizi cloud di livello 1 per l'azienda.
@@ -98,4 +98,4 @@ Usando Service Fabric è possibile:
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Progettazione del database SQL per la continuità aziendale"
-	description="Linee guida per la scelta delle funzionalità di ripristino di emergenza per la continuità aziendale in base a requisiti specifici. Sono incluse le descrizioni delle funzionalità offerte automaticamente dal database SQL."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Progettazione del database SQL per la continuità aziendale" 
+   description="Linee guida per la scelta delle funzionalità di ripristino di emergenza per la continuità aziendale in base a requisiti specifici. Sono incluse le descrizioni delle funzionalità offerte automaticamente dal database SQL."
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 #Progettazione per la continuità aziendale
 
@@ -102,4 +102,4 @@ Quando si progetta l'applicazione per la continuità aziendale, è necessario co
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

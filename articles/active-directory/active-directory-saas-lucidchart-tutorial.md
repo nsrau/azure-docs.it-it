@@ -38,7 +38,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-lucidchart-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-lucidchart-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -86,7 +86,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     1.  Selezionare **Abilita autenticazione SAML**, quindi fare clic su **Facoltativo**.![Impostazioni di autenticazione SAML](./media/active-directory-saas-lucidchart-tutorial/IC791192.png "Impostazioni di autenticazione SAML")
     2.  Nella casella di testo **Dominio**, digitare il dominio e fare clic su **Cambia certificato**.![Cambia certificato](./media/active-directory-saas-lucidchart-tutorial/IC791193.png "Cambia certificato")
     3.  Aprire il file dei metadati scaricato, copiare il contenuto e incollarlo nella casella di testo **Carica metadati**.![Carica metadati](./media/active-directory-saas-lucidchart-tutorial/IC791194.png "Carica metadati")
-    4.  Selezionare **Aggiungi automaticamente nuovo utente al team**, quindi fare clic su **Salva modifiche**.![Salva modifiche](./media/active-directory-saas-lucidchart-tutorial/IC791195.png "Salva modifiche")
+    4.  Selezionare **Aggiungi automaticamente nuovo utente al team**, quindi fare clic su **Salva modifiche**.![Salva modifiche](./media/active-directory-saas-lucidchart-tutorial/IC791195.png "Save Changes")
 
 9.  Selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -112,4 +112,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -148,16 +148,111 @@ Nell'immagine seguente viene illustrata questa configurazione.
 
 
 
-##Creare piani di ripristino
+##Integrazione con SQL AlwaysOn in Azure
 
-I piani di ripristino raggruppano i computer che devono essere sottoposti a failover contemporaneamente. Acquisire ulteriori informazioni su [piani di ripristino](site-recovery-create-recovery-plans.md) e [failover](site-recovery-failover.md) prima di iniziare.
+Azure Site Recovery (ASR) supporta in modo nativo SQL AlwaysOn. Se è stato creato un gruppo di disponibilità SQL con una macchina virtuale di Azure impostato come database 'secondario', è possibile utilizzare ASR per gestire il failover dei gruppi di disponibilità.
+
+Questa funzionalità è attualmente in anteprima ed è disponibile quando il datacenter principale è gestito da System Center Virtual Machine Manager (VMM).
+
+### Ambienti gestiti da VMM Server
+Se si passa all'interno di un insieme di credenziali di ASR, si nota una scheda per i server SQL sotto la scheda Elementi protetti.
+
+![Elementi protetti](./media/site-recovery-sql/protected-items.png)
+
+Di seguito sono riportati i passaggi per integrare SQL AlwaysOn con ASR.
+
+#### Prerequisiti
+- Un server SQL locale nel server autonomo o un cluster di failover 
+- Una o più macchine virtuali di Azure con SQL Server installato.
+- Impostazione del gruppo di disponibilità di SQL tra server SQL Server locale e server SQL in esecuzione in Azure
+- La comunicazione remota di PowerShell deve essere abilitata sul server SQL locale. Il server VMM deve essere in grado di effettuare chiamate remote di PowerShell a SQL Server
+- Nel server SQL locale è necessario aggiungere un account utente ai gruppi di utenti SQL con almeno le seguenti autorizzazioni
+	- ALTER AVAILABILITY GROUP - [riferimento 1](https://msdn.microsoft.com/it-IT/library/hh231018.aspx), [riferimento 2](https://msdn.microsoft.com/it-IT/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [riferimento 1](https://msdn.microsoft.com/it-IT/library/ff877956.aspx#Security)
+- È necessario creare un account RunAs nel server VMM per l'account nel passaggio precedente
+- Il modulo SQL PS deve essere installato sui server SQL in esecuzione in locale e sulle macchine virtuali di Azure
+- VM Agent deve essere installato nelle macchine virtuali in esecuzione in Azure
+- NTAUTHORITY\\System deve disporre delle autorizzazioni seguenti in SQL Server in esecuzione su macchine virtuali in Azure
+	- ALTER AVAILABILITY GROUP - [riferimento 1](https://msdn.microsoft.com/it-IT/library/hh231018.aspx), [riferimento 2](https://msdn.microsoft.com/it-IT/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [riferimento 1](https://msdn.microsoft.com/it-IT/library/ff877956.aspx#Security)
+
+#### Aggiunta di un server SQL
+
+Fare clic su Aggiungi SQL per aggiungere un nuovo server SQL.
+
+![Aggiungi SQL](./media/site-recovery-sql/add-sql.png)
+
+Fornire dettagli del server SQL, VMM e credenziali da utilizzare per la gestione del server SQL.
+
+![Finestra di dialogo Aggiungi SQL](./media/site-recovery-sql/add-sql-dialog.png)
+
+##### Parametri
+1. Nome: nome descrittivo che si desidera fornire per fare riferimento a questo server SQL
+2. Server SQL (FQDN): nome di dominio completo (FQDN) del server SQL di origine che si desidera aggiungere. Nel caso in cui il server SQL sia installato in un cluster di failover, fornire l’FQDN del cluster e non di uno dei nodi del cluster. 
+3. Istanza di SQL Server: scegliere l'istanza di SQL predefinita o specificare il nome dell'istanza SQL personalizzata.
+4. Server VMM: selezionare uno dei server VMM che è già stato registrato con Azure Site Recovery (ASR). ASR utilizzerà questo server VMM per comunicare con SQL Server
+5. ACCOUNT RUNAS: fornire il nome di un account RunAs creato nel server VMM selezionato precedentemente. Questo account RunAs verrà utilizzato per accedere al server SQL e deve disporre di autorizzazioni di lettura e failover nei gruppi di disponibilità nel server SQL. 
+
+Dopo aver aggiunto il server SQL, esso verrà visualizzato nella scheda Server SQL.
+
+![Elenco di server SQL](./media/site-recovery-sql/sql-server-list.png)
+
+#### Aggiunta di un gruppo di disponibilità SQL
+
+Una volta aggiunto il server SQL, il passaggio successivo consiste nell'aggiungere i gruppi di disponibilità ad ASR. A tale scopo, fare clic sui server SQL aggiunti nel passaggio precedente e fare clic su Aggiungi gruppo di disponibilità SQL.
+
+![Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag.png)
+
+Il gruppo di disponibilità SQL si può replicare in una o più macchine virtuali in Azure. Quando si aggiunge il gruppo di disponibilità sql, è necessario fornire il nome e una sottoscrizione della macchina virtuale di Azure in cui si desidera che venga eseguito il failover da ASR.
+
+![Finestra di dialogo Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag-dialog.png)
+
+Nell'esempio precedente Gruppo di disponibilità DB1-AG diventa Primario nella macchina virtuale SQLAGVM2 in esecuzione all'interno della sottoscrizione DevTesting2 in un failover.
+
+>[AZURE.NOTE]Solo i gruppi di disponibilità primari nel server SQL aggiunto nel passaggio precedente sono disponibili per l’aggiunta ad ASR. Se è stato creato un gruppo di disponibilità primario nel server SQL o se sono stati aggiunti ulteriori gruppi di disponibilità al server SQL dopo la sua aggiunta, aggiornarlo utilizzando l'opzione disponibile nel server SQL.
+
+#### Creazione di un piano di ripristino
+
+Il passaggio successivo consiste nel creare un piano di ripristino utilizzando macchine virtuali e gruppi di disponibilità. Selezionare lo stesso server VMM utilizzato nel passaggio 1 come origine e Microsoft Azure come destinazione.
+
+![Create Recovery Plan](./media/site-recovery-sql/create-rp1.png)
+
+![Create Recovery Plan](./media/site-recovery-sql/create-rp2.png)
+
+Nell'esempio l'applicazione di Sharepoint è costituita da 3 macchine virtuali che utilizzano un gruppo di disponibilità SQL come backend. In questo piano di ripristino potremmo selezionare sia il gruppo di disponibilità che la macchina virtuale che costituiscono l'applicazione.
+
+È possibile personalizzare ulteriormente il piano di ripristino tramite lo spostamento di macchine virtuali in gruppi di failover diversi per la sequenza dell'ordine di failover. Il failover del gruppo di disponibilità viene sempre eseguito prima, poiché sarebbe essere utilizzato come backend di qualsiasi applicazione.
+
+![Personalizzare il piano di ripristino](./media/site-recovery-sql/customize-rp.png)
+
+#### Failover
+
+Dopo aver aggiunto un gruppo di disponibilità a un piano di ripristino, sono disponibili diverse opzioni di failover.
+
+##### Failover pianificato
+
+Il failover pianificato implica un failover senza perdita di dati. Per ottenere questo, la modalità di disponibilità del gruppo di disponibilità SQL viene impostata prima su Sincrona e quindi viene attivato un failover per rendere il gruppo di disponibilità primario nella macchina virtuale fornita durante l'aggiunta del gruppo di disponibilità ad ASR. Una volta completato il failover, la modalità di disponibilità viene impostata sullo stesso valore che aveva prima che il failover pianificato venisse attivato.
+
+##### Failover non pianificato
+
+Il failover non pianificato può generare perdite di dati. Durante l’attivazione del failover non pianificato, la modalità di disponibilità del gruppo di disponibilità non viene modificata e il gruppo di disponibilità viene reso primario nella macchina virtuale fornita durante l'aggiunta del gruppo di disponibilità ad ASR. Quando il failover non pianificato è completato e il server locale che esegue SQL Server è nuovamente disponibile, la replica inversa deve essere attivata nel gruppo di disponibilità. Si noti che questa azione non è disponibile nel piano di ripristino e può essere eseguita dal gruppo di disponibilità SQL nella scheda Server SQL
+
+##### Failover di test
+Il failover di test per il gruppo di disponibilità di SQL non è supportato. Se si attiva il failover di test di un piano di ripristino che contiene il gruppo di disponibilità di SQL, il failover viene ignorato per il gruppo di disponibilità.
+
+##### Failback
+
+Se si desidera rendere nuovamente primario il gruppo di disponibilità sul Server SQL locale, è possibile eseguire l’operazione attivando il failover pianificato nel piano di ripristino e scegliendo la direzione da Microsoft Azure al server VMM locale
+
+##### Replica inversa
+
+Dopo un failover non pianificato, è necessario attivare la replica inversa nel gruppo di disponibilità per riprendere la replica. Fino a quando non viene eseguita questa operazione, la replica rimane sospesa.
 
 
-### Creare un piano di ripristino per i cluster di SQL Server (SQL Server 2012/2014 Enterprise)
+### Ambienti non gestiti da VMM
 
-#### Configurare gli script di SQL Server per il failover in Azure
+Per gli ambienti non gestiti da un server VMM, è possibile utilizzare i runbook di automazione di Azure per configurare un failover tramite script dei gruppi di disponibilità SQL. Di seguito sono riportati i passaggi di configurazione per:
 
-In questo scenario vengono usati script personalizzati e automazione di Azure per i piani di ripristino, al fine di configurare un failover tramite script dei gruppi di disponibilità di SQL Server.
 
 1.	Creare un file locale per fare in modo che lo script esegua il failover di un gruppo di disponibilità. Questo script di esempio consente di specificare un percorso per il gruppo di disponibilità nella replica di Azure e di eseguire il failover in tale istanza di replica. Questo script viene eseguito nella macchina virtuale di replica di SQL Server con l'estensione di script personalizzato.
 
@@ -243,120 +338,25 @@ In questo scenario vengono usati script personalizzati e automazione di Azure pe
 
 2. Quando si crea un piano di ripristino per l'applicazione, aggiungere un passaggio di script "pre-Group 1 boot" che richiami lo script per eseguire il failover dei gruppi di disponibilità.
 
-### Creare un piano di ripristino per i cluster di SQL Server (Standard)
-
-#### Configurare gli script di SQL Server per il failover in Azure
-
-1.	Creare un file locale per fare in modo che lo script esegua il failover nel mirror del database di SQL Server. Usare questo script di esempio.
-
-    	Param(
-    	[string]$database
-    	)
-    	Import-module sqlps
-    	Invoke-sqlcmd –query “ALTER DATABASE $database SET PARTNER FORCE_SERVICE_ALLOW_DATA_LOSS”
-
-2.	Caricare lo script presente in un blob in un account di archiviazione di Azure. Usare questo script di esempio.
-
-    	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
-    	Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
-
-3.	Creare un runbook di automazione di Azure per richiamare lo script nella macchina virtuale di replica di SQL Server in Azure. Per eseguire questa operazione usare questo script di esempio. Acquisire [ulteriori informazioni ](site-recovery-runbook-automation.md) sull'uso di runbook di automazione in piani di ripristino. Prima di procedere assicurarsi che l'agente di macchina virtuale sia in esecuzione sulla macchina virtuale di SQL Server sottoposta a failover.
-
-    	workflow SQLAvailabilityGroupFailover
-		{
-    		param (
-        		[Object]$RecoveryPlanContext
-    		)
-
-    	$Cred = Get-AutomationPSCredential -name 'AzureCredential'
-	
-    	#Connect to Azure
-    	$AzureAccount = Add-AzureAccount -Credential $Cred
-    	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-    	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-    
-    	InLineScript
-    	{
-     	#Update the script with name of your storage account, key and blob name
-     	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key";
-     	$sasuri = New-AzureStorageBlobSASToken -Container "script-container" -Blob "AGFailover.ps1" -Permission r -FullUri -Context $context;
-     
-     	Write-output "failovertype " + $Using:RecoveryPlanContext.FailoverType;
-               
-     	if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
-       		{
-           		#Skipping TFO in this version.
-           		#We will update the script in a follow-up post with TFO support
-           		Write-output "tfo: Skipping SQL Failover";
-       		}
-     	else
-       			{
-           		Write-output "pfo/ufo";
-           		#Get the SQL Azure Replica VM.
-           		#Update the script to use the name of your VM and Cloud Service
-           		$VM = Get-AzureVM -Name "SQLAzureVM" -ServiceName "SQLAzureReplica";     
-       
-           		Write-Output "Installing custom script extension"
-           		#Install the Custom Script Extension on teh SQL Replica VM
-           		Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.3| Update-AzureVM; 
-                    
-           		Write-output "Starting AG Failover";
-           		#Execute the SQL Failover script
-           		#Pass the SQL AG path as the argument.
-       
-           		$AGArgs="-SQLAvailabilityGroupPath sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag";
-       
-           		Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument $AGArgs | Update-AzureVM;
-       
-           		Write-output "Completed AG Failover";
-
-       			}
-        
-    		}
-		}
-
-
-
-4. Aggiungere questi passaggi nel piano di ripristino per eseguire il failover del livello di SQL Server:
-
-	- Per il failover pianificato, aggiungere uno script lato primario per arrestare il cluster primario dopo l’“Arresto del gruppo”.
-	- Aggiungere la macchina virtuale mirror del database di SQL Server al piano di ripristino, preferibilmente nel primo gruppo di avvio.
-3.	Aggiungere uno script di post failover per eseguire il failover della copia mirror all'interno di questa macchina virtuale usando lo script di automazione precedente. Poiché il nome dell'istanza di database è cambiato, sarà necessario riconfigurare il livello applicazione per usare il nuovo database.
-
-
-#### Configurare gli script di SQL Server per il failover in un sito secondario
-
-1.	Aggiungere questo script di esempio nella libreria VMM nei siti primari e secondari.
-
-    	Param(
-    	[string]$database
-    	)
-    	Import-module sqlps
-    	Invoke-sqlcmd –query “ALTER DATABASE $database SET PARTNER FORCE_SERVICE_ALLOW_DATA_LOSS”
-
-2.	Aggiungere la macchina virtuale mirror del database di SQL Server al piano di ripristino, preferibilmente nel primo gruppo di avvio.
-3.	Aggiungere uno script di post failover per eseguire il failover della copia mirror all'interno di questa macchina virtuale usando lo script VMM precedente. Poiché il nome dell'istanza di database è cambiato, sarà necessario riconfigurare il livello applicazione per usare il nuovo database.
-
-
-
-
 
 ## Considerazioni sul failover di test
 
 Se si usano gruppi di disponibilità AlwaysOn, non è possibile eseguire un failover di test del livello di SQL Server. In alternativa, considerare queste opzioni:
 
-- Opzione 1
+###Opzione 1
 
-	1. Eseguire un failover di test dei livelli applicazione e front-end.
-	2. Aggiornare il livello applicazione per accedere alla copia di replica in modalità sola lettura ed eseguire un test di sola lettura dell'applicazione.
 
-- Opzione 2
+
+1. Eseguire un failover di test dei livelli applicazione e front-end.
+
+2. Aggiornare il livello applicazione per accedere alla copia di replica in modalità sola lettura ed eseguire un test di sola lettura dell'applicazione.
+
+###Opzione 2
+
 1.	Creare una copia dell'istanza della macchina virtuale di SQL Server di replica (usano il clone VMM per il backup da sito a sito o Azure) e aprirla in una rete di test
 2.	Eseguire il failover di test usando il piano di ripristino.
 
-## Considerazioni sul failback
 
-Per i cluster SQL standard, il failback dopo un failover non pianificato richiederà un backup e un ripristino di SQL Server dall'istanza del mirror al cluster originale e quindi una ridefinizione del mirror.
 
 
 
@@ -364,4 +364,4 @@ Per i cluster SQL standard, il failback dopo un failover non pianificato richied
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

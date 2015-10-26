@@ -1,10 +1,10 @@
 <properties
- pageTitle="Linee guida sull'hub IoT di Azure | Microsoft Azure"
- description="Raccolta di argomenti con indicazioni aggiuntive per le soluzioni che usano l'hub IoT di Azure."
+ pageTitle="Argomenti delle linee guida per l'utilizzo di IoT Hub Azure | Microsoft Azure"
+ description="Una raccolta di argomenti con indicazioni aggiuntive per le soluzioni di sviluppo che usano l'hub IoT di Azure."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -70,7 +70,7 @@ Il modello di servizio token è il metodo consigliato per implementare uno schem
 Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
 - [Introduzione agli hub IoT (esercitazione)][lnk-get-started]
-- [Che cos'è l'hub IoT di Azure?][]
+- [Che cos'è l’hub IoT Azure?][]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
@@ -86,6 +86,6 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [gateway del protocollo]: iot-hub-protocol-gateway.md
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Che cos'è l'hub IoT di Azure?]: iot-hub-what-is-iot-hub.md
+[Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

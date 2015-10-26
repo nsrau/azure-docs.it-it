@@ -41,12 +41,11 @@ Per installare le librerie client PHP per Azure tramite Composer, attenersi alla
 
 1. [Installare Git][install-git]
 
-> [AZURE.NOTE]
-> In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
+	> [AZURE.NOTE]In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
 
 2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
 
-		{
+         {
              "repositories": [
                  {
                      "type": "pear",
@@ -59,7 +58,7 @@ Per installare le librerie client PHP per Azure tramite Composer, attenersi alla
                  "pear-pear.php.net/mail_mimedecode" : "*",
                  "microsoft/windowsazure": "*"
              }
-		}
+         }
 
 3. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
 
@@ -281,7 +280,7 @@ L'app di elenco attività è in grado di contrassegnare un elemento come complet
 
 * Il primo passaggio dell'aggiornamento di un'entità è il suo recupero dalla tabella:
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
@@ -431,4 +430,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

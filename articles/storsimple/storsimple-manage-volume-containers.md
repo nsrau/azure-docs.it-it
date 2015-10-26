@@ -66,4 +66,4 @@ Un contenitore del volume ha volumi all'interno di esso. Può essere eliminato s
 - Ulteriori informazioni sulla [gestione di volumi StorSimple](storsimple-manage-volumes.md). 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

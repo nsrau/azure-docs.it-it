@@ -19,7 +19,6 @@
 
 # Preparare una macchina virtuale Ubuntu per Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ##Prerequisiti##
 
@@ -36,7 +35,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 - Tutti i dischi rigidi virtuali devono avere dimensioni multiple di 1 MB.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04: ##
+## <a id="ubuntu"> </a>Ubuntu 12.04 ##
 
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
 
@@ -119,4 +118,4 @@ Kernel di attivazione (HWE) HardWare Ubuntu
 - [http://blog.utlemming.org/2015/01/Ubuntu-1404-Azure-Images-Now-Tracking.HTML](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-Azure-cloud-Images-Now-using-Hwe.HTML](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

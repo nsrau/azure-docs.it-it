@@ -34,4 +34,4 @@ L'esempio precedente contatta sia il provider di identità che il servizio mobil
 				[self loadAuthInfo];
 ```
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

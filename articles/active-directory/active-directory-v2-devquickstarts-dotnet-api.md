@@ -34,32 +34,34 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-L'app completa viene inoltre fornita alla fine di questa esercitazione.
-
-## 1. Registrare un'app
-
-Creare una nuova app [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questi [passaggi dettagliati] (active-directory-v2-app-registration.md).  Assicurarsi di:
-
-- Copiare l'**ID applicazione** assegnato all'app; sarà necessario a breve.
-
-Questa soluzione di Visual Studio contiene anche una "TodoListClient", che è una semplice applicazione WPF.  L'applicazione TodoListClient viene utilizzata per dimostrare il modo in cui effettua l'accesso un utente e il modo in cui un client può emettere richieste per le API Web.  In questo caso, sia l'applicazione TodoListClient che TodoListService sono rappresentate dalla stessa applicazione.  Per configurare l'applicazione TodoListClient, inoltre, è necessario:
-
-- Aggiungere la piattaforma **mobile** per l'app.
-- Copiare l'**URI di reindirizzamento** dal portale. È necessario utilizzare il valore predefinito `urn:ietf:wg:oauth:2,0 :oob`.
+Al termine dell'esercitazione, verrà fornita anche l'app completata.
 
 
-## 2. Impostare l'app per l'utilizzo della pipeline di autenticazione OWIN
+## 1\. Registrare un'app
+Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md). Verificare di:
 
-Ora che è stata registrata un'app, è necessario impostarla per comunicare con l'endpoint v2.0 endpoint per convalidare le richieste in arrivo e i token.
+- Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 
--	Innanzitutto aprire la soluzione e aggiungere i pacchetti NuGet del middleware OWIN al progetto TodoListService usando la console di Gestione pacchetti
+Questa soluzione di visual studio contiene anche una "TodoListClient", che è una semplice applicazione WPF. La TodoListClient viene utilizzata per illustrare come avviene l’accesso dell'utente e come un client può inviare le richieste all’API Web. In questo caso, sia TodoListClient sia il TodoListService sono rappresentati dalla stessa app. Per configurare il TodoListClient, è necessario inoltre:
+
+- Aggiungere la piattaforma **Mobile** per l'app.
+- Annotare il **Redirect URI** dal portale. È necessario usare il valore predefinito `urn:ietf:wg:oauth:2.0:oob`.
+
+
+## 2\. Configurare l'app per l'uso della pipeline di autenticazione OWIN.
+
+Dopo aver registrato un'app, si dovrà configurarla in modo che comunichi con l'endpoint v 2.0 per convalidare le richieste in ingresso e i token.
+
+-	Per iniziare, aprire la soluzione e aggiungere i pacchetti NuGet del middleware OWIN al progetto TodoListService usando la Console di Gestione pacchetti.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
 ```
 
 -	Aggiungere al progetto TodoListService una OWIN Startup Class denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto --> **Aggiungi** --> **Nuovo elemento** --> Cercare "OWIN". Il middleware OWIN richiamerà il metodo `Configuration(…)` all'avvio dell'app.
--	Sostituire la dichiarazione della classe con `public partial class Startup`. Parte di questa classe è già stata implementata in un altro file. Nel metodo `Configuration(…)` eseguire una chiamata a ConfigureAuth(...) per configurare l'autenticazione per l'app Web.
+-	Sostituire la dichiarazione della classe con `public partial class Startup`. Parte di questa classe è già stata implementata in un altro file. Nel metodo `Configuration(…)` effettuare una chiamata a ConfgureAuth(...) per configurare l'autenticazione per l'app Web.
 
 ```C#
 public partial class Startup
@@ -145,7 +147,7 @@ Prima di poter vedere in azione il servizio To Do List, è necessario configurar
 
 Infine pulire, compilare ed eseguire ogni progetto. È ora disponibile un'API Web .NET MVC che accetta token da account Microsoft personali, aziendali e dell'istituto di istruzione. Accedere al client To Do List e chiamare l'API Web in modo che aggiunga attività all'elenco di attività da svolgere dell'utente.
 
-Come riferimento [è disponibile qui l'esempio completato (senza i valori di configurazione) in un file con estensione zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
+Come riferimento, l'esempio completato (senza i valori di configurazione) [è disponibile in un file con estensione zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
@@ -156,4 +158,4 @@ Come riferimento [è disponibile qui l'esempio completato (senza i valori di con
 
 Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

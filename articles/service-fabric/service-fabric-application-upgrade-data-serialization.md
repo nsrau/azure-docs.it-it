@@ -65,4 +65,4 @@ Il contratto dati è la soluzione consigliata per garantire la compatibilità de
 
 [Argomenti avanzati](service-fabric-application-upgrade-advanced.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

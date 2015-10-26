@@ -84,7 +84,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
 
 >Questo servizio Web è stato creato tramite Azure Machine Learning. Per una versione di valutazione gratuita e per video introduttivi sulla creazione di esperimenti e sulla [pubblicazione di servizi Web](machine-learning-publish-a-machine-learning-web-service.md), vedere [azure.com/ml.](http://azure.com/ml) La schermata seguente mostra un esperimento per la creazione del servizio Web e codice di esempio per ogni modulo incluso nell'esperimento.
 
-In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati caricati dati di input di esempio con uno schema dati predefinito. Un modulo [Execute R Script][execute-r-script] è collegato allo schema dati e genera il modello di previsione ETS usando le funzioni 'ets' e 'forecast' di R.
+In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati caricati dati di input di esempio con uno schema dati predefinito. Un modulo "Execute R Script" è collegato allo schema dati e genera il modello di previsione ETS usando le funzioni 'ets' e 'forecast' di R.
 
 
 ![Flusso dell'esperimento][2]
@@ -138,4 +138,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

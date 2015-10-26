@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gestire cluster Hadoop in HDInsight tramite il portale di Azure | Microsoft Azure"
-	description="Informazioni su come amministrare il servizio HDInsight. Creare un cluster HDInsight, aprire la console interattiva JavaScript e aprire la console dei comandi di Hadoop."
+	pageTitle="Gestire cluster Hadoop basati su Linux in HDInsight tramite il portale di Azure | Microsoft Azure"
+	description="Informazioni su come creare e gestire cluster basati su Linux HDInsight tramite il portale di Azure."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Gestire cluster Hadoop in HDInsight tramite il portale di anteprima di Azure
@@ -51,7 +51,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 2. Selezionare **NUOVO**, selezionare __Analisi di dati__, quindi selezionare __HDInsight__
 
-	![Creazione di un nuovo cluster nel portale di Anteprima di Azure](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
+	![Creazione di un nuovo cluster nel portale di anteprima di Azure](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
 
 3. Immettere un __Nome cluster__, quindi selezionare il __Tipo cluster__ che si vuole creare. Un segno di spunta verde verrà visualizzato accanto al __Nome del cluster__, se disponibile.
 
@@ -195,4 +195,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

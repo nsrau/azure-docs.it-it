@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/12/2015"
 	ms.author="rkarlin"/>
 
 # Utilizzo di access condizionale
@@ -29,7 +29,7 @@ Queste regole possono essere applicate a tutti gli utenti e gruppi o solo a uten
 - Un tenant di Azure Active Directory federato o gestito 
 - I tenant federata richiedono che l'autenticazione a più fattori (MFA) sia attivata 
 
-![](http://i.imgur.com/rv28onQ.png)
+![](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## Configurare l'autenticazione a più fattori per applicazione
 1. Accedere come amministratore al portale di gestione di Azure.
@@ -38,16 +38,30 @@ Queste regole possono essere applicate a tutti gli utenti e gruppi o solo a uten
 4. Attivare la regola selezionando **Abilitare le regole di accesso** su **On**.
 5. Specificare gli utenti e i gruppi a cui verranno applicate le regole. Utilizzare il tasto **Aggiungi gruppo** per selezionare uno o più gruppi a cui verrà applicata la regola di accesso. Questa finestra di dialogo può essere utilizzata anche per rimuovere i gruppi selezionati. Quando si selezionano le regole da applicare ai gruppi, le regole di accesso possono essere imposte solo agli utenti che appartengono a uno dei gruppi di sicurezza specificati. <br> Per escludere in modo esplicito i gruppi di protezione dalla regola, controllare **Tranne** e specificare uno o più gruppi. Gli utenti che sono membri di un gruppo nell'elenco Tranne non dovranno eseguire l'autenticazione a più fattori. <br>Se un utente è stato configurato utilizzando la funzionalità di autenticazione a più fattori per utente, questa impostazione avrà la precedenza sulle regole dell’autenticazione a più fattori dell’applicazione. Ciò significa che a un utente che è stato configurato per l'autenticazione a più fattori per utente verrà richiesto di eseguire l'autenticazione a più fattori, anche se è stato esentato dalle regole di autenticazione a più fattori dell'applicazione. [Ulteriori informazioni sulle impostazioni dell’autenticazione a più fattori per utente](../multi-factor-authentication/multi-factor-authentication.md). 
 6. Selezionare la regola di accesso che si desidera impostare:
-- **Richiedere l’autenticazione a più fattori**: Agli utenti a cui si applicano le regole di accesso verrà richiesta l'autenticazione a più fattori prima di accedere all'applicazione a cui viene applicata la regola.
-- **Richiedere l’autenticazione a più fattori quando non è al lavoro**: Gli utenti che tentano di accedere all'applicazione da un indirizzo IP attendibile non dovranno eseguire l'autenticazione a più fattori. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina Impostazioni di autenticazione a più fattori.
-- **Bloccare l'accesso quando non si è al lavoro**: gli utenti che tentano di accedere all'applicazione dall'esterno della rete aziendale non saranno in grado di accedere all'applicazione.
+	- **Richiedere l’autenticazione a più fattori**: Agli utenti a cui si applicano le regole di accesso verrà richiesta l'autenticazione a più fattori prima di accedere all'applicazione a cui viene applicata la regola.
+	- **Richiedere l’autenticazione a più fattori quando non è al lavoro**: Gli utenti che tentano di accedere all'applicazione da un indirizzo IP attendibile non dovranno eseguire l'autenticazione a più fattori. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina Impostazioni di autenticazione a più fattori.
+	- **Bloccare l'accesso quando non si è al lavoro**: gli utenti che tentano di accedere all'applicazione dall'esterno della rete aziendale non saranno in grado di accedere all'applicazione.
 
 
 ## Configurazione di autenticazione a più fattori per servizi di federazione
 Per tenant federati, l’autenticazione a più fattori (MFA) potrebbe eseguita da Azure Active Directory o dal server ADFS locale. Per impostazione predefinita, verrà eseguita l'autenticazione a più fattori in qualsiasi pagina ospitata da Azure Active Directory. Per configurare l'autenticazione a più fattori in locale, eseguire Windows PowerShell e utilizzare la proprietà – SupportsMFA per impostare il modulo di Azure AD. Nell'esempio seguente viene illustrato come abilitare l'autenticazione a più fattori in locale utilizzando il [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) del tenant contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` Oltre a impostare questo flag, l'istanza di tenant federato ADFS deve essere configurata per eseguire l'autenticazione a più fattori. Seguire le istruzioni per la [Distribuzione di Microsoft Azure Multi-Factor Authentication in locale](..multi-factor-authentication-get-started-server.md).
+## Vedere anche
+Si può fare molto di più con il proxy dell'applicazione:
+
+- [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md)
+- [Pubblicare applicazioni mediante il proprio nome di dominio](active-directory-application-proxy-custom-domains.md)
+- [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
+- [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
+- [Risoluzione dei problemi che si verificano con l’applicazione Proxy](active-directory-application-proxy-troubleshoot.md)
+
+## Ulteriori informazioni sul proxy dell’applicazione
+- [Dare un'occhiata alla nostra Guida in linea](active-directory-application-proxy-enable.md)
+- [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
+- [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+
 ## Risorse aggiuntive
 
 * [Iscriversi ad Azure come organizzazione](..sign-up-organization.md)
 * [Identità di Azure](..fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

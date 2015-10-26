@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Automazione delle operazioni relative a DNS e ai set di record con .NET SDK | Microsoft Azure"
-	description="Uso di .NET SDK per automatizzare tutte le operazioni DNS per DNS di Azure."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="Automazione delle operazioni relative a DNS e ai set di record con .NET SDK | Microsoft Azure" 
+   description="Uso di .NET SDK per automatizzare tutte le operazioni DNS per DNS di Azure." 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/20/2015"
+   ms.author="joaoma"/>
 # Creazione di zone e set di record DNS con .NET SDK
 È possibile automatizzare le operazioni per creare, eliminare o aggiornare zone, set di record e record DNS usando l'SDK per DNS con la libreria di gestione DNS per .NET. Un progetto completo di Visual Studio è disponibile [qui](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip).
 
@@ -108,4 +108,4 @@ Il seguente esempio mostra come ottenere un elenco di zone e set di record DNS:
 
 [Progetto di esempio di Visual Studio SDK](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

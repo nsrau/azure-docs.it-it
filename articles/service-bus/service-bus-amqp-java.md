@@ -401,19 +401,11 @@ Quando si usa JMS su AMQP 1.0 con il bus di servizio esistono le seguenti restri
 Per altre informazioni, vedere i collegamenti seguenti:
 
 - [Panoramica di AMQP per il bus di servizio]
-- [Uso del bus di servizio da .NET con AMQP]
-- [Uso del bus di servizio da Python con AMQP]
-- [Uso del bus di servizio da PHP con AMQP]
-- [Installazione di Apache Qpid Proton-C in una macchina virtuale Linux Azure]
 - [AMQP nel bus di servizio per Windows Server]
 
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
-[Uso del bus di servizio da .NET con AMQP]: service-bus-amqp-dotnet.md
-[Uso del bus di servizio da Python con AMQP]: service-bus-amqp-python.md
-[Uso del bus di servizio da PHP con AMQP]: service-bus-amqp-php.md
-[Installazione di Apache Qpid Proton-C in una macchina virtuale Linux Azure]: service-bus-amqp-apache.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

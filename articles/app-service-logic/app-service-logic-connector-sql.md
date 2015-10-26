@@ -60,8 +60,7 @@ Tables | No | Elencare le tabelle di database che possono essere aggiornate dal 
 Stored procedure | No | Immettere una stored procedure esistente che può essere chiamata dal connettore, ad esempio *sp\_IsEmployeeEligible* o *sp\_CalculateOrderDiscount*. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide.
 Data Available Query | Per il supporto dei trigger | Istruzione SQL per determinare se sono disponibili dati per il polling di una tabella di database di SQL Server. Deve restituire un valore numerico che rappresenta il numero di righe di dati disponibili. Esempio: SELECT COUNT(*) from table\_name. Poll Data Query | Per il supporto dei trigger | L'istruzione SQL per eseguire il polling della tabella di database di SQL Server. È possibile immettere un numero qualsiasi di istruzioni SQL, separate da punto e virgola. Questa istruzione viene eseguita a livello di transazione e ne viene eseguito il commit solo quando i dati vengono archiviati in modo sicuro nell'app per la logica. Esempio: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>**Nota**<br/>È necessario fornire un'istruzione di polling che evita un ciclo infinito eliminando, spostando o aggiornando i dati selezionati per garantire che non venga eseguito di nuovo il polling degli stessi dati.
 
-5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente:  
-![][1]
+5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente: ![][1]
 
 6. Selezionare **Create**.
 
@@ -89,31 +88,24 @@ Per usare il connettore SQL come trigger, immettere i valori per **Data Availabl
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Aggiungere il trigger
-1. Quando si crea o modifica un'app per la logica, selezionare il connettore SQL creato come trigger. In questo modo vengono elencati i trigger disponibili, ovvero **Poll Data (JSON)** e **Poll Data (XML)**:  
-![][5]
+1. Quando si crea o modifica un'app per la logica, selezionare il connettore SQL creato come trigger. In questo modo vengono elencati i trigger disponibili, ovvero **Poll Data (JSON)** e **Poll Data (XML)**: ![][5]
 
-2. Selezionare il trigger **Poll Data (JSON)**, immettere la frequenza e fare clic su ✓:  
-![][6]
+2. Selezionare il trigger **Poll Data (JSON)**, immettere la frequenza e fare clic su ✓: ![][6]
 
-3. Il trigger viene ora visualizzato come configurato nell'app per la logica. Vengono visualizzati gli output del trigger, che possono essere usati come input in eventuali azioni successive:  
-![][7]
+3. Il trigger viene ora visualizzato come configurato nell'app per la logica. Vengono visualizzati gli output del trigger, che possono essere usati come input in eventuali azioni successive: ![][7]
 
 ## Usare il connettore come azione
 Usando un semplice scenario di app per la logica che esegue il polling dei dati da una tabella SQL, tali dati vengono aggiunti a un'altra tabella e quindi aggiornati.
 
 Per usare il connettore SQL come azione, immettere il nome delle tabelle e/o delle stored procedure immesse durante la creazione del connettore SQL:
 
-1. Dopo il trigger (o dopo aver scelto di eseguire la logica manualmente), aggiungere il connettore SQL creato dalla raccolta. Selezionare una delle azioni di inserimento, ad esempio *Insert Into TempEmployeeDetails (JSON)*:  
-![][8]
+1. Dopo il trigger (o dopo aver scelto di eseguire la logica manualmente), aggiungere il connettore SQL creato dalla raccolta. Selezionare una delle azioni di inserimento, ad esempio *Insert Into TempEmployeeDetails (JSON)*: ![][8]
 
-2. Immettere i valori di input del record da inserire e fare clic su ✓: 
-![][9]
+2. Immettere i valori di input del record da inserire e fare clic su ✓: ![][9]
 
-3. Dalla raccolta, selezionare lo stesso connettore SQL creato. Come azione, selezionare l'azione Update nella stessa tabella, ad esempio *Update EmployeeDetails*: 
-![][11]
+3. Dalla raccolta, selezionare lo stesso connettore SQL creato. Come azione, selezionare l'azione Update nella stessa tabella, ad esempio *Update EmployeeDetails*: ![][11]
 
-4. Immettere i valori di input per l'azione di aggiornamento e fare clic su ✓: 
-![][12]
+4. Immettere i valori di input per l'azione di aggiornamento e fare clic su ✓: ![][12]
 
 È possibile testare l'app per la logica aggiungendo un nuovo record alla tabella di cui viene effettuato il polling.
 
@@ -121,8 +113,7 @@ Per usare il connettore SQL come azione, immettere il nome delle tabelle e/o del
 
 Query SQL | Supportato | Non supportato
 --- | --- | ---
-Clausola Where | <ul><li>Operatori: AND, OR, =, <>, <, <=, >, >= e LIKE</li><li>Più sottocondizioni possono essere combinate con '(' e ')'</li><li>Valori letterali stringa, data/ora (racchiusi tra virgolette singole), numeri (devono contenere solo caratteri numerici)</li><li>Deve essere rigorosamente in un formato di espressione binaria, come ((operando operatore operando) AND/OR (operando operatore operando))**</li></ul> | <ul><li>Operatori: Between, IN</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +.</li><li>Tutti i join</li><li>IS NULL e IS NOT Null</li><li>Qualsiasi numero con caratteri non numerici, ad esempio i numeri esadecimali</li></ul>
-Campi (nella query Select) | <ul><li>Nomi di colonna validi, separati da virgole. Non sono consentiti prefissi di nomi di tabella (il connettore funziona su una sola tabella alla volta).</li><li>I nomi possono essere preceduti dai caratteri di escape '[' e ']'</li></ul> | <ul><li>Parole chiave come TOP, DISTINCT e così via</li><li>Aliasing, ad esempio Via + Città + CAP COME indirizzo</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +</li></ul>
+Clausola Where | <ul><li>Operatori: AND, OR, =, <>, <, <=, >, >= e LIKE</li><li>Più sottocondizioni possono essere combinate con '(' e ')'</li><li>Valori letterali stringa, data/ora (racchiusi tra virgolette singole), numeri (devono contenere solo caratteri numerici)</li><li>Deve essere rigorosamente in un formato di espressione binaria, come ((operando operatore operando) AND/OR (operando operatore operando))**</li></ul> | <ul><li>Operatori: Between, IN</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +.</li><li>Tutti i join</li><li>IS NULL e IS NOT Null</li><li>Qualsiasi numero con caratteri non numerici, ad esempio i numeri esadecimali</li></ul> Campi (nella query Select) | <ul><li>Nomi di colonna validi, separati da virgole. Non sono consentiti prefissi di nomi di tabella (il connettore funziona su una sola tabella alla volta).</li><li>I nomi possono essere preceduti dai caratteri di escape '[' e ']'</li></ul> | <ul><li>Parole chiave come TOP, DISTINCT e così via</li><li>Aliasing, ad esempio Via + Città + CAP COME indirizzo</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +</li></ul>
 
 #### Suggerimenti
 
@@ -160,4 +151,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

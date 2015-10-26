@@ -16,4 +16,4 @@ In questo passaggio si creerà una regola del firewall per aprire la porta probe
 
 1. Ripetere i passaggi precedenti per la porta del listener del gruppo di disponibilità (come specificato in precedenza nel parametro $EndpointPort dello script) e specificare un nome di regola appropriata, ad esempio**Porta del Listener AlwaysOn**.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

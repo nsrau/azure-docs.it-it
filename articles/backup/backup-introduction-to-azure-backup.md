@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # Introduzione a Backup di Azure
 Questo articolo offre una panoramica di alto livello della soluzione di backup integrata nel cloud di Microsoft che consente ai clienti di eseguire il backup dei dati disponibili in locale o in Azure.
@@ -43,22 +43,31 @@ Le funzionalità principali della soluzione sono le seguenti:
 7. **Backup nel cloud**: Backup di Azure offre funzionalità di backup coerenti delle applicazioni basate su VSS per le macchine virtuali IaaS di Azure in esecuzione senza la necessità di arrestare la macchina virtuale. È inoltre possibile eseguire il backup delle macchine virtuali Linux in Azure con coerenza del file system.
 
 
-## Applicazione e carichi di lavoro
+## Scenari di distribuzione
+| Componente | Può essere distribuito in Azure? | Può essere distribuito in locale? | Archiviazione di destinazione supportata|
+| --- | --- | --- | --- |
+| Agente di Backup di Azure | **Sì** <br><br>L'agente di Backup di Azure può essere distribuito in qualunque macchina virtuale Windows Server in esecuzione in Azure. | **Sì** <br><br>L'agente di Backup di Azure può essere distribuito in qualunque computer fisico o macchina virtuale Windows Server. | Insieme di credenziali per il backup di Azure |
+| System Center Data Protection Manager (SCDPM) | **Sì** <br><br>Altre informazioni sulla [protezione dei carichi di lavoro in Azure con SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx). | **Sì** <br><br>Altre informazioni sulla [protezione dei carichi di lavoro e delle macchine virtuali nel data center](https://technet.microsoft.com/it-IT/library/hh758173.aspx). | Disco collegato al computer locale,<br>insieme di credenziali per il backup di Azure,<br>Nastro (solo in locale) |
+| Backup di Azure (estensione VM) | **Sì** <br><br>Specializzato per il [backup di macchine virtuali IaaS di Azure](backup-azure-vms-introduction.md). | **No** <br><br>Usare SCDPM per il backup delle macchine virtuali nel data center. | Insieme di credenziali per il backup di Azure |
+
+
+## Applicazioni e carichi di lavoro
 
 | Carico di lavoro | Computer di origine | Soluzione di Backup di Azure |
 | --- | --- |---|
-| File e cartelle | Windows Server, client Windows | Agente di Backup di Azure |
-| File e cartelle | Windows Server, client Windows | System Center DPM |
+| File e cartelle | Windows Server | [Agente di Backup di Azure](backup-configure-vault.md),<br> [System Center DPM](backup-azure-dpm-introduction.md) |
+| File e cartelle | Client Windows | [Agente di Backup di Azure](backup-configure-vault.md),<br> [System Center DPM](backup-azure-dpm-introduction.md) |
 | Macchina virtuale Hyper-V (Windows) | Windows Server | System Center DPM |
 | Macchina virtuale Hyper-V (Linux) | Windows Server | System Center DPM |
-| Microsoft SQL Server | Windows Server | System Center DPM |
-| Microsoft SharePoint | Windows Server | System Center DPM |
+| Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
+| Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| Macchine virtuali IaaS di Azure (Windows)| - | Backup di Azure | | Macchine virtuali IaaS di Azure (Linux) | - | Backup di Azure |
+| Macchine virtuali IaaS di Azure (Windows)| - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) | | Macchine virtuali IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
+
 
 ## Passaggi successivi
 - [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins.md)
 - Le domande frequenti sul servizio di Backup di Azure sono disponibili [in questa pagina](backup-azure-backup-faq.md).
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

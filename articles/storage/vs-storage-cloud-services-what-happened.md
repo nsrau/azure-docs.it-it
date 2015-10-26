@@ -43,4 +43,4 @@ Sono stati creati elementi con la stringa di connessione e la chiave dell'accoun
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Django e database SQL in Azure con Python Tools 2.2 per Visual Studio"
-	description="Informazioni su come usare Python Tools per Visual Studio per creare un'app Web Django che archivia i dati in un'istanza di database SQL e per distribuirla in App Web del servizio app di Azure."
-	services="app-service\web"
+	pageTitle="Django e database SQL in Azure con Python Tools 2.2 per Visual Studio" 
+	description="Informazioni su come usare Python Tools per Visual Studio per creare un'app Web Django che archivia i dati in un'istanza di database SQL e per distribuirla in App Web del servizio app di Azure." 
+	services="app-service\web" 
 	tags="python"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -220,4 +220,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Documentazione di Django]: https://www.djangoproject.com/
 [Database SQL]: /documentation/services/sql-database/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -169,4 +169,4 @@ Se si verificano dei problemi o per richiedere assistenza per l'anteprima del **
 
 Tenere sotto controllo il [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

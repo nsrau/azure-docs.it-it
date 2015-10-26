@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tamram"/>
 
 
@@ -50,6 +50,8 @@ Inoltre, è necessario utilizzare una firma di accesso condiviso per autenticare
 - Quando si copia un BLOB in un altro BLOB che risiede in un account di archiviazione diverso, è necessario utilizzare una firma di accesso condiviso per autenticare il BLOB di origine. Con la versione 2015-04-05 è anche possibile usare una firma di accesso condiviso per autenticare il BLOB di destinazione.
 - Quando si copia un file a un altro file che si trova in un account di archiviazione diverso, è necessario utilizzare una firma di accesso condiviso per autenticare il file di origine. Con la versione 2015-04-05 è anche possibile usare una firma di accesso condiviso per autenticare il file di destinazione.
 - Quando si copia un BLOB in un file o un file in un BLOB, è necessario utilizzare una firma di accesso condiviso (SAS) per autenticare l'oggetto di origine, anche se gli oggetti di origine e di destinazione si trovano nello stesso account di archiviazione.
+
+>[AZURE.NOTE]Attualmente l'account SAS è supportato solo per i servizi BLOB e File. Sarà supportato per i servizi tabelle e code nel prossimo futuro.
 
 ## Tipi di firme di accesso condiviso
 
@@ -315,11 +317,9 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 - [Come usare Archiviazione file di Azure con Windows](storage-dotnet-how-to-use-files.md)
 - [Gestire l'accesso alle risorse di archiviazione di Azure](storage-manage-access-to-resources.md)
 - [Delega dell'accesso con una firma di accesso condiviso](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!----HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

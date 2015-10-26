@@ -762,4 +762,4 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

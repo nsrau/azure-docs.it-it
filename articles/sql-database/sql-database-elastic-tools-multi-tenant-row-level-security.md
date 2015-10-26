@@ -1,6 +1,8 @@
 <properties 
+	title="Multi-tenant applications with elastic database tools and row-level security" 
 	pageTitle="Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga" 
 	description="Informazioni su come utilizzare gli strumenti di database elastici insieme alla sicurezza a livello di riga per compilare un’applicazione con un livello dati altamente scalabile in un database SQL di Azure che supporta partizioni multi-tenant." 
+	metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
@@ -339,4 +341,4 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

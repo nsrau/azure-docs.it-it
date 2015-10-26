@@ -129,4 +129,4 @@ La sezione Dashboard dell'interfaccia utente consente ai clienti di creare grafi
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

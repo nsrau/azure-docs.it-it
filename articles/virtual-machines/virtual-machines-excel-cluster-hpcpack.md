@@ -21,7 +21,8 @@
 
 In questo articolo viene illustrato come distribuire un cluster HPC Pack nei servizi di infrastruttura di Azure (IaaS) mediante un modello di Guida introduttiva di Azure o uno script di distribuzione di Azure PowerShell. Usare le immagini di macchina virtuale di Azure Marketplace progettate per l'esecuzione di carichi di lavoro di architettura orientata ai servizi (SOA) o Microsoft Excel con HPC Pack. È possibile usare il cluster per eseguire semplici servizi Excel HPC e SOA da un computer client locale. I servizi Excel HPC includono l'offload di cartelle di lavoro di Excel e funzioni definite dall'utente di Excel o UDF.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la creazione delle risorse mediante il modello di distribuzione di Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 Nel seguente diagramma viene illustrato il cluster HPC Pack che verrà creato, a livello elevato.
 
@@ -388,4 +389,4 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

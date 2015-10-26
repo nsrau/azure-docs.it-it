@@ -51,4 +51,4 @@ Per informazioni su come configurare il codificatore [Tricaster](http://newtek.c
 
 [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

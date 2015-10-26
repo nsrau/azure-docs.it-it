@@ -1,20 +1,20 @@
 <properties
    pageTitle="Risoluzione dei problemi: Voce ";Active Directory"; mancante o non disponibile | Microsoft Azure"
-	description="Operazioni da eseguire quando la voce di menu Active Directory non viene visualizzata nel portale di gestione di Azure."
-	services="active-directory"
-	documentationCenter="na"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Operazioni da eseguire quando la voce di menu Active Directory non viene visualizzata nel portale di gestione di Azure."
+   services="active-directory"
+   documentationCenter="na"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/24/2015"
+   ms.author="mbaldwin"/>
 
 # Risoluzione dei problemi: Voce "Active Directory" mancante o non disponibile
 
@@ -54,4 +54,4 @@ Tuttavia, durante il caricamento della pagina, la voce viene visualizzata in gri
 
 ![Schermata: Active Directory non disponibile](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

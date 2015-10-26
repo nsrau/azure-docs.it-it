@@ -129,4 +129,4 @@ Per informazioni dettagliate sulla messaggistica asincrona del bus di servizio, 
   [TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
   [Modelli di messaggistica asincrona e disponibilità elevata]: service-bus-async-messaging.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

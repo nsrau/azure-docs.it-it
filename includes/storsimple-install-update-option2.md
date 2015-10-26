@@ -12,4 +12,4 @@
 
 7. A questo punto è possibile [utilizzare il portale di gestione per installare l'aggiornamento 1.2](#use-the-management-portal-to-install-update-1). Seguire le istruzioni a partire dal passaggio 3 di questa procedura. Dopo aver installato tutti gli aggiornamenti, è possibile riabilitare l'interfaccia di rete che è stata disabilitata.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

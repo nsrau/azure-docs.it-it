@@ -1,3 +1,3 @@
 Dati relativi alle prestazioni nel tempo dei voli passeggeri ottenuti dalla raccolta dati TranStats del Dipartimento dei trasporti degli Stati Uniti (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>Il set di dati copre il periodo aprile-ottobre 2013. Prima del caricamento in Azure ML Studio, il set di dati è stato elaborato come segue:<ul><li>Il set di dati è stato filtrato in modo da coprire solo i 70 aeroporti più trafficati degli Stati Uniti continentali</li><li>I voli cancellati sono stati etichettati in modo da indicare un ritardo superiore a 15 minuti</li><li>I voli deviati sono stati esclusi</li><li>Sono state selezionate le colonne seguenti: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -57,11 +57,7 @@ Nella tabella seguente è illustrata la gerarchia di spostamento per l'interfacc
 |Pagina di destinazione|Pagine a livello di servizio|Pagine a livello di dispositivo|Pagine a livello di dispositivo|
 |---|---|---|---|
 |Servizio StorSimple Manager|Dashboard del servizio|Pagina dashboard||
-||Dispositivi →|Monitora|| 
-||Catalogo backup|Contenitori dei volumi→|Volumi| 
-||Configura (servizio)|Criteri di backup|| 
-||Processi|Configura (dispositivo)|| 
-||Avvisi|Manutenzione||
+||Dispositivi →|Monitora| ||Catalogo backup|Contenitori dei volumi→|Volumi| ||Configura (servizio)|Criteri di backup|| ||Processi|Configura (dispositivo)| ||Avvisi|Manutenzione|
 
 
 ## Gestire il dispositivo StorSimple tramite il servizio StorSimple Manager
@@ -116,4 +112,4 @@ Se non è possibile risolvere i problemi ed è necessario creare una richiesta d
 
 -  [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

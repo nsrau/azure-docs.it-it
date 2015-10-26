@@ -615,4 +615,4 @@ Tenere presente che entrambe le implementazioni del controller usano esclusivame
 
 Come passaggio successivo, sarà possibile compilare l'app client per accedere al servizio.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

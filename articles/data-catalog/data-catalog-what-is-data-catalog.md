@@ -1,20 +1,20 @@
 <properties
    pageTitle="Catalogo dati di Azure - Informazioni sul Catalogo dati"
-	description="Panoramica del Catalogo dati di Microsoft Azure, incluse le funzionalità e i problemi per cui è stato progettato. Il Catalogo dati di Azure offre funzionalità che consentono a qualsiasi utente, analisti, ricercatori di dati per gli e sviluppatori, di registrare, individuare, comprendere e utilizzare le origini dati."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Panoramica del Catalogo dati di Microsoft Azure, incluse le funzionalità e i problemi per cui è stato progettato. Il Catalogo dati di Azure offre funzionalità che consentono a qualsiasi utente, analisti, ricercatori di dati per gli e sviluppatori, di registrare, individuare, comprendere e utilizzare le origini dati."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/21/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/21/2015"
+   ms.author="maroche"/>
 
 # Che cos'è il Catalogo dei dati di Azure?
 
@@ -122,4 +122,4 @@ L'obiettivo principale dell'individuazione dati è trovare i dati necessari e us
 
 > [AZURE.NOTE]Per l'anteprima del Catalogo dati di Azure, solo Microsoft Excel e il servizio di report di SQL saranno direttamente supportati e disponibili nel menu **Apri in**.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

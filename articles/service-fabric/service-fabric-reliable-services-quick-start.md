@@ -204,4 +204,4 @@ Una volta che i servizi sono in esecuzione, è possibile visualizzare gli eventi
 
 [Guida di riferimento per gli sviluppatori per Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

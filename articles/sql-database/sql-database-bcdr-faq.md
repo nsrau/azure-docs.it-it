@@ -7,7 +7,6 @@
    manager="jeffreyg" 
    editor="monicar"/>
 
-
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
@@ -16,7 +15,6 @@
    ms.workload="data-management" 
    ms.date="07/14/2015"
    ms.author="elfish"/>
-
 
 # Domande frequenti sulla continuità aziendale
 
@@ -67,4 +65,4 @@ La funzionalità di replica geografica è basata sulla tecnologia di copia conti
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

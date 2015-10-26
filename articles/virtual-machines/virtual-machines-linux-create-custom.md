@@ -19,7 +19,7 @@
 
 # Come creare una macchina virtuale personalizzata su cui è in esecuzione Linux in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica. È inoltre possibile creare una risorsa con il [modello di distribuzione di Gestione risorse](virtual-machines-linux-tutorial.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] []Resource Manager model](virtual-machines-linux-tutorial.md).
 
 Questo argomento descrive come creare una macchina virtuale *personalizzata* con l’interfaccia della riga di comando di Azure usando il modello di distribuzione classico. Verrà utilizzata un'immagine Linux dalle **IMMAGINI** disponibili in Azure. I comandi dell’interfaccia della riga di comando di Azure offrono le opzioni di configurazione seguenti:
 
@@ -40,4 +40,4 @@ Questo argomento descrive come creare una macchina virtuale *personalizzata* con
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

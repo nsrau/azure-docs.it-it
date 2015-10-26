@@ -1,6 +1,6 @@
-<properties pageTitle="API REST di Ricerca di Azure: versione 2014-10-20-Preview" description="API REST di Ricerca di Azure: versione 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="API REST di Ricerca di Azure: versione 2014-10-20-Preview" description="API REST di Ricerca di Azure: versione 2014-10-20-Preview" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist" />
 
 #API REST di Ricerca di Azure versione 2014-10-20-Preview
 
@@ -1455,4 +1455,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -8,7 +8,6 @@
    editor=""
    tags=""/>
 
-
 <tags
    ms.service="best-practice"
    ms.devlang="na"
@@ -17,7 +16,6 @@
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="masashin"/>
-
 
 # Indicazioni sulla rete di distribuzione dei contenuti (CDN)
 
@@ -118,7 +116,6 @@ L’utilizzo della rete CDN è un ottimo modo per ridurre al minimo il carico su
 
   ```
   <img src="http://[your-cdn-instance].vo.msecnd.net/Images/image.jpg" />
-
   ```
 
 - **Distribuzione**: è possibile che il contenuto statico debba essere predisposto e distribuito in modo indipendente dall'applicazione se non viene incluso nel processo o pacchetto di distribuzione applicazione. Si consideri come tale eventualità influirà sull’approccio del controllo delle versioni utilizzato per gestire i componenti dell'applicazione e il contenuto stativo della risorsa.
@@ -137,8 +134,7 @@ L’utilizzo della rete CDN è un ottimo modo per ridurre al minimo il carico su
 
 - La distribuzione di nuove versioni di contenuto statico quando si aggiorna un'applicazione può essere problematica se le risorse precedenti vengono memorizzate nella cache nella rete CDN. Per ulteriori informazioni, vedere la sezione "<a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Controllo della cache</a>".
 
-<a name="cachecontrol" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span />
-</a>**Controllo della cache**+ Stabilire come gestire la memorizzazione nella cache e a quali livelli dell’applicazione. Ad esempio, quando si utilizza una cartella come origine della rete CDN è possibile specificare la possibilità di memorizzazione nella cache delle pagine che generano contenuto e la scadenza del contenuto per tutte le risorse in una cartella specifica. È inoltre possibile specificare le proprietà della cache per la rete CDN e per il client utilizzando le intestazioni HTTP standard. Anche se occorre gestire la memorizzazione nella cache sul server e sul client, l’utilizzo della rete CDN contribuisce a rendere gli utenti più consapevoli della modalità e dell’ubicazione in cui il contenuto viene memorizzato nella cache.
+<a name="cachecontrol" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>**Controllo della cache**+ Stabilire come gestire la memorizzazione nella cache e a quali livelli dell’applicazione. Ad esempio, quando si utilizza una cartella come origine della rete CDN è possibile specificare la possibilità di memorizzazione nella cache delle pagine che generano contenuto e la scadenza del contenuto per tutte le risorse in una cartella specifica. È inoltre possibile specificare le proprietà della cache per la rete CDN e per il client utilizzando le intestazioni HTTP standard. Anche se occorre gestire la memorizzazione nella cache sul server e sul client, l’utilizzo della rete CDN contribuisce a rendere gli utenti più consapevoli della modalità e dell’ubicazione in cui il contenuto viene memorizzato nella cache.
 
 - Per impedire che gli oggetti siano disponibili nella rete CDN è possibile eliminarli dall'origine (contenitore BLOB o cartella radice **cdn** dell’applicazione), rimuovere o eliminare endpoint della rete CDN o, nel caso dell’archiviazione BLOB, rendere privato il contenitore o BLOB. Tuttavia, gli elementi verranno rimossi dalla rete CDN solo quando il time-to-live (TTL) scade.
 
@@ -195,33 +191,23 @@ Il seguente frammento di file Web.config nella directory radice di un’applicaz
     <rules>
       <rule name="VersionedResource" stopProcessing="false">
         <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
-
         <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
-
       </rule>
       <rule name="CdnImages" stopProcessing="true">
         <match url="cdn/Images/(.*)" ignoreCase="true" />
-
         <action type="Rewrite" url="/Images/{R:1}" appendQueryString="true" />
-
       </rule>
       <rule name="CdnContent" stopProcessing="true">
         <match url="cdn/Content/(.*)" ignoreCase="true" />
-
         <action type="Rewrite" url="/Content/{R:1}" appendQueryString="true" />
-
       </rule>
       <rule name="CdnScript" stopProcessing="true">
         <match url="cdn/Scripts/(.*)" ignoreCase="true" />
-
         <action type="Rewrite" url="/Scripts/{R:1}" appendQueryString="true" />
-
       </rule>
       <rule name="CdnScriptBundles" stopProcessing="true">
         <match url="cdn/bundles/(.*)" ignoreCase="true" />
-
         <action type="Rewrite" url="/bundles/{R:1}" appendQueryString="true" />
-
       </rule>
     </rules>
   </rewrite>
@@ -248,4 +234,4 @@ La creazione di bundle e la minimizzazione possono essere gestite da ASP.NET. In
 + [Integrare un servizio cloud con la rete CDN di Azure](cdn-cloud-service-with-cdn.md)
 + [Procedure consigliate per la rete di distribuzione dei contenuti di Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

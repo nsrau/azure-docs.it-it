@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # Eseguire il debug di un'app per le API del servizio app di Azure
 
 ## Panoramica
 
-In questa esercitazione verrà illustrato come eseguire il debug di codice dell'API Web ASP.NET configurato per l'esecuzione in un'[app per le API](app-service-api-apps-why-best-platform.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Verrà eseguito il debug in modalità locale e remota (durante l'esecuzione in Azure).
+In questa esercitazione si esegue il debug di codice dell'API Web ASP.NET configurato per l'esecuzione in un'[app per le API](app-service-api-apps-why-best-platform.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Si esegue il debug del codice mentre è in esecuzione in locale e durante l'esecuzione in modalità remota in Azure.
 
 È possibile eseguire l'esercitazione con l'app per le API [creata](app-service-dotnet-create-api-app.md) e [distribuita](app-service-dotnet-deploy-api-app.md) nelle esercitazioni precedenti di questa serie.
 
@@ -132,8 +132,8 @@ A volte può essere opportuno eseguire il debug dell'app per le API localmente, 
 
 ## Passaggi successivi
 
-In questa esercitazione si è visto come eseguire il debug di app per le API. Per altre informazioni sulla risoluzione dei problemi, vedere [Risolvere i problemi di un'app Web nel servizio app di Azure tramite Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Le app per le API sono app Web con funzionalità aggiuntive per l'hosting di servizi Web. È quindi possibile usare gli stessi strumenti per il debug e la risoluzione dei problemi delle app per le API usati per le app Web.
+In questa esercitazione si è visto come eseguire il debug di app per le API.
 
- 
+Per altre informazioni sulla risoluzione dei problemi, vedere [Risolvere i problemi di un'app Web nel servizio app di Azure tramite Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Le app per le API sono app Web con funzionalità aggiuntive per l'hosting di servizi Web. È quindi possibile usare gli stessi strumenti per il debug e la risoluzione dei problemi delle app per le API usati per le app Web.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

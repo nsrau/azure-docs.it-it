@@ -530,4 +530,4 @@ System.Hosting segnala una condizione di errore se si verifica un errore di conv
 [Aggiornamento di un’applicazione Infrastruttura di servizi](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

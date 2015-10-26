@@ -359,4 +359,4 @@ Un riferimento allo schema XML per gli elementi utilizzati in precedenza è repe
 ## Passaggi successivi
 Ulteriori informazioni sul [modello](cloud-services-model-and-package.md) del servizio Cloud.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

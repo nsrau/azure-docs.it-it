@@ -16,4 +16,4 @@ Il servizio mobile e l'app sono ora configurati per funzionare con il provider d
 
 > [AZURE.IMPORTANT]Verificare di aver impostato l'URI di reindirizzamento corretto nel sito per sviluppatori del provider di identità. Come descritto nelle istruzioni collegate per ogni provider riportato sopra, l'URI di reindirizzamento può essere diverso per un servizio back-end .NET e per un servizio back-end JavaScript. Se l'URI di reindirizzamento non è configurato in modo corretto, è possibile che la schermata di accesso non venga visualizzata correttamente e che si verifichino anomalie impreviste nel funzionamento dell'applicazione.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

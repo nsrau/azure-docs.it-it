@@ -19,7 +19,8 @@
 
 # Migrazione di un database a SQL Server su una macchina virtuale di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 Esistono diversi metodi per eseguire la migrazione di un database utente di SQL Server locale a SQL Server in una macchina virtuale di Azure. Questo articolo illustra brevemente i vari metodi, consiglia il metodo migliore per i diversi scenari e offre un'[esercitazione](#azure-vm-deployment-wizard-tutorial) come guida per l'uso della procedura guidata per la **distribuzione di un database SQL Server a una macchina virtuale di Microsoft Azure**.
 
@@ -167,4 +168,4 @@ Usare il [metodo del servizio di importazione/esportazione di Windows](../storag
 
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

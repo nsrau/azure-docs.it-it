@@ -126,11 +126,11 @@ Nel database SQL, per generare automaticamente i valori di [chiave primaria](htt
 
 Questo esempio di codice illustra l'uso di transazioni con le operazioni seguenti:
 
-\-Avvio di una transazione
+-Avvio di una transazione
 
-\-Inserimento di una riga di dati, aggiornamento di un'altra riga di dati
+-Inserimento di una riga di dati, aggiornamento di un'altra riga di dati
 
-\-Commit della transazione se l'inserimento e l'aggiornamento vengono eseguiti correttamente e il rollback della transazione se una di tali operazioni non è riuscita
+-Commit della transazione se l'inserimento e l'aggiornamento vengono eseguiti correttamente e il rollback della transazione se una di tali operazioni non è riuscita
 
 
 	function Transactions()
@@ -180,4 +180,4 @@ Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai dat
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

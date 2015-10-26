@@ -2,6 +2,7 @@
 	pageTitle="Pianificare un ambiente di analisi avanzata dei dati di Machine Learning | Microsoft Azure" 
 	description="Pianificare l'ambiente di analisi avanzata tenendo presenti le domande principali." 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -79,4 +80,4 @@ A seconda dello scenario, potrebbero essere necessari alcuni degli strumenti e d
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

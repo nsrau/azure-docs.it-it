@@ -67,4 +67,4 @@ Nell'esempio precedente, si dispone di 2 macchine virtuali denominate "sqlsvc1" 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -567,8 +567,7 @@ Gli account di archiviazione offrono più spazio e un periodo più lungo di cons
 
 1. Nella finestra **App Web di Azure** di Visual Studio fare clic sulla scheda **Log**, quindi su **Configura registrazione nel portale di gestione**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Configurare la registrazione](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configurare la registrazione](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Nel portale di Azure verrà visualizzata la scheda **Configura** relativa all'app Web.
 
@@ -762,4 +761,4 @@ Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un'ap
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

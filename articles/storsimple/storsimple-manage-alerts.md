@@ -234,4 +234,4 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 - Ulteriori informazioni sugli [Errori di StorSimple](storsimple-troubleshoot-operational-device.md).
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

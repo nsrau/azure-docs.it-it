@@ -62,4 +62,4 @@
 [Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

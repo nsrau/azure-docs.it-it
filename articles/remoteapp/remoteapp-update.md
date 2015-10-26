@@ -36,4 +36,4 @@ Quindi, come si esegue l'aggiornamento della raccolta? È piuttosto semplice:
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

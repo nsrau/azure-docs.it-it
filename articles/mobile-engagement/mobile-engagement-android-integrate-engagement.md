@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement"
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
 	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #Come integrare Engagement in Android
 
@@ -382,4 +382,4 @@ Sarà quindi possibile aggiungere un elemento `CheckBoxPreference` nel layout de
 [Device API]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

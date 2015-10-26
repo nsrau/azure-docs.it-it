@@ -38,7 +38,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Over
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-overdrive-books-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-overdrive-books-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -57,7 +57,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 1.  Nella pagina di integrazione dell'applicazione **OverDrive** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Attiva Single Sign-On](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Attiva Single Sign-On")
+    ![Attiva Single Sign-On](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Abilitare l'autenticazione Single Sign-On")
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a OverDrive** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
 
@@ -100,4 +100,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

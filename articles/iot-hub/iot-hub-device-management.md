@@ -1,8 +1,8 @@
 <properties
- pageTitle="Gestione dei dispositivi IoT | Microsoft Azure"
- description="Panoramica della gestione dei dispositivi dell'hub IoT di Azure"
+ pageTitle="Gestire i dispositivi IoT | Microsoft Azure"
+ description="Una panoramica dell'utilizzo di IoT Hub e IoT Suite per gestire i dispositivi IoT"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="juanjperez"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="juanpere"/>
 
@@ -118,4 +118,4 @@ Il recapito del pacchetto di aggiornamento può essere eseguito tramite un servi
 
 Dopo il completamento di un aggiornamento firmware, il dispositivo deve essere in grado di verificare e identificare uno stato valido. Se il dispositivo non riesce a impostare uno stato valido, il software sul dispositivo deve avviare un rollback a uno stato valido noto. È possibile che lo stato valido noto sia l'ultimo stato valido noto o un'immagine del firmware del dispositivo nota come "stato ottimale" archiviato in una partizione di archiviazione.
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

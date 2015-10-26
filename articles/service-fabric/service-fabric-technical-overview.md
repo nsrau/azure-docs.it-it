@@ -1,20 +1,20 @@
 <properties
    pageTitle="Informazioni tecniche"
-	description="Informazioni tecniche su Infrastruttura di servizi. Vengono illustrati i concetti chiave e i cenni preliminari sull'architettura"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor="chackdan;subramar"/>
+   description="Informazioni tecniche su Infrastruttura di servizi. Vengono illustrati i concetti chiave e i cenni preliminari sull'architettura"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="msfussell"
+   manager="timlt"
+   editor="chackdan;subramar"/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/25/2015"
+   ms.author="mfussell"/>
 
 # Informazioni tecniche su Infrastruttura di servizi
 
@@ -54,4 +54,4 @@ Per ulteriori informazioni su Infrastruttura di servizi, vedere:
 - [Scenari applicativi](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="10/08/2015"
    ms.author="jdial"/>
 
 # Ambienti di sviluppo e test in Microsoft Azure
@@ -178,9 +178,9 @@ Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Az
 
   **Metodo 2:** PowerShell
 
-  Assicurarsi che PowerShell sia installato in un computer Windows e connesso alla sottoscrizione, come illustrato in modo dettagliato nell'articolo [Come installare e configurare Azure PowerShell](powershell-install-configure.md). Da un prompt dei comandi di PowerShell digitare il comando seguente per creare il gruppo di risorse per l'ambiente di sviluppo.
+  Assicurarsi che PowerShell sia installato in un computer Windows e connesso alla sottoscrizione, come illustrato in modo dettagliato nell'articolo [Come installare e configurare Azure PowerShell](powershell-install-configure.md). Da un prompt dei comandi di PowerShell digitare il comando seguente per creare il gruppo di risorse per l'ambiente di sviluppo. Se si usa la versione di anteprima di Azure PowerShell 1.0, il comando è **New-AzureRmResourceGroup**, come illustrato di seguito. Se si usa una versione di Azure PowerShell precedente all'anteprima 1.0, il comando è **New-AzureResourceGroup**.
 
-	New-AzureResourceGroup -Name TestApp1-Development -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
   Se avrà esito positivo, il comando restituirà quanto segue:
 
@@ -200,13 +200,13 @@ Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Az
 
   Per creare il gruppo di risorse per l'ambiente di test, immettere il comando seguente:
 
-	New-AzureResourceGroup -Name TestApp1-Test -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Test -Location "Central US"
 
   Per creare il gruppo di risorse per l'ambiente di pre-produzione, immettere il comando seguente:
 
-	New-AzureResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
 
- **Passaggio 6:** Distribuire le risorse di Azure per i gruppi di risorse per ogni ambiente usando il file modello per l'applicazione e i file di parametri per ogni ambiente usando uno dei metodi seguenti. Entrambi i metodi avranno esattamente lo stesso risultato.
+ **Passaggio 6:** distribuire le risorse di Azure per i gruppi di risorse per ogni ambiente usando il file modello per l'applicazione e i file di parametri per ogni ambiente usando uno dei metodi seguenti. Entrambi i metodi avranno esattamente lo stesso risultato.
 
   **Metodo 1:** interfaccia della riga di comando di Azure (CLI)
 
@@ -256,9 +256,9 @@ Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Az
   
   **Metodo 2:** PowerShell
 
-  Da un prompt dei comandi di PowerShell digitare il comando seguente per distribuire risorse nel gruppo di risorse creato dall'ambiente di sviluppo, sostituendo [path] con il percorso nei file salvati nei passaggi precedenti.
+  Da un prompt dei comandi di PowerShell digitare il comando seguente per distribuire risorse nel gruppo di risorse creato dall'ambiente di sviluppo, sostituendo [path] con il percorso nei file salvati nei passaggi precedenti. Se si usa la versione di anteprima di Azure PowerShell 1.0, il comando è **New-AzureRmResourceGroupDeployment**, come illustrato di seguito. Se si usa una versione di Azure PowerShell precedente all'anteprima 1.0, il comando è **New-AzureResourceGroupDeployment**.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
 
   Se avrà esito positivo, il comando restituirà quanto segue:
 
@@ -292,18 +292,18 @@ Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Az
 
   Da un prompt dei comandi di PowerShell digitare il comando seguente per distribuire risorse nel gruppo di risorse creato dall'ambiente di test, sostituendo [path] con il percorso nei file salvati nei passaggi precedenti.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
 
   Da un prompt dei comandi di PowerShell digitare il comando seguente per distribuire risorse nel gruppo di risorse creato dall'ambiente di pre-produzione, sostituendo [path] con il percorso nei file salvati nei passaggi precedenti.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
 
 I file modello e di parametri possono essere sottoposti al controllo delle versioni e gestiti con il codice dell'applicazione in un sistema di controllo del codice sorgente. È anche possibile salvare i comandi precedenti in file di script e salvarli nel codice stesso.
 
 ## Gestire gli ambienti
 Durante lo sviluppo, la configurazione delle risorse di Azure nei diversi ambienti può essere resa incoerente in modo intenzionale o accidentale. Ciò può provocare attività superflue di risoluzione dei problemi durante il ciclo di sviluppo dell'applicazione.
 
-  **Passaggio 7:** Cambiare gli ambienti. Aprire il [portale di anteprima di Azure](https://portal.azure.com) e accedere al portale con lo stesso account usato per completare i passaggi precedenti. Come illustrato nella figura seguente, fare clic su Esplora tutto-->Gruppi di risorse. Potrebbe essere necessario scorrere verso il basso nel pannello Sfoglia per visualizzare i gruppi di risorse. Verranno visualizzati tutti e tre i gruppi di risorse creati usando uno dei metodi dei passaggi precedenti. Fare clic sul gruppo di risorse TestApp1-Development, come illustrato di seguito.
+  **Passaggio 7:** cambiare gli ambienti. Aprire il [portale di anteprima di Azure](https://portal.azure.com) e accedere al portale con lo stesso account usato per completare i passaggi precedenti. Come illustrato nella figura seguente, fare clic su Esplora tutto-->Gruppi di risorse. Potrebbe essere necessario scorrere verso il basso nel pannello Sfoglia per visualizzare i gruppi di risorse. Verranno visualizzati tutti e tre i gruppi di risorse creati usando uno dei metodi dei passaggi precedenti. Fare clic sul gruppo di risorse TestApp1-Development, come illustrato di seguito.
 
   ![Portale](./media/solution-dev-test-environments-preview-portal/portal1.png)
 
@@ -315,7 +315,7 @@ Durante lo sviluppo, la configurazione delle risorse di Azure nei diversi ambien
 
 > [AZURE.NOTE]Invece di usare il portale di anteprima di Azure per eliminare una risorsa da un gruppo di risorse, è possibile usare il comando [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) di PowerShell o il comando "azure resource delete" dall'interfaccia della riga di comando per eseguire la stessa attività.
 
-  **Passaggio 8:** Ridistribuire gli ambienti nei gruppi di risorse usando gli stessi comandi del Passaggio 6, ma sostituire "Deployment1" con "Deployment2". Come illustrato nella sezione Riepilogo della figura seguente, tutte le risorse del modello sono di nuovo presenti nel gruppo di risorse TestApp1-Development. Uno dei vantaggi della distribuzione degli ambienti con i modelli di Gestione risorse di Azure consiste nel fatto che è possibile ridistribuire facilmente gli ambienti per ripristinarne uno stato noto in qualsiasi momento.
+  **Passaggio 8:** ridistribuire gli ambienti nei gruppi di risorse usando gli stessi comandi del Passaggio 6, ma sostituire "Deployment1" con "Deployment2". Come illustrato nella sezione Riepilogo della figura seguente, tutte le risorse del modello sono di nuovo presenti nel gruppo di risorse TestApp1-Development. Uno dei vantaggi della distribuzione degli ambienti con i modelli di Gestione risorse di Azure consiste nel fatto che è possibile ridistribuire facilmente gli ambienti per ripristinarne uno stato noto in qualsiasi momento.
 
   ![Portale](./media/solution-dev-test-environments-preview-portal/portal3.png)
 
@@ -324,7 +324,7 @@ Durante lo sviluppo, la configurazione delle risorse di Azure nei diversi ambien
 ## Eliminare gli ambienti
 Quando un ambiente non è più necessario, è consigliabile eliminarlo, in modo che non vengano effettuati addebiti per risorse di Azure che non vengono più usate. L'eliminazione di ambienti è addirittura più semplice della creazione. Nei passaggi precedenti sono stati creati singoli gruppi di risorse di Azure per ogni ambiente. Quando si elimina un gruppo di risorse, verranno eliminate anche tutte le risorse contenute nel gruppo. Tenendo presente questo, usare uno dei metodi seguenti per eliminare gli ambienti (gruppi di risorse), oltre a tutte le risorse di Azure incluse negli ambienti e distribuite in precedenza.
 
-  **Passaggio 9:** Eliminare gli ambienti usando uno dei metodi seguenti. Entrambi i metodi avranno esattamente lo stesso risultato.
+  **Passaggio 9:** eliminare gli ambienti usando uno dei metodi seguenti. Entrambi i metodi avranno esattamente lo stesso risultato.
 
   **Metodo 1: interfaccia della riga di comando di Azure**
 
@@ -346,9 +346,9 @@ Quando un ambiente non è più necessario, è consigliabile eliminarlo, in modo 
   
   **Metodo 2:** PowerShell
 
-  Da un prompt di PowerShell, digitare quanto segue:
+  Se si usa la versione di anteprima di Azure PowerShell 1.0, il comando per eliminare il gruppo di risorse è **Remove-AzureRmResourceGroup**, come illustrato di seguito. Se si usa una versione di Azure PowerShell precedente all'anteprima 1.0, il comando è **Remove-AzureResourceGroup**. Da un prompt di PowerShell, digitare quanto segue:
 
-	Remove-AzureResourceGroup -Name TestApp1-Development
+	Remove-AzureRmResourceGroup -Name TestApp1-Development
 
   Questo comando restituirà quanto segue, se si immette "y" quando richiesto:
 
@@ -358,8 +358,8 @@ Quando un ambiente non è più necessario, è consigliabile eliminarlo, in modo 
 
   Da un prompt di PowerShell, digitare quanto segue per eliminare gli ambienti rimanenti:
 
-	Remove-AzureResourceGroup -Name TestApp1-Test
-	Remove-AzureResourceGroup -Name TestApp1-Pre-Production
+	Remove-AzureRmResourceGroup -Name TestApp1-Test
+	Remove-AzureRmResourceGroup -Name TestApp1-Pre-Production
 
 Indipendentemente dal metodo usato, quando l'esecuzione del comando viene completata, i gruppi di risorse e tutte le risorse in essi contenuti non esisteranno più e non verranno più sostenute spese di fatturazione per tali risorse.
 
@@ -384,4 +384,4 @@ Dopo avere constatato la semplicità dei processi di creazione, gestione ed elim
 - Usare [Release Management per Visual Studio](http://msdn.microsoft.com/Library/vs/alm/Release/overview) per creare pipeline gestite di distribuzione continua per rilasciare versioni in modo rapido, semplice e frequente.
 - Richiedere un invito per l'anteprima del [Lab di sviluppo/test di Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Consente di gestire ambienti lab di sviluppo e test usando i modelli e di configurare le quote e i criteri da usare nell'organizzazione.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

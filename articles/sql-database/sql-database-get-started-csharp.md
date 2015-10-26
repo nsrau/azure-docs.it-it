@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Creare un database SQL di Azure con C#"
-	description="Questo articolo illustra come creare un database SQL di Azure con C# usando la libreria di database SQL di Azure per .NET."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Creare un database SQL di Azure con C#" 
+   description="Questo articolo illustra come creare un database SQL di Azure con C# usando la libreria di database SQL di Azure per .NET." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="09/01/2015"
-	ms.author="sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/01/2015"
+   ms.author="sstein"/>
 
 # Creare un database SQL con C&#x23;
 
@@ -434,4 +434,4 @@ Il seguente comando crea un nuovo database di base se nel server non esiste un d
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

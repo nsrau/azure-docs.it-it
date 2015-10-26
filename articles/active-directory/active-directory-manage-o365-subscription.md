@@ -70,4 +70,4 @@ Ora si supponga che John Doe debba eseguire l'accesso al portale di gestione di 
 ##Passaggi successivi
 Per altre informazioni sulla relazione tra sottoscrizioni e directory, vedere [Come vengono associate le sottoscrizioni Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

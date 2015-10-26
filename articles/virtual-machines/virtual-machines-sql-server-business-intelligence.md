@@ -18,7 +18,8 @@
 
 # SQL Server Business Intelligence in Macchine virtuali di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra l'uso di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+ 
  
 La raccolta di macchine virtuali di Microsoft Azure include immagini che contengono installazioni SQL Server. Le edizioni di SQL Server supportate nelle immagini della raccolta sono gli stessi file di installazione che è possibile installare in computer locali e macchine virtuali. Questo argomento riepiloga le funzionalità di SQL Server Business Intelligence (BI) installate nelle immagini e i passaggi di configurazione necessari dopo il provisioning di una macchina virtuale. Questo argomento descrive inoltre le topologie di distribuzione supportate per le funzionalità di Business Intelligence e le procedure consigliate.
 
@@ -430,4 +431,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

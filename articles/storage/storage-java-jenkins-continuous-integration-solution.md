@@ -1,30 +1,28 @@
 <properties 
-	pageTitle="Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins | Microsoft Azure"
-	description="Questa esercitazione illustra come usare il servizio BLOB di Azure come archivio di elementi di compilazione creati da una soluzione di Integrazione continuata Jenkins."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins | Microsoft Azure" 
+	description="Questa esercitazione illustra come usare il servizio BLOB di Azure come archivio di elementi di compilazione creati da una soluzione di Integrazione continuata Jenkins." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 # Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins
-
-*Autore: [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 ## Panoramica
 
 Nell'articolo seguente viene descritto come usare il servizio BLOB di Azure come archivio di elementi di compilazione creati dalla soluzione di Integrazione continuata Jenkins (CI) o come origine di file scaricabili da usare in un processo di compilazione. Queste informazioni possono rivelarsi utili nel caso in cui si codifichi in un ambiente di sviluppo Agile (utilizzando Java o altri linguaggi), le compilazioni vengano eseguite in base all'integrazione continuata e sia necessario un archivio per gli elementi di compilazione, ad esempio per poterli condividere con altri membri dell'organizzazione o clienti oppure per gestire un archivio. Un altro scenario è quando il processo di compilazione stesso richiede altri file, ad esempio dipendenze da scaricare come parte dell'input di compilazione.
 
-In questa esercitazione si utilizzerà il plug-in di Archiviazione di Azure per l'Integrazione continuata Jenkins reso disponibile da Microsoft Open Technologies, Inc.
+In questa esercitazione si utilizzerà il plug-in di Archiviazione di Azure per l'Integrazione continuata Jenkins reso disponibile da Microsoft.
 
 ## Panoramica su Jenkins ##
 
@@ -162,7 +160,6 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 
   [Come creare un account di archiviazione]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
-  [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

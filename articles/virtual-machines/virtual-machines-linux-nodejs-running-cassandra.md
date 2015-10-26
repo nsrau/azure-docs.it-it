@@ -1,12 +1,4 @@
-<properties 
-	pageTitle="eseguire Cassandra con Linux in Azure |  Microsoft Azure=" 
-	description="Come eseguire un cluster Cassandra su Linux in macchine virtuali di Azure da un'applicazione Node.js" 
-	services="virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""
-	azure-service-management"/>
+< proprietà pageTitle = "eseguire Cassandra con Linux in Azure | Descrizione di Microsoft Azure"="Come eseguire un cluster Cassandra su Linux in macchine virtuali di Azure da un'applicazione Node. js"services = documentationCenter"-macchine virtuali"="nodejs"autori ="MikeWasson"gestore ="wpickett"editor =" "gestione servizi di azure" / >
 
 <tags 
 	ms.service="virtual-machines" 
@@ -20,7 +12,7 @@
 
 # Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica. È inoltre possibile creare una risorsa con il [modello di distribuzione di Gestione risorse](virtual-machines-datastax-template.md) utilizzando un modello.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-datastax-template.md).
 
 ## Panoramica
 Microsoft Azure è una piattaforma cloud aperta che esegue software sia Microsoft che non Microsoft, inclusi sistemi operativi, server applicazioni, middleware di messaggistica, oltre a database SQL e NoSQL da modelli sia commerciali che open source. La compilazione di servizi resilienti su cloud pubblici, incluso Azure, richiede un'attenta pianificazione e un'architettura mirata sia per i server applicazioni che per i livelli di archiviazione. L'architettura di archiviazione distribuita di Cassandra aiuta a compilare con facilità sistemi a disponibilità elevata a tolleranza di errore del cluster. Cassandra è un database NoSQL con scalabilità cloud gestito da Apache Software Foundation all'indirizzo cassandra.apache.org. Cassandra, essendo scritto in Java, viene eseguito su piattaforme sia Windows che Linux.
@@ -700,4 +692,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 
  
 
-<!------HONumber=Oct15_HO2--->
+<!---HONumber=Oct15_HO3-->

@@ -177,4 +177,4 @@ Quando si configura la macchina virtuale e vi si installa del software, è consi
 
 Per ulteriori informazioni sulla creazione di macchine virtuali, vedere [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-tutorial.md) e [Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

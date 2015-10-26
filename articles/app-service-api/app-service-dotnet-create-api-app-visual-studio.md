@@ -83,4 +83,4 @@ Questa sezione illustra come configurare un progetto API Web esistente come app 
 L'app per le API è ora pronta per essere distribuita e a questo scopo è possibile seguire l'esercitazione [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

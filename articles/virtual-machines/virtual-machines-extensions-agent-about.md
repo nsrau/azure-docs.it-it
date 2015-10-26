@@ -18,9 +18,11 @@
  ms.author="rasquill"/>
 
 #Informazioni sull'agente e sulle estensioni di macchine virtuali
+
 L'agente macchine virtuali di Azure (agente VM) viene usato per installare, configurare, gestire ed eseguire estensioni di macchine virtuali di Azure (estensioni VM). Le estensioni VM offrono funzionalità dinamiche sviluppate da Microsoft e da terze parti. L'agente e le estensioni vengono aggiunti principalmente tramite il portale di gestione, ma è anche possibile usare i cmdlet di [Powershell](../install-configure-powershell.md) o l'interfaccia [Azure CLI](xplat-install.md) per le operazioni di aggiunta e configurazione al momento della creazione di una macchina virtuale o su macchine virtuali esistenti.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo si riferisce alle chiamate di distribuzione per il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 
 Con le estensioni VM è possibile:
@@ -64,4 +66,4 @@ L'agente VM è abilitato nelle seguenti situazioni:
 
 Per informazioni dettagliate sulle attività, vedere [Aggiungere, trovare, aggiornare e rimuovere estensioni VM di Azure](virtual-machines-extensions-install.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

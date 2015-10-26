@@ -83,4 +83,4 @@ Dopo esserci esercitati con i dati di esempio, esaminiamo come [sviluppare][], [
 <!--Other Web references-->
 [script di dati di esempio]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

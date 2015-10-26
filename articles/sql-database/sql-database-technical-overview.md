@@ -69,4 +69,4 @@ Il server SQL vanta una tradizione di sicurezza dei dati continua che rispetta i
 
 - Per iniziare, [creare il primo database](sql-database-get-started.md). Poi costruire la prima app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Creare pipeline predittive tramite l'attività AzureMLBatchExecution di Azure Machine Learning | Microsoft Azure"
-	description="Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Creare pipeline predittive tramite l'attività AzureMLBatchExecution di Azure Machine Learning | Microsoft Azure" 
+	description="Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="spelluru"/>
 
 # Creare pipeline predittive tramite l'attività AzureMLBatchExecution di Azure Machine Learning   
@@ -261,7 +261,7 @@ Viene preso in esame uno scenario relativo all'uso dei parametri del servizio We
 
 	"typeProperties": {
     	"globalParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -348,7 +348,9 @@ Se si desidera continuare a usare l'attività AzureMLBatchScoring, fare riferime
 **R:** Sì. Per informazioni dettagliate, vedere la sezione **Uso di un modulo Reader per leggere dati da più file del BLOB di Azure**.
 
 
+## Vedere anche
 
+- [Post di blog di Azure: Guida introduttiva a Data Factory di Azure e ad Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 
 
@@ -361,4 +363,4 @@ Se si desidera continuare a usare l'attività AzureMLBatchScoring, fare riferime
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

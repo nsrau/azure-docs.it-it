@@ -16,7 +16,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la gestione delle risorse con il modello di distribuzione Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 In questo articolo viene descritto come creare, gestire ed eliminare le risorse di Azure e le macchine virtuali tramite la CLI di Azure per Mac, Linux e Windows utilizzando la modalità di gestione risorse di Azure.
 
@@ -341,4 +342,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

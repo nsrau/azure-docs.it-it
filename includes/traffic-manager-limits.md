@@ -5,4 +5,4 @@ Endpoint per ogni profilo| 200
 
 Contattare il team di supporto per aumentare il limite predefinito.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

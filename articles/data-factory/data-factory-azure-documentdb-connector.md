@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Spostare dati da e verso DocumentDB | Data factory di Azure"
-	description="Informazioni su come spostare i dati da e verso la raccolta di Azure DocumentDB mediante Data factory di Azure"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Spostare dati da e verso DocumentDB | Data factory di Azure" 
+	description="Informazioni su come spostare i dati da e verso la raccolta di Azure DocumentDB mediante Data factory di Azure" 
+	services="data-factory, documentdb" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="multiple" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso DocumentDB mediante Data factory di Azure
@@ -399,6 +399,21 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 | writeBatchSize | Numero di richieste in parallelo per il servizio DocumentDB per creare documenti.<p>È possibile ottimizzare le prestazioni quando si copiano dati da e verso DocumentDB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a DocumentDB. Tuttavia è necessario evitare la limitazione che può generare il messaggio di errore relativo alla dimensione della frequenza di richiesta.</p><p>La limitazione viene stabilita da numerosi fattori, tra cui le dimensioni dei documenti, il numero di termini nei documenti, l'indicizzazione dei criteri di raccolta di destinazione e così via. Per le operazioni di copia, è possibile usare una raccolta migliore (ad esempio S3) per disporre della massima velocità effettiva disponibile (2500 unità di richiesta al secondo).</p> | Valore integer | No |
 | writeBatchTimeout | Tempo di attesa per il completamento dell’operazione prima del timeout. | (Unità = intervallo di tempo) Esempio: "00:30:00" (30 minuti). | No |
  
- 
+## Appendice
+1. **Domanda:** C’è l'aggiornamento del supporto di attività di copia dei record esistenti?
 
-<!---HONumber=August15_HO9-->
+	**Risposta:** No.
+
+2. **Domanda:** come fa un nuovo tentativo di una copia del DocumentDB ad affrontare i record copiati?
+
+	**Risposta:** se i record dispongono di un campo "ID" e l'operazione di copia tenta di inserire un record con lo stesso ID, l'operazione di copia genera un errore.
+ 
+3. **Domanda:** Il Data Factory supporta [il partizionamento dei dati basato su hash o sull’intervallo](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+
+	**Risposta:** No. 
+4. **Domanda:** è possibile specificare più di una raccolta di DocumentDB per una tabella?
+	
+	**Risposta:** No. In questo momento, è possibile specificare solo una raccolta.
+     
+
+<!---HONumber=Oct15_HO3-->

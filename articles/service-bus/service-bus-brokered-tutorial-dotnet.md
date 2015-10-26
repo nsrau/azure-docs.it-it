@@ -649,4 +649,4 @@ Per ulteriori informazioni sul bus di servizio, vedere gli argomenti seguenti:
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Architettura del bus di servizio](service-bus-architecture.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

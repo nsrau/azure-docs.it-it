@@ -126,4 +126,4 @@ No, tale opzione non è supportata da RemoteApp di Azure, che utilizza host sess
 
 No, tale opzione non è supportata da Azure RemoteApp.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

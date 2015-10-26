@@ -130,4 +130,4 @@ Per creare un gateway VPN per la rete virtuale di Gestione risorse di Azure, seg
 - Leggere ulteriori informazioni su [NRP (Network Resource Provider) per Gestione risorse di Azure](../resource-groups-networking.md).
 - Creare una [soluzione end-to-end che connette una rete virtuale classica a una rete virtuale di Gestione risorse di Azure utilizzando una VPN S2S](../virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

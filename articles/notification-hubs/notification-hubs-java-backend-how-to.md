@@ -303,4 +303,4 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

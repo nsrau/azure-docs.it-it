@@ -33,7 +33,7 @@ Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti
 ##Modello di risorse gerarchico
 Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di DocumentDB è costituito da set di risorse associati a un account di database, ciascuno indirizzabile tramite un URI logico e stabile. Un set di risorse viene definito **feed** in questo articolo.
 
->[AZURE.NOTE] DocumentDB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE]DocumentDB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ![Modello di risorse gerarchico di DocumentDB][1] **Modello di risorse gerarchico in un account di database**
 
@@ -56,16 +56,12 @@ Per iniziare a lavorare con le risorse, è necessario [creare un account di data
 ##Risorse definite dal sistema e risorse definite dall'utente
 Tutte le risorse quali account di database, database, raccolte, utenti, autorizzazioni, stored procedure, trigger e funzioni UDF hanno uno schema fisso e sono definite risorse di sistema. Per le risorse quali documenti e allegati, invece, non sono previste restrizioni a livello di schema. Si tratta di risorse definite dall'utente. In DocumentDB le risorse definite dal sistema e definite dall'utente sono rappresentate e gestite come risorse JSON conformi allo standard. Tutte le risorse, di sistema o definite dall'utente, presentano le proprietà comuni indicate di seguito.
 
->[AZURE.NOTE] Si noti che, nell'implementazione JSON, tutte le proprietà generate dal sistema in una risorsa hanno come prefisso un carattere di sottolineatura (_).
+>[AZURE.NOTE]Si noti che, nell'implementazione JSON, tutte le proprietà generate dal sistema in una risorsa hanno come prefisso un carattere di sottolineatura (\_).
 
 
 Proprietà |Impostabile dall'utente o generata dal sistema?|Scopo
 ---|---|---
-_rid|Generato dal sistema|Generato dal sistema, identificativo univoco e gerarchico della risorsa.
-_etag|Generato dal sistema|etag della risorsa richiesta per il controllo della concorrenza ottimistica.
-_ts|Generato dal sistema|Ultimo timestamp aggiornato della risorsa.
-_self|Generato dal sistema|URI indirizzabile univoco della risorsa.
-id|Impostabile dall'utente|Nome univoco della risorsa definito dall’utente.
+_\_rid|Generato dal sistema|Generato dal sistema, identificativo univoco e gerarchico della risorsa. \_etag|Generato dal sistema|etag della risorsa richiesta per il controllo della concorrenza ottimistica. \_ts|Generato dal sistema|Ultimo timestamp aggiornato della risorsa. \_self|Generato dal sistema|URI indirizzabile univoco della risorsa. id|Impostabile dall'utente|Nome univoco della risorsa definito dall’utente.
 
 ###Rappresentazione delle risorse
 DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard JSON e funziona con i documenti JSON conformi a tale standard.
@@ -73,20 +69,11 @@ DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard
 ###Indirizzamento di una risorsa
 Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\_self** di una risorsa rappresenta l'URI relativo di tale risorsa. Il formato dell'URI è dato dai segmenti del percorso /<feed>/{\_rid}:
 
-|Valore di \_self |Descrizione
-|-------------------|-----------
-|/dbs	|Feed di database in un account di database.
-|/dbs/{_rid-db} |Database con proprietà ID univoca con il valore {_rid-db}
-|/dbs/{_rid-db}/colls/ |Feed di raccolte in un database.
-|/dbs/{_rid-db}/colls/{_rid-coll} |Raccolta con proprietà ID univoca con valore {_rid-coll}
-|/dbs/{_rid-db}/users/ |Feed di utenti in un database.
-|/dbs/{_rid-db}/users/{_rid-user} |Utente con proprietà ID univoca con valore {_rid-user}
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed di autorizzazioni in un database.
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorizzazione con proprietà ID univoca con valore {_rid-permission}.
+|Valore di \_self |Descrizione|-------------------|-----------|/dbs |Feed di database in un account di database. |/dbs/{\_rid-db} |Database con proprietà ID univoca con il valore {\_rid-db}|/dbs/{\_rid-db}/colls/ |Feed di raccolte in un database. |/dbs/{\_rid-db}/colls/{\_rid-coll} |Raccolta con proprietà ID univoca con valore {\_rid-coll}|/dbs/{\_rid-db}/users/ |Feed di utenti in un database. |/dbs/{\_rid-db}/users/{\_rid-user} |Utente con proprietà ID univoca con valore {\_rid-user}|/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed di autorizzazioni in un database. |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Autorizzazione con proprietà ID univoca con valore {\_rid-permission}.
   
-Una risorsa ha anche un nome utente univoco esposto mediante la proprietà ID della risorsa stessa. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà _rid viene usata per costruire il collegamento _self indirizzabile di una risorsa. 
+Una risorsa ha anche un nome utente univoco esposto mediante la proprietà ID della risorsa stessa. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà \_rid viene usata per costruire il collegamento \_self indirizzabile di una risorsa.
 
-Ogni risorsa ha anche un identificatore gerarchico generato dal sistema (chiamato anche RID), disponibile tramite la proprietà _rid. Il RID codifica l'intera gerarchia di una determinata risorsa ed è una rappresentazione interna molto utile da usare per imporre l'integrità referenziale secondo un metodo distribuito. Il RID è univoco all'interno di un account di database e viene usato internamente da DocumentDB per un routing efficiente senza necessità di eseguire ricerche su più partizioni. 
+Ogni risorsa ha anche un identificatore gerarchico generato dal sistema (chiamato anche RID), disponibile tramite la proprietà \_rid. Il RID codifica l'intera gerarchia di una determinata risorsa ed è una rappresentazione interna molto utile da usare per imporre l'integrità referenziale secondo un metodo distribuito. Il RID è univoco all'interno di un account di database e viene usato internamente da DocumentDB per un routing efficiente senza necessità di eseguire ricerche su più partizioni.
 
 I valori delle proprietà \_self e \_rid sono entrambi rappresentazioni alternate e canoniche di una risorsa.
 
@@ -110,8 +97,7 @@ Notare che oltre al provisioning, alla configurazione e alla gestione dell'accou
 ##Database
 Un database di DocumentDB è un contenitore logico di uno o più utenti e raccolte, come mostrato nel diagramma seguente. È possibile creare un numero qualsiasi di database in un account di database DocumentDB, a condizione di rispettare i limiti di offerta.
 
-![Modello gerarchico di account di database e raccolte][2] 
-**Un database è un contenitore logico di utenti e raccolte**
+![Modello gerarchico di account di database e raccolte][2] **Un database è un contenitore logico di utenti e raccolte**
 
 Un database può includere una quantità praticamente illimitata di archiviazione documenti, partizionata in base a raccolte, che costituiscono i domini di transazione per i documenti inclusi nelle raccolte stesse.
 
@@ -375,7 +361,7 @@ Si prenda in considerazione un'applicazione di lettura di social media che usa D
 
 Si noti che gli esempi usano ID descrittivi per indicare la gerarchia delle risorse. L'accesso alle risorse è effettuato tramite le API REST mediante ID di risorsa univoci.
 
-Nel caso dei file multimediali gestiti da DocumentDB, la proprietà _media dell'allegato farà riferimento al file multimediale tramite il rispettivo URI. DocumentDB assicura la Garbage Collection del file multimediale dopo il rilascio di tutti i riferimenti in sospeso. DocumentDB genera automaticamente gli allegati quando si caricano nuovi file multimediali e popola la proprietà _media in modo da fare riferimento ai file multimediali appena aggiunti. Se si sceglie di archiviare i file multimediali in un archivio BLOB remoto gestito personalmente, ad esempio OneDrive, Archiviazione di Azure, DropBox e così via, sarà comunque possibile usare gli allegati per fare riferimento ai file multimediali. In questo caso sarà necessario creare personalmente l'allegato e popolarne la proprietà _media. 
+Nel caso dei file multimediali gestiti da DocumentDB, la proprietà \_media dell'allegato farà riferimento al file multimediale tramite il rispettivo URI. DocumentDB assicura la Garbage Collection del file multimediale dopo il rilascio di tutti i riferimenti in sospeso. DocumentDB genera automaticamente gli allegati quando si caricano nuovi file multimediali e popola la proprietà \_media in modo da fare riferimento ai file multimediali appena aggiunti. Se si sceglie di archiviare i file multimediali in un archivio BLOB remoto gestito personalmente, ad esempio OneDrive, Archiviazione di Azure, DropBox e così via, sarà comunque possibile usare gli allegati per fare riferimento ai file multimediali. In questo caso sarà necessario creare personalmente l'allegato e popolarne la proprietà \_media.
 
 Analogamente a tutte le altre risorse, gli allegati possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le API REST o uno degli SDK dei client. Come per i documenti, il livello di coerenza di lettura degli allegati segue i criteri di coerenza applicati all'account di database. È possibile eseguire l'override di questo criterio per le singole richieste, in base ai requisiti di coerenza dei dati specifici dell'applicazione. Durante l'esecuzione di query relative agli allegati, la coerenza di lettura si basa sulla modalità di indicizzazione impostata per la raccolta. Ai fini della coerenza, si basa sui criteri di coerenza dell'account.
 ##Utenti
@@ -392,8 +378,7 @@ Poiché la scalabilità delle applicazione deve essere adeguata all'incremento d
 
 Indipendentemente dalla strategia scelta per partizionare i dati, è possibile modellare gli utenti effettivi come utenti nel database di DocumentDB e associare autorizzazioni dettagliate a ogni utente.
 
-![Raccolte degli utenti][3] 
-**Strategie di partizionamento orizzontale e modellazione degli utenti**
+![Raccolte degli utenti][3] **Strategie di partizionamento orizzontale e modellazione degli utenti**
 
 Analogamente a tutte le altre risorse, gli utenti in DocumentDB possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le API REST o uno degli SDK dei client. DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa utente. È utile segnalare che se si elimina un utente, non sarà automaticamente più possibile accedere alle autorizzazioni incluse nell'utente stesso. Anche se DocumentDB recupera in background la quota di autorizzazioni come parte dell'utente eliminato, le autorizzazioni eliminate saranno disponibili immediatamente per un nuovo uso.
 
@@ -413,4 +398,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

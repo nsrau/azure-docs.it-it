@@ -24,4 +24,4 @@ Per impostazione predefinita, tutte le richieste alle risorse del servizio mobil
  
 4. Pubblicare di nuovo il progetto.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -74,4 +74,4 @@ In questa sezione verrà modificata l'applicazione del dispositivo simulato crea
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

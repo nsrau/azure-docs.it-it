@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Analisi dell'utilizzo per applicazioni Web con Application Insights"
-	description="Panoramica dell'analisi dell'uso con Application Insights"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Analisi dell'utilizzo per applicazioni Web con Application Insights" 
+	description="Panoramica dell'analisi dell'uso con Application Insights" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="awills"/>
  
 # Analisi dell'utilizzo per applicazioni Web con Application Insights
@@ -391,4 +391,4 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -48,4 +48,4 @@ Questo argomento illustra tutti i passaggi da eseguire per impostare la porta ne
 
 * [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

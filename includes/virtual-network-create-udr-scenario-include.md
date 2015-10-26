@@ -8,9 +8,9 @@ In questo scenario si creerà un UDR per il *subnet di Front end* e UDR un altro
 
 - **UDR-FrontEnd**. Il front-end UDR verrà applicato per il subnet *front-end*, e contiene una route:	
 	- **RouteToBackend**. Questa route invia tutto il traffico nella subnet di back-end per la macchina virtuale **FW1**.
-- **Back-end di UDR**. Il front-end UDR verrà applicato per il subnet *front-end*, e contiene una route:	
-	- **RouteToBackend**. Questa route invia tutto il traffico nella subnet di back-end per la macchina virtuale **FW1**.
+- **Back-end di UDR**. Il back-end UDR verrà applicato per il subnet *back-end*, e contiene una route:	
+	- **RouteToFrontend**. Questa route invia tutto il traffico nella subnet di front-end per la macchina virtuale **FW1**.
 
 La combinazione di queste route garantisce che tutto il traffico destinato da una subnet a un’altra venga indirizzato alla macchina virtuale **FW1**, che viene utilizzato come un dispositivo virtuale. È inoltre necessario attivare l'inoltro IP per tale macchina virtuale, per garantire che possa ricevere il traffico destinato ad altre macchine virtuali.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

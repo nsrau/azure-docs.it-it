@@ -225,7 +225,7 @@ Questo articolo del gruppo Microsoft Cloud and Enterprise Content Services è st
 
 Grazie a tutti per la collaborazione!
 
-## <a name="resources"></a>Risorse aggiuntive
+##<a name="resources">Risorse aggiuntive</a> 
 
 <table cellspacing="0" border="1">
 <tr>
@@ -253,4 +253,4 @@ Grazie a tutti per la collaborazione!
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

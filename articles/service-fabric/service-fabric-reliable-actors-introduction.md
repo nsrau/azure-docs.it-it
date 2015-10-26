@@ -198,4 +198,4 @@ I callback di timer possono essere contrassegnati in modo analogo con l'attribut
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

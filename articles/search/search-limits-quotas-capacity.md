@@ -131,4 +131,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 - 1000 documenti al massimo restituiti per pagina di risultati della ricerca
 - 100 suggerimenti al massimo restituiti per richiesta di API di suggerimento
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

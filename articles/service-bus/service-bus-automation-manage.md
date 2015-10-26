@@ -42,4 +42,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 * Vedere l'articolo [Gestire il bus di servizio con PowerShell](service-bus-powershell-how-to-provision.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

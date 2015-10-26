@@ -53,9 +53,8 @@ Le intestazioni di colonna non sono indispensabili ma semplificheranno l'uso dei
 3.	Connettere il set di dati a [Metadata Editor][metadata-editor]\: fare clic sulla porta di output del set di dati, trascinarla sulla porta di input di [Metadata Editor][metadata-editor], quindi rilasciare il pulsante del mouse. Il set di dati e il modulo rimarranno connessi anche se uno di essi viene spostato in un altra posizione nell'area di disegno.
 4.	Con [Metadata Editor][metadata-editor] ancora selezionato, nel riquadro **Properties** a destra dell'area di disegno fare clic su **Launch column selector**.
 5.	Nella finestra di dialogo **Select columns** impostare il campo **Begin With** su "All columns".
-6.	La riga sotto **Begin With** consente di includere o escludere colonne specifiche da modificare con [Metadata Editor][metadata-editor]. Poiché si desidera modificare tutte le colonne, eliminare la riga facendo clic sul segno meno ("-") a destra della riga. La finestra di dialogo dovrebbe essere simile alla seguente:  
-    ![Selettore di colonna con tutte le colonne selezionate][4]
-7.	Fare clic sul segno di spunta **OK**. 
+6.	La riga sotto **Begin With** consente di includere o escludere colonne specifiche da modificare con [Metadata Editor][metadata-editor]. Poiché si desidera modificare tutte le colonne, eliminare la riga facendo clic sul segno meno ("-") a destra della riga. La finestra di dialogo dovrebbe essere simile alla seguente: ![Selettore di colonna con tutte le colonne selezionate][4]
+7.	Fare clic sul segno di spunta **OK**.
 8.	Nel riquadro **Properties** cercare il parametro **New column names**. In questo campo immettere un elenco di nomi per le 21 colonne nel set di dati, separati da virgole e nell'ordine delle colonne. È possibile ottenere i nomi di colonna dalla documentazione relativa ai set di dati disponibile sul sito Web UCI, oppure, per praticità è possibile copiare e incollare i nomi seguenti:  
 
 <!-- try the same thing without upper-case
@@ -125,4 +124,4 @@ Per altre informazioni sull'uso di script R negli esperimenti, vedere [Estendere
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

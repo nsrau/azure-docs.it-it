@@ -46,4 +46,4 @@ L'attributo personalizzato è ora disponibile nell'elenco di **Attributi utente*
 
 È possibile utilizzare la funzionalità "Esegui ora" nei criteri per verificare l'esperienza utente. Ora si dovrebbe vedere "ShoeSize" nell'elenco di attributi che vengono raccolti durante l'iscrizione dell’utente e visualizzarlo nel token inviato all'applicazione.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

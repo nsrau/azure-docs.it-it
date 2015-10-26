@@ -100,7 +100,7 @@ Fare clic su un'app per visualizzare un'esercitazione sulla configurazione del p
 - [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
 - [Sandbox Salesforce](http://go.microsoft.com/fwlink/?LinkId=327869)
 - [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-- [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx) (provisioning in ingresso)
+- [Workday](http://go.microsoft.com/fwlink/?LinkId=690250) (provisioning in ingresso)
 
 Affinché un'applicazione supporti il provisioning utenti automatizzato, deve innanzitutto fornire gli endpoint necessari che consentono ai programmi esterni di automatizzare la creazione, la manutenzione e la rimozione degli utenti. Pertanto, non tutte le app SaaS sono compatibili con questa funzionalità. Per le app che supportano questa funzionalità, il team di progettazione di Azure AD potrà creare un connettore di provisioning e l'ordine di priorità di questa operazione è stabilito in base alle esigenze dei clienti attuali e potenziali.
 
@@ -108,4 +108,4 @@ Per contattare il team di progettazione di Azure AD per richiedere supporto sul 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

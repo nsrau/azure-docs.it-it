@@ -95,4 +95,4 @@ Dopo aver creato un'API ed importato le operazioni, è possibile rivedere e conf
 [Come creare le API]: api-management-howto-create-apis.md
 [Come configurare le impostazioni API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -38,7 +38,7 @@ Aprire il terminale in uso e installare quanto segue:
 
 **3) TinyTDS**: eseguire il comando seguente dal terminale. TinyTDS verrà installato nel computer.
 
-    sudo ARCHFLAGS="-arch x86_64" gem install tiny_tds
+    gem install tiny_tds
 
 ## Creare un database e recuperare la stringa di connessione
 
@@ -104,4 +104,4 @@ Per allinearlo con il formato Microsoft SQL Server[datetime](http://msdn.microso
     puts row
     end
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

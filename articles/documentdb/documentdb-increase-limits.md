@@ -91,4 +91,4 @@ Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettroni
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

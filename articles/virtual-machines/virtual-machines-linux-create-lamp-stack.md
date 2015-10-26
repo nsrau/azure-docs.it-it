@@ -21,7 +21,8 @@
 
 Uno stack "LAMP" è un gruppo di software open source che viene in genere installato insieme per consentire a un server di ospitare siti Web dinamici e applicazioni Web. Il termine è in realtà un acronimo che rappresenta il sistema operativo Linux con il server web Apache. I dati del sito vengono archiviati in un database MySQL e il contenuto dinamico viene elaborato da PHP.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse o il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 In questa guida uno stack LAMP verrà installato in un'immagine Linux e distribuita in Microsoft Azure.
 
@@ -455,4 +456,4 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

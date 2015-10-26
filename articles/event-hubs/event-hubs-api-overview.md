@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Panoramica dell'API Hub eventi"
+   pageTitle="Panoramica delle API Hub eventi di Azure | Microsoft Azure"
    description="Un riepilogo di alcuni client .NET di Hub eventi chiave API."
    services="event-hubs"
    documentationCenter="na"
@@ -8,18 +8,18 @@
    editor="" />
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
+   ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
+   ms.workload="na"
+   ms.date="10/14/2015"
    ms.author="sethm" />
 
 # Panoramica dell'API Hub eventi
 
 In questo articolo vengono riepilogati alcuni dei principali API client .NET di Hub eventi. Esistono due categorie: gestione e API di runtime. Le API di Runtime sono costituite da tutte le operazioni necessarie per inviare e ricevere un messaggio. Operazioni di gestione consentono di gestire lo stato dell'entità di Hub eventi per la creazione, aggiornamento ed eliminazione di entità.
 
-Scenari di monitoraggio comprendono gestione e runtime. Per la documentazione di riferimento dettagliate sulle API .NET, vedere i riferimenti [libreria di classi .NET](https://msdn.microsoft.com/library/azure/jj933431.aspx) e [API EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx).
+Scenari di monitoraggio comprendono gestione e runtime. Per la documentazione di riferimento dettagliate sulle API .NET, vedere i riferimenti [libreria di classi .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) e [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API di gestione
 
@@ -178,13 +178,14 @@ public class SimpleEventProcessor : IEventProcessor
 
 Per ulteriori informazioni sugli scenari di Hub eventi, visitare i collegamenti seguenti:
 
-- [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
+- [Che cos'è l'hub di eventi di Azure?](event-hubs-what-is-event-hubs.md)
 - [Panoramica di Hub eventi](event-hubs-overview.md)
-- [Esempi di codice di Hub eventi] (http://code.msdn.microsoft.com/site/search?query=eventhub & f [0]. Valore = hub eventi & f [0]. Digitare = SearchText & CA = 5)
+- [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
+- [Esempi di codice di Hub eventi] (http://code.msdn.microsoft.com/site/search?query=eventhub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
 
 I riferimenti API .NET sono qui:
 
-- [Riferimento API .NET di Hub eventi e bus di servizio](https://msdn.microsoft.com/library/azure/jj933424.aspx)
-- [Host del processore riferimento all'API di eventi](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [Riferimento API .NET di Hub eventi e bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+- [Host del processore riferimento all'API di eventi](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

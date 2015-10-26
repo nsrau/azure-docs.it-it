@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestione traffico- Metodi di routing del traffico | Microsoft Azure"
-	description="Questo articolo aiuterà a comprendere i diversi metodi di routing del traffico usati da Gestione traffico"
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Questo articolo aiuterà a comprendere i diversi metodi di routing del traffico usati da Gestione traffico"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Metodi di routing di Gestione traffico
 
@@ -137,4 +137,4 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

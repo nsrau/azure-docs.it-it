@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/08/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -68,6 +68,8 @@ SQL Data Warehouse è facile da distribuire e la procedura richiede pochi second
 ## Passaggi successivi
 Scoprire cosa si intende per [carico di lavoro del data warehouse]. Eseguire il[Provisioning]e caricare[dati di esempio]per iniziare.
 
+>[AZURE.NOTE]Si desidera migliorare questo articolo. Se si sceglie di rispondere "no" alla domanda "È stato utile questo articolo?", includere un suggerimento breve su cosa manca o su come migliorare l'articolo. Grazie in anticipo!!
+
 <!--Image references-->
 
 <!--Article references-->
@@ -79,4 +81,4 @@ Scoprire cosa si intende per [carico di lavoro del data warehouse]. Eseguire il[
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Informazioni sugli input di analisi di flusso
@@ -94,15 +94,15 @@ Quando i dati provengono da un'origine di hub IoT, è possibile accedere ai poch
 
 | PROPRIETÀ | DESCRIZIONE |
 |------|------|
-| System.Input.EventProcessedUtcTime | Data e ora di elaborazione dell'evento. |
-| System.Input.EventEnqueuedUtcTime | Data e ora di ricezione dell'evento da parte dell'hub IoT. |
-| System.Input.PartitionId | ID di partizione in base zero per l'adattatore di input. |
-| System.Input.MessageId | Utilizzato per correlare la comunicazione bidirezionale nell’hub IoT. |
-| System.Input.CorrelationId | Utilizzato nelle risposte dei messaggi e nei feedback nell'hub IoT. |
-| System.Input.ConnectionDeviceId | L’ID utente autenticato utilizzato per inviare questo messaggio, indicato nei messaggi servicebound dall'hub IoT. |
-| System.Input.ConnectionDeviceGenerationId | Il generationID del dispositivo autenticato utilizzato per inviare questo messaggio, indicato nei messaggi servicebound dall'hub IoT. |
-| System.Input.EnqueuedTime | L’ora di ricezione del messaggio da parte dell'hub IoT. |
-| System.Input.StreamId | Proprietà di evento personalizzato aggiunta dal dispositivo mittente. |
+| EventProcessedUtcTime | Data e ora di elaborazione dell'evento. |
+| EventEnqueuedUtcTime | Data e ora di ricezione dell'evento da parte dell'hub IoT. |
+| PartitionId | ID di partizione in base zero per l'adattatore di input. |
+| IoTHub.MessageId | Utilizzato per correlare la comunicazione bidirezionale nell’hub IoT. |
+| IoTHub.CorrelationId | Utilizzato nelle risposte dei messaggi e nei feedback nell'hub IoT. |
+| IoTHub.ConnectionDeviceId | L’ID utente autenticato utilizzato per inviare questo messaggio, indicato nei messaggi servicebound dall'hub IoT. |
+| IoTHub.ConnectionDeviceGenerationId | Il generationID del dispositivo autenticato utilizzato per inviare questo messaggio, indicato nei messaggi servicebound dall'hub IoT. |
+| IoTHub.EnqueuedTime | Ora di ricezione del messaggio da parte dell'hub IoT. |
+| IoTHub.StreamId | Proprietà di evento personalizzato aggiunta dal dispositivo mittente. |
 
 ## Creazione di un input del flusso di dati dell'archivio BLOB ##
 
@@ -201,4 +201,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

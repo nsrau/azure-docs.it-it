@@ -21,7 +21,8 @@
 
 #Installare lo stack LAMP in una macchina virtuale Linux in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse o il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Uno stack LAMP è costituito dai diversi elementi seguenti:
 
@@ -128,4 +129,4 @@ Sono disponibili molte risorse relative alla configurazione di uno stack LAMP su
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

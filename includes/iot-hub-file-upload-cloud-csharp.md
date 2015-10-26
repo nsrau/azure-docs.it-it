@@ -70,4 +70,4 @@ In questa sezione verrà modificata l’app console **SendCloudtoDevice** creata
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

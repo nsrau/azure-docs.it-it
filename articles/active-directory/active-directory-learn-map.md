@@ -37,4 +37,4 @@ Per comprendere le limitazioni di utilizzo e altri limiti di servizio per il ser
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

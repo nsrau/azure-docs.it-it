@@ -176,4 +176,4 @@ Questo codice chiama il metodo [AddOrUpdate] con estensione helper per aggiunger
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

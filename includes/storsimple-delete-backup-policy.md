@@ -12,4 +12,4 @@
 La pagina **Criteri di backup** verrà aggiornata in modo da includere il nuovo elenco di criteri.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

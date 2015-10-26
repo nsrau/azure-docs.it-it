@@ -10,4 +10,4 @@ Le proprietà principali di un gateway VPN includono:
 - **Tipo di gateway**: gateway indirizzato in modo dinamico o statico. 
 - **Prefisso del pool di indirizzi del client VPN**: indirizzi IP da assegnare ai client che si connettono in una configurazione da punto a sito.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

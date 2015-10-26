@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Nome e chiave dell'autorità emittente in Servizi BizTalk | Microsoft Azure"
-	description="Informazioni su come recuperare il nome dell'autorità emittente e la chiave dell'autorità emittente per il bus di servizio o il Servizio di controllo di accesso (ACS) in Servizi BizTalk. MABS, WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
+	pageTitle="Nome e chiave dell'autorità emittente in Servizi BizTalk | Microsoft Azure" 
+	description="Informazioni su come recuperare il nome dell'autorità emittente e la chiave dell'autorità emittente per il bus di servizio o il Servizio di controllo di accesso (ACS) in Servizi BizTalk. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
@@ -71,9 +71,7 @@ Il nome e la chiave dell'autorità emittente del bus di servizio vengono usati d
 2. Nel pannello di navigazione sinistro selezionare **Bus di servizio**.
 3. Selezionare lo spazio dei nomi. Nella barra delle applicazioni selezionare **Informazioni di connessione**. Verranno visualizzati i valori relativi a **Default Issuer** (nome dell'autorità emittente) e **Default Key** (chiave dell'autorità emittente). Questi valori possono essere copiati.  
 
-Per riepilogare:  
-Nome autorità emittente = Autorità emittente predefinita  
-Chiave autorità emittente = Chiave predefinita
+Per riepilogare: Nome autorità emittente = Autorità emittente predefinita Chiave autorità emittente = Chiave predefinita
 
 ## Avanti
 Ulteriori argomenti relativi a Servizi BizTalk di Azure:
@@ -94,4 +92,4 @@ Ulteriori argomenti relativi a Servizi BizTalk di Azure:
 - [Servizi BizTalk: limitazione](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

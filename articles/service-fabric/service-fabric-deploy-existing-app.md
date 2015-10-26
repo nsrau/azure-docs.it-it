@@ -336,4 +336,4 @@ Per altre informazioni su come sviluppare un'app di infrastruttura di servizi tr
 [5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
 [6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

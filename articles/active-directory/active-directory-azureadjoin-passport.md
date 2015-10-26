@@ -18,7 +18,7 @@
 
 # Autenticazione delle identità senza password con Microsoft Passport
 
-Gli attuali metodi di autenticazione basati solo su password non sono sufficienti a garantire la protezione degli utenti. Gli utenti riutilizzano e dimenticano le password. Le password possono causare violazioni della protezione, phishing, oltre ad essere facilmente violabili. Sono inoltre difficili da ricordare e più soggette ad attacchi di tipo "pass-the-hash".
+Gli attuali metodi di autenticazione basati solo su password non sono sufficienti a garantire la protezione degli utenti. Gli utenti riutilizzano e dimenticano le password. Le password possono causare violazioni della protezione, phishing, oltre ad essere facilmente violabili. Sono inoltre difficili da ricordare e più soggette ad attacchi di tipo "pass-the-hash". Trasmettere che Hash è una tecnica di attacco che consente a un utente malintenzionato di eseguire l'autenticazione al servizio/server remoto utilizzando l'hash NTLM e/o LanMan sottostante di una password dell'utente, anziché richiedere la password non crittografata associata come normalmente accade. Per ulteriori informazioni su Pass the Hash, vedere [Pass the Hash](https://technet.microsoft.com/it-IT/dn785092.aspx).
 
 ## Informazioni su Microsoft Passport
 Microsoft Passport è un nuovo approccio di autenticazione basato su certificato o su chiave privata/pubblica disponibile per organizzazioni e singoli utenti grazie al quale non è più necessario usare password. Questo tipo di autenticazione si basa su credenziali a coppie di chiavi che possono sostituire le password e risultare efficaci in caso di violazioni, furti e phishing. Microsoft Passport consente agli utenti di eseguire l'autenticazione con un account Microsoft, un account di Active Directory, un account di Microsoft Azure Active Directory (AD) o un servizio non Microsoft che supporta l'autenticazione FIDO (Fast ID Online). Dopo una verifica iniziale in due passaggi durante la registrazione di Microsoft Passport, nel dispositivo dell'utente viene impostato un Microsoft Passport. L'utente deve quindi impostare un movimento, come Windows Hello o un PIN, che dovrà eseguire per verificare l'identità. Windows usa quindi Microsoft Passport per autenticare gli utenti e consentire loro di accedere a risorse e servizi protetti.
@@ -68,5 +68,6 @@ A livello dell'utente
 
 * [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
+* [Gestisci verifica dell'identità utilizzando Microsoft Passport] (https://technet.microsoft.com/library/mt219735(v=vs.85).aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

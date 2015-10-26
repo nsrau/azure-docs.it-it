@@ -960,4 +960,4 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 
 È ora possibile usare uno strumento di gestione traffico per instradare le richieste tra i due data center e quindi il failover in caso di guasti.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

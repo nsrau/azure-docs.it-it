@@ -5,4 +5,4 @@ Risorsa|Limite predefinito
 Operazioni di gestione account di archiviazione (lettura)|800 per 5 minuti
 Operazioni di gestione account di archiviazione (scrittura)|200 all'ora
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

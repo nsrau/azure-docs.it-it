@@ -70,7 +70,7 @@ Di seguito è riportato un elenco parziale del percorso precedente (l'elenco com
     │   │   │   VoiceMailBox.exe.config
     │   │   │   VoiceMailBox.Interfaces.dll
     │   │   │
-    │   │   └───it-it
+    │   │   └───it-IT
     │   │           System.Fabric.Common.Internal.Strings.resources.dll
     │   │
     │   └───Config
@@ -91,7 +91,7 @@ Di seguito è riportato un elenco parziale del percorso precedente (l'elenco com
             │   VoicemailBoxWebService.exe
             │   VoicemailBoxWebService.exe.config
             │
-            └───it-it
+            └───it-IT
                     System.Fabric.Common.Internal.Strings.resources.dll
 
 L'elenco precedente mostra gli assembly che implementano l'inclusione dell'attore VoicemailBox nel pacchetto di codice all'interno del pacchetto del servizio nel pacchetto dell'applicazione.
@@ -242,4 +242,4 @@ Si noti che per modificare il provider di stato è necessario ricreare il serviz
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

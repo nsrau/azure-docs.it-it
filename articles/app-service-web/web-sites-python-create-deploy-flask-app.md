@@ -401,4 +401,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](
 [Documentazione di Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

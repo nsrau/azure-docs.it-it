@@ -21,7 +21,8 @@
 
 I gruppi di disponibilità AlwaysOn garantiscono un'elevata disponibilità dei gruppi di database tramite l'aggiunta di repliche secondarie, che consentono il failover dei database in caso di errore. Le repliche possono essere usate anche per l'offload di carichi di lavoro di lettura o attività di backup.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+ 
 
 È possibile estendere i gruppi di disponibilità locale a Microsoft Azure eseguendo il provisioning di una o più macchine virtuali di Azure con SQL Server e quindi aggiungendole come repliche ai gruppi di disponibilità locale.
 
@@ -103,4 +104,4 @@ Oltre a usare la **procedura guidata Aggiungi replica di Azure** per estendere a
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

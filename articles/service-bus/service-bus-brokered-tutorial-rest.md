@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 Il passaggio successivo consiste nello scrivere un metodo che utilizzi il comando HTTP PUT di tipo REST per creare una coda.
 
-Incollare il seguente codice subito dopo il codice `GetToken()` aggiunto nel passaggio precedente:
+Incollare il seguente codice subito dopo il codice `GetSASToken()` aggiunto nel passaggio precedente:
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -629,4 +629,4 @@ Vedere gli articoli seguenti per ulteriori informazioni:
 - [Dati fondamentali del bus di servizio](fundamentals-service-bus-hybrid-solutions.md)
 - [Esercitazione sul REST di inoltro del bus di servizio](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -111,4 +111,4 @@ Considerare i seguenti punti per rendere le applicazioni del Database SQL di Azu
 
 [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -59,4 +59,4 @@ Per argomenti più avanzati relativi a Service Fabric, vedere gli articoli segue
 
 - [Panoramica dei vincoli di posizionamento](service-fabric-placement-constraint.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

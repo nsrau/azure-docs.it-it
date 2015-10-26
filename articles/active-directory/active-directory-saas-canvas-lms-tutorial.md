@@ -114,15 +114,15 @@ Per consentire agli utenti di Azure AD di accedere a Canvas, è necessario esegu
 
 3.  Fare clic su **Users**.
 
-    ![Users](./media/active-directory-saas-canvas-lms-tutorial/IC775995.png "Users")
+    ![Users](./media/active-directory-saas-canvas-lms-tutorial/IC775995.png "Utenti")
 
 4.  Fare clic su **Add New User**.
 
-    ![Users](./media/active-directory-saas-canvas-lms-tutorial/IC775996.png "Users")
+    ![Utenti](./media/active-directory-saas-canvas-lms-tutorial/IC775996.png "Utenti")
 
 5.  Nella finestra di dialogo Add a New User seguire questa procedura:
 
-    ![Add User](./media/active-directory-saas-canvas-lms-tutorial/IC775997.png "Add User")
+    ![Aggiunta di un utente](./media/active-directory-saas-canvas-lms-tutorial/IC775997.png "Add User")
 
     1.  Nella casella di testo **Full Name** digitare il nome dell'utente.
     2.  Nella casella di testo **Email** digitare l'indirizzo di posta elettronica dell'utente.
@@ -144,10 +144,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegnazione degli utenti](./media/active-directory-saas-canvas-lms-tutorial/IC775998.png "Assegnazione degli utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-canvas-lms-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

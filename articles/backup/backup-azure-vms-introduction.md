@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Backup di una macchina virtuale di Azure
 
@@ -87,7 +87,7 @@ La figura seguente mostra le relazioni tra le diverse entità di backup di Azure
 
 5. Fare clic su **Crea insieme di credenziali**. La creazione dell'insieme di credenziali per il backup può richiedere alcuni minuti. Monitorare le notifiche di stato nella parte inferiore del portale. ![Creare una notifica di tipo avviso popup dell'insieme di credenziali](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. Viene visualizzato un messaggio per confermare che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali verrà quindi elencato come attivo nella pagina Servizi di ripristino. Subito dopo la creazione dell'insieme di credenziali, assicurarsi di aver scelto l'opzione di ridondanza dell'archiviazione corretta. Leggere l'articolo relativo all'[impostazione dell'opzione di ridondanza nell'insieme di credenziali per il backup](../backup-azure-backup-create-vault.md#storage-redundancy-options). ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. Viene visualizzato un messaggio per confermare che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali verrà quindi elencato come attivo nella pagina Servizi di ripristino. Subito dopo la creazione dell'insieme di credenziali, assicurarsi di aver scelto l'opzione di ridondanza dell'archiviazione corretta. Leggere l'articolo relativo all'[impostazione dell'opzione di ridondanza nell'insieme di credenziali per il backup](backup-configure-vault.md#azure-backup---storage-redundancy-options). ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. Se si fa clic sull'insieme di credenziali per il backup, viene visualizzata la pagina **Guida introduttiva** in cui sono riportate le istruzioni per il backup delle macchine virtuali di Azure. ![Istruzioni per il backup delle macchine virtuali nella pagina Dashboard](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
@@ -104,7 +104,8 @@ Per altre informazioni, leggere gli articoli relativi all'[agente VM](https://go
 - Il backup di macchine virtuali con Archiviazione Premium non è supportato.
 - Il backup di macchine virtuali con più IP riservati non è supportato.
 - Il backup delle macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
-- Il backup di macchine virtuali con più NIC (Network Interface Card) o presenti in una configurazione con bilanciamento del carico non è supportato.
+- Il backup delle macchine virtuali utilizzando più schede di rete non è supportato.
+- Il backup di macchine virtuali in una configurazione con carico bilanciato (interna e su internet) non è supportata.
 - La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. È necessario eliminare prima la macchina virtuale esistente e gli eventuali dischi associati e quindi ripristinare i dati dal backup.
 - L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
 - Il backup di macchine virtuali mediante l’utilizzo del servizio Backup di Azure è supportato in tutte le aree pubbliche. Ecco un [elenco](http://azure.microsoft.com/regions/#services) di aree geografiche supportate. Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
@@ -122,4 +123,4 @@ Per iniziare a eseguire il backup di macchine virtuali, leggere le informazioni 
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

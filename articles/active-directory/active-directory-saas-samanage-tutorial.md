@@ -38,7 +38,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-samanage-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-samanage-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -51,9 +51,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
     ![Samanage](./media/active-directory-saas-samanage-tutorial/IC771708.png "Samanage")
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Samanage tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.  
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
-Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Samanage tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
@@ -85,19 +83,16 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
 8.  Nella finestra di dialogo **Accedi usando SAML** eseguire la procedura seguente, quindi fare clic su **Salva e chiudi**:
 
-    1.  Fare clic su **Abilita Single Sign-On con SAML**. 
-        ![Accesso tramite SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Accesso tramite SAML")
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Samanage** del portale di Azure copiare il valore di **ID provider di identità** e incollarlo nella casella di testo **URL provider di identità**.
-        ![Configura accesso Single Sign-On](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configura accesso Single Sign-On")
-    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Samanage** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL accesso**.
+    1.  Fare clic su **Abilita Single Sign-On con SAML**. ![Accesso tramite SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Accesso tramite SAML")
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Samanage** del portale di Azure copiare il valore di **ID provider di identità** e incollarlo nella casella di testo **URL provider di identità**. ![Configura accesso Single Sign-On](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configura accesso Single Sign-On")
+3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Samanage** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL accesso**.
     4.  Nella finestra di dialogo **Configura accesso Single Sign-On in Samanage** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL disconnessione**.
     5.  Creare un file **con codifica Base 64** dal certificato scaricato.  
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     6.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**
-    7.  Fare clic su **Crea utenti se non presenti in Samanage**.
-        ![Aggiornamento](./media/active-directory-saas-samanage-tutorial/IC771722.png "Aggiornamento")
+    7.  Fare clic su **Crea utenti se non presenti in Samanage**. ![Aggiornamento](./media/active-directory-saas-samanage-tutorial/IC771722.png "Aggiornamento")
     8.  Fare clic su **Aggiorna**.
 
 9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
@@ -121,7 +116,7 @@ Per consentire agli utenti di Azure AD di accedere a Samanage, è necessario ese
 
 4.  Fare clic su **Nuovo utente**.
 
-    ![Nuovo utente](./media/active-directory-saas-samanage-tutorial/IC771726.png "Nuovo utente")
+    ![New User](./media/active-directory-saas-samanage-tutorial/IC771726.png "Nuovo utente")
 
 5.  Digitare l’**indirizzo di posta elettronica** e il **nome** dell’account Azure AD di cui si desidera eseguire il provisioning e fare clic su **Crea utente**.
 
@@ -149,4 +144,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!-------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

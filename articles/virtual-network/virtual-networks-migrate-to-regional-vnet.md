@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) regionale"
-	description="Informazioni su come eseguire la migrazione da gruppi di affinità a reti virtuali regionali"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Informazioni su come eseguire la migrazione da gruppi di affinità a reti virtuali regionali"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="telmos" />
 
 # Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) regionale
 
@@ -41,9 +41,9 @@ Le VNet attualmente associate a gruppi di affinità saranno abilitate per la mig
 	
 	Modificare le righe seguenti nel file di configurazione della rete, sostituendo i valori esistenti con i propri:
 
-	**Valore precedente:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**Valore precedente:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Nuovo valore:** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**Nuovo valore:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Salvare le modifiche e [importare](../virtual-networks-using-network-configuration-file/) la configurazione di rete in Azure.
 
@@ -66,4 +66,4 @@ Le macchine virtuali attualmente incluse in un gruppo di affinità non devono es
 Quando si esegue la distribuzione, una macchina virtuale viene distribuita in una singola unità di scala. I gruppi di affinità possono limitare il set di dimensioni di macchine virtuali disponibili per una nuova distribuzione, ma qualsiasi macchina virtuale esistente che venga distribuita è già limitata al set di dimensioni disponibile nell'unità di scala in cui avviene la distribuzione. Per questo motivo, la rimozione di una macchina virtuale dal gruppo di affinità non avrà alcun effetto.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

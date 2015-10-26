@@ -279,7 +279,7 @@ Ad esempio:
 Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_delivery_policy)
 
 
-##<a id="types"></a>Tipi usati durante la definizione di AssetDeliveryPolicy
+##<a id="types">Tipi usati durante la definizione di AssetDeliveryPolicy</a>
 
 ###AssetDeliveryProtocol 
 
@@ -436,4 +436,4 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,8 @@
 
 # DataStax in Ubuntu con un modello di Gestione risorse
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 DataStax è una nota azienda leader nel settore dello sviluppo e della fornitura di soluzioni basate su Apache Cassandra, la tecnologia per database NoSQL distribuiti di livello aziendale, supportata in commercio e ampiamente riconosciuta per le caratteristiche di flessibilità, disponibilità e scalabilità per qualsiasi esigenza. DataStax offre versioni sia Enterprise (DSE) che Community (DSC). Offre inoltre funzionalità di elaborazione in memoria, di sicurezza a livello aziendale, di analisi rapida e potente integrata e funzioni di ricerca a livello aziendale.
 
@@ -479,4 +480,4 @@ In pratica, questo approccio suggerisce di:
 
 Per altre informazioni, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

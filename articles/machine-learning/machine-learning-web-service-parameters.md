@@ -91,4 +91,4 @@ Per altre informazioni sull'accesso a un servizio Web di Machine Learning, veder
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

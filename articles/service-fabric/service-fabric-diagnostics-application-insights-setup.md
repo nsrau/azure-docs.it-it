@@ -89,4 +89,4 @@ Ottenere altre informazioni sull'uso di Application Insights per instrumentare l
 - [Informazioni su come creare metriche ed eventi personalizzati](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

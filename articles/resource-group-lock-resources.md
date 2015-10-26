@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Bloccare le risorse con Gestione risorse di Azure
@@ -93,11 +93,13 @@ Per altri esempi, vedere [API REST per i blocchi di gestione](https://msdn.micro
 
 ## Creazione di un blocco con Azure PowerShell
 
-È possibile bloccare le risorse distribuite con Azure PowerShell tramite **New-AzureResourceLock**, come illustrato di seguito. Con PowerShell è possibile impostare solo **LockLevel** su **CanNotDelete**.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+È possibile bloccare le risorse distribuite con Azure PowerShell tramite **New-AzuremRResourceLock**, come illustrato di seguito. Con PowerShell è possibile impostare solo **LockLevel** su **CanNotDelete**.
 
-PowerShell fornisce altri comandi per la gestione dei blocchi, ad esempio **Set-AzureResourceLock** per aggiornare un blocco e **Remove-AzureResourceLock** per eliminarlo.
+    PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
+
+PowerShell di Azure fornisce altri comandi per la gestione dei blocchi, ad esempio **Set-AzuremRResourceLock** per aggiornare un blocco e **Remove-AzuremRResourceLock** per eliminarlo.
 
 ## Passaggi successivi
 
@@ -105,4 +107,4 @@ PowerShell fornisce altri comandi per la gestione dei blocchi, ad esempio **Set-
 - Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse](resource-group-using-tags.md).
 - Per modificare il gruppo di risorse in cui si trova una risorsa, vedere l'articolo relativo allo [spostamento delle risorse in un nuovo gruppo di risorse](resource-group-move-resources.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

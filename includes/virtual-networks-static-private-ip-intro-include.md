@@ -2,4 +2,4 @@ Le macchine virtuali IaaS e le istanze del ruolo PaaS in una rete virtuale ricev
 
 In alcuni casi, si desidera che una macchina virtuale o istanza del ruolo disponga di un indirizzo IP statico, ad esempio, se la macchina virtuale eseguirà DNS o sarà un controller di dominio. È possibile farlo impostando un indirizzo IP statico privato.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

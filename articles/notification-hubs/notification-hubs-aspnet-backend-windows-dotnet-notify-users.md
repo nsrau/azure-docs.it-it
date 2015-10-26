@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 #Uso di Hub di notifica di Azure per inviare notifiche agli utenti
@@ -27,6 +27,13 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 È inoltre propedeutica all'esercitazione [Push sicuro]. Dopo avere eseguito i passaggi indicati in questa esercitazione, è possibile passare all'esercitazione [Push sicuro], che illustra come modificare il codice in questa esercitazione per inviare una notifica push in modo sicuro.
 
+
+
+
+
+## Prima di iniziare
+
+I commenti e suggerimenti inviati seriamente verranno presi in considerazione. Se si riscontrano difficoltà nel completare questo argomento o si hanno suggerimenti per migliorarne il contenuto, è possibile lasciare un commento nella parte inferiore della pagina.
 
 Il codice completo per questa esercitazione è disponibile su GitHub [qui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
 
@@ -377,4 +384,4 @@ In questa sezione viene aggiornato il codice nel progetto completato per l’ese
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

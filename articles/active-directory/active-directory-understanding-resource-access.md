@@ -64,4 +64,4 @@ Operazioni quali lo spostamento di risorse tra sottoscrizioni possono risultare 
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

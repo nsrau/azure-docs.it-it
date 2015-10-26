@@ -55,4 +55,4 @@ Di seguito sono elencati gli elementi che è necessario abilitare nella subnet d
 
 Il [tunneling forzato](vpn-gateway-about-forced-tunneling.md) ora è supportato per tutte le nuove raccolte Azure RemoteApp. Attualmente non è supportata la migrazione di una raccolta esistente per supportare il tunneling forzato. Sarà necessario eliminare tutte le raccolte esistenti usando la rete virtuale collegata ad Azure RemoteApp e crearne di nuove per abilitare il tunneling forzato nelle raccolte.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

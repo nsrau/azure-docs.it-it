@@ -9,4 +9,4 @@
 
 ILB può essere configurato solo in reti virtuali con un ambito regionale. Le reti virtuali esistenti che sono state configurate per un gruppo di affinità non possono usare il bilanciamento del carico interno. Per altre informazioni, vedere [Bilanciamento del carico interno](../articles/load-balancer/load-balancer-internal-overview.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

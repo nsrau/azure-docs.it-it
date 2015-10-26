@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Confronto degli strumenti di integrazione directory"
+<properties
+	pageTitle="Confronto degli strumenti di integrazione directory | Microsoft Azure"
 	description="Questa pagina fornirà tabelle complete che confrontano i vari strumenti di integrazione di directory."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 # Confronto degli strumenti di integrazione directory
@@ -82,10 +82,13 @@ Usare la seguente chiave per ognuna delle tabelle.
 Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM)  
 :-------- |:--------:|:--------:|:--------:|:--------:|
 Filtro di domini e unità organizzative | ● | ● | ● | ●  
-Filtro in base ai valori di attributo degli oggetti | ● | ● | ● | ● 
-Possibilità di sincronizzare un set minimo di attributi (MinSync) | ● | ● | |   
-Possibilità di applicare differenti modelli di servizio ai flussi di attributi |● | ● | |   
+Filtro in base ai valori di attributo degli oggetti | ● | ● | ● | ●
+Possibilità di sincronizzare un set minimo di attributi (MinSync) | ● | ● | |
+Possibilità di applicare differenti modelli di servizio ai flussi di attributi |● | ● | |
 Possibilità di interrompere il flusso di attributi da AD ad Azure AD | ● | ● | |  
 Personalizzazione avanzata dei flussi di attributi | ● | ● | | ●  
 
-<!---HONumber=August15_HO9-->
+## Passaggi successivi
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

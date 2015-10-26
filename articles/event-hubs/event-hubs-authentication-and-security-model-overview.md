@@ -154,4 +154,4 @@ Per ulteriori informazioni su Hub eventi, visitare i seguenti argomenti:
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

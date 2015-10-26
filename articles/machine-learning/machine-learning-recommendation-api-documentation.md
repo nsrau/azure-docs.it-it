@@ -16,14 +16,14 @@
 	ms.date="09/14/2015" 
 	ms.author="LuisCa"/>
 
-# Documentazione relativa all'API Recommendations di Azure Machine Learning
+#Documentazione relativa all'API Recommendations di Azure Machine Learning
 
 Questo documento illustra le API Recommendations di Microsoft Azure Machine Learning.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## 1\. Panoramica generale
+##1\. Panoramica generale
 Questo è un documento di riferimento dell'API. È consigliabile iniziare con il documento "Guida introduttiva per l'API Recommendations di Machine Learning".
 
 L'API Recommendations di Azure Machine Learning può essere suddivisa in dieci gruppi logici:
@@ -39,21 +39,21 @@ L'API Recommendations di Azure Machine Learning può essere suddivisa in dieci g
 9.	<ins>User Data</ins>: API che consentono di recuperare informazioni su dati di utilizzo utente.
 10.	<ins>Notifications</ins>: API che consentono di ricevere notifiche per i problemi correlati alle operazioni dell'API. Ad esempio, se i dati di utilizzo vengono segnalati mediante acquisizione dei dati e la maggior parte degli eventi di elaborazione non riesce, viene generata una notifica di errore.
 
-## 2\. Argomenti avanzati
+##2\. Argomenti avanzati
 
-### 2\.1. Qualità delle raccomandazioni
+###2\.1. Qualità delle raccomandazioni
 
 La creazione di un modello di raccomandazione è in genere sufficiente per consentire al sistema di fornire raccomandazioni. La qualità delle raccomandazioni varia tuttavia in base ai dati di utilizzo elaborati e alla copertura del catalogo. Ad esempio, se sono disponibili molti elementi ignoti, ovvero elementi senza utilizzo significativo, il sistema avrà difficoltà a fornire una raccomandazione per tale elemento o a usarlo come elemento raccomandato. Per risolvere il problema degli elementi ignori, il sistema consente l'uso di metadati degli elementi per migliorare la qualità delle raccomandazioni. Questi metadati sono definiti funzionalità. L'autore di un libro o l'attore di un film è un esempio tipico di funzionalità. Le funzionalità vengono fornire tramite il catalogo sotto forma di stringhe chiave/valore. Per il formato completo del file di catalogo, vedere la sezione [Importare i dati del catalogo](#81-import-catalog-data). La sezione seguente illustra l'utilizzo delle funzionalità per migliorare il modello di raccomandazione.
 
-### 2\.2. Compilazione della classifica
+###2\.2. Compilazione della classifica
 
 Le funzionalità possono migliorare il modello di raccomandazione, ma ciò richiede l'uso di funzionalità significative. A questo scopo è stata introdotta una nuova compilazione per la definizione della classifica, che consente di classificare l'utilità delle funzionalità. Una funzionalità significativa presenta un punteggio di classificazione minimo pari a 2. Dopo avere individuato le funzionalità significative, attivare una compilazione di raccomandazione con l'elenco, o sottoelenco, delle funzionalità significative. È possibile usare queste funzionalità per il miglioramento sia degli elementi noti che di quelli ignoti. Per usarle per gli elementi noti è necessario configurare il parametro di compilazione `UseFeatureInModel`. Per usarle per gli elementi ignoti è necessario abilitare il parametro di compilazione `AllowColdItemPlacement`. Nota: non è possibile abilitare `AllowColdItemPlacement` se non si abilita anche `UseFeatureInModel`.
 
-### 2\.3. Motivazione delle raccomandazioni
+###2\.3. Motivazione delle raccomandazioni
 
 La motivazione delle raccomandazioni è un altro aspetto dell'utilizzo delle funzionalità. In effetti, il motore di raccomandazioni di Azure Machine Learning è in grado di usare le funzionalità per fornire una spiegazione (o motivazione) della raccomandazione, favorendo un livello di confidenza maggiore nell'elemento raccomandato da parte del consumer di raccomandazioni. Per abilitare le motivazioni, è necessario configurare i parametri `AllowFeatureCorrelation` e `ReasoningFeatureList` prima di richiedere una compilazione di raccomandazioni.
 
-## 3\. Limitazioni
+##3\. Limitazioni
 
 - Il numero massimo di modelli per ogni sottoscrizione è 10.
 - Il numero massimo di elementi che possono essere inclusi nel catalogo è 100.000.
@@ -61,25 +61,25 @@ La motivazione delle raccomandazioni è un altro aspetto dell'utilizzo delle fun
 - Le dimensioni massime dei dati che possono essere inviati in POST (ad esempio, importazione dei dati del catalogo o dei dati di utilizzo) è di 200 MB.
 - Il numero di transazioni al secondo per la compilazione di un modello di raccomandazione non attivo è di ~2 TPS. Un modello di raccomandazione attivo può includere un massimo di 20 TPS.
 
-## 4\. API: informazioni generali
+##4\. API: informazioni generali
 
-### 4\.1. Autenticazione
+###4\.1. Autenticazione
 Seguire le linee guida di Microsoft Azure Marketplace relative all'autenticazione. Marketplace supporta il metodo di autenticazione di base o OAuth.
 
-### 4\.2. URI del servizio
+###4\.2. URI del servizio
 L'URI radice del servizio per ogni API Recommendations di Azure Machine Learning è disponibile [qui](https://api.datamarket.azure.com/amla/recommendations/v3/).
 
 L'URI del servizio completo è espresso usando elementi della specifica OData.
 
-### 4\.3. Versione dell'API
+###4\.3. Versione dell'API
 Ogni chiamata API terminerà con un parametro di query denominato apiVersion che dovrà essere impostato su 1.0.
 
-### 4\.4. Gli ID fanno distinzione tra maiuscole e minuscole
+###4\.4. Gli ID fanno distinzione tra maiuscole e minuscole
 Gli ID restituiti da una delle API fanno distinzione tra maiuscole e minuscole e devono essere usati esattamente come sono, quando vengono passati come parametri nelle chiamate API successive. Ad esempio, per gli ID dei modelli e del catalogo viene fatta distinzione tra maiuscole e minuscole.
 
-## 5\. Modello Basic
+##5\. Modello Basic
 
-### 5\.1. Creare il modello
+###5\.1. Creare il modello
 Crea una richiesta di tipo "crea modello".
 
 | Metodo HTTP | URI |
@@ -88,10 +88,7 @@ Crea una richiesta di tipo "crea modello".
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri | 
-| apiVersion | 1.0 | 
-||| 
-| Corpo della richiesta | NESSUNO |
+|	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri | | apiVersion | 1.0 | ||| | Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -130,7 +127,7 @@ XML OData
 	  </entry>
 	</feed>
 
-### 5\.2. Ottenere il modello
+###5\.2. Ottenere il modello
 Crea una richiesta di tipo "ottieni modello":
 
 | Metodo HTTP | URI |
@@ -139,10 +136,9 @@ Crea una richiesta di tipo "ottieni modello":
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	id |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
+|	id |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 |	apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -194,7 +190,7 @@ XML OData
 	  </entry>
 	</feed>
 
-### 5\.3. Ottenere tutti i modelli
+###5\.3. Ottenere tutti i modelli
 Recupera tutti i modelli dell'utente corrente.
 
 | Metodo HTTP | URI |
@@ -204,8 +200,7 @@ Recupera tutti i modelli dell'utente corrente.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -260,7 +255,7 @@ XML OData
 		</entry>
 	</feed>
 
-### 5\.4. Aggiornare il modello
+###5\.4. Aggiornare il modello
 
 È possibile aggiornare la descrizione del modello o l'ID compilazione attiva.<br> <ins>ID compilazione attiva</ins>: ogni compilazione per ogni modello ha un ID compilazione. Con il termine ID compilazione attiva si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attiva si eseguono altre compilazioni per lo stesso modello, è necessario impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà applicato automaticamente quello predefinito.<br> Dopo avere implementato un modello di raccomandazione nell'ambiente di produzione, questo meccanismo consente di compilare nuovi modelli e testarli prima di alzarli di livello e passarli in produzione.
 
@@ -271,16 +266,15 @@ XML OData
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
+|	id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 |	apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere tutto il tag.|
+||| | Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere tutto il tag.|
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-### 5\.5. Eliminare il modello
+###5\.5. Eliminare il modello
 Elimina un modello esistente in base all'ID.
 
 | Metodo HTTP | URI |
@@ -289,10 +283,9 @@ Elimina un modello esistente in base all'ID.
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	id |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
+|	id |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 |	apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -320,9 +313,9 @@ XML OData
 	  </entry>
 	</feed>
 
-## 6\. Modello Advanced
- 
-### 6\.1 Modello Data Insight
+##6\. Modello Advanced
+
+###6\.1 Modello Data Insight
 Restituisce informazioni statistiche sui dati di utilizzo con cui è stato compilato questo modello.
 
 Disponibile solo per la compilazione di raccomandazioni.
@@ -335,8 +328,7 @@ Disponibile solo per la compilazione di raccomandazioni.
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -558,7 +550,7 @@ XML OData
     </entry>
     </feed>
 
-### 6\.2. Modello Insight
+###6\.2. Modello Insight
 Restituisce informazioni dettagliate sul modello nella compilazione attiva o, se indicata, in una compilazione specifica.
 
 Disponibile solo per la compilazione di raccomandazioni.
@@ -572,8 +564,7 @@ Disponibile solo per la compilazione di raccomandazioni.
 |	modelId |	Identificatore univoco del modello. |
 |	buildId |	Facoltativo: numero che identifica una compilazione completata. |
 |	apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -641,7 +632,7 @@ XML OData
 	</entry>
 	</feed>
 
-### 6\.3. Ottenere un esempio del modello
+###6\.3. Ottenere un esempio del modello
 Ottiene un esempio del modello di raccomandazione.
 
 | Metodo HTTP | URI |
@@ -652,8 +643,7 @@ Ottiene un esempio del modello di raccomandazione.
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -792,11 +782,11 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
-## 7\. Modello Business Rules
+##7\. Modello Business Rules
 Esistono 4 tipi di regole: <strong>BlockList</strong>: consente di specificare un elenco di elementi che non dovranno essere restituiti nei risultati delle raccomandazioni. <strong>Upsale</strong>: consente di imporre gli elementi da restituire nel risultati delle raccomandazioni. <strong>WhiteList</strong>: consente di specificare un elenco dei soli elementi che possono essere restituiti come risultati delle raccomandazioni (al contrario di BlockList). <strong>PerSeedBlockList</strong>: consente di specificare un elenco, per tipo di elemento, degli elementi che non possono essere restituiti come risultati delle raccomandazioni.
 
 
-### 7\.1. Ottenere le regole del modello
+###7\.1. Ottenere le regole del modello
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -806,8 +796,7 @@ Esistono 4 tipi di regole: <strong>BlockList</strong>: consente di specificare u
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -854,7 +843,7 @@ XML OData
 	</entry>
 	</feed>
 
-### 7\.2. Aggiungere una regola
+###7\.2. Aggiungere una regola
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -864,8 +853,7 @@ XML OData
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | <ins>Per l'aggiunta della regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+||| | Corpo della richiesta | <ins>Per l'aggiunta della regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Risposta**:
 
@@ -901,7 +889,7 @@ XML OData
 	</entry>
 	</feed>
 
-### 7.3. Eliminare una regola
+###7\.3. Eliminare una regola
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -911,15 +899,14 @@ XML OData
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	filterId |	Identificatore univoco del filtro. |
-|	apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+|	apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-### 7.4. Eliminare tutte le regole
+###7\.4. Eliminare tutte le regole
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -928,17 +915,16 @@ Codice stato HTTP: 200
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+|	apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-## 8. Catalogo
+##8\. Catalogo
 
-### 8.1 Importare i dati del catalogo
+###8\.1 Importare i dati del catalogo
 
 Se si caricano diversi file del catalogo nello stesso modello con diverse chiamate, verranno inseriti solo i nuovi elementi del catalogo. Gli elementi esistenti manterranno i valori originali. Non è possibile aggiornare i dati del catalogo con questo metodo.
 
@@ -954,11 +940,7 @@ Nota: le dimensioni massime del file sono pari a 200 MB.
 
 | Nome | Obbligatorio | Tipo | Descrizione |
 |:---|:---|:---|:---|
-| Item Id |Sì | [A-z], [a-z], [0-9], [\_] &#40;carattere di sottolineatura&#41;, [-] &#40;trattino&#41;<br> Lunghezza massima: 50 | Identificatore univoco di un elemento. | 
-| Item Name | Sì| Qualsiasi carattere alfanumerico<br> Lunghezza massima: 255 | Nome dell'elemento. | 
-| Item Category | Sì | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 255 | Categoria alla quale appartiene l'elemento (ad esempio, libri di cucina, letteratura e così via); può essere vuoto. | 
-| Descrizione | No, a meno che siano presenti funzionalità (può essere vuoto) | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 | Descrizione dell'elemento. | 
-| Elenco delle funzionalità | No | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 | Elenco con valori delimitati da virgole di nome funzionalità=valore funzionalità che è possibile usare per migliorare la raccomandazione relativa al modello. Vedere la sezione [Argomenti avanzati](#2-advanced-topics). |
+| Item Id |Sì | [A-z], [a-z], [0-9], [\_] &#40;carattere di sottolineatura&#41;, [-] &#40;trattino&#41;<br> Lunghezza massima: 50 | Identificatore univoco di un elemento. | | Item Name | Sì| Qualsiasi carattere alfanumerico<br> Lunghezza massima: 255 | Nome dell'elemento. | | Item Category | Sì | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 255 | Categoria alla quale appartiene l'elemento (ad esempio, libri di cucina, letteratura e così via); può essere vuoto. | | Descrizione | No, a meno che siano presenti funzionalità (può essere vuoto) | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 | Descrizione dell'elemento. | | Elenco delle funzionalità | No | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 | Elenco con valori delimitati da virgole di nome funzionalità=valore funzionalità che è possibile usare per migliorare la raccomandazione relativa al modello. Vedere la sezione [Argomenti avanzati](#2-advanced-topics). |
 
 
 | Metodo HTTP | URI |
@@ -969,10 +951,7 @@ Nota: le dimensioni massime del file sono pari a 200 MB.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 | 
-| apiVersion | 1.0 | 
-||| 
-| Corpo della richiesta | Esempio (con funzionalità):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 | | apiVersion | 1.0 | ||| | Corpo della richiesta | Esempio (con funzionalità):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Risposta**:
@@ -1004,7 +983,7 @@ XML OData
 	</entry>
 	</feed>
 
-### 8.2. Ottenere il catalogo
+###8\.2. Ottenere il catalogo
 Recupera tutti gli elementi del catalogo.
 
 | Metodo HTTP | URI |
@@ -1014,9 +993,8 @@ Recupera tutti gli elementi del catalogo.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+|	apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1107,7 +1085,7 @@ XML OData
 	</entry>
 	</feed>
 
-### 8.3. Ottenere gli elementi del catalogo in base al token
+###8\.3. Ottenere gli elementi del catalogo in base al token
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -1118,8 +1096,7 @@ XML OData
 |	modelId |	Identificatore univoco del modello. |
 |	token |	Token del nome dell'elemento del catalogo. Deve contenere almeno tre caratteri. |
 |	apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1161,9 +1138,9 @@ XML OData
 		</entry>
 	</feed>
 
-## 9. Dati di utilizzo
-### 9.1. Importare i dati di utilizzo
-#### 9.1.1. Caricamento del file
+##9\. Dati di utilizzo
+###9\.1. Importare i dati di utilizzo
+####9\.1.1. Caricamento del file
 Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È possibile chiamare l'API più volte con i dati di utilizzo. Tutti i dati di utilizzo verranno salvati per tutte le chiamate.
 
 | Metodo HTTP | URI |
@@ -1173,10 +1150,7 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_). <br>Lunghezza massima: 50 caratteri | 
-| apiVersion | 1.0 | 
-||| 
-| Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Id utente</td><td>Sì</td><td>[A-z], [a-z], [0-9], [_] &#40;Carattere di sottolineatura&#41;, [-] &#40;Lineetta& #41;<br> Lunghezza massima consentita: 255 </td><td>Identificatore univoco dell'utente.</td></tr><tr><td>Id elemento</td><td>Sì</td><td>[A-z], [a-z], [0-9], [& #95;] &#40;Carattere di sottolineatura&41;, [-] &#40;Lineetta&#41;<br> Lunghezza massima consentita: 50</td><td>Identificatore univoco di un elemento.</td></tr><tr><td>Ora</td><td>No</td><td>Data nel formato: aaaa/MM/ggTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati.</td></tr><tr><td>Evento</td><td>No; se fornito, è necessario inserire anche la data</td><td>Uno dei seguenti:<br>• Fare clic su<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima del file: 200MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-c 414-bb38-be9cf461c347</pre> |
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_). <br>Lunghezza massima: 50 caratteri | | apiVersion | 1.0 | ||| | Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Id utente</td><td>Sì</td><td>[A-z], [a-z], [0-9], [_] &#40;Carattere di sottolineatura&#41;, [-] &#40;Lineetta& #41;<br> Lunghezza massima consentita: 255 </td><td>Identificatore univoco dell'utente.</td></tr><tr><td>Id elemento</td><td>Sì</td><td>[A-z], [a-z], [0-9], [& #95;] &#40;Carattere di sottolineatura&41;, [-] &#40;Lineetta&#41;<br> Lunghezza massima consentita: 50</td><td>Identificatore univoco di un elemento.</td></tr><tr><td>Ora</td><td>No</td><td>Data nel formato: aaaa/MM/ggTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati.</td></tr><tr><td>Evento</td><td>No; se fornito, è necessario inserire anche la data</td><td>Uno dei seguenti:<br>• Fare clic su<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima del file: 200MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-c 414-bb38-be9cf461c347</pre> |
 
 **Risposta**:
 
@@ -1211,7 +1185,7 @@ XML OData
 	</feed>
 
 
-#### 9.1.2. Uso dell'acquisizione dei dati
+####9\.1.2. Uso dell'acquisizione dei dati
 Questa sezione illustra come inviare eventi in tempo reale a Recommendations di Azure Machine Learning, in genere dal sito Web.
 
 | Metodo HTTP | URI |
@@ -1221,7 +1195,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	apiVersion | 1.0 |
+|	apiVersion | 1\.0 |
 |Corpo della richiesta| Immissione di dati evento per ogni evento da inviare. Per lo stesso utente o la stessa sessione del browser si dovrà inviare lo stesso ID nel campo SessionId. Vedere l'esempio di corpo dell'evento di seguito.|
 
 
@@ -1301,7 +1275,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 
 **Risposta**: Codice stato HTTP: 200
 
-### 9.2. Elencare i file di dati di utilizzo del modello
+###9\.2. Elencare i file di dati di utilizzo del modello
 Recupera i metadati di tutti i file di dati di utilizzo del modello.
 
 | Metodo HTTP | URI |
@@ -1311,9 +1285,8 @@ Recupera i metadati di tutti i file di dati di utilizzo del modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	forModelId |	Identificatore univoco del modello. |
-|	apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+|	apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1365,7 +1338,7 @@ XML OData
 	</entry>
 </feed>
 
-### 9.3. Ottenere statistiche di utilizzo
+###9\.3. Ottenere statistiche di utilizzo
 Ottiene le statistiche di utilizzo.
 
 | Metodo HTTP | URI |
@@ -1378,9 +1351,8 @@ Ottiene le statistiche di utilizzo.
 | startDate |	Data di inizio. Formato: aaaa/MM/ggTHH:mm:ss |
 | endDate |	Data di fine. Formato: aaaa/MM/ggTHH:mm:ss |
 | eventTypes |	Stringa con valori delimitati da virgole di tipi di evento specifici o Null per ottenere tutti gli eventi. |
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1450,7 +1422,7 @@ XML OData
 	</entry>
 	</feed>
 
-### 9.4. Ottenere un esempio del file di dati di utilizzo
+###9\.4. Ottenere un esempio del file di dati di utilizzo
 Recupera i primi 2 KB del contenuto del file di dati di utilizzo:
 
 | Metodo HTTP | URI |
@@ -1461,9 +1433,8 @@ Recupera i primi 2 KB del contenuto del file di dati di utilizzo:
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | fileId |	Identificatore univoco del file di dati di utilizzo del modello. |
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1472,7 +1443,7 @@ Codice stato HTTP: 200
 La risposta viene restituita in un formato di testo non elaborato: <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
 
 
-### 9.5. Ottenere il file di dati di utilizzo del modello
+###9\.5. Ottenere il file di dati di utilizzo del modello
 Recupera l'intero contenuto del file. di dati di utilizzo.
 
 | Metodo HTTP | URI |
@@ -1484,9 +1455,8 @@ Recupera l'intero contenuto del file. di dati di utilizzo.
 | mid |	Identificatore univoco del modello. |
 | fid |	Identificatore univoco del file di dati di utilizzo del modello. |
 | download | 1 |
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -1494,7 +1464,7 @@ Codice stato HTTP: 200
 
 La risposta viene restituita in un formato di testo non elaborato: <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
 
-### 9.6. Eliminare il file di dati di utilizzo
+###9\.6. Eliminare il file di dati di utilizzo
 Elimina il file di dati di utilizzo del modello specificato.
 
 | Metodo HTTP | URI |
@@ -1505,16 +1475,15 @@ Elimina il file di dati di utilizzo del modello specificato.
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | fileId | Identificatore univoco del file da eliminare. |
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
 
-### 9.7. Eliminare tutti i file di dati di utilizzo
+###9\.7. Eliminare tutti i file di dati di utilizzo
 Elimina tutti i file di dati di utilizzo del modello.
 
 | Metodo HTTP | URI |
@@ -1524,18 +1493,17 @@ Elimina tutti i file di dati di utilizzo del modello.
 | Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-## 10. Funzionalità
+##10\. Funzionalità
 Questa sezione illustra come recuperare informazioni sulle funzionalità, ad esempio le funzionalità importate e i relativi valori, la classificazione e la relativa data di allocazione. Le funzionalità vengono importate come parte dei dati del catalogo e quindi la relativa classificazione viene associata durante una compilazione della classifica. La classificazione delle funzionalità può cambiare in base al modello di dati di utilizzo e al tipo di elementi. Per la coerenza dei dati di utilizzo e degli elementi, è opportuno che le fluttuazioni siano limitate. La classificazione delle funzionalità è espressa mediante un numero non negativo. Il numero 0 significa che la funzionalità non è stata classificata, ad esempio nel caso il cui l'API venga richiamata prima che sia completata la prima compilazione della classifica. La data in cui è stata attribuita la classificazione è detta aggiornamento del punteggio.
 
-### 10.1. Ottenere informazioni sulle funzionalità (per l'ultima compilazione della classifica)
+###10\.1. Ottenere informazioni sulle funzionalità (per l'ultima compilazione della classifica)
 Recupera le informazioni sulle funzionalità, inclusa la classificazione per l'ultima compilazione della classifica riuscita.
 
 | Metodo HTTP | URI |
@@ -1546,9 +1514,8 @@ Recupera le informazioni sulle funzionalità, inclusa la classificazione per l'u
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 |samplingSize| Numero di valori da includere per ogni funzionalità, in base ai dati presenti nel catalogo. <br/>I valori possibili sono:<br> -1, tutti i campioni. <br>0, nessun campionamento. <br>N, restituisce N campioni per ogni nome di funzionalità.|
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -1616,7 +1583,7 @@ XML OData
 </feed>
 
 
-### 10.2. Ottenere informazioni sulle funzionalità (per la specifica compilazione della classifica)
+###10\.2. Ottenere informazioni sulle funzionalità (per la specifica compilazione della classifica)
 
 Recupera le informazioni sulle funzionalità, inclusa la classificazione per una compilazione della classifica specifica.
 
@@ -1629,9 +1596,8 @@ Recupera le informazioni sulle funzionalità, inclusa la classificazione per una
 | modelId |	Identificatore univoco del modello. |
 |samplingSize| Numero di valori da includere per ogni funzionalità, in base ai dati presenti nel catalogo.<br/> I valori possibili sono:<br> -1, tutti i campioni. <br>0, nessun campionamento. <br>N, restituisce N campioni per ogni nome di funzionalità.|
 |rankBuildId| Identificatore univoco per la compilazione della classifica o -1 per l'ultima compilazione della classifica.|
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -1699,7 +1665,7 @@ OData
 	</feed>
 
 
-## 11. Compilazione
+##11\. Compilazione
 
   Questa sezione descrive le diverse API correlate alle compilazioni. Esistono tre tipi di compilazione: una compilazione raccomandazione, una compilazione classifica e una compilazione FBT (Frequently Bought Together).
 
@@ -1716,14 +1682,14 @@ Una compilazione FBT (Frequently Bought Together) è un altro algoritmo di racco
 Nota: se i file di dati di utilizzo caricati contengono il campo facoltativo "event type", per la creazione del modello FBT verranno usati solo eventi "Purchase". Se non viene specificato alcun tipo di evento, tutti gli eventi verranno considerati come acquisti.
 
 
-#### 11.1 Parametri della compilazione
+####11\.1 Parametri della compilazione
 
 Ogni tipo di compilazione può essere configurato con un set di parametri, come illustrato di seguito. Se non si configurano parametri, il sistema attribuirà automaticamente i valori ai parametri in base alle informazioni presenti nel momento in cui si attiva una compilazione.
 
-##### 11.1.1. Concentrazione dei dati di utilizzo
+#####11\.1.1. Concentrazione dei dati di utilizzo
 Gli utenti o gli elementi con pochi punti di utilizzo possono contenere una quantità di dati non significativi maggiore delle informazioni. Il sistema tenta di stimare il numero minimo di punti di utilizzo per utente/elemento da usare in un modello. Questo numero sarà compreso nell'intervallo definito dai parametri ItemCutoffLowerBound e ItemCutoffUpperBound per gli elementi e nell'intervallo definito dai parametri UserCutOffLowerBound e UserCutoffUpperBound per gli utenti. L'effetto di concentrazione di elementi o utenti può essere ridotto impostando su zero almeno uno dei limiti corrispondenti.
 
-##### 11.1.2. Parametri di compilazione della classifica
+#####11\.1.2. Parametri di compilazione della classifica
 
 La tabella seguente illustra i parametri per una compilazione della classifica.
 
@@ -1736,7 +1702,7 @@ La tabella seguente illustra i parametri per una compilazione della classifica.
 |UserCutOffLowerBound| Definisce il limite minimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
 |UserCutOffUpperBound| Definisce il limite massimo dell'utente per la concentrazione. Vedere la sezione precedente relativa alla concentrazione dei dati di utilizzo. | Integer | 2 o più (0 disabilita la concentrazione) |
 
-##### 11.1.3. Parametri della compilazione di raccomandazioni
+#####11\.1.3. Parametri della compilazione di raccomandazioni
 La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 
 |Chiave|Descrizione|Tipo|Valore valido|
@@ -1756,7 +1722,7 @@ La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 | ReasoningFeatureList | Elenco con valori delimitati da virgole dei nomi delle funzionalità da usare nelle frasi relative alla motivazione (ad esempio, le spiegazioni delle raccomandazioni). | String | Nomi di funzionalità, con un massimo di 512 caratteri |
 | EnableU2I | Consente la raccomandazione personalizzata, nota anche come U2I (raccomandazioni da utente a elemento). | Boolean | True/False (valore predefinito true) |
 
-##### 11.1.4. Parametri della compilazione FBT
+#####11\.1.4. Parametri della compilazione FBT
 La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 
 |Chiave|Descrizione|Tipo|Valore valido (predefinito)|
@@ -1765,7 +1731,7 @@ La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 |FbtMaxItemSetSize | Limita il numero di elementi in un set frequente.| Integer | 2-3 (2) |
 |FbtMinimalScore | Punteggio minimo che un set frequente deve avere per essere incluso nei risultati restituiti. Più alto è il valore, migliori saranno i risultati.| Double | 0 e superiore (0) |
 
-### 11.2. Attivare una compilazione di raccomandazioni
+###11\.2. Attivare una compilazione di raccomandazioni
 
   Per impostazione predefinita, questa API attiverà la compilazione di un modello di raccomandazione. Per attivare la compilazione della classifica (per assegnare un punteggio alle funzionalità), è necessario usare la variante dell'API di compilazione con il parametro del tipo di compilazione.
 
@@ -1779,9 +1745,8 @@ La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli come XML nel corpo, come nell'esempio seguente. Per una descrizione dei parametri, vedere la sezione "Parametri della compilazione".`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli come XML nel corpo, come nell'esempio seguente. Per una descrizione dei parametri, vedere la sezione "Parametri della compilazione".`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Risposta**:
 
@@ -1843,7 +1808,7 @@ XML OData
   	</entry>
 	</feed>
 
-### 11.3. Attivare la compilazione (di raccomandazioni, della classifica o FBT)
+###11\.3. Attivare la compilazione (di raccomandazioni, della classifica o FBT)
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -1856,8 +1821,7 @@ XML OData
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
 | buildType | Tipo della compilazione da richiamare: <br/> - "Recommendation" per una compilazione di raccomandazioni <br> - "Ranking" per una compilazione della classifica <br/> - "Fbt" per una compilazione FBT
 | apiVersion | 1\.0 |
-||| 
-| Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli come XML nel corpo, come nell'esempio seguente. (Per la descrizione e l'elenco completo dei parametri, vedere la sezione "Parametri della compilazione".)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+||| | Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli come XML nel corpo, come nell'esempio seguente. (Per la descrizione e l'elenco completo dei parametri, vedere la sezione "Parametri della compilazione".)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Risposta**:
 
@@ -1921,7 +1885,7 @@ XML OData
 
 
 
-### 11.4. Ottenere lo stato delle compilazioni di un modello
+###11\.4. Ottenere lo stato delle compilazioni di un modello
 Recupera le compilazioni e il relativo stato per un modello specifico.
 
 | Metodo HTTP | URI |
@@ -1933,7 +1897,7 @@ Recupera le compilazioni e il relativo stato per un modello specifico.
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	onlyLastBuild |	Indica se restituire l'intera cronologia di compilazioni del modello o solo lo stato della compilazione più recente. |
-|	apiVersion |	1.0 |
+|	apiVersion |	1\.0 |
 
 
 **Risposta**:
@@ -1997,7 +1961,7 @@ XML OData
 	</feed>
 
 
-### 11.5. Ottenere lo stato delle compilazioni
+###11\.5. Ottenere lo stato delle compilazioni
 Recupera lo stato delle compilazioni di tutti i modelli di un utente.
 
 | Metodo HTTP | URI |
@@ -2008,7 +1972,7 @@ Recupera lo stato delle compilazioni di tutti i modelli di un utente.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	onlyLastBuild |	Indica se restituire l'intera cronologia di compilazioni del modello o solo lo stato della compilazione più recente. |
-|	apiVersion |	1.0 |
+|	apiVersion |	1\.0 |
 
 
 **Risposta**:
@@ -2073,7 +2037,7 @@ XML OData
 	</feed>
 
 
-### 11.6. Eliminare una compilazione
+###11\.6. Eliminare una compilazione
 Elimina una compilazione.
 
 NOTA: <br>Non è possibile eliminare una compilazione attiva. Per poterla eliminare, è necessario aggiornare il modello a una compilazione attiva diversa.<br>Non è possibile eliminare una compilazione in corso. È necessario annullare prima la compilazione chiamando <strong>Cancel Build</strong>.
@@ -2085,13 +2049,13 @@ NOTA: <br>Non è possibile eliminare una compilazione attiva. Per poterla elimin
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | buildId | Identificatore univoco della compilazione. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
 Codice stato HTTP: 200
 
-### 11.7. Annullare una compilazione
+###11\.7. Annullare una compilazione
 Annulla una compilazione nello stato di creazione.
 
 | Metodo HTTP | URI |
@@ -2101,13 +2065,13 @@ Annulla una compilazione nello stato di creazione.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | buildId | Identificatore univoco della compilazione. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
 Codice stato HTTP: 200
 
-### 11.8. Ottenere i parametri della compilazione
+###11\.8. Ottenere i parametri della compilazione
 Recupera i parametri della compilazione.
 
 | Metodo HTTP | URI |
@@ -2117,7 +2081,7 @@ Recupera i parametri della compilazione.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | buildId | Identificatore univoco della compilazione. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
@@ -2311,8 +2275,8 @@ XML OData
 		</entry>
 	</feed>
 
-## 12. Raccomandazione
-### 12.1. Ottenere le raccomandazioni degli elementi (per la compilazione attiva)
+##12\. Raccomandazione
+###12\.1. Ottenere le raccomandazioni degli elementi (per la compilazione attiva)
 
 Ottenere le raccomandazioni della compilazione attiva di tipo "Recommendation" o "Fbt" in base a un elenco di elementi seeds (input).
 
@@ -2326,7 +2290,7 @@ Ottenere le raccomandazioni della compilazione attiva di tipo "Recommendation" o
 | itemIds | Elenco con valori delimitati da virgole degli elementi per i quali aggiungere raccomandazioni. <br>Se la compilazione attiva è di tipo FBT, è possibile inviare un solo elemento. <br>Lunghezza massima: 1024 |
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
@@ -2488,7 +2452,7 @@ XML OData
  	 </entry>
 	</feed>
 
-### 12.2. Ottenere le raccomandazioni degli elementi (di una compilazione specifica)
+###12\.2. Ottenere le raccomandazioni degli elementi (di una compilazione specifica)
 
 Ottiene raccomandazioni di una compilazione specifica di tipo "Recommendation" o "Fbt".
 
@@ -2503,7 +2467,7 @@ Ottiene raccomandazioni di una compilazione specifica di tipo "Recommendation" o
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false.
 | buildId | L'ID compilazione da usare per questa richiesta di raccomandazioni. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
@@ -2514,7 +2478,7 @@ La risposta include una voce per ogni elemento raccomandato. Per ogni voce sono 
 
 Vedere un esempio di risposta nella sezione 12.1.
 
-### 12.3. Ottenere le raccomandazioni FBT (per la compilazione attiva)
+###12\.3. Ottenere le raccomandazioni FBT (per la compilazione attiva)
 
 Ottiene le raccomandazioni della compilazione attiva di tipo "Fbt" in base a un elemento seed (input).
 
@@ -2529,7 +2493,7 @@ Ottiene le raccomandazioni della compilazione attiva di tipo "Fbt" in base a un 
 | numberOfResults | Numero di risultati richiesti. |
 | minimalScore | Punteggio minimo che un set frequente deve avere per essere incluso nei risultati restituiti. |
 | includeMetatadata | Uso futuro, sempre false. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
@@ -2599,7 +2563,7 @@ XML OData
  	 </entry>
 	</feed>
 
-### 12.4. Ottenere le raccomandazioni FBT (di una compilazione specifica)
+###12\.4. Ottenere le raccomandazioni FBT (di una compilazione specifica)
 
 Ottenere le raccomandazioni di una compilazione specifica di tipo "Fbt".
 
@@ -2615,7 +2579,7 @@ Ottenere le raccomandazioni di una compilazione specifica di tipo "Fbt".
 | minimalScore | Punteggio minimo che un set frequente deve avere per essere incluso nei risultati restituiti. |
 | includeMetatadata | Uso futuro, sempre false. |
 | buildId | L'ID compilazione da usare per questa richiesta di raccomandazioni. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
@@ -2626,7 +2590,7 @@ La risposta include una voce per ogni set di elementi consigliati (un set di ele
 
 Vedere un esempio di risposta nella sezione 12.3.
 
-### 12.5. Ottenere le raccomandazioni utente (per la compilazione attiva)
+###12\.5. Ottenere le raccomandazioni utente (per la compilazione attiva)
 
 Ottenere le raccomandazioni utente di una compilazione di tipo "Recommendation" contrassegnata come compilazione attiva.
 
@@ -2644,7 +2608,7 @@ Note: 1. Non esiste alcuna raccomandazione utente per la compilazione FBT. 2. Se
 | userId | Identificatore univoco dell'utente |
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
@@ -2655,7 +2619,7 @@ La risposta include una voce per ogni elemento raccomandato. Per ogni voce sono 
 
 Vedere un esempio di risposta nella sezione 12.1.
 
-### 12.6. Ottenere le raccomandazioni utente con l'elenco di elementi (per la compilazione attiva)
+###12\.6. Ottenere le raccomandazioni utente con l'elenco di elementi (per la compilazione attiva)
 
 Ottenere raccomandazioni utente di una compilazione di tipo "Recommendation" contrassegnata come compilazione attiva con un elenco aggiuntivo di elementi
 
@@ -2675,7 +2639,7 @@ Note: 1. Non esiste alcuna raccomandazione utente per la compilazione FBT. 2. Se
 | itemIds | Elenco con valori delimitati da virgole degli elementi per i quali aggiungere raccomandazioni. Lunghezza massima: 1024 |
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
@@ -2686,7 +2650,7 @@ La risposta include una voce per ogni elemento raccomandato. Per ogni voce sono 
 
 Vedere un esempio di risposta nella sezione 12.1.
 
-### 12.7. Ottenere le raccomandazioni utente (di una compilazione specifica)
+###12\.7. Ottenere le raccomandazioni utente (di una compilazione specifica)
 
 Ottenere le raccomandazioni utente di una compilazione specifica di tipo "Recommendation".
 
@@ -2706,7 +2670,7 @@ Nota: non esiste alcuna raccomandazione utente per la compilazione FBT.
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false. |
 | buildId | L'ID compilazione da usare per questa richiesta di raccomandazioni. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
@@ -2718,7 +2682,7 @@ La risposta include una voce per ogni elemento raccomandato. Per ogni voce sono 
 Vedere un esempio di risposta nella sezione 12.1.
 
 
-### 12.8. Ottenere le raccomandazioni utente con l'elenco di elementi (di una compilazione specifica)
+###12\.8. Ottenere le raccomandazioni utente con l'elenco di elementi (di una compilazione specifica)
 
 Ottenere le raccomandazioni utente di una compilazione specifica di tipo "Recommendation" e l'elenco di elementi aggiuntivi.
 
@@ -2740,7 +2704,7 @@ Nota: non esiste alcuna raccomandazione utente per la compilazione FBT.
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false. |
 | buildId | L'ID compilazione da usare per questa richiesta di raccomandazioni. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Risposta:**
 
@@ -2751,12 +2715,12 @@ La risposta include una voce per ogni elemento raccomandato. Per ogni voce sono 
 
 Vedere un esempio di risposta nella sezione 12.1.
 
-## 13. Cronologia utilizzo utente
+##13\. Cronologia utilizzo utente
 Una volta compilato un modello di raccomandazione, il sistema consentirà di recuperare la cronologia utente (elementi associati a un utente specifico) usata per la compilazione. Questa API consente di recuperare la cronologia utente
 
 Nota: la cronologia utente è attualmente disponibile solo per le compilazioni raccomandazione.
 
-### 13.1 Recuperare la cronologia utente
+###13\.1 Recuperare la cronologia utente
 Recuperare l'elenco di elementi usati nella compilazione attiva o nella compilazione specificata per l'ID utente specificato.
 
 | Metodo HTTP | URI |
@@ -2769,7 +2733,7 @@ Recuperare l'elenco di elementi usati nella compilazione attiva o nella compilaz
 | modelId | Identificatore univoco del modello.|
 | userId | Identificatore univoco dell'utente.
 | buildId | Parametro facoltativo, consente di indicare da quale compilazione deve essere recuperata la cronologia utente
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 
 **Risposta:**
@@ -2805,11 +2769,11 @@ XML OData
 	</entry>
 </feed>
 
-## 14. Notifiche
+##14\. Notifiche
 L'API Recommendations di Azure Machine Learning crea notifiche quando nel sistema si verificano errori persistenti. Esistono tre tipi di notifica: 1. Build failure: questa notifica viene attivata per ogni errore di compilazione. 2. Data acquisition processing failure: questa notifica viene attivata quando, durante l'elaborazione degli eventi di utilizzo per ogni modello, si verificano più di 100 errori nell'arco di cinque minuti. 3. Recommendation consumption failure: questa notifica viene attivata quando, durante l'elaborazione delle richieste di raccomandazione per ogni modello, si verificano più di 100 errori nell'arco di cinque minuti.
 
 
-### 14.1. Ottenere notifiche
+###14\.1. Ottenere notifiche
 Recupera tutte le notifiche relative a tutti i modelli o a un singolo modello.
 
 | Metodo HTTP | URI |
@@ -2820,9 +2784,8 @@ Recupera tutte le notifiche relative a tutti i modelli o a un singolo modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId | Parametro facoltativo. Se omesso, vengono restituite tutte le notifiche relative a tutti i modelli. <br>Valore valido: identificatore univoco del modello.|
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta:**
 
@@ -2861,7 +2824,7 @@ XML OData
 		</entry>
 	</feed>
 
-### 14.2. Eliminare le notifiche di modello
+###14\.2. Eliminare le notifiche di modello
 Elimina tutte le notifiche di lettura relative a un modello.
 
 | Metodo HTTP | URI |
@@ -2872,15 +2835,14 @@ Elimina tutte le notifiche di lettura relative a un modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId | Identificatore univoco del modello. |
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
 Codice stato HTTP: 200
 
-### 14.3. Eliminare le notifiche utente
+###14\.3. Eliminare le notifiche utente
 Elimina tutte le notifiche relative a tutti i modelli.
 
 | Metodo HTTP | URI |
@@ -2890,9 +2852,8 @@ Elimina tutte le notifiche relative a tutti i modelli.
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-| apiVersion | 1.0 |
-||| 
-| Corpo della richiesta | NESSUNO |
+| apiVersion | 1\.0 |
+||| | Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -2901,8 +2862,8 @@ Codice stato HTTP: 200
 
 
 
-## 15. Note legali
+##15\. Note legali
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br> Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br> Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br> © 2015 Microsoft. Tutti i diritti sono riservati.
  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

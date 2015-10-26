@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Informazioni su come proteggere l'accesso ai dati in DocumentDB | Microsoft Azure"
-	description="Informazioni sui concetti di controllo di accesso in DocumentDB, tra cui chiavi master, chiavi di sola lettura, utenti e autorizzazioni."
-	services="documentdb"
-	authors="stephbaron"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="Informazioni su come proteggere l'accesso ai dati in DocumentDB | Microsoft Azure" 
+	description="Informazioni sui concetti di controllo di accesso in DocumentDB, tra cui chiavi master, chiavi di sola lettura, utenti e autorizzazioni." 
+	services="documentdb" 
+	authors="stephbaron" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="stbaro"/>
 
 # Protezione dell'accesso ai dati in DocumentDB #
@@ -163,4 +163,4 @@ Per ottenere facilmente tutte le risorse autorizzazione associate a un particola
 - Per informazioni su come costruire i token di autorizzazione di DocumentDB, fare clic [qui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

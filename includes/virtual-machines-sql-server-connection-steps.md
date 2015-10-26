@@ -183,4 +183,4 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 
 	![Connessione tramite SQL Server Management Studio](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

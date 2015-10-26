@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Introduzione a un emulatore di Hadoop per HDInsight | Microsoft Azure"
 	description="Utilizzare un emulatore installato con un'esercitazione MapReduce e altri esempi per informazioni sull'ecosistema di Hadoop. L’emulatore di HDInsight funziona come un ambiente sandbox di Hadoop."
+	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -196,7 +197,7 @@ I dati di esempio sono organizzati in base agli scenari di elaborazione dei dati
 
 ###<a name="scenarios"></a>Scenari relativi ai dati di log IIS W3C
 
-Lo scenario W3C permette di generare e importare dati di log IIS W3C in HDFS o nell'archivio BLOB di Azure in tre dimensioni diverse: 1 MB (piccola), 500 MB (media) e 2 GB (grande). Include tre tipi di processo e consente di implementarli in C\#, Java, Pig e Hive.
+Lo scenario W3C permette di generare e importare dati di log IIS W3C in HDFS o nell'archivio BLOB di Azure in tre dimensioni diverse: 1 MB (piccola), 500 MB (media) e 2 GB (grande). Include tre tipi di processo e consente di implementarli in C#, Java, Pig e Hive.
 
 - **totalhits**: calcola il numero totale di richieste per una pagina specifica.
 - **avgtime**: calcola il tempo medio (in secondi) impiegato per una richiesta per ogni pagina.
@@ -241,7 +242,7 @@ Il file di dati è stato creato e importato in HDFS. È possibile iniziare a ese
 
 ###<a name="javamapreduce"></a> Eseguire processi MapReduce Java
 
-MapReduce è il motore di calcolo di base per Hadoop. Per impostazione predefinita, viene implementato in Java, ma sono disponibili anche esempi che si avvalgono di .NET ed esempi di streaming Hadoop in C\#. La sintassi per l'esecuzione di un processo MapReduce è la seguente:
+MapReduce è il motore di calcolo di base per Hadoop. Per impostazione predefinita, viene implementato in Java, ma sono disponibili anche esempi che si avvalgono di .NET ed esempi di streaming Hadoop in C#. La sintassi per l'esecuzione di un processo MapReduce è la seguente:
 
 	hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
@@ -467,7 +468,7 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 
 - [Introduzione all'uso di Azure HDInsight](../hdinsight-get-started.md)
 - [Sviluppare programmi MapReduce Java per HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Sviluppare programmi MapReduce di streaming Hadoop in C#per HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+- [Sviluppare programmi MapReduce di streaming Hadoop in C# per HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Note sulla versione di HDInsight Emulator](hdinsight-emulator-release-notes.md)
 - [Forum MSDN relativo a HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
@@ -497,4 +498,4 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

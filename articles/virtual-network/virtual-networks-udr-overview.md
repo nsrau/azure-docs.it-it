@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="10/12/2015"
    ms.author="telmos" />
 
 # Route e inoltro IP, definito dall'utente
@@ -32,9 +32,11 @@ Nella figura seguente viene illustrato un semplice programma di installazione co
 
 Sebbene l'utilizzo di route del sistema faciliti il traffico automaticamente per la distribuzione, esistono casi in cui si desidera controllare il routing dei pacchetti tramite un dispositivo virtuale. Questo è possibile tramite la creazione di route definite dall'utente che specifichino l'hop successivo per i pacchetti che passano a una subnet specifica per accedere all'applicazione virtuale e tramite l’attivazione dell'inoltro IP per la macchina virtuale in esecuzione come dispositivo virtuale.
 
-Nella figura seguente viene illustrato un esempio di route definite dall’utente e di inoltro IP per forzare i pacchetti che passano da una subnet front-end a Internet per passare attraverso un dispositivo virtuale e tutti i pacchetti che vanno dalla subnet front-end alla subnet back-end per passare attraverso un dispositivo diverso. Si noti che il traffico dalla subnet di back-end alla subnet front-end sta ancora attraversando la route di sistema, oltrepassando il dispositivo.
+Nella figura seguente viene illustrato un esempio di route definite dall'utente e di inoltro IP per imporre i pacchetti inviati a una subnet da un altro per passare attraverso un dispositivo virtuale su una terza subnet.
 
 ![Route di sistema in Azure](./media/virtual-networks-udr-overview/Figure2.png)
+
+>[AZURE.IMPORTANT]Le route definite dall'utente vengono applicate solo al traffico da una subnet. non è possibile creare una route per specificare come il traffico entra in una subnet da Internet, ad esempio. Inoltre, il dispositivo in cui si desidera inoltrare il traffico non può essere nella stessa subnet da cui ha origine il traffico. Creare sempre una subnet separata per i dispositivi.
 
 ## Routing.
 I pacchetti vengono inoltrati attraverso una rete TCP/IP basata su una tabella di route definita in ogni nodo nella rete fisica. Una tabella di route è un insieme di route singoli utilizzata per decidere dove inoltrare pacchetti in base a indirizzo IP di destinazione. Una route è costituita dai seguenti elementi:
@@ -83,11 +85,9 @@ Come descritto sopra, uno dei motivi principali per creare una route definita ut
 
 Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere traffico in ingresso non viene indirizzato a se stesso. Per consentire a una macchina virtuale di ricevere il traffico indirizzato ad altre destinazioni, è necessario abilitare l'inoltro IP per la macchina virtuale. Si tratta di un'impostazione di Azure e non del sistema operativo guest.
 
-Per informazioni su come abilitare l’inoltro IP per una macchina virtuale in Azure, vedere[come creare route e abilitare l'inoltro dell'IP in Azure](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding).
-
 ## Passaggi successivi
 
 - Informazioni su come [creare route nel modello di distribuzione di Gestione risorse](../virtual-network-create-udr-arm-template) e associarle alle subnet. 
 - Informazioni su come [creare route nel modello di distribuzione classica](../virtual-network-create-udr-classic-ps) e associarle a subnet.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

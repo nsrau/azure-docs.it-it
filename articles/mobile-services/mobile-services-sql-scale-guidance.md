@@ -475,4 +475,4 @@ Per analizzare il piano di query nel **portale di gestione database SQL**, usare
 [Costo delle chiavi]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

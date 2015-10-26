@@ -1,3 +1,5 @@
+<properties writer="kathydav" editor="tysonn" manager="timlt" />
+
 
 Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Il disco verrà rimosso dalla macchina virtuale, ma non dall'archivio. Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
 
@@ -58,4 +60,4 @@ Dopo aver individuato il numero LUN del disco, si è pronti per scollegarlo:
 
 Il disco scollegato rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

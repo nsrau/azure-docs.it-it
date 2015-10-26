@@ -60,4 +60,4 @@ Nella visualizzazione affiancata predefinita, ogni riquadro mostrato nei risulta
 ## Riepilogo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Una volta registrata un'origine dati, gli utenti possono individuarla mediante i filtri e la ricerca all'interno del portale **Catalogo dati Azure**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

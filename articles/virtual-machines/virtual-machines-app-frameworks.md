@@ -21,7 +21,8 @@
 
 Utilizzare questo materiale per creare rapidamente applicazioni eccezionali.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 | Modello | Descrizione | Visualizzare il modello | Distribuirlo subito |
 |:---|:---|:---:|:---:|
@@ -52,4 +53,4 @@ Individuare tutti i modelli a disposizione in [GitHub](https://github.com/Azure/
 
 Per ulteriori informazioni, vedere [Gestione risorse di Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

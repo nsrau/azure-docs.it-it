@@ -50,7 +50,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-	Per impostare le impostazioni di recapito della posta, fare clic sul pulsante **Manage**. Verrà visualizzata l'interfaccia Web Sendgrid.com, in cui è possibile effettuare l'accesso e aprire il pannello di controllo SendGrid.
+	Per impostare le impostazioni di recapito della posta, fare clic sul pulsante **Manage**. Si verrà reindirizzati al pannello di controllo SendGrid.
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
@@ -76,4 +76,4 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 [processo di provisioning dell'account SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [tutte le API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

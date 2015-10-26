@@ -1,3 +1,20 @@
+<properties
+   pageTitle="Il ripristino del sito limita la tabella"
+   description="Descrive i limiti di sistema per il ripristino del sito."
+   services="site recovery"
+   documentationCenter="NA"
+   authors="csilauraa"
+   manager="jwhit"
+   editor="" />
+<tags
+   ms.service="site recovery"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="07/06/2015"
+   ms.author="lauraa" />
+
 
 Le seguenti limitazioni si applicano a Azure Site Recovery:
 
@@ -11,4 +28,4 @@ Le seguenti limitazioni si applicano a Azure Site Recovery:
 |Numero di server per il gruppo protezione dati|Nessun limite|
 |Numero di server per il piano di ripristino|50|
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

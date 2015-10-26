@@ -27,7 +27,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 ## Codice di esempio
 Per visualizzare il codice sorgente completato, passare [qui](https://github.com/RickSaling/mobile-services-samples/tree/push/GettingStartedWithPush).
 
-## Abilitazione di Google Cloud Messaging
+## Abilitare Google Cloud Messaging
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
@@ -114,4 +114,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Inviare notifiche basate su modelli ad altri sottoscrittori]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -117,4 +117,4 @@ Le proprietà transazionali sono garantite per tutte le operazioni locali rispet
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

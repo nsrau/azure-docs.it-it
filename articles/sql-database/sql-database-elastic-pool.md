@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -19,7 +19,7 @@
 
 # Controllare la crescita esponenziale con i database elastici
 
-Per gli sviluppatori SaaS con decine, centinaia o persino migliaia di database, un pool di database elastici semplifica il processo di creazione, manutenzione e gestione delle prestazioni tra database entro un budget da essi stessi controllato.
+Per gli sviluppatori SaaS con decine, centinaia o persino migliaia di database, un pool di database elastici semplifica il processo di creazione, manutenzione e gestione delle prestazioni tra database entro un budget da essi stessi controllato. È possibile [creare un pool di database elastici](sql-database-elastic-pool-portal.md) in pochi minuti usando il portale di Microsoft Azure, PowerShell, C#.
 
 Un modello comune di applicazione SaaS consiste nel disporre, per ogni database, di un cliente diverso, ognuno con consumo di risorse vario e imprevedibile (CPU/IO/Memoria riepilogati con DTU). Con questi picchi e fluttuazioni della domanda per ciascun database, può essere difficile prevedere e quindi eseguire il provisioning delle risorse. Ci si trova di fronte a due opzioni: un provisioning eccessivo delle risorse del database in base all'utilizzo di picco, e quindi costi eccessivi, oppure un provisioning insufficiente, per risparmiare sui costi, a scapito delle prestazioni e della soddisfazione del cliente durante i picchi.
 
@@ -36,7 +36,7 @@ Se più eDTUs sono necessari per soddisfare le esigenze di un pool (database agg
 
 Database che sono ottimi candidati per il pool di database flessibile, in genere dispongono di periodi di attività e altri periodi di inattività. Si consideri l'esempio precedente in cui è possibile visualizzare l'attività di un singolo database, 4 database e infine un pool di database elastici con 20 database. Questi database con diverse attività nel tempo sono ottimi candidati per il pool di database flessibile perché non sono attive contemporaneamente e può condividere eDTUs. Non tutti i database seguono questo modello. Alcuni database hanno una richiesta di risorse più costante. Questi database sono più indicati per i livelli di servizio Basic, Standard e Premium, nei quali le risorse vengono assegnate singolarmente. Per determinare se i database possono costituire un vantaggio in un pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
-È possibile creare un pool di database elastici in pochi minuti usando il portale di Microsoft Azure, PowerShell, C#. Per i dettagli, vedere [Creare e gestire un pool di database elastici](sql-database-elastic-pool-portal.md). Per informazioni dettagliate sui pool di database elastici, inclusi i dettagli relativi ad API ed errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
+Per informazioni dettagliate sui pool di database elastici, inclusi i dettagli relativi ad API ed errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
 
 > [AZURE.NOTE]I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12.
@@ -72,4 +72,4 @@ L’esportazione di un database dall’interno di un pool è supportata. Attualm
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

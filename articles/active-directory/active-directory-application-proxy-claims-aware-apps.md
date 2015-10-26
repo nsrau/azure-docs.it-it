@@ -49,4 +49,4 @@ Prima di eseguire la procedura, assicurarsi che il servizio token di sicurezza a
 
 ![Schermata: aggiunta di un endpoint e impostazione del valore per URL attendibile](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

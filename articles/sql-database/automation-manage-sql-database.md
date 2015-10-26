@@ -53,4 +53,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
  * Leggere il post di blog [Automazione di Azure: l'agente SQL nel cloud](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

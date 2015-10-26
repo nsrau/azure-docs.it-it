@@ -20,7 +20,8 @@
 
 #Uso di Desktop remoto per connettersi a una macchina virtuale Linux di Microsoft Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 ##Panoramica
 
@@ -115,4 +116,4 @@ Accedere con `user` e `password` per la macchina Linux e sarà possibile usare s
 ##Avanti
 Per altre informazioni sull'uso di xrdp, vedere [questa pagina](http://www.xrdp.org/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

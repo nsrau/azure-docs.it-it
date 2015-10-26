@@ -13,14 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="cephalin"/>
+	ms.date="10/14/2015"
+	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitorare le app Web nel servizio app di Azure
 
 [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio per piani del servizio app Standard e Premium attraverso la pagina di gestione Monitoraggio. La pagina di gestione Monitoraggio offre statistiche sulle prestazioni di un'app Web, come descritto di seguito.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+##Criteri di conservazione delle metriche
+
+>[AZURE.NOTE]I criteri di conservazione per le app della metrica variano in base alla granularità.
+
+- Le metriche di granularità **minuto** vengono mantenute per **24 ore**
+- Le metriche di granularità **ora** vengono mantenute per **7 giorni**
+- Le metriche di granularità **giorno** vengono mantenute per **30 giorni**
 
 ##<a name="websitemetrics"></a>Procedura: aggiungere metriche dell'app Web
 
@@ -35,6 +43,8 @@
 5. Dopo avere aggiunto le metriche alla pagina **Monitoraggio**, fare clic per abilitare o disabilitare la casella di opzione accanto a ogni metrica per aggiungere o rimuovere la metrica dal grafico nella parte superiore della pagina.
 
 6. Per rimuovere le metriche dalla pagina **Monitor**, selezionare la metrica da rimuovere e quindi fare clic sull'icona **Delete Metric** nella parte inferiore della pagina.
+
+
 
 ##<a name="howtoreceivealerts"></a>Procedura: ricevere avvisi dalle metriche dell'app Web
 
@@ -279,4 +289,4 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

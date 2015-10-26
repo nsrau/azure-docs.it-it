@@ -168,7 +168,7 @@ Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina v
 
 </td>
 <td>
-\~5 Mbps
+~5 Mbps
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina v
 
 </td>
 <td>
-\~100 Mbps
+~100 Mbps
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina v
 
 </td>
 <td>
-\~200 Mbps
+~200 Mbps
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina v
 
 </td>
 <td>
-\~400 Mbps
+~400 Mbps
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina v
 
 </td>
 <td>
-\~800 Mbps
+~800 Mbps
 
 </td>
 </tr>
@@ -346,4 +346,4 @@ Per altre informazioni su distribuzione, aggiornamento e riconfigurazione dei ru
   [Migrazione di applicazioni ad Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [Configurazione di un'applicazione Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

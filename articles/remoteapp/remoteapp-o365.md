@@ -1,20 +1,20 @@
 
 <properties 
-    pageTitle="Usare Office con Azure RemoteApp"
-	description="Informazioni sull'interazione tra Office e Azure RemoteApp"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    pageTitle="Usare Office con Azure RemoteApp" 
+    description="Informazioni sull'interazione tra Office e Azure RemoteApp" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 # Usare Office con Azure RemoteApp
 
@@ -50,4 +50,4 @@ Quando si attiva l'account, l'operazione avrà effetto su tutte le raccolte Remo
 Se non si esegue la transizione alla modalità di produzione entro la scadenza della versione di valutazione, le raccolte RemoteApp verranno disabilitate. Ciò non sarà comunque un problema: le impostazioni e i dati degli utenti verranno salvati per altri 90 giorni, in modo che sia comunque possibile attivare il servizio e passare alla modalità di produzione senza alcuna perdita di dati.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

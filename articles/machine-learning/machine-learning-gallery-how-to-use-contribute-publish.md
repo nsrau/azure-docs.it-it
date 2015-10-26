@@ -136,4 +136,4 @@ La funzionalità di rendering per descrizioni dettagliate non è ancora disponib
 
 **[VAI ALLA RACCOLTA >>](http://gallery.cortanaanalytics.com)**
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

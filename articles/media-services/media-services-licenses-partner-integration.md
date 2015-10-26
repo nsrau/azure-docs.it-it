@@ -46,4 +46,4 @@ Servizi multimediali di Microsoft Azure consente di distribuire contenuto protet
 
 [Blog di Mingfei](https://azure.microsoft.com/it-IT/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

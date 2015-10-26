@@ -51,4 +51,4 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 [Documentazione di Data factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [Copy data with Azure Data Factory]: https://azure.microsoft.com/it-IT/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

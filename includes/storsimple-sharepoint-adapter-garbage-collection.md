@@ -64,4 +64,4 @@ In questa procedura, si apprenderà come:
 
 2. Sul server web front-end, in**Amministrazione centrale**modificare le **Impostazioni generali dell’applicazione Web**per il database del contenuto desiderato per abilitare nuovamente il Cestino. A tale scopo, fare clic su**Amministrazione centrale** -> **Gestione dell’applicazione** -> **Applicazioni Web (Gestisci applicazioni web)** -> **SharePoint - 80** -> **Impostazioni generali dell’applicazione**. Impostare lo stato del Cestino su**ON**.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

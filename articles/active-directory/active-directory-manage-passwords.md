@@ -48,4 +48,4 @@ Usare i collegamenti seguenti per passare alla documentazione rilevante:
 - [Creare o modificare utenti in Azure AD](active-directory-create-users.md)
 - [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

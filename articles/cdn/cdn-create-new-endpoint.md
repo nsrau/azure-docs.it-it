@@ -1,19 +1,19 @@
 <properties 
-	 pageTitle="Come abilitare la rete per la distribuzione di contenuti (rete CDN) per Azure"
-	description="Questo argomento illustra come abilitare la rete per la distribuzione di contenuti (CDN) per Azure."
-	services="cdn"
-	documentationCenter=""
-	authors="zhangmanling"
-	manager="dwrede"
-	editor=""/>
+	 pageTitle="Come abilitare la rete per la distribuzione di contenuti (rete CDN) per Azure" 
+	 description="Questo argomento illustra come abilitare la rete per la distribuzione di contenuti (CDN) per Azure." 
+	 services="cdn" 
+	 documentationCenter="" 
+	 authors="zhangmanling" 
+	 manager="dwrede" 
+	 editor=""/>
 <tags 
-	 ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mazha"/>
+	 ms.service="cdn" 
+	 ms.workload="media" 
+	 ms.tgt_pltfrm="na" 
+	 ms.devlang="na" 
+	 ms.topic="article" 
+	 ms.date="09/01/2015" 
+	 ms.author="mazha"/>
 
 
 
@@ -54,4 +54,4 @@ Si noti che ora è inoltre possibile creare un'origine personalizzata che non de
 [customorigin]: ./media/cdn-create-new-endpoint/cdn-custom-origin.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

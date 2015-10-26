@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Elaborare eventi dell'hub eventi con Storm in HDInsight | Azure"
+   pageTitle="Elaborare eventi dall'hub eventi con Storm in HDInsight utilizzando Java| Azure"
    description="Informazioni su come elaborare i dati dell'hub eventi con una topologia Storm Java creata con Maven."
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/12/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 # Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)
@@ -476,4 +476,4 @@ Per altre informazioni sull'uso dell'Interfaccia utente di Storm, vedere gli arg
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

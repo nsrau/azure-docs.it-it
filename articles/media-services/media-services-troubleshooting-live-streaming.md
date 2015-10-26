@@ -67,4 +67,4 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 	
 >[AZURE.NOTE]Se dopo aver seguito le procedure di risoluzione dei problemi non è ancora possibile eseguire correttamente il flusso, inviare un ticket di supporto tramite il portale di gestione di Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

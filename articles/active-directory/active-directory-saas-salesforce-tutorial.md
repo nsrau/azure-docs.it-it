@@ -216,7 +216,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Se si sta eseguendo il provisioning in un ambiente **svliuppatore** di Salesforce, sarà disponibile un numero ridotto di licenze per ogni profilo. Pertanto, si consiglia di eseguire il provisioning nel profilo **utenti Chatter gratuiti**, il quale dispone di 4.999 licenze.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/), quindi accedere all'account di test e fare clic su **Salesforce**.
 
@@ -253,4 +253,4 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

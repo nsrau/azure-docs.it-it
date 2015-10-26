@@ -337,4 +337,4 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 - Per configurare routing e inoltro IP, vedere [Come creare route e abilitare l'inoltro dell'IP in Azure](virtual-network/virtual-networks-udr-how-to.md) 
 - Per una panoramica del controllo di accesso basato su ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di Microsoft Azure](role-based-access-control-configure.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

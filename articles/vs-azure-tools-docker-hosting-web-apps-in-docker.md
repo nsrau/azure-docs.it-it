@@ -1,19 +1,19 @@
 <properties
    pageTitle="Hosting di applicazioni Web in Docker | Microsoft Azure"
-	description="Informazioni su come usare Visual Studio per ospitare un'applicazione Web in un contenitore Docker."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Informazioni su come usare Visual Studio per ospitare un'applicazione Web in un contenitore Docker."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # Hosting di applicazioni Web nel Docker
 
@@ -177,4 +177,4 @@ Per problemi relativi all'uso di Docker in Visual Studio, vedere [Risoluzione de
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

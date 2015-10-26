@@ -38,7 +38,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-pagerduty-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-pagerduty-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -83,7 +83,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 8.  Nella pagina Attiva Single Sign-on (SSO) eseguire la procedura seguente:
 
-    ![Attiva Single Sign-On](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Attiva Single Sign-On")
+    ![Attiva Single Sign-On](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Abilitare l'autenticazione Single Sign-On")
 
     1.  Creare un file **con codifica Base 64** dal certificato scaricato.  
 
@@ -138,4 +138,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

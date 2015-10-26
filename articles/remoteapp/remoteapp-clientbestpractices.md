@@ -27,4 +27,4 @@ Le informazioni seguenti possono essere utili per l'uso dei client Azure RemoteA
 - RemoteApp esegue automaticamente la disconnessione dopo un determinato periodo di inattività. Per evitare perdite di dati, è consigliabile chiudere le applicazioni dopo aver terminato di usare il servizio.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

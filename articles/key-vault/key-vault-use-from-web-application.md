@@ -243,4 +243,4 @@ Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

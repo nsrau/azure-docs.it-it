@@ -241,4 +241,4 @@ Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione d
 
 [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)se si riscontrano problemi durante l'attivazione o l'arresto di un dispositivo StorSimple.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

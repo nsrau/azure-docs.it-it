@@ -4,7 +4,7 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 
 1. Dopo avere eseguito la connessione alla macchina virtuale tramite Desktop remoto, aprire Internet Explorer dal menu **Start** sulla macchina virtuale.
 
-2. Nell'angolo superiore destro fare clic sul pulsante **Strumenti**. In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere _http://\*.mongodb.org_ all'elenco dei siti attendibili.
+2. Nell'angolo superiore destro fare clic sul pulsante **Strumenti**. In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere \__http://*.mongodb.org_ all'elenco dei siti attendibili.
 
 3. Passare alla pagina dei [download di MongoDB][MongoDownloads].
 
@@ -108,4 +108,4 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

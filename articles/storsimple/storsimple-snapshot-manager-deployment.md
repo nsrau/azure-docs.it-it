@@ -35,9 +35,7 @@ Prima di installare o aggiornare lo StorSimple Snapshot Manager per Microsoft Ma
 
 I passaggi seguenti forniscono una panoramica generale delle attività di configurazione che è necessario completare prima di installare StorSimple Snapshot Manager. Per informazioni complete sulla configurazione e sull’installazione di Microsoft Azure StorSimple, inclusi i requisiti di sistema e istruzioni dettagliate, vedere [Distribuire dispositivo StorSimple in locale](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Prima di iniziare, esaminare il [elenco di controllo configurazione distribuzione](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) 
-> ed e [Prerequisiti di distribuzione](storsimple-deployment-walkthrough.md#deployment-prerequisites) in [distribuire dispositivo StorSimple locale](storsimple-deployment-walkthrough.md). 
-<br>
+>[AZURE.IMPORTANT]Prima di iniziare, esaminare il [elenco di controllo configurazione distribuzione](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) ed e [Prerequisiti di distribuzione](storsimple-deployment-walkthrough.md#deployment-prerequisites) in [distribuire dispositivo StorSimple locale](storsimple-deployment-walkthrough.md). <br>
  
 ### Prima di installare StorSimple Snapshot Manager
 
@@ -49,7 +47,7 @@ I passaggi seguenti forniscono una panoramica generale delle attività di config
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    > [AZURE.NOTE]Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure.
+    >[AZURE.NOTE]Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure.
 
 3. Assicurarsi che siano soddisfatti i requisiti di configurazione Microsoft Azure StorSimple. Per ulteriori informazioni, vedere[Prerequisiti di distribuzione](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
@@ -203,7 +201,7 @@ Utilizzare la procedura seguente per creare e salvare una copia del database di 
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. Passare a C:\ProgramData\Microsoft\StorSimple\BACatalog.
+2. Passare a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
     >[AZURE.NOTE]ProgramData è una cartella nascosta.
 
@@ -235,7 +233,7 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in[Installare u
 
     4. Nel riquadro a destra, sotto **Servizio di gestione Microsoft StorSimple**, fare clic su **Arresta il servizio**.
 
-2. Passare a C:\ProgramData\Microsoft\StorSimple\BACatalog.
+2. Passare a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
      >[AZURE.NOTE]ProgramData è una cartella nascosta.
 
@@ -257,4 +255,4 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in[Installare u
 
 - Per ulteriori informazioni sull'utilizzo di gestione Snapshot StorSimple, passare a [utilizzare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

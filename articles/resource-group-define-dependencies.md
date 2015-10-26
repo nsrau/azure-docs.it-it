@@ -62,4 +62,4 @@ Per ulteriori informazioni, vedere[riferimento a funzione](../resource-group-tem
 - Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). 
 - Per un elenco di funzioni disponibili in un modello, vedere[funzioni modello](resource-group-template-functions.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

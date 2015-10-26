@@ -1,3 +1,13 @@
+<properties services="virtual-machines" title="Using Azure CLI with Azure Resource Manager" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
+
+<tags
+   ms.service="virtual-machine"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="linux"
+   ms.workload="infrastructure"
+   ms.date="04/13/2015"
+   ms.author="rasquill" />
 
 ## Utilizzare l'interfaccia della riga di comando di Azure con Gestione risorse di Azure
 
@@ -54,4 +64,4 @@ Per utilizzare la modalità Gestione risorse di Azure con l'interfaccia della ri
 
 > [AZURE.NOTE]È possibile passare nuovamente per l'utilizzo di comandi di gestione del servizio di Azure digitando `azure config mode asm`.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

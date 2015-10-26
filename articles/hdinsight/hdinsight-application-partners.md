@@ -41,4 +41,4 @@ RedPoint ha ottenuto il massimo punteggio possibile nei sondaggi di valutazione 
 
 ![](media/hdinsight-application-partners/kyvos8.png) Kyvos è impegnata a sfruttare tutte le potenzialità dell'analisi Big Data grazie a una tecnologia unica al mondo, ovvero "OLAP su Hadoop". Questa tecnologia consente di creare cubi a livello locale in Hadoop con scalabilità lineare, eliminando le limitazioni delle soluzioni OLAP tradizionali e consentendo di eseguire analisi multidimensionali interattive sui Big Data. Gli utenti possono visualizzare, esplorare e analizzare i dati in modo interattivo in Hadoop senza alcun bisogno di programmazione.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

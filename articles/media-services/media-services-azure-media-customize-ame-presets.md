@@ -517,4 +517,4 @@ Per impedire l'amplificazione del rumore di fondo, effettuare le seguenti operaz
 
 [Schema XML del Codificatore multimediale di Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

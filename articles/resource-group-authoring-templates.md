@@ -103,7 +103,11 @@ I parametri vengono definiti con la struttura seguente:
        "<parameterName>" : {
          "type" : "<type-of-parameter-value>",
          "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+         "allowedValues": [ "<optional-array-of-allowed-values>" ],
+         "minValue": <optional-minimum-value-for-int-parameters>,
+         "maxValue": <optional-maximum-value-for-int-parameters>,
+         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
        }
     }
 
@@ -113,6 +117,10 @@ I parametri vengono definiti con la struttura seguente:
 | type | Sì | Tipo di valore del parametro. Vedere di seguito l'elenco dei tipi consentiti.
 | defaultValue | No | Valore predefinito per il parametro, se non viene fornito alcun valore per il parametro.
 | allowedValues | No | Matrice di valori consentiti per il parametro per assicurare che venga fornito il valore corretto.
+| minValue | No | Il valore minimo per i parametri di tipo int, questo valore è inclusivo.
+| maxValue | No | Il valore massimo per i parametri di tipo int, questo valore è inclusivo.
+| minLength | No | La lunghezza minima per la stringa, i parametri di tipo secureString e matrice, questo valore è inclusivo.
+| maxLength | No | La lunghezza massima per la stringa, i parametri di tipo secureString e matrice, questo valore è inclusivo.
 
 I valori e i tipi consentiti sono:
 
@@ -130,10 +138,13 @@ Il seguente esempio mostra come definire i parametri:
 
     "parameters": {
        "siteName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
        },
        "siteLocation": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2
        },
        "hostingPlanName": {
           "type": "string"
@@ -148,6 +159,14 @@ Il seguente esempio mostra come definire i parametri:
             "Premium"
           ],
           "defaultValue": "Free"
+       },
+       "instancesCount": {
+          "type": "int",
+          "maxValue": 10
+       },
+       "numberOfWorkers": {
+          "type": "int",
+          "minValue": 1
        }
     }
 
@@ -410,4 +429,4 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per visualizzare gli schemi disponibili, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Topologie per Azure AD Connect
@@ -159,7 +159,12 @@ Come previsto da progettazione, le directory di Azure AD sono isolate. Non è su
 
 È supportato l'uso di FIM2010/MIM2016 locale per eseguire la sincronizzazione dell'elenco di indirizzi globale per gli utenti tra due organizzazioni di Exchange. Gli utenti di un'organizzazione verranno visualizzati come utenti/contatti esterni nell'altra organizzazione. Sarà quindi possibile sincronizzare le due istanze locali diverse di AD con le rispettive directory di Azure AD.
 
-## Passaggi successivi
-Per informazioni su come installare Azure AD Connect per questi scenari, vedere [Installazione personalizzata di Azure Ad Connect](active-directory-aadconnect-get-started-custom.md). Per altre informazioni sulla configurazione del servizio di sincronizzazione Azure AD Connect, vedere [Servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO4-->
+## Passaggi successivi
+Per informazioni su come installare Azure AD Connect per questi scenari, vedere [Installazione personalizzata di Azure Ad Connect](active-directory-aadconnect-get-started-custom.md).
+
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

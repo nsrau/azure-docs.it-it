@@ -194,10 +194,10 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 [javalogs]: app-insights-java-trace-logs.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-spi-custom-events-metrics.md
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

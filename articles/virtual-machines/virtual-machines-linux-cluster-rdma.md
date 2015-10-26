@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la configurazione delle risorse con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 Questo articolo illustra come configurare un cluster Linux RDMA in Azure con [macchine virtuali di dimensioni A8 e A9](virtual-machines-a8-a9-a10-a11-specs.md) per eseguire applicazioni MPI (Message Passing Interface) parallele. Quando si configurano macchine virtuali di dimensioni A8 e A9 basate su Linux per eseguire un'implementazione MPI supportata, le applicazioni MPI comunicano in modo efficiente su una rete a bassa latenza e a elevata velocità effettiva in Azure che è basata sulla tecnologia di accesso diretto a memoria remota (RDMA).
 
@@ -369,4 +370,4 @@ In un cluster funzionante con due nodi dovrebbe venire visualizzato un output si
 
 * Per istruzioni su Intel MPI, vedere la [documentazione relativa a Intel MPI Library](https://software.intel.com/it-IT/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->
