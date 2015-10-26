@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Creare un'app per le API ASP.NET 5 in Visual Studio Code"
-	description="Questa esercitazione illustra come creare un'app per le API ASP.NET 5 usando Visual Studio Code."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="erikre"
-	manager="wpickett"
-	editor="jimbe"/>
+   pageTitle="Creare un'app per le API ASP.NET 5 in Visual Studio Code"
+   description="Questa esercitazione illustra come creare un'app per le API ASP.NET 5 usando Visual Studio Code."
+   services="app-service\api"
+   documentationCenter=".net"
+   authors="erikre"
+   manager="wpickett"
+   editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="erikre"/>
 
 # Creare un'app per le API ASP.NET 5 in Visual Studio Code
@@ -134,34 +134,34 @@ namespace ContactsList.Models
         public string Name { get; set; }
         public string EmailAddress { get; set; }
     }
-	}
-	</pre>
+}
+</pre>
 
 3. Fare clic con il pulsante destro del mouse sulla cartella **Controllers** e aggiungere un file *ContactsController.cs* in modo che venga visualizzato come segue:
 
 	<pre class="prettyprint">
-	using System.Collections.Generic;
-	using Microsoft.AspNet.Mvc;
-	using ContactsList.Models;
-	
-	namespace ContactsList.Controllers
-	{
-	    [Route("api/[controller]")]
-	    public class ContactsController : Controller
-	    {
-	        // GET: api/Contacts
-	        [HttpGet]
-	        public IEnumerable&lt;Contact&gt; Get()
-	        {
-	            return new Contact[]{
-	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-	            };
-	        }
-	    }
-	}
-	</pre>
+using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
+using ContactsList.Models;
+
+namespace ContactsList.Controllers
+{
+    [Route("api/[controller]")]
+    public class ContactsController : Controller
+    {
+        // GET: api/Contacts
+        [HttpGet]
+        public IEnumerable&lt;Contact> Get()
+        {
+            return new Contact[]{
+                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+            };
+        }
+    }
+}
+</pre>
 
 4. Assicurarsi che tutti i file vengano salvati selezionando **File** > **Save All**.
 5. In **Command Palette** immettere quanto segue per eseguire l'app in locale:
@@ -399,8 +399,7 @@ In questa sezione verrà creato un repository Git locale e verrà eseguito il pu
 
 	![Initialize Git](./media/app-service-create-aspnet-api-app-using-vscode/19-initgit.png)
 
-5. 
-6. Aggiungere un messaggio per il commit e selezionare il segno di spunta per **Commit All**.
+5. Aggiungere un messaggio per il commit e selezionare il segno di spunta per **Commit All**.
 
 	![Git Commit All](./media/app-service-create-aspnet-api-app-using-vscode/20-git-commit.png)
 
@@ -411,13 +410,13 @@ In questa sezione verrà creato un repository Git locale e verrà eseguito il pu
 cd c:\VSCodeProjects\ContactsList
 </pre>
 
-7. Creare un riferimento remoto per effettuare il push degli aggiornamenti all'app Web (host dell'app per le API) creata in precedenza, usando l'URL Git (che termina con ".git") copiato in uno dei passaggi precedenti:
+8. Creare un riferimento remoto per effettuare il push degli aggiornamenti all'app Web (host dell'app per le API) creata in precedenza, usando l'URL Git (che termina con ".git") copiato in uno dei passaggi precedenti:
 
 	<pre class="prettyprint">
 git remote add azure [URL dell'archivio remoto]
 </pre>
 
-8. Effettuare il push delle modifiche in Azure usando il comando seguente:
+9. Effettuare il push delle modifiche in Azure usando il comando seguente:
 
 	<pre class="prettyprint">
 git push azure master
@@ -449,4 +448,4 @@ Nel portale di anteprima di Azure passare al pannello **HOST APP PER LE API** re
 In questa esercitazione si è appreso come creare un'app per le API in Visual Studio Code. Per altre informazioni su Visual Studio Code, vedere [Visual Studio Code](https://code.visualstudio.com/Docs/). Per informazioni sulle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

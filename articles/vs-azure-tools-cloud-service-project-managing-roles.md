@@ -58,4 +58,4 @@ Ad esempio, è possibile rimuovere un ruolo del servizio Web e poi decidere di a
 
 Per altre informazioni su come configurare i ruoli in Visual Studio, vedere [Configurare i ruoli di un servizio cloud di Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

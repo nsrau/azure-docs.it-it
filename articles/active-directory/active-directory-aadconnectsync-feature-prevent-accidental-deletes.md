@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="msStevenPo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/09/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Impedire eliminazioni accidentali
@@ -44,7 +44,8 @@ Se si desidera tutte le eliminazioni, eseguire le operazioni seguenti:
 3. Per riabilitare la protezione, eseguire il cmdlet PowerShell: `Enable-ADSyncExportDeletionThreshold`
 
 ## Passaggi successivi
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Per ulteriori informazioni sulla configurazione del servizio di sincronizzazione Azure AD Connect, vedere [Servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

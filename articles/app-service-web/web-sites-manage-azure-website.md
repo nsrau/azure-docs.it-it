@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Scalare un'app Web in Servizio app di Azure"
-	description="Collegamenti a risorse per la gestione di un'applicazione web nel servizio di applicazione Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="erikre"
-	manager="wpickett"
+	pageTitle="Scalare un'app Web in Servizio app di Azure" 
+	description="Collegamenti a risorse per la gestione di un'applicazione web nel servizio di applicazione Azure." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="erikre" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/31/2015" 
 	ms.author="erikre"/>
 
 # Scalare un'app Web in Servizio app di Azure
@@ -103,4 +103,4 @@ Se si utilizza Visual Studio Online, è possibile configurare la distribuzione c
 
   
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

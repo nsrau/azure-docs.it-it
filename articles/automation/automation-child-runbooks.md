@@ -94,4 +94,4 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 - [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

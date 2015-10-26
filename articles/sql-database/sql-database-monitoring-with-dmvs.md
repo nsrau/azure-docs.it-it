@@ -137,4 +137,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introduzione al Database SQL](sql-database-technical-overview.md)
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

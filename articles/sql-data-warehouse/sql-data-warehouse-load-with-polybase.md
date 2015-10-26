@@ -36,6 +36,9 @@ Per eseguire questa esercitazione, è necessario:
 
 Creare prima gli oggetti richiesti da PolyBase per la connessione ai dati nell'archiviazione BLOB di Azure e l'esecuzione di query su di essi.
 
+> [AZURE.IMPORTANT]I tipi di account di archiviazione di Azure supportati da PolyBase sono: + Archiviazione con ridondanza locale standard (LRS Standard) + Archiviazione geograficamente ridondante standard (GRS Standard) + Archiviazione geograficamente ridondante di accesso in lettura standard (Standard RAGRS) I tipi di conto Archiviazione con ridondanza locale standard (ZRS Standard) e Archiviazione con ridondanza locale premium (LRS Premium), non sono supportati da PolyBase. Se si sta creando un nuovo account di archiviazione di Azure, assicurarsi di selezionare un tipo di account di archiviazione supportato da PolyBase dal livello dei prezzi.
+
+
 ## Creare la chiave master del database
 Connettersi al database utente nel server per creare una chiave master del database. Questa chiave viene usata per crittografare il segreto della credenziale nel passaggio successivo.
 
@@ -325,4 +328,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

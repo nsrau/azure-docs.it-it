@@ -40,4 +40,4 @@ Il riferimento della libreria client ora è stato aggiunto al progetto.
 [1]: ./media/sql-database-elastic-scale-add-references-visual-studio/search-online.png
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare il servizio di posta elettronica SendGrid (Java) | Microsoft Azure"
-	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti in Java."
-	services=""
-	documentationCenter="java"
-	authors="thinkingserious"
-	manager="sendgrid"
+	pageTitle="Come usare il servizio di posta elettronica SendGrid (Java) | Microsoft Azure" 
+	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti in Java." 
+	services="" 
+	documentationCenter="java" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="10/30/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 # Come inviare messaggi di posta elettronica usando SendGrid da Java
 
@@ -205,4 +205,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
   [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

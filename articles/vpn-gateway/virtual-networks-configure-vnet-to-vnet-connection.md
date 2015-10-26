@@ -1,20 +1,20 @@
 <properties
    pageTitle="Configurare una connessione da rete virtuale a rete virtuale | Microsoft Azure"
-	description="Come connettere reti virtuali di Azure nelle stesse o diverse sottoscrizioni o aree."
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="Come connettere reti virtuali di Azure nelle stesse o diverse sottoscrizioni o aree."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""/>
 
 <tags
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc"/>
 
 
 # Configurare una connessione da rete virtuale a rete virtuale nel portale di Azure
@@ -232,4 +232,4 @@ Per altre informazioni sullo schema di configurazione, vedere [Schema di configu
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

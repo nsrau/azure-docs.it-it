@@ -61,4 +61,4 @@ Si desidera vedere RemoteApp di Azure nel mondo reale? Consultare l’esercitazi
 
 Grazie per l’attenzione. Ulteriori aggiornamenti saranno comunicati il mese prossimo.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

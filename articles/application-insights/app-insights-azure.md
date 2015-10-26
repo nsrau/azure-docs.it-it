@@ -28,7 +28,7 @@ Che tipo di app si ha a disposizione?
 
 * [Azure Web App - Ruoli Web e di lavoro](app-insights-cloudservices.md)
 * [App Web in IIS nella macchina virtuale di Azure](../insights-perf-analytics.md)
-* [Applicazione all'esterno di Azure](app-insights-get-started.md)
+* [Applicazione all'esterno di Azure](app-insights-overview.md)
 
 
 
@@ -39,4 +39,4 @@ Che tipo di app si ha a disposizione?
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

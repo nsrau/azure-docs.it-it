@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Introduzione ad Azure IoT device SDK per C"
-	description="Altre informazioni e introduzione all'uso del codice di esempio in Azure IoT device SDK per C"
+	pageTitle="Utilizzare l’SDK per dispositivi IoT Azure per C | Microsoft Azure"
+	description="Altre informazioni e introduzione all'uso del codice di esempio nel dispositivo Azure IoT SDK per C"
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="MichelBarnett"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/30/2015"
      ms.author="michelb"/>
 
@@ -455,4 +455,4 @@ Ognuna di queste tre funzioni è allineata con le tre funzioni di inizializzazio
 
 Questo articolo descrive le nozioni di base relative all'uso delle librerie in **Azure IoT device SDK per C**. Dovrebbe fornire informazioni sufficienti per comprendere il contenuto dell'SDK, la relativa architettura e come iniziare a usare gli esempi per Windows. L'articolo successivo continua la descrizione dell'SDK, fornendo [altre informazioni sulla libreria IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

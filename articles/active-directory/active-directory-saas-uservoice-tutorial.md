@@ -31,13 +31,13 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per User
 
 2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.
+3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
     ![Applicazioni](./media/active-directory-saas-uservoice-tutorial/IC700994.png "Applicazioni")
 
-4.  Fare clic su **Aggiungi** nella parte inferiore della pagina.
+4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiungi applicazione](./media/active-directory-saas-uservoice-tutorial/IC749321.png "Aggiungi applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-uservoice-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -77,7 +77,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 6.  Sulla barra degli strumenti in alto fare clic su Settings, quindi selezionare Web portal dal menu.
 
-    ![Settings](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
+    ![Impostazioni](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
 
 7.  Nella sezione **User authentication** della scheda **Web portal** fare clic su **Edit** per aprire la finestra di dialogo **Edit User Authentication**.
 
@@ -110,7 +110,7 @@ Per consentire agli utenti di Azure AD di accedere a UserVoice, è necessario es
 
 2.  Passare a **Settings**.
 
-    ![Settings](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Settings")
+    ![Impostazioni](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Settings")
 
 3.  Fare clic su **General**.
 
@@ -147,6 +147,6 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Sì")
   
-Se si desidera testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

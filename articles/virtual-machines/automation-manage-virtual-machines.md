@@ -22,7 +22,6 @@
 
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione delle macchine virtuali di Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Informazioni su Automazione di Azure
 
@@ -44,4 +43,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e d
 
 [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

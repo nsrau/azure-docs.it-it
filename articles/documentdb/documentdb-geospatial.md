@@ -355,4 +355,4 @@ Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in Docu
 - Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
 - Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -81,7 +81,7 @@ Per istruzioni dettagliate sulla creazione e sulla distribuzione di un'applicazi
 
 1. Scaricare la libreria Twilio per PHP da Github ([https://github.com/twilio/twilio-php][twilio_php]) e aggiungere la directory **Services** all'applicazione.
 
-	\-OPPURE-
+	-OPPURE-
 
 2. Installare la libreria Twilio per PHP come pacchetto PEAR. È possibile eseguire l'installazione tramite i comandi seguenti:
 
@@ -267,4 +267,4 @@ Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegame
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

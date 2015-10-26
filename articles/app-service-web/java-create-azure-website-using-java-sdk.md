@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Creare un'app Web in Azure App Service con Azure SDK per Java"
-	description="Informazioni su come creare un'app Web in Azure App Service a livello di codice usando Azure SDK per Java."
+	pageTitle="Creare un'app Web in Azure App Service con Azure SDK per Java" 
+	description="Informazioni su come creare un'app Web in Azure App Service a livello di codice usando Azure SDK per Java." 
 	tags="azure-classic-portal"
-	services="app-service\web"
-	documentationCenter="Java"
-	authors="donntrenton"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter="Java" 
+	authors="donntrenton" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -432,7 +432,7 @@ Per altre informazioni sulla distribuzione di file WAR, vedere [Aggiungere un'ap
 
 Selezionare un client FTP di terze parti per pubblicare l'applicazione. Questa procedura descrive due opzioni: la console Kudu, integrata in Azure, e FileZilla, uno strumento di ampia diffusione con un'interfaccia utente grafica e intuitiva.
 
-> **Nota:** il plug-in Azure per Eclipse con Java 2.4 supporta la distribuzione in account di archiviazione e servizi cloud, ma attualmente non supporta la distribuzione nelle app Web. Per la distribuzione negli account di archiviazione e nei servizi cloud, è possibile usare un progetto di distribuzione di Azure, come spiegato in [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), ma non per la distribuzione nelle app Web. Per trasferire i file nelle app Web, usare altri metodi come FTP o GitHub.
+> **Nota:** il Toolkit Azure per Eclipse supporta la distribuzione in account di archiviazione e servizi cloud, ma attualmente non supporta la distribuzione nelle app Web. Per la distribuzione negli account di archiviazione e nei servizi cloud, è possibile usare un progetto di distribuzione di Azure, come spiegato in [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), ma non per la distribuzione nelle app Web. Per trasferire i file nelle app Web, usare altri metodi come FTP o GitHub.
 
 > **Nota:** non è consigliabile usare FTP dal prompt dei comandi di Windows (l'utilità FTP.EXE della riga di comando fornita con Windows). I client FTP che usano un FTP attivo, ad esempio FTP.EXE, spesso non riescono a superare i firewall. FTP attivo specifica un indirizzo interno basato su LAN, a cui è probabile che un server FTP non riesca a connettersi.
 
@@ -600,4 +600,4 @@ Questa procedura crea un'app web del servizio app. Finché la risorsa esiste, i 
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

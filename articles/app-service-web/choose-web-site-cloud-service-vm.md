@@ -204,4 +204,4 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [archiviazione]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

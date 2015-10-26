@@ -147,4 +147,4 @@ Sì. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, 
 
 [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

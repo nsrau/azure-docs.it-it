@@ -232,4 +232,4 @@ In questa esercitazione sono state analizzate le funzionalit√† essenziali dell‚Ä
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

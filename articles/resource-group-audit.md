@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Operazioni di controllo con Gestione risorse
@@ -25,6 +25,8 @@ Il log di controllo include tutte le azioni eseguite sulle risorse, quindi se un
 Si possono recuperare le informazioni dai log di controllo tramite Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST o il portale di anteprima di Azure.
 
 ## PowerShell
+
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
 Per recuperare le voci del log, eseguire il comando **Get AzureRmLog** (o **Get AzureResourceGroupLog** per le versioni precedenti ad Anteprima 1.0 di PowerShell). Fornire parametri aggiuntivi per filtrare l'elenco di voci.
 
@@ -151,4 +153,4 @@ Visualizzare quindi l'elenco delle operazioni più recenti.
 - Per informazioni su come concedere l'accesso a un'entità servizio, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
 - Per informazioni su come agire su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

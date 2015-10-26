@@ -46,4 +46,4 @@ Se sono state abilitate le notifiche di provisioning dell'account si riceveranno
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

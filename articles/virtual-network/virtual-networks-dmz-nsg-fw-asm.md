@@ -566,4 +566,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

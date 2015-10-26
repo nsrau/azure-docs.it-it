@@ -19,7 +19,8 @@
 
 # Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 In questo argomento viene descritta la creazione di un ambiente cloud ibrido per testare un'applicazione line-of-business (LOB) Intranet ospitata in Microsoft Azure. Di seguito è riportata la configurazione risultante.
 
@@ -198,4 +199,4 @@ Questo ambiente è pronto per la distribuzione dell'applicazione basata su Web i
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

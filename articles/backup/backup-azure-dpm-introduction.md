@@ -85,4 +85,4 @@ Questi tipi di file non sono supportati:
 
 >[AZURE.NOTE]A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup su carichi di lavoro (protetti da DPM) in Azure usando il servizio Backup di Microsoft Azure.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/24/2015"
-   ms.author="elfish; v-romcal; v-stste"/>
+   ms.date="10/08/2015"
+   ms.author="elfish; v-romcal; sstein"/>
 
 # Ripristinare un database SQL di Azure mediante il ripristino temporizzato in Azure PowerShell
 
@@ -38,11 +38,13 @@ Vedere [Ripristinare un database SQL di Azure mediante il ripristino temporizzat
 
 Per eseguire i cmdlet seguenti, è necessario utilizzare l'autenticazione basata su certificati. Per altre informazioni, vedere la sezione *Utilizzare il metodo certificato* in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md#use-the-certificate-method).
 
+> [AZURE.IMPORTANT]Questo articolo contiene comandi per le versioni di Azure PowerShell fino alle versione 1.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**.
+
 1. Ottenere il database che si desidera ripristinare tramite il cmdlet [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546735.aspx). Specificare i seguenti parametri:
 	* **ServerName** dove si trova il database.
 	* **DatabaseName** del database che si desidera ripristinare.	
 
-	`PS C:\>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
 
 2. Avviare il ripristino utilizzando il cmdlet [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx). Specificare i seguenti parametri:
 	* **SourceDatabase** da cui si desidera effettuare il ripristino.
@@ -51,14 +53,14 @@ Per eseguire i cmdlet seguenti, è necessario utilizzare l'autenticazione basata
 
 	Archiviare il risultato restituito in una variabile denominata **$RestoreRequest**. La variabile contiene l'ID della richiesta di ripristino utilizzato per il monitoraggio dello stato di un ripristino.
 
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
+	`$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
 
 Il completamento di un ripristino può richiedere del tempo. Per monitorare lo stato del ripristino, utilizzare il cmdlet [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) e specificare i seguenti parametri:
 
 * **ServerName** del database in cui si sta effettuando il ripristino.
 * **OperationGuid**, vale a dire l'ID richiesta di ripristino archiviato nella variabile **$RestoreRequest** nel passaggio 2.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 Lo stato del ripristino viene mostrato nei campi **State** e **PercentComplete**.
 
@@ -66,13 +68,11 @@ Lo stato del ripristino viene mostrato nei campi **State** e **PercentComplete**
 
 Per altre informazioni, vedere quanto segue:
 
-[Continuità aziendale del database SQL di Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)
-
-[Backup e ripristino del database SQL di Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
+[Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
 
 [Ripristino temporizzato del database SQL di Azure (blog)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

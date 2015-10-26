@@ -109,4 +109,4 @@ Di seguito sono descritti i problemi noti correnti relativi ai runbook di PowerS
 - [Informazioni sul flusso di lavoro di Windows PowerShell](automation-powershell-workflow.md)
 - [Creazione o importazione di un runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

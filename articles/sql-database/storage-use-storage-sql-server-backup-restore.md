@@ -73,4 +73,4 @@ Per una procedura dettagliata completa sulla creazione di un account di archivia
 
 [Procedure consigliate relative al backup e al ripristino (servizio di archiviazione BLOB di Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

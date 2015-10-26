@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Connettere le directory con Azure AD Connect"
+<properties
+	pageTitle="Connettere le directory con Azure AD Connect | Microsoft Azure"
 	description="Descrizione delle impostazioni personalizzate delle directory connesse di Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory"
+<tags
+	ms.service="active-directory"  
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -44,6 +44,5 @@ Single Sign-On e AD FS| Autorizzazioni di amministratore di dominio nel dominio 
 * [Autorizzazioni per il writeback delle password](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 * [Azure AD Connect in MSDN](active-directory-aadconnect.md)
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

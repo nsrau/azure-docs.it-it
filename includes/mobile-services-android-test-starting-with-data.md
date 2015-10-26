@@ -23,4 +23,4 @@ Ora che l'app è stata aggiornata per consentire l'uso di Servizi mobili per l'a
 
 L'esercitazione **Introduzione ai dati** per Android è terminata.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

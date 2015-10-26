@@ -218,4 +218,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 -	Archivio [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

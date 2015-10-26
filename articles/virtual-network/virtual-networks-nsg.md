@@ -164,4 +164,4 @@ Assicurarsi di visualizzare tutti i [limiti relativi ai servizi di rete in Azure
 - [Distribuire gli NSG nel modello di distribuzione classica](virtual-networks-create-nsg-classic-ps.md).
 - [Distribuire gli NSG nella Gestione risorse](virtual-networks-create-nsg-arm-pportal.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

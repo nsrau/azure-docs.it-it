@@ -274,4 +274,4 @@ Sono disponibili per il download anche alcuni script predefiniti: [Script di Pow
 [API .NET per il bus di servizio]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 [Come installare e configurare Azure PowerShell]: ../install-configure-powershell.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

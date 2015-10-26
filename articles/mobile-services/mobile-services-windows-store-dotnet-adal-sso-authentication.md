@@ -215,4 +215,4 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [dashboard di Windows Dev Center]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -30,4 +30,4 @@ Per i clienti che stanno imparando a usare Service Fabric Reliable Actors, abbia
 
 * Mappare alla cieca i modelli di entità. Questa situazione riguarda gli sviluppatori che provengono da un universo relazionale in cui i problemi vengono modellati usando le entità e le rispettive relazioni. Sebbene questo approccio sia ancora utile per comprendere l'argomento, dovrebbe accompagnarsi a un ragionamento orientato ai servizi e al comportamento.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

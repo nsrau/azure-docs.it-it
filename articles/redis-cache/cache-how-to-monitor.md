@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/09/2015" 
 	ms.author="sdanie"/>
 
 # Come monitorare Cache Redis di Azure
@@ -143,6 +143,33 @@ Per visualizzare le metriche per un periodo di tempo specifico in un grafico, pa
 
 ![Visualizza dettagli grafico][redis-cache-view-chart-details]
 
+## Come monitorare una cache Premium con il clustering
+
+Le cache Premium con il [clustering](cache-how-to-premium-clustering.md) abilitato possono avere fino a 10 partizioni. Ogni partizione ha le proprie metriche e queste metriche vengono aggregate per fornire metriche per la cache nel suo complesso. In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per l'intera cache e una seconda versione della metrica che include `(Shard 0-9)` nel nome misura la prestazione per una singola partizione in una cache. Se ad esempio una cache ha 3 partizioni, `Cache Hits` è la quantità totale di riscontri per l'intera cache e `Cache Hits (Shard 2)` rappresenta le occorrenze di tale partizionamento della cache.
+
+Ogni grafico di monitoraggio visualizza le metriche di primo livello per la cache insieme alle metriche per ciascuna partizione della cache.
+
+![Monitoraggio][redis-cache-premium-monitor]
+
+Passando il mouse sopra i punti dati, vengono visualizzati i dettagli del punto corrispondente nel tempo.
+
+![Monitoraggio][redis-cache-premium-point-summary]
+
+I valori maggiori in genere sono i valori aggregati per la cache, mentre i valori inferiori sono le singole metriche per la partizione. Si noti che in questo esempio sono presenti tre partizioni e i riscontri nella cache sono distribuiti uniformemente tra le partizioni.
+
+![Monitoraggio][redis-cache-premium-point-shard]
+
+Per vedere maggiori dettagli, fare clic sul grafico per visualizzare una visualizzazione espansa nel pannello **Metrica**.
+
+![Monitoraggio][redis-cache-premium-chart-detail]
+
+Per impostazione predefinita, ogni grafico include il contatore delle prestazioni della cache di primo livello, oltre ai contatori delle prestazioni per le singole partizioni. È possibile personalizzare queste nel pannello **Modifica grafico**.
+
+![Monitoraggio][redis-cache-premium-edit]
+
+Per altre informazioni sui contatori delle prestazioni disponibili, vedere [Metriche disponibili e intervalli di report](#available-metrics-and-reporting-intervals).
+
+
 ## Operazioni e avvisi
 
 La sezione **Operazioni** presenta le sezioni **Eventi** e **Regole di avviso**.
@@ -222,4 +249,14 @@ Per ulteriori informazioni sugli avvisi in Azure, vedere [Ricevere notifiche di 
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=Oct15_HO2-->
+[redis-cache-premium-monitor]: ./media/cache-how-to-monitor/redis-cache-premium-monitor.png
+
+[redis-cache-premium-edit]: ./media/cache-how-to-monitor/redis-cache-premium-edit.png
+
+[redis-cache-premium-chart-detail]: ./media/cache-how-to-monitor/redis-cache-premium-chart-detail.png
+
+[redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
+
+[redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
+
+<!---HONumber=Oct15_HO3-->

@@ -525,21 +525,21 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| Decimal | Decimal |
+| Decimale | Decimale |
 | FILESTREAM attribute (varbinary(max)) | Byte |
 | Float | Double |
-| image | Byte | 
+| immagine | Byte | 
 | int | Int32 | 
-| money | Decimal |
+| money | Decimale |
 | nchar | String, Char |
 | ntext | String, Char |
-| numeric | Decimal |
+| numeric | Decimale |
 | nvarchar | String, Char |
 | real | Single |
 | rowversion | Byte |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Decimal | 
+| smallmoney | Decimale | 
 | sql\_variant | Object * |
 | text | String, Char |
 | time | TimeSpan |
@@ -562,4 +562,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L'inv
 
 	 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

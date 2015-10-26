@@ -119,4 +119,4 @@ Per abilitare l'inoltro dell'indirizzo IP sulla macchina virtuale FW1, attenersi
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

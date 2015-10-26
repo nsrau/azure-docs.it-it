@@ -106,7 +106,7 @@ Per consentire agli utenti di AAD di accedere, è necessario eseguirne il privis
 
 4.  Fare clic su **Nuovo utente**.
 
-    ![Nuovo utente](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785162.png "Nuovo utente")
+    ![New User](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785162.png "Nuovo utente")
 
 5.  Nella pagina **Nuovo utente** eseguire la procedura seguente:
 
@@ -136,4 +136,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

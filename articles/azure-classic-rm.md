@@ -68,4 +68,4 @@ Con [PowerShell](powershell-install-configure.md) è possibile usare una riga di
 - Informazioni su come [progettare i modelli](/best-practices-resource-manager-design-templates.md).
 - Usare le [procedure consigliate](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

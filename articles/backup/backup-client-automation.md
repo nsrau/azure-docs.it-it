@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
@@ -16,6 +16,15 @@ Questo articolo illustra come usare PowerShell per configurare Backup di Azure i
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Installazione e registrazione
+Per iniziare:
+
+1. [Download la versione più recente di PowerShell](https://github.com/Azure/azure-powershell/releases) (la versione minima richiesta è: 1.0.0)
+2. Per iniziare, abilitare i cmdlet del servizio Backup di Azure passando alla modalità *AzureResourceManager* usando il cmdlet **Switch-AzureMode**:
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
 Le attività di installazione e registrazione seguenti possono essere automatizzate tramite PowerShell:
 
 - Creare un insieme di credenziali per il backup
@@ -25,14 +34,17 @@ Le attività di installazione e registrazione seguenti possono essere automatizz
 - Impostazioni crittografia
 
 ### Creare un insieme di credenziali per il backup
-È possibile creare un nuovo archivio di backup utilizzando il cmdlet **New-AzureBackupVault**. L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
+
+> [AZURE.WARNING]I clienti che usano il servizio Backup di Azure per la prima volta, dovranno registrare il provider di Backup di Azure da usare con la propria sottoscrizione. A tale scopo, eseguire il comando seguente: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+È possibile creare un nuovo insieme di credenziali per il backup usando il cmdlet **New-AzureRMBackupVault**. L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-È possibile ottenere un elenco di tutti gli archivi di backup in una determinata sottoscrizione utilizzando il cmdlet **Get AzureBackupVault**.
+È possibile ottenere un elenco di tutti gli insiemi di credenziali per il backup in una determinata sottoscrizione usando il cmdlet **Get-AzureRMBackupVault**.
 
 
 ### Installazione dell'agente di Backup di Azure
@@ -80,7 +92,7 @@ Per poter eseguire la registrazione con il servizio Backup di Azure, è necessar
 - Disporre di una sottoscrizione di Azure valida
 - Ottieni un archivio di backup
 
-Per scaricare le credenziali dell'archivio, eseguire il commandlet **Get AzureBackupVaultCredentials** in una console Azure PowerShell e archiviarlo in una posizione comoda come * C:\\Downloads*.
+Per scaricare le credenziali dell'archivio, eseguire il commandlet **Get AzureRMBackupVaultCredentials** in una console Azure PowerShell e archiviarlo in una posizione comoda come * C:\\Downloads*.
 
 ```
 PS C:\> $credspath = "C:"
@@ -580,7 +592,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Passaggi successivi
 Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 
-- [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
+- [Introduzione a Backup di Azure](backup-configure-vault.md)
 - [Backup di server Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

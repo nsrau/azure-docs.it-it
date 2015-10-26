@@ -79,4 +79,4 @@ Ad esempio, se nell'organizzazione si usano due suffissi UPN denominati @contoso
 
 È possibile registrare i dispositivi Windows 7 e Windows 8.1 aggiunti a un dominio con Registrazione dispositivo di Azure AD. L'argomento seguente include altre informazioni sui prerequisiti e sulle procedure necessarie per configurare la registrazione del dispositivo per i dispositivi Windows 7 e Windows 8.1. Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Creare un nome di dominio completo nel portale di anteprima di Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di un FQDN con il modello di distribuzione di gestione delle risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 Quando si crea una macchina virtuale nel [portale di anteprima di Azure](https://portal.azure.com) utilizzando il modello di distribuzione **Gestione risorse di**, il portale crea una risorsa IP pubblica per la macchina virtuale. È possibile utilizzare questo indirizzo IP per accedere in remoto alla macchina virtuale. Tuttavia, il portale non crea un [nome di dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) o FQDN, per impostazione predefinita. Poiché un nome di dominio completo sarebbe più facile da ricordare e utilizzare rispetto a un indirizzo IP, in questo articolo viene illustrato come aggiungerne uno ad una macchina virtuale.
 
@@ -53,4 +54,4 @@ L'articolo presuppone che sia già stata effettuata la connessione alla sottoscr
 
     È ora possibile connettersi in remoto alla macchina virtuale utilizzando questo nome DNS. Ad esempio, utilizzare `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`, quando ci si connette a una macchina virtuale Linux che ha il nome di dominio completo di `testdnslabel.eastus.cloudapp.azure.com` e il nome utente di `adminuser`.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

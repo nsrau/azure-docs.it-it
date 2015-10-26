@@ -33,4 +33,4 @@ Molte soluzioni IoT consentono agli utenti di visualizzare e analizzare i dati r
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [IoT Suite di Azure]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

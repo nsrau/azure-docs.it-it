@@ -117,4 +117,4 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

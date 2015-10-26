@@ -82,4 +82,4 @@ Specificare il conteggio del core del server Thrift e la memoria esecutore del s
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

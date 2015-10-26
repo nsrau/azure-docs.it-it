@@ -129,4 +129,4 @@ Il file di configurazione JSON specifica i dettagli degli elementi da distribuir
 
 Per ulteriori informazioni, vedere [Publish-WebApplicationVM (script di Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

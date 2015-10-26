@@ -64,4 +64,4 @@
 
 	Viene visualizzata una finestra di messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata viene eseguita di nuovo cancellando tutti gli elementi dall'elenco.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -153,4 +153,4 @@ Se si è verificato è presente la connettività e continuare a visualizzare que
 
 Altre informazioni sulla [versione dell'aggiornamento 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

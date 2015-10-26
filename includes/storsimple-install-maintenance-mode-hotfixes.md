@@ -18,4 +18,4 @@
 
 6. Dopo aver applicato gli aggiornamenti rapidi, uscire dalla modalità di manutenzione. Per istruzioni, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](storsimple-update-device.md#step4).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

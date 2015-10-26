@@ -131,4 +131,4 @@ Quando si esegue la procedura guidata per la prima volta, viene creato un profil
 
 Per informazioni sulla configurazione di altre parti del progetto Azure da Visual Studio, vedere [Configurazione di un progetto Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

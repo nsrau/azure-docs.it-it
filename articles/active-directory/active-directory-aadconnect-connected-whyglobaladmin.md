@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Per quale motivo è richiesto un account amministratore globale di Azure AD per configurare Azure AD Connect"
+<properties
+	pageTitle="Per quale motivo è richiesto un account amministratore globale di Azure AD per configurare Azure AD Connect | Microsoft Azure"
 	description="Descrizione del motivo per cui è necessario un account di amministratore globale."
 	services="active-directory"
 	documentationCenter=""
@@ -7,22 +7,22 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 # Per quale motivo è richiesto un account amministratore globale di Azure AD per configurare Azure AD Connect
 
 Nella tabella seguente sono illustrati i motivi per cui è richiesto un account di amministratore globale di Azure AD per la configurazione di Azure AD Connect.
 
-Condizioni | Descrizione 
+Condizioni | Descrizione
 ------------- | ------------- |
-Per Impostazioni rapide e DirSync Upgrade | La sincronizzazione viene abilitata (se richiesta) nella directory Azure AD e viene creato l’account Azure AD che sarà utilizzato per le operazioni di sincronizzazione ricorrenti (l’account Azure AD Connector). 
+Per Impostazioni rapide e DirSync Upgrade | La sincronizzazione viene abilitata (se richiesta) nella directory Azure AD e viene creato l’account Azure AD che sarà utilizzato per le operazioni di sincronizzazione ricorrenti (l’account Azure AD Connector).
 Per le impostazioni personalizzate | La sincronizzazione viene abilitata nella directory Azure AD e viene creato l’account Azure AD che sarà utilizzato per le operazioni di sincronizzazione ricorrenti (l’account Azure AD Connector). Per il Single Sign-on con l'opzione di ADFS, è possibile leggere e configurare le proprietà di federazione in Azure AD.
 
 
@@ -33,4 +33,4 @@ Per le impostazioni personalizzate | La sincronizzazione viene abilitata nella d
 * [Ulteriori informazioni sugli account e le autorizzazioni Azure AD Connect](active-directory-aadconnect-account-summary.md)
 * [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

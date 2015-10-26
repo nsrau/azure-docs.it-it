@@ -117,4 +117,4 @@ L'aggiornamento più recente include correzioni di bug e nuove funzionalità:
 
 In caso di domande, è possibile pubblicarle nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).<
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # Distribuire un'app per le API nel servizio app di Azure 
 
 ## Panoramica
 
-In questa esercitazione verrà distribuito un progetto API Web creato nell'[esercitazione precedente](app-service-dotnet-create-api-app.md) in una nuova [app per le API](app-service-api-apps-why-best-platform.md). Verrà usato Visual Studio per creare la risorsa di app per le API nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md) e per distribuire il codice dell'API Web nell'app per le API di Azure.
+In questa esercitazione viene distribuito un progetto API Web creato nell'[esercitazione precedente](app-service-dotnet-create-api-app.md) in una nuova [app per le API](app-service-api-apps-why-best-platform.md). Viene usato Visual Studio per creare la risorsa di app per le API nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md) e per distribuire il codice dell'API Web nell'app per le API di Azure.
 
 ### Altre opzioni di distribuzione
 
@@ -121,7 +121,10 @@ Si apporterà quindi una modifica alla definizione dell'API e la si vedrà rifle
 
 ## Passaggi successivi
 
-Si è appreso come le funzionalità di distribuzione diretta in Visual Studio consentono di eseguire rapidamente le attività di iterazione e distribuzione e di testare il corretto funzionamento dell'API. Nell'[esercitazione successiva](../app-service-dotnet-remotely-debug-api-app.md) verrà illustrato come eseguire il debug dell'app per le API mentre è in esecuzione in Azure.
- 
+Si è appreso come le funzionalità di distribuzione diretta in Visual Studio consentono di testare il corretto funzionamento dell'API. Nell'[esercitazione successiva](../app-service-dotnet-remotely-debug-api-app.md) verrà illustrato come eseguire il debug dell'app per le API mentre è in esecuzione in Azure.
 
-<!---HONumber=Oct15_HO2-->
+Le app API sono app web con funzionalità aggiuntive per l'hosting di API, il che significa che è possibile utilizzare qualsiasi metodo di distribuzione che funzioni con le app web. Per ulteriori informazioni sulle opzioni di distribuzione per le app web, vedere [Distribuire un'app web nel servizio di Azure App](../app-service-web/web-sites-deploy.md).
+
+Per informazioni sulle funzionalità delle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
+
+<!---HONumber=Oct15_HO3-->

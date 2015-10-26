@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare il servizio di posta elettronica SendGrid (Node.js) | Microsoft Azure"
-	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti mediante l'API Node.js."
-	services=""
-	documentationCenter="nodejs"
-	authors="erikre"
-	manager="wpickett"
+	pageTitle="Come usare il servizio di posta elettronica SendGrid (Node.js) | Microsoft Azure" 
+	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti mediante l'API Node.js." 
+	services="" 
+	documentationCenter="nodejs" 
+	authors="erikre" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="erikre"/>
 # Come inviare messaggi di posta elettronica usando SendGrid da Node.js
 
@@ -182,10 +182,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
 -   Documentazione sull'API SendGrid: <https://sendgrid.com/docs>
 -   Offerta speciale SendGrid per i clienti di Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
-[offerta speciale]: https://sendgrid.com/windowsazure.html
-[sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-[Impostazioni dei filtri]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-[Documentazione sull'API SendGrid]: https://sendgrid.com/docs
-[servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
-[recapito transazionale di posta elettronica]: https://sendgrid.com/transactional-email
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

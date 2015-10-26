@@ -21,7 +21,8 @@
 
 Se si è creato un account Azure personale, oppure si ha un sottoscrizione MSDN personale e si è creato l'account Azure per sfruttare i vantaggi dei crediti MSDN in Azure, si è usata un'identità *account Microsoft*. Numerose funzionalità di Azure (ad esempio i [modelli dei gruppi di risorse](../resource-group-overview.md)) richiedono un account di lavoro o scuola (un'identità gestita da Azure Active Directory) per funzionare.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di un’identità AAD che sarà necessaria sia con il modello di distribuzione di gestione delle risorse che con il modello di distribuzione classico.
+
+> [AZURE.NOTE]Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). In questo articolo viene illustrato l'utilizzo di entrambi i modelli, ma Microsoft indica che le distribuzioni più nuove utilizzano il modello di gestione delle.
 
 
 Fortunatamente, uno degli aspetti migliori dell'account Azure personale sta nel fatto che è dotato di un dominio predefinito di Azure Active Directory, che è possibile usare per creare un nuovo account di lavoro o scuola da usare con le funzionalità di Azure che lo richiedono.
@@ -144,4 +145,4 @@ Dovrebbe essere visualizzato un messaggio simile al seguente, che conferma il co
     data:
     info:    group create command OK
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -112,4 +112,4 @@ Per aggiornare il servizio Web, aprire l'esperimento predittivo originale usato 
 
 Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](machine-learning-retrain-models-programmatically.md).
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

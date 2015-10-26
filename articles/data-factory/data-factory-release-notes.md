@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/09/2015" 
 	ms.author="spelluru"/>
 
 # Note sulla versione di Data factory di Azure
+Vedere l'articolo [Data Factory - Log delle modifiche .NET SDK](data-factory-api-change-log.md) per altre informazioni sulle modifiche apportate a Data Factory .NET SDK in una versione specifica.
 
 ## Note sulla versione di Data factory - 17/07/2015
 Le modifiche JSON seguenti sono state introdotte nella versione di luglio 2015 di Azure PowerShell.
@@ -123,8 +124,8 @@ Tenere presente quanto segue:
 Tenere presente quanto segue:
 
 - La proprietà **type** è stata spostata di un livello verso l'alto e il nome tipo **AzureTableLocation** è stato sostituito da **AzureTable**.
-- L’elemento**linkedServiceName** è stato spostato di un livello verso l'alto. 
-- L'elemento **location** è stato rimosso e le proprietà specifiche del tipo, ad esempio **tableName**, specificate nella sezione **location** vengono specificate nella nuova sezione **typeProperties**.  
+- L'elemento **linkedServiceName** è stato spostato di un livello verso l'alto. 
+- L'elemento **location** è stato rimosso e le proprietà specifiche del tipo, ad esempio **tableName**, specificate nella sezione **location**, vengono specificate nella nuova sezione **typeProperties**.  
 
 ### JSON attività precedente
 
@@ -239,7 +240,7 @@ Tenere presente quanto segue:
 
 - La proprietà **waitOnExternal** è stata rimossa dalla sezione **availability** 
 - Una nuova proprietà **external** è stata aggiunta un livello più in alto e impostata su **true** per una tabella esterna. 
-- Le proprietà dell'elemento **waitOnExternal**, ad esempio **retryInterval** vengono aggiunte alla nuova sezione **externalData** nell'elemento **Policy**.
+- Le proprietà dell'elemento **waitOnExternal**, ad esempio **retryInterval**, sono state aggiunte alla nuova sezione **externalData** nell'elemento **Policy**.
 - L'elemento **externalData** è facoltativo. 
 - Quando si usa l'elemento **externalData**, è necessario che la proprietà **external** sia impostata su **true**. 
  
@@ -353,4 +354,4 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,24 +1,28 @@
 <properties 
-	pageTitle="Personalizzare i cluster Hadoop per Advanced Analytics Process and Technology | Microsoft Azure"
+	pageTitle="Personalizzare i cluster Hadoop per Advanced Analytics Process and Technology | Microsoft Azure" 
 	description="Moduli di Python più diffusi resi disponibili nei cluster personalizzati Hadoop di Azure HDInsight."
-	services="machine-learning"
-	documentationCenter=""
-	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="hangzh-msft" 
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/13/2015" 
+	ms.author="hangzh;bradsev" />
 
 # Personalizzare i cluster Hadoop di Azure HDInsight per Advanced Analytics Process and Technology
 
-Questo articolo descrive come personalizzare un cluster Hadoop di HDInsight mediante l'installazione di Anaconda a 64 bit (Python 2.7) in ogni nodo quando viene eseguito il provisioning del cluster nel servizio HDInsight. Questa personalizzazione prepara il cluster da usare con Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning. L'articolo illustra inoltre come accedere al nodo head per inviare i processi personalizzati al cluster.
+Questo menu si collega ad argomenti che descrivono come configurare i diversi ambienti di scienza dei dati utilizzati da Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+
+Questo articolo descrive come personalizzare un cluster Hadoop di HDInsight mediante l'installazione di Anaconda a 64 bit (Python 2.7) in ogni nodo quando viene eseguito il provisioning del cluster nel servizio HDInsight. Questa personalizzazione prepara il cluster per l'utilizzo con Cortana Analytics Process. L'articolo illustra inoltre come accedere al nodo head per inviare i processi personalizzati al cluster.
 
 Questa personalizzazione rende molti moduli Python comuni inclusi in Anaconda facilmente disponibili per l'uso nelle funzioni definite dall'utente (UDF) progettate per elaborare i record di Hive nel cluster. Per istruzioni sulle procedure usate in questo scenario, vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di analisi scientifica dei dati cloud](machine-learning-data-science-hive-queries.md).
 
@@ -51,7 +55,7 @@ Nell'ultima pagina di configurazione **Azioni script**, fare clic sul pulsante *
  
 * **NOME**: qualsiasi stringa con il nome dello script azione 
 * **TIPO DI NODO**: selezionare **Tutti i nodi** 
-* **URI SCRIPT** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+* **SCRIPT URI** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
 	* *publicscripts* è un contenitore pubblico nell'account di archiviazione 
 	* *getgoing* viene usato per condividere file di script di PowerShell per facilitare agli utenti l'uso di Azure 
 * **PARAMETRI**: lasciare vuoto
@@ -98,4 +102,4 @@ Vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di anali
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -121,4 +121,4 @@ Per altre informazioni sulle attestazioni specifiche generate nei token di Model
 ## Limitazioni della versione di anteprima
 È necessario tenere presenti alcune restrizioni quando si crea un'app con l'anteprima pubblica di Modello app 2.0. Fare riferimento al documento sulle [limitazioni di Modello app 2.0](active-directory-v2-limitations.md) per verificare se una di queste restrizioni si applica a un particolare scenario.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

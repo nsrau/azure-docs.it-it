@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Sviluppo di azioni script con HDInsight| Microsoft Azure"
-	description="Informazioni su come personalizzare i cluster Hadoop con Azione script."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Sviluppo di azioni script con HDInsight basati su Linux| Microsoft Azure"
+    description="Informazioni su come personalizzare cluster HDInsight basati su Linux con Azione di script."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
     ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="larryfr"/>
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/09/2015"
+    ms.author="larryfr"/>
 
 # Sviluppo di azioni script con HDInsight
 
@@ -211,6 +211,6 @@ Per il comando precedente sostituire __INFILE__ con il file contenente il caratt
 
 ## <a name="seeAlso"></a>Vedere anche
 
-[Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster-linux.md)
+[Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -432,4 +432,4 @@ L'esempio di codice riportato di seguito illustra come inviare e monitorare un p
 	    }
 	}
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

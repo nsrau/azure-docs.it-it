@@ -510,4 +510,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la seguente st
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

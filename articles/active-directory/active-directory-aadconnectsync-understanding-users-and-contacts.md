@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti e contatti"
+	pageTitle="Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti e contatti | Microsoft Azure"
 	description="Informazioni su utenti e contatti nel Servizio di sincronizzazione Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -72,7 +72,7 @@ Dopo che un oggetto è stato esportato in Azure AD, non è più possibile modifi
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

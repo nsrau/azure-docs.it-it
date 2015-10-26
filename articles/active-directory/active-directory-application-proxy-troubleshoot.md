@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/07/2015"
 	ms.author="rkarlin"/>
 
 
@@ -81,13 +81,22 @@ Se durante l'installazione guidata del connettore la registrazione no riesce, è
 
 
 ## Vedere anche
+Si può fare molto di più con il proxy dell'applicazione:
 
-[Uso del proxy di applicazione per pubblicare applicazioni per l'accesso remoto sicuro](active-directory-application-proxy-configure.md)
 
-[Abilitare i servizi del Proxy applicazione](active-directory-application-proxy-enable.md)
+- [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md)
+- [Pubblicare applicazioni mediante il proprio nome di dominio](active-directory-application-proxy-custom-domains.md)
+- [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
+- [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
+- [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
+
+## Ulteriori informazioni sul proxy dell’applicazione
+- [Dare un'occhiata alla nostra Guida in linea](active-directory-application-proxy-enable.md)
+- [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
+- [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

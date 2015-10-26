@@ -7,4 +7,4 @@ Endpoint di input per servizio cloud<sup>2</sup>|150|150
 
 <sup>2</sup>Endpoint di input consentono le comunicazioni a una macchina virtuale non provenienti dal servizio cloud della macchina virtuale. Le macchine virtuali nello stesso servizio cloud o rete virtuale può comunicare automaticamente tra loro. Vedere: [Come configurare gli endpoint in una macchina virtuale](../articles/virtual-machines/virtual-machines-set-up-endpoints.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

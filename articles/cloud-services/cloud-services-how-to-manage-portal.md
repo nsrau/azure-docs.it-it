@@ -44,7 +44,7 @@ Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, u
 
 5. Se l'aggiornamento cambia il numero o le dimensioni dei ruoli, selezionare la casella di controllo **Consenti aggiornamento se cambiano le dimensioni o il numero dei ruoli** per consentire all'aggiornamento di proseguire.
 
-	>[AZURE.WARNING] Tenere presente che se si modificano le dimensioni di un ruolo, ovvero le dimensioni di una macchina virtuale che ospita un'istanza del ruolo, o il numero dei ruoli, è necessario ricreare l'immagine di ogni istanza del ruolo (macchina virtuale) e i dati locali andranno persi.
+	>[AZURE.WARNING]Tenere presente che se si modificano le dimensioni di un ruolo, ovvero le dimensioni di una macchina virtuale che ospita un'istanza del ruolo, o il numero dei ruoli, è necessario ricreare l'immagine di ogni istanza del ruolo (macchina virtuale) e i dati locali andranno persi.
 
 6. Se uno o più ruoli del servizio contengono una sola istanza del ruolo, selezionare la casella di controllo **Eseguire l'aggiornamento anche se uno o più ruoli contengono una sola istanza** per consentire l'esecuzione dell'aggiornamento.
 
@@ -114,4 +114,4 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

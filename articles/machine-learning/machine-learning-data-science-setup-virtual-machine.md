@@ -3,9 +3,9 @@
 	description="Configurare una macchina virtuale di Azure per usarla in un ambiente di analisi scientifica dei dati con IPython Server per le analisi avanzate."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mohabib;xibingao;bradsev"/>
+	ms.date="10/13/2015"
+	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurare una macchina virtuale di Azure come server IPython Notebook per l'analisi avanzata
 
@@ -122,7 +122,7 @@ La macchina virtuale verrà deallocata ma non eliminata. È possibile riavviare 
 
 ## La macchina virtuale di Azure è pronta all'utilizzo: passaggi successivi
 
-La macchina virtuale è pronta per essere utilizzata negli esercizi di analisi scientifica dei dati. La macchina virtuale può inoltre essere utilizzata come server di IPython Notebook per la navigazione e l'elaborazione dei dati e per altre attività legate ad Azure Machine Learning e Advanced Analytics Process and Technology (ADAPT).
+La macchina virtuale è pronta per essere utilizzata negli esercizi di analisi scientifica dei dati. La macchina virtuale può inoltre essere utilizzata come server di IPython Notebook per la navigazione e l'elaborazione dei dati e per altre attività legate ad Azure Machine Learning e il Cortana Analytics Process (CAP).
 
 I passaggi successivi del processo di analisi avanzata dei dati sono illustrati in [Guida alla formazione: Elaborazione dati avanzata in Azure](machine-learning-data-science-advanced-data-processing.md) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dai dati con Azure Machine Learning.
 
@@ -143,4 +143,4 @@ I passaggi successivi del processo di analisi avanzata dei dati sono illustrati 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

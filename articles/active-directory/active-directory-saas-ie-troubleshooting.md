@@ -105,4 +105,4 @@ Se si verificano problemi durante la disinstallazione dell'estensione, è possib
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -255,4 +255,4 @@ Per altre informazioni sull'autenticazione del bus di servizio, vedere [Autentic
 
 Ulteriori esempi di firma di accesso condiviso in c# e Java Script sono in [questo post di blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

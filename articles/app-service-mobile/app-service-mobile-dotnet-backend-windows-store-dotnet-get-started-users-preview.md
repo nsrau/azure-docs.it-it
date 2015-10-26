@@ -3,7 +3,7 @@
 	description="Informazioni su come usare le app per dispositivi mobili del servizio app di Azure per autenticare gli utenti dell'app di Windows tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson"
+	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
 
@@ -62,4 +62,4 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 [creazione di un'app per dispositivi mobili]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -118,7 +118,7 @@ Questa esercitazione illustra uno scenario di questo tipo, in cui un utente azie
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", CreateAuthZHeader());
                 
                 // Create the payload to send the content
-                // Reference -> https://msdn.microsoft.com/it-it/library/dn913749.aspx
+                // Reference -> https://msdn.microsoft.com/it-IT/library/dn913749.aspx
                 string data =
                     @"{""name"":""" + campaignName + @"""," + 
                     @"""type"":""only_notif""," + 
@@ -207,4 +207,4 @@ Questo esempio ha creato una semplice campagna di tipo annuncio, specificando pr
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

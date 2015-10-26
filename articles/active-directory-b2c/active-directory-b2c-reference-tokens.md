@@ -155,4 +155,4 @@ Di seguito vengono fornite informazioni sulla durata dei token utili per gli ute
 | Token di aggiornamento | Fino a 14 giorni | Un singolo token di aggiornamento è valido per un periodo massimo di 14 giorni. Tuttavia, il token di aggiornamento può scadere in qualsiasi momento per diversi motivi, quindi l'app deve continuare a provare e usare un token di aggiornamento fino a quando non si verifica un errore o fino a quando non lo sostituisce con uno nuovo. Inoltre, un token di aggiornamento non risulterà più valido se sono trascorsi 90 giorni dall'immissione delle credenziali da parte dell'utente. |
 | Codici di autorizzazione | 5 minuti | I codici di autorizzazione sono intenzionalmente di breve durata e devono essere immediatamente riscattati per i token di accesso, ID e di aggiornamento quando vengono ricevuti. |
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

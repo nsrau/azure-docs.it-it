@@ -171,7 +171,7 @@ Una macchina virtuale di Azure viene creata da un'immagine della macchina virtua
 
 È possibile eseguire il provisioning di una macchina virtuale e avviarla da una delle immagini disponibili mediante il comando `vm create`. L'esempio seguente illustra come creare una macchina virtuale Linux (denominata `myVM`) da un'immagine nella raccolta immagini (CentOS 6.2). Il nome utente e la password dell'utente ROOT per la macchina virtuale sono rispettivamente `myusername` e `Mypassw0rd`. Si noti che il parametro `--location` specifica il data center in cui viene creata la macchina virtuale. Se si omette il parametro `--location`, verrà richiesto di scegliere un percorso.
 
-	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-it-it-30GB.vhd myusername --location "West US"
+	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-it-IT-30GB.vhd myusername --location "West US"
 
 È possibile passare il flag `--ssh` (Linux) o `--rdp` (Windows) a `vm create` per abilitare le connessioni remote alla macchina virtuale appena creata.
 
@@ -220,4 +220,4 @@ Per un elenco completo dei comandi per creare e gestire macchine virtuali, usare
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

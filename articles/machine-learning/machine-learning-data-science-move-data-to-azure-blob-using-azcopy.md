@@ -69,4 +69,4 @@ Per trasferire BLOB tra contenitori di Azure, utilizzare il comando seguente in 
 
 > [AZURE.TIP]1. Quando si caricano file, /S caricherà i file in modo ricorsivo. Senza questo parametro, tutti i file nella sottodirectory non verranno caricati. 2. Durante il download di file, /S cercherà il contenitore in modo ricorsivo fino a quando non vengono scaricati tutti i file nella directory specificata e nelle relative sottodirectory o tutti i file corrispondenti al criterio specificato nella directory data e nelle relative sottodirectory. 3. Non è possibile specificare un file BLOB specifico da scaricare utilizzando il parametro /Source. Per scaricare un file specifico, specificare il nome del file BLOB per il download utilizzando il parametro /Pattern. Il parametro /S può essere utilizzato per fare in modo che AzCopy cerchi il nome del file in modo ricorsivo. Senza il parametro pattern, AzCopy scaricherà tutti i file nella directory.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

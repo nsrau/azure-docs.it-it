@@ -61,4 +61,4 @@ Nella figura seguente viene illustrato come selezionare una configurazione da us
 
 Per altre informazioni su come configurare i progetti di servizio cloud in Visual Studio, vedere [Configurazione di un progetto Azure usando configurazioni del servizio multiple](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

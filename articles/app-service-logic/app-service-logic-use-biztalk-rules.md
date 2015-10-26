@@ -102,7 +102,7 @@ Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo pre
 
    ![Alt text][4]
 
-2.Fare quindi clic su "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario. Fare clic su "Aggiungi" per iniziare ad aggiungere nuove definizioni del vocabolario. Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
+2\.Fare quindi clic su "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario. Fare clic su "Aggiungi" per iniziare ad aggiungere nuove definizioni del vocabolario. Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
 
 ##Definizione Valore letterale
 1.	Dopo aver fatto clic su "Aggiungi", viene visualizzato il pannello "Aggiungi definizione". Immettere i valori seguenti
@@ -237,4 +237,4 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

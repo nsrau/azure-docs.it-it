@@ -8,7 +8,6 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
-
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -17,7 +16,6 @@
 	ms.topic="article" 
 	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
-
 
 #Creare un'app web Umbraco da Marketplace in Microsoft Azure#
 
@@ -129,4 +127,4 @@ La procedura è terminata. In pochi minuti, con Umbraco CMS è stato creato un s
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

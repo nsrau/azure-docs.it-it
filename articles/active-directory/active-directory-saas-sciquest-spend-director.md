@@ -41,7 +41,7 @@ Per configurare l'integrazione di Azure AD con SciQuest Spend Director, sono nec
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si ha un ambiente di prova ti Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -109,7 +109,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 
 
 ### Creazione di un utente test di Azure AD
-L'obiettivo di questa sezione consiste nel creare un utente test nel portale di Azure chiamato Britta Simon.
+Questa sezione descrive come creare un utente test nel portale di Azure chiamato Britta Simon.
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
@@ -195,4 +195,4 @@ In questa sezione viene descritto come testare la configurazione dell'accesso Si
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

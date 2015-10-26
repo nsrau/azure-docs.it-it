@@ -11,4 +11,4 @@ Numero massimo di indicizzatori|10 per servizio di ricerca
 Numero massimo di origini dati|10 per servizio di ricerca
 Numero massimo di documenti che può essere indicizzato in una chiamata a un indicizzatore|Senza limiti
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

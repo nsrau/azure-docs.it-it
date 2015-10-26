@@ -79,4 +79,4 @@ Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

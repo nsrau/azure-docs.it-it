@@ -19,7 +19,8 @@
 
 # Configurazione di un ambiente cloud ibrido per l'esecuzione di test
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+ 
 
 Questo argomento illustra la creazione di un ambiente cloud ibrido in Microsoft Azure per attività di test. Di seguito è riportata la configurazione risultante.
 
@@ -328,4 +329,4 @@ Accedere ora a RRAS1 come amministratore locale ed eseguire questi comandi in un
 Passare quindi al portale di gestione di Azure nel computer locale e attendere che per la rete virtuale TestVNET venga visualizzato lo stato Connessa.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

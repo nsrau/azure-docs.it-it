@@ -193,4 +193,4 @@ Le righe successive eseguono i passaggi per ogni macchina virtuale. Viene prima 
 - [Runbook figlio in Automazione di Azure](automation-child-runbooks.md) 
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

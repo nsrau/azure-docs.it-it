@@ -12,21 +12,26 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/13/2015" 
 	ms.author="awills"/>
 
 
-# Application Insights per ASP.NET
+# Installare Application Insights per ASP.NET
 
 *Application Insights è disponibile in anteprima.*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+<a name="selector1"></a>
+
+[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) consente di monitorare un'applicazione live per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni][detect] e [individuare la modalità di uso dell'app][knowUsers]. Funziona installando un SDK nell'applicazione. L'SDK invia i dati di telemetria relativi all'app al servizio Application Insights, dove è possibile analizzare e visualizzare il comportamento dell'app.
 
 
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) consente di monitorare un'applicazione live per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni][detect] e [individuare la modalità di uso dell'app][knowUsers]. È possibile usarlo con una vasta gamma di tipi di applicazioni. Può essere usato per app ospitate nei server IIS locali dell'utente o in macchine virtuali di Azure oppure per app Web di Azure, [oltre che per app per dispositivi e server Java][start].
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
+Aggiungere l'SDK all'app in Visual Studio per ottenere grafici relativi a richieste del server, tempi di risposta ed errori.
 
 ![Esempi di grafici di monitoraggio delle prestazioni](./media/app-insights-asp-net/10-perf.png)
 
+È anche possibile utilizzare l'API per monitorare l'uso in dettaglio.
 
 #### Prima di iniziare
 
@@ -64,11 +69,11 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 
 ####<a name="land"></a> Cosa fa il comando 'Aggiungi Application Insights'
 
-Il comando permette le seguenti fasi (che potrebbero invece essere eseguite [manualmente](app-insights-start-monitoring-app-health-usage.md) se si preferisce):
+Il comando esegue le seguenti fasi (che potrebbero invece essere eseguite [manualmente](app-insights-start-monitoring-app-health-usage.md) se si preferisce):
 
-* Creazione di una risorsa Application Insights nel [portale di Azure][portal]. E’ qui che verranno visualizzati i dati. Recupera la *chiave di strumentazione*, che identifica la risorsa.
+* Crea una risorsa Application Insights nel [portale di Azure][portal]. È qui che verranno visualizzati i dati. Recupera la *chiave di strumentazione*, che identifica la risorsa.
 * Aggiunge il pacchetto NuGet di SDK di Application Insights Web al progetto. In Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet.
-* Colloca la chiave di strumentazione in`ApplicationInsights.config`.
+* Colloca la chiave di strumentazione in `ApplicationInsights.config`.
 
 
 ## <a name="run"></a> Eseguire il progetto
@@ -85,6 +90,7 @@ Aprire la risorsa Application Insights nel [portale di Azure][portal].
 
 ![Fare clic con il pulsante destro del mouse sul progetto e aprire il portale di Azure](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
+### Metriche: dati aggregati
 
 Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due punti. ad esempio:
 
@@ -92,117 +98,43 @@ Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due pun
 
 Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche.][perf]
 
-Ora distribuire l'applicazione e osservare l'accumulo dei dati.
+* *Nessun dato utente o pagina?* - [Aggiungere i dati utente e pagina](../article/application-insights/app-insights-asp-net-client.md)
 
+### Ricerca: singoli eventi
 
-Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipeline, quindi i dati vengono visualizzati in pochi secondi. Quando si distribuisce l'app, i dati si accumulano più lentamente.
+Aprire la ricerca per esaminare le singole richieste e i relativi eventi associati.
 
-#### Dati non visualizzati
+![](./media/app-insights-asp-net/21-search.png)
 
-* Verificare che si sta osservando la cosa giusta. Accedere al [Portale di Azure](https://portal.azure.com), fare clic su "Sfoglia >", "Application Insights", quindi selezionare l'applicazione.
+[Altre informazioni sulla ricerca](app-insights-diagnostic-search.md)
+
+* *Nessun evento associato?* Impostare le [eccezioni del server](../article/application-insights/app-insights-asp-net-exception-mvc.md) e le [dipendenze](../article/application-insights/app-insights-asp-net-dependencies.md).
+
+### Dati non visualizzati
+
+* Verificare che si sta osservando la cosa giusta. Accedere al [portale di Azure](https://portal.azure.com), fare clic su "Sfoglia >", "Application Insights" e quindi selezionare l'app.
 * Usare l'applicazione, aprendo pagine diverse in modo da generare alcuni dati di telemetria.
 * Aprire il pannello [Ricerca][diagnostic] per visualizzare i singoli eventi. Talvolta gli eventi richiedono un po' più di tempo per passare attraverso la pipeline delle metriche.
 * Attendere alcuni secondi e fare clic su Aggiorna.
 * Vedere [Risoluzione dei problemi][qna].
 
+
+## Pubblicare l'app
+
+Ora distribuire l'applicazione e osservare l'accumulo dei dati.
+
+Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipeline, quindi i dati vengono visualizzati in pochi secondi. Quando si distribuisce l'app, i dati si accumulano più lentamente.
+
 #### Problemi del server di compilazione
 
 Vedere [questa sezione sulla risoluzione dei problemi](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+## Passaggi successivi
 
-## Aggiungere il monitoraggio del browser
-
-Il monitoraggio del browser fornisce dati su utenti, sessioni, visualizzazioni di pagina ed eventuali eccezioni o arresti anomali verificatisi nel browser.
-
-![Scegliere Nuovo, quindi Servizi per gli sviluppatori, Application Insights.](./media/app-insights-asp-net/16-page-views.png)
-
-Sarà anche possibile scrivere codice personalizzato per tenere traccia del modi in cui gli utenti interagiscono con l'app, a un livello di dettaglio che include i clic e le sequenze di tasto.
-
-Aggiungere un frammento di codice JavaScript in ogni pagina. Ottenere il codice dalla risorsa di Application Insights:
-
-![Nell'app Web scegliere Avvio rapido, quindi ottenere il codice per monitorare le pagine Web.](./media/app-insights-asp-net/02-monitor-web-page.png)
-
-Si noti che il codice contiene la chiave di strumentazione che identifica la risorsa dell'applicazione.
-
-[Altre informazioni sul rilevamento delle pagine Web.](app-insights-web-track-usage.md)
-
-
-## Monitoraggio dell'utilizzo
-
-Dopo avere fornito una nuova storia utente, si vuole determinare quanto viene usata dai clienti e se i clienti riescono a raggiungere i propri obiettivi o se incontrano difficoltà. È possibile ottenere un'immagine dettagliata dell'attività utente inserendo TrackEvent() e altre chiamate nel codice, sia nel client che nel server.
-
-[Usare l'API per tenere traccia dell'utilizzo][api]
-
-
-## Log di diagnostica
-
-È possibile [acquisire le tracce dei log][netlogs] dal framework di registrazione preferito per semplificare la diagnosi di qualsiasi problema. Le voci del log verranno visualizzate nella [ricerca diagnostica][diagnostic] insieme agli eventi di telemetria di Application Insights.
-
-## Pubblicare l'app
-
-Se l'app non è stata ancora pubblicata, dopo l'aggiunta di Application Insights, pubblicarla ora. È possibile verificare la crescita dei dati nei grafici man mano che gli utenti usano l'app.
-
-
-#### Nessun dato dopo la pubblicazione nel server?
-
-Aprire le seguenti porte per il traffico in uscita nel firewall del server:
-
-+ `dc.services.visualstudio.com:443`
-+ `f5.services.visualstudio.com:443`
-
-
-## Sviluppo, test e rilascio
-
-Per un'applicazione importante è consigliabile inviare dati di telemetria da timestamp diversi (debug, test e produzione) a [risorse separate](app-insights-separate-resources.md).
-
-## Rilevare la versione dell’applicazione
-
-Assicurarsi che `buildinfo.config` sia generato dal processo di compilazione. Nel file con estensione csproj, aggiungere:
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
-```
-
-Quando dispone delle informazioni di compilazione, il modulo Web Application Insights aggiunge automaticamente la **versione dell'applicazione** come una proprietà per ogni elemento dei dati di telemetria. Questo consente di filtrare in base alla versione quando si eseguono [ricerche diagnostiche][diagnostic] o quando si [esplorano le metriche][metrics].
-
-
-
-## Aggiungere i contatori delle prestazioni del sistema e del rilevamento delle dipendenze
-
-Queste [metriche relative alle dipendenze](app-insights-dependencies.md) possono essere estremamente utili per semplificare la diagnosi dei problemi di prestazioni. Misurano le chiamate dall'app a database, API REST e altri componenti esterni.
-
-![](./media/app-insights-asp-net/04-dependencies.png)
-
-Questo passaggio consente inoltre il [report dei contatori delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters) come il CPU,la memoria, l’occupazione della rete.
-
-#### Se l'app è in esecuzione nel server IIS
-
-Accedere al server con diritti di amministratore, quindi installare [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
-
-È necessario verificare alcune [altre porte sono aperte nel firewall del server](app-insights-monitor-performance-live-website-now.md#troubleshooting).
-
-#### Se l'app è un'app Web di Azure
-
-Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Application Insights.
-
-![Nell'app Web scegliere Impostazioni, Estensioni, Aggiungi, Application Insights](./media/app-insights-asp-net/05-extend.png)
-
-(È possibile inoltre aggiungere l'estensione a un'applicazione che è già attiva, anche se non è stato installato il SDK in essa.)
-
-#### Ruoli di servizi per il monitoraggio cloud di Azure
-
-Esiste una [procedura manuale per aggiungere il monitoraggio dello stato](app-insights-cloudservices.md).
-
-## Test Web di disponibilità
-
-È possibile [configurare test Web][availability] per eseguire test esterni e verificare che l'applicazione sia attiva e reattiva.
-
-
-![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
-
+- [Dati utente e pagina](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [Eccezioni](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [Dipendenze](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
+- [Disponibilità](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -238,8 +170,8 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

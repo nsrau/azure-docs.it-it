@@ -43,4 +43,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 * Vedere l'[esercitazione introduttiva](../automation-intro.md) di Automazione di Azure
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

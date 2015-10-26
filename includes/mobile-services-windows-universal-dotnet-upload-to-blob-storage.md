@@ -298,4 +298,4 @@ Il passaggio finale consiste nel testare entrambe le versioni dell'applicazione 
 
 È stata completata l'esercitazione di immagini di caricamento.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

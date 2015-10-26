@@ -24,4 +24,4 @@
 
 4. Accendere il sistema girando l'interruttore di alimentazione di ciascun modulo PCM su ON.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

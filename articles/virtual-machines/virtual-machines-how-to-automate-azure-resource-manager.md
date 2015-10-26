@@ -20,7 +20,7 @@
 
 # Come automatizzare con Gestione risorse di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse. Non è possibile creare questa risorsa con il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica. Non è possibile creare questa risorsa con il modello di distribuzione classica.
 
 Gestione risorse di Azure semplifica la distribuzione e la gestione di applicazioni complesse in esecuzione in servizi di infrastruttura di Azure. Molte applicazioni richiedono una combinazione di risorse di calcolo, rete e archiviazione, ad esempio rete virtuale, account di archiviazione e macchine virtuali con interfacce di rete. Gestione risorse di Azure consente di utilizzare o creare un modello JSON per distribuire e gestire tutte queste risorse insieme come singola applicazione.
 
@@ -74,4 +74,4 @@ Gestione risorse di Azure semplifica la distribuzione e la gestione di applicazi
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -62,4 +62,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita del ser
 - [Domande frequenti Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Richieste di supporto del file su Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

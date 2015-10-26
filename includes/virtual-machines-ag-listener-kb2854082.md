@@ -8,4 +8,4 @@ Nella sessione desktop remota per ciascuno dei nodi del cluster, scaricare[KB285
 > - Tutti i nodi del cluster sono online prima di installare l'hotfix in qualsiasi nodo e
 > - Consenti l’esecuzione dell'installazione dell'hotfix fino al completamento su un nodo, incluso il riavvio completo del server, prima di installare l'hotfix in qualsiasi altro nodo del cluster.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

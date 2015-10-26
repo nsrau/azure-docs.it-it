@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Che cosa sono le password per le app in Azure MFA?"
-	description="Questa pagina consente agli utenti di comprendere il ruolo e la funzione delle password per le app in Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Che cosa sono le password per le app in Azure MFA?" 
+	description="Questa pagina consente agli utenti di comprendere il ruolo e la funzione delle password per le app in Azure MFA." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 
@@ -129,4 +129,4 @@ Se si usa Multi-Factor Authentication con Azure, è consigliabile creare passwor
 5. Confermare l'eliminazione facendo clic su **Sì**.
 6. Una volta che la password dell’app viene eliminata, è possibile fare clic su **Chiudi**. ![Chiudi](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/07/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+>[AZURE.TIP]Se non si ha familiarità con lo sviluppo per dispositivi mobili in Microsoft Azure, [iniziare dalle app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-ios-get-started-preview.md) invece che da Servizi mobili di Azure. In questo modo si avranno [vantaggi aggiuntivi](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per iOS mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile usa .NET e Visual Studio per la logica di business sul lato server. Per creare un servizio mobile con la logica di business sul lato server in JavaScript, vedere la sezione [Versione per back-end JavaScript] di questo argomento.
 
@@ -36,7 +38,7 @@ Dopo aver creato il servizio mobile, scaricare i progetti che è possibile esegu
 
 2. In un computer Windows fare clic su **Scarica** in **Scaricare e pubblicare il servizio nel cloud**. Verrà scaricato il progetto di Visual Studio che implementerà il servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
-3. In un computer Mac fare clic su **Scarica** in **Scaricare ed eseguire l'applicazione**. Verrà scaricato il progetto per l'applicazione _To do list_ di esempio connessa al servizio mobile, unitamente a Mobile Services iOS SDK. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
+3. In un computer Mac fare clic su **Scarica** in **Scaricare ed eseguire l'applicazione**. Verrà scaricato il progetto per l'applicazione _To do list_ di esempio connessa al servizio mobile, unitamente all'SDK di Servizi Mobili per iOS. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
 ## Testare il servizio mobile
 
@@ -54,7 +56,7 @@ Dopo aver creato il servizio mobile, scaricare i progetti che è possibile esegu
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-Viene mostrato come eseguire la nuova app client nel servizio mobile in esecuzione in Azure. Per poter testare l'app per iOS con il servizio mobile in esecuzione in un computer locale, è necessario configurare il server Web e il firewall in modo da consentire l'accesso dal computer di sviluppo iOS. Per altre informazioni, vedere [Configurazione del server Web locale per consentire le connessioni a un servizio mobile locale](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
+Viene mostrato come eseguire la nuova app client nel servizio mobile in esecuzione in Azure. Per poter testare l'app per iOS con il servizio mobile in esecuzione in un computer locale, è necessario configurare il server Web e il firewall in modo da consentire l'accesso dal computer di sviluppo iOS. Per ulteriori informazioni, vedere [Configurazione del server Web locale per consentire le connessioni a un servizio mobile locale](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
 
 Informazioni su come eseguire altre importanti attività in Servizi mobili:
 
@@ -65,6 +67,8 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 * [Aggiungere notifiche push a un'app esistente] <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 * [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili] <br/> Informazioni su come diagnosticare e correggere i problemi che possono verificarsi con un back-end .NET di Servizi mobili.
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -97,4 +101,4 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Versione per back-end JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -42,4 +42,4 @@ Dopo avere creato una macchina virtuale, è consigliabile aggiungere un disco da
 
 [Come collegare un disco dati a una macchina virtuale Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

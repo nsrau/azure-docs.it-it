@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inserire una scala di telemetria ed eventi applicazione" 
+	pageTitle="Inserire una scala di telemetria ed eventi applicazione | Microsoft Azure" 
 	description="Informazioni su come inserire una scala di telemetria ed eventi applicazione nelle soluzioni aziendali." 
 	services="event-hubs,service-bus" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sethm"/>
 
 # Inserire una scala di telemetria ed eventi applicazione
@@ -29,11 +29,12 @@ Le applicazioni moderne creano una gran quantità di informazioni quando sono in
  
 ## Compilazione
 - [Informazioni di riferimento sulle API REST dell'hub eventi](https://msdn.microsoft.com/library/azure/dn790674.aspx)
-- [Esempi di codice degli hub eventi](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
+- [Esempi di codice degli hub eventi](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Servizi correlati
-- [Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
-- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [Bus di servizio](http://azure.microsoft.com/services/service-bus/)
+- [Archiviazione di Azure](http://azure.microsoft.com/services/storage/)
+- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

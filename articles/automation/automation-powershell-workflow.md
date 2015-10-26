@@ -249,4 +249,4 @@ Per altre informazioni sui checkpoint, vedere l'articolo relativo all'[aggiunta 
 
 - [Introduzione al flusso di lavoro di Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

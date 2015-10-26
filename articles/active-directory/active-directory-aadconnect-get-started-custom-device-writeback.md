@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Abilitazione del writeback dei dispositivi in Azure AD Connect" 
-	description="Questo documento descrive come abilitare il writeback dei dispositivi usando Azure AD Connect" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="msStevenPo" 
+<properties
+	pageTitle="Abilitazione del writeback dei dispositivi in Azure AD Connect | Microsoft Azure"
+	description="Questo documento descrive come abilitare il writeback dei dispositivi usando Azure AD Connect"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="StevenPo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="09/15/2015"
 	ms.author="billmath"/>
 
@@ -62,7 +62,7 @@ Descrizione:
 Parametri
 
 
-- DomainName: dominio di Active Directory in cui verranno creati gli oggetti dispositivo. Nota: tutti i dispositivi per una foresta Active Directory specifica verranno creati in un singolo dominio. 
+- DomainName: dominio di Active Directory in cui verranno creati gli oggetti dispositivo. Nota: tutti i dispositivi per una foresta Active Directory specifica verranno creati in un singolo dominio.
 
 
 - AdConnectorAccount: account Active Directory che verrà usato da Azure AD Connect per gestire gli oggetti nella directory.
@@ -83,17 +83,18 @@ Per informazioni dettagliate su come abilitare questo scenario, vedere [Configur
 
 ## Verificare che i dispositivi siano sincronizzati con Active Directory
 Il writeback dei dispositivi dovrebbe funzionare correttamente. Tenere presente che l'esecuzione del writeback degli oggetti dispositivo in Active Directory può richiedere fino a 3 ore. Per verificare che i dispositivi siano sincronizzati correttamente, al termine dell'esecuzione delle regole di sincronizzazione seguire questa procedura:
- 
-1.	Avviare il Centro di amministrazione di Active Directory. 
+
+1.	Avviare il Centro di amministrazione di Active Directory.
 2.	Espandere RegisteredDevices all'interno del dominio che verrà federato. ![Installazione personalizzata](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback5.png)
-3.	I dispositivi attualmente registrati saranno visualizzati in questo elenco. 
+3.	I dispositivi attualmente registrati saranno visualizzati in questo elenco.
 
 ![Installazione personalizzata](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback6.png)
 
-## Informazioni aggiuntive 
-
-
+## Informazioni aggiuntive
 - [Gestione dei rischi con l'accesso condizionale](active-directory-conditional-access.md)
 - [Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
 
-<!---HONumber=Sept15_HO3-->
+## Passaggi successivi
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

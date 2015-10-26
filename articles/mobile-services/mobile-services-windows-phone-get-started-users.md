@@ -79,4 +79,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

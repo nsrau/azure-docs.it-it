@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="App Web Python con Bottle in Azure"
-	description="Un'esercitazione introduttiva all'esecuzione di un'app Web di Python in App Web del servizio app di Azure."
-	services="app-service\web"
-	documentationCenter="python"
+	pageTitle="App Web Python con Bottle in Azure" 
+	description="Un'esercitazione introduttiva all'esecuzione di un'app Web di Python in App Web del servizio app di Azure." 
+	services="app-service\web" 
+	documentationCenter="python" 
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -397,4 +397,4 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 [Documentazione di Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

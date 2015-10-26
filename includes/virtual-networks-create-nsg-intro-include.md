@@ -2,4 +2,4 @@
 
 Per ulteriori informazioni su NSGs, visitare [Informazioni su NSG](virtual-networks-nsg).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

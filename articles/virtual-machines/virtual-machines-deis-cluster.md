@@ -21,7 +21,8 @@
 
 In questo articolo viene illustrato il provisioning di un cluster [Deis](http://deis.io/) su Azure. Vengono descritti tutti i passaggi dalla creazione dei certificati necessari per la distribuzione e la scalabilità di un’applicazione **Go** di esempio sul cluster di cui è stato appena eseguito il provisioning.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 Nel diagramma seguente viene mostrata l'architettura del sistema distribuito. Un amministratore di sistema gestisce il cluster utilizzando strumenti Deis come **deis** e **deisctl**. Le connessioni vengono stabilite tramite un servizio di bilanciamento del carico di Azure, che inoltra le connessioni a uno dei nodi membri sul cluster. Anche i client effettuano l’accesso alle applicazioni distribuite tramite il servizio di bilanciamento del carico. In questo caso, il servizio di bilanciamento del carico inoltra il traffico a un router mesh Deis, che indirizza ulteriormente il traffico ai contenitori Docker corrispondenti ospitati sul cluster.
 
@@ -257,4 +258,4 @@ In questo articolo vengono illustrati tutti i passaggi per eseguire il provision
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

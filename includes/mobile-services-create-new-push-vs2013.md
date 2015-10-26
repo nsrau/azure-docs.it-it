@@ -26,4 +26,4 @@ La procedura seguente consente di registrare l'app con Windows Store, configurar
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

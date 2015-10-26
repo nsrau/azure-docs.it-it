@@ -326,7 +326,7 @@ In *Esplora soluzioni* aprire il file **Controllers\\HomeController.cs** e sosti
 	}
 
 ## Impostare gli stili ##
-Per modificare il titolo nella parte superiore della pagina, in **Esplora soluzioni** aprire il file Views\\Shared\\\_Layout.cshtml e sostituire "Application name" nell'intestazione della barra di navigazione con "My Task List Application":
+Per modificare il titolo nella parte superiore della pagina, in **Esplora soluzioni** aprire il file Views\\Shared\\_Layout.cshtml e sostituire "Application name" nell'intestazione della barra di navigazione con "My Task List Application":
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -499,4 +499,4 @@ Per ulteriori informazioni sull'utilizzo di MongoDB per lo sviluppo di applicazi
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

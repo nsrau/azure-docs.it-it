@@ -118,4 +118,4 @@ Per altre informazioni sullo sviluppo, il test e la gestione di applicazioni e s
 - [Esempio di ciclo di vita di un'applicazione basata su REST](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

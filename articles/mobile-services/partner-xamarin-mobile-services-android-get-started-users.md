@@ -137,4 +137,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Azure Management Portal]: https://manage.windowsazure.com/
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

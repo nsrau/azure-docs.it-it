@@ -10,4 +10,4 @@ I gateway applicazione contengono le risorse figlio seguenti:
 - **Listener:** - il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
 - **Regola** - La regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola di base. La regola di base è una distribuzione del carico di tipo round robin.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

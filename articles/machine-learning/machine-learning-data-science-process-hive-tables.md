@@ -2,10 +2,11 @@
 	pageTitle="Inviare query Hive ai cluster Hadoop in Advanced Analytics Process and Technology | Microsoft Azure"
 	description="Elaborare i dati delle tabelle Hive usando query Hive."
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Inviare query Hive ai cluster Hadoop di HDInsight in Advanced Analytics Process and Technology 
 
@@ -319,4 +320,4 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -3,7 +3,7 @@
 
 2. Accedere con il provider di identità selezionato e verificare che l'autenticazione abbia esito positivo.
 
-3. Nell'app digitare un testo in **Inserisci TodoItem**, quindi fare clic su **Salva**.
+3. Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
 
    	Si noti che al termine dell'inserimento l'app riceve una notifica push da WNS.
 
@@ -11,4 +11,4 @@
 
 	Verificare che la notifica venga ricevuta su questo dispositivo, perché il dispositivo precedente non è stato contrassegnato con l'ID utente corrente.
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

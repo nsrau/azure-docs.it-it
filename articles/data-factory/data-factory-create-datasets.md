@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Set di dati
@@ -103,25 +103,25 @@ Le origini dati supportate e i tipi di set di dati vengono allineati. Vedere gli
 
 ## <a name="Availability"></a>Disponibilità dei set di dati
 
-La sezione Disponibilità in un set di dati definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati. Vedere l'argomento Sezione di set di dati per ulteriori informazioni sul modello di sezionamento e dipendenza di set di dati.
+La sezione Disponibilità in un set di dati definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati. Vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) per altre informazioni sul modello di sezionamento e dipendenza di set di dati.
 
 | Proprietà | Descrizione | Obbligatorio | Default |
 | -------- | ----------- | -------- | ------- |
-| frequency | Specifica l'unità di tempo per la produzione di sezioni di set di dati.<p>** Frequenza supportata **: minuto, ora, giorno, settimana, mese</p> | Sì | ND |
-| interval | Consente di specificare un moltiplicatore di frequenza<p>"Frequency x interval" determina la frequenza con cui il sezionamento viene generato.</p><p>Se è necessario che il set di dati venga sezionato su base oraria, impostare**Frequency**su**Hour**e**interval**su**1**.</p><p> **Nota:** se si specifica la frequenza in minuti, è consigliabile impostare interval su non meno di 15</p> | Sì | ND |
+| frequency | Specifica l'unità di tempo per la produzione di sezioni di set di dati.<p>**Frequenza supportata**: minuto, ora, giorno, settimana, mese</p> | Sì | ND |
+| interval | Consente di specificare un moltiplicatore di frequenza<p>"Frequency x interval" determina la frequenza con cui il sezionamento viene generato.</p><p>Se è necessario che il set di dati venga sezionato su base oraria, impostare **Frequency** su **Hour** e **interval** su **1**.</p><p> **Nota:** se si specifica la frequenza in minuti, è consigliabile impostare interval su non meno di 15</p> | Sì | ND |
 | style | Specifica se il sezionamento deve essere generato all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>Se frequency è impostata su Month e style è impostato su EndOfInterval, il sezionamento viene generato l'ultimo giorno del mese. Se style è impostato su StartOfInterval, il sezionamento viene generato il primo giorno del mese.</p><p>Se frequency viene impostata su Day e style è impostato su EndOfInterval, il sezionamento viene generato durante l'ultima ora del giorno.</p>Se frequency è impostata su Hour e style è impostato su EndOfInterval, il sezionamento viene generato alla fine dell'ora. Ad esempio, per una sezione per periodo 1 PM – 2 PM, il sezionamento viene generato alle 2 del pomeriggio.</p> | No | EndOfInterval |
-| anchorDateTime | Definisce la posizione assoluta nel tempo utilizzato dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati.<p>** Nota:** se la AnchorDateTime ha parti della data che sono più granulari rispetto alla frequenza allora le parti più granulari vengono ignorate. Ad esempio, se **interval** è **hourly** (frequenza: ora e intervallo: 1) e **AnchorDateTime** contiene **minutes and seconds**, allora le parti **minutes and seconds** dell’AnchorDateTime vengono ignorate.</p>| No | 01/01/0001 |
+| anchorDateTime | Definisce la posizione assoluta nel tempo usato dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati.<p>**Nota:** se AnchorDateTime ha parti della data che sono più granulari rispetto alla frequenza allora le parti più granulari vengono ignorate. Ad esempio, se **interval** è **hourly** (frequenza: ora e intervallo: 1) e **AnchorDateTime** contiene **minutes and seconds**, allora le parti **minutes and seconds** di AnchorDateTime vengono ignorate.</p>| No | 01/01/0001 |
 | offset | Intervallo di tempo mediante il quale l'inizio e la fine di tutti i sezionamenti dei set di dati vengono spostati.<p>**Nota:** se vengono specificati sia l’anchorDateTime sia l’offset, il risultato è il turno combinato.</p> | No | ND |
 
 ### esempi di anchorDateTime
 
-**Esempio:**sezionamenti dei set di dati di 23 ore che iniziano il 19-04-2007 alle 08:00:00
+**Esempio:** sezionamenti dei set di dati di 23 ore che iniziano il 19-04-2007 alle 08:00:00
 
 	"availability":	
 	{	
 		"frequency": "Hour",		
 		"interval": "23",	
-		"anchorDataTime":"2007-04-19T08:00:00"	
+		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
 
@@ -151,7 +151,7 @@ La sezione criteri nei set di dati definisce i criteri o la condizione che devon
 | Nome criterio | Descrizione | Applicato a | Obbligatorio | Default |
 | ----------- | ----------- | ---------- | -------- | ------- |
 | minimumSizeMB | Verifica che i dati in un BLOB di Azure soddisfino i requisiti di dimensione minima (in MB). | BLOB Azure | No | ND |
-|minimumRows | Verifica che i dati in un database SQL Azure o in una tabella di Azure contengano il numero minimo di righe. | <ul><li>Database SQL di Azure</li><li>tabella di Azure</li></ul> | No | ND
+|minimumRows | Verifica che i dati in un database SQL Azure o in una tabella di Azure contengano il numero minimo di righe. | <ul><li>Database SQL di Azure</li><li>Tabella di Azure</li></ul> | No | ND
 
 #### esempi
 
@@ -182,14 +182,14 @@ I set di dati esterni sono quelli che sono non stati prodotti da una pipeline in
 
 | Nome | Descrizione | Obbligatorio | Default Value |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | <p>Tempo di attesa per il controllo sulla disponibilità dei dati esterni per il sezionamento specificato. Ad esempio, se i dati dovrebbero essere disponibili una volta ogni ora, il controllo per visualizzare se i dati esterni sono effettivamente disponibili e se il sezionamento corrispondente sia pronto può essere posticipato da dataDelay.</p><p>Si applica solo al momento; ad esempio, se è l’ 1:00 PM e questo valore è 10 minutes, la convalida verrà avviata all’1:10 PM.</p><p>Questa impostazione non interessa i passati sezionamenti (sezionamenti con Slice End Time + dataDelay < Now) che verranno elaborati senza alcun ritardo.</p> <p>L’orario maggiore di 23:59 deve essere specificato utilizzando il formato giorno.ore:minuti:secondi. Per specificare 24 ore, ad esempio, non utilizzare 24:00:00; utilizzare invece 1.00:00:00. Se si utilizza 24:00:00, verrà considerato come 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. </p>| No | 0 |
-| retryInterval | Il tempo di attesa tra un errore e il successivo tentativo. Si applica al tempo presente; Se il precedente tentativo non è riuscito, dopo di esso si aspetta tale tempo. <p>Se è l’1:00 pm, inizia il primo tentativo. Se la durata per completare il primo controllo di convalida è 1 minuto e l'operazione non è riuscita, il tentativo successivo sarà all’1:00 + 1 min (durata) + 1 min (intervallo tentativi) = 1:02 pm. </p><p>Per i sezionamenti passati, non si verificherà alcun ritardo. Il tentativo verrà eseguito immediatamente.</p> | No | 00:01:00 (1 minute) | 
-| retryTimeout | Il timeout per ogni nuovo tentativo.<p>Se è impostato su 10 minuti, la convalida deve essere completata entro 10 minuti. Se sono necessari più di 10 minuti per eseguire la convalida, il tentativo andrà in sospensione.</p><p>Se tutti i tentativi per la convalida scadono, il sezionamento verrà contrassegnato come TimedOut.</p> | No | 00:10:00 (10 minutes) |
+| dataDelay | <p>Tempo di attesa per il controllo sulla disponibilità dei dati esterni per il sezionamento specificato. Ad esempio, se i dati dovrebbero essere disponibili una volta ogni ora, il controllo per visualizzare se i dati esterni sono effettivamente disponibili e se il sezionamento corrispondente sia pronto può essere posticipato da dataDelay.</p><p>Si applica solo al momento; ad esempio, se è l'1:00 PM e questo valore è 10 minutes, la convalida verrà avviata all'1:10 PM.</p><p>Questa impostazione non interessa i passati sezionamenti (sezionamenti con Slice End Time + dataDelay < Now) che verranno elaborati senza alcun ritardo.</p> <p>L'orario maggiore di 23:59 deve essere specificato usando il formato giorno.ore:minuti:secondi. Per specificare 24 ore, ad esempio, non utilizzare 24:00:00; utilizzare invece 1.00:00:00. Se si utilizza 24:00:00, verrà considerato come 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. </p>| No | 0 |
+| retryInterval | Il tempo di attesa tra un errore e il successivo tentativo. Si applica al tempo presente; Se il precedente tentativo non è riuscito, dopo di esso si aspetta tale tempo. <p>Se è l'1:00 pm, inizia il primo tentativo. Se la durata per completare il primo controllo di convalida è 1 minuto e l'operazione non è riuscita, il tentativo successivo sarà all’1:00 + 1 min (durata) + 1 min (intervallo tentativi) = 1:02 pm. </p><p>Per i sezionamenti passati, non si verificherà alcun ritardo. Il tentativo verrà eseguito immediatamente.</p> | No | 00:01:00 (1 minute) | 
+| retryTimeout | Il timeout per ogni nuovo tentativo.<p>Se è impostato su 10 minuti, la convalida deve essere completata entro 10 minuti. Se sono necessari più di 10 minuti per eseguire la convalida, il tentativo verrà sospeso.</p><p>Se tutti i tentativi per la convalida scadono, il sezionamento verrà contrassegnato come TimedOut.</p> | No | 00:10:00 (10 minutes) |
 | maximumRetry | Numero di volte per controllare la disponibilità dei dati esterni. Il valore massimo consentito è 10. | No | 3 | 
 
 #### Ulteriori esempi
 
-Se è necessario eseguire una pipeline su base mensile a una data e ora specifiche (si supponga al 3 di ogni mese alle ore 8:00), è possibile utilizzare il tag **offset** per impostare la data e l’ora di esecuzione.
+Se è necessario eseguire una pipeline su base mensile a una data e ora specifiche (si supponga al 3 di ogni mese alle ore 8:00), è possibile usare il tag **offset** per impostare la data e l'ora di esecuzione.
 
 	{
 	  "name": "MyDataset",
@@ -217,4 +217,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L'inv
 
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

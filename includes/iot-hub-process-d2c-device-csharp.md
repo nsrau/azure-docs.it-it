@@ -42,4 +42,4 @@ In questa sezione verrà modificata l'applicazione dispositivo simulato per invi
 [21]: ./media/iot-hub-getstarted-cloud-csharp/create-storage2.png
 [22]: ./media/iot-hub-getstarted-cloud-csharp/create-storage3.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -23,4 +23,4 @@
 
 Per le domande frequenti più recenti sulle reti virtuali VPN, vedere le [domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

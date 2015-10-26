@@ -131,4 +131,4 @@ Visitare [creare un servizio di ricerca di Azure](search-create-service-portal.m
 
 [Come utilizzare la Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) [iniziare a utilizzare Ricerca di Azure .NET](search-get-started-dotnet.md) [Ricerca di Azure: esempi di esercitazioni e demo video](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

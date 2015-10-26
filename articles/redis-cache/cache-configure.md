@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="10/09/2015"
    ms.author="sdanie" />
 
 # Come configurare Cache Redis di Azure
@@ -163,11 +163,16 @@ Per altre informazioni sui comandi di Redis, vedere [http://redis.io/commands](h
 
 ## Console Redis
 
-È possibile eseguire comandi in modo sicuro per le istanze di Cache Redis di Azure usando la **Console Redis** disponibile per le cache Premium Standard. Per accedere alla Console Redis, fare clic su **Console** dal pannello **Cache Redis**.
+È possibile eseguire comandi in modo sicuro per le istanze di Cache Redis di Azure usando la **Console Redis** disponibile per le cache Premium Standard.
+
+>[AZURE.IMPORTANT]La Console di Redis non funziona con la rete virtuale o il servizio cluster.
+>
+>-	[VNET](cache-how-to-premium-vnet.md) : quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale possono accedere alla cache. Poiché la Console di Redis utilizza il client di redis cli.exe ospitato su macchine virtuali che non fanno parte di una rete virtuale, è impossibile connettersi alla cache.
+>-	[Clustering](cache-how-to-premium-clustering.md) -la Console di Redis utilizza il client di redis cli.exe che non supporta il clustering in questo momento. L'utilità del cli redis nel ramo [instabile](http://redis.io/download) del repository Redis in GitHub implementa il supporto di base quando avviato con il passaggio `-c`. Per ulteriori informazioni vedere [Giocare con cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) su [http://redis.io](http://redis.io) nell’[Esercitazione cluster Redis](http://redis.io/topics/cluster-tutorial).
+
+Per accedere alla Console Redis, fare clic su **Console** dal pannello **Cache Redis**.
 
 ![Console Redis](./media/cache-configure/redis-console-menu.png)
-
->[AZURE.IMPORTANT]La Console Redis è disponibile solo per le cache Premium e Standard.
 
 Per eseguire comandi con l'istanza di cache, digitare semplicemente il comando desiderato nella console.
 
@@ -178,4 +183,4 @@ Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere
 ## Passaggi successivi
 -	Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

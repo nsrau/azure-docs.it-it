@@ -36,4 +36,4 @@ Per eseguire il test, utilizzare la funzionalità "Run now" in ogni criterio di 
 
 > [AZURE.NOTE]Le pagine di reimpostazione della password self-service sono personalizzabili tramite la [funzionalità marchio della società](active-directory-add-company-branding.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

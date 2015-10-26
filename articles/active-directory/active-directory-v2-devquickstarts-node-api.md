@@ -35,31 +35,31 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-Al termine dell'esercitazione, verrà fornita anche l'app completata.
+Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
 
-## 1. Registrare un'app
-Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md).  Verificare di:
+## 1\. Registrare un'app
+Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md). Verificare di:
 
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 - Aggiungere la piattaforma **Mobile** per l'app.
-- Annotare  **Redirect URI** dal portale. È necessario usare il valore predefinito "urn:ietf:wg:oauth:2.0:oob".
+- Annotare il **Redirect URI** dal portale. È necessario usare il valore predefinito `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2: Scaricare node.js per la piattaforma in uso
+## Passaggio 2: Scaricare node.js per la piattaforma in uso
 Per usare correttamente questo esempio, è necessario disporre di un'installazione funzionante di Node.js.
 
 Installare Node.js da [http://nodejs.org](http://nodejs.org).
 
-## 3: Installare MongoDB nella piattaforma in uso
+## Passaggio 3: Installare MongoDB nella piattaforma in uso
 
 Per usare correttamente questo esempio, è necessario disporre di un'installazione funzionante di MongoDB. Si userà MongoDB per rendere l'API REST persistente nelle istanze del server.
 
 Installare MongoDB da [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] in questa procedura dettagliata si presume che si usino gli endpoint server e di installazione predefiniti per MongoDB, che al momento della stesura di questo articolo sono: mongodb://localhost
+> [AZURE.NOTE]In questa procedura dettagliata si presume che si usino gli endpoint server e di installazione predefiniti per MongoDB, che al momento della stesura di questo articolo sono: mongodb://localhost
 
-## 4: Install the Restify modules in to your Web API
+## Passaggio 4: Installare i moduli Restify nell'API Web
 
 Si userà Resitfy per compilare l'API REST. Restify è un framework applicazioni di Node.js minimo e flessibile derivato da Express, che include una gamma completa di funzionalità per la compilazione di API REST su Connect.
 
@@ -67,7 +67,7 @@ Si userà Resitfy per compilare l'API REST. Restify è un framework applicazioni
 
 Dalla riga di comando passare alla directory azuread. Se la directory **azuread** non esiste, crearla.
 
-`cd azuread` - oppure- `mkdir azuread;`
+`cd azuread` - o - `mkdir azuread;`
 
 Digitare il seguente comando:
 
@@ -75,13 +75,13 @@ Digitare il seguente comando:
 
 Questo comando installa Restify.
 
-#### È stato visualizzato un errore?
+#### È STATO VISUALIZZATO UN ERRORE?
 
 Quando si usa npm in alcuni sistemi operativi, è possibile che vengano visualizzati un errore di errore: EPERM, chmod '/usr/local/bin/..' e una richiesta di provare a eseguire l'account come amministratore. In questo caso, usare il comando sudo per eseguire npm a un livello di privilegi più elevato.
 
-#### È stato visualizzato un errore relativo a DTRACE?
+#### È STATO VISUALIZZATO UN ERRORE RELATIVO A DTRACE?
 
-You may see something like this when installing Restify:
+Durante l'installazione di Restify, è possibile che venga visualizzato qualcosa di simile:
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
@@ -149,7 +149,7 @@ L'output del comando dovrebbe apparire simile al seguente:
 
 In seguito, mediante passport-azuread verrà aggiunta la strategia OAuth, una suite di strategie che connettono Azure Active Directory con Passport. In questo esempio di API REST si userà tale strategia per i token di connessione.
 
-> [AZURE.NOTE] Anche se OAuth2 fornisce un framework in cui è possibile rilasciare qualsiasi tipo di token noto, solo determinati tipi di token sono usati su larga scala. Per proteggere gli endpoint, si è passati ai token di connessione. I token di connessione sono il tipo di token maggiormente rilasciato in OAuth2 e molte implementazioni presumono che i token di connessione siano l'unico tipo di token rilasciato.
+> [AZURE.NOTE]Anche se OAuth2 fornisce un framework in cui è possibile rilasciare qualsiasi tipo di token noto, solo determinati tipi di token sono usati su larga scala. Per proteggere gli endpoint, si è passati ai token di connessione. I token di connessione sono il tipo di token maggiormente rilasciato in OAuth2 e molte implementazioni presumono che i token di connessione siano l'unico tipo di token rilasciato.
 
 Dalla riga di comando passare alla directory azuread.
 
@@ -182,7 +182,7 @@ MongoDB verrà usato come archivio dati. Per questo motivo, è necessario instal
 * `npm install mongoose`
 * `npm install mongodb`
 
-## 8. Installare moduli aggiuntivi
+## 8\. Installare moduli aggiuntivi
 
 Ora si installeranno gli altri moduli necessari.
 
@@ -268,12 +268,11 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 ### Valori richiesti
 
-*IdentityMetadata*: l'area in cui passport-azure-ad cercherà i dati di configurazione per IdP nonché i token per la convalida dei token JWT. Se si usa Azure Active Directory, probabilmente non è necessario modificare questa impostazione.
+*IdentityMetadata*: l'area in cui passport-azure-ad cercherà i dati di configurazione per IdP, nonché le chiavi per la convalida dei token JWT. Se si usa Azure Active Directory, probabilmente non è necessario modificare questa impostazione.
 
 *audience*: URI di reindirizzamento dal portale.
 
-> [AZURE.NOTE]
-Le chiavi vengono registrate con una certa frequenza. Assicurarsi di effettuare sempre il pull dall'URL "openid\_keys" e che l'app possa accedere a Internet.
+> [AZURE.NOTE]Le chiavi vengono registrate con una certa frequenza. Assicurarsi di effettuare sempre il pull dall'URL "openid\_keys" e che l'app possa accedere a Internet.
 
 
 ## 11: Aggiungere la configurazione al file server.js
@@ -314,7 +313,7 @@ Ora si inizierà a vedere l'utilità di tutte queste operazioni di preparazione 
 
 Per questa procedura dettagliata si userà MongoDB per archiviare le attività, come illustrato nel ***Passaggio 4***.
 
-Come indicato nel file config.js creato al passaggio 11, il database è stato chiamato *tasklist* come quello inserito alla fine dell'URL di connessione mogoose\_auth\_local. Non è necessario creare questo database in anticipo in MongoDB, perché verrà creato automaticamente alla prima esecuzione dell'applicazione server (presumendo che non esista già).
+Come indicato nel file config.js creato nel passaggio 11, il database è stato chiamato *tasklist* come quello inserito alla fine dell'URL di connessione mogoose\_auth\_local. Non è necessario creare questo database in anticipo in MongoDB, perché verrà creato automaticamente alla prima esecuzione dell'applicazione server (presumendo che non esista già).
 
 Ora che è stato indicato al server quale database MongoDB deve usare, è necessario scrivere un codice aggiuntivo per creare il modello e lo schema per le attività del server.
 
@@ -650,8 +649,7 @@ In primo luogo, assicurarsi che l'istanza di monogoDB sia in esecuzione.
 
 Quindi, passare alla directory e iniziare a usare Curl.
 
-`$ cd azuread`
-`$ node server.js`
+`$ cd azuread` `$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -717,8 +715,7 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]
-Durante la scrittura delle API è sempre necessario collegare i dati a un elemento univoco dal token in modo che l'utente non possa eseguire lo spoofing. Quando archivia gli elementi TODO, il server esegue questa operazione in base all'ID di sottoscrizione dell'utente nel token (chiamato mediante token.sub) presente nel campo "owner". Questo garantisce che soltanto l'utente in questione possa accedere ai propri elementi TODO e che nessun altro possa accedere agli elementi TODO immessi. Nell'API di "owner" non è presente alcuna esposizione, così che un utente esterno può richiedere TODO di altri anche se questi non sono autenticati.
+> [AZURE.TIP]Durante la scrittura delle API è sempre necessario collegare i dati a un elemento univoco dal token in modo che l'utente non possa eseguire lo spoofing. Quando archivia gli elementi TODO, il server esegue questa operazione in base all'ID di sottoscrizione dell'utente nel token (chiamato mediante token.sub) presente nel campo "owner". Questo garantisce che soltanto l'utente in questione possa accedere ai propri elementi TODO e che nessun altro possa accedere agli elementi TODO immessi. Nell'API di "owner" non è presente alcuna esposizione, così che un utente esterno può richiedere TODO di altri anche se questi non sono autenticati.
 
 Di seguito verrà usata la strategia Open ID Connect Bearer (OIDCBearerStrategy) fornita con passport-azure-ad. Per il momento limitarsi a esaminare il codice, che verrà illustrato tra breve. Inserire il codice dopo quanto mostrato sopra:
 
@@ -767,10 +764,9 @@ passport.use(oidcStrategy);
 
 Passport usa un modello simile per tutte le strategie (Twitter, Facebook e così via) che soddisfano i requisiti degli scrittori della strategia. Osservando la strategia, è possibile notare che a quest'ultima è stata passata una funzione() con parametri token e done. La strategia verrà restituita al termine dell'esecuzione. Una volta restituita, è opportuno archiviare l'utente e mettere da parte il token in modo che non sia necessario richiederlo nuovamente.
 
-> [AZURE.IMPORTANT]
-Il codice precedente accetta qualsiasi utente che esegue l'autenticazione al server. Questa operazione è nota come registrazione automatica. Nei server di produzione è preferibile non consentire l'accesso a chiunque senza prima prevedere un processo di registrazione. Questo è il modello in genere adottato per le app consumer che consentono di eseguire la registrazione con Facebook, ma che chiedono di immettere informazioni aggiuntive. Se non si trattasse di un programma della riga di comando, si sarebbe estratto il messaggio di posta elettronica dall'oggetto token restituito e si sarebbe chiesto di immettere informazioni aggiuntive. Poiché si tratta di un server di test, è sufficiente aggiungere le informazioni al database in memoria.
+> [AZURE.IMPORTANT]Il codice precedente accetta qualsiasi utente che esegue l'autenticazione al server. Questa operazione è nota come registrazione automatica. Nei server di produzione è preferibile non consentire l'accesso a chiunque senza prima prevedere un processo di registrazione. Questo è il modello in genere adottato per le app consumer che consentono di eseguire la registrazione con Facebook, ma che chiedono di immettere informazioni aggiuntive. Se non si trattasse di un programma della riga di comando, si sarebbe estratto il messaggio di posta elettronica dall'oggetto token restituito e si sarebbe chiesto di immettere informazioni aggiuntive. Poiché si tratta di un server di test, è sufficiente aggiungere le informazioni al database in memoria.
 
-### 2. Proteggere alcuni endpoint
+### 2\. Proteggere alcuni endpoint
 
 Per proteggere gli endpoint, specificare la chiamata a passport.authenticate() con il protocollo preferito.
 
@@ -860,4 +856,4 @@ Per altre risorse consultare:
 - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
 - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

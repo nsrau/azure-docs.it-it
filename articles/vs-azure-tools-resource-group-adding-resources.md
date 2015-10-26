@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Aggiunta di risorse a un gruppo di risorse di Azure"
-	description="Informazioni su come aggiungere risorse a un gruppo di risorse di Azure con Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Informazioni su come aggiungere risorse a un gruppo di risorse di Azure con Visual Studio."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Aggiunta di risorse a un gruppo di risorse di Azure
 
@@ -61,4 +61,4 @@ Se è necessario aggiungere altre risorse a un gruppo di risorse, è possibile e
 
 [Video di Channel9: Gestione risorse di Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Flusso di lavoro per la configurazione di un circuito ExpressRoute | Microsoft Azure"
+   pageTitle="Flussi di lavoro per la configurazione di un circuito ExpressRoute | Microsoft Azure"
    description="Questa pagina illustra i flussi di lavoro per la configurazione di un circuito ExpressRoute e dei peering"
    documentationCenter="na"
    services="expressroute"
@@ -12,10 +12,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc"/>
 
-# Flussi di lavoro e stati di provisioning di un circuito ExpressRoute
+# Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
 Questa pagina illustra i flussi di lavoro di provisioning del servizio e configurazione del routing a livello generale.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
@@ -121,4 +121,4 @@ Se invece è impostato lo stato *validation needed*, la sessione BGP non è abil
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

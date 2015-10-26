@@ -30,4 +30,4 @@ API REST | È possibile usare l'API REST di Data factory per creare, monitorare 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

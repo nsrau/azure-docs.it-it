@@ -166,4 +166,4 @@ In questo documento si è appreso il modo in cui Azure HDInsight fornisce dispon
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -57,4 +57,4 @@ I metadati estratti dai dati di origine durante la registrazione e i metadati fo
 ## Riepilogo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Una volta registrata un'origine dati, gli utenti possono fornire le annotazioni affinché venga individuata e compresa in maniera più semplice dal portale **Catalogo dati Azure**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

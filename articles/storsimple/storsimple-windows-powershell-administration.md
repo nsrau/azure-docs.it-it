@@ -197,4 +197,4 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 ## Passaggi successivi
 Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento a [Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

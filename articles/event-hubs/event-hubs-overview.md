@@ -167,4 +167,4 @@ Ora che i concetti di Hub eventi sono chiari, è possibile passare agli scenari 
 [soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

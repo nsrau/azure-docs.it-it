@@ -4,7 +4,7 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Elaborazione di messaggi da dispositivo a cloud dell'hub IoT
+# Esercitazione: elaborare messaggi da dispositivo a cloud dell'hub IoT
 
 ## Introduzione
 
@@ -73,7 +73,7 @@ A questo punto è possibile eseguire le applicazioni.
 
 ## Passaggi successivi
 
-In questa esercitazione si è appreso come elaborare in modo affidabile i messaggi da dispositivo a cloud dei *punti dati* e *interattivi* con [EventProcessorHost]. Una logica analoga di elaborazione dei messaggi può essere implementata con
+In questa esercitazione si è appreso come elaborare in modo affidabile i messaggi da dispositivo a cloud dei *punti dati* e *interattivi* con [EventProcessorHost]. Una logica analoga di elaborazione dei messaggi può essere implementata con:
 
 - [Caricamento di file da dispositivi] descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
 
@@ -117,10 +117,6 @@ Altre informazioni sull'hub IoT:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introduzione all'hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro per sviluppatori Azure IoT]: http://www.azure.com/iotdev
+[Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

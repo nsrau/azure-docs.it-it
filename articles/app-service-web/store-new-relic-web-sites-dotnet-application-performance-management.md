@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="App Web .NET in Azure App Service con gestione delle prestazioni delle applicazioni New Relic"
-	description="Informazioni su come imparare a usare il monitoraggio delle prestazioni di New Relic per applicazioni ASP.NET in esecuzione su Azure App Service."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="App Web .NET in Azure App Service con gestione delle prestazioni delle applicazioni New Relic" 
+	description="Informazioni su come imparare a usare il monitoraggio delle prestazioni di New Relic per applicazioni ASP.NET in esecuzione su Azure App Service." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -180,4 +180,4 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

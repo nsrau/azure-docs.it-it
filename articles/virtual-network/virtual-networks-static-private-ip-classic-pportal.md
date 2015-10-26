@@ -54,7 +54,7 @@ Per creare una macchina virtuale denominata *DNS01* nel subnet *FrontEnd* di una
 
 	![Creare una macchina virtuale nel portale di anteprima](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
 
-## Come recuperare le informazioni relative all'indirizzo IP privato statico per una macchina virtuale
+## Come recuperare le informazioni relative all'indirizzo IP privato statico per una VM
 
 Per visualizzare le informazioni dell’indirizzo IP privato statico per la macchina virtuale creata con la procedura descritta sopra, eseguire la procedura seguente.
 
@@ -81,4 +81,4 @@ Per aggiungere un indirizzo IP statico privato per la macchina virtuale creata i
 - Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

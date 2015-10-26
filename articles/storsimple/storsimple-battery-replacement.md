@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Sostituire la batteria sul dispositivo StorSimple | Microsoft Azure"
-	description="Viene descritto come rimuovere, sostituire e mantenere il modulo della batteria di backup nel dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Viene descritto come rimuovere, sostituire e mantenere il modulo della batteria di backup nel dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
 
@@ -115,4 +115,4 @@ Se viene visualizzato lo stato **DANNEGGIATO**, è consigliabile adottare la lin
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configurare un gateway VPN nel portale di Azure | Microsoft Azure"
-	description="Questo articolo illustra come configurare la rete virtuale del gateway VPN e modificare il tipo di routing del gateway VPN da statico a dinamico o viceversa."
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="Questo articolo illustra come configurare la rete virtuale del gateway VPN e modificare il tipo di routing del gateway VPN da statico a dinamico o viceversa."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="cherylmc" />
 
 # Configurare un gateway VPN nel portale di Azure
 
@@ -151,4 +151,4 @@ Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

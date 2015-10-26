@@ -70,4 +70,4 @@ Questo argomento descrive come configurare le app per dispositivi mobili di Azur
 [portale di gestione di Azure]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

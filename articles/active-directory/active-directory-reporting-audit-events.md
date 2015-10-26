@@ -48,7 +48,7 @@ Modifica licenza utente | È stata modificata la licenza assegnata a un utente n
 Aggiornamento utente | È stato aggiornato un utente nella directory. [Vedere di seguito](#quotupdate-userquot-attributes) per gli attributi che possono essere aggiornati.
 Impostazione forzatura per la modifica delle password utente | È stata impostata la proprietà che obbliga un utente a modificare la password all'accesso.
 **Eventi del gruppo** |
-Creare un gruppo | È stato creato un gruppo nella directory.
+Aggiungi gruppo | È stato creato un gruppo nella directory.
 Aggiornare un gruppo | È stato aggiornato un gruppo nella directory
 Eliminare gruppo | È stato eliminato un gruppo dalla directory.
 Aggiungere un membro al gruppo | È stato aggiunto un membro a un gruppo nella directory.
@@ -108,4 +108,4 @@ TelephoneNumber | Numero di telefono dell'utente.
 
 I record di controllo rappresentano un controllo obbligatorio per molte normative per la conformità. Per i clienti che usano i report di controllo di Azure Active Directory per garantire la conformità alle normative, è consigliabile inviare una copia di questo argomento della guida insieme al report di controllo esportato del cliente per fornire una descrizione delle informazioni contenute nel report. Per altre informazioni sulle normative di conformità attualmente soddisfatte da Azure, suggerire al revisore di visitare la pagina relativa alla [conformità](http://azure.microsoft.com/support/trust-center/compliance/) del Centro protezione Microsoft Azure.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

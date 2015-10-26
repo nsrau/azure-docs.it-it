@@ -196,4 +196,4 @@ Le richieste preliminari con esito negativo non verranno fatturate.
 [Specifica del W3C relativa alla condivisione delle risorse multiorigine (CORS)](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

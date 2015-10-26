@@ -26,4 +26,4 @@ Per altre informazioni su come risolvere problemi correlati alle infezioni malwa
 
 ![Accessi da dispositivi potenzialmente infetti](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

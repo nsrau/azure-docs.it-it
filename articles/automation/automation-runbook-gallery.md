@@ -106,4 +106,4 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
 - [Creazione o importazione di un runbook in Automazione di Azure](automation-creating-importing-runbook.md)
 - [Informazioni sul flusso di lavoro PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

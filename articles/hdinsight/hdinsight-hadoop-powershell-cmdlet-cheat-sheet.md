@@ -34,4 +34,4 @@ Microsoft Azure HDInsight fornisce cmdlet PowerShell per eseguire attività di H
 
 * [Percorso di apprendimento per HDInsight](http://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

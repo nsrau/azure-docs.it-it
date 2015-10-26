@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="10/08/2015" 
 	ms.author="jeffreyg"/>
  
 # Introduzione al controllo del database SQL 
@@ -139,12 +139,15 @@ Durante la produzione è probabile che si aggiornino periodicamente le chiavi di
 4. Tornare all'interfaccia utente di archiviazione e **rigenerare** la *Chiave di accesso secondaria* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
   
 ##<a id="subheading-4"></a>Automazione
-Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per configurare il controllo nel database SQL di Azure. Per accedere ai cmdlet di controllo, è necessario che PowerShell sia in esecuzione in modalità Gestione risorse di Azure.
+Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per configurare il controllo nel database SQL di Azure.
 
-> [AZURE.NOTE]Il modulo [Gestione risorse di Azure](https://msdn.microsoft.com/library/dn654592.aspx) è al momento in anteprima. Potrebbe non fornire le stesse funzionalità di gestione del modulo di Azure.
-
-Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command *AzureSql*` per visualizzare l'elenco dei cmdlet disponibili.
-
+- [Get-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603731.aspx)
+- [Get-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt619329.aspx)
+- [Remove-AzureRMSqlDatabaseAuditing](https://msdn.microsoft.com/library/azure/mt603796.aspx)
+- [Remove-AzureRMSqlServerAuditing](https://msdn.microsoft.com/library/azure/mt603574.aspx)
+- [Set-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603531.aspx)
+- [Set-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603794.aspx)
+- [Use-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt619353.aspx)
 
 
 
@@ -182,4 +185,4 @@ Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

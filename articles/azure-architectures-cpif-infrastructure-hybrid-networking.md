@@ -58,4 +58,4 @@ Il modello di architettura Rete ibrida è complesso a causa del numero possibile
 
 [Livello Elaborazione batch](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

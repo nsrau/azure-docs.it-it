@@ -168,4 +168,4 @@ Nell'esempio seguente viene avviato un runbook figlio e si attende il suo comple
 - [Tenere traccia di un processo del runbook](automation-runbook-execution.md)
 - [Runbook figlio](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

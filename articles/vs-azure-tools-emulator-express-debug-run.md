@@ -54,4 +54,4 @@ Prima di usare l'emulatore Express, è necessario tenere presenti alcune limitaz
 
 [Debug di servizi cloud](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

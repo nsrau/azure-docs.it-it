@@ -1,13 +1,5 @@
-<properties 
-	pageTitle="Configurazione del tunneling forzato per i gateway VPN | Microsoft Azure" 
-	description="Se si dispone di una rete virtuale con un gateway VPN cross-premise, è possibile reindirizzare o "forzare" tutto il traffico associato a Internet verso la posizione locale. " 
-	services="vpn-gateway" 
-	documentationCenter="na" 
-	authors="cherylmc" 
-	manager="carolz" 
-	editor="" />
-
-<tags 
+<properties pageTitle="Configurazione del tunneling forzato per i gateway VPN| Microsoft Azure" description="Se si dispone di una rete virtuale con un gateway VPN cross-premise, è possibile reindirizzare o "forzare" tutto il traffico associato a Internet verso la posizione locale. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" />
+<tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -159,4 +151,4 @@ Di seguito sono riportasti alcuni altri cmdlet PowerShell che possono risultare 
 
 Per informazioni sulla protezione del traffico di rete. Vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -110,4 +110,4 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

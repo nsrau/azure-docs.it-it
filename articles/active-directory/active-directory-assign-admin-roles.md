@@ -68,14 +68,14 @@ Operazione consentita | Operazione non consentita
 
 L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo di amministratore globale per la directory. Solo gli amministratori globali possono assegnare altri ruoli di amministratore.
 
-## Assegnare o rimuovere ruoli di amministratore 
+## Assegnare o rimuovere ruoli di amministratore
 
 
 1. Nel portale di gestione fare clic su **Active Directory** e quindi sul nome della directory dell'organizzazione.
 2. Nella pagina **Utenti** fare clic sul nome visualizzato dell'utente da modificare.
-3. Selezionare il menu a discesa **Ruolo aziendale** e quindi scegliere il ruolo di amministratore da assegnare all'utente oppure selezionare **Utente** per rimuovere un ruolo di amministratore esistente. 
+3. Selezionare il menu a discesa **Ruolo aziendale** e quindi scegliere il ruolo di amministratore da assegnare all'utente oppure selezionare **Utente** per rimuovere un ruolo di amministratore esistente.
 4. Nella casella **Indirizzo di posta elettronica alternativo** digitare un indirizzo di posta elettronica. Questo indirizzo viene usato per notifiche importanti, inclusa la reimpostazione self-service della password, pertanto l'utente deve poter accedere all'account di posta elettronica indipendentemente dal fatto di poter accedere o meno ad Azure.
-5. Selezionare **Consenti** o **Blocca** per specificare se l'utente è autorizzato o meno a effettuare l'accesso e ad accedere ai servizi. 
+5. Selezionare **Consenti** o **Blocca** per specificare se l'utente è autorizzato o meno a effettuare l'accesso e ad accedere ai servizi.
 6. Specificare una località nell'elenco a discesa **Località di utilizzo**.
 7. Al termine, fare clic su **Salva**.
 
@@ -85,4 +85,4 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 - [Gestire le password](active-directory-manage-passwords.md)
 - [Gestire i gruppi](active-directory-manage-groups.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

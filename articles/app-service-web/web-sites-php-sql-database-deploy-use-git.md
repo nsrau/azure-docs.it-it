@@ -7,7 +7,6 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
-
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
-
 
 # Creare un'app Web PHP-SQL e distribuire in Azure App Service tramite Git
 
@@ -159,12 +157,9 @@ Per eseguire l'applicazione in locale, attenersi alla procedura seguente. Si not
 		<h1>Register here!</h1>
 		<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
 		<form method="post" action="index.php" enctype="multipart/form-data" >
-		      Name  <input type="text" name="name" id="name"/>
-</br>
-		      Email <input type="text" name="email" id="email"/>
-</br>
+		      Name  <input type="text" name="name" id="name"/></br>
+		      Email <input type="text" name="email" id="email"/></br>
 		      <input type="submit" name="submit" value="Submit" />
-
 		</form>
 		<?php
 
@@ -297,4 +292,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

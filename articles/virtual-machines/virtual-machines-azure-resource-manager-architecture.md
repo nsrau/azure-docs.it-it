@@ -19,7 +19,9 @@
 
 # Architettura di Gestione risorse di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
+
 
 In questo articolo viene fornita una panoramica delle architetture di Gestione servizi e Gestione risorse per la creazione di applicazioni e carichi di lavoro basati su infrastruttura.
 
@@ -81,4 +83,4 @@ Tutte le risorse dell'applicazione vengono gestite tramite il singolo gruppo di 
 
 [Panoramica di Gestione risorse di Azure](resource-group-overview.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

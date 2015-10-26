@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Criterio di memorizzazione nella cache della rete CDN nell’estensione Servizi multimediali"
-	description="In questo argomento viene fornita una panoramica di un criterio di memorizzazione nella cache della rete CDN nell'estensione Servizi multimediali."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Criterio di memorizzazione nella cache della rete CDN nell’estensione Servizi multimediali" 
+	description="In questo argomento viene fornita una panoramica di un criterio di memorizzazione nella cache della rete CDN nell'estensione Servizi multimediali." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Criterio di memorizzazione nella cache della rete CDN nell’estensione Servizi multimediali
@@ -43,4 +43,4 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](http://azure.micr
 3. Per impostazione predefinita si applicano le intestazioni di cache di 2 secondi, a prescindere dalla configurazione di servizi multimediali di Azure o archiviazione di Azure, e l'override di questo valore non è disponibile.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 ## Configurazione di PowerShell per i modelli di Gestione risorse
- 
+
 Prima di poter usare Azure PowerShell con Gestione risorse, è necessario verificare di disporre delle versioni corrette di Windows PowerShell e Azure PowerShell.
 
 ### Verificare le versioni di PowerShell
@@ -23,7 +23,7 @@ Verrà visualizzato il tipo di informazioni seguente:
 
 Verificare che il valore di **PSVersion** sia 3.0 o 4.0. In caso contrario, vedere [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-È anche necessario disporre di Azure PowerShell 0.9.0 o versione successiva. Se Azure PowerShell non è stato installato e configurato, fare clic [qui](powershell-install-configure.md) per le istruzioni.
+È anche necessario disporre di Azure PowerShell 1.0.0 o versione successiva. Se Azure PowerShell non è stato installato e configurato, fare clic [qui](powershell-install-configure.md) per le istruzioni.
 
 Per verificare la versione di Azure PowerShell installata, usare il comando seguente al prompt dei comandi di Azure PowerShell.
 
@@ -33,9 +33,9 @@ Verrà visualizzato il tipo di informazioni seguente:
 
 	Version
 	-------
-	0.9.0
+	1.0.0
 
-Se non si dispone della versione 0.9.0 o di una versione successiva, è necessario rimuovere Azure PowerShell tramite Programmi e funzionalità del Pannello di controllo e quindi installare la versione più recente. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+Se non si dispone della versione 1.0.0 o di una versione successiva, è necessario rimuovere Azure PowerShell tramite Programmi e funzionalità del Pannello di controllo e quindi installare la versione più recente. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
 ### Impostare l'account e la sottoscrizione di Azure
 
@@ -43,11 +43,11 @@ Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [
 
 Aprire un prompt dei comandi di Azure PowerShell e usare il comando seguente per accedere ad Azure.
 
-	Add-AzureAccount
+	Login-AzureRmAccount
 
 Se si dispone di più sottoscrizioni di Azure, è possibile usare il comando seguente per visualizzarne l'elenco.
 
-	Get-AzureSubscription
+	Get-AzureRmSubscription
 
 Verrà visualizzato il tipo di informazioni seguente:
 
@@ -59,22 +59,14 @@ Verrà visualizzato il tipo di informazioni seguente:
 	Accounts                  : {johndoe@contoso.com}
 	IsDefault                 : True
 	IsCurrent                 : True
-	CurrentStorageAccountName : 
+	CurrentStorageAccountName :
 	TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
 Per impostare la sottoscrizione di Azure corrente, eseguire i comandi seguenti al prompt dei comandi di Azure PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con il nome corretto.
 
-	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
-	Select-AzureSubscription -SubscriptionName $subscr -Current	
+	$subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
+	Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
 Per altre informazioni su sottoscrizioni e account di Azure, vedere [Procedura: Connettersi alla sottoscrizione](powershell-install-configure.md#Connect).
 
-### Passare al modulo Gestione risorse di Azure
-
-Per poter usare il modulo Gestione risorse di Azure, è necessario passare dal set predefinito di comandi di Azure al set di comandi di Gestione risorse. Eseguire il comando seguente.
-
-	Switch-AzureMode AzureResourceManager
-
-> [AZURE.NOTE]Per tornare al set di comandi predefinito, usare il comando **Switch-AzureMode AzureServiceManagement**.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

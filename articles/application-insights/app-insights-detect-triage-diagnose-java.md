@@ -260,4 +260,4 @@ Ecco come un solo team usa Application Insights non solo per risolvere singoli p
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

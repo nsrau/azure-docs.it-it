@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Panoramica del servizio DNS di Azure | Microsoft Azure"
-	description="Panoramica dei servizi di hosting di DNS di Azure in Microsoft Azure e avvio dell'hosting del dominio in Microsoft Azure"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="Panoramica del servizio DNS di Azure | Microsoft Azure" 
+   description="Panoramica dei servizi di hosting di DNS di Azure in Microsoft Azure e avvio dell'hosting del dominio in Microsoft Azure" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/12/2015"
+   ms.author="joaoma"/>
 
 # Panoramica di DNS di Azure
 
@@ -40,4 +40,4 @@ Il servizio si basa su Gestione risorse di Azure. I domini e i record possono es
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

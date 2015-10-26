@@ -64,11 +64,11 @@ Grandi quantità di dati possono essere acquisite da Hub eventi di Azure che con
 
 Per una soluzione IoT di esempio con DocumentDB, EventHubs e Storm, vedere il [repository hdinsight-storm-examples su GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-Per altre informazioni sulle offerte di Azure per IoT, vedere [Creare il proprio "Internet delle cose"](http://www.microsoft.com/it-it/server-cloud/internet-of-things.aspx).
+Per altre informazioni sulle offerte di Azure per IoT, vedere [Creare il proprio "Internet delle cose"](http://www.microsoft.com/it-IT/server-cloud/internet-of-things.aspx).
 
 ## Passaggi successivi
  
-Per iniziare a usare DocumentDB, è possibile creare un [account](http://azure.microsoft.com/pricing/free-trial/) e quindi seguire la [guida alla formazione](documentdb-learning-map.md) per conoscere DocumentDB e trovare le informazioni necessarie.
+Per iniziare a usare DocumentDB, è possibile creare un [account](http://azure.microsoft.com/pricing/free-trial/) e quindi seguire la [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) per conoscere DocumentDB e trovare le informazioni necessarie.
 
 Oppure, per altre informazioni sui clienti che usano DocumentDB, leggere le seguenti storie dei clienti:
 
@@ -79,4 +79,4 @@ Oppure, per altre informazioni sui clienti che usano DocumentDB, leggere le segu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). L'archivio del futuro si basa sulla velocità delle ricerche e su un flusso di dati scorrevole.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

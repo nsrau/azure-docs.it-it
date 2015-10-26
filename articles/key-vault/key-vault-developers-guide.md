@@ -67,4 +67,4 @@ Gli articoli seguenti forniscono indicazioni specifiche dell’attività:
 
 - Questo download contiene sia l'applicazione di esempio HelloKeyVault che un esempio di servizio Web di Azure. [Esempi di codice di insieme di credenziali chiave di Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

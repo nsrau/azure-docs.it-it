@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Applicazione locale con archiviazione BLOB
@@ -367,4 +367,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
   [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

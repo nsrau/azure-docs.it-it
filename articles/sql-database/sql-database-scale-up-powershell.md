@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="10/08/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -45,15 +45,14 @@ Utilizzare le informazioni contenute negli argomenti [Aggiornamento delle edizio
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
 - un database SQL di Azure. Se non si dispone di un database SQL, crearne uno seguendo i passaggi indicati in questo articolo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
-- Azure PowerShell. Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell.
 
-I cmdlet per modifica del livello di servizio dei database SQL di Azure si trovano nel modulo di Gestione risorse di Azure. Quando si avvia Azure PowerShell, i cmdlet nel modulo di Azure vengono importati per impostazione predefinita. Per passare al modulo AzureResourceManager, usare il cmdlet Switch-AzureMode.
+> [AZURE.IMPORTANT]Iniziando con la versione di anteprima di Azure PowerShell 1.0, il cmdlet Switch-AzureMode non è più disponibile e i cmdlet che sono stati nel modulo Azure ResourceManager sono stati rinominati. Gli esempi in questo articolo utilizzano nuove convenzioni di denominazione dell’Anteprima di PowerShell 1.0. Per informazioni dettagliate, vedere [Deprecazione di Switch-AzureMode, in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-	Switch-AzureMode -Name AzureResourceManager
 
-Se si esegue il cmdlet **Switch-AzureMode** e si visualizza l'avviso Il *cmdlet Switch-AzureMode è deprecato e verrà rimosso in una versione successiva*, non è un problema. È sufficiente andare al passaggio successivo per configurare le credenziali.
+Per eseguire i cmdlet di PowerShell, è necessario disporre di Azure PowerShell installato e in esecuzione e a causa della rimozione di Switch-AzureMode, scaricare e installare la versione più recente di Azure PowerShell eseguendo l’[installazione guidata della piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-Per informazioni dettagliate, vedere [Utilizzo di Windows PowerShell con Gestione risorse](powershell-azure-resource-manager.md).
+
 
 ## Configurare le credenziali e selezionare la sottoscrizione
 
@@ -79,7 +78,7 @@ Dopo aver eseguito correttamente il cmdlet **Select-AzureSubscription**, verrà 
 
 ## Modificare il livello di servizio e il livello delle prestazioni del database SQL
 
-Eseguire il cmdlet **Set-AzureSqlDatabase** e impostare **-RequestedServiceObjectiveName** sul livello di prestazioni del livello di prezzi desiderato, ad esempio *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
+Eseguire il cmdlet **Set-AzureRMSqlDatabase** e impostare **-RequestedServiceObjectiveName** sul livello di prestazioni del livello di prezzi desiderato, ad esempio *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
 
     $ResourceGroupName = "resourceGroupName"
     
@@ -100,7 +99,7 @@ Eseguire il cmdlet **Set-AzureSqlDatabase** e impostare **-RequestedServiceObjec
 ## Script di esempio di PowerShell per modificare il livello di servizio e il livello delle prestazioni del database SQL
 
     
-	Switch-AzureMode -Name AzureResourceManager
+
     
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     
@@ -116,7 +115,7 @@ Eseguire il cmdlet **Set-AzureSqlDatabase** e impostare **-RequestedServiceObjec
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId $SubscriptionId
     
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRMSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
     
     $ScaleRequest
     
@@ -133,5 +132,6 @@ Eseguire il cmdlet **Set-AzureSqlDatabase** e impostare **-RequestedServiceObjec
 
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/azure/mt163521.aspx).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

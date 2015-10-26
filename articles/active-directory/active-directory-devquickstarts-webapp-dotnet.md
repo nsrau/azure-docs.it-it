@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/13/2015"
 	ms.author="dastrock"/>
 
 # Accedere e disconnettersi dalle app Web con Azure AD
@@ -169,11 +169,11 @@ Infine compilare ed eseguire l'app. Se non si è ancora creato un nuovo utente n
 
 Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
 
-Ora è possibile passare ad argomenti più avanzati. È possibile:
+Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [Proteggere un'API Web con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,6 @@
 	ms.author="jgao"/>
 
 
-
 # Usare il coordinatore di Oozie basato sul tempo con Hadoop in HDInsight per definire flussi di lavoro e coordinare processi
 
 Questo articolo descrive come definire flussi di lavoro e coordinatori e come attivare i processi del coordinatore in base al tempo. Prima di procedere può essere utile consultare l'articolo [Usare Oozie con HDInsight][hdinsight-use-oozie]. Per informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data factory](../data-factory/data-factory-pig-hive-activities.md).
@@ -132,7 +131,6 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 		<workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
 		    <start to = "RunHiveScript"/>
 
-
 		    <action name="RunHiveScript">
 		        <hive xmlns="uri:oozie:hive-action:0.2">
 		            <job-tracker>${jobTracker}</job-tracker>
@@ -149,9 +147,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 		            <param>hiveOutputFolder=${hiveOutputFolder}</param>
 		        </hive>
 		        <ok to="RunSqoopExport"/>
-
 		        <error to="fail"/>
-
 		    </action>
 
 		    <action name="RunSqoopExport">
@@ -177,9 +173,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 			    <arg>"\001"</arg>
 		        </sqoop>
 		        <ok to="end"/>
-
 		        <error to="fail"/>
-
 		    </action>
 
 		    <kill name="fail">
@@ -187,7 +181,6 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 		    </kill>
 
 		   <end name="end"/>
-
 		</workflow-app>
 
 	Nel flusso di lavoro vengono definite due azioni. L'azione start-to è *RunHiveScript*. Se l'azione esegue *OK*, l'azione successiva è *RunSqoopExport*.
@@ -257,7 +250,7 @@ Quando si effettua il provisioning di un cluster HDInsight, vengono designati co
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] Nel cluster HDInsight versione 3.0 è supportata solo la sintassi **wasb://*. La sintassi **asv://* precedente è supportata nei cluster HDInsight 2.1 e 1.6, ma non è supportata nei cluster HDInsight 3.0.
+> [AZURE.NOTE]Nel cluster HDInsight versione 3.0 è supportata solo la sintassi **wasb://*. La sintassi **asv://* precedente è supportata nei cluster HDInsight 2.1 e 1.6, ma non è supportata nei cluster HDInsight 3.0.
 
 > [AZURE.NOTE]Il percorso wasb:// è un percorso virtuale. Per altre informazioni, vedere [Usare l'archiviazione BLOB di Azure con HDInsight][hdinsight-storage].
 
@@ -523,7 +516,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 		</configuration>
 		"@
 
-	>[AZURE.NOTE] La differenza principale rispetto al file di payload di invio del flusso di lavoro è la variabile **oozie.coord.application.path**. Quando si invia un processo del flusso di lavoro si usa invece la variabile **oozie.wf.application.path**.
+	>[AZURE.NOTE]La differenza principale rispetto al file di payload di invio del flusso di lavoro è la variabile **oozie.coord.application.path**. Quando si invia un processo del flusso di lavoro si usa invece la variabile **oozie.wf.application.path**.
 
 4. Aggiungere il codice seguente allo script. Questa parte consente di verificare lo stato del servizio Web Oozie:
 
@@ -561,7 +554,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 		    return $oozieJobId
 		}
 
-	> [AZURE.NOTE] Quando si invia un processo del flusso di lavoro, è necessario creare un'altra chiamata del servizio Web per avviare il processo dopo che questo è stato creato. In tal caso, il processo del coordinatore viene attivato dal tempo. Il processo verrà avviato automaticamente.
+	> [AZURE.NOTE]Quando si invia un processo del flusso di lavoro, è necessario creare un'altra chiamata del servizio Web per avviare il processo dopo che questo è stato creato. In tal caso, il processo del coordinatore viene attivato dal tempo. Il processo verrà avviato automaticamente.
 
 6. Aggiungere il codice seguente allo script. Questa parte consente di verificare lo stato del processo Oozie:
 
@@ -745,4 +738,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

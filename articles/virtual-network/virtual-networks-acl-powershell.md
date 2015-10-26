@@ -97,4 +97,4 @@ In alcuni scenari potrebbe essere necessario rimuovere un oggetto ACL di rete da
 
 [Come configurare la comunicazione con una macchina virtuale](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

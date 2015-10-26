@@ -144,4 +144,4 @@ I comandi di esempio seguenti mostrano come sostituire il contenuto di un runboo
 - [Pianificazioni](automation-schedules.md)
 - [Variabili](automation-variables.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

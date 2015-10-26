@@ -24,7 +24,7 @@ Questa esercitazione illustra come installare, configurare e testare un [connett
 
 Ad esempio, il processo di autenticazione per l'uso diretto di Dropbox per codificare le richieste HTTP in modo che leggano e scrivano file nell'account Dropbox risulta complicato. Un connettore Dropbox gestisce automaticamente la complessità dell'autenticazione, permettendo agli sviluppatori di concentrarsi sulla scrittura di codice specifico per l'azienda.
 
-> [AZURE.NOTE]Queste istruzioni non sono necessarie se si vuole usare un connettore SaaS da un'app per la logica. Per informazioni su come utilizzare i connettori SaaS all'interno di applicazioni per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) e [mediante l’applicazione OAUTH personalizzata in connettori](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1).
+> [AZURE.NOTE]Queste istruzioni non sono necessarie se si vuole usare un connettore SaaS da un'app per la logica. Per informazioni su come utilizzare i connettori SaaS all'interno di applicazioni per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) e [mediante l’applicazione OAUTH personalizzata in connettori](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1).
  
 Questa esercitazione usa un connettore DropBox come esempio e illustra in modo dettagliato i passaggi seguenti:
 
@@ -236,4 +236,4 @@ Nei passaggi seguenti verrà effettuata una richiesta Get al connettore Dropbox 
 [portale di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

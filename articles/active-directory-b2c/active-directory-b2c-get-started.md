@@ -70,4 +70,4 @@ Utilizzare la procedura seguente per creare un nuovo tenant AD B2C di Azure. Att
 
 Passare alla [registrazione di un'applicazione con AD B2C di Azure e creazione di un'applicazione di avvio rapido](active-directory-b2c-app-registration.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

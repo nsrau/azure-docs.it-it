@@ -65,4 +65,4 @@
 
 > [AZURE.NOTE]In alcuni casi, il messaggio che indica che gli aggiornamenti in modalità manutenzione sono disponibili può essere visualizzato fino a 24 ore dopo la corretta applicazione di tali aggiornamenti sul dispositivo.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

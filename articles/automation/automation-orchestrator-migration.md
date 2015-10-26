@@ -81,4 +81,4 @@ Questo strumento convertirà i runbook di Orchestrator in [runbook grafici](auto
 - [Attività Standard di Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

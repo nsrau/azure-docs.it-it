@@ -1,20 +1,20 @@
 <properties
    pageTitle="Stack di comunicazione predefinito fornito da Service Fabric"
-	description="Questo articolo descrive lo stack di comunicazione predefinito fornito da Reliable Services Framework per le comunicazioni tra servizi e client."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="timlt"
-	editor=""/>
+   description="Questo articolo descrive lo stack di comunicazione predefinito fornito da Reliable Services Framework per le comunicazioni tra servizi e client."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # Stack di comunicazione predefinito fornito da Reliable Services Framework
 Per gli autori del servizio che non sono vincolati a una particolare implementazione dello stack di comunicazione (WebAPI, WCF e così via), il framework offre elementi di comunicazione sul lato client e sul lato servizio che possono essere usati per le comunicazioni tra il servizio e il client.
@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]Il framework di comunicazione si occupa di propagare al client le eccezioni generate nel servizio. La logica di gestione delle eccezioni nel client tramite ServiceProxy è in grado di gestire direttamente le eccezioni potenzialmente generate dal servizio.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

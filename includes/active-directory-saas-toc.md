@@ -18,7 +18,7 @@ Questo articolo fa parte di una serie dedicata alla gestione di applicazioni Saa
 	- [Modalità di integrazione di Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
 	- [Modalità di integrazione di ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
 	- [Modalità di integrazione di Dropbox for Business](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [Modalità di integrazione di Workday](https://msdn.microsoft.com/library/azure/dn510972.aspx) 
+	- [Modalità di integrazione di Workday](http://go.microsoft.com/fwlink/?LinkId=690250) 
 	- [Altre esercitazioni di App SaaS...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

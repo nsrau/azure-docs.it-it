@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory (AD) B2C: fornire la registrazione e l’accesso agli utenti con account su LinkedIn
@@ -45,11 +45,11 @@ Per utilizzare LinkedIn come provider di identità in Azure Active Directory (AD
 ## Configurare LinkedIn come Provider di identità nella Directory
 
 1. [Passare al pannello delle funzionalità B2C nel portale di anteprima di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Nel pannello delle funzionalità di B2C, fare clic su **provider di identità Social**.
+2. Nel pannello delle funzionalità di B2C, fare clic su **Provider di identità**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Fornire un **Nome** per la configurazione del provider di identità. Ad esempio, immettere "LI".
 5. Fare clic su **tipo di provider di identità**, selezionare **LinkedIn** e fare clic su **OK**.
 6. Fare clic su **Impostare il provider di identità** e immettere il **ID Client** e **Client segreto** dell'applicazione LinkedIn creato in precedenza.
 7. Fare clic su **OK** e quindi **Crea** per salvare la configurazione di LinkedIn.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

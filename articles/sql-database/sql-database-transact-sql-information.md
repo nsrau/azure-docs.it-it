@@ -94,4 +94,4 @@ Il riferimento a Transact-SQL include argomenti relativi a SQL Server 2008, SQL 
 
 In alcuni casi, l'oggetto generale dell’argomento può essere utilizzato in un prodotto, ma non tutti gli argomenti sono supportati. Ad esempio, gli utenti di database indipendente sono stati introdotti in SQL Server 2012. L’istruzione**CREATE USER**può essere utilizzata in qualsiasi prodotto di SQL Server, tuttavia la sintassi **WITH PASSWORD**non può essere utilizzata con le versioni precedenti. In questo caso, ulteriori sezioni **si applica a**vengono inserite nella descrizione dell’argomento appropriato nel corpo dell'argomento.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

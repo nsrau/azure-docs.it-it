@@ -58,6 +58,7 @@ Codec video di input|Supportato
 AVC 8 bit/10 bit, fino a 4:2:2, incluso AVCIntra |4:2:0 e 4:2:2 a 8 bit 
 Avid DNxHD (in MXF) |Sì 
 DVCPro/DVCProHD (in MXF) |Sì 
+Video digitale (DV) (in file AVI) |Sì
 JPEG 2000 |Sì 
 MPEG-2 (fino a 4:2:2 Profile e High Level; incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)|Fino a 422 Profile 
 MPEG-1 |Sì 
@@ -118,4 +119,4 @@ MPEG2-TS |H.264 (High, Main e Baseline Profile)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

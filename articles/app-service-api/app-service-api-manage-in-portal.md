@@ -134,4 +134,4 @@ Questo articolo ha illustrato come usare il portale di Azure per eseguire le att
 
 Per informazioni su come gestire le app per le API usando la riga di comando, vedere gli articoli nella sezione **Automazione** del menu che viene visualizzato sul lato sinistro dell'articolo (per finestre del browser di grandi dimensioni) o nella parte superiore della pagina (per finestre del browser ridotte).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

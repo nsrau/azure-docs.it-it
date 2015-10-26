@@ -404,4 +404,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
   [libreria sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

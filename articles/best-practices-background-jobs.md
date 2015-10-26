@@ -317,4 +317,4 @@ Le attività in background devono offrire prestazioni sufficienti a garantire ch
 - [Analogie e differenze tra le code di Azure e le code del bus di servizio](http://msdn.microsoft.com/library/hh767287.aspx)
 - [Come abilitare il modulo Diagnostica in un servizio cloud](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

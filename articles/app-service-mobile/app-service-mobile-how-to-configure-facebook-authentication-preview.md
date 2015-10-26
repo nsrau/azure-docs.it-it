@@ -77,8 +77,8 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 <!-- URLs. -->
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Get started with authentication]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /it-IT/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portale di gestione di Azure]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

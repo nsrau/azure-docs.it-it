@@ -75,4 +75,4 @@ Si presuppone che i componenti [Xamarin.Android] e [Servizi mobili di Azure][Azu
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

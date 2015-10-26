@@ -31,4 +31,4 @@ Per iniziare a usare il proxy di applicazione, attenersi alla procedura seguente
 
 [Blog di Microsoft Azure](http://azure.microsoft.com/blog/) [Abilitare i servizi del proxy di applicazione](active-directory-application-proxy-enable.md) [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md) [Risolvere i problemi del proxy di applicazione](active-directory-application-proxy-troubleshoot.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="10/09/2015"
 	ms.author="spelluru"/>
 
 # Creare la prima pipeline di Data factory di Azure con Visual Studio
@@ -39,14 +39,17 @@ Questo articolo non fornisce una panoramica concettuale del servizio Data factor
 
 ### Prerequisiti
 
-Nel computer deve essere installato 
-- Visual Studio 2013 
-- Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
+È necessario disporre dei seguenti prodotti installati nel computer in uso:
 
+- Visual Studio 2013 o Visual Studio 2015
+- Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.
+- Scaricare il plug-in Data Factory di Azure più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [2015 VS](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se si usa Visual Studio 2013, è inoltre possibile aggiornare il plug-in nel modo seguente: nel menu fare clic su **Strumenti** -> **Estensioni e aggiornamenti** -> **Online** -> **Visual Studio Gallery** -> **Strumenti di Data factory di Azure per Visual Studio** -> **Aggiorna**. 
+	
+	
 
 ### Creare il progetto di Visual Studio 
-1. Avviare **Visual Studio 2013**. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**. Verrà visualizzata la finestra di dialogo **Nuovo progetto**.  
-2. Nella finestra di dialogo **Nuovo progetto** selezionare il modello **DataFactory** e fare clic su **Progetto data factory vuoto**. Se il modello DataFactory non è visibile, chiudere Visual Studio, installare Azure SDK per Visual Studio 2013 e riaprire Visual Studio.  
+1. Avviare **Visual Studio 2013** o **Visual Studio 2015**. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**. Verrà visualizzata la finestra di dialogo **Nuovo progetto**.  
+2. Nella finestra di dialogo **Nuovo progetto** selezionare il modello **DataFactory** e fare clic su **Progetto data factory vuoto**.   
 
 	![Finestra di dialogo Nuovo progetto](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
@@ -138,7 +141,7 @@ In questo passaggio si creerà la prima pipeline.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Pipeline**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**. 
 2. Selezionare **Pipeline di trasformazione Hive** nell'elenco e fare clic su **Aggiungi**. 
-3. Sostituire **JSON** con il frammento seguente.
+3. Sostituire il codice **JSON** con il frammento seguente.
 
 	> [AZURE.IMPORTANT]Sostituire **storageaccountname** con il nome del proprio account di archiviazione.
 
@@ -201,14 +204,14 @@ Quando si pubblica la soluzione nel passaggio successivo, il file HQL è caricat
 	![Finestra di dialogo Pubblica](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
 21. Nella pagina Configura data factory, procedere come segue:
-	1. Selezionare l'opzione**Crea nuova data factory**.
+	1. Selezionare l'opzione **Crea nuova data factory**.
 	2. Immettere **FirstPipelineUsingVS** nel campo **Nome**.
 	3. Selezionare la sottoscrizione adatta per il campo **Sottoscrizione**. 
 	4. Selezionare il **gruppo di risorse** per la data factory da creare. 
 	5. Selezionare l'**area** per la data factory. 
-	6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi** Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato. 
+	6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato. 
 23. Nella pagina **Pubblica elementi** assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo**.     
-24. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato distribuzione**.
+24. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **stato di distribuzione**.
 25. Nella pagina **Stato distribuzione** viene visualizzato lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
  
 
@@ -239,4 +242,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

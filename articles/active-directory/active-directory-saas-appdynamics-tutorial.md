@@ -112,7 +112,7 @@ Per consentire agli utenti di Azure AD di accedere ad AppDynamics, è necessario
 
 3.  Nella sezione **Create User** seguire questa procedura:
 
-    ![Create User](./media/active-directory-saas-appdynamics-tutorial/IC790230.png "Create User")
+    ![Crea utente](./media/active-directory-saas-appdynamics-tutorial/IC790230.png "Create User")
 
     1.  Nelle caselle di testo **Username**, **Name**, **Email**, **New Password**, **Repeat New Password** digitare nome utente, nome, indirizzo di posta elettronica, nuova password e conferma nuova password di un account utente AAD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Save**.
@@ -135,6 +135,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-appdynamics-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Disponibilità dei servizi di Service Fabric"
-	description="Descrive il rilevamento degli errori, il failover e il ripristino per i servizi"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="appi101"
-	manager="timlt"
-	editor=""/>
+   description="Descrive il rilevamento degli errori, il failover e il ripristino per i servizi"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="appi101"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="aprameyr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="aprameyr"/>
 
 # Disponibilità dei servizi di Service Fabric
 I servizi di Service Fabric possono essere con o senza stato. Questo articolo fornisce una panoramica della gestione della disponibilità di un servizio in Service Fabric in caso di errori.
@@ -51,4 +51,4 @@ Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seg
 - [Definizione e gestione dello stato](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

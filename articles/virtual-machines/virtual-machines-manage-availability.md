@@ -70,4 +70,4 @@ Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibi
 [Evitare singole istanze di macchine virtuali nei set di disponibilità]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Come configurare un set di disponibilità per le macchine virtuali]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

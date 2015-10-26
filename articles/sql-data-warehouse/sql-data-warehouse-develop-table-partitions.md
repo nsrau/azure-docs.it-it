@@ -333,4 +333,4 @@ Dopo la migrazione dello schema del database a SQL Data Warehouse, è possibile 
 
 <!-- Other web references -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

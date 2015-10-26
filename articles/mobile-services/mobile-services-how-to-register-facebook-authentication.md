@@ -73,4 +73,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Servizi mobili di Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

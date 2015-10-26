@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina
@@ -22,7 +22,7 @@ Questo articolo è complementare all'[articolo principale sulla personalizzazion
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Ottenere un tenant B2C
+## Ottenere un tenant di Azure AD B2C
 
 Per poter eseguire la personalizzazione, è necessario prima [ottenere un tenant Azure Active Directory B2C](active-directory-b2c-get-started.md) qualora non sia ancora disponibile.
 
@@ -90,4 +90,4 @@ Dopo aver caricato il contenuto di esempio nell'account di archiviazione, è nec
         
 È ora possibile usare il pulsante **Esegui adesso** o la propria applicazione per eseguire nuovamente il criterio. Il risultato dovrebbe essere lo stesso, poiché in entrambi i casi sono stati usati gli stessi file HTML e CSS di esempio. I criteri tuttavia fanno ora riferimento alla propria istanza di Archiviazione BLOB di Azure e si è liberi di modificare e caricare di nuovo i file in base alle proprie esigenze. Per altre informazioni sulla personalizzazione dei file HTML e CSS, fare riferimento all'[articolo principale sulla personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

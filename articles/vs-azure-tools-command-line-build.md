@@ -62,4 +62,4 @@ Se si vuole usare una directory alternativa per i file di configurazione e del p
 
 Dopo la compilazione, sarà possibile distribuire il pacchetto in Azure. Per una dimostrazione di questo processo, vedere l'esercitazione nel sito Web di Azure. Per informazioni su come automatizzare questo processo, vedere [Recapito continuo per Servizi cloud in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

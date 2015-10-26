@@ -2,7 +2,7 @@
 	pageTitle="Definire gli output | Microsoft Azure" 
 	description="Informazioni sugli output di analisi di flusso" 
 	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
-	services="stream-analytics" 
+	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="paulettm" 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/14/2015" 
 	ms.author="jeffstok"/>
 
 # Informazioni sugli output di analisi di flusso
@@ -265,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

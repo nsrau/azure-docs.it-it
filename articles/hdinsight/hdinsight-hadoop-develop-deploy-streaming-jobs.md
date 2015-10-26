@@ -43,7 +43,7 @@ Prima di iniziare questa esercitazione, è necessario eseguire le operazioni seg
 - Ottenere una sottoscrizione di Azure. Per istruzioni, vedere [Opzioni di acquisto][azure-purchase-options], [Offerte per i membri][azure-member-offers] oppure [Versione di valutazione gratuita][azure-free-trial].
 
 
-##<a name="develop"></a>Sviluppare un programma per la creazione di flussi Hadoop in C&\#35; per il conteggio delle parole
+##<a name="develop"></a>Sviluppare un programma per la creazione di flussi Hadoop in C&#35; per il conteggio delle parole
 
 La soluzione per il conteggio delle parole include due progetti di applicazione console: l'applicazione per il mapping (mapper) e quella per la riduzione (reducer). L'applicazione mapper trasmette in flusso ogni parola nella console e l'applicazione reducer conta il numero di parole trasmesse in flusso da un documento. Sia mapper sia reducer leggono i caratteri, riga per riga, dal flusso di input standard (stdin) e scrivono nel flusso di output standard (stdout).
 
@@ -555,4 +555,4 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di c
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Flusso dell'applicazione per il conteggio di parole MapReduce"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -1,3 +1,3 @@
 Questo set di dati è una versione leggermente modificata del set di dati disponibile nella raccolta StatLib della Carnegie Mellon University. Il set di dati è stato usato nella American Statistical Association Exposition del 1983.<p> </p>I dati elencano il consumo di carburante per diverse automobili, oltre a informazioni quali numero di cilindri, cilindrata, potenza, peso totale e accelerazione.<p> </p><b>Utilizzo:</b> prevedere il risparmio di carburante in base a 3 attributi discreti multivalore e 5 attributi continui. <p> </p><b>Ricerca correlata:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

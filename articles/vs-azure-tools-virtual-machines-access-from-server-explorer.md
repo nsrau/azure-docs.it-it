@@ -53,4 +53,4 @@ Se ci sono macchine virtuali ospitate da Azure, è possibile accedervi in Esplor
 
 Per ulteriori informazioni sull'utilizzo dei ruoli di Azure in Visual Studio, vedere [Utilizzo di Desktop remoto con i ruoli di Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,3 +1,13 @@
+<properties services="virtual-machines" title="Setting up PowerShell" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
+
+<tags
+   ms.service="virtual-machines"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm=""
+   ms.workload="infrastructure"
+   ms.date="05/12/2015"
+   ms.author="josephd" />
 
 ## Configurazione di PowerShell
 
@@ -68,4 +78,4 @@ Per impostare la sottoscrizione di Azure corrente, eseguire i comandi seguenti a
 
 Per altre informazioni su sottoscrizioni e account di Azure, vedere [Procedura: Connettersi alla sottoscrizione](powershell-install-configure.md#Connect).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

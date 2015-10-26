@@ -230,4 +230,4 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -168,7 +168,7 @@ La figura seguente illustra le attività usate per aggiornare una variabile con 
 
 ![Impostare una variabile complessa](media/automation-variables/set-complex-variable.png)
 
-L'immagine seguente illustra una funzionalità simile all'esempio precedente, con più macchine virtuali salvate nella variabile. È necessario usare un [collegamento di sequenza](automation-graphical-authoring-intro.md#links-and-workflow) in modo che l'attività **Set-AutomationVariable** riceva l'intero set di macchine virtuali come singola raccolta.. Se è stato usato un [collegamento di pipeline](automation-graphical-authoring-intro.md#links-and-workflow), l'attività **Set-AutomationVariable** viene eseguita separatamente per ogni oggetto. Di conseguenza, solo l'ultima macchina virtuale nella raccolta viene salvata.. Come illustrato in [Tipi di variabile](#variable-types), viene archiviata una raccolta di PSCustomObject.
+L'immagine seguente illustra una funzionalità simile all'esempio precedente, con più macchine virtuali salvate nella variabile. In questo caso deve essere usato un[ ](automation-graphical-authoring-intro.md#links-and-workflow)collegamento di tipo sequenza in modo che l'attività **Set-AutomationVariable** riceva l'intero set di macchine virtuali come un'unica raccolta. Se è stato usato un[ ](automation-graphical-authoring-intro.md#links-and-workflow)collegamento di tipo pipeline, l'attività **Set-AutomationVariable** verrà eseguita separatamente per ogni oggetto, pertanto verrà salvata solo l'ultima macchina virtuale della raccolta. Come illustrato in [Tipi di variabile](#variable-types), viene archiviata una raccolta di PSCustomObject.
 
 ![Impostare una variabile per una raccolta complessa](media/automation-variables/set-complex-variable-collection.png)
 
@@ -188,4 +188,4 @@ La figura seguente illustra come filtrare gli oggetti archiviati in una variabil
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

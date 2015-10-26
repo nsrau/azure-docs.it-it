@@ -32,4 +32,4 @@ Se si desidera un dominio, è possibile acquistarlo direttamente nel [portale di
 
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

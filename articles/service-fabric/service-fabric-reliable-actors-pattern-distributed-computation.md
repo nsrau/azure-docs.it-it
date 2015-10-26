@@ -206,4 +206,4 @@ Con questo non si desidera in alcun modo affermare che Azure Service Fabric debb
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

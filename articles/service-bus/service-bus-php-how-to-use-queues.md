@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come usare le code del bus di servizio (PHP) | Microsoft Azure" 
-	description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in PHP." 
+	pageTitle="Come usare le code del bus di servizio con (PHP) | Microsoft Azure" 
+	description="Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in PHP." 
 	services="service-bus" 
 	documentationCenter="php" 
 	authors="sethmanheim" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="10/14/2015" 
 	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
@@ -198,21 +198,13 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servizio, vedere l'argomento [Code, argomenti e sottoscrizioni][] per ulteriori informazioni.
+A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, Argomenti e Sottoscrizioni][] per altre informazioni.
 
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
 
-[Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-[Azure Management Portal]: http://manage.windowsazure.com/
-[Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
-[Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-[Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
-[Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
-[Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
-[Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
+[Code, Argomenti e Sottoscrizioni]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

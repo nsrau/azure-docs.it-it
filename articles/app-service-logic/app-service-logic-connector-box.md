@@ -27,20 +27,20 @@ L'app della raccolta Box fornisce le azioni come meccanismi per interagire con B
 
 **Azioni**: le azioni consentono di eseguire azioni predefinite sull'account Box configurato con l'app per la logica. Di seguito sono riportate le azioni che è possibile eseguire sull'account Box con il connettore Box:
 
-a. *Elenca file:* questa operazione restituirà le informazioni di tutti i file di una cartella. Elenco dei parametri obbligatori per l'azione:
+a. *List Files:* questa operazione restituisce le informazioni relative a tutti i file di una cartella. Elenco dei parametri obbligatori per l'azione:
 
 Nome parametro | Descrizione | Obbligatorio
 --- | --- | ---
-Percorso cartella | Percorso della cartella da elencare. | Sì
+Folder Path | Percorso della cartella da elencare. | Sì
 
->[AZURE.NOTE]non restituisce i contenuti dei file.
+> [AZURE.NOTE]Non restituisce i contenuti dei file.
 
-b. *Recupera file:* questa operazione recupera un file, inclusi il contenuto e le proprietà. Elenco dei parametri obbligatori per l'azione:
+b. *Get File:* questa operazione recupera un file, inclusi il contenuto e le proprietà. Elenco dei parametri obbligatori per l'azione:
 
 Nome parametro | Descrizione | Obbligatorio
 --- | --- | ---
-Percorso file | Percorso della cartella in cui risiede il File. | Sì
-Tipo file | Specifica se il file è di testo o binario. | No
+File Path | Percorso della cartella in cui risiede il file. | Sì
+File Type | Specifica se il file è di tipo testo o binario. | No
 
 > [AZURE.NOTE]Questa operazione non eliminerà il file dopo averlo letto.
 
@@ -49,18 +49,18 @@ c. *Upload File*: Come suggerito dal nome, questa azione consente di caricare il
 
 Nome parametro | Descrizione | Obbligatorio
 --- | --- | ---
-Percorso file | Percorso del file. | Sì
-Contenuto file | Contenuto del file da caricare. | Sì
-Codifica trasferimento contenuto | Tipo di codifica del contenuto: Base64 o None. | 
+File Path | Percorso del file. | Sì
+File Content | Contenuto del file da caricare. | Sì
+Content Transfer Encoding | Tipo di codifica del contenuto: Base64 o None. | 
 
 d. *Delete File*: l'azione elimina il file specificato da una cartella. Se non è possibile trovare il file/la cartella, viene generata un'eccezione. Elenco dei parametri obbligatori per l'azione:
 
 Nome parametro | Descrizione | Obbligatorio
 --- | --- | ---
-Percorso file | Percorso del file completo incluse le cartelle. | Sì
+File Path | Percorso del file completo incluse le cartelle. | Sì
 
 
-## Creazione di un connettore Box per l'app per la logica
+## Creare il connettore Box per l'app per la logica
 
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
@@ -107,4 +107,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

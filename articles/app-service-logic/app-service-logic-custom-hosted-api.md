@@ -170,4 +170,4 @@ Proseguendo, se si vuole implementarla interamente nel codice e sfruttare la fun
 
 Sarà comunque necessario seguire la procedura precedente per creare un'identità dell'applicazione per l'app per la logica e usarla per chiamare l'API.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

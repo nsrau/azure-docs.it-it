@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Creare un IPython Notebook | Microsoft Azure"
-	description="Informazioni su come distribuire IPython Notebook in una macchina virtuale Linux o Windows creata con il modello di distribuzione classica in Azure."
-	services="virtua-lmachines"
+	pageTitle="Creare un Jupyter/IPython Notebook | Microsoft Azure"
+	description="Informazioni su come distribuire Jupyter/IPython Notebook in una macchina virtuale Linux o Windows creata con il modello di distribuzione del gestore delle risorse in Azure."
+	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
@@ -11,144 +11,102 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
-# IPython Notebook in Azure
+# Jupyter Notebook in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la distribuzione di un notebook in una macchina virtuale creata con il modello di distribuzione classica.
+Il [progetto Jupyter](http://jupyter.org), noto in precedenza come [progetto IPython](http://ipython.org), fornisce un insieme di strumenti per il calcolo scientifico utilizzando potenti shell interattive che consentono di combinare l'esecuzione di codice con la creazione di un documento di calcolo in tempo reale. I file dei blocchi appunti possono contenere testo arbitrario, formule matematiche, codice di input, risultati, grafica, video e altri tipi di contenuti multimediali visualizzabili sui moderni Web browser. Jupyter Notebook rappresenta la scelta ideale sia per gli utenti poco esperti di Python che desiderano apprenderne il funzionamento in un ambiente interattivo e divertente sia per quelli che si occupano di informatica avanzata in campo tecnico e parallelo.
 
-Il [progetto IPython](http://ipython.org) rende disponibile una raccolta di strumenti per il calcolo scientifico che includono potenti shell interattive, librerie parallele a elevate prestazioni e facili da utilizzare e un ambiente basato su Web denominato IPython Notebook. Si tratta di un ambiente di lavoro per l'elaborazione interattiva che combina l'esecuzione di codice con la creazione di un documento di calcolo in tempo reale. I file dei blocchi appunti possono contenere testo arbitrario, formule matematiche, codice di input, risultati, grafica, video e altri tipi di contenuti multimediali visualizzabili sui moderni Web browser.
+![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png) Utilizzo dei pacchetti SciPy e Matplotlib per l'analisi della struttura di una registrazione audio.
 
-IPython Notebook rappresenta la scelta ideale sia per gli utenti poco esperti di Python che desiderano apprenderne il funzionamento in un ambiente interattivo e divertente sia per quelli che si occupano di informatica avanzata in campo tecnico e parallelo. Nella schermata seguente, per un'illustrazione delle funzionalità, viene mostrato l'utilizzo di IPython Notebook in combinazione con i pacchetti SciPy e Matplotlib per l'analisi della struttura di una registrazione audio:
 
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png)
+## Due modi di Jupyter: Azure Notebook o distribuzione personalizzata
+Azure fornisce un servizio che è possibile utilizzare per [iniziare rapidamente a utilizzare Jupyter ](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx). Usando Azure Notebook Service, è possibile ottenere facilmente accesso all'interfaccia accessibile tramite Web di Jupyter per risorse di calcolo scalabili, con la potenza di Python e delle numerose librerie correlate. Poiché l'installazione viene gestita dal servizio, gli utenti possono accedere a queste risorse senza la necessità di amministrazione e configurazione da parte dell'utente.
 
-Questo documento mostra come distribuire IPython Notebook in Microsoft Azure con macchine virtuali Linux o Windows. Usando IPython Notebook in Azure, è possibile fornire un'interfaccia accessibile tramite Web a risorse di calcolo scalabili, con la potenza di Python e delle numerose librerie correlate. Poiché l'installazione viene eseguita interamente nel cloud, gli utenti possono accedere a queste risorse senza la necessità di una configurazione locale, ma con un semplice Web browser moderno.
+Se il servizio notebook non funziona per lo scenario, continuare a leggere questo articolo che illustra come distribuire il Jupyter Notebook in Microsoft Azure utilizzando macchine virtuali (VM) Linux.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica.
 
 [AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Creazione e configurazione di una macchina virtuale in Azure
 
-Il primo passaggio consiste nel creare una macchina virtuale eseguita in Azure. La VM è un sistema operativo completo nel cloud e verrà utilizzata per l'esecuzione di IPython Notebook. Azure consente di eseguire macchine virtuali sia Linux che Windows, e in questo articolo verrà descritta la configurazione di IPython in entrambi i tipi.
+Il primo passaggio consiste nel creare una macchina virtuale eseguita in Azure. La VM è un sistema operativo completo nel cloud e verrà utilizzata per l'esecuzione di Jupyter Notebook. Azure consente di eseguire macchine virtuali sia Linux che Windows, e in questo articolo verrà descritta la configurazione di Jupyter in entrambi i tipi.
 
-### VM Linux
+### Creare una VM Linux e aprire una porta per Jupyter
 
-Attenersi alle istruzioni riportate [qui][portal-vm-linux] per creare una macchina virtuale della distribuzione *OpenSUSE* o *Ubuntu*. In questa esercitazione si usano OpenSUSE 13.2 e Ubuntu Server 14.04 LTS. Si presuppone che il nome utente predefinito sia *azureuser*.
+Seguire le istruzioni fornite [qui][portal-vm-linux] per creare una macchina virtuale della distribuzione *Ubuntu*. Questa esercitazione utilizza Ubuntu Server 14.04 LTS. Si presuppone che il nome utente sia *azureuser*.
 
-### Macchina virtuale Windows
+Dopo aver distribuito la macchina virtuale è necessario aprire una regola di protezione nel gruppo di sicurezza di rete. Dal portale, passare a **Gruppi di sicurezza di rete** e aprire la scheda per il gruppo di sicurezza corrispondente alla VM. È necessario aggiungere una regola di sicurezza in ingresso con le impostazioni seguenti: **TCP** per il protocollo, ***** per la porta di origine (pubblica) e **9999** per la porta di destinazione (privata).
 
-Attenersi alle istruzioni riportate [qui][portal-vm-windows] per creare una macchina virtuale della distribuzione *Windows Server 2012 R2 Datacenter*. In questa esercitazione si presuppone che il nome utente predefinito sia *azureuser*.
+![Schermata](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
 
-## Creazione di un endpoint per IPython Notebook
-
-Questo passaggio si applica alla macchina virtuale sia Linux che Windows. In seguito, IPython verrà configurato per eseguire il proprio server notebook sulla porta 9999. Per rendere questa porta pubblicamente disponibile, è necessario creare un endpoint nel portale di gestione di Azure. Questo endpoint apre una porta nel firewall di Azure e mappa la porta pubblica (HTTPS, 443) alla porta privata sulla VM (9999).
-
-Per creare un endpoint, accedere al dashboard della macchina virtuale, fare clic su **Endpoint**, quindi su **Aggiungi endpoint** e creare un nuovo endpoint (in questo esempio denominato `ipython_nb`). Selezionare **TCP** come protocollo, **443** come porta pubblica e **9999** come porta privata:
-
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png)
-
-Dopo questo passaggio, la scheda**Endpoint**del dashboard avrà il seguente aspetto:
-
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-006.png)
+Mentre ci si trova nel gruppo di sicurezza di rete, fare clic su **Interfacce di rete** e prendere nota dell’**Indirizzo IP pubblico**, poiché sarà necessario per connettersi alla VM nel passaggio successivo.
 
 ## Installazione del software necessario nella macchina virtuale
 
-Per eseguire IPython Notebook nella VM, è necessario installare prima IPython e le relative dipendenze.
+Per eseguire Jupyter Notebook nella VM, è necessario installare prima Jupyter e le relative dipendenze. Connettersi alla VM Linux mediante ssh e la coppia nomeutente/password selezionata durante la creazione della VM. In questa esercitazione verrà utilizzato PuTTY e ci si connetterà da Windows.
 
-### Linux (OpenSUSE)
+### Installazione di Jupyter su Ubuntu
+Installare Anaconda, una famosa distribuzione python per le scienze dei dati, utilizzando uno dei collegamenti forniti da [Continuum Analytics](https://www.continuum.io/downloads). Al momento della stesura di questo documento, i collegamenti riportati di seguito sono le versioni più aggiornate.
 
-Per installare IPython e le relative dipendenze, eseguire SSH nella VM Linux e completare la seguente procedura.
+#### Installazione di Anaconda per Linux
+<table>
+  <th>Python 3.4</th>
+  <th>Python 2.7</th>
+  <tr>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh'>64 bit</href>
+	</td>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86_64.sh'>64 bit</href>
+	</td>
+  </tr>
+  <tr>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh'>32 bit</href>
+	</td>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86.sh'>32 bit</href>
+	</td>  
+  </tr>
+</table>
 
-Installare [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] e altre dipendenze di IPython eseguendo i comandi:
 
-    sudo zypper install python-matplotlib
-    sudo zypper install python-tornado
-    sudo zypper install python-jinja2
-    sudo zypper install ipython
+#### Installazione di Anaconda3 2.3.0 a 64 bit su Ubuntu
+Ad esempio, in questo modo è possibile installare Anaconda su Ubuntu
 
-### Linux (Ubuntu)
+	# install anaconda
+	cd ~
+	mkdir -p anaconda
+	cd anaconda/
+	curl -O https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
+	sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -f -p /anaconda3
 
-Per installare IPython e le relative dipendenze, eseguire SSH nella VM Linux e completare la seguente procedura.
+	# clean up home directory
+	cd ..
+	rm -rf anaconda/
 
-Innanzitutto, recuperare nuovi elenchi di pacchetti con il comando seguente.
+	# Update Jupyter to the latest install and generate its config file
+	sudo /anaconda3/bin/conda install -f jupyter -y
+	/anaconda3/bin/jupyter-notebook --generate-config
 
-    sudo apt-get update
 
-Installare [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] e altre dipendenze di IPython eseguendo i comandi:
+![Schermata](./media/virtual-machines-python-ipython-notebook/anaconda-install.png)
 
-    sudo apt-get install python-matplotlib
-    sudo apt-get install python-tornado
-    sudo apt-get install ipython
-    sudo apt-get install ipython-notebook
 
-### Windows
-
-Per installare IPython e le relative dipendenze nella VM Windows, utilizzare Desktop remoto per connettersi alla VM. Quindi completare la procedura seguente, usando Windows PowerShell per eseguire tutte le azioni dalla riga di comando.
-
-**Nota**: per scaricare contenuti tramite Internet Explorer, è necessario modificare alcune impostazioni di sicurezza. In **Gestione server** fare clic su **Server locale**, quindi su **Configurazione sicurezza avanzata IE** e disattivare questa opzione per gli amministratori. È possibile abilitarla di nuovo dopo aver installato IPython.
-
-1.  Scaricare e installare la versione a 32 bit più recente di [Python 2.7][]. È necessario aggiungere `C:\Python27` e `C:\Python27\Scripts` alla variabile di ambiente `PATH`.
-
-1.  Installare [Tornado][Tornado], e [PyZMQ][PyZMQ]e altre dipendenze di IPython eseguendo i comandi:
-
-        easy_install tornado
-        easy_install pyzmq
-        easy_install jinja2
-        easy_install six
-        easy_install python-dateutil
-        easy_install pyparsing
-
-1.  Scaricare e installare [NumPy][NumPy] usando il file di installazione binario `.exe` disponibile sul sito Web. Al momento della stesura di questo articolo, la versione più recente è numpy-1.9.1-win32-superpack-python2.7.exe.
-
-1.  Installare[Matplotlib][Matplotlib]con il comando seguente.
-
-        pip install matplotlib==1.4.2
-
-1.  Scaricare e installare [OpenSSL][].
-
-	* Sono disponibili il necessario Visual C++ 2008 Redistributable nella stessa pagina di download.
-
-	* È necessario aggiungere `C:\OpenSSL-Win32\bin` alla variabile di ambiente `PATH`.
-
-	> [AZURE.NOTE]Quando si installa OpenSSL, usare la versione 1.0.1g o successiva, in quanto include una correzione per la vulnerabilità di sicurezza Heartbleed.
-
-1.  Installare IPython usando il comando:
-
-        pip install ipython==2.4
-
-1.  Aprire una porta in Windows Firewall. In Windows Server 2012 il firewall blocca le connessioni in ingresso per impostazione predefinita. Per aprire la porta 9999, eseguire la procedura seguente:
-
-    - Avviare **Windows Firewall con protezione avanzata** dalla schermata Start.
-
-    - Fare clic su **Regole connessioni in entrata** nel pannello sinistro.
-
-	- Fare clic su **Nuova regola** nel riquadro Azioni.
-
-	- Nella Creazione guidata nuova regola connessioni in entrata selezionare **Porta**.
-
-	- Nella schermata successiva selezionare **TCP** e immettere **9999** in **Porte locali specifiche**.
-
-	- Accettare le impostazioni predefinite, assegnare un nome alla regola e fare clic su **Fine**.
-
-### Configurare IPython Notebook
-
-A questo punto è necessario configurare IPython Notebook. Il primo passaggio consiste nel creare un profilo di configurazione personalizzato di IPython per incapsulare le informazioni di configurazione con il seguente comando:
-
-    ipython profile create nbserver
+### Configurazione di Jupyter e utilizzo di SSL
+Dopo l'installazione, è necessario utilizzare alcuni minuti per configurare i file di configurazione per Jupyter. Se si verificano problemi relativi alla configurazione di Jupyter, può essere utile esaminare la [Documentazione di Jupyter per l'esecuzione di un Notebook Server](http://jupyter-notebook.readthedocs.org/en/latest/public_server.html).
 
 Passare alla directory del profilo tramite `cd` per creare il certificato SSL e modificare il file di configurazione del profilo.
 
 Utilizzare il comando seguente su Linux.
 
-    cd ~/.ipython/profile_nbserver/
-
-Utilizzare il comando seguente in Windows.
-
-    cd \users\azureuser\.ipython\profile_nbserver
+    cd ~/.jupyter
 
 Utilizzare il comando seguente per creare il certificato SSL (Linux e Windows).
 
@@ -156,85 +114,61 @@ Utilizzare il comando seguente per creare il certificato SSL (Linux e Windows).
 
 Si noti che, poiché verrà cercato un certificato SSL autofirmato, quando ci si connette al blocco appunti nel browser verrà visualizzato un avviso di sicurezza. Per l'utilizzo in produzione a lungo termine, è consigliabile utilizzare un certificato con una firma appropriata associato all'organizzazione. Poiché la gestione dei certificati esula dall'ambito di questa dimostrazione, per il momento verrà utilizzato un certificato autofirmato.
 
-Oltre a utilizzare un certificato, è anche necessario specificare una password per proteggere il blocco appunti dall'utilizzo non autorizzato. Per motivi di sicurezza, nel file di configurazione di IPython vengono utilizzate password crittografate, pertanto è necessario innanzitutto crittografare la password. In IPython è disponibile un'utilità per questo scopo. Al prompt dei comandi eseguire:
+Oltre a utilizzare un certificato, è anche necessario specificare una password per proteggere il blocco appunti dall'utilizzo non autorizzato. Per motivi di sicurezza, nel file di configurazione di Jupyter vengono utilizzate password crittografate, pertanto è necessario innanzitutto crittografare la password. In IPython è disponibile un'utilità per questo scopo. Al prompt dei comandi eseguire:
 
-    python -c "import IPython;print IPython.lib.passwd()"
+    /anaconda3/bin/python -c "import IPython;print(IPython.lib.passwd())"
 
-Verrà richiesto di specificare e confermare una password, quindi la password verrà stampata come segue:
+Verrà richiesto di specificare e confermare una password, quindi stampare la password. Annotarla per il passaggio seguente.
 
     Enter password:
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-In seguito verrà modificato il file di configurazione del profilo, che corrisponde al file `ipython_notebook_config.py` della directory corrente. Si noti che questo file potrebbe non essere presente: in tal caso, crearlo. Questo file contiene alcuni campi, tutti impostati come commento per impostazione predefinita. È possibile aprire questo file con qualsiasi editor di testo, assicurandosi che includa almeno il contenuto seguente:
+In seguito verrà modificato il file di configurazione del profilo, che corrisponde al file `jupyter_notebook_config.py` della directory corrente. Si noti che questo file potrebbe non essere presente: in tal caso, crearlo. Questo file contiene alcuni campi, tutti impostati come commento per impostazione predefinita. È possibile aprire questo file con qualsiasi editor di testo, assicurandosi che includa almeno il contenuto seguente: Assicurarsi di sostituire la password con sha1 dal passaggio precedente.
 
     c = get_config()
 
-    # This starts plotting support always with matplotlib
-    c.IPKernelApp.pylab = 'inline'
-
     # You must give the path to the certificate file.
-
-    # If using a Linux VM:
-    c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
-
-    # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = u'/home/azureuser/.jupyter/mycert.pem'
 
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed traffic on that port
-
+    # our Azure setup, where we've allowed :wqtraffic on that port
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
 
-### Eseguire IPython Notebook
+### Avviare il notebook Jupyter
 
-A questo punto è possibile avviare IPython Notebook. A tale scopo, passare alla directory in cui si vogliono archiviare i blocchi appunti e avviare il server IPython Notebook con il comando seguente:
+A questo punto è possibile avviare Jupyter Notebook. A tale scopo, passare alla directory in cui si vogliono archiviare i blocchi appunti e avviare il server Jupyter Notebook con il comando seguente:
 
-    ipython notebook --profile=nbserver
+    /anaconda3/bin/jupyter-notebook
 
-A questo punto dovrebbe essere possibile accedere a IPython Notebook all'indirizzo `https://[Your Chosen Name Here].cloudapp.net`.
+A questo punto dovrebbe essere possibile accedere a Jupyter Notebook all'indirizzo `https://[PUBLIC-IP-ADDRESS]:9999`.
 
-La prima volta che si accede al blocco appunti, nella pagina di accesso viene richiesto di immettere la password:
+La prima volta che si accede al blocco appunti, nella pagina di accesso viene richiesto di immettere la password: Dopo l'accesso, verrà visualizzata la pagina "Jupyter Notebook Dashboard", ossia il centro di controllo per tutte le operazioni sui blocchi appunti. In questa pagina è possibile creare nuovi blocchi appunti e aprire quelli esistenti.
 
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-001.png)
+![Schermata](./media/virtual-machines-python-ipython-notebook/jupyter-tree-view.png)
 
-Dopo l'accesso, verrà visualizzata la pagina "IPython Notebook Dashboard", ossia il centro di controllo per tutte le operazioni sui blocchi appunti. In questa pagina è possibile creare nuovi blocchi appunti e aprire quelli esistenti.
+### Utilizzo di Jupyter Notebook
 
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-002.png)
+Se si fa clic sul pulsante **Nuovo**, verrà visualizzata la seguente pagina di apertura.
 
-Se si fa clic sul pulsante **Nuovo blocco appunti**, verrà visualizzata la seguente pagina di apertura.
-
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-003.png)
+![Schermata](./media/virtual-machines-python-ipython-notebook/jupyter-untitled-notebook.png)
 
 L'area contrassegnata con `In []:` è l'area di input, in cui è possibile immettere qualsiasi codice Python valido che verrà eseguito premendo `Shift-Enter` oppure facendo clic sull'icona "Play", ossia il triangolo che punta a destra sulla barra degli strumenti.
-
-Poiché il blocco appunti è stato configurato per avviare automaticamente il supporto di NumPy e Matplotlib, è anche possibile produrre cifre, come illustrato nella schermata successiva:
-
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-004.png)
 
 ## Un potente paradigma: documenti di calcolo in tempo reale con contenuti multimediali
 
 Il blocco appunti dovrebbe risultare familiare a chiunque abbia usato Python e un elaboratore di testo, perché è una combinazione di entrambi: è possibile eseguire blocchi di codice Python, ma anche mantenere note e altro testo modificando lo stile di una cella da "Code" a "Markdown" tramite il menu a discesa della barra degli strumenti:
 
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-005.png)
+Jupyter è molto di più di un elaboratore di testo, in quanto consente di combinare calcolo e contenuti multimediali, ossia testo, grafica, video e qualsiasi altro contenuto visualizzabile in un moderno Web browser. È possibile combinare, testo, codice, video e altro ancora!
 
-
-Ma IPython Notebook è molto di più di un elaboratore di testo, in quanto consente di combinare calcolo e contenuti multimediali, ossia testo, grafica, video e qualsiasi altro contenuto visualizzabile in un moderno Web browser. È ad esempio possibile combinare video illustrativi con calcoli per scopi didattici:
-
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-006.png)
-
-in alternativa, come illustrato nella schermata successiva, è possibile incorporare siti Web esterni che rimangono attivi e possono essere usati all'interno di un file del blocco appunti:
-
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-007.png)
+![Schermata](./media/virtual-machines-python-ipython-notebook/jupyter-editing-experience.png)
 
 Inoltre, con la potenza di molte eccellenti librerie di Python per il calcolo scientifico e tecnico, è possibile eseguire calcoli con la stessa facilità di un'analisi di rete complessa, tutto nello stesso ambiente:
-
-![Schermata](./media/virtual-machines-python-ipython-notebook/ipy-notebook-008.png)
 
 Questo paradigma di combinare la potenza del moderno Web con il calcolo in tempo reale offre numerose possibilità ed è particolarmente indicato per il cloud. Il blocco appunti può essere usato:
 
@@ -249,28 +183,20 @@ Questo paradigma di combinare la potenza del moderno Web con il calcolo in tempo
 * Come piattaforma per l'informatica collaborativa: più utenti possono accedere allo stesso server notebook per condividere una sessione di calcolo in tempo reale.
 
 
-
-Nel [repository][] di codice sorgente di IPython è disponibile un'intera directory con esempi di blocchi appunti che è possibile scaricare e provare nella propria macchina virtuale di Azure IPython. È sufficiente scaricare i file `.ipynb` dal sito e caricarli nel dashboard della macchina virtuale di Azure dei blocchi appunti oppure scaricarli direttamente nella macchina virtuale.
+Nel [repository][] di codice sorgente di IPython è disponibile un'intera directory con esempi di blocchi appunti che è possibile scaricare e provare nella propria VM Jupyter di Azure. È sufficiente scaricare i file `.ipynb` dal sito e caricarli nel dashboard della macchina virtuale di Azure dei blocchi appunti oppure scaricarli direttamente nella macchina virtuale.
 
 ## Conclusioni
 
-IPython Notebook offre un'eccellente interfaccia per l'accesso interattivo alla potenza dell'ecosistema Python in Azure. Rende possibile un'ampia gamma di casi di utilizzo, tra cui la semplice esplorazione di Python per apprenderne le funzionalità, l'analisi e la visualizzazione di dati, la simulazione e l'elaborazione parallela. I documenti risultanti contengono un record completo dei calcoli eseguiti e possono essere condivisi con altri utenti di IPython. È possibile utilizzare IPython Notebook come applicazione locale, ma si tratta di una soluzione particolarmente indicata per le distribuzioni cloud in Azure.
+Jupyter Notebook offre un'eccellente interfaccia per l'accesso interattivo alla potenza dell'ecosistema Python in Azure. Rende possibile un'ampia gamma di casi di utilizzo, tra cui la semplice esplorazione di Python per apprenderne le funzionalità, l'analisi e la visualizzazione di dati, la simulazione e l'elaborazione parallela. I documenti Notebook risultanti contengono un record completo dei calcoli eseguiti e possono essere condivisi con altri utenti di Jupyter. È possibile utilizzare Jupyter Notebook come applicazione locale, ma si tratta di una soluzione particolarmente indicata per le distribuzioni cloud in Azure.
 
-Le funzionalità di base di IPython sono anche disponibili all'interno di Visual Studio tramite [Python Tools for Visual Studio][] (PTVS), un plug-in open source reso disponibile da Microsoft che trasforma Visual Studio in un ambiente di sviluppo Python avanzato, con l'integrazione di un editor avanzato con IntelliSense, debug, profili ed elaborazione parallela.
+Le funzionalità di base di Jupyter sono anche disponibili all'interno di Visual Studio tramite [Python Tools for Visual Studio][] (PTVS), un plug-in open source reso disponibile da Microsoft che trasforma Visual Studio in un ambiente di sviluppo Python avanzato, con l'integrazione di un editor avanzato con IntelliSense, debug, profili ed elaborazione parallela.
 
 ## Passaggi successivi
 
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
+Per altre informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
-[Tornado]: http://www.tornadoweb.org/ "Tornado"
-[PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-[NumPy]: http://www.numpy.org/ "NumPy"
-[Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
-[portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
-[portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
+[portal-vm-linux]: https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repository]: https://github.com/ipython/ipython
-[python Tools for visual studio]: http://aka.ms/ptvs
-[Python 2.7]: http://www.python.org/download
-[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

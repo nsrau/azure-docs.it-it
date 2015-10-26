@@ -80,4 +80,4 @@ L’esecuzione dell'override del metodo**Run**non è obbligatoria, l'implementaz
 ## Passaggi successivi
 Informazioni su come[creare un pacchetto del servizio cloud](cloud-services-model-and-package.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -265,4 +265,4 @@ Per iniziare a esplorare le query di Database elastico, provare la nostra eserci
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

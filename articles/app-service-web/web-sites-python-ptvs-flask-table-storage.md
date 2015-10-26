@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Flask e archiviazione tabelle di Azure con Python Tools 2.2 per Visual Studio"
-	description="Informazioni su come usare Python Tools per Visual Studio per creare un'app Web Flask che archivia i dati nel servizio di archiviazione tabelle di Azure e per distribuirla in App Web del servizio app di Azure."
+	pageTitle="Flask e archiviazione tabelle di Azure con Python Tools 2.2 per Visual Studio" 
+	description="Informazioni su come usare Python Tools per Visual Studio per creare un'app Web Flask che archivia i dati nel servizio di archiviazione tabelle di Azure e per distribuirla in App Web del servizio app di Azure." 
 	services="app-service\web"
 	tags="python"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -210,4 +210,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -94,4 +94,4 @@ Per creare servizi effettivamente di scala cloud, è fondamentale la capacità d
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

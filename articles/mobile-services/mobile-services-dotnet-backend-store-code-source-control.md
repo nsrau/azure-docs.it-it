@@ -97,9 +97,7 @@ A questo punto, il progetto di servizio mobile viene gestito nel controllo del c
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-ios-get-started.md
-[Aggiungere Servizi mobili a un'app esistente]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Come modificare un modello di dati in un servizio mobile back-end .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

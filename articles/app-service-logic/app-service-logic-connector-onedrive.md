@@ -97,4 +97,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [definizione dell'API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

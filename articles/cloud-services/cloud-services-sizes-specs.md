@@ -19,15 +19,19 @@
 
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud (ruoli Web e di lavoro). Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.
 
-Le macchine virtuali e i servizi cloud di Azure sono due dei diversi tipi di risorse di calcolo offerte da Azure. Per informazioni, vedere [Opzioni di hosting di calcolo fornite da Azure](fundamentals-application-models.md).
+Le macchine virtuali e i servizi cloud di Azure sono due dei diversi tipi di risorse di calcolo offerti da Azure. Per informazioni, vedere [Opzioni di hosting di calcolo fornite da Azure](fundamentals-application-models.md).
 
 > [AZURE.NOTE]Per i limiti di Azure correlati, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
 ## Dimensioni delle istanze del ruolo Web e di lavoro
 
-Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una dimensione:
+Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
-* A questo punto è possibile configurare le istanze per l'uso di macchine virtuali serie D. Queste macchine virtuali sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD per il disco temporaneo. Per informazioni dettagliate, vedere l'annuncio sul blog di Azure [Nuove dimensioni delle macchine virtuali serie D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+* Le istanze di macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per informazioni dettagliate, vedere l'annuncio sul blog di Azure [Nuove dimensioni delle macchine virtuali serie D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+
+*   Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswalle) e con tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,2 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
+
+    La disponibilità internazionale della serie Dv2 sarà basata su questa pianificazione: Ottobre 2015: Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti occidentali Novembre 2015: Stati Uniti orientali, Europa settentrionale, Europa occidentale Gennaio 2016: Stati Uniti centro-meridionali, APAC orientale, APAC sud-orientale, Giappone orientale, Giappone occidentale, Australia orientale, Australia sud-orientale, Brasile meridionale
 
 * I ruoli Web e di lavoro richiedono più spazio su disco temporaneo rispetto alle macchine virtuali di Azure a causa dei requisiti di sistema. I file di sistema riservano 4 GB di spazio per il file di paging di Windows e 2 GB di spazio per il file dump di Windows.
 
@@ -49,10 +53,10 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 |A5|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 496664 MB<br/>App = circa 1,5 GB|
 |A6|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1018904 MB<br/>App = circa 1,5 GB|
 |A7|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 2083864 MB<br/>App = circa 1,5 GB
-|A8|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
-|A9|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
-|A10|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
-|A11|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
+|A8|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
+|A9|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
+|A10|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
+|A11|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
 |Standard\_D1|1|3,5 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 46104 MB<br/>App = circa 1,5 GB|
 |Standard\_D2|2|7 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 97304 MB<br/>App = circa 1,5 GB|
 |Standard\_D3|4|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 199704 MB<br/>App = circa 1,5 GB|
@@ -61,7 +65,15 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 |Standard\_D12|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 199704 MB<br/>App = circa 1,5 GB|
 |Standard\_D13|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 404504 MB<br/>App = circa 1,5 GB|
 |Standard\_D14|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 814104 MB<br/>App = circa 1,5 GB|
-
+|Standard\_D1\_v2|1|3,5 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 46104 MB<br/>App = circa 1,5 GB|
+|Standard\_D2\_v2|2|7 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 97304 MB<br/>App = circa 1,5 GB|
+|Standard\_D3\_v2|4|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 199704 MB<br/>App = circa 1,5 GB|
+|Standard\_D4\_v2|8|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 404504 MB<br/>App = circa 1,5 GB|
+|Standard\_D5\_v2|16|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 814104 MB<br/>App = circa 1,5 GB|
+|Standard\_D11\_v2|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 97304 MB<br/>App = circa 1,5 GB|
+|Standard\_D12\_v2|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 199704 MB<br/>App = circa 1,5 GB|
+|Standard\_D13\_v2|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 404504 MB<br/>App = circa 1,5 GB|
+|Standard\_D14\_v2|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 814104 MB<br/>App = circa 1,5 GB|
 ## Configurare le dimensioni per i servizi Cloud
 
 È possibile specificare la dimensione di un'istanza del ruolo di macchina virtuale come parte del modello del servizio descritto dal file csdef. Le dimensioni di un ruolo determinano il numero di memorie centrali CPU, la capacità di memoria e la dimensione del file system locale allocati a una istanza in esecuzione. Scegliere le dimensioni del ruolo in base ai requisiti delle risorse dell'applicazione.
@@ -78,4 +90,4 @@ Assicurarsi che la dimensione della risorsa locale specificata sia minore o ugua
 
 [Configurare un servizio cloud per Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

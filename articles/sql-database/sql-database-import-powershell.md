@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Importare un file BACPAC in un Database SQL di Azure tramite PowerShell" 
-    description="Importare un file BACPAC in un Database SQL di Azure tramite PowerShell" 
+    pageTitle="Importare un file BACPAC per creare un nuovo database di SQL Azure tramite PowerShell" 
+    description="Importare un file BACPAC per creare un nuovo database di SQL Azure tramite PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="09/23/2015"
+    ms.date="10/13/2015"
     ms.author="sstein"/>
 
-# Importare un file BACPAC in un Database SQL tramite PowerShell
+# Importare un file BACPAC per creare un nuovo database di SQL Azure tramite PowerShell
 
 **Database singolo**
 
@@ -25,11 +25,11 @@
 - [PowerShell](sql-database-import-powershell.md)
 
 
-In questo articolo viene illustrato come creare un database SQL importando un file BACPAC con PowerShell.
+In questo articolo vengono fornite istruzioni per la creazione di un database SQL Azure importando un file BACPAC con PowerShell.
 
 Un BACPAC è un file con estensione bacpac che contiene lo schema del database e dati. Per ulteriori informazioni, vedere il pacchetto di Backup (con estensione bacpac) in [Applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx).
 
-Il database viene creato da un file BACPAC importato da un contenitore di BLOB di archiviazione di Azure. Se non si dispone di un file con estensione bacpac nell'archiviazione di Azure è possibile crearne uno seguendo i passaggi in [Creazione ed esportazione di un file BACPAC di un Database SQL di Azure](sql-database-backup.md).
+Il database viene creato da un file BACPAC importato da un contenitore di BLOB di archiviazione di Azure. Se non si dispone di un file con estensione bacpac nell'archiviazione di Azure è possibile crearne uno seguendo i passaggi in [Creazione ed esportazione di un file BACPAC di un Database SQL di Azure](sql-database-export-powershell.md).
 
 > [AZURE.NOTE]Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell’utente che è possibile ripristinare. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
@@ -38,7 +38,9 @@ Per importare un database SQL è necessario quanto segue:
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
 - Un file con estensione bacpac (BACPAC) del database che si desidera ripristinare. Il file BACPAC deve essere inserito in un contenitore BLOB di un[account di archiviazione di Azure (classico)](storage-create-storage-account.md).
-- Azure PowerShell. Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+
+
+> [AZURE.IMPORTANT]Questo articolo contiene comandi per le versioni di Azure PowerShell fino alle versione 1.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**.
 
 
 
@@ -150,4 +152,4 @@ L’esecuzione di questo comando richiede una password. Immettere l’account di
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -82,4 +82,4 @@ Nella tabella seguente vengono visualizzate le librerie rilasciate da terze part
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

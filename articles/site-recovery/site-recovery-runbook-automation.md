@@ -313,4 +313,4 @@ Anche se in questa esercitazione è stata illustrata l'automazione di un’attiv
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

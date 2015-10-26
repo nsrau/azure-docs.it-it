@@ -40,7 +40,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-timeoffmanager-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-timeoffmanager-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -112,7 +112,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
 10. Per aggiungere i mapping di attributi obbligatori, eseguire la procedura seguente:
 
-    ![attributi token saml](./media/active-directory-saas-timeoffmanager-tutorial/IC795921.png "attributi token saml")
+    ![Attributi token SAML](./media/active-directory-saas-timeoffmanager-tutorial/IC795921.png "Attributi token SAML")
 
     |Nome attributo|Valore attributo|
 	|---|---|
@@ -152,4 +152,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

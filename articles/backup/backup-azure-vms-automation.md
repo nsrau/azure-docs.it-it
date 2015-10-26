@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr";"trinadhk" />
 
 
 # Distribuire e gestire il backup per le macchine virtuali di Azure tramite PowerShell
@@ -26,7 +26,7 @@ I due flussi più importanti sono quelli relativi all'abilitazione della protezi
 ## Installazione e registrazione
 Per iniziare:
 
-1. [Download la versione più recente di PowerShell](https://github.com/Azure/azure-powershell/releases) (la versione minima richiesta è: 0.9.8)
+1. [Scaricare la versione più recente di PowerShell](https://github.com/Azure/azure-powershell/releases) (la versione minima richiesta è: 1.0.0)
 
 2. Per iniziare, abilitare i cmdlet del servizio Backup di Azure passando alla modalità *AzureResourceManager* usando il cmdlet **Switch-AzureMode**:
 
@@ -77,9 +77,11 @@ Name                      Type               ScheduleType       BackupTime
 DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:00 AM
 ```
 
-I criteri di backup sono associati ai criteri di conservazione. I criteri di conservazione definiscono per quanto tempo un punto di ripristino viene mantenuto nel servizio Backup di Azure. Il cmdlet **New-AzureRMBackupRetentionPolicy** crea oggetti PowerShell che mantengono le informazioni relative ai criteri di conservazione. Questi oggetti criteri di conservazione vengono usati come input per il cmdlet *New-AzureRMBackupProtectionPolicy* o direttamente con il cmdlet *Enable-AzureRMBackupProtection*.
+> [AZURE.NOTE]Il fuso orario del campo BackupTime in PowerShell è UTC. Tuttavia, quando l'orario di backup viene visualizzato nel portale di Azure, il fuso orario è allineato a quello del sistema locale assieme alla differenza dall'ora UTC.
 
-I criteri di backup consentono di definire quando viene eseguito il backup di un elemento e con quale frequenza. Il cmdlet **New-AzureRMBackupProtectionPolicy** crea un oggetto PowerShell che mantiene le informazioni relative ai criteri di backup. I criteri di backup vengono usati come input per il cmdlet *Enable-AzureRMBackupProtection*.
+I criteri di backup sono associati ai criteri di conservazione. I criteri di conservazione definiscono per quanto tempo un punto di ripristino viene mantenuto nel servizio Backup di Azure. Il cmdlet **New-AzureRMBackupRetentionPolicy** crea oggetti PowerShell che contengono le informazioni relative ai criteri di conservazione. Questi oggetti criteri di conservazione vengono usati come input per il cmdlet *New-AzureRMBackupProtectionPolicy* o direttamente con il cmdlet *Enable-AzureRMBackupProtection*.
+
+I criteri di backup consentono di definire quando viene eseguito il backup di un elemento e con quale frequenza. Il cmdlet **New-AzureRMBackupProtectionPolicy** crea un oggetto PowerShell che contiene le informazioni relative ai criteri di backup. I criteri di backup vengono usati come input per il cmdlet *Enable-AzureRMBackupProtection*.
 
 ```
 PS C:\> $Daily = New-AzureRMBackupRetentionPolicyObject -DailyRetention -Retention 30
@@ -98,7 +100,7 @@ PS C:\> Get-AzureRMBackupContainer -Type AzureVM -Status Registered -Vault $back
 ```
 
 ### Backup iniziale
-La pianificazione del backup esegue la copia iniziale completa dell'elemento e la copia incrementale per i backup successivi. Se tuttavia si vuole forzare il backup iniziale in modo che venga eseguito a una determinata ora o immediatamente, è possibile usare il cmdlet **Backup-AzureRMBackupItem**:
+La pianificazione del backup esegue la copia iniziale completa dell'elemento e la copia incrementale per i backup successivi. Se tuttavia si vuole forzare il backup iniziale in modo che venga eseguito a una determinata ora o immediatamente, si può usare il cmdlet **Backup-AzureRMBackupItem**:
 
 ```
 PS C:\> $container = Get-AzureRMBackupContainer -Vault $backupvault -type AzureVM -name "testvm"
@@ -109,6 +111,8 @@ WorkloadName    Operation       Status          StartTime              EndTime
 ------------    ---------       ------          ---------              -------
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
+
+> [AZURE.NOTE]Il fuso orario dei campi StartTime ed EndTime visualizzati in PowerShell è UTC. Tuttavia, quando le informazioni corrispondenti vengono visualizzate nel portale di Azure, il fuso orario è allineato a quello dell'orologio del sistema locale.
 
 ### Monitoraggio di un processo di backup
 La maggior parte delle operazioni a esecuzione prolungata nel servizio Backup di Azure è modellata come processo. Questo consente di semplificare il monitoraggio dell'avanzamento senza dover tenere aperto continuamente il portale di Azure.
@@ -156,6 +160,8 @@ RecoveryPointId    RecoveryPointType  RecoveryPointTime      ContainerName
 15273496567119     AppConsistent      01-Sep-15 12:27:38 PM  iaasvmcontainer;testvm;testv...
 ```
 
+La variabile ```$rp``` è una matrice di punti di ripristino per l'elemento di backup selezionato, in ordine cronologico inverso: il punto di ripristino più recente è all'indice 0. Per scegliere il punto di ripristino, usare l'indicizzazione standard della matrice di PowerShell. Ad esempio, ```$rp[0]``` selezionerà l'ultimo punto di ripristino.
+
 ### Ripristino dei dischi
 
 Le operazioni di ripristino eseguite tramite il portale di Azure e tramite Azure PowerShell presentano una differenza importante. Con PowerShell, l'operazione di ripristino si arresta una volta ripristinati i dischi e le informazioni di configurazione dal punto di ripristino e non crea una macchina virtuale.
@@ -163,7 +169,7 @@ Le operazioni di ripristino eseguite tramite il portale di Azure e tramite Azure
 > [AZURE.WARNING]Il cmdlet Restore-AzureRMBackupItem non crea una macchina virtuale. Ripristina semplicemente i dischi nell'account di archiviazione specificato. L'operazione di ripristino tramite il portale di Azure prevede un comportamento diverso.
 
 ```
-PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp
+PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
 PS C:\> $restorejob
 
 WorkloadName    Operation       Status          StartTime              EndTime
@@ -231,4 +237,67 @@ Per altre informazioni su come creare una macchina virtuale dai dischi ripristin
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-<!---HONumber=Sept15_HO4-->
+## Esempi di codice
+
+### 1\. Ottenere lo stato di completamento delle sottoattività dei processi
+
+Per monitorare lo stato di completamento delle singole sottoattività si può usare il cmdlet **Get-AzureRMBackupJobDetails**:
+
+```
+PS C:\> $details = Get-AzureRMBackupJobDetails -JobId $backupjob.InstanceId -Vault $backupvault
+PS C:\> $details.SubTasks
+
+Name                                                        Status
+----                                                        ------
+Take Snapshot                                               Completed
+Transfer data to Backup vault                               InProgress
+```
+
+### 2\. Creare un report settimanale o giornaliero dei processi di backup
+
+In genere, gli amministratori vogliono sapere quali processi di backup sono stati eseguiti nelle ultime 24 ore e conoscerne lo stato. Inoltre, conoscere la quantità di dati trasferiti consente agli amministratori di valutare l'utilizzo mensile di dati. Lo script seguente estrae i dati non elaborati dal servizio Backup di Azure e visualizza le informazioni nella console di PowerShell.
+
+```
+param(  [Parameter(Mandatory=$True,Position=1)]
+        [string]$backupvaultname,
+
+        [Parameter(Mandatory=$False,Position=2)]
+        [int]$numberofdays = 7)
+
+
+#Initialize variables
+$DAILYBACKUPSTATS = @()
+$backupvault = Get-AzureRMBackupVault -Name $backupvaultname
+$enddate = ([datetime]::Today).AddDays(1)
+$startdate = ([datetime]::Today)
+
+for( $i = 1; $i -le $numberofdays; $i++ )
+{
+    # We query one day at a time because pulling 7 days of data might be too much
+    $dailyjoblist = Get-AzureRMBackupJob -Vault $backupvault -From $startdate -To $enddate -Type AzureVM -Operation Backup
+    Write-Progress -Activity "Getting job information for the last $numberofdays days" -Status "Day -$i" -PercentComplete ([int]([decimal]$i*100/$numberofdays))
+
+    foreach( $job in $dailyjoblist )
+    {
+        #Extract the information for the reports
+        $newstatsobj = New-Object System.Object
+        $newstatsobj | Add-Member -type NoteProperty -name Date -value $startdate
+        $newstatsobj | Add-Member -type NoteProperty -name VMName -value $job.WorkloadName
+        $newstatsobj | Add-Member -type NoteProperty -name Duration -value $job.Duration
+        $newstatsobj | Add-Member -type NoteProperty -name Status -value $job.Status
+
+        $details = Get-AzureRMBackupJobDetails -Job $job
+        $newstatsobj | Add-Member -type NoteProperty -name BackupSize -value $details.Properties["Backup Size"]
+        $DAILYBACKUPSTATS += $newstatsobj
+    }
+
+    $enddate = $enddate.AddDays(-1)
+    $startdate = $startdate.AddDays(-1)
+}
+
+$DAILYBACKUPSTATS | Out-GridView
+```
+
+Se si vogliono aggiungere funzionalità per la creazione di grafici all'output del report, leggere questo articolo sulla [creazione di grafici con PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)sul blog TechNet
+
+<!---HONumber=Oct15_HO3-->

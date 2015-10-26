@@ -68,4 +68,4 @@ Di seguito sono riportate le nuove funzionalità e i nuovi aggiornamenti inclusi
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

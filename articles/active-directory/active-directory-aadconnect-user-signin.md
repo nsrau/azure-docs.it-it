@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure AD Connect - Accesso utente"
+<properties
+	pageTitle="Azure AD Connect - Accesso utente | Microsoft Azure"
 	description="Accesso utente Azure Connect AD per le impostazioni personalizzate."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -62,6 +62,5 @@ Per la maggior parte delle organizzazioni che desiderano semplicemente abilitare
 	- Autenticazione a più fattori in locale utilizzando un provider di terze parti o smart card (informazioni sui provider di autenticazione a più fattori di terze parti per ADFS in Windows Server 2012 R2)
 	- Funzionalità di integrazione di Active Directory, ad esempio il blocco degli account soft o criteri relativi alle ore di lavoro e alla password in Active Directory
 	- Accesso condizionale alle risorse sia locali che nel cloud mediante la registrazione del dispositivo, il join Azure AD o i criteri Intune MDM
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

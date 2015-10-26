@@ -16,9 +16,10 @@
  ms.date="08/25/2015"
  ms.author="rasquill"/>
 #Gestire le estensioni delle macchine virtuali
+
 Illustra come trovare, aggiungere, modificare o rimuovere estensioni di VM con macchine virtuali Windows o Linux in Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la gestione delle estensioni mediante il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modalità di Gestione risorse
 
 
 ##Uso delle estensioni di macchina virtuale
@@ -141,4 +142,4 @@ Per sapere se un'estensione richiede una configurazione di parametri pubblici e 
 
 >[AZURE.NOTE]Le estensioni possono anche usare configurazioni definite con JSON. Quando si applicano questi tipi di estensioni, viene usato solo l'elemento **SampleConfig**.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -42,4 +42,4 @@ Cartella `src`
 
 > Controller di visualizzazione di Engagement e codice sorgente di Reach SDK (per utenti esperti che desiderano adattare le classi Engagement alle proprie esigenze).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

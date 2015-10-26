@@ -14,4 +14,4 @@ Dimensioni disco | 128 GiB | 512 GiB | 1024 GiB (1 TB)
 IOPS per disco | 500 | 2300 | 5000
 Velocità effettiva per disco | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -123,4 +123,4 @@ Usare gli avvisi di Azure per inviare messaggi ad altri servizi. Usare i seguent
 
 [Usare l'app per la logica per l'invio di messaggi a una coda di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

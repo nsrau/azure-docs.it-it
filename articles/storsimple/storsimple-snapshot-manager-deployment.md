@@ -49,7 +49,7 @@ I passaggi seguenti forniscono una panoramica generale delle attività di config
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    > [AZURE.NOTE]Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure.
+    >[AZURE.NOTE]Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure.
 
 3. Assicurarsi che siano soddisfatti i requisiti di configurazione Microsoft Azure StorSimple. Per ulteriori informazioni, vedere[Prerequisiti di distribuzione](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
@@ -257,4 +257,4 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in[Installare u
 
 - Per ulteriori informazioni sull'utilizzo di gestione Snapshot StorSimple, passare a [utilizzare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

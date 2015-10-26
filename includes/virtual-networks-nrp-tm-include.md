@@ -20,4 +20,4 @@ Le proprietà principali di un endpoint includono:
 - **Peso**: peso dell'endpoint usato nella gestione del traffico. 
 - **Priorità**: priorità dell'endpoint, usata per definire un'azione di failover. 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

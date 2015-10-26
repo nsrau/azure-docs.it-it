@@ -115,4 +115,4 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 
     > [AZURE.NOTE]La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

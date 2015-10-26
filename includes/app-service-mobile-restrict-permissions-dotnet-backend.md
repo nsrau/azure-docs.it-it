@@ -13,4 +13,4 @@ Per impostazione predefinita, le API in un back-end dell'app per dispositivi mob
    
 3. Pubblicare di nuovo il progetto server.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

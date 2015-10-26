@@ -247,4 +247,4 @@ Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività d
  
    
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -99,7 +99,6 @@ Microsoft supporta almeno le due versioni più recenti di ogni famiglia del sist
 
 > [AZURE.WARNING]Il ritiro della famiglia di sistemi operativi guest 1 è iniziato il 1° giugno 2013 e il completamento è previsto a breve. Non creare nuove installazioni e aggiornare quelle precedenti mediante questa famiglia di sistemi operativi guest. Per altre informazioni, vedere [Informazioni sul ritiro della famiglia di sistemi operativi guest Azure 1][fam1retire]
 
-Il sistema operativo guest include una configurazione diversa da quella predefinita di Windows Server. Per altre informazioni, vedere [Differenze tra il sistema operativo guest Azure e Windows Server predefinito][server and gos].
 
 ### Famiglia, versione e rilascio del sistema operativo guest
 Le famiglie dei sistemi operativi guest sono basate sulle versioni rilasciate di Microsoft Windows Server e il sistema operativo guest è il sistema operativo sottostante in cui viene eseguito Servizi cloud di Azure. A ogni sistema operativo guest sono associati una famiglia, una versione e un numero di rilascio.
@@ -232,7 +231,7 @@ In questa pagina vengono fornite informazioni sui prossimi rilasci del sistema o
 
 Gli aggiornamenti di Microsoft Azure vengono rilasciati costantemente. Il sistema operativo guest rappresenta solo uno di tali aggiornamenti nella pipeline. Una versione può essere influenzata da una serie di fattori che sono troppo numerosi per essere elencati in questa pagina. Inoltre, Azure viene eseguito su centinaia di migliaia di computer. Ciò significa che è impossibile specificare una data e un'ora esatte del riavvio dei ruoli. Il [feed RSS di aggiornamento del sistema operativo guest][rss] verrà aggiornato con le informazioni più recenti disponibili, ma tenere presente che i tempi sono approssimativi. Siamo consapevoli del fatto che questo rappresenta un problema per i clienti e stiamo preparando un piano per limitare o impostare una tempistica per i riavvii.
 
-Quando viene pubblicato un nuovo rilascio del sistema operativo guest, la propagazione completa in Azure può richiedere tempo. Man mano che i servizi vengono aggiornati al nuovo sistema operativo guest, vengono riavviati rispettando i domini di aggiornamento. Un rilascio sarà innanzitutto fornito ai servizi per cui sono stati impostati gli aggiornamenti automatici. Dopo l'aggiornamento, la nuova versione del sistema operativo guest sarà elencata per il servizio nel portale di gestione di Azure. Durante questo periodo possono essere introdotti dei nuovi rilasci. Alcune versioni potrebbero essere distribuite per periodi più lunghi ed è possibile che i riavvii di aggiornamenti automatici non si verifichino per molte settimane dopo la data di rilascio ufficiale. Quando un sistema operativo guest diventa disponibile, è possibile scegliere esplicitamente tale versione dal portale o nel file di configurazione. Per altre informazioni, vedere [Aggiornare il sistema operativo guest Azure dal portale di gestione][update guest os portal] e [Aggiornare il sistema operativo guest Azure modificando il file di configurazione del servizio][update guest os svc].
+Quando viene pubblicato un nuovo rilascio del sistema operativo guest, la propagazione completa in Azure può richiedere tempo. Man mano che i servizi vengono aggiornati al nuovo sistema operativo guest, vengono riavviati rispettando i domini di aggiornamento. Un rilascio sarà innanzitutto fornito ai servizi per cui sono stati impostati gli aggiornamenti automatici. Dopo l'aggiornamento, la nuova versione del sistema operativo guest sarà elencata per il servizio nel portale di gestione di Azure. Durante questo periodo possono essere introdotti dei nuovi rilasci. Alcune versioni potrebbero essere distribuite per periodi più lunghi ed è possibile che i riavvii di aggiornamenti automatici non si verifichino per molte settimane dopo la data di rilascio ufficiale. Quando un sistema operativo guest diventa disponibile, è possibile scegliere esplicitamente tale versione dal portale o nel file di configurazione.
 
 Per moltissime informazioni importanti sui riavvii e sui puntatori ad altre informazioni sui dettagli tecnici degli aggiornamenti dei sistemi operativi guest e host, vedere il post del blog su MSDN relativo [ai riavvii dell'istanza del ruolo dovuti ad aggiornamenti del sistema operativo][restarts].
 
@@ -324,7 +323,7 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 | 2\.19 rel1 | WA-GUEST-OS-2.19\_201309-01 | 23 settembre 2013 | N/D | 14 maggio 2014 |
 
 
-[Impostazioni di aggiornamento del sistema operativo guest Azure]: https://msdn.microsoft.com/library/azure/ff729420.aspx
+[Impostazioni di aggiornamento del sistema operativo guest Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [avviso di sicurezza 3009008 Microsoft]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -344,4 +343,4 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

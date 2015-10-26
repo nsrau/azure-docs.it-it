@@ -72,4 +72,4 @@ Una volta scelto cosa si vuole visualizzare, fare clic sul pulsante **Aggiorna**
 * [Monitorare le metriche del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
 * [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio.  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

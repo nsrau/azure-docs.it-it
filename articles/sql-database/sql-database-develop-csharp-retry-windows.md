@@ -281,4 +281,4 @@ Eseguirebbe il programma con il parametro "test" e verificherebbe che ha dapprim
 
 - [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

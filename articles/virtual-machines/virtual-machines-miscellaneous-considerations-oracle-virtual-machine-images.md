@@ -17,7 +17,10 @@ ms.date="06/22/2015"
 ms.author="bbenz" />
 
 #Considerazioni varie sulle immagini di macchine virtuali Oracle
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 In questo articolo vengono illustrate delle considerazioni sulle macchine virtuali Oracle su Azure, che sono basate su immagini software Oracle fornite da Microsoft con Windows Server come sistema operativo.
 
@@ -105,4 +108,4 @@ Per informazioni correlate, vedere l'articolo KB **860340.1** all’indirizzo <h
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

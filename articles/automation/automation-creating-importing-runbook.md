@@ -131,4 +131,4 @@ Quando si crea o si importa un nuovo runbook, è necessario pubblicarlo prima di
 - [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md)
 - [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

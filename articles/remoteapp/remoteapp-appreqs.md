@@ -1,20 +1,20 @@
 
 <properties 
     pageTitle="Requisiti per le app di Azure RemoteApp"
-	description="Informazioni sui requisiti per le app che si desidera usare in Azure RemoteApp"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="Informazioni sui requisiti per le app che si desidera usare in Azure RemoteApp" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -56,4 +56,4 @@ Usare le linee guida seguenti per lo sviluppo di applicazioni per RemoteApp.
 - Per ottimizzare le prestazioni, è consigliabile che le applicazioni [rilevino](https://msdn.microsoft.com/library/aa380798.aspx) se sono in esecuzione in una sessione client. 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

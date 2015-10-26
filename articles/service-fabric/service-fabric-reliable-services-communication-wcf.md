@@ -1,20 +1,20 @@
 <properties
    pageTitle="Stack di comunicazione basato su WFC fornito dall'API di Reliable Services"
-	description="Questo articolo descrive lo stack di comunicazione basato su WFC fornito dall'API di Reliable Services."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="vipulm"
-	editor=""/>
+   description="Questo articolo descrive lo stack di comunicazione basato su WFC fornito dall'API di Reliable Services."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="vipulm"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # Stack di comunicazione basato su WCF per Reliable Services
 Reliable Services Framework consente agli autori del servizio di decidere quale stack di comunicazione usare per il servizio. Gli autori del servizio possono collegare lo stack di comunicazione desiderato tramite l'oggetto `ICommunicationListener` restituito dal metodo [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). Il framework offre un'implementazione basata su WCF dello stack di comunicazione per gli autori del servizio che desiderano usare la comunicazione basata su WCF.
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 ```
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

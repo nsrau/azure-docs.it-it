@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc" />
 
 # Informazioni sui gateway VPN
@@ -79,4 +79,4 @@ Se si desidera connettere più siti in una rete virtuale, vedere [Connessione di
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

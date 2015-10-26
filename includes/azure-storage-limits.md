@@ -45,4 +45,4 @@ Numero massimo in uscita<sup>3</sup> per account di archiviazione (aree europee 
 - **ZRS**: archiviazione con ridondanza della zona. Disponibile solo per i BLOB in blocchi. 
 - **LRS**: archiviazione con ridondanza locale. 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

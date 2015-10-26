@@ -414,4 +414,4 @@ Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stat
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

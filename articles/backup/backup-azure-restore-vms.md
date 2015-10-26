@@ -8,9 +8,9 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="trinadhk"; "jimpark"/>
 
-# Ripristinare una macchina virtuale
+# Ripristinare una macchina virtuale di Azure.
 È possibile ripristinare una macchina virtuale in una nuova macchina virtuale dai backup archiviati in un insieme di credenziali per il backup di Azure.
 
 ## Ripristinare un flusso di lavoro
@@ -105,4 +105,4 @@ Altre informazioni sul [problema del rollback di un numero di sequenza di aggior
 - [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

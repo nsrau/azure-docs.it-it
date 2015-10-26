@@ -73,4 +73,4 @@ Questa esercitazione presuppone che l'utente abbia una conoscenza di base dei Se
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

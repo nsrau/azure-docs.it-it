@@ -9,7 +9,7 @@ I dati dell'account di archiviazione di Microsoft Azure vengono sempre replicati
 
 	L'archiviazione con ridondanza della zona fornisce un livello di durabilità maggiore rispetto all'archiviazione con ridondanza locale. Tuttavia, per la massima durabilità, è consigliabile usare l'archiviazione con ridondanza geografica descritta di seguito.
 
-	> [AZURE.NOTE]L'archiviazione con ridondanza della zona è attualmente disponibile solo per i BLOB in blocchi.
+	> [AZURE.NOTE]ZRS è attualmente disponibile solo per i BLOB in blocchi ed è supportata solo nelle versioni 2014-02-14 e versioni successive.
 	> 
 	> Dopo aver creato l'account di archiviazione e selezionato l'archiviazione con ridondanza della zona, non è possibile convertirlo per usarlo con un altro tipo di replica o viceversa.
 
@@ -26,4 +26,4 @@ Per informazioni sui prezzi per la replica dell'account di archiviazione, vedere
 
 Per i dettagli architetturali sulla durabilità con Archiviazione di Azure, vedere il [ documento SOSP su Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

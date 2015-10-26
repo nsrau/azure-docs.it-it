@@ -206,4 +206,4 @@ Quando si osservano i dati di Analisi archiviazione, è possibile utilizzare le 
 - [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

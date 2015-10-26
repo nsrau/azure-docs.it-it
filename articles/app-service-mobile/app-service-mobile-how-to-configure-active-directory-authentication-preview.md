@@ -75,4 +75,4 @@ Autenticare gli utenti della propria app per dispositivi mobili con Single Sign-
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

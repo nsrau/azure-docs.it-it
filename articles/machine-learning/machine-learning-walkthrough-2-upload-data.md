@@ -79,4 +79,4 @@ Per altre informazioni sull'importazione di vari tipi di dati in un esperimento,
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

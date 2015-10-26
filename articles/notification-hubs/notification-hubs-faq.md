@@ -130,4 +130,4 @@ Gli Hub di notifica di Azure consentono la visualizzazione di dati di telemetria
 [NH - Esempio di metriche]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Esportazione/importazione di registrazioni]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Creare record DNS personalizzati per un'app Web | Microsoft Azure"
-	description="Come creare record DNS di un dominio personalizzato per un'app Web usando DNS di Azure. Procedura dettagliata per verificare la proprietà del dominio usando il record CNAME o A"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Creare record DNS personalizzati per un'app Web | Microsoft Azure" 
+   description="Come creare record DNS di un dominio personalizzato per un'app Web usando DNS di Azure. Procedura dettagliata per verificare la proprietà del dominio usando il record CNAME o A" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/23/2015"
+   ms.author="joaoma"/>
 
 # Creare record DNS per un'app Web in un dominio personalizzato
 
@@ -165,4 +165,4 @@ Ora è possibile continuare a seguire i passaggi in [Configurazione di un nome d
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

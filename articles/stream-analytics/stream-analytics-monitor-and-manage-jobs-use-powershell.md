@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -25,24 +25,23 @@ Informazioni su come monitorare e gestire le risorse di Analisi di flusso con i 
 
 ## Prerequisiti per l'esecuzione dei cmdlet di Azure PowerShell per Analisi dei flussi
 
-1.	Installare e configurare Azure PowerShell.
+ - Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per ulteriori informazioni su Azure PowerShell , vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).  
 
-	Seguire le istruzioni in [Come installare e configurare Azure PowerShell][powershell-install] per installare Azure PowerShell.
 
-	Per connettersi alla sottoscrizione di Azure tramite il metodo Azure Active Directory:
-
+ 		# Log in to your Azure account
 		Add-AzureAccount
 
-	Per selezionare la sottoscrizione di Azure con il servizio Analisi di flusso di Azure abilitato, usare il metodo:
+		# Select the Azure subscription you want to use to create the resource group
+		Select-AzureSubscription -SubscriptionName <subscription name>
+ 
+		# Create an Azure resource group	
+			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
-		Select-AzureSubscription
+		# Create an Azure resource group
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+		
 
-
-2.	Configurare la modalità Azure
-
-	Dopo aver installato Azure PowerShell, eseguire il cmdlet [Switch-AzureMode][msdn-switch-azuremode] per impostare la modalità Azure appropriata per accedere ai cmdlet di Analisi dei flussi:
-
-		Switch-AzureMode AzureResourceManager
 
 > [AZURE.NOTE]Nei processi di Analisi di flusso creati a livello di codice il monitoraggio non è abilitato per impostazione predefinita. È possibile attivare manualmente il monitoraggio nel portale di Azure passando alla pagina Monitoraggio del processo e facendo clic sul pulsante Attiva o procedere a livello di codice seguendo i passaggi in [Analisi dei flussi di Azure - Monitorare i processi di Analisi dei flussi a livello di codice](stream-analytics-monitor-jobs.md)
 
@@ -259,7 +258,7 @@ Verifica la capacità di Analisi dei flussi di connettersi a un output specifica
 Questo comando di PowerShell verifica lo stato di connessione dell'output Output in StreamingJob.
 
 ## Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/IT-IT/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics).
 
 
 ## Passaggi successivi
@@ -288,4 +287,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

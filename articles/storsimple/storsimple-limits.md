@@ -27,4 +27,4 @@ StorSimple fornisce una risorsa di archiviazione scalabile e flessibile per il d
 
 Consultare i [requisiti di sistema di StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

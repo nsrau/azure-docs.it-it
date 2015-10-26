@@ -42,4 +42,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e d
 * Vedere [Introduzione ad Automazione di Azure](http://go.microsoft.com/fwlink/?LinkId=390560)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

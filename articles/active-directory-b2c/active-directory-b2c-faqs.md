@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Domande frequenti
@@ -22,9 +22,9 @@ Questa pagina include le risposte a domande frequenti relative all'anteprima di 
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-### È possibile usare Azure AD B2C nella directory di Azure AD esistente per dipendenti aziendali?
+### È possibile usare Azure AD B2C nel Tenant di Azure AD esistente per dipendenti aziendali?
 
-Attualmente le funzionalità di Azure AD B2C non possono essere attivate nella directory di Azure AD esistente. È consigliabile creare una directory separata per usare le funzionalità di Azure AD B2C, ad esempio per gestire i propri utenti.
+Attualmente le funzionalità di Azure AD B2C non possono essere attivate nel tenant di Azure AD esistente. È consigliabile creare un tenant separata per usare le funzionalità di Azure AD B2C, ad esempio per gestire i propri utenti.
 
 ### È possibile usare Azure AD B2C per fornire l'accesso a social networking (Facebook e Google+) in Office 365?
 
@@ -32,9 +32,9 @@ Non è possibile usare Azure AD B2C con Office 365 e in generale per fornire l'a
 
 ### Che cosa sono gli "account locali" in Azure AD B2C? In che cosa differiscono dagli "account aziendali o dell'istituto di istruzione" in Azure AD?
 
-In una directory di Azure AD, ogni utente nella directory (tranne quelli con account Microsoft esistenti) accede tramite un indirizzo di posta elettronica nel formato `<xyz>@<directory domain>`, dove `<directory domain>` è uno dei domini verificati nella directory o il dominio `<...>.onmicrosoft.com` iniziale. Questo tipo di account è un "account aziendale o dell'istituto di istruzione", detto anche "account dell'organizzazione".
+In un tenant di Azure AD, ogni utente nel tenant (tranne quelli con account Microsoft esistenti) accede tramite un indirizzo di posta elettronica nel formato `<xyz>@<tenant domain>`, dove `<tenant domain>` è uno dei domini verificati nel tenant o il dominio `<...>.onmicrosoft.com` iniziale. Questo tipo di account è un "account aziendale o dell'istituto di istruzione", detto anche "account dell'organizzazione".
 
-In una directory di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com). Questo tipo di account è un "account locale". Attualmente sono supportati anche nomi utente arbitrari (semplici stringhe) come account locali (ad esempio, joe, bob, sarah o jim). Nel servizio Azure AD B2C è possibile scegliere uno di questi due "tipi" di account locale.
+In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com). Questo tipo di account è un "account locale". Attualmente sono supportati anche nomi utente arbitrari (semplici stringhe) come account locali (ad esempio, joe, bob, sarah o jim). Nel servizio Azure AD B2C è possibile scegliere uno di questi due "tipi" di account locale.
 
 ### Quali provider di identità di social networking sono attualmente supportati? Per quali provider è previsto il supporto in futuro?
 
@@ -55,7 +55,7 @@ No, l'applicazione può essere ospitata ovunque (nel cloud o in locale). Tutto q
 
 ### Nel caso di più directory di Azure AD B2C, come è possibile gestirle nel portale di anteprima di Azure?
 
-Ogni directory di Azure AD B2C dispone di uno specifico pannello di funzionalità B2C nel portale di anteprima di Azure. Leggere [questa sezione](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) per informazioni su come passare al pannello di funzionalità B2C in una directory specifica nel portale di anteprima di Azure. Quando si passa da una directory di Azure AD B2C all'altra nel portale di anteprima di Azure, il pannello di funzionalità B2C non rimane aperto nella maggior parte dei browser.
+Ogni tenant di Azure AD B2C dispone di uno specifico pannello di funzionalità B2C nel portale di anteprima di Azure. Leggere [questa sezione](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) per informazioni su come passare al pannello di funzionalità B2C in un tenant specifico nel portale di anteprima di Azure. Quando si passa da una directory di Azure AD B2C all'altra nel portale di anteprima di Azure, il pannello di funzionalità B2C non rimane aperto nella maggior parte dei browser.
 
 ### Come si personalizzano i messaggi di posta elettronica di verifica (ad esempio, i campi del contenuto e del mittente) inviati da Azure AD B2C?
 
@@ -87,7 +87,7 @@ Attualmente, Azure AD B2C è ottimizzato solo per l'inglese. Si prevede di imple
 
 ### È possibile usare l'URL personale nelle pagine di iscrizione e accesso servite da Azure AD B2C? Ad esempio, è possibile sostituire l'URL login.microsoftonline.com con login.contoso.com?
 
-No, per il momento. Tuttavia, questa funzionalità verrà implementata in futuro.
+No, per il momento. Questa funzionalità verrà implementata in futuro. Si noti inoltre la "verifica"del proprio dominio in nella scheda **Domini** del tenant nel portale di Azure non verrà eseguita.
 
 ### È possibile ottenere Azure AD B2C come parte di Enterprise Mobility Suite (EMS)?
 
@@ -105,4 +105,4 @@ Non è attualmente possibile fornire una stima riguardo alla data di disponibili
 
 È possibile anche leggere l'[articolo sulle limitazioni, le restrizioni e i vincoli correnti della versione di anteprima](active-directory-b2c-limitations.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

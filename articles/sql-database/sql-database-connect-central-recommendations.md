@@ -167,4 +167,4 @@ Vengono forniti vari esempi di codice per i client che eseguono Windows, Linux e
 
 - [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -51,7 +51,7 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 
 + [Riferimento per i concetti e le procedure di .NET per Servizi mobili](../mobile-services-windows-dotnet-how-to-use-client-library.md)
 
-     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
+     Altre informazioni su come usare Servizi mobili con .NET.
  
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
@@ -71,4 +71,4 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,7 @@ ms.service="virtual-machines"
 
 # Inviare processi HPC da un computer locale a un cluster HPC Pack in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo descrive come gestire una risorsa creata con il modello di distribuzione di Gestione risorse o con il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Questo articolo illustra come configurare un computer client locale che esegue Windows per l'esecuzione di strumenti di invio di processi di HPC Pack che comunicano con un cluster HPC Pack in Azure tramite HTTPS. Per molti utenti cluster questa procedura rappresenta un modo flessibile e relativamente semplice di inviare processi a un cluster HPC Pack basato sul cloud, senza la necessità di connettersi direttamente alla macchina virtuale del nodo head per eseguire strumenti di invio di processi.
 
@@ -183,4 +183,4 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

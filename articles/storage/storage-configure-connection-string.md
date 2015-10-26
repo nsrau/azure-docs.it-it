@@ -122,4 +122,4 @@ Ad esempio, la stringa di connessione dovrebbe avere l'aspetto della stringa di 
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

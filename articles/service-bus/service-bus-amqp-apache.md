@@ -105,10 +105,6 @@ Dopo avere eseguito questa procedura, la libreria Proton è installata nel compu
 Per altre informazioni, vedere i collegamenti seguenti:
 
 - [Panoramica di AMQP per il bus di servizio]
-- [Uso del bus di servizio da .NET con AMQP]
-- [Uso del bus di servizio da Java con AMQP]
-- [Uso del bus di servizio da Python con AMQP]
-- [Uso del bus di servizio da PHP con AMQP]
 
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -117,9 +113,5 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
 [portale di Azure]: http://manage.windowsazure.com
-[Uso del bus di servizio da .NET con AMQP]: service-bus-amqp-dotnet.md
-[Uso del bus di servizio da Java con AMQP]: service-bus-amqp-java.md
-[Uso del bus di servizio da Python con AMQP]: service-bus-amqp-python.md
-[Uso del bus di servizio da PHP con AMQP]: service-bus-amqp-php.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

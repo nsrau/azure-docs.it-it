@@ -19,7 +19,8 @@
 
 # Domande frequenti sulle macchine virtuali di Azure create con il modello di distribuzione classica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo si risponde alla questione riguardante le risorse create con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 Questo articolo si impegna a rispondere ad alcune domande frequenti che gli utenti pongono riguardo alle macchine virtuali di Azure create con il modello di distribuzione classica, in base a input provenienti dal team di supporto per le VM di Azure, nonché dai forum, newsgroup e commenti in altri articoli. Per ottenere informazioni di base, iniziare con [Informazioni sulle Macchine virtuali](virtual-machines-about.md).
 
@@ -150,4 +151,4 @@ Per garantire la ridondanza, inserire due o più VM configurate in modo analogo 
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -140,4 +140,4 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

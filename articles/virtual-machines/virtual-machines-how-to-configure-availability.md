@@ -19,7 +19,8 @@
 
 # Come configurare un set di disponibilità per le macchine virtuali nel modello di distribuzione classica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 Un set di disponibilità aiuta a mantenere disponibili le macchine virtuali durante il tempo di inattività, ad esempio durante la manutenzione. L'inserimento di due o più macchine virtuali con configurazione simile in un set di disponibilità crea la ridondanza necessaria a mantenere la disponibilità delle applicazioni o dei servizi eseguiti sulla macchina virtuale. Per i dettagli sul funzionamento, vedere [Gestione della disponibilità delle macchine virtuali][].
 
@@ -111,4 +112,4 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 [Panoramica di Rete virtuale]: virtual-networks-overview.md
 [Articoli sulle Macchine virtuali nella gestione dei servizi]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

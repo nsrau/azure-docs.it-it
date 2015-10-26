@@ -39,7 +39,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-thirdlight-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-thirdlight-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -77,7 +77,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 6.  Andare a **Configurazione > Amministrazione sistema**, quindi fare clic su **SAML2**.
 
-    ![Amministrazione di sistema](./media/active-directory-saas-thirdlight-tutorial/IC805843.png "Amministrazione di sistema")
+    ![System Administration](./media/active-directory-saas-thirdlight-tutorial/IC805843.png "Amministrazione di sistema")
 
 7.  Nella sezione di configurazione di SAML2, eseguire la procedura seguente:
 
@@ -130,4 +130,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

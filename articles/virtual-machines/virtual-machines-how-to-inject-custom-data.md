@@ -22,7 +22,8 @@
 
 L'inserimento di uno script o di altri dati in una macchina virtuale di Azure durante il provisioning è uno scenario molto comune e indipendente dal sistema operativo usato per la distribuzione, Microsoft Windows o Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 In questo argomento viene spiegato come:
 
@@ -82,4 +83,4 @@ Per altre informazioni, vedere la [documentazione su cloud-init per Ubuntu](http
 
 [Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

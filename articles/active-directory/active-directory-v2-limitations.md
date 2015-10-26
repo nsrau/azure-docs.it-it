@@ -85,4 +85,4 @@ Modello app 2.0 supporta i protocolli Open ID Connect e OAuth 2.0. Tuttavia, non
 
 Per comprendere meglio l'ambito della funzionalità del protocollo supportata in Modello app 2.0, leggere il [riferimento ai protocolli OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,6 @@
 
 # Preparare una macchina virtuale Oracle Linux per Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Preparare una macchina virtuale Oracle Linux 6.4+ per Azure](#oracle6)
 - [Preparare una macchina virtuale Oracle Linux 7.0+ per Azure](#oracle7)
@@ -230,4 +229,4 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

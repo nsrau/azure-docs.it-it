@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/14/2015"
 	ms.author="juliako"/>
 
 #Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure
@@ -48,6 +48,8 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui u
 ##<a id="scenario"></a>Scenario comune di streaming live
 
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
+
+>[AZURE.NOTE]Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft punto com.
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit **singola** in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -260,6 +262,8 @@ Identificatore lingua del flusso audio, conforme alla specifica ISO 639-2, ad es
 
 Specifica il set di impostazioni che dovrà essere usato dal codificatore live all'interno del canale. Attualmente, l'unico valore consentito è **Default720p** (impostazione predefinita).
 
+Si noti che se sono necessari set predefiniti personalizzati, si deve contattare amslived in Microsoft.com.
+
 Con **Default720p** il video sarà codificato nei 7 livelli seguenti.
 
 
@@ -267,13 +271,13 @@ Con **Default720p** il video sarà codificato nei 7 livelli seguenti.
 
 Velocità in bit|Larghezza|Altezza|MaxFPS|Profilo|Nome del flusso di output
 ---|---|---|---|---|---
-3500|1280|720|30|Alto|Video\_1280x720\_30fps\_3500kbps
-2200|960|540|30|Principale|Video\_960x540\_30fps\_2200kbps
-1350|704|396|30|Principale|Video\_704x396\_30fps\_1350kbps
-850|512|288|30|Principale|Video\_512x288\_30fps\_850kbps
-550|384|216|30|Principale|Video\_384x216\_30fps\_550kbps
-350|340|192|30|Di base|Video\_340x192\_30fps\_350kbps
-200|340|192|30|Di base|Video\_340x192\_30fps\_200kbps
+3500|1280|720|30|Alto|Video\_1280x720\_3500kbps
+2200|960|540|30|Principale|Video\_960x540\_2200kbps
+1350|704|396|30|Principale|Video\_704x396\_1350kbps
+850|512|288|30|Principale|Video\_512x288\_850kbps
+550|384|216|30|Principale|Video\_384x216\_550kbps
+350|340|192|30|Di base|Video\_340x192\_350kbps
+200|340|192|30|Di base|Video\_340x192\_200kbps
 
 
 ####Flusso audio di output
@@ -391,6 +395,8 @@ Arrestato|Arrestato|No
 - Per impostazione predefinita, è possibile aggiungere solo cinque canali all'account di Servizi multimediali. Si tratta di una quota flessibile per tutti i nuovi account. Per altre informazioni, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 - Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input.
 - Il costo viene addebitato solo quando il canale è nello stato **In esecuzione**. Per altre informazioni, vedere [questa](media-services-manage-live-encoder-enabled-channels.md#states) sezione.
+- Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft punto com.
+- Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 
 ##Problemi noti
 
@@ -426,4 +432,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

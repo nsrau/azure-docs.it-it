@@ -87,4 +87,4 @@ Le aziende possono fornire account di tipo solo cloud a organizzazioni e societ√
 * [Estensione delle funzionalit√† del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

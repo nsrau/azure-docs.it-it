@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/06/2015"
+   ms.date="10/07/2015"
    ms.author="brjohnst"/>
 
 # Come utilizzare Ricerca di Azure da un'applicazione .NET #
@@ -337,7 +337,7 @@ La prima cosa da notare è che ogni proprietà pubblica di `Hotel` corrisponde a
 
 Il secondo aspetto importante della classe `Hotel` è costituita dai tipi di dati delle proprietà pubbliche. Viene eseguito il mapping dei tipi .NET di queste proprietà ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `Edm.String`. Esistono mapping di tipi simili tra `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` ecc. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` su [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
  
-> [AZURE.NOTE]Quando si progettano le proprie classi di modello per eseguire il mapping a un indice di ricerca di Azure, assicurarsi di dichiarare le proprietà dei tipi di valore, ad esempio `bool` e `int` da rendere come nullable (ad esempio: `bool?` anziché `bool`). Ciò è necessario perché tutti i tipi primitivi campo nella ricerca di Azure sono nullable. Se si utilizzano tipi non nullable, è possibile ottenere risultati imprevisti durante l'indicizzazione dei valori predefiniti come `0` e `false`.
+> [AZURE.NOTE]Quando si progettano le proprie classi di modello per eseguire il mapping a un indice di ricerca di Azure, assicurarsi di dichiarare le proprietà dei tipi di valore, ad esempio `bool` e `int` da rendere come nullable (ad esempio: `bool?` anziché `bool`). Ciò è necessario perché tutti i tipi primitivi campo nella ricerca di Azure sono nullable. Se si utilizzano tipi non nullable, si otterranno risultati imprevisti durante l'indicizzazione dei valori predefiniti come `0` e `false`. In particolare, tali valori predefiniti verranno impostati su null durante l'indicizzazione. In una versione futura di SDK, l’utilizzo di tipi non impostabili su null farà sì che venga generata un'eccezione.
 
 La possibilità di utilizzare le proprie classi come documenti funziona in entrambe le direzioni; è possibile, inoltre, recuperare i risultati della ricerca e far sì che SDK li deserializzi automaticamente in un tipo di propria scelta, come sarà illustrato nella prossima sezione.
 
@@ -627,4 +627,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

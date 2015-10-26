@@ -44,4 +44,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

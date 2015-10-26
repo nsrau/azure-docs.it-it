@@ -64,4 +64,4 @@ Creare un gateway applicazione. Vedere [Creare un gateway applicazione](applicat
 
 Configurare l'offload SSL. Vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

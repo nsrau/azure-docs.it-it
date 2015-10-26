@@ -1,3 +1,3 @@
 Set di dati dalla KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competition (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>Questo set di dati è stato scaricato e memorizzato nell'archivio BLOB di Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network\_intrusion\_detection.csv</a>) e include set di dati di training e di test. Il set di dati di training contiene circa 126.000 righe e 43 colonne, comprese le etichette; 3 colonne fanno parte delle informazioni sulle etichette e 40 colonne, composte da funzioni numeriche, stringa o categoriali, sono disponibili per il training del modello. I dati di test contengono circa 225.000 esempi di test con le stesse 43 colonne nei dati di training.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

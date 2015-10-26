@@ -1,12 +1,4 @@
-<properties
-	pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure"
-	description="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."
-	services="active-directory-b2c"
-	documentationCenter="ios"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
-
+<properties pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure" descrizione="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti." servizi ="active-directory-b2c" documentationCenter=”ios” autori="brandwe" manager="msmbaldwin" editor =""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -650,9 +642,7 @@ Osservare che le attività sono archiviate per utente nell'API, perché l'API es
 
 Come riferimento, l'esempio completato [è disponibile qui in un file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
 
 ## Passaggi successivi
 
@@ -662,4 +652,4 @@ git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 [Personalizzazione dell’UX del’App B2C>>]()
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

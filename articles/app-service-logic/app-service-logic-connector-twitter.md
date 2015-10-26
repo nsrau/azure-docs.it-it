@@ -41,19 +41,19 @@ Il trigger **New Tweet** è stato archiviato. Attualmente è ancora disponibile 
 
 ## Creare il connettore Twitter
 
-> [AZURE.IMPORTANT]Per creare un connettore Twitter è attualmente necessario registrare un'app per le API in Twitter. È possibile registrare gratuitamente un'applicazione all'indirizzo [http://apps.twitter.com](http://apps.twitter.com). Per creare un connettore saranno necessari una chiave e un segreto di API per Twitter.
+> [AZURE.IMPORTANT]Durante la creazione di un connettore Twitter è possibile scegliere di registrare l'app con Twitter e usare le chiavi dell'app con il connettore Twitter. È possibile registrare gratuitamente un'applicazione all'indirizzo [http://apps.twitter.com](http://apps.twitter.com). Durante la registrazione assicurarsi di fornire alcuni URL di callback. Una volta creato il connettore Twitter, è possibile modificare l'URL di callback in un secondo momento. Per creare un connettore saranno necessari una chiave e un segreto di API per Twitter.
 
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
-1. Creare un'applicazione gratuita per Twitter all'indirizzo [http://apps.twitter.com](http://apps.twitter.com).
-    * Durante la registrazione dell'app, è possibile inserire qualsiasi URL per il sito Web e lasciare vuoto l'URL per il callback.
+1. [Facoltativo] Creare un'applicazione gratuita per Twitter all'indirizzo [http://apps.twitter.com](http://apps.twitter.com).
+    * Durante la registrazione dell'app è possibile inserire qualsiasi URL per il sito Web. Specificare un URL di callback (non lasciarlo vuoto). È possibile aggiornarlo in un secondo momento.
 2. Nella Schermata iniziale di Azure selezionare **Marketplace**.
-3. Cercare "Twitter Connector", selezionarlo e fare clic su **Crea**.
-4. Fare clic su 'Impostazioni del pacchetto' e incollare il valore di 'Consumer Key' dall'app Twitter al campo 'clientId'. Incollare il valore di 'Consumer Secret' dall'app Twitter al campo 'clientSecret': ![][10]
+3. Cercare "Twitter Connector", selezionarlo e fare clic su **Create**.
+4. [Facoltativo] Fare clic su 'Package Settings' e incollare il valore di 'Consumer Key' dall'app Twitter al campo 'clientId'. Incollare il valore di 'Consumer Secret' dall'app Twitter al campo 'clientSecret': ![][10]
 5. Immettere altre impostazioni necessarie relative al nome, al servizio app e al gruppo di risorse del connettore.
-6.	Fare clic su **Crea**.
+6.	Fare clic su **Create**.
 
-> [AZURE.NOTE]Per proteggere ulteriormente l'API Twitter con l'URL di reindirizzamento, è possibile eseguire la procedura dettagliata disponibile in [questo articolo](app-service-logic-oauth-security.md).
+> [AZURE.NOTE]Per proteggere ulteriormente l'API Twitter con l'URL di reindirizzamento, è possibile eseguire la procedura dettagliata descritta in [questo articolo](app-service-logic-oauth-security.md).
 
 
 ## Usare il connettore Twitter nell'app per la logica
@@ -79,7 +79,7 @@ In modo analogo, si possono usare le azioni Twitter nel flusso. Selezionare un'a
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -97,4 +97,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

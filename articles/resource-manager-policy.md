@@ -115,7 +115,7 @@ L'esempio seguente illustra un criterio che negherà tutte le richieste con posi
       "if" : {
         "not" : {
           "field" : "location",
-          "in" : ["north europe" , "west europe"]
+          "in" : ["northeurope" , "westeurope"]
         }
       },
       "then" : {
@@ -213,11 +213,31 @@ Con un corpo della richiesta simile al seguente:
 
 La definizione dei criteri può essere definita come uno degli esempi illustrati in precedenza. Per api-version usare *2015-10-01-preview*. Per esempi e altri dettagli, vedere [API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
+### Creare una definizione di criteri tramite PowerShell
+
+È possibile creare una nuova definizione di criteri usando il cmdlet New-AzureRmPolicyDefinition, come illustrato di seguito. Negli esempi seguenti viene creato un criterio per consentire solo le risorse in Europa settentrionale ed Europa occidentale.
+
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
+    	    			    "not" : {
+    	      			    	"field" : "location",
+    	      			    		"in" : ["northeurope" , "westeurope"]
+    	    			    	}
+    	    		          },
+    	      		    		"then" : {
+    	    			    		"effect" : "deny"
+    	      			    		}
+    	    		    	}'    		
+
+L'output dell'esecuzione viene archiviato nell'oggetto $policy, in modo da poterlo usare in seguito durante l'assegnazione dei criteri. Per il parametro dei criteri, è anche possibile specificare il percorso di un file con estensione JSON contenente i criteri invece di specificare criteri inline come illustrato di seguito.
+
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
+
+
 ## Applicazione dei criteri
 
 ### Assegnazione dei criteri con l'API REST
 
-È possibile applicare la definizione dei criteri nell'ambito desiderato tramite l’[API REST per le assegnazioni dei criteri](https://msdn.microsoft.com/library/azure/mt588466.aspx). L'API REST consente di creare ed eliminare le assegnazioni dei criteri e ottenere informazioni sulle assegnazioni esistenti.
+È possibile applicare la definizione dei criteri nell'ambito desiderato tramite l'[API REST per le assegnazioni dei criteri](https://msdn.microsoft.com/library/azure/mt588466.aspx). L'API REST consente di creare ed eliminare le assegnazioni dei criteri e ottenere informazioni sulle assegnazioni esistenti.
 
 Per creare una nuova assegnazione di criteri, eseguire:
 
@@ -240,4 +260,20 @@ Con un corpo della richiesta simile al seguente:
 
 Per esempi e altri dettagli, vedere [API REST per le assegnazioni dei criteri](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
-<!---HONumber=Oct15_HO2-->
+### Assegnazione di criteri tramite PowerShell
+
+È possibile applicare il criterio creato in precedenza tramite PowerShell all'ambito desiderato usando il cmdlet New-AzureRmPolicyAssignment, come illustrato di seguito:
+
+    New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+$policy è l'oggetto criteri restituito come risultato dell'esecuzione del cmdlet New-AzureRmPolicyDefinition, come illustrato in precedenza. L'ambito è il nome del gruppo di risorse specificato.
+
+Se si desidera rimuovere l'assegnazione dei criteri precedente, è possibile procedere come segue:
+
+    Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+È possibile ottenere, modificare o rimuovere le definizioni dei criteri tramite i cmdlet Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition e Remove-AzureRmPolicyDefinition, rispettivamente.
+
+Analogamente, è possibile ottenere, modificare o rimuovere le assegnazioni dei criteri tramite i cmdlet Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment e Remove-AzureRmPolicyAssignment, rispettivamente.
+
+<!---HONumber=Oct15_HO3-->

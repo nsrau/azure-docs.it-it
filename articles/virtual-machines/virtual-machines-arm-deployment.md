@@ -19,7 +19,8 @@
 
 # Distribuire le risorse di Azure utilizzando librerie di calcolo, rete e archiviazione .NET
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la gestione di una risorsa con il modello di distribuzione Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 In questa esercitazione viene illustrato come utilizzare alcuni dei client disponibili nelle librerie di calcolo, archiviazione e rete .NET per creare ed eliminare le risorse in Microsoft Azure. Viene inoltre illustrato come autenticare le richieste di Gestione risorse di Azure con Azure Active Directory.
 
@@ -38,31 +39,23 @@ L'esecuzione di questi passaggi richiede circa 30 minuti.
 
 Per usare Azure AD per autenticare le richieste a Gestione risorse di Azure, è necessario aggiungere un'applicazione alla directory predefinita. Per aggiungere un'applicazione, eseguire le operazioni seguenti:
 
-1. Aprire un prompt dei comandi di Azure PowerShell ed eseguire il comando seguente:
+1. Aprire un prompt di Azure PowerShell, e poi eseguire questo comando e, quando richiesto, immettere le credenziali per la sottoscrizione:
 
-        Switch-AzureMode –Name AzureResourceManager
+	    Login-AzureRmAccount
 
-2. Impostare l'account di Azure da usare per questa esercitazione. Eseguire questo comando e, quando richiesto, immettere le credenziali per la sottoscrizione:
+2. Sostituire {password} nel comando seguente con quella che si desidera usare, quindi eseguire il comando per creare l'applicazione:
 
-	    Add-AzureAccount
+	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-3. Sostituire {password} nel comando seguente con quella che si desidera usare, quindi eseguire il comando per creare l'applicazione:
+	>[AZURE.NOTE]Annotare l'identificatore dell’applicazione che viene restituito dopo che l'applicazione viene creata perché sarà necessario per il passaggio successivo. L'identificatore dell'applicazione è disponibile anche nel campo ID client dell'applicazione nella sezione Active Directory del portale.
 
-	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+3. Sostituire {application-id} con l'identificatore appena registrato, quindi creare l'entità servizio per l'applicazione:
 
-4. Registrare il valore ApplicationId nella risposta dal passaggio precedente. Sarà necessario usarlo più avanti nell'esercitazione:
+        New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
-	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/azureapplicationid.png)
+4. Impostare le autorizzazioni per l'uso dell'applicazione:
 
-	>[AZURE.NOTE]L'identificatore dell'applicazione è disponibile anche nel campo ID client dell'applicazione nel portale di gestione.
-
-5. Sostituire {application-id} con l'identificatore appena registrato, quindi creare l'entità servizio per l'applicazione:
-
-        New-AzureADServicePrincipal -ApplicationId {application-id}
-
-6. Impostare le autorizzazioni per l'uso dell'applicazione:
-
-	    New-AzureRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## Passaggio 2: Creare un progetto di Visual Studio e installare le librerie
 
@@ -390,4 +383,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

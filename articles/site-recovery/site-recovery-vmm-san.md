@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 # Configurare la protezione tra siti VMM locali con SAN
@@ -347,7 +347,8 @@ Eseguire il test della distribuzione per verificare che il failover delle macchi
 	![Aggiungi macchine virtuali.](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
 5. Una volta creato, il piano di ripristino verrà visualizzato nell'elenco all'interno della scheda **Piani di ripristino**.
 6. Nella scheda **Piani di ripristino** selezionare il piano e fare clic su **Failover di test**.
-7. Nella pagina **Conferma failover di test** selezionare **Nessuno**. Se si abilita questa opzione, le macchine virtuali di replica su cui è stato eseguito il failover non verranno connesse in rete. Il test, infatti, controlla che il failover delle macchine virtuali venga eseguito correttamente ma non verifica l'ambiente di rete di replica. Se si vuole eseguire un failover di test più completo, vedere <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Testare una distribuzione locale su MSDN</a>.
+7. Nella pagina **Conferma failover di test** selezionare **Nessuno**. Se si abilita questa opzione, le macchine virtuali di replica su cui è stato eseguito il failover non verranno connesse in rete. Il test, infatti, controlla che il failover delle macchine virtuali venga eseguito correttamente ma non verifica l'ambiente di rete di replica. Osservare come [eseguire un failover di test](site-recovery-failover.md#run-a-test-failover) per ulteriori informazioni su come utilizzare le opzioni di rete diverse.
+
 
 	![Seleziona rete di test](./media/site-recovery-vmm-san/SRSAN_TestFailover1.png)
 
@@ -382,4 +383,4 @@ Nel **Dashboard** è possibile scaricare le versioni più recenti dei file di in
 
 Per altre informazioni sull'interazione con i processi e il dashboard, vedere la [guida alle operazioni e al monitoraggio](http://go.microsoft.com/fwlink/?LinkId=398534).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

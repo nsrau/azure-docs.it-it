@@ -75,4 +75,4 @@ Dopo aver rimosso le aree desiderate, fare clic su **Salva**.
 [unità]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

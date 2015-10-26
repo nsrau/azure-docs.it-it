@@ -109,4 +109,4 @@ Include la terminologia utilizzata in questi passaggi:
 - [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms-introduction.md)
 - [Eseguire il backup dei carichi di lavoro di Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

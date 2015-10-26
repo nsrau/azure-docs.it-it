@@ -70,4 +70,4 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 [portale di gestione di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

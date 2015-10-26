@@ -120,4 +120,4 @@ SAP è un software all'avanguardia per la pianificazione delle risorse aziendali
 
 Per istruzioni dettagliate sulla [distribuzione di Azure Site Recovery per SAP NetWeaver](http://aka.ms/asr-sap), vedere il documento collegato.
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

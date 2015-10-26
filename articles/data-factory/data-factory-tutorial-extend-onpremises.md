@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Copiare i dati di output in un database SQL Server locale (Portale di Azure)"
+	pageTitle="Copiare i dati di output in un database SQL Server locale (Portale di Azure)" 
 	description="Questa procedura dettagliata estende l'esercitazione utilizzando Data Factory Editor nel portale di Azure in modo che le copie della pipeline producano dei dati in un database SQL Server."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -169,4 +169,4 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

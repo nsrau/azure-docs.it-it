@@ -88,4 +88,4 @@ Oltre al nome del marchio, alcuni altri elementi nel portale sono stati rinomina
 * Per informazioni su cosa è cambiato nel passaggio dal portale precedente a quello nuovo, vedere: [Informazioni di riferimento per la navigazione nel nuovo portale](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

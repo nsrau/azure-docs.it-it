@@ -189,9 +189,9 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

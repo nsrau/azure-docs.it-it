@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Creare una macchina virtuale con più NIC"
-	description="Vedere come creare e configurare macchine virtuali con più NIC"
-	services="virtual-network, virtual-machines"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Vedere come creare e configurare macchine virtuali con più NIC"
+   services="virtual-network, virtual-machines"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/10/2015"
+   ms.author="telmos" />
 
 # Creare una macchina virtuale con più NIC
 
@@ -249,4 +249,4 @@ Per aggiungere una route predefinita nella NIC secondaria, attenersi alla proced
 
 Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento predefinito dell'host routing vulnerabile, è consigliabile che le schede NIC secondarie siano limitate ai flussi di traffico all'interno della stessa subnet. Tuttavia se alcune situazioni richiedono la connettività all'esterno della subnet, gli utenti devono attivare la “policy based routing” per fare in modo che il traffico in entrata e in uscita utilizzi la stessa scheda NIC.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

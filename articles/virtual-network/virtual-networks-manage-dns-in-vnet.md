@@ -65,4 +65,4 @@ Per modificare un elenco di server DNS usando un file di configurazione di rete,
 
 [Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

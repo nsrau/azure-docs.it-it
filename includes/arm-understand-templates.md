@@ -8,4 +8,4 @@ Le risorse create con i modelli di Gestione risorse di Azure verranno distribuit
 
 Gli esempi di automazione seguenti illustrano come usare i modelli di Gestione risorse di Azure e distribuire gruppi di risorse tramite PowerShell o CLI.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

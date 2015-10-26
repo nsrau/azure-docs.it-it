@@ -47,4 +47,4 @@ Nel file config.json del progetto è stato creato un elemento con la stringa di 
 
 Per altre informazioni, vedere [ASP.NET 5](http://www.asp.net/vnext).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

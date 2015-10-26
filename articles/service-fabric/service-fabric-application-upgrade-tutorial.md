@@ -126,4 +126,4 @@ In pochi minuti lo stato che usa il comando di PowerShell precedente dovrebbe in
 [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

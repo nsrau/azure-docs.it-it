@@ -383,4 +383,4 @@ Se si desidera pubblicare il modello in marketplace, è sufficiente stabilire co
 - Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere[Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
 - Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno di modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

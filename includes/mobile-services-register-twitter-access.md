@@ -37,4 +37,4 @@ Le nuove API Twitter 1.1 richiedono l'autenticazione dell'app prima dell'accesso
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Impostazioni app]: http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

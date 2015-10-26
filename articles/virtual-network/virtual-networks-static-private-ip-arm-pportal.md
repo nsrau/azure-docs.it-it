@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]In questo articolo viene illustrato il modello di distribuzione di Gestione risorse. È inoltre possibile [gestire l'indirizzo IP statico privato nel modello di distribuzione classica](virtual-networks-static-private-ip-classic-pportal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. È inoltre possibile [gestire l'indirizzo IP statico privato nel modello di distribuzione classica](virtual-networks-static-private-ip-classic-pportal.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -97,4 +97,4 @@ Per rimuovere l'indirizzo IP statico privato dalla VM creata in precedenza, atte
 - Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -12,4 +12,4 @@
 
     Una volta completata l'installazione dell'aggiornamento, l'utente riceve una notifica.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->
