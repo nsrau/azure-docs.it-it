@@ -17,7 +17,7 @@
 	ms.date="09/01/2015"
 	ms.author="jroth" />
 
-# Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure
+# Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
  

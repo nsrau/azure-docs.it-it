@@ -77,7 +77,7 @@ Opzione 2: configurare il SDK del servizio Web con un certificato client.|<ol><l
 Modificare lo script Register-multifactorauthenticationadfsadapter.ps1 aggiungendo -ConfigurationFilePath <path> alla fine del comando Register-AdfsAuthenticationProvider, dove <path> è il percorso completo del file MultiFactorAuthenticationAdfsAdapter.config.|
 
 
-Eseguire lo script \\Programmi\\\Multi-Factor Authentication Server\\Register-MultiFactorAuthenticationAdfsAdapter.ps1 in PowerShell per registrare la scheda. L'adapter viene registrata come WindowsAzureMultiFactorAuthentication. È necessario riavviare il servizio ADFS rendere effettiva la registrazione.
+Eseguire lo script \Programmi\\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 in PowerShell per registrare la scheda. L'adapter viene registrata come WindowsAzureMultiFactorAuthentication. È necessario riavviare il servizio ADFS rendere effettiva la registrazione.
 
 
 

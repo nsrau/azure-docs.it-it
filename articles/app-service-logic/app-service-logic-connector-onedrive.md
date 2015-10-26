@@ -26,7 +26,13 @@ Per usare il connettore OneDrive, è innanzitutto necessario creare un'istanza d
 2.	In "Tutto" cercare "OneDrive Connector".
 3.	Configurare il connettore OneDrive nel modo seguente:
 
-	![][1] - **Name**: assegnare un nome al connettore OneDrive - **App Service plan**: selezionare o creare un piano di servizio app - **Pricing tier**: scegliere un livello di prezzo per il connettore - **Resource group**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Subscription**: scegliere una sottoscrizione in cui creare questo connettore - **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
+	![][1]
+	- **Nome**: assegnare un nome al connettore
+	- **Piano di servizio app**: selezionare o creare un piano di servizio app
+	- **Piano tariffario**: scegliere un piano tariffario per il connettore
+	- **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore
+	- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore
+	- **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
 
 4. Fare clic su Create. Verrà creato un nuovo connettore OneDrive.
 5. Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore OneDrive.
@@ -43,7 +49,8 @@ Dopo aver creato l'app per le API, è possibile usare il connettore OneDrive com
 	![][2]
 4.	È possibile trascinare l'app per le API del connettore OneDrive nell'editor facendo clic su "OneDrive Connector". Fare clic sul pulsante Authorize. Fornire le credenziali di Microsoft (se non è stata eseguita la connessione automatica). Fare clic su "Sì" per consentire l'accesso.
 
-	![][3] ![][4]
+	![][3]
+	![][4]
 
 5.	È ora possibile usare il connettore OneDrive nel flusso. Attualmente nel connettore OneDrive non sono disponibili trigger. Le azioni disponibili sono: Get File, Upload File, Delete File e List Files.
 

@@ -38,7 +38,8 @@ New Message | <ul><li>Post Message</li><li>Search</li></ul>
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Cercare "Chatter Connector", selezionarlo e fare clic su **Crea**.
-3. Immettere il nome, il piano di servizio app e altre proprietà: ![][1]  
+3. Immettere il nome, il piano di servizio app e altre proprietà: 
+	![][1]  
 	- **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
 	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
 	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
@@ -54,17 +55,32 @@ Dopo aver creato l'app per le API, è possibile usare il connettore Chatter come
 
 1. Nell'app per la logica, aprire **Triggers and Actions** per aprire la finestra di progettazione delle app per la logica e configurare il flusso.
 
-2. Il connettore Chatter è elencato nella raccolta: ![][4]
-3. Selezionare il connettore Chatter per aggiungerlo automaticamente alla finestra di progettazione. Selezionare **Authorize**, immettere le credenziali e selezionare **Allow**: ![][5] ![][6] ![][7]
+2. Il connettore Chatter è elencato nella raccolta: 
+	![][4]
+3. Selezionare il connettore Chatter per aggiungerlo automaticamente alla finestra di progettazione. Selezionare **Authorize**, immettere le credenziali e selezionare **Allow**: 
+	![][5] 
+	![][6] 
+	![][7]
 
 È ora possibile usare il connettore Chatter nel flusso. È possibile usare il nuovo messaggio recuperato dal trigger di Chatter ("New Message") in altre azioni del flusso. Configurare le proprietà di input per il trigger Chatter nel modo indicato di seguito:
 
-**Group ID** - Inserire l'ID del gruppo da cui deve essere recuperato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il nuovo messaggio verrà recuperato dal Feed dell'Utente: ![][8] ![][9]
+**Group ID** - Inserire l'ID del gruppo da cui deve essere recuperato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il nuovo messaggio verrà recuperato dal Feed dell'Utente: 
+	![][8] 
+	![][9]
 
 
-Allo stesso modo, è possibile usare l'azione Chatter "Post Message" nel flusso per inviare un messaggio. Configurare le proprietà di input per l'azione "Messaggio Post" nel modo indicato di seguito:-**Message Text**- contenuto di testo del messaggio da inviare -**Group ID**-specificare l'ID del gruppo in cui deve essere inviato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il messaggio verrà inviato al feed dell'utente. - **File Name**- nome del file da allegare a questo messaggio - **Content Data** - Dati di contenuto dell'allegato - **Content Type** - tipo di contenuto dell'allegato - **Content Transfer Encoding** - Codifica transfer del contenuto dell'allegato ("none"|"base64")-**Mentions** - L’array dei nomi dell'utente deve essere contrassegnato in questo messaggio -**Hashtags**- L’array di hashtags deve essere registrato nel messaggio
+Allo stesso modo, è possibile usare l'azione Chatter "Post Message" nel flusso per inviare un messaggio. Configurare le proprietà di input per l'azione "Messaggio Post" nel modo indicato di seguito:  
+	- **Message Text** - contenuto di testo del messaggio da inviare
+	- **Group ID** -specificare l'ID del gruppo in cui deve essere inviato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il messaggio verrà inviato al feed dell'utente.
+	- 	**File Name**- nome del file da allegare a questo messaggio
+	- 	**Content Data** - Dati di contenuto dell'allegato
+	- 	**Content Type** - tipo di contenuto dell'allegato
+	- 	**Content Transfer Encoding** - Codifica transfer del contenuto dell'allegato ("none"|"base64")
+	- 	**Mentions** - L’array dei nomi dell'utente deve essere contrassegnato in questo messaggio
+	- 	**Hashtags**- L’array di hashtags deve essere registrato nel messaggio  
 
-![][10] ![][11]
+![][10]
+![][11]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)

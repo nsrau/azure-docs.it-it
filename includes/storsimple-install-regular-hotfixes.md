@@ -10,7 +10,10 @@
 
     `Start-HcsHotfix`
 
-       >[AZURE.IMPORTANT]>> - Questo comando si applica solo agli aggiornamenti rapidi regolari. È possibile eseguire questo comando in un solo controller, ma verranno aggiornati entrambi i controller. > - Durante il processo di aggiornamento è possibile che venga eseguito il failover di un controller. Tale failover, tuttavia, non avrà effetto sulla disponibilità o sul funzionamento del sistema.
+       >[AZURE.IMPORTANT]
+       >
+       >- Questo comando si applica solo agli aggiornamenti rapidi regolari. È possibile eseguire questo comando in un solo controller, ma verranno aggiornati entrambi i controller.
+       >- Durante il processo di aggiornamento è possibile che venga eseguito il failover di un controller. Tale failover, tuttavia, non avrà effetto sulla disponibilità o sul funzionamento del sistema.
 
 4. Quando richiesto, specificare il percorso della cartella condivisa di rete che contiene i file dell'aggiornamento rapido.
 

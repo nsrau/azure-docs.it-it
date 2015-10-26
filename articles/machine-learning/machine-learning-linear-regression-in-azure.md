@@ -75,11 +75,28 @@ Dopo aver eseguito il processo e aver passato i risultati di sviluppatori ed esp
 ### Misero risolto
 Dopo aver applicato i suggerimenti, in Azure ML sono state raggiunte le stesse prestazioni di base di Excel:
 
-|| Excel|Azure ML (iniziale)|Azure ML con Least Squares| |---|:---:|:---:|:---:| |Valore etichettato |Valori effettivi (numerici)|uguale|uguale| |Strumento di apprendimento |Excel -> Analisi dei dati -> Regressione|Regressione lineare|Regressione lineare| |Opzioni strumento di apprendimento|N/D|Valori predefiniti|Ordinary Least Squares<br />L2 = 0,005| |Set di dati|26 righe, 3 funzionalità, 1 etichetta. Tutti valori numerici.|uguale|uguale| |Divisione: training|Excel con training sulle prime 18 righe, con test delle ultime 8 righe.|uguale|uguale| |Divisione: test|Formula di regressione Excel applicata alle ultime 8 righe|uguale|uguale| |**Prestazioni**|||| |Adjusted R Square|0,96|N/D|| |Coefficiente di determinazione|N/DA|0,78|0,952049| |Errore assoluto medio |$ 9,5 milioni|$ 19,4 milioni|$ 9,5 milioni| |Errore assoluto medio (%)|<span style="background-color: 00FF00;"> 6,03%</span>|12,2%|<span style="background-color: 00FF00;"> 6,03%</span>|
+|| Excel|Azure ML (iniziale)|Azure ML con Least Squares|
+|---|:---:|:---:|:---:|
+|Valore etichettato |Valori effettivi (numerici)|uguale|uguale|
+|Strumento di apprendimento |Excel -\> Analisi dei dati -\> Regressione|Regressione lineare|Regressione lineare|
+|Opzioni strumento di apprendimento|N/D|Valori predefiniti|Ordinary Least Squares<br />L2 = 0,005|
+|Set di dati|26 righe, 3 funzionalità, 1 etichetta. Tutti valori numerici.|uguale|uguale|
+|Divisione: training|Excel con training sulle prime 18 righe, con test delle ultime 8 righe.|uguale|uguale|
+|Divisione: test|Formula di regressione Excel applicata alle ultime 8 righe|uguale|uguale|
+|**Prestazioni**||||
+|Adjusted R Square|0,96|N/D||
+|Coefficiente di determinazione|N/DA|0,78|0,952049|
+|Errore assoluto medio |$ 9,5 milioni|$ 19,4 milioni|$ 9,5 milioni|
+|Errore assoluto medio (%)|<span style="background-color: 00FF00;"> 6,03%</span>|12,2%|<span style="background-color: 00FF00;"> 6,03%</span>|
 
 Inoltre, i coefficienti di Excel hanno dato buoni risultati anche confrontati con i pesi delle funzionalità nel modello con training di Azure:
 
-||Coefficienti di Excel|Pesi delle funzionalità di Azure| |---|:---:|:---:| |Intercetta/differenza|19470209,88|19328500| |Funzionalità A|0,832653063|0,834156| |Funzionalità B|11071967,08|11007300| |Funzionalità C|25383318,09|25140800|
+||Coefficienti di Excel|Pesi delle funzionalità di Azure|
+|---|:---:|:---:|
+|Intercetta/differenza|19470209,88|19328500|
+|Funzionalità A|0,832653063|0,834156|
+|Funzionalità B|11071967,08|11007300|
+|Funzionalità C|25383318,09|25140800|
 
 ## Passaggi successivi
 

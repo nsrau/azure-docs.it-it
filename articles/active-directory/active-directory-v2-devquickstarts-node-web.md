@@ -67,7 +67,7 @@ Dalla riga di comando passare alla directory della cartella radice, se non è gi
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- È stato anche usato `passport-azure-ad` per l'anteprima nella struttura di avvio rapido.
+- È stato inoltre utilizzato `passport-azure-ad` per l'anteprima nella struttura di avvio rapido.
 
 - `npm install passport-azure-ad`
 

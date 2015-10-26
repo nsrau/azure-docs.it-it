@@ -223,7 +223,8 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 - No. Tutte le unità devono essere preparate per BitLocker.
  
-**è necessario eseguire la preparazione del disco durante la creazione di un processo di esportazione?** = No, ma alcuni controlli preliminari sono consigliati. Verificare il numero di dischi richiesti utilizzando lo strumento di importazione/esportazione di Azure [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) comando. Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. Controllare inoltre che possono leggere/ scrivere sul disco rigido che verranno inviati per il processo di esportazione.
+**è necessario eseguire la preparazione del disco durante la creazione di un processo di esportazione?**
+- No, ma alcuni controlli preliminari sono consigliati. Verificare il numero di dischi richiesti utilizzando lo strumento di importazione/esportazione di Azure [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) comando. Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. Controllare inoltre che possono leggere/ scrivere sul disco rigido che verranno inviati per il processo di esportazione.
 
 ### Spedizione
 

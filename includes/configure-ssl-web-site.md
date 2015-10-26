@@ -1,7 +1,8 @@
 
 È possibile proteggere la comunicazione tra l'app Web e il browser con HTTPS, che usa la crittografia SSL (Secure Socket Layer). Si tratta del metodo più usato per la protezione dei dati inviati in Internet e assicura ai visitatori che le transazioni con l'app sono sicure. Questo articolo illustra come configurare HTTPS per un'app Web nel servizio app di Azure. Questo articolo non comprende l'autenticazione del certificato client. Per informazioni, vedere [Come configurare l’autenticazione reciproca TLS per le applicazioni Web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
-> [AZURE.NOTE]Acquista velocità: utilizza il NUOVO [percorso guidato](http://support.microsoft.com/kb/2990804)di Azure È facilissimo associare un nome di dominio personalizzato E proteggere le comunicazioni (SSL) con i servizi cloud o il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) di Azure.
+> [AZURE.NOTE]
+> Acquista velocità: utilizza il NUOVO [percorso guidato](http://support.microsoft.com/kb/2990804)di Azure È facilissimo associare un nome di dominio personalizzato E proteggere le comunicazioni (SSL) con i servizi cloud o il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) di Azure.
 
 ##<a name="bkmk_azurewebsites"></a>HTTPS per il dominio *.azurewebsites.net
 
@@ -407,9 +408,11 @@ Prima di eseguire la procedura inclusa in questa sezione, è necessario avere as
 3.	Fare clic sul pannello **App Web**.
 4.	Fare clic sul nome dell'app Web.
 5.	Nella pagina **Informazioni di base**, fare clic su **Impostazioni**.	
-6.	Fare clic su **Domini personalizzati ed SSL**. ![Scheda di configurazione][sslconfig]
+6.	Fare clic su **Domini personalizzati ed SSL**. 
+	![Scheda di configurazione][sslconfig]
 7.	Nella sezione **certificati** fare clic su **Carica**
-8.	Nella finestra di dialogo **Carica un certificato** selezionare il file del certificato con estensione pfx creato in precedenza tramite Gestione IIS oppure OpenSSL. Specificare la password, se necessaria, usata per la protezione del file con estensione pfx. Fare infine clic su **Salva** per caricare il certificato. ![Caricamento SSL][ssluploadcert]
+8.	Nella finestra di dialogo **Carica un certificato** selezionare il file del certificato con estensione pfx creato in precedenza tramite Gestione IIS oppure OpenSSL. Specificare la password, se necessaria, usata per la protezione del file con estensione pfx. Fare infine clic su **Salva** per caricare il certificato. 
+	![Caricamento SSL][ssluploadcert]
 9. Nella sezione **Associazioni SSL** della scheda **Impostazioni SSL**, usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È inoltre possibile stabilire se usare il metodo SSL basato su [Indicazione nome server][sni] (SNI, Server Name Indication) o IP.
 
 	![Associazioni SSL][sslbindings]

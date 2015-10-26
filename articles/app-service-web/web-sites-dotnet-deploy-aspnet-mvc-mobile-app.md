@@ -19,7 +19,8 @@
 
 # Distribuzione di un'app Web ASP.NET MVC 5 per dispositivi mobili nel servizio app di Azure
 
-In questa esercitazione verranno illustrate le nozioni di base per lo sviluppo di un'app Web ASP.NET MVC 5 per dispositivi mobili e la distribuzione di tale app nel servizio app di Azure. Ai fini di questa esercitazione, è necessario disporre di [Visual Studio Express 2013 for Web][Visual Studio Express 2013] o della versione professionale di Visual Studio. È possibile utilizzare [Visual Studio 2015], ma le schermate saranno diverse ed è necessario utilizzare i modelli ASP.NET 4.x.
+In questa esercitazione verranno illustrate le nozioni di base per lo sviluppo di un'app Web ASP.NET MVC 5 per dispositivi mobili e la distribuzione di tale app nel servizio app di Azure. Ai fini di questa esercitazione, è necessario disporre di [Visual Studio Express 2013 for Web][Visual Studio Express 2013] o della versione professionale di Visual Studio.
+È possibile utilizzare [Visual Studio 2015], ma le schermate saranno diverse ed è necessario utilizzare i modelli ASP.NET 4.x.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 

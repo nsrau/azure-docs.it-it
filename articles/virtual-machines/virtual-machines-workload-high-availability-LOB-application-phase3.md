@@ -184,7 +184,7 @@ Il servizio SQL Server richiede una porta usata dai client per accedere al serve
 
 Per ognuna delle macchine virtuali SQL Server disconnettersi come amministratore locale.
 
-Per informazioni sull'ottimizzazione delle prestazioni di SQL Server in Azure, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼](virtual-machines-sql-server-performance-best-practices.md). È anche possibile disabilitare l'archiviazione con ridondanza geografica per l'account di archiviazione dell'applicazione line-of-business e usare gli spazi di archiviazione per ottimizzare gli IOPS.
+Per informazioni sull'ottimizzazione delle prestazioni di SQL Server in Azure, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-performance-best-practices.md). È anche possibile disabilitare l'archiviazione con ridondanza geografica per l'account di archiviazione dell'applicazione line-of-business e usare gli spazi di archiviazione per ottimizzare gli IOPS.
 
 ## Configurare il server del nodo di maggioranza cluster
 

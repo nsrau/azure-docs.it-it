@@ -18,7 +18,8 @@
 
 # Anteprima di Modello app 2.0: Chiamata di un'API Web da un'app Web .NET
 
-> [AZURE.NOTE]Queste informazioni fanno riferimento all'anteprima pubblica dell'endpoint 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Queste informazioni fanno riferimento all'anteprima pubblica dell'endpoint 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
 Con Modello app 2.0 è possibile aggiungere rapidamente l'autenticazione alle app e alle API Web con supporto per account Microsoft personali, aziendali e dell'istituto di istruzione. In questo esempio verrà creata un'app Web MVC che:
 
@@ -200,6 +201,8 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 ## Passaggi successivi
 
-Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Per altre risorse consultare:
+- [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
+- [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
 <!---HONumber=Oct15_HO3-->

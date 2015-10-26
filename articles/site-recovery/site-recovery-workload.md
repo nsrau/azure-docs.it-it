@@ -38,7 +38,20 @@ Le funzionalità di Azure Site Recovery sono state progettate tenendo presenti l
 
 Le tecnologie di replica ASR sono compatibili con qualsiasi applicazione in esecuzione in una macchina virtuale. Sono stati eseguiti ulteriori test in collaborazione con i team di prodotto dell’applicazione per ulteriore supporto per ogni applicazione.
 
-**Carico di lavoro** | <p>**Replicare macchine virtuali Hyper-V**</p> <p>**(al sito secondario)**</p> | <p>**Replicare macchine virtuali Hyper-V**</p><p>**(ad Azure)**</p> | <p>**Replicare macchine virtuali VMware**</p> <p>**(al sito secondario)**</p> | <p>**Replicare macchine virtuali VMware * *</p><p>**(ad Azure)****</p>---|---|---|---|--- Active Directory, DNS | S | S | S | S app Web (IIS, SQL) | S | S | S | S SCOM | S | S | S | S SharePoint | S | S | S | S <p>SAP </p><p>Replicare sito SAP in Azure per non cluster</p> | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft) Exchange (non DAG) | S | Presto disponibile | S | S Desktop remoto/VDI | S | S | S | N/D <p>Linux</p> <p>(sistema operativo e app) </p> | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft) Dynamics AX | S | S | S | S Dynamics CRM | S | Presto disponibile | S | Presto disponibile Oracle | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft) File server Windows | S | S | S | S
+**Carico di lavoro** | <p>**Replicare macchine virtuali Hyper-V**</p> <p>**(al sito secondario)**</p> | <p>**Replicare macchine virtuali Hyper-V**</p><p>**(ad Azure)**</p> | <p>**Replicare macchine virtuali VMware**</p> <p>**(al sito secondario)**</p> | <p>**Replicare macchine virtuali VMware * *</p><p>**(ad Azure)****</p>
+---|---|---|---|---
+Active Directory, DNS | S | S | S | S
+app Web (IIS, SQL) | S | S | S | S
+SCOM | S | S | S | S
+SharePoint | S | S | S | S
+<p>SAP </p><p>Replicare sito SAP in Azure per non cluster</p> | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft)
+Exchange (non DAG) | S | Presto disponibile | S | S
+Desktop remoto/VDI | S | S | S | N/D
+<p>Linux</p> <p>(sistema operativo e app) </p> | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft)
+Dynamics AX | S | S | S | S
+Dynamics CRM | S | Presto disponibile | S | Presto disponibile
+Oracle | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft) | S (testato da Microsoft)
+File server Windows | S | S | S | S
 
 ##Active Directory e DNS
 

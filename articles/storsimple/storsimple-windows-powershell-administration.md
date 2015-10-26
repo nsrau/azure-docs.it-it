@@ -95,7 +95,7 @@ Assicurarsi di utilizzare le seguenti impostazioni PuTTY per connettersi all'int
  	|---|---|
  	|Tasto backspace|Ctrl-? (127)|
 	|Tasti home o fine|Standard|
-	|Tasti e tastierino funzione|ESC[n~|
+	|Tasti e tastierino funzione|ESC[n\~|
 	|Stato iniziale dei tasti cursore|Normal|
 	|Stato iniziale del tastierino numerico|Normal|
 	|Abilitare le funzionalità di tastiera aggiuntive|Ctrl-Alt è diverso da AltGr|

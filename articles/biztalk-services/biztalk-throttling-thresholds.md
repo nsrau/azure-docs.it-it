@@ -28,7 +28,10 @@ Servizi BizTalk di Azure implementa la limitazione del servizio sulla base di du
 
 Nella tabella seguente sono elencate le origini e le soglie di limitazione:
 
-|| Descrizione | Threshold bassa \\ Threshold elevata| |---|---|---|---| | Memoria| % del sistema della memoria totale disponibile/byte file della pagina. <p><p>Totale byte file di pagina disponibile corrisponde a circa 2 volte la quantità di RAM del sistema. | 60% |70% | | Messaggi elaborati| Numero di messaggi elaborati simultaneamente|40 * numero di memorie centrali|100 * numero di memorie centrali|
+|| Descrizione | Threshold bassa | Threshold elevata|
+|---|---|---|---|
+|Memoria|% del sistema della memoria totale disponibile/byte file della pagina. <p><p>Totale byte file di pagina disponibile corrisponde a circa 2 volte la quantità di RAM del sistema. |60% |70% |
+|Messaggi elaborati|Numero di messaggi elaborati simultaneamente|40 * numero di memorie centrali|100 * numero di memorie centrali|
 
 Quando viene raggiunta una soglia superiore, Servizi BizTalk di Azure inizia la limitazione. La limitazione viene interrotta quando viene raggiunta la soglia inferiore. Se ad esempio il servizio utilizza il 65% della memoria di sistema, non viene applicata la limitazione. Se invece il servizio inizia a utilizzare il 70% della memoria di sistema, viene applicata la limitazione, che continua fino a quando il servizio non utilizzerà il 60% (soglia inferiore) della memoria di sistema.
 
@@ -39,7 +42,8 @@ Servizi BizTalk di Azure registra lo stato di limitazione (normale o limitato) e
 
 Quando Servizi BizTalk di Azure entra nello stato di limitazione, si verifica quanto segue:
 
-- La limitazione viene applicata a ogni istanza del ruolo, Ad esempio:<br/> IstanzaRuoloA è limitata. IstanzaRuoloB non è limitata. In questa situazione, i messaggi in IstanzaRuoloB vengono elaborati come previsto. I messaggi in IstanzaRuoloA vengono rimossi e non vengono eseguiti con l'errore seguente:<br/><br/> **Server occupato. Riprova più tardi.**<br/><br/>
+- La limitazione viene applicata a ogni istanza del ruolo, Ad esempio:<br/> IstanzaRuoloA è limitata. IstanzaRuoloB non è limitata. In questa situazione, i messaggi in IstanzaRuoloB vengono elaborati come previsto. I messaggi in IstanzaRuoloA vengono rimossi e non vengono eseguiti con l'errore seguente:<br/><br/>
+**Server occupato. Riprova più tardi.**<br/><br/>
 - Nessuna origine di pull esegue il polling o scarica un messaggio. Ad esempio:<br/> una pipeline effettua il pull dei messaggi da un'origine FTP esterna. L'istanza del ruolo che effettua il pull entra in stato limitato. In questa situazione, la pipeline interrompe il download di altri messaggi fino a quando l'istanza del ruolo non interrompe la limitazione.
 - Al client viene inviata una risposta in modo che possa inviare di nuovo il messaggio.
 - È necessario attendere che la limitazione sia risolta. In particolare, occorre attendere che venga raggiunta la soglia inferiore.

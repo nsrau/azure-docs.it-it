@@ -40,9 +40,12 @@ In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applica
 
 Azure inoltre offre altri modelli di hosting di calcolo per scopi più specifici, ad esempio:
 
-* [Servizi mobili](/services/mobile-services/) Ottimizzato per fornire un back-end del cloud per le app eseguite su dispositivi mobili.
-* [Batch](/services/batch/) Ottimizzato per l'elaborazione di volumi elevati di operazioni simili, idealmente carichi di lavoro che si prestano all'esecuzione di attività parallele su più computer.
-* [HDInsight (Hadoop)](/services/hdinsight/) Ottimizzato per l'esecuzione di processi [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) nei cluster Hadoop. 
+* [Servizi mobili](/services/mobile-services/)  
+  Ottimizzato per fornire un back-end del cloud per le app eseguite su dispositivi mobili.
+* [Batch](/services/batch/)  
+  Ottimizzato per l'elaborazione di volumi elevati di operazioni simili, idealmente carichi di lavoro che si prestano all'esecuzione di attività parallele su più computer.
+* [HDInsight (Hadoop)](/services/hdinsight/)  
+  Ottimizzato per l'esecuzione di processi [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) nei cluster Hadoop. 
 
 ## Scelta del modello da usare
 

@@ -644,7 +644,9 @@ Ora che l'applicazione Web è stata completata, è possibile pubblicarla in Azur
 6. Fare clic sulla scheda **Impostazioni**. ![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26.png)  
 7. Impostare la casella di riepilogo a discesa **Configurazione** su **Debug**.
 8. Fare clic sull'icona con la **freccia verso il basso** accanto alla voce **ApplicationDbContext** e impostarla su **ContactDB**.
-9. Selezionare la casella di controllo **Esegui migrazioni Code First**. In questo esempio selezionare questa casella di controllo solo se l'applicazione viene pubblicata per la prima volta. In questo modo, il metodo *Seed* nel file *Configuration.cs* verrà chiamato una volta sola.  
+9. Selezionare la casella di controllo **Esegui migrazioni Code First**.  
+
+	>[AZURE.NOTE]In questo esempio selezionare questa casella di controllo solo se l'applicazione viene pubblicata per la prima volta. In questo modo, il metodo *Seed* nel file *Configuration.cs* verrà chiamato una volta sola.
 
 10. Fare quindi clic su **Pubblica**. L'applicazione verrà pubblicata in Azure.
 

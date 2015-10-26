@@ -52,7 +52,8 @@ Accedere al [portale di Azure](https://manage.windowsazure.com/) come amministra
 3. Il **Nome** dell'applicazione deve essere una descrizione per gli utenti. Ad esempio, immettere "Contoso B2C app".
 4. Se si sta scrivendo un'applicazione basata su Web, impostare **Includi app Web o API Web** su **Sì**. Gli **URL di risposta** sono gli endpoint a cui Azure AD B2C restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44321/`. Se l'applicazione include un componente lato server (API) che deve essere protetto, sarà opportuno creare (e copiare) anche una **chiave privata dell'applicazione** facendo clic sul pulsante **Rigenera chiave**.
 
-    > [AZURE.NOTE]La **chiave privata dell'applicazione** è una credenziale di sicurezza importante.
+    > [AZURE.NOTE]
+    **Applicazione Segreta** è una credenziale di sicurezza importante.
 
 5. Se si sta scrivendo un'applicazione per dispositivi mobili, impostare **Includi client nativo** su **Sì**. Copiare l'**URI di reindirizzamento** predefinito creato automaticamente.
 6. Fare clic su **Crea** per registrare l'applicazione.

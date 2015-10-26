@@ -114,13 +114,13 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Attributo](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Attributo")
 
-    1.  Nella casella di testo **Object Identifier** digitare ****http://schemas.microsoft.com/identity/claims/objectidentifier**.
-2.  Nella casella di testo **Username** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-3.  Nella casella di testo **Display Name** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-4.  Nella casella di testo **First Name** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-5.  Nella casella di testo **Last Name** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-6.  Nella casella di testo **Email** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-7.  Fare clic su **Save**.
+    1.  Nella casella di testo **Object Identifier** digitare **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+    2.  Nella casella di testo **Username** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    3.  Nella casella di testo **Display Name** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    4.  Nella casella di testo **First Name** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    5.  Nella casella di testo **Last Name** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    6.  Nella casella di testo **Email** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    7.  Fare clic su **Save**.
 
 14. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 

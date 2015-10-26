@@ -54,7 +54,9 @@ Per creare una VM denominata *DNS01* nel subnet *FrontEnd* di una VNet denominat
 
 6. Nel pannello **Impostazioni**, assicurarsi che siano impostate le seguenti proprietà con i valori riportati di seguito, quindi fare clic su **OK**.
 
-	-**Account di archiviazione**: *vnetstorage* - **Network**: *TestVNet* - **Subnet**: *FrontEnd*
+	-**Account di archiviazione**: *vnetstorage*
+	- **Network**: *TestVNet*
+	- **Subnet**: *FrontEnd*
 
 	![Pannello Scegliere una dimensione](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 

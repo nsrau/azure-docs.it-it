@@ -225,7 +225,7 @@ Questo articolo del gruppo Microsoft Cloud and Enterprise Content Services è st
 
 Grazie a tutti per la collaborazione!
 
-##<a name="resources">Risorse aggiuntive</a> 
+## <a name="resources"></a>Risorse aggiuntive
 
 <table cellspacing="0" border="1">
 <tr>

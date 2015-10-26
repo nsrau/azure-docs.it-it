@@ -68,7 +68,10 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
 		data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
 		info:    network nsg create command OK
 
-	Parametri: - **-g (o --resource-group)**. Nome del gruppo di risorse in cui verrà creato il gruppo di sicurezza di rete. Per questo scenario, *TestRG*. - **-l (o --location)**. Area di Azure in cui verrà creato il nuovo gruppo di sicurezza di rete. Per questo scenario, *westus*. - **-n (o --name)**. Nome per il nuovo gruppo di sicurezza di rete. Per questo scenario, *NSG-FrontEnd*.
+	Parametri:
+	- **-g (o --resource-group)**. Nome del gruppo di risorse in cui verrà creato il gruppo di sicurezza di rete. Per questo scenario, *TestRG*.
+	- **-l (o --location)**. Area di Azure in cui verrà creato il nuovo gruppo di sicurezza di rete. Per questo scenario, *westus*.
+	- **-n (o --name)**. Nome per il nuovo gruppo di sicurezza di rete. Per questo scenario, *NSG-FrontEnd*.
 
 4. Eseguire il comando **azure network nsg rule create** per creare una regola che consenta l'accesso alla porta 3389 (RDP) da Internet.
 
@@ -102,7 +105,7 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
 	- **-n (o --name)**. Nome per la nuova regola. Per questo scenario, *rdp-rule*.
 	- **-c (o --access)**. Livello di accesso per la regola (Deny o Allow).
 	- **-p (o--protocol)**. Protocollo (Tcp, Udp o *) per la regola.
-- **-r (o--direction)**. Direzione di connessione (Inbound o Outbound).
+	- **-r (o--direction)**. Direzione di connessione (Inbound o Outbound).
 	- **-y (o--priority)**. Priorità per la regola.
 	- **-f (o --source-address-prefix)**. Prefisso dell'indirizzo di origine in CIDR o con tag predefiniti.
 	- **-o (o --source-port-range)**. Porta o intervallo di porte di origine.

@@ -475,7 +475,9 @@ La funzione UDF può in seguito essere usata in query come quella riportata nell
 ## API della Language-Integrated Query di JavaScript
 Oltre a eseguire una query utilizzando la sintassi SQL del DocumentDB, il SDK sul lato server consente di eseguire query ottimizzate tramite un'interfaccia intuitiva JavaScript senza alcuna conoscenza di SQL. L’API della query JavaScript consente di creare query a livello di programmazione passando funzioni predicate in chiamate di funzione concatenabili, con una sintassi familiare alle librerie Javascript predefinite e diffuse della matrice ECMAScript5 come lodash. Le query vengono analizzate dal runtime JavaScript per essere eseguite in modo efficiente utilizzando gli indici di DocumentDB.
 
-> [AZURE.NOTE]`__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()`. <br/> In altre parole, è possibile utilizzare `__` o `getContext().getCollection()` per accedere all’API della query JavaScript.
+> [AZURE.NOTE]`__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()`.
+> <br/>
+> In altre parole, è possibile utilizzare `__` o `getContext().getCollection()` per accedere all’API della query JavaScript.
 
 Le funzioni supportate includono: <ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li> Inizia una chiamata concatenata che deve terminare con il valore(). </li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li> Filtra l’input tramite una funzione predicato che restituisce true/false per filtrare i documenti in entrata e in uscita nel set risultante. Tale funzionamento è simile a quello di una clausola WHERE in SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li> Consente di applicare una proiezione data una funzione di trasformazione che esegue il mapping di ogni elemento di input a un valore o oggetto JavaScript. Tale funzionamento è simile a quello di una clausola SELECT in SQL. </li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li> E’ un collegamento per una mappa che estrae il valore di una singola proprietà da ogni elemento di input. </li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li> Combina e appiattisce matrici da ogni elemento di input in un’unica matrice. Tale funzionamento è simile a quello di SelectMany in LINQ. </li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li> Produce un nuovo set di documenti ordinando i documenti nel flusso di documenti di input in ordine crescente utilizzando il predicato specificato. Tale funzionamento è simile a quello della clausola ORDER BY in SQL. </li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li> Produce un nuovo set di documenti ordinando i documenti nel flusso di documenti di input in ordine decrescente utilizzando il predicato specificato. Il funzionamento è simile a quello di una clausola ORDER BY x DESC in SQL. </li> </ul> </li> </ul>
 
@@ -661,7 +663,8 @@ Tutte le operazioni di DocumentDB possono essere eseguite in modalità RESTful. 
 	}
 
 
-La stored procedure viene registrata eseguendo una richiesta POST a fronte dell'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs con il corpo contenente la stored procedure da creare. Trigger e funzioni definite dall'utente possono essere registrati in modo analogo eseguendo una richiesta POST rispettivamente su /triggers e /udfs. Questa stored procedure può quindi essere eseguita tramite una richiesta POST sul relativo collegamento alle risorse:
+La stored procedure viene registrata eseguendo una richiesta POST a fronte dell'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs con il corpo contenente la stored procedure da creare. Trigger e funzioni definite dall'utente possono essere registrati in modo analogo eseguendo una richiesta POST rispettivamente su /triggers e /udfs.
+Questa stored procedure può quindi essere eseguita tramite una richiesta POST sul relativo collegamento alle risorse:
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>

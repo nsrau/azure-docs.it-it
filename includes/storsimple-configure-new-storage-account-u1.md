@@ -35,7 +35,7 @@
 	  		
  - Se è stato selezionato **Openstack** come provider del servizio cloud, fornire un **nome host**, una **chiave di accesso** e una **chiave segreta**.
 
-        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
+        > [AZURE.NOTE] Per tutti i provider di servizi cloud, ad eccezione di Azure, è consentito l'uso di un nome descrittivo. È possibile usare nomi descrittivi e creare più di un account di archiviazione con lo stesso set di credenziali.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 

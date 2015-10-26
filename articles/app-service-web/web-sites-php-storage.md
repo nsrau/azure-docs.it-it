@@ -41,7 +41,8 @@ Per installare le librerie client PHP per Azure tramite Composer, attenersi alla
 
 1. [Installare Git][install-git]
 
-	> [AZURE.NOTE]In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
+> [AZURE.NOTE]
+> In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
 
 2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
 

@@ -88,7 +88,10 @@ Crea una richiesta di tipo "crea modello".
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri | | apiVersion | 1.0 | ||| | Corpo della richiesta | NESSUNO |
+|	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri | 
+| apiVersion | 1.0 | 
+||| 
+| Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -138,7 +141,8 @@ Crea una richiesta di tipo "ottieni modello":
 |:--------			|:--------								|
 |	id |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 |	apiVersion | 1\.0 |
-||| | Corpo della richiesta | NESSUNO |
+||| 
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -200,7 +204,8 @@ Recupera tutti i modelli dell'utente corrente.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | Corpo della richiesta | NESSUNO |
+||| 
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -268,7 +273,8 @@ XML OData
 |:--------			|:--------								|
 |	id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 |	apiVersion | 1\.0 |
-||| | Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere tutto il tag.|
+||| 
+| Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere tutto il tag.|
 
 **Risposta**:
 
@@ -285,7 +291,8 @@ Elimina un modello esistente in base all'ID.
 |:--------			|:--------								|
 |	id |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 |	apiVersion | 1\.0 |
-||| | Corpo della richiesta | NESSUNO |
+||| 
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -328,7 +335,8 @@ Disponibile solo per la compilazione di raccomandazioni.
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1\.0 |
-||| | Corpo della richiesta | NESSUNO |
+||| 
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -564,7 +572,8 @@ Disponibile solo per la compilazione di raccomandazioni.
 |	modelId |	Identificatore univoco del modello. |
 |	buildId |	Facoltativo: numero che identifica una compilazione completata. |
 |	apiVersion | 1\.0 |
-||| | Corpo della richiesta | NESSUNO |
+||| 
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -643,7 +652,8 @@ Ottiene un esempio del modello di raccomandazione.
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1\.0 |
-||| | Corpo della richiesta | NESSUNO |
+||| 
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -796,7 +806,8 @@ Esistono 4 tipi di regole: <strong>BlockList</strong>: consente di specificare u
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	apiVersion | 1\.0 |
-||| | Corpo della richiesta | NESSUNO |
+||| 
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 

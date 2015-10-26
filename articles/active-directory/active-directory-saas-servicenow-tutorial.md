@@ -3,7 +3,8 @@
 #Esercitazione: Integrazione di Azure Active Directory con ServiceNow
 >[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=521880).
   
-Questa esercitazione descrive l'integrazione di Azure e ServiceNow. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e ServiceNow.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant in ServiceNow
@@ -94,7 +95,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
      6\.6. Per **Sign LogoutRequest** selezionare **Yes**.
 
-     6\.7. Nella casella di testo **When SAML 2.0 single sign-on fails because the session is not authenticated, or this is the first login, redirect to this URL** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
+     6.7. Nella casella di testo **In caso di errore Single Sign-On SAML 2.0 per mancata autenticazione sessione o per primo accesso, reindirizza a questo URL** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
 
   
 

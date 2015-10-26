@@ -25,7 +25,8 @@
 1. Passare al pannello delle funzionalità B2C nel [portale di anteprima di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Passare dal tenant B2C in un altro tenant a cui è associata una sottoscrizione di Azure. In genere, questa è il tenant di dipendente o il tenant predefinito creato automaticamente quando è stata effettuata l'iscrizione per una sottoscrizione di Azure. Leggere [questo articolo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) per ulteriori informazioni sulla relazione tra le sottoscrizioni di Azure e le directory di Azure AD.
 
-    > [AZURE.IMPORTANT]Questo passaggio è obbligatorio. Il processo avrà esito negativo se non si esegue questo passaggio.
+    > [AZURE.IMPORTANT]
+    Questo passaggio è obbligatorio. Il processo avrà esito negativo se non si esegue questo passaggio.
 
     ![Supporto - Cambio di directory](./media/active-directory-b2c-support/support-switch-dir.png)
 

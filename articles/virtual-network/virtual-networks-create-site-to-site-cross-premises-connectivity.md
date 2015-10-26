@@ -64,7 +64,8 @@ Se si intende usare questa esercitazione per configurare una rete virtuale cross
 
 -  Dispositivo VPN con un indirizzo IPv4 pubblico. L'indirizzo IP è necessario per completare la procedura guidata. Il dispositivo VPN non può essere protetto tramite NAT (Network Address Translator) e deve soddisfare gli standard del dispositivo minimi. Per ulteriori informazioni, vedere [Informazioni sui dispositivi VPN per Rete virtuale](http://go.microsoft.com/fwlink/p/?LinkID=248098).
 
-	Nota: è possibile usare il servizio Routing e Accesso remoto in Windows Server come parte della soluzione VPN. Tuttavia, in questa esercitazione non vengono descritte le procedure di configurazione del servizio Routing e Accesso remoto. Per informazioni sulla configurazione del servizio Routing e Accesso remoto, vedere [Modelli del servizio Routing e Accesso remoto](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
+	Nota: è possibile usare il servizio Routing e Accesso remoto in Windows Server come parte della soluzione VPN. Tuttavia, in questa esercitazione non vengono descritte le procedure di configurazione del servizio Routing e Accesso remoto.
+	Per informazioni sulla configurazione del servizio Routing e Accesso remoto, vedere [Modelli del servizio Routing e Accesso remoto](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
 
 -  Esperienza nella configurazione di un router per una connessione in modalità tunnel IPsec o assistenza da parte di una persona esperta.
 

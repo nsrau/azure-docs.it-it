@@ -131,7 +131,7 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato usando W
 
 5. Nella finestra di dialogo **New PHP File** assegnare al file il nome **secureResource.php**, quindi fare clic su **Finish**.
 
-6. Nel nuovo file **secureResource.php** immettere il codice seguente, sostituendo il percorso **c:\\phpLibraries** con il percorso radice in cui è stato scaricato il codice di esempio. Il percorso radice dovrebbe includere il file **simpleSAML.php** e la cartella **federation**:
+6. Nel nuovo file **secureResource.php** immettere il codice seguente, sostituendo il percorso **c:\phpLibraries** con il percorso radice in cui è stato scaricato il codice di esempio. Il percorso radice dovrebbe includere il file **simpleSAML.php** e la cartella **federation**:
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');

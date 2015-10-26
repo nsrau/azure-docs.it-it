@@ -62,7 +62,7 @@ Vengono registrati i seguenti tipi di richieste anonime:
 
 - Richieste GET non riuscite con codice di errore 304 (non modificate)
 
-Tutte le altre richieste anonime non riuscite non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx) e [Formato log Analisi archiviazione(https://msdn.microsoft.com/library/hh343259.aspx))].
+Tutte le altre richieste anonime non riuscite non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx) e [Formato log Analisi archiviazione](https://msdn.microsoft.com/library/hh343259.aspx).
 
 ### Come vengono archiviati i log
 Tutti i log vengono archiviati in BLOB di blocchi in un contenitore denominato $logs, che viene creato automaticamente quando viene abilitata Analisi archiviazione per un account di archiviazione. Il contenitore $logs si trova nello spazio dei nomi BLOB dell'account di archiviazione, ad esempio: `http://<accountname>.blob.core.windows.net/$logs`. Questo contenitore non può essere eliminato una volta abilitata Analisi di archiviazione, sebbene sia possibile eliminarne il contenuto.

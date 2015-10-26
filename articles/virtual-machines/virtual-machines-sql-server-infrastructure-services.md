@@ -55,7 +55,7 @@ Per determinare le impostazioni di configurazione migliori della macchina virtua
 
 Oltre all'analisi delle procedure ottimali per le prestazioni, altre attività iniziali includono:
 
-- [Esaminare le procedure consigliate relative alla sicurezza per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼](virtual-machines-sql-server-security-considerations.md)
+- [Esaminare le procedure consigliate relative alla sicurezza per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-security-considerations.md)
 - [Configurare la connettività](virtual-machines-sql-server-connectivity.md)
 
 ### Migrare i dati
