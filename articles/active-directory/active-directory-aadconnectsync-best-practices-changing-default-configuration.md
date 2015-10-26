@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Procedure consigliate per modificare la configurazione predefinita | Microsoft Azure"
+	pageTitle="Procedure consigliate per modificare la configurazione predefinita | Microsoft Azure | Microsoft Azure"
 	description="Fornisce le procedure consigliate per modificare la configurazione predefinita del servizio di sincronizzazione Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -55,11 +55,11 @@ Quando è necessario modificare la configurazione predefinita, eseguire le opera
 
 
 
-## Risorse aggiuntive
+## Passaggi successivi
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-* [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
-* [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

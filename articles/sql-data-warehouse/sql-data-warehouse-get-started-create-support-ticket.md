@@ -84,4 +84,4 @@ Dopo avere inviato la richiesta di supporto, si verrà contattati dal team di su
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [forum MSDN su SQL Data Warehouse di Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

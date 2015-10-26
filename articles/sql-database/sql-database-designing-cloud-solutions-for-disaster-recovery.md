@@ -3,7 +3,7 @@
    description="Informazioni su come progettare la soluzione cloud per il ripristino di emergenza scegliendo il modello di failover appropriato."
    services="sql-database"
    documentationCenter="" 
-   authors="sashan" 
+   authors="anosov1960" 
    manager="jeffreyg" 
    editor="monicar"/>
 
@@ -85,8 +85,7 @@ Gestione traffico dovrebbe essere configurato per il routing delle prestazioni p
 Se viene rilevata l'interruzione di un database nell'area primaria, avviare il failover del database primario in una delle aree secondarie per modificare la posizione del database primario. Gestione traffico escluderà automaticamente l'endpoint offline dalla tabella di routing, ma continuerà a instradare il traffico dell'utente finale alle rimanenti istanze online. Poiché il database primario ora si trova in un'area diversa, tutte le istanze online devono modificare la stringa di connessione SQL in lettura/scrittura per connettersi al nuovo database primario. È importante apportare questa modifica prima di avviare il failover del database. Le stringhe di connessione SQL di sola lettura dovrebbero restare invariate perché puntano sempre al database nella stessa area. I passaggi del failover sono:
 
 1. modificare le stringhe di connessione SQL in lettura/scrittura in modo che puntino al nuovo database primario
-2. chiamare il database secondario designato per [avviare il failover del database](https://msdn.microsoft.com/
-3. /library/azure/dn509573.aspx) 
+2. chiamare il database secondario designato per [avviare il failover del database](https://msdn.microsoft.com/library/azure/dn509573.aspx) 
 
 Il diagramma seguente illustra la nuova configurazione dopo il failover. ![Figura 5](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
 
@@ -148,4 +147,4 @@ La strategia di ripristino di emergenza specifica può combinare o estendere que
 | Distribuzione attiva/attiva per il bilanciamento del carico dell'applicazione | Accesso in lettura/scrittura < 5 sec | Tempo di rilevamento errore + chiamata API di failover + modifica della stringa di connessione SQL + test di verifica dell'applicazione
 | Distribuzione attiva/passiva per la conservazione dei dati | Accesso di sola lettura < 5 sec Accesso di lettura/scrittura = zero | Accesso di sola lettura = tempo di rilevamento errore di connettività + test di verifica dell'applicazione <br>Accesso di lettura/scrittura = tempo di riduzione dell'entità dell'interruzione 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

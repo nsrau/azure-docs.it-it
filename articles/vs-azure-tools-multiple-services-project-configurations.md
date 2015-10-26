@@ -110,4 +110,4 @@ Per configurare le impostazioni di un intero progetto di servizio cloud di Azure
 |Sviluppo|In questa pagina è possibile specificare le istruzioni per la configurazione della compilazione e le condizioni in cui sono eseguiti gli eventi di post-compilazione.|
 |Web|In questa pagina è possibile configurare le impostazioni che sono correlate al server Web.|
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

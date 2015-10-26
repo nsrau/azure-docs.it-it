@@ -26,4 +26,4 @@
 
 8. Dopo l'aggiornamento di entrambi i controller, uscire dalla modalità di manutenzione. Per istruzioni, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](storsimple-update-device.md#step4).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Reti note"
-	description="Configurando le reti note si evita che indirizzi IP di proprietà dell'organizzazione vengano inclusi nei report Accessi da più aree geografiche e Accessi da indirizzi IP con attività sospetta."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="msStevenPo"
+	pageTitle="Reti note" 
+	description="Configurando le reti note si evita che indirizzi IP di proprietà dell'organizzazione vengano inclusi nei report Accessi da più aree geografiche e Accessi da indirizzi IP con attività sospetta." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="markusvi" 
+	manager="msStevenPo"  
 	editor=""/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015" 
 	ms.author="markvi"/>
 
 # Reti note
@@ -56,4 +56,4 @@ Per impedire che casi come questi generino report sulla sicurezza fuorvianti, è
 * [Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

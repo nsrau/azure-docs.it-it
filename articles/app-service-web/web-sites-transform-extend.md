@@ -182,4 +182,4 @@ Si noti che l'aspetto dell'URL è uguale a quello dell'URL dell'app Web, ad ecce
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

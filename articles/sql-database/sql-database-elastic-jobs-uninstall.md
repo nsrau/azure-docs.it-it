@@ -64,4 +64,4 @@ Per ulteriori informazioni sui processi dei database elastici, vedere [Panoramic
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

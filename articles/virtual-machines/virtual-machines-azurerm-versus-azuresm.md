@@ -21,7 +21,7 @@
 
 L'inclusione delle funzionalità di calcolo, rete e archiviazione con Gestione risorse di Microsoft Azure sostanzialmente consentirà di semplificare la distribuzione e la gestione di complesse applicazioni in esecuzione in IaaS. Molte applicazioni richiedono una combinazione di risorse, tra cui una rete virtuale, un account di archiviazione, una macchina virtuale e un'interfaccia di rete. Gestione risorse di Microsoft Azure offre la possibilità di creare un modello JSON per distribuire e gestire tutte queste risorse insieme come una singola applicazione.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse o il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ## Vantaggi dell’integrazione del calcolo, della rete e delle risorse di archiviazione in Gestione risorse di Microsoft Azure
@@ -116,4 +116,4 @@ La funzionalità non è supportata al momento. Non è possibile connettere le re
 
 E’ possibile trovare un set completo di modelli iniziali in[modelli di Guida rapida di gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

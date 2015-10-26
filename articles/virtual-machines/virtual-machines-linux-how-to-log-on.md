@@ -22,7 +22,7 @@
 
 #Come accedere a una macchina virtuale che esegue Linux #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra l’utilizzo di una macchina virtuale creata tramite il metodo di distribuzione classico. È possibile seguire una procedura simile per la macchina virtuale creata utilizzando il [modello di distribuzione di Gestione risorse](virtual-machines-linux-tutorial-portal-rm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-tutorial-portal-rm.md).
 
 Per accedere a una macchina virtuale in cui è in esecuzione il sistema operativo Linux, si usa un client SSH (Secure Shell).
 
@@ -56,4 +56,4 @@ In questa procedura viene illustrato come usare il programma PuTTY per accedere 
 <!-- LINKS -->
 [Come reimpostare una password o SSH per le macchine virtuali Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

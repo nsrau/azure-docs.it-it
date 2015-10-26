@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Effettuare il provisioning di cluster HBase in una rete virtuale | Microsoft Azure"
 	description="Introduzione all'uso di HBase in Azure HDInsight. Informazioni su come creare cluster HBase di HDInsight in Rete virtuale di Azure."
+	keywords=""
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
@@ -9,12 +10,12 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/07/2015"
+   ms.author="jgao"/>
 
 # Effettuare il provisioning di cluster HBase in Rete virtuale di Azure
 
@@ -433,4 +434,4 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Dettagli di provisioning per il nuovo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usare azioni di script per personalizzare un cluster?"
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

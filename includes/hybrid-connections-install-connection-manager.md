@@ -15,4 +15,4 @@ Gestione connessione ibrida consente al computer locale di connettersi ad Azure 
 
 La configurazione della connessione ibrida è così completata.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

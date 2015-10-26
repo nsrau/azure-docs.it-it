@@ -268,4 +268,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/14/2015"
    ms.author="tomfitz"/>
 
-# Gestione e controllo dell'accesso alle risorse
+# Gestione dell'accesso alle risorse
 
 Con Gestione risorse di Azure, è possibile assicurarsi che gli utenti dell'organizzazione dispongano di autorizzazioni appropriate per gestire o accedere alle risorse. Gestione risorse sfrutta il controllo di accesso in base ai ruoli (RBAC), per cui è possibile applicare facilmente i criteri di sicurezza a singole risorse o gruppi di risorse. Ad esempio, è possibile concedere a un utente l'accesso a una macchina virtuale specifica in una sottoscrizione o consentire a un utente di gestire tutti i siti Web in una sottoscrizione, ma non altre risorse.
+
+Questo argomento analizza i comandi da usare per assegnare ruoli e autorizzazioni. Per una panoramica del controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 ## Concetti
 
@@ -36,7 +38,7 @@ Per comprendere i concetti di controllo di accesso in base ai ruoli, vengono rip
 | ------- | ----------------- |
 | Lettore | **/read (Leggere qualsiasi elemento) | | Proprietario | * (Leggere/scrivere qualsiasi elemento) |
 
-Per assegnare il ruolo **Lettore** all'**Utente A** per il gruppo di risorse denominato **ExampleGroup** e il ruolo **Proprietario** all'**Utente B** per l'intera sottoscrizione, verrà assegnato quanto segue:
+Per assegnare il ruolo **Lettore** all’**Utente A** per il gruppo di risorse denominato **ExampleGroup** e il ruolo **Proprietario** all’**Utente B** per l'intera sottoscrizione, verrà assegnato quanto segue:
 
 | Ruolo | Entità | Ambito |
 | --------|-------------|---------- |
@@ -55,94 +57,90 @@ In questo argomento, verrà illustrato come eseguire gli scenari comuni seguenti
 
 
 ## Come usare PowerShell per gestire l'accesso
-Se la versione più recente di Azure PowerShell non è ancora installata, vedere [Installare e configurare Azure PowerShell](../powershell-install-configure.md). Aprire la console di Azure PowerShell.
 
-1. Accedere all'account Azure con le proprie credenziali. Il comando restituisce le informazioni relative all'account.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-        PS C:\> Add-AzureAccount
-          
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-2. Se si hanno più sottoscrizioni, specificare l'ID sottoscrizione che si desidera usare per la distribuzione.
-
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
-
-3. Passare al modulo Gestione risorse di Azure.
-
-        PS C:\> Switch-AzureMode AzureResourceManager
 
 ### Visualizzare i ruoli disponibili
-Per visualizzare tutti i ruoli disponibili per la sottoscrizione, eseguire il comando **Get-AzureRoleDefinition**.
+Per visualizzare tutti i ruoli disponibili per la sottoscrizione, eseguire il comando **Get-AzureRmRoleDefinition**.
 
-    PS C:\> Get-AzureRoleDefinition
+    PS C:\> Get-AzureRmRoleDefinition
+    
+    Name             : API Management Service Contributor
+    Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+    IsCustom         : False
+    Description      : Lets you manage API Management services, but not access to them.
+    Actions          : {Microsoft.ApiManagement/Services/*, Microsoft.Authorization/*/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/resources/read...}
+    NotActions       : {}
+    AssignableScopes : {/}
 
-    Name                          Id                            Actions                  NotActions
-    ----                          --                            -------                  ----------
-    API Management Service Con... /subscriptions/####... {Microsoft.ApiManagement/S...   {}
-    Application Insights Compo... /subscriptions/####... {Microsoft.Insights/compon...   {}
+    Name             : Application Insights Component Contributor
+    Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+    IsCustom         : False
+    Description      : Lets you manage Application Insights components, but not access to them.
+    Actions          : {Microsoft.Insights/components/*, Microsoft.Insights/webtests/*, Microsoft.Authorization/*/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/read...}
+    NotActions       : {}
+    AssignableScopes : {/}
     ...
 
 ### Concedere l'autorizzazione di Lettore a un gruppo per la sottoscrizione.
-1. Esaminare la definizione di ruolo **Lettore**, fornendo il nome del ruolo quando si esegue il comando **Get-AzureRoleDefinition**. Verificare che le operazioni consentite siano quelle che si intende assegnare.
+1. Esaminare la definizione di ruolo **Lettore**, fornendo il nome del ruolo quando si esegue il comando **Get-AzureRmRoleDefinition**. Verificare che le operazioni consentite siano quelle che si intende assegnare.
 
-        PS C:\> Get-AzureRoleDefinition Reader
+        PS C:\> Get-AzureRmRoleDefinition Reader
    
-        Name            Id                            Actions           NotActions
-        ----            --                            -------           ----------
-        Reader          /subscriptions/####...        {*/read}          {}
+        Name             : Reader
+        Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+        IsCustom         : False
+        Description      : Lets you view everything, but not make any changes.
+        Actions          : {*/read}
+        NotActions       : {}
+        AssignableScopes : {/}
 
-2. Ottenere il gruppo di sicurezza richiesto eseguendo il comando **Get-AzureADGroup**. Specificare il nome effettivo del gruppo nella sottoscrizione. Di seguito è riportato ExampleAuditorGroup.
+2. Ottenere il gruppo di sicurezza richiesto eseguendo il comando **Get-AzureRmADGroup**. Specificare il nome effettivo del gruppo nella sottoscrizione. Di seguito è riportato ExampleAuditorGroup.
 
-        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:\> $group = Get-AzureRmAdGroup -SearchString ExampleAuditorGroup
 
 3. Creare l'assegnazione dei ruoli per il gruppo di sicurezza del revisore. Al completamento del comando, viene restituita l'assegnazione del nuovo ruolo.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:\> New-AzureRmRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
-        Mail               :
-        RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
-        DisplayName        : Auditors
-        RoleDefinitionName : Reader
-        Actions            : {*/read}
-        NotActions         : {}
-        Scope              : /subscriptions/####
-        ObjectId           : ####
 
 ###Concedere l'autorizzazione di Collaboratore a un'applicazione per un gruppo di risorse.
-1. Esaminare la definizione di ruolo **Collaboratore** fornendo il nome del ruolo quando si esegue il comando **Get-AzureRoleDefinition**. Verificare che le operazioni consentite siano quelle che si intende assegnare.
+1. Esaminare la definizione di ruolo **Collaboratore** fornendo il nome del ruolo quando si esegue il comando **Get-AzureRmRoleDefinition**. Verificare che le operazioni consentite siano quelle che si intende assegnare.
 
-        PS C:\> Get-AzureRoleDefinition Contributor
+        PS C:\> Get-AzureRmRoleDefinition Contributor
 
-2. Ottenere l'ID dell'oggetto entità servizio eseguendo il comando **Get-AzureADServicePrincipal** e specificando il nome dell'applicazione nella sottoscrizione. Di seguito è riportato ExampleApplication.
+2. Ottenere l'ID dell'oggetto entità servizio eseguendo il comando **Get-AzureRmADServicePrincipal** e specificando il nome dell'applicazione nella sottoscrizione. Di seguito è riportato ExampleApplication.
 
-        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:\> $service = Get-AzureRmADServicePrincipal -SearchString ExampleApplicationName
 
-3. Creare le assegnazioni dei ruoli per l'entità servizio eseguendo il comando **New-AzureRoleAssignment**.
+3. Creare le assegnazioni dei ruoli per l'entità servizio eseguendo il comando **New-AzureRmRoleAssignment**.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:\> New-AzureRmRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 Per altre informazioni sulla configurazione di un'applicazione Azure Active Directory e su un'entità servizio, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](../resource-group-authenticate-service-principal.md).
 
 ###Concedere le autorizzazioni di Proprietario a un utente per una risorsa.
-1. Esaminare la definizione di ruolo **Proprietario**, fornendo il nome del ruolo quando si esegue il comando **Get-AzureRoleDefinition**. Verificare che le operazioni consentite siano quelle che si intende assegnare.
+1. Esaminare la definizione di ruolo **Proprietario**, fornendo il nome del ruolo quando si esegue il comando **Get-AzureRmRoleDefinition**. Verificare che le operazioni consentite siano quelle che si intende assegnare.
 
-        PS C:\> Get-AzureRoleDefinition Owner
+        PS C:\> Get-AzureRmRoleDefinition Owner
 
 2. Creare le assegnazioni dei ruoli per l'utente.
 
-        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:\> New-AzureRmRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###Elencare i registri di controllo del gruppo di risorse.
-Per ottenere il registro di controllo per un gruppo di risorse, eseguire il comando **Get-AzureResourceGroupLog**.
+Per ottenere il log di controllo per un gruppo di risorse, eseguire il comando **Get-AzureRmLog** ( o **Get-AzureResourceGroupLog** per le versioni di Azure PowerShell precedenti all'anteprima 1.0).
 
-      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroupName
 
 ## Come usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows
 
-Se l'interfaccia della riga di comando per Mac, Linux e Windows non è installata oppure se è non stato configurato l'account dell'organizzazione per l'uso con l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+Se l’interfaccia della riga di comando per Mac, Linux e Windows non è installata oppure se è non stato configurato l'account dell'organizzazione per l'uso con l’interfaccia della riga di comando di Azure, vedere [Installare e configurare l’interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 1. Accedere all'account Azure con le proprie credenziali. Il comando restituisce il risultato dell'accesso dell'utente.
 
@@ -264,10 +262,10 @@ Creare l'assegnazione dei ruoli.
 
 ## Passaggi successivi
 
-- [Controllo di accesso in base al ruolo nel portale di Microsoft Azure](../role-based-access-control-configure.md)
-- [Creare una nuova entità servizio di Azure usando il portale di Azure classico](../resource-group-create-service-principal-portal.md)
-- [Autenticazione di un'entità servizio con Gestione risorse di Azure](../resource-group-authenticate-service-principal.md)
+- Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](../role-based-access-control-configure.md).
+- Per altre informazioni sull'uso delle entità servizio per gestire l'accesso per le applicazioni nella propria sottoscrizione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](../resource-group-authenticate-service-principal.md) e [Creare una nuova entità servizio di Azure usando il portale di Azure classico](../resource-group-create-service-principal-portal.md).
+- Per altre informazioni sulle operazioni di controllo all'interno dell'organizzazione, vedere [Operazioni di controllo con Gestione risorse](../resource-group-audit.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

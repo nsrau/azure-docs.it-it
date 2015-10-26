@@ -550,4 +550,4 @@ Se si desidera installare un'applicazione di esempio per questo e altri esempi d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

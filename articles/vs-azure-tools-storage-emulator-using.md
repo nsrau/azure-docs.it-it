@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configurazione e uso dell'emulatore di archiviazione con Visual Studio"
-	description="Configurazione e uso dell'emulatore di archiviazione con Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Configurazione e uso dell'emulatore di archiviazione con Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Configurazione e uso dell'emulatore di archiviazione con Visual Studio
 
@@ -43,4 +43,4 @@ L'emulatore di archiviazione fornisce un'interfaccia utente per visualizzare lo 
 
 Il nodo Archiviazione di Azure in Esplora Server consente di visualizzare i dati e modificare le impostazioni per i dati di BLOB e tabelle negli account di archiviazione, incluso l'emulatore di archiviazione. Per altre informazioni, vedere [Esplorazione e gestione delle risorse di archiviazione con Esplora server](https://msdn.microsoft.com/library/azure/ff683677.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

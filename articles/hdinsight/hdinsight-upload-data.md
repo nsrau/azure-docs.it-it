@@ -96,9 +96,9 @@ L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma c
 
 > [AZURE.NOTE]Se si userà sempre lo stesso account di archiviazione, anziché specificare l'account e la chiave per ogni comando è possibile impostare le variabili di ambiente seguenti:
 >
-> * **AZURE\_STORAGE\_ACCOUNT**: nome dell'account di archiviazione
+> * **AZURE_STORAGE_ACCOUNT**: nome dell'account di archiviazione
 >
-> * **AZURE\_STORAGE\_ACCESS\_KEY**: chiave dell'account di archiviazione
+> * **AZURE_STORAGE_ACCESS_KEY**: chiave dell'account di archiviazione
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -285,4 +285,4 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

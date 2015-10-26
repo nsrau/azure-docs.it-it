@@ -177,4 +177,4 @@ Il file di configurazione del servizio viene creato per ogni servizio cloud aggi
 
 [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

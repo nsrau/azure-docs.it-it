@@ -92,7 +92,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Attributi](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Attributi")
 
-8.  Per aggiungere i mapping di attributi obbligatori, seguire questa procedura:
+8.  Per aggiungere i mapping di attributi obbligatori, eseguire la procedura seguente:
 
     ![Attributi](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributi")
 
@@ -131,6 +131,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

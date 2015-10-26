@@ -39,7 +39,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-sumologic-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-sumologic-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -127,7 +127,7 @@ Per consentire agli utenti di Azure AD di accedere a SumoLogic, è necessario es
 
 4.  Nella finestra di dialogo **Nuovo utente**, eseguire la procedura seguente:
 
-    ![Nuovo utente](./media/active-directory-saas-sumologic-tutorial/IC778563.png "Nuovo utente")
+    ![New User](./media/active-directory-saas-sumologic-tutorial/IC778563.png "Nuovo utente")
 
     1.  Digitare le informazioni correlate dell’account Azure AD di cui si desidera effettuare il provisioning nelle caselle di testo **Nome**, **Cognome** ed **E-mail**.
     2.  Selezionare un ruolo.
@@ -154,4 +154,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

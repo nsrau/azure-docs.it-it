@@ -106,7 +106,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui gli amminist
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
 [Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=azuremobileengagement
 [Link 9]: http://azure.microsoft.com/services/mobile-engagement/
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
@@ -130,4 +130,4 @@ Di seguito sono indicati possibili problemi relativi al modo in cui gli amminist
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

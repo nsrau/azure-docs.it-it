@@ -48,4 +48,4 @@ Per iniziare a usare questi strumenti, vedere l'argomento relativo alla [conness
 <!--Other web references-->
 [portale di Azure]: http://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

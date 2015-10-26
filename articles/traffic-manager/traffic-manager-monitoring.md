@@ -119,4 +119,4 @@ Nella seguente tabella viene descritto il comportamento del monitoraggio di Gest
 [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

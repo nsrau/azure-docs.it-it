@@ -70,4 +70,4 @@ Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle eserci
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

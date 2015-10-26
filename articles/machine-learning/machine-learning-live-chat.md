@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
-    ms.author="luisca"/>
+    ms.date="10/14/2015" 
+    ms.author="olgali"/>
 #Ricevere assistenza tramite live chat in Machine Learning
 
 [Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md) offre un'interfaccia intuitiva per la creazione di modelli di Machine Learning. Per il supporto, sono disponibili una [raccolta](machine-learning-gallery-how-to-use-contribute-publish.md) e vari [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
@@ -31,4 +31,4 @@ I membri del team stanno rispondendo alla domanda. L'icona della live chat non v
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

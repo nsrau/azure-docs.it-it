@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Introduzione: Gestione delle password di Azure AD | Microsoft Azure" 
-	description="Consentire agli utenti di reimpostare le proprie password, individuare i prerequisiti per la reimpostazione delle password e abilitare il writeback delle password per gestire le password in locale in Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Introduzione: Gestione delle password di Azure AD | Microsoft Azure"
+	description="Consentire agli utenti di reimpostare le proprie password, individuare i prerequisiti per la reimpostazione delle password e abilitare il writeback delle password per gestire le password in locale in Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
@@ -194,7 +194,7 @@ Per poter abilitare e usare il writeback delle password, verificare che vengano 
 Il writeback delle password è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0419.0911**. Il writeback delle password con sblocco automatico dell'account è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0485.0222**. Se si esegue una versione precedente, aggiornarla almeno a questa versione prima di procedere. [Fare clic qui per scaricare la versione più recente di Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
 #### Per verificare la versione di Azure AD Sync
-1.	Passare a **%Programmi%\Azure Active Directory Sync**. 
+1.	Passare a %Programmi%\\Azure Active Directory Sync**.
 2.	Trovare il file eseguibile **ConfigWizard.exe**.
 3.	Fare clic con il pulsante destro del mouse sul file eseguibile e scegliere **Proprietà** dal menu di scelta rapida.
 4.	Fare clic sulla scheda **Dettagli**.
@@ -242,7 +242,7 @@ Dopo aver abilitato il writeback delle password nello strumento Azure AD Connect
 
 1.	Una volta completata l'installazione, se si bloccano le connessioni in uscita sconosciute nell'ambiente di installazione, sarà anche necessario aggiungere le seguenti regole del firewall. Assicurarsi di riavviare il computer con AAD Connect dopo aver apportato queste modifiche:
    - Consentire le connessioni in uscita sulla porta TCP 443
-   - Consentire le connessioni in uscita a https://ssprsbprodncu-sb.accesscontrol.windows.net/ 
+   - Consentire le connessioni in uscita a https://ssprsbprodncu-sb.accesscontrol.windows.net/
    - Se si usa un proxy o si hanno problemi di connettività in generale, consentire le connessioni in uscita sulla porta TCP 9350-9534
 
 ### Passaggio 4: Impostare le autorizzazioni di Active Directory appropriate
@@ -343,4 +343,4 @@ Dopo aver abilitato il writeback delle password, è possibile verificarne il fun
 [030]: ./media/active-directory-passwords-getting-started/030.jpg "Image_030.jpg"
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

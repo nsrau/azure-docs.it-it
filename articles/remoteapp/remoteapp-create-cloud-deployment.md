@@ -109,4 +109,4 @@ La procedura è stata completata e la raccolta RemoteApp nel cloud è stata crea
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

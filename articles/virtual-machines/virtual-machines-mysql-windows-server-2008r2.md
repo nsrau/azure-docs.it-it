@@ -20,7 +20,8 @@
 
 # Installare MySQL in una macchina virtuale creata con il modello di distribuzione classica che esegue Windows Server 2012 R2.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 [MySQL](http://www.mysql.com) è un database SQL open source molto diffuso. Dalla raccolta immagini del [portale di Azure](http://manage.windowsazure.com), è possibile creare una macchina virtuale che esegue Windows Server 2012 R2 dalla Galleria Immagini. Sarà quindi possibile installarla e configurarla come un server MySQL.
 
@@ -56,8 +57,8 @@ Per installare, configurare ed eseguire la versione Community di MySQL Server, s
 > [AZURE.NOTE]La procedura si riferisce alla versione Community 5.6.23.0 di MySQL e a Windows Server 2012 R2. Con altre versioni di MySQL o Windows Server, l'esperienza potrebbe essere diversa.
 
 1.	Dopo avere eseguito la connessione alla macchina virtuale tramite Desktop remoto, fare clic su **Internet Explorer** nella schermata Start.
-2.	Selezionare il pulsante **Strumenti** nell'angolo superiore destro (l'icona della ruota dentata) e quindi fare clic su **Opzioni Internet**. Fare clic sulla scheda **Sicurezza**, quindi sull'icona **Siti attendibili** e infine sul pulsante **Siti**. Aggiungere **http://*.mysql.com** all'elenco dei siti attendibili. Fare clic su **Chiudi** e quindi su **OK**. 
-3.	Nella barra degli indirizzi di Internet Explorer, digitare **http://dev.mysql.com/downloads/mysql/**. 
+2.	Selezionare il pulsante **Strumenti** nell'angolo superiore destro (l'icona della ruota dentata) e quindi fare clic su **Opzioni Internet**. Fare clic sulla scheda **Sicurezza**, quindi sull'icona **Siti attendibili** e infine sul pulsante **Siti**. Aggiungere http://*.mysql.com all'elenco dei siti attendibili. Fare clic su **Chiudi**, e quindi su **OK**.
+3.	Nella barra degli indirizzi di Internet Explorer, digitare http://dev.mysql.com/downloads/mysql/.
 4.	Usare il sito di MySQL per individuare e scaricare l'ultima versione del programma di installazione di MySQL per Windows. Quando si sceglie il programma di installazione di MySQL, scaricare la versione che contiene il set di file completo (ad esempio il file mysql-installer-community-5.6.23.0.msi da 282,4 MB) e salvare il file del programma di installazione sul desktop di Windows.
 5.	Sul desktop fare doppio clic sul file del programma di installazione per iniziare l'installazione.
 6.	Nella pagina **License Agreement** accettare il contratto di licenza e fare clic su **Next**.
@@ -129,4 +130,4 @@ Per testare la connessione remota al servizio MySQL Server in esecuzione nella m
 
 Per informazioni su MySQL, vedere la [Documentazione di MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

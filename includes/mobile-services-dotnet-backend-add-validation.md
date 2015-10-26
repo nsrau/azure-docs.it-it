@@ -42,4 +42,4 @@
 <!-- URLs. -->
 [Attività iniziali]: ../articles/mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

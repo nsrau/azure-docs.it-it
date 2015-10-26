@@ -29,4 +29,4 @@ Valore di timeout del tentativo | 1 secondo | 1 secondo
 
 Gestione risorse di Azure presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di[limiti API di gestione risorse di Azure](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

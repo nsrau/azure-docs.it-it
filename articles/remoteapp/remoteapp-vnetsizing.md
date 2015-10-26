@@ -1,20 +1,20 @@
 
 <properties 
     pageTitle="Informazioni sul ridimensionamento di una rete virtuale in Azure RemoteApp"
-	description="Informazioni sui requisiti relativi agli indirizzi IP per Azure RemoteApp in esecuzione con una rete virtuale"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="Informazioni sui requisiti relativi agli indirizzi IP per Azure RemoteApp in esecuzione con una rete virtuale" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -31,4 +31,4 @@ Consultare le informazioni seguenti per assicurarsi che la rete virtuale sia con
   
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

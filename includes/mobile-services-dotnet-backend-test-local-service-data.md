@@ -18,4 +18,4 @@ In questa sezione si utilizzerà Visual Studio per ospitare il servizio mobile i
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

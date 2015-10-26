@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Attività di spostamento dei dati
 Data factory include un [servizio disponibile a livello globale](#global) in grado di supportare lo spostamento di dati mediante [l'attività di copia](#copyactivity) tra i diversi archivi dati elencati di seguito. In Data factory è inoltre disponibile un supporto incorporato che consente di [spostare i dati in modo sicuro tra sedi locali e cloud](#moveonpremtocloud) mediante il Gateway di gestione dati.
+
+Per un'esercitazione rapida sull'utilizzo dell'attività di copia, vedere [Esercitazione: utilizzo di attività Copia in una Pipeline di Factory di dati di Azure](data-factory-get-started.md). Nell'esercitazione si utilizzerà l'attività di copia per copiare dati da un'archiviazione BLOB di Azure a un database SQL di Azure. Nella sezione seguente sono elencate tutte le origini e i sink supportati dall'attività di copia.
+
 
 ## Archivi dati con supporto per l'attività di copia
 Un'attività di copia consente di copiare i dati da un archivio dati **di origine** a un archivio dati **sink**. Data factory supporta gli archivi dati e le combinazioni origine/sink seguenti. Fare clic su un archivio dati per informazioni su come copiare dati da e verso tale archivio.
@@ -96,6 +99,6 @@ Quando viene eseguita un'attività di copia, nella sezione **typeProperties** ve
 
 
 ## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md) richiede solo alcuni minuti.
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

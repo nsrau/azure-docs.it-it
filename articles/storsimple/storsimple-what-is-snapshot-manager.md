@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="v-sharos" />
 
 # Che cos’è Gestione snapshot StorSimple?
@@ -23,7 +23,7 @@ Gestione Snapshot StorSimple è uno snap-in Microsoft Management Console (MMC) c
 
 In questa panoramica viene presentato Gestione snapshot StorSimple, vengono descritte le relative funzionalità e ne viene illustrato il ruolo in Microsoft Azure StorSimple.
 
-Per una panoramica dell'intero sistema di Microsoft Azure StorSimple, tra cui il dispositivo StorSimple, il servizio StorSimple Manager, Gestione snapshot StorSimple e l'adattatore StorSimple per SharePoint, vedere [Cos’è StorSimple?](storsimple-overview.md) e [Quali sono i componenti StorSimple?](storsimple-components.md)
+Per una panoramica dell'intero sistema di Microsoft Azure StorSimple, tra cui il dispositivo StorSimple, il servizio StorSimple Manager, Gestione snapshot StorSimple e l'adattatore StorSimple per SharePoint, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md).
  
 ## Scopo e architettura di Gestione snapshot StorSimple
 
@@ -63,15 +63,17 @@ I backup di Gestione snapshot StorSimple assumono la forma di snapshot increment
 - [Volumi e gruppi di volumi](#volumes-and-volume-groups) 
 - [Tipi e criteri di backup](#backup-types-and-backup-policies) 
 
-Per ulteriori informazioni sulle funzionalità di Gestione snapshot StorSimple e su come utilizzarle, vedere [Interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md).
+Per altre informazioni sulle funzionalità di Gestione snapshot StorSimple e su come usarle, vedere [Interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md).
 
 ## Volumi e gruppi di volumi
 
 Con Gestione snapshot StorSimple è possibile creare volumi, quindi configurarli in gruppi di volumi.
 
-Gestione snapshot StorSimple utilizza i gruppi di volumi per creare copie di backup coerenti con l'applicazione. La coerenza con l'applicazione esiste quando tutti i relativi file e database sono sincronizzati e rappresentano lo stato reale di un’applicazione in un momento specifico. I gruppi di volumi (anche noti come *Gruppi di coerenza*) sono alla base di un backup o di un processo di ripristino.
+Gestione snapshot StorSimple utilizza i gruppi di volumi per creare copie di backup coerenti con l'applicazione. La coerenza con l'applicazione esiste quando tutti i relativi file e database sono sincronizzati e rappresentano lo stato reale di un’applicazione in un momento specifico. I gruppi di volumi (anche noti come *Gruppi di coerenza*) sono alla base di un processo di backup o di ripristino.
 
->[AZURE.NOTE]I gruppi di volumi non corrispondono ai contenitori di volumi. Un contenitore di volumi contiene uno o più volumi che condividono un account di archiviazione cloud e altri attributi, come la crittografia e il consumo della larghezza di banda. Un contenitore di volumi singolo può contenere fino a 256 volumi StorSimple con thin provisioning. Per ulteriori informazioni sui contenitori di volumi, andare a [Gestione dei contenitori di volumi](storsimple-manage-volume-containers.md). I gruppi di volumi sono raccolte di volumi configurate per facilitare le operazioni di backup. Se si selezionano due volumi che appartengono a contenitori di volumi diversi, inserirli in un singolo gruppo di volumi, quindi creare un criterio di backup per tale gruppo di volumi. Il backup di ciascun volume verrà eseguito nel contenitore di volumi appropriato, utilizzando l'account di archiviazione appropriato.
+I gruppi di volumi non corrispondono ai contenitori di volumi. Un contenitore di volumi contiene uno o più volumi che condividono un account di archiviazione cloud e altri attributi, come la crittografia e il consumo della larghezza di banda. Un contenitore di volumi singolo può contenere fino a 256 volumi StorSimple con thin provisioning. Per altre informazioni sui contenitori di volumi, andare a [Gestione dei contenitori di volumi](storsimple-manage-volume-containers.md). I gruppi di volumi sono raccolte di volumi configurate per facilitare le operazioni di backup. Se si selezionano due volumi che appartengono a contenitori di volumi diversi, inserirli in un singolo gruppo di volumi, quindi creare un criterio di backup per tale gruppo di volumi. Il backup di ciascun volume verrà eseguito nel contenitore di volumi appropriato, utilizzando l'account di archiviazione appropriato.
+
+>[AZURE.NOTE]Tutti i volumi in un gruppo di volumi devono provenire da un singolo provider di servizi cloud.
 
 ## Integrazione con il servizio Copia Shadow del volume di Windows
 
@@ -144,8 +146,8 @@ Per informazioni sul monitoraggio dei processi di backup, andare a [Utilizzo di 
 
 ## Passaggi successivi
 
-- Ulteriori informazioni sull’[utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Ulteriori informazioni sull'[utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 
 - Scaricare [Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

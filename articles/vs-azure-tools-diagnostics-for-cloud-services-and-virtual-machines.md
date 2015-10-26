@@ -357,4 +357,4 @@ Nella finestra **Proprietà** impostare la proprietà **Copia nella directory di
 
 Per altre informazioni sulle registrazioni di diagnostica in Azure, vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](cloud-services-dotnet-diagnostics.md) e [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

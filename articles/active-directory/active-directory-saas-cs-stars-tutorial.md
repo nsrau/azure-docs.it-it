@@ -205,4 +205,4 @@ L'obiettivo di questa sezione è testare la configurazione dell'accesso Single S
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -19,8 +19,6 @@
 
 #Introduzione a Linux in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
-
 In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell'uso di macchine virtuali Linux nel cloud di Azure. Se si usa un'immagine presente nella raccolta, la distribuzione di una macchina virtuale Linux è un processo estremamente semplice.
 
 ## Autenticazione: nomi utente, password e chiavi SSH
@@ -99,4 +97,4 @@ In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In quest
 
  - **Vedere anche:** [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -20,7 +20,8 @@
 
 # Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata l'installazione di applicazioni in una macchina virtuale creata con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 Questo articolo illustra come installare e configurare Trend Micro Deep Security as a Service in una macchina virtuale (VM) nuova o esistente che esegue Windows Server. Deep Security as a Service offre protezione antimalware, un firewall, un sistema di prevenzione delle intrusioni e il monitoraggio dell'integrità.
 
@@ -86,4 +87,4 @@ Per l'avvio dell'agente sono necessari alcuni minuti dopo l'installazione. In se
 [Come accedere a una macchina virtuale che esegue Windows Server]: virtual-machines-log-on-windows-server.md
 [Estensioni VM e funzionalità di Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Carico di lavoro di farm intranet di SharePoint Fase 2: Configurare controller di dominio
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità SQL Server AlwaysOn in servizi di infrastruttura di Azure, vengono configurati due controller di dominio nella rete virtuale di Azure in Gestione dei servizi. Le richieste Web dei client per le risorse della farm di SharePoint possono quindi essere autenticate nella rete virtuale di Azure, anziché inviare tale traffico di autenticazione attraverso la connessione VPN o Azure ExpressRoute alla rete locale.
 
@@ -248,4 +249,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

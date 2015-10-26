@@ -95,8 +95,8 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Sì")
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

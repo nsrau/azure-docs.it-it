@@ -28,4 +28,4 @@ La procedura seguente consente di creare un nuovo servizio mobile in Azure e di 
 
 	Una volta completata la procedura guidata, i pacchetti NuGet vengono installati, un riferimento alla libreria client per Servizi mobili viene aggiunto al progetto e il codice sorgente del progetto viene aggiornato.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

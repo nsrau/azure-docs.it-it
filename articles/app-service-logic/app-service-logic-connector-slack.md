@@ -35,8 +35,8 @@ Nessuno | Post Message
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Selezionare **App per le API** e cercare "Slack Connector".
-3. Immettere il nome, il piano di servizio app e altre proprietà:
-![][1] 
+3. Immettere il nome, il piano di servizio app e altre proprietà: <br/>
+ ![][1] 
 
 4. Fare clic su **Crea**.
 
@@ -48,8 +48,8 @@ Dopo aver creato il connettore Slack, è possibile aggiungerlo come azione all'a
 
 1.	Nell'app per la logica aprire **Triggers and Actions**. [Creare una nuova app per la logica](app-service-logic-create-a-logic-app.md)
 
-2.	Il connettore Slack è elencato nella raccolta a destra:
-![][2]
+2.	Slack Connector è elencato nella raccolta a destra: <br/>
+ ![][2]
 
 3.	Selezionare il connettore Slack creato in precedenza per aggiungerlo automaticamente all'app per la logica.
 4.	Selezionare **Authorize**. Accedere all'account Slack. Verso la fine, viene chiesto di concedere al connettore l'autorizzazione per accedere all'account Slack. Selezionare **Authorizify**: 
@@ -99,4 +99,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -142,4 +142,4 @@ Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il disposit
 
 Rivedere tutte le[informazioni sulla sicurezza](storsimple-safety.md)prima di tentare di sostituire un componente hardware StorSimple.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

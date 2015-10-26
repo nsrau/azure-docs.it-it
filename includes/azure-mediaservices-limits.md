@@ -25,4 +25,4 @@ Account di archiviazione | |1\.000<sup>5</sup>
 
 <sup>5</sup> Gli account di archiviazione devono appartenere alla stessa sottoscrizione di Azure.
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -61,4 +61,4 @@ In questo articolo si è appreso come usare io.js con Siti Web di Azure, usando 
 [script di distribuzione io.js]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

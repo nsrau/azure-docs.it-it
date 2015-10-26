@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Utilizzo di Desktop remoto con i ruoli Azure"
-	description="Utilizzo di Desktop remoto con i ruoli Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Utilizzo di Desktop remoto con i ruoli Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Utilizzo di Desktop remoto con i ruoli Azure
 
@@ -75,4 +75,4 @@ Dopo aver pubblicato il servizio cloud in Azure, è possibile usare Esplora Serv
 
 1. Immettere il nome utente e la password creati in precedenza. L'accesso alla sessione remota è stato completato.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

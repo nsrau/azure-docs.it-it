@@ -1,10 +1,10 @@
 <properties
- pageTitle="Disponibilità elevata e ripristino di emergenza dell'hub IoT di Azure | Microsoft Azure"
- description="Descrive le funzionalità che consentono di creare soluzioni con opzioni di ripristino di emergenza."
+ pageTitle="Hub IoT disponibilità elevata e ripristino di emergenza | Microsoft Azure"
+ description="Descrive le funzionalità che consentono di creare soluzioni a disponibilità elevata con opzioni di ripristino di emergenza."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -37,7 +37,7 @@ Ad alto livello, per implementare un modello di failover di area con l'hub IoT, 
 Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
 - [Introduzione agli hub IoT (esercitazione)][lnk-get-started]
-- [Che cos'è l'hub IoT di Azure?][]
+- [Che cos'è l’hub IoT Azure?][]
 
 [Informazioni tecniche sulla continuità aziendale di Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 [Ripristino di emergenza e disponibilità elevata per applicazioni Azure]: https://msdn.microsoft.com/library/azure/dn251004.aspx
@@ -46,6 +46,6 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [guida per sviluppatori dell'hub IoT - Registro di identità]: iot-hub-devguide.md#identityregistry
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Che cos'è l'hub IoT di Azure?]: iot-hub-what-is-iot-hub.md
+[Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

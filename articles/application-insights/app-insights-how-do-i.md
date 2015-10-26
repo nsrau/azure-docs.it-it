@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/11/2015" 
 	ms.author="awills"/>
 
 # Cosa fare in Application Insights?
@@ -32,6 +32,11 @@ Impostare un [avviso](app-insights-alerts.md) per il **tempo di risposta del ser
 L'applicazione potrebbe inoltre dare segni di difficoltà tramite la restituzione di codici di errore. Impostare un avviso per le **richieste non riuscite**.
 
 Se si desidera impostare un avviso per le **eccezioni del server**, è necessario effettuare [alcune impostazioni aggiuntive](app-insights-asp-net-exceptions.md) per visualizzare i dati.
+
+### Inviare un messaggio di posta elettronica in caso di eccezioni
+
+1. [Configurare il monitoraggio delle eccezioni](app-insights-asp-net-exceptions.md)
+2. [Impostare un avviso](app-insights-alert.md) sulla metrica relativa al conteggio del numero di eccezioni
 
 
 ### Inviare un messaggio di posta elettronica per un evento generato dall'app
@@ -71,10 +76,29 @@ Alcune informazioni da considerare:
 * Un messaggio di posta elettronica viene inviato solo quando lo stato cambia. Questo è il motivo per cui è necessario inviare sia metriche con valori alti che metriche con valori bassi. 
 * Per valutare l'avviso, viene eseguita la media dei valori ricevuti nel periodo precedente. Ciò si verifica ogni volta che viene ricevuta una metrica. Per questo motivo è possibile che i messaggi di posta elettronica vengano inviati più frequentemente rispetto al periodo impostato.
 * Poiché vengono inviati messaggi di posta elettronica sia per avvisi con stato "Avviso" e che per avvisi con stato "Integro", è possibile riconsiderare l'evento unico come una condizione con due stati. Ad esempio, anziché un evento "processo completato", creare una condizione "processo in corso", dove è possibile ricevere messaggi di posta elettronica all'inizio e alla fine di un processo.
- 
-## Filtro della versione dell'applicazione
 
-Quando si pubblica una nuova versione dell'app, potrebbe essere opportuno separare i dati telemetrici delle diverse versioni.
+### Impostare automaticamente gli avvisi
+
+[Usare PowerShell per creare nuovi avvisi](app-insights-alerts/#set-alerts-by-using-powershell)
+
+## Usare PowerShell per gestire Application Insights
+
+* [Creare nuove risorse](app-insights-powershell-script-create-resource.md)
+* [Creare nuovi avvisi](app-insights-alerts/#set-alerts-by-using-powershell)
+
+## Versioni e indicatori delle applicazioni
+
+### Separare i risultati da sviluppo, test e produzione
+
+* Per ambienti diversi impostare valori ikey diversi
+* Per diversi indicatori (sviluppo, test, produzione) contrassegnare i dati di telemetria con diversi valori di proprietà
+
+[Altre informazioni](app-insights-separate-resources.md)
+ 
+
+### Filtrare in base al numero di build
+
+Quando si pubblica una nuova versione dell'app, potrebbe essere opportuno separare i dati telemetrici delle diverse build.
 
 È possibile impostare la proprietà della versione dell'applicazione in modo che sia possibile filtrare i risultati della [ricerca](app-insights-diagnostic-search.md) e di [Esplora metriche](app-insights-metrics-explorer.md).
 
@@ -119,4 +143,85 @@ Esistono diversi metodi di impostazione della proprietà della versione dell'app
 
     Per consentire a MSBuild di generare i numeri di versione, in AssemblyReference.cs impostare la versione come, ad esempio, `1.0.*`.
 
-<!---HONumber=Oct15_HO1-->
+## Monitorare i server back-end
+
+[Usare l'API di base](app-insights-windows-desktop.md)
+
+
+## Visualizzare i dati
+
+#### Dashboard con metriche da più app
+
+* In [Esplora metriche](app-insights-metrics-explorer.md) personalizzare il grafico e salvarlo come preferito. Aggiungerlo al dashboard di Azure.
+* 
+
+#### Dashboard con dati provenienti da altre fonti e Application Insights
+
+* [Esportare dati di telemetria in Power BI](app-insights-export-power-bi.md). 
+
+Or
+
+* Usare SharePoint come dashboard, dove i dati vengono visualizzati in Web part di SharePoint. [Usare l'esportazione continua e l'analisi dei flussi per eseguire l'esportazione in SQL](app-insights-code-sample-export-sql-stream-analytics.md). Usare PowerView per esaminare il database e creare una Web part di SharePoint per PowerView.
+
+
+### Applicazione di filtri complessi, segmentazione e join
+
+* [Usare l'esportazione continua e l'analisi dei flussi per eseguire l'esportazione in SQL](app-insights-code-sample-export-sql-stream-analytics.md). Usare PowerView per esaminare il database.
+
+<a name="search-specific-users"></a>
+### Filtrare gli utenti anonimi o autenticati
+
+Se gli utenti effettuano l'accesso, è possibile impostare l'[ID dell'utente autenticato](app-insights-api-custom-events-metrics.md#authenticated-users). Questa operazione non viene eseguita automaticamente.
+
+È quindi possibile:
+
+* Eseguire ricerche in base a ID utente specifici
+
+![](./media/app-insights-how-do-i/110-search.png)
+
+* Filtrare le metriche in base a utenti anonimi o autenticati
+
+![](./media/app-insights-how-do-i/115-metrics.png)
+
+## Elencare utenti specifici e il relativo uso
+
+Se si desidera [cercare utenti specifici](#search-specific-users), è possibile impostare l'[ID dell'utente autenticato](app-insights-api-custom-events-metrics/#authenticated-users).
+
+Se si desidera un elenco di utenti con i dati quali, ad esempio, le pagine visualizzate o la frequenza di accesso, sono disponibili due opzioni:
+
+* [Impostare l'ID dell'utente autenticato](app-insights-api-custom-events-metrics/#authenticated-users), [eseguire l'esportazione in un database](app-insights-code-sample-export-sql-stream-analytics.md) e usare gli strumenti appropriati per analizzare i dati utente.
+* Se si dispone solo di un numero limitato di utenti, inviare gli eventi o le metriche personalizzati usando i dati di interesse quali, ad esempio, il valore della metrica o il nome dell'evento, quindi impostando l'ID utente come proprietà. Per analizzare le visualizzazioni di pagina, sostituire la chiamata standard JavaScript trackPageView. Per analizzare i dati di telemetria sul lato server, usare un inizializzatore di telemetria per aggiungere l'ID utente a tutti i dati di telemetria del server. È quindi possibile filtrare e segmentare le metriche e le ricerche in base all'ID utente.
+
+
+## Ridurre il traffico dall'app ad Application Insights
+
+* In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) disabilitare tutti i moduli non necessari, ad esempio i contatori delle prestazioni.
+* Se si usa [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcolare l'aggregazione di batch di valori delle metriche prima di inviare il risultato. Un overload di TrackMetric() esegue questa operazione.
+
+Altre informazioni su [prezzi e quote](app-insights-pricing.md).
+
+## Visualizzare i contatori delle prestazioni di sistema
+
+Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile un set di contatori delle prestazioni di sistema. Esiste un pannello predefinito denominato **Server** in cui sono visualizzati alcuni set.
+
+![Aprire la risorsa Application Insights e fare clic su Server.](./media/app-insights-how-do-i/121-servers.png)
+
+### Se non vengono visualizzati dati dei contatori delle prestazioni
+
+* **Server IIS** sul proprio computer o in una macchina virtuale. [Installare Status Monitor](app-insights-monitor-performance-live-website-now.md). 
+* **Sito Web di Azure**: i contatori delle prestazioni non sono ancora supportati. Esistono diverse metriche che è possibile ottenere come una parte standard del Pannello di controllo del sito Web di Azure.
+* **Server Unix** - [Installare collectd](app-insights-java-collectd.md)
+
+### Per visualizzare altri contatori delle prestazioni
+
+* Innanzitutto [aggiungere un nuovo grafico](app-insights-metrics-explorer.md) e verificare che il contatore sia incluso nel set di base offerto.
+* In caso contrario, [aggiungere il contatore al set raccolto dal modulo del contatore delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters).
+
+
+ 
+
+### Ruoli Web di Azure
+
+Attualmente non viene eseguito il monitoraggio dei contatori delle prestazioni.
+
+<!---HONumber=Oct15_HO3-->

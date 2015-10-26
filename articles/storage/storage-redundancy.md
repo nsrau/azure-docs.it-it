@@ -1,20 +1,21 @@
-<properties
-	pageTitle="Replica di Archiviazione di Azure | Microsoft Azure"
-	description="I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le opzioni di replica includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
-	editor=""/>
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="tamram"/>
+<properties 
+  pageTitle="Replica di Archiviazione di Azure | Microsoft Azure" 
+  description="I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le opzioni di replica includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
+
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="10/07/2015" 
+  ms.author="tamram"/>
 
 # Replica di Archiviazione di Azure
 
@@ -55,7 +56,7 @@ Mentre per la maggior parte delle applicazioni è consigliabile adottare l'archi
 Con l'archiviazione con ridondanza della zona (ZRS) i dati vengono replicati in due o tre strutture all'interno di una singola area o in due aree, fornendo una durabilità maggiore rispetto all'archiviazione con ridondanza locale. Se per l'account di archiviazione è stata abilitata l'archiviazione con ridondanza della zona, la durabilità dei dati è assicurata anche in caso di problemi in una delle strutture.
 
 
->[AZURE.NOTE]L'archiviazione con ridondanza della zona è attualmente disponibile solo per i BLOB in blocchi. Tenere presente che dopo aver creato l'account di archiviazione e selezionato la replica con ridondanza della zona, non è possibile convertirlo per usarlo con un altro tipo di replica o viceversa.
+>[AZURE.NOTE]ZONA è attualmente disponibile solo per i BLOB in blocchi ed è supportata solo nelle versioni 2014-02-14 e versioni successive. Tenere presente che dopo aver creato l'account di archiviazione e selezionato la replica con ridondanza della zona, non è possibile convertirlo per usarlo con un altro tipo di replica o viceversa.
 
 
 ## Archiviazione con ridondanza geografica
@@ -103,4 +104,4 @@ Se si abilita l'accesso in sola lettura ai dati nell'area secondaria, i dati sar
 - [Emulatore di archiviazione di Microsoft Azure 3.1 con RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Documento SOSP su Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

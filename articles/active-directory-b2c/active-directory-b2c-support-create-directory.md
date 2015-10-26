@@ -34,4 +34,4 @@ Sono stati rilevati alcuni problemi che possono verificarsi durante la [creazion
 	- Eliminare il tenant appena creata e riprovare.
 - Se nessuna delle soluzioni elencate sopra risolve il problema, contattare il Supporto. Leggere [questo articolo](active-directory-b2c-support.md) su come presentare richieste di supporto per Azure AD B2C.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

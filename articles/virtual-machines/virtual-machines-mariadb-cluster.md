@@ -19,7 +19,8 @@
 
 # Cluster MariaDB (MySQL) - Esercitazione su Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di un cluster Maria DB con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 In questa esercitazione verrà creato un cluster multi-master [Galera](http://galeracluster.com/products/) di database [MariaDBs](https://mariadb.org/en/about/), un sostituto pronto all'uso per MySQL, per lavorare in un ambiente a disponibilità elevata in Macchine virtuali di Azure.
 
@@ -372,4 +373,4 @@ Può essere utile consultare gli articoli su [un metodo alternativo per creare u
 [problema noto n. 1268 nell’interfaccia della riga di comando di Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [un metodo alternativo per creare un cluster MySQL su Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

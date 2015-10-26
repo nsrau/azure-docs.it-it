@@ -723,4 +723,4 @@ In ogni ambiente è quindi possibile fornire un valore diverso per il parametro 
 
 Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

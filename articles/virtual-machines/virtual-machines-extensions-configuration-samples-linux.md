@@ -21,7 +21,8 @@
 
 Questo articolo fornisce una configurazione di esempio per la configurazione di estensioni di macchina virtuale di Azure per macchine virtuali di Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 Per ulteriori informazioni su queste estensioni fare clic: [Panoramica delle Estensioni di macchina virtuale di Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
@@ -189,4 +190,4 @@ Di seguito è riportato un modello di macchina virtuale completo per la creazion
 
 [Estensione di script personalizzato in una macchina virtuale Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

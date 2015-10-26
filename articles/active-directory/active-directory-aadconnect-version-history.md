@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure AD Connect: Cronologia delle versioni | Microsoft Azure"
-	description="Questo argomento elenca tutte le versioni di Azure AD Connect e Azure AD Sync."
-	services="active-directory"
-	documentationCenter=""
-	authors="AndKjell"
-	manager="stevenpo"
-	editor=""/>
+   description="Questo argomento elenca tutte le versioni di Azure AD Connect e Azure AD Sync."
+   services="active-directory"
+   documentationCenter=""
+   authors="AndKjell"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="andkjell"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="10/13/2015"
+   ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
 
@@ -137,9 +137,7 @@ Data di rilascio: settembre 2014
 
 **Rilascio iniziale di Azure AD Sync.**
 
-## Risorse aggiuntive
-[Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
+## Passaggi successivi
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-[Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

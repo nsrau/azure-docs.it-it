@@ -207,9 +207,9 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 <!--Link references-->
 
 [alerts]: app-insights-alerts.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

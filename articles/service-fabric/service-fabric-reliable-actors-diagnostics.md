@@ -155,4 +155,4 @@ Il runtime di The Reliable Actors runtime emits the following events related eme
 |ActorActivated|5|Informazioni|0x1|Un attore è stato attivato.|
 |ActorDeactivated|6|Informazioni|0x1|Un attore è stato disattivato.|
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

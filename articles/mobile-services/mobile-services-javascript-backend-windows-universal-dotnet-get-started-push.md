@@ -100,4 +100,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

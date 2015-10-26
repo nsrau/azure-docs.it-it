@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Ripristino di emergenza del database SQL"
-	description="Informazioni su come ripristinare un database da un errore o da un'interruzione del servizio del data center dell'area con le funzionalità di replica geografica e di ripristino geografico del database SQL."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Ripristino di emergenza del database SQL" 
+   description="Informazioni su come ripristinare un database da un errore o da un'interruzione del servizio del data center dell'area con le funzionalità di replica geografica e di ripristino geografico del database SQL." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 # Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio
 
@@ -103,4 +103,4 @@ Usare REST per eseguire il ripristino del database a livello di codice.
 Dopo aver completato il ripristino del database, sarà possibile configurare il database per l'uso seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

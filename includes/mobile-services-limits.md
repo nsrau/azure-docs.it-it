@@ -14,4 +14,4 @@
 
 Per ulteriori informazioni su questi limiti e per informazioni sui prezzi, vedere[prezzi: servizi mobili](https://azure.microsoft.com/pricing/details/mobile-services/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso di Gestione connessione ibrida | Microsoft Azure App Service"
-	description="Installare e configurare Gestione connessione ibrida e connettersi ai connettori locali in Azure App Service"
-	services="app-service\logic"
+	pageTitle="Uso di Gestione connessione ibrida | Microsoft Azure App Service" 
+	description="Installare e configurare Gestione connessione ibrida e connettersi ai connettori locali in Azure App Service" 
+	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger"
-	manager="dwrede"
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/23/2015" 
 	ms.author="mandia"/>
 
 # Connettersi ai connettori locali in Azure App Service usando Gestione connessione ibrida
@@ -133,4 +133,4 @@ Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connession
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

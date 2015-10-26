@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Personalizzare cluster HDInsight mediante le azioni script | Microsoft Azure" 
+	pageTitle="Personalizzare cluster HDInsight mediante Azione di script | Microsoft Azure" 
 	description="Informazioni su come personalizzare cluster HDInsight tramite le azioni script." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -44,7 +44,7 @@ Quando lo script è in esecuzione, il cluster entra nella fase **ClusterCustomiz
 L'output e i log degli errori dello script vengono archiviati nell'account di archiviazione predefinito specificato per il cluster. I log vengono archiviati in una tabella con il nome **u<\\frammento-nome-cluster><\\timestamp>setuplog**. Si tratta di log aggregati dello script eseguito su tutti i nodi (nodo head e nodi di lavoro) del cluster.
 
 
-Ogni cluster può accettare più azioni script che vengono richiamate nell'ordine in cui sono specificate. Uno script può essere eseguito nel nodo head, nei nodi di lavoro o in entrambi.
+Ogni cluster può accettare più azioni di script che vengono richiamate nell'ordine in cui sono specificate. Uno script può essere eseguito nel nodo head, nei nodi di lavoro o in entrambi.
 
 ## Chiamare gli script di Azione script
 
@@ -57,7 +57,7 @@ Nome | Script
 **Installare Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark].
 **Installare R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R nei cluster HDInsight][hdinsight-install-r].
 **Installare Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vedere [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
-\- **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
+- **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
 
 
 
@@ -71,7 +71,7 @@ Nome | Script
 	<table border='1'>
 	<tr><th>Proprietà</th><th>Valore</th></tr>
 	<tr><td>Nome</td>
-		<td>Specificare un nome per l'azione script.</td></tr>
+		<td>Specificare un nome per l'azione di script.</td></tr>
 	<tr><td>URI script</td>
 		<td>Specificare l'URI dello script da richiamare per personalizzare il cluster.</td></tr>
 	<tr><td>Tipo di nodo</td>
@@ -152,7 +152,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 2. Personalizzazione del cluster - Durante la creazione di un cluster, è possibile specificare impostazioni aggiuntive e componenti personalizzati, che verranno installati nei nodi del cluster.
 3. Esempi - Microsoft e altri utenti possono fornire esempi relativi all'uso dei componenti personalizzati più diffusi nei cluster HDInsight. Questi esempi vengono forniti senza supporto.
 
-## Sviluppare script di Azione script
+## Sviluppare script di Azione di script
 
 Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script].
 
@@ -176,4 +176,4 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Fasi durante il provisioning di un cluster"
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 # Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Hudson
-
-*Autore: [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 ## Panoramica
 
 L'articolo seguente descrive come usare il servizio BLOB di Azure come archivio di elementi di compilazione creati dalla soluzione di Integrazione continuata Hudson (CI) o come origine di file scaricabili da usare in un processo di compilazione. Queste informazioni possono rivelarsi utili nel caso in cui si codifichi in un ambiente di sviluppo Agile (utilizzando Java o altri linguaggi), le compilazioni vengano eseguite in base all'integrazione continuata e sia necessario un archivio per gli elementi di compilazione, ad esempio per poterli condividere con altri membri dell'organizzazione o clienti oppure per gestire un archivio. Un altro scenario è quando il processo di compilazione stesso richiede altri file, ad esempio dipendenze da scaricare come parte dell'input di compilazione.
 
-In questa esercitazione si utilizzerà il plug-in di Archiviazione di Azure per l'Integrazione continuata Hudson reso disponibile da Microsoft Open Technologies, Inc.
+In questa esercitazione si utilizzerà il plug-in di Archiviazione di Azure per l'Integrazione continuata Hudson reso disponibile da Microsoft.
 
 ## Introduzione a Hudson ##
+
 Hudson abilita l'integrazione continuata di un progetto software consentendo agli sviluppatori di integrare facilmente le modifiche apportate al codice e produrre compilazioni automaticamente e di frequente, aumentando così la produttività degli sviluppatori. Alle compilazioni è applicato il controllo delle versioni ed è possibile caricare gli elementi di compilazione in diversi archivi. In questo argomento viene illustrato come utilizzare l'archivio BLOB di Azure come archivio per gli elementi di compilazione. Verrà inoltre descritto come scaricare le dipendenze dall'archivio BLOB di Azure.
 
 Per altre informazioni su Hudson, vedere [Meet Hudson][].
@@ -173,8 +172,9 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
+## Passaggi successivi
+
   [Come creare un account di archiviazione]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
-  [ms-open-tech]: http://msopentech.com
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

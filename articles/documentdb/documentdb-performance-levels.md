@@ -122,4 +122,4 @@ Per altre informazioni su DocumentDB, vedere la [documentazione](http://azure.mi
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

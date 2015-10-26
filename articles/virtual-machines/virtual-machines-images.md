@@ -57,4 +57,4 @@ Per esempi dell'utilizzo di strumenti in una distribuzione classica:
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

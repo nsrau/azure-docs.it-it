@@ -27,4 +27,4 @@ Se si sta cercando il set completo dei limiti del servizio Microsoft Azure, vede
 - [Come vengono associate le sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Terminologia di Azure AD](active-directory-terminology.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

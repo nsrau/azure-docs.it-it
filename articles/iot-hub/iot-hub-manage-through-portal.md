@@ -1,18 +1,18 @@
 <properties
- pageTitle="Gestire hub IoT tramite il portale di Azure | Microsoft Azure"
+ pageTitle="Utilizzare il portale di Azure per gestire gli hub IoT | Microsoft Azure"
  description="Panoramica delle operazioni di creazione e gestione di hub IoT di Azure tramite il portale di Azure Portal"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="nasing"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="azure-iot"
+ ms.service="iot-hub"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="nasing"/>
 
@@ -42,23 +42,23 @@ Gli hub IoT si possono trovare in diverse posizioni.
 
 Per creare un hub IoT, l'utente deve assegnargli un nome. Questo nome deve essere univoco tra tutti gli hub. Non è consentita la duplicazione degli hub nel back-end, quindi è consigliabile assegnare all'hub un nome quanto più possibile univoco.
 
-### Scegliere il piano tariffario 
+### Scegliere il piano tariffario
 
 Il cliente può scegliere fra 3 piani: **Gratuito**, **Standard 1** e **Standard 2**. Il piano gratuito consente la connessione solo di 10 dispositivi all'hub IoT.
 
 **S1 (frequenza ridotta)**: L'edizione Hub IoT S1 (frequenza ridotta) è progettata per le soluzioni IoT con un numero elevato di dispositivi che generano quantità relativamente limitate di dati per dispositivo. Ogni unità dell'edizione S1 (frequenza ridotta) consente la connessione di un massimo di 500 dispositivi o un massimo di 50.000 messaggi al giorno per tutti i dispositivi connessi.
 
 **S2 (frequenza elevata)**: L'edizione Hub IoT S2 (frequenza elevata) è progettata per le soluzioni IoT in cui i dispositivi generano grandi quantità di dati. Ogni unità dell'edizione S2(frequenza elevata) consente la connessione di un massimo di 500 dispositivo o un massimo di 1,5 milioni di messaggi al giorno per tutti i dispositivi connessi.
- 
+
 ![][4]
 
 > [AZURE.NOTE]L'hub IoT consente solo un hub gratuito per sottoscrizione.
 
-### Unità hub IoT 
+### Unità hub IoT
 
 Un'unità IoT include 500 dispositivi, quindi la scelta del numero di unità IoT significa che il numero totale di dispositivi supportati per questo hub corrisponde al numero di unità moltiplicato per 500. Ad esempio, se si vuole che l'hub IoT supporti 1000 dispositivi, scegliere 2 unità.
 
-### Partizioni da dispositivo a cloud e gruppo di risorse 
+### Partizioni da dispositivo a cloud e gruppo di risorse
 
 È possibile modificare il numero di partizioni per un hub IoT. Le partizioni predefinite sono impostate su 4, ma è possibile scegliere un altro numero di partizioni da un elenco a discesa.
 
@@ -66,7 +66,7 @@ Per i gruppi di risorse non è necessario creare in modo esplicito un gruppo di 
 
 ![][5]
 
-### Scegliere le sottoscrizioni 
+### Scegliere le sottoscrizioni
 
 L'hub IoT di Azure mostra automaticamente un elenco di sottoscrizioni alle quali sono collegati gli account utente. È possibile scegliere una delle opzioni disponibili per associare l'hub IoT a una sottoscrizione.
 
@@ -89,23 +89,23 @@ Possono essere necessari alcuni minuti per la creazione dell'hub IoT, perché l'
 **Criteri di accesso condiviso**: sono i criteri che definiscono le autorizzazioni per la connessione di dispositivi e servizi all'Hub IoT. È possibile accedere a questi criteri facendo clic su **Criteri di accesso condiviso** in **Impostazioni**. In questo pannello è possibile modificare i criteri esistenti o aggiungerne di nuovi.
 
 ### Creare nuovi criteri
- 
+
 - Fare clic sul pulsante **Aggiungi** pulsante per aprire un pannello in cui è possibile immettere il nome dei nuovi criteri e le autorizzazioni da associare a questi criteri, come illustrato nella figura seguente.
- 
+
 	Sono disponibili numerose autorizzazioni che possono essere associate a questi criteri condivisi. I primi due criteri di **lettura del Registro di sistema ** e di **scrittura del Registro di sistema** consentono di concedere diritti di accesso in lettura e scrittura per l'archivio identità del dispositivo o per il registro delle identità. Scegliendo l'opzione di scrittura, verrà scelta automaticamente l'opzione di lettura.
 
  	I criteri di connessione del servizio concedono l'autorizzazione al gruppo di consumer per i servizi che si connettono all'Hub IoT, mentre i criteri di connessione del dispositivo concedono le autorizzazioni per il lato dispositivo dell'hub IoT.
-     
+
 - Fare clic su Crea criteri per aggiungere i criteri appena creati all'elenco esistente.
 
 ![][10]
 
-## Messaggistica 
+## Messaggistica
 
 Fare clic sui criteri di **Messaggistica** per visualizzare un elenco di proprietà per l'hub IoT che si sta modificando. Sono disponibili due tipi di proprietà principali che possono essere modificati o copiati: **Da cloud a dispositivo** e **Da dispositivo a cloud**.
 
 - **Impostazioni da cloud a dispositivo**: include due impostazioni secondarie **Durata (TTL) da cloud a dispositivo** e **Tempo di conservazione** per i messaggi. Quando si crea l'hub IoT inizialmente, entrambe queste impostazioni vengono create con un valore predefinito di 1 ora. Tuttavia, è possibile personalizzarle tramite i dispositivi di scorrimento o semplicemente digitando i valori.
- 
+
 - **Impostazioni da dispositivo a cloud**: include diverse impostazioni secondarie, alcune delle quali denominate/assegnate quando si crea l'hub IoT e possono essere copiate solo in altre impostazioni secondarie personalizzabili. Tutte queste impostazioni sono elencate nella sezione successiva.
 
 **Partizioni**: questo valore viene impostato quando si crea l'hub IoT e può essere modificato tramite questa impostazione.
@@ -135,7 +135,7 @@ Il passaggio da un piano elevato (S2) a un piano ridotto (S1) è consentito solo
 
 È possibile passare all'hub IoT che si vuole eliminare facendo clic su **Sfoglia** e quindi scegliendo l'hub appropriato da eliminare. Fare clic sul pulsante **Elimina** sotto il nome dell'hub per eliminarlo.
 
-  
+
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
   [5]: ./media/iot-hub-manage-through-portal/location1.png
   [8]: ./media/iot-hub-manage-through-portal/portal-settings.png
@@ -143,4 +143,4 @@ Il passaggio da un piano elevato (S2) a un piano ridotto (S1) è consentito solo
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

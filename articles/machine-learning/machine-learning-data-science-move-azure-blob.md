@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/12/2015" 
 	ms.author="bradsev;sunliangms;sachouks;mohabib" />
 
 # Spostamento dei dati da e verso l'archiviazione BLOB di Azure
 
-[AZURE.INCLUDE [selettore dello strumento di archiviazione BLOB](../../includes/machine-learning-blob-storage-tool-selector.md)]
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## Introduzione
 
-In questo argomento vengono descritti tre metodi per spostare dati da e verso l'archiviazione BLOB di Azure:
+In questo argomento viene descritto l’uso di tre tecnologie per spostare i dati da e verso l'archiviazione BLOB di Azure:
 
-- Utilizzo di Esplora archivi Azure
-- Utilizzo dell'utilità della riga di comando AzCopy
-- Utilizzo di Azure SDK in Python
+[AZURE.INCLUDE [selettore dello strumento di archiviazione BLOB](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 Quale sia il metodo adatto dipenderà dallo scenario. L’articolo [Scenari relativi ad ADAPT (Advanced Analytics Process and Technology) in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md) consente di determinare le risorse necessarie per un'ampia gamma di flussi di lavoro di analisi scientifica dei dati usati nel processo di analisi avanzata.
 
@@ -46,4 +44,4 @@ In questo documento si presuppone di avere una sottoscrizione di Azure, un accou
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

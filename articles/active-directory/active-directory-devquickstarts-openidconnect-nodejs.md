@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="brandwe"/>
 
 # Accedere e disconnettersi dalle app Web con Azure AD
@@ -40,18 +40,18 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
-## 1. Registrare un'app
+## 1\. Registrare un'app
 - Accedere al portale di gestione di Azure.
 - Nel pannello di navigazione a sinistra fare clic su **Active Directory**.
 - Selezionare il tenant in cui si desidera registrare l'applicazione.
-- Fare clic sulla scheda **Applicazioni**, quindi fare clic su Aggiungi nel pannello in basso.
+- Fare clic sulla scheda **Applicazioni**, quindi fare clic su aggiungi nel pannello in basso.
 - Seguire le istruzioni e creare una nuova **Applicazione Web e/o API Web**.
-    - Il **Nome** dell'applicazione deve essere una descrizione per gli utenti finali.
-    -	L' **URL accesso** è l'URL di base dell'app.  Il valore predefinito della struttura è `http://localhost:3000/auth/openid/return``.
-    - L' **URI ID app** è un identificatore univoco dell'applicazione.  Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio `https://contoso.onmicrosoft.com/my-first-aad-app`
-- Dopo avere completato la registrazione, AAD assegnerà all'app un identificatore client univoco.  Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla scheda Configura.
+    - Il **nome** dell'applicazione deve essere una descrizione per gli utenti finali.
+    -	L'**URL accesso** è l'URL di base dell'app. Il valore predefinito della struttura è http://localhost:3000/auth/openid/return``.
+    - L'**URI ID app** è un identificatore univoco dell'applicazione. Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio `https://contoso.onmicrosoft.com/my-first-aad-app`.
+- Dopo avere completato la registrazione, AAD assegnerà all'app un identificatore client univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla scheda Configura.
 
-## 2. Aggiungere prerequisiti alla directory
+## 2\. Aggiungere prerequisiti alla directory
 
 Dalla riga di comando passare alla directory della cartella radice, se non è già stato fatto, ed eseguire i comandi seguenti:
 
@@ -64,29 +64,32 @@ Dalla riga di comando passare alla directory della cartella radice, se non è gi
 - `npm install assert-plus`
 - `npm install passport`
 
-- Inoltre, è necessario anche `passport-azure-ad` :
+- Inoltre, è necessario anche `passport-azure-ad`:
 
 - `npm install passport-azure-ad`
 
 Verranno installate le librerie da cui dipende passport-azure-ad.
 
-## 3. Configurare l'app per l'uso della strategia passport-node-js
-In questo caso, verrà configurato il middleware Express per l'uso del protocollo di autenticazione OpenID Connect.  Passport verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
+## 3\. Configurare l'app per l'uso della strategia passport-node-js
+In questo caso, verrà configurato il middleware Express per l'uso del protocollo di autenticazione OpenID Connect. Passport verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
--	Per iniziare, aprire il file `web.config` nella radice del progetto e immettere i valori di configurazione dell'app nella sezione `<appSettings>`.
-    -	`clientID`: rappresenta l'**ID applicazione** assegnato all'app nel portale di registrazione.
+-	Per iniziare, aprire il file `config.js` nella radice del progetto e immettere i valori di configurazione dell'app nella sezione `exports.creds`.
+    -	`clientID:` rappresenta l'**ID applicazione** assegnato all'app nel portale di registrazione.
     -	`returnURL` rappresenta l'**URI di reindirizzamento** immesso nel portale.
     - `clientSecret` rappresenta il segreto generato nel portale.
 
-- Aprire quindi il file `app.js`  nella radice del progetto e aggiungere la chiamata seguente per richiamare la strategia `OIDCStrategy` fornita con `passport-azure-ad`.
+- Aprire quindi il file `app.js` nella radice del progetto e aggiungere la chiamata seguente per richiamare la strategia `OIDCStrategy` fornita con `passport-azure-ad`.
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// aggiunge un logger
+// add a logger
 
-var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); ```
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
+```
 
 - Successivamente, usare la strategia a cui è stato fatto riferimento per gestire le richieste di accesso.
 
@@ -239,11 +242,11 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
+## 4. Usare Passport per inviare le richieste di accesso e disconnessione ad Azure AD
 
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
+L'app ora è configurata correttamente per comunicare con l'endpoint 2.0 mediante il protocollo di autenticazione OpenID Connect.  `passport-azure-ad`  ha gestito tutte le difficoltà derivanti dalla creazione dei messaggi di autenticazione, dalla convalida dei token da Azure AD e dalla gestione della sessione utente.  A questo punto, è sufficiente offrire agli utenti un modo per accedere, disconnettersi e raccogliere informazioni aggiuntive sull'utente connesso.
 
-- First, lets add the default, login, account, and logout methods to our `app.js` file:
+- Innanzitutto, aggiungere i metodi di accesso, account e disconnessione predefiniti al file `app.js`:
 
 ```JavaScript
 
@@ -259,11 +262,11 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
-    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
-    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
-    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
+-	Esaminare nel dettaglio questi aspetti:
+    -	La route `/` viene reindirizzata alla vista index.ejs passando l'utente alla richiesta (se presente).
+    - La route `/account`  si ***assicurerà che l'autenticazione sia stata eseguita*** (vedere di seguito l'implementazione), quindi passerà l'utente nella richiesta in modo da ottenere informazioni aggiuntive sul quest'ultimo.
+    - La route `/login`  chiamerà l'autenticatore azuread-openidconnect da `passport-azuread` e, se l'operazione non ha esito positivo, l'utente verrà reindirizzato a /login.
+    - La route `/logout`  chiamerà logout.ejs (e la route) che consente di cancellare i cookie e restituisce quindi l'utente a index.ejs.
 
 
 - For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
@@ -274,7 +277,7 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 // Utilizzare questa route middleware sulle risorse che devono essere protette. Se // la richiesta è autenticata (in genere tramite una sessione di accesso permanente), // la richiesta procederà. In caso contrario, l'utente verrà reindirizzato alla // pagina di accesso. function ensureAuthenticated(req, res, next) { if (req.isAuthenticated()) { return next(); } res.redirect('/login') } ```
 
-- Infine, creare il server in `app.js`:
+- Infine, creare il server stesso in `app.js`:
 
 ```JavaScript
 
@@ -285,7 +288,7 @@ app.listen(3000);
 
 ## 5\. Creare le viste e le route in Express per visualizzare l'utente nel sito Web
 
-Il file `app.js` è stato completato. Ora è sufficiente aggiungere le route e le viste che mostrano le informazioni ottenute dall'utente e gestire le route `/logout` e `/login` create.
+Il file `app.js` è così completato. Ora è sufficiente aggiungere le route e le viste che mostrano le informazioni ottenute dall'utente e gestire le route `/logout` e `/login` create.
 
 - Creare la route `/routes/index.js` nella directory radice.
 
@@ -313,7 +316,7 @@ exports.list = function(req, res){
 
 Queste semplici route passeranno la richiesta alle viste, incluso l'utente se presente.
 
-- Creare la vista `/views/index.ejs` sotto la directory radice. Si tratta di una pagina semplice che chiama i metodi di accesso e disconnessione e consente di ottenere informazioni sull'account. Si noti che è possibile usare il parametro condizionale `if (!user)` poiché l'utente passato nella richiesta dimostra che si dispone di un utente registrato.
+- Creare la vista `/views/index.ejs` sotto la directory radice. Si tratta di una pagina semplice che chiama i metodi di accesso e disconnessione e consente di ottenere informazioni sull'account. Si noti che è possibile usare il parametro condizionale `if (!user)`, perché l'utente passato nella richiesta dimostra che è disponibile un utente registrato.
 
 ```JavaScript
 <% if (!user) { %>
@@ -327,7 +330,7 @@ Queste semplici route passeranno la richiesta alle viste, incluso l'utente se pr
 
 ```
 
-- Creare la vista `/views/account.ejs` nella directory radice affinché sia possibile visualizzare informazioni aggiuntive che `passport-azuread` ha inserito nella richiesta dell'utente.
+- Creare la vista `/views/account.ejs` nella directory radice per visualizzare informazioni aggiuntive inserite da `passport-azuread` nella richiesta dell'utente.
 
 ```Javascript
 <% if (!user) { %>
@@ -351,36 +354,16 @@ Queste semplici route passeranno la richiesta alle viste, incluso l'utente se pr
 
 ```HTML
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Passport-OpenID Example</title>
-	</head>
-	<body>
-		<% if (!user) { %>
-			<p>
-			<a href="/">Home</a> | 
-			<a href="/login">Log In</a>
-			</p>
-		<% } else { %>
-			<p>
-			<a href="/">Home</a> | 
-			<a href="/account">Account</a> | 
-			<a href="/logout">Log Out</a>
-			</p>
-		<% } %>
-		<%- body %>
-	</body>
-</html>```
+<!DOCTYPE html> <html> <head> <title>Passport-OpenID Example</title> </head> <body> <% if (!user) { %> <p> <a href="/">Home</a> | <a href="/login">Log In</a> </p> <% } else { %> <p> <a href="/">Home</a> | <a href="/account">Account</a> | <a href="/logout">Log Out</a> </p> <% } %> <%- body %> </body> </html>```
 
-Finally, build and run your app! 
+Infine compilare ed eseguire l'app.
 
-Run `node app.js` and navigate to `http://localhost:3000`
+Eseguire `node app.js` e passare a `http://localhost:3000`.
 
 
-Sign in with either a personal Microsoft Account or a work or school account, and notice how the user's identity is reflected in the /account list.  You now have a web app secured using industry standard protocols that can authenticate users with both their personal and work/school accounts.
+Accedere con un account Microsoft personale, aziendale o dell'istituto di istruzione e osservare come l'identità dell'utente è indicata nell'elenco /account. È ora disponibile un'app Web protetta usando protocolli standard del settore in grado di autenticare gli utenti con account personali, aziendali e dell'istituto di istruzione.
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip), or you can clone it from GitHub:
+Come riferimento, l'esempio completato (senza i valori di configurazione) [è disponibile in un file con estensione zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -391,4 +374,4 @@ For reference, the completed sample (without your configuration values) [is prov
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

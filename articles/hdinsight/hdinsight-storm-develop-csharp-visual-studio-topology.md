@@ -658,4 +658,4 @@ Per altre informazioni su come usare HDInsight o altri esempi su Storm in HDinsi
 
 -	[Introduzione a HBase in HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

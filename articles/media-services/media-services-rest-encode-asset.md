@@ -274,4 +274,4 @@ Dopo avere creato un processo per la codifica di un asset, passare all'argomento
 
 [Ottenere processori di contenuti multimediali](media-services-rest-get-media-processor.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

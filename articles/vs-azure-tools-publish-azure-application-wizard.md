@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Procedura guidata Pubblica l'applicazione Azure"
-	description="Procedura guidata Pubblica l'applicazione Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Procedura guidata Pubblica l'applicazione Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Procedura guidata Pubblica l'applicazione Azure
 
@@ -141,4 +141,4 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
 [Test delle prestazioni di un servizio cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

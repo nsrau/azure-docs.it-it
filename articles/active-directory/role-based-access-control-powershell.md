@@ -164,4 +164,4 @@ Per altre informazioni sulla gestione del controllo di accesso basato sui ruoli 
 - [Configurazione del controllo di accesso basato sui ruoli usando l'interfaccia della riga di comando di Azure](role-based-access-control-xplat-cli-install.md)
 - [Risoluzione dei problemi relativi al controllo di accesso basato sui ruoli](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

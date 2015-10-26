@@ -60,4 +60,4 @@ Nel database definire il tipo di tabella con lo stesso nome di SqlWriterTableTyp
 
 La funzionalità di stored procedure sfrutta i [parametri valutati a livello di tabella](https://msdn.microsoft.com/library/bb675163.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

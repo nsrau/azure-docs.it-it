@@ -314,4 +314,4 @@ Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'a
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: media-services-get-media-processor.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

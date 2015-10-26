@@ -98,7 +98,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SharePoint c
 ##  Trigger
 Usare i trigger se si vuole avviare un'app per la logica.
 
-> [AZURE.NOTE] I trigger eliminano i file dopo averli letti. Per mantenere i file, specificare un valore per il percorso di archiviazione.
+> [AZURE.NOTE]I trigger eliminano i file dopo averli letti. Per mantenere i file, specificare un valore per il percorso di archiviazione.
 
 ### 1\. Nuovo documento in documenti condivisi (JSON)
 Questo trigger viene attivato quando un nuovo documento è disponibile in 'Documenti condivisi'.
@@ -394,7 +394,7 @@ Nome | Descrizione
 --- | ---
 XML di output | Contenuto del documento
 ContentTransferEncoding | Codifica di trasferimento contenuto del messaggio ("none" o "base64").
-Stato | Un'esecuzione corretta dell'azione restituisce il codice di stato 200 (OK).
+Status | Un'esecuzione corretta dell'azione restituisce il codice di stato 200 (OK).
 
 ### 11\. Inserisci in attività (XML)
 
@@ -456,16 +456,16 @@ Stato | Un'esecuzione corretta dell'azione restituisce il codice di stato 200 (O
 
 ## Configurazione ibrida (facoltativo)
 
-> [AZURE.NOTE] Questo passaggio è obbligatorio solo se si usa SharePoint installato in locale e protetto da firewall.
+> [AZURE.NOTE]Questo passaggio è obbligatorio solo se si usa SharePoint installato in locale e protetto da firewall.
 
 Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro al sistema locale. Se il connettore usa SharePoint Server in locale, è richiesta la Gestione connessione ibrida.
 
 Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md).
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -481,4 +481,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

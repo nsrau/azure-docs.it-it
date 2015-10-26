@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Analizzare i dati sui ritardi dei voli usando HDInsight | Microsoft Azure" 
-	description="Informazioni su come usare uno script di Windows PowerShell per effettuare il provisioning di un cluster HDInsight, eseguire un processo Hive, eseguire un processo Sqoop ed eliminare il cluster." 
+	pageTitle="Analizzare i dati sui ritardi dei voli con Hive usando HDInsight basato su Linux | Microsoft Azure" 
+	description="Informazioni su come utilizzare Hive per analizzare i dati sui voli in HDInsight basato su Linux, e su come esportare i dati al database SQL mediante Sqoop." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/09/2015" 
 	ms.author="larryfr"/>
 
 #Analizzare i dati sui ritardi dei voli con Hive in HDInsight
@@ -305,4 +305,4 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

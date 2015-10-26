@@ -71,4 +71,4 @@ Di seguito sono riportati i prerequisiti necessari per iniziare:
 
 Inviare commenti o domande nel [forum di Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -47,4 +47,4 @@ Prima di procedere, assicurarsi che tutti i [Prerequisiti ](backup-configure-vau
 - [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 - [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

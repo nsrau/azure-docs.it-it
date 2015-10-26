@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Perché è necessario un account amministratore dell’organizzazione"
+<properties
+	pageTitle="Perché è necessario un account amministratore dell’organizzazione | Microsoft Azure"
 	description="Descrizione delle impostazioni personalizzate."
 	services="active-directory"
 	documentationCenter=""
@@ -7,20 +7,20 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 # Per quale motivo è necessario un account amministratore per la connessione ad AD DS quando si configura Azure AD Connect
 
 Nella tabella seguente sono illustrati i motivi per cui è necessario un account amministratore dell’organizzazione per configurare Azure AD Connect.
 
-Condizioni | Descrizione 
+Condizioni | Descrizione
 ------------- | ------------- |
 Per Impostazioni rapide e DirSync Upgrade | <li>Per Impostazioni rapide, è stato creato l’account Active Directory locale utilizzato per la sincronizzazione (altrimenti noto come account AD Connector) al quale sono state assegnate le autorizzazioni corrette per la sincronizzazione e la sincronizzazione delle password </li> <li>Per Dirsync Upgrade, è stata ripristinata la password dell’account AD Connector configurato correntemente ed è stato configurato il nuovo servizio di sincronizzazione Azure AD Connect per utilizzare questo account. </li>
 
@@ -31,6 +31,6 @@ Per Impostazioni rapide e DirSync Upgrade | <li>Per Impostazioni rapide, è stat
 
 * [Ulteriori informazioni sugli account e le autorizzazioni Azure AD Connect](active-directory-aadconnect-account-summary.md)
 * [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect in MSDN](active-directory-aadconnect.md) 
+* [Azure AD Connect in MSDN](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

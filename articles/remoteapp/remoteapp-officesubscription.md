@@ -120,4 +120,4 @@ Altre informazioni sull'uso dello Strumento di distribuzione di Office per gli a
 - [Distribuzione e aggiornamento di Office 365 ProPlus mediante lo Strumento di distribuzione di Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (video)
 - [Configurare le impostazioni di aggiornamento di Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

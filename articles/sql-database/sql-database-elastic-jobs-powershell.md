@@ -673,4 +673,4 @@ Dopo aver creato un DACPAC all'interno di processi di database elastici, è poss
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

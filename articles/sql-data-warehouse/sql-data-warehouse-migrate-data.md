@@ -194,4 +194,4 @@ Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migraz
 [adattatore di destinazione ADO.NET]: https://msdn.microsoft.com/it-IT/library/bb934041.aspx
 [documentazione relativa a SSIS]: https://msdn.microsoft.com/it-IT/library/ms141026.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

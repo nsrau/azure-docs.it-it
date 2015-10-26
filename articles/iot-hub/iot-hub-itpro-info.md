@@ -2,7 +2,7 @@
  pageTitle="Informazioni sull’hub IoT Azure per professionisti IT | Microsoft Azure"
  description="Informazioni per aiutare i professionisti dell’IT a lavorare con l’hub IoT Azure, ad esempio con i requisiti delle porte e il background della sicurezza."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,8 +12,8 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="09/28/2015"
  ms.author="dobett"/>
 
 # Configurazione e gestione dell'accesso all'hub IoT
@@ -49,4 +49,4 @@ Questo articolo contiene informazioni specifiche per i professionisti dell’IT 
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

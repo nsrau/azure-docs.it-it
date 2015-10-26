@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Browser e dispositivi supportati"
-	description=""
-	services=""
-	documentationCenter=""
-	authors="flanakin"
-	manager="lwelicki"
+	pageTitle="Browser e dispositivi supportati" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="flanakin" 
+	manager="lwelicki" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/23/2015" 
 	ms.author="micflan"/>
 
 #Browser e dispositivi supportati
@@ -33,4 +34,4 @@ Sono supportate le versioni più recenti dei browser seguenti:
 
 *Safari 6 e le versioni precedenti non sono supportati. Se si utilizza OS X, è possibile utilizzare Chrome o Firefox oppure effettuare l'aggiornamento a OS X Mavericks per ottenere Safari 7.*
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,21 @@
 <properties 
-	pageTitle="Importazione di dati in blocco utilizzando le tabelle di partizione SQL | Microsoft Azure"
-	description="Importazione di dati in blocco utilizzando le tabelle di partizione SQL"
-	services="machine-learning"
-	documentationCenter=""
+	pageTitle="Importazione di dati in blocco utilizzando le tabelle di partizione SQL | Microsoft Azure" 
+	description="Importazione di dati in blocco utilizzando le tabelle di partizione SQL" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
 	authors="msolhab"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="msolhab"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
+	ms.author="msolhab" />
 
 # Importazione di dati in blocco utilizzando le tabelle di partizione SQL
 
@@ -184,4 +185,4 @@ o
 Per un esempio della procedura dettagliata end-to-end in cui viene usato ADAPT (Advanced Analytics Process and Technology) con un set di dati pubblici, vedere [Advanced Analytics Process and Technology in azione: uso di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

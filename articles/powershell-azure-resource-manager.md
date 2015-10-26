@@ -7,7 +7,6 @@
 	manager="wpickett" 
 	editor=""/>
 
-
 <tags 
 	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
-
 
 # Uso di Azure PowerShell con Gestione risorse di Azure
 
@@ -379,4 +377,4 @@ Il modulo AzureResourceManager include cmdlet che aiutano a evitare gli errori.
 - Per ulteriori informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di gestione risorse di Azure](./resource-group-template-deploy.md).
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservices in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

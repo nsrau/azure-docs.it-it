@@ -77,4 +77,4 @@ Per istruzioni su come monitorare i livelli di prestazioni nel portale di antepr
 Per altre informazioni sulla scelta dei livelli di prestazioni delle raccolte, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

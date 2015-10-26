@@ -36,4 +36,4 @@ Per ulteriori informazioni sui requisiti software e l'installazione del modulo d
 ## Passaggi successivi
 [Edizioni di Azure Active Directory](active-directory-editions.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

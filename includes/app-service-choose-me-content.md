@@ -19,4 +19,4 @@ Il servizio app di Azure consente agli sviluppatori di creare applicazioni Web d
 
 Come illustrato nella [figura](#appservice_diagram) precedente, è possibile pubblicare codice e altro contenuto Web nel servizio app di Azure in molti modi, ad esempio tramite FTP, FTPS o la tecnologia WebDeploy Microsoft. Il servizio app di Azure supporta anche la pubblicazione di codice da sistemi di controllo del codice sorgente, inclusi Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server e il servizio basato sul cloud Team Foundation Service.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

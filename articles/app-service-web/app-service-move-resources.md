@@ -26,4 +26,4 @@ App Web di Microsoft Azure supporta attualmente i seguenti scenari di spostament
 	* Nota: il gruppo di risorse di destinazione non può contenere alcuna risorsa Microsoft.Web in questo scenario
 * Spostamento di singole app Web in un gruppo di risorse diverse, mentre sono ancora ospitate nel relativo piano di servizio app corrente (il piano di servizio app rimane nel gruppo di risorse precedente)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

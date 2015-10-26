@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Creare il nodo head di un cluster HPC Pack in una macchina virtuale di Azure con un'immagine del Marketplace
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 Questo articolo illustra come usare l'[immagine di macchina virtuale Microsoft HPC Pack](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) in Azure Marketplace per creare il nodo head di un cluster Windows HPC in Azure nel modello di distribuzione (gestione dei servizi) classica. Il nodo head deve essere aggiunto a un dominio di Active Directory in una rete virtuale di Azure. È possibile usare questo nodo head per una distribuzione con modello di verifica di HPC Pack in Azure e aggiungere risorse di calcolo al cluster per eseguire carichi di lavoro HPC.
 
@@ -101,4 +102,4 @@ Di seguito sono indicati i principali passaggi per la creazione di una macchina 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

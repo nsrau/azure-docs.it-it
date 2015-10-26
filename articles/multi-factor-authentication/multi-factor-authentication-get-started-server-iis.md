@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Autenticazione IIS e server Azure Multi-Factor Authentication"
-	description="Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili per distribuire l'autenticazione IIS e il server Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Autenticazione IIS e server Azure Multi-Factor Authentication" 
+	description="Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili per distribuire l'autenticazione IIS e il server Azure Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Autenticazione IIS
@@ -76,4 +76,4 @@ Il provider di identità attendibili consente agli utenti di ignorare Azure mult
 3. Quando viene visualizzata la finestra di dialogo Aggiungi provider di identità attendibili, selezionare il singolo indirizzo IP, l'intervallo IP o il pulsante di opzione Subnet.
 4. Immettere l'indirizzo IP, l'intervallo di indirizzi IP o la subnet da inserire nell'elenco. Se si immette una subnet, selezionare mask appropriata e fare clic sul pulsante OK. L'elenco whitelist è stato aggiunto.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

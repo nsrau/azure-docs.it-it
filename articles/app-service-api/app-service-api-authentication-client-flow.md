@@ -227,4 +227,4 @@ Si ringrazia Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav))
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di anteprima di Azure]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

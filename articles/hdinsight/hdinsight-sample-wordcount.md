@@ -218,4 +218,4 @@ Per esercitazioni in cui vengono eseguiti altri esempi e che includono istruzion
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

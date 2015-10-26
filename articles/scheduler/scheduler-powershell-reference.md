@@ -21,18 +21,18 @@ La tabella seguente include descrizioni e collegamenti alla pagina di riferiment
 
 |Cmdlet|Descrizione del cmdlet|
 |---|---|
-|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/it-it/library/azure/dn722516.aspx)**|Ottiene un elenco di processi di pianificazione o un processo specifico.|
-|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/it-it/library/azure/dn722471.aspx)**|Ottiene raccolte di processi di pianificazione.|
-|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/it-it/library/azure/dn722514.aspx)**|Ottiene la cronologia per un processo di pianificazione.|
-|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/it-it/library/azure/dn722505.aspx)**|Ottiene le posizioni disponibili dell'Utilità di pianificazione.|
-|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/it-it/library/azure/dn722492.aspx)**|Crea un processo di pianificazione che prevede l'esecuzione di un'azione HTTP.|
-|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/it-it/library/azure/dn759640.aspx)**|Crea una raccolta di processi di pianificazione.|
-|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/it-it/library/azure/dn722518.aspx)**|Crea un processo di pianificazione che prevede l'esecuzione di un'azione di archiviazione.|
-|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/it-it/library/azure/dn722477.aspx)**|Elimina un processo di pianificazione.|
-|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/it-it/library/azure/dn722530.aspx)**|Elimina una raccolta di processi di pianificazione.|
-|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/it-it/library/azure/dn722474.aspx)**|Aggiorna un processo di pianificazione che prevede l'esecuzione di un'azione HTTP.|
-|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/it-it/library/azure/dn759626.aspx)**|Aggiorna una raccolta di processi di pianificazione.|
-|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/it-it/library/azure/dn722476.aspx)**|Aggiorna un processo di pianificazione che prevede l'esecuzione di un'azione di archiviazione.|
+|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/it-IT/library/azure/dn722516.aspx)**|Ottiene un elenco di processi di pianificazione o un processo specifico.|
+|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/it-IT/library/azure/dn722471.aspx)**|Ottiene raccolte di processi di pianificazione.|
+|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/it-IT/library/azure/dn722514.aspx)**|Ottiene la cronologia per un processo di pianificazione.|
+|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/it-IT/library/azure/dn722505.aspx)**|Ottiene le posizioni disponibili dell'Utilità di pianificazione.|
+|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/it-IT/library/azure/dn722492.aspx)**|Crea un processo di pianificazione che prevede l'esecuzione di un'azione HTTP.|
+|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/it-IT/library/azure/dn759640.aspx)**|Crea una raccolta di processi di pianificazione.|
+|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/it-IT/library/azure/dn722518.aspx)**|Crea un processo di pianificazione che prevede l'esecuzione di un'azione di archiviazione.|
+|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/it-IT/library/azure/dn722477.aspx)**|Elimina un processo di pianificazione.|
+|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/it-IT/library/azure/dn722530.aspx)**|Elimina una raccolta di processi di pianificazione.|
+|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/it-IT/library/azure/dn722474.aspx)**|Aggiorna un processo di pianificazione che prevede l'esecuzione di un'azione HTTP.|
+|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/it-IT/library/azure/dn759626.aspx)**|Aggiorna una raccolta di processi di pianificazione.|
+|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/it-IT/library/azure/dn722476.aspx)**|Aggiorna un processo di pianificazione che prevede l'esecuzione di un'azione di archiviazione.|
 
 
 ## Vedere anche
@@ -55,4 +55,4 @@ La tabella seguente include descrizioni e collegamenti alla pagina di riferiment
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

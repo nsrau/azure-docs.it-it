@@ -150,4 +150,4 @@ Tutti i motivi per utilizzare l’accodamento messaggi descritto in [Creare appl
 
 Vedere [Creare applicazioni che utilizzano gli argomenti e le sottoscrizioni del Bus di servizio ](service-bus-create-topics-subscriptions.md) per vedere come utilizzare le code nello scenario di vendita al dettaglio POS.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

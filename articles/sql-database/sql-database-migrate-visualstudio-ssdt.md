@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Migrazione mediante Visual Studio e SSDT"
-	description="Database SQL di Microsoft Azure, migrazione del database, importazione del database, esportazione del database, migrazione guidata"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Migrazione mediante Visual Studio e SSDT" 
+   description="Database SQL di Microsoft Azure, migrazione del database, importazione del database, esportazione del database, migrazione guidata" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="carlrabeler" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #Aggiornare il database sul posto, quindi distribuire database SQL di Azure
 
@@ -82,4 +82,4 @@ Con questa opzione:
 
 14.	Distribuire lo schema del database compatibile con Azure SQL V12 e i dati al Database di SQL Azure mediante SSMS. Vedere [Migrazione di un database compatibile mediante SSMS.](sql-database-migrate-ssms.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

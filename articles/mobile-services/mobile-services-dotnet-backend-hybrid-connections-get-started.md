@@ -133,4 +133,4 @@ Dopo aver verificato la connessione al database, è necessario aggiungere un'imp
 [portale di gestione di Azure]: http://manage.windowsazure.com
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

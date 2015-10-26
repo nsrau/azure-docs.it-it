@@ -836,4 +836,4 @@ Ogni volta che si verifica un problema in cluster o in un'applicazione, osservar
 [Aggiornamento di un’applicazione Infrastruttura di servizi](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

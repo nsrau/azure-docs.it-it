@@ -1,21 +1,21 @@
 <properties
    pageTitle="Usare Hive di Hadoop in Query Console in HDInsight | Microsoft Azure"
-	description="Informazioni su come usare Query Console basata sul Web per eseguire query Hive in un cluster Hadoop di HDInsight dal browser."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="Informazioni su come usare Query Console basata sul Web per eseguire query Hive in un cluster Hadoop di HDInsight dal browser."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="10/09/2015"
+   ms.author="larryfr"/>
 
 # Eseguire query Hive usando Query Console
 
@@ -122,4 +122,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Risoluzione dei problemi client Docker in Windows con Visual Studio | Microsoft Azure"
-	description="Risoluzione dei problemi che si verificano quando si usa Visual Studio per creare e distribuire app Web in Docker su Windows mediante Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Risoluzione dei problemi che si verificano quando si usa Visual Studio per creare e distribuire app Web in Docker su Windows mediante Visual Studio."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # Risoluzione dei problemi del Docker
 
@@ -52,7 +52,7 @@ Se si sceglie di usare i propri certificati durante la creazione dell'host Docke
 
 ## PowerShell 3.0 è necessario per la pubblicazione nei contenitori Docker
 
-Se il sistema operativo è Windows 7 o Windows Server 2008, è necessario installare PowerShell 3.0 prima di poter effettuare la pubblicazione nei contenitori Docker. PowerShell 3.0 è incluso in [Windows Management Framework 3.0](https://www.microsoft.com/it-it/download/details.aspx?id=34595). È necessario riavviare il sistema dopo l'installazione.
+Se il sistema operativo è Windows 7 o Windows Server 2008, è necessario installare PowerShell 3.0 prima di poter effettuare la pubblicazione nei contenitori Docker. PowerShell 3.0 è incluso in [Windows Management Framework 3.0](https://www.microsoft.com/it-IT/download/details.aspx?id=34595). È necessario riavviare il sistema dopo l'installazione.
 
 Come soluzione alternativa, è possibile eseguire l’aggiornamento a Windows 8.1 o Windows 10, che dispone già di PowerShell 3.0.
 
@@ -100,4 +100,4 @@ R: È possibile usare OpenSSL sul server per generare i certificati e le chiavi 
 
 Un'altra opzione consiste nello scaricare OpenSSL per Windows e generare i certificati e le chiavi necessari e quindi caricare autorità di certificazione, certificati server e chiavi per il computer Linux. Per altre informazioni su come stabilire una connessione sicura a Docker, vedere [Protezione del socket del daemon Docker con HTTPS](https://docs.docker.com/articles/https/).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

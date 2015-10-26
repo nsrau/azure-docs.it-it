@@ -100,4 +100,4 @@ L’IQN di destinazione del dispositivo potrebbe essere necessario quando si con
 - Ulteriori informazioni sul [dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

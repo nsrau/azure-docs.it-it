@@ -19,7 +19,7 @@
 
 # Ambiente di test della configurazione di base
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica. È inoltre possibile creare tali risorse con il [modello di distribuzione di Gestione risorse](virtual-machines-base-configuration-test-environment-resource-manager.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-base-configuration-test-environment-resource-manager.md).
 
 In questo articolo vengono fornite le istruzioni dettagliate per creare l’ambiente di test della configurazione di base in una rete virtuale di Azure.
 
@@ -131,7 +131,7 @@ Successivamente, connettersi alla macchina virtuale DC1.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
-- Nome: **DC1\**[Nome dell'account amministratore locale]
+- Nome: **DC1\**[Nome dell’account amministratore locale]
 - Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
@@ -288,4 +288,4 @@ Per avviare le macchine virtuali in ordine con Azure PowerShell, inserire il nom
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

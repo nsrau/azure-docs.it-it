@@ -311,4 +311,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 - [Informazioni sulla fatturazione di Archiviazione di Azure – Larghezza di banda, transazioni e capacità](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Panoramica del modello di programmazione Reliable Services di Service Fabric"
-	description="Informazioni sul modello di programmazione Reliable Services di Service Fabric e su come sviluppare servizi personalizzati."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="masnider"
-	manager="timlt"
-	editor="jessebenson; mani-ramaswamy"/>
+   description="Informazioni sul modello di programmazione Reliable Services di Service Fabric e su come sviluppare servizi personalizzati."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="masnider"
+   manager="timlt"
+   editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="masnider;jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="masnider;jesseb"/>
 
 # Panoramica di Reliable Services
 Service Fabric semplifica la scrittura e la gestione di servizi affidabili con e senza stato. In questo documento verranno illustrate:
@@ -130,4 +130,4 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 + [Modello di programmazione Reliable Actors](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

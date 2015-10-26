@@ -171,4 +171,4 @@ Sono disponibili per il download anche alcuni script predefiniti: [Script di Pow
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -121,7 +121,7 @@ Per usare il connettore SQL come azione, immettere il nome delle tabelle e/o del
 
 Query SQL | Supportato | Non supportato
 --- | --- | ---
-Clausola Where | <ul><li>Operatori: AND, OR, =, <>, <, <=, >, >= e LIKE</li><li>Più sottocondizioni possono essere combinate con '(' e ')'</li><li>Valori letterali stringa, data/ora (racchiusi tra virgolette singole), numeri (devono contenere solo caratteri numerici)</li><li>Deve essere rigorosamente in un formato di espressione binaria, come ((operando operatore operando) AND/OR (operando operatore operando))**</li></ul> | <ul><li>Operatori: Between, IN</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +.</li><li>Tutti i join</li><li>IS NULL e IS NOT Null</li><li>Qualsiasi numero con caratteri non numerici, ad esempio i numeri esadecimali</li></ul>
+Clausola Where | <ul><li>Operatori: AND, OR, =, <>, <, <=, >, >= e LIKE</li><li>Più sottocondizioni possono essere combinate con ‘(‘ and ‘)’</li>Valori letterali stringa<li>, data/ora (racchiusi tra virgolette singole), numeri (devono contenere solo caratteri numerici)</li><li>Deve essere rigorosamente in un formato di espressione binaria, come ((operando operatore operando) AND/OR (operando operatore operando))**</li></ul> | <ul><li>Operatori: Between, IN</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +.</li><li>Tutti i join</li><li>IS NULL e IS NOT Null</li><li>Qualsiasi numero con caratteri non numerici, ad esempio i numeri esadecimali</li></ul> 
 Campi (nella query Select) | <ul><li>Nomi di colonna validi, separati da virgole. Non sono consentiti prefissi di nomi di tabella (il connettore funziona su una sola tabella alla volta).</li><li>I nomi possono essere preceduti dai caratteri di escape '[' e ']'</li></ul> | <ul><li>Parole chiave come TOP, DISTINCT e così via</li><li>Aliasing, ad esempio Via + Città + CAP COME indirizzo</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +</li></ul>
 
 #### Suggerimenti
@@ -160,4 +160,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

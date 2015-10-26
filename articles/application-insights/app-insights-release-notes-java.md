@@ -68,4 +68,4 @@ Confrontare il vecchio e il nuovo file ApplicationInsights.xml. Molte delle modi
 - Possibilità di apporre un tag a un elemento di telemetria come sintetico aggiungendo una proprietà ```SyntheticSource``` all'elemento segnalato.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

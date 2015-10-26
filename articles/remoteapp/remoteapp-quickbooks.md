@@ -44,4 +44,4 @@ Usare le informazioni seguenti per la condivisione di QuickBooks come app in Azu
 
 ![QuickBooks + distribuzione di Azure RemoteApp](./media/remoteapp-quickbooks/ra-quickbooks.png)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

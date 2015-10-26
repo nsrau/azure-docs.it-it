@@ -80,4 +80,4 @@ Di seguito sono elencate le definizioni dei termini usati per gli strumenti dei 
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -171,4 +171,4 @@ Per altri esempi e informazioni sull'utilizzo delle entità di messaggistica neg
 - [Guida alla programmazione di Hub eventi](../event-hubs-programming-guide.md)
 - [Messaggistica negoziata: Filtri avanzati](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

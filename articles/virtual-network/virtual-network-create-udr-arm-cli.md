@@ -191,4 +191,4 @@ Per abilitare l'inoltro dell'indirizzo IP nella scheda di interfaccia di rete us
 
 	- **-f (o --enable-ip-forwarding)**. *true* o *false*.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

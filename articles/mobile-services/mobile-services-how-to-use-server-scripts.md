@@ -1051,4 +1051,4 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [supporto di package.json in Servizi mobili di Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

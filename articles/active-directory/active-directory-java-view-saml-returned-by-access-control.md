@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="09/22/2015"
+    ms.date="10/12/2015" 
     ms.author="robmcm" />
 
 # Come visualizzare il codice SAML restituito dal Servizio di controllo di accesso di Azure
@@ -24,7 +24,7 @@ In questa guida verrà descritto come visualizzare il codice SAML (Security Asse
 
 Per altre informazioni su ACS, vedere la sezione [Passaggi successivi](#next_steps).
 
-> [AZURE.NOTE]Il filtro dei Servizi di controllo di accesso di Azure (di Microsoft Open Technologies) è una Community Technology Preview. Come versione preliminare, non è formalmente supportata da Microsoft Open Technologies, Inc. o Microsoft.
+> [AZURE.NOTE]Il filtro dei Servizi di controllo di accesso di Azure è una Community Technology Preview. Come versione preliminare, non è formalmente supportata da Microsoft.
 
 ## Prerequisiti
 
@@ -195,4 +195,4 @@ Per continuare a esplorare le funzionalità di ACS ed esercitarsi con scenari pi
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

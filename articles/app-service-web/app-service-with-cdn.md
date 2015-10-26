@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="cephalin"/>
 
 # Integrare un'app Web di Azure con la rete CDN di Azure #
@@ -78,7 +78,7 @@ In questa sezione verrà distribuito il modello di applicazione MVC di ASP.NET p
 
 	![](media/app-service-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE] Dopo aver creato l'endpoint della rete CDN, nel portale di Azure viene visualizzato il relativo URL e il dominio di origine in esso integrato. È tuttavia possibile che la completa propagazione della configurazione del nuovo endpoint della rete CDN a tutte le ubicazioni dei nodi della rete CDN richieda del tempo.
+	> [AZURE.NOTE]Dopo aver creato l'endpoint della rete CDN, nel portale di Azure viene visualizzato il relativo URL e il dominio di origine in esso integrato. È tuttavia possibile che la completa propagazione della configurazione del nuovo endpoint della rete CDN a tutte le ubicazioni dei nodi della rete CDN richieda del tempo.
 
 3. Tornare al portale di Azure e nella scheda **Rete CDN** fare clic sul nome dell'endpoint della rete CDN appena creato.
 
@@ -88,7 +88,7 @@ In questa sezione verrà distribuito il modello di applicazione MVC di ASP.NET p
 
 	![](media/app-service-with-cdn/9-enable-query-string.png)
 
-	>[AZURE.NOTE] Benché non sia necessario abilitare la stringa di query per questa sezione dell'esercitazione, per comodità è consigliabile farlo prima possibile, perché la propagazione a tutti i nodi della rete CDN di qualsiasi modifica apportata in questa fase richiederà del tempo e non è auspicabile che contenuti non abilitati per le stringhe query intasino la cache della rete CDN (l'aggiornamento del contenuto della rete CDN verrà discusso più avanti).
+	>[AZURE.NOTE]Benché non sia necessario abilitare la stringa di query per questa sezione dell'esercitazione, per comodità è consigliabile farlo prima possibile, perché la propagazione a tutti i nodi della rete CDN di qualsiasi modifica apportata in questa fase richiederà del tempo e non è auspicabile che contenuti non abilitati per le stringhe query intasino la cache della rete CDN (l'aggiornamento del contenuto della rete CDN verrà discusso più avanti).
 
 2. Fare clic sull'indirizzo dell'endpoint della rete CDN. Se l'endpoint è pronto, dovrebbe venire visualizzata l'app Web. Se viene visualizzato un errore **HTTP 404**, l'endpoint della rete CDN non è pronto. Potrebbe essere necessario attendere fino a un'ora affinché la configurazione della rete CDN sia propagata a tutti i nodi perimetrali.
 
@@ -558,4 +558,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 - [Uso della rete CDN per Azure](../cdn-how-to-use.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

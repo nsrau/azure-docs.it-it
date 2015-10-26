@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="msolhab;bradsev"/>
+	ms.author="msolhab;bradsev" />
 
 
 # Preparazione dei dati per Machine Learning
@@ -104,4 +104,4 @@ L'**esplorazione dei dati** offre una visualizzazione anticipata dei dati. Duran
 >_Data Mining: Concepts and Techniques_, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

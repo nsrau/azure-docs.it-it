@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="10/08/2015" 
 	ms.author="stefsch"/>
 
 # Scalabilità distribuita a livello geografico con ambienti del servizio app
@@ -43,6 +43,7 @@ Prima di compilare il footprint di un'app distribuita, è utile avere anticipata
 - **Strategia per la scalabilità del footprint dell'app**: definire se il footprint dell'applicazione sarà distribuito tra più ambienti del servizio app in una singola area geografica, in più aree geografiche o con una combinazione di entrambi gli approcci. La decisione dovrà essere basata sulla previsione dell'origine del traffico dei clienti, oltre che sull'efficacia della scalabilità del resto dell'infrastruttura di back-end di supporto di un'app. Ad esempio, un'applicazione al 100% senza stato può essere configurata in modo altamente scalabile usando una combinazione di più ambienti del servizio app per area di Azure. moltiplicati per gli ambienti del servizio app distribuiti tra più aree di Azure. Con la disponibilità di oltre 15 aree di Azure pubbliche da cui scegliere, i clienti possono veramente creare un footprint dell'applicazione iperscalabile in tutto il mondo. Per l'app di esempio usata per questo articolo sono stati creati tre ambienti del servizio app in una singola area di Azure (Stati Uniti centro-meridionali).
 - **Convenzione di denominazione per gli ambienti del servizio app**: ogni ambiente del servizio app richiede un nome univoco. Oltre a uno o due ambienti del servizio app, è utile avere una convenzione di denominazione per facilitare l'identificazione di ogni ambiente del servizio app. Per l'app di esempio è stata usata una convenzione di denominazione semplice. I nomi dei tre ambienti del servizio app sono *fe1ase*, *fe2ase* e *fe3ase*.
 - **Convenzione di denominazione per le app**: poiché saranno distribuite più istanze dell'app, è necessario un nome per ogni istanza dell'app distribuita. Una funzionalità poco conosciuta ma molto pratica degli ambienti del servizio app è la possibilità di usare lo stesso nome tra più ambienti. Poiché ogni ambiente del servizio app ha un suffisso univoco, gli sviluppatori possono scegliere di riutilizzare esattamente lo stesso nome dell'app in ogni ambiente. Ad esempio, uno sviluppatore può avere app denominate come segue: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net* e così via. Per l'app di esempio ogni istanza dell'app ha tuttavia anche un nome univoco. I nomi delle istanze dell'app usati sono *webfrontend1*, *webfrontend2* e *webfrontend3*.
+
 
 ## Configurazione del profilo di Gestione traffico ##
 Dopo la distribuzione di più istanze di un'app in più ambienti del servizio app, è possibile registrare le singole istanze con Gestione traffico. Per l'app di esempio è necessario un profilo di Gestione traffico per *scalable-ase-demo.trafficmanager.net* che possa indirizzare i clienti a una qualsiasi delle istanze seguenti dell'app distribuita:
@@ -124,4 +125,4 @@ Documentazione sul [Supporto di Gestione risorse di Azure per la versione di ant
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

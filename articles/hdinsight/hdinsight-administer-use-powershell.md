@@ -64,7 +64,7 @@ I cluster HDInsight utilizzano un gruppo di risorse di Azure e un contenitore di
 
 	New-AzureStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
 
-	For a full list of the storage account types, see [https://msdn.microsoft.com/it-it/library/azure/hh264518.aspx](https://msdn.microsoft.com/it-it/library/azure/hh264518.aspx).
+	For a full list of the storage account types, see [https://msdn.microsoft.com/it-IT/library/azure/hh264518.aspx](https://msdn.microsoft.com/it-IT/library/azure/hh264518.aspx).
 
 
 Per informazioni sulla creazione di un account di archiviazione di Azure tramite il portale di anteprima di Azure, vedere [Creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md).
@@ -343,4 +343,4 @@ Vedere la sezione [Inviare processi MapReduce](#mapreduce) in questo articolo.
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

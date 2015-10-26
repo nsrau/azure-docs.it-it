@@ -1,10 +1,10 @@
 <properties
- pageTitle="Cos'è l'hub IoT di Azure? | Microsoft Azure"
+ pageTitle="Panoramica dell’hub IoT di Azure | Microsoft Azure"
  description="Panoramica del servizio hub IoT di Azure, inclusi la connettività dei dispositivi, i modelli di comunicazione e il modello di comunicazione assistita con i servizi"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
 # Che cos'è l'hub IoT di Azure?
 
- L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. L'hub IoT di Azure offre messaggistica da dispositivo a cloud e da cloud a dispositivo affidabile su scala elevatissima, consente comunicazioni sicure con credenziali di sicurezza e controllo di accesso per ogni dispositivo e include librerie di dispositivi per i linguaggi e le piattaforme più comuni.
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. L'hub IoT di Azure offre messaggistica da dispositivo a cloud e da cloud a dispositivo affidabile su scala elevatissima, consente comunicazioni sicure con credenziali di sicurezza e controllo di accesso per ogni dispositivo e include librerie di dispositivi per i linguaggi e le piattaforme più comuni.
 
 ![L'hub IoT come gateway cloud?][img-architecture]
 
@@ -92,11 +92,11 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Iniziare a usare l'hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Piattaforme e linguaggi di dispositivi supportati]: iot-hub-sdks-summary.md#os-platforms-and-hardware-compatibility
-[Centro per sviluppatori Azure IoT]: http://www.azure.com/iotdev
+[Centro per sviluppatori Azure IoT]: https://azure.microsoft.com/develop/iot/
 
 [img-why-use]: media/iot-hub-what-is-iot-hub/image1.png
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Comunicazione assistita con i servizi, post di blog di Clemens Vasters"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

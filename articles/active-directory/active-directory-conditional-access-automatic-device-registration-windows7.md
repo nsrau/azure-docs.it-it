@@ -52,4 +52,4 @@ Aprire quindi un prompt dei comandi nel computer Windows 7 ed eseguire il comand
 
 Nel registro eventi del computer Windows 7 verranno visualizzati i messaggi relativi all'aggiunta all'area di lavoro. Saranno disponibili i messaggi per gli eventi relativi all'aggiunta all'area di lavoro riusciti e non. Il registro eventi si trova nel Visualizzatore eventi in Registri applicazioni e servizi > Microsoft > Aggiunta all'area di lavoro.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -73,4 +73,4 @@ Per una panoramica generale della firma di accesso condiviso nel bus di servizio
 
 Per altre informazioni sui token ACS, vedere [Procedura: Richiedere un token da ACS tramite il protocollo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

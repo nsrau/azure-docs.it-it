@@ -143,9 +143,9 @@ Se il flusso viene visualizzato nel lettore, ciò indica che il codificatore è 
 
 In caso di errore, sarà necessario reimpostare il canale e regolare le impostazioni del codificatore. Vedere l'argomento dedicato alla [risoluzione dei problemi](media-services-troubleshooting-live-streaming.md) per istruzioni.
 
-###Creare un programma
+###Creare un programma.
 
-1. Dopo aver verificato il corretto funzionamento della riproduzione sul canale, è possibile creare un programma. Nella scheda **Live** nello strumento AMSE fare clic con il pulsante destro del mouse nell'area del programma e scegliere **Crea nuovo programma**.  
+1. Una volta che viene confermata la riproduzione del canale, creare un programma. Nella scheda **Live** nello strumento AMSE fare clic con il pulsante destro del mouse nell'area del programma e scegliere **Crea nuovo programma**.  
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
 
@@ -171,4 +171,4 @@ Vedere l'argomento dedicato alla [risoluzione dei problemi](media-services-troub
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

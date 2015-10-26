@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 #Eseguire processi Pig in un cluster basato su Linux con il comando Pig (SSH)
@@ -99,7 +99,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
 
 6. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE`. Ad esempio, la seguente istruzione salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster.
 
-		STORE RESULT into 'wasb:///example/data/pigout'
+		STORE RESULT into 'wasb:///example/data/pigout';
 
 	> [AZURE.NOTE]I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un errore.
 
@@ -154,4 +154,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

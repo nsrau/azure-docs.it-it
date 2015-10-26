@@ -1,20 +1,20 @@
 <properties
    pageTitle="Debug dell'applicazione di Service Fabric in Visual Studio tramite F5"
-	description="Migliorare l'affidabilità e le prestazioni dei servizi mediante Visual Studio e un cluster di sviluppo locale."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor=""/>
+   description="Migliorare l'affidabilità e le prestazioni dei servizi mediante Visual Studio e un cluster di sviluppo locale."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/26/2015"
-	ms.author="jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/26/2015"
+   ms.author="jesseb"/>
 
 # Debug dell'applicazione di Service Fabric in Visual Studio tramite F5
 
@@ -66,4 +66,4 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

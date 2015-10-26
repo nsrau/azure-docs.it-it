@@ -1081,4 +1081,4 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * [Esportazione continua](app-insights-export-telemetry.md)
 * [Esempi di codice](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

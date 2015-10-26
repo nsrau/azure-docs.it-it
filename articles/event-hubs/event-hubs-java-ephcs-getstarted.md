@@ -119,4 +119,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 [soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

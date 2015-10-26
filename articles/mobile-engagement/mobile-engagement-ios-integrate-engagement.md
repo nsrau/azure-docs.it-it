@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Come integrare Engagement in iOS
 
@@ -43,7 +43,7 @@ Per il funzionamento di Engagement sono necessari framework aggiuntivi: nell'are
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE] È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA. È tuttavia possibile disabilitare la raccolta di identificatori IDFA <ios-sdk-engagement-idfa> per conformarsi ai nuovi criteri Apple relativi a questo ID.
+> [AZURE.NOTE]È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA (Identifier for Advertising). È tuttavia possibile disabilitare la raccolta di identificatori IDFA <ios-sdk-engagement-idfa> per conformarsi ai nuovi criteri Apple relativi a questo ID.
 
 ##Inizializzare l'SDK di Engagement
 
@@ -207,4 +207,4 @@ L'esempio seguente di `Settings.bundle` mostra come implementarla:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

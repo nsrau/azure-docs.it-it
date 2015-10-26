@@ -4,19 +4,19 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Inviare messaggi da cloud a dispositivo con l’hub IoT
+# Esercitazione: inviare messaggi da cloud a dispositivo con l'hub IoT
 
 ## Introduzione
 
@@ -28,14 +28,14 @@ Questa esercitazione si basa sull’[Introduzione all’hub IoT] e illustra come
 
 Al termine di questa esercitazione si eseguiranno due applicazioni console Windows:
 
-* **SimulatedDevice**, una versione modificata dell'app creata in [Introduzione all’hub IoT], che si connette all'hub IoT e riceve messaggi da cloud a dispositivo. 
+* **SimulatedDevice**, una versione modificata dell'app creata in [Introduzione all’hub IoT], che si connette all'hub IoT e riceve messaggi da cloud a dispositivo.
 * **SendCloudToDevice**, che invia un messaggio da cloud a dispositivo al dispositivo simulato tramite hub IoT e riceve quindi la conferma del recapito.
 
-> [AZURE.NOTE]L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Consultare il [Centro per sviluppatori di Azure IoT] per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all’hub IoT Azure. Gli SDK del servizio IoT Azure per Java e Node saranno presto disponibili.
+> [AZURE.NOTE]L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Consultare il [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure. Gli SDK del servizio Azure IoT per Java e Node saranno presto disponibili.
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
-+ Microsoft Visual Studio 2015,
++ Microsoft Visual Studio 2015
 
 + Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Versione di prova gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
 
@@ -51,13 +51,13 @@ In questa esercitazione è stato descritto come inviare e ricevere messaggi da c
 - [Elaborare messaggi da dispositivo a cloud], illustra come elaborare in modo affidabile telemetria e messaggi interattivi provenienti dai dispositivi.
 - [Caricamento di file da dispositivi], descrive un modello che utilizza i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
 
-Ulteriori informazioni sull'hub IoT:
+Altre informazioni sull'hub IoT:
 
 * [Panoramica dell’hub IoT]
 * [Guida per sviluppatori di hub IoT]
 * [Linee guida dell’hub IoT]
 * [Piattaforme e linguaggi di dispositivi supportati][Supported devices]
-* [Centro per sviluppatori di Azure IoT]
+* [Centro per sviluppatori Azure IoT]
 
 <!-- Images. -->
 
@@ -79,10 +79,6 @@ Ulteriori informazioni sull'hub IoT:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introduzione all’hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro per sviluppatori di Azure IoT]: http://www.azure.com/iotdev
+[Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -293,7 +293,7 @@ Il servizio mobile è ora configurato per funzionare con il servizio APN.
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("IT-IT"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("it-IT"));
 
             var push = client.GetPush();
 
@@ -846,4 +846,4 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 [esempio completo di notifiche push di Azure per Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

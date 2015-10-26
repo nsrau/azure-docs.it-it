@@ -65,4 +65,4 @@ Per creare una rete virtuale utilizzando un file netcfg tramite PowerShell, atte
 		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
 		OperationStatus      : Succeeded
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

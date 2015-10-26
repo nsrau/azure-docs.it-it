@@ -155,4 +155,4 @@ Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azu
 [Introduzione alla creazione di set di record e di record](dns-getstarted-create-recordset.md)<BR> [Come gestire le zone DNS](dns-operations-dnszones.md)<BR> [Come gestire i record DNS](dns-operations-recordsets.md)<BR> [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)<BR> [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

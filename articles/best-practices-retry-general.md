@@ -115,4 +115,4 @@ Le linee guida seguenti consentono di definire un meccanismo di gestione degli e
 * [Modello di transazioni di compensazione](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Modelli di idempotenza](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

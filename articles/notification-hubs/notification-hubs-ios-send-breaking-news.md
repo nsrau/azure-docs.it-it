@@ -384,4 +384,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

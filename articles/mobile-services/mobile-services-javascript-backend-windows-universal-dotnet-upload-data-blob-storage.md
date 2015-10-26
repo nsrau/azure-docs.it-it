@@ -50,7 +50,7 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 
 + [Pianificare processi back-end in Servizi mobili]
 
-  	Informazioni su come utilizzare la funzionalità di pianificazione di processi di Servizi mobili per definire codice dello script del server da eseguire in base a una pianificazione definita dall'utente.
+  	Informazioni su come usare la funzionalità di pianificazione di processi di Servizi mobili per definire codice dello script del server da eseguire in base a una pianificazione definita dall'utente.
 
 + [Riferimento per gli script del server di Servizi mobili]
 
@@ -58,7 +58,7 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
  
 + [Riferimento per i concetti e le procedure di .NET per Servizi mobili]
 
-    Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
+    Altre informazioni su come usare Servizi mobili con .NET.
   
  
 <!-- Anchors. -->
@@ -87,4 +87,4 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

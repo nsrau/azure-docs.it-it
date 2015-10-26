@@ -36,7 +36,7 @@ Noam Ben Zeev illustra ciò che verrà descritto in questo articolo.
 
 ## Monitorare l'app con Application Insights
 
-Se ancora non lo si è provato, è il momento giusto per iniziare. Application Insights è in grado di monitorare qualsiasi dispositivo o app Web in un'ampia gamma di piattaforme, tra cui Windows, iOS, Android, J2EE e altre ancora. [Introduzione](app-insights-get-started.md).
+Se ancora non lo si è provato, è il momento giusto per iniziare. Application Insights è in grado di monitorare qualsiasi dispositivo o app Web in un'ampia gamma di piattaforme, tra cui Windows, iOS, Android, J2EE e altre ancora. [Introduzione](app-insights-overview.md).
 
 ## Creare l'archiviazione in Azure
 
@@ -239,4 +239,4 @@ Noam Ben Zeev spiega come esportare i dati in Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Altri esempi e procedure dettagliate](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

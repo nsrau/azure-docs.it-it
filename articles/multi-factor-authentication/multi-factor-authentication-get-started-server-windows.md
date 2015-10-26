@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="L'autenticazione di Windows e Azure il Server Multi-Factor Authentication"
-	description="Questa è la pagina di autenticazione a più fattori di Azure che sarà utile per distribuire l'autenticazione di Windows e Server Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="L'autenticazione di Windows e Azure il Server Multi-Factor Authentication" 
+	description="Questa è la pagina di autenticazione a più fattori di Azure che sarà utile per distribuire l'autenticazione di Windows e Server Azure Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # L'autenticazione di Windows e Azure il Server Multi-Factor Authentication
@@ -49,4 +49,4 @@ La sezione autenticazione di Windows consente all'amministratore di abilitare e 
 10. Selezionare Subnet se si desidera specificare un intervallo di indirizzi IP utilizzando la notazione di subnet. Immettere l’IP iniziale della subnet e scegliere la mask appropriata dall'elenco a discesa. 
 11. Fare clic sul pulsante OK.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -47,7 +47,7 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 	        ParallelTransferThreadCount = 20
 	    };
 	
-	    var downloadTasks = new List&lt;Task&gt;();
+	    var downloadTasks = new List<Task>();
 	    foreach (IAssetFile outputFile in outputAsset.AssetFiles)
 	    {
 	        // Use the following event handler to check download progress.
@@ -85,4 +85,4 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 
 [Distribuire contenuti in streaming](media-services-deliver-streaming-content.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

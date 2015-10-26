@@ -68,4 +68,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 <!--Links -->
 [Creare un'app per la logica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

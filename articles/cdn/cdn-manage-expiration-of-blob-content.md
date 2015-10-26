@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Come gestire la scadenza del contenuto dei BLOB nella rete per la distribuzione di contenuti (rete CDN) di Azure"
-	description=""
-	services="cdn"
-	documentationCenter=".NET"
-	authors="zhangmanling"
-	manager="dwrede"
-	editor=""/>
+ pageTitle="Come gestire la scadenza del contenuto dei BLOB nella rete per la distribuzione di contenuti (rete CDN) di Azure" 
+ description="" 
+ services="cdn" 
+ documentationCenter=".NET" 
+ authors="zhangmanling" 
+ manager="dwrede" 
+ editor=""/>
 <tags 
- ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mazha"/>
+ ms.service="cdn" 
+ ms.workload="media" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="dotnet" 
+ ms.topic="article" 
+ ms.date="09/01/2015" 
+ ms.author="mazha"/>
 
 
 #Come gestire la scadenza del contenuto dei BLOB nella rete per la distribuzione di contenuti (rete CDN) di Azure  
@@ -96,4 +96,4 @@ Verificare che il BLOB sia disponibile tramite l'URL specifico della rete CDN. P
 
 [Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

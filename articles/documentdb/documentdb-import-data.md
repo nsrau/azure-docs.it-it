@@ -137,20 +137,7 @@ Che restituisce i risultati (parziali) seguenti:
 
 Si notino gli alias come Address.AddressType e Address.Location.StateProvinceName. Specificando un separatore di annidamento ".", lo strumento di importazione crea i documenti secondari Address e Address.Location durante l'importazione. Ecco un esempio di un documento risultante in DocumentDB:
 
-*{
-  "id": "956",
-  "Name": "Finer Sales and Service",
-  "Address": {
-    "AddressType": "Main Office",
-    "AddressLine1": "#500-75 O'Connor Street",
-    "Location": {
-      "City": "Ottawa",
-      "StateProvinceName": "Ontario"
-    },
-    "PostalCode": "K4B 1S2",
-    "CountryRegionName": "Canada"
-  }
-}*
+*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
  
 Ecco alcuni esempi di riga di comando per importare da SQL Server:
 
@@ -170,20 +157,9 @@ Come per l'origine SQL, la proprietà del separatore di annidamento può essere 
 
 ![Schermata dei record di esempio CSV](./media/documentdb-import-data/csvsample.png)
 
-Si notino gli alias come DomainInfo.Domain_Name e RedirectInfo.Redirecting. Specificando un separatore di annidamento ".", lo strumento di importazione creerà i documenti secondari DomainInfo e RedirectInfo durante l'importazione. Ecco un esempio di un documento risultante in DocumentDB:
+Si notino gli alias come DomainInfo.Domain\_Name e RedirectInfo.Redirecting. Specificando un separatore di annidamento ".", lo strumento di importazione creerà i documenti secondari DomainInfo e RedirectInfo durante l'importazione. Ecco un esempio di un documento risultante in DocumentDB:
 
-*{
-  "DomainInfo": {
-    "Domain_Name": "ACUS.GOV",
-    "Domain_Name_Address": "http://www.ACUS.GOV"
-  },
-  "Federal Agency": "Administrative Conference of the United States",
-  "RedirectInfo": {
-    "Redirecting": "0",
-    "Redirect_Destination": ""
-  },
-  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
-}*
+*{ "DomainInfo": { "Domain\_Name": "ACUS.GOV", "Domain\_Name\_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect\_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 Lo strumento di importazione proverà a dedurre le informazioni sul tipo per i valori non racchiusi tra virgolette nei file CSV (i valori tra virgolette vengono sempre considerati come stringhe). I tipi vengono identificati nell'ordine seguente: tipo numerico, datetime, booleano.
 
@@ -501,4 +477,4 @@ Nella schermata Configurazione avanzata specificare il percorso del file di log 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

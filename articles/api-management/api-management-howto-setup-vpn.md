@@ -67,4 +67,4 @@ Dopo che il servizio Gestione API è stato connesso alla VPN, l'accesso ai servi
 [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

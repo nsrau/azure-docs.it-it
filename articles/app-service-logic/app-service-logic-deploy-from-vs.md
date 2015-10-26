@@ -7,7 +7,6 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
-
 <tags
 	ms.service="app-service-logic"
 	ms.workload="integration"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="07/30/2015"
 	ms.author="stepsic"/>
-
 	
 # Eseguire una distribuzione da Visual Studio
 
@@ -67,4 +65,4 @@ In futuro sarà possibile modificare l'app per la logica nel controllo del codic
 
 Se non si vuole usare Visual Studio, ma si desidera comunque avere gli strumenti necessari per distribuire l'app per la logica dal controllo di origine è sempre possibile usare l'[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [PowerShell](../powershell-azure-resource-manager.md) direttamente per automatizzare le distribuzioni.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

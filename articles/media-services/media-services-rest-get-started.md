@@ -214,7 +214,7 @@ Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multime
 	 
 
 
->[AZURE.NOTE] D'ora in poi, in questa esercitazione verrà usato il nuovo URI.
+>[AZURE.NOTE]D'ora in poi, in questa esercitazione verrà usato il nuovo URI.
 
 ## <a id="upload"></a>Creare un nuovo asset e caricare un file video con l'API REST
 
@@ -469,7 +469,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	
 Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel contenitore di archiviazione BLOB di Azure usando le API REST di Archiviazione di Azure. Il caricamento può essere eseguito in BLOB di pagine o in BLOB in blocchi.
 
->[AZURE.NOTE] È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+>[AZURE.NOTE]È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
@@ -557,7 +557,7 @@ Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è ne
 Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
 
->[AZURE.NOTE] Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
+>[AZURE.NOTE]Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 Per modificare il numero di unità riservate di streaming, effettuare le seguenti operazioni:
 	
@@ -831,7 +831,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 - Le attività non devono formare un ciclo.
 - Il parametro value passato a JobInputAsset o JobOutputAsset rappresenta il valore di indice di un asset. Gli asset effettivi vengono definiti nelle proprietà di navigazione InputMediaAssets e OutputMediaAssets nella definizione dell'entità Job. 
 
->[AZURE.NOTE] Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "\_\_metadata : uri".
+>[AZURE.NOTE]Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "\_\_metadata : uri".
 
 - La proprietà InputMediaAssets è mappata a uno o più asset creati in Servizi multimediali. Le proprietà OutputMediaAssets vengono create dal sistema. Non fanno riferimento a un asset esistente.
 - Per assegnare un nome a OutputMediaAssets è possibile usare l'attributo assetName. Se questo attributo non è presente, il nome della proprietà OutputMediaAssets corrisponderà al valore del testo interno dell'elemento <outputAsset> preceduto dal nome o dall'ID del processo, nel caso in cui la proprietà Name non sia definita. Se ad esempio si è impostato "Sample" come valore di assetName, la proprietà Name di OutputMediaAssets sarà impostata su "Sample". Se invece non si è impostato un valore per assetName, ma si è impostato "NewJob" come nome del processo, il nome di OutputMediaAssets sarà "JobOutputAsset(value)\_NewJob".
@@ -906,7 +906,7 @@ Il seguente esempio mostra come chiamare la funzione CancelJob.
 
 Se l'esito è positivo, viene restituito un codice di risposta 204 senza il corpo di un messaggio.
 
->[AZURE.NOTE] È necessario codificare in URL l'ID del processo (in genere nb:jid:UUID: valore) quando viene passato come parametro a CancelJob.
+>[AZURE.NOTE]È necessario codificare in URL l'ID del processo (in genere nb:jid:UUID: valore) quando viene passato come parametro a CancelJob.
 
 
 ### Ottenere l'asset di output 
@@ -1215,4 +1215,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

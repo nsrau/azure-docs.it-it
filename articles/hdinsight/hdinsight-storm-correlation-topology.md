@@ -200,4 +200,4 @@ Quando si è pronti per arrestare la topologia, tornare al progetto **Correlatio
 Per altri esempi di Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

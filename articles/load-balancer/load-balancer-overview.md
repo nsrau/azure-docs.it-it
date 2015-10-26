@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Panoramica del bilanciamento del carico di Azure | Microsoft Azure"
-	description="Panoramica di funzionalità, architettura e implementazione del bilanciamento del carico di Azure. Informazioni sul funzionamento del bilanciamento del carico e su come usarlo per il cloud"
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Panoramica di funzionalità, architettura e implementazione del bilanciamento del carico di Azure. Informazioni sul funzionamento del bilanciamento del carico e su come usarlo per il cloud"
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/10/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="07/10/2015"
+   ms.author="joaoma" />
 
 
 # Panoramica del bilanciamento del carico 
@@ -99,4 +99,4 @@ A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pub
 [Introduzione - Bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 5: Creare il gruppo di disponibilità e aggiungere i database dell'applicazione
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione di gestione delle risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 In questa fase finale della distribuzione di un'applicazione line-of-business a disponibilità elevata nei servizi di infrastruttura di Azure si crea un nuovo gruppo di disponibilità AlwaysOn di SQL Server e quindi si aggiungono i database dell'applicazione.
 
@@ -127,4 +128,4 @@ Dopo la configurazione del listener, è necessario configurare tutte le macchine
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

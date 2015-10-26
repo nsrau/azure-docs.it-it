@@ -21,7 +21,8 @@
 
 In questo articolo viene descritto come installare l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure fornisce un set di comandi open source basati sulla shell per la creazione e la gestione delle risorse in Microsoft Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la creazione e la gestione delle risorse con il modello di distribuzione di Gestione risorse o il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
+
 
 L'interfaccia della riga di comando di Azure è scritta in JavaScript e richiede [Node.js](https://nodejs.org). Viene implementata mediante [Azure SDK per Node](https://github.com/azure/azure-sdk-for-node) e rilasciata con una licenza Apache 2.0. L'archivio di progetto si trova in [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
 
@@ -155,4 +156,4 @@ Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà poss
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

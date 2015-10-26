@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Gestione di Azure AD Connect"
+<properties
+	pageTitle="Gestione di Azure AD Connect | Microsoft Azure"
 	description="Informazioni su come estendere la configurazione predefinita e attività operative per Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -7,19 +7,16 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/01/2015"
 	ms.author="billmath"/>
 
-# Gestione di Azure AD Connect 
-
-
-
+# Gestione di Azure AD Connect
 Di seguito sono riportati argomenti operativi avanzati che permettono di personalizzare Azure Active Directory Connect per soddisfare le esigenze e i requisiti dell'organizzazione.
 
 ## Assegnazione delle licenze agli utenti di Azure AD Premium ed Enterprise Mobility
@@ -41,7 +38,6 @@ Per controllare lo stato di una sincronizzazione, è possibile accedere al porta
 
 ### Per verificare l'attività di sincronizzazione pianificata
 --------------------------------------------------------------------------------
-
 1. Accesso al portale di Azure come amministratore.
 2. A sinistra, selezionare **Active Directory**.
 3. Nella pagina Active Directory fare doppio clic sulla directory con gli utenti da abilitare.
@@ -56,8 +52,6 @@ Se è necessario eseguire un'attività di sincronizzazione, è possibile eseguir
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
 
-
-
 ## Attività aggiuntive disponibili in Azure AD Connect
 Dopo l'installazione iniziale di Azure AD Connect è sempre possibile riavviare la procedura guidata dalla pagina iniziale di Azure AD Connect o dal collegamento sul dekstop. Si noterà che la riesecuzione della procedura guidata fornisce alcune nuove opzioni sotto forma di Attività aggiuntive.
 
@@ -66,31 +60,13 @@ La tabella seguente include un riepilogo di tali attività e una breve descrizio
 ![Regola di aggiunta](./media/active-directory-aadconnect-whats-next/addtasks.png)
 
 
-Attività aggiuntive | Descrizione 
+Attività aggiuntive | Descrizione
 ------------- | ------------- |
 Visualizza lo scenario selezionato |Consente di visualizzare la soluzione di Connect di Azure AD corrente. Include impostazioni generali, directory sincronizzate, impostazioni di sincronizzazione e così via.
 Personalizzazione delle opzioni di sincronizzazione | Consente di modificare la configurazione corrente, inclusa l'aggiunta di altre foreste di Active Directory per la configurazione o l'attivazione di opzioni di sincronizzazione, ad esempio writeback di utenti, gruppi, dispositivi o password.
 Abilitazione modalità di gestione temporanea | Consente di inserire in un'area di gestione temporanea le informazioni che saranno sincronizzate in un secondo momento, senza che avvenga l'esportazione in Azure AD o Active Directory. Consente di visualizzare in anteprima le sincronizzazioni prima che si verifichino.
 
+## Passaggi successivi
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
- 
-
-
-
-
-
-
-## Documentazione aggiuntiva
-Per altra documentazione sull'uso di Azure AD Connect vedere gli articoli seguenti:
-
-- [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
-- [Modifica della configurazione predefinita di Azure AD Connect](active-directory-aadconnect-whats-next-change-default-config.md)
-- [Uso dell'Editor regole di sincronizzazione di Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
-- [Uso del provisioning dichiarativo](active-directory-aadconnect-whats-next-declarative-prov.md)
-
-Parte della documentazione creata per Azure AD Sync è comunque pertinente e si applica anche ad Azure AD Connect. Benché grande sia l'impegno per aggiungere questa documentazione in Azure.com, una sua parte si trova ancora nella sezione specifica di MSDN Library. Per altra documentazione, vedere [Azure AD Connect in MSDN](active-directory-aadconnect.md) e [Azure AD Sync in MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
-
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

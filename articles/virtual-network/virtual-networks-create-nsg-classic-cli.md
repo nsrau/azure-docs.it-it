@@ -239,4 +239,4 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

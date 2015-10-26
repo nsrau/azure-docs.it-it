@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/18/2015" 
 	ms.author="sdanie"/>
 
 # Come usare il Servizio cache gestita di Azure
@@ -489,4 +489,4 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio cache gestita,
 [Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

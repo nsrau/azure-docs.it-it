@@ -451,4 +451,4 @@ Tutti gli scenari e le soluzioni illustrati in questo argomento sono validi quan
 [Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -85,4 +85,4 @@ Le aziende che usano dispositivi mobili e tradizionali o che usano Office365, Az
 
 Altre informazioni sulla distribuzione della registrazione dei dispositivi con AD FS, fare clic [qui](https://technet.microsoft.com/it-IT/library/dn486831.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

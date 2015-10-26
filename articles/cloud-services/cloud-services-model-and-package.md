@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Cosa sono un modello del servizio cloud e un pacchetto in Azure"
+    pageTitle="Cosa sono un modello del servizio cloud e un pacchetto | Microsoft Azure"
     description="Descrive il modello del servizio cloud (csdef, cscfg) e il pacchetto (cspkg) in Azure"
     services="cloud-services"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="10/09/2015"
     ms.author="adegeo"/>
 
 # Cos'è il modello del servizio cloud e come è possibile crearne il pacchetto?
@@ -251,11 +251,7 @@ Dove le variabili vengono definite come segue:
 
 Si sta creando un pacchetto del servizio cloud e si vuole...
 
-<!--
-* [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
--->
-
+* [Configurare le risorse di archiviazione locale](cloud-services-configure-local-storage-resources.md)
 * [Configurare il desktop remoto per un'istanza del servizio cloud][remotedesktop]
 * [Distribuire un progetto di servizio cloud][deploy]
 
@@ -269,9 +265,9 @@ Si sta usando Visual Studio e si vuole...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/IT-IT/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/IT-IT/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/IT-IT/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

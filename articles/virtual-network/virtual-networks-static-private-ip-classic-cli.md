@@ -115,4 +115,4 @@ Output previsto:
 - Informazioni sugli indirizzi [IP pubblici a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,7 @@
 
 *Application Insights è disponibile in anteprima.*
 
-Questo articolo illustra esempi di codice relativi all'uso di [Application Insights per Visual Studio](app-insights-get-started.md).
+Questo articolo illustra esempi di codice relativi all'uso di [Application Insights per Visual Studio](app-insights-overview.md).
 
 ## Laboratori SDK
 
@@ -37,7 +37,7 @@ Per analizzare i dati di telemetria con strumenti personalizzati, [esportarli](a
 * [Esportare in Power BI](app-insights-export-power-bi.md) 
 * [Analizzare i dati esportati con un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Eseguire l'esportazione in SQL usando l'analisi di flusso](app-insights-code-sample-export-sql-stream-analytics.md)
-* [Abilitazione della telemetria per Microsoft CRM](app-insights-sample-mscrm.md)
+* [Abilitazione della telemetria per Microsoft Dynamics CRM](app-insights-sample-mscrm.md)
 
 
 ## Automatizzare le attività
@@ -53,4 +53,4 @@ Per analizzare i dati di telemetria con strumenti personalizzati, [esportarli](a
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

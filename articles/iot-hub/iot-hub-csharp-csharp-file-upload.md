@@ -4,19 +4,19 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Caricare file dai dispositivi al cloud con l'hub IoT
+# Esercitazione: caricare file dai dispositivi al cloud con l'hub IoT
 
 ## Introduzione
 
@@ -96,10 +96,6 @@ Altre informazioni sull'hub IoT:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introduzione all'hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro per sviluppatori Azure IoT]: http://www.azure.com/iotdev
+[Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

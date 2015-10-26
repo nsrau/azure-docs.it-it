@@ -104,4 +104,4 @@ Per configurare le impostazioni di reindirizzamento USB sul computer:
 7. Selezionare **Attivato** e quindi selezionare **Amministratori e utenti nei diritti di accesso del reindirizzamento USB RemoteFX**.
 8. Fare clic su **OK**.  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

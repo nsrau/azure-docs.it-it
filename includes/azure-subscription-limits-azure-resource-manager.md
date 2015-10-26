@@ -16,4 +16,4 @@ Dimensioni delle richieste API di gestione delle risorse|4194304 byte|4194304 by
 
 <sup>3</sup>Queste funzionalità non sono più necessarie con i gruppi di risorse di Azure e Gestione risorse di Azure.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

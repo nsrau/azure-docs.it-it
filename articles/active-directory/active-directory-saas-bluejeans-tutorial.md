@@ -63,7 +63,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso BlueJeans** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**https://company.BlueJeans.com**" e quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso BlueJeans** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**https://company.BlueJeans.com*" e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configura URL app")
 
@@ -75,7 +75,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 6.  Passare a **ADMIN > Group Settings > Security**.
 
-    ![Admin](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Admin")
+    ![Amministratore](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Admin")
 
 7.  Nella sezione **Security** seguire questa procedura:
 
@@ -97,11 +97,11 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Save Changes](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Save Changes")
 
-    1.  Nella casella di testo **User id** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-    2.  Nella casella di testo **Email** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    1.  Nella casella di testo **User id** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+2.  Nella casella di testo **Email** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
 3.  Fare clic su **Save Changes**.
 
-10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -114,13 +114,13 @@ Per consentire agli utenti di Azure AD di accedere a BlueJeans, è necessario es
 
 2.  Passare a **ADMIN > Manage Users > Add User**.
 
-    ![Admin](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Admin")
+    ![Amministratore](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Amministratore")
 
     >[AZURE.IMPORTANT]La scheda **Add User** è disponibile solo se nella scheda**Security** l'opzione **Enable automatic provisioning** è deselezionata.
 
 3.  Nella sezione **Add User** seguire questa procedura:
 
-    ![Add User](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Add User")
+    ![Aggiunta di un utente](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Aggiunta di un utente")
 
     1.  Nelle caselle di testo **BlueJeans Username**, **Email address**, **BlueJeans Meeting ID**, **Moderator Passcode**, **Full Name** e **Company** digitare il nome utente, l'indirizzo di posta elettronica, l'ID riunione, il passcode moderatore, il nome completo e la società BlueJeans di un account AAD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Add User**.
@@ -143,6 +143,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

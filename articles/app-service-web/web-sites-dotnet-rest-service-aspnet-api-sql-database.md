@@ -1,40 +1,41 @@
 <properties 
-	pageTitle="Creazione di un servizio REST usando l'API Web ASP.NET e il database SQL in Servizio app di Azure"
-	description="Un'esercitazione che illustra come distribuire un'app che usa l'API Web ASP.NET in un'app Web di Azure tramite Visual Studio."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Rick-Anderson"
-	manager="wpickett"
+	pageTitle="Creare un servizio REST con l'API Web ASP.NET e il database SQL in Servizio app di Azure" 
+	description="Esercitazione che illustra come distribuire un'app che usa l'API Web ASP.NET in un'app Web di Azure tramite Visual Studio." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="riande"/>
 
-# Creazione di un servizio REST usando l'API Web ASP.NET e il database SQL in Servizio app di Azure
+# Creare un servizio REST con l'API Web ASP.NET e il database SQL in Servizio app di Azure
 
-In questa esercitazione viene illustrato come distribuire un'app Web ASP.NET in un [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) usando la procedura guidata Pubblica sito Web in Visual Studio 2013 o Visual Studio Express 2013 per il Web.
+Questa esercitazione illustra come distribuire un'app Web ASP.NET in un [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando la procedura guidata Pubblica sul Web in Visual Studio 2013 o Visual Studio Express 2013 per il Web.
 
-È possibile aprire gratuitamente un account Azure e, se non si dispone già di Visual Studio 2013, con l'SDK verrà installato automaticamente Visual Studio 2013 Express per il Web. Sarà quindi possibile iniziare a sviluppare per Azure del tutto gratuitamente.
+È possibile aprire gratuitamente un account Azure e, se Visual Studio 2013 non è installato nel computer, l'SDK installerà automaticamente Visual Studio 2013 Express per il Web. Sarà quindi possibile iniziare a sviluppare per Azure del tutto gratuitamente.
 
-In questa esercitazione si presuppone che l'utente non abbia mai utilizzato Azure. Al termine dell'esercitazione, si disporrà di un'app Web semplice in esecuzione nel cloud.
+Questa esercitazione presuppone che l'utente non abbia mai usato Azure. Al termine dell'esercitazione, si avrà un'app Web semplice in esecuzione nel cloud.
  
 Si apprenderà come:
 
-* Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
+* Abilitare il computer per lo sviluppo in Azure installando Azure SDK.
 * Creare un progetto ASP.NET MVC 5 di Visual Studio e pubblicarlo in un'app di Azure.
-* Creare l'API Web ASP.NET per consentire chiamate all'API RESTful.
-* Utilizzare un database SQL per l'archiviazione di dati in Azure.
+* Usare l'API Web ASP.NET per abilitare le chiamate API RESTful.
+* Usare un database SQL per l'archiviazione di dati in Azure.
 * Pubblicare aggiornamenti dell'applicazione in Azure.
 
-Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET MVC 5 che utilizza ADO.NET Entity Framework per l'accesso al database. Nella figura seguente è illustrata l'applicazione completata:
+Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET MVC 5 che usa ADO.NET Entity Framework per l'accesso al database. La figura seguente illustra l'applicazione completata:
 
-![schermata del sito web][intro001]
+![schermata del sito Web][intro001]
 
 <!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -47,15 +48,15 @@ Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET
 
 	![Finestra di dialogo Nuovo progetto](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
 
-1. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **MVC**, selezionare **API Web**, quindi fare clic su **Modifica autenticazione**.
+1. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **MVC**, selezionare **API Web** e quindi fare clic su **Modifica autenticazione**.
 
 	![Finestra di dialogo Nuovo progetto ASP.NET](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
-1. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione**, quindi fare clic su **OK**.
+1. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione** e quindi fare clic su **OK**.
 
 	![No Authentication](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/GS13noauth.png)
 
-	L'applicazione di esempio che si sta creando non includerà funzionalità che richiedono l'accesso agli utenti. Per informazioni su come implementare la funzionalità di autenticazione e autorizzazione, vedere il [passaggi successivi](#nextsteps) sezione alla fine di questa esercitazione.
+	L'applicazione di esempio che si sta creando non includerà funzionalità che richiedono agli utenti di eseguire l'accesso. Per informazioni su come implementare le funzionalità di autenticazione e autorizzazione, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione.
 
 1. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **OK**.
 
@@ -122,7 +123,7 @@ Il markup precedente cambia il nome dell'app da "My ASP.NET App" a "Contact Mana
 
 ### Eseguire l'applicazione in locale
 
-1. Premere CTRL+F5 per eseguire l'applicazione. La home page dell'applicazione verrà visualizzata nel browser predefinito. ![Pagina iniziale Elenco azioni](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
+1. Premere CTRL+F5 per eseguire l'applicazione. La home page dell'applicazione verrà visualizzata nel browser predefinito. ![Pagina iniziale dell'app To Do List](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
 Non è necessario eseguire per il momento altre operazioni per creare l'applicazione che verrà distribuita in Azure. La funzionalità di database verrà aggiunta in un secondo momento.
 
@@ -136,19 +137,19 @@ Non è necessario eseguire per il momento altre operazioni per creare l'applicaz
 
 12. Fare clic su **Pubblica**.
 
-![Scheda Settings](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/pw.png)
+![Scheda Impostazioni](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/pw.png)
 
-In Visual Studio verrà avviato il processo di copia dei file nel server Azure. Nella finestra **Output** vengono indicate le azioni di distribuzione effettuate e viene segnalato il corretto completamento della distribuzione.
+Visual Studio avvierà il processo di copia dei file nel server Azure. Nella finestra **Output** vengono indicate le azioni di distribuzione effettuate e viene segnalato il corretto completamento della distribuzione.
 
-14. Nel browser predefinito verrà automaticamente aperto l'URL del sito distribuito.
+14. Il browser predefinito apre automaticamente l'URL del sito distribuito.
 
 	L'applicazione creata verrà ora eseguita nel cloud.
 	
-	![Pagina iniziale Elenco azioni in esecuzione in Azure][rxz2]
+	![Pagina iniziale dell'app To Do List in esecuzione in Azure][rxz2]
 
-## Aggiunta di un database all'applicazione
+## Aggiungere un database all'applicazione
 
-Si passerà quindi all'aggiornamento dell'applicazione MVC, in modo da aggiungere la possibilità di visualizzare e aggiornare i contatti e di archiviare i dati in un database. L'applicazione utilizzerà Entity Framework per creare il database e per leggere e aggiornare i dati nel database.
+A questo punto si passa all'aggiornamento dell'applicazione MVC, in modo da aggiungere la possibilità di visualizzare e aggiornare i contatti e di archiviare i dati in un database. L'applicazione userà Entity Framework per creare il database e per leggere e aggiornare i dati nel database.
 
 ### Aggiungere classi del modello di dati per i contatti
 
@@ -156,7 +157,7 @@ Creare innanzitutto un semplice modello di dati nel codice.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella Modelli, quindi scegliere **Aggiungi** e infine **Classe**.
 
-	![Aggiungi classe nel menu di scelta rapida della cartella Modelli][adddb001]
+	![Opzione Aggiungi classe nel menu di scelta rapida della cartella Models][adddb001]
 
 2. Nella finestra di dialogo **Aggiungi nuovo elemento** assegnare al nuovo file di classe il nome *Contact.cs*, quindi fare clic su **Aggiungi**.
 
@@ -188,15 +189,15 @@ Creare innanzitutto un semplice modello di dati nel codice.
 
 La classe **Contatti** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, ContactID, necessaria per il database. Per ulteriori informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione.
 
-### Creare pagine Web che consentono agli utenti dell'app di utilizzare i contatti
+### Creare pagine Web che consentono agli utenti dell'app di usare i contatti
 
-La caratteristica scaffolding di ASP.NET MVC consente di generare automaticamente codice per l'esecuzione di azioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete).
+La funzionalità di scaffolding di ASP.NET MVC consente di generare automaticamente codice per l'esecuzione di azioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete).
 
-## Aggiunta di un controller e di una visualizzazione per i dati
+## Aggiungere un controller e una visualizzazione per i dati
 
 1. In **Esplora soluzioni** espandere la cartella Controllers.
 
-3. Creare il progetto **(CTRL+MAIUSC+B)**. Per utilizzare il meccanismo scaffolding, è innanzitutto necessario creare il progetto.
+3. Creare il progetto **(CTRL+MAIUSC+B)**. Per usare il meccanismo di scaffolding, è innanzitutto necessario creare il progetto.
 
 4. Fare clic con il pulsante destro del mouse sulla cartella Controllers, quindi scegliere **Aggiungi** e infine **Controller**.
 
@@ -210,7 +211,7 @@ La caratteristica scaffolding di ASP.NET MVC consente di generare automaticament
 
 	![Finestra di dialogo Aggiungi controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
-	Nella finestra di dialogo chiederà: "un file con nome HomeController esiste già. Sostituirlo?" Fare clic su **Sì**. Il file HomeController creato con il nuovo progetto verrà sovrascritto. Per l'elenco dei contatti, verrà utilizzato il nuovo file HomeController.
+	Verrà visualizzata una finestra di dialogo con il messaggio: "Esiste già un file con il nome HomeController. Sostituirlo?" Fare clic su **Sì**. Il file HomeController creato con il nuovo progetto verrà sovrascritto. Per l'elenco dei contatti, verrà usato il nuovo file HomeController.
 
 	In Visual Studio verranno creati metodi e visualizzazioni di un controller per operazioni CRUD di database per oggetti **Contact**.
 
@@ -317,7 +318,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 
 ![Visualizzazione MVC dei dati][rxz3]
 
-## Modifica della visualizzazione
+## Modificare la visualizzazione
 
 1. Aprire il file *Views\\Home\\Index.cshtml*. Nel passaggio successivo, il markup generato verrà sostituito con codice che utilizza [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Questo nuovo codice recupera l'elenco dei contatti con l'API Web e JSON e quindi associa i dati dei contatti all'interfaccia utente usando knockout.js. Per altre informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione. 
 
@@ -474,7 +475,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
             text-decoration: none;
         }
 
-	Questo foglio di stile verrà utilizzato per il layout, i colori e gli stili nell'app Contact Manager.
+	Questo foglio di stile verrà usato per il layout, i colori e gli stili nell'app Contact Manager.
 
 6. Aprire il file *App\_Start\\BundleConfig.cs*.
 
@@ -483,7 +484,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 
 		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
 		            "~/Scripts/knockout-{version}.js"));
-	In questo esempio viene utilizzato il plug-in Knockout per semplificare il codice JavaScript dinamico che gestisce i modelli delle schermate.
+	Questo esempio usa il plug-in Knockout per semplificare il codice JavaScript dinamico che gestisce i modelli delle schermate.
 
 8. Modificare la voce contents/css per registrare il foglio di stile *contacts.css*. Sostituire la riga seguente:
 
@@ -497,10 +498,10 @@ Con:
                    "~/Content/contacts.css",
                    "~/Content/site.css"));
 
-1. Nella finestra Console di Gestione pacchetti eseguire il comando seguente per installare Knockout.
+1. Nella Console di Gestione pacchetti eseguire il comando seguente per installare Knockout.
 
 	Install-Package knockoutjs
-## Aggiunta di un controller per l'interfaccia dell'API Web RESTful
+## Aggiungere un controller per l'interfaccia dell'API Web RESTful
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella Controllers, quindi scegliere **Aggiungi** e infine **Controller...**.
 
@@ -520,13 +521,13 @@ Con:
 
 2. Immettere un contatto e fare clic su **Aggiungi**. L'app torna alla pagina iniziale e visualizza il contatto immesso
 
-	![Pagina di indice con elementi dell'elenco azioni][addwebapi004]
+	![Pagina di indice con voci dell'elenco attività][addwebapi004]
 
 3. Nel browser aggiungere **/api/contacts** all'URL.
 
 	L'URL risultante sarà simile a http://localhost:1234/api/contacts. L'API Web RESTful aggiunta restituirà i contatti archiviati. In Firefox e Chrome i dati saranno visualizzati in formato XML.
 
-	![Pagina di indice con elementi dell'elenco azioni][rxFFchrome]
+	![Pagina di indice con voci dell'elenco attività][rxFFchrome]
 	
 
 	In Internet Explorer verrà visualizzato un messaggio in cui viene chiesto se si desidera aprire o salvare i contatti.
@@ -534,9 +535,9 @@ Con:
 	![Finestra di dialogo Salva dell'API Web][addwebapi006]
 	
 	
-	È possibile aprire i contatti restituiti in Blocco note o in un browser.
+	È possibile aprire i contatti restituiti nel Blocco note o in un browser.
 	
-	Questo output può essere utilizzato da altre applicazioni, ad esempio una pagina Web o un'applicazione per dispositivi mobili.
+	Questo output può essere usato da altre applicazioni, ad esempio una pagina Web o un'applicazione per dispositivi mobili.
 
 	![Finestra di dialogo Salva dell'API Web][addwebapi007]
 
@@ -684,7 +685,7 @@ Per altre informazioni, vedere il sito [Web Open Web Application Security Projec
             </script>
 
 
-## Pubblicazione dell'aggiornamento dell'applicazione in Azure e nel database SQL
+## Pubblicare l'aggiornamento dell'applicazione in Azure e nel database SQL
 
 Per pubblicare l'applicazione, ripetere la procedura seguita in precedenza.
 
@@ -701,9 +702,9 @@ Per pubblicare l'applicazione, ripetere la procedura seguita in precedenza.
 
 7. Selezionare la casella per **Execute Code First Migrations (runs on application start)**.
 
-1. Fare clic su **Avanti** e quindi su **Anteprima**. In Visual Studio verrà visualizzato un elenco dei file che verranno aggiunti o aggiornati.
+1. Fare clic su **Avanti** e quindi su **Anteprima**. Visual Studio visualizza un elenco dei file che verranno aggiunti o aggiornati.
 
-8. Fare clic su **Pubblica**. Al termine della distribuzione, nel browser verrà aperta la pagina iniziale dell'applicazione.
+8. Fare clic su **Pubblica**. Al termine della distribuzione, il browser aprirà la pagina iniziale dell'applicazione.
 
 	![Pagina di indice senza contatti][intro001]
 
@@ -717,15 +718,15 @@ Se la voce immessa viene salvata e quindi visualizzata nella pagina di Contact M
 
 ![Pagina di indice con contatti][addwebapi004]
 
-L'applicazione è ora in esecuzione nel cloud e utilizza il database SQL per archiviare i relativi dati. Al termine del test dell'applicazione in Azure, eliminarla. L'applicazione è pubblica e non dispone di un meccanismo per limitare l'accesso.
+L'applicazione è ora in esecuzione nel cloud e usa il database SQL per archiviare i relativi dati. Al termine del test dell'applicazione in Azure, eliminarla. L'applicazione è pubblica e non ha un meccanismo per limitare l'accesso.
 
 >[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Passaggi successivi
 
-Un'applicazione reale richiederebbe l'autenticazione e l'autorizzazione e a tale scopo verrebbe utilizzato un database di appartenenza. Nell'esercitazione [Distribuzione di un'app ASP.NET MCV sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md), basata su questa esercitazione, viene illustrato come distribuire un'applicazione Web con il database di appartenenza.
+Un'applicazione reale richiederebbe l'autenticazione e l'autorizzazione e a tale scopo verrebbe usato un database di appartenenza. Nell'esercitazione [Distribuzione di un'app ASP.NET MCV sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md), basata su questa esercitazione, viene illustrato come distribuire un'applicazione Web con il database di appartenenza.
 
-Un altro modo per archiviare i dati in un'applicazione di Azure consiste nell'utilizzare Archiviazione di Azure, che offre un servizio di archiviazione di dati non relazionali sotto forma di BLOB e tabelle. Per ulteriori informazioni sull'API Web, su ASP.NET MVC e Azure, vedere i collegamenti seguenti.
+Un altro modo per archiviare i dati in un'applicazione Azure consiste nell'usare Archiviazione di Azure, che offre un servizio di archiviazione di dati non relazionali sotto forma di BLOB e tabelle. Per altre informazioni sull'API Web, su ASP.NET MVC e Azure, vedere i collegamenti seguenti.
  
 
 * [Introduzione a Entity Framework con MVC][EFCodeFirstMVCTutorial]
@@ -735,7 +736,7 @@ Un altro modo per archiviare i dati in un'applicazione di Azure consiste nell'ut
 
 Questa esercitazione e l'applicazione di esempio sono state scritte da [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) con il supporto di Tom Dykstra e Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
 
-Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili e su eventuali miglioramenti da apportare, non solo in merito all'esercitazione ma anche ai prodotti illustrati nell'esercitazione. I commenti e suggerimenti degli utenti risulteranno utili per definire la priorità dei miglioramenti da apportare. In particolare, saranno apprezzati i commenti relativi all'interesse in merito a un'ulteriore automazione per il processo di configurazione e distribuzione del database di appartenenza.
+Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili e su eventuali miglioramenti da apportare, non solo in merito all'esercitazione ma anche ai prodotti illustrati nell'esercitazione. I commenti e suggerimenti saranno utili per definire la priorità dei miglioramenti da apportare. In particolare, saranno apprezzati i commenti che riguardano l'aggiunta di ulteriore automazione per il processo di configurazione e distribuzione del database di appartenenza.
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -810,4 +811,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -70,4 +70,4 @@ La schermata seguente mostra un esempio della finestra di dialogo correlata in A
   
 È ora possibile creare un account di test. Attendere 10 minuti e quindi verificare che l'account sia stato sincronizzato con Jive.com.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

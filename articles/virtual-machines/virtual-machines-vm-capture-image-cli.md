@@ -22,7 +22,8 @@
 
 # Come acquisire una macchina virtuale Linux da usare come modello con l'interfaccia della riga di comando##
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+ 
 
 Questo articolo illustra come acquisire una macchina virtuale di Azure che esegue Linux in modo da usarla come modello per creare altre macchine virtuali. Questo modello include il disco del sistema operativo e gli eventuali dischi dati connessi alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si creano le altre macchine virtuali che usano il modello.
 
@@ -163,4 +164,4 @@ Per ulteriori informazioni e comandi aggiuntivi, visitare la [pagina della docum
 [Come collegare un disco dati a una macchina virtuale]: storage-windows-attach-disk.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

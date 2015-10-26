@@ -10,4 +10,4 @@
 - [Come richiedere l'MFA](active-directory-privileged-identity-management-how-to-require-mfa.md)
 - [Come utilizzare il Log di controllo](active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

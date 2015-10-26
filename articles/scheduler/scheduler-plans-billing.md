@@ -87,4 +87,4 @@ Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](http://a
  [Autenticazione in uscita dell'Utilità di pianificazione](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

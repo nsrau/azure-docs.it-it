@@ -70,7 +70,7 @@ Prima di seguire le istruzioni di questa esercitazione, verificare che siano dis
 
 ## <a name="CreateStorage"></a>Passaggio 1: creare un account di archiviazione di Azure
 
-> [AZURE.IMPORTANT] Se si ha **già** un account di archiviazione di Azure e si vuole creare un nuovo contenitore BLOB all'interno di tale account, passare direttamente al [Passaggio 2: creare un cluster HDInsight personalizzato](#ProvisionHDInsight).
+> [AZURE.IMPORTANT]Se si ha **già** un account di archiviazione di Azure e si vuole creare un nuovo contenitore BLOB all'interno di tale account, passare direttamente al [Passaggio 2: creare un cluster HDInsight personalizzato](#ProvisionHDInsight).
 
 Azure HDInsight usa l'archiviazione BLOB di Azure per l'archiviazione dei dati. Questa risorsa è denominata *WASB* o *Archiviazione BLOB di Azure*. WASB è l'implementazione Microsoft di HDFS sull'archivio BLOB di Azure. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage].
 
@@ -90,7 +90,7 @@ Quando si effettua il provisioning di un cluster HDInsight, si specifica un acco
 	
 	Il nuovo account di archiviazione verrà incluso nell'elenco di archiviazione.
 
-	> [AZURE.IMPORTANT] Per ottenere le migliori prestazioni, assicurarsi che l'account di archiviazione, il cluster HDInsight e l'account di DocumentDB si trovino nella stessa area di Azure. Aree di Azure che supportano tutti i tre servizi sono: **Asia orientale**, **sud-est asiatico**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti orientali** e **Stati Uniti occidentali**.
+	> [AZURE.IMPORTANT]Per ottenere le migliori prestazioni, assicurarsi che l'account di archiviazione, il cluster HDInsight e l'account di DocumentDB si trovino nella stessa area di Azure. Aree di Azure che supportano tutti i tre servizi sono: **Asia orientale**, **sud-est asiatico**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti orientali** e **Stati Uniti occidentali**.
 
 4. Attendere che il valore di **STATUS** per il nuovo account di archiviazione venga modificato in **Online**.
 
@@ -193,11 +193,11 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 1. Installare Azure PowerShell. Le istruzioni sono consultabili [qui][powershell-install-configure].
 
-	> [AZURE.NOTE] In alternativa, solo per le query Hive, è possibile usare l'Editor Hive online di HDInsight. A tale scopo, accedere al [portale di gestione di Azure][azure-classic-portal], fare clic su **HDInsight** nel riquadro sinistro per visualizzare un elenco dei cluster HDInsight. Fare clic sul cluster che sul quale si vogliono eseguire le query Hive e quindi fare clic su **Console Query**.
+	> [AZURE.NOTE]In alternativa, solo per le query Hive, è possibile usare l'Editor Hive online di HDInsight. A tale scopo, accedere al [portale di gestione di Azure][azure-classic-portal], fare clic su **HDInsight** nel riquadro sinistro per visualizzare un elenco dei cluster HDInsight. Fare clic sul cluster che sul quale si vogliono eseguire le query Hive e quindi fare clic su **Console Query**.
 
 2. Aprire Integrated Scripting Environment di Azure PowerShell:
 	- In un computer che esegue Windows 8 o Windows Server 2012 o versione successiva, è possibile usare la funzionalità di ricerca incorporata. Dalla schermata Start digitare **powershell ise** e fare clic su **Invio**. 
-	- In un computer che esegue una versione di Windows precedente a Windows 8 o Windows Server 2012 è possibile usare il menu Start. Dal menu Start, digitare **Prompt dei comandi** nella casella di ricerca, quindi nell'elenco dei risultati, fare clic su **Prompt dei comandi**. Al prompt dei comandi, digitare **powershell_ise** e fare clic su **Invio**.
+	- In un computer che esegue una versione di Windows precedente a Windows 8 o Windows Server 2012 è possibile usare il menu Start. Dal menu Start, digitare **Prompt dei comandi** nella casella di ricerca, quindi nell'elenco dei risultati, fare clic su **Prompt dei comandi**. Al prompt dei comandi, digitare **powershell\_ise** e fare clic su **Invio**.
 
 3. Aggiungere il proprio Account Azure.
 	1. Nel riquadro console digitare **Add-AzureAccount** e fare clic su **Invio**. 
@@ -211,7 +211,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 ## <a name="RunHive"></a>Passaggio 4: Eseguire un processo Hive usando DocumentDB e HDInsight
 
-> [AZURE.IMPORTANT] Tutte le variabili indicate da < > devono essere compilate usando le proprie impostazioni di configurazione.
+> [AZURE.IMPORTANT]Tutte le variabili indicate da < > devono essere compilate usando le proprie impostazioni di configurazione.
 
 1. Impostare le variabili seguenti nel riquadro di script di PowerShell.
 
@@ -302,7 +302,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 10. Verificare i risultati. Eseguire l'accesso al [portale di anteprima di Azure][azure-portal].
 	1. Fare clic su <strong>Sfoglia</strong> nel riquadro a sinistra. </br>
 	2. Fare clic su <strong>tutto</strong> in alto a destra del riquadro di esplorazione. </br>
-	3. Individuare e fare clic su <strong>Account DocumentDB</strong>.</br>
+	3. Individuare e fare clic su <strong>Account DocumentDB</strong>. </br>
 	4. Successivamente, individuare il proprio <strong>Account DocumentDB</strong>, quindi il <strong>Database DocumentDB</strong> e la <strong>Raccolta DocumentDB</strong> associati alla raccolta di output specificata nella query Hive.</br>
 	5. Infine, fare clic su <strong>Esplora documenti</strong> sotto <strong>Strumenti di sviluppo</strong>.</br></p>
 
@@ -312,7 +312,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 ## <a name="RunPig"></a>Passaggio 5: Eseguire un processo Pig usando DocumentDB e HDInsight
 
-> [AZURE.IMPORTANT] Tutte le variabili indicate da < > devono essere compilate usando le proprie impostazioni di configurazione.
+> [AZURE.IMPORTANT]Tutte le variabili indicate da < > devono essere compilate usando le proprie impostazioni di configurazione.
 
 1. Impostare le variabili seguenti nel riquadro di script di PowerShell.
 
@@ -388,7 +388,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 10. Verificare i risultati. Eseguire l'accesso al [portale di anteprima di Azure][azure-portal].
 	1. Fare clic su <strong>Sfoglia</strong> nel riquadro a sinistra. </br>
 	2. Fare clic su <strong>tutto</strong> in alto a destra del riquadro di esplorazione. </br>
-	3. Individuare e fare clic su <strong>Account DocumentDB</strong>.</br>
+	3. Individuare e fare clic su <strong>Account DocumentDB</strong>. </br>
 	4. Successivamente, individuare il proprio <strong>Account DocumentDB</strong>, quindi il <strong>Database DocumentDB</strong> e la <strong>Raccolta DocumentDB</strong> associati alla raccolta di output specificata nella query Pig.</br>
 	5. Infine, fare clic su <strong>Esplora documenti</strong> sotto <strong>Strumenti di sviluppo</strong>.</br></p>
 
@@ -493,4 +493,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

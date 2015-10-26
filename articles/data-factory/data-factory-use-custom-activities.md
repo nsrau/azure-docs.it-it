@@ -476,4 +476,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

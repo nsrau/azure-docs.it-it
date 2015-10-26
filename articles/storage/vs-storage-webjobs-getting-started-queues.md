@@ -552,4 +552,4 @@ In una tabella di Azure i log **Console.Out** e **Console.Error** hanno un aspet
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di code di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

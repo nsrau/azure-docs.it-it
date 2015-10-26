@@ -313,4 +313,4 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
 Per altre informazioni sui servizi di archiviazione di Azure, vedere [Uso dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

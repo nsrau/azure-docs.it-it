@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -35,20 +35,20 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 - Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per ulteriori informazioni su Azure PowerShell , vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).  
 
 
-		# Configure the Azure PowerShell session to access Azure Resource Manager
-		Switch-AzureMode AzureResourceManager
-
 		# Log in to your Azure account
 		Add-AzureAccount
 
 		# Select the Azure subscription you want to use to create the resource group
 		Select-AzureSubscription -SubscriptionName <subscription name>
 
-		# Create an Azure resource group	
-		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
+			# If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
+		# Create an Azure resource group
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+		
 
--	Configurare un'origine di input e una destinazione di output da usare. Vedere [Introduzione all'uso di Analisi di flusso di Azure](stream-analytics-get-started.md) per configurare un input e/o un output di esempio da usare in base alle informazioni fornite in questo articolo.
+-	Configurare un'origine di input e una destinazione di output da usare. Per ulteriori istruzioni, vedere [Aggiungere input](stream-analytics-add-inputs.md) per impostare un esempio di input e [Aggiungere output](stream-analytics-add-outputs.md) per impostare un esempio di output.
 
 
 ## Configurare un progetto
@@ -326,7 +326,7 @@ Il metodo **Delete** consente di eliminare il processo, nonché le risorse secon
 
 
 ## Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/IT-IT/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics).
 
 
 ## Passaggi successivi
@@ -365,4 +365,4 @@ Sono state fornite le nozioni di base dell'utilizzo di .NET SDK per creare ed es
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

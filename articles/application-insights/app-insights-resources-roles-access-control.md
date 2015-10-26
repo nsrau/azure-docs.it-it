@@ -106,8 +106,8 @@ Se l'utente desiderato non è nella directory, è possibile invitare chiunque di
 [account]: https://account.microsoft.com
 [group]: ../azure-preview-portal-using-resource-groups.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

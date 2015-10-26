@@ -8,4 +8,4 @@ In questo scenario si creerà una macchina virtuale denominata **DNS01** nella s
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

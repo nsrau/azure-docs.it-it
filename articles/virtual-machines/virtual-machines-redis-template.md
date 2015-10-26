@@ -19,7 +19,8 @@
 
 # Cluster Redis con un modello di Gestione risorse
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di un cluster Redis con il modello di distribuzione di gestione delle risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 Redis è una cache e un archivio chiave-valore open-source in cui le chiavi possono contenere strutture di dati quali stringhe, hash, elenchi, insiemi e insiemi ordinati. Redis supporta una serie di operazioni atomiche su questi tipi di dati. Con il rilascio di Redis versione 3.0, Redis Cluster è ora disponibile nella versione stabile più recente di Redis. Redis Cluster è un'implementazione distribuita di Redis in cui i dati sono partizionati automaticamente tra più nodi Redis, con la possibilità di continuare le operazioni quando si verificano errori in un subset di nodi.
 
@@ -669,4 +670,4 @@ In pratica, questo approccio suggerisce di:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

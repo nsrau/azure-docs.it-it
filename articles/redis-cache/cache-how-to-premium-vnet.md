@@ -79,7 +79,7 @@ L'elenco seguente include alcuni errori di configurazione comuni che possono imp
 Le reti virtuali possono essere usate solo con cache Premium.
 
 ## Passaggi successivi
-Informazioni su come utilizzare altre funzionalità di cache premium.
+Informazioni su come usare altre funzionalità di cache premium.
 
 -	[Come configurare la persistenza per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md)
 -	[Come configurare il servizio cluster per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md)
@@ -103,4 +103,4 @@ Informazioni su come utilizzare altre funzionalità di cache premium.
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

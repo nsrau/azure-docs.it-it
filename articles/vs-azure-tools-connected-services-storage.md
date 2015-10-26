@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Aggiungere spazio di archiviazione di Azure mediante Servizi connessi in Visual Studio | Microsoft Azure"
-	description="Aggiungere archiviazione di Azure all'applicazione usando la finestra di dialogo Aggiungi servizi connessi di Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Aggiungere archiviazione di Azure all'applicazione usando la finestra di dialogo Aggiungi servizi connessi di Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="mobile"
-	ms.date="08/12/2015"
-	ms.author="patshea"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="mobile"
+   ms.date="08/12/2015"
+   ms.author="patshea" />
 
 # Aggiunta dell’archiviazione di Azure tramite Servizi connessi di Visual Studio
 
@@ -94,4 +94,4 @@ Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e
 
      - [Documentazione di archiviazione in azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

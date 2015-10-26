@@ -188,4 +188,4 @@ In questa applicazione di esempio non è incluso alcuno script per la configuraz
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

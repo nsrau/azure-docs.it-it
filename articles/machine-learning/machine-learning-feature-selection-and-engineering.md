@@ -135,4 +135,4 @@ Si noti che non sempre è necessario eseguire la progettazione o la selezione de
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

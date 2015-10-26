@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Panoramica della sicurezza nel database SQL" 
-   description="In questo argomento vengono fornite informazioni sulla sicurezza database SQL Azure e SQL Server, incluse le differenze tra il cloud e SQL Server locale per quanto riguarda l'autenticazione, l'autorizzazione, la sicurezza della connessione, la crittografia e conformità." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="tmullaney" 
-   manager="jeffreyg" 
+<properties
+   pageTitle="Panoramica della sicurezza nel database SQL"
+   description="In questo argomento vengono fornite informazioni sulla sicurezza database SQL Azure e SQL Server, incluse le differenze tra il cloud e SQL Server locale per quanto riguarda l'autenticazione, l'autorizzazione, la sicurezza della connessione, la crittografia e conformità."
+   services="sql-database"
+   documentationCenter=""
+   authors="tmullaney"
+   manager="jeffreyg"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services" 
-   ms.date="09/22/2015"
+   ms.workload="data-services"
+   ms.date="10/13/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -21,7 +21,7 @@
 
 ## Panoramica
 
-In questo articolo vengono esaminate le informazioni di base relative alla protezione del livello dati di un'applicazione in cui viene utilizzato il database SQL di Azure. In particolare questi articoli forniranno le risorse per la limitazione degli accessi, per la protezione dei dati e per monitorare le attività in un database creato nell'[Esercitazione di introduzione al database SQL](sql-database-get-started.md). Per una panoramica completa delle funzionalità di sicurezza disponibili in tutte le versioni di SQL, vedere il [Centro sicurezza PC per il motore di database di SQL Server e per il database SQL di Azure](https://msdn.microsoft.com/library/bb510589).
+In questo articolo vengono esaminate le informazioni di base relative alla protezione del livello dati di un'applicazione in cui viene utilizzato il database SQL di Azure. In particolare questo articolo fornirà le risorse per la limitazione degli accessi, per la protezione dei dati e per monitorare le attività in un database creato nell'[Esercitazione di introduzione al database SQL](sql-database-get-started.md). Per una panoramica completa delle funzionalità di sicurezza disponibili in tutte le versioni di SQL, vedere il [Centro sicurezza PC per il motore di database di SQL Server e per il database SQL di Azure](https://msdn.microsoft.com/library/bb510589). Ulteriori informazioni sono inoltre disponibili nel [white paper tecnico di protezione e del Database di SQL Azure ](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
 ## Sicurezza delle connessioni
 
@@ -73,7 +73,7 @@ Esistono modi per limitare ulteriormente le operazioni possibili con il database
 * È possibile utilizzare [ruoli del database](https://msdn.microsoft.com/library/ms189121) diversi da db\_datareader e db\_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti.
 * È possibile utilizzare [autorizzazioni](https://msdn.microsoft.com/library/ms191291) che consentono di controllare le operazioni possibili per le singole colonne, tabelle, viste, procedure e altri oggetti nel database.
 * È possibile utilizzare la [rappresentazione](https://msdn.microsoft.com/library/vstudio/bb669087) e la [firma del modulo](https://msdn.microsoft.com/library/bb669102) in modo sicuro per elevare temporaneamente le autorizzazioni in modo permanente.
-* [Sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131) consente di filtrare le righe visualizzabili da un utente.
+* [Sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131) può essere utilizzato come limite alle cui righe un utente può accedere.
 * È possibile utilizzare il [Mascheramento dei dati](sql-database-dynamic-data-masking-get-started.md) per limitare l'esposizione dei dati sensibili
 * È possibile utilizzare le [Stored procedure](https://msdn.microsoft.com/library/ms190782) per limitare le operazioni che possono essere eseguite nel database.
 
@@ -85,10 +85,10 @@ La gestione di database e server logici dal portale di gestione di Azure o media
 I database SQL di Azure consentono di proteggere i dati mediante la crittografia dei dati quando sono in stato "inattivo" o vengono archiviati in file di database e backup, utilizzando la funzionalità [Crittografia dati trasparenti](http://go.microsoft.com/fwlink/?LinkId=526242). Per crittografare il database, connettersi in qualità di proprietario del database ed eseguire:
 
 ```
-CREATE DATABASE ENCRYPTION KEY 
-   WITH ALGORITHM = AES_256 
+CREATE DATABASE ENCRYPTION KEY
+   WITH ALGORITHM = AES_256
    ENCRYPTION BY SERVER CERTIFICATE ##MS_TdeCertificate##;
-   
+
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -105,6 +105,5 @@ Il controllo e il monitoraggio di eventi del database consentono di mantenere la
 ## Conformità
 
 Oltre alle caratteristiche e alle funzionalità che consentono all'applicazione di soddisfare i diversi requisiti di conformità di sicurezza, il database SQL di Azure prende parte inoltre a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere il [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [Certificazioni di conformità del database SQL](http://azure.microsoft.com/support/trust-center/services/).
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

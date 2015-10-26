@@ -18,7 +18,8 @@
 
 # Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la creazione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+ 
 
 Questo argomento descrive e illustra la distribuzione e la configurazione di un server di report di SQL Server Reporting Services in modalità nativa in una macchina virtuale di Azure. I passaggi descritti in questo documento usano una combinazione di operazioni manuali per creare la macchina virtuale e uno script di Windows PowerShell per configurare Reporting Services nella macchina virtuale. Lo script di configurazione include l'apertura di una porta del firewall per HTTP o HTTPS.
 
@@ -704,4 +705,4 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 
 [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

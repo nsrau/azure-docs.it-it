@@ -93,7 +93,7 @@ Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedur
 
 5.  Fare clic sulla scheda **Processo**. Nella scheda Processo scegliere il modello predefinito in **Compilazione**, scegliere il progetto se non è già selezionato ed espandere la sezione **Avanzate** nella sezione **Compilazione** della griglia.
 
-6.  Scegliere **Argomenti MSBuild** e impostare gli argomenti della riga di comando MSBuild appropriati come descritto al precedente punto 2. Immettere ad esempio **/t:Publish /p:PublishDir=\\\\myserver\\drops\** per compilare un pacchetto e copiare i relativi file nel percorso \\\\myserver\\drops\\:
+6.  Scegliere **Argomenti MSBuild** e impostare gli argomenti della riga di comando MSBuild appropriati come descritto al precedente punto 2. Immettere ad esempio **/t:Publish /p:PublishDir=\\\myserver\\drops\** per compilare un pacchetto e copiare i relativi file nel percorso \\\myserver\\drops\\:
 
     ![][2]
 
@@ -297,7 +297,7 @@ In questo passaggio verrà collegato TFS Team Build con lo script creato nel pas
 	            </Sequence.Variables>
 	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
 	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
-	            <mtbwa:InvokeProcess Arguments="[String.Format(&quot; -File &quot;&quot;{0}&quot;&quot; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation &quot;&quot;{3}&quot;&quot;&#xD;&#xA;            -cloudConfigLocation &quot;&quot;{4}&quot;&quot; -subscriptionDataFile &quot;&quot;{5}&quot;&quot;&#xD;&#xA;            -selectedSubscription {6} -environment &quot;&quot;{7}&quot;&quot;&quot;,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
+	            <mtbwa:InvokeProcess Arguments="[String.Format("; -File ";";{0}";"; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation ";";{3}";";&#xD;&#xA;            -cloudConfigLocation ";";{4}";"; -subscriptionDataFile ";";{5}";";&#xD;&#xA;            -selectedSubscription {6} -environment ";";{7}";";";,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
 	              <mtbwa:InvokeProcess.ErrorDataReceived>
 	                <ActivityAction x:TypeArguments="x:String">
 	                  <ActivityAction.Argument>
@@ -576,4 +576,4 @@ Per abilitare il debug remoto durante l'uso della distribuzione continua, vedere
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

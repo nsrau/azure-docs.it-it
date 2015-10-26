@@ -97,4 +97,4 @@ Per eseguire la manutenzione o installare gli aggiornamenti in modalità manuten
 
 Informazioni su come [applicare gli aggiornamenti in modalità normale e manutenzione](storsimple-update-device.md) al dispositivo StorSimple.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

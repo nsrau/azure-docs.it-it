@@ -11,4 +11,4 @@ I servizi di bilanciamento del carico contengono le risorse figlio seguenti:
 - **Probe**: le probe consentono di tenere traccia dell'integrità delle istanze della macchina virtuale. Se la probe di integrità non riesce, l'istanza della macchina virtuale viene esclusa automaticamente dalla rotazione.
 - **Regole NAT in ingresso**: regole NAT che definiscono il traffico in ingresso che attraversa l'IP front-end e viene distribuito all'IP back-end.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

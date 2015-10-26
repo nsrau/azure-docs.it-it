@@ -22,4 +22,4 @@
 > [AZURE.NOTE]Questo articolo è stato spostato. Vedere: [Monitorare la disponibilità e la velocità di risposta dei siti Web](../app-insights-monitor-web-app-availability.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

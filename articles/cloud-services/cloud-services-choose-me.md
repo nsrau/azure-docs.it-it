@@ -36,4 +36,4 @@ In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applica
 [Macchine virtuali]: ../virtual-machines-about.md
 [Servizi cloud]: #tellmecs
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

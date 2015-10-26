@@ -81,4 +81,4 @@ I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più suppo
 ## Passaggi successivi
 Esaminare la versione più recente [versioni del sistema operativo Guest](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

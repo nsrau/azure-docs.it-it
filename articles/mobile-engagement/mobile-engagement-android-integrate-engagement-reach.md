@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integrazione di Azure Mobile Engagement SDK per Android"
+	pageTitle="Integrazione di Azure Mobile Engagement SDK per Android" 
 	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #Come integrare il servizio di copertura di Engagement in Android
 
@@ -649,4 +649,4 @@ Per verificare l'integrazione, vedere l'argomento relativo al test dell'integraz
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

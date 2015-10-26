@@ -33,7 +33,7 @@ Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti
 ##Modello di risorse gerarchico
 Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di DocumentDB è costituito da set di risorse associati a un account di database, ciascuno indirizzabile tramite un URI logico e stabile. Un set di risorse viene definito **feed** in questo articolo.
 
->[AZURE.NOTE] DocumentDB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE]DocumentDB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ![Modello di risorse gerarchico di DocumentDB][1] **Modello di risorse gerarchico in un account di database**
 
@@ -56,7 +56,7 @@ Per iniziare a lavorare con le risorse, è necessario [creare un account di data
 ##Risorse definite dal sistema e risorse definite dall'utente
 Tutte le risorse quali account di database, database, raccolte, utenti, autorizzazioni, stored procedure, trigger e funzioni UDF hanno uno schema fisso e sono definite risorse di sistema. Per le risorse quali documenti e allegati, invece, non sono previste restrizioni a livello di schema. Si tratta di risorse definite dall'utente. In DocumentDB le risorse definite dal sistema e definite dall'utente sono rappresentate e gestite come risorse JSON conformi allo standard. Tutte le risorse, di sistema o definite dall'utente, presentano le proprietà comuni indicate di seguito.
 
->[AZURE.NOTE] Si noti che, nell'implementazione JSON, tutte le proprietà generate dal sistema in una risorsa hanno come prefisso un carattere di sottolineatura (_).
+>[AZURE.NOTE]Si noti che, nell'implementazione JSON, tutte le proprietà generate dal sistema in una risorsa hanno come prefisso un carattere di sottolineatura (\_).
 
 
 Proprietà |Impostabile dall'utente o generata dal sistema?|Scopo
@@ -413,4 +413,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

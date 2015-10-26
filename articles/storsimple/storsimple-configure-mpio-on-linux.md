@@ -475,4 +475,4 @@ Nella configurazione di MPIO sull'host Linux può anche essere necessario consul
 - [Configurazione di MPIO su CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guida alla formazione Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

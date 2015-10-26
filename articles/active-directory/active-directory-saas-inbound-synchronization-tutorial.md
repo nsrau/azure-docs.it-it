@@ -58,7 +58,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Sale
 
 2.  Completare l'attività Crea utente del sistema di integrazione specificando un nome utente e una password per un nuovo utente del sistema di integrazione. Lasciare l'opzione Richiedi nuova password al prossimo accesso non selezionata, perché l'accesso dell'utente verrà eseguito a livello di codice. Lasciare l'opzione Minuti di timeout della sessione impostata sul valore predefinito 0, in modo da evitare un timeout prematuro delle sessioni dell'utente.
 
-	![Crea utente del sistema di integrazione](./media/active-directory-saas-inbound-synchronization-tutorial/IC750980.png "Crea utente del sistema di integrazione")
+	![Crea utente del sistema di integrazione](./media/active-directory-saas-inbound-synchronization-tutorial/IC750980.png "Create Integration System User")
 
 ##Creazione di un gruppo di sicurezza
 
@@ -66,80 +66,80 @@ Per lo scenario descritto in questa esercitazione, è necessario creare un grupp
 
 1.  Immettere "crea gruppo di sicurezza" nella casella di ricerca, quindi fare clic sul collegamento Crea gruppo di sicurezza.     
 
-	![Crea gruppo di sicurezza](./media/active-directory-saas-inbound-synchronization-tutorial/IC750981.png "Crea gruppo di sicurezza")
+	![Create Security Group](./media/active-directory-saas-inbound-synchronization-tutorial/IC750981.png "Create Security Group")
 
 2.  Completare l'attività Crea gruppo di sicurezza. Selezionare Gruppo di sicurezza del sistema di integrazione - Non vincolato dall'elenco a discesa Tipo di gruppo di sicurezza con tenant per creare un gruppo di sicurezza a cui i membri verranno aggiunti esplicitamente.
 
-	![Crea gruppo di sicurezza](./media/active-directory-saas-inbound-synchronization-tutorial/IC750982.png "Crea gruppo di sicurezza")
+	![Create Security Group](./media/active-directory-saas-inbound-synchronization-tutorial/IC750982.png "Create Security Group")
 
 ##Assegnazione dell'utente del sistema di integrazione al gruppo di sicurezza
 
 1.  Immettere "modifica gruppo di sicurezza" nella casella di ricerca, quindi fare clic sul collegamento **Modifica gruppo di sicurezza**.     
 
-	![Modifica gruppo di sicurezza](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "Modifica gruppo di sicurezza")
+	![Edit Security Group](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "Edit Security Group")
 
 2.  Eseguire la ricerca e selezionare il nuovo gruppo di sicurezza di integrazione in base al nome.
 
-	![Modifica gruppo di sicurezza](./media/active-directory-saas-inbound-synchronization-tutorial/IC750984.png "Modifica gruppo di sicurezza")
+	![Edit Security Group](./media/active-directory-saas-inbound-synchronization-tutorial/IC750984.png "Modifica gruppo di sicurezza")
 
 3.  Aggiungere il nuovo utente del sistema di integrazione al nuovo gruppo di sicurezza.
 
-	![Gruppo di sicurezza del sistema](./media/active-directory-saas-inbound-synchronization-tutorial/IC750985.png "Gruppo di sicurezza del sistema")
+	![System Security Group](./media/active-directory-saas-inbound-synchronization-tutorial/IC750985.png "System Security Group")
 
 ##Configurazione delle opzioni del gruppo di sicurezza
 
 In questo passaggio, al nuovo gruppo di sicurezza vengono concesse le autorizzazioni per le operazioni Get e Put sugli oggetti protetti dai seguenti criteri di sicurezza del dominio:
 
 -   Provisioning account esterno  
--   Dati lavoratore - Report dipendente pubblico  
--   Dati lavoratore - Tutte le posizioni  
--   Dati lavoratore - Informazioni correnti sul personale  
+-   Worker Data: Public Worker Reports  
+-   Worker Data: All Positions  
+-   Worker Data: Current Staffing Information  
 -   Dati lavoratore - Qualifica riportata sul profilo  
 
 & nbsp;
 
 1.  Immettere "criteri di sicurezza del dominio" nella casella di ricerca, quindi fare clic sul collegamento Criteri di sicurezza del dominio per area funzionale.     
 
-	![Criteri di sicurezza del dominio](./media/active-directory-saas-inbound-synchronization-tutorial/IC750986.png "Criteri di sicurezza del dominio")
+	![Domain Security Policies](./media/active-directory-saas-inbound-synchronization-tutorial/IC750986.png "Domain Security Policies")
 
 2.  Cercare "sistema" e selezionare Area funzionale sistema. Fare clic sul pulsante OK.
 
-	![Criteri di sicurezza del dominio](./media/active-directory-saas-inbound-synchronization-tutorial/IC750987.png "Criteri di sicurezza del dominio")
+	![Domain Security Policies](./media/active-directory-saas-inbound-synchronization-tutorial/IC750987.png "Domain Security Policies")
 
 3.  Nell'elenco dei criteri di sicurezza relativi ad Area funzionale sistema espandere Amministrazione sicurezza e selezionare il criterio di sicurezza del dominio Provisioning account esterno.
 
-	![Criteri di sicurezza del dominio](./media/active-directory-saas-inbound-synchronization-tutorial/IC750988.png "Criteri di sicurezza del dominio")
+	![Domain Security Policies](./media/active-directory-saas-inbound-synchronization-tutorial/IC750988.png "Domain Security Policies")
 
 4.  Fare clic sul pulsante Modifica autorizzazioni quindi, nella schermata Modifica autorizzazioni, aggiungere il nuovo gruppo di sicurezza all'elenco dei gruppi di sicurezza con autorizzazioni di integrazione Get e Put.
 
-	![Modifica autorizzazioni](./media/active-directory-saas-inbound-synchronization-tutorial/IC750989.png "Modifica autorizzazioni")
+	![Edit Permissions](./media/active-directory-saas-inbound-synchronization-tutorial/IC750989.png "Edit Permissions")
 
 5.  Ripetere il passaggio 1 sopra descritto per tornare alla schermata di selezione delle aree funzionali, cercare "personale", selezionare l'area funzionale Personale e fare clic sul pulsante OK.
 
-	![Criteri di sicurezza del dominio](./media/active-directory-saas-inbound-synchronization-tutorial/IC750990.png "Criteri di sicurezza del dominio")
+	![Domain Security Policies](./media/active-directory-saas-inbound-synchronization-tutorial/IC750990.png "Domain Security Policies")
 
 6.  Nell'elenco dei criteri di sicurezza relativi all'area funzionale Personale espandere Dati lavoratore - Personale e ripetere il passaggio 4 sopra descritto per ciascuno dei rimanenti criteri di sicurezza:
 
-	-   Dati lavoratore - Report dipendente pubblico  
-    -   Dati lavoratore - Tutte le posizioni  
-    -   Dati lavoratore - Informazioni correnti sul personale  
+	-   Worker Data: Public Worker Reports  
+    -   Worker Data: All Positions  
+    -   Worker Data: Current Staffing Information  
     -   Dati lavoratore - Qualifica riportata sul profilo    
 
-	![Criteri di sicurezza del dominio](./media/active-directory-saas-inbound-synchronization-tutorial/IC750991.png "Criteri di sicurezza del dominio")
+	![Domain Security Policies](./media/active-directory-saas-inbound-synchronization-tutorial/IC750991.png "Domain Security Policies")
 
 ##Attivazione delle modifiche apportate ai criteri di sicurezza
 
 1.  Immettere "attiva" nella casella di ricerca, quindi fare clic sul collegamento Attiva modifiche in sospeso ai criteri di sicurezza.    
 
-	![Attivare](./media/active-directory-saas-inbound-synchronization-tutorial/IC750992.png "Attivare")
+	![Activate](./media/active-directory-saas-inbound-synchronization-tutorial/IC750992.png "Activate")
 
 2.   Avviare l'attività Attiva modifiche in sospeso ai criteri di sicurezza immettendo un commento a scopo di controllo, quindi fare clic sul pulsante OK.
 
-	![Attiva modifiche in sospeso ai criteri di sicurezza](./media/active-directory-saas-inbound-synchronization-tutorial/IC750993.png "Attiva modifiche in sospeso ai criteri di sicurezza")
+	![Activate Pending Security](./media/active-directory-saas-inbound-synchronization-tutorial/IC750993.png "Activate Pending Security")
 
 3.  Completare l'attività nella schermata successiva selezionando la casella di controllo Conferma e facendo clic sul pulsante OK.
 
-	![Attiva modifiche in sospeso ai criteri di sicurezza](./media/active-directory-saas-inbound-synchronization-tutorial/IC750994.png "Attiva modifiche in sospeso ai criteri di sicurezza")
+	![Activate Pending Security](./media/active-directory-saas-inbound-synchronization-tutorial/IC750994.png "Activate Pending Security")
 
 ##Configurazione dell'importazione di utenti in Microsoft Azure AD
 
@@ -159,7 +159,7 @@ Questa sezione descrive come configurare Microsoft Azure AD per importare utenti
 
 3.  Nella pagina **Test connessione** fare clic su **Avvia test** per confermare la connettività, quindi fare clic su **Avanti**.
 
-	![Test connessione](./media/active-directory-saas-inbound-synchronization-tutorial/IC750996.png "Test connessione")
+	![Connessione di test](./media/active-directory-saas-inbound-synchronization-tutorial/IC750996.png "Connessione di test")
 
 4.  Nella pagina **Opzioni di provisioning** fare clic su **Avanti**.
 
@@ -171,4 +171,4 @@ Questa sezione descrive come configurare Microsoft Azure AD per importare utenti
 
 È ora possibile passare alla sezione **Utenti** e verificare se l'utente Workday è stato importato.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

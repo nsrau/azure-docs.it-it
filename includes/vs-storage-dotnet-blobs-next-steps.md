@@ -9,4 +9,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
   - Per archiviare dati non strutturati, usare [Archiviazione di accodamento](./storage-dotnet-how-to-use-queues.md).
   - Per archiviare dati relazionali, utilizzare [Database SQL](../sql-database/sql-database-dotnet-how-to-use.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

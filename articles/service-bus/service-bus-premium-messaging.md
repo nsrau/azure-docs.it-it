@@ -57,4 +57,4 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Panoramica dell'architettura del bus di servizio di Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

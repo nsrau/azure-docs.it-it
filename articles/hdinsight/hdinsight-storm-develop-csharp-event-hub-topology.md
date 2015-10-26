@@ -87,7 +87,7 @@ L'hub eventi è l'origine dati per questo esempio. Per creare un nuovo hub event
 4. Selezionare **Configura** e quindi creare due nuovi criteri di accesso usando le informazioni seguenti.
 
 	<table>
-<tr><th>Nome</th><th>Autorizzazioni</th></tr>
+<tr><th>Name</th><th>Autorizzazioni</th></tr>
 <tr><td>Writer</td><td>Invio</td></tr>
 <tr><td>Reader</td><td>Attesa</td></tr>
 </table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Verranno creati i criteri di accesso condivisi che saranno usati per inviare (writer) e rimanere in ascolto (reader) in questo hub eventi.
@@ -557,4 +557,4 @@ In questo documento si è appreso come usare lo spout e il bolt dell'hub eventi 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

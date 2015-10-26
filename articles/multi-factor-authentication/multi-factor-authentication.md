@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Informazioni su Azure Multi-Factor Authentication"
-	description="Azure Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un livello di sicurezza aggiuntivo agli accessi e alle transazioni degli utenti."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Informazioni su Azure Multi-Factor Authentication" 
+	description="Azure Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un livello di sicurezza aggiuntivo agli accessi e alle transazioni degli utenti." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Informazioni su Azure Multi-Factor Authentication
@@ -81,7 +81,7 @@ Quando un utente accede, una verifica aggiuntiva viene inviata all'utente. Di se
 
 Metodo di verifica | Descrizione 
 ------------- | ------------- |
-Chiamata telefonica | Viene effettuata una chiamata allo smartphone dell'utente chiedendogli di verificare che sta effettuando l'accesso premendo il simbolo \#. Questa operazione completerà il processo di verifica. Questa opzione è configurabile e può essere modificata con un codice specificato dall'utente.
+Chiamata telefonica | Viene effettuata una chiamata allo smartphone dell'utente chiedendogli di verificare che sta effettuando l'accesso premendo il simbolo #. Questa operazione completerà il processo di verifica. Questa opzione è configurabile e può essere modificata con un codice specificato dall'utente.
 SMS | Verrà inviato un SMS allo smartphone dell'utente con un codice di 6 cifre. Immettere il codice per completare il processo di verifica.
 Notifica dell'app per dispositivi mobili | Una richiesta di verifica verrà inviata allo smartphone dell'utente chiedendogli di completare la verifica selezionando Verifica dall'app per dispositivi mobili. Ciò si verifica se la notifica dell'app è stata selezionata come metodo di verifica principale. Se l'utente riceve la richiesta quando non sta effettuando l'accesso, potrà scegliere di segnalare la frode.
 Codice di verifica dell'app per dispositivi mobili | Un codice di verifica verrà inviato all'app per dispositivi mobili in esecuzione sullo smartphone dell'utente. Ciò si verifica se il codice di verifica è stato selezionato come metodo di verifica principale.
@@ -204,4 +204,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

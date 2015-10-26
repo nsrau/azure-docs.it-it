@@ -19,7 +19,8 @@
 
 # Creare una rete virtuale cross-premise utilizzando le tabelle di configurazione
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+ 
 
 I passaggi di questo argomento illustrano la creazione di una rete virtuale cross-premise utilizzando le impostazioni precedentemente specificate nel set di tabelle di configurazione seguente:
 
@@ -69,4 +70,4 @@ La procedura seguente fa riferimento alle informazioni in queste tabelle come gu
 
 [Configurare una connessione cross-premise Site-to-Site a una rete virtuale di Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

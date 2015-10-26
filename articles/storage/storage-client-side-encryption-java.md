@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tamram"/>
 
 
 # Crittografia lato client con Java per Archiviazione di Microsoft Azure   
+
+[AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Panoramica  
 La [libreria client di archiviazione di Azure per Java](https://www.nuget.org/packages/WindowsAzure.Storage) supporta la crittografia dei dati all'interno delle applicazioni client prima del caricamento nell'Archiviazione di Azure, nonché la decrittografia dei dati durante il download al client. La libreria inoltre supporta l'integrazione con l'[insieme di credenziali chiave](http://azure.microsoft.com/services/key-vault/) di Azure per la gestione delle chiavi dell'account di archiviazione.
@@ -48,7 +50,7 @@ La decrittografia tramite la tecnica basata su envelope funziona nel modo seguen
 4.	La chiave di crittografia del contenuto (CEK) viene quindi utilizzata per decrittografare i dati utente crittografati.
 
 ## Meccanismo di crittografia  
-La libreria client di archiviazione usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) per la crittografia dei dati utente. In particolare, si avvale della modalità [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Ogni servizio funziona in modo diverso, pertanto qui verrà illustrato ciascuno di essi.
+La libreria client di archiviazione utilizza [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) per la crittografia dei dati utente. In particolare, si avvale della modalità [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Ogni servizio funziona in modo diverso, pertanto qui verrà illustrato ciascuno di essi.
 
 ### BLOB  
 La libreria client attualmente supporta la crittografia solo di interi BLOB. In particolare, la crittografia è supportata quando gli utenti usano i metodi **upload*** o il metodo **openOutputStream**. Per i download, sono supportati sia i download completi che di intervallo.
@@ -98,7 +100,7 @@ Nelle operazioni batch, la stessa KEK verrà utilizzata per tutte le righe nell�
 Per eseguire operazioni di query, è necessario specificare un resolver di chiave in grado di risolvere tutte le chiavi nel set di risultati. Se un'entità inclusa nel risultato della query non può essere risolta in un provider, la libreria client genererà un errore. Per ogni query che esegue le proiezioni del lato server, la libreria client aggiungerà le proprietà dei metadati di crittografia speciali (\_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) per impostazione predefinita alle colonne selezionate.
 
 ## Insieme di credenziali chiave Azure  
-L'insieme di credenziali chiave di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave di Azure gli utenti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per altre informazioni, vedere [Informazioni sull'insieme di credenziali chiave di Azure](https://azure.microsoft.com/it-IT/documentation/articles/key-vault-whatis/)
+L'insieme di credenziali chiave di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave di Azure gli utenti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per altre informazioni, vedere [Informazioni sull’insieme di credenziali chiave di Azure](../articles/key-vault-whatis.md)
 
 La libreria client di archiviazione utilizza la libreria principale insieme di credenziali chiave per fornire un framework comune in Azure per la gestione delle chiavi. Gli utenti ottengono anche l'ulteriore vantaggio dell'utilizzo della libreria di estensioni dell’insieme di credenziali chiave. La libreria di estensioni fornisce funzionalità utili per provider di chiavi locali e cloud Symmetric/RSA semplici, nonché l'aggregazione e la memorizzazione nella cache.
 
@@ -230,6 +232,6 @@ Come indicato in precedenza, se l'entità implementa TableEntity, il getter e il
 Si noti che la crittografia dei dati di archiviazione restituisce un overhead delle prestazioni aggiuntivo. La chiave simmetrica e il vettore devono essere generati, il contenuto stesso deve essere crittografato e metadati aggiuntivi devono essere formattati e caricati. Questo overhead varia a seconda della quantità di dati da crittografare. È consigliabile che i clienti testano sempre le proprie applicazioni per le prestazioni durante lo sviluppo.
 
 ## Passaggi successivi  
-Scaricare il [pacchetto Maven della libreria client di archiviazione di Azure per Java](<fix URL>) Scaricare il [codice sorgente della libreria client di archiviazione di Azure per Java da GitHub](https://github.com/Azure/azure-storage-java) Scaricare i pacchetti Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) ed [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) dell'insieme di credenziali delle chiavi di Azure <fix URL> Visitare la [documentazione dell'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/it-IT/documentation/articles/key-vault-whatis/)
+Scaricare il [pacchetto Maven della libreria client di archiviazione di Azure per Java](<fix URL>) Scaricare il [codice sorgente della libreria client di archiviazione di Azure per Java da GitHub](https://github.com/Azure/azure-storage-java) Scaricare i pacchetti Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) ed [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) dell'insieme di credenziali delle chiavi di Azure Visitare la [documentazione dell'insieme di credenziali delle chiavi di Azure](../articles/key-vault-whatis.md)
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

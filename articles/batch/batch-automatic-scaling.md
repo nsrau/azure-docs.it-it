@@ -612,4 +612,4 @@ In questo esempio le dimensioni del pool vengono regolate in base al numero di a
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): questo cmdlet di PowerShell recupera il file RDP dal nodo di calcolo specificato e lo salva nel percorso di file specificato oppure in un flusso.
 2.	Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di tipo elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere il problema.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -177,4 +177,4 @@ Nel tentativo di proteggere i metadati raccolti, per impostazione predefinita so
 
 * [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -266,4 +266,4 @@ Per implementare il callback:
 [requisiti aggiuntivi per tipi specifici di applicazioni]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 ## Indirizzo IP pubblico
-Una risorsa di indirizzo IP pubblico fornisce un indirizzo IP pubblico riservato o dinamico. Sebbene sia possibile creare un indirizzo IP pubblico come oggetto autonomo, è necessario associarlo a un altro oggetto per utilizzare davvero l'indirizzo. È possibile associare un indirizzo IP pubblico a un bilanciamento del carico, a un gateway di applicazione o a una scheda di rete per fornire l'accesso a Internet a tali risorse.
+Una risorsa di indirizzo IP pubblico fornisce un indirizzo IP pubblico con connessione a internet riservato o dinamico. Sebbene sia possibile creare un indirizzo IP pubblico come oggetto autonomo, è necessario associarlo a un altro oggetto per utilizzare davvero l'indirizzo. È possibile associare un indirizzo IP pubblico a un bilanciamento del carico, a un gateway di applicazione o a una scheda di rete per fornire l'accesso a Internet a tali risorse.
 
 |Proprietà|Descrizione|Valori di esempio|
 |---|---|---|
@@ -40,4 +40,4 @@ Indirizzo IP pubblico di esempio in formato JSON:
 - Informazioni sugli [indirizzi IP pubblici a livello di istanza](virtual-networks-instance-level-public-ip.md).
 - Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) per indirizzi IP pubblici.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

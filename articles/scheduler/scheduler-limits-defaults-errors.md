@@ -73,4 +73,4 @@ Le operazioni API possono inoltre restituire informazioni aggiuntive sugli error
 
  [Autenticazione in uscita dell'Utilità di pianificazione](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -52,4 +52,4 @@ Un modello comune di metodo di routing del traffico consiste nel fornire un set 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

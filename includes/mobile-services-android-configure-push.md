@@ -9,4 +9,4 @@
 
 Il servizio mobile e l'app sono ora configurati per funzionare con GCM e Hub di notifica.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

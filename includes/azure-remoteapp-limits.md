@@ -20,4 +20,4 @@
 
 Per richiedere un aumento del numero di raccolte a pagamento o di connessioni simultanee, inviare un messaggio di posta elettronica[remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com)i dettagli dei requisiti, inclusi l'ID sottoscrizione.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

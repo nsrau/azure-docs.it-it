@@ -1,21 +1,21 @@
 <properties
    pageTitle="Linee Guida all'implementazione API | Microsoft Azure"
-	description="Indicazioni su come implementare un'API."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="masimms"
-	editor=""
-	tags=""/>
+   description="Indicazioni su come implementare un'API."
+   services=""
+   documentationCenter="na"
+   authors="dragon119"
+   manager="masimms"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="best-practice"
-	ms.devlang="rest-api"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="05/13/2015"
-	ms.author="masashin"/>
+   ms.devlang="rest-api"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="05/13/2015"
+   ms.author="masashin"/>
 
 # Guida all'implementazione API
 
@@ -1152,4 +1152,4 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 - La pagina [Verifica codice utilizzando Unit test ](https://msdn.microsoft.com/library/dd264975.aspx) sul sito Web Microsoft fornisce informazioni dettagliate sulla creazione e gestione di unit test utilizzando Visual Studio.
 - La pagina [Eseguire test delle prestazioni in un'applicazione prima del rilascio](https://msdn.microsoft.com/library/dn250793.aspx) sul sito Web Microsoft descrive come utilizzare Visual Studio Ultimate per creare un prestazioni Web e caricare il progetto di test.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

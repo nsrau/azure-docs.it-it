@@ -78,4 +78,4 @@ I passaggi per il rinnovo illustrati di seguito non dovrebbero idealmente compor
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

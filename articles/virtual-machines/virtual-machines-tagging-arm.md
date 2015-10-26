@@ -19,7 +19,8 @@
 
 # Come contrassegnare una macchina virtuale in Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo è dedicato all’assegnazione di tag a una macchina virtuale creata con il modello di distribuzione di Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 In questo articolo vengono descritti diversi modi per contrassegnare una macchina virtuale in Azure tramite il gestore di risorse di Azure. I tag sono coppie chiave/valore definite dall'utente che possono essere inserite direttamente in una risorsa o un gruppo di risorse. Attualmente, Azure supporta fino a 15 tag per ogni risorsa e gruppo di risorse. I tag possono essere posizionati su una risorsa al momento della creazione o aggiunti a una risorsa esistente. Si noti che i tag sono supportati solo per le risorse create tramite la gestione risorse di Azure.
 
@@ -189,4 +190,4 @@ Analizzando i tag e il loro utilizzo, le organizzazioni saranno in grado di acqu
 [Informazioni sulla fatturazione di Azure]: ../billing-understand-your-bill.md
 [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -57,7 +57,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 1.  Nella pagina di integrazione dell'applicazione **Envoy** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Abilita Single Sign-On](./media/active-directory-saas-envoy-tutorial/IC776778.png "Abilita Single Sign-On")
+    ![Abilita Single Sign-On](./media/active-directory-saas-envoy-tutorial/IC776778.png "Abilitare l'autenticazione Single Sign-On")
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Envoy** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
@@ -120,6 +120,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-envoy-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

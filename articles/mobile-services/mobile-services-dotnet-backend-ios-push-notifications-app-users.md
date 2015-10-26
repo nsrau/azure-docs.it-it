@@ -50,4 +50,4 @@ In questa esercitazione, è possibile richiedere agli utenti di eseguire innanzi
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

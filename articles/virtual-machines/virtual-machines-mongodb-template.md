@@ -19,7 +19,8 @@
 
 # Creare un cluster MongoDB in Ubuntu utilizzando un modello di Gestione risorse di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione di gestione delle risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 MongoDB è un database di documenti open-source che fornisce alte prestazioni, elevata disponibilità e proporzioni automatiche. MongoDB può essere installato come database autonomo o in un cluster, sfruttando le funzionalità di replica incorporate. In alcuni casi, è possibile utilizzare la replica per aumentare la capacità di lettura. I client hanno la capacità di inviare operazioni di lettura e scrittura a server diversi. È inoltre possibile mantenere copie in data center diversi per aumentare la presenza e la disponibilità dei dati per le applicazioni distribuite. Con MongoDB, la replica, inoltre, fornisce ridondanza e aumenta la disponibilità dei dati. Con più copie dei dati nei diversi server di database, la replica consente di proteggere un database dalla perdita di un singolo server. La replica consente, inoltre, il ripristino da interruzioni di servizio ed errori hardware. Grazie alla disponibilità di copie aggiuntive dei dati, è possibile dedicarne una al ripristino di emergenza, alla creazione di report o al backup.
 
@@ -693,4 +694,4 @@ In pratica, questo approccio suggerisce che:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -269,4 +269,4 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

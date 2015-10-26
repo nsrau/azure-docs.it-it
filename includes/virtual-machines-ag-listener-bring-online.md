@@ -20,4 +20,4 @@
 
 1. Nella casella **Porta** specificare il numero di porta per il listener del gruppo di disponibilità usando il valore di $EndpointPort usato in precedenza (in questa esercitazione, 1433 era l'impostazione predefinita), quindi fare clic su **OK**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

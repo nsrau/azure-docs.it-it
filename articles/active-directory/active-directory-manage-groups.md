@@ -94,4 +94,4 @@ Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su 
 
 * [Informazioni di riferimento all'API Graph per gruppi](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

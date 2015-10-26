@@ -13,4 +13,4 @@ Sblocca account dopo **X** minuti|Non impostato|9999
 
 <sup>1</sup> è previsto che aumenterà in futuro.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -3,7 +3,7 @@
 	description="Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine. La licenza per PlayReady viene distribuita dal server licenze PlayReady di Servizi multimediali, mentre la licenza per Widevine viene distribuita dal server licenze Axinom." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="willzhan,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"  
+	ms.date="10/14/2015"  
 	ms.author="juliako"/>
 
 #Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure  
@@ -56,7 +56,7 @@ Per informazioni sui motivi per cui non è possibile usare Azure Active Director
 
 ##Preparazione di Azure Media Player
 
-Azure Media Player v1.4.0 supporta la riproduzione di contenuto AMS incluso dinamicamente in pacchetti con PlayReady e Widevine DRM. Se il server licenze Widevine non richiede l'autenticazione tramite token, non sono necessarie altre operazioni per testare un contenuto DASH protetto da Widevine. Ad esempio, il team di Azure Media Player fornisce un semplice esempio [http://amp.azure.net/libs/amp/latest/samples/dynamic\_multiDRM\_PlayReadyWidevine\_notoken.html](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html), che ne illustra il funzionamento in Edge ed IE11 con PlayReady e Chrome con Widevine. Il server licenze Widevine fornito da Axinom richiede l'autenticazione tramite token JWT. Il token JWT deve essere inviato con la richiesta di licenza tramite un'intestazione HTTP "X-AxDRM-Message". Per questo scopo è necessario aggiungere il codice javascript seguente nella pagina Web che ospita AMP prima di configurare l'origine:
+Azure Media Player v1.4.0 supporta la riproduzione di contenuto AMS incluso dinamicamente in pacchetti con PlayReady e Widevine DRM. Se il server licenze Widevine non richiede l'autenticazione tramite token, non sono necessarie altre operazioni per testare un contenuto DASH protetto da Widevine. Per un esempio, il team AMP fornisce un semplice [esempio](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html), dove è possibile vederlo funzionante nel bordo e in IE11 con PlayReady e Chrome con Widevine. Il server licenze Widevine fornito da Axinom richiede l'autenticazione tramite token JWT. Il token JWT deve essere inviato con la richiesta di licenza tramite un'intestazione HTTP "X-AxDRM-Message". Per questo scopo è necessario aggiungere il codice javascript seguente nella pagina Web che ospita AMP prima di configurare l'origine:
 
 	<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
@@ -188,7 +188,15 @@ La recente aggiunta del supporto per Widevine nella protezione del contenuto di 
 I parametri seguenti sono necessari nella soluzione minima che sfrutta il server licenze Axinom Widevine. Ad eccezione dell'ID chiave, il resto dei parametri viene fornito da Axinom in base alla configurazione del server Widevine.
 
 
-![Parametri](./media/media-services-axinom-integration/media-services-axinom2.png)
+Parametro|Modalità di utilizzo
+---|---
+ID chiave di comunicazione|Deve essere incluso come valore di attestazione "com\_key\_id" in token JWT (vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione).
+Chiave di comunicazione|Deve essere utilizzato come chiave di firma di token JWT (vedere [questo](media-services-axinom-integration.md#jwt-token-generation) sezione).
+Seme chiave|Deve essere utilizzato per generare la chiave simmetrica con qualsiasi ID della chiave di contenuto (vedere [questa](media-services-axinom-integration.md#content-protection) sezione).
+L'URL di acquisizione della licenza Widevine.|È necessario utilizzare la configurazione dei criteri di recapito asset per il flusso DASH (vedere [questa](media-services-axinom-integration.md#content-protection) sezione).
+ID della chiave del contenuto|Deve essere incluso come parte del valore del reclamo del messaggio di attestazione del diritto di token JWT (vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione). 
+
+
 
 
 ##Percorsi di apprendimento di Media Services
@@ -198,4 +206,4 @@ I parametri seguenti sono necessari nella soluzione minima che sfrutta il server
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

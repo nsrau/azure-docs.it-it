@@ -810,4 +810,4 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

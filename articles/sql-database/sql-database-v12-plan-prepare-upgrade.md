@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/08/2015"
 	ms.author="genemi"/>
 
 
@@ -220,18 +220,19 @@ Il seguente scenario illustra che un database SQL di Azure versione 11 eliminato
 5. Per il database è possibile attivare qualsiasi livello di servizio supportato, se il livello S0 non è in linea con le proprie esigenze.
 
 
-### Cmdlet di PowerShell
+### Cmdlet PowerShell
 
 
 I cmdlet di PowerShell consentono di avviare, arrestare o monitorare un aggiornamento alla versione 12 del database SQL di Azure dalla versione 11 o qualsiasi altra versione precedente alla 12.
 
+- [Eseguire l'aggiornamento a database SQL V12 tramite PowerShell](sql-database-upgrade-server.md)
 
 Per la documentazione di riferimento sui cmdlet di Powershell, vedere:
 
 
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
 
 Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile riprendere un aggiornamento, è possibile solamente riavviarlo dall'inizio. Il cmdlet Stop libera e rilascia tutte le risorse appropriate.
@@ -253,4 +254,4 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 In questo argomento vengono forniti collegamenti alle istruzioni dettagliate per la distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità di SQL Server AlwaysOn con il modello di distribuzione classico. La farm contiene questi computer:
 
@@ -76,4 +77,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 1: C
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

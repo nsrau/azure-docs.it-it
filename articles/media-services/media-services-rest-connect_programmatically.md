@@ -178,4 +178,4 @@ Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multime
 
 <!-- URLs. -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

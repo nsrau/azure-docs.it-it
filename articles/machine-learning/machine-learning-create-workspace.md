@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
-	ms.author="garye"/>
+	ms.date="10/13/2015" 
+	ms.author="garye;bradsev"/>
 
 
 # Creare un'area di lavoro di Machine Learning di Azure 
+
+Questo menu si collega ad argomenti che descrivono come configurare i diversi ambienti di scienza dei dati utilizzati da Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 Per usare Azure Machine Learning Studio, è necessario disporre di un'area di lavoro di Machine Learning. Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 
@@ -63,4 +67,4 @@ Per informazioni sulla gestione dell'area di lavoro, vedere [Gestire un'area di 
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

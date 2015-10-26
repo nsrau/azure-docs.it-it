@@ -20,7 +20,8 @@
 
 # Come usare l'estensione della VM Docker con il portale di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 [Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della VM Docker per l'[Agente Linux di Azure] per creare una macchina virtuale Docker che ospiti un numero qualsiasi di contenitori per le applicazioni in Azure.
 
@@ -147,4 +148,4 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 [Esecuzione di Docker con https]: http://docs.docker.com/articles/https/
 [guida dell'utente di Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

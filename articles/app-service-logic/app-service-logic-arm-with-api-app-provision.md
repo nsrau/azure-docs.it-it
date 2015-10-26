@@ -394,4 +394,4 @@ Si noti che l'app per la logica usa il token per chiamare il gateway.
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -32,9 +32,9 @@ Per completare l'esercitazione, sono necessari i prodotti seguenti. Sono tutti d
 
 - **Visual Studio**: per scaricare una versione di valutazione gratuita di Visual Studio 2013 o Visual Studio 2015, vedere [Download di Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installare una di queste versioni prima di continuare. Le schermate di questa esercitazione sono state create in Visual Studio 2013.
 
-- **SQL Server 2014 Express with Tools**: scaricare Microsoft SQL Server Express gratuitamente dalla [pagina del database della piattaforma Web Microsoft](https://www.microsoft.com/it-it/download/details.aspx?id=42299). Più avanti nell'esercitazione verrà illustrato come [installare SQL Server](#InstallSQLDB) per assicurare che sia configurato correttamente.
+- **SQL Server 2014 Express with Tools**: scaricare Microsoft SQL Server Express gratuitamente dalla [pagina del database della piattaforma Web Microsoft](https://www.microsoft.com/it-IT/download/details.aspx?id=42299). Più avanti nell'esercitazione verrà illustrato come [installare SQL Server](#InstallSQLDB) per assicurare che sia configurato correttamente.
 
-- **SQL Server Management Studio Express**: incluso con il download di SQL Server 2014 Express with Tools citato sopra; tuttavia, per installarlo separatamente è possibile scaricarlo e installarlo dalla [pagina di download di SQL Server Express](https://www.microsoft.com/it-it/download/details.aspx?id=42299).
+- **SQL Server Management Studio Express**: incluso con il download di SQL Server 2014 Express with Tools citato sopra; tuttavia, per installarlo separatamente è possibile scaricarlo e installarlo dalla [pagina di download di SQL Server Express](https://www.microsoft.com/it-IT/download/details.aspx?id=42299).
 
 In questa esercitazione si presuppone che l'utente disponga di una sottoscrizione di Azure, che abbia installato Visual Studio 2013 e che abbia installato o abilitato .NET Framework 3.5. L'esercitazione illustra come installare SQL Server 2014 Express in una configurazione adatta alla funzionalità Connessioni ibride di Azure (un'istanza predefinita con la porta TCP statica). Prima di iniziare l'esercitazione, scaricare, ma non installare, SQL Server 2014 Express with Tools dalla posizione indicata sopra, se SQL Server non è installato.
 
@@ -430,4 +430,4 @@ Dopo avere completato l'infrastruttura della connessione ibrida, sarà possibile
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

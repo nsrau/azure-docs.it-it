@@ -565,4 +565,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 [post di blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

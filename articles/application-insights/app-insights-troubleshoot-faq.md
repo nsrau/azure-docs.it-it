@@ -238,9 +238,9 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 [azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

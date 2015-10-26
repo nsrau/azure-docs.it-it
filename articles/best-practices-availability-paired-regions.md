@@ -84,4 +84,4 @@ Come indicato nella figura 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

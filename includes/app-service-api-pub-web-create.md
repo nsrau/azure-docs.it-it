@@ -31,4 +31,4 @@
 
 	![Notifica sullo stato tramite la finestra Attività del servizio app di Azure](./media/app-service-api-pub-web-create/26-provisioning-success-v3.png)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

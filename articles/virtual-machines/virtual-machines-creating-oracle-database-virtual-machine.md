@@ -17,7 +17,8 @@
 	
 #Creare una macchina virtuale Oracle Database in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la creazione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su un'immagine Oracle Database fornita da Microsoft in esecuzione su Windows Server 2012 in Azure. Sono disponibili due passaggi: Innanzitutto, creare la macchina virtuale e quindi creare il Database Oracle all'interno della macchina virtuale. Nell'esempio mostrato viene utilizzata la versione 12c di Oracle Database, ma i passaggi per la versione 11g sono praticamente identici.
 
@@ -199,4 +200,4 @@ Dopo aver configurato la macchina virtuale e creato il database, vedere gli argo
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

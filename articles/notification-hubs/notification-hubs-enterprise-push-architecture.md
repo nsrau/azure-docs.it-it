@@ -272,4 +272,4 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 [Introduzione ad Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Introduzione ad Hub di notifica - Esercitazione per Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

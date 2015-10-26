@@ -311,4 +311,4 @@ In questa esercitazione si è appreso come configurare la replica di HBase in du
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

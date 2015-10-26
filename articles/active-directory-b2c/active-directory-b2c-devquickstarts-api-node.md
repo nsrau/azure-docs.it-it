@@ -20,11 +20,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-
 > [AZURE.NOTE]
 	Questo articolo non descrive come implementare le esperienze di accesso, iscrizione e gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione.
-	Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
-
+Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
 
 > [AZURE.NOTE]Questo esempio è stato scritto per [Applicazione di esempio iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Eseguire prima la procedura dettagliata e in seguito seguire l’esempio.
 
@@ -38,31 +36,29 @@ A questo scopo è necessario:
 
 Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs). Per seguire la procedura è possibile [scaricare la struttura dell'app come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/skeleton.zip) o clonare la struttura:
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
-```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
 Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
-> [AZURE.WARNING] 	Per l'Anteprima B2C è necessario utilizzare lo stesso ID client/ID applicazione e i criteri per il server dell’attività Web API e per il client che effettua la connessione. Questo vale per i tutorial iOS e Android. Se è stato creata in precedenza un'applicazione con una delle guide rapide, utilizzare tali valori anziché crearne di nuovi in basso.
+> [AZURE.WARNING]Per l'Anteprima B2C è necessario utilizzare lo stesso ID client/ID applicazione e i criteri per il server dell’attività Web API e per il client che effettua la connessione. Questo vale per i tutorial iOS e Android. Se è stato creata in precedenza un'applicazione con una delle guide rapide, utilizzare tali valori anziché crearne di nuovi in basso.
 
 
-## 1. Ottenere una directory di Azure AD B2C
+## 1\. Ottenere una directory di Azure AD B2C
 
 Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non è già stato fatto, passare a [creare una directory B2C](active-directory-b2c-get-started.md) prima di continuare.
 
-## 2. Creare un'applicazione
+## 2\. Creare un'applicazione
 
-A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app del client che l'API Web saranno rappresentate da un singolo **ID applicazione** in questo caso, poiché includono un'app per la logica. Per creare un'app, seguire [questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di
+A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app del client che l'API Web saranno rappresentate da un singolo **ID applicazione** in questo caso, poiché includono un'app per la logica. Per creare un'app, [seguire questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di
 
 - Includere un'**app Web/API Web** nell'applicazione
-- Specificare `http://localhost/TodoListService` come **URL di risposta**. Si tratta dell’URL predefinito per questo esempio di codice.
+- Immettere `http://localhost/TodoListService` come **URL di risposta**: si tratta dell'URL predefinito per questo esempio di codice.
 - Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3. Creare i criteri
+## 3\. Creare i criteri
 
 In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-directory-b2c-reference-policies.md) specifici. Questa app contiene tre esperienze di identità: iscrizione, accesso e accesso con Facebook. Sarà necessario creare i criteri per ciascun tipo, come descritto nell'articolo [riferimento ai criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
 
@@ -87,7 +83,7 @@ Per usare correttamente questo esempio, è necessario disporre di un'installazio
 
 Installare MongoDB da [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] In questa procedura dettagliata si presume che si usino gli endpoint server e di installazione predefiniti per MongoDB, che al momento della stesura di questo articolo sono: mongodb://localhost
+> [AZURE.NOTE]In questa procedura dettagliata si presume che si usino gli endpoint server e di installazione predefiniti per MongoDB, che al momento della stesura di questo articolo sono: mongodb://localhost
 
 ## Passaggio 6: Installare i moduli Restify nell'API Web
 
@@ -299,13 +295,13 @@ policyName:'b2c_1_<sign in policy name>',
 
 ### Valori richiesti
 
-*IdentityMetadata*: l'area in cui passport-azure-ad cercherà i dati di configurazione per IdP nonché i token per la convalida dei token JWT. Se si usa Azure Active Directory, probabilmente non è necessario modificare questa impostazione.
+*IdentityMetadata*: l'area in cui passport-azure-ad cercherà i dati di configurazione per IdP, nonché le chiavi per la convalida dei token JWT. Se si usa Azure Active Directory, probabilmente non è necessario modificare questa impostazione.
 
-*audience*: l'URI dal portale che identifica il servizio. L'esempio utilizza: `http://localhost/TodoListService`
+*audience*: l'URI dal portale che identifica il servizio. L'esempio usa: `http://localhost/TodoListService`
 
 *tenantName*: il nome del tenant (ad esempio contoso.onmicrosoft.com)
 
-*policyName*: i criteri che si desidera per la convalidazione dei token in ingresso nel server. Questo criterio dovrebbe essere il criterio utilizzato nell'applicazione client per l’accesso.
+*policyName*: i criteri da usare per convalidare i token in ingresso nel server. Questo criterio dovrebbe essere il criterio utilizzato nell'applicazione client per l’accesso.
 
 > [AZURE.NOTE]Per questa anteprima di B2C verranno usati gli stessi i criteri per entrambe le configurazioni client e server. Se è stata eseguita una procedura dettagliata in cui sono già stati creati questi criteri, non è necessario crearli di nuovo. Poiché è stata superata questa procedura dettagliata, non è necessario impostare nuovi criteri quando si eseguono le procedure dettagliate dei client su questo sito.
 
@@ -351,7 +347,7 @@ Ora si inizierà a vedere l'utilità di tutte queste operazioni di preparazione 
 
 Per questa procedura dettagliata si userà MongoDB per archiviare le attività, come illustrato nel ***Passaggio 4***.
 
-Come indicato nel file config.js creato al passaggio 11, il database è stato chiamato *tasklist* come quello inserito alla fine dell'URL di connessione mogoose\_auth\_local. Non è necessario creare questo database in anticipo in MongoDB, perché verrà creato automaticamente alla prima esecuzione dell'applicazione server (presumendo che non esista già).
+Come indicato nel file config.js creato nel passaggio 11, il database è stato chiamato *tasklist* come quello inserito alla fine dell'URL di connessione mogoose\_auth\_local. Non è necessario creare questo database in anticipo in MongoDB, perché verrà creato automaticamente alla prima esecuzione dell'applicazione server (presumendo che non esista già).
 
 Ora che è stato indicato al server quale database MongoDB deve usare, è necessario scrivere un codice aggiuntivo per creare il modello e lo schema per le attività del server.
 
@@ -882,9 +878,7 @@ Se servivano solo informazioni per implementare un'API REST usando Restify e OAu
 
 Come riferimento, l'esempio completato (senza i valori di configurazione) [è disponibile in un file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
 
 ## Passaggi successivi
@@ -893,4 +887,4 @@ Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [Connettersi a un'API Web tramite iOS con B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

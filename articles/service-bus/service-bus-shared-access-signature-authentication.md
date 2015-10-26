@@ -256,4 +256,4 @@ Per una panoramica generale della firma di accesso condiviso nel bus di servizio
 
 Per altre informazioni sull'autenticazione del bus di servizio, vedere [Autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

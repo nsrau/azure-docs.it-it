@@ -59,4 +59,4 @@ Per l'impostazione del servizio app di Azure è sufficiente selezionare un lingu
 [Creare una nuova app](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito. Non è necessaria alcuna carta di credito. Nessun impegno, nessun grattacapo.
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

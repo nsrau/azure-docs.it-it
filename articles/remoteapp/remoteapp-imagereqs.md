@@ -44,4 +44,4 @@ I requisiti per l'immagine che possono essere caricati e usati con l'app Azure R
  
 Vedere [Creare un'immagine di Azure RemoteApp](remoteapp-imageoptions.md) per ulteriori informazioni sulla creazione di immagini per Azure RemoteApp.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

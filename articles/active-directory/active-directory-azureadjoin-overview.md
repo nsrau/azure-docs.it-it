@@ -71,4 +71,4 @@ Aggiunta di Azure AD offre le funzionalità seguenti:
 * [Informazioni sugli scenari di utilizzo e considerazioni sulla distribuzione per Aggiunta di Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

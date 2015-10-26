@@ -21,7 +21,8 @@
 
 Questa estensione consente a SQL Server in una macchina virtuale di Azure di usare determinati servizi, elencati in questo articolo, che altrimenti non potrebbero essere usati. Questa estensione viene installata automaticamente per le immagini della raccolta di SQL Server nel portale di anteprima di Azure. Può essere installata in qualsiasi macchina virtuale SQL Server di Azure con l'agente guest per macchine virtuale di Azure installato.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra l'uso di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+ 
  
 ## Prerequisiti
 Requisiti per l'uso dei cmdlet di Powershell:
@@ -77,4 +78,4 @@ Se si desidera rimuovere l'estensione da una macchina virtuale, è possibile usa
 ### Sintassi
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -160,4 +160,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

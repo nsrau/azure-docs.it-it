@@ -35,4 +35,4 @@ Talvolta l’utente potrebbe voler ricevere un risultato intermedio di un esperi
 
 Al termine del salvataggio, il set di dati sarà disponibile per l'uso in qualsiasi esperimento dell'area di lavoro. È possibile individuarlo nell’elenco **Set di dati salvati** nella tavolozza dei moduli.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Attività di trasformazione dei dati | Microsoft Azure"
-	description="Informazioni su come usare il servizio Data factory di Azure per trasformare e analizzare i dati."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Attività di trasformazione dei dati | Microsoft Azure" 
+	description="Informazioni su come usare il servizio Data factory di Azure per trasformare e analizzare i dati." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
-# Trasformazione e analisi tramite Data Factory di Azure
+# Trasformazione e analisi tramite Data factory di Azure
 
 ## Panoramica
-Le attività di trasformazione in Azure Data Factory trasformano ed elaborano i dati non elaborati in stime e approfondimenti. L'attività di trasformazione viene eseguita in un ambiente di elaborazione, ad esempio cluster HDInsight di Azure o un Batch di Azure. Data Factory di Azure supporta le seguenti attività di trasformazione che possono essere aggiunte a[pipeline](data-factory-create-pipelines.md)singolarmente o con un'altra attività concatenata.
+Le attività di trasformazione in Azure Data factory trasformano ed elaborano i dati non elaborati in stime e approfondimenti. L'attività di trasformazione viene eseguita in un ambiente di elaborazione, ad esempio cluster HDInsight di Azure o un Batch di Azure. Data factory di Azure supporta le seguenti attività di trasformazione che possono essere aggiunte a[pipeline](data-factory-create-pipelines.md)singolarmente o con un'altra attività concatenata.
 
 
 Attività di trasformazione | Ambiente di calcolo 
@@ -42,4 +42,4 @@ Per informazioni sui servizi collegati di calcolo supportati da Data factory, ve
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md) richiede solo alcuni minuti.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

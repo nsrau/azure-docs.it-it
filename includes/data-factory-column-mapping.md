@@ -149,4 +149,4 @@ In questo caso, i risultati della query vengono prima mappati alle colonne speci
 
 ![Flusso del mapping di colonne-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -85,9 +85,48 @@ Aggiornare quindi i localizzatori esistenti (che presentano una dipendenza dalla
 
 ##Passaggio 3: Aggiornare i localizzatori 
 
-Dopo 30 minuti è possibile aggiornare i localizzatori esistenti in modo che acquisiscano la dipendenza dalla nuova chiave di archiviazione secondaria.
+Dopo 30 minuti è possibile ricreare i localizzatori su richiesta in modo che acquisiscano la dipendenza dalla nuova chiave di archiviazione e mantengano l’URL esistente.
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
+Si noti che, quando si aggiorna (o si ricrea) un localizzatore SAS, l’URL cambierà sempre.
+
+>[AZURE.NOTE]Per assicurarsi che si mantengano gli URL esistenti dei localizzatori su richiesta, è necessario eliminare l'indicatore di posizione esistente e crearne uno nuovo con lo stesso ID.
+ 
+Nell'esempio di .NET riportato di seguito viene illustrato come ricreare un localizzatore con lo stesso ID.
+	
+	private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+	{
+	    // Save properties of existing locator.
+	    var asset = locator.Asset;
+	    var accessPolicy = locator.AccessPolicy;
+	    var locatorId = locator.Id;
+	    var startDate = locator.StartTime;
+	    var locatorType = locator.Type;
+	    var locatorName = locator.Name;
+	
+	    // Delete old locator.
+	    locator.Delete();
+	
+	    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+	    {
+	        throw new Exception(String.Format(
+	            "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+	            locator.Id));
+	    }
+	
+	    // Create new locator using saved properties.
+	    var newLocator = context.Locators.CreateLocator(
+	        locatorId,
+	        locatorType,
+	        asset,
+	        accessPolicy,
+	        startDate,
+	        locatorName);
+	
+	
+	
+	    return newLocator;
+	}
+
 
 ##Passaggio 5: Rigenerare la chiave di accesso alle risorse di archiviazione primaria
 
@@ -101,9 +140,9 @@ Usare la stessa procedura descritta nel [Passaggio 2](media-services-roll-storag
 
 ##Passaggio 7: Aggiornare i localizzatori  
 
-Dopo 30 minuti è possibile aggiornare i localizzatori esistenti in modo che acquisiscano la dipendenza dalla nuova chiave di archiviazione primaria.
+Dopo 30 minuti è possibile ricreare i localizzatori su richiesta in modo che acquisiscano la dipendenza dalla nuova chiave di archiviazione primaria e mantengano l’URL esistente.
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
+Utilizzare la stessa procedura, come descritto nel [passaggio 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
 
  
 ##Percorsi di apprendimento di Media Services
@@ -113,4 +152,4 @@ Per aggiornare la data di scadenza di un localizzatore, è possibile usare [REST
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

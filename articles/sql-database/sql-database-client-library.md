@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Creazione e gestione del database SQL di Azure con C#"
-	description="In questo articolo viene illustrato come creare e gestire un database SQL di Azure con C# utilizzando la libreria di database SQL di Azure per .NET."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Creazione e gestione del database SQL di Azure con C#" 
+   description="In questo articolo viene illustrato come creare e gestire un database SQL di Azure con C# utilizzando la libreria di database SQL di Azure per .NET." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="08/25/2015"
+   ms.author="sstein"/>
 
-# Creazione e gestione di database SQL con C&\#x23;
+# Creazione e gestione di database SQL con C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-elastic-pool-portal.md)
@@ -798,4 +798,4 @@ Per eliminare un gruppo di risorse:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

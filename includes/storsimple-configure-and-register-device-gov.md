@@ -112,7 +112,7 @@
 
 14. Il passaggio finale dell'installazione guidata registra il dispositivo con il servizio StorSimple Manager. A tale scopo, è necessario il codice di registrazione del servizio ottenuto in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-get-service-registration-key-gov.md). Dopo aver fornito il codice di registrazione, potrebbe essere necessario attendere 2-3 minuti prima che il dispositivo venga registrato.
 
-      >[AZURE.NOTE]È possibile premere Ctrl + C in qualsiasi momento per uscire dall'installazione guidata. Se sono state immesse tutte le impostazioni di rete (indirizzo IP per Data 0, Subnet mask e Gateway), le voci verranno conservate.
+      >[AZURE.NOTE]È possibile premere CTRL+C in qualsiasi momento per uscire dall'installazione guidata. Se sono state immesse tutte le impostazioni di rete (indirizzo IP per Data 0, Subnet mask e Gateway), le voci verranno conservate.
 
 	![Registrazione di StorSimple in corso](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
 
@@ -137,4 +137,4 @@
      
         
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

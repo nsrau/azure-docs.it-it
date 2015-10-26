@@ -48,4 +48,4 @@ Data factory è un servizio di gestione delle informazioni basato sul cloud che 
 
 [Ricerca una migliore connessione con i clienti tramite la formazione relativa al Cloud Machine](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -4,4 +4,4 @@
 > 
 > I servizi e le risorse create nel portale di anteprima di Azure non sono visibili nel portale di Azure in quanto usano un nuovo modello di risorsa.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

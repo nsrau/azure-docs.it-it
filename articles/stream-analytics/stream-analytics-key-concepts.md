@@ -182,7 +182,7 @@ Quando si avvia un processo, viene richiesto di specificare un valore di **Avvio
 - **Avvio output**: usare questa impostazione per specificare quando il processo verrà avviato restituendo un output. Se la query associata include una finestra, il processo inizierà la selezione di input dalle relative origini all'inizio della durata richiesta della finestra, in modo da produrre il primo evento di output all'ora specificata. Sono disponibili due opzioni: **Ora avvio processo** e **Personalizzato**. L'impostazione predefinita è **Ora avvio processo**. Per l'opzione **Personalizzato** è necessario specificare una data e un'ora. Questa impostazione è utile per specificare la quantità di dati cronologici nelle origini di input da usare o per il prelievo di dati da inserire a partire da un momento specifico, ad esempio dal momento in cui un processo è stato arrestato. 
 - **Criteri non ordinati**: impostazioni per la gestione degli eventi che non arrivano al processo di Analisi dei flussi in modo sequenziale. È possibile designare una soglia di tempo per riordinare gli eventi internamente specificando una finestra di tolleranza, nonché determinare un'azione da intraprendere per gli eventi al di fuori di questa finestra: **Elimina** o **Modifica**. **Rimuovi** consente di eliminare tutti gli eventi ricevuti in disordine, mentre **Regola** consente di cambiare il sistema. Timestamp degli eventi in disordine rispetto al timestamp dell'evento ordinato ricevuto più di recente. 
 - **Criteri di recapito tardivo**: durante la lettura da origini di input con più partizioni, se e una o più partizioni accumulano ritardo o non contengono dati, il processo di streaming deve decidere come gestire la situazione per garantire il flusso di eventi attraverso il sistema. L'impostazione di input "Massimo ritardo di recapito consentito" controlla tale comportamento ed è configurata per impostazione predefinita per attendere i dati per un tempo illimitato. Di conseguenza, i timestamp degli eventi non verranno modificati e il flusso di eventi si baserà sulla partizione di input più lenta e si arresterà se una o più partizioni di input non contengono dati. Ciò risulta utile se i dati vengono distribuiti uniformemente tra le partizioni di input ed è importante garantire uniformità temporale tra gli eventi. L'utente può anche decidere di attendere solo per un periodo di tempo limitato. L'impostazione "Massimo ritardo di recapito consentito" determina il periodo di tempo trascorso il quale il processo continuerà, tralasciando le partizioni di input in ritardo e agendo sugli eventi in base all'impostazione "Azione per gli eventi tardivi", eliminandoli o modificandone i timestamp se i dati arrivano in un secondo momento. Ciò è utile se la latenza è un elemento molto importante e se lo spostamento dei timestamp è tollerato, ma l'input potrebbe non essere distribuito in modo uniforme.
-- **Impostazioni locali**: usare questa impostazione per specificare le preferenze internazionali per il processo di Analisi dei flussi. Anche se i timestamp dei dati sono indipendenti dalle impostazioni locali, questa impostazione avrà influenza sulle modalità con cui il processo analizzerà, confronterà e ordinerà i dati. Per la versione di anteprima è supportata solo l'impostazione **IT-IT**.
+- **Impostazioni locali**: usare questa impostazione per specificare le preferenze internazionali per il processo di Analisi dei flussi. Anche se i timestamp dei dati sono indipendenti dalle impostazioni locali, questa impostazione avrà influenza sulle modalità con cui il processo analizzerà, confronterà e ordinerà i dati. Per la versione di anteprima è supportata solo l'impostazione **it-IT**.
 
 ### Stato
 
@@ -193,7 +193,7 @@ Lo stato dei processi di Analisi dei flussi può essere esaminato nel portale di
 
 
 ## Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/IT-IT/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics).
 
 
 ## Passaggi successivi
@@ -207,4 +207,4 @@ A questo punto, si conoscono i concetti fondamentali dell'analisi di flusso ed �
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

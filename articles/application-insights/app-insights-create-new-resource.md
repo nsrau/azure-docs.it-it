@@ -90,8 +90,8 @@ Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 [api]: app-insights-api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

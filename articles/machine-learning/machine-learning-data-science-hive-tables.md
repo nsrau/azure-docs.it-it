@@ -2,6 +2,7 @@
 	pageTitle="Creare e caricare dati nelle tabelle Hive dall'archiviazione BLOB | Microsoft Azure" 
 	description="Creare tabelle Hive e caricare dati in BLOB nelle tabelle Hive" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -145,4 +146,4 @@ Gli utenti non possono caricare direttamente i dati del BLOB nelle tabelle Hive 
 Ora abbiamo una tabella con i dati nel formato ORC pronta per l'utilizzo.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

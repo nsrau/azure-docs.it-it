@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Passaggi successivi"
-	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive le successive azioni da eseguire con Multi-Factor Authentication. Sono inclusi i report, gli avvisi di illecito, il bypass monouso, i messaggi vocali personalizzati, la memorizzazione nella cache, gli indirizzi IP attendibili e le password dell'app."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication - Passaggi successivi" 
+	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive le successive azioni da eseguire con Multi-Factor Authentication. Sono inclusi i report, gli avvisi di illecito, il bypass monouso, i messaggi vocali personalizzati, la memorizzazione nella cache, gli indirizzi IP attendibili e le password dell'app." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Configurazione di Azure Multi-Factor Authentication
@@ -46,7 +46,7 @@ Avviso di illecito può essere configurato e impostato in modo che gli utenti po
 5. Nel portale di gestione di Azure Multi-Factor Authentication, a sinistra fare clic su Impostazioni.
 6. Nella sezione Avviso di illecito selezionare Consenti agli utenti di inviare avvisi di illeciti.
 7. Se si desidera che gli utenti siano bloccati quando viene segnalato un illecito, selezionare Blocca utente se viene segnalato un illecito.
-8. Nella casella sotto Codice per segnalare illeciti durante il messaggio introduttivo iniziale immettere un codice numerico che può essere usato durante la verifica della chiamata. Se un utente immette questo codice anziché il simbolo \#, verrà segnalato un avviso di illecito.
+8. Nella casella sotto Codice per segnalare illeciti durante il messaggio introduttivo iniziale immettere un codice numerico che può essere usato durante la verifica della chiamata. Se un utente immette questo codice anziché il simbolo #, verrà segnalato un avviso di illecito.
 9. Nella parte inferiore fare clic su Salva.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
@@ -365,4 +365,4 @@ Per garantire la sicurezza degli account utente, è necessario ripristinare Mult
 <li>Nella pagina Impostazioni servizio, in Gestisci impostazioni del dispositivo utente, selezionare o deselezionare **Consenti agli utenti di sospendere Multi-Factor Authentication memorizzando i relativi dispositivi**.</li>
 ![Sospensione dei dispositivi](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Impostare il numero di giorni per cui si desidera consentire la sospensione. Il valore predefinito è 14 giorni.</li> <li>Fare clic su Salva.</li> <li>Fare clic su Chiudi.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

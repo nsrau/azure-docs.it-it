@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Come configurare l'autenticazione Google per un'applicazione dei servizi app"
 	description="Informazioni su come configurare l'autenticazione Google per un'applicazione dei servizi app."
-	services="app-service\mobile"
+    services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson"
+	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
 
@@ -67,4 +67,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [portale di gestione di Azure]: https://portal.azure.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

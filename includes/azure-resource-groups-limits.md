@@ -5,4 +5,4 @@ Distribuzioni per gruppo di risorse|800|800
 Risorse per distribuzione|800|800
 Blocchi di gestione (per ambito univoco)|20|20
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

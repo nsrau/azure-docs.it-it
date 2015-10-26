@@ -19,7 +19,8 @@
 
 # Informazioni su come scollegare un disco da una macchina virtuale Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la rimozione di un disco con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -29,4 +30,4 @@
 
 [Uso dell’interfaccia della riga di comando di Azure con l’API di gestione del servizio](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

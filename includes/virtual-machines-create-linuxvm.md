@@ -39,4 +39,4 @@
 
 Per informazioni dettagliate su tutti i comandi della macchina virtuale dell'interfaccia della riga di comando di Azure, leggere l'argomento relativo all'[uso dell'interfaccia della riga di comando di Azure con l'API di Gestione dei servizi](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

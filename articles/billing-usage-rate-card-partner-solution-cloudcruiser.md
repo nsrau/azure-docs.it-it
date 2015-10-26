@@ -234,4 +234,4 @@ Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la c
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figura 13 - Creare nuovi campi per le informazioni sui tag"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figura 14 - Popolamento della struttura dei conti con le informazioni provenienti dalle ricerche"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

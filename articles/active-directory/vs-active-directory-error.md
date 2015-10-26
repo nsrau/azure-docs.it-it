@@ -97,4 +97,4 @@ Per cambiare il tipo di autenticazione, rimuovere il tipo non compatibile ed ese
 Per altre informazioni, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

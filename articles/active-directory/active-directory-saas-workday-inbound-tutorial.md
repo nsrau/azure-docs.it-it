@@ -226,4 +226,4 @@ Questa sezione descrive come configurare Azure AD per importare utenti da Workda
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

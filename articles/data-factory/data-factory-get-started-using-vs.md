@@ -63,7 +63,7 @@ In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedS
  
 3. Sostituire **accountname** e **accountkey** con il nome e la chiave dell'account di archiviazione di Azure.
 
-	![Servizio collegato di archiviazione di Azure](./media/data-factory-get-started-using-vs/azure-storage-linked-service.png)
+	![Servizio collegato Archiviazione di Azure](./media/data-factory-get-started-using-vs/azure-storage-linked-service.png)
 
 4. Salvare il file **AzureStorageLinkedService1.json**.
 
@@ -230,10 +230,10 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 2. Selezionare **Aggiornamenti** nel riquadro sinistro e quindi selezionare **Visual Studio Gallery**.
 4. Selezionare **Strumenti di Data Factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
 
-Vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) per istruzioni su come usare il portale di anteprima di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione.
+Vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) per istruzioni su come usare il portale di anteprima di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione.
 
 
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md) richiede solo alcuni minuti.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

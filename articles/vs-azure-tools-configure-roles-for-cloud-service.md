@@ -376,4 +376,4 @@ Qualsiasi certificato di gestione associato alle configurazioni del servizio vie
 ## Passaggi successivi
 Per altre informazioni sui progetti Azure in Visual Studio, vedere [Configurazione di un progetto Azure](vs-azure-tools-configuring-an-azure-project.md). Per altre informazioni sullo schema del servizio cloud, vedere [Guida di riferimento agli schemi](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

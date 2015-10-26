@@ -18,7 +18,8 @@
 
 # Applicazione automatizzata di patch per SQL Server in Macchine virtuali di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione di una risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 L’applicazione automatizzata di patch stabilisce un periodo di manutenzione per una macchina virtuale di Azure in cui è in esecuzione SQL Server 2012 o 2014. Gli aggiornamenti automatici possono essere installati solo durante questo periodo di manutenzione. Per SQL Server, gli aggiornamenti di sistema e i riavvii associati vengono eseguiti nel momento migliore per il database. Dipende dall’agente IaaS di SQL Server.
 
@@ -91,4 +92,4 @@ Una funzionalità correlata per Macchine virtuali di SQL Server in Azure è [Bac
 
 Esaminare altre [risorse per l'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

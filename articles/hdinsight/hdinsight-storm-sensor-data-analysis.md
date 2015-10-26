@@ -104,7 +104,7 @@ L'hub eventi è l'origine dati per questo esempio. Per creare un nuovo hub event
 4. Selezionare **Configura** e quindi creare due nuovi criteri di accesso usando le informazioni seguenti.
 
 	<table>
-<tr><th>Nome</th><th>Autorizzazioni</th></tr>
+<tr><th>Name</th><th>Autorizzazioni</th></tr>
 <tr><td>Dispositivi</td><td>Invia</td></tr>
 <tr><td>Storm</td><td>Attesa</td></tr>
 </table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Verranno creati i criteri di accesso condivisi che saranno usati per inviare messaggi all'hub e per leggere i messaggi provenienti dall'hub.
@@ -422,4 +422,4 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

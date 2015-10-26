@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Creare password per le app nel portale di Office 365 per Azure Multi-Factor Authentication"
-	description="Questa pagina illustra agli utenti la procedura per creare password aggiuntive per le app nel portale di Office 365."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenp"
+	pageTitle="Creare password per le app nel portale di Office 365 per Azure Multi-Factor Authentication" 
+	description="Questa pagina illustra agli utenti la procedura per creare password aggiuntive per le app nel portale di Office 365." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenp" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Creare o eliminare password per le app nel portale di Office 365 per Azure Multi-Factor Authentication
@@ -68,4 +68,4 @@ Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare ed
 <li>Verrà visualizzata una finestra popup in cui viene richiesto di confermare l'eliminazione.</li>
 <li>Fare clic su **Sì**.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

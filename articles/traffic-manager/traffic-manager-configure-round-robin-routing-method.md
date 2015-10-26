@@ -1,19 +1,19 @@
 <properties
    pageTitle="Configurare un metodo di routing del traffico round robin di Gestione traffico | Microsoft Azure"
-	description="Informazioni su come configurare il bilanciamento del carico round robin per gli endpoint di Gestione traffico."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Informazioni su come configurare il bilanciamento del carico round robin per gli endpoint di Gestione traffico."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Configurare il metodo di routing Round Robin
 
@@ -52,4 +52,4 @@ Un modello comune di metodo di routing del traffico consiste nel fornire un set 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

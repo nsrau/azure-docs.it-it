@@ -90,4 +90,4 @@ Si noti che un attore non viene mai sottoposto a Garbage Collection mentre è in
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

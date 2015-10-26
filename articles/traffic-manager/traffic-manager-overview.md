@@ -172,4 +172,4 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

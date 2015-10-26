@@ -1,22 +1,22 @@
 <properties
    pageTitle="Avvio rapido per l'API di Azure AD Graph | Microsoft Azure"
-	description="L'API di Azure Active Directory Graph consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST OData. Le applicazioni possono usare l'API Graph per le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) su oggetti e dati della directory."
-	services="active-directory"
-	documentationCenter="n/a"
-	authors="JimacoMS"
-	manager="msmbaldwin"
-	editor=""
-	tags=""/>
+   description="L'API di Azure Active Directory Graph consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST OData. Le applicazioni possono usare l'API Graph per le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) su oggetti e dati della directory."
+   services="active-directory"
+   documentationCenter="n/a"
+   authors="JimacoMS"
+   manager="msmbaldwin"
+   editor=""
+   tags=""/>
 
 
    <tags
       ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="v-jibran@microsoft.com"/>
+      ms.devlang="na"
+      ms.topic="article"
+      ms.tgt_pltfrm="na"
+      ms.workload="identity"
+      ms.date="08/24/2015"
+      ms.author="v-jibran@microsoft.com"/>
 
 # Avvio rapido per l'API di Azure AD Graph
 
@@ -123,4 +123,4 @@ Per altre informazioni su entità e tipi di Azure AD esposti da Graph e sulle op
 
 Altre informazioni su [API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

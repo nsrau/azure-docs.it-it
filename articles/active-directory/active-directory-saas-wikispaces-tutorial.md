@@ -31,13 +31,13 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Wiki
 
 2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.
+3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
     ![Applicazioni](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Applicazioni")
 
-4.  Fare clic su **Aggiungi** nella parte inferiore della pagina.
+4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiungi applicazione](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Aggiungi applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -77,7 +77,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     >[AZURE.NOTE]La configurazione dell'accesso Single Sign-On deve essere eseguita dal team di supporto di Wikispaces. Al termine della configurazione, verrà visualizzata una notifica.
 
-6.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Configura accesso Single Sign-On")
 
@@ -124,6 +124,6 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Sì")
   
-Se si desidera testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

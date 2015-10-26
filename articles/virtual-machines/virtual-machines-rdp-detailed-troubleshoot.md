@@ -205,4 +205,4 @@ Verificare che anche l'endpoint Desktop remoto per la macchina virtuale di Azure
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

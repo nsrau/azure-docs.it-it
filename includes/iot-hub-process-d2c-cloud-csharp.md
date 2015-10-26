@@ -53,7 +53,7 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, sarà necessar
 
 5. Fare clic con il pulsante destro del mouse sul progetto **ProcessDeviceToCloudMessages**, fare clic su **Aggiungi** e quindi su **Classe**. Assegnare alla nuova classe il nome **StoreEventProcessor** e quindi fare clic su **OK** per crearla.
 
-6. Aggiungere le istruzioni seguenti all'inizio del file SimpleEventProcessor.cs:
+6. Aggiungere le istruzioni seguenti all'inizio del file StoreEventProcessor.cs:
 
         using System.IO;
         using System.Diagnostics;
@@ -96,7 +96,7 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, sarà necessar
 
             Task IEventProcessor.OpenAsync(PartitionContext context)
             {
-                Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+                Console.WriteLine("StoreEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
 
                 if (!long.TryParse(context.Lease.Offset, out currentBlockInitOffset))
                 {
@@ -126,7 +126,7 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, sarà necessar
                         WriteHighlightedMessage(string.Format("Received interactive message: {0}", messageId));
                         continue;
                     }
-                    
+
                     if (toAppend.Length + data.Length > MAX_BLOCK_SIZE || stopwatch.Elapsed > MAX_CHECKPOINT_TIME)
                     {
                         await AppendAndCheckpoint(context);
@@ -229,7 +229,7 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, sarà necessar
 > [AZURE.NOTE]Per semplicità, questa esercitazione usa una singola istanza di [EventProcessorHost]. Per altre informazioni sull'elaborazione di messaggi da dispositivo a cloud, vedere [Guida alla programmazione di Hub eventi] e l'esercitazione [Elaborare messaggi da dispositivo a cloud].
 
 ## Ricevere messaggi interattivi
-In questa sezione si scriverà un'app console di Windows che riceve messaggi interattivi dalla coda del bus di servizio. Per altre informazioni sull'architettura di una soluzione che usa il bus di servizio, vedere [Compilare applicazioni a più livelli con il bus di servizio].
+In questa sezione si scriverà un'app console di Windows che riceve messaggi interattivi dalla coda del bus di servizio. Fare riferimento a [creazione di applicazioni a più livelli con il Bus di servizio][] per ulteriori informazioni su come progettare una soluzione che utilizza il Bus di servizio.
 
 1. Nella soluzione Visual Studio corrente, creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **ProcessD2cInteractiveMessages**.
 
@@ -309,9 +309,11 @@ In questa sezione si scriverà un'app console di Windows che riceve messaggi int
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
+[creazione di applicazioni a più livelli con il Bus di servizio]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+
 
 <!-- Images -->
-[10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
+[10]: ./media/iot-hub-process-d2c-cloud-csharp/create-identity-csharp1.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
 [20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
@@ -322,4 +324,4 @@ In questa sezione si scriverà un'app console di Windows che riceve messaggi int
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

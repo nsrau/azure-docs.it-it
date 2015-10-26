@@ -111,4 +111,4 @@ Se l'account è negli Stati Uniti, ora è possibile eseguire facilmente queste o
 4. Aggiornare gli avvisi di fatturazione per questa sottoscrizione, nel [Centro Account Azure](https://account.windowsazure.com/Subscriptions) [Ulteriori informazioni](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se si lavora con un partner, è consigliabile aggiornare l'ID partner alla sottoscrizione. È possibile farlo nel [Centro Account di Azure](https://account.windowsazure.com/Subscriptions).
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -34,4 +34,4 @@ Percorso della nuova app per le API. È possibile ottenere i percorsi validi ese
       "type": "string"
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

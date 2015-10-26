@@ -208,4 +208,4 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 - Ulteriori informazioni sull’[utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 - Ulteriori informazioni sulle[ attività e sui flussi di lavoro di Gestione snapshot StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -7,4 +7,4 @@ Risorsa|Limite predefinito|Limite massimo
 
 <sup>1</sup>Per ogni servizio cloud con ruoli di lavoro/Web possono esistere due distribuzioni, una per la produzione e l'altra per la gestione temporanea. Si noti, inoltre, che questo limite si riferisce al numero di ruoli distinti (configurazione) e non al numero di istanze per ruolo (scalabilità).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

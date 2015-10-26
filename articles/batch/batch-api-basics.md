@@ -385,4 +385,4 @@ A ogni nodo di un pool viene assegnato un nome univoco e il nodo in cui viene es
 
 [Panoramica di Azure Batch]: batch-technical-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

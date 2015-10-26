@@ -2,6 +2,7 @@
 	pageTitle="Inviare query Hive ai cluster Hadoop nel processo di analisi avanzata dei dati | Microsoft Azure" 
 	description="Elaborazione dati tabelle Hive" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -325,4 +326,4 @@ Le impostazioni predefinite dei parametri del cluster Hive potrebbero non essere
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

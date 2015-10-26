@@ -21,7 +21,7 @@
 
 Apache Spark è un motore ad alta velocità per l'elaborazione dati su larga scala. Spark dispone di un motore di esecuzione DAG avanzato che supporta il flusso dati ciclico e l'elaborazione in memoria e può accedere a diverse fonti di dati, tra cui HDFS, Spark, HBase e S3.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la distribuzione di una risorsa con il modello di distribuzione Gestione risorse. Non è possibile distribuire questa risorsa con il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica. Non è possibile distribuire questa risorsa con il modello di distribuzione classico.
 
 
 Oltre a essere eseguito sugli strumenti di gestione del cluster Mesos e YARN, Spark fornisce una semplice modalità di distribuzione autonoma. In questa esercitazione verrà illustrato come utilizzare un modello di Gestione risorse di Azure di esempio per distribuire un cluster Spark su macchine virtuali Ubuntu tramite [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
@@ -434,7 +434,7 @@ Aprire il modello azuredeploy.json in un editor di testo o in uno strumento a sc
 
 ### sezione "parametri"
 
-Nella sezione “parametri” di azuredeploy.json vengono specificati i parametri modificabili utilizzati in questo modello. Il file azuredeploy-parameters.json menzionato in precedenza viene utilizzato per passare i valori nella sezione "parametri" di azuredeploy.json durante l'esecuzione del modello.
+Nella sezione “parametri” di azuredeploy.json vengono specificati i parametri modificabili usati in questo modello. Il file azuredeploy-parameters.json menzionato in precedenza viene utilizzato per passare i valori nella sezione "parametri" di azuredeploy.json durante l'esecuzione del modello.
 
 Di seguito è riportato un esempio di un parametro per la "taglia":
 
@@ -847,4 +847,4 @@ Scoprire altri [framework di applicazioni](virtual-machines-app-frameworks.md).
 
 [Risoluzione dei problemi relativi alle distribuzioni dei modelli](resource-group-deploy-debug.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

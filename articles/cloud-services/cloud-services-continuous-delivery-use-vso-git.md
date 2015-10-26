@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Recapito continuo con Git e Visual Studio Online in Azure"
+	pageTitle="Recapito continuo con Git e Visual Studio Online in Azure" 
 	description="Informazioni sulla configurazione dei progetti team di Visual Studio Online per usare Git per la compilazione e la distribuzione automatiche alla funzionalità App Web nel Servizio app di Azure o nei servizi cloud."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -273,4 +273,4 @@ Per altri suggerimenti su come usare Git con Visual Studio Online, vedere [Svilu
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

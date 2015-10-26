@@ -1,21 +1,21 @@
 <properties
    pageTitle="Linee guida di monitoraggio e diagnostica | Microsoft Azure"
-	description="Procedure consigliate per il monitoraggio di applicazioni distribuite nel cloud."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="masimms"
-	editor=""
-	tags=""/>
+   description="Procedure consigliate per il monitoraggio di applicazioni distribuite nel cloud."
+   services=""
+   documentationCenter="na"
+   authors="dragon119"
+   manager="masimms"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="best-practice"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="04/28/2015"
-	ms.author="masashin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="04/28/2015"
+   ms.author="masashin"/>
 
 # Indicazioni di monitoraggio e diagnostica
 
@@ -612,4 +612,4 @@ In molti casi, i report possono essere generati dai processi batch in base a una
 - La pagina [informazioni sugli avvisi di monitoraggio e notifiche in Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) del sito Web Microsoft.
 - La pagina [Application Insights](app-insights-get-started/) del sito Web Microsoft.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

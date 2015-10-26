@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #iOS SDK per Azure Mobile Engagement
 
@@ -32,9 +32,12 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-ios-sdk-con
 
 ##Note sulla versione
 
-###3\.1.0 (08/26/2015)
+##3\.2.0 (10/08/2015)
 
--   Correzione del bug di compatibilità di iOS 9 con una libreria di terze parti. Provocava arresti anomali durante l'invio del polling dei risultati, di informazioni sull'applicazione o di dati aggiuntivi.
+-   Abilitato Bitcode nel SDK per utilizzarlo con **Xcode 7**.
+-   Bug corretti relativi a notifiche all'interno dell'applicazione.
+-   Apportate le notifiche all'interno dell'app più affidabili in caso di batteria scarica e altri scenari.
+-   Rimossi i registri aggiuntivi della console generati dalla libreria di terze parti 3.
 
 Per le versioni precedenti, vedere le [note sulla versione complete](mobile-engagement-ios-release-notes.md).
 
@@ -59,4 +62,4 @@ Il metodo `application:didReceiveRemoteNotification:` deve essere sostituito da 
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

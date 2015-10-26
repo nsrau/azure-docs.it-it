@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web"
-	description="Un'esercitazione che illustra come usare il contenuto da una rete CDN per migliorare le prestazioni dell'applicazione Web."
-	services="cdn"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web" 
+	description="Un'esercitazione che illustra come usare il contenuto da una rete CDN per migliorare le prestazioni dell'applicazione Web." 
+	services="cdn" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="cephalin"/>
 
 # Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web #
@@ -271,4 +271,4 @@ Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure Ã
 - [Uso della rete CDN per Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

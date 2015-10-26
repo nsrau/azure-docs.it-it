@@ -19,7 +19,8 @@
 
 # Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+
 
 Questo argomento descrive in modo dettagliato la creazione di un ambiente cloud ibrido simulato con Microsoft Azure per i test, usando due reti virtuali di Azure separate. Usare questa configurazione come alternativa a [ Impostazione di un ambiente cloud ibrido per i test](virtual-networks-setup-hybrid-cloud-environment-testing.md) quando non si dispone di una connessione diretta a Internet e un indirizzo IP pubblico. Di seguito è riportata la configurazione risultante.
 
@@ -275,4 +276,4 @@ Configurare quindi la chiave precondivisa in modo che entrambi i gateway usino l
 Nella pagina Rete del portale di gestione di Azure fare clic sulla rete virtuale **TestLab** e quindi su **Connetti** nella barra delle applicazioni. Attendere fino alla visualizzazione dello stato Connesso per la rete locale TestVNET.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

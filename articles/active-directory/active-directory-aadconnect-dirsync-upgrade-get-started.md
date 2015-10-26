@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Microsoft Azure AD Connect - Eseguire l'aggiornamento dallo strumento Microsoft Azure AD Sync (DirSync)"
+   pageTitle="Microsoft Azure AD Connect - Eseguire l'aggiornamento dallo strumento Microsoft Azure AD Sync (DirSync) | Microsoft Azure"
    description="Informazioni su come eseguire l'aggiornamento da DirSync ad Azure AD Connect. Questo articolo descrive i passaggi necessari per aggiornare lo strumento Microsoft Azure AD Sync (DirSync) ad Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="shoatman"
-   manager="terrylanfear"
+   manager="stevenpo"
    editor="billmath"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/02/2015" 
+   ms.date="09/02/2015"
    ms.author="shoatman"/>
 
 # Aggiornamento dello strumento di sincronizzazione di Microsoft Azure Active Directory (DirSync) ad Azure Active Directory Connect
@@ -143,7 +143,7 @@ Vedere queste opzioni nell'interfaccia utente seguente:
 
 ![Immettere le credenziali di Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
-7. Fare clic su "Avanti." 
+7. Fare clic su "Avanti."
 8. Nella pagina "Pronto per la configurazione" lasciare deselezionata l'opzione "Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale".[AZURE.NOTE]Verrà avviata la sincronizzazione tra Windows Server Active Directory e Azure Active Directory, ma non verranno esportate modifiche in Azure AD. Le modifiche possono essere esportare attivamente da un solo strumento di sincronizzazione alla volta.
 9. Fare clic su "Installa".
 
@@ -205,4 +205,4 @@ Di seguito è riportato un elenco di prerequisiti e componenti di supporto che v
 * [Altre informazioni](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect in MSDN](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

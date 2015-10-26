@@ -1,20 +1,20 @@
 <properties
    pageTitle="Distribuire più istanze di risorse | Microsoft Azure"
-	description="Usare l'operazione di copia e le matrici in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Usare l'operazione di copia e le matrici in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/27/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/27/2015"
+   ms.author="tomfitz"/>
 
 # Creare più istanze di risorse in Gestione risorse di Azure
 
@@ -119,4 +119,4 @@ Naturalmente, si imposta il numero di copia a un valore diverso dalla lunghezza 
 - Per tutte le funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md).
 - Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di gestione risorse di Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

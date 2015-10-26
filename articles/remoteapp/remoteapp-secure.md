@@ -33,7 +33,7 @@ Un altro esempio è se si desidera bloccare l'accesso a internet per una partico
 1.	Se la raccolta di RemoteApp fa parte del dominio è possibile applicare qualsiasi [criterio di gruppo](https://technet.microsoft.com/library/cc725828.aspx) (fatta eccezione per i criteri di timeout di disconnessione e inattivo e descritti[qui](../azure-subscription-service-limits.md)).
 2.	In alternativa a criteri di gruppo (se la raccolta non fa parte del dominio o non si dispone di privilegi appropriati in Active Directory), è possibile configurare [criteri locali](https://technet.microsoft.com/library/cc775702.aspx) nell'immagine modello. Si noti che Criteri di gruppo si sovrascrivono ai criteri locali quando si verifica un conflitto.
 3.	Alcune impostazioni del sistema operativo/app non sono configurabili tramite criteri, ma è possibile tramite la chiave del Registro di sistema utilizzando lo [strumento RegEdit](./remoteapp-hybridtrouble.md) durante la configurazione dell'immagine modello.
-4.	È possibile utilizzare [Windows Firewall](http://windows.microsoft.com/it-it/windows-8/Windows-Firewall-from-start-to-finish) per controllare l'accesso di rete da e verso il computer in cui è in esecuzione l'applicazione. Assicurarsi semplicemente di non bloccare gli URL e le porte definite in questa sezione.
+4.	È possibile utilizzare [Windows Firewall](http://windows.microsoft.com/it-IT/windows-8/Windows-Firewall-from-start-to-finish) per controllare l'accesso di rete da e verso il computer in cui è in esecuzione l'applicazione. Assicurarsi semplicemente di non bloccare gli URL e le porte definite in questa sezione.
 5.	È possibile utilizzare [AppLocker](https://technet.microsoft.com/library/hh831440.aspx) per controllare quali applicazioni e quali file gli utenti possono eseguire. Ad esempio, gli utenti esperti possono scoprire come eseguire applicazioni che non sono state pubblicate, ma che sono disponibili nell'immagine utilizzata per creare la raccolta, AppLocker può bloccare tutto questo.
  
 ## Informazioni dettagliate
@@ -47,4 +47,4 @@ Un altro esempio è se si desidera bloccare l'accesso a internet per una partico
 - [Criteri di office 2013](https://technet.microsoft.com/library/cc178969.aspx) (inclusi [come personalizzare la barra degli strumenti di Office](https://technet.microsoft.com/library/cc179143.aspx)).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

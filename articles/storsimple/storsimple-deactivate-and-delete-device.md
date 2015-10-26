@@ -93,4 +93,4 @@ L'eliminazione del dispositivo può richiedere alcuni minuti.
 
 - Per ulteriori informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

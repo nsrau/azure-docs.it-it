@@ -167,4 +167,4 @@ Per approfondire l'argomento, è possibile considerare l'aggiunta di ulteriori c
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

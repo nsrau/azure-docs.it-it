@@ -50,4 +50,4 @@
 
 Altre informazioni sul portale di Azure: http://azure.microsoft.com.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

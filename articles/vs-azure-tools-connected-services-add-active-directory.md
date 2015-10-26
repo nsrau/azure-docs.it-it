@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="patshea123"
    manager="douge"
-   editor="tlee" /> <tags ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea" />
+   editor="tlee" />
+<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea" />
 
 # Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio 
 
@@ -71,4 +72,4 @@ Porre domande e ottenere assistenza.
 
  - [Post di blog: Introduzione a Windows Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

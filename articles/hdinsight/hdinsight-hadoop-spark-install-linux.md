@@ -208,7 +208,7 @@ In questa sezione verrà creata un'applicazione Scala che conta il numero di rig
 6. Usare il comando seguente per eseguire il programma SimpleApp.scala:
 
 
-		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
+		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
 
 4. Al termine dell'esecuzione del programma, l'output verrà visualizzato sulla console.
 
@@ -234,4 +234,4 @@ In questa sezione verrà creata un'applicazione Scala che conta il numero di rig
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

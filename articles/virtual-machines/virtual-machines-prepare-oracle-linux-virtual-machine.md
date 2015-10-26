@@ -18,7 +18,8 @@ ms.author="bbenz" />
 
 #Preparare una macchina virtuale Oracle Linux per Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo si applica alle macchine virtuali create con il modello di distribuzione di gestione delle risorse o il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 -   [Preparare una macchina virtuale Oracle Linux 6.4+ per Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
@@ -221,4 +222,4 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 
 15.  Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

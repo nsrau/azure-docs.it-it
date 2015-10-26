@@ -246,4 +246,4 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve essere prefissato 
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

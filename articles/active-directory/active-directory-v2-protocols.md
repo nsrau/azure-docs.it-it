@@ -475,4 +475,4 @@ Il flusso On-Behalf-Of o la concessione delle credenziali di connessione JWT è 
 
 Questo flusso non è attualmente supportato dall'anteprima di Modello app 2.0. Per vedere come funziona nel servizio Azure AD disponibile a livello generale, vedere [questo esempio di codice di Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

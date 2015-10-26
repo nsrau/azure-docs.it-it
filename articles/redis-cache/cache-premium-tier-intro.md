@@ -54,4 +54,4 @@ Creare una cache ed esplorare le nuove funzionalità del livello premium.
 -	[Come configurare il servizio cluster per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

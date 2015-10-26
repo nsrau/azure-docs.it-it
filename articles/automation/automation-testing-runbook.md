@@ -55,4 +55,4 @@ La procedura per verificare ogni [tipo di runbook](automation-runbook-types.md) 
 - [Modifica dei runbook testuali di automazione di Azure](automation-edit-textual-runbook.md)
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

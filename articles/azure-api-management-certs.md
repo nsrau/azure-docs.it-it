@@ -52,4 +52,4 @@ Dopo aver ottenuto un certificato di gestione creato, (file con estensione .cer 
 
 Ora che si dispone di un certificato di gestione associato a una sottoscrizione, è possibile (dopo aver installato il certificato corrispondente in locale) a livello di programmazione connettersi alla[API REST di Gestione servizio](https://msdn.microsoft.com/library/azure/mt420159.aspx)e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

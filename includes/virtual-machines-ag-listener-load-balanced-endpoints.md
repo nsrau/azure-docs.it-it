@@ -18,4 +18,4 @@
 
 	Una volta importato il file di impostazioni di pubblicazione, è possibile gestire la sottoscrizione di Azure nella sessione di PowerShell.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

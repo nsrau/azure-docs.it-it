@@ -2,10 +2,11 @@
 	pageTitle="Dati di esempio nelle tabelle Hive di Azure HDInsight| Microsoft Azure"
 	description="Esecuzione del downsampling dei dati nelle tabelle Hive di Azure HDInsight"
 	services="machine-learning,hdinsight"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.author="hangzh;bradsev" />
 
 # Dati di esempio nelle tabelle Hive di Azure HDInsight
 
@@ -99,4 +100,4 @@ Di seguito è fornito un esempio di query:
 Per informazioni su metodi di campionamento più avanzati disponibili in Hive, vedere [Campionamento di LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

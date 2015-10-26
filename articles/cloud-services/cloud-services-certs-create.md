@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Servizi cloud di Azure - Tutto ciò che è necessario sapere sui certificati" 
+	pageTitle="Servizi cloud e certificati di gestione | Microsoft Azure" 
 	description="Informazioni su come creare e usare i certificati con Microsoft Azure" 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015"
+	ms.date="10/09/2015"
 	ms.author="adegeo"/>
 
 # Panoramica sui certificati per i servizi cloud di Azure
@@ -69,6 +69,9 @@ Su Internet sono disponibili molte pagine che spiegano come eseguire questa oper
 ### Java
 È possibile usare Java per [creare un certificato](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
+### Linux
+[Questo](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) articolo descrive come creare certificati tramite SSH.
+
 ## Passaggi successivi
 
 [Caricare il certificato di servizio nel portale di Azure](cloud-services-configure-ssl-certificate.md) (o nel [portale di anteprima](cloud-services-configure-ssl-certificate-portal.md)) e [configurarlo](cloud-services-xml-certs.md) per il servizio cloud.
@@ -77,4 +80,4 @@ Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md)
 
 >[AZURE.NOTE]Il portale di anteprima di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

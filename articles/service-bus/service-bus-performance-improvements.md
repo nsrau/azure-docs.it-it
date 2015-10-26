@@ -291,4 +291,4 @@ Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio
   [Partizionamento delle entità di messaggistica]: service-bus-partitioning.md
   
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

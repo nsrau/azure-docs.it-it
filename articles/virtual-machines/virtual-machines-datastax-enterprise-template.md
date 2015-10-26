@@ -5,9 +5,8 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager"/>
-
+	editor="tysonn"/>
+<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -19,7 +18,8 @@
 
 # DataStax Enterprise su Ubuntu con un modello di Gestione risorse
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
+
 
 DataStax è leader del settore nello sviluppo e nella fornitura di soluzioni basate su Apache Cassandra™ la tecnologia di database NoSQL distribuita, di livello enterprise supportata in commercio ampiamente riconosciuta per le caratteristiche di flessibilità, disponibilità e scalabilità per qualsiasi esigenza. DataStax offre versioni sia Enterprise (DSE) che Community (DSC). Oltre alle funzionalità offerte dalla versione Community, Datastax Enterprise è certificato per la produzione con funzionalità di elaborazione in memoria, protezione a livello aziendale, analisi integrata veloce e potente e gestione aziendale.
 
@@ -49,7 +49,7 @@ Attenersi alla seguente procedura per creare un cluster Apache Cassandra, basato
 
 ### Passaggio 1-a: Scaricare i file di modello tramite PowerShell
 
-Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\\Azure\\Templates\\DataStax).
+Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\Azure\Templates\DataStax).
 
 Sostituire il nome della cartella della cartella locale ed eseguire questi comandi:
 
@@ -461,7 +461,7 @@ I Dischi collegati sono formattati nell’ambito delle attività di preparazione
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh fa parte della cartella shared_scripts\ubuntu all'interno del repository github azure-quickstart-tempates e contiene funzioni molto utili per il montaggio, la formattazione e lo striping dei dischi. che possono essere utilizzate in tutti i modelli del repository.
+vm-disk-utils-0.1.sh fa parte della cartella shared\_scripts\\ubuntu all'interno del repository github azure-quickstart-tempates e contiene funzioni molto utili per il montaggio, la formattazione e lo striping dei dischi. che possono essere utilizzate in tutti i modelli del repository.
 
 Un altro frammento interessante da esplorare è quello correlato alle estensioni delle macchine virtuali CustomScriptForLinux. Queste vengono installate come tipo di risorsa separato, con una dipendenza in ogni nodo del cluster (e l'istanza OpsCenter). Le estensioni si avvalgono dello stesso meccanismo di ciclo delle risorse descritto per le macchine virtuali:
 
@@ -503,4 +503,4 @@ Questo approccio suggerisce che è:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

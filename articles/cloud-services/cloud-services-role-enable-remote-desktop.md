@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure"
-	description="Come configurare l'applicazione del servizio cloud di Azure per consentire le connessioni Desktop remoto"
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure" 
+description="Come configurare l'applicazione del servizio cloud di Azure per consentire le connessioni Desktop remoto" 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="10/14/2015" 
+ms.author="saurabh"/>
 
 # Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
 
@@ -147,4 +147,4 @@ Il file [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 
 
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

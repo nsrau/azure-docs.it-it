@@ -294,4 +294,4 @@ Vedere [Sviluppare script di Azione di script per HDInsight][hdinsight-write-scr
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

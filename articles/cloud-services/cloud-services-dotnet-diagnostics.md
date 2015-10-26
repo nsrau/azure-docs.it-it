@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare la diagnostica (.NET) | Microsoft Azure"
-	description="Informazioni sull'uso dei dati di diagnostica in Azure per debug, valutazione delle prestazioni, monitoraggio, analisi del traffico e altro ancora."
-	services="cloud-services"
-	documentationCenter=".net"
-	authors="rboucher"
-	manager="jwhit"
+	pageTitle="Come usare la diagnostica (.NET) | Microsoft Azure" 
+	description="Informazioni sull'uso dei dati di diagnostica in Azure per debug, valutazione delle prestazioni, monitoraggio, analisi del traffico e altro ancora." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="rboucher" 
+	manager="jwhit" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="robb"/>
 
 
@@ -174,7 +174,7 @@ Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -320,7 +320,7 @@ In questa procedura si presuppone che l'utente abbia una sottoscrizione di Azure
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -373,24 +373,24 @@ Il plug-in restituisce i seguenti codici di errore:
 Codice di uscita|Descrizione
 ---|---
 0|Completamento della procedura.
-\-1|Errore generico.
-\-2|Impossibile caricare il file rcf. <p>Questo è un errore interno che si dovrebbe verificare solo se il programma di avvio del plug-in agente guest viene richiamato manualmente, in modo non corretto, sulla macchina virtuale.
-\-3|Impossibile caricare il file di configurazione di Diagnostica. <p> <p> Soluzione: questo errore è causato da un file di configurazione che non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema.
-\-4|Un'altra istanza della diagnostica dell'agente di monitoraggio sta già usando la directory delle risorse locali. <p> <p> Soluzione: specificare un valore diverso per **LocalResourceDirectory**.
-\-6|L’utilità di avvio del plug-in dell’agente guest ha tentato di avviare la Diagnostica con una riga di comando non valida. <p><p>Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.
-\-10|Il plug-in di Diagnostica ha generato un'eccezione non gestita.
-\-11|L'agente guest non è stato in grado di creare il processo responsabile dell'avvio e del monitoraggio dell'agente di monitoraggio. <p><p> Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.<p>
-\-101|Argomenti non validi durante la chiamata del plug-in di Diagnostica. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.
-\-102|Il processo del plug-in non è in grado di inizializzarsi. <p><p> Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.
-\-103|Il processo del plug-in non è in grado di inizializzarsi. In particolare, non è in grado di creare l'oggetto logger. <p> <p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.
-\-104|Impossibile caricare il file rcf fornito dall'agente guest. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.
-\-105|Il plug-in di Diagnostica non è in grado di aprire il file di configurazione di Diagnostica. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente, in modo non corretto, sulla macchina virtuale.
-\-106|Impossibile caricare il file di configurazione di Diagnostica. <p><p> Soluzione: questo errore è causato da un file di configurazione che non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. Il file XML fornito all'estensione Diagnostica si trova nella cartella *%SystemDrive%\\WindowsAzure\\Config* sulla macchina virtuale. Aprire il file XML appropriato e cercare prima **Microsoft.Azure.Diagnostics**, quindi il campo **xmlCfg**. I dati sono codificati in base64, pertanto sarà necessario [decodificarli](http://www.bing.com/search?q=base64+decoder) per visualizzare il codice XML che è stato caricato da Diagnostica. <p>
-\-107|La directory delle risorse passata all'agente di monitoraggio non è valida. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se l'agente di monitoraggio viene richiamato manualmente, in modo non corretto, sulla macchina virtuale. </p>
-\-108 |Impossibile convertire il file di configurazione di Diagnostica nel file di configurazione dell'agente di monitoraggio. <p><p> Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido.
-\-110|Errore di configurazione generale di Diagnostica. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido.
-\-111|Impossibile avviare l'agente di monitoraggio. <p> <p> Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.
-\-112|Errore generale:
+-1|Errore generico.
+-2|Impossibile caricare il file rcf. <p>Questo è un errore interno che si dovrebbe verificare solo se il programma di avvio del plug-in agente guest viene richiamato manualmente, in modo non corretto, sulla macchina virtuale.
+-3|Impossibile caricare il file di configurazione di Diagnostica. <p> <p> Soluzione: questo errore è causato da un file di configurazione che non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema.
+-4|Un'altra istanza della diagnostica dell'agente di monitoraggio sta già usando la directory delle risorse locali. <p> <p> Soluzione: specificare un valore diverso per **LocalResourceDirectory**.
+-6|L’utilità di avvio del plug-in dell’agente guest ha tentato di avviare la Diagnostica con una riga di comando non valida. <p><p>Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.
+-10|Il plug-in di Diagnostica ha generato un'eccezione non gestita.
+-11|L'agente guest non è stato in grado di creare il processo responsabile dell'avvio e del monitoraggio dell'agente di monitoraggio. <p><p> Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.<p>
+-101|Argomenti non validi durante la chiamata del plug-in di Diagnostica. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.
+-102|Il processo del plug-in non è in grado di inizializzarsi. <p><p> Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.
+-103|Il processo del plug-in non è in grado di inizializzarsi. In particolare, non è in grado di creare l'oggetto logger. <p> <p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.
+-104|Impossibile caricare il file rcf fornito dall'agente guest. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.
+-105|Il plug-in di Diagnostica non è in grado di aprire il file di configurazione di Diagnostica. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente, in modo non corretto, sulla macchina virtuale.
+-106|Impossibile caricare il file di configurazione di Diagnostica. <p><p> Soluzione: questo errore è causato da un file di configurazione che non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. Il file XML fornito all'estensione Diagnostica si trova nella cartella *%SystemDrive%\\WindowsAzure\\Config* sulla macchina virtuale. Aprire il file XML appropriato e cercare prima **Microsoft.Azure.Diagnostics**, quindi il campo **xmlCfg**. I dati sono codificati in base64, pertanto sarà necessario [decodificarli](http://www.bing.com/search?q=base64+decoder) per visualizzare il codice XML che è stato caricato da Diagnostica. <p>
+-107|La directory delle risorse passata all'agente di monitoraggio non è valida. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se l'agente di monitoraggio viene richiamato manualmente, in modo non corretto, sulla macchina virtuale. </p>
+-108 |Impossibile convertire il file di configurazione di Diagnostica nel file di configurazione dell'agente di monitoraggio. <p><p> Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido.
+-110|Errore di configurazione generale di Diagnostica. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido.
+-111|Impossibile avviare l'agente di monitoraggio. <p> <p> Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.
+-112|Errore generale:
 
 
 ### I dati di Diagnostica non vengono registrati nella risorsa di archiviazione
@@ -511,4 +511,4 @@ ETW basato su manifesto|No|Tabella|Eventi ETW generati da un processo qualsiasi.
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

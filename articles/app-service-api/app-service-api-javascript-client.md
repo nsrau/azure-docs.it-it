@@ -371,4 +371,4 @@ In questo esempio è stato descritto come usare AngularJS come piattaforma JavaS
 
 Questo esempio mostra l'accesso non autenticato a un'app per le API. Per informazioni sull'autenticazione nel servizio app, vedere [Autenticazione per app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

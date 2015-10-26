@@ -48,7 +48,7 @@ Risultato desiderato | Operazione da eseguire | Risultato finale
 
 * Domande e problemi:
  * [Risoluzione dei problemi][qna]
- * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/it-it/home?forum=ApplicationInsights)
+ * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/it-IT/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bug:
  * [Connessione](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -74,4 +74,4 @@ Risultato desiderato | Operazione da eseguire | Risultato finale
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

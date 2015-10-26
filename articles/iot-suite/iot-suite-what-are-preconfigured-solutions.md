@@ -1,10 +1,10 @@
 <properties
- pageTitle="Descrizione delle soluzioni preconfigurate di Azure IoT | Microsoft Azure"
+ pageTitle="Soluzioni preconfigurate di Azure IoT | Microsoft Azure"
  description="Descrizione delle soluzioni preconfigurate di Azure IoT e della relativa architettura con collegamenti a risorse aggiuntive."
  services=""
- documentationCenter=".net"
+ documentationCenter=""
  authors="aguilaaj"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="araguila"/>
 
@@ -91,4 +91,4 @@ Esplorare queste risorse per altre informazioni sulle soluzioni preconfigurate I
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Analisi di flusso di Azure]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

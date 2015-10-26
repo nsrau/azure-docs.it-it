@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Separare le risorse di Application Insights per lo sviluppo, il test e la produzione"
-	description="Monitorare le prestazioni e l'utilizzo dell'applicazione nelle diverse fasi di sviluppo"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Separare le risorse di Application Insights per lo sviluppo, il test e la produzione" 
+	description="Monitorare le prestazioni e l'utilizzo dell'applicazione nelle diverse fasi di sviluppo" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
 	ms.author="awills"/>
 
 # Separare le risorse di Application Insights per lo sviluppo, il test e la produzione
@@ -94,8 +94,8 @@ Il valore iKey viene usato anche nelle pagine Web dell'app, nello [script ottenu
 [api]: app-insights-api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

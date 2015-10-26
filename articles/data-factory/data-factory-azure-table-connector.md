@@ -504,4 +504,4 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

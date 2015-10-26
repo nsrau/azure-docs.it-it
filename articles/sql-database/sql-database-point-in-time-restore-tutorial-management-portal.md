@@ -74,4 +74,4 @@ Per altre informazioni, vedere quanto segue:
 
 [Ripristino temporizzato del database SQL di Azure (blog)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/14/2015"
    ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
@@ -27,27 +27,37 @@ Quando si distribuisce un'applicazione con un modello, è possibile fornire valo
 
 ## Distribuire con PowerShell
 
-Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+
 
 1. Accedere al proprio account Azure. Una volta specificate le credenziali, il comando restituisce le informazioni relative all'account.
 
+    Precedente all’anteprima di Azure PowerShell 1.0:
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        ...
         PS C:\> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
         someone@example.com            User       ...   
 
-2. Se si hanno più sottoscrizioni, specificare l'ID sottoscrizione che si desidera usare per la distribuzione.
+    Anteprima di Azure PowerShell 1.0:
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+         PS C:\> Login-AzureRmAccount
 
-3. Passare al modulo Gestione risorse di Azure.
+         Evironment : AzureCloud
+         Account    : someone@example.com
+         ...
 
-        PS C:\> Switch-AzureMode AzureResourceManager
 
-4. Se non è presente un gruppo di risorse, crearne uno nuovo. Specificare il nome del gruppo di risorse e il percorso per la soluzione. Viene restituito un riepilogo del nuovo gruppo di risorse.
+2. Se si dispone di più sottoscrizioni, specificare l'id di sottoscrizione che si desidera utilizzare per la distribuzione con il comando **Select-AzureRmSubscription**.
 
-        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
+
+3. Se non si dispone di una risorsa di gruppo esistente, creare un nuovo gruppo di risorsa con il comando **New AzureRmResourceGroup**. Specificare il nome del gruppo di risorse e il percorso per la soluzione. Viene restituito un riepilogo del nuovo gruppo di risorse.
+
+        PS C:\> New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -59,22 +69,22 @@ Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione 
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. Per creare una nuova distribuzione per il gruppo di risorse, eseguire il comando **New-AzureResourceGroupDeployment** e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario.
+5. Per creare una nuova distribuzione per il gruppo di risorsa, eseguire il comando **New-AzureResourceGroupDeployment** e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario.
    
      Per specificare i valori dei parametri sono disponibili le opzioni seguenti:
    
      - Usare i parametri inline.
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - Usare un oggetto parametro.
 
             PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - Usare un file di parametri. Per informazioni sul file di modello, vedere [File di parametri](./#parameter-file).
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      Quando il gruppo di risorse è stato distribuito, verrà visualizzato un riepilogo della distribuzione.
 
@@ -87,11 +97,8 @@ Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione 
 
 6. Per ottenere informazioni sugli errori di distribuzione.
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
 
-7. Per ottenere informazioni dettagliate sugli errori di distribuzione.
-
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
         
 ### Video
 
@@ -246,4 +253,4 @@ La dimensione del file di parametro non può essere superiore a 64 KB.
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

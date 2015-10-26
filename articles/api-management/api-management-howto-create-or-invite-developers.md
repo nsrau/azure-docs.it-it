@@ -91,4 +91,4 @@ Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed ef
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 [Configurare modelli di posta elettronica]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -189,4 +189,4 @@ Il file di configurazione JSON specifica i dettagli degli elementi da distribuir
 
 È possibile modificare il file di configurazione JSON per cambiare gli elementi del provisioning. Una macchina virtuale e un servizio cloud sono necessari, ma la sezione del database è facoltativa.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

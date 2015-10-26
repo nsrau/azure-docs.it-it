@@ -19,7 +19,8 @@
 
 # Distribuzione del registro Docker privato in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo si applica alle macchine virtuali create con il modello di distribuzione di gestione delle risorse o il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 Questo documento spiega cos'è un registro Docker privato e mostra come distribuire un'immagine del contenitore Docker Registry 2.0 in un registro Docker privato in Microsoft Azure usando l'archiviazione BLOB di Azure.
@@ -95,4 +96,4 @@ Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con 
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

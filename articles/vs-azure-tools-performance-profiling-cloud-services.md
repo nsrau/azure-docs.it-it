@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Test delle prestazioni di un servizio cloud | Microsoft Azure"
-	description="Test delle prestazioni di un servizio cloud con il profiler di Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="n/a"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Test delle prestazioni di un servizio cloud con il profiler di Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="n/a"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 
 # Test delle prestazioni di un servizio cloud 
@@ -146,4 +146,4 @@ Viene creata una sessione di profilatura per ogni istanza di un ruolo nel serviz
 
 [Pubblicazione in un servizio cloud di Azure da Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

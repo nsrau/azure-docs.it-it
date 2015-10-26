@@ -557,4 +557,4 @@ Dopo aver completato il failback è possibile proteggere le macchine virtuali an
 
  
 
-<!-----HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

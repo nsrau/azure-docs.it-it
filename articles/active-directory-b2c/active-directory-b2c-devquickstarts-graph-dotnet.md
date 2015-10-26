@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Anteprima di AD B2C di Azure | Microsoft Azure"
-	description="Come chiamare l'API Graph per una directory B2C utilizzando l'identità di un'applicazione per automatizzare il processo."
+	pageTitle="Anteprima di Azure AD B2C | Microsoft Azure"
+	description="Come chiamare l'API Graph per un tenant B2C utilizzando l'identità di un'applicazione per automatizzare il processo."
 	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
@@ -13,36 +13,35 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="dastrock"/>
-
 
 # Anteprima di Azure AD B2C: Utilizzo di API Graph
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-graph-switcher](../../includes/active-directory-b2c-devquickstarts-graph-switcher.md)]-->
 
-Le directory di Azure AD B2C tendono a essere molto ampie, il che significa che molte attività comuni di gestione delle directory devono essere eseguite a livello di programmazione. Un esempio primario è la gestione utente. Se è necessario eseguire la migrazione di un archivio utente già esistente in una directory B2C o se si desidera ospitare la registrazione utente nella propria pagina, è possibile farlo tramite la creazione di account utente in Azure AD. Questi tipi di attività richiedono la possibilità di creare, leggere, aggiornare ed eliminare gli account utente utilizzando l'API Graph di AD di Azure.
+I tenant di Azure AD B2C tendono ad avere dimensioni molto grandi, il che significa che molte attività comuni di gestione dei tenant devono essere eseguite a livello di programmazione. Un esempio primario è la gestione degli utenti. Se è necessario eseguire la migrazione di un archivio utenti già esistente in un tenant B2C o se si desidera ospitare la registrazione degli utenti nella propria pagina, è possibile farlo tramite la creazione di account utente in Azure AD. Questi tipi di attività richiedono la possibilità di creare, leggere, aggiornare ed eliminare gli account utente utilizzando l'API Graph di AD di Azure.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
-Per le directory B2C esistono essenzialmente due modalità di comunicazione con l'API Graph.
+Per i tenant B2C esistono essenzialmente due modalità di comunicazione con l'API Graph.
 
-- Per le attività interattive da eseguire una sola volta probabilmente si preferirà eseguire le attività di gestione con un account amministratore nella directory B2C. In questa modalità è necessario che l’amministratore acceda con le proprie credenziali prima di eseguire le chiamate all'API Graph.
+- Per le attività interattive da eseguire una sola volta, probabilmente si preferirà eseguire le attività di gestione con un account amministratore nel tenant B2C. In questa modalità è necessario che l’amministratore acceda con le proprie credenziali prima di eseguire le chiamate all'API Graph.
 - Per le attività automatizzate e continue, si preferirà eseguire le attività di gestione utilizzando un tipo di account del servizio a cui assegnare i privilegi necessari. In Azure AD,ciò è possibile tramite la registrazione di un'applicazione e l'autenticazione in Azure AD utilizzando "identità applicazione", mediante la [Concessione di credenziali Client OAuth 2.0](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). In questo caso, l’applicazione chiama l'API Graph che agisce come se stesso, anziché come un determinato utente.  
 
 In questo articolo viene illustrato come eseguire il secondo caso di utilizzo automatizzato tramite la creazione di un "B2CGraphClient" .NET 4.5 che esegue le operazioni CRUD utente. Per provare le varie procedure, il client avrà un'interfaccia della riga di comando di Windows che consente di richiamare diversi metodi. Tuttavia, il codice viene scritto affinché si comporti in modo automatico e non interattivo. Di seguito sono riportati i requisiti iniziali.
 
-## Ottenere una directory B2C abilitata
+## Ottenere un tenant di Azure AD B2C
 
-Prima di creare l'applicazione, gli utenti, o interagire con Azure AD, saranno necessari una directory B2C abilitata e un account amministratore in tale directory. Per ottenerli, attenersi alla guida in [Introduzione a Azure AD B2C](active-directory-b2c-get-started.md).
+Prima di creare l'applicazione, gli utenti o di interagire con Azure AD, saranno necessari un tenant Azure AD B2C e un account amministratore globale in tale tenant. Per ottenerli, attenersi alla guida in [Introduzione a Azure AD B2C](active-directory-b2c-get-started.md).
 
-## Registrare un'applicazione di servizio nella directory
+## Registrare un'applicazione di servizio nel tenant
 
-Dopo aver creato una directory B2C, è necessario creare un'applicazione di servizio utilizzando i cmdlet Powershell di Azure AD. Innanzitutto, scaricare e installare l’[Assistente per l’accesso a Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). Quindi è possibile scaricare e installare il [modulo di Azure Active Directory a 64-bit per Windows Powershell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+Dopo aver creato una directory B2C, è necessario creare l'applicazione di servizio usando i cmdlet di PowerShell per Azure AD. Innanzitutto, scaricare e installare l’[Assistente per l’accesso a Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). Quindi è possibile scaricare e installare il [modulo di Azure Active Directory a 64-bit per Windows Powershell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
-> [AZURE.NOTE]Per utilizzare l'API Graph con il servizio directory B2C, sarà necessario registrare un'applicazione dedicata utilizzando powershell, seguendo queste istruzioni. Non è possibile utilizzare nuovamente le applicazioni B2C già esistenti che sono state registrate nel portale di Azure. Si tratta di una limitazione dell'anteprima AD B2C Azure che verrà rimossa in futuro - in quel punto questo articolo verrà aggiornato.
+> [AZURE.NOTE]Per usare l'API Graph con il tenant B2C, sarà necessario registrare un'applicazione dedicata con PowerShell, seguendo queste istruzioni. Non è possibile utilizzare nuovamente le applicazioni B2C già esistenti che sono state registrate nel portale di Azure. Si tratta di una limitazione dell'anteprima AD B2C Azure che verrà rimossa in futuro - in quel punto questo articolo verrà aggiornato.
 
-Dopo aver installato il modulo di powershell, aprire Powershell e connettersi alla directory B2C. Dopo aver eseguito `Get-Credential`, verrà richiesto un nome utente e una password - immetterli nell'account di amministrazione della directory B2C.
+Dopo aver installato il modulo di PowerShell, aprire PowerShell e connettersi al tenant B2C. Dopo aver eseguito `Get-Credential`, verranno richiesti un nome utente e una password. Immetterli nell'account di amministrazione del tenant B2C.
 
 ```
 > $msolcred = Get-Credential
@@ -81,7 +80,7 @@ Usage                 : Verify
 
 Se la creazione dell'applicazione ha esito positivo, essa stampa alcune proprietà dell'applicazione come quelle precedenti. Sono necessarie `ObjectId` e `AppPrincipalId`, quindi copiare anche questi valori.
 
-Dopo aver creato un'applicazione nella directory B2C, è necessario assegnarle le autorizzazioni necessarie per eseguire le operazioni CRUD utente. È necessario assegnare all'applicazione tre diversi ruoli: Directory Readers (per la lettura degli utenti), Directory Writers (per la creazione e l’aggiornamento degli utenti) e User Account Administrator (per l'eliminazione degli utenti). Questi ruoli dispongono di identificatori noti, pertanto è possibile eseguire i comandi seguenti, sostituendo il parametro `-RoleMemberObjectId` con `ObjectId` di cui sopra. Per visualizzare l'elenco di tutti i ruoli della directory, provare a eseguire `Get-MsolRole`.
+Dopo aver creato un'applicazione nel tenant B2C, è necessario assegnarle le autorizzazioni necessarie per eseguire le operazioni CRUD (Create, Read, Udate, Delete) per gli utenti. È necessario assegnare all'applicazione tre diversi ruoli: Directory Readers (per la lettura degli utenti), Directory Writers (per la creazione e l’aggiornamento degli utenti) e User Account Administrator (per l'eliminazione degli utenti). Questi ruoli dispongono di identificatori noti, pertanto è possibile eseguire i comandi seguenti, sostituendo il parametro `-RoleMemberObjectId` con `ObjectId` di cui sopra. Per visualizzare l'elenco di tutti i ruoli della directory, provare a eseguire `Get-MsolRole`.
 
 ```
 > Add-MsolRoleMember -RoleObjectId 88d8e3e3-8f55-4a1e-953a-9b9898b8876b -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
@@ -89,7 +88,7 @@ Dopo aver creato un'applicazione nella directory B2C, è necessario assegnarle l
 > Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
 ```  
 
-Ora si ha un'applicazione che dispone dell'autorizzazione per creare, leggere, aggiornare ed eliminare gli utenti dalla directory B2C - di seguito è possibile trovare il codice che la utilizza.
+A questo punto è disponibile un'applicazione con le autorizzazioni per creare, leggere, aggiornare ed eliminare gli utenti dal tenant B2C. Di seguito è possibile trovare il codice che la utilizza.
 
 ## Scaricare, configurare e compilare il codice di esempio
 
@@ -140,7 +139,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 	this.clientSecret = clientSecret;
 	this.tenant = tenant;
 
-	// The AuthenticationContext is ADAL's primary class, in which you indicate the directory to use.
+	// The AuthenticationContext is ADAL's primary class, in which you indicate the tenant to use.
 	this.authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
 
 	// The ClientCredential is where you pass in your client_id and client_secret, which are 
@@ -166,7 +165,7 @@ Come si può notare, è possibile ottenere un token di accesso per l'API Graph t
 
 ### Lettura degli utenti
 
-Quando si desidera ottenere un elenco degli utenti da API Graph o ottenere un particolare utente, è possibile inviare una richiesta HTTP GET all’endpoint `/users`. Una richiesta per tutti gli utenti in una directory avrà il seguente aspetto:
+Quando si desidera ottenere un elenco degli utenti da API Graph o ottenere un particolare utente, è possibile inviare una richiesta HTTP GET all’endpoint `/users`. Una richiesta per tutti gli utenti in un tenant avrà il seguente aspetto:
 
 ```
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
@@ -182,7 +181,7 @@ Per vedere la richiesta in azione, provare a eseguire:
 Esistono due aspetti importanti da notare qui:
 
 - Il token di accesso acquisito tramite ADAL è stato aggiunto all’intestazione `Authorization` utilizzando lo schema `Bearer`.
-- Per le directory B2C, è necessario utilizzare il parametro della query `api-version=beta`.
+- Per i tenant B2C, è necessario usare il parametro della query `api-version=beta`.
 
 
 > [AZURE.NOTE]La versione beta dell’API Graph di Azure AD fornisce funzionalità di anteprima. Consultare [questo post del blog del team di API Graph](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx) per ulteriori informazioni sulla versione beta.
@@ -212,7 +211,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 		
 ### Creazione di account utente consumer 
 
-Quando si creano gli account utente nella directory B2C, è possibile inviare una richiesta HTTP POST all’endpoint `/users`:
+Quando si creano gli account utente nel tenant B2C, è possibile inviare una richiesta HTTP POST all'endpoint `/users`:
 
 ```
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
@@ -304,11 +303,11 @@ Esistono molte altre azioni che è possibile eseguire con l'API Graph di Azure A
 
 ## Utilizzo di attributi personalizzati
 
-Quasi tutte le applicazioni consumer devono archiviare un tipo di informazioni del profilo utente personalizzate. Per eseguire questa operazione è possibile definire un attributo personalizzato nella directory B2C, che consenta di gestire tale attributo come qualsiasi altra proprietà su un oggetto utente. È possibile aggiornare l'attributo, eliminarlo, eseguire una query tramite esso, inviarlo come attestazione in un token di accesso e così via.
+Quasi tutte le applicazioni consumer devono archiviare un tipo di informazioni del profilo utente personalizzate. Per eseguire questa operazione è possibile definire un attributo personalizzato nel tenant B2C, che consenta di gestire tale attributo come qualsiasi altra proprietà su un oggetto utente. È possibile aggiornare l'attributo, eliminarlo, eseguire una query tramite esso, inviarlo come attestazione in un token di accesso e così via.
 
-Per definire un attributo personalizzato nella directory B2C, vedere il [riferimento all'attributo personalizzato di anteprima B2C](active-directory-b2c-reference-custom-attr.md).
+Per definire un attributo personalizzato nel tenant B2C, vedere le [informazioni di riferimento sugli attributi personalizzati nell'anteprima di B2C](active-directory-b2c-reference-custom-attr.md).
 
-È possibile visualizzare gli attributi personalizzati definiti nella directory B2C utilizzando B2CGraphClient:
+È possibile visualizzare gli attributi personalizzati definiti nel tenant B2C tramite B2CGraphClient:
 
 ```
 > B2C Get-B2C-Application
@@ -339,13 +338,15 @@ L'output di queste funzioni rivela i dettagli di ogni attributo personalizzato, 
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-L'operazione è terminata. Con B2CGraphClient, ora si dispone di un'applicazione di servizio in grado di gestire gli utenti della directory B2C a livello di programmazione. Esso utilizza la propria identità di applicazione per l'autenticazione nell'API Graph di Azure AD e acquisisce i token utilizzando un segreto client. Quando si incorpora questa funzionalità nell'applicazione, tenere presenti alcuni punti chiave per le applicazioni B2C:
+L'operazione è terminata. Con B2CGraphClient, ora si dispone di un'applicazione di servizio in grado di gestire gli utenti del tenant B2C a livello di programmazione. Esso utilizza la propria identità di applicazione per l'autenticazione nell'API Graph di Azure AD e acquisisce i token utilizzando un segreto client. Quando si incorpora questa funzionalità nell'applicazione, tenere presenti alcuni punti chiave per le applicazioni B2C:
 
-- È necessario concedere all’applicazione le autorizzazioni appropriate nella directory
+- È necessario concedere all'applicazione le autorizzazioni appropriate nel tenant
 - Per ora, è necessario utilizzare ADAL v2 per ottenere i token di accesso (o è possibile inviare messaggi di protocollo direttamente, senza una libreria)
 - Quando si chiama l'API Graph, utilizzare [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
 - Durante la creazione e l’aggiornamento degli utenti consumer, esistono alcune proprietà necessarie, descritte in precedenza.
 
-Per domande o richieste sulle azioni che si desidera eseguire con l'API Graph sulla directory B2C, vi preghiamo di contattarci. Lasciare un commento nell’articolo o archiviare un argomento nel repository GitHub del codice di esempio.
+> [AZURE.IMPORTANT]Sarà necessario tenere conto delle caratteristiche di replica del servizio directory sottostante ad Azure AD B2C (leggere [questo](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) articolo per altre informazioni) quando si usa l'API Graph di Azure AD nell'app B2C. Dopo che un utente effettua l'iscrizione per l'app B2C tramite criteri di **iscrizione**, se si tenta immediatamente di leggere l'oggetto utente tramite l'API Graph di Azure AD nell'app, potrebbe non essere disponibile. Sarà necessario attendere alcuni secondi per il completamento del processo di replica. È prevista in futuro la pubblicazione di linee guida più concrete sulla "garanzia di coerenza di lettura/scrittura" fornita dall'API Graph di Azure AD e il servizio directory, al momento della disponibilità del servizio a livello generale.
 
-<!---HONumber=Oct15_HO1-->
+Per domande o richieste sulle azioni che si desidera eseguire con l'API Graph sul tenant B2C, invitiamo gli utenti a contattarci. Lasciare un commento nell'articolo o aggiungere un post nel repository GitHub del codice di esempio.
+
+<!---HONumber=Oct15_HO3-->

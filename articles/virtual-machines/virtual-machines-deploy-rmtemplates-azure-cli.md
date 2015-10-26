@@ -21,7 +21,7 @@
 
 Questo articolo illustra come usare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per eseguire attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per altri modelli disponili, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [Creare framework di applicazioni utilizzando modelli](virtual-machines-app-frameworks.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo vengono illustrate la distribuzione e la gestione di una macchina virtuale utilizzando i modelli nel modello di distribuzione del gestore di risorse. Non è possibile utilizzare i modelli nel modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica. Non è possibile utilizzare i modelli nel modello di distribuzione classica.
 
 
 - [Creazione rapida di una macchina virtuale in Azure](#quick-create-a-vm-in-azure)
@@ -1306,4 +1306,4 @@ Per altri esempi che mostrano come usare l'interfaccia della riga di comando di 
 
 Per altri modelli disponili, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [Creare framework di applicazioni utilizzando modelli](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

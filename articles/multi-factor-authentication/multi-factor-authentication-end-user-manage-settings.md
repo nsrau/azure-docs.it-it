@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gestione delle impostazioni di Azure MFA"
-	description="Questo documento fornirà agli utenti informazioni su dove andare per gestire le impostazioni di Azure MFA"
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Gestione delle impostazioni di Azure MFA" 
+	description="Questo documento fornirà agli utenti informazioni su dove andare per gestire le impostazioni di Azure MFA" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Modifica delle impostazioni con Azure Multi-Factor Authentication
@@ -39,7 +39,7 @@ Se si utilizza l'autenticazione a più fattori con Office 365 si potranno gestir
 
 1. Accedere al [portale di Office 365](https://login.microsoftonline.com/).
 2. Nell’angolo superiore destro selezionare il widget e scegliere le impostazioni di Office 365.
-3. Fare clic su Verifica aggiuntiva di sicurezza
+3. Fare clic su Verifica aggiuntiva di sicurezza.
 4. A destra, fare clic sul collegamento con il testo **Aggiorna i numeri di telefono utilizzati per la protezione dell'account**. ![Impostazione](./media/multi-factor-authentication-end-user-manage/o365a.png)
 5. Verrà visualizzata la pagina che consentirà di modificare le impostazioni. ![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
 
@@ -71,4 +71,4 @@ Se si usa Multi-Factor Authentication con Azure, è consigliabile modificare le 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

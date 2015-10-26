@@ -2,4 +2,4 @@ Oltre a connettere automaticamente i client per la replica primaria, un listener
 
 Per altre informazioni sull'utilizzo di SQL Server in Azure, vedere[SQL Server in macchine virtuali Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

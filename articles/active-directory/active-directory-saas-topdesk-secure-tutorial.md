@@ -31,13 +31,13 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per TOPd
 
 2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.
+3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
     ![Applicazioni](./media/active-directory-saas-topdesk-secure-tutorial/IC700994.png "Applicazioni")
 
-4.  Fare clic su **Aggiungi** nella parte inferiore della pagina.
+4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiungi applicazione](./media/active-directory-saas-topdesk-secure-tutorial/IC749321.png "Aggiungi applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-topdesk-secure-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -95,9 +95,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura URL app](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configura URL app")
 
-    1.  Nella casella di testo **URL di accesso TOPdesk - Secure** digitare l'URL usato dagli utenti per accedere all'applicazione TOPdesk - Secure (ad esempio,"*https://qssolutions.topdesk.net*")).
-    2.  Nella casella di testo **URL di risposta TOPdesk - Secure** il valore di **TOPdesk - Public AssertionConsumerService URL** (ad esempio, "*https://qssolutions.topdesk.net/tas/public/login/saml*").
-    3.  Fare clic su **Avanti**.
+    1.  Nella casella di testo **URL di accesso TOPdesk - Secure** digitare l'URL usato dagli utenti per accedere all'applicazione TOPdesk - Secure (ad esempio,"**https://qssolutions.topdesk.net*")).
+2.  Nella casella di testo **URL di risposta TOPdesk - Secure** il valore di **TOPdesk - Public AssertionConsumerService URL** (ad esempio, "**https://qssolutions.topdesk.net/tas/public/login/saml*").
+3.  Fare clic su **Avanti**.
 
 10. Nella pagina **Configura accesso Single Sign-On in TOPdesk - Secure** per scaricare il file dei metadati, fare clic su **Download metadati** e quindi salvarlo in locale nel computer.
 
@@ -183,6 +183,6 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Sì")
   
-Se si desidera testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

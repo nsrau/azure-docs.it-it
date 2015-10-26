@@ -78,4 +78,4 @@ Dopo essersi esercitati con i dati di esempio, vedere come [sviluppare][], [cari
 [connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

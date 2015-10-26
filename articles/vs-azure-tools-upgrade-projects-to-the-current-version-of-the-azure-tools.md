@@ -51,4 +51,4 @@ Se un progetto viene aggiornato automaticamente o si specifica di volerlo aggior
 
 1. Creare il progetto, quindi trovare eventuali errori risultanti dalle modifiche API. Per informazioni su come modificare il codice per la nuova versione, vedere la documentazione per l'API specifica.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

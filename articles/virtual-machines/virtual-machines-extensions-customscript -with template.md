@@ -23,7 +23,7 @@ In questo articolo viene fornita una panoramica sulla scrittura di modelli di ge
 
 Per una panoramica sull’estensione di script personalizzato, fare clic [qui](virtual-machines-extensions-customscript.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse. È anche possibile creare una risorsa con il [modello di distribuzione classica](virtual-machines-extensions-customscript.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-extensions-customscript.md).
 
 A partire dall’introduzione, l'estensione di script personalizzato è stata utilizzata ampiamente per configurare i carichi di lavoro su macchine virtuali Linux e Windows. Con l'introduzione dei modelli di Gestione risorse di Azure, gli utenti possono ora creare un singolo modello che non solo esegue il provisioning della macchina virtuale ma ne configura anche i carichi di lavoro.
 
@@ -31,7 +31,7 @@ A partire dall’introduzione, l'estensione di script personalizzato è stata ut
 
 I modelli di Gestione risorse di Azure consentono di specificare in modo dichiarativo l'infrastruttura IaaS di Azure in linguaggio Json definendo le dipendenze tra risorse. Per una panoramica dettagliata dei modelli di Gestione risorse di Azure, consultare gli articoli seguenti:
 
-<a href="https://azure.microsoft.com/IT-IT/documentation/articles/resource-group-overview/" target="_blank">Panoramica del gruppo di risorse</a>. <br/> <a href="https://azure.microsoft.com/IT-IT/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Distribuire modelli con l'interfaccia della riga di comando di Azure</a>. <br/> <a href="https://azure.microsoft.com/IT-IT/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Distribuire modelli con Azure Powershell</a>.
+<a href="https://azure.microsoft.com/it-IT/documentation/articles/resource-group-overview/" target="_blank">Panoramica del gruppo di risorse</a>. <br/> <a href="https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Distribuire modelli con l'interfaccia della riga di comando di Azure</a>. <br/> <a href="https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Distribuire modelli con Azure Powershell</a>.
 
 ### Prerequisiti per l'esecuzione dell'estensione Script personalizzato
 
@@ -100,4 +100,4 @@ Consultare gli esempi seguenti per configurare applicazioni in una macchina virt
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Estensione di script personalizzato in una macchina virtuale Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Estensione di script personalizzato in una macchina virtuale Windows</a>.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

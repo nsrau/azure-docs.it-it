@@ -1,7 +1,9 @@
 <properties 
 	pageTitle="Uso della regressione lineare in Machine Learning | Microsoft Azure" 
 	description="Confronto tra i modelli di regressione lineare in Excel e in Azure Machine Learning Studio" 
-	services="machine-learning"  
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -156,4 +158,4 @@ Alcune risorse vengono elencate per agevolare l'uso della regressione:
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

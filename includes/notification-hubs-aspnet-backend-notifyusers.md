@@ -362,4 +362,4 @@ In questa sezione si aggiungerà un nuovo controller che espone un modo per cons
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -79,4 +79,4 @@ Di seguito sono elencati alcuni motivi per cui è consigliabile usare le funzion
 * [Altre informazioni](active-directory-passwords-learn-more.md)
 * [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

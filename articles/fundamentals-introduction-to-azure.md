@@ -611,4 +611,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

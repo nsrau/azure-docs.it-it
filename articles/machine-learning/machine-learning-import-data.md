@@ -14,19 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/12/2015"
 	ms.author="garye;bradsev" />
 
 
 # Importare dati di training in Azure Machine Learning Studio da varie origini dati
 
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+Questo **menu** si collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante il Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+
+## Introduzione
 
 Per usare i propri dati in Machine Learning Studio per sviluppare ed eseguire il training di una soluzione di analisi predittiva, è possibile:
 
 - Caricare anticipatamente i dati da un **file locale** nel disco rigido per creare un modulo di set di dati nell'area di lavoro.  
 - Accedere ai dati da una delle diverse **origini dati online** mentre l'esperimento viene eseguito tramite il modulo [Reader][reader]. 
 - Usare i dati da un altro esperimento di Azure Machine Learning salvato come un **set di dati**. 
+
+[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Ciascuna di queste opzioni viene descritta in uno degli argomenti del precedente menu. Questi argomenti illustrano come importare dati da diverse origini dati per l'uso in Machine Learning Studio.
 
@@ -89,4 +96,4 @@ Se necessario, è possibile convertire il formato Tabella dati in CSV, TSV, ARFF
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

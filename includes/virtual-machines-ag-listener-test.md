@@ -14,4 +14,4 @@ Un esempio sarebbe connettersi al listener da una delle macchine virtuali nella 
 
 Durante il test del listener, assicurarsi di eseguire il failover del gruppo di disponibilità per assicurarsi che i client possano connettersi al listener attraverso i failover.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

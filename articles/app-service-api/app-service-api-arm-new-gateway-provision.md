@@ -7,7 +7,6 @@
 	manager="wpickett" 
 	editor=""/>
 
-
 <tags 
 	ms.service="app-service-api" 
 	ms.workload="web" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
-
 
 # Eseguire il provisioning di un'app per le API con un nuovo gateway
 
@@ -310,4 +308,4 @@ Si noti che i nomi del gateway e dell'app Web di hosting sono definiti come prop
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

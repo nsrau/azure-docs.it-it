@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare l'archiviazione file da Java | Microsoft Azure"
-	description="Informazioni su come usare il servizio file di Azure per caricare, scaricare, elencare ed eliminare file. Gli esempi sono scritti in Java."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="jimbe"/>
+	pageTitle="Come usare l'archiviazione file da Java | Microsoft Azure" 
+	description="Informazioni su come usare il servizio file di Azure per caricare, scaricare, elencare ed eliminare file. Gli esempi sono scritti in Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe" />
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="v-dedomi"/>
 
 # Come usare l'archiviazione file da Java
@@ -222,4 +222,4 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

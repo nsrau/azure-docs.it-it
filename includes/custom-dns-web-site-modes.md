@@ -2,4 +2,4 @@ L'impostazione di un nome di dominio personalizzato è disponibile solo per le m
 
 Per altre informazioni sulle modalità dei piani di servizio app e su come passare da una modalità all'altra, vedere [Come ridimensionare un'app Web](../article/app-service-web/web-sites-scale.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

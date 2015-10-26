@@ -192,4 +192,4 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 [Abilitazione di Registrazione archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,8 +1,10 @@
 <properties 
 	pageTitle="Come usare AMQP 1.0 con l'API del bus di servizio Java | Microsoft Azure" 
+	metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" 
 	description="Informazioni su come usare JMS (Java Message Service ) con il bus di servizio di Azure e il protocollo AMQP (Advanced Message Queuing Protocol) 1.0." 
 	authors="sethmanheim" 
 	documentationCenter="java" 
+	writer="sethm" 
 	manager="timlt" 
 	editor="" 
 	services="service-bus"/>
@@ -31,7 +33,7 @@ In questa guida si presuppone che si disponga già di uno spazio dei nomi del bu
 
 ### Download della libreria client JMS basata su AMQP 1.0
 
-Per informazioni sul download dell'ultima versione della libreria client JMS basata su AMQP 1.0 di Apache Qpid, visitare il sito Web all'indirizzo [http://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
+Per informazioni sul download dell'ultima versione della libreria client JMS basata su AMQP 1.0 di Apache Qpid, visitare il sito Web all'indirizzo [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
 È necessario aggiungere i seguenti quattro file JAR dall'archivio di distribuzione AMQP 1.0 di Apache Qpid al CLASSPATH Java durante la compilazione e l'esecuzione di applicazioni JMS con il bus di servizio:
 
@@ -333,4 +335,4 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
 * [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

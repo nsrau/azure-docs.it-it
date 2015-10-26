@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Confronto tra Apache Storm e Analisi di flusso di Azure #
@@ -578,7 +578,7 @@ Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si
             </td>
             <td width="204" valign="top">
                 <p>
-                    Sì, configurando i modelli di Azure Machine Learning pubblicati come funzioni durante la creazione di processi ASA.
+                    Configurando i modelli di Azure Machine Learning pubblicati come funzioni durante la creazione di processi ASA <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(anteprima privata)</a>.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -590,4 +590,4 @@ Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

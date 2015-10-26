@@ -98,4 +98,4 @@ Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app W
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -15,4 +15,4 @@ Questa esercitazione è basata su **GetStartedWithData**, che è un'app per Andr
 	È ora possibile usare il progetto.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

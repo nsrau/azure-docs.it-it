@@ -1,21 +1,21 @@
 <properties
    pageTitle="Query Hive con Hadoop Tools per Visual Studio | Microsoft Azure"
-	description="Informazioni su come usare Hive con Hadoop in HDInsight tramite gli strumenti di Visual Studio Hadoop."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="Informazioni su come usare Hive con Hadoop in HDInsight tramite gli strumenti di Visual Studio Hadoop."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="10/09/2015"
+   ms.author="larryfr"/>
 
 #Eseguire query Hive usando gli strumenti di HDInsight per Visual Studio
 
@@ -135,4 +135,4 @@ Per altre informazioni su HDInsight Tools per Visual Studio:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

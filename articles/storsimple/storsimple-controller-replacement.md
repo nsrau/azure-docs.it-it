@@ -266,4 +266,4 @@ Se il LED lampeggia, il controller è attivo e l'altro controller è in modalit�
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->
