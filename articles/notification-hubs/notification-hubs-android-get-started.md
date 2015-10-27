@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app per .Android
@@ -21,9 +21,9 @@
 
 ##Panoramica
 
-Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Android. In questa esercitazione verrà creata un'app per Android vuota che riceve notifiche push tramite il servizio Google Cloud Messaging (GCM). Al termine, sarà possibile utilizzare l’hub di notifica per trasmettere le notifiche push a tutti i dispositivi che eseguono l'app.
+Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Android. In questa esercitazione verrà creata un'app per Android vuota che riceve notifiche push tramite il servizio Google Cloud Messaging (GCM). Al termine, sarà possibile usare l’hub di notifica per trasmettere le notifiche push a tutti i dispositivi che eseguono l'app.
 
-In questa esercitazione viene illustrato uno scenario di trasmissione semplice tramite hub di notifica. Seguire anche l'esercitazione successiva per imparare a usare gli hub di notifica destinati a gruppi di dispositivi e a utenti specifici.
+Questa esercitazione illustra uno scenario di trasmissione semplice tramite hub di notifica. Seguire anche l'esercitazione successiva per imparare a usare gli hub di notifica destinati a gruppi di dispositivi e a utenti specifici.
 
 
 ## Prima di iniziare
@@ -51,7 +51,17 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ##Configurare un nuovo hub di notifica
 
-[AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
+
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
+
+
+<ol start="7">
+<li><p>Fare clic sulla scheda <b>Configure</b> nella parte superiore, immettere il valore <b>API Key</b> ottenuto nella sezione precedente, quindi fare clic su <b>Save</b>.</p>
+</li>
+</ol>
+&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
+
+L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle stringhe di connessione per registrare l'app in modo da ricevere e inviare le notifiche push.
 
 ##<a id="connecting-app"></a>Connettere l'app all'hub di notifica
 
@@ -110,7 +120,10 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 	    private static Boolean isVisible = false;
 
 
-	Assicurarsi di aggiornare i tre segnaposto: * **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure]. * **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub, **non** l'URL completo. Ad esempio, usare `"myhub"`.
+	Assicurarsi di aggiornare i tre segnaposto:
+	* **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console).
+	* **HubListenConnectionString**: impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure].
+	* **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub, **non** l'URL completo. Ad esempio, usare `"myhub"`.
 
 
 
@@ -143,7 +156,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
     	}
 
 
-7. Aggiungere il metodo **DialogNotify** all'attività per visualizzare la notifica quando l'applicazione è in esecuzione e visibile. Sostituire anche **onStart** e **onStop** per determinare se l'attività è visibile per visualizzare la finestra di dialogo.
+7. Aggiungere il metodo **DialogNotify** all'attività per visualizzare la notifica quando l'applicazione è in esecuzione e visibile. Eseguire anche l'override di **onStart** e **onStop** per determinare se l'attività è visibile per visualizzare la finestra di dialogo.
 
 	    @Override
 	    protected void onStart() {
@@ -205,7 +218,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
         </receiver>
 
 
-9. Nella visualizzazione del progetto espandere **app** -> **src** -> **main** -> **java**. Fare clic con il pulsante destro del mouse sulla cartella del pacchetto in **java**, fare clic su **New** e quindi su **Java Class**.
+9. Nella visualizzazione del progetto espandere **app** > **src** > **main** > **java**. Fare clic con il pulsante destro del mouse sulla cartella del pacchetto in **java**, fare clic su **New** e quindi su **Java Class**.
 
 	![][6]
 
@@ -267,7 +280,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-14. Sulla barra dei menu in Android Studio fare clic su **Build** -> **Rebuild Project** per assicurarsi che non vengano rilevati errori.
+14. Sulla barra dei menu in Android Studio fare clic su **Build** > **Rebuild Project** per assicurarsi che non vengano rilevati errori.
 
 ##Inviare notifiche
 
@@ -283,7 +296,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 ## (Facoltativo) Inviare notifiche dall'app
 
 
-1. Nella visualizzazione del progetto in Android Studio espandere **App** -> **src** -> **main** -> **res** -> **layout**. Aprire il file di layout **activity\_main.xml** e fare clic sulla scheda **Text** per aggiornare il contenuto di testo del file. Aggiornarlo con il codice seguente che aggiunge i nuovi controlli `Button` e `EditText` per l'invio di messaggi di notifica all'hub di notifica. Aggiungere questo codice alla fine, subito prima di `</RelativeLayout>`.
+1. Nella visualizzazione del progetto in Android Studio espandere **App** > **src** > **main** > **res** > **layout**. Aprire il file di layout **activity\_main.xml** e fare clic sulla scheda **Text** per aggiornare il contenuto di testo del file. Aggiornarlo con il codice seguente che aggiunge i nuovi controlli `Button` e `EditText` per l'invio di messaggi di notifica all'hub di notifica. Aggiungere questo codice alla fine, subito prima di `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -335,7 +348,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 	    private String HubSasKeyValue = null;
 		private String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-4. L'attività include il nome dell'hub e l'intera stringa di connessione di accesso condiviso per l'hub. È necessario creare un token SaS (Software Access Signature) per autenticare una richiesta POST per l'invio di messaggi all'hub di notifica. Per eseguire questa operazione, analizzare i dati della chiave dalla stringa di connessione e quindi creare il token SaS come indicato nelle informazioni di riferimento sull'API REST in [Concetti comuni](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+4. L'attività include il nome dell'hub e l'intera stringa di connessione di accesso condiviso per l'hub. È necessario creare un token SaS (Software Access Signature) per autenticare una richiesta POST per l'invio di messaggi all'hub di notifica. Per eseguire questa operazione, analizzare i dati della chiave dalla stringa di connessione e quindi creare il token di firma di accesso condiviso come indicato in [Concetti comuni](http://msdn.microsoft.com/library/azure/dn495627.aspx) nelle informazioni di riferimento sull'API REST.
 
 	In **MainActivity.java** aggiungere il metodo seguente alla classe `MainActivity` per analizzare la stringa di connessione.
 
@@ -497,17 +510,12 @@ In questo semplice esempio le notifiche di trasmissione sono state inviate a tut
 
 Se si desidera segmentare gli utenti per gruppi di interesse, vedere [Utilizzo di Hub di notifica per inviare le ultime notizie].
 
-Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub di notifica].
+Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di notifica].
 
 
 
 
 <!-- Images. -->
-[1]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
-[2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
-[3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
-[4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
-[5]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
 
 [12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
@@ -541,4 +549,4 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

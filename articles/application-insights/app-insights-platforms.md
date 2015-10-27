@@ -19,8 +19,9 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
+Si tratta di implementazioni già illustrate, incluse alcune di terze parti.
 
-## Linguaggi
+## Lingue
 
 + [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
 + [C#|VB (Windows Store)](app-insights-windows-get-started.md)
@@ -37,21 +38,24 @@
 
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
-+ [ASP.NET - già live](app-insights-monitor-performance-live-website-now.md)
++ [ASP.NET - per app già attive](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [App Web e macchine virtuali di Azure](../insights-perf-analytics.md)
 + [Servizi cloud di Azure](app-insights-cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
++ [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 + [CRM Online da Microsoft Dynamics](app-insights-sample-mscrm.md)
++ [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
-+ [J2EE - già live](app-insights-java-live.md)
++ [J2EE - per app già attive](app-insights-java-live.md)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Orchard](https://orchardazureappinsights.codeplex.com) 
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
++ [SLAB](https://github.com/fidmor89/SLAB_AppInsights) - registrazione semantica
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
 + [Ruoli di lavoro, servizi e applicazioni desktop di Windows](app-insights-windows-desktop.md)
@@ -79,4 +83,4 @@ Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibi
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

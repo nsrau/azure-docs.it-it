@@ -56,7 +56,7 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 
 - **Criteri di successo**:
 
-    **Timeout test**: diminuire questo valore per ricevere avvisi in merito alle risposte lente. Il test viene conteggiato come non riuscito se le risposte dal sito non sono state ricevute entro questo periodo. Se è stata selezionata l'opzione **Analizza richieste dipendenti**, tutti gli script, i file di stile, le immagini e altre risorse dipendenti devono essere stati ricevuti entro questo periodo.
+    **Test timeout**: diminuire questo valore per ricevere avvisi in merito alle risposte lente. Il test viene conteggiato come non riuscito se le risposte dal sito non sono state ricevute entro questo periodo. Se è stata selezionata l'opzione **Analizza richieste dipendenti**, tutti gli script, i file di stile, le immagini e altre risorse dipendenti devono essere stati ricevuti entro questo periodo.
 
     **Risposta HTTP**: codice di stato restituito che indica un'operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web.
 
@@ -170,6 +170,8 @@ Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
 
     ![Selezionare Test Web in più passaggi.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
+    Impostare le posizioni di test, la frequenza e i parametri di avviso allo stesso modo dei test ping.
+
 Visualizzare i risultati del test e gli eventuali errori nello stesso modo dei test con singolo URL.
 
 Un motivo frequente di errore è l'eccessiva durata del test. L'esecuzione non deve superare i due minuti.
@@ -244,4 +246,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -19,7 +19,7 @@
 
 # Distribuire SQL Server AlwaysOn con un modello di Gestione risorse di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica. Non è possibile creare questa risorsa con il modello di distribuzione classica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica. Non è possibile creare questa risorsa con il modello di distribuzione classico.
 
 Usare le istruzioni riportate in questo articolo per distribuire SQL Server AlwaysOn usando un modello di Gestione risorse di Azure. Questo modello consente di creare cinque macchine virtuali in una nuova rete virtuale in due diverse subnet.
 
@@ -33,8 +33,8 @@ Per distribuire il carico di lavoro mediante un modello di Gestione risorse di A
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
-1.	Per il riquadro **Modello**, fare clic su **Salva**.
-2.	Fare clic su **Parametri**. Nel riquadro **Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
+1.	Per il riquadro**Modello**, fare clic su **Salva**.
+2.	Fare clic su **Parametri**. Nel riquadro**Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
 3.	Se necessario, fare clic su **Sottoscrizione** e selezionare la sottoscrizione di Azure corretta.
 4.	Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente. In alternativa, fare clic su **O crea nuovi** per creare una nuova istanza per questo carico di lavoro.
 5.	Se necessario, fare clic su **Percorso del gruppo di risorse** e selezionare il percorso corretto di Azure.
@@ -45,7 +45,7 @@ A seconda del modello, la compilazione del carico di lavoro richiede tempi diver
 
 ## Azure PowerShell
 
-Prima di iniziare, accertarsi di avere la versione corretta di Azure PowerShell installata, di avere effettuato l'accesso e di avere impostato la nuova modalità di gestione delle risorse. Per informazioni dettagliate, fare clic [qui](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Inserire un nome per la distribuzione di Azure, un nuovo nome gruppo di risorse e la posizione del data center di Azure, nel seguente set di comandi. Rimuovere tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >.
 
@@ -67,7 +67,7 @@ Di seguito è fornito un esempio.
 
 Successivamente, eseguire il blocco di comandi nel prompt di Azure PowerShell.
 
-Quando si esegue il comando **New-AzureRmResourceGroupDeployment**, verrà richiesto di fornire i valori per una serie di parametri. Dopo avere specificato tutti i valori dei parametri, **New-AzureRmResourceGroupDeployment** crea e configura le macchine virtuali.
+Quando si esegue il comando **New-AzureRmResourceGroupDeployment**, verrà richiesto di fornire i valori per una serie di parametri. Dopo aver specificato i valori dei parametri, **New-AzureRmResourceGroupDeployment** crea e configura le macchine virtuali.
 
 Una volta completata l'esecuzione del modello, si dispone di una nuova configurazione SQL Server AlwaysOn a cinque server nel gruppo di risorse nuove.
 
@@ -88,7 +88,7 @@ Di seguito è fornito un esempio.
 	azure group create sqlao eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sql-server-2014-alwayson-dsc/azuredeploy.json sqlao sqldevtest
 
-Quando si esegue il comando **Crea gruppo di distribuzione Azure**, verrà richiesto di fornire i valori per una serie di parametri. Dopo aver specificato i valori dei parametri, Azure crea e configura le macchine virtuali.
+Quando si esegue il comando per la **creazione di un gruppo di distribuzione di Azure**, verrà richiesto di fornire i valori per una serie di parametri. Dopo aver specificato i valori dei parametri, Azure crea e configura le macchine virtuali.
 
 Una volta completata l'esecuzione del modello, si dispone di una nuova configurazione SQL Server AlwaysOn a cinque server nel gruppo di risorse nuove.
 
@@ -103,8 +103,8 @@ Una volta completata l'esecuzione del modello, si dispone di una nuova configura
 
 [Distribuire e gestire le macchine virtuali mediante modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-[Documentazione delle macchine virtuali](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

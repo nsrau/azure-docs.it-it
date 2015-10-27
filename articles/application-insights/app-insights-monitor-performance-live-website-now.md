@@ -174,6 +174,7 @@ Questo elenco può variare nel tempo.
   * Se sul server viene visualizzato un messaggio relativo alle autorizzazioni insufficienti, provare a seguire questa procedura:
     * In Gestione IIS selezionare il pool di applicazioni, aprire **Impostazioni avanzate** e prendere nota dell'identità in **Modello di processo**.
     * Nel pannello di controllo Gestione computer, aggiungere questa identità al gruppo Utenti di Performance Monitor.
+  * Se nel server è installato MMA/SCOM, è possibile che alcune versioni entrino in conflitto. Disinstallare SCOM e Status Monitor e reinstallare le versioni più recenti.
   * Vedere [Risoluzione dei problemi][qna].
 
 ## Requisiti di sistema
@@ -193,7 +194,7 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
 ## <a name="next"></a>Passaggi successivi
 
-* [Creare test Web][availability] per assicurarsi che il sito rimanga attivo.
+* <1>Creare test Web</1> per assicurarsi che il sito rimanga attivo.
 * [Cercare eventi e log][diagnostic] per facilitare la diagnosi dei problemi.
 * [Aggiungere dati di telemetria del client Web][usage] per visualizzare le eccezioni dal codice della pagina Web e consentire di inserire le chiamate di traccia.
 * [Aggiungere Application Insights SDK al codice del servizio Web][greenbrown] per poter inserire chiamate di traccia e log nel codice del server.
@@ -215,4 +216,4 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

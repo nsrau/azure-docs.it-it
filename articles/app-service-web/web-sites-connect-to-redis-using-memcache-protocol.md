@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Connettere un'app Web in Azure App Service a Cache Redis mediante il protocollo Memcache | Microsoft Azure"
 	description="Connettere un'app Web nel servizio app di Azure a Cache Redis mediante il protocollo Memcache"
-	services="app-service"
+	services="app-service\web"
 	documentationCenter="php"
 	authors="SyntaxC4"
 	manager="wpickett"
 	editor="riande"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-web"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
@@ -198,4 +198,4 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
