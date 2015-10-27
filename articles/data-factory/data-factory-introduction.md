@@ -29,6 +29,8 @@ Data factory usa origini dati nel cloud e locali, oltre ai servizi SaaS, per ins
 
 È possibile usare Data factory ogni volta che è necessario raccogliere dati con forme e dimensioni diverse, trasformarli e pubblicarli per estrarre informazioni dettagliate, il tutto con tempi affidabili. Data Factory viene utilizzata per creare pipeline di flusso di dati a disponibilità elevata per molti scenari in diversi settori per le esigenze di analisi pipeline. I rivenditori in linea la utilizzano per generare [consigli sui prodotti](data-factory-product-reco-usecase.md) personalizzati in base al comportamento di esplorazione del cliente. I game studios la utilizzano per comprendere l’[efficacia delle loro campagne di commercializzazione](data-factory-customer-profiling-usecase.md). Ottenere informazioni direttamente dai nostri clienti sulle modalità e sui motivi di utilizzo di Data Factory esaminando[Casi di studio sui clienti](data-factory-customer-case-studies.md).
 
+> [AZURE.VIDEO azure-data-factory-overview]
+
 ## Concetti principali
 
 Le entità principali di Data factory di Azure interagiscono tra loro per definire i dati di input e di output, gli eventi di elaborazione e la pianificazione e le risorse necessarie per eseguire il flusso di dati desiderato.
@@ -39,13 +41,13 @@ Le entità principali di Data factory di Azure interagiscono tra loro per defini
 
 
 ### Attività
-Le attività definiscono le azioni da eseguire sui dati. Ogni attività accetta zero o più [set di dati](data-factory-create-datasets.md) come input e genera uno o più set di dati come output. Un'attività è un'unità di orchestrazione in Data factory di Azure. Ad esempio, è possibile usare un'[Attività copia](data-factory-data-movement-activities.md) per gestire la copia dei dati da un set di dati a un altro. Allo stesso modo, è possibile usare un'[Attività hive](data-factory-data-transformation-activities.md) che esegue una query Hive su un cluster di Azure HDInsight per trasformare o analizzare i dati. Data factory di Azure offre un'ampia gamma di attività di trasformazione, analisi e spostamento dei dati.
+Le attività definiscono le azioni da eseguire sui dati. Ogni attività accetta zero o più [set di dati](data-factory-create-datasets.md) come input e genera uno o più set di dati come output. Un'attività è un'unità di orchestrazione in Data factory di Azure. Ad esempio, è possibile usare un'[attività di copia](data-factory-data-movement-activities.md) per orchestrare la copia dei dati da un set di dati a un altro. Allo stesso modo, è possibile usare un'[attività Hive](data-factory-data-transformation-activities.md) che esegue una query Hive su un cluster Azure HDInsight per trasformare o analizzare i dati. Data factory di Azure offre un'ampia gamma di attività di trasformazione, analisi e spostamento dei dati.
 
 ### Pipeline
 Le [pipeline](data-factory-create-pipelines.md) sono un raggruppamento logico di attività. Vengono usate per raggruppare in un'unità attività che insieme eseguono un'operazione. Ad esempio, per pulire i dati dei file di log potrebbe essere necessaria una sequenza di più attività di trasformazione. Questa sequenza potrebbe prevedere una pianificazione complessa e dipendenze che devono essere orchestrate e automatizzate. In questo caso, è possibile raggruppare tutte queste attività in una singola pipeline denominata "PuliziaFileLog" e distribuirla, pianificarla o eliminarla come una singola unità invece di gestire in modo indipendente ogni attività specifica.
 
 ### Set di dati
-I [Set di dati](data-factory-create-datasets.md) sono riferimenti denominati o puntatori ai dati da usare come input o output di un'attività. I set di dati identificano le strutture di dati all'interno di archivi dati diversi, tra cui tabelle, file, cartelle e documenti.
+I [set di dati](data-factory-create-datasets.md) sono riferimenti denominati o puntatori ai dati da usare come input o output di un'attività. I set di dati identificano le strutture di dati all'interno di archivi dati diversi, tra cui tabelle, file, cartelle e documenti.
 
 ### Servizio collegato
 I servizi collegati definiscono le informazioni necessarie affinché il servizio Data factory si connetta a risorse esterne. In Data factory i servizi collegati vengono usati per i due scopi seguenti:
@@ -53,9 +55,6 @@ I servizi collegati definiscono le informazioni necessarie affinché il servizio
 - Per rappresentare un archivio dati, inclusi, a titolo esemplificativo, un'istanza di SQL Server locale, un database Oracle, una condivisione file o un account di archiviazione BLOB di Azure. Come indicato in precedenza, i set di dati rappresentano le strutture all'interno degli archivi dati connessi a Data factory tramite un servizio collegato.
 - Per rappresentare una risorsa di calcolo che può ospitare l'esecuzione di un'attività. Ad esempio, l'attività "HDInsightHive" viene eseguita in un cluster HDInsight Hadoop.
 
-Dopo aver acquisito familiarità con i quattro semplici concetti relativi a set di dati, attività, pipeline e servizi collegati, si è pronti per iniziare. È possibile [creare la prima pipeline](data-factory-build-your-first-pipeline.md) da zero o distribuire un esempio pronto all'uso seguendo le istruzioni riportate nel [post di blog](data-factory-samples.md).
+Dopo aver acquisito familiarità con i quattro semplici concetti relativi a set di dati, attività, pipeline e servizi collegati, si è pronti per iniziare. È possibile [compilare la prima pipeline](data-factory-build-your-first-pipeline.md) da zero o distribuire un esempio pronto all'uso seguendo le istruzioni riportate nell'articolo [Data factory di Azure - Esempi](data-factory-samples.md).
 
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-introduction.md) richiede solo alcuni minuti.
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

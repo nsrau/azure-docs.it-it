@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Come creare un'app Web in un ambiente del servizio app"
 	description="Esame del flusso di creazione per app Web e piani di servizio app per un ambiente del servizio app"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -100,4 +100,4 @@ Dopo aver creato l'app Web e il piano di servizio app, è consigliabile aumentar
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

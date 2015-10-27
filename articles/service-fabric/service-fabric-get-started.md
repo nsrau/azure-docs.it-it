@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configurare l'ambiente di sviluppo di Service Fabric | Microsoft Azure"
-   description="Installare il runtime, l'SDK e gli strumenti di Service Fabric e creare un cluster di sviluppo locale."
+   pageTitle="Configurare l'ambiente di sviluppo | Microsoft Azure"
+   description="Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="samgeo"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# Configurare l'ambiente di sviluppo di Service Fabric
- Questo articolo offre tutte le informazioni necessarie per iniziare a creare app di [Service Fabric][1], inclusa l'installazione del runtime, dell'SDK e degli strumenti e la configurazione di un cluster locale.
+# Preparare l'ambiente di sviluppo
+ Per compilare ed eseguire [applicazioni dell'infrastruttura di servizi][1] nel computer di sviluppo, è necessario installare il runtime, l'SDK e gli strumenti e configurare un cluster locale.
 
- >[AZURE.NOTE]Queste istruzioni devono essere usate per l'impostazione di nuovi PC. Se è installata una versione precedente di Service Fabric sul proprio PC, seguire le [istruzioni per aggiornare l'ambiente di sviluppo](service-fabric-update-your-development-environment.md).
+ >[AZURE.NOTE]Queste istruzioni devono essere usate per l'impostazione di nuovi computer. Se è installata una versione precedente dell'infrastruttura di servizi, seguire le [istruzioni per aggiornare l'ambiente di sviluppo](service-fabric-update-your-development-environment.md).
 
 ## Prerequisiti
 ### Versioni del sistema operativo supportate
@@ -33,7 +33,7 @@ Sono supportati i sistemi operativi seguenti:
 
 Gli strumenti per Service Fabric dipendono da Visual Studio 2015, disponibile [qui][2].
 
-> [AZURE.NOTE]Se non si esegue uno dei sistemi operativi supportati o si preferisce non installare Visual Studio 2015 nel proprio PC, è possibile configurare una macchina virtuale di Azure con Windows Server 2012 R2 e Visual Studio 2015 preinstallati usando un'immagine della raccolta di macchine virtuali.
+> [AZURE.NOTE]Se non si esegue uno dei sistemi operativi supportati o si preferisce non installare Visual Studio 2015 nel proprio PC, è possibile configurare una macchina virtuale di Azure con Windows Server 2012 R2 e Visual Studio 2015 preinstallati usando un'immagine della raccolta di macchine virtuali di Azure.
 
 ## Installare il runtime, l'SDK e gli strumenti
 
@@ -106,4 +106,4 @@ Ora che l'ambiente di sviluppo è pronto, è possibile iniziare a compilare ed e
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

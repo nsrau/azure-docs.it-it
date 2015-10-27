@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Creare un processo Web .NET nel servizio app di Azure | Microsoft Azure"
 	description="Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. Il front-end viene eseguito in un'app Web nel servizio app di Azure e il back-end viene eseguito come processo Web. L'app usa Entity Framework, il database SQL e i BLOB e le code di archiviazione di Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -227,7 +227,7 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 12. Immettere un nome per il server di database, ad esempio contosoadsserver e un numero o il proprio nome per rendere univoco il nome del server.
 
-	Il nome del server deve essere univoco. Può contenere lettere minuscole, caratteri numerici e trattini. Non può contenere un trattino finale.
+	Il nome del server deve essere univoco. Può contenere lettere minuscole, numeri e trattini, Non può contenere un trattino finale.
 
 	In alternativa, se la sottoscrizione è già associata a un server, sarà possibile selezionare quel server dall'elenco a discesa.
 
@@ -799,4 +799,4 @@ Per altre informazioni, vedere [Accesso a un dashboard per lo sviluppo locale co
 
 Per altre informazioni, vedere [Risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/07/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm"/>
 
 #Creare SQL Data Warehouse con TSQL 
@@ -69,11 +69,11 @@ Per informazioni sull'impatto di questi parametri sulla fatturazione, vedere la 
 ## Passaggi successivi
 Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati di esempio][] o vedere come eseguire le attività di [sviluppo][], [caricamento][] o [migrazione][].
 
-[connessione e query]: ./sql-data-warehouse-get-started-connect-query.md
-[migrazione]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-migrate/
-[sviluppo]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-develop/
-[caricamento]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-load/
-[caricare dati di esempio]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[pagina dei prezzi]: https://azure.microsoft.com/it-IT/pricing/details/sql-data-warehouse/
+[connessione e query]: ./sql-data-warehouse-get-started-connect.md
+[migrazione]: ./sql-data-warehouse-overview-migrate.md
+[sviluppo]: ./sql-data-warehouse-overview-develop.md
+[caricamento]: ./sql-data-warehouse-overview-load.md
+[caricare dati di esempio]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[pagina dei prezzi]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
