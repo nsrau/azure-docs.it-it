@@ -30,10 +30,10 @@ Si otterrà l'accesso al servizio di Azure in tutte le aree di un'area geopoliti
 |**Area geopolitica**|**Aree di Azure**|**Località per ExpressRoute**|
 |---|---|---|
 |**Stati Uniti**|Tutte le aree degli Stati Uniti: Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali|Atlanta, Chicago, Dallas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC|
-|**Sud America**|Brasile meridionale|Sao Paulo|
-|**Europa**|Europa settentrionale, Europa occidentale|Amsterdam, Londra|
+|**America del Sud**|Brasile meridionale|Sao Paulo|
+|**Europa**|Europa settentrionale, Europa occidentale|Amsterdam, Dublino+, Londra|
 |**Asia**|Asia orientale, Asia sudorientale|Hong Kong, Singapore|
-|**Giappone**|Giappone occidentale, Giappone orientale|Tokyo|
+|**Giappone**|Giappone occidentale, Giappone orientale|Osaka, Tokyo|
 |**Australia**|Australia sudorientale, Australia orientale|Melbourne, Sydney|
 |**India**|India occidentale, India centrale, India Meridionale|Chennai, Mumbai|
 
@@ -55,13 +55,14 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 
 | **Provider di servizi** |**Microsoft Azure** | **Office 365** | **Località** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Aryaka Networks](http://www.aryaka.com/)** | Supportato | Non supportato | Silicon Valley, Singapore, Washington DC |
-| **[AT & T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Imminente | Amsterdam+, Londra+, Dallas, Silicon Valley, Washington DC |
-| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supportato | Supportato | Amsterdam, Londra, Silicon Valley+, Washington DC |
+| **[Aryaka Networks](http://www.aryaka.com/)** | Supportato | Non supportato | Amsterdam, Silicon Valley, Singapore, Washington DC |
+| **[AT & T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Supportato | Amsterdam, Londra+, Dallas, Silicon Valley, Washington DC |
+| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supportato | Supportato | Amsterdam, Londra, Silicon Valley, Singapore, Tokyo, Washington DC |
 |**China Telecom Global** | Imminente | Non supportato | Hong Kong+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Non supportato | Amsterdam, Londra |
 | **Comcast** | Supportato | Non supportato | Silicon Valley, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, San Paolo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
+| **CoreSite** | Supportato | Non supportato | Los Angeles | 
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, Osaka, San Paolo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Supportato | Non supportato | Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Supportato | Non supportato | Amsterdam, Londra, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supportato | Non supportato | Amsterdam, Londra |
@@ -71,14 +72,15 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **MTN** | Supportato | Non supportato | Londra |
 | **NTT Communications** | Supportato | Non supportato | Londra+, Tokyo |
 | **NEXTDC** | Supportato | Non supportato | Melbourne, Sydney+ |
-| **[Orange](http://www.orange-business.com/)** | Supportato | Non supportato | Amsterdam, Londra, Silicon Valley, Washington DC |
+| **[Orange](http://www.orange-business.com/)** | Supportato | Non supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Washington DC |
 | **PCCW Global Limited** | Supportato | Non supportato | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Supportato | Non supportato | Singapore |
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supportato | Supportato | Amsterdam, Chennai+, Hong Kong, Londra, Mumbai+, Singapore |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supportato | Supportato | Amsterdam, Chennai+, Hong Kong, Londra, Mumbai, Singapore |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supportato | Supportato | Amsterdam, Londra |
-| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supportato | Non supportato | Melbourne+, Sydney |
-| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supportato | Supportato | Londra, Hong Kong, Silicon Valley, Washington DC |
-| **[Zayo Group](http://www.zayo.com/)** | Supportato | Non supportato | Washington DC |
+| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supportato | Non supportato | Melbourne, Sydney |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supportato | Supportato | Hong Kong, Londra, Silicon Valley, Sydney, Washington DC |
+| **Vodafone** | Supportato | Non supportato | Londra | 
+| **[Zayo Group](http://www.zayo.com/)** | Supportato | Non supportato | Chicago, Silicon Valley, Washington DC |
 
  **+** indica disponibile a breve
 
@@ -107,7 +109,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 - Richiedere al provider di connettività di estendere la rete alla località di peering scelta.
 	- Assicurarsi che il provider di connettività estenda la connettività con disponibilità elevata, in modo che non siano presenti singoli punti di errore.
 - Ordinare a un circuito ExpressRoute con scambio come provider di connettività di connettersi a Microsoft.
-	- Seguire i passaggi [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) per configurare la connettività.
+	- Per configurare la connettività, eseguire la procedura illustrata in [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
 
 |**Provider di connettività**|**Exchange**|**Località di peering**|
 |---|---|---|
@@ -127,4 +129,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/11/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app di Windows Store
@@ -22,7 +22,7 @@
 
 ##Panoramica
 
-Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione di Windows Store o per Windows Phone 8.1 (non Silverlight). Se si sviluppano app per Windows Phone 8.1 Silverlight, fare riferimento alla versione [Windows Phone](notification-hubs-windows-phone-get-started.md). In questa esercitazione si creerà un'app di Windows Store vuota che riceve notifiche push tramite Servizi notifica Push Windows (WNS). Al termine, sarà possibile usare l'hub di notifica per trasmettere le notifiche push a tutti i dispositivi che eseguono l'app.
+Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione di Windows Store o per Windows Phone 8.1 (non Silverlight). Se si sviluppano app per Windows Phone 8.1 Silverlight, fare riferimento alla versione [Windows Phone](notification-hubs-windows-phone-get-started.md). In questa esercitazione si creerà un'app di Windows Store vuota che riceve notifiche push tramite Servizi notifica Push Windows (WNS). Al termine, sarà possibile usare l’hub di notifica per trasmettere le notifiche push a tutti i dispositivi che eseguono l'app.
 
 
 ## Prima di iniziare
@@ -90,31 +90,15 @@ Per inviare notifiche push ad app di Windows Store, è necessario associare l'ap
 
 ##Configurare l'hub di notifica
 
-1. Accedere al [portale di Azure] e quindi fare clic su **+NUOVO** nella parte inferiore della schermata.
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-2. Fare clic su **servizi App**, fare clic su **Bus di servizio**, su **Hub di notifica** e quindi su **Creazione rapida**.
+<ol start="7">
+<li><p>Fare clic sulla scheda <b>Configura</b> in alto, immettere i valori per <b>Segreto client</b> e <b>SID pacchetto</b> ottenuti da Servizi notifica Push Windows nella sezione precedente e quindi fare clic su <b>Salva</b>.</p>
+</li>
+</ol>
 
-   	![][7]
+&emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
-3. Digitare un nome per l'hub di notifica, selezionare l'area desiderata e quindi fare clic su **Crea un nuovo hub di notifica**.
-
-   	![][8]
-
-4. Fare clic sullo spazio dei nomi appena creato, in genere ***nome hub di notifica*-ns**, e quindi fare clic sulla scheda **Configura** in alto.
-
-   	![][9]
-
-5. Selezionare la scheda **Hub di notifica** in alto e quindi fare clic sull'hub di notifica appena creato.
-
-   	![][10]
-
-6. Fare clic sulla scheda **Configura** in alto, immettere i valori per **Segreto client** e **SID pacchetto** ottenuti da Servizi notifica Push Windows nella sezione precedente e quindi fare clic su **Salva**.
-
-   	![][11]
-
-7. Selezionare la scheda **Dashboard** in alto e quindi fare clic sul pulsante **Informazioni di connessione** nella parte inferiore della pagina. Prendere nota delle due stringhe di connessione.
-
-   	![][12]
 
 L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Windows e si dispone delle stringhe di connessione per registrare l'app e inviare le notifiche.
 
@@ -211,30 +195,30 @@ In questa esercitazione verrà usata un'app semplice e verrà illustrato solo il
 
 Per inviare notifiche tramite un'applicazione console .NET seguire questa procedura.
 
-1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto**, quindi in **Visual C#** fare clic su **Windows** e **Applicazione console** e infine su **OK**.
+1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto**, quindi in **Visual C#** fare clic su **Windows**, su **Applicazione console** e infine su **OK**.
 
    	![][13]
 
 	Una nuova applicazione console Visual C# viene aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata.
 
-4. In Visual Studio fare clic su **Strumenti**, selezionare **Gestione pacchetti NuGet** e quindi **Console di Gestione pacchetti**.
+2. In Visual Studio fare clic su **Strumenti**, selezionare **Gestione pacchetti NuGet** e quindi **Console di Gestione pacchetti**.
 
 	In questo modo viene visualizzata la console di Gestione pacchetti in Visual Studio.
 
-6. Nella finestra Console di Gestione pacchetti impostare **Progetto predefinito** sul nuovo progetto di applicazione console e quindi eseguire il comando seguente nella finestra della console:
+3. Nella finestra Console di Gestione pacchetti impostare **Progetto predefinito** sul nuovo progetto di applicazione console, quindi eseguire il comando seguente nella finestra della console:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	Verrà aggiunto un riferimento a Azure Notification Hubs SDK mediante il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto Microsoft.Azure.Notification Hubs NuGet</a>.
+	Verrà aggiunto un riferimento ad Azure Notification Hubs SDK tramite il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto Microsoft.Azure.Notification Hubs NuGet</a>.
 
 	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 
-5. Aprire il file Program.cs e aggiungere l'istruzione `using` seguente:
+4. Aprire il file Program.cs e aggiungere l'istruzione `using` seguente:
 
         using Microsoft.Azure.NotificationHubs;
 
-6. Nella classe **Program** aggiungere il metodo seguente:
+5. Nella classe **Program** aggiungere il metodo seguente:
 
         private static async void SendNotificationAsync()
         {
@@ -248,12 +232,12 @@ Per inviare notifiche tramite un'applicazione console .NET seguire questa proced
 
 	>[AZURE.NOTE]Assicurarsi di usare la stringa di connessione con accesso **Completo**, non **Attesa**. La stringa con accesso di tipo Attesa non dispone infatti delle autorizzazioni per l'invio di notifiche.
 
-7. Aggiungere le righe seguenti nel metodo **Main**:
+6. Aggiungere le righe seguenti nel metodo **Main**:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-8. Fare clic con il pulsante destro del mouse sul progetto di applicazione console in Visual Studio e scegliere **Imposta come progetto di avvio** per impostarlo come progetto di avvio. Premere quindi **F5** per eseguire l'applicazione.
+7. Fare clic con il pulsante destro del mouse sul progetto di applicazione console in Visual Studio e scegliere **Imposta come progetto di avvio** per impostarlo come progetto di avvio. Premere quindi **F5** per eseguire l'applicazione.
 
    	![][14]
 
@@ -267,7 +251,7 @@ In questo semplice esempio le notifiche di trasmissione sono state inviate a tut
 
 Se si desidera segmentare gli utenti per gruppi di interesse, vedere [Utilizzo di Hub di notifica per inviare le ultime notizie].
 
-Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub di notifica].
+Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di notifica].
 
 
 
@@ -279,12 +263,7 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 [3]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png
 [4]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-select-app-name.png
 [6]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-push-auth.png
-[7]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal.png
-[8]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal2.png
-[9]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-select-from-portal.png
-[10]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-select-from-portal2.png
 [11]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png
-[12]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-connection-strings.png
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
 [15]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler1.png
@@ -294,7 +273,7 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[portale di Azure]: https://manage.windowsazure.com/
+[Azure portal]: https://manage.windowsazure.com/
 [Panoramica dell'Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
@@ -304,4 +283,4 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [panoramica delle notifiche]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

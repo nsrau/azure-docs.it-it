@@ -2,7 +2,7 @@
 
 ##Generare il file di richiesta di firma del certificato
 
-Il servizio Apple Push Notification Service (APNS) usa i certificati per autenticare le notifiche push. Seguire queste istruzioni per creare il certificato push necessario per inviare e ricevere notifiche. Per altre informazioni su questi concetti, vedere la documentazione ufficiale su [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584).
+Il servizio Apple Push Notification Service (APNS) usa i certificati per autenticare le notifiche push. Seguire queste istruzioni per creare il certificato push necessario per inviare e ricevere notifiche. Per altre informazioni su questi concetti, vedere la documentazione ufficiale relativa al servizio [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
 Generare il file della richiesta di firma del certificato usato da Apple per la generazione di un certificato push firmato.
 
@@ -69,7 +69,7 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
 
    	Verrà visualizzato l'assistente "Add iOS Certificate".
 
-    > [AZURE.NOTE]In questa esercitazione viene usato un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Quando si inviano le notifiche, accertarsi semplicemente di usare lo stesso tipo di certificato.
+    > [AZURE.NOTE]Questa esercitazione usa un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Quando si inviano le notifiche, accertarsi semplicemente di usare lo stesso tipo di certificato.
 
 5. Fare clic su **Choose File**, passare al percorso in cui è stato salvato il file CSR creato durante la prima attività, quindi fare clic su **Generate**.
 
@@ -93,7 +93,14 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
 
     > [AZURE.NOTE]Il nome del certificato potrebbe essere diverso, ma verrà preceduto da **Apple Development iOS Push Services:**.
 
-Questo certificato verrà usato in un secondo momento per generare un file con estensione p12 per abilitare l'autenticazione con il servizio APN.
+8. In Accesso portachiavi fare clic con il pulsante destro del mouse sul nuovo certificato push creato nella categoria **Certificati**. Fare clic su **Esporta**, assegnare un nome al file, selezionare il formato **.p12**, quindi fare clic su **Salva**.
+
+	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
+
+	Prendere nota del nome del file e del percorso del certificato con estensione p12 esportato. Verrà usato per abilitare l'autenticazione con il servizio APN.
+
+	>[AZURE.NOTE]In questa esercitazione viene creato un file QuickStart.p12. Il nome e il percorso del file potrebbero essere diversi.
+
 
 ##Creare un profilo di provisioning per l'app
 
@@ -124,8 +131,8 @@ Questo certificato verrà usato in un secondo momento per generare un file con e
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
 
-7. Una volta creato il nuovo profilo di provisioning, fare clic per scaricarlo e installarlo nel computer di sviluppo Xcode. Fare quindi clic su **Done**.
+7. Una volta creato il nuovo profilo di provisioning, fare clic per scaricarlo e installarlo nel computer di sviluppo Xcode. Fare clic su **Done**.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

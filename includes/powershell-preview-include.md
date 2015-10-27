@@ -1,5 +1,9 @@
-> [AZURE.NOTE]Questo argomento include cmdlet di PowerShell dalla versione di anteprima di Azure PowerShell 1.0, che è una versione di anteprima e il suo uso non è previsto per le app di importanza strategica. Se si eseguono app cruciali, continuare a usare Azure PowerShell 0.9.8. Nella maggior parte dei casi, la sola differenza tra le due versioni è che il nome del cmdlet nell'anteprima 1.0 segue il modello {verb}-AzureRm{noun}, mentre il nome nella versione 0.9.8 non include **Rm** (ad esempio, New-AzureRmResourceGroup invece di New-AzureResourceGroup). Quando la differenza tra le versioni è più significativa, in questo argomento vengono illustrati esempi per entrambe le versioni.
+> [AZURE.NOTE]Questo argomento include esempi che usano i cmdlet di Azure Powershell. Azure PowerShell è attualmente disponibile in due versioni - 1.0 Preview e 0.9.8. Se si hanno script esistenti e non si vuole modificarli in questo momento, è possibile continuare a usare la versione 0.9.8. Quando si usa la versione 1.0 Preview, è consigliabile testare gli script in ambienti di preproduzione prima di usarli in produzione per evitare effetti imprevisti.
 >
-> Per altre informazioni sull’installazione e l’utilizzo dell'anteprima di Azure PowerShell 1.0, vedere [Cmdlet di Gestione risorse di Azure](https://msdn.microsoft.com/library/mt125356.aspx).
+> Nella maggior parte dei casi, l'unica differenza tra le due versioni sta nel fatto che il nome del cmdlet della versione 1.0 Preview segue il modello {verbo}-AzureRm{nome}, mentre quello della versione 0.9.8 non include **Rm**, ad esempio, New-AzureRmResourceGroup invece di New-AzureResourceGroup. Quando la differenza tra le versioni è più significativa, in questo argomento vengono illustrati esempi per entrambe le versioni.
+>
+> Quando si usa Azure PowerShell 0.9.8, è prima necessario abilitare la modalità Gestione risorse con il comando **Switch-AzureMode AzureResourceManager**. Questo comando non è necessario nella versione di anteprima 1.0.
+>
+> Per informazioni sulla versione 1.0 Preview e su come installarla e disinstallarla, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/). Per informazioni sulle modifiche significative apportate ai comandi di Gestione risorse, vedere [Modifiche ai cmdlet di Gestione risorse di Azure PowerShell](../articles/powershell-preview-resource-manager-changes.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

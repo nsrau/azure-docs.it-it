@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Esercitazione sullo sviluppo di un'applicazione Java usando DocumentDB | Microsoft Azure"
 	description="Questa esercitazione sull’applicazione web Java illustra come usare il servizio Microsoft Azure DocumentDB per archiviare e accedere ai dati da un'applicazione Java ospitata in siti Web di Azure."
-	keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
+	keywords="Sviluppo di applicazioni, esercitazione sul database, applicazione Java, esercitazione sull'applicazione Web Java, DocumentDB, Azure, Microsoft Azure"
 	services="documentdb" 
 	documentationCenter="java" 
 	authors="aliuy" 
@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="07/21/2015" 
+	ms.date="10/20/2015" 
 	ms.author="andrl"/>
 
 # Creazione di un'applicazione Web Java con DocumentDB
@@ -25,7 +25,7 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
-Questa esercitazione sull'applicazione Web Java illustra come usare il servizio [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) per archiviare e accedere ai dati da un'applicazione Java ospitata in siti Web di Azure. In questo argomento, si apprenderà:
+Questa esercitazione sull'applicazione Web Java illustra come usare il servizio [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) per archiviare i dati e accedervi da un'applicazione Java ospitata in Siti Web di Azure. In questo argomento, si apprenderà:
 
 - Come creare un'applicazione JSP di base in Eclipse.
 - Come usare il servizio Azure DocumentDB mediante [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
@@ -34,7 +34,7 @@ Questa esercitazione illustra come creare un'applicazione di gestione delle atti
 
 ![Applicazione Java My ToDo List](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]Questa esercitazione sullo sviluppo dell’applicazione presuppone che l'utente abbia già acquisito familiarità con l'uso di Java. Se non si ha alcuna esperienza riguardo a Java o agli [strumenti richiesti come prerequisiti](#Prerequisites), è consigliabile scaricare il progetto [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) completo da [GitHub](https://github.com/Azure/azure-documentdb-java) e creare la soluzione usando le [istruzioni alla fine di questo articolo](#GetProject). Una volta creata la soluzione, è possibile leggere l'articolo per approfondire il codice nel contesto del progetto.
+> [AZURE.TIP]Questa esercitazione sullo sviluppo dell’applicazione presuppone che l'utente abbia già acquisito familiarità con l'uso di Java. Se non si ha alcuna esperienza riguardo a Java o agli [strumenti richiesti come prerequisiti](#Prerequisites), è consigliabile scaricare il progetto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) completo da GitHub e creare l'applicazione usando le [istruzioni alla fine di questo articolo](#GetProject). Una volta creata la soluzione, è possibile leggere l'articolo per approfondire il codice nel contesto del progetto.
 
 ##<a id="Prerequisites"></a>Prerequisiti per questa esercitazione sull'applicazione Web Java
 Prima di iniziare questa esercitazione sullo sviluppo dell’applicazione, è necessario disporre di quanto segue:
@@ -46,7 +46,7 @@ Prima di iniziare questa esercitazione sullo sviluppo dell’applicazione, è ne
 
 Se questi strumenti vengono installati per la prima volta, coreservlets.com fornisce una procedura dettagliata del processo di installazione nella sezione introduttiva dell'articolo relativo all'[esercitazione sull'installazione di TomCat7 e il relativo uso con Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
-##<a id="CreateDB"></a>Passaggio 1: Creare un account di database di DocumentDB
+##<a id="CreateDB"></a>Passaggio 1: Creare un account del database DocumentDB
 Per eseguire il provisioning di un account di database DocumentDB in Azure:
 
 1. Se non si ha già un account di database, crearne uno seguendo le istruzioni in [Creazione di un account di database](documentdb-create-account.md). Se si ha già un account, procedere al passaggio 2.
@@ -95,7 +95,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
 4. Nella finestra **Select Dependency** eseguire le operazioni seguenti:
  - Nella casella **GroupId** immettere com.microsoft.azure.
  - Nella casella **Artifact Id** immettere azure-documentdb.
- - Nella casella **Version** immettere 1.1.0.
+ - Nella casella **Version** immettere 1.4.0.
 
 	![Installare l'SDK dell’applicazione Java di DocumentDB](./media/documentdb-java-application/image13.png)
 
@@ -104,7 +104,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.1.0</version>
+		    <version>1.4.0</version>
 	    </dependency>
 
 5. Fare clic su **OK** e Maven installerà DocumentDB Java SDK.
@@ -758,14 +758,14 @@ Con Siti Web di Azure la procedura di distribuzione di applicazioni Java è molt
 
 ##<a id="GetProject"></a>Ottenere il progetto da GitHub
 
-Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) su GitHub, che fa parte del repository [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java). Per importare il progetto todo in Eclipse, assicurarsi di avere il software e le risorse elencate nella sezione [Prerequisiti](#Prerequisites), quindi eseguire le operazioni seguenti:
+Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) su GitHub. Per importare il progetto todo in Eclipse, assicurarsi di avere il software e le risorse elencate nella sezione [Prerequisiti](#Prerequisites), quindi eseguire le operazioni seguenti:
 
 1. Installare [Project Lombok](http://projectlombok.org/). Lombok viene usato per generare costruttori, getter e setter nel progetto. Dopo aver scaricato il file lombok.jar, fare doppio clic per installarlo o eseguire l'installazione dalla riga di comando. 
 2. Se Eclipse è aperto, chiuderlo e riavviarlo per caricare Lombok.
 3. In Eclipse, nel menu **File**, fare clic su **Import**.
 4. Nella finestra **Import** fare clic su **Git**, fare clic su **Projects from Git** e quindi fare clic su **Next**. 
 5. Nella schermata **Select Repository Source** fare clic su **Clone URI**.
-6. Nella schermata **Source Git Repository** nella casella **URI**, immettere https://github.com/Azure/azure-documentdb-java.git e quindi fare clic su **Next**.
+6. Nella schermata **Source Git Repository** nella casella **URI**, immettere https://github.com/Azure-Samples/documentdb-java-todo-app.git e quindi fare clic su **Next**.
 7. Nella schermata **Branch Selection** assicurarsi che sia selezionata l'opzione **master** e quindi fare clic su **Next**.
 8. Nella schermata **Local Destination** fare clic su click **Browse** per selezionare una cartella in cui sia possibile copiare il repository e quindi fare clic su **Next**.
 9. Nella schermata **Select a wizard to use for importing projects** assicurarsi che l'opzione **Import existing projects** sia selezionata e quindi fare clic su **Next**.
@@ -786,4 +786,4 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare un'app per la logica | Microsoft Azure"
-	description="Informazioni su come creare un'app per la logica di base dei Servizi app"
+	description="Informazioni su come creare un'app per la logica che connette servizi SaaS"
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="10/16/2015"
 	ms.author="stepsic"/>
 
-# Creare una nuova app per la logica
+# Creare una nuova app per la logica che connette servizi SaaS
 
 | Riferimento rapido |
 | --------------- |
@@ -68,7 +68,7 @@ Prima di tutto, è necessario creare i due connettori che verranno usati: [Dropb
 
 	![Visualizzazione Crea app per le API](./media/app-service-logic-create-a-logic-app/gallery.png)
 
-10. Fare clic su **Crea**. L'operazione di provisioning può richiedere uno o due minuti.
+10. Fare clic su **Create**. L'operazione di provisioning può richiedere uno o due minuti.
 
 11. Ripetere la procedura con [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
 
@@ -94,15 +94,19 @@ I trigger attivano l'esecuzione dell'app per la logica. Si aggiungerà ora un tr
 
 1. Sempre nella schermata **Crea app per la logica**, fare clic su **Trigger e azioni**.
 
-	Verrà visualizzata una finestra di progettazione a schermo intero che mostra il flusso. Sul lato destro è presente un elenco di tutti i servizi che possono disporre di trigger.
+	Verrà visualizzata una finestra di progettazione a schermo intero che mostra il flusso e alcuni modelli da cui iniziare.
+	
+2. Per questa esercitazione si **inizierà da zero**. È sempre possibile usare un modello, se si ritiene che sia utile.
+    
+    Sul lato destro è presente un elenco di tutti i servizi che possono includere trigger.
 
-2. Nella sezione superiore fare clic su **Ricorrenza**.
+3. Nella sezione superiore fare clic su **Ricorrenza**.
 
 	Verrà aggiunta una casella in cui è possibile specificare le impostazioni di ricorrenza.
 
 	![Ricorrenza](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-3.  Scegliere la **Frequenza** e l'**Intervallo**, ad esempio una volta ogni ora e quindi fare clic sul segno di spunta verde.
+4.  Scegliere la **Frequenza** e l'**Intervallo**, ad esempio una volta ogni ora e quindi fare clic sul segno di spunta verde.
 
 A questo punto si aggiungerà un'azione al flusso.
 
@@ -110,9 +114,9 @@ A questo punto si aggiungerà un'azione al flusso.
 
 Le azioni sono le operazioni eseguite dal flusso di lavoro. Il numero di possibili azioni è illimitato ed è possibile organizzarle in modo che le informazioni di un'azione vengono passate alla successiva.
 
-1. Nel riquadro destro fare clic sul **connettore Twitter**.
+1. Nel riquadro destro fare clic su **Twitter Connector**.
 
-2. Dopo il caricamento, fare clic sul pulsante **Autorizza**, accedere al proprio account Twitter e quindi fare clic su **Autorizza app**.
+2. Dopo il caricamento, fare clic sul pulsante **Authorize**, accedere al proprio account Twitter e quindi fare clic su **Authorize app**.
 
 	In questo modo si consente al connettore l'accesso al proprio account Twitter. Viene visualizzato un elenco di possibili operazioni fornite dal connettore Twitter.
 
@@ -132,7 +136,7 @@ Il passaggio finale consiste nell'aggiungere un'azione che carica un tweet in un
 
 1. Nel riquadro destro fare clic sul **connettore Dropbox**.
 
-2. Al termine del provisioning, fare clic su **Autorizza**, accedere al proprio account Dropbox e selezionare **Consenti**.
+2. Al termine del provisioning, fare clic su **Authorize**, accedere al proprio account Dropbox e selezionare **Allow**.
 
 	![Autorizzare il connettore Dropbox](./media/app-service-logic-create-a-logic-app/authorize.png)
 
@@ -184,4 +188,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

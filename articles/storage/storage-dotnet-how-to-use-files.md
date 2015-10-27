@@ -27,7 +27,7 @@ Le applicazioni in esecuzione in Azure possono montare condivisioni file dalle m
 
 Il servizio Archiviazione file è basato sulla stessa tecnologia dei servizi BLOB, tabelle e di accodamento e può quindi sfruttare le funzionalità di disponibilità, durabilità, scalabilità e ridondanza geografica integrate nella piattaforma di archiviazione di Azure.
 
-Per informazioni sull'uso di Archiviazione file con Linux, vedere [Come usare Archiviazione file di Azure con Linux](storage-how-to-use-files-linux.md).
+Per informazioni sull'uso di Archiviazione file con Linux, vedere [Come usare Archiviazione file di Azure Linux](storage-how-to-use-files-linux.md).
 
 Per informazioni sugli obiettivi di scalabilità per Archiviazione file, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
 
@@ -61,7 +61,7 @@ Il [portale di anteprima di Azure](https://ms.portal.azure.com/) offre ai client
 
 ## Usare PowerShell per gestire una condivisione file
 
-A questo punto si utilizzerà PowerShell per creare una condivisione file. Dopo che la condivisione file è stata creata, è possibile montarla da qualsiasi file system che supporti SMB 2.1o SMB 3.0.
+A questo punto si utilizzerà PowerShell per creare una condivisione file. Dopo che la condivisione file è stata creata, è possibile montarla da qualsiasi file system che supporti SMB 2.1 o SMB 3.0.
 
 ### Installare i cmdlet di PowerShell per l'archiviazione di Azure
 
@@ -185,7 +185,7 @@ Per montare la condivisione file da un client locale, è prima necessario seguir
 - Installare una versione di Windows che supporta il protocollo SMB 3.0. Windows userà la crittografia SMB 3.0 per eseguire il trasferimento di dati sicuro dal client locale alla condivisione file di Azure nel cloud. 
 - Aprire l'accesso a Internet per la porta 445 (TCP in uscita) nella rete locale, come richiesto dal protocollo SMB. 
 
-[AZURE.NOTE]Alcuni provider di servizi Internet bloccano la porta 445, quindi è opportuno verificare con il proprio provider di servizi.
+> [AZURE.NOTE]Alcuni provider di servizi Internet bloccano la porta 445, quindi è opportuno verificare con il proprio provider di servizi.
 
 ## Sviluppare con Archiviazione file
 
@@ -353,7 +353,7 @@ Nell'esempio seguente viene creato un criterio di accesso condiviso in una condi
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Per altre informazioni sulla creazione sull'uso di firme di accesso condiviso, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) [Creare e usare una firma di accesso condiviso con il servizio BLOB](storage-dotnet-shared-access-signature-part-2.md).
+Per altre informazioni sulla creazione e sull'uso di firme di accesso condiviso, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) [Creare e usare una firma di accesso condiviso con il servizio BLOB](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiare i file
 
@@ -540,4 +540,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

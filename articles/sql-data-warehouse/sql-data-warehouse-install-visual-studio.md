@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Installare Visual Studio 2015 | Microsoft Azure"
-   description="Installare Visual Studio e SSDT per Azure SQL Data Warehouse"
+   pageTitle="Installare Visual Studio e/o SSDT per SQL Data Warehouse | Microsoft Azure"
+   description="Installare Visual Studio e/o gli strumenti di sviluppo SSDT per Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,36 +13,40 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/07/2015"
-   ms.author="twounder"/>
+   ms.date="10/21/2015"
+   ms.author="twounder;barbkess"/>
 
-# Installare Visual Studio 2015
+# Installare Visual Studio 2015 e/o SSDT per SQL Data Warehouse
 
-Per lo sviluppo, il team di Azure SQL Data Warehouse consiglia di usare Visual Studio 2013 o versioni successive insieme a SQL Server Data Tools (SSDT). Di seguito viene illustrato come scaricare e aggiornare Visual Studio 2015, se non è già disponibile una versione valida di Visual Studio installata. I passaggi seguenti consentono di scaricare e installare i prerequisiti per usare Azure SQL Data Warehouse.
+Per sviluppare applicazioni per SQL Data Warehouse, è consigliabile usare Visual Studio 2013 o una versione più recente in combinazione con la versione più recente di SQL Server Data Tools (SSDT).
 
-+ [Scaricare e installare Visual Studio 2015](#Download-and-Install-Visual-Studio-2015).
-+ [Scaricare e installare SQL Server Data Tools (SSDT) Preview] (#Download-and-Install-SQL-Server-Data-Tools-(SSDT)-Preview)
- 
-> [AZURE.NOTE]Visual Studio 2013 e SQL Server Data Tools (SSDT) Preview possono essere usati anche con Azure SQL Data Warehouse.
- 
-##Scaricare e installare Visual Studio 2015
+Per eseguire query dall'ambiente di sviluppo integrato (Integrated Development Environment, IDE) di Visual Studio, è sufficiente installare SSDT. Verrà installato l'IDE di VIsual Studio insieme a SSDT per poter usare Esplora oggetti di SQL Server per connettersi al server SQL di Azure. A quel punto, sarà possibile visualizzare ed eseguire query sui database SQL Data Warehouse.
 
-Per installare Visual Studio 2015, seguire questa procedura.
 
-1. [Scaricare Visual Studio 2015](https://www.visualstudio.com/downloads) da Visual Studio online.
-2. Seguire la guida [Installazione di Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) in MSDN scegliendo le configurazioni predefinite. 
+## Passaggio 1: Scaricare e installare Visual Studio
 
-##Scaricare e installare SQL Server Data Tools (SSDT) Preview
+Se si sceglie di installare Visual Studio, con SQL Data Warehouse è possibile usare sia Visual Studio 2013 sia Visual Studio 2015. Se Visual Studio 2013 o 2015 è già installato, procedere al passaggio 2 per installare SSDT.
 
-Azure SQL Data Warehouse utilizza la versione di anteprima più recente di SQL Server Data Tools (SSDT) disponibile.
+Per installare Visual Studio 2015:
 
-1. [Scaricare SQL Server Data Tools Preview](https://msdn.microsoft.com/mt429383.aspx) per Visual Studio 2013 o 2015.
-2. Seguire le istruzioni per installare Data Tools.
+1. [Scaricare Visual Studio 2015](https://www.visualstudio.com/downloads) da Visual Studio Online. 
+2. Per la procedura di installazione, seguire quanto indicato nella guida all'[installazione di Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) su MSDN e scegliere le configurazioni predefinite.
 
+## Passaggio 2: Scaricare e installare la versione più recente di SQL Server Data Tools (SSDT) 
+
+Che sia installato Visual Studio o meno, è comunque necessario installare la versione di SQL Server Data Tools (SSDT) più recente che supporta SQL Data Warehouse.
+
+Per installare la versione più recente di SSDT:
+
+1. [Scaricare SQL Server Data Tools Preview](https://msdn.microsoft.com/library/mt204009.aspx) per Visual Studio 2013 o 2015.
+2. Eseguire l'installazione seguendo le istruzioni fornite nel sito di download.
+
+## Passaggi successivi
+
+Dopo aver installato la versione più recente di SSDT, fare clic su [Connetti](./sql-data-warehouse-get-started-connect.md) per connettersi al database.
 
 <!--Anchors-->
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

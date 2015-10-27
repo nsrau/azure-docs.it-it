@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/15/2015"
 	ms.author="awills"/>
 
 # Introduzione ad Application Insights in un progetto Web Java
@@ -25,14 +25,14 @@
 
 ![dati di esempio](./media/app-insights-java-get-started/5-results.png)
 
-I [test Web di Application Insights][availability] monitorano la disponibilità dell'applicazione.
+Application Insights supporta le app Java in esecuzione in Linux, Unix o Windows.
 
 Sono necessari gli elementi seguenti:
 
 * Oracle JRE 1.6 o versione successiva o Zulu JRE 1.6 o versione successiva
 * Una sottoscrizione a [Microsoft Azure](http://azure.microsoft.com/). È possibile iniziare con la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-*Se si dispone di un'applicazione web che è già attiva, è possibile seguire la procedura alternativa per[aggiungere SDK in fase di esecuzione nel server web](app-insights-java-live.md). Tale alternativa evita di ricompilare il codice, ma non si ottiene l'opzione per scrivere codice per tenere traccia delle attività dell'utente.*
+*Se è disponibile un'app Web già attiva, è possibile seguire la procedura alternativa per [aggiungere l'SDK al server Web in fase di esecuzione](app-insights-java-live.md). Tale alternativa evita di ricompilare il codice, ma non si ottiene l'opzione per scrivere codice per tenere traccia delle attività dell'utente.*
 
 
 ## 1\. Ottenere una chiave di strumentazione di Application Insights
@@ -80,7 +80,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
     </dependencies>
 
 
-* *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, come: `<version>1.0.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, ad esempio `<version>1.0.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *È necessario eseguire l'aggiornamento a un nuovo SDK?* Aggiornare le dipendenze del progetto.
 
 #### Se si usa Gradle...
@@ -272,17 +272,17 @@ Vengono raccolte automaticamente le eccezioni non gestite:
 Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
 
 * [Inserire chiamate a trackException() nel codice][apiexceptions]. 
-* [Installare l'agente Java sul server](app-insights-java-agent.md). È possibile specificare i metodi da controllare.
+* [Installare l'agente Java nel server](app-insights-java-agent.md). È possibile specificare i metodi da controllare.
 
 
 ## Monitorare le chiamate al metodo e le dipendenze esterne
 
-[Installare l'agente Java](app-insights-java-agent.md) per registrare i metodi interni specificati e le chiamate effettuate tramite JDBC, con i dati relativi alle durate.
+[Installare l'agente Java](app-insights-java-agent.md) per registrare i metodi interni specificati e le chiamate effettuate tramite JDBC, con i dati relativi alla durata.
 
 
 ## Contatori delle prestazioni
 
-Fare clic sul riquadro **Server** e verrà visualizzato un intervallo di contatori delle prestazioni.
+Fare clic sul riquadro **Server**. Verrà visualizzato un intervallo di contatori delle prestazioni.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -383,7 +383,7 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 
 ## Passaggi successivi
 
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
+Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
 
 <!--Link references-->
 
@@ -396,4 +396,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
