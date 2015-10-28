@@ -111,10 +111,10 @@ Il provider viene eseguito nei server VMM, nei server host Hyper-V se non si dis
 - Se si desidera che il server in cui il provider viene eseguito si connetta a Internet tramite un server proxy, è possibile utilizzare le impostazioni del proxy esistente oppure specificare un proxy personalizzato.
 - Il proxy deve autorizzare questi indirizzi attraverso il firewall:
 
-	-  **.accesscontrol.windows.net
--  .backup.windowsazure.com
-	-  **.blob.core.windows.net
--  **.store.core.windows.net
+	-  *.accesscontrol.windows.net
+	-  .backup.windowsazure.com
+	-  *.blob.core.windows.net
+	-  *.store.core.windows.net
 
 - Se nel firewall sono disponibili le regole basate sull'indirizzo IP, verificare che autorizzino la comunicazione tra il server di configurazione e gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) e per HTTPS (443). È necessario inserire in un elenco di elementi consentiti gli indirizzi IP compresi negli intervalli dell'area di Azure che si prevede di utilizzare e per Stati Uniti occidentali.
 - Se si distribuisce Site Recovery con VMM e si utilizza un proxy personalizzato, verrà creato automaticamente un account RunAs VMM (DRAProxyAccount) utilizzando le credenziali proxy specificate nelle impostazioni del proxy personalizzato nel portale di Site Recovery. È necessario configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione.
@@ -178,4 +178,4 @@ Per informazioni dettagliate sulla pianificazione di questi componenti, leggere 
 
 Iniziare a configurare i componenti per lo scenario di distribuzione. [Altre informazioni](site-recovery-overview.md)
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
