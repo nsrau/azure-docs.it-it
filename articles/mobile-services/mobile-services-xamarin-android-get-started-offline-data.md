@@ -41,7 +41,7 @@ Questa esercitazione descrive le operazioni di base seguenti:
 
 Per completare questa esercitazione, è necessario disporre di:
 
-* Visual Studio con [estensione Xamarin] ** o ** [Xamarin Studio]
+* Visual Studio con [estensione Xamarin] **o** [Xamarin Studio]
 * Esercitazione [Introduzione a Servizi mobili] completata
 
 ## <a name="review-offline"></a>Esaminare il codice di sincronizzazione di Servizi mobili
@@ -171,4 +171,4 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

@@ -188,20 +188,21 @@ snappy-1.1.0-1.el6.x86\_64.rpm
 
 Nota: se la macchina di origine utilizza il filesystem Reiser o XFS per il dispositivo di avvio o radice, i pacchetti seguenti devono essere scaricati e installati nel server master Linux di destinazione prima della protezione.
 
-# cd /usr/local
+\# cd /usr/local
 
-# wget 
+\# wget 
 <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-# wget 
+\# wget 
 <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
+reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-# wget 
+\# wget 
 <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Applicare le modifiche di configurazione personalizzate
 
@@ -213,11 +214,11 @@ Per applicare le modifiche di configurazione personalizzate, attenersi alla proc
 
 2. Eseguire il seguente comando per decomprimere il file binario.
 
-** tar - zxvf < nome file >**
+**tar - zxvf < nome file >**
 
 3. Eseguire il seguente comando per concedere l'autorizzazione.
 
-# **chmod 755 ./ApplyCustomChanges.sh**
+\# **chmod 755 ./ApplyCustomChanges.sh**
 
 4. Eseguire il comando per eseguire lo script seguente.
 
@@ -382,7 +383,7 @@ Configurazione NAT|Illustrato in dettaglio di seguito
 
 
 
-> ** Scelte le impostazioni di PS NAT**
+> **Scelte le impostazioni di PS NAT**
 >
 > Per abilitare la protezione delle macchine virtuali, è necessario stabilire due canali di comunicazione.
 >
@@ -557,4 +558,4 @@ Dopo aver completato il failback è possibile proteggere le macchine virtuali an
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
