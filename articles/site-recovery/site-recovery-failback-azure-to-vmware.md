@@ -222,7 +222,7 @@ Per applicare le modifiche di configurazione personalizzate, attenersi alla proc
 
 4. Eseguire il comando per eseguire lo script seguente.
 
-**# ./ApplyCustomChanges.sh**
+**\# ./ApplyCustomChanges.sh**
 
 Nota: eseguire lo script solo una volta sul server. **Riavviare** il server dopo la corretta esecuzione dello script precedente.
 
@@ -558,4 +558,4 @@ Dopo aver completato il failback è possibile proteggere le macchine virtuali an
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->
