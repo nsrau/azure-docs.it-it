@@ -28,7 +28,8 @@ Sono disponibili i ruoli di amministratore seguenti:
 - **Amministratore globale**: dispone di accesso a tutte le funzionalità amministrative. La persona che effettua l'iscrizione per l'account di Azure diventa amministratore globale. Solo gli amministratori globali possono assegnare altri ruoli di amministratore. In una società possono essere presenti più amministratori globali.
 - **Amministratore password**: reimposta le password, gestisce le richieste di servizio e monitora l'integrità del servizio. Gli amministratori password possono reimpostare le password solo per gli utenti e gli altri amministratori password.
 - **Amministratore del servizio**: gestisce le richieste di servizio e monitora l'integrità del servizio.
-    > [AZURE.NOTE]Per assegnare il ruolo di amministratore del servizio a un utente, è prima necessario che l’amministratore globale assegni le autorizzazioni amministrative all’utente nel servizio, come Exchange Online, quindi è possibile assegnare il ruolo di amministratore del servizio nel portale di Microsoft Azure.
+    > [AZURE.NOTE]
+    > Per assegnare il ruolo di amministratore del servizio a un utente, è prima necessario che l’amministratore globale assegni le autorizzazioni amministrative all’utente nel servizio, come Exchange Online, quindi è possibile assegnare il ruolo di amministratore del servizio nel portale di Microsoft Azure. 
 - **Amministratore utenti**: reimposta le password, monitora l'integrità del servizio e gestisce gli account utente, i gruppi di utenti e le richieste di servizio. Alle autorizzazioni di un amministratore Gestione utenti si applicano alcune limitazioni. Ad esempio, non possono eliminare un amministratore globale o creare altri amministratori. Non possono inoltre reimpostare le password per gli amministratori fatturazione, globali e del servizio.
 
 ## Autorizzazioni degli amministratori
@@ -67,14 +68,14 @@ Operazione consentita | Operazione non consentita
 
 L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo di amministratore globale per la directory. Solo gli amministratori globali possono assegnare altri ruoli di amministratore.
 
-## Assegnare o rimuovere ruoli di amministratore
+## Assegnare o rimuovere ruoli di amministratore 
 
 
 1. Nel portale di gestione fare clic su **Active Directory** e quindi sul nome della directory dell'organizzazione.
 2. Nella pagina **Utenti** fare clic sul nome visualizzato dell'utente da modificare.
-3. Selezionare il menu a discesa **Ruolo aziendale** e quindi scegliere il ruolo di amministratore da assegnare all'utente oppure selezionare **Utente** per rimuovere un ruolo di amministratore esistente.
+3. Selezionare il menu a discesa **Ruolo aziendale** e quindi scegliere il ruolo di amministratore da assegnare all'utente oppure selezionare **Utente** per rimuovere un ruolo di amministratore esistente. 
 4. Nella casella **Indirizzo di posta elettronica alternativo** digitare un indirizzo di posta elettronica. Questo indirizzo viene usato per notifiche importanti, inclusa la reimpostazione self-service della password, pertanto l'utente deve poter accedere all'account di posta elettronica indipendentemente dal fatto di poter accedere o meno ad Azure.
-5. Selezionare **Consenti** o **Blocca** per specificare se l'utente è autorizzato o meno a effettuare l'accesso e ad accedere ai servizi.
+5. Selezionare **Consenti** o **Blocca** per specificare se l'utente è autorizzato o meno a effettuare l'accesso e ad accedere ai servizi. 
 6. Specificare una località nell'elenco a discesa **Località di utilizzo**.
 7. Al termine, fare clic su **Salva**.
 

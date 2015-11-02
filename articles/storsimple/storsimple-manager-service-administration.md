@@ -57,9 +57,11 @@ Nella tabella seguente è illustrata la gerarchia di spostamento per l'interfacc
 |Pagina di destinazione|Pagine a livello di servizio|Pagine a livello di dispositivo|Pagine a livello di dispositivo|
 |---|---|---|---|
 |Servizio StorSimple Manager|Dashboard del servizio|Pagina dashboard||
-||Dispositivi →|Monitora| ||Catalogo backup|Contenitori dei volumi→|Volumi| ||Configura (servizio)|Criteri di backup|| ||Processi|Configura (dispositivo)| ||Avvisi|Manutenzione|
-
-![Video disponibile](./media/storsimple-manager-service-administration/Video_icon.png) **Video disponibile**
+||Dispositivi →|Monitora|| 
+||Catalogo backup|Contenitori dei volumi→|Volumi| 
+||Configura (servizio)|Criteri di backup|| 
+||Processi|Configura (dispositivo)|| 
+||Avvisi|Manutenzione||
 
 Per guardare un video che illustra l'interfaccia utente del servizio StorSimple Manager, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 

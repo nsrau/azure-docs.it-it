@@ -81,7 +81,9 @@ Nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=52971
         &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
     }
 &lt;/ul> 
-</pre>![Aggiornamenti codice Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+	</pre>
+
+	![Contact.cshtml Code Updates](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Distribuire l'applicazione Web nelle app Web del servizio app
 

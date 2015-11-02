@@ -74,7 +74,7 @@ Per qualsiasi runtime PHP incorporato, è possibile modificare le opzioni di con
 ### PHP\_INI\_USER, PHP\_INI\_PERDIR, la modifica delle impostazioni di configurazione PHP\_INI\_ALL
 
 1. Aggiungere un file [.user.ini] alla directory radice in uso.
-2. Aggiungere le impostazioni di configurazione al file ￼￼￼ `.user.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera attivare l'impostazione `display_errors` e configurare l'impostazione `upload_max_filesize` su 10M, il file `.user.ini` conterrà il testo seguente:
+2. Aggiungere le impostazioni di configurazione al file  `.user.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera attivare l'impostazione `display_errors` e configurare l'impostazione `upload_max_filesize` su 10M, il file `.user.ini` conterrà il testo seguente:
 
 		; Example Settings
 		display_errors=On
