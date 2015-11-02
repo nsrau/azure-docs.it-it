@@ -106,14 +106,22 @@ Per la maggior parte dei casi, è sufficiente impostare manualmente gli avvisi. 
 
 Se non si è utilizzato prima PowerShell con la sottoscrizione di Azure:
 
-1. Installare il modulo Azure Powershell nel computer in cui si desidera eseguire gli script. 
+Installare il modulo Azure Powershell nel computer in cui si desidera eseguire gli script.
+
  * Installare [Installazione guidata piattaforma Web Microsoft (v5 o versione successiva)](http://www.microsoft.com/web/downloads/platform.aspx).
  * Usarla per installare Microsoft Azure PowerShell.
-2. Avviare Azure PowerShell e [connettersi alla sottoscrizione](powershell-install-configure.md):
 
-    ```
+
+#### Connect to Azure
+
+Avviare Azure PowerShell e [connettersi alla sottoscrizione](powershell-install-configure.md):
+
+```PowerShell
+
     Add-AzureAccount
-    ```
+    Switch-AzureMode AzureResourceManager
+```
+
 
 #### Ottenere avvisi
 
@@ -217,4 +225,4 @@ richiesta,<br/>requestFailed|[Richiesta server](app-insights-configuration-with-
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

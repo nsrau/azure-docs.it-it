@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Installare e usare Giraph nei cluster Hadoop in HDInsight | Microsoft Azure"
-	description="Informazioni su come personalizzare un cluster HDInsight con Giraph. Verrà usata un'opzione di configurazione Azione script per installare Giraph tramite uno script."
+	pageTitle="Installare e usare Giraph in HDInsight basati su Linux (Hadoop) | Microsoft Azure"
+	description="Informazioni su come installare Giraph nei cluster HDInsight basati su Linux utilizzando azioni di Script. Le azioni di script consentono di personalizzare il cluster durante la creazione, modificando la configurazione del cluster o installando servizi e utilità."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -148,4 +148,4 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 
 - [Installare Solr in cluster HDInsight](hdinsight-hadoop-solr-install-linux.md). Usare la personalizzazione cluster per installare Solr in cluster Hadoop di HDInsight. Solr consente di eseguire operazioni di ricerca avanzate sui dati archiviati.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

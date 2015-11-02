@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Come usare le code del bus di servizio (Ruby) | Microsoft Azure"
-	description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in Ruby."
+	pageTitle="Come usare le code del bus di servizio con Ruby | Microsoft Azure"
+	description="Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,12 +14,11 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
-
-
-
+	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 In questa guida verrà descritto come utilizzare le code del bus di servizio. Gli esempi sono scritti in Ruby e utilizzano la gemma di Azure. Gli scenari presentati includono **creazione di code, invio e ricezione di messaggi**, nonché **eliminazione di code**. Per ulteriori informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps).
 
@@ -152,4 +151,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 Per un confronto tra le code del bus di servizio di Azure discusse in questo articolo e il servizio di accodamento di Azure discusso nell'articolo [Come utilizzare il servizio di accodamento di Azure](/develop/ruby/how-to-guides/queue-service/), vedere [Code di Azure e Azure Service Bus: confronto e contrapposizioni](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

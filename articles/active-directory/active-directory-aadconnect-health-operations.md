@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/19/2015"
 	ms.author="billmath"/>
 
 # Operazioni di Azure AD Connect Health
@@ -95,7 +95,7 @@ Tutti gli altri ruoli (ad esempio 'Amministratori accesso utente' o 'Utenti lab 
 
 Azure AD Connect supporta la gestione dell'accesso su due livelli:
 
-- ***Directory***: questo è il percorso consigliato per la maggior parte dei clienti e controlla l'accesso a tutte le istanze del servizio (ad esempio, una farm AD FS) per tutti i tipi di ruolo monitorati da Azure AD Connect Health.
+- ***Tutte le istanze del servizio***: questo è il percorso consigliato per la maggior parte dei clienti e controlla l'accesso a tutte le istanze del servizio (ad esempio, una farm AD FS) per tutti i tipi di ruolo monitorati da Azure AD Connect Health.
 
 - ***Istanza del servizio***: in alcuni casi, potrebbe essere necessario separare l'accesso in base ai tipi di ruolo o per un'istanza del servizio. In questo caso, è possibile gestire l'accesso a livello di istanza del servizio.
 
@@ -104,33 +104,28 @@ L'autorizzazione viene concessa se un utente finale dispone di accesso a livello
 
 ### Come consentire l'accesso a utenti o gruppi ad Azure AD Connect Health
 #### Passaggio 1: Selezionare l'ambito di accesso appropriato
-Per consentire a un utente l'accesso a livello di *directory* dall'interno di Azure AD Connect Health, aprire il pannello principale in Azure AD Connect Health.<br>
-[//]: # (RBAC\_MainBladeSS)
+Per consentire a un utente l'accesso a livello di *tutte le istanze del servizio* dall'interno di Azure AD Connect Health, aprire il pannello principale in Azure AD Connect Health.<br>
 #### Passaggio 2: Aggiungere utenti, gruppi e assegnare ruoli
-1. Fare clic sulla parte "Utenti" dalla sezione Configura.<br>
-[//]: # (RBAC\_MainBladeUserPart)
+1. Fare clic sulla parte "Utenti" dalla sezione Configura.<br> ![Pannello principale del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Selezionare "Aggiungi"
-3. Selezionare il "Ruolo"<br>
-[//]: # (RBAC\_AddRole)
-4. Digitare il nome o l'identificatore dell'utente o del gruppo. È possibile selezionare uno o più utenti o gruppi contemporaneamente.
-5. Selezionare "OK".<br>
-[//]: # (RBAC\_LastStep)
-6. Una volta completata l'assegnazione del ruolo, gli utenti e/o i gruppi verranno visualizzati nell'elenco.<br>
-[//]: # (RBAC\_ListofUsersAndGroups)
+3. Selezionare il "Ruolo", ad esempio "Proprietario"<br> ![Aggiungere utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
+4. Digitare il nome o l'identificatore dell'utente o del gruppo. È possibile selezionare uno o più utenti o gruppi contemporaneamente. Fare clic su "seleziona". ![Selezionare utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
+5. Selezionare "Ok".<br>
+
+6. Una volta completata l'assegnazione del ruolo, gli utenti e/o i gruppi verranno visualizzati nell'elenco.<br> ![Elenco utenti del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Con questi passaggi verrà consentito l'accesso agli utenti e ai gruppi in base ai relativi ruoli assegnati.
 >[AZURE.NOTE]- Gli amministratori globali hanno sempre accesso completo a tutte le operazioni, ma gli account degli amministratori globali non saranno presenti nell'elenco precedente. - La funzionalità per invitare gli utenti NON è supportata in Azure AD Connect Health.
 
 #### Passaggio 3: Condividere il percorso del pannello con utenti o gruppi
 1. Dopo l'assegnazione delle autorizzazioni, un utente può accedere ad Azure AD Connect Health passando a [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
-2. Dopo l'accesso al pannello, l'utente può aggiungere il pannello o varie parti al dashboard facendo semplicemente clic su "Aggiungi al dashboard"<br>
-[//]: # (RBAC\_PinBlade)
+2. Dopo l'accesso al pannello, l'utente può aggiungere il pannello o varie parti al dashboard facendo semplicemente clic su "Aggiungi al dashboard"<br> ![Pannello Pin del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+
 
 >[AZURE.NOTE]Un utente assegnato al ruolo "Lettore" non potrà eseguire l'operazione di creazione per recuperare l'estensione Azure AD Connect Health da Azure Marketplace. L'utente potrà comunque ancora accedere al pannello tramite il collegamento sopra riportato. Per gli utilizzi successivi, l'utente può aggiungere il pannello al dashboard.
 
 ### Rimuovere utenti e/io gruppi
-Per rimuovere un utente o gruppo aggiunto alla parte del controllo degli accessi in base al ruolo di Azure AD Connect Health, è sufficiente fare clic con il pulsante destro del mouse e scegliere Rimuovi.<br>
-[//]: # (RBAC\_RemoveUser)
+Per rimuovere un utente o un gruppo aggiunto alla parte del controllo degli accessi in base al ruolo di Azure AD Connect Health, è sufficiente fare clic con il pulsante destro del mouse e scegliere Rimuovi.<br> ![Rimuovere utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # "Fine della sezione Controllo degli accessi in base al ruolo"
 
@@ -141,4 +136,4 @@ Per rimuovere un utente o gruppo aggiunto alla parte del controllo degli accessi
 * [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

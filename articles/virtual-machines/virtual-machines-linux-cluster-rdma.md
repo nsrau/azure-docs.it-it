@@ -146,7 +146,7 @@ Quando la macchina virtuale completa il provisioning, assegnare una porta SSH al
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     ```
 
-    Nella directory ~/.ssh modificare o creare il file ssh\_config. Specificare l'intervallo di indirizzi IP della rete privata da usare in Azure (10.32.0.0/16 in questo esempio):
+    Nella directory ~/.ssh modificare o creare il file "config". Specificare l'intervallo di indirizzi IP della rete privata da usare in Azure (10.32.0.0/16 in questo esempio):
 
     ```
     host 10.32.0.*
@@ -370,4 +370,4 @@ In un cluster funzionante con due nodi dovrebbe venire visualizzato un output si
 
 * Per istruzioni su Intel MPI, vedere la [documentazione relativa a Intel MPI Library](https://software.intel.com/it-IT/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

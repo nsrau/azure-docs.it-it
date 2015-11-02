@@ -2,7 +2,7 @@
 	pageTitle="Visualizzare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB | Microsoft Azure"
 	description="Informazioni su Esplora script, uno strumento del portale di anteprima di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente."
 	services="documentdb"
-	authors="stephbaron"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="09/02/2015"
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Visualizzare, modificare e creare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB
 
@@ -106,4 +106,4 @@ Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di
 Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

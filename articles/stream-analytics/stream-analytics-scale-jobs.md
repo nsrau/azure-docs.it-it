@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Ridimensionare i processi di Analisi di flusso per aumentare la velocità effettiva | Microsoft Azure"
 	description="Informazioni su come ridimensionare i processi di Analisi di flusso configurando partizioni di input, ottimizzando la definizione di query e impostando le unità di streaming del processo."
-	keywords="analytics jobs,data stream,data streaming"
+	keywords="processi di analisi, flusso di dati, flusso di dati"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -265,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

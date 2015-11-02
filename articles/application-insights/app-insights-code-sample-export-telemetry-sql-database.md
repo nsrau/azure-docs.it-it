@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Esempio di codice: analizzare i dati esportati da Application Insights" 
-	description="Codificare la propria analisi dei dati di telemetria in Application Insights usando la funzione di esportazione continua." 
+	description="Codificare la propria analisi dei dati di telemetria in Application Insights usando la funzione di esportazione continua. Salvare i dati in SQL." 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
@@ -543,4 +543,4 @@ Per vedere questo esempio in azione, [scaricare](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

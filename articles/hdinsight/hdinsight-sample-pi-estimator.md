@@ -14,29 +14,36 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/15/2015"
 	ms.author="jgao"/>
 
-# Esempio di calcolo del Pi greco di Hadoop in HDInsight
+# Eseguire il programma MapReduce di calcolo del pi greco nel cluster Hadoop in HDInsight
 
-In questo argomento viene illustrato come eseguire un programma Hadoop MapReduce in Azure HDInsight per il calcolo del valore della costante matematica Pi greco mediante Azure PowerShell. Viene fornito inoltre il codice Java usato nel programma MapReduce per calcolare il valore di Pi greco a scopo di analisi.
+I cluster HDInsight sono dotati di un file jar con diversi esempi di MarReduce. Questo articolo illustra come eseguire l'esempio di strumento di calcolo del pi greco tramite Azure PowerShell. L’esempio di calcolo del pi greco calcola il valore della costante matematica pi greco
 
 > [AZURE.NOTE]I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Per informazioni sull'esecuzione di questo e altri esempi con i cluster basati su Linux, vedere [Eseguire gli esempi di Hadoop in HDInsight](hdinsight-hadoop-run-samples-linux.md)
 
 Per calcolare il valore di Pi greco, il programma usa un metodo statistico simile al metodo Monte Carlo. I punti posizionati in modo casuale all'interno di un quadrato unitario rientrano anche in un cerchio incluso in tale quadrato con una probabilità uguale all'area del cerchio, Pi greco/4. Il valore di Pi greco può essere stimato in base a valore di 4R, dove R indica il rapporto tra il numero di punti che si trovano all’interno del cerchio e il numero totale di punti che si trovano all’interno del quadrato. La precisione del calcolo è direttamente proporzionale al numero di punti utilizzati.
 
-Il codice Java Pi Estimator, contenente le funzioni per il mapping e per la riduzione, è disponibile di seguito per l'analisi. Il programma per il mapping consente di generare un numero specifico di punti posizionati in modo casuale all'interno di un quadrato unitario e quindi di contare il numero di tali punti inclusi all'interno del cerchio. Il programma per la riduzione consente di accumulare i punti contati dalle funzioni di mapping e quindi di calcolare il valore di Pi greco in base alla formula 4R, dove R indica il rapporto tra il numero di punti che si trovano all’interno del cerchio e il numero totale di punti che si trovano all’interno del quadrato.
-
 Lo script fornito per questo esempio invia un processo jar Hadoop ed è configurato per l'esecuzione con un valore pari a 16 mappe, ognuna delle quali è necessaria per il calcolo di 10 milioni di punti campione da parte dei valori del parametro. Tali valori di parametro possono essere modificati per ottimizzare il valore stimato di Pi greco. A scopo di riferimento, si noti che le prime 10 cifre decimali di Pi greco sono 3,1415926535.
-
-Il file con estensione jar contenente i file necessari a Hadoop in Azure per la distribuzione dell'applicazione è compresso in un file con estensione zip ed è disponibile per il download. È possibile decomprimerlo mediante diverse utilità di compressione e quindi esaminare i file quando lo si desidera.
 
 Gli altri esempi disponibili per imparare rapidamente a usare HDInsight per l'esecuzione di processi MapReduce sono elencati in [Eseguire gli esempi di Hadoop in HDInsight][hdinsight-samples], insieme a collegamenti a istruzioni relative all'esecuzione di tali processi.
 
-**Si acquisiranno le nozioni seguenti:**
 
-* Come usare Azure PowerShell per eseguire il programma MapReduce Pi Estimator per il calcolo del Pi greco in Azure HDInsight.
-* Aspetto di un programma MapReduce in Java.
+**Altri articoli correlati:**
+
+* [Introduzione ad Azure HDInsight][hdinsight-get-started]
+* [Sviluppare programmi MapReduce Java per Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+* [Inviare processi Hadoop in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [Esempio GraySort da 10 GB][hdinsight-sample-10gb-graysort]
+* [Esempio di conteggio delle parole][hdinsight-sample-wordcount]
+* [Esempio di flusso C#][hdinsight-sample-cs-streaming]
+
+
+
+
+
+
 
 **Prerequisiti**:
 
@@ -46,7 +53,7 @@ Gli altri esempi disponibili per imparare rapidamente a usare HDInsight per l'es
 
 
 
-## <a id="run-sample"></a>Eseguire l'esempio con Azure PowerShell
+## Eseguire l'esempio con Azure PowerShell
 
 **Per inviare il processo MapReduce**
 
@@ -80,8 +87,9 @@ Gli altri esempi disponibili per imparare rapidamente a usare HDInsight per l'es
 	A scopo di confronto, si noti che le prime 10 cifre decimali di Pi greco sono 3,1415926535.
 
 
-## <a id="java-code"></a>Codice Java per il programma MapReduce per il calcolo del Pi greco
+## Il codice sorgente MapReduce Java
 
+Il codice Java Pi Estimator, contenente le funzioni per il mapping e per la riduzione, è disponibile di seguito per l'analisi. Il programma per il mapping consente di generare un numero specifico di punti posizionati in modo casuale all'interno di un quadrato unitario e quindi di contare il numero di tali punti inclusi all'interno del cerchio. Il programma per la riduzione consente di accumulare i punti contati dalle funzioni di mapping e quindi di calcolare il valore di Pi greco in base alla formula 4R, dove R indica il rapporto tra il numero di punti che si trovano all’interno del cerchio e il numero totale di punti che si trovano all’interno del quadrato.
 
 
  	/**
@@ -474,5 +482,6 @@ Per esercitazioni che descrivono l'esecuzione di altri esempi e forniscono istru
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-sample-cs-streaming]: hdinsight-sample-csharp-streaming.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

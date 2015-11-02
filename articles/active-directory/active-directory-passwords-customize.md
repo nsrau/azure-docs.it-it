@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Personalizzazione di Gestione delle password in base alle esigenze dell'organizzazione
@@ -393,7 +393,56 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Domanda di sicurezza</p>
+                <p>Le domande di sicurezza si basano sulla conoscenza</p>
+              </td>
+              <td>
+                <p>Definisce le domande di sicurezza pre-definite che gli utenti possono scegliere durante la registrazione per la reimpostazione delle password e durante la reimpostazione delle password.</p>
+                <p>
+                  
+                </p>
+                <p>(Visibile solo se la casella di controllo <strong>Domande di sicurezza</strong> è abilitata).</p>
+              </td>
+              <td>
+                <p>
+                  <strong>Nota:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Tutte le domande basate sulla conoscenza verranno localizzate nel set completo di lingue di O365 basato sulle impostazioni locali del browser dell'utente.<br><br></li>
+                  <li class="unordered">
+												È possibile definire fino a un totale di 20 domande (la somma delle domande personalizzate e basate sulla conoscenza).<br><br></li>
+                 <li class="unordered">
+												Il limite minimo di caratteri della risposta è 3 caratteri.<br><br></li>
+                  <li class="unordered">
+												Il limite massimo di caratteri della risposta è 40 caratteri.<br><br></li>
+                  <li class="unordered">
+												Gli utenti potrebbero non rispondere alla stessa domanda due volte.<br><br></li>
+                  <li class="unordered">
+												Gli utenti potrebbero non fornire la stessa risposta a due diverse domande due volte.<br><br></li>
+                  <li class="unordered">
+												Qualsiasi set di caratteri può essere usato per definire le risposte (compresi i caratteri Unicode).<br><br></li>
+                  <li class="unordered">
+												Il numero di domande definite deve essere maggiore o uguale al numero di domande necessarie per la registrazione.<br><br></li>
+                </ul>
+                <p>
+                  <strong>Portale di registrazione:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Determina le domande a cui un utente è in grado di fornire risposte durante la registrazione per la reimpostazione delle password.<br><br></li>
+                </ul>
+                <p>
+                  <strong>Portale di reimpostazione delle password:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Determina le domande che un utente è in grado di usare per reimpostare una password.<br><br></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Domande di sicurezza personalizzate</p>
               </td>
               <td>
                 <p>Definisce le domande di sicurezza che gli utenti possono scegliere durante la registrazione per la reimpostazione delle password e durante la reimpostazione delle password.</p>
@@ -408,7 +457,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 </p>
                 <ul>
                   <li class="unordered">
-												È possibile definire fino a 20 domande.<br><br></li>
+												È possibile definire fino a un totale di 20 domande (la somma delle domande personalizzate e basate sulla conoscenza).<br><br></li>
                   <li class="unordered">
 												Il limite massimo di caratteri della domanda è 200 caratteri.<br><br></li>
                   <li class="unordered">
@@ -424,7 +473,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                   <li class="unordered">
 												Il numero di domande definite deve essere maggiore o uguale al numero di domande necessarie per la registrazione.<br><br></li>
                   <li class="unordered">
-												La definizione di diverse domande per impostazioni locali diverse non è ancora supportata, ma lo sarà in futuro.<br><br></li>
+												La definizione di diverse domande per impostazioni locali diverse non è supportata per le domande personalizzate. Tutte le domande personalizzate verranno visualizzate nella lingua in cui vengono immesse nell'interfaccia utente di amministrazione, anche se le impostazioni locali del browser dell'utente sono diverse. Se è necessario che queste domande vengano localizzate, utilizzare invece le domande "basate sulla conoscenza".<br><br></li>
                 </ul>
                 <p>
                   <strong>Portale di registrazione:</strong>
@@ -727,6 +776,6 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
 * [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
 * [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
-* [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Abilitare la comunicazione delle istanze del ruolo in servizi Cloud | Microsoft Azure" 
-description="" 
+pageTitle="Comunicazione per i ruoli in servizi Cloud | Microsoft Azure" 
+description="Le istanze del ruolo in servizi Cloud possono avere endpoint (http, https, tcp, udp) definiti appositamente che comunicano con l'esterno oppure tra le altre istanze del ruolo." 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -359,4 +359,4 @@ Un riferimento allo schema XML per gli elementi utilizzati in precedenza è repe
 ## Passaggi successivi
 Ulteriori informazioni sul [modello](cloud-services-model-and-package.md) del servizio Cloud.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -29,7 +29,7 @@ Se è già installato PowerShell di Microsoft Azure, è necessario installare Az
 
 	Get-Module azure | format-table version
 
-Se non è ancora stato installato o se è necessario aggiornare la versione di Microsoft Azure PowerShell, attenersi alle istruzioni riportate nel documento [Come installare e configurare Azure PowerShell](install-configure-powershell.md) per installare Microsoft Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 In primo luogo, è necessario accedere a Microsoft Azure con questo comando.
 
@@ -137,4 +137,4 @@ Di seguito è riportato un esempio di tale file:
 
 [Come installare e configurare Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

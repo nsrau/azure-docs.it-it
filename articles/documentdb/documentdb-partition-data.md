@@ -1,7 +1,7 @@
 <properties      
     pageTitle="Partizione e dati di scalabilità in DocumentDB con partizionamento orizzontale | Microsoft Azure"      
     description="Esaminare la scalabilità dei dati con una tecnica denominata partizionamento orizzontale. Informazioni sui partizionamento, su come eseguire il partizionamento dei dati in DocumentDB e su quando usare il partizionamento hash, e per intervalli."         
-    keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
+    keywords="Scala dei dati, partizione, partizionamento orizzontale, documentdb, azure, Microsoft azure"
 	services="documentdb"      
     authors="arramac"      
     manager="jhubbard"      
@@ -112,4 +112,4 @@ In questo articolo sono state introdotte alcune tecniche su come partizionare i 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

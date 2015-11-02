@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Come ottenere informazioni dettagliate con i report di gestione delle password di Azure AD | Microsoft Azure"
-	description="Questo articolo descrive come usare i report per ottenere informazioni dettagliate sulle operazioni di gestione delle password nell'organizzazione."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Come ottenere informazioni dettagliate con i report di gestione delle password di Azure AD | Microsoft Azure" 
+	description="Questo articolo descrive come usare i report per ottenere informazioni dettagliate sulle operazioni di gestione delle password nell'organizzazione." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Come ottenere informazioni dettagliate con i report di gestione delle password
@@ -48,13 +48,23 @@ Per trovare i report di gestione delle password, seguire questa procedura:
 
     ![][001]
 
+## Come accedere ai report di gestione delle password da un'API
+A partire da agosto 2015, Report ed eventi di Azure AD supporta il recupero di tutte le informazioni incluse nei report di reimpostazione della password e di registrazione per la reimpostazione della password.
+
+Per accedere a questi dati, è necessario scrivere una piccola applicazione o uno script per recuperarli dal server. [Introduzione all'API di creazione report di Azure AD](active-directory-reporting-api-getting-started.md).
+
+Dopo aver creato uno script di lavoro, è opportuno esaminare gli eventi di registrazione e di reimpostazione password che è possibile recuperare per soddisfare i requisiti degli scenari in uso.
+
+- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): elenca le colonne disponibili per gli eventi di reimpostazione della password
+- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): elenca le colonne disponibili per gli eventi di registrazione per la reimpostazione della password
+
 ## Visualizzare le attività di registrazione per la reimpostazione delle password nell'organizzazione
 
-Il report relativo alle attività di registrazione per la reimpostazione delle password illustra tutte le registrazioni per la reimpostazione delle password che si sono verificate nell'organizzazione. Questo report visualizza le registrazioni per la reimpostazione delle password di tutti agli utenti che hanno registrato correttamente le informazioni di autenticazione nel portale di registrazione per la reimpostazione delle password ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
+Il report relativo alle attività di registrazione per la reimpostazione delle password illustra tutte le registrazioni per la reimpostazione delle password che si sono verificate nell'organizzazione. Questo report consente di visualizzare le registrazioni per la reimpostazione delle password di tutti gli utenti che hanno registrato correttamente le informazioni di autenticazione nel portale di registrazione per la reimpostazione delle password ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
 - **Intervallo di tempo massimo**: 1 mese
 - **Numero massimo di righe**: illimitato
-- **Scaricabile**: Sì, tramite file CSV
+- **Scaricabile**: sì, tramite file con estensione csv
 
     ![][002]
 
@@ -71,7 +81,7 @@ La tabella seguente descrive i valori consentiti per ogni colonna:
 
 Colonna|Valori consentiti e relativi significati
 ---|---
-Dati registrati| **Indirizzo di posta elettronica alternativo** - l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi <p><p>**Telefono ufficio** – l’utente ha utilizzato il telefono ufficio per autenticarsi <p>**Cellulare** - l’utente ha utilizzato un numero di cellulare per l'autenticazione<p>**Domande di sicurezza** – domande di sicurezza usate dall’utente per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio posta elettronica alternativo + cellulare)** – si verifica quando vengono specificati 2 diversi criteri e indica i due metodi utilizzati dall’utente nell'autenticazione per richiedere la reimpostazione della password.
+Dati registrati| **Indirizzo di posta elettronica alternativo**: l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi <p><p>**Telefono ufficio**: l'utente ha usato il telefono dell'ufficio per l'autenticazione<p>**Cellulare**: l'utente ha usato un numero di cellulare per l'autenticazione<p>**Domande di sicurezza**: l'utente ha usato domande di sicurezza per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio indirizzo di posta elettronica alternativo + cellulare)**: si verifica quando vengono specificati 2 diversi criteri e indica i metodi usati dall'utente nell'autenticazione per richiedere la reimpostazione della password.
 
 ## Visualizzare le attività di reimpostazione delle password nell'organizzazione
 
@@ -79,7 +89,7 @@ Questo report illustra tutti i tentativi di reimpostazione delle password che si
 
 - **Intervallo di tempo massimo**: 1 mese
 - **Numero massimo di righe**: illimitato
-- **Scaricabile**: Sì, tramite file CSV
+- **Scaricabile**: sì, tramite file con estensione csv
 
     ![][003]
 
@@ -96,11 +106,10 @@ L'elenco seguente descrive le colonne del report in modo dettagliato:
 ### Descrizione dei valori del report
 La tabella seguente descrive i valori consentiti per ogni colonna:
 
-
 Colonna|Valori consentiti e relativi significati
 ---|---
-Metodi usati|**Indirizzo di posta elettronica alternativo** - l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi <p>**Telefono ufficio** – l’utente ha utilizzato il telefono ufficio per autenticarsi<p>**Cellulare** - l’utente ha utilizzato un numero di cellulare per l'autenticazione<p>**Domande di sicurezza** – domande di sicurezza usate dall’utente per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio posta elettronica alternativo + cellulare)** – si verifica quando vengono specificati 2 diversi criteri e indica i due metodi utilizzati dall’utente nell'autenticazione per richiedere la reimpostazione della password.
-Risultato|**Operazione abbandonata** - l'utente ha iniziato l'operazione di reimpostazione della password, ma l'ha interrotta senza completarla<p>** Operazione bloccata** - è stato impedito all’account utente di utilizzare la pagina di reimpostazione della password poiché ha tentanto troppe volte di utilizzare tale pagina o un singolo criterio di reimpostazione password in 24 ore <p>**Operazione annullata** – l’utente ha avviato la reimpostazione della password, ma ha poi annullato la sessione tramite il pulsante Annulla<p>**E’ stato contattato l’amministratore** – l’utente ha riscontrato problemi durante la sessione che non è stato in grado di risolvere e ha contattato l’amministratore tramite il collegamento “Contatta l’amministratore” invece di terminare la sessione di reimpostazione della password<p>**Operazione non riuscita** – l’utente non è riuscito a reimpostare la password, probabilmente perché non era configurato per utilizzare tale funzionalità (ad esempio, mancanza di licenza o di informazioni di autenticazione, gestione della password locale ma senza writeback).<p>**Operazione riuscita** – la reimpostazione della password è stata eseguita correttamente.
+Metodi usati|**Indirizzo di posta elettronica alternativo**: l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi <p>**Telefono ufficio**: l'utente ha usato il telefono dell'ufficio per l'autenticazione<p>**Cellulare**: l'utente ha usato un numero di cellulare per l'autenticazione<p>**Domande di sicurezza**: l'utente ha usato domande di sicurezza per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio indirizzo di posta elettronica alternativo + cellulare)**: si verifica quando vengono specificati 2 diversi criteri e indica i metodi usati dall'utente nell'autenticazione per richiedere la reimpostazione della password.
+Risultato|**Operazione abbandonata**: l'utente ha iniziato l'operazione di reimpostazione della password, ma l'ha interrotta senza completarla<p>**Operazione bloccata**: è stato impedito all'account utente di usare la pagina di reimpostazione della password poiché ha tentato troppe volte di usare tale pagina o un singolo criterio di reimpostazione password in 24 ore <p>**Operazione annullata**: l'utente ha avviato la reimpostazione della password, ma ha poi annullato la sessione tramite il pulsante Annulla<p>**È stato contattato l'amministratore**: l'utente ha riscontrato problemi durante la sessione che non è stato in grado di risolvere e ha contattato l'amministratore tramite il collegamento "Contatta l'amministratore" invece di terminare la sessione di reimpostazione della password<p>**Operazione non riuscita**: l'utente non è riuscito a reimpostare la password, probabilmente perché non era configurato per usare tale funzionalità (ad esempio, mancanza di licenza o di informazioni di autenticazione, gestione della password locale ma senza writeback).<p>**Operazione riuscita**: la reimpostazione della password è stata eseguita correttamente.
 Dettagli|Vedere la tabella seguente
 
 ### Valori consentiti per la colonna dettagli
@@ -155,7 +164,7 @@ La reimpostazione della password dell'utente è riuscita.|Succeeded
 * [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
 * [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
-* [Gestione delle password in MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
 
 
@@ -163,4 +172,4 @@ La reimpostazione della password dell'utente è riuscita.|Succeeded
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

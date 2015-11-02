@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/18/2015" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dati di esempio in SQL Server in Azure
 
-In questo documento viene illustrato il campionamento dei dati archiviati in SQL Server in Azure tramite SQL e l’uso del linguaggio di programmazione Python.
+In questo documento viene illustrato come campionare dei dati archiviati nel server SQL in Azure utilizzando sia SQL sia il linguaggio di programmazione Python. Viene inoltre illustrato come spostare i dati campionati in Azure Machine Learning salvandoli in un file, caricarli in un BLOB di Azure e quindi leggerli in di Azure ML.
 
->[AZURE.NOTE]Il codice SQL di esempio riportato in questo documento presuppone che i dati si trovino in un server SQL in Azure. In caso contrario, fare riferimento all’argomento [Spostamento dei dati in SQL Server in Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) nella [guida Elaborazione dati avanzata](machine-learning-data-science-advanced-data-processing.md) per istruzioni su come spostare i dati in un Server SQL in Azure.
+Il campionamento di Python utilizza la libreria ODBC [pyodbc](https://code.google.com/p/pyodbc/) per connettersi al server SQL in Azure e la libreria [Pandas](http://pandas.pydata.org/) per eseguire il campionamento.
+
+>[AZURE.NOTE]Il codice SQL di esempio riportato in questo documento presuppone che i dati si trovino in un server SQL in Azure. In caso contrario, fare riferimento all’argomento [Spostamento dei dati in SQL Server in Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) per istruzioni su come spostare i dati in un Server SQL su Azure.
 
 ##<a name="SQL"></a>Utilizzo di SQL
 
@@ -55,7 +57,7 @@ Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQ
 
 ##<a name="python"></a>Utilizzo del linguaggio di programmazione Python 
 
-In questa sezione viene mostrato l'uso della libreria pyodbc per connettersi al database di un server SQL in Python. La stringa di connessione del database è la seguente: (sostituire servername, dbname, username e password con la propria configurazione):
+In questa sezione viene mostrato l'uso della [libreria pyodbc](https://code.google.com/p/pyodbc/) per stabilire un collegamento ODBC al database di un server SQL in Python. La stringa di connessione del database è la seguente: (sostituire servername, dbname, username e password con la propria configurazione):
 
 	#Set up the SQL Azure connection
 	import pyodbc	
@@ -104,13 +106,13 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
  
 ![lettore BLOB][2]
 
-## Esempio di ADAPT (Advanced Analytics Process and Technology) in azione
+## Il Cortana Analytics Process nell’esempio di azione
 
-Per un esempio della procedura dettagliata end-to-end di ADAPT (Advanced Analytics Process and Technology) tramite un set di dati pubblici, vedere [Azure Advanced Analytics Process and Technology in azione: uso di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Per un esempio della procedura dettagliata end-to-end del Cortana Analytics Process mediante un set di dati pubblico, vedere [il Cortana Analytics Process in azione: utilizzo di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

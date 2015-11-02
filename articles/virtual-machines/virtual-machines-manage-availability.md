@@ -19,6 +19,8 @@
 
 # Gestione della disponibilità delle macchine virtuali
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## Confronto tra manutenzione pianificata e manutenzione non pianificata
 Esistono due tipi di eventi della piattaforma Microsoft Azure che possono incidere sulla disponibilità delle macchine virtuali: la manutenzione pianificata e la manutenzione non pianificata.
 
@@ -70,4 +72,4 @@ Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibi
 [Evitare singole istanze di macchine virtuali nei set di disponibilità]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Come configurare un set di disponibilità per le macchine virtuali]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

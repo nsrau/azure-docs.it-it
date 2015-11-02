@@ -20,6 +20,8 @@
 
 # Uso di privilegi root su Linux in Macchine virtuali di Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Per impostazione predefinita, l'utente `root` è disabilitato nelle macchine virtuali Linux in Azure. Gli utenti possono eseguire comandi con privilegi elevati usando il comando `sudo`. L'esperienza può tuttavia variare in base alla modalità usata per il provisioning del sistema.
 
 1. **Chiave SSH e password o solo password**: il provisioning della macchina virtuale è stato effettuato con un certificato (file `.CER`) o una chiave SSH e con una password oppure solo con un nome utente e una password. In questo caso `sudo` richiederà la password dell'utente prima di eseguire il comando.
@@ -53,4 +55,4 @@ In questo caso, all'utente **non** verrà richiesta una password. Dopo aver prem
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

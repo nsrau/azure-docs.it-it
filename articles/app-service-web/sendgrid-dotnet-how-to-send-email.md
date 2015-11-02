@@ -52,9 +52,13 @@ Il [pacchetto NuGet di SendGrid](https://www.nuget.org/packages/Sendgrid) è il 
 
 Per installare il pacchetto NuGet di SendGrid, eseguire le operazioni seguenti:
 
-1.  Creato un nuovo progetto. ![Creare un nuovo progetto][create-new-project]
+1.  Creato un nuovo progetto.
 
-2.  Selezionare un modello: ![Selezionare un modello:][select-a-template]
+    ![Creare un nuovo progetto][create-new-project]
+
+2.  Selezionare un modello.
+
+    ![Selezionare un modello:][select-a-template]
 
 3.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
 
@@ -257,4 +261,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

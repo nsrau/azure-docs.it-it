@@ -19,6 +19,8 @@
 
 # Diversi modi per creare una macchina virtuale Linux
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Azure offre diversi modi per creare una macchina virtuale perché le macchine virtuali sono adatte a scopi e utenti diversi. Ciò significa che è necessario effettuare alcune scelte sulla macchina virtuale e su come verrà creata. In questo articolo viene fornito un riepilogo di queste opzioni e i collegamenti alle istruzioni.
 
 Modelli di Gestione risorse di Azure sono stati introdotti recentemente per consentire di creare e gestire una macchina virtuale e le relative risorse diverse come una singola unità logica di distribuzione. Istruzioni per questo approccio, se disponibili, sono fornite di seguito. Per altre informazioni su Gestione risorse di Azure e su come gestire le risorse come singola unità, vedere [Panoramica][].
@@ -27,7 +29,7 @@ Modelli di Gestione risorse di Azure sono stati introdotti recentemente per cons
 
 ### Interfaccia utente grafica: il portale di Azure o il portale di anteprima
 
-L'interfaccia utente grafica del portale di Azure è un modo semplice per provare a usare una macchina virtuale, soprattutto se si ha poca esperienza con Azure. Utilizzare il [portale di Azure](http://manage.windowsazure.com) oppure ill [portale di anteprima di Azure](http://portal.azure.com) per creare la VM. Per istruzioni generali, vedere [Creare una macchina virtuale personalizzata][] e selezionare un'immagine Linux dalla **raccolta**. Si noti che il [portale di Azure](http://manage.windowsazure.com) consente di creare macchine virtuali solo mediante il modello di distribuzione classica.
+L'interfaccia utente grafica del portale di Azure è un modo semplice per provare a usare una macchina virtuale, soprattutto se si ha poca esperienza con Azure. Utilizzare il [portale di Azure](http://manage.windowsazure.com) oppure il [portale di anteprima di Azure](http://portal.azure.com) per creare la macchina virtuale. Per istruzioni generali, vedere [Creare una macchina virtuale personalizzata][] e selezionare un'immagine Linux dalla **Raccolta**. Si noti che il [portale di Azure](http://manage.windowsazure.com) crea macchine virtuali solo mediante il modello di distribuzione classica.
 
 ### Shell dei comandi: interfaccia della riga di comando di Azure o Azure PowerShell
 
@@ -101,4 +103,4 @@ Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acqui
 [Creare una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
 [Creare una macchina virtuale personalizzata]: virtual-machines-create-custom.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

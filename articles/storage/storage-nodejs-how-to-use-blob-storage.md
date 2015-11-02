@@ -201,7 +201,7 @@ Per elencare i BLOB all'interno di un contenitore, usare il metodo **listBlobsSe
 
 Per scaricare i dati da un BLOB, usare le operazioni seguenti:
 
-* **getBlobToFile**: scrive i contenuti del BLOB in un file.
+* **getBlobToLocalFile** - scrive i contenuti del BLOB in un file.
 
 * **getBlobToStream**: scrive il contenuto del BLOB in un flusso
 
@@ -378,4 +378,4 @@ Per altre informazioni, vedere le risorse seguenti:
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Riferimento per le API di Azure Storage SDK per Node.js]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

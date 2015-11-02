@@ -62,11 +62,11 @@ L'SDK di base fornisce solo un'API: a differenza degli SDK per dispositivi o Web
 
     * Se è stato installato solo il pacchetto dell'API di base Microsoft.ApplicationInsights, è necessario impostare la chiave nel codice, ad esempio in main(): 
 
-     `TelemetryConfiguration.Active.InstrumentationKey = "`*nome della chiave*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*nome della chiave*`";`
 
     * Se è stato installato uno degli altri pacchetti, è possibile impostare la chiave tramite il codice o in ApplicationInsights.config:
  
-     `<InstrumentationKey>`*nome della chiave*`</InstrumentationKey>`
+    `<InstrumentationKey>`*nome della chiave*`</InstrumentationKey>`
 
 
 
@@ -299,4 +299,4 @@ Il codice del canale di persistenza è disponibile in [github](https://github.co
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
-	ms.author="mebha"/>
+	ms.date="10/20/2015" 
+	ms.author="meetb"/>
 
 
 # Connettersi al database SQL tramite Node.js con Tedious in Mac OS X
@@ -170,4 +170,4 @@ L'esempio di codice in questa sezione applica parametri a un'istruzione SQL INSE
 		connection.execSql(request);
 	}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

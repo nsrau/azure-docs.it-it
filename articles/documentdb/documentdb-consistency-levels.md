@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Livelli di coerenza in DocumentDB | Microsoft Azure" 
 	description="Esaminare il modo in cui DocumentDB ha quattro livelli di coerenza con livelli di prestazioni associati per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza." 
-	keywords="eventual consistency, documentdb, azure, Microsoft azure"
+	keywords="coerenza finale, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -36,21 +36,21 @@ Questi livelli di coerenza granulari e ben definiti permettono di ottenere compr
 
 >[AZURE.NOTE]L'override del livello di coerenza predefinito per le singole raccolte potrebbe essere supportato in una versione futura.
 
-**Sicuro**: la coerenza assoluta garantisce come un'operazione di scrittura sia visibile solo dopo che viene eseguito il commit permanente per il quorum di maggioranza delle repliche. Per quanto riguarda la scrittura, o ne viene eseguito il commit in modo sincrono dalla replica primaria e dalla maggioranza delle repliche secondarie oppure viene interrotta. Una lettura viene sempre confermata dal quorum di lettura di maggioranza: un client non potrà mai rilevare una scrittura parziale o di cui non è stato eseguito il commit e garantisce sempre la lettura della scrittura confermata più recente.
+**Sicuro**: la coerenza assoluta garantisce che un'operazione di scrittura sia visibile solo dopo che viene eseguito il commit permanente per il quorum di maggioranza delle repliche. Per quanto riguarda la scrittura, o ne viene eseguito il commit in modo sincrono dalla replica primaria e dalla maggioranza delle repliche secondarie oppure viene interrotta. Una lettura viene sempre confermata dal quorum di lettura di maggioranza: un client non potrà mai rilevare una scrittura parziale o di cui non è stato eseguito il commit e garantisce sempre la lettura della scrittura confermata più recente.
  
 La coerenza assoluta offre la garanzia totale sulla coerenza dei dati, ma il livello più basso di prestazioni in lettura e scrittura.
 
-**Delimitata obsolescenza**: Coerenza obsolescenza delimitata garantisce il totale dell'ordine di propagazione delle operazioni di scrittura con la possibilità che legga il ritardo dietro le scrittura al massimo con i prefissi K. La lettura viene sempre confermata da un quorum di maggioranza di repliche. La risposta a una richiesta di lettura ne specifica il relativo aggiornamento (in termini di K).
+**Obsolescenza associata**: la coerenza con obsolescenza associata garantisce l’ordine totale di propagazione delle operazioni di scrittura con la possibilità di leggere il ritardo rispetto alle scritture in corrispondenza di gran parte dei prefissi K. La lettura viene sempre confermata da un quorum di maggioranza di repliche. La risposta a una richiesta di lettura ne specifica il relativo aggiornamento (in termini di K). Con l’obsolescenza associata è possibile impostare una soglia configurabile di obsolescenza (come i prefissi o l'ora) per le letture di compromesso tra latenza e coerenza nello stato continuo.
 
-L'obsolescenza associata offre un comportamento più prevedibile per la coerenza delle letture, con latenza minima per le scritture. Poiché le letture vengono confermate da un quorum di maggioranza, la latenza di lettura non è quella minima offerta dal sistema.
+L'obsolescenza associata offre un comportamento più prevedibile per la coerenza delle letture, con latenza minima per le scritture. Poiché le letture vengono confermate da un quorum di maggioranza, la latenza di lettura non è quella minima offerta dal sistema. L’Obsolescenza associata è un'opzione per gli scenari in cui si desidera coerenza assoluta, ma laddove la coerenza assoluta non è pratica. Se si configura l'“intervallo di obsolescenza” per far sì che la coerenza obsolescenza associata sia arbitrariamente di dimensioni, preserverà comunque l'ordine globale totale delle scritture. Ciò fornisce una garanzia più elevata rispetto a quella di sessione o finale.
 
 >[AZURE.NOTE]L’obsolescenza vincolata garantisce solo le letture monotona esplicite richieste di lettura. La risposta del server visualizzati per le richieste di scrittura non offre garanzie obsolescenza vincolato.
 
-**Sessione**: a differenza dei modelli di coerenza globale offerti dai livelli di coerenza obsolescenza sicuri e vincolati, la coerenza di "sessione" è progettata per una sessione client specifico. La coerenza di sessione è di solito sufficiente in quanto fornisce letture e scritture monotoniche garantite, oltre alla capacità di leggere le proprie scritture. Una richiesta di lettura per la coerenza di sessione viene rilasciata a fronte di una replica che può gestire la versione richiesta dal cliente (parte del cookie di sessione).
+**Sessione**: a differenza dei modelli di coerenza globale offerti dai livelli di coerenza obsolescenza sicuri e vincolati, la coerenza di "sessione" è progettata per una sessione client specifica. La coerenza di sessione è di solito sufficiente in quanto fornisce letture e scritture monotoniche garantite, oltre alla capacità di leggere le proprie scritture. Una richiesta di lettura per la coerenza di sessione viene rilasciata a fronte di una replica che può gestire la versione richiesta dal cliente (parte del cookie di sessione).
 
 La coerenza di sessione offre una coerenza prevedibile dei dati delle letture per una sessione, con latenza minima per le scritture. Anche la latenza delle letture è bassa, tranne in rari casi in cui la lettura viene gestita da una singola replica.
 
-**Eventual**: l’eventuale coerenza è la coerenza più debole in cui un client possa ottenere i valori che sono meno recenti rispetto a quelli ha visto in precedenza, nel corso del tempo. In assenza di ulteriori scritture, alla fine le repliche all'interno del gruppo convergeranno. La richiesta di lettura viene gestita da qualsiasi indice secondario.
+**Eventual**: la coerenza finale è la coerenza più debole in cui un client possa ottenere i valori che sono meno recenti rispetto a quelli ha visto in precedenza, nel corso del tempo. In assenza di ulteriori scritture, alla fine le repliche all'interno del gruppo convergeranno. La richiesta di lettura viene gestita da qualsiasi indice secondario.
 
 La coerenza finale rappresenta il livello più debole, ma offre la latenza più bassa sia per le letture sia le per scritture.
 
@@ -60,7 +60,7 @@ La coerenza finale rappresenta il livello più debole, ma offre la latenza più 
 
 2. Nel pannello **DocumentDB account**, selezionare il database di account da modificare.
 
-3. Nel pannello dell’account, nella sezione **configurazione**, fare clic sui**Uniformità predefinita**riquadro.
+3. Nel pannello dell’account, nella sezione **configurazione**, fare clic sul riquadro **Uniformità predefinita**.
 
 4. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
 
@@ -83,9 +83,9 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 
 -	Doug Terry. Coerenza dei dati replicati illustrati attraverso il baseball.[http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Garanzie di sessione per i dati replicati con tipizzazione debole e coerente.[http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi. Svantaggi della coerenza di moderne distribuite Progettazione sistemi di Database: CAP è solo una parte del brano". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
--	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistica delimitata obsolescenza (PBS) per pratiche quorum parziale.[http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Werner Vogels. Eventuale coerente, in particolare.[http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+-	Daniel Abadi. Svantaggi della coerenza nella Progettazione moderna distribuita di sistemi di Database: CAP è solo una parte del brano". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
+-	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Obsolescenza associata probabilistica (PBS) per quorum di pratiche parziali.[http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+-	Werner Vogels. Coerente Finale - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creare una nuova risorsa di Application Insights" 
-	description="Configurare una nuova applicazione e ottenere una nuova chiave di strumentazione. Application Insights monitora prestazioni e utilizzo delle applicazioni attive." 
+	description="Impostare il monitoraggio di Application Insights per una nuova applicazione live. Approccio basato sul Web." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -94,4 +94,4 @@ Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

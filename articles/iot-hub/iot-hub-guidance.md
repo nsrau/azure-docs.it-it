@@ -69,7 +69,7 @@ Il modello di servizio token è il metodo consigliato per implementare uno schem
 
 Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
-- [Introduzione agli hub IoT (esercitazione)][lnk-get-started]
+- [Introduzione all’hub IoT (esercitazione)][lnk-get-started]
 - [Che cos'è l’hub IoT Azure?][]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
@@ -88,4 +88,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

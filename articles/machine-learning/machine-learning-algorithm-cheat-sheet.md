@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Foglio informativo sugli algoritmi di Machine Learning | Microsoft Azure"
 	description="Un foglio informativo sugli algoritmi di Machine Learning stampabile aiuta a scegliere il giusto algoritmo per il proprio modello predittivo in Azure Machine Learning Studio."
-	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"
+	keywords="foglio informativo sugli algoritmi, foglio informatico, algoritmo di machine learning"
 	services="machine-learning"
 	documentationCenter=""
 	authors="brohrer"
@@ -42,7 +42,7 @@ Scaricare il foglio informativo sugli algoritmi di Machine Learning e ottenere a
 * Per una discussione più approfondita sui diversi tipi di algoritmi di Machine Learning, sul loro utilizzo e su come utilizzare questo foglio informativo per la scelta dell'algoritmo corretto, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 * Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere [Initialize Model][initialize-model] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per un elenco completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere [Elenco moduli A-Z di Machine Learning Studio][a-z-list] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
-* Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+* Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -87,4 +87,4 @@ Scaricare il foglio informativo sugli algoritmi di Machine Learning e ottenere a
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

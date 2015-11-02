@@ -1,6 +1,6 @@
 <properties
    pageTitle="Caricare i dati di esempio in SQL Data Warehouse | Microsoft Azure"
-   description="Caricare i dati di esempio in SQL Data Warehouse"
+   description="Informazioni su come caricare i dati di esempio in SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/23/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
-#Caricare i dati di esempio in SQL Data Warehouse
+# Caricare i dati di esempio in SQL Data Warehouse
 
 Durante la creazione dell'istanza di SQL Data Warehouse è possibile caricarvi facilmente alcuni dati di esempio. Se questo passaggio non viene eseguito durante il provisioning, è anche possibile [caricare manualmente i dati di esempio][].
 
@@ -33,7 +33,7 @@ Di seguito viene fornita una breve descrizione di come caricare AdventureWorksDW
 > [AZURE.NOTE]Per caricare dati di esempio nell'istanza, è infatti necessario consentire ai servizi Azure di accedere al server (tale funzionalità in genere è abilitata per impostazione predefinita durante la creazione di un nuovo server). Se non si fornisce l'accesso, il caricamento avrà esito negativo, ma sarà comunque possibile [caricare manualmente i dati di esempio][].
 
 
-##Uso di Power BI per l'analisi di Adventureworks
+## Uso di Power BI per l'analisi di Adventureworks
 
 L'uso del set di dati di esempio può essere il modo ideale per imparare a eseguire Power BI. Dopo aver caricato i dati di esempio, è infatti possibile aprire una connessione a SQL Data Warehouse facendo clic sul pulsante 'Apri in Power BI' nel portale di Azure o passando a [Power BI][] ed [eseguendo la connessione a SQL Data Warehouse][]. Dopo la connessione, dovrebbe venire creato un nuovo set di dati con lo stesso nome del data warehouse in uso. Per semplificare l'analisi, è stata creata una vista denominata 'AggregateSales' con alcune delle metriche fondamentali per analizzare le vendite della società. È possibile fare clic sul nome di questa vista per espanderla e visualizzare le colonne che contiene, ma anche creare alcune visualizzazioni rapide seguendo questa procedura:
 
@@ -73,25 +73,25 @@ In realtà, SQL Data Warehouse supporta quasi tutti i costrutti T-SQL di SQL Ser
 
 
 ## Passaggi successivi
-Dopo essersi esercitati con i dati di esempio, è possibile vedere come [sviluppare][], [caricare][] o [eseguire la migrazione][].
+Dopo esserci esercitati con i dati di esempio, esaminiamo come [sviluppare][], [caricare][] o [migrare][].
 
 <!--Image references-->
 
 <!--Article references-->
-[eseguire la migrazione]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-migrate/
-[sviluppare]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-develop/
-[caricare]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-load/
-[connessione ed esecuzione di query]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[alla migrazione del codice]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-migrate-code/
-[caricare manualmente i dati di esempio]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[portale di Azure]: https://portal.azure.com
-[Power BI]: http://www.powerbi.com
-[eseguendo la connessione a SQL Data Warehouse]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-integrate-power-bi/
+[migrare]: ./sql-data-warehouse-overview-migrate.md
+[sviluppare]: ./sql-data-warehouse-overview-develop.md
+[caricare]: ./sql-data-warehouse-overview-load.md
+[connessione ed esecuzione di query]: ./sql-data-warehouse-get-started-connect.md
+[alla migrazione del codice]: ./sql-data-warehouse-migrate-code.md
+[caricare manualmente i dati di esempio]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[portale di Azure]: https://portal.azure.com/
+[Power BI]: http://www.powerbi.com/
+[eseguendo la connessione a SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 
 <!--MSDN references-->
-[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/it-IT/download/details.aspx?id=36433
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
 
 <!--Other Web references-->
-[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/07/2015" 
+  ms.date="10/20/2015" 
   ms.author="tamram"/>
 
 # Replica di Archiviazione di Azure
@@ -88,8 +88,10 @@ L'area primaria viene selezionata durante la creazione di un account di archivia
 |Giappone occidentale |Giappone orientale
 |Brasile meridionale |Stati Uniti centro-meridionali
 |Australia orientale |Australia sudorientale
-|Australia sudorientale|Australia orientale  
-
+|Australia sudorientale|Australia orientale
+|India meridionale |India centrale
+|India centrale |India meridionale
+  
 
 ## Archiviazione con ridondanza geografica e accesso in lettura
 
@@ -104,4 +106,4 @@ Se si abilita l'accesso in sola lettura ai dati nell'area secondaria, i dati sar
 - [Emulatore di archiviazione di Microsoft Azure 3.1 con RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Documento SOSP su Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

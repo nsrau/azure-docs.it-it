@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #Esercitazione: Come eseguire l'integrazione di NetSuite con Azure Active Directory
@@ -66,13 +66,13 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 	> [AZURE.NOTE]Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
-3. Nella pagina **Configurare le impostazioni dell'app** immettere nel campo **URL di accesso** l'URL del tenant di NetSuite, usando uno dei formati seguenti:
-	- `https://<tenant-name>.netsuite.com`
-	- `https://<tenant-name>.na1.netsuite.com`
-	- `https://<tenant-name>.na2.netsuite.com`
-	- `https://<tenant-name>.sandbox.netsuite.com`
-	- `https://<tenant-name>.na1.sandbox.netsuite.com`
-	- `https://<tenant-name>.na2.sandbox.netsuite.com`
+3. Nella pagina **Configurare le impostazioni dell'app**, per il campo **URL di risposta** immettere l'URL del tenant di NetSuite, usando uno dei formati seguenti:
+	- `https://<tenant-name>.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
 	![Immettere l'URL del tenant][8]
 
@@ -142,23 +142,23 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 	- Scegliere **Setup** dal menu di navigazione principale, quindi fare clic su **Setup Manager**.
 
-	![Passare a Setup Manager.][10]
+		![Passare a Setup Manager.][10]
 
 	- Scegliere **Users/Roles** dal menu di navigazione a sinistra, quindi fare clic su **Manage Roles**.
 
-	![Passare a Manage Roles.][22]
+		![Passare a Manage Roles.][22]
 
 	- Fare clic su **New Role**.
 
 	- Immettere un valore per **Name** per il nuovo ruolo, quindi selezionare la casella di controllo **Single Sign-On Only**.
 
-	![Assegnare un nome al nuovo ruolo.][23]
+		![Assegnare un nome al nuovo ruolo.][23]
 
 	- Fare clic su **Save**.
 
 	- Scegliere **Permissions** dal menu disponibile nella parte superiore. Fare quindi clic su **Setup**.
 
-	![Passare a Permissions.][24]
+		![Passare a Permissions.][24]
 
 	- Selezionare **Set Up SAM Single Sign-on**, quindi fare clic su **Add**.
 
@@ -166,25 +166,27 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 	- Scegliere **Setup** dal menu di navigazione principale, quindi fare clic su **Setup Manager**.
 
-	![Passare a Setup Manager.][10]
+		![Passare a Setup Manager.][10]
 
 	- Scegliere **Users/Roles** dal menu di navigazione a sinistra, quindi fare clic su **Manage Users**.
 
-	![Passare a Manage Users.][25]
+		![Passare a Manage Users.][25]
 
 	- Selezionare un utente di test. Fare quindi clic su **Edit**.
 
-	![Passare a Manage Users.][26]
+		![Passare a Manage Users.][26]
 
 	- Nella finestra di dialogo Roles selezionare il ruolo creato e quindi fare clic su **Add**.
 
-	![Passare a Manage Users.][27]
+		![Passare a Manage Users.][27]
 
 	- Fare clic su **Save**.
 
 19. Per testare la configurazione, vedere la sezione seguente intitolata [Assegnare utenti a NetSuite](#step-4-assign-users-to-netsuite).
 
 ##Passaggio 3: Abilitare il provisioning automatizzato degli utenti
+
+> [AZURE.NOTE]Per impostazione predefinita, gli utenti con provisioning verranno aggiunti alla filiale di radice dell'ambiente NetSuite.
 
 1. Nella pagina di Avvio rapido per NetSuite in Azure Active Directory fare clic su **Configura provisioning utenti**.
 
@@ -254,4 +256,4 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

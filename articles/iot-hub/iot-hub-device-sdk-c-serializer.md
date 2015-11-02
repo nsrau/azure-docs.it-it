@@ -162,7 +162,7 @@ void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent
 }
 ```
 
-Questa funzione serializza l'evento dati specificato e lo invia all'hub IoT tramite **IoTHubClient\_SendEventAsync**. È lo stesso codice esaminato negli articoli precedenti, **SendAsync** incapsula semplicemente la logica in una funzioen pratica.
+Questa funzione serializza l'evento dati specificato e lo invia all'hub IoT tramite **IoTHubClient\_SendEventAsync**. È lo stesso codice esaminato negli articoli precedenti, **SendAsync** incapsula semplicemente la logica in una funzione pratica.
 
 Un'altra funzione helper usata nel frammento precedente è **GetDateTimeOffset**. Questa funzione trasforma l'ora specificata in un valore di tipo **EDM\_DATE\_TIME\_OFFSET**:
 
@@ -522,7 +522,7 @@ Ad esempio, per richiamare **SetAirResistance** è possibile inviare questo mess
 {"Name" : "SetAirResistance", "Parameters" : { "Position" : 5 }}
 ```
 
-Il nome dell'azione deve corrispondere esattamente a un'azione definita nel modello. Anche i nomi dei parametri devono corrispondere. È importante anche la distinzione maiuscole/minuscole. **Name** e **Parameters** sono sempre in maiuscolo. Assicurarsi anche di rispettare la corrispondenza maiuscole/minuscole per i nomi di azioni e i parametri del modello. In questo esempio, il nome del'azione è "SetAirResistance" e non "setairresistance".
+Il nome dell'azione deve corrispondere esattamente a un'azione definita nel modello. Anche i nomi dei parametri devono corrispondere. È importante anche la distinzione maiuscole/minuscole. **Name** e **Parameters** sono sempre in maiuscolo. Assicurarsi anche di rispettare la corrispondenza maiuscole/minuscole per i nomi di azioni e i parametri del modello. In questo esempio, il nome dell'azione è "SetAirResistance" e non "setairresistance".
 
 Questo descrive tutto ciò che è necessario sapere quando si inviano eventi e si ricevono messaggi con la libreria **serializer**. Prima di proseguire, si esamineranno alcuni parametri che è possibile configurare per controllare le dimensioni del modello.
 
@@ -570,15 +570,29 @@ Il parametro **nArithmetic** riguarda più il funzionamento interno del linguagg
 
 Per modificare questi parametri, modificare i valori nel file macro\_utils.tt, ricompilare la soluzione macro\_utils\_h\_generator.sln ed eseguire il programma compilato. In questo caso, verrà generato un nuovo file macro\_utils.h che sarà inserito nella directory .\\common\\inc.
 
+Per usare la nuova versione di macro\_utils.h, sarà necessario rimuovere il pacchetto NuGet **serializer** dalla soluzione e includere il progetto di Visual Studio **serializer**. In questo modo, è possibile compilare il codice in base al codice sorgente della libreria del serializzatore, che include macro\_utils.h aggiornato. Si supponga di voler eseguire questa operazione per **simplesample\_amqp**. È possibile iniziare rimuovendo il pacchetto NuGet della libreria del serializzatore dalla soluzione:
+
+   ![](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.PNG)
+
+Aggiungere quindi il progetto alla soluzione Visual Studio:
+
+> .\\c\\serializer\\build\\windows\\serializer.vcxproj
+
+Al termine, la soluzione dovrebbe avere un aspetto analogo al seguente:
+
+   ![](media/iot-hub-device-sdk-c-serializer/05-serializer-project.PNG)
+
+A questo punto quando si compila la soluzione, macro\_utils.h aggiornato verrà incluso nel file binario.
+
 L'aspetto principale da considerare è che se si aumentano molto questi valori, potrebbero essere superati i limiti del compilatore. A questo proposito, **nMacroParameters** è il parametro principale a cui prestare attenzione. La specifica C99 definisce che è consentito un minimo di 127 parametri in una definizione di macro. Il compilatore Microsoft segue esattamente la specifica e ha un limite di 127, quindi non sarà possibile aumentare **nMacroParameters** oltre il valore predefinito. Altri compilatori possono però consentirlo, ad esempio il compilatore GNU supporta un limite più alto.
 
-A questo punto è stato discusso praticamente tutto ciò che occorre sapere sulla scrittura del codice con la libreria **serializer**. Prima di concludere, ecco di seguito alcuni argomenti degli articoli precedenti che potrebbero risultare interessanti.
+A questo punto è stato descritto tutto ciò che occorre sapere sulla scrittura del codice con la libreria **serializer**. Prima di concludere, ecco di seguito alcuni argomenti degli articoli precedenti che potrebbero risultare interessanti.
 
 ## API di livello inferiore
 
 L'applicazione di esempio illustrata in questo articolo è **simplesample\_amqp**. Questo esempio usa le API di livello superiore( non "LL") per inviare eventi e ricevere messaggi. Se si usano queste API, viene eseguito un thread in background che si occupa dell'invio degli eventi e della ricezione dei messaggi. Se necessario, queste API (LL) di livello interiore possono essere usate per eliminare il thread in background e assumere il controllo esplicito dei tempi di invio di eventi e ricezione dei messaggi dal cloud.
 
-Come descritto in un [articolo precedente](iot-hub-device-sdk-c-iothubclient.md) è disponibile un set di funzioni costituito dalle API di livello inferiore:
+Come descritto in un [articolo precedente](iot-hub-device-sdk-c-iothubclient.md) è disponibile un set di funzioni costituito dalle API di livello superiore:
 
 -   IoTHubClient\_CreateFromConnectionString
 
@@ -616,11 +630,11 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 Non ha importanza se l'evento è stato generato dalla libreria **serializer** o creato manualmente con la libreria **IoTHubClient**.
 
-Per quanto riguarda le credenziali del dispositivo alternative, **IoTHubClient\_LL\_Create** funziona altrettanto bene di **IoTHubClient\_CreateFromConnectionString** per l'allocazione di un **IOTHUB\_CLIENT\_HANDLE**.
+Per quanto riguarda le credenziali del dispositivo alternative, **IoTHubClient\_LL\_Create** è adatto quanto **IoTHubClient\_CreateFromConnectionString** per l'allocazione di un **IOTHUB\_CLIENT\_HANDLE**.
 
 Infine, se si usa la libreria **serializer**, è possibile impostare le opzioni di configurazione con **IoTHubClient\_LL\_SetOption** esattamente come è stato fatto con la libreria **IoTHubClient**.
 
-Una funzionalità secondaria esclusiva nella libreria **serializer** riguarda le API di inizializzazione. Prima di iniziare a utilizzare la libreria, è necessario chiamare **serializer\_init**:
+Una funzionalità secondaria esclusiva nella libreria **serializer** riguarda le API di inizializzazione. Prima di iniziare a usare la libreria, è necessario chiamare **serializer\_init**:
 
 ```
 serializer_init(NULL);
@@ -628,18 +642,18 @@ serializer_init(NULL);
 
 Questa operazione viene eseguita subito prima di chiamare **IoTHubClient\_CreateFromConnectionString**.
 
-In modo analogo, una volta che si è terminato di utilizzare la libreria, l'ultima chiamata da esegiure di solito sarà **serializer\_deinit**:
+In modo analogo, dopo aver terminato di usare la libreria, l'ultima chiamata da eseguire sarà in genere **serializer\_deinit**:
 
 ```
 serializer_deinit();
 ```
 
-Per il resto, tutte le altre funzionalità elencate sopra hanno lo spesso comportamento sia nella libreria **serializer** che nella libreria **IoTHubClient**. Per altri dettagli su uno qualsiasi di questi argomenti, vedere l'[articolo precedente](iot-hub-device-sdk-c-iothubclient.md) di questa serie.
+In caso contrario, tutte le altre funzionalità elencate sopra hanno lo spesso comportamento sia nella libreria **serializer** che nella libreria **IoTHubClient**. Per altri dettagli su uno qualsiasi di questi argomenti, vedere l'[articolo precedente](iot-hub-device-sdk-c-iothubclient.md) di questa serie.
 
 ## Passaggi successivi
 
 Questo articolo descrive in dettaglio gli aspetti univoci della libreria **serializer** inclusa in **Azure IoT device SDK per C**. Con le informazioni fornite si dovrebbe avere una buona conoscenza di come usare i modelli per inviare eventi e ricevere messaggi dall'hub IoT.
 
-Questo articolo conclude anche la serie in tre parti relativa allo sviluppo di applicazioni con **Azure IoT device SDK per C**. Le informazioni dovrebbero essere sufficienti non solo per iniziare, ma anche per avere una conoscenza abbastanza approfondita del funzionamento delle API. In caso siano necessari altri dettagli, nell'SDK sono disponibili alcuni esempi non illustrati sopra. Anche la [documentazione dell'SDK](https://github.com/Azure/azure-iot-sdks) è una risorsa molto utile per altre informazioni.
+Questo articolo conclude anche la serie in tre parti relativa allo sviluppo di applicazioni con **Azure IoT device SDK per C**. Le informazioni dovrebbero essere sufficienti non solo per iniziare, ma anche per avere una conoscenza abbastanza approfondita del funzionamento delle API. In caso siano necessari altri dettagli, nell'SDK sono disponibili alcuni esempi non illustrati sopra. In alternativa, se sono necessarie altre informazioni, ad esempio la [documentazione dell'SDK](https://github.com/Azure/azure-iot-sdks) è una risorsa molto utile per altre informazioni.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

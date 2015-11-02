@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/23/2015"
+   ms.date="10/13/2015"
    ms.author="alkohli" />
 
 # Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
@@ -22,25 +22,25 @@ Microsoft Azure StorSimple 8600 è un dispositivo enclosure con doppio alloggiam
 
 ## Disimballare il dispositivo StorSimple 8600
 
-Nella seguente procedura vengono fornite istruzioni chiare e dettagliate su come disimballare il dispositivo di archiviazione StorSimple 8600. Il dispositivo viene fornito in due scatole separate, una per l'enclosure principale e l'altra per l'enclosure EBOD.
+Nella seguente procedura vengono fornite istruzioni chiare e dettagliate su come disimballare il dispositivo di archiviazione StorSimple 8600. Il dispositivo viene fornito in due scatole, una per l'enclosure principale e l'altra per l'enclosure EBOD. Queste due scatole vengono poi inserite in una scatola singola.
 
 ### Preparazione del disimballaggio del dispositivo
 
 Prima di disimballare il dispositivo, consultare le informazioni seguenti.
 
->[AZURE.WARNING]![icona peso elevato](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
->
-> 1. Assicurarsi che siano disponibili due persone per sostenere il peso del dispositivo, in caso debba essere trasportato manualmente. Un dispositivo completamente configurato può pesare fino a 32 kg.
->
-> 2. Posizionare la scatola su una superficie piana e orizzontale.
+
+![Icona di avviso](./media/storsimple-safety/IC740879.png) ![icona peso elevato](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVVISO**
+
+1. Assicurarsi che siano disponibili due persone per sostenere il peso del dispositivo, in caso debba essere trasportato manualmente. Un'enclosure completamente configurata può pesare fino a 32 kg.
+1. Posizionare la scatola su una superficie piana e orizzontale.
 
 Successivamente, completare la procedura seguente per disimballare il dispositivo.
 
 #### Per disimballare il dispositivo
 
-1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. Contattare il Supporto tecnico Microsoft per istruzioni su come verificare il corretto funzionamento del dispositivo.
+1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. [Contattare il Supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per istruzioni su come verificare il corretto funzionamento del dispositivo.
 
-2. Aprire le due scatole e disimballare l'enclosure principale e l'enclosure EBOD. Nella figura seguente viene illustrato il dispositivo di archiviazione disimballato.
+2. Aprire la scatola esterna ed estrarre le due scatole corrispondenti all’enclosure principale e all’enclosure EBOD. È ora possibile disimballare l'enclosure principale e l'enclosure EBOD. Nella figura seguente viene illustrato uno degli enclosure disimballato.
 
     ![Disimballare il dispositivo di archiviazione](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
  
@@ -64,11 +64,11 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
   - 1 cavo Ethernet incrociato
   - 2 cavi console seriali
   - 1 convertitore seriale-USB per l'accesso seriale
-  - 4 schede da QSFP a SFP singole da usare con interfacce di rete 10 GbE
+  - 4 schede da QSFP a SFP da usare con interfacce di rete 10 GbE
   - 2 kit per il montaggio in rack (4 guide laterali con componenti di montaggio, 2 per l'enclosure principale e 2 per l'enclosure EBOD), 1 in ciascuna scatola
   - Guida introduttiva
 
-    In caso di mancato ricevimento di uno qualsiasi degli elementi sopra elencati, contattare il Supporto Tecnico Microsoft.
+    In caso di mancato ricevimento di uno qualsiasi degli elementi sopra elencati, [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
 Il passaggio successivo consiste nel montaggio su rack del dispositivo.
 
@@ -90,9 +90,9 @@ Le enclosure devono essere installate su un rack standard da 48,26 cm (19 pollic
 
 3. Assicurarsi che nel rack in cui si intende montare le enclosure sia disponibile uno slot 4U (2 X 2U).
 
->[AZURE.WARNING]![icona peso elevato](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
-> 
-> Se si prevede di trasportare il dispositivo a mano, assicurarsi che siano disponibili due persone. Un'enclosure completamente configurata può pesare fino a 32 kg.
+![Icona di avviso](./media/storsimple-safety/IC740879.png) ![icona peso elevato](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVVISO**
+
+ Se si prevede di trasportare il dispositivo a mano, assicurarsi che siano disponibili due persone. Un'enclosure completamente configurata può pesare fino a 32 kg.
 
 ### Prerequisiti del rack
 
@@ -108,9 +108,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 
 #### Per installare l'enclosure EBOD sulle guide
 
-1. Tenendo l'enclosure sulla superficie di lavoro, rimuovere i copriflangia anteriori sinistro e destro estraendoli dalle relative sedi. I copriflangia sono semplicemente inseriti sulle flange.
-
-2. In genere, le guide sono preinstallate. In caso contrario, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.
+2. Eseguire questo passaggio solo se non ci sono guide interne installate sul dispositivo. In genere, le guide sono preinstallate. Se non lo sono, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.
 
     ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
@@ -139,7 +137,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
      2 | Montante rack anteriore con fori quadrati
      3 | Perni di posizionamento della guida sinistra (parte anteriore)
      4 | Vite di fissaggio
-     5 | Perni di posizionamento della guida destra (parte anteriore)
+     5 | Perni di posizionamento della guida sinistra (parte posteriore)
 
 ### Montaggio dell'enclosure EBOD nel rack 
 
@@ -155,7 +153,9 @@ Per montare l'enclosure EBOD nel rack usando le guide appena installate, seguire
 
     **Montaggio dell'enclosure nel rack**
 
-3. Fissare l'enclosure nel rack installando una vite a croce in ciascuna flangia, sinistra e destra.
+3. Rimuovere i copriflangia anteriori sinistro e destro estraendoli dalle relative sedi. I copriflangia sono semplicemente inseriti sulle flange.
+
+4. Fissare l'enclosure nel rack installando una vite a croce in ciascuna flangia, sinistra e destra.
 
 4. Installare i copriflangia premendoli nella posizione corretta fino a inserirli completamente.
 
@@ -195,7 +195,7 @@ Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizio
 - Cavi di rete
 - Cavi seriali forniti
 - Convertitore seriale-USB con il driver appropriato installato sul PC (se necessario)
-- Adattatori singoli QSFP-SFP forniti per l'uso con interfacce di rete da 10 GbE
+- 4 schede da QSFP a SFP fornite da usare con interfacce di rete 10 GbE
 - [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### SAS e i cavi di alimentazione
@@ -228,16 +228,9 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
      2,3 | Interfacce di rete da 10 GbE
      6 | Porte seriali
 
-2. Per una disponibilità elevata, il dispositivo richiede almeno due connessioni per ogni controller.
-    1. La porta DATA 0 viene abilitata automaticamente e configurata mediante la console seriale del dispositivo. Oltre a DATA 0, è presente anche un'altra porta dati che deve essere configurata mediante il portale di gestione.
-    2. Individuare le interfacce di rete identiche su ciascun controller. Se, ad esempio, si decide di collegare le porte DATA 0 e DATA 3 di uno dei controller, è necessario collegare anche le corrispondenti porte DATA 0 e DATA 3 dell'altro controller. 
 
-3. Per una disponibilità elevata, assicurarsi di collegare:
-   1. Le interfacce identiche di ogni controller alla rete pertinente per assicurare la disponibilità in seguito a un malfunzionamento del controller.
-   2. Le interfacce di ogni controller ad almeno due interruttori diversi per assicurare la disponibilità in seguito a un malfunzionamento dell'interruttore.
-   3. La porta DATA 0 alla rete LAN principale (rete con accesso a Internet). Le altre porte dati possono essere collegate al segmento SAN/iSCSI LAN (VLAN) della rete, a seconda del ruolo previsto.
 
-Configurare almeno un'interfaccia di rete per l'accesso cloud e una per iSCSI. Per una disponibilità elevata e prestazioni ottimali, configurare due coppie di interfacce di rete su ciascun controller. Per il cablaggio di rete vedere la seguente figura. La configurazione minima di rete è indicata da linee blu continue. Per una disponibilità elevata e prestazioni ottimali, la configurazione aggiuntiva richiesta è indicata da linee tratteggiate.
+1. Per il cablaggio di rete vedere la seguente figura. La configurazione minima di rete è indicata da linee blu continue. Per una disponibilità elevata e prestazioni ottimali, la configurazione aggiuntiva richiesta è indicata da linee tratteggiate.
 
 ![Cablare il dispositivo 4U per la rete](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
@@ -256,6 +249,22 @@ H,I | Host (ad esempio, file server)
 0-5 | Interfacce di rete
 6 | Enclosure principale
 7 | Enclosure EBOD
+
+Quando si effettua il cablaggio del dispositivo, la configurazione minima richiede:
+
+
+- Almeno due interfacce di rete connesse in ogni controller di cui n una per l'accesso al cloud e l’altra per iSCSI. La porta DATA 0 viene abilitata automaticamente e configurata mediante la console seriale del dispositivo. Oltre a DATA 0, è presente anche un'altra porta dati che deve essere configurata mediante il portale di gestione. In questo caso, collegare la porta DATA 0 alla rete LAN principale (rete con accesso a Internet). Le altre porte dati possono essere collegate al segmento SAN/iSCSI LAN (VLAN) della rete, a seconda del ruolo previsto.
+
+- Le interfacce identiche di ogni controller collegato alla stessa rete per assicurare la disponibilità in seguito a un failover del controller. Se, ad esempio, si decide di collegare le porte DATA 0 e DATA 3 di uno dei controller, è necessario collegare anche le corrispondenti porte DATA 0 e DATA 3 dell'altro controller.
+	
+Da tenere presente per prestazioni e disponibilità elevate:
+
+
+- Se possibile, configurare una coppia di interfaccia di rete per l'accesso al cloud (1 GbE) e un'altra coppia per iSCSI (10 GbE consigliati) su ogni controller. 
+
+- Se possibile, collegare le interfacce di rete da ogni controller a due interruttori diversi per assicurare la disponibilità nel caso di malfunzionamento dell'interruttore. Nell’immagine vengono illustrate le due interfacce di rete da 10 GbE, DATI 2 e DATI 3, da ogni controller connesso a due diversi interruttori. Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti di disponibilità elevata per il dispositivo StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+
+>[AZURE.NOTE]Se si utilizza SFP + ricetrasmettitore con le interfacce di rete da 10 GbE, utilizzare QSFP fornito-SFP + adattatori. Altre informazioni sull’[Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Cablaggio della porta seriale
 
@@ -289,4 +298,4 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

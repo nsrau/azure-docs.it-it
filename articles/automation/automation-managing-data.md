@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gestione dei dati di Automazione di Azure"
+   pageTitle="Gestione dei dati di Automazione di Azure | Microsoft Azure"
    description="Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure. Include attualmente conservazione dei dati e backup del ripristino di emergenza di Automazione di Azure in Automazione di Azure."
    services="automation"
    documentationCenter=""
@@ -62,14 +62,9 @@ Non è possibile esportare certificati da Automazione di Azure. È necessario as
 
 ##Replica geografica in Automazione di Azure
 
-Automazione di Azure supporta la replica geografica. Con la replica geografica, Automazione di Azure mantiene i dati persistenti in due aree geografiche. Durante la creazione di un account di automazione nel portale di Azure si sceglie l'area in cui crearlo, che sarà l'area primaria. L'area in cui viene effettuata la replica geografica dei dati viene definita area secondaria. Le aree primarie e secondaria comunicano tra loro per eseguire la replica geografica gli aggiornamenti apportati all'account di automazione. Poiché nell'area secondaria è archiviata una copia delle informazioni, in caso di failover di un account di automazione dall'area primaria a quella secondaria, tutte le informazioni relative all'account di automazione ancora saranno disponibili nell'area secondaria.
+Replica geografica, standard negli account di automazione di Azure, backup dei dati di account in un'area geografica diversa per la ridondanza. È possibile scegliere un'area primaria quando si configura l’account, poi un'area secondaria viene assegnata automaticamente. I dati secondari, copiati dall'area primaria, vengono continuamente aggiornati in caso di perdita di dati.
 
-La replica geografica è integrata negli account di automazione e non comporta costi aggiuntivi. Non è possibile scegliere l'area secondaria, che viene determinata automaticamente in base all'area primaria scelta.
-
- 
-###Ubicazione delle repliche geografiche
-
-Attualmente è possibile creare account di automazione in cinque aree geografiche e in futuro verrà aggiunto il supporto per ulteriori aree. Nella tabella seguente vengono illustrate le associazioni di aree primarie e secondarie:
+Nella tabella seguente vengono illustrate le associazioni di aree primarie e secondarie disponibili:
 
 |Primaria |Secondaria
 | ---------------   |----------------
@@ -79,9 +74,6 @@ Attualmente è possibile creare account di automazione in cinque aree geografich
 |Asia sudorientale |Asia orientale
 |Giappone orientale |Giappone occidentale
 
+Nell'eventualità improbabile che vengano persi dei dati di un’area primaria, Microsoft tenta di ripristinarli. Qualora non fosse possibile ripristinare i dati primari, viene eseguito il failover geografico e i clienti interessati saranno informati attraverso la propria sottoscrizione.
 
-###Ripristino di emergenza in Automazione di Azure
-
-Quando si verifica una grave emergenza nell'area primaria, il team di Automazione di Azure tenta prima di tutto di ripristinare l'area primaria. In alcuni casi, quando non è possibile ripristinare l'area primaria, quindi viene eseguito il failover geografico e i clienti interessati saranno informati attraverso la propria sottoscrizione.
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -19,6 +19,7 @@
 
 # Bilanciamento del carico per i servizi di infrastruttura di Azure#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Per i servizi di infrastruttura di Azure sono disponibili due livelli di bilanciamento del carico:
 
@@ -84,4 +85,4 @@ Per altre informazioni sul bilanciamento del carico, vedere [Bilanciamento del c
 
 <!-- LINKS -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

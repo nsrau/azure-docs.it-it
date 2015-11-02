@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Informazioni su come gestire i servizi Web di AzureML con Gestione API | Microsoft Azure"
 	description="Guida che mostra come gestire i servizi Web di AzureML con Gestione API."
-	keywords="machine learning,api management"
+	keywords="apprendimento automatico, gestione api"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
@@ -100,19 +100,19 @@ Non sono incluse schermate per le operazioni di BES perché sono molto simili a 
 
 ###Inviare (ma non avviare) un processo di esecuzione in batch
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Submit** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Submit** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
 
 ###Avviare un processo di esecuzione in batch
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}/start?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Start** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}/start?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Start** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
 
 ###Ottenere lo stato o il risultato di un processo di esecuzione del Batch
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **GET** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Status** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **GET** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Status** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
 
 ###Eliminare un processo di esecuzione in batch
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **DELETE** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Delete** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **DELETE** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Delete** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
 
 ##Chiamare un'operazione dal portale per sviluppatori
 
@@ -130,7 +130,7 @@ Selezionare **RRS Execute** come operazione. Fare clic su **Prova**.
 
 Per i parametri della richiesta, digitare l'**area di lavoro**, il **servizio**, **2.0** per la **versione API** e **true** per i **dettagli**. È possibile trovare l'**area di lavoro** e il **servizio** nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
 
-Per le intestazioni della richiesta, fare clic su **Aggiungi intestazione** e digitare **Content-Type** e **application/json**, quindi fare clic su **Aggiungi intestazione** e digitare **Authorization** e **Bearer <YOUR AZUREML SERVICE API-KEY>**. È possibile trovare la **chiave API** nel dashboard del servizio Web di Azure ML (vedere **Testare il servizio Web** nell'Appendice A).
+Per le intestazioni della richiesta, fare clic su **Aggiungi intestazione** e digitare **Content-Type** e **application/json**, quindi fare clic su **Aggiungi intestazione** e digitare **Authorization** e **Bearer <YOUR AZUREML SERVICE API-KEY>**. È possibile trovare la **chiave API** nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
 
 Digitare **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}** come corpo della richiesta.
 
@@ -166,7 +166,7 @@ Espandere **Data Transformation** e **Manipulation** e trascinare **Project Colu
 
 ![project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-Fare clic su **Project Columns**, quindi su **Launch column selector** e selezionare **Col2**. Fare clic sul segno di spunta per applicare queste modifiche.
+Fare clic su **Project Columns** e quindi fare clic su **Launch column selector** e selezionare **Col2**. Fare clic sul segno di spunta per applicare queste modifiche.
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
@@ -384,4 +384,4 @@ Questa guida mostra un esempio di Python funzionante. È necessario modificarlo 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

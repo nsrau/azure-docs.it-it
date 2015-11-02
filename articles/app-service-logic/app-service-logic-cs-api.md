@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="10/17/2015"
    ms.author="jehollan"/>
 
 #App C# API
@@ -33,7 +33,7 @@ Per utilizzare l'applicazione dell'API C#, è necessario creare innanzitutto un'
 
 ##Utilizzo di App API C# nell'area di progettazione logica App
 ###Trigger
-È possibile creare un trigger che eseguirà il polling del servizio App logica (su un intervallo è definire), e, se viene restituito qualsiasi elemento diverso da`false`verrà eseguita l'applicazione di logica, in caso contrario, attende l'intervallo di polling successivo per poi verificare nuovamente.
+È possibile creare un trigger che eseguirà il polling del servizio App logica (su un intervallo è definire), e, se viene restituito qualsiasi elemento diverso da `false`, verrà eseguita l'applicazione di logica, in caso contrario, si attende l'intervallo di polling successivo per poi verificare nuovamente.
 
 Gli input per i trigger sono:-**espressione C#** - verrà valutata un'espressione. Verrà richiamato in una funzione e deve restituire`false`quando non si desidera che l'applicazione logica venga eseguita e può restituire qualsiasi altro elemento quando si desidera che l'applicazione logica venga eseguita. Sarà possibile utilizzare il contenuto della risposta nelle azioni dell'applicazione logica.
 
@@ -95,7 +95,7 @@ return YammerAttachments;
 
 L'azione restituisce l'oggetto restituito dalla funzione in un oggetto di risultati. Pertanto, nell'app API Yammer è possibile fare riferimento a `@body('csapi').results` per la proprietà degli **allegati**.
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](../app-service-api/app-service-api-manage-in-portal.md).
@@ -105,4 +105,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

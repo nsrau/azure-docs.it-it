@@ -1,8 +1,6 @@
 <properties
-	title="Getting started with elastic database query"
-	pageTitle="Iniziare a utilizzare gli strumenti di database elastico"
-	description="come utilizzare query di database flessibile"
-	metaKeywords="azure sql database elastic queries"
+	pageTitle="Guida introduttiva alle query elastiche per il partizionamento orizzontale | Microsoft Azure"
+	description="come utilizzare tra le query di database tra database"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -14,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="sidneyh" />
+	ms.date="10/15/2015"
+	ms.author="SilviaDoomra" />
 
-# Iniziare a utilizzare le query del Database elastico
+# Guida introduttiva alle query elastiche per il partizionamento orizzontale
 
 Le query del Database elastico (anteprima) per il Database di SQL Azure consente di eseguire query T-SQL che si estendono su più database utilizzando un singolo punto di connessione. Per ulteriori informazioni sulla funzionalità di query del Database elastico, vedere la [panoramica della funzionalità](sql-database-elastic-query-overview.md).
 
@@ -126,7 +124,7 @@ Si noterà che la query di aggregare i risultati di tutte le partizioni e produc
 Tutte le righe da **clienti** tabella, archiviata in diverse partizioni popolare il foglio di Excel.
 
 ## Passaggi successivi
-È ora possibile utilizzare funzioni avanzata dei dati di Excel. È possibile utilizzare la stringa di connessione con il nome del server, nome del database e credenziali per gli strumenti di integrazione di Business Intelligence e i dati di connettersi al database query elastica. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. È possibile fare riferimento al database elastica query e tabelle esterne come qualsiasi altro database di SQL Server e tabelle di SQL Server è necessario connettersi allo strumento.
+È ora possibile utilizzare funzioni di visualizzazione avanzata dei dati di Excel. È possibile utilizzare la stringa di connessione con il nome del server, nome del database e credenziali per gli strumenti di integrazione di Business Intelligence e i dati di connettersi al database query elastica. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. È possibile fare riferimento al database elastica query e tabelle esterne come qualsiasi altro database di SQL Server e tabelle di SQL Server è necessario connettersi allo strumento.
 
 ### Costi
 Non esiste senza alcun costo aggiuntivo per utilizzare la funzione elastica Query del Database. In questo momento questa funzionalità è disponibile solo sui database premium come punto finale, tuttavia, le partizioni possono essere di qualsiasi livello di servizio.
@@ -144,4 +142,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://az
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

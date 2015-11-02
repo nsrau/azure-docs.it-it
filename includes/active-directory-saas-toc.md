@@ -15,10 +15,10 @@ Questo articolo fa parte di una serie dedicata alla gestione di applicazioni Saa
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 	- [Modalità di integrazione di Salesforce](active-directory-saas-salesforce-tutorial.md)
 	- [Modalità di integrazione delle app di Google](active-directory-saas-google-apps-tutorial.md)
-	- [Modalità di integrazione di Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
-	- [Modalità di integrazione di ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [Modalità di integrazione di Dropbox for Business](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [Modalità di integrazione di Workday](http://go.microsoft.com/fwlink/?LinkId=690250) 
+	- [Modalità di integrazione di Box](active-directory-saas-box-tutorial.md)
+	- [Modalità di integrazione di ServiceNow](active-directory-saas-servicenow-tutorial.md)
+	- [Modalità di integrazione di Dropbox for Business](active-directory-saas-dropboxforbusiness-tutorial.md)
+	- [Modalità di integrazione di Workday](active-directory-saas-workday-tutorial.md) 
 	- [Altre esercitazioni di App SaaS...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

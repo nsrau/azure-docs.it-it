@@ -31,7 +31,8 @@ Per completare questa esercitazione sono inoltre necessari:
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Account di archiviazione di Azure](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/it-IT/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/it-IT/download/details.aspx?id=40855)
-- [Azure PowerShell](../install-configure-powershell.md)
+
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 L'esecuzione di questi passaggi richiede circa 30 minuti.
 
@@ -383,4 +384,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

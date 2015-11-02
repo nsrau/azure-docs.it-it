@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creazione di una macchina virtuale di Azure che esegue Linux nel portale di Azure"
+	pageTitle="Creazione di una macchina virtuale di Azure che esegue Linux nel portale di Azure | Microsoft Azure"
 	description="Utilizzare il portale di Azure per creare una macchina virtuale di Azure che esegue Linux con i gruppi di risorse di Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Creazione di una macchina virtuale che esegue Linux tramite il portale di anteprima di Azure
@@ -23,7 +23,9 @@
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 - [Azure Preview Portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-La creazione di una macchina virtuale di Azure che esegue Linux è un'operazione semplice. In questa esercitazione viene illustrato come utilizzare il portale di anteprima di Azure per creare rapidamente una macchina virtuale e viene utilizzato il file di chiave pubblica `~/.ssh/id_rsa.pub` per proteggere la connessione **SSH** alla macchina virtuale. È inoltre possibile creare macchine virtuali di Linux utilizzando [le proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md).
+<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica.
+
+La creazione di una macchina virtuale di Azure che esegue Linux è un'operazione semplice. In questa esercitazione viene illustrato come utilizzare il portale di anteprima di Azure per creare rapidamente una macchina virtuale e utilizzare il file di chiave pubblica `~/.ssh/id_rsa.pub` per proteggere la connessione **SSH** alla macchina virtuale. È inoltre possibile creare macchine virtuali di Linux utilizzando [le proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE]In questa esercitazione viene creata una macchina virtuale di Azure gestita dall'API del gruppo di risorse di Azure. Per informazioni dettagliate, vedere [Panoramica del gruppo di risorse di Azure](resource-group-overview.md).
 
@@ -51,7 +53,7 @@ Andare in Azure Marketplace nel portale di anteprima per individuare l'immagine 
 
 Dopo aver selezionato l'immagine, è possibile utilizzare le impostazioni predefinite di Azure per la maggior parte della configurazione e creare rapidamente la macchina virtuale.
 
-1. Nel pannello **Crea macchina virtuale**, fare clic su **Informazioni di base**. Immettere un **nome** per la macchina virtuale e un file di chiave pubblica (nel formato **ssh-rsa**, in questo caso dal file `~/.ssh/id_rsa.pub`). Se si dispone di più sottoscrizioni, specificarne una per la nuova macchina virtuale, nonché un **gruppo di risorse** nuovo o esistente e una **posizione** per il datacenter di Azure.
+1. Nel pannello **Crea macchina virtuale**, fare clic su **Informazioni di base**. Immettere un **Nome** per la macchina virtuale e un file di chiave pubblica (nel formato **ssh-rsa**, in questo caso dal file `~/.ssh/id_rsa.pub`). Se si dispone di più sottoscrizioni, specificarne una per la nuova macchina virtuale, nonché un **Gruppo di risorse** nuovo o esistente e una **Posizione** per il datacenter di Azure.
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 
@@ -69,13 +71,13 @@ Dopo aver selezionato l'immagine, è possibile utilizzare le impostazioni predef
 
 	![Riepilogo creazione](media/virtual-machines-linux-tutorial-portal-rm/summarybeforecreation.png)
 
-8. Mentre Azure crea la macchina virtuale, è possibile tenere traccia dello stato di avanzamento in **Notifiche**, nel menu Hub. Dopo che Azure ha creato la VM, quest’ultima verrà visualizzata in Schermata iniziale a meno che non sia stata deselezionata l’opzione **Aggiungi a Schermata iniziale** nel pannello **Crea macchina virtuale**.
+8. Mentre Azure crea la macchina virtuale, è possibile tenere traccia dello stato di avanzamento in **Notifiche**, nel menu Hub. Dopo che Azure ha creato la macchina virtuale, quest’ultima verrà visualizzata nella Schermata iniziale a meno che non sia stata deselezionata l’opzione **Aggiungi a Schermata iniziale** nel pannello **Crea macchina virtuale**.
 
 	> [AZURE.NOTE]Il riepilogo non contiene un nome DNS pubblico come quando una macchina virtuale viene creata all'interno di un servizio cloud tramite lo stack di calcolo di Gestione servizi.
 
 ## Connessione alla macchina virtuale di Linux Azure tramite **ssh**
 
-Ora è possibile eseguire la connessione alla macchina virtuale Ubuntu tramite **ssh** in modalità standard. Tuttavia, sarà necessario individuare l'indirizzo IP assegnato alla macchina virtuale di Azure aprendo il riquadro per la macchina virtuale e le relative risorse. È possibile eseguire questa operazione facendo clic su **Sfoglia**, quindi selezionando **Recenti** e cercando la macchina virtuale creata oppure facendo clic sul riquadro creato appositamente in Schermata iniziale. In entrambi i casi, individuare e copiare il valore di **Indirizzo IP pubblico**, mostrato nel grafico seguente.
+Ora è possibile eseguire la connessione alla macchina virtuale Ubuntu tramite **ssh** nella modalità standard. Tuttavia, sarà necessario individuare l'indirizzo IP assegnato alla macchina virtuale di Azure aprendo il riquadro per la macchina virtuale e le relative risorse. È possibile eseguire questa operazione facendo clic su **Sfoglia**, quindi selezionando **Recenti** e cercando la macchina virtuale creata oppure facendo clic sul riquadro creato appositamente nella Schermata iniziale. In entrambi i casi, individuare e copiare il valore di **Indirizzo IP pubblico**, mostrato nel grafico seguente.
 
 ![Riepilogo creazione avvenuta correttamente](media/virtual-machines-linux-tutorial-portal-rm/successresultwithip.png)
 
@@ -114,7 +116,7 @@ Ora è possibile aggiungere **ssh** alla macchina virtuale di Azure e proseguire
 	ops@ubuntuvm:~$
 
 
-> [AZURE.NOTE]È inoltre possibile configurare un nome di dominio completo (FQDN) per la macchina virtuale nel portale. Ulteriori informazioni sul FQDN [qui](virtual-machines-create-fqdn-on-portal.md).
+> [AZURE.NOTE]È inoltre possibile configurare un nome di dominio completo (FQDN) per la macchina virtuale nel portale. Altre informazioni sul FQDN [qui](virtual-machines-create-fqdn-on-portal.md).
 
 ## Passaggi successivi
 
@@ -128,4 +130,4 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

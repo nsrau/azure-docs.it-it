@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Procedure ottimali: Gestione delle password di Azure AD | Microsoft Azure"
-	description="Procedure ottimali per la distribuzione e l’uso, documentazione di esempio per l'utente finale e guide di formazione per Gestione delle password in Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Procedure ottimali: Gestione delle password di Azure AD | Microsoft Azure" 
+	description="Procedure ottimali per la distribuzione e l'utilizzo, documentazione di esempio per l'utente finale e guide di formazione per la gestione delle password in Azure Active Directory." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Distribuzione di Gestione delle password e formazione degli utenti per l’uso
@@ -24,6 +24,7 @@ Dopo aver abilitato la reimpostazione delle password, il passaggio successivo co
   * [Metodi per inserire i dati di autenticazione autonomamente](#ways-to-populate-authentication-data)
 * [**Metodi ottimali per implementare la reimpostazione delle password nell'organizzazione **](#what-is-the-best-way-to-roll-out-password-reset-for-users)
   * [Implementazione basata sulla posta elettronica ed esempi di comunicazioni tramite posta elettronica](#email-based-rollout)
+  * [Creare un portale personalizzato per la gestione delle password per gli utenti](#creating-your-own-password-portal)
   * [Come usare la registrazione applicata per forzare gli utenti a effettuare la registrazione al momento dell’accesso](#using-enforced-registration)
   * [Come caricare i dati di autenticazione per gli account utente](#uploading-data-yourself)
 * [**Materiale di formazione di esempio per utenti e supporto (presto disponibile)**](#sample-training-materials)
@@ -71,7 +72,18 @@ Probabilmente, l'approccio più semplice per informare gli utenti sulla registra
 
   ![][001]
 
-È possibile scaricare il modello di messaggio di posta elettronica [qui](http://1drv.ms/1xWFtQM).
+È possibile [scaricare il modello di messaggio di posta elettronica qui](http://1drv.ms/1xWFtQM).
+
+### Creazione del portale delle password
+Una strategia particolarmente adatta ai grandi clienti per la distribuzione delle funzionalità di gestione delle password è la creazione di un singolo "portale delle password" tramite il quale gli utenti possono gestire tutti gli aspetti riguardanti le password in un'unica posizione.
+
+Molti dei maggiori clienti scelgono di creare una voce DNS radice come https://passwords.contoso.com con collegamenti al portale di reimpostazione delle password di Azure AD, al portale di registrazione per la reimpostazione delle password e alle pagine di modifica delle password. In questo modo è possibile includere in qualsiasi comunicazione cartacea o tramite posta elettronica un singolo URL facile da ricordare al quale gli utenti possono accedere quando desiderano iniziare a usare il servizio.
+
+Per iniziare, è stata creata una pagina semplice che usa i paradigmi di progettazione dell'interfaccia utente reattiva più recenti e che funzionerà su tutti i browser e dispositivi mobili.
+
+  ![][007]
+  
+È possibile [scaricare il modello di sito Web qui](https://github.com/kenhoff/password-reset-page). Si consiglia di personalizzare il logo e i colori in base alle esigenze dell'organizzazione.
 
 ### Uso della registrazione applicata
 Se si vuole che gli utenti effettuino autonomamente la registrazione per la reimpostazione delle password, è possibile anche forzarli a effettuare la registrazione quando accedono al pannello di accesso all’indirizzo [http://myapps.microsoft.com](http://myapps.microsoft.com). È possibile abilitare questa opzione dalla scheda **Configura** della directory, abilitando l’opzione **Richiedere agli utenti di effettuare la registrazione durante l'accesso al pannello di accesso**.
@@ -98,12 +110,12 @@ Per informazioni sulle proprietà che è possibile impostare tramite AAD Connect
 1.	Passare alla propria directory nell’**estensione di Active Directory** nel [portale di gestione di Azure](https://manage.windowsazure.com).
 2.	Fare clic sulla scheda **Utenti**.
 3.	Selezionare dall’elenco l'utente a cui si è interessati.
-4.	Nella prima scheda la proprietà **Indirizzo di posta elettronica alternativo** può essere usata per abilitare la reimpostazione delle password.
+4.	Nella prima scheda la proprietà **Indirizzo di posta elettronica alternativo** può essere usata per abilitare la reimpostazione delle password. 
 
     ![][005]
 
 5.	Fare clic sulla scheda **Informazioni sul lavoro**.
-6.	In questa pagina sono disponibili le proprietà **Telefono ufficio**, **Telefono cellulare**, **Telefono per l'autenticazione** e **Indirizzo di posta elettronica per l’autenticazione**. Anche queste proprietà possono essere impostate per consentire a un utente di reimpostare la propria password.
+6.	In questa pagina sono disponibili le proprietà **Telefono ufficio**, **Telefono cellulare**, **Telefono per l'autenticazione** e **Indirizzo di posta elettronica per l’autenticazione**. Anche queste proprietà possono essere impostate per consentire a un utente di reimpostare la propria password. 
 
     ![][006]
 
@@ -121,8 +133,8 @@ Microsoft sta attualmente lavorando al materiale di formazione di esempio che è
 * [Informazioni sulla gestione delle password](active-directory-passwords.md)
 * [Funzionamento della gestione delle password](active-directory-passwords-how-it-works.md)
 * [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md)
-* [Personalizzazione di Gestione delle password](active-directory-passwords-customize.md)
-* [Come ottenere Operational Insights con i report di Gestione delle password](active-directory-passwords-get-insights.md)
+* [Personalizzare la gestione delle password](active-directory-passwords-customize.md)
+* [Come ottenere informazioni dettagliate con i report di gestione delle password](active-directory-passwords-get-insights.md)
 * [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
 * [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
@@ -136,5 +148,6 @@ Microsoft sta attualmente lavorando al materiale di formazione di esempio che è
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
+[007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

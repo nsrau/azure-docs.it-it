@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usare l'azione script per installare Spark in cluster Hadoop| Microsoft Azure" 
-	description="Informazioni su come personalizzare un cluster HDInsight con Spark. Verrà usata un'opzione di configurazione Azione script per installare Spark tramite uno script." 
+	pageTitle="Usare un'azione di script per installare Apache Spark in cluster HDInsight basati su Linux (Hadoop) | Microsoft Azure" 
+	description="Informazioni su come installare Spark in un cluster HDInsight basato su Linux usando azioni di script. Le azioni di script consentono di personalizzare il cluster durante la creazione, modificando la configurazione del cluster o installando servizi e utilità." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/19/2015" 
 	ms.author="larryfr"/>
 
 # Installare e usare Spark in cluster Hadoop di HDInsight
@@ -40,26 +40,30 @@ In questo argomento, viene usato uno script personalizzato di azione script per 
 
 Questo script consente di installare Spark 1.5.1 in `/usr/hdp/current/spark`.
 
+> [AZURE.WARNING]È possibile che alcuni file binari di Spark 1.3.1 siano stati installati per impostazione predefinita nel cluster HDInsight. Non devono essere usati e verranno rimossi dall'immagine del cluster HDInsight in un aggiornamento futuro.
+
 ## <a name="install"></a>Installare Spark mediante azioni di script
 
 Uno script di esempio per l'installazione di Spark in un cluster HDInsight è disponibile in un BLOB di archiviazione di sola lettura di Azure all'indirizzo [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Questa sezione fornisce istruzioni su come usare lo script di esempio quando si crea il cluster usando il portale di Azure.
 
-> [AZURE.NOTE]È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere la pagina relativa alla [personalizzazione di cluster HDInsight mediante azioni di script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE]È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Avviare la creazione di un cluster utilizzando la procedura descritta in [Creazione di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal), ma non completare la creazione.
+1. Avviare la creazione di un cluster seguendo la procedura descritta in [Creazione di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal), ma non completare la creazione.
 
 2. Nel pannello **Configurazione facoltativa** selezionare **Azioni di script** e specificare le informazioni seguenti:
 
-	* __NOME__: immettere un nome descrittivo per l'azione di script
+	* __NOME__: immettere un nome descrittivo per l'azione di script.
 	* __URI SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __HEAD__: selezionare questa opzione
-	* __RUOLO DI LAVORO__: selezionare questa opzione
-	* __ZOOKEEPER__: selezionare questa opzione per l'installazione nel nodo Zookeeper
-	* __PARAMETERS__: lasciare questo campo vuoto
+	* __LAVORO__: deselezionare questa opzione
+	* __ZOOKEEPER__: deselezionare questa opzione
+	* __PARAMETRI__: lasciare questo campo vuoto
+    
+    > [AZURE.NOTE]Lo script Spark di esempio installa componenti solo sui nodi head, in modo che sia possibile deselezionare gli altri tipi di nodo.
 
-3. Nella parte inferiore di **Azioni di script** usare il pulsante **Seleziona** per salvare la configurazione. Usare infine il pulsante **Seleziona** nella parte inferiore del pannello **Configurazione facoltativa** per salvare le informazioni relative alla configurazione facoltativa.
+3. Nella parte inferiore di **Azioni script** usare il pulsante **Seleziona** per salvare la configurazione. Usare infine il pulsante **Seleziona** nella parte inferiore del pannello **Configurazione facoltativa** per salvare le informazioni relative alla configurazione facoltativa.
 
-4. Continuare il provisioning del cluster come descritto nella pagina relativa al [Creazione di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continuare il provisioning del cluster come descritto nella pagina [Creazione di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal).
 
 ## <a name="usespark"></a>Come si usa Spark in HDInsight?
 
@@ -108,7 +112,7 @@ Dopo aver effettuato la connessione, usare le sezioni seguenti per la procedura 
 
 ###<a name="sparksql"></a>Uso della shell di Spark per eseguire query Spark SQL
 
-Spark SQL consente di usare Spark per eseguire query relazionali espresse in SQL (Structured Query Language), HiveQL o Scala. Questa sezione spiega come usare Spark per eseguire una query Hive su una tabella Hive di esempio. La tabella Hive usata in questa sezione (chiamata **hivesampletable**) è disponibile per impostazione predefinita quando si crea un cluster.
+Spark SQL consente di usare Spark per eseguire query relazionali espresse in SQL (Structured Query Language), HiveQL o Scala. Questa sezione spiega come usare Spark per eseguire una query Hive su una tabella Hive di esempio. La tabella Hive usata in questa sezione (denominata **hivesampletable**) è disponibile per impostazione predefinita quando si crea un cluster.
 
 1. Eseguire il comando seguente per avviare la shell di Spark:
 
@@ -122,7 +126,7 @@ Spark SQL consente di usare Spark per eseguire query relazionali espresse in SQL
 
 		val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
 
-	> [AZURE.NOTE]`sc` in questa istruzione è il contesto di Spark predefinito che viene impostato quando si avvia la shell di Spark.
+	> [AZURE.NOTE]`sc`: in questa istruzione, costituisce il contesto di Spark predefinito che viene impostato quando si avvia la shell di Spark.
 
 5. Eseguire una query Hive usando il contesto di Hive e stampare l'output nella console. La query recupera i dati sui dispositivi di una marca specifica e limita il numero di record recuperati a 20.
 
@@ -148,13 +152,13 @@ In questa sezione verrà creata un'applicazione Scala che conta il numero di rig
 		sudo apt-get update
 		sudo apt-get install sbt
 		
-	Quando richiesto, selezionare __S__ per continuare.
+	Quando richiesto, selezionare __Y__ per continuare.
 
 2. Creare la struttura di directory per il progetto Scala:
 
 		mkdir -p SimpleScalaApp/src/main/scala
 		
-3. Creare un nuovo file denominato __simple.sbt__, contenente le informazioni di configurazione per questo progetto.
+3. Creare un nuovo file denominato __simple.sbt__, contenente le informazioni di configurazione necessarie per questo progetto.
 
 		cd SimpleScalaApp
 		nano simple.sbt
@@ -172,7 +176,7 @@ In questa sezione verrà creata un'applicazione Scala che conta il numero di rig
 
 	> [AZURE.NOTE]Assicurarsi di mantenere le righe vuote tra una voce e l'altra.
 	
-	Usare __CTRL+X__, quindi __S__ e __INVIO__ per salvare il file.
+	Usare __Ctrl+X__, quindi __Y__ e __Invio__ per salvare il file.
 
 4. Usare il comando seguente per creare un nuovo file denominato __SimpleApp.scala__ nella directory __SimpleScalaApp/src/main/scala__:
 
@@ -197,7 +201,7 @@ In questa sezione verrà creata un'applicazione Scala che conta il numero di rig
 		  }
 		}
 
-	Usare __CTRL+X__, quindi __S__ e __INVIO__ per salvare il file.
+	Usare __Ctrl+X__, quindi __Y__ e __Invio__ per salvare il file.
 
 5. Dalla directory __SimpleScalaApp__ usare il comando seguente per compilare l'applicazione e archiviarla in un file con estensione jar:
 
@@ -224,7 +228,7 @@ In questa sezione verrà creata un'applicazione Scala che conta il numero di rig
 
 - [Installare Solr in cluster HDInsight](hdinsight-hadoop-solr-install-linux.md). Usare la personalizzazione cluster per installare Solr in cluster Hadoop di HDInsight. Solr consente di eseguire operazioni di ricerca avanzate sui dati archiviati.
 
-- [Installare Hue nei cluster HDInsight](hdinsight-hadoop-hue-linux.md). Usare la personalizzazione dei cluster per installare Hue nei cluster Hadoop di HDInsight. Hue è un insieme di applicazioni Web che consente di interagire con un cluster Hadoop.
+- [Installare Hue in cluster HDInsight](hdinsight-hadoop-hue-linux.md). Usare la personalizzazione dei cluster per installare Hue nei cluster Hadoop di HDInsight. Hue è un insieme di applicazioni Web che consente di interagire con un cluster Hadoop.
 
 
 
@@ -234,4 +238,4 @@ In questa sezione verrà creata un'applicazione Scala che conta il numero di rig
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

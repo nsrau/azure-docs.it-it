@@ -90,7 +90,7 @@ Gli archivi dati provengono tutti da uno specifico sistema di tipi nativo. L'att
 Per trovare il mapping di un sistema di tipi nativo a .NET per uno specifico archivio dati, vedere gli argomenti relativi al connettore archivio dati corrispondente. È possibile usare tali mapping per determinare i tipi appropriati durante la creazione di tabelle, in modo che durante l'attività di copia vengano eseguite le conversioni corrette.
 
 ### Uso di diversi formati di file
-Per le origini basate su file l'attività di copia supporta una vasta gamma di formati di file, inclusi il formato binario, il formato testo e il formato Avro. È possibile utilizzare l'attività di copia per convertire da un formato a altro. Esempio: testo (CSV) ad Avro.
+L'attività di copia supporta una vasta gamma di formati di file, inclusi il formato binario, il formato testo e il formato Avro per gli archivi basati sui file. È possibile utilizzare l'attività di copia per convertire i dati da un formato a altro. Esempio: testo (CSV) ad Avro.
 
 ### Proprietà dell'attività di copia
 Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via. Al contrario, le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività.
@@ -101,4 +101,4 @@ Quando viene eseguita un'attività di copia, nella sezione **typeProperties** ve
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

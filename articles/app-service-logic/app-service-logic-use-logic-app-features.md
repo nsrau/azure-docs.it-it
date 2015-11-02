@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # Usare le funzionalità delle app per la logica
@@ -29,7 +29,7 @@ Prima di completare questo argomento, completare i passaggi elencati nell'artico
 
 ## Materiale di riferimento
 
-Di seguito sono riportati i collegamenti ad alcuni documenti utili:
+I seguenti documenti possono essere utili:
 
 - [API REST di gestione e di runtime](https://msdn.microsoft.com/library/azure/dn948513.aspx): contiene anche informazioni su come richiamare direttamente le app per la logica
 - [Riferimento al linguaggio](https://msdn.microsoft.com/library/azure/dn948512.aspx): fornisce un elenco completo di tutte le funzioni/espressioni supportate
@@ -143,4 +143,4 @@ Per avviare l'app per la logica su richiesta, fare clic sul pulsante **Esegui ad
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

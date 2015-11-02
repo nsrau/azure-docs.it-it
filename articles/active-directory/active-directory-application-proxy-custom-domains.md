@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilizzo di domini personalizzati nel Proxy di applicazione di Azure AD"
+	pageTitle="Utilizzo di domini personalizzati nel Proxy di applicazione di Azure AD | Microsoft Azure"
 	description="Viene illustrato il funzionamento di domini personalizzati nel Proxy di applicazione di Azure AD"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure
@@ -50,7 +50,7 @@ Si può fare molto di più con il proxy dell'applicazione:
 
 ## Risorse aggiuntive
 
-* [Iscriversi ad Azure come organizzazione](..sign-up-organization.md)
-* [Identità di Azure](..fundamentals-identity.md)
+* [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
+* [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

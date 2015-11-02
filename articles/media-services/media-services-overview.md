@@ -3,7 +3,7 @@
 	description="Questo argomento fornisce informazioni generali su Servizi multimediali di Azure" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 #Panoramica e scenari comuni di Servizi multimediali di Azure
@@ -74,7 +74,7 @@ In questa sezione vengono descritti scenari comuni e vengono forniti collegament
 	
 	Si consiglia di applicare all'asset l'opzione di crittografia di archiviazione, in modo da proteggere i contenuti sia durante il caricamento sia mentre si trovano nella risorsa di archiviazione.
  
-1. Eseguire la codifica in Set MP4 a velocità in bit adattiva.
+1. Codificare in un set di file MP4 a velocità in bit adattiva.
 
 	Si consiglia di applicare all'asset di output l'opzione di crittografia di archiviazione, in modo da proteggere i contenuti anche quando non vengono usati.
 	
@@ -93,7 +93,7 @@ In questa sezione vengono descritti scenari comuni e vengono forniti collegament
 Per poter usare la crittografia dinamica, è prima necessario ottenere almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere in streaming i contenuti crittografati.
 
 1. Caricare un file in formato intermedio di qualità elevata in un asset. Applicare all'asset l'opzione di crittografia di archiviazione.
-1. Eseguire la codifica in Set MP4 a velocità in bit adattiva. Applicare all'asset di output l'opzione di crittografia di archiviazione.
+1. Codificare in un set di file MP4 a velocità in bit adattiva. Applicare all'asset di output l'opzione di crittografia di archiviazione.
 1. Creare una chiave di crittografia simmetrica per l'asset a cui si desidera applicare la crittografia dinamica durante la riproduzione.
 2. Configurare i criteri di autorizzazione della chiave simmetrica.
 1. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
@@ -113,7 +113,7 @@ Per poter usare la crittografia dinamica, è prima necessario ottenere almeno un
 ###Definizione del download progressivo 
 
 1. Caricare un file in formato intermedio di qualità elevata in un asset.
-1. Eseguire la codifica in Set MP4 a velocità in bit adattiva on un singolo MP4.
+1. Codificare in un singolo file MP4.
 1. Pubblicare l'asset creando un localizzatore OnDemand o SAS.
 
 	Se si usa un localizzatore OnDemand, accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si pianifica di trasmettere i contenuti in streaming.
@@ -227,4 +227,4 @@ Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) forn
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

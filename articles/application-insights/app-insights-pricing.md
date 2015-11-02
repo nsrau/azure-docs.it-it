@@ -88,7 +88,7 @@ Esistono tre bucket che vengono conteggiati separatamente:
 * [Eccezioni](app-insights-api-custom-events-metrics.md#track-exception), limitate a 50 punti al secondo.
 * Tutti gli altri dati di telemetria (visualizzazioni pagina, sessioni, richieste, dipendenze, metrica, eventi personalizzati, risultati dei test Web).
 
-Se l'app invia più rispetto al limite, alcuni dei dati vengono eliminati. Si visualizzerà una notifica che avviserà che ciò si è verificato.
+Se l'app invia più rispetto al limite per diversi minuti, alcuni dei dati possono essere eliminati. Si visualizzerà una notifica che avviserà che ciò si è verificato.
 
 ### Suggerimenti per ridurre la velocità dei dati
 
@@ -135,4 +135,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

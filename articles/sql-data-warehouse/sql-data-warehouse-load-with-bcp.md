@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor="JRJ@BigBangData.co.uk"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -22,12 +22,22 @@
 
 bcp costituisce un modo semplice e rapido per spostare set di dati di dimensioni ridotte da e verso un database di SQL Data Warehouse. La quantità esatta di dati che è consigliabile caricare/estrarre tramite bcp dipenderà dalla connessione di rete per il data center di Azure. In genere, le tabelle delle dimensioni possono essere caricate ed estratte, ma è possibile che tabelle dei fatti di dimensioni abbastanza elevate richiedano una quantità di tempo significativa per il caricamento o l'estrazione.
 
-bcp permette di eseguire le operazioni seguenti: - Usare una semplice utilità da riga di comando per caricare dati in SQL Data Warehouse. - Usare una semplice utilità da riga di comando per estrarre dati da SQL Data Warehouse.
+con bcp è possibile:
 
-Questa esercitazione illustrerà come eseguire le operazioni seguenti: - Importare dati in una tabella usando il comando in di bcp - Esportare dati da una tabella usando il comando out di bcp
+- Utilizzare una semplice utilità della riga di comando per caricare dati nell’SQL Data Warehouse.
+- Utilizzare una semplice utilità della riga di comando per estrarre dati dall’SQL Data Warehouse.
+
+In questa esercitazione verranno illustrate le attività seguenti:
+ 
+- Importare dati in una tabella tramite l'utilità bcp nel comando
+- Esportare dati da una tabella tramite l'utilità bcp dal comando
 
 ## Prerequisiti
-Per eseguire questa esercitazione, sono necessari: - Un database di SQL Data Warehouse - L'utilità da riga di comando bcp installata - L'utilità da riga di comando SQLCMD installata
+Per eseguire questa esercitazione, è necessario:
+
+- Un database di SQL Data Warehouse
+- L’utilità della riga di comando bcp installata
+- L’utilità della riga di comando SQLCMD installata
 
 >[AZURE.NOTE]È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][].
 
@@ -152,4 +162,4 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

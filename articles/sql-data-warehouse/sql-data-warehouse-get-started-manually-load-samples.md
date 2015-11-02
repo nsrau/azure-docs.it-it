@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 #Caricare i dati di esempio in SQL Data Warehouse
@@ -42,7 +42,7 @@ Dopo aver configurato un'istanza di SQL Data Warehouse è possibile caricare fac
 
 ## Connessione all’esempio ed esecuzione di query relative
 
-Come descritto nella documentazione relativa alla [connessione ed esecuzione di query][], è possibile connettersi al database tramite Visual Studio e SSDT. Dopo aver caricato alcuni dati di esempio in SQL Data Warehouse, è possibile eseguire rapidamente alcune query per iniziare.
+Come descritto nella documentazione relativa alla [connessione][], è possibile connettersi al database tramite Visual Studio e SSDT. Dopo aver caricato alcuni dati di esempio in SQL Data Warehouse, è possibile eseguire rapidamente alcune query per iniziare.
 
 È possibile eseguire un'istruzione select semplice per ottenere tutte le informazioni sui dipendenti:
 
@@ -71,16 +71,16 @@ Dopo esserci esercitati con i dati di esempio, esaminiamo come [sviluppare][], [
 <!--Image references-->
 
 <!--Article references-->
-[migrare]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-migrate/
-[sviluppare]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-develop/
-[caricare]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-load/
-[connessione ed esecuzione di query]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[alla migrazione del codice]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-migrate-code/
+[migrare]: ./sql-data-warehouse-overview-migrate.md
+[sviluppare]: ./sql-data-warehouse-overview-develop.md
+[caricare]: ./sql-data-warehouse-overview-load.md
+[connessione]: ./sql-data-warehouse-get-started-connect.md
+[alla migrazione del codice]: ./sql-data-warehouse-migrate-code.md
 
 <!--MSDN references-->
-[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/it-IT/download/details.aspx?id=36433
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
 
 <!--Other Web references-->
-[script di dati di esempio]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[script di dati di esempio]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
