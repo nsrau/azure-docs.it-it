@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Introduzione al Pannello di accesso"
+	pageTitle="Introduzione al pannello di accesso | Microsoft Azure"
 	description="Informazioni su come usare i vari tipi di pannello di accesso (Web browser, app per Android e app per iPhone e iPad) per accedere alle app SaaS assegnate all'utente."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -181,4 +181,4 @@ Quando si configura Single Sign-On per un'applicazione, il portale di gestione d
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Procedura dettagliata: esportare i dati di telemetria nel database SQL da Application Insights" 
-	description="Scrivere il codice per la propria analisi dei dati di telemetria in Application Insights usando la funzionalità di esportazione continua." 
+	description="Eseguire l'esportazione continua dei dati Application Insights in SQL tramite l'analisi di flusso." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -314,4 +314,4 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

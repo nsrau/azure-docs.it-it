@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/23/2015"
+ ms.date="10/15/2015"
  ms.author="larryfr"/>
 
 # Sviluppare processi MapReduce in Scalding con Apache Hadoop in HDInsight
@@ -233,30 +233,88 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
 
 1. [Installare e configurare Azure PowerShell](../install-configure-powershell.md).
 
-2. Scaricare [hdinsight tools.psm1](https://github.com/Blackmist/hdinsight-tools/blob/master/hdinsight-tools.psm1) e salvare in un file denominato **hdinsight-tools.psm1**.
+2. Avviare Azure PowerShell e accedere al proprio account Azure. Una volta specificate le credenziali, il comando restituisce le informazioni relative all'account.
 
-3. Aprire una sessione di **Azure PowerShell** ed eseguire il comando riportato di seguito. Se hdinsight-tools.psm1 non si trova nella directory corrente, specificare il percorso del file:
+		Add-AzureRMAccount
 
-        import-module hdinsight-tools.psm1
+		Id                             Type       ...
+		--                             ----
+		someone@example.com            User       ...
 
-    Consente di importare diverse funzioni per l'uso di file in HDInsight.
+3. Se si hanno più sottoscrizioni, specificare l'ID sottoscrizione che si desidera usare per la distribuzione.
 
-4. Usare i comandi seguenti per caricare il file con estensione jar contenente il processo WordCount. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight:
+		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
 
-        $clusterName="CLUSTERNAME"
-        Add-HDInsightFile -clusterName $clusterName -localPath \path\to\scaldingwordcount-1.0-SNAPSHOT.jar -destinationPath example/jars/scaldingwordcount-1.0-SNAPSHOT.jar
+    > [AZURE.NOTE]È possibile usare `Get-AzureRMSubscription` per ottenere un elenco di tutte le sottoscrizioni associate all'account, con il relativo ID di sottoscrizione.
 
-5. Una volta completato il caricamento, usare i comandi seguenti per eseguire il processo:
+4. utilizzare lo script seguente per caricare ed eseguire il processo WordCount. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight, e verificare che `$fileToUpload` sia il percorso corretto per il file __scaldingwordcount-1.0-SNAPSHOT.jar__.
 
-        $jobDef=New-AzureHDInsightMapReduceJobDefinition -JobName ScaldingWordCount -JarFile wasb:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar -ClassName com.microsoft.example.WordCount -arguments "--hdfs", "--input", "wasb:///example/data/gutenberg/davinci.txt", "--output", "wasb:///example/wordcountout"
-        $job = start-azurehdinsightjob -cluster $clusterName -jobdefinition $jobDef
-        wait-azurehdinsightjob -Job $job -waittimeoutinseconds 3600
+        #Cluster name, file to be uploaded, and where to upload it
+        $clustername = "CLUSTERNAME"
+        $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
+        $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
+        
+        #Get HTTPS/Admin credentials for submitting the job later
+        $creds = Get-Credential
+        #Get the cluster info so we can get the resource group, storage, etc.
+        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $resourceGroup = $clusterInfo.ResourceGroup
+        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+        $container=$clusterInfo.DefaultStorageContainer
+        $storageAccountKey=Get-AzureRmStorageAccountKey `
+            -Name $storageAccountName `
+            -ResourceGroupName $resourceGroup `
+            | %{ $_.Key1 }
+        
+        #Create a storage content and upload the file
+        $context = New-AzureStorageContext `
+            -StorageAccountName $storageAccountName `
+            -StorageAccountKey $storageAccountKey
+            
+        Set-AzureStorageBlobContent `
+            -File $fileToUpload `
+            -Blob $blobPath `
+            -Container $container `
+            -Context $context
+            
+        #Create a job definition and start the job
+        $jobDef=New-AzureRmHDInsightMapReduceJobDefinition `
+            -JobName ScaldingWordCount `
+            -JarFile wasb:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
+            -ClassName com.microsoft.example.WordCount `
+            -arguments "--hdfs", `
+                       "--input", `
+                       "wasb:///example/data/gutenberg/davinci.txt", `
+                       "--output", `
+                       "wasb:///example/wordcountout"
+        $job = Start-AzureRmHDInsightJob `
+            -clustername $clusterName `
+            -jobdefinition $jobDef `
+            -HttpCredential $creds
+        Write-Output "Job ID is: " + $job.JobId
+        Wait-AzureRmHDInsightJob `
+            -ClusterName $clusterName `
+            -JobId $job.JobId `
+            -HttpCredential $creds
+        #Download the output of the job
+        Get-AzureStorageBlobContent `
+            -Blob example/wordcountout/part-r-00000 `
+            -Container $container `
+            -Destination output.txt `
+            -Context $context
+        #Log any errors that occured
+        Get-AzureRmHDInsightJobOutput `
+            -Clustername $clusterName `
+            -JobId $job.JobId `
+            -DefaultContainer $container `
+            -DefaultStorageAccountName $storageAccountName `
+            -DefaultStorageAccountKey $storageAccountKey `
+            -HttpCredential $creds `
+            -DisplayOutputType StandardError
 
-6. Dopo il completamento del processo, usare il comando seguente per visualizzare l'output del processo:
-
-        Get-HDInsightFile -clusterName $clusterName -remotePath example/wordcountout/part-00000 -localPath output.txt
-
-7. L'output è costituito da valori di conteggio e di parole delimitate da tabulazione. Usare il comando seguente per visualizzare i risultati.
+     Quando si esegue lo script, verrà richiesto di immettere il nome utente dell’amministratore e la password per il cluster HDInsight. Eventuali errori che si verificano durante l'esecuzione del processo verranno registrati nella console.
+     
+6. Al termine del processo, l'output verrà scaricato nel file __output.txt__ nella directory corrente. Eseguire il comando seguente per visualizzare i risultati:
 
         cat output.txt
 
@@ -276,10 +334,6 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
         wrotefootnote   1
         wrought 7
 
-7. Se l'output è vuoto oppure il file non esiste, è possibile usare le operazioni seguenti per visualizzare eventuali errori verificatisi durante l'esecuzione del processo:
-
-        Get-AzureHdinsightJobOutput -cluster $clusterName -jobId $job.JobId -standarderror
-
 ## Passaggi successivi
 
 Dopo aver appreso come usare Scalding per creare processi MapReduce per HDInsight, vedere i seguenti collegamenti per esplorare altri modi di uso di Azure HDInsight.
@@ -290,4 +344,4 @@ Dopo aver appreso come usare Scalding per creare processi MapReduce per HDInsigh
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

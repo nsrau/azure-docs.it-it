@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Definire gli output | Microsoft Azure" 
 	description="Informazioni sugli output di analisi di flusso" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="analisi di big data, servizio cloud, internet delle cose, servizio gestito, elaborazione del flusso, analisi di flusso, dati del flusso"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -98,7 +98,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 
 ## Hub eventi
 
-[Hub eventi](https://azure.microsoft.com/services/event-hubs/) è un ingestor eventi di pubblicazione-sottoscrizione altamente scalabile. Può raccogliere milioni di eventi al secondo. Un uso di un hub eventi come output si verifica quando l'output di un processo di analisi di flusso rappresenta l'input di un altro processo di flusso.
+[Hub eventi](https://azure.microsoft.com/services/event-hubs/) è un ingestor di eventi di pubblicazione-sottoscrizione altamente scalabile. Può raccogliere milioni di eventi al secondo. Un uso di un hub eventi come output si verifica quando l'output di un processo di analisi di flusso rappresenta l'input di un altro processo di flusso.
 
 Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni parametri come output.
 
@@ -265,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

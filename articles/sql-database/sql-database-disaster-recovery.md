@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Ripristino di emergenza del database SQL" 
-   description="Informazioni su come ripristinare un database da un errore o da un'interruzione del servizio del data center dell'area con le funzionalità di replica geografica e di ripristino geografico del database SQL." 
+   description="Informazioni su come ripristinare un database da un errore o da un'interruzione del servizio del data center dell'area con le funzionalità di replica geografica attiva, di replica geografica standard e di ripristino geografico del database SQL." 
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="10/20/2015"
    ms.author="elfish"/>
 
 # Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio
 
-Il database SQL di Azure offre alcune funzionalità per il ripristino in seguito a un'interruzione del servizio:
+Il database SQL Azure offre le seguenti funzionalità per il ripristino da un'interruzione del servizio:
 
 - Replica geografica attiva [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - Replica geografica standard [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
@@ -38,9 +38,9 @@ L'operazione di ripristino ha un impatto sull'applicazione. Richiede la modifica
 
 In caso di interruzione del servizio nel database primario, è possibile eseguire il failover a un database secondario per ripristinare la disponibilità. A tale scopo è necessario forzare la terminazione della relazione di copia continua. Per una descrizione completa della terminazione delle relazioni di copia continua, vedere [qui](https://msdn.microsoft.com/library/azure/dn741323.aspx).
 
-
-
 ###Portale di Azure
+Utilizzare il portale di Azure per terminare la relazione di copia continua con il database secondario con replica geografica.
+
 1. Accedere al [portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA** e quindi selezionare **Database SQL**.
 3. Individuare e selezionare il database. 
@@ -48,29 +48,32 @@ In caso di interruzione del servizio nel database primario, è possibile eseguir
 4. In **Secondari** fare clic con il pulsante destro del mouse sulla riga con il nome del database che si desidera ripristinare e scegliere **Arresta**.
 
 Dopo aver terminato la relazione di copia continua, sarà possibile configurare il database ripristinato da usare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
-###PowerShell
-Usare PowerShell per eseguire il ripristino del database a livello di codice.
 
-Per terminare la relazione dal database secondario, usare il cmdlet [Stop-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720223).
+###PowerShell
+Utilizzare PowerShell per terminare la relazione di copia continua con il database secondario con replica geografica tramite cmdlet [Stop AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720223).
 		
 		$myDbCopy = Get-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName"
 		$myDbCopy | Stop-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -ForcedTermination
 		 
 Dopo aver terminato la relazione di copia continua, sarà possibile configurare il database ripristinato da usare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
+
 ###API REST 
-Usare REST per eseguire il ripristino del database a livello di codice.
+Utilizzare REST per arrestare a livello di codice la relazione di copia continua con il database secondario con replica geografica.
 
 1. Ottenere la copia continua del database mediante l'operazione [Get Database Copy](https://msdn.microsoft.com/library/azure/dn509570.aspx).
 2. Arrestare la copia continua del database mediante l'operazione [Stop Database Copy](https://msdn.microsoft.com/library/azure/dn509573.aspx). Usare il nome del server secondario e il nome del database nell'URI della richiesta Stop Database Copy.
 
  Dopo aver terminato la relazione di copia continua, sarà possibile configurare il database ripristinato da usare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
-## Ripristino con la funzionalità di ripristino geografico
+
+## Ripristino tramite il ripristino geografico
 
 In caso di interruzione del servizio di un database, è possibile ripristinare il database dalla più recente copia di backup con ridondanza geografica usando la funzionalità di ripristino geografico.
 
 > [AZURE.NOTE]Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota da [contattare il supporto](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portale di Azure
+Per ripristinare un database SQL tramite il Ripristino geografico nel portale di Azure, osservare la seguente procedura o [guardare un video di questa procedura](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore/):
+
 1. Accedere al [portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **NUOVO**, selezionare **Dati e archiviazione** e quindi **Database SQL**.
 2. Selezionare **BACKUP** come origine e quindi selezionare la copia di backup con ridondanza geografica che si desidera ripristinare.
@@ -78,16 +81,16 @@ In caso di interruzione del servizio di un database, è possibile ripristinare i
 4. Il processo di ripristino del database inizierà e potrà essere monitorato tramite **NOTIFICHE** sul lato sinistro della schermata.
 
 Dopo aver completato il ripristino del database, sarà possibile configurare il database per l'uso seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
-###PowerShell 
-Usare PowerShell per eseguire il ripristino del database a livello di codice.
 
-Per avviare una richiesta di ripristino geografico, usare il cmdlet [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx). Per la descrizione dettagliata della procedura, vedere l'apposito [video](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell/).
+###PowerShell 
+Per ripristinare un database SQL tramite ripristino geografico con PowerShell, avviare una richiesta di ripristino geografico con il cmdlet [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx). Per un'analisi dettagliata, [guardare un video di questa procedura](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell/).
 
 		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
 		$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –TargetServerName “TargetServerName”
 		Get-AzureSqlDatabaseOperation –ServerName "TargetServerName" –OperationGuid $RecoveryRequest.RequestID
 
 Dopo aver completato il ripristino del database, sarà possibile configurare il database per l'uso seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
+
 ###API REST 
 
 Usare REST per eseguire il ripristino del database a livello di codice.
@@ -103,4 +106,4 @@ Usare REST per eseguire il ripristino del database a livello di codice.
 Dopo aver completato il ripristino del database, sarà possibile configurare il database per l'uso seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

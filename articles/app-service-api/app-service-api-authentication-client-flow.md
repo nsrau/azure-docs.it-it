@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="tdykstra"/>
 
 # Chiamare un'app per le API di Azure da un client di app Web autenticato da Azure Active Directory
@@ -227,4 +227,4 @@ Si ringrazia Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav))
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di anteprima di Azure]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

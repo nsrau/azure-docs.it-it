@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -314,4 +314,4 @@ Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'a
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: media-services-get-media-processor.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

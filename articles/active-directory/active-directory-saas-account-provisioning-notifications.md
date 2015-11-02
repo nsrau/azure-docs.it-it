@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Notifiche relative al provisioning dell'account"
+	pageTitle="Notifiche relative al provisioning dell'account | Microsoft Azure"
 	description="Come assicurarsi di ricevere notifiche relative ai problemi di provisioning utente che richiedono l'attenzione dell'utente abilitando le notifiche di provisioning dell'account."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -46,4 +46,4 @@ Se sono state abilitate le notifiche di provisioning dell'account si riceveranno
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

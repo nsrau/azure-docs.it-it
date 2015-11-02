@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/20/2015"
 	ms.author="larryfr"/>
 
 # Installare e usare R nei cluster Hadoop HDInsight
@@ -62,7 +62,7 @@ L'azione di script [https://hdiconfigactions.blob.core.windows.net/linuxrconfiga
 
 > [AZURE.NOTE]È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere la pagina relativa alla [personalizzazione di cluster HDInsight mediante azioni di script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Avviare il provisioning di un cluster seguendo i passaggi descritti nella pagina relativa al [provisioning di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal) senza tuttavia completarlo.
+1. Avviare il provisioning di un cluster seguendo i passaggi descritti in [Effettuare il provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md#portal) senza completarlo.
 
 2. Nel pannello **Configurazione facoltativa** selezionare **Azioni di script** e specificare le informazioni seguenti:
 
@@ -75,7 +75,7 @@ L'azione di script [https://hdiconfigactions.blob.core.windows.net/linuxrconfiga
 
 3. Nella parte inferiore di **Azioni di script** usare il pulsante **Seleziona** per salvare la configurazione. Usare infine il pulsante **Seleziona** nella parte inferiore del pannello **Configurazione facoltativa** per salvare le informazioni relative alla configurazione facoltativa.
 
-4. Continuare il provisioning del cluster come descritto nella pagina relativa al [provisioning di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continuare il provisioning del cluster come descritto in [Effettuare il provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
 ## Eseguire gli script R
 
@@ -148,4 +148,4 @@ Al termine del provisioning del cluster, seguire questa procedura per usare R pe
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Creazione di una macchina virtuale per un progetto Web con Visual Studio | Microsoft Azure"
-	description="Creare una macchina virtuale per un sito Web"
+	description="Creare una macchina virtuale per un’applicazione web"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kempb"
 	manager="douge"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,21 +14,23 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="10/19/2015"
 	ms.author="kempb"/>
 
-# Creazione di una macchina virtuale per un sito Web con Visual Studio
+# Creazione di una macchina virtuale per un’applicazione web con Visual Studio
 
-Quando si crea un progetto Web per un sito Web di Azure, è possibile eseguire il provisioning di una macchina virtuale in Azure. È quindi possibile configurare la macchina virtuale con software aggiuntivo oppure usarla a scopo di diagnostica o debug.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
-Per creare una macchina virtuale quando si crea un sito Web, eseguire la procedura seguente:
+Quando si crea un progetto di applicazione web per Azure, è possibile eseguire il provisioning di una macchina virtuale in Azure. È quindi possibile configurare la macchina virtuale con software aggiuntivo oppure usarla a scopo di diagnostica o debug.
+
+Per creare una macchina virtuale quando si crea un’applicazione web, eseguire la procedura seguente:
 
 1. In Visual Studio scegliere **File** > **Nuovo** > **Progetto** > **Web** e quindi **Applicazione Web ASP.NET** (sotto i nodi **Visual C#** o **Visual Basic**).
 2. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il tipo di applicazione Web desiderata e quindi, nella sezione Azure nell'angolo inferiore destro della finestra di dialogo, verificare che sia selezionata la casella di controllo **Ospita nel cloud**. In alcune installazioni questa casella di controllo è denominata **Crea risorse remote**.
 
 	![][0]
 
-3. Nell'elenco a discesa sotto Microsoft Azure scegliere **Macchina virtuale** e fare clic sul pulsante **OK**.
+3. Per questo esempio, nell'elenco a discesa sotto Microsoft Azure scegliere **Macchina virtuale (v1)** e fare clic sul pulsante **OK**.
 4. Accedere a Azure se richiesto. Verrà visualizzata la finestra di dialogo **Crea macchina virtuale**.
 
 	![][2]
@@ -46,13 +49,13 @@ Per creare una macchina virtuale quando si crea un sito Web, eseguire la procedu
 
 	* Crea la macchina virtuale se non esiste già.
 	* Crea un account di archiviazione con un nome che inizia con `devtest`, ma solo se nell'area specificata non esiste già un account di archiviazione di questo tipo.
-	* Crea un servizio cloud come contenitore per la macchina virtuale e crea un ruolo Web per il sito Web.
+	* Crea un servizio cloud come contenitore per la macchina virtuale e crea un ruolo Web per l’applicazione web.
 	* Configura Distribuzione Web nella macchina virtuale.
 	* Configura IIS e ASP.NET nella macchina virtuale.
 
 	![][4]
 
-<br/> 13. (Facoltativo) È possibile connettersi alla nuova macchina virtuale. In **Esplora server** espandere il nodo **Macchine virtuali**, scegliere il nodo per la macchina virtuale creata e, nel relativo menu di scelta rapida, scegliere **Esegui connessione con Desktop remoto**.
+13. (Facoltativo) È possibile connettersi alla nuova macchina virtuale. In **Esplora server** espandere il nodo **Macchine virtuali**, scegliere il nodo per la macchina virtuale creata e, nel relativo menu di scelta rapida, scegliere **Esegui connessione con Desktop remoto**. In alternativa, in **Cloud Explorer** è possibile scegliere **Apri nel portale** nel menu di scelta rapida e connettersi da lì alla macchina virtuale.
 
  ![][5]
 
@@ -68,4 +71,4 @@ Se si vogliono personalizzare gli script pubblicati creati, leggere informazioni
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

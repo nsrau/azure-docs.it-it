@@ -13,12 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="09/14/2015"
+   ms.date="10/18/2015"
    ms.author="yuemlu"/>
 
 # Sistema operativo guest di Azure 
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## Sistema operativo guest di ottobre
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-106 | [3096441] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.25, 3.32, 2.44 | 13 ottobre 2015 |
+| MS15-108 | [3089659] | Aggiornamento della sicurezza per JScript e VBScript per l'esecuzione di codice in modalità remota dell’indirizzo potenziale. | 2\.44 | 13 ottobre 2015 |
+| MS15-109 | [3096443] | Aggiornamento della sicurezza per Shell di Windows per l'esecuzione di codice in modalità remota dell’indirizzo | 4\.25, 3.32, 2.44 | 13 ottobre 2015 |
+| MS15-111 | [3096447] | Aggiornamento della sicurezza per il Kernel di Windows per l'elevazione dei privilegi dell’indirizzo | 4\.25, 3.32, 2.44 | 13 ottobre 2015 |
+| Advisory Microsoft sulla sicurezza | [3092627] | Settembre 2015 aggiornare per correggere Windows o l'applicazione si bloccherà dopo l'installazione dell'aggiornamento 3076895 | 4\.25, 3.32, 2.44 | 13 ottobre 2015 |
+
 
 ## Sistema operativo guest di settembre
 
@@ -172,6 +183,12 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 
 
+[3096441]: http://support.microsoft.com/kb/3096441
+[3089659]: http://support.microsoft.com/kb/3089659
+[3096443]: http://support.microsoft.com/kb/3096443
+[3096447]: http://support.microsoft.com/kb/3096447
+[3092627]: http://support.microsoft.com/kb/3092627
+
 [3088903]: http://support.microsoft.com/kb/3088903
 [3089548]: http://support.microsoft.com/kb/3089548
 [3072595]: http://support.microsoft.com/kb/3072595
@@ -288,4 +305,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

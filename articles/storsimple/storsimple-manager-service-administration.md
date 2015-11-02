@@ -63,6 +63,7 @@ Nella tabella seguente è illustrata la gerarchia di spostamento per l'interfacc
 ||Processi|Configura (dispositivo)|| 
 ||Avvisi|Manutenzione||
 
+Per guardare un video che illustra l'interfaccia utente del servizio StorSimple Manager, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Gestire il dispositivo StorSimple tramite il servizio StorSimple Manager
 
@@ -86,7 +87,7 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 |Informazioni sui record di controllo di accesso</br>Creare un record di controllo di accesso</br>Modificare un record di controllo di accesso</br>Eliminare un record di controllo di accesso|Servizio StorSimple Manager → Configura|[Gestire record di controllo di accesso](storsimple-manage-acrs.md)|
 |Visualizzare i dettagli dei processi</br>Annullare un processo|Servizio StorSimple Manager → Processi|[Gestire i processi](storsimple-manage-jobs.md)
 |Ricevere notifiche di avviso</br>Gestire gli avvisi</br>Esaminare gli avvisi|Servizio StorSimple Manager → Avvisi|[Visualizzare e gestire gli avvisi di StorSimple](storsimple-manage-alerts.md)
-|Visualizzare gli iniziatori connessi</br>Trovare il numero di serie del dispositivo</br>Trovare il nome qualificato iSCSI di destinazione|Servizio StorSimple Manager → Dispositivi → Dashboard|[Utilizzare il dashboard del dispositivo StorSimple](storsimple-device-dashboard.md)|
+|Visualizzare gli iniziatori connessi</br>Trovare il numero di serie del dispositivo</br>Trovare l’IQN di destinazione del dispositivo|Servizio StorSimple Manager → Dispositivi → Dashboard|[Utilizzare il dashboard del dispositivo StorSimple](storsimple-device-dashboard.md)|
 |Creare grafici di monitoraggio|Servizio StorSimple Manager → Dispositivi → Monitora|[Monitoraggio del dispositivo StorSimple](storsimple-monitor-device.md)|
 |Aggiungere un contenitore del volume</br>Modificare un contenitore del volume</br>Eliminare un contenitore del volume|Servizio StorSimple Manager → Dispositivi → Contenitori dei volumi|[Gestisci contenitori dei volumi](storsimple-manage-volume-containers.md)|
 |Aggiungere un volume</br>Modificare un volume</br>Portare un volume offline</br>Eliminare un volume</br>Monitorare un volume|Servizio StorSimple Manager → Dispositivi → Contenitori dei volumi → Volumi|[Gestire i volumi](storsimple-manage-volumes.md)|
@@ -97,14 +98,11 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 |Configurare le impostazioni degli avvisi|Servizio StorSimple Manager → Dispositivi → Configura|[Visualizzare e gestire gli avvisi di StorSimple](storsimple-manage-alerts.md)|
 |Configurare CHAP per il dispositivo StorSimple|Servizio StorSimple Manager → Dispositivi → Configura|[Configurare CHAP per il dispositivo StorSimple](storsimple-configure-chap.md)|
 |Aggiungere un criterio di backup</br>Aggiungere o modificare una pianificazione</br>Eliminare un criterio di backup</br>Eseguire un backup manuale</br>Creare un criterio di backup personalizzato con più volumi e pianificazioni|Servizio StorSimple Manager → Dispositivi → Criteri di backup|[Gestire i criteri di backup](storsimple-manage-backup-policies.md)|
-|Arrestare i controller dei dispositivi</br>Riavviare i controller dei dispositivi</br>Arrestare i controller dei dispositivi</br>Ripristinare i valori predefiniti di fabbrica del dispositivo</br>I valori precedenti sono solo per il dispositivo locale|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Gestire il controller del dispositivo StorSimple](storsimple-manage-device-controller.md)|
-|Informazioni sui componenti hardware di StorSimple</br>Monitorare lo stato dell'hardware</br>I valori precedenti sono solo per il dispositivo locale|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Monitorare i componenti hardware](storsimple-monitor-hardware-status.md)|
+|Arrestare i controller dei dispositivi</br>Riavviare i controller dei dispositivi</br>Arrestare i controller dei dispositivi</br>Ripristinare i valori predefiniti di fabbrica del dispositivo</br>(I valori precedenti sono solo per il dispositivo locale)|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Gestire il controller del dispositivo StorSimple](storsimple-manage-device-controller.md)|
+|Informazioni sui componenti hardware di StorSimple</br>Monitorare lo stato dell'hardware</br>(I valori precedenti sono solo per il dispositivo locale)|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Monitorare i componenti hardware](storsimple-monitor-hardware-status.md)|
 |Creare un pacchetto di supporto|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Creare e gestire un pacchetto di supporto](storsimple-create-manage-support-package.md)|
 |Installare gli aggiornamenti del software|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Aggiornare il dispositivo](storsimple-update-device.md)|
 
-![Video disponibile](./media/storsimple-manager-service-administration/Video_icon.png) **Video disponibile**
-
-Per guardare un video che illustra l'interfaccia utente del servizio StorSimple Manager, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ##Passaggi successivi
 Se si riscontrano problemi con le operazioni giornaliere del dispositivo StorSimple o con uno qualsiasi dei relativi componenti hardware, vedere:
@@ -116,4 +114,4 @@ Se non è possibile risolvere i problemi ed è necessario creare una richiesta d
 
 -  [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

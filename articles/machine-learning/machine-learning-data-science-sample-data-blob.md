@@ -3,7 +3,7 @@
 	description="Dati di esempio nell'archivio BLOB di Azure" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,10 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.date="10/20/2015" 
+	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dati di esempio nell'archivio BLOB di Azure
+
+Questo **menu** collega ad argomenti che descrivono come campionare dei dati da vari ambienti di archiviazione. Questa attività è un passaggio nel Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## Introduzione
 
 In questo documento vengono descritti i dati di campionamento che è possibile memorizzare nell'archivio BLOB di Azure scaricandoli a livello di programmazione ed eseguendo il successivo campionamento usando un codice Python di esempio. Di seguito, è riportata la procedura per eseguire questa operazione:
 
@@ -97,4 +103,4 @@ In questo documento vengono descritti i dati di campionamento che è possibile m
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

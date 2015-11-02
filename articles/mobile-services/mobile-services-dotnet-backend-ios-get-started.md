@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Se non si ha familiarità con lo sviluppo per dispositivi mobili in Microsoft Azure, [iniziare dalle app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-ios-get-started-preview.md) invece che da Servizi mobili di Azure. In questo modo si avranno [vantaggi aggiuntivi](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP]Se non si ha familiarità con lo sviluppo per dispositivi mobili tramite Microsoft Azure, [iniziare da App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-ios-get-started-preview.md) invece che da Servizi mobili di Azure. Con App per dispositivi mobili si avranno [vantaggi aggiuntivi](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per iOS mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile usa .NET e Visual Studio per la logica di business sul lato server. Per creare un servizio mobile con la logica di business sul lato server in JavaScript, vedere la sezione [Versione per back-end JavaScript] di questo argomento.
 
@@ -101,4 +101,4 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Versione per back-end JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

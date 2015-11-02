@@ -378,11 +378,8 @@
 18. Verificare che venga creato un file di output nella cartella **apifactoryoutput** nel contenitore **adftutorial**.
 
 
-## Vedere anche
 
-Articolo | Descrizione
------- | ---------------
-[Guida di riferimento per gli sviluppatori di Data factory di Azure][developer-reference] | La guida di riferimento per gli sviluppatori comprende informazioni di riferimento complete per la libreria di classi .NET, i cmdlet, lo script JSON, le funzioni e così via. 
+> [AZURE.NOTE]Nel codice di esempio precedente viene avviata una finestra di dialogo per immettere le credenziali di Azure. Se è necessario l'accesso a livello di codice senza utilizzare una finestra di dialogo, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -395,4 +392,4 @@ Articolo | Descrizione
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

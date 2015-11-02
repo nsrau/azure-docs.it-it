@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
@@ -96,4 +96,4 @@ Si aggiornerà quindi l'app client per richiedere le risorse dal back-end dell'a
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

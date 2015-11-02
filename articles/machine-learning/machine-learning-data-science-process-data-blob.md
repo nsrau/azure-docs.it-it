@@ -2,9 +2,8 @@
 	pageTitle="Elaborare i dati BLOB di Azure con analisi avanzate | Microsoft Azure" 
 	description="Elaborare dati nell'archivio BLOB di Azure." 
 	services="machine-learning,storage" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -14,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.date="10/20/2015" 
+	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
 
@@ -189,4 +188,4 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

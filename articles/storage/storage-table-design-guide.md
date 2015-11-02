@@ -3,8 +3,8 @@
    description="Progettare tabelle scalabili ed efficienti in Archiviazione tabelle di Azure"
    services="storage"
    documentationCenter="na"
-   authors="tamram" 
-   manager="carolz"
+   authors="jasonnewyork" 
+   manager="tadb"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage"
    ms.date="08/03/2015"
-   ms.author="tamram"/>
+   ms.author="jahogg"/>
 
 # Guida alla progettazione della tabella di archiviazione di Azure: Progettazione scalabile e Tabelle ad alte prestazioni
 
@@ -1550,4 +1550,4 @@ I nostri ringraziamenti vanno inoltre ai Microsoft MVP seguenti per i preziosi c
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

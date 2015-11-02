@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inserire dati | Microsoft Azure" 
+	pageTitle="Caricare i dati in ambienti di archiviazione per l'analisi | Microsoft Azure" 
 	description="Spostamento dei dati da e verso l'archiviazione BLOB di Azure" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="10/19/2015" 
 	ms.author="bradsev" />
 
-# Inserire dati
+# Caricare i dati in ambienti di archiviazione per l'analisi
 
 ## Introduzione
 
@@ -28,4 +28,4 @@ Questo **menu** si collega ad argomenti che descrivono come inserire dati in que
 
 Le esigenze aziendali e tecniche specifiche, nonché la posizione iniziale, il formato e le dimensioni dei dati determinano gli ambienti di destinazione in cui i dati devono essere inseriti per raggiungere gli obiettivi dell'analisi. Non è insolito per uno scenario richiedere lo spostamento dei dati tra ambienti diversi per disporre di tutte le attività necessarie per creare un modello predittivo. Questa sequenza di attività può includere, ad esempio, l'esplorazione dei dati, la pre-elaborazione, la pulizia, il sottocampionamento e il training del modello.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

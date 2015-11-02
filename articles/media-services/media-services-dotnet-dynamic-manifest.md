@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Creazione di filtri con l'SDK .NET Servizi multimediali" 
+	pageTitle="Creazione di filtri con il .NET SDK di Servizi multimediali di Azure" 
 	description="Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per consentire questo streaming selettivo." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="dwrede,cenkdin" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
-#Creazione di filtri con l'SDK .NET Servizi multimediali
+#Creazione di filtri con il .NET SDK di Servizi multimediali di Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
@@ -147,4 +147,4 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 [Filtri e manifesti dinamici](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

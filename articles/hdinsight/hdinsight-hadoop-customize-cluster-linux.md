@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Personalizzare cluster HDInsight mediante Azione di script | Microsoft Azure"
-	description="Informazioni su come personalizzare cluster HDInsight mediante Azione di script."
+	description="Informazioni su come aggiungere componenti personalizzati in cluster HDInsight basati su Linux usando azioni di script. Le azioni di script sono script Bash eseguiti durante la creazione del cluster e possono essere usate per personalizzare la configurazione del cluster o aggiungere nuovi servizi o utilità, quali Hue, Solr o R."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="10/22/2015"
 	ms.author="larryfr"/>
 
 # Personalizzare cluster HDInsight mediante Azione di script (Linux)
@@ -35,7 +35,10 @@ Lo script viene eseguito durante la configurazione di HDInsight. In questa fase,
 
 Ogni cluster può accettare più azioni di script che vengono richiamate nell'ordine in cui sono specificate. Uno script può essere eseguito sui nodi head, sui nodi di lavoro o entrambi.
 
-> [AZURE.IMPORTANT]Le azioni di script devono essere completate entro 15 minuti; in caso contrario si verifica un timeout.
+> [AZURE.IMPORTANT]Le azioni di script devono essere completate entro 15 minuti; in caso contrario si verifica un timeout. Durante il provisioning dei nodi, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script può richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
+> 
+> Per ridurre al minimo il tempo necessario per eseguire lo script, evitare attività come il download e la compilazione di applicazioni dall'origine. Al contrario, precompilare l'applicazione e archiviare il file binario nell'archivio BLOB di Azure in modo che possa essere rapidamente scaricato nel cluster.
+
 
 ## Script di Azione di script di esempio
 
@@ -45,11 +48,11 @@ HDInsight fornisce diversi script di esempio per installare i componenti seguent
 
 Nome | Script
 ----- | -----
-**Installare Hue**. | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh. Vedere [Installare e usare Hue nei cluster HDInsight](hdinsight-hadoop-hue-linux.md).
-**Installare Spark** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh. Vedere [Installare e usare Spark nei cluster HDInsight](hdinsight-hadoop-spark-install-linux.md).
-**Installare R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. Vedere [Installare e usare R nei cluster HDInsight](hdinsight-hadoop-r-scripts-linux.md).
-**Installare Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Vedere [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install-linux.md).
-**Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Vedere [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md).
+**Installare Hue**. | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh. Vedere [Installare e usare Hue in cluster HDInsight](hdinsight-hadoop-hue-linux.md).
+**Installare Spark** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh. Vedere [Installare e usare Spark in cluster HDInsight](hdinsight-hadoop-spark-install-linux.md).
+**Installare R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. Vedere [Installare e usare R in cluster HDInsight](hdinsight-hadoop-r-scripts-linux.md).
+**Installare Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Vedere [Installare e usare Solr in cluster HDInsight](hdinsight-hadoop-solr-install-linux.md).
+**Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Vedere [Installare e usare Giraph in cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md).
 
 ## Usare un'azione di script dal portale di anteprima di Azure
 
@@ -57,13 +60,13 @@ Nome | Script
 
 2. In __Configurazione facoltativa__ fare clic su **aggiungi azione di script** nel pannello **Azioni di script** per specificare i dettagli relativi all'azione di script, come illustrato di seguito:
 
-	![Usare Azione di script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "Usare Azione di script per personalizzare un cluster")
+	![Usare l'azione di script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "Usare l'azione di script per personalizzare un cluster")
 
 	| Proprietà | Valore |
 	| -------- | ----- |
 	| Nome | Specificare un nome per l'azione di script. |
 	| URI script | Specificare l'URI dello script da richiamare per personalizzare il cluster. |
-	| Head/ruolo di lavoro | Specificare i nodi (**Head**, **Lavoro** o **ZooKeeper**) su cui viene eseguito lo script di personalizzazione. |
+	| Head/Lavoro | Specificare i nodi (**Head**, **Lavoro** o **ZooKeeper**) su cui viene eseguito lo script di personalizzazione. |
 	| Parametri | Specificare i parametri, se richiesti dallo script. |
 
 	È possibile aggiungere altre azioni di script per installare più componenti nel cluster.
@@ -240,7 +243,7 @@ In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per c
 
 2. Avviare Azure PowerShell e accedere al proprio account Azure. Una volta specificate le credenziali, il comando restituisce le informazioni relative all'account.
 
-		Add-AzureAccount
+		Add-AzureRMAccount
 
 		Id                             Type       ...
 		--                             ----
@@ -248,15 +251,13 @@ In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per c
 
 3. Se si hanno più sottoscrizioni, specificare l'ID sottoscrizione che si desidera usare per la distribuzione.
 
-		Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
 
-4. Passare al modulo Gestione risorse di Azure.
-
-		Switch-AzureMode AzureResourceManager
+    > [AZURE.NOTE]È possibile usare `Get-AzureRMSubscription` per ottenere un elenco di tutte le sottoscrizioni associate all'account, con il relativo ID di sottoscrizione.
 
 5. Se non è presente un gruppo di risorse, crearne uno nuovo. Specificare il nome del gruppo di risorse e il percorso per la soluzione. Viene restituito un riepilogo del nuovo gruppo di risorse.
 
-		New-AzureResourceGroup -Name myresourcegroup -Location "West US"
+		New-AzureRMResourceGroup -Name myresourcegroup -Location "West US"
 
 		ResourceGroupName : myresourcegroup
 		Location          : westus
@@ -272,7 +273,7 @@ In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per c
 6. Per creare una nuova distribuzione per il gruppo di risorse, eseguire il comando **New-AzureResourceGroupDeployment** e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse e il percorso o l'URL del modello creato. Passare anche gli eventuali altri parametri richiesti dal modello. In questo caso, l'azione di script per installare R nel cluster non richiede parametri.
 
 
-		New-AzureResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
+		New-AzureRMResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
 
 
 	Verrà richiesto di fornire i valori per i parametri definiti nel modello.
@@ -288,15 +289,11 @@ In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per c
 
 8. Se la distribuzione non riesce, è possibile usare i cmdlet seguenti per ottenere informazioni relative agli errori.
 
-		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed
-
-	Per informazioni dettagliate sugli errori di distribuzione, usare il cmdlet seguente.
-
-		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed -DetailedOutput
+		Get-AzureRMResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
 
 ## Usare un'azione di script da Azure PowerShell
 
-In questa sezione si usa il cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** per richiamare gli script usando Azione di script per personalizzare un cluster. Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+In questa sezione si userà il cmdlet [Add-AzureRMHDInsightScriptAction](http://msdn.microsoft.com/library/dn858088.aspx) per richiamare script e l'opzione relativa all'azione di script per personalizzare un cluster. Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione di cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 Eseguire la procedura seguente:
 
@@ -311,21 +308,21 @@ Eseguire la procedura seguente:
 		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# The number of nodes in the HDInsight cluster.
 		$version = "<HDInsightClusterVersion>"          # HDInsight version, for example "3.1"
+        $resourceGroupName = "<ResourceGroupName>"      # The resource group that the HDInsight cluster will be created in
 
 2. Specificare i valori di configurazione, ad esempio i nodi del cluster e l'archivio predefinito da usare.
 
 		# SPECIFY THE CONFIGURATION OPTIONS
-		Select-AzureSubscription $subscriptionName
-		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
-		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
-		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
-		$config.DefaultStorageAccount.StorageContainerName=$containerName
+		Select-AzureRMSubscription $subscriptionName
+		$config = New-AzureRMHDInsightClusterConfig
+		$config.DefaultStorageAccountName="$storageAccountName.blob.core.windows.net"
+		$config.DefaultStorageAccountKey=$storageAccountKey
 
-3. Usare il cmdlet **Add-AzureHDInsightScriptAction** per richiamare lo script. L'esempio seguente usa lo script per installare R nel cluster:
+3. Usare il cmdlet **Add-AzureHDInsightScriptAction** per richiamare lo script. L'esempio seguente usa uno script che installa R nel cluster:
 
-		# INVOKE THE SCRIPT USING THE SCRIPT ACTION
-		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install R"  -ClusterRoleCollection HeadNode,WorkerNode,ZookeeperNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-
+		# INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
+		$config = Add-AzureRMHDInsightScriptAction -Config $config -Name "Install R"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+        $config = Add-AzureRMHDInsightScriptAction -Config $config -Name "Install R"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
 
 	Il cmdlet **Add-AzureHDInsightScriptAction** accetta i parametri seguenti:
 
@@ -333,13 +330,15 @@ Eseguire la procedura seguente:
 	| --------- | ---------- |
 	| Config | Oggetto di configurazione a cui vengono aggiunte le informazioni dell'azione di script. |
 	| Nome | Nome dell'azione di script. |
-	| ClusterRoleCollection | Specifica i nodi in cui viene eseguito lo script di personalizzazione. I valori validi sono **HeadNode** (per l'installazione nel nodo head) o **WorkerNode** (per l'installazione in tutti i nodi dati) o **ZookeeperNode** (per l'installazione nel nodo zookeeper). È possibile usare uno o tutti i valori. |
+	| Tipo di nodo | Specifica il nodo su cui viene eseguito lo script di personalizzazione. I valori validi sono **HeadNode** (per l'installazione nel nodo head) o **WorkerNode** (per l'installazione in tutti i nodi dati) o **ZookeeperNode** (per l'installazione nel nodo zookeeper). |
 	| Parametri | Parametri richiesti dallo script. |
 	| Uri | Specifica l'URI per lo script eseguito. |
 
 4. Al termine, creare il cluster:
 
 		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+        
+        New-AzureRMHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes 2
 
 Quando richiesto, immettere le credenziali per il cluster. La creazione del cluster può richiedere alcuni minuti.
 
@@ -354,7 +353,7 @@ HDInsight .NET SDK fornisce librerie client che semplificano l'uso di HDInsight 
 
 
 1. Creare un'applicazione console C# in Visual Studio.
-2. Eseguire i comandi seguenti dalla **console di Gestione pacchetti** NuGet:
+2. Eseguire i comandi seguenti dalla **console di Gestione pacchetti** di Nuget:
 
 		Install-Package Microsoft.Azure.Common.Authentication -pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
@@ -472,31 +471,11 @@ HDInsight .NET SDK fornisce librerie client che semplificano l'uso di HDInsight 
 7. Premere **F5** per eseguire l'applicazione. Verrà aperta una finestra della console in cui è visualizzato lo stato dell'applicazione. Verrà richiesto di immettere le credenziali dell'account Azure. Possono essere necessari alcuni minuti per creare un cluster HDInsight.
 
 
-## Supporto per software open source usato nei cluster HDInsight
-
-Il servizio Microsoft Azure HDInsight è una piattaforma flessibile che permette di creare applicazioni Big Data nel cloud usando un ecosistema di tecnologie open source basate su Hadoop. Microsoft Azure offre un livello di supporto generale per le tecnologie open source, come illustrato nella sezione **Ambito del supporto** del [sito Web delle domande frequenti sul supporto tecnico di Azure](http://azure.microsoft.com/support/faq/). Il servizio HDInsight fornisce un livello di supporto aggiuntivo per alcuni componenti, come illustrato di seguito.
-
-Nel servizio HDInsight sono disponibili due tipi di componenti open source:
-
-- **Componenti predefiniti** - Questi componenti sono preinstallati nei cluster HDInsight e forniscono la funzionalità di base del cluster. Questa categoria include ad esempio il gestore risorse YARN, il linguaggio di query Hive (HiveQL) e la libreria Mahout. L'elenco completo dei componenti del cluster è disponibile in [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md).
-
-- **Componenti personalizzati** - Un utente del cluster può installare o usare nel carico di lavoro qualsiasi componente disponibile nella community o creato da lui stesso.
-
-> [AZURE.WARNING]I componenti forniti con il cluster HDInsight sono supportati in modo completo e il Supporto Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
->
-> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. Ad esempio, è possibile ricorrere a molti siti di community come: [il forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono anche disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
-
-Il servizio HDInsight permette di usare i componenti personalizzati in molti modi. Indipendentemente dal modo in cui un componente viene usato o installato nel cluster, verrà applicato lo stesso livello di supporto. L'elenco seguente illustra i modi più comuni per usare i componenti personalizzati nei cluster HDInsight:
-
-1. Invio di processi - È possibile inviare al cluster processi Hadoop o di altro tipo che eseguono o usano componenti personalizzati.
-
-2. Personalizzazione del cluster - Durante la creazione di un cluster, è possibile specificare impostazioni aggiuntive e componenti personalizzati, che verranno installati nei nodi del cluster.
-
-3. Esempi - Microsoft e altri utenti possono fornire esempi relativi all'uso dei componenti personalizzati più diffusi nei cluster HDInsight. Questi esempi vengono forniti senza supporto.
-
 ## Risoluzione dei problemi
 
-È possibile usare l'interfaccia utente Web Ambari per visualizzare le informazioni registrate dagli script durante la creazione del cluster.
+È possibile usare l'interfaccia utente Web Ambari per visualizzare le informazioni registrate dagli script durante la creazione del cluster. Se la creazione del cluster non è riuscita a causa di un errore nello script, tuttavia, i registri risultano disponibili anche nell'account di archiviazione predefinito associato al cluster. Questa sezione fornisce informazioni su come recuperare i registri usando entrambe le opzioni.
+
+### Utilizzo dell'interfaccia utente Web Ambari
 
 1. Nel browser passare a https://CLUSTERNAME.azurehdinsight.net. Sostituire CLUSTERNAME con il nome del cluster HDInsight.
 
@@ -512,6 +491,51 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 	Selezionare questa voce ed eseguire il drill-down dei collegamenti per visualizzare l'output di STDOUT e STDERR generato durante l'esecuzione dello script sul cluster.
 
+### Accesso ai registri dall'account di archiviazione predefinito
+
+Se la creazione del cluster non è riuscita a causa di un errore nell'azione di script, è possibile accedere ai registri dell'azione di script direttamente dall'account di archiviazione predefinito associato al cluster.
+
+* I registri di archiviazione sono disponibili in `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`. In questo percorso i registri sono organizzati per nodi head, nodi di lavoro e nodi zookeeper. Di seguito sono riportati alcuni esempi.
+	* Nodo head: `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-headnode0.mycluster-ssh.d4.internal.cloudapp.net`
+	* Nodo di lavoro: `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-workernode0.mycluster-63d9e66a-a8e2-4022-85aa-a484e7700b5c.d4.internal.cloudapp.net`
+	* Nodo zookeeper: `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-zookeepernode0.mycluster-4965986e-3636-4a8b-ae1d-f2dfd898c8d7.d4.internal.cloudapp.net`
+* Tutti i file stdout e stderr dell'host corrispondente vengono caricati nell'account di archiviazione. Per ogni azione di script esiste un file **output-*.txt** e uno **errors-*.txt**. Il file output-*.txt contiene informazioni relative all'URI dello script che è stato eseguito nell'host. Ad esempio
+
+		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+
+* È possibile creare più volte un cluster dell'azione di script con lo stesso nome. In questo caso, è possibile distinguere i registri corrispondenti in base al nome della cartella della data. Ad esempio, la struttura di cartelle per un cluster (mycluster) creato in diverse date sarà:
+	* `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04`
+	* `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
+
+* Se in uno stesso giorno si creano più cluster dell'azione di script con lo stesso nome, è possibile usare il prefisso univoco per identificare i file di registro corrispondenti.
+
+* Se si crea un cluster alla fine del giorno, è possibile che i file di registro si estendano su due giorni. In questo caso, per lo stesso cluster vengono visualizzate due diverse cartelle della data.
+
+* Il caricamento dei file di registro nel contenitore predefinito può richiedere fino a 5 minuti, soprattutto per i cluster di grandi dimensioni. Se si desidera accedere ai file di registro, quindi, è opportuno non eliminare immediatamente il cluster in caso di esito negativo di un'azione di script.
+
+
+## Supporto per software open source usato nei cluster HDInsight
+
+Il servizio Microsoft Azure HDInsight è una piattaforma flessibile che permette di creare applicazioni Big Data nel cloud usando un ecosistema di tecnologie open source basate su Hadoop. Microsoft Azure fornisce un livello di supporto generale per le tecnologie open source, come illustrato nella sezione relativa all'**ambito del supporto** del [sito Web Domande frequenti sul supporto tecnico di Azure](http://azure.microsoft.com/support/faq/). Il servizio HDInsight fornisce un livello di supporto aggiuntivo per alcuni componenti, come illustrato di seguito.
+
+Nel servizio HDInsight sono disponibili due tipi di componenti open source:
+
+- **Componenti predefiniti** - Questi componenti sono preinstallati nei cluster HDInsight e forniscono la funzionalità di base del cluster. Questa categoria include ad esempio il gestore risorse YARN, il linguaggio di query Hive (HiveQL) e la libreria Mahout. L'elenco completo dei componenti del cluster è disponibile in [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md).
+
+- **Componenti personalizzati** - Un utente del cluster può installare o usare nel carico di lavoro qualsiasi componente disponibile nella community o creato da lui stesso.
+
+> [AZURE.WARNING]I componenti forniti con il cluster HDInsight sono supportati in modo completo e il Supporto Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
+>
+> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come [il forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
+
+Il servizio HDInsight permette di usare i componenti personalizzati in molti modi. Indipendentemente dal modo in cui un componente viene usato o installato nel cluster, verrà applicato lo stesso livello di supporto. L'elenco seguente illustra i modi più comuni per usare i componenti personalizzati nei cluster HDInsight:
+
+1. Invio di processi - È possibile inviare al cluster processi Hadoop o di altro tipo che eseguono o usano componenti personalizzati.
+
+2. Personalizzazione del cluster - Durante la creazione di un cluster, è possibile specificare impostazioni aggiuntive e componenti personalizzati, che verranno installati nei nodi del cluster.
+
+3. Esempi - Microsoft e altri utenti possono fornire esempi relativi all'uso dei componenti personalizzati più diffusi nei cluster HDInsight. Questi esempi vengono forniti senza supporto.
+
 ## Passaggi successivi
 
 Per informazioni ed esempi sulla creazione e l'uso di script per personalizzare un cluster, vedere gli argomenti seguenti:
@@ -526,4 +550,4 @@ Per informazioni ed esempi sulla creazione e l'uso di script per personalizzare 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

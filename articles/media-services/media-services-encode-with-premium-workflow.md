@@ -3,7 +3,7 @@
 	description="Informazioni su come codificare con il flusso di lavoro Premium del codificatore multimediale. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
@@ -276,4 +276,4 @@ Se il video di input non contiene i sottotitoli codificati, l'asset di output co
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

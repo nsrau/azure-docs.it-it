@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Confronto: Apache Storm e Analisi di flusso di Azure | Microsoft Azure"
 	description="Imparare a utilizzare Analisi di flusso per l'analisi dei sentimenti di Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="twitter in tempo reale, analisi del sentimento, analisi dei social network, strumenti di analisi dei social network"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -590,4 +590,4 @@ Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

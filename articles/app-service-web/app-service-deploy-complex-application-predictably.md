@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -288,7 +288,7 @@ In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita
 
 ## Passaggi successivi ##
 
-Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione continua dell'applicazione di microservizi](app-service-agile-software-development.md).
+Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione continua dell'applicazione di microservizi](app-service-agile-software-development.md) e le tecniche di distribuzione avanzata come [distribuzione flighting](app-service-web-test-in-production-controlled-test-flight.md).
 
 <a name="resources"></a>
 ## Altre risorse ##
@@ -305,4 +305,4 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

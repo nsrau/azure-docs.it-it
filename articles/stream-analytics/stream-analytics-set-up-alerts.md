@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Avvisi di Analisi di flusso | Microsoft Azure" 
 	description="Informazioni sugli avvisi di Analisi di flusso" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="analisi di big data, servizio cloud, internet delle cose, servizio gestito, elaborazione del flusso, analisi di flusso, dati del flusso"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -26,7 +26,7 @@
 
 Ad esempio, “se gli eventi di Output per gli ultimi 15 minuti è <100, inviare una notifica tramite posta elettronica all’ID di posta elettronica: xyz@company.com”.
 
-Le regole possono essere configurate sulle metriche tramite il portale o possono essere configurate [a livello di programmazione](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sui dati dei log delle operazioni.
+Le regole possono essere configurate sulle metriche tramite il portale o possono essere configurate [a livello di codice](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sui dati dei log delle operazioni.
 
 ## Configurazione degli avvisi tramite il portale di Azure
 
@@ -62,7 +62,7 @@ Esistono due modi per configurare gli avvisi nel portale di gestione di Azure:
 
 ## Impostazione degli avvisi nel portale di anteprima di Azure ##
 
-Nel portale di anteprima di Azure individuare il processo di analisi di flusso di cui si desidera essere avvisati segnalato e fare clic sulla sezione **Monitoraggio**. Nel pannello **Metrica** fare clic sul comando **Aggiungi avviso** comando.
+Nel portale di anteprima di Azure individuare il processo di analisi di flusso per cui si desidera essere avvisati e fare clic sulla sezione **Monitoraggio**. Nel pannello **Metrica** fare clic sul comando **Aggiungi avviso**.
 
   ![Configurazione del portale di anteprima di Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
 
@@ -85,4 +85,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

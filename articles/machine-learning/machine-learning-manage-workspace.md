@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Gestire un'area di lavoro di Machine Learning | Microsoft Azure" 
-	description="Gestione dell'accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Gestire un'area di lavoro di Machine Learning | Microsoft Azure"
+	description="Gestione dell'accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/15/2015"
 	ms.author="garye"/>
 
 
-# Gestire un'area di lavoro di Azure Machine Learning 
+# Gestire un'area di lavoro di Azure Machine Learning
 Tramite il portale di gestione di Azure è possibile gestire le aree di lavoro di Machine Learning per:
 
 - Monitorare la modalità d'uso dell'area di lavoro.
@@ -43,7 +43,7 @@ La pagina dell'area di lavoro contiene tre schede:
 - **CONFIGURE**: permette di gestire l'accesso all'area di lavoro.
 - **WEB SERVICES**: permette di gestire i servizi Web pubblicati da questa area di lavoro.
 
-  
+
 ## Per monitorare la modalità d'uso dell'area di lavoro
 
 Fare clic sulla scheda **DASHBOARD**.
@@ -62,11 +62,11 @@ Dal dashboard è possibile visualizzare l'utilizzo complessivo dell'area di lavo
 Fare clic sulla scheda **CONFIGURE**.
 
 Dalla scheda di configurazione è possibile:
- 
-- Sospendere l'accesso all'area di lavoro di Machine Learning facendo clic su DENY. Gli utenti non saranno più in grado di aprire l'area di lavoro in Machine Learning Studio. Per ripristinare l'accesso, fare clic su ALLOW.
-- Modificare il proprietario dell'area di lavoro specificando un account Microsoft diverso. 
 
-Per gestire utenti che hanno accesso all'area di lavoro in Machine Learning Studio, fare clic su **Accesso a ML Studio** nella scheda **DASHBOARD** (vedere la nota sopra relativa a **Accesso a ML Studio**). Verrà aperta l'area di lavoro in Machine Learning Studio. A questo punto, fare clic sulla scheda **SETTINGS** e quindi su **USERS**. È possibile fare clic su **INVITE MORE USERS** per concedere agli utenti l'accesso all'area di lavoro oppure selezionare un utente e fare clic su **REMOVE**.
+- Sospendere l'accesso all'area di lavoro di Machine Learning facendo clic su DENY. Gli utenti non saranno più in grado di aprire l'area di lavoro in Machine Learning Studio. Per ripristinare l'accesso, fare clic su ALLOW.
+- Modificare il proprietario dell'area di lavoro specificando un account Microsoft diverso.
+
+Per gestire account aggiuntivi che hanno accesso all'area di lavoro in Machine Learning Studio, fare clic su **Accesso a ML Studio** nella scheda **DASHBOARD** (vedere la nota sopra relativa a **Accesso a ML Studio**). Verrà aperta l'area di lavoro in Machine Learning Studio. A questo punto, fare clic sulla scheda **SETTINGS** e quindi su **USERS**. È possibile fare clic su **INVITE MORE USERS** per concedere agli utenti l'accesso all'area di lavoro oppure selezionare un utente e fare clic su **REMOVE**.
 
 
 ## Per gestire i servizi Web in questa area di lavoro
@@ -77,10 +77,10 @@ Verrà visualizzato un elenco di servizi Web pubblicati da questa area di lavoro
 
 Per un servizio Web possono essere definiti uno o più endpoint.
 
-- È possibile definire endpoint aggiuntivi oltre a "Default". Per aggiungere un endpoint, fare clic su **ADD ENDPOINT** nella parte inferiore della pagina.
+- È possibile definire altri endpoint oltre a quelli di "Default". Per aggiungere un endpoint, fare clic su **ADD ENDPOINT** nella parte inferiore della pagina.
 
 - Per eliminare un endpoint, tranne l'endpoint "Default", fare clic in un punto qualsiasi, eccetto il nome, nella riga dell'endpoint quindi fare clic su **DELETE ENDPOINT** nella parte inferiore della pagina. L'endpoint verrà rimosso dal servizio Web.
- 
+
     > [AZURE.NOTE]Se in un'applicazione è in uso l'endpoint di servizio Web quando questo viene eliminato, al successivo tentativo di accesso al servizio da parte dell'applicazione verrà visualizzato un errore .
 
 Fare clic sul nome dell'endpoint di servizio Web per aprirlo. Il grafico relativo all'utilizzo mostra le risorse di calcolo e di stima usate dall'endpoint di servizio Web. È possibile modificare la visualizzazione per mostrare i valori relativi o assoluti, nonché cambiare l'intervallo di tempo visualizzato nel grafico.
@@ -89,9 +89,9 @@ Questa pagina include anche le informazioni necessarie per accedere all'endpoint
 
 Da questa pagina è anche possibile pubblicare il servizio Web nel Marketplace dati di Azure. Per altre informazioni, vedere [Pubblicare il servizio Web di Azure Machine Learning in Azure Marketplace][marketplace].
 
+Fare clic sulla scheda **CONFIGURA** per modificare la descrizione, controllare il numero di connessioni simultanee consentite dal servizio web, o impostare una traccia diagnostica.
+
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

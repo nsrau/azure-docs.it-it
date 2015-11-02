@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Installazione di una foresta Active Directory in una rete virtuale di Azure" 
+	pageTitle="Installazione di una foresta Active Directory in una rete virtuale di Azure | Microsoft Azure" 
 	description="Un'esercitazione che illustra come creare una nuova foresta di Active Directory in una macchina virtuale (VM) in una rete virtuale di Azure." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="TerryLan" 
-	editor="LisaToft"
-	tags="azure-classic-portal"/>
+	manager="stevenpo" 
+	tags=""/>
 
 <tags 
 	ms.service="active-directory" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 
@@ -138,4 +137,4 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

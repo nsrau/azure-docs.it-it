@@ -24,6 +24,8 @@
 
 Le immagini Linux nella raccolta di Azure sono fornite da diversi partner e Microsoft collabora con diverse community Linux per aggiungere ulteriori versioni all’elenco di distribuzioni supportate. Nel frattempo, per le distribuzioni non disponibili nella raccolta, è possibile usare la propria distribuzione di Linux, attenendosi alle indicazioni disponibili in [questa pagina](virtual-machines-linux-create-upload-vhd.md).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 ## Versioni e distribuzioni supportate ##
 
@@ -35,12 +37,12 @@ L'agente Linux di Azure è già preinstallato nelle immagini della raccolta di A
 
 Distribuzione|Versione|Driver|Agente
 ---|---|---|---
-Canonical Ubuntu|Ubuntu 12.04, 14.04, 14.10 e 15.04|Nel kernel|Pacchetto: in repo sotto "WALinuxAgent" <p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-CentOS di OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3:[LIS Download](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: nel Kernel|Pacchetto: in <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic repo sotto "WALinuxAgent"<p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Canonical Ubuntu|Ubuntu 12.04, 14.04, 14.10 e 15.04|Nel kernel|Pacchetto: in repo sotto "WALinuxAgent"<p><p>Origine: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+CentOS di OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3:[LIS Download](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: nel Kernel|Pacchetto: in <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic repo sotto "WALinuxAgent"<p><p>Origine: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |Nel kernel|Origine: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
-Oracle Linux| 6\.4+, 7.0+|Nel kernel|Pacchetto: in repo sotto "WALinuxAgent"<p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-SUSE Linux Enterprise |SLES 11 SP3 +, + 12 SLES e<p><p>SLES per SAP 11.3 + |Nel kernel|Pacchetto: in repo [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sotto "WALinuxAgent"<p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE |openSUSE 13.1+|Nel kernel|Pacchetto: in repo [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sotto "WALinuxAgent"<p><p>Source Code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Oracle Linux| 6\.4+, 7.0+|Nel kernel|Pacchetto: in repo sotto "WALinuxAgent"<p><p>Origine: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+SUSE Linux Enterprise |SLES 11 SP3 +, + 12 SLES e<p><p>SLES per SAP 11.3 + |Nel kernel|Pacchetto: in repo [Cloud:Strumenti](https://build.opensuse.org/project/show/Cloud:Tools) sotto "WALinuxAgent"<p><p>Origine: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|Nel kernel|Pacchetto: in repo [Cloud:Strumenti](https://build.opensuse.org/project/show/Cloud:Tools) sotto "WALinuxAgent"<p><p>Codice di origine: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
 ## Partner
 
@@ -79,4 +81,4 @@ SUSE Linux Enterprise Server su Azure è una piattaforma collaudata che offre un
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

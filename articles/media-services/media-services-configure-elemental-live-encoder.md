@@ -3,7 +3,7 @@
 	description="In questo argomento viene illustrato come configurare il codificatore Elemental Live per inviare un flusso a velocità in bit singola a canali AMS abilitati per la codifica live." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako,cenkdin,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/29/2015"    
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Usare il codificatore Elemental Live per inviare un flusso live a velocità in bit singola. 
@@ -171,4 +171,4 @@ Vedere l'argomento dedicato alla [risoluzione dei problemi](media-services-troub
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

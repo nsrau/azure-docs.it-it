@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/12/2015"
+  ms.date="10/20/2015"
   ms.author="andrl"/>
 
 # Portale della community
@@ -126,7 +126,8 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | ------------------------------------------- | ------------------ | ------- |
 | Integration User Group | 5 ottobre 2015 | [Azure DocumentDB for Healthcare Integration](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
 | DX Italy - #TecHeroes | 2 ottobre 2015 | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
-| .NET Rocks! Podcast | 29 settembre 2015 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
+| Mostra di Microsoft Cloud - Podcast | 30 settembre 2015 | [Episodio 099 - DocumentDB di Azure con Andrew Liu](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
+| .NET Rocks! -Podcast | 29 settembre 2015 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
 | Dati esposti | 28 settembre 2015 | [What's New with Azure DocumentDB Since GA](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
 | Podcast di Azure | 17 settembre 2015 | [Episode 94: azpodcast.com re-architecture](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
 | Cloud Cover | 4 settembre 2015 | [Episode 185: DocumentDB Updates with Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
@@ -157,7 +158,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 ### Twitter
 
-È possibile seguire la community su Twitter [@DocumentDB](https://twitter.com/DocumentDB) e rimanere aggiornati sulla conversazione più recente con l'hashtag [#DocumentDB](https://twitter.com/hashtag/DocumentDB).
+È possibile seguire la community su Twitter [@DocumentDB](https://twitter.com/DocumentDB) e restare aggiornati sulla conversazione più recente con l'hashtag [#DocumentDB](https://twitter.com/hashtag/DocumentDB).
 
 <br/><br/>
 
@@ -184,7 +185,7 @@ Sono disponibili orari di ufficio su IRC ogni venerdì dalle 11 alle 12 Pacifico
 
 | | |
 | -------------------------------------------------------- | --- |
-|![Team](./media/documentdb-community/documentdb-team.png) | È necessaria l'assistenza tecnica? Altre domande? Se non necessarie altre informazioni sull'idoneità di NoSQL come scelta ottimale, <br/><br/>è possibile [pianificare una chat direttamente con il team di progettazione DocumentDB](http://www.askdocdb.com/).<br/><br/>È anche possibile inviare un [messaggio di posta elettronica](mailto:askdocdb@microsoft.com) o un tweet all'indirizzo [@DocumentDB](https://twitter.com/DocumentDB). |
+|![Team](./media/documentdb-community/documentdb-team.png) | È necessaria l'assistenza tecnica? Altre domande? Se si hanno dubbi circa il fatto che NoSQl sia la scelta ottimale, <br/><br/>è possibile [pianificare una chat 1:1 direttamente con il team di progettazione DocumentDB](http://www.askdocdb.com/).<br/><br/>È anche possibile inviare un [messaggio di posta elettronica](mailto:askdocdb@microsoft.com) o un tweet all'indirizzo [@DocumentDB](https://twitter.com/DocumentDB). |
 
 
 <br/><br/>
@@ -213,4 +214,4 @@ Questi progetti sono attivamente sviluppati dal team di Azure DocumentDB in coll
 | Connettore Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Strumento di migrazione dei dati | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Area download Microsoft](http://www.microsoft.com/it-IT/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

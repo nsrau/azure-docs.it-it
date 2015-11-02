@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="10/20/2015" 
 	ms.author="arramac"/>
 
 # Ordinamento dei dati di DocumentDB tramite Order By
@@ -125,7 +125,7 @@ Ecco come creare una raccolta per l’indicizzazione per Order By rispetto alla 
         });
 
 ## Esempi
-Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) che illustra come utilizzare Order By e come creare criteri di indicizzazione e paging tramite Order By. Gli esempi sono open source e si consiglia di inviare richieste pull con contributi che potrebbero essere utili ad altri sviluppatori DocumentDB. Per informazioni su come contribuire, fare riferimento alle [linee guida specifiche](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md).
+Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) che illustra come utilizzare Order By e come creare criteri di indicizzazione e paging tramite Order By. Gli esempi sono open source e si consiglia di inviare richieste pull con contributi che potrebbero essere utili ad altri sviluppatori DocumentDB. Per informazioni su come contribuire, fare riferimento alle [linee guida specifiche](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md).
 
 ## Novità successive
 
@@ -152,7 +152,7 @@ Il sovraccarico di indicizzazione sarà proporzionale al numero di proprietà nu
 
 **Come si esegue una query sui dati esistenti in DocumentDB tramite Order By?**
 
-Questa funzionalità sarà supportata con il miglioramento dei criteri di indicizzazione dinamica indicati nella sezione [Novità successive](what's-coming-next). Attualmente per ottenere questo scopo è necessario esportare i dati e reimportarli in una nuova raccolta di DocumentDB creata con un indice di intervallo/Order By. Lo strumento di importazione di DocumentDB può essere utilizzato per migrare i dati tra le raccolte.
+Per ordinare i risultati della query tramite Order By, è necessario modificare il criterio di indicizzazione della raccolta per utilizzare un tipo di indice di intervallo rispetto alla proprietà utilizzata per ordinare. Vedere [Modifica dei criteri di indicizzazione](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection).
 
 **Quali sono le limitazioni attuali di Order By?**
 
@@ -168,13 +168,13 @@ Non è possibile usare Order By:
 
 ## Passaggi successivi
 
-Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) e iniziare a ordinare i dati.
+Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) e iniziare a ordinare i dati.
 
 ## Riferimenti
 * [Nozioni di base sulle query di DocumentDB](documentdb-sql-query.md)
 * [Nozioni di base sui criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
 * [Riferimento SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [Esempi di Order By di DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
+* [Esempi di Order By di DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

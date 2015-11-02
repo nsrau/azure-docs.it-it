@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Integrare i servizi Single Sign-On di Azure Active Directory con le app esistenti | Microsoft Azure"
+   pageTitle="Integrazione dei servizi Single Sign-On di Azure Active Directory con le app esistenti | Microsoft Azure"
    description="Gestire le app SaaS già in uso, abilitando l'autenticazione Single Sign-On e il provisioning degli utenti in Azure Active Directory."
    services="active-directory"
    documentationCenter=""
@@ -13,31 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/05/2015"
+   ms.date="10/16/2015"
    ms.author="kgremban; liviodlc"/>
 
-# Integrare i servizi Single Sign-On di Azure Active Directory con le app esistenti
+# Integrazione di servizi Single Sign-On di Azure Active Directory con le app esistenti
 
-[AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
+## Panoramica
 
-## Altre considerazioni
+L'impostazione di Single Sign-On (SSO) per un'applicazione in uso nell'organizzazione è un processo diverso rispetto alla creazione di nuovi account per una nuova applicazione. Esistono un paio di passaggi preliminari tra cui il mapping di identità utente nell'applicazione alle identità di Azure Active Directory (AD) e le informazioni sull'esperienza utente durante l'accesso a un'applicazione dopo la relativa integrazione.
 
-La configurazione di SSO per le app già in uso è un processo diverso rispetto alla creazione di nuovi account nelle nuove app. Sia gli amministratori che gli utenti noteranno il cambiamento quando l'app viene integrata in Azure AD.
+> [AZURE.NOTE]Per configurare SSO per un'applicazione esistente, è necessario disporre dei diritti di amministratore globale sia per Azure AD sia per l'applicazione SaaS.
 
-### Cosa devono sapere gli amministratori per configurare SSO per app già in uso?
+## Mapping degli account utente
 
-Per configurare SSO per un'app esistente, è necessario disporre dei diritti di amministratore globale sia per Azure AD che per l'applicazione SaaS.
+Un'identità utente in genere è un identificatore univoco che può essere un indirizzo di posta elettronica o un nome dell'entità utente (UPN). Sarà necessario collegare (mappare) ciascuna identità utente dell'applicazione alla rispettiva identità di Azure AD. Per eseguire questa operazione è possibile procedere in due modi, a seconda dei requisiti di autenticazione dell'applicazione.
 
-Dato che l'applicazione è già in uso, sarà necessario collegare le identità dell'app stabilite dall'utente alle rispettive identità di Azure AD. È importante sapere cosa usa l'app come identificatore univoco per l'accesso, sia che si tratti di un indirizzo di posta elettronica, di un nome personale universale (UPN) o di un nome utente. Questo ID verrà collegato all'identificatore univoco dell'utente in Azure AD. Per altre informazioni sul collegamento delle identità delle app alle identità di Azure AD, vedere [Personalizzazione delle attestazioni rilasciate nel token SAML](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) e [Personalizzazione dei mapping degli attributi per il provisioning](active-directory-saas-customizing-attribute-mappings.md).
+Per altre informazioni sul mapping delle identità delle applicazioni alle identità di Azure AD, vedere l'articolo relativo alla [personalizzazione delle attestazioni rilasciate nel token SAML](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) e la pagina [Personalizzazione dei mapping degli attributi per il provisioning](active-directory-saas-customizing-attribute-mappings.md).
 
-### Quali sono gli effetti per gli utenti finali?
+## Informazioni sull'esperienza utente all'accesso
 
-Quando si integra SSO per un'applicazione già in uso, è importante tenere presente che ci saranno effetti sull'esperienza utente. Per tutte le app, gli utenti inizieranno a usare le credenziali di Azure AD per l'accesso. Inoltre, potrebbero dover usare un portale diverso per accedere alle applicazioni. SSO per alcune applicazioni può essere eseguito nel sito Web specifico dell'app, ma per accedere ad altre app l'utente dovrà passare attraverso un portale per le app centrale ([App personali](myapps.microsoft.com) o [Office365](portal.office.com/myapps)). Per altre informazioni sui diversi tipi di SSO e le relative esperienze utente, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Quando si integra SSO per un'applicazione già in uso, è importante tenere presente che ci saranno effetti sull'esperienza utente. Per tutte le applicazioni, gli utenti inizieranno a usare le credenziali di Azure AD per l'accesso. Inoltre, potrebbero dover usare un portale diverso per accedere alle applicazioni.
 
-## Passaggi successivi
-- Vedere come [integrare i servizi Single Sign-On di Azure Active Directory nelle nuove app](active-directory-sso-newly-acquired-saas-apps.md)
-- Altre informazioni sull'[accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-- Vedere le [esercitazioni pratiche sulla procedura di integrazione delle app SaaS](active-directory-saas-tutorial-list.md)
--	Aggiungere un'app personalizzata con la [configurazione SAML self-service di Azure AD](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
+L'accesso SSO per alcune applicazioni può essere eseguito nell'interfaccia di accesso dell'applicazione, ma per accedere ad altre applicazioni l'utente dovrà passare attraverso un portale centrale, ad esempio [App personali](http://myapps.microsoft.com) o [Office 365](http://portal.office.com/myapps). Per altre informazioni sui diversi tipi di SSO e le relative esperienze utente, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=Oct15_HO3-->
+Vedere anche la sezione relativa all'*eliminazione dell'autorizzazione utente* nella pagina della [guida per gli sviluppatori](active-directory-applications-guiding-developers-for-lob-applications.md).
+
+## Articoli correlati
+Collegamenti per l'eliminazione dell'autorizzazione utente e altri articoli di guida per sviluppatori
+
+<!---HONumber=Oct15_HO4-->

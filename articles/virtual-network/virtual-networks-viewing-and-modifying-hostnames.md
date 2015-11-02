@@ -47,7 +47,7 @@ Dopo aver abilitato Desktop remoto (Windows), comunicazione remota di Windows Po
 
 Da un client REST, seguire queste istruzioni:
 
-1. Assicurarsi di disporre di un certificato client per connettersi al portale di Azure. Per ottenere un certificato client, eseguire la procedura descritta in [Procedura: informazioni sul Download e Importazione delle impostazioni di pubblicazione e Sottoscrizione] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx).
+1. Assicurarsi di disporre di un certificato client per connettersi al portale di Azure. Per ottenere un certificato client, eseguire la procedura descritta in [Procedura: informazioni sul Download e Importazione delle impostazioni di pubblicazione e Sottoscrizione](https://msdn.microsoft.com/library/dn385850.aspx). 
 
 1. Impostare una voce di intestazione denominata x-ms-version con un valore di 2013-11-01.
 
@@ -71,4 +71,4 @@ Si può modificare il nome host per una macchina virtuale o istanza del ruolo ca
 
 [Specificare le impostazioni DNS tramite i file di configurazione di rete](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Analisi dei sentimenti di Twitter in tempo reale con Analisi di flusso | Microsoft Azure"
 	description="Imparare a utilizzare Analisi di flusso per l'analisi dei sentimenti di Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="twitter in tempo reale, analisi del sentimento, analisi dei social network, strumenti di analisi dei social network"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -236,4 +236,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

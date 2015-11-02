@@ -272,9 +272,9 @@ Ora sono disponibili due reti virtuali con VM connesse, quindi si possono connet
 
 4. Aprire il file scaricato e modificare l'elemento **LocalNetworkSite** per **vnet02** aggiungendo l'indirizzo IP del gateway per la nuova rete virtuale ottenuto nel passaggio 1. L'elemento dovrebbe essere simile all'esempio seguente.
 
-	      <LocalNetworkSite name="vnet03">
+	      <LocalNetworkSite name="vnet02">
 	        <AddressSpace>
-	          <AddressPrefix>10.3.0.0/16</AddressPrefix>
+	          <AddressPrefix>10.2.0.0/16</AddressPrefix>
 	        </AddressSpace>
 	        <VPNGatewayAddress>23.99.213.28</VPNGatewayAddress>
 	      </LocalNetworkSite>
@@ -363,4 +363,4 @@ Ora che le due reti virtuali sono connesse, è opportuno testarne la connettivit
 - Altre informazioni sul [Provider di risorse di rete per Gestione risorse di Azure](../resource-groups-networking.md).
 - Visualizzare le linee guida generali su come [creare una connessione VPN S2S tra una rete virtuale classica e una rete virtuale di Gestione risorse di Azure](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

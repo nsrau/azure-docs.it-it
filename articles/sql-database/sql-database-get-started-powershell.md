@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/08/2015"
+    ms.date="10/20/2015"
     ms.author="sstein"/>
 
 # Creare un database SQL tramite PowerShell
@@ -44,18 +44,18 @@ Ora che si esegue il modulo di Gestione risorse di Azure, è possibile accedere 
 
 È necessario innanzitutto stabilire l'accesso all'account Azure, quindi eseguire il cmdlet seguente e verrà visualizzata una schermata di accesso per l'immissione delle credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
 
-	Add-AzureAccount
+	Add-AzureRMAccount
 
 Dopo aver effettuato l'accesso, sullo schermo verranno visualizzate informazioni tra cui l'ID usato per l'accesso con le sottoscrizioni di Azure per le quali si dispone dell'accesso.
 
 
 ### Selezionare la sottoscrizione ad Azure
 
-Per selezionare la sottoscrizione, è necessario il relativo ID. che può essere copiato dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
+Per selezionare la sottoscrizione, è necessario il relativo ID. È possibile copiarlo dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureRMSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRMSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-Dopo aver eseguito correttamente il cmdlet **Select-AzureSubscription**, verrà nuovamente visualizzato il prompt dei comandi di PowerShell. Se si dispone di più di una sottoscrizione, è possibile eseguire il cmdlet **Get-AzureSubscription** e verificare che nella sottoscrizione che si desidera usare sia visualizzato **IsCurrent: True**.
+Dopo aver eseguito correttamente il cmdlet **Select-AzureRMSubscription**, verrà nuovamente visualizzato il prompt dei comandi di PowerShell. Se si dispone di più di una sottoscrizione, è possibile eseguire il cmdlet **Get-AzureRMSubscription** e verificare che nella sottoscrizione che si desidera usare sia visualizzato **IsCurrent : True**.
 
 ## Creare un gruppo di risorse, il server e la regola firewall
 
@@ -88,7 +88,7 @@ Dopo aver creato la regola firewall, verranno visualizzati i relativi dettagli.
 
 Per consentire ad altri servizi di Azure di accedere al server, aggiungere una regola firewall e impostare StartIpAddress e EndIpAddress su 0.0.0.0. Si noti che ciò consente al traffico di Azure proveniente da qualsiasi sottoscrizione di Azure di accedere al server.
 
-Per ulteriori informazioni, vedere [Firewall di database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+Per ulteriori informazioni, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md).
 
 
 ## Creazione di un database SQL
@@ -120,8 +120,8 @@ Dopo aver creato il database, verranno visualizzati i relativi dettagli.
     $DatabasePerfomanceLevel = "S1"
     
     
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRMAccount
+    Select-AzureRMSubscription -SubscriptionId $SubscriptionId
     
     $ResourceGroup = New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
     
@@ -144,4 +144,4 @@ Dopo aver creato il database, verranno visualizzati i relativi dettagli.
 
 - [Database SQL di Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

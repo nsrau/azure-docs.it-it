@@ -1,19 +1,19 @@
-<properties
+<properties 
 	pageTitle="Informazioni: Gestione delle password di Azure AD | Microsoft Azure"
-	description="Descrizione delle funzionalità di gestione delle password in Azure AD, incluse la reimpostazione delle password, la modifica, il report di gestione delle password e il writeback in Active Directory locale."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+	description="Descrizione delle funzionalità di gestione delle password in Azure AD, incluse la reimpostazione delle password, la modifica, il report di gestione delle password e il writeback in Active Directory locale." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Gestire le password da qualsiasi posizione
@@ -40,7 +40,7 @@ Di seguito sono elencate alcune operazioni che è possibile eseguire con le funz
 - La **modifica delle password self-service** consente agli utenti finali o agli amministratori di cambiare le password scadute o non scadute senza dover chiamare un amministratore o rivolgersi al Supporto tecnico.
 - La **reimpostazione delle password self-service** consente agli utenti finali o agli amministratori di reimpostare automaticamente le password senza dover chiamare un amministratore o rivolgersi al Supporto tecnico. La reimpostazione delle password self-service è disponibile solo in Azure AD Premium o Basic. Per altre informazioni, vedere Edizioni di Azure Active Directory.
 - La **reimpostazione delle password avviata dall'amministratore** consente a un amministratore di reimpostare la password di un utente finale o di un altro amministratore dal [portale di gestione di Azure](https://manage.windowsazure.com).
-- I **report sulle attività di gestione delle password** forniscono agli amministratori informazioni dettagliate sulle attività di reimpostazione delle password e di registrazione che si verificano all'interno dell'organizzazione.
+- I **report sulle attività di gestione delle password** forniscono agli amministratori informazioni dettagliate sulle attività di reimpostazione delle password e di registrazione che si verificano all'interno dell'organizzazione. 
 - Il **writeback delle password** permette di gestire le password locali dal cloud, in modo che tutti gli scenari descritti in precedenza possano essere eseguiti da o per conto di utenti federati o con sincronizzazione tramite password. Per il writeback delle password è necessaria una licenza di Azure AD Premium. Per altre informazioni, vedere Introduzione a Azure AD Premium.
 
 ## Uso di Gestione delle password di Azure AD
@@ -51,7 +51,36 @@ Di seguito sono elencati alcuni motivi per cui è consigliabile usare le funzion
 - **Ridurre i volumi di supporto tecnico**: la gestione delle password è il singolo driver di supporto tecnico più grande per la maggior parte delle organizzazioni
 - **Consentire la mobilità**: gli utenti possono reimpostare le password da ovunque si trovino
 
-## Aggiornamenti recenti
+## Aggiornamenti recenti del servizio
+
+**Aggiornamenti a livello di usabilità della pagina di registrazione**: ottobre 2015
+
+- Dopo che i dati di un utente sono stati registrati, sarà ora sufficiente fare clic su "esito positivo" per aggiornare i dati senza dover inviare nuovamente il messaggio di posta elettronica o effettuare una nuova telefonata.
+
+**Maggiore affidabilità del writeback delle password**: settembre 2015
+
+- A partire dalla versione di settembre di Azure AD Connect, l'agente di writeback delle password effettuerà ripetuti tentativi di connessione e disporrà di funzionalità di failover aggiuntive e più affidabili.
+
+**API per il recupero dei dati di report sulla reimpostazione della password**: agosto 2015
+
+- I dati relativi ai report sulla reimpostazione delle password possono ora essere recuperati direttamente dall'[API di Report ed eventi di Azure AD](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+
+**Supporto per la reimpostazione delle password di Azure AD durante l'aggiunta a un dominio cloud**: agosto 2015
+
+- Qualsiasi utente cloud può ora reimpostare la password direttamente dalla schermata di accesso di Windows 10 durante l'esperienza di aggiunta a un dominio cloud. Si noti che questa funzionalità non è ancora esposta nella schermata di accesso di Windows 10.
+
+**Implementare la registrazione per la reimpostazione delle password all'accesso alle app di Azure e federate**: luglio 2015
+
+- Oltre all'implementazione della registrazione all'accesso a myapps.microsoft.com, è ora supportata l'implementazione della registrazione durante l'accesso al portale di gestione di Azure e alle applicazioni federate Single Sign-On
+
+**Supporto per la localizzazione della domanda di sicurezza**: maggio 2015
+
+- È ora possibile selezionare domande di sicurezza predefinite, localizzate nel set di lingue completo di O365 durante la configurazione delle domande di sicurezza per la reimpostazione delle password.
+
+**Supporto per lo sblocco dell'account durante la reimpostazione delle password**: giugno 2015
+
+- Se si usa il writeback delle password e si reimposta la password quando l'account è bloccato, l'account di Active Directory verrà automaticamente sbloccato.
+
 **Registrazione SSPR personalizzata**: aprile 2015
 
 - La pagina di registrazione per la reimpostazione delle password è ora personalizzata con il logo della società.
@@ -64,12 +93,28 @@ Di seguito sono elencati alcuni motivi per cui è consigliabile usare le funzion
 
 - I nuovi utenti possono sbloccare i propri account quando si verifica la reimpostazione delle password
 
+## Presto disponibile
+
+Di seguito sono riportate alcune interessanti funzionalità in fase di elaborazione.
+
+**Supporto per lo sblocco di account di Active Directory senza la reimpostazione della password**: presto disponibile
+
+- Numerosi utenti hanno richiesto la possibilità di sbloccare gli account di Active Directory separatamente rispetto alla reimpostazione della password. Microsoft è lieta di annunciare che questa funzionalità è in fase di ultimazione e verrà rilasciata agli utenti che usano il writeback delle password.
+
+**Supporto per i promemoria relativi all'aggiornamento dei dati registrati durante l'accesso**: in fase di elaborazione
+
+- Sono ora supportati i promemoria per gli utenti relativi all'aggiornamento dei dati registrati all'accesso a myapps.microsoft.com, ma la possibilità di estenderli a tutti gli accessi è ancora in fase di elaborazione.
+
+**Implementare la registrazione per la reimpostazione delle password all'accesso alle app di Office 365**: in fase di elaborazione
+
+- All'esperienza di accesso ad Azure AD vengono aggiunte sempre più app di Office. Al momento dell'aggiunta, verranno automaticamente supportate per la registrazione SSPR.
+
 <br/> <br/> <br/>
 
 **Risorse aggiuntive**
 
 
-* [Funzionamento di Gestione delle password](active-directory-passwords-how-it-works.md)
+* [Funzionamento della gestione delle password](active-directory-passwords-how-it-works.md)
 * [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md)
 * [Personalizzare la gestione delle password](active-directory-passwords-customize.md)
 * [Procedure consigliate per la gestione delle password](active-directory-passwords-best-practices.md)
@@ -79,4 +124,4 @@ Di seguito sono elencati alcuni motivi per cui è consigliabile usare le funzion
 * [Altre informazioni](active-directory-passwords-learn-more.md)
 * [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

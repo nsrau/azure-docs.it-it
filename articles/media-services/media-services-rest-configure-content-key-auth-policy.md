@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configurare i criteri di autorizzazione della chiave simmetrica mediante REST" 
-	description="Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica." 
+	pageTitle="Configurare i criteri di autorizzazione della chiave simmetrica mediante l'API REST di Servizi multimediali" 
+	description="Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica utilizzando API REST di Servizi multimediali." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -481,4 +481,4 @@ Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passa
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

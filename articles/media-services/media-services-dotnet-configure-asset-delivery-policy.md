@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Configurare i criteri di distribuzione degli asset mediante .NET" 
-	description="Questo argomento illustra come configurare criteri di distribuzione degli asset differenti." 
+	pageTitle="Configurare i criteri di distribuzione degli asset con .NET SDK" 
+	description="Questo argomento illustra come configurare criteri di distribuzione degli asset differenti con Servizi multimediali di Azure .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/20/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
-#Procedura: Configurare i criteri di distribuzione degli asset
+#Configurare i criteri di distribuzione degli asset con .NET SDK
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 Se si prevede di distribuire dinamicamente asset crittografati in modo dinamico, uno dei passaggi del flusso di lavoro di distribuzione dei contenuti in Servizi multimediali consiste nella configurazione dei criteri di distribuzione degli asset. Questi criteri indicano a Servizi multimediali la modalità di distribuzione di un asset, ovvero il protocollo di streaming da usare per la creazione dinamica dei pacchetti (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti), se l'asset deve essere crittografato dinamicamente e l'eventuale modalità di crittografia (envelope o common).
@@ -328,4 +328,4 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

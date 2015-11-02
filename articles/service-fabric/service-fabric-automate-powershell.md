@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/16/2015"
 	ms.author="ryanwi"/>
 
 # Distribuire, aggiornare, testare e rimuovere le applicazioni dell’infrastruttura di servizi tramite PowerShell
@@ -34,13 +34,13 @@ Connect-ServiceFabricCluster
 
 ## ATTIVITÀ: Distribuire un’applicazione dell’infrastruttura di servizi
 
-Dopo aver compilato l'applicazione e aver creato il pacchetto del tipo di applicazione, è possibile distribuire l'applicazione in un cluster dell’infrastruttura di servizi. Innanzitutto, creare il pacchetto dell'applicazione HelloWorldStateful in Visual Studio facendo clic con il pulsante destro su **HelloWorldStatefulApplication** in Esplora soluzioni e selezionando **Crea pacchetto**. Vedere [Modellare un'applicazione nell'infrastruttura di servizi](service-fabric-application-model.md) per informazioni sui manifesti dei servizio e delle applicazioni e sul layout del pacchetto. La distribuzione comporta il caricamento del pacchetto dell'applicazione, la registrazione del tipo di applicazione e la creazione dell'istanza dell'applicazione. Utilizzare le istruzioni riportate in questa sezione per distribuire una nuova applicazione in un cluster.
+Dopo aver compilato l'applicazione e aver creato il pacchetto del tipo di applicazione, è possibile distribuire l'applicazione in un cluster dell’infrastruttura di servizi locale. Innanzitutto, creare il pacchetto dell'applicazione HelloWorldStateful in Visual Studio facendo clic con il pulsante destro su **HelloWorldStatefulApplication** in Esplora soluzioni e selezionando **Crea pacchetto**. Vedere [Modellare un'applicazione nell'infrastruttura di servizi](service-fabric-application-model.md) per informazioni sui manifesti dei servizio e delle applicazioni e sul layout del pacchetto. La distribuzione comporta il caricamento del pacchetto dell'applicazione, la registrazione del tipo di applicazione e la creazione dell'istanza dell'applicazione. Utilizzare le istruzioni riportate in questa sezione per distribuire una nuova applicazione in un cluster.
 
 ### Passaggio 1: Caricare il pacchetto dell’applicazione
 Quando si carica il pacchetto dell’applicazione nell’ImageStore, la si inserisce in un percorso accessibile ai componenti interni dell’infrastruttura di servizi. Il pacchetto dell’applicazione contiene il manifesto dell'applicazione necessaria, i manifesti del servizio e i pacchetti di configurazione/codice/dati per creare le istanze dell'applicazione e del servizio. Il comando [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt125905.aspx) consente di caricare il pacchetto. Ad esempio:
 
 ```powershell
-Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ### Passaggio 2: Registrare il tipo di applicazione
@@ -107,7 +107,7 @@ A questo punto, l'applicazione è compilata, inserita nel pacchetto e pronta per
 Copiare ora il pacchetto dell’applicazione aggiornato in ImageStore dell’infrastruttura di servizi (dove l’infrastruttura di servizi archivia i pacchetti applicazione). Il parametro *ApplicationPackagePathInImageStore* indica a Service Fabric dove è contenuto il pacchetto applicazione. Il comando seguente consente di copiare il pacchetto dell’applicazione in *HelloWorldStatefulV2* nell’ImageStore:
 
 ```powershell
-Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore   -ApplicationPackagePathInImageStore HelloWorldStatefulV2
+Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStatefulV2
 ```
 
 Il passaggio successivo consiste nel registrare la nuova versione dell'applicazione con l'infrastruttura di servizi, operazione che può essere eseguita utilizzando il cmdlet [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125958.aspx):
@@ -190,7 +190,7 @@ Unregister-ServiceFabricApplicationType HelloWorldStatefulApplication 1.0.0.0
 Dopo aver annullato la registrazione del tipo di applicazione, il pacchetto dell’applicazione può essere rimosso dall’ImageStore utilizzando il cmdlet [Remove-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt163532.aspx).
 
 ```powershell
-Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ## Risorse aggiuntive
@@ -202,4 +202,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Cmdlet di testabilità dell’infrastruttura di servizi di Azure](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

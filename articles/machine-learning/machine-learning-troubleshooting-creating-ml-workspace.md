@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="Risoluzione dei problemi: Creare e connettersi a un'area di lavoro di Machine Learning | Microsoft Azure" 
-	description="Soluzioni per problemi comuni di creazione e connessione a un'area di lavoro di Azure Machine Learning" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Risoluzione dei problemi: Creare e connettersi a un'area di lavoro di Machine Learning | Microsoft Azure"
+	description="Soluzioni per problemi comuni di creazione e connessione a un'area di lavoro di Azure Machine Learning"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/01/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/15/2015"
 	ms.author="garye"/>
 
 
-#Guida per la risoluzione dei problemi: Creazione e connessione a un'area di lavoro di Machine Learning
+# Guida per la risoluzione dei problemi: Creazione e connessione a un'area di lavoro di Machine Learning
 
 Questa guida offre soluzioni per alcuni problemi frequenti relativi alla configurazione di aree di lavoro di Azure Machine Learning.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##Proprietario dell'area di lavoro
+## Proprietario dell'area di lavoro
 
 Quando si crea una nuova area di lavoro di Machine Learning, l'ID immesso nel campo WORKSPACE OWNER deve essere un account Microsoft valido (in precedenza Windows Live ID), ad esempio, john-contoso@live.com o john-contoso@hotmail.com. Non è possibile usare un account non Microsoft, ad esempio l'account di posta elettronica aziendale. Per creare un account Microsoft gratuito, passare a [www.live.com](http://www.live.com).
 
@@ -33,17 +33,21 @@ Per altre informazioni sulla gestione di un'area di lavoro, vedere [Gestire un'a
 
 [Gestire un'area di lavoro di Azure Machine Learning]: machine-learning-manage-workspace.md
 
-##Aree geografiche disponibili
+## Aree geografiche disponibili
 
-Machine Learning è attualmente disponibile nell'area geografica Stati Uniti centro-meridionali. Se la sottoscrizione non include l'area Stati Uniti centro-meridionali, è possibile che venga visualizzato l'errore "Nessuna sottoscrizione disponibile nelle aree geografiche consentite. Aree consentite: Stati Uniti centro-meridionali".
+Machine Learning è attualmente disponibile in un numero limitato di aree. Se la sottoscrizione non include una di queste aree, è possibile che venga visualizzato l'errore "Nessuna sottoscrizione disponibile nelle aree geografiche consentite.”
 
-Per risolvere il problema, come illustrato nella schermata seguente, selezionare **Contatta il supporto Microsoft** nel portale di gestione di Azure, quindi scegliere **Fatturazione** come **TIPO DI SUPPORTO** per richiedere l'aggiunta dell'area geografica alla sottoscrizione.
+Per richiedere l'aggiunta di un'area per la sottoscrizione, selezionare **Contattare il supporto tecnico Microsoft** dal portale di gestione di Azure, scegliere **Fatturazione** come tipo di problema, quindi seguire le istruzioni per inviare la richiesta.
 
 ![Contattare il supporto Microsoft][screen1]
 
-##Account di archiviazione
- 
-Il servizio Machine Learning necessita di un account di archiviazione per archiviare i dati. È possibile usare un account di archiviazione esistente nell'area Stati Uniti centro-meridionali oppure creare un nuovo account di archiviazione quando si crea la nuova area di lavoro di Machine Learning, se la quota disponibile è sufficiente per la creazione di un nuovo account di archiviazione. Per verificare se è possibile creare un nuovo account di archiviazione nel portale di gestione, passare a **Impostazioni**, quindi a **Utilizzo**.
+## Account di archiviazione
+
+Il servizio Machine Learning necessita di un account di archiviazione per archiviare i dati. È possibile usare un account di archiviazione esistente oppure creare un nuovo account di archiviazione quando si crea la nuova area di lavoro di Machine Learning, se la quota disponibile è sufficiente per la creazione di un nuovo account di archiviazione.
+
+<!-- These instructions no longer work, but I'm not sure what to replace them with
+To see if you can create a new storage account, in the management portal, go to **Settings** and then click **Usage**.
+-->
 
 ![Creare un'area di lavoro][screen2]
 
@@ -53,17 +57,17 @@ Dopo la creazione di una nuova area di lavoro di Machine Learning, sarà possibi
 
 **Per eliminare i cookie dal browser**
 
-	If you use Internet Explorer, click the **Tools** button in the upper-right corner and select **Internet options**.  
+Se si usa Internet Explorer, fare clic sul pulsante **Strumenti** nell'angolo superiore destro, quindi selezionare **Opzioni Internet**.
 
-	![Internet options][screen4]
+![Opzioni Internet][screen4]
 
-	Under the **General** tab, click **Delete…**
+Nella scheda **Generale** fare clic su **Elimina**.
 
-	![General tab][screen5]
+![Generale][screen5]
 
-	In the **Delete Browsing History** dialog box, make sure **Cookies and website data** is selected, and click **Delete**.
+Nella finestra di dialogo **Elimina cronologia esplorazioni** assicurarsi che l'opzione **Cookie e dati di siti Web** sia selezionata, quindi fare clic su **Elimina**.
 
-	![Delete cookies][screen6]
+![Eliminare i cookie][screen6]
 
 Dopo l'eliminazione dei cookie, riavviare il browser e quindi passare alla pagina [Microsoft Azure Machine Learning](https://studio.azureml.net). Quando sono richiesti nome utente e password, immettere lo stesso account Microsoft specificato come proprietario dell'area di lavoro.
 
@@ -75,6 +79,5 @@ L'obiettivo consiste nel semplificare al massimo l'esperienza di Machine Learnin
 [screen4]: media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
 [screen5]: media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

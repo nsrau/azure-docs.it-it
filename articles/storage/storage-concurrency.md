@@ -3,8 +3,8 @@
 	description="Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file" 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	authors="jasonnewyork" 
+	manager="tadb" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="tamram"/>
+	ms.author="jahogg"/>
 
 # Gestione della concorrenza nell'archiviazione di Microsoft Azure
 
@@ -273,4 +273,4 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

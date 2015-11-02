@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Esaminare le metriche in Application Insights" 
-	description="Analizzare l'uso, la disponibilità e le prestazioni dell'applicazione locale o Web di Microsoft Azure con Application Insights." 
+	description="Come interpretare i grafici in esplora metriche e come personalizzare i pannelli di esplora metriche." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -212,4 +212,4 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

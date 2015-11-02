@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Scelta di un framework di infrastruttura dei servizi | Microsoft Azure"
-   description="Service Fabric offre due framework di alto livello per la creazione di servizi: il framework per gli attori e quello per i servizi. La conoscenza delle caratteristiche di ognuno di essi consentirà di prendere le decisioni appropriate per l'architettura della propria applicazione."
+   pageTitle="Modelli di programmazione dell’infrastruttura dei servizi | Microsoft Azure"
+   description="Infrastruttura dei servizi offre due framework per la creazione di servizi: il framework per gli attori e quello per i servizi. Offrono compromessi diversi nel controllo nella semplicità e nel controllo."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# Scelta di un framework per un servizio
+# Scegliere un framework per un servizio
 
 Service Fabric offre due framework di alto livello per la creazione di servizi: le API Reliable Actors e le API Reliable Services. Entrambi si basano sugli stessi componenti principali di Service Fabric, ma implicano compromessi diversi tra semplicità e flessibilità in termini di concorrenza, partizionamento e comunicazione. Per scegliere il framework più appropriato per un determinato servizio di un'applicazione, è utile comprendere tutti e due i modelli.
 
@@ -36,4 +36,4 @@ Tenere presente che è perfettamente plausibile usare framework diversi per serv
 - [Altre informazioni sulle API Reliable Actors](service-fabric-reliable-actors-introduction.md)
 - [Altre informazioni sulle API Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

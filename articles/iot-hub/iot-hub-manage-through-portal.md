@@ -1,54 +1,54 @@
 <properties
- pageTitle="Utilizzare il portale di Azure per gestire gli hub IoT | Microsoft Azure"
- description="Panoramica delle operazioni di creazione e gestione di hub IoT di Azure tramite il portale di Azure Portal"
- services="iot-hub"
- documentationCenter=""
- authors="nasing"
- manager="timlt"
- editor=""/>
+	 pageTitle="Usare il portale di Azure per gestire gli hub IoT | Microsoft Azure"
+	 description="Panoramica delle operazioni di creazione e gestione di hub IoT di Azure tramite il portale di Azure."
+	 services="iot-hub"
+	 documentationCenter=""
+	 authors="nasing"
+	 manager="timlt"
+	 editor=""/>
 
 <tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/29/2015"
- ms.author="nasing"/>
+	 ms.service="iot-hub"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.tgt_pltfrm="na"
+	 ms.workload="na"
+	 ms.date="10/19/2015"
+	 ms.author="nasing"/>
 
 # Gestire hub IoT tramite il portale di Azure
 
-## Introduzione:
+## Introduzione
 
-Questo argomento fornisce un'introduzione all'uso dell'hub IoT di Azure tramite il portale di Azure, come trovare hub IoT e come crearli e gestirli.
+Questo articolo fornisce un'introduzione all'uso dell'hub IoT di Azure tramite il portale di Azure, come trovare hub IoT e come crearli e gestirli.
 
-## Dove trovare hub IoT:
+## Dove trovare hub IoT
 
 Gli hub IoT si possono trovare in diverse posizioni.
 
-1. **+ Nuovo** : hub IoT di Azure è un servizio IoT e si trova nella categoria "Internet delle cose" in **+ Nuovo**, come altri servizi.
+1. **+ Nuovo**: **hub IoT di Azure** è un servizio IoT e si trova nella categoria **Internet delle cose** in **+ Nuovo**, come altri servizi.
 
 2. È possibile accedere agli hub IoT anche tramite il Marketplace come servizio in **Internet delle cose**.
 
-## Come creare un hub IoT
+## Creare un hub IoT
 
-È possibile creare un hub IoT di Azure usando i metodi elencati nella sezione precedente.
+È possibile creare un hub IoT usando i metodi seguenti.
 
-1. La creazione di un hub IoT con l'opzione **+ Nuovo** consente di accedere al pannello visualizzato di seguito. I passaggi per la creazione di un hub IoT tramite questo metodo e tramite il Marketplace sono identici.
+1. La creazione di un hub IoT con l'opzione **+ Nuovo** consente di accedere al pannello visualizzato nell'immagine seguente. I passaggi per la creazione di un hub IoT tramite questo metodo e tramite il Marketplace sono identici.
 
-2. Creazione di un hub IoT tramite il Marketplace: Se si fa clic su **Crea** viene aperto un pannello identico a quello precedente per l'esperienza **+Nuovo**. Per la creazione di un hub IoT sono previsti diversi passaggi elencati nelle sezioni seguenti:
+2. Creazione di un hub IoT tramite il Marketplace: se si fa clic su **Crea** viene aperto un pannello identico a quello precedente per l'esperienza **+Nuovo**. Per la creazione di un hub IoT sono previsti diversi passaggi elencati nelle sezioni seguenti.
 
 ### Scegliere il nome dell'hub IoT
 
-Per creare un hub IoT, l'utente deve assegnargli un nome. Questo nome deve essere univoco tra tutti gli hub. Non è consentita la duplicazione degli hub nel back-end, quindi è consigliabile assegnare all'hub un nome quanto più possibile univoco.
+Per creare un hub IoT, è necessario assegnare un nome all'hub. Si noti che questo nome deve essere univoco tra tutti gli hub. Non è consentita la duplicazione degli hub nel back-end, quindi è consigliabile assegnare all'hub un nome quanto più possibile univoco.
 
 ### Scegliere il piano tariffario
 
-Il cliente può scegliere fra 3 piani: **Gratuito**, **Standard 1** e **Standard 2**. Il piano gratuito consente la connessione solo di 10 dispositivi all'hub IoT.
+È possibile scegliere fra 3 piani: **Gratuito**, **Standard 1** e **Standard 2**. Il piano gratuito consente la connessione solo di 10 dispositivi all'hub IoT.
 
-**S1 (frequenza ridotta)**: L'edizione Hub IoT S1 (frequenza ridotta) è progettata per le soluzioni IoT con un numero elevato di dispositivi che generano quantità relativamente limitate di dati per dispositivo. Ogni unità dell'edizione S1 (frequenza ridotta) consente la connessione di un massimo di 500 dispositivi o un massimo di 50.000 messaggi al giorno per tutti i dispositivi connessi.
+**S1 (frequenza ridotta)**: l'edizione Hub IoT S1 (frequenza ridotta) è progettata per le soluzioni IoT con un numero elevato di dispositivi che generano quantità relativamente limitate di dati per dispositivo. Ogni unità dell'edizione S1 (frequenza ridotta) consente la connessione di un massimo di 500 dispositivi o un massimo di 50.000 messaggi al giorno per tutti i dispositivi connessi.
 
-**S2 (frequenza elevata)**: L'edizione Hub IoT S2 (frequenza elevata) è progettata per le soluzioni IoT in cui i dispositivi generano grandi quantità di dati. Ogni unità dell'edizione S2(frequenza elevata) consente la connessione di un massimo di 500 dispositivo o un massimo di 1,5 milioni di messaggi al giorno per tutti i dispositivi connessi.
+**S2 (frequenza elevata)**: l'edizione Hub IoT S2 (frequenza elevata) è progettata per le soluzioni IoT in cui i dispositivi generano grandi quantità di dati. Ogni unità dell'edizione S2 (frequenza elevata) consente la connessione di un massimo di 500 dispositivi o di un massimo di 1,5 milioni di messaggi al giorno per tutti i dispositivi connessi.
 
 ![][4]
 
@@ -56,7 +56,7 @@ Il cliente può scegliere fra 3 piani: **Gratuito**, **Standard 1** e **Standard
 
 ### Unità hub IoT
 
-Un'unità IoT include 500 dispositivi, quindi la scelta del numero di unità IoT significa che il numero totale di dispositivi supportati per questo hub corrisponde al numero di unità moltiplicato per 500. Ad esempio, se si vuole che l'hub IoT supporti 1000 dispositivi, scegliere 2 unità.
+Un'unità hub IoT include 500 dispositivi, quindi la scelta del numero di unità IoT significa che il numero totale di dispositivi supportati per questo hub corrisponde al numero di unità moltiplicato per 500. Ad esempio, se si vuole che l'hub IoT supporti 1000 dispositivi, scegliere 2 unità.
 
 ### Partizioni da dispositivo a cloud e gruppo di risorse
 
@@ -72,49 +72,49 @@ L'hub IoT di Azure mostra automaticamente un elenco di sottoscrizioni alle quali
 
 ### Scegliere la località
 
-L'opzione relativa alla posizione offre un elenco delle aree in cui viene offerto l'hub IoT. Per la versione di anteprima pubblica l'hub è disponibile solo in tre posizioni: Stati Uniti orientali, Europa settentrionale e Asia orientale.
+L'opzione relativa alla posizione offre un elenco delle aree in cui viene offerto l'hub IoT. Per la versione di anteprima, l'hub IoT è disponibile solo in tre posizioni: Stati Uniti orientali, Europa settentrionale e Asia orientale.
 
 ### Creare l'hub IoT
 
-Dopo aver completato tutti i passaggi elencati sopra, l'hub IoT è pronto per essere creato. Se si fa clic su **Crea** viene avviato il processo di back-end per la creazione di questo hub IoT con le opzioni specifiche e viene distribuito nella posizione specificata.
+Dopo aver completato tutti i passaggi precedenti, l'hub IoT è pronto per essere creato. Fare clic su **Crea** per avviare il processo di back-end per la creazione di questo hub IoT con le opzioni specifiche e distribuirlo nella posizione specificata.
 
 Possono essere necessari alcuni minuti per la creazione dell'hub IoT, perché l'esecuzione della distribuzione del back-end nei server delle località appropriate richiede tempo.
 
 ## Modificare le impostazioni dell'hub IoT
 
-È possibile modificare le impostazioni di un hub IoT esistente dopo averlo creato. Facendo clic e scegliendo l'hub IoT, verrà aperta la pagina Impostazioni.
+È possibile modificare le impostazioni di un hub IoT esistente dopo averlo creato. Fare clic sul nome dell'hub IoT per aprire la pagina delle impostazioni.
 
 ![][8]
 
-**Criteri di accesso condiviso**: sono i criteri che definiscono le autorizzazioni per la connessione di dispositivi e servizi all'Hub IoT. È possibile accedere a questi criteri facendo clic su **Criteri di accesso condiviso** in **Impostazioni**. In questo pannello è possibile modificare i criteri esistenti o aggiungerne di nuovi.
+**Criteri di accesso condiviso**: sono i criteri che definiscono le autorizzazioni per la connessione di dispositivi e servizi all'hub IoT. È possibile accedere a questi criteri facendo clic su **Criteri di accesso condiviso** in **Impostazioni**. In questo pannello è possibile modificare i criteri esistenti o aggiungerne di nuovi.
 
 ### Creare nuovi criteri
 
-- Fare clic sul pulsante **Aggiungi** pulsante per aprire un pannello in cui è possibile immettere il nome dei nuovi criteri e le autorizzazioni da associare a questi criteri, come illustrato nella figura seguente.
+- Fare clic su **Aggiungi** per aprire un pannello in cui è possibile immettere il nome dei nuovi criteri e le autorizzazioni da associare a questi criteri, come illustrato nella figura seguente.
 
 	Sono disponibili numerose autorizzazioni che possono essere associate a questi criteri condivisi. I primi due criteri di **lettura del Registro di sistema ** e di **scrittura del Registro di sistema** consentono di concedere diritti di accesso in lettura e scrittura per l'archivio identità del dispositivo o per il registro delle identità. Scegliendo l'opzione di scrittura, verrà scelta automaticamente l'opzione di lettura.
 
- 	I criteri di connessione del servizio concedono l'autorizzazione al gruppo di consumer per i servizi che si connettono all'Hub IoT, mentre i criteri di connessione del dispositivo concedono le autorizzazioni per il lato dispositivo dell'hub IoT.
+ 	I criteri di connessione del servizio concedono l'autorizzazione al gruppo di consumer per i servizi che si connettono all'hub IoT, mentre i criteri di connessione del dispositivo concedono le autorizzazioni per il lato dispositivo dell'hub IoT.
 
-- Fare clic su Crea criteri per aggiungere i criteri appena creati all'elenco esistente.
+- Fare clic su **Crea** per aggiungere i criteri appena creati all'elenco esistente.
 
 ![][10]
 
 ## Messaggistica
 
-Fare clic sui criteri di **Messaggistica** per visualizzare un elenco di proprietà per l'hub IoT che si sta modificando. Sono disponibili due tipi di proprietà principali che possono essere modificati o copiati: **Da cloud a dispositivo** e **Da dispositivo a cloud**.
+Fare clic sui criteri di **Messaggistica** per visualizzare un elenco di proprietà di messaggistica per l'hub IoT che si sta modificando. Sono disponibili due tipi di proprietà principali che possono essere modificati o copiati: **Da cloud a dispositivo** e **Da dispositivo a cloud**.
 
-- **Impostazioni da cloud a dispositivo**: include due impostazioni secondarie **Durata (TTL) da cloud a dispositivo** e **Tempo di conservazione** per i messaggi. Quando si crea l'hub IoT inizialmente, entrambe queste impostazioni vengono create con un valore predefinito di 1 ora. Tuttavia, è possibile personalizzarle tramite i dispositivi di scorrimento o semplicemente digitando i valori.
+- Impostazioni **da cloud a dispositivo**: include due impostazioni secondarie **Durata (TTL) da cloud a dispositivo** e **Tempo di conservazione** per i messaggi. Quando si crea l'hub IoT inizialmente, entrambe queste impostazioni vengono create con un valore predefinito di 1 ora. Tuttavia, è possibile personalizzarle tramite i dispositivi di scorrimento o semplicemente digitando i valori.
 
-- **Impostazioni da dispositivo a cloud**: include diverse impostazioni secondarie, alcune delle quali denominate/assegnate quando si crea l'hub IoT e possono essere copiate solo in altre impostazioni secondarie personalizzabili. Tutte queste impostazioni sono elencate nella sezione successiva.
+- Impostazioni **da dispositivo a cloud**: include diverse impostazioni secondarie, alcune delle quali denominate/assegnate quando si crea l'hub IoT e possono essere copiate solo in altre impostazioni secondarie personalizzabili. Queste impostazioni sono elencate nella sezione successiva.
 
 **Partizioni**: questo valore viene impostato quando si crea l'hub IoT e può essere modificato tramite questa impostazione.
 
-**Nome ed endpoint compatibili con Hub eventi**: quando viene creato quando l'hub IoT, viene creato internamente un Hub eventi a cui l'utente potrebbe avere l'esigenza di accedere in determinate condizioni. Il nome e l'endpoint dell'Hub eventi non possono essere personalizzati, ma sono disponibili per l'uso tramite il pulsante **Copia**.
+**Nome ed endpoint compatibili con Hub eventi**: quando viene creato l'hub IoT, viene creato internamente un Hub eventi a cui l'utente potrebbe avere l'esigenza di accedere in determinate condizioni. Il nome e l'endpoint dell'Hub eventi non possono essere personalizzati, ma sono disponibili per l'uso tramite il pulsante **Copia**.
 
-**Tempo di conservazione**: per impostazione predefinita è impostato su un giorno , ma può essere personalizzato con altri valori tramite l'elenco a discesa. Questo valore è espresso in giorni per Da dispositivo a cloud e non in ore, come lo è l'impostazione simile per Da cloud a dispositivo.
+**Tempo di conservazione**: per impostazione predefinita è impostato su un giorno, ma può essere personalizzato con altri valori tramite l'elenco a discesa. Questo valore è espresso in giorni per Da dispositivo a cloud e non in ore, come lo è l'impostazione simile per Da cloud a dispositivo.
 
-**Gruppi di consumer**: è un'impostazione simile ad altri sistemi di messaggistica che possono essere utilizzati per eseguire il pull dei dati in modo specifico per connettere altre applicazioni o servizi all'hub IoT. Ogni hub IoT viene creato con un gruppo di consumer predefinito. Tuttavia, è possibile aggiungere o eliminare gruppi di consumer negli hub IoT.
+**Gruppi di consumer**: è un'impostazione simile ad altri sistemi di messaggistica che possono essere usati per eseguire il pull dei dati in modo specifico per connettere altre applicazioni o servizi all'hub IoT. Ogni hub IoT viene creato con un gruppo di consumer predefinito. Tuttavia, è possibile aggiungere o eliminare gruppi di consumer negli hub IoT.
 
 > [AZURE.NOTE]Il gruppo di consumer predefinito non può essere modificato o eliminato.
 
@@ -129,11 +129,18 @@ I prezzi di un hub IoT esistente possono essere modificati tramite le impostazio
 
 ![][12]
 
-Il passaggio da un piano elevato (S2) a un piano ridotto (S1) è consentito solo quando il numero di messaggi inviati per un dato giorno non sono in conflitto. Ad esempio, se il numero di messaggi al giorno ha superato 50.000, il piano per l'hub IoT non può essere cambiato da S2 in S1.
+Il passaggio da un piano elevato (S2) a un piano ridotto (S1) è consentito solo quando il numero di messaggi inviati per un dato giorno non sono in conflitto. Ad esempio, se il numero di messaggi al giorno supera 50.000, il piano per l'hub IoT non può essere cambiato da S2 in S1.
 
 ## Eliminare l'hub IoT
 
 È possibile passare all'hub IoT che si vuole eliminare facendo clic su **Sfoglia** e quindi scegliendo l'hub appropriato da eliminare. Fare clic sul pulsante **Elimina** sotto il nome dell'hub per eliminarlo.
+
+## Passaggi successivi
+
+Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
+
+- [Introduzione all'hub IoT (esercitazione)][lnk-get-started]
+- [Che cos'è l'hub IoT Azure?][]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -143,4 +150,7 @@ Il passaggio da un piano elevato (S2) a un piano ridotto (S1) è consentito solo
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
 
-<!---HONumber=Oct15_HO3-->
+[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
+[Che cos'è l'hub IoT Azure?]: iot-hub-what-is-iot-hub.md
+
+<!---HONumber=Oct15_HO4-->

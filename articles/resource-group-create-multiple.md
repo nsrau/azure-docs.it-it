@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/27/2015"
+   ms.date="10/20/2015"
    ms.author="tomfitz"/>
 
 # Creare più istanze di risorse in Gestione risorse di Azure
@@ -61,12 +61,14 @@ Usare il modello seguente:
           "name": "[concat('examplecopy-', copyIndex())]", 
           "type": "Microsoft.Web/sites", 
           "location": "East US", 
-          "apiVersion": "2014-06-01",
+          "apiVersion": "2015-08-01",
           "copy": { 
              "name": "websitescopy", 
              "count": "[parameters('count')]" 
           }, 
-          "properties": {} 
+          "properties": {
+              "serverFarmId": "hostingPlanName"
+          }
       } 
     ]
 
@@ -103,20 +105,55 @@ Usare il modello seguente:
           "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
           "type": "Microsoft.Web/sites", 
           "location": "East US", 
-          "apiVersion": "2014-06-01",
+          "apiVersion": "2015-08-01",
           "copy": { 
              "name": "websitescopy", 
              "count": "[length(parameters('org'))]" 
           }, 
-          "properties": {} 
+          "properties": {
+              "serverFarmId": "hostingPlanName"
+          } 
       } 
     ]
 
 Naturalmente, si imposta il numero di copia a un valore diverso dalla lunghezza della matrice. Ad esempio, si potrebbe creare una matrice con molti valori, poi passare a un valore di parametro che specifichi il numero degli elementi della matrice da distribuire. In tal caso, impostare il numero di copie come illustrato nel primo esempio.
 
+## In base alle risorse in un ciclo
+
+È possibile specificare che una risorsa deve essere distribuita dopo un'altra risorsa tramite l’elemento **dependsOn**. Quando è necessario distribuire una risorsa che dipende dalla raccolta di risorse in un ciclo, è possibile utilizzare il nome del ciclo di copia nell’elemento **dependsOn**. L’esempio seguente illustra come distribuire 3 account di archiviazione prima di distribuire la macchina virtuale. La definizione completa di macchina virtuale non viene visualizzata. Si noti che l'elemento di copia ha il **nome** impostato su **storagecopy** e l’elemento **dependsOn** per le macchine virtuali anch’esso impostato su **storagecopy**.
+
+    {
+	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "contentVersion": "1.0.0.0",
+	    "parameters": {},
+	    "resources": [
+	        {
+		        "apiVersion": "2015-06-15",
+		        "type": "Microsoft.Storage/storageAccounts",
+		        "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+		        "location": "[resourceGroup().location]",
+		        "properties": {
+                    "accountType": "Standard_LRS"
+            	 },
+		        "copy": { 
+         	        "name": "storagecopy", 
+         	        "count": 3 
+      		    }
+	        },
+           {
+               "apiVersion": "2015-06-15", 
+               "type": "Microsoft.Compute/virtualMachines", 
+               "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+               "dependsOn": ["storagecopy"],
+               ...
+           }
+	    ],
+	    "outputs": {}
+    }
+
 ## Passaggi successivi
 - Per altre informazioni sulle sezioni di un modello, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
 - Per tutte le funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md).
-- Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di gestione risorse di Azure](azure-portal/resource-group-template-deploy.md).
+- Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

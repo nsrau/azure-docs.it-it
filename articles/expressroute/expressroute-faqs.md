@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # Domande frequenti su ExpressRoute
@@ -25,13 +25,13 @@ ExpressRoute è un servizio di Azure che permette di creare connessioni private 
 Le connessioni ExpressRoute non sfruttano la rete Internet pubblica e offrono un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e latenze minori e coerenti rispetto alle connessioni Internet tradizionali. In alcuni casi, l'uso di connessioni ExpressRoute per trasferire dati tra dispositivi locali e Azure può produrre vantaggi significativi in termini di costi.
 
 ### Quali servizi cloud Microsoft sono supportati in ExpressRoute?
-ExpressRoute supporta attualmente la maggior parte dei servizi di Microsoft Azure. È stato annunciato il supporto per i servizi di Office 365 in ExpressRoute. Gli aggiornamenti relativi alla disponibilità generale saranno presto disponibili.
+ExpressRoute supporta attualmente la maggior parte dei servizi di Microsoft Azure, incluso Office 365. Gli aggiornamenti relativi alla disponibilità generale saranno presto disponibili.
 
-### Dove è disponibile in servizio?
+### Dov'è disponibile il servizio?
 Per informazioni sulla località e la disponibilità del servizio, vedere [Partner e località per ExpressRoute](expressroute-locations.md).
 
 ### In che modo è possibile usare ExpressRoute per connettersi a Microsoft se non è disponibile una relazione con uno dei partner del gestore ExpressRoute?
-Si può selezionare un gestore regionale e connessioni Ethernet via terra in una delle sedi supportate del provider di Exchange. È quindi possibile connettersi ad Azure nella sede del provider di Exchange. Per verificare se il provider di rete è presente in una delle località di Exchange, vedere l'ultima sezione della pagina [Partner e località per ExpressRoute](expressroute-locations.md). Sarà quindi possibile ordinare un circuito ExpressRoute tramite il provider di Exchange per connettersi a Azure.
+Si può selezionare un gestore regionale e connessioni Ethernet via terra in una delle sedi supportate del provider di Exchange. È quindi possibile connettersi a Microsoft nella sede del provider. Per verificare se il provider di servizio è presente in una delle località di Exchange, vedere l'ultima sezione della pagina [Partner e località per ExpressRoute](expressroute-locations.md). Sarà quindi possibile ordinare un circuito ExpressRoute tramite il provider di servizi per connettersi ad Azure.
 
 ### Quanto costa ExpressRoute?
 Per informazioni sui prezzi, vedere [Dettagli prezzi](http://azure.microsoft.com/pricing/details/expressroute/).
@@ -53,6 +53,7 @@ La maggior parte dei servizi di Azure è supportata tramite ExpressRoute.
 
 - La connettività alle macchine virtuali e ai servizi cloud distribuiti nelle reti virtuali è supportata in un percorso di peering privato.
 - I siti Web di Azure sono supportati tramite il percorso di peering pubblico.
+- Office 365 è supportato tramite il percorso di peering Microsoft.
 - Tutti gli altri servizi sono accessibili tramite il percorso di peering pubblico. Le eccezioni sono le seguenti.
 
 	**Non sono supportati i seguenti servizi:**
@@ -69,10 +70,7 @@ Non esistono limiti alla quantità di dati trasferibili. Per informazioni sulle 
 ### Quali sono le velocità di connessione supportate da ExpressRoute?
 Offerte relative alle larghezze di banda supportate:
 
-|**Provider**|**Larghezza di banda**|
-|---|---|
-|**Provider di rete**|10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps|
-|**Provider di Exchange**|200 Mbps, 500 Mbps, 1Gbps, 10Gbps|
+|50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps|
 
 ### Quali provider del servizio sono disponibili?
 Per l'elenco dei provider di servizi e delle relative località, vedere [Partner e località per ExpressRoute](expressroute-locations.md).
@@ -89,7 +87,7 @@ Sì. Ogni circuito ExpressRoute ha una coppia ridondante di connessioni incrocia
 In caso di errore di una delle connessioni incrociate, la connettività non verrà persa. È attualmente disponibile una connessione ridondante per supportare il carico della rete. Si possono creare più circuiti in sedi di peering diverse per ottenere una maggiore resilienza agli errori.
 
 ### Per permettere il funzionamento del servizio, si devono configurare entrambi i collegamenti?
-Se si effettua la connessione tramite un provider di servizi di rete, tale provider di servizi di rete gestirà automaticamente la configurazione di collegamenti ridondanti. Se si condivide già un EXP, è necessario configurare due collegamenti LAN alla piattaforma Cloud Exchange EXP. Se ci si connette a un EXP tramite un singolo collegamento WAN dal Datacenter privato, è necessario terminare il collegamento WAN del router presso l’EXP e quindi configurare due collegamenti LAN alla piattaforma Cloud Exchange EXP.
+Se si effettua la connessione tramite un partner che fornisce servizi di terzo livello, tale partner gestirà automaticamente la configurazione di collegamenti ridondanti. Se tuttavia si condivide già un provider Cloud Exchange, è necessario configurare due collegamenti LAN alla piattaforma Cloud Exchange. Se si esegue la connessione al provider cloud tramite un singolo collegamento WAN dal data center privato, è necessario terminare il collegamento WAN sul proprio router e quindi configurare due collegamenti LAN alla piattaforma Cloud Exchange.
 
 ### Si può estendere una delle reti VLAN ad Azure tramite ExpressRoute?
 No. Non sono supportate estensioni alla connettività di livello 2 in Azure.
@@ -104,14 +102,10 @@ Sì. È possibile usare i circuiti ExpressRoute con molti provider di servizi. O
 Di seguito è illustrata la procedura di base.
 
 - È necessario stabilire un circuito ExpressRoute e richiedere al provider di servizi di abilitarlo.
-- Se si usa un provider di Exchange, è necessario configurare il BGP per il peering privato.
+- L'utente o il provider devono configurare i peering BGP.
 - È necessario collegare la rete virtuale al circuito ExpressRoute.
 
-Per informazioni, vedere le esercitazioni seguenti:
-
-- [Configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md)
-- [Configurare una connessione ExpressRoute tramite un provider di Exchange](expressroute-configuring-exps.md)
-- [Configurare una rete virtuale e un gateway per ExpressRoute](expressroute-configuring-vnet-gateway.md)
+Per altre informazioni, vedere [Flussi di lavoro e stati di provisioning di un circuito ExpressRoute](expressroute-workflows.md).
 
 ### Sono previsti limiti di connettività per il circuito ExpressRoute?
 Sì. La pagina [Partner e località per ExpressRoute](expressroute-locations.md) offre una panoramica dei limiti di connettività per un circuito ExpressRoute. La connettività per un circuito ExpressRoute è limitata a una singola area geopolitica. È possibile espandere la connettività per superare le aree geopolitiche abilitando la funzionalità Premium di ExpressRoute.
@@ -189,25 +183,17 @@ ExpressRoute Premium include le funzionalità seguenti.
 ### Quante VNet possono essere collegate a un circuito ExpressRoute se è stato abilitato ExpressRoute Premium?
 La tabella seguente illustra i limiti incrementati per il numero di VNet collegabili a un circuito ExpressRoute. Il limite predefinito è 10.
 
-**Limiti per i circuiti creati tramite i provider di servizi di rete**
+**Limiti dei circuiti**
 
 | **Dimensioni circuito** | **Numero di collegamenti VNet per l'installazione predefinita** | **Numero di collegamenti VNet con ExpressRoute Premium** |
 |--------------|----------------------------------------|-----------------------------------------------|
-| 10 Mbps | 10 | Non supportato |
-| 50 Mbps | 10 | 20 |
-| 100 Mbps | 10 | 25 |
-| 500 Mbps | 10 | 40 |
-| 1 Gbps | 10 | 50
-|
-
-
-**Limiti per i circuiti creati tramite i provider di Exchange**
-
-| **Dimensioni circuito** | **Numero di collegamenti VNet per l'installazione predefinita** | **Numero di collegamenti VNet con ExpressRoute Premium** |
-|--------------|-----------------------------------|------------------------------------------------|
+| 50 Mbps | 10 | Non supportato |
+| 100 Mbps | 10 | 20 |
 | 200 Mbps | 10 | 25 |
 | 500 Mbps | 10 | 40 |
 | 1 Gbps | 10 | 50 |
+| 2 Gbps | 10 | 60 |
+| 5 Gbps | 10 | 75 |
 | 10 Gbps | 10 | 100 |
 
 
@@ -227,29 +213,17 @@ Per informazioni sui costi, vedere [Dettagli prezzi](http://azure.microsoft.com/
 ### È necessario un pagamento aggiuntivo per ExpressRoute Premium, oltre agli addebiti per la versione standard di ExpressRoute?
 Sì. Gli addebiti per ExpressRoute Premium vengono sommati agli addebiti per ExpressRoute e agli addebiti richiesti dal provider di connettività.
 
-### ExpressRoute Premium funziona con i modelli di tipo provider di Exchange e provider di servizi di rete?
-Sì. ExpressRoute Premium è supportato con circuiti ExpressRoute connessi tramite provider di Exchange e provider di servizi di rete.
-
-
 ## ExpressRoute e Office 365
 
 ### Come si crea un circuito di ExpressRoute per la connessione a servizi di Office 365?
 
 1. Per assicurarsi di soddisfare i requisiti previsti, vedere la [pagina relativa ai prerequisiti di ExpressRoute](expressroute-prerequisites.md).
 2. Per assicurarsi di soddisfare le esigenze specifiche a livello di connettività, vedere l'elenco di provider di servizi e località in [Partner e località per ExpressRoute](expressroute-locations.md).
-3. Per pianificare i requisiti relativi alla capacità, vedere la pagina relativa a [pianificazione e perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/).
-4. Per configurare la connettività, eseguire i passaggi elencati nei flussi di lavoro seguenti.
-
-	- [Configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md)
-	- [Configurare una connessione ExpressRoute tramite un provider Exchange](expressroute-configuring-exps.md)
+3. Per pianificare i requisiti relativi alla capacità, vedere la pagina relativa alla [pianificazione e al perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/).
+4. Per configurare la connettività, eseguire i passaggi elencati nei flussi di lavoro seguenti. [Flussi di lavoro e stati di provisioning di un circuito ExpressRoute](expressroute-workflows.md).
 
 ### I circuiti ExpressRoute esistenti possono supportare la connettività ai servizi di Office 365?
-Sì. È possibile configurare i circuiti ExpressRoute esistenti per supportare la connettività ai servizi di Office 365. Assicurarsi che la capacità disponibile sia sufficiente per la connessione ai servizi di Office 365. Per pianificare i requisiti a livello di connettività, vedere la pagina relativa a [pianificazione e perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/).
-
-Per informazioni, vedere le esercitazioni seguenti:
-
-- [Configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md)
-- [Configurare una connessione ExpressRoute tramite un provider di Exchange](expressroute-configuring-exps.md)
+Sì. È possibile configurare i circuiti ExpressRoute esistenti per supportare la connettività ai servizi di Office 365. Assicurarsi che la capacità disponibile sia sufficiente per la connessione ai servizi di Office 365. Per pianificare i requisiti a livello di connettività, vedere la pagina relativa a [pianificazione e perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/). Vedere inoltre [Creare e modificare un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
 
 ### A quali servizi di Office 365 è possibile accedere tramite una connessione ExpressRoute?
 
@@ -280,11 +254,8 @@ La connessione a Office 365 tramite ExpressRoute non comporta costi aggiuntivi. 
 ### In quali aree è supportato ExpressRoute per Office 365?
 Per altre informazioni sull'elenco di partner e località in cui è supportato ExpressRoute, vedere [Partner e località per ExpressRoute](expressroute-locations.md).
 
-### È possibile usare i provider di servizi di rete e i provider di Exchange per la connessione ai servizi di Office 365?
-La connettività ai servizi di Office 365 è supportata sia tramite i provider di servizi di rete che tramite i provider di Exchange. Per altre informazioni sull'elenco di partner e località supportati, vedere [Partner e località per ExpressRoute](expressroute-locations.md).
-
 ### È possibile accedere a Office 365 tramite Internet anche se ExpressRoute è stato configurato per l'organizzazione specifica?
 Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se ExpressRoute è stato configurato per la rete specifica. Se ci si trova in una località configurata per la connessione ai servizi di Office 365 tramite ExpressRoute, la connessione verrà effettuata tramite ExpressRoute.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Importare dati in Machine Learning da un altro esperimento | Microsoft Azure"
 	description="Come salvare i dati di training in Azure Machine Learning Studio e utilizzarli in un altro esperimento."
-	keywords="import data,data,data sources,training data"
+	keywords="dati di importazione, dati,origini dati,dati di training"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -35,4 +35,4 @@ Talvolta l’utente potrebbe voler ricevere un risultato intermedio di un esperi
 
 Al termine del salvataggio, il set di dati sarà disponibile per l'uso in qualsiasi esperimento dell'area di lavoro. È possibile individuarlo nell’elenco **Set di dati salvati** nella tavolozza dei moduli.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

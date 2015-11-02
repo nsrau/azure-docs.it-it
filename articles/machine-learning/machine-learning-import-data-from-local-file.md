@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Importare dati in Machine Learning Studio da un file locale | Microsoft Azure"
 	description="Come importare dati di training in Azure Machine Learning Studio da un file locale."
-	keywords="import data,data format,data types,data sources,training data"
+	keywords="dati di importazione,formato dati,tipi di dati,origini dati,dati di training"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -40,4 +40,4 @@ Durante il caricamento, viene visualizzato un messaggio che indica che il file �
 
 Una volta caricati, i dati vengono archiviati in un modulo di set di dati e sono disponibili per eventuali esperimenti nell'area di lavoro. È possibile individuare il set di dati, insieme a tutti i set di dati di esempio precaricati nell’elenco **Set di dati salvati** nella tavolozza dei moduli quando si modifica un esperimento. È possibile trascinare e rilasciare il set di dati nell'area di disegno esperimento quando si desidera utilizzare il set di dati per l'ulteriore analisi e l'apprendimento automatico.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Servizi API Web di Service Fabric con self-hosting OWIN | Microsoft Azure"
-   description="Questo articolo su Service Fabric illustra l'implementazione della comunicazione dei servizi mediante l'API Web ASP.NET con self-hosting OWIN in Reliable Services."
+   pageTitle="Comunicazione dei servizi con l'API Web ASP.NET | Microsoft Azure"
+   description="Informazioni su come implementare la comunicazione dettagliata dei servizi mediante l'API Web ASP.NET con self-hosting OWIN in Reliable Services."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -614,4 +614,4 @@ In ASP.NET 5 il concetto e il modello di programmazione per la separazione dell'
 
 [Debug dell'applicazione di Service Fabric in Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

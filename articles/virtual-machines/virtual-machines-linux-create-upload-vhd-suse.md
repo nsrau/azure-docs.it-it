@@ -23,6 +23,8 @@
 - [Preparare una macchina virtuale SLES 11 SP3 per Azure](#sles11)
 - [Preparare una macchina virtuale openSUSE 13.1+ per Azure](#osuse)
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##Prerequisiti##
 
 In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Linux SUSE od openSUSE in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
@@ -178,4 +180,4 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 13. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -3,7 +3,7 @@
 	description="Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine. La licenza per PlayReady viene distribuita dal server licenze PlayReady di Servizi multimediali, mentre la licenza per Widevine viene distribuita dal server licenze castLabs." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Mingfeiy,Juliako" 
+	authors="Mingfeiy,willzhan,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -26,6 +26,8 @@
 ##Panoramica
 
 Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine. La licenza per PlayReady viene distribuita dal server licenze PlayReady di Servizi multimediali, mentre la licenza per Widevine viene distribuita dal server licenze **castLabs**.
+
+Per la riproduzione di contenuti protetti da CENC (PlayReady e/o Widevine), è possibile utilizzare [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Per informazioni dettagliate vedere la [documentazione dell’AMP](http://amp.azure.net/libs/amp/latest/docs/)
 
 Il diagramma seguente illustra un'architettura di integrazione di alto livello tra castLabs e Servizi multimediali di Azure.
 
@@ -98,30 +100,24 @@ Per usare l'applicazione Web (STS):
 
 ##Riproduzione di un video
 
-Per riprodurre un video crittografato con la crittografia comune (PlayReady), è possibile usare [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Quando si esegue l'app console, vengono restituiti l'ID della chiave simmetrica e l'URL del manifesto.
+Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o Widevine), è possibile usare [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Quando si esegue l'app console, vengono restituiti l'ID della chiave simmetrica e l'URL del manifesto.
 
 1.	Aprire una nuova scheda e avviare il servizio token di sicurezza: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2.	Accedere a [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 3.	Incollare l'URL di streaming
 4.	Scegliere la casella di controllo **Opzioni avanzate**.
-5.	Selezionare PlayReady nell'elenco a discesa **Protezione**.
-6.	Incollare il token ottenuto dal servizio token di sicurezza nella casella di testo Token.
+5.	Nell'elenco a discesa **Protezione**, selezionare PlayReady e/o Widevine.
+6.	Incollare il token ottenuto dal servizio token di sicurezza nella casella di testo Token. 
+	
+	Quando si usa il server licenze castLabs, non è necessario aggiungere il prefisso "Bearer=" davanti al token. Se presente, quindi, è necessario rimuoverlo prima di inviare il token.
 7.	Aggiornare il lettore.
 8.	A questo punto, dovrebbe essere possibile riprodurre il video.
 
-Per riprodurre il video protetto in HTML5 con Chrome tramite il lettore castLabs, contattare yanmf@microsoft.com per ottenere l'accesso al lettore. Nel momento in cui si ottiene l'accesso, è necessario tenere presente due aspetti:
-
-1.	Il lettore castLabs deve poter accedere al file manifesto MPEG-DASH. Aggiungere quindi (format=mpd-time-csf) al proprio file manifesto per ottenere il file manifesto MPEG-DASH, anziché il file Smooth Streaming predefinito.
-
-2.	Quando si usa il server licenze castLabs, non è necessario aggiungere il prefisso "Bearer=" davanti al token. Se presente, quindi, è necessario rimuoverlo prima di inviare il token.
-
- 
-
-##Percorsi di formazione di Media Services
+##Percorsi di apprendimento di Media Services
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
 
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

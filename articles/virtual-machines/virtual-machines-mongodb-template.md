@@ -36,7 +36,7 @@ Una volta completata la distribuzione, è possibile accedere a Jumpbox utilizzan
 
 Prima di addentrarsi in ulteriori dettagli relativi a Gestione risorse di Azure e al modello utilizzato per la distribuzione, assicurarsi che Azure PowerShell o l’interfaccia della riga di comando di Azure sia configurata correttamente.
 
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/powershell-preview-inline-include.md)]
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
@@ -694,4 +694,4 @@ In pratica, questo approccio suggerisce che:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -207,7 +207,11 @@ Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora v
 
 21. Nella pagina Configura data factory, procedere come segue:
 	1. Selezionare l’opzione**Crea nuova data factory**.
-	2. Immettere **VSTutorialFactory** per **Nome**.
+	2. Immettere **VSTutorialFactory** per **Nome**.  
+	
+		> [AZURE.NOTE]È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se si riceve un messaggio di errore riguardante il nome della Data Factory durante la pubblicazione, è possibile modificare il nome della data factory (ad esempio, nomeutenteVSTutorialFactory) e provare di nuovo ad effettuare la pubblicazione. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
+		> 
+		> Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 	3. Selezionare la sottoscrizione adatta per il campo **Sottoscrizione**. 
 	4. Selezionare il **gruppo di risorse** per la data factory da creare. 
 	5. Selezionare l’**area** per la data factory. 
@@ -234,6 +238,6 @@ Vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-e
 
 
 ## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md) richiede solo alcuni minuti.
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

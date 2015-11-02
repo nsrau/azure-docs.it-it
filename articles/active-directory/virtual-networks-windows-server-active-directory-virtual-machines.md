@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Windows Server Active Directory in macchine virtuali di Azure" 
+	pageTitle="Windows Server Active Directory in macchine virtuali di Azure | Microsoft Azure" 
 	description="È possibile eseguire Servizi di dominio Active Directory o Active Directory Federation Services (ADFS) di Windows Server in macchine virtuali di Azure." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="terrylan" 
-	editor="LisaToft"
+	manager="stevenpo" 
 	tags="azure-classic-portal"/>
 
 <tags 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 
@@ -48,4 +47,4 @@ Questo argomento di navigazione contiene collegamenti ad altri argomenti sulla d
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Come scalare le unità riservate di codifica" 
+	pageTitle="Come scalare le unità riservate di codifica utilizzando il portale di Azure" 
 	description="Informazioni su come scalare servizi multimediali specificando il numero di unità riservate di streaming on demand e di unità riservate di codifica di cui eseguire il provisioning nell'account in uso." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,milangada" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
-#Come scalare la codifica
+#Come scalare la codifica utilizzando il portale di Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -69,4 +69,4 @@ Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

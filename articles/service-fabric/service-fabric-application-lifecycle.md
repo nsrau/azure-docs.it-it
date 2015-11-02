@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ciclo di vita di un'applicazione di Azure Service Fabric | Microsoft Azure"
-   description="Vengono descritte le operazioni di sviluppo, distribuzione, test, aggiornamento, manutenzione e rimozione per le applicazioni di Service Fabric."
+   pageTitle="Ciclo di vita di un'applicazione in Infrastruttura di servizi | Microsoft Azure"
+   description="Vengono descritte le operazioni di sviluppo, distribuzione, test, aggiornamento, manutenzione e rimozione per le applicazioni di Infrastruttura di servizi."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="10/15/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
@@ -118,4 +118,4 @@ Per altre informazioni sullo sviluppo, il test e la gestione di applicazioni e s
 - [Esempio di ciclo di vita di un'applicazione basata su REST](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

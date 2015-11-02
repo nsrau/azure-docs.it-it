@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
-	ms.author="mebha"/>
+	ms.date="10/20/2015" 
+	ms.author="meetb"/>
 
 
 # Connettersi al database SQL tramite Python in Windows
@@ -118,4 +118,4 @@ Questo esempio di codice illustra l'uso di transazioni con le operazioni seguent
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

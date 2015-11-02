@@ -21,6 +21,8 @@
 
 In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell'uso di macchine virtuali Linux nel cloud di Azure. Se si usa un'immagine presente nella raccolta, la distribuzione di una macchina virtuale Linux è un processo estremamente semplice.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## Autenticazione: nomi utente, password e chiavi SSH
 
 Quando si crea una macchina virtuale Linux usando il portale di gestione di Azure viene richiesto di inserire un nome utente, una password o una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema (UID <100) già presenti nella macchina virtuale, ad esempio l'account 'root', non sono consentiti.
@@ -97,4 +99,4 @@ In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In quest
 
  - **Vedere anche:** [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

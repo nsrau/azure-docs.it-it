@@ -34,6 +34,8 @@ Per una panoramica di come Ambienti di servizio app abilita la scalabilità e pr
 
 Per un approfondimento sulla scalabilità orizzontale utilizzando più Ambienti di servizio App vedere l'articolo su come configurare un [Footprint di app geograficamente distribuiti][GeodistributedAppFootprint].
 
+Per vedere come è stata configurata l'architettura di sicurezza illustrata negli approfondimenti di AzureCon, vedere l'articolo sull'implementazione di una [architettura di sicurezza a più livelli](app-service-app-service-environment-layered-security.md) con gli ambienti del servizio app.
+
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Risorse di calcolo dedicate ##
@@ -58,7 +60,7 @@ Per informazioni dettagliate sulle dimensioni delle risorse di calcolo disponibi
 
 Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi Web interni. In base a un approccio comune, questi endpoint vengono resi disponibili solo al traffico di rete interno in una rete virtuale di Azure. Quando un ambiente del servizio app è aggiunto alla stessa rete virtuale dei servizi interni, le app in esecuzione nell'ambiente possono accedere a questi servizi, inclusi gli endpoint raggiungibili tramite connessioni [da sito a sito][SiteToSite] e connessioni [Azure ExpressRoute][ExpressRoute].
 
-Per ulteriori informazioni sul funzionamento di ambienti di servizi dell’app con reti virtuali e reti locali, consultare i seguenti articoli su [architettura di rete][NetworkArchitectureOverview], [controllo del traffico in ingresso][ControllingInboundTraffic], e [connettersi in modo sicuro al back-end][SecurelyConnectingToBackends].
+Per ulteriori informazioni sul funzionamento di ambienti di servizio app con reti virtuali e reti locali, consultare i seguenti articoli su [architettura di rete][NetworkArchitectureOverview], [controllo del traffico in ingresso][ControllingInboundTraffic], e [connettersi in modo sicuro al back-end][SecurelyConnectingToBackends].
 
 **Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2".
 
@@ -101,4 +103,4 @@ Per altre informazioni sull'uso di un ambiente del servizio app con ExpressRoute
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

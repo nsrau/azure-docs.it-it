@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Inviare query Hive ai cluster Hadoop nel processo di analisi avanzata dei dati | Microsoft Azure" 
+	pageTitle="Inviare query Hive ai cluster Hadoop nel Cortana Analytics Process | Microsoft Azure" 
 	description="Elaborazione dati tabelle Hive" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -14,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="10/18/2015" 
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Inviare query Hive ai cluster Hadoop di HDInsight nel processo di analisi avanzata dei dati
+#<a name="heading"></a> Inviare query Hive ai cluster Hadoop di HDInsight nel Cortana Analytics Process
 
 Questo documento descrive le differenti modalità di invio delle query Hive ai cluster Hadoop gestiti dal servizio HDInsight in Azure. È possibile inviare query Hive mediante:
 
@@ -37,7 +36,7 @@ Questo articolo presuppone che l'utente abbia:
  
 * Creato un account di archiviazione di Azure. Per istruzioni per questa attività, vedere [Creare un account di archiviazione di Azure](../hdinsight-get-started.md#storage). 
 * Eseguito il provisioning di un cluster Hadoop con il servizio HDInsight. Per istruzioni, vedere [Provisioning di un cluster HDInsight](../hdinsight-get-started.md#provision).
-* Caricato i dati nelle tabelle Hive dei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare prima di tutto i dati nelle tabelle Hive.
+* Caricati i dati nelle tabelle Hive nei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare prima di tutto i dati nelle tabelle Hive.
 * Abilitato l'accesso remoto al cluster. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
@@ -326,4 +325,4 @@ Le impostazioni predefinite dei parametri del cluster Hive potrebbero non essere
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

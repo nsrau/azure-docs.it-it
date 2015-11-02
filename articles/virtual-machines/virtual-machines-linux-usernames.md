@@ -21,6 +21,8 @@
 
 #Selezione dei nomi utente per Linux su Azure#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Durante il provisioning di una macchina virtuale Linux in Azure è necessario specificare il nome di un utente non radice, che in un secondo momento è possibile utilizzare per accedere alla macchina virtuale. È possibile scegliere il nome del nuovo utente o se il provisioning avviene tramite il portale di gestione è possibile accettare il nome predefinito "azureuser".
 
 Nella maggior parte dei casi questo nuovo utente non esiste nell'immagine di base e viene creato durante il processo di provisioning. Se l'utente esiste nell'immagine della VM di base, l'agente Linux di Azure configura la password (e/o la chiave SSH) per tale utente in base alle informazioni specificate durante la creazione della VM.
@@ -249,4 +251,4 @@ Di seguito sono riportati i nomi utente da non usare quando si esegue il provisi
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

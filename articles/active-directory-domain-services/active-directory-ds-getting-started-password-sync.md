@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Servizi di dominio Azure AD *(anteprima)* - Introduzione
@@ -55,6 +55,18 @@ Sarà necessario installare la versione disponibile a livello generale di Azure 
 Le istruzioni per l'installazione di Azure AD Connect sono disponibili nell'articolo [Introduzione ad Azure AD Connect](../active-directory/active-directory-aadconnect.md).
 
 
+#### Abilitare la sincronizzazione delle credenziali di legacy in Azure AD
+
+Abilitare la sincronizzazione delle credenziali di legacy necessarie per l'autenticazione NTLM nei servizi di dominio di Azure AD. È possibile farlo creando la seguente chiave del Registro nel computer in cui è stato installato Azure AD Connect.
+
+Creare la seguente chiave del Registro DWORD e impostarla su 1.
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
+
+Set its value to 1.
+```
+
 #### Forzare la sincronizzazione password in Azure AD
 
 Per forzare la sincronizzazione password completa e abilitare la sincronizzazione degli hash delle password per tutti gli utenti (inclusi gli hash delle credenziali necessari per l'autenticazione NTLM o Kerberos) nel tenant di Azure AD, eseguire lo script di PowerShell seguente in ogni foresta di Active Directory.
@@ -75,4 +87,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 A seconda delle dimensioni della directory (numero di utenti, gruppi e così via), la sincronizzazione delle credenziali in Azure AD e quindi in Servizi di dominio Azure AD richiederà del tempo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # Creare la prima pipeline di Data factory di Azure con Visual Studio
@@ -205,23 +205,27 @@ Quando si pubblica la soluzione nel passaggio successivo, il file HQL è caricat
 
 21. Nella pagina Configura data factory, procedere come segue:
 	1. Selezionare l'opzione **Crea nuova data factory**.
-	2. Immettere **FirstPipelineUsingVS** nel campo **Nome**.
+	2. Immettere **FirstPipelineUsingVS** nel campo **Nome**. 
+	
+		> [AZURE.IMPORTANT]È necessario specificare un nome univoco globale per la Data factory di Azure. Se viene visualizzato l’errore **Il nome di Data Factory “FirstPipelineUsingVS” non è disponibile** al momento della pubblicazione, modificare il nome (ad esempio, nomeutenteFirstPipelineUsingVS). Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
+		> 
+		> Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 	3. Selezionare la sottoscrizione adatta per il campo **Sottoscrizione**. 
 	4. Selezionare il **gruppo di risorse** per la data factory da creare. 
-	5. Selezionare l'**area** per la data factory. 
-	6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato. 
-23. Nella pagina **Pubblica elementi** assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo**.     
-24. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **stato di distribuzione**.
-25. Nella pagina **Stato distribuzione** viene visualizzato lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
+	5. Selezionare l’**area** per la data factory. 
+	6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. (Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato.) 
+23. Nella pagina **Pubblica elementi**, assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo**.     
+24. Rivedere il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
+25. Nella pagina **Stato della distribuzione**, è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
  
 
 ## Usare Esplora Server per esaminare le entità della data factory
 
-1. In **Visual Studio** fare clic su **Visualizza** nel menu e quindi fare clic su **Esplora server**.
+1. In **Visual Studio** fare clic su **Visualizza** nel menu e fare clic su **Esplora server**.
 2. Nella finestra Esplora server espandere **Azure** e **Data factory**. Se viene visualizzata la finestra **Accedi a Visual Studio**, immettere l'**account** associato alla sottoscrizione di Azure e fare clic su **Continua**. Immettere la **password** e fare clic su **Accedi**. Visual Studio cerca di ottenere le informazioni su tutte le data factory di Azure nella sottoscrizione. Lo stato di questa operazione verrà visualizzato nella finestra **Elenco attività data factory**.
 
 	![Esplora server](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
-3. È possibile fare clic con il pulsante destro del mouse su una data factory e scegliere l'opzione **Esporta data factory in un nuovo progetto** per creare un progetto di Visual Studio basato su una data factory esistente.
+3. È possibile fare clic con il pulsante destro del mouse su una data factory e scegliere l'opzione per **Esportare la data factory in un nuovo progetto** per creare un progetto di Visual Studio basato su una data factory esistente.
 
 	![Data factory di Azure](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
 
@@ -229,9 +233,9 @@ Quando si pubblica la soluzione nel passaggio successivo, il file HQL è caricat
 
 Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguire le operazioni seguenti:
 
-1. Fare clic su **Strumenti** nel menu e selezionare **Estensioni e aggiornamenti**.
-2. Selezionare **Aggiornamenti** nel riquadro di sinistra e quindi selezionare **Visual Studio Gallery**.
-3. Selezionare **Strumenti di Data factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
+1. Fare clic su**Strumenti**nel menu e selezionare**Estensioni e aggiornamenti**.
+2. Selezionare **Aggiornamenti** nel riquadro sinistro e quindi selezionare **Visual Studio Gallery**.
+3. Selezionare **Strumenti di Data Factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
 
 Vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipelines.md) per istruzioni su come usare il portale di anteprima di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione.
  
@@ -240,6 +244,6 @@ Vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipe
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati da un BLOB di Azure ad Azure SQL](data-factory-get-started.md).
   
 ## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md) richiede solo alcuni minuti.
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

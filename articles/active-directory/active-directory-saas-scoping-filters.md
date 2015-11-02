@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Provisioning dell'app basato su attributi con filtri per la definizione dell'ambito"
+	pageTitle="Provisioning dell'app basato su attributi con filtri per la definizione dell'ambito | Microsoft Azure"
 	description="Informazioni su come usare i filtri per la definizione dell'ambito per evitare che venga eseguito il provisioning degli oggetti inclusi nelle app che supportano il provisioning automatico degli utenti se un oggetto non soddisfa i requisiti aziendali."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -77,4 +77,4 @@ In base a questo filtro per la definizione dell'ambito, affinché sia possibile 
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

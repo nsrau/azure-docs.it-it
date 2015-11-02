@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/03/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Come usare CoreOS in Azure
@@ -24,7 +24,7 @@ Questo argomento descrive [CoreOS] e mostra come creare un cluster di tre macchi
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
 
-## <a id='intro'>CoreOS, cluster e contenitori Linux</a>
+## CoreOS, cluster e contenitori Linux
 
 CoreOS è una versione leggera di Linux progettata per supportare la creazione rapida di cluster di macchine virtuali potenzialmente molto grandi che usano contenitori Linux, inclusi i contenitori [Docker], come unico meccanismo di creazione dei pacchetti. CoreOS è progettato per supportare:
 
@@ -40,12 +40,12 @@ A livello generale le funzionalità CoreOS che supportano questi obiettivi sono:
 
 Si tratta di una descrizione generale di CoreOS e delle relative funzionalità. Per informazioni più complete su CoreOS, vedere la [panoramica di CoreOS].
 
-## <a id='security'>Considerazioni relative alla sicurezza</a>
+## Considerazioni relative alla sicurezza
 Attualmente CoreOS presuppone che gli utenti con accesso SSH al cluster dispongano delle autorizzazioni per gestirlo. Ne risulta che i cluster CoreOS senza modifiche sono ideali per gli ambienti di test e sviluppo, ma richiedono ulteriori misure di sicurezza per l'uso in ambienti di produzione.
 
-## <a id='usingcoreos'>Come usare CoreOS in Azure</a>
+## Come usare CoreOS in Azure
 
-In questa sezione viene descritto come creare un servizio cloud di Azure con tre macchine virtuali CoreOS utilizzando l'[interfaccia della riga di comando di Azure (Azure CLI)]. I passaggi di base sono i seguenti:
+Questa sezione descrive come creare un servizio cloud di Azure con tre macchine virtuali CoreOS usando l'[interfaccia della riga di comando di Azure (Azure CLI)]. I passaggi di base sono i seguenti:
 
 1. Creare i certificati SSH e le chiavi per proteggere la comunicazione con la macchina virtuale CoreOS
 2. Ottenere l'ID etcd del cluster per l'intercomunicazione
@@ -58,9 +58,9 @@ In questa sezione viene descritto come creare un servizio cloud di Azure con tre
 
 Usare le istruzioni in [Come usare SSH con Linux in Azure](virtual-machines-linux-use-ssh-key.md) per creare una chiave pubblica e una chiave privata per SSH. I passaggi di base sono contenuti nelle istruzioni seguenti. Queste chiavi vengono usate per connettersi alle macchine virtuali nel cluster e verificare che funzionino correttamente e comunichino tra di loro.
 
-> [AZURE.NOTE]In questo argomento si presuppone che non si disponga delle chiavi e viene richiesto di creare i file `myPrivateKey.pem` e `myCert.pem` per maggiore chiarezza. Se una coppia di chiavi pubblica e privata è già salvata in `~/.ssh/id_rsa`, è possibile digitare semplicemente `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` per ottenere il file con estensione .pem che deve essere caricato su Azure.
+> [AZURE.NOTE]In questo argomento si presuppone che non si disponga delle chiavi e viene richiesto di creare i file `myPrivateKey.pem` e `myCert.pem` per maggiore chiarezza. Se una coppia di chiavi pubblica e privata è già salvata in `~/.ssh/id_rsa`, è possibile digitare semplicemente `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` per ottenere il file con estensione pem da caricare in Azure.
 
-1. In una directory di lavoro, digitare `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` per creare una chiave privata e il certificato X.509 associato.
+1. In una directory di lavoro digitare `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` per creare una chiave privata e il certificato X.509 associato.
 
 2. Per verificare che il proprietario della chiave privata possa leggere o scrivere nel file, digitare `chmod 600 myPrivateKey.key`.
 
@@ -77,7 +77,7 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 ### Creare un file cloud-config
 
-Nella stessa directory di lavoro, creare un file con l’editor di testo preferito con il seguente testo e salvarlo come `cloud-config.yaml`. (Il file può essere salvato con qualsiasi nome, ma durante la creazione delle macchine virtuali nel passaggio successivo sarà necessario fare riferimento al nome del file nell'opzione **--custom-data** per il comando **azure create vm**.)
+Nella stessa directory di lavoro creare un file con l’editor di testo preferito con il testo seguente e salvarlo come `cloud-config.yaml`. Il file può essere salvato con qualsiasi nome, ma durante la creazione delle macchine virtuali nel passaggio successivo sarà necessario fare riferimento al nome del file nell'opzione **--custom-data** per il comando **azure create vm**.
 
 > [AZURE.NOTE]Ricordare di digitare `cat etcdid` per recuperare l'ID di individuazione etcd dal file `etcdid` creato in precedenza e di sostituire `<token>` nel file `cloud-config.yaml` seguente con il numero generato dal file `etcdid`. Se non è possibile eseguire la convalida del cluster alla fine della procedura, questo potrebbe essere uno dei passaggi trascurati.
 
@@ -103,14 +103,14 @@ Per informazioni più complete sul file cloud-config, vedere l'articolo relativo
 ### Uso dell'interfaccia della riga di comando di Azure per creare una nuova macchina virtuale CoreOS
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-1. Installare l'[interfaccia della riga di comando di Azure (Azure CLI)] se non è già presente, quindi accedere con un ID di lavoro o di scuola oppure scaricare un file .publishsettings e importarlo nell'account.
+1. Installare l'[interfaccia della riga di comando di Azure (Azure CLI)] se non è già presente, quindi accedere con un ID di lavoro o di scuola oppure scaricare un file con estensione publishsettings e importarlo nell'account.
 2. Individuare l'immagine CoreOS. Per individuare le immagini disponibili in qualsiasi momento, digitare `azure vm image list | grep CoreOS`. Verrà visualizzato un elenco di risultati simile al seguente:
 
 	data: 2b171e93f07c4903bcad35bda10acf22\_\_CoreOS-Stable-522.6.0 Public Linux
 
-3. Creare un servizio cloud per il cluster di base digitando`azure service create <cloud-service-name>` dove <*cloud-service-name*> è il nome del servizio cloud CoreOS. In questo esempio viene utilizzato il nome **`coreos-cluster`**; è necessario riutilizzare il nome scelto durante la creazione delle istanze della macchina virtuale CoreOS all'interno del servizio cloud.
+3. Creare un servizio cloud per il cluster di base digitando `azure service create <cloud-service-name>` dove <*cloud-service-name*> è il nome del servizio cloud CoreOS. In questo esempio viene usato il nome **`coreos-cluster`**. È necessario usare nuovamente il nome scelto durante la creazione delle istanze della macchina virtuale CoreOS all'interno del servizio cloud.
 
-	Nota: se si osserva il lavoro svolto finora nel [portale di anteprima](https://portal.azure.com), si noterà che il nome del servizio cloud viene utilizzato sia per il gruppo di risorse sia per il dominio, come mostrato nell'immagine seguente:
+	Nota: se si osserva il lavoro svolto finora nel [portale di anteprima](https://portal.azure.com), si noterà che il nome del servizio cloud viene usato sia per il gruppo di risorse sia per il dominio, come mostrato nell'immagine seguente:
 
 	![][CloudServiceInNewPortal]
 
@@ -134,7 +134,7 @@ Per testare il cluster, verificare di essere nella directory di lavoro, quindi c
 
 	ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key
 
-Una volta effettuata la connessione, digitare `sudo fleetctl list-machines` per verificare se il cluster ha già identificato tutte le macchine virtuali nel cluster. Dovrebbe essere visualizzato un messaggio simile al seguente:
+Una volta eseguita la connessione, digitare `sudo fleetctl list-machines` per verificare se il cluster ha già identificato tutte le macchine virtuali nel cluster. Dovrebbe essere visualizzato un messaggio simile al seguente:
 
 
 	core@node-1 ~ $ sudo fleetctl list-machines
@@ -146,7 +146,7 @@ Una volta effettuata la connessione, digitare `sudo fleetctl list-machines` per 
 
 ### Testare il cluster CoreOS da localhost
 
-Infine testare il cluster CoreOS dal client Linux locale. È possibile installare**fleetctl**utilizzando**npm** oppure è possibile decidere di installare **fleet** e compilare **fleetctl** manualmente sul client locale.**fleet** richiede **golang**, pertanto potrebbe essere necessario installarlo prima digitando:
+Infine testare il cluster CoreOS dal client Linux locale. È possibile installare **fleetctl** usando **npm** oppure è possibile decidere di installare **fleet** e compilare **fleetctl** manualmente sul client locale. **fleet** richiede **golang**, pertanto potrebbe essere necessario installarlo prima digitando:
 
 `sudo apt-get install golang`
 
@@ -166,7 +166,7 @@ Assicurarsi che **fleet** disponga dell’accesso a `myPrivateKey.key` nella dir
 
 `ssh-add ./myPrivateKey.key`
 
-> [AZURE.NOTE]Se la chiave `~/.ssh/id_rsa` viene già utilizzata, aggiungerla con `ssh-add ~/.ssh/id_rsa`.
+> [AZURE.NOTE]Se si usa già la chiave `~/.ssh/id_rsa`, aggiungerla con `ssh-add ~/.ssh/id_rsa`.
 
 Ora è possibile eseguire il test in remoto con lo stesso comando **fleetctl** usato da **node-1**, ma passando alcuni argomenti remoti:
 
@@ -182,7 +182,7 @@ I risultati dovrebbero essere identici:
 
 ## Passaggi successivi
 
-Ora dovrebbe essere presente un cluster CoreOS a tre nodi in esecuzione in Azure. A questo punto, è possibile scoprire come creare cluster più complessi, usare Docker e creare applicazioni più interessanti. Per provare alcuni esempi rapidi, vedere [Introduzione a fleet su CoreOS in Azure].
+Ora dovrebbe essere presente un cluster CoreOS a tre nodi in esecuzione in Azure. A questo punto, è possibile scoprire come creare cluster più complessi, usare Docker e creare applicazioni più interessanti. Per provare alcuni esempi rapidi, vedere [Guida introduttiva a fleet su CoreOS in Azure].
 
 <!--Anchors-->
 [CoreOS, Clusters, and Linux Containers]: #intro
@@ -207,6 +207,6 @@ Ora dovrebbe essere presente un cluster CoreOS a tre nodi in esecuzione in Azure
 [esercitazione su CoreOS di Patrick Chanezon]: https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
-[Introduzione a fleet su CoreOS in Azure]: virtual-machines-linux-coreos-fleet-get-started.md
+[Guida introduttiva a fleet su CoreOS in Azure]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

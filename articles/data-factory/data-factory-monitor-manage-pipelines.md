@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Monitorare e gestire le pipeline di Data factory di Azure
@@ -475,4 +475,4 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

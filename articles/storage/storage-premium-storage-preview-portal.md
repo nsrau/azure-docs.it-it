@@ -201,6 +201,7 @@ Fare riferimento alle istruzioni importanti riportate di seguito per configurare
 	- Se si usa **XFS**, disabilitare le barriere tramite l'opzione di montaggio "nobarrier" Per abilitarle, utilizzare "barrier".
 
 - Per i dischi di Archiviazione Premium con cache impostata su "ReadWrite", le barriere devono essere abilitate per la durabilità delle scritture.
+- Per far sì che le etichette di volume restino dopo il riavvio della macchina virtuale, è necessario aggiornare /etc/fstab con i riferimenti UUID ai dischi. Fare riferimento anche a [Come collegare un disco dati a una macchina virtuale Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-how-to-attach-disk)
 
 Di seguito sono riportate le distribuzioni di Linux convalidate con Archiviazione Premium. Si consiglia di aggiornare le macchine virtuali ad almeno una di queste versioni (o successive) per prestazioni e stabilità migliori con Archiviazione Premium. Inoltre, alcune delle versioni richiedono i LIS (Linux Integration Services v4.0 per Microsoft Azure) più recenti. Usare il collegamento indicato di seguito per il download e l'installazione. Continueremo ad aggiungere altre immagini all'elenco non appena effettueremo ulteriori convalide. Si noti che le nostre convalide hanno mostrato che le prestazioni variano per queste immagini e che ciò dipende, inoltre, dalle impostazioni e dalle caratteristiche dei carichi di lavoro sulle immagini. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribuzione</strong></td> <td><strong>Versione</strong></td> <td><strong>Kernel supportato</strong></td> <td><strong>Immagine supportata</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-it-IT-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-it-IT-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-it-IT-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-it-IT-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 richiesto </a> </br> *Vedere nota in basso </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 consigliato </a> <br/> *Vedere nota in basso </td> </tr>
 
@@ -331,7 +332,7 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 [Uso delle operazioni del servizio BLOB con Archiviazione Premium di Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
 
-[Creare una macchina virtuale che esegue Windows](../virtual-machines-windows-tutorial-azure-preview.md)
+[Creazione di una macchina virtuale che esegue Windows](../virtual-machines-windows-tutorial-azure-preview.md)
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
@@ -342,4 +343,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

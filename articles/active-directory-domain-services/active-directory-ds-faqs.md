@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Anteprima di Servizi di dominio Azure Active Directory: Domande frequenti
 
 Questa pagina include le risposte a domande frequenti relative all'anteprima di Servizi di dominio Azure AD. Controllarla costantemente per eventuali aggiornamenti.
 
-### 1\. Configurazione
+### Guida per la risoluzione dei problemi
+Fare riferimento alla [Guida per la risoluzione dei problemi](active-directory-ds-troubleshooting.md) per soluzioni relative ai problemi comuni riscontrati durante la configurazione o l'amministrazione dei servizi di dominio di Azure AD.
+
+
+### Configurazione
 
 #### È possibile creare più domini per una singola directory di Azure AD?
 No. È possibile creare solo un singolo dominio gestito da Servizi di dominio Azure AD per una singola directory di Azure AD.
@@ -35,7 +39,7 @@ PowerShell e la distribuzione automatizzata di Servizi di dominio Azure AD non s
 No. È possibile configurare Servizi di dominio Azure AD solo nel portale di gestione di Azure precedente (ovvero https://manage.windowsazure.com). Microsoft prevede di estendere il supporto per il nuovo portale di gestione di Microsoft Azure (ovvero https://portal.azure.com) in futuro.
 
 
-### 2\. Amministrazione e gestione
+### Amministrazione e gestione
 
 #### Dopo aver abilitato Servizi di dominio Azure AD, quale account utente è necessario usare per aggiungere i computer a questo dominio?
 Gli account utente aggiunti al gruppo amministrativo (ovvero 'AAD DC Administrators') potranno aggiungere computer al dominio. Gli utenti di questo gruppo, inoltre, sono autorizzati per l'accesso con Desktop remoto ai computer aggiunti al dominio.
@@ -47,7 +51,7 @@ No. Trattandosi di un servizio gestito, non si disporrà dei privilegi amministr
 No. Le appartenenze ai gruppi non possono essere modificate nei domini gestiti da Servizi di dominio Azure AD. Lo stesso vale per gli attributi utente. È tuttavia possibile modificare le appartenenze ai gruppi o gli attributi utente in Azure AD o nel dominio locale. Tali modifiche verranno sincronizzate automaticamente in Servizi di dominio Azure AD.
 
 
-### 3\. Fatturazione e disponibilità
+### Fatturazione e disponibilità
 
 #### Si tratta di un servizio a pagamento?
 Il servizio è disponibile a un prezzo ridotto speciale per la durata del periodo di anteprima pubblica. La fatturazione inizierà al prezzo intero quando il servizio sarà disponibile a livello generale. Per altre informazioni vedere la pagina dei prezzi.
@@ -64,4 +68,4 @@ Per un elenco di aree di Azure per cui è disponibile Servizi di dominio Azure A
 #### Quando sarà disponibile a livello generale Servizi di dominio Azure AD?
 Non è attualmente possibile condividere informazioni sulla tempistica prevista per la disponibilità del servizio a livello generale.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -18,6 +18,8 @@
 
 # Come usare le code del bus di servizio
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono scritti in JavaScript e utilizzano il modulo Node.js di Azure. Gli scenari presentati includono **creazione di code**, **invio e ricezione di messaggi**, nonché **eliminazione di code**. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi][].
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
@@ -66,7 +68,7 @@ Il modulo di Azure legge le variabili di ambiente AZURE\_SERVICEBUS\_NAMESPACE e
 
 Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Servizio cloud Node.js con archiviazione][].
 
-Per un esempio di impostazione delle variabili di ambiente nel portale di Azure per un sito Web di Azure, vedere [ Applicazione Web Node.js con archiviazione][].
+Per un esempio di impostazione delle variabili di ambiente nel portale di Azure per un sito Web di Azure, vedere [App Web Node.js con il servizio tabelle di Azure][].
 
 ## Creare una coda
 
@@ -76,7 +78,7 @@ L'oggetto **ServiceBusService** consente di usare le code del bus di servizio. I
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Quando si effettua la chiamata a **createQueueIfNotExists** sull'oggetto **ServiceBusService** viene restituita la coda specificata, se esiste, o viene creata una nuova coda con il nome specificato. Nel codice seguente viene usato **createQueueIfNotExists** per creare o connettersi alla coda denominata `myqueue`:
+Quando si effettua la chiamata a **createQueueIfNotExists** sull'oggetto **ServiceBusService** viene restituita la coda specificata (se esiste) o viene creata una nuova coda con il nome specificato. Nel codice seguente viene usato **createQueueIfNotExists** per creare o connettersi alla coda denominata `myqueue`:
 
 ```
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
@@ -115,7 +117,7 @@ Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo
 function (returnObject, finalCallback, next)
 ```
 
-In questo callback, e dopo l'elaborazione di **returnObject** (la risposta della richiesta al server), il callback deve richiamare `next`, se questo esiste, per continuare a elaborare altri filtri oppure semplicemente richiamare `finalCallback` per concludere la chiamata al servizio.
+In questo callback, e dopo l'elaborazione di **returnObject** (la risposta della richiesta al server), il callback deve richiamare `next`, se questo esiste, per continuare a elaborare altri filtri, oppure semplicemente richiamare `finalCallback` per concludere la chiamata al servizio.
 
 Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi con Azure SDK per Node.js: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **ServiceBusService** che utilizza **ExponentialRetryPolicyFilter**:
 
@@ -153,7 +155,7 @@ Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambit
 
 Se il parametro **isPeekLock** è impostato su **true**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando il metodo **deleteMessage** e fornendo il messaggio da eliminare come parametro. Il metodo **deleteMessage** contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
 
-Nell'esempio seguente viene illustrato come ricevere ed elaborare messaggi utilizzando **receiveQueueMessage**. Nell'esempio viene ricevuto ed eliminato un messaggio, quindi viene ricevuto un messaggio con **isPeekLock** impostato su **true** e infine il messaggio viene eliminato mediante **deleteMessage**:
+Nell'esempio seguente viene illustrato come ricevere ed elaborare messaggi utilizzando **receiveQueueMessage**. Nell'esempio viene prima ricevuto ed eliminato un messaggio, poi viene ricevuto un messaggio con **isPeekLock** impostato su **true** e infine il messaggio viene eliminato mediante **deleteMessage**:
 
 ```
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
@@ -186,7 +188,7 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 Per altre informazioni, vedere le risorse seguenti.
 
 -   [Code, argomenti e sottoscrizioni][]
--   Archivio [Azure SDK for Node][] su GitHub
+-   Repository [Azure SDK for Node][] su GitHub
 -   [Centro per sviluppatori di Node.js](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
@@ -196,8 +198,8 @@ Per altre informazioni, vedere le risorse seguenti.
   [Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
   [Creare e distribuire un'applicazione Node.js in un sito Web di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servizio cloud Node.js con archiviazione]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
-  [ Applicazione Web Node.js con archiviazione]: ../storage/storage-nodejs-how-to-use-table-storage.md
+  [App Web Node.js con il servizio tabelle di Azure]: ../storage/storage-nodejs-how-to-use-table-storage.md
   [Code di Azure e code del bus di servizio]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

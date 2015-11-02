@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configurazione di PHP nelle app Web di Servizio app di Azure"
 	description="Informazioni su come configurare l'installazione predefinita di PHP o aggiungere un'installazione personalizzata di PHP in Servizio app di Azure.";"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter="php"
 	authors="tfitzmac"
 	manager="wpickett"
@@ -74,7 +74,7 @@ Per qualsiasi runtime PHP incorporato, è possibile modificare le opzioni di con
 ### PHP\_INI\_USER, PHP\_INI\_PERDIR, la modifica delle impostazioni di configurazione PHP\_INI\_ALL
 
 1. Aggiungere un file [.user.ini] alla directory radice in uso.
-2. Aggiungere le impostazioni di configurazione al file `.user.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera attivare l'impostazione `display_errors` e configurare l'impostazione `upload_max_filesize` su 10M, il file `.user.ini` conterrà il testo seguente:
+2. Aggiungere le impostazioni di configurazione al file  `.user.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera attivare l'impostazione `display_errors` e configurare l'impostazione `upload_max_filesize` su 10M, il file `.user.ini` conterrà il testo seguente:
 
 		; Example Settings
 		display_errors=On
@@ -182,4 +182,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

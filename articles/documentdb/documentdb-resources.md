@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Modello di risorse gerarchico e concetti relativi a DocumentDB | Microsoft Azure" 
 	description="Informazioni sul modello gerarchico di DocumentDB di database, raccolte, funzione definita dall'utente (UDF), documenti, autorizzazioni per gestire le risorse e altro ancora."
-	keywords="Hierarchical Model, documentdb, azure, Microsoft azure"	
+	keywords="Modello gerarchico, documentdb, azure, Microsoft azure"	
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -30,7 +30,7 @@ Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti
 - Come si usano le raccolte?
 - Come si usano le stored procedure, i trigger e le funzioni definite dall'utente
 
-##Modello di risorse gerarchico
+## Modello di risorse gerarchico
 Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di DocumentDB è costituito da set di risorse associati a un account di database, ciascuno indirizzabile tramite un URI logico e stabile. Un set di risorse viene definito **feed** in questo articolo.
 
 >[AZURE.NOTE]DocumentDB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
@@ -53,7 +53,7 @@ Per iniziare a lavorare con le risorse, è necessario [creare un account di data
 |(Anteprima) Allegato |Un allegato è un documento speciale contenente riferimenti e metadati associati per BLOB/file multimediali esterni. Lo sviluppatore può definire se il BLOB debba essere gestito da DocumentDB o archiviato con un provider di servizi BLOB esterno come OneDrive, Dropbox e così via. 
 
 
-##Risorse definite dal sistema e risorse definite dall'utente
+## Risorse definite dal sistema e risorse definite dall'utente
 Tutte le risorse quali account di database, database, raccolte, utenti, autorizzazioni, stored procedure, trigger e funzioni UDF hanno uno schema fisso e sono definite risorse di sistema. Per le risorse quali documenti e allegati, invece, non sono previste restrizioni a livello di schema. Si tratta di risorse definite dall'utente. In DocumentDB le risorse definite dal sistema e definite dall'utente sono rappresentate e gestite come risorse JSON conformi allo standard. Tutte le risorse, di sistema o definite dall'utente, presentano le proprietà comuni indicate di seguito.
 
 >[AZURE.NOTE]Si noti che, nell'implementazione JSON, tutte le proprietà generate dal sistema in una risorsa hanno come prefisso un carattere di sottolineatura (\_).
@@ -84,9 +84,9 @@ Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\
 |/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed di autorizzazioni in un database.
 |/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorizzazione con proprietà ID univoca con valore {_rid-permission}.
   
-Una risorsa ha anche un nome utente univoco esposto mediante la proprietà ID della risorsa stessa. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà _rid viene usata per costruire il collegamento _self indirizzabile di una risorsa. 
+Una risorsa ha anche un nome utente univoco esposto mediante la proprietà ID della risorsa stessa. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà \_rid viene usata per costruire il collegamento \_self indirizzabile di una risorsa.
 
-Ogni risorsa ha anche un identificatore gerarchico generato dal sistema (chiamato anche RID), disponibile tramite la proprietà _rid. Il RID codifica l'intera gerarchia di una determinata risorsa ed è una rappresentazione interna molto utile da usare per imporre l'integrità referenziale secondo un metodo distribuito. Il RID è univoco all'interno di un account di database e viene usato internamente da DocumentDB per un routing efficiente senza necessità di eseguire ricerche su più partizioni. 
+Ogni risorsa ha anche un identificatore gerarchico generato dal sistema (chiamato anche RID), disponibile tramite la proprietà \_rid. Il RID codifica l'intera gerarchia di una determinata risorsa ed è una rappresentazione interna molto utile da usare per imporre l'integrità referenziale secondo un metodo distribuito. Il RID è univoco all'interno di un account di database e viene usato internamente da DocumentDB per un routing efficiente senza necessità di eseguire ricerche su più partizioni.
 
 I valori delle proprietà \_self e \_rid sono entrambi rappresentazioni alternate e canoniche di una risorsa.
 
@@ -413,4 +413,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

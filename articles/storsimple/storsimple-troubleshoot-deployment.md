@@ -257,7 +257,9 @@ Di seguito viene riportato l'output dal controller 1 (il controller attivo). Sol
 
 È possibile utilizzare il `Test-Connection` cmdlet per determinare se il dispositivo StorSimple può connettersi alla rete esterna. Se tutti i parametri di rete, tra cui il DNS, sono configurati correttamente nella configurazione guidata, è possibile utilizzare il cmdlet `Test-Connection` per eseguire il ping di un indirizzo noto all'esterno della rete, ad esempio outlook.com.
 
-Vedere i seguenti esempi di output della `Test-Connection` cmdlet.
+È consigliabile attivare il comando ping per risolvere i problemi di connettività con questo cmdlet se il comando ping è disabilitato.
+
+Vedere i seguenti esempi di output del cmdlet `Test-Connection`.
 
 > [AZURE.NOTE]Nel primo esempio, il dispositivo è configurato con un DNS non corretto. Nel secondo esempio, il DNS è corretto.
  
@@ -285,7 +287,7 @@ Nell'esempio seguente, il DNS restituisce l'indirizzo IPV4, che indica che il DN
 
 ## Risoluzione dei problemi con il cmdlet Test-HcsmConnection
 
-Utilizzare il `Test-HcsmConnection` cmdlet per un dispositivo è già connesso a e registrato con il servizio StorSimple Manager. Questo cmdlet consente di verificare la connettività tra un dispositivo registrato e il corrispondente servizio StorSimple Manager. È possibile eseguire questo comando su Windows PowerShell per StorSimple.
+Utilizzare il cmdlet `Test-HcsmConnection` per un dispositivo che è già connesso a e registrato con il servizio StorSimple Manager. Questo cmdlet consente di verificare la connettività tra un dispositivo registrato e il corrispondente servizio StorSimple Manager. È possibile eseguire questo comando su Windows PowerShell per StorSimple.
 
 ### Per eseguire il cmdlet Test-HcsmConnection
 
@@ -328,7 +330,7 @@ Per altre informazioni su come utilizzare il cmdlet, vedere [Test-HcsmConnection
 
 > [AZURE.IMPORTANT]È possibile eseguire questo cmdlet per il controller attivo e passivo.
  
-Vedere i seguenti esempi di output della `Test-HcsmConnection` cmdlet.
+Vedere i seguenti esempi di output del cmdlet `Test-HcsmConnection`.
 
 **Esempio di output – Registrazione corretta di un dispositivo che esegue la versione di rilascio di StorSimple (luglio 2014)**
 
@@ -447,7 +449,7 @@ Ad esempio, si supponga di disporre di 2 interfacce di rete, DATI 2 e DATI 3 con
 
 Se si esegue l'aggiornamento 1 nel dispositivo StorSimple, l'interfaccia di rete DATI 0 ha la preferenza maggiore per il traffico cloud. Ciò implica che anche se esistono altre interfacce abilitate per il cloud, il traffico cloud verrà indirizzato tramite DATI 0.
 
-Se si esegue il `Get-HcsRoutingTable` cmdlet senza specificare alcun parametro (come illustrato nell'esempio seguente), il cmdlet memorizzeranno le tabelle di routing IPv4 e IPv6. In alternativa, è possibile specificare `Get-HcsRoutingTable -IPv4` o `Get-HcsRoutingTable -IPv6` per ottenere una tabella di routing rilevante.
+Se si esegue il cmdlet `Get-HcsRoutingTable` senza specificare alcun parametro (come illustrato nell'esempio seguente), il cmdlet memorizzerà le tabelle di routing IPv4 e IPv6. In alternativa, è possibile specificare `Get-HcsRoutingTable -IPv4` o `Get-HcsRoutingTable -IPv6` per ottenere una tabella di routing rilevante.
 
       Controller0>
       Controller0>Get-HcsRoutingTable
@@ -575,4 +577,4 @@ L'errore potrebbe essere causato da una delle seguenti cause:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/20/2015"
 	ms.author="carlrab"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Panoramica
 
-La funzionalità che consente la scrittura di backup di SQL Server nel servizio di archiviazione BLOB di Azure è stata rilasciata in SQL Server 2012 SP1 CU2. È possibile usare questa funzionalità per eseguire operazioni di backup e ripristino dal servizio BLOB di Azure, da un database SQL Server locale o da un database SQL Server in una macchina virtuale di Azure. Il backup nel cloud offre vantaggi in termini di disponibilità, di archiviazione fuori sede con replica geografica illimitata e di semplicità di migrazione dei dati da e verso il cloud. In questa versione è possibile eseguire istruzioni BACKUP o RESTORE usando T-SQL o SMO.
+La funzionalità che consente la scrittura di backup di SQL Server nel servizio di archiviazione BLOB di Azure è stata rilasciata in SQL Server 2012 SP1 CU2. È possibile usare questa funzionalità per eseguire operazioni di backup e ripristino dal servizio BLOB di Azure, con un database SQL Server locale o da un database SQL Server in una macchina virtuale di Azure. Il backup nel cloud offre vantaggi in termini di disponibilità, di archiviazione fuori sede con replica geografica illimitata e di semplicità di migrazione dei dati da e verso il cloud. È possibile eseguire istruzioni BACKUP o RESTORE usando T-SQL o SMO.
 
 ## Vantaggi dell'uso del servizio BLOB di Azure per i backup di SQL Server
 
@@ -73,4 +73,4 @@ Per una procedura dettagliata completa sulla creazione di un account di archivia
 
 [Procedure consigliate relative al backup e al ripristino (servizio di archiviazione BLOB di Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

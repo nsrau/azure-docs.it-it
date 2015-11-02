@@ -36,7 +36,13 @@ Per eseguire questa esercitazione, è necessario:
 
 Creare prima gli oggetti richiesti da PolyBase per la connessione ai dati nell'archiviazione BLOB di Azure e l'esecuzione di query su di essi.
 
-> [AZURE.IMPORTANT]I tipi di account di archiviazione di Azure supportati da PolyBase sono: + Archiviazione con ridondanza locale standard (LRS Standard) + Archiviazione geograficamente ridondante standard (GRS Standard) + Archiviazione geograficamente ridondante di accesso in lettura standard (Standard RAGRS) I tipi di conto Archiviazione con ridondanza locale standard (ZRS Standard) e Archiviazione con ridondanza locale premium (LRS Premium), non sono supportati da PolyBase. Se si sta creando un nuovo account di archiviazione di Azure, assicurarsi di selezionare un tipo di account di archiviazione supportato da PolyBase dal livello dei prezzi.
+> [AZURE.IMPORTANT]I tipi di account di archiviazione di Azure supportati da PolyBase sono:
+> 
+> + Archiviazione con ridondanza locale standard (Standard LRS)
+> + Archiviazione con ridondanza geografica standard (Standard LRS)
+> + Archiviazione con ridondanza geografica e accesso in lettura standard (Standard RAGRS)
+>
+> I tipi di conto di archiviazione con ridondanza area standard (Standard ZRS) e archiviazione con ridondanza locale premium (LRS Premium) non sono supportati da PolyBase. Se si sta creando un nuovo account di archiviazione di Azure, assicurarsi di selezionare un tipo di account di archiviazione supportato da PolyBase dal livello dei prezzi.
 
 
 ## Creare la chiave master del database
@@ -102,7 +108,7 @@ DROP EXTERNAL DATA SOURCE azure_storage
 ;
 ```
 
-Argomento di riferimento: [DROP origine dati esterna (Transact-SQL)][].
+Argomento di riferimento: [DROP ORIGINE DATI ESTERNA (Transact-SQL)][].
 
 ## Creare un formato di file esterno
 Il formato di file esterno è un oggetto di database che specifica il formato dei dati esterni. In questo esempio i dati sono stati decompressi in un file di testo e i campi sono separati dal carattere barra verticale ('|').
@@ -132,7 +138,7 @@ Per eliminare un riferimento esterno il formato di file la sintassi è:
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
-Argomento di riferimento: [eliminare FILE di formato esterno (Transact-SQL)][].
+Argomento di riferimento: [DROP FILE DI FORMATO ESTERNO (Transact-SQL)][].
 
 ## Creare una tabella esterna
 
@@ -177,7 +183,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 
 > [AZURE.NOTE]Quando si elimina una tabella esterna è necessario utilizzare `DROP EXTERNAL TABLE`. **Non è possibile** usare `DROP TABLE`.
 
-Argomento di riferimento: [DROP TABLE esterno (Transact-SQL)][].
+Argomento di riferimento: [DROP TABELLA ESTERNA (Transact-SQL)][].
 
 È inoltre importante notare che sono visibili in entrambe le tabelle esterne `sys.tables` e in particolare in `sys.external_tables` viste del catalogo.
 
@@ -211,7 +217,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 ```
 
-> [AZURE.NOTE]Una query su una tabella esterna può avere esito negativo con l'errore *"Query interrotta: è stata raggiunta la soglia massima durante la lettura da un'origine esterna"*. Indica che i dati esterni contengono record *sporchi*. Un record di dati viene considerato "sporco" se i tipi/numero dei dati effettivi delle colonne non corrispondono a definizioni di colonna della tabella esterna o se i dati non sono conformi al formato di file esterno specificato. Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato del file esterno siano corrette e i dati esterni siano conformi a queste definizioni. Nel caso in cui un subset di record di dati esterni sia sporco, è possibile scegliere di rifiutare tali record per le query utilizzando le opzioni di rifiuto in CREATE EXTERNAL TABLE DDL.
+> [AZURE.NOTE]Una query su una tabella esterna può avere esito negativo con l'errore *"Query interrotta-- è stata raggiunta la soglia massima durante la lettura da un'origine esterna"*. Indica che i dati esterni contengono record *sporchi*. Un record di dati viene considerato "sporco" se i tipi/numero dei dati effettivi delle colonne non corrispondono a definizioni di colonna della tabella esterna o se i dati non sono conformi al formato di file esterno specificato. Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato del file esterno siano corrette e i dati esterni siano conformi a queste definizioni. Nel caso in cui un subset di record di dati esterni sia sporco, è possibile scegliere di rifiutare tali record per le query utilizzando le opzioni di rifiuto in CREATE EXTERNAL TABLE DDL.
 
 
 ## Caricare dati dall'archiviazione BLOB di Azure
@@ -319,13 +325,13 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP origine dati esterna (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146367.aspx
-[eliminare FILE di formato esterno (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146379.aspx
-[DROP TABLE esterno (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt130698.aspx
+[DROP ORIGINE DATI ESTERNA (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146367.aspx
+[DROP FILE DI FORMATO ESTERNO (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146379.aspx
+[DROP TABELLA ESTERNA (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

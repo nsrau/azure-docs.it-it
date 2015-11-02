@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/12/2015"
    ms.author="maroche"/>
 
 
@@ -52,7 +52,7 @@ Nell'anteprima corrente il **Catalogo dati di Azure** supporta la registrazione 
 ## Metadati strutturali
 Quando si registra un'origine dati, lo strumento di registrazione estrae le informazioni sulla struttura degli oggetti selezionati, dette metadati strutturali.
 
-Per tutti gli oggetti questi metadati strutturali includono la posizione dell'oggetto, in modo da consentire agli strumenti client di individuare i dati. Altri metadati strutturali includono il tipo e il nome dell'oggetto e il nome di colonna/attributo e il tipo di dati.
+Per tutti gli oggetti, questi metadati strutturali includeranno la posizione dell'oggetto, in modo che gli utenti che individuano i dati possano utilizzare tali informazioni per connettersi all'oggetto negli strumenti client di propria scelta. Altri metadati strutturali includono il tipo e il nome dell'oggetto e il nome di colonna/attributo e il tipo di dati.
 
 ## Metadati descrittivi
 Oltre ai metadati strutturali di base estratti dall'origine dati, lo strumento di registrazione dell'origine dati estrae anche metadati descrittivi. Per SQL Server Analysis Services e SQL Server Reporting Services questi dati vengono estratti dalle proprietà Description esposte da questi servizi. Per SQL Server vengono estratti i valori specificati con la proprietà estesa ms\_description. Per il database Oracle lo strumento di registrazione dell'origine dati estrae la colonna COMMENTS dalla vista ALL\_TAB\_COMMENTS.
@@ -94,4 +94,4 @@ La nuova registrazione di un'origine dati già registrata esegue un'operazione d
 ## Riepilogo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Dopo la registrazione di un'origine dati, questa potrà essere annotata, gestita e individuata tramite il portale del **Catalogo dati di Azure**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -19,6 +19,8 @@
 
 # <a id="nonendorsed"> </a>Informazioni per distribuzioni non supportate #
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 **Importante**: il contratto di servizio della piattaforma di Azure si applica alle macchine virtuali che utilizzano il sistema operativo Linux solo quando viene utilizzata una delle [distribuzioni supportate](virtual-machines-../linux-endorsed-distributions.md) di PowerShell. Tutte le distribuzioni di Linux disponibili nella raccolta immagini di Azure sono distribuzioni approvate con la configurazione richiesta.
 
@@ -190,4 +192,4 @@ L'[agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Arrestare la macchina virtuale e caricare il VHD in Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

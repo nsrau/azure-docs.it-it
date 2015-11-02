@@ -28,9 +28,9 @@ Le soluzioni IoT possono includere cicli di feedback automatici. Un modulo di Ma
 
 Molte soluzioni IoT consentono agli utenti di visualizzare e analizzare i dati raccolti dai dispositivi. Queste visualizzazioni possono assumere la forma di dashboard o rapporti di Business Intelligence.
 
-[img-solution-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
+[img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [IoT Suite di Azure]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

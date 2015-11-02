@@ -25,9 +25,7 @@
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
-Prima di iniziare, assicurarsi che Microsoft Azure PowerShell siano configurati e pronti all'uso.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Creare una macchina virtuale Windows con un modello di Gestione risorse mediante Azure PowerShell
 
@@ -290,4 +288,4 @@ Verrà visualizzata una schermata simile alla seguente:
 
 [Come installare e configurare Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Distribuire un'app per le API con un nuovo gateway" 
 	description="Usare un modello di Gestione risorse di Azure per distribuire un'app per le API con un nuovo gateway e un nuovo piano di servizio app." 
-	services="app-service\api" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-api" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -308,4 +308,4 @@ Si noti che i nomi del gateway e dell'app Web di hosting sono definiti come prop
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

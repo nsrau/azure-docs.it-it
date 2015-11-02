@@ -3,7 +3,7 @@
 	description="Questo argomento fornisce una panoramica dei formati e dei codec del Codificatore multimediale di Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/05/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Formati e codec di Azure Media Encoder
@@ -142,4 +142,4 @@ Formato YVU9 prodotto da Indeo|Formato YVU9 prodotto da Indeo con informazioni a
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

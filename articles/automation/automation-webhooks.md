@@ -169,7 +169,7 @@ Il Runbook di esempio seguente accetta la richiesta di esempio precedente e avvi
 
 ## Avvio di runbook in risposta agli avvisi di Azure
 
-I runbook abilitati per i webhook possono essere usati in risposta agli [avvisi di Azure](Azure-portal/insights-receive-alert-notifications.md). È possibile monitorare le risorse in Azure grazie alla raccolta di statistiche relative, ad esempio, a prestazioni, disponibilità e uso con l'aiuto degli avvisi di Azure. È possibile ricevere avvisi basati su metriche o eventi di monitoraggio per i servizi di Azure. Quando il valore di una metrica specifica supera la soglia assegnata o se l'evento configurato viene attivato quando una notifica viene inviata all'amministratore o ai coamministratori del servizio per risolvere l'avviso, per altre informazioni sulle metriche e sugli eventi, vedere [Avvisi di Azure](Azure-portal/insights-receive-alert-notifications.md).
+I runbook abilitati per i webhook possono essere usati in risposta agli [avvisi di Azure](Azure-portal/insights-receive-alert-notifications.md). È possibile monitorare le risorse in Azure grazie alla raccolta di statistiche relative, ad esempio, a prestazioni, disponibilità e uso con l'aiuto degli avvisi di Azure. È possibile ricevere avvisi basati su metriche o eventi di monitoraggio per i servizi di Azure, attualmente gli account di automazione supportano solo le metriche. Quando il valore di una metrica specifica supera la soglia assegnata o se l'evento configurato viene attivato quando una notifica viene inviata all'amministratore o ai coamministratori del servizio per risolvere l'avviso, per altre informazioni sulle metriche e sugli eventi, vedere [Avvisi di Azure](Azure-portal/insights-receive-alert-notifications.md).
 
 Oltre a usare gli avvisi di Azure come sistema di notifica, è anche possibile avviare i runbook in risposta agli avvisi. Automazione di Azure offre la possibilità di eseguire runbook abilitati per i webhook con gli avvisi di Azure. Quando una metrica supera il valore di soglia configurato, la regola dell'avviso viene abilitata e attiva il webhook di automazione che a sua volta esegue il runbook.
 
@@ -255,4 +255,4 @@ Il seguente runbook di esempio viene attivato quando la regola dell'avviso diven
 - [Visualizzazione dello stato di un processo di Runbook](automation-viewing-the-status-of-a-runbook-job.md)
 - [Uso di Automazione di Azure per eseguire azioni sugli avvisi di Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

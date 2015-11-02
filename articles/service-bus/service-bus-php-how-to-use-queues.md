@@ -18,6 +18,8 @@
 
 # Come usare le code del bus di servizio
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 Questa guida illustra come usare le code del bus di servizio. Gli esempi sono scritti in PHP e utilizzano [Azure SDK per PHP](../php-download-sdk.md). Gli scenari presentati includono **creazione di code**, **invio e ricezione di messaggi**, nonché **eliminazione di code**.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
@@ -63,7 +65,7 @@ Per creare un client di servizio di Azure, è necessario usare la classe **Servi
 * Passare la stringa di connessione direttamente.
 * Usare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
 	* Per impostazione predefinita viene fornito con il supporto per un'origine esterna, ovvero le variabili ambientali
-	* È possibile aggiungere nuove origini estendendo la classe **ConnectionStringSource**
+	* È possibile aggiungere nuove origini estendendo la classe **ConnectionStringSource**.
 
 Per gli esempi illustrati in questo articolo, la stringa di connessione verrà passata direttamente.
 
@@ -106,7 +108,7 @@ Il seguente esempio illustra come creare un'istanza di **ServiceBusRestProxy** e
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]È possibile usare il metodo `listQueues` negli oggetti `ServiceBusRestProxy` per verificare se in uno spazio dei nomi servizio esiste già una coda con il nome specificato.
+> [AZURE.NOTE]È possibile usare il metodo `listQueues` negli oggetti `ServiceBusRestProxy` per verificare se in uno spazio dei nomi del servizio esiste già una coda con il nome specificato.
 
 ## Procedura: Inviare messaggi a una coda
 
@@ -200,11 +202,11 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, Argomenti e Sottoscrizioni][] per altre informazioni.
 
-Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
+Per altre informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
 
 [Code, Argomenti e Sottoscrizioni]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

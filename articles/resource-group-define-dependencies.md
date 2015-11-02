@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="mmercuri"/>
 
 # Definizione delle dipendenze nei modelli di gestione risorse di Azure
@@ -43,23 +43,25 @@ Mentre si potrebbe pensare di utilizzare dependsOn per mappare le dipendenze tra
 
 Questo elemento non è necessario se la funzione di riferimento viene utilizzata per ottenere una rappresentazione di una risorsa in quanto un oggetto di riferimento implica una dipendenza sulla risorsa. Infatti, se è presente un'opzione per utilizzare un riferimento rispetto a dependsOn, fare riferimento alle linee guida consiste per utilizzare la funzione di riferimento e con riferimenti impliciti. La logica di riferimento è nuovamente delle prestazioni. I Riferimenti definiscono le dipendenze implicite che sono note per essere richieste come riferite all'interno del modello. Con la loro presenza, sono rilevanti, evitando nuovamente l’ottimizzazione delle prestazioni e per evitare il rischio potenziale di distrarre il motore di distribuzione dall’evitare inutilmente un parallelismo.
 
+Se è necessario definire una dipendenza tra una risorsa e le risorse che vengono create tramite un ciclo di copia, è possibile impostare l'elemento dependsOn sul nome del ciclo. Per avere un esempio, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+
 ## resources
 
 La proprietà delle risorse consente di specificare le risorse figlio correlate alla risorsa definita. Le Risorse figlio possono essere solo definite da5 livelli. È importante notare che una relazione implicita non viene creata tra una risorsa figlio e la risorsa padre. Se è necessario che la risorsa figlio sia distribuita dopo la risorsa padre, è necessario dichiarare in modo esplicito tale dipendenza con la proprietà dependsOn.
 
 ## funzione di riferimento
 
-La funzione di riferimento consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le Espressioni di riferimento in modo implicito dichiarano che una risorsa dipende da un altro. La proprietà rappresentata dal**propertyPath** allegato di seguito è facoltativa, se non è specificato, il riferimento è alla risorsa.
+La funzione di riferimento consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le Espressioni di riferimento in modo implicito dichiarano che una risorsa dipende da un altro. La proprietà rappresentata dal**propertyPath** allegato di seguito è facoltativa, se non è specificato, il riferimento riguarda la risorsa.
 
     reference('resourceName').propertyPath
 
 È possibile utilizzare questo elemento o l'elemento dependsOn per specificare le dipendenze, ma non è necessario utilizzare entrambi per la stessa risorsa dipendente. Le linee guida prevedono l’utilizzo del riferimento implicito per evitare il rischio di avere inavvertitamente un elemento dependsOn che arresti il motore di distribuzione tanto che gli aspetti della distribuzione in parallelo siano poi interrotti.
 
-Per ulteriori informazioni, vedere[riferimento a funzione](../resource-group-template-functions/#reference).
+Per altre informazioni, vedere [funzione di riferimento](../resource-group-template-functions/#reference).
 
 ## Passaggi successivi
 
-- Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). 
-- Per un elenco di funzioni disponibili in un modello, vedere[funzioni modello](resource-group-template-functions.md).
+- Per altre informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md). 
+- Per un elenco di funzioni disponibili in un modello, vedere [funzioni di modello](resource-group-template-functions.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

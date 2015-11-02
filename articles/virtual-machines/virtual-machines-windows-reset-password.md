@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-# Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali Windows
+# Come reimpostare una password o il servizio Desktop remoto per una macchina virtuale di Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
@@ -114,4 +114,4 @@ Se non è possibile eseguire il pacchetto di diagnostica Azure IaaS (Windows) o 
 
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

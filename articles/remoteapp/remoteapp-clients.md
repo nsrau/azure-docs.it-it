@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/09/2015"
+    ms.date="10/10/2015"
     ms.author="elizapo" />
 
 
@@ -28,11 +28,10 @@ In questo argomento si esaminerà l'elenco dei client attualmente supportati, co
 
 È possibile accedere a RemoteApp attenendosi alla procedura seguente se sul dispositivo è in esecuzione uno dei sistemi operativi seguenti:
 
- - Windows 10 Preview
+ - Windows 10 
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
- - Windows RT
  - Windows Phone 8.1
  - iOS
  - Mac OS X
@@ -208,4 +207,4 @@ Dopo aver installato l'app Microsoft Remote Desktop dallo store Windows Phone 8.
 	![Feed dimostrativo per Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

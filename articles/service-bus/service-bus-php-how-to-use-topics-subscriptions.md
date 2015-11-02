@@ -19,11 +19,13 @@
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
-In questo articolo verrà descritto come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in PHP e utilizzano [Azure SDK per PHP](../php-download-sdk.md). Gli scenari presentati includono **creazione di argomenti e sottoscrizioni**, **creazione di filtri per le sottoscrizioni**, **invio di messaggi a un argomento**, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**.
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in PHP e utilizzano [Azure SDK per PHP](../php-download-sdk.md). Gli scenari presentati includono **creazione di argomenti e sottoscrizioni**, **creazione di filtri per le sottoscrizioni**, **invio di messaggi a un argomento**, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-## Creazione di un'applicazione PHP
+## Creare un'applicazione PHP
 
 Per creare un'applicazione PHP che accede al servizio BLOB di Azure, è sufficiente fare riferimento alle classi in [Azure SDK per PHP](../php-download-sdk.md) dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo o il Blocco note.
 
@@ -44,7 +46,7 @@ Per usare le API del bus di servizio:
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServiceBusService**.
 
-> [AZURE.NOTE]In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, è necessario fare riferimento al file autoloader **WindowsAzure.php**.
+> [AZURE.NOTE]Questo esempio (e in altri esempi in questo articolo) presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, è necessario fare riferimento al file autoloader **WindowsAzure.php**.
 
 ```
 require_once 'vendor\autoload.php';
@@ -86,7 +88,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 
 È possibile eseguire operazioni di gestione per gli argomenti del bus di servizio usando la classe **ServiceBusRestProxy**. Un oggetto **ServiceBusRestProxy** viene costruito tramite il metodo factory **ServicesBuilder::createServiceBusService** con una stringa di connessione appropriata che incapsula le autorizzazioni di token per la relativa gestione.
 
-Il seguente esempio illustra come creare un'istanza di **ServiceBusRestProxy** e chiamare **ServiceBusRestProxy->createTopic** per creare un argomento denominato `mytopic` all'interno di uno spazio dei nomi `MySBNamespace`:
+L'esempio seguente illustra come creare un'istanza di **ServiceBusRestProxy** e chiamare **ServiceBusRestProxy->createTopic** per creare un argomento denominato `mytopic` all'interno di uno spazio dei nomi `MySBNamespace`:
 
 ```
 require_once 'vendor\autoload.php';
@@ -113,7 +115,7 @@ catch(ServiceException $e){
 }
 ```
 
-> [AZURE.NOTE]È possibile usare il metodo `listTopics` negli oggetti `ServiceBusRestProxy` per verificare se in uno spazio dei nomi servizio esiste già un argomento con il nome specificato.
+> [AZURE.NOTE]È possibile usare il metodo `listTopics` negli oggetti `ServiceBusRestProxy` per verificare se in uno spazio dei nomi del servizio esiste già un argomento con il nome specificato.
 
 ## Creare una sottoscrizione
 
@@ -154,7 +156,7 @@ catch(ServiceException $e){
 
 > [AZURE.NOTE]Ogni regola in una sottoscrizione elabora i messaggi in arrivo indipendentemente, aggiungendo i messaggi risultanti alla sottoscrizione stessa. Ogni nuova sottoscrizione presenta inoltre un oggetto **Rule** predefinito con un filtro che aggiunge tutti i messaggi dall'argomento alla sottoscrizione. Per ricevere solo messaggi corrispondenti al filtro in uso, è necessario rimuovere la regola predefinita. È possibile rimuovere la regola predefinita usando il metodo `ServiceBusRestProxy->deleteRule`.
 
-Nel seguente esempio viene creata una sottoscrizione denominata **HighMessages** con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata **MessageNumber** è maggiore di 3 (vedere [Inviare messaggi a un argomento](#send-messages-to-a-topic) per informazioni sull'aggiunta di proprietà personalizzate ai messaggi):
+Nel seguente esempio viene creata una sottoscrizione denominata **HighMessages** con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata **MessageNumber** è maggiore di 3. Per informazioni sull'aggiunta di proprietà personalizzate ai messaggi, vedere [Inviare messaggi a un argomento](#send-messages-to-a-topic).
 
 ```
 $subscriptionInfo = new SubscriptionInfo("HighMessages");
@@ -169,7 +171,7 @@ $ruleResult = $serviceBusRestProxy->createRule("mytopic", "HighMessages", $ruleI
 
 Si noti che questo codice richiede l'uso di uno spazio dei nomi aggiuntivo: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
 
-Analogamente, nel seguente esempio viene creata una sottoscrizione denominata **LowMessages** con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **MessageNumber** è minore o uguale a 3:
+Analogamente, l'esempio seguente crea una sottoscrizione denominata **LowMessages** con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **MessageNumber** è minore o uguale a 3.
 
 ```
 $subscriptionInfo = new SubscriptionInfo("LowMessages");
@@ -182,11 +184,11 @@ $ruleInfo->withSqlFilter("MessageNumber <= 3");
 $ruleResult = $serviceBusRestProxy->createRule("mytopic", "LowMessages", $ruleInfo);
 ```
 
-A questo punto, quando viene inviato un messaggio all’argomento `mytopic`, viene sempre recapitato ai ricevitori con sottoscrizione `mysubscription` e recapitato selettivamente ai ricevitori con sottoscrizioni `HighMessages` e `LowMessages`, a seconda del contenuto del messaggio.
+A questo punto, quando viene inviato un messaggio all'argomento `mytopic`, viene sempre recapitato ai ricevitori con sottoscrizione `mysubscription` e recapitato selettivamente ai ricevitori con sottoscrizioni `HighMessages` e `LowMessages`, a seconda del contenuto del messaggio.
 
 ## Inviare messaggi a un argomento
 
-Per inviare un messaggio a un argomento del bus di servizio, l'applicazione chiama il metodo **ServiceBusRestProxy->sendTopicMessage**. Il seguente codice illustra come inviare un messaggio all’argomento `mytopic` creato in precedenza all'interno dello spazio dei nomi del servizio `MySBNamespace`.
+Per inviare un messaggio a un argomento del bus di servizio, l'applicazione chiama il metodo **ServiceBusRestProxy->sendTopicMessage**. Il codice seguente illustra come inviare un messaggio all'argomento `mytopic` creato in precedenza all'interno dello spazio dei nomi del servizio `MySBNamespace`.
 
 ```
 require_once 'vendor\autoload.php';
@@ -216,7 +218,7 @@ catch(ServiceException $e){
 }
 ```
 
-I messaggi inviati ad argomenti del bus di servizio sono istanze della classe **BrokeredMessage**. Gli oggetti **BrokeredMessage** includono un set di proprietà e metodi standard, ad esempio **getLabel**, **getTimeToLive**, **setLabel** e **setTimeToLive**, nonché proprietà dell'applicazione utilizzate per contenere proprietà specifiche dell'applicazione. Nell'esempio seguente viene illustrato come inviare 5 messaggi di prova all’argomento `mytopic` creato in precedenza. Il metodo **setProperty** viene usato per aggiungere una proprietà personalizzata (`MessageNumber`) a ogni messaggio. Si noti come il valore della proprietà `MessageNumber` varia per ogni messaggio, consentendo di determinare quali sottoscrizioni lo riceveranno, come descritto nella sezione [Creare una sottoscrizione](#create-a-subscription):
+I messaggi inviati ad argomenti del bus di servizio sono istanze della classe **BrokeredMessage**. Gli oggetti **BrokeredMessage** includono un set di proprietà e metodi standard, ad esempio **getLabel**, **getTimeToLive**, **setLabel** e **setTimeToLive**, nonché proprietà dell'applicazione utilizzate per contenere proprietà specifiche dell'applicazione. L'esempio seguente illustra come inviare 5 messaggi di prova all'argomento `mytopic` creato in precedenza. Il metodo **setProperty** viene usato per aggiungere una proprietà personalizzata (`MessageNumber`) a ogni messaggio. Si noti come il valore della proprietà `MessageNumber` varia per ogni messaggio, consentendo di determinare quali sottoscrizioni lo riceveranno, come descritto nella sezione [Creare una sottoscrizione](#create-a-subscription):
 
 ```
 for($i = 0; $i < 5; $i++){
@@ -238,11 +240,11 @@ Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256
 
 Il modo principale per ricevere i messaggi da una sottoscrizione consiste nell'usare un metodo **ServiceBusRestProxy->receiveSubscriptionMessage**. I messaggi ricevuti possono essere usati in due modalità diverse: **ReceiveAndDelete** (predefinita) e **PeekLock**.
 
-Quando si usa la modalità **ReceiveAndDelete**, l'operazione di ricezione viene eseguita in un'unica fase. Quando infatti il bus di servizio riceve una richiesta di lettura relativa a un messaggio in una sottoscrizione, lo contrassegna come usato e lo restituisce all'applicazione. La modalità **ReceiveAndDelete** costituisce il modello più semplice ed è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
+Quando si usa la modalità **ReceiveAndDelete**, l'operazione di ricezione viene eseguita in un'unica fase. Quando infatti il bus di servizio riceve una richiesta di lettura relativa a un messaggio in una sottoscrizione, lo contrassegna come utilizzato e lo restituisce all'applicazione. La modalità **ReceiveAndDelete** costituisce il modello più semplice ed è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
 
 Nella modalità **PeekLock** l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione passando il messaggio ricevuto a **ServiceBusRestProxy->deleteMessage**. Quando il bus di servizio vede la chiamata **deleteMessage**, contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
 
-Il seguente esempio mostra come ricevere ed elaborare un messaggio usando la modalità **PeekLock** (non predefinita).
+L'esempio seguente illustra come ricevere ed elaborare un messaggio usando la modalità **PeekLock** (non predefinita).
 
 ```
 require_once 'vendor\autoload.php';
@@ -289,13 +291,13 @@ Il bus di servizio fornisce funzionalità per il ripristino gestito automaticame
 
 Al messaggio bloccato nella coda è inoltre associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima dell'invio della richiesta **deleteMessage**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio del sistema. Questo processo di elaborazione viene spesso definito **At Least Once**, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva alle applicazioni per gestire il secondo recapito del messaggio. A tale scopo viene spesso usato il metodo **getMessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima dell'invio della richiesta **deleteMessage**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio del sistema. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva alle applicazioni per gestire il secondo recapito del messaggio. A tale scopo viene spesso usato il metodo **getMessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## Eliminare argomenti e sottoscrizioni
 
 Per eliminare un argomento o una sottoscrizione, usare rispettivamente il metodo **ServiceBusRestProxy->deleteTopic** o **ServiceBusRestProxy->deleteSubscripton**. Si noti che se si elimina un argomento, vengono eliminate anche tutte le sottoscrizioni registrate con l'argomento.
 
-L'esempio seguente illustra come eliminare un argomento denominato `mytopic` con le relative sottoscrizioni registrate.
+L'esempio seguente illustra come eliminare un argomento denominato `mytopic` e le relative sottoscrizioni registrate.
 
 ```
 require_once 'vendor\autoload.php';
@@ -329,11 +331,11 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, argomenti e sottoscrizioni][] per altre informazioni.
+A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, per altre informazioni, vedere [Code, Argomenti e Sottoscrizioni][].
 
-[Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
+[Code, Argomenti e Sottoscrizioni]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
 [Code di Azure e code del bus di servizio]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

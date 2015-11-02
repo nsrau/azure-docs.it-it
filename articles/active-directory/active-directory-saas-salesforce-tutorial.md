@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #Esercitazione: Come eseguire l'integrazione di Salesforce con Azure Active Directory
@@ -253,4 +253,4 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

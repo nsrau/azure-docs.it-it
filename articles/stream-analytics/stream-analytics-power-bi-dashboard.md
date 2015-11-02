@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Dashboard di Power BI su Analisi di flusso| Microsoft Azure" 
 	description="Utilizzare un dashboard di Power BI streaming in tempo reale per raccogliere intelligence aziendali e analizzare i dati di volumi elevati di un processo di Analisi di flusso." 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
+	keywords="strumenti di business intelligence, power bi, flusso di dati, dashboard di power bi"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -222,4 +222,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
