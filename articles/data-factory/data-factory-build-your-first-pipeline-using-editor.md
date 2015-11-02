@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # Creare la prima pipeline di Data factory di Azure con l'editor di Data factory (portale di Azure)
@@ -47,11 +47,14 @@ Questo articolo non fornisce una panoramica concettuale del servizio Data factor
 
 	![Pannello Nuova data factory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]I nomi di Data factory di Azure sono univoci. È necessario anteporre al nome della data factory il proprio nome, per consentire la corretta creazione della factory. 
+	> [AZURE.IMPORTANT]È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato un errore simile a **Nome "DataFactoryMyFirstPipeline" per la data factory non disponibile**, cambiare il nome della data factory (ad esempio, nomeutenteDataFactoryMyFirstPipeline) e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
+	>  
+	> Il nome della data factory può essere registrato in futuro come un nome DNS e pertanto divenire visibile pubblicamente.
+
 3.	Se non è stato creato un gruppo di risorse, sarà necessario crearne uno. A tale scopo, seguire questa procedura:
 	1.	Fare clic su **NOME GRUPPO DI RISORSE**.
 	2.	Selezionare **Crea un nuovo gruppo di risorse** nel pannello **Gruppo di risorse**.
-	3.	Immettere **ADF** nel campo **Nome** nel pannello **Crea gruppo di risorse**.
+	3.	Immettere **ADF** nel campo **Nome** del pannello **Crea gruppo di risorse**.
 	4.	Fare clic su **OK**.
 	
 		![Creare gruppo di risorse](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
@@ -70,7 +73,7 @@ Nei passaggi successivi si apprenderà come creare i servizi collegati, i set di
 In questo passaggio si procederà al collegamento dell'account di archiviazione di Azure e di un cluster HDInsight di Azure su richiesta alla data factory e quindi alla creazione di un set di dati per rappresentare i dati di output dell'elaborazione Hive.
 
 ### Creare il servizio collegato Archiviazione di Azure
-1.	Fare clic su **Crea e distribuisci** nel pannello **DATA FACTORY** per **DataFactoryFirstPipeline**. Verrà avviato l'editor di Data factory. 
+1.	Fare clic su **Crea e distribuisci** nel pannello **DATA FACTORY** relativo a **DataFactoryFirstPipeline**. Verrà avviato l'editor di Data factory. 
 	 
 	![Riquadro Creare e distribuire](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 2.	Fare clic su **Nuovo archivio dati** e scegliere **Archiviazione di Azure**.
@@ -146,7 +149,7 @@ Si creerà ora il set di dati di output per rappresentare i dati archiviati nell
 		  }
 		}
 
-3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il set di dati creato.
+3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il set di dati appena creato.
 4. Verificare se il set di dati è stato creato correttamente.
 
 	![Visualizzazione albero con servizi collegati](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
@@ -201,11 +204,11 @@ In questo passaggio si creerà la prima pipeline.
 	
 	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **StorageLinkedService**) e in un contenitore denominato **script**.
 
-	La sezione **extendedProperties** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive (ad esempio, ${hiveconf:PartitionedData}).
+	La sezione **extendedProperties** consente di specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive (ad esempio, ${hiveconf:PartitionedData}).
 
 	Le proprietà **start** ed **end** della pipeline specificano il periodo attivo della pipeline.
 
-	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata dal servizio collegato, **HDInsightOnDemandLinkedService**.
+	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo indicata dal servizio collegato, **HDInsightOnDemandLinkedService**.
 3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline.
 4. Verificare che la pipeline sia visibile nella visualizzazione albero.
 
@@ -223,7 +226,7 @@ In questo passaggio si creerà la prima pipeline.
 9. Al termine dell'elaborazione lo stato della sezione sarà **Pronto**. La creazione di un cluster HDInsight su richiesta di solito richiede tempo. 
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. Quando lo stato sella sezione è **Pronto**, cercare i dati di output nella cartella **partitioneddata** del contenitore **data** nell'archivio BLOB.  
+10. Quando lo stato sella sezione è **Ready**, cercare i dati di output nella cartella **partitioneddata** del contenitore **data** nell'archivio BLOB.  
  
 
  
@@ -235,4 +238,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,8 +1,7 @@
 <properties
 	pageTitle="Dati di esempio nelle tabelle Hive di Azure HDInsight| Microsoft Azure"
-	description="Esecuzione del downsampling dei dati nelle tabelle Hive di Azure HDInsight"
+	description="Esecuzione del sotto-campionamento dei dati nelle tabelle Hive (Hadopop) di Azure HDInsight"
 	services="machine-learning,hdinsight"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -14,12 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/20/2015"
 	ms.author="hangzh;bradsev" />
 
 # Dati di esempio nelle tabelle Hive di Azure HDInsight
 
-Se il set di dati da analizzare è grande, si consiglia di eseguire il downsampling dei dati per ridurli a una dimensione inferiore e più facilmente gestibile, ma comunque rappresentativa. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il ruolo di tale operazione in Advanced Analytics Process and Technology (ADAPT) di Azure Machine Learning è consentire la rapida creazione di prototipi delle funzioni di elaborazione dei dati e dei modelli di apprendimento automatico.
+Questo **menu** collega ad argomenti che descrivono come campionare dei dati da vari ambienti di archiviazione. Questa attività è un passaggio nel Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## Introduzione
+
+Se il set di dati da analizzare è grande, si consiglia di eseguire il downsampling dei dati per ridurli a una dimensione inferiore e più facilmente gestibile, ma comunque rappresentativa. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il suo ruolo nel Cortana Analytics Process consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli per l'apprendimento automatico.
 
 In questo articolo, viene descritto come eseguire il downsampling dei dati nelle tabelle Hive di Azure HDInsight usando le query Hive. Vengono trattati i tre metodi di campionamento utilizzati più frequentemente:
 
@@ -100,4 +105,4 @@ Di seguito è fornito un esempio di query:
 Per informazioni su metodi di campionamento più avanzati disponibili in Hive, vedere [Campionamento di LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

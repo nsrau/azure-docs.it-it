@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configurare i criteri di distribuzione degli asset mediante REST" 
-	description="Questo argomento illustra come configurare criteri di distribuzione degli asset differenti." 
+	pageTitle="Configurare i criteri di distribuzione degli asset utilizzando API REST di Servizi multimediali" 
+	description="Questo argomento illustra come configurare criteri di distribuzione degli asset differenti utilizzando API REST di Servizi multimediali." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #Procedura: Configurare i criteri di distribuzione degli asset
@@ -436,4 +436,4 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

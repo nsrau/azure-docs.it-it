@@ -14,19 +14,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="07/02/2015"
+   ms.date="10/21/2015"
    ms.author="rasquill"/>
 
 # Creare framework di applicazione utilizzando modelli
 
-Utilizzare questo materiale per creare rapidamente applicazioni eccezionali.
+Utilizzare questo materiale per creare rapidamente applicazioni eccezionali. Oltre a questi modelli, è possibile cercare tra i modelli] (https://azure.microsoft.com/documentation/templates/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
 
 | Modello | Descrizione | Visualizzare il modello | Distribuirlo subito |
 |:---|:---|:---:|:---:|
-| Distribuire *n* macchine virtuali rapidamente | Questo è un modello creato da Microsoft che consente di distribuire un massimo di *n* nuove macchine virtuali, insieme a una nuova rete virtuale e un nuovo account di archiviazione. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/resource-loop-vms-vnet-aset/) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresource-loop-vms-vnet-aset%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Distribuire *n* macchine virtuali rapidamente | Questo è un modello creato da Microsoft che consente di distribuire un massimo di *n* nuove macchine virtuali, (insieme a una nuova rete virtuale e a un nuovo account di archiviazione). | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/resource-loop-vms-vnet-aset/) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresource-loop-vms-vnet-aset%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Foresta e dominio di Active Directory | Questo modello consente di distribuire due nuove macchine virtuali (insieme a rete virtuale, a account di archiviazione e bilanciamento del carico) e creare una nuova foresta e un nuovo dominio di Active Directory. Ogni macchina virtuale viene creata come controller di dominio del nuovo dominio e viene inserita in un set di disponibilità. A ogni macchina virtuale verrà inoltre aggiunto un endpoint RDP aggiunto con un indirizzo IP pubblico con carico bilanciato. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Server Web Apache | Questo modello utilizza l'estensione Linux CustomScript di Azure per distribuire un server web Apache. Il modello consente di creare una macchina virtuale Ubuntu, installare Apache2 e creare un file HTML semplice.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 | Cluster Couchbase | Questo modello consente di distribuire un cluster Couchbase in macchine virtuali Ubuntu. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -51,6 +51,6 @@ Utilizzare questo materiale per creare rapidamente applicazioni eccezionali.
 
 Individuare tutti i modelli a disposizione in [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Per ulteriori informazioni, vedere [Gestione risorse di Azure](../resource-group-template-deploy.md).
+Per altre informazioni, vedere [Gestione risorse di Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

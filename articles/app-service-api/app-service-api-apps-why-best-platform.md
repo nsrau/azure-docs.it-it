@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="10/15/2015" 
 	ms.author="tdykstra"/>
 
 # Informazioni sulle app per le API
 
-Le app per le API forniscono una piattaforma avanzata e un ecosistema per la creazione, l’hosting, l’utilizzo e la distribuzione di API nel cloud e in locale. Distribuire le API come un’app per le API e trarre vantaggio dalla sicurezza di livello aziendale, dal controllo di accesso semplificato, dalla connettività ibrida e SaaS, dalla generazione automatica di SDK e dalla perfetta integrazione con le [app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+Le app per le API forniscono una piattaforma avanzata per la creazione, l’hosting, e l’utilizzo di API nel cloud e in locale. Distribuire le API come un’app per le API e trarre vantaggio dalla sicurezza di livello aziendale, dal controllo di accesso semplificato, dalla connettività ibrida e SaaS, dalla generazione automatica di SDK e dalla perfetta integrazione con le [app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 Le app per le API fanno parte del [Azure App Service](../app-service/app-service-value-prop-what-is.md), che include anche app Web, app per dispositivi mobili e app per la logica.
 
@@ -46,18 +46,6 @@ Le app per le API includono inoltre le [funzionalità di app Web del servizio ap
 >
 >Le app per le API sono attualmente disponibili in anteprima pubblica. Le [app Web del servizio app](../app-service-web/app-service-web-overview.md) sono un servizio disponibile a livello generale progettato per lo sviluppo e l'hosting di applicazioni mission-critical sicure su scala globale. Le app Web sono un'opzione ottimale se si cerca un servizio disponibile a livello generale per lo sviluppo di API. Quando le app per le API saranno disponibili a livello generale, verrà fornito un percorso per permettere di sfruttare le funzionalità aggiuntive delle app per le API nelle app Web esistenti.
 
-### Funzionalità delle app per le API disponibili in futuro
-
-Prossimamente la piattaforma delle app per le API permetterà anche di creare un ecosistema avanzato di API, semplificando la condivisione del codice:
-
-- **Marketplace pubblici e privati**: [Azure Marketplace](http://azure.microsoft.com/marketplace/) semplificherà l'individuazione e la distribuzione nella sottoscrizione di Azure delle app per le API incluse nel pacchetto e sviluppate da Microsoft e da terze parti. Sarà anche possibile includere nel pacchetto e pubblicare app per le API personalizzate sviluppate dall'utente, in modo che gli altri sviluppatori possano distribuirle nelle proprie sottoscrizioni di Azure. Quando si pubblicano le API in Azure Marketplace, sarà possibile renderle visibili solo agli altri membri dell'organizzazione. 
-
-- **Distribuzione automatica delle dipendenze**: quando si distribuisce un'app per le API dal Marketplace nella sottoscrizione di Azure, le app per le API dipendenti verranno distribuite automaticamente da Azure e verranno create le risorse necessarie. Un pacchetto di app per le API specificherà le app per le API da cui dipende e le risorse di Azure necessarie.
-
-- **Aggiornamenti automatici**: quando si aggiorna il codice per uno dei pacchetti di app per le API condivisi, sarà possibile rendere disponibile l'aggiornamento a tutti gli utenti che hanno installato e stanno eseguendo l'app per le API. Questa procedura è consentita per modifiche che non causano interruzioni e per gli utenti che hanno scelto esplicitamente di ricevere aggiornamenti.
-
-Molte di queste funzionalità, ad esempio il Marketplace pubblico e gli aggiornamenti automatici, sono già disponibili per le app per le API fornite da Microsoft.
-
 ## Concetti delle app per le API ##
 
 - **Gateway**: un'app Web che gestisce le funzioni di amministrazione delle API e l'autenticazione per tutte le app per le API in un gruppo di risorse. 
@@ -76,4 +64,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

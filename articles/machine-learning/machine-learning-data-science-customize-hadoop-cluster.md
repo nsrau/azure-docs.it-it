@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Personalizzare i cluster Hadoop per Advanced Analytics Process and Technology | Microsoft Azure" 
+	pageTitle="Personalizzare i cluster Hadoop per il Cortana Analytics Process | Microsoft Azure" 
 	description="Moduli di Python più diffusi resi disponibili nei cluster personalizzati Hadoop di Azure HDInsight."
 	services="machine-learning" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="10/13/2015" 
 	ms.author="hangzh;bradsev" />
 
-# Personalizzare i cluster Hadoop di Azure HDInsight per Advanced Analytics Process and Technology
+# Personalizzare i cluster Hadoop di Azure HDInsight per il Cortana Analytics Process 
 
 Questo menu si collega ad argomenti che descrivono come configurare i diversi ambienti di scienza dei dati utilizzati da Cortana Analytics Process (CAP).
 
@@ -102,4 +102,4 @@ Vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di anali
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Informazioni sui concetti chiave dell'analisi di flusso | Microsoft Azure" 
 	description="Informazioni sui concetti fondamentali di un processo di analisi di flusso, inclusi input e output supportati, la configurazione del processo e le metriche." 
-	keywords="event processing,data stream,key concepts,serialization"	
+	keywords="elaborazione di eventi, flusso di dati, concetti fondamentali, serializzazione"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -207,4 +207,4 @@ A questo punto, si conoscono i concetti fondamentali dell'analisi di flusso ed Ã
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

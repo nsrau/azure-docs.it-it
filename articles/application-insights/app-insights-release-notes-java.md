@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Note sulla versione per Application Insights per Java" 
-	description="Gli aggiornamenti più recenti." 
+	description="Gli aggiornamenti più recenti per Java SDK." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -68,4 +68,4 @@ Confrontare il vecchio e il nuovo file ApplicationInsights.xml. Molte delle modi
 - Possibilità di apporre un tag a un elemento di telemetria come sintetico aggiungendo una proprietà ```SyntheticSource``` all'elemento segnalato.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

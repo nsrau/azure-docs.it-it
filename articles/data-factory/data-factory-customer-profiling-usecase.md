@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Caso di utilizzo - Profilo clienti
@@ -48,4 +48,4 @@ In questo esempio di caso di utilizzo, Azure Data Factory viene utilizzata per g
 
 Per ottimizzare l’analisi del profilo dell'utente e allinearla agli obiettivi aziendali, le società giochi online sono in grado di raccogliere rapidamente modelli di utilizzo e analizzare l'efficacia delle campagne pubblicitarie per tutti i propri diversi giochi.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

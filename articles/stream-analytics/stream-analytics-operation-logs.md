@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Log delle operazioni | Microsoft Azure" 
 	description="Log delle operazioni di Analisi di flusso" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="analisi di big data, servizio cloud, internet delle cose, servizio gestito, elaborazione del flusso, analisi di flusso, dati del flusso"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -57,7 +57,7 @@ Verrà aperto un pannello che mostra gli eventi degli ultimi 7 giorni per tutte 
 
 È possibile filtrare per stato e intervallo di tempo per visualizzare i log per il processo.
 
-Nel portale di gestione di Azure fare clic sul pulsante **Dettagli** nella parte inferiore della finestra per visualizzare ulteriori dettagli sull'evento selezionato.
+Nel portale di gestione di Azure fare clic sul pulsante **Dettagli** nella parte inferiore della finestra per visualizzare altri dettagli sull'evento selezionato.
 
   ![Selezionare i dettagli](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)
 
@@ -96,4 +96,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

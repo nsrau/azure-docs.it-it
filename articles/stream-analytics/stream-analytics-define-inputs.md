@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Definire gli input | Microsoft Azure" 
 	description="Informazioni sugli input di analisi di flusso" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="analisi di big data, servizio cloud, internet delle cose, servizio gestito, elaborazione del flusso, analisi di flusso, dati del flusso"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -26,7 +26,7 @@ Gli input di analisi di flusso di Azure vengono definiti come connessione a un'o
 
 ## Creazione di un flusso di input di dati Hub eventi
 
-Gli [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) sono un ingestor eventi di pubblicazione-sottoscrizione altamente scalabile. Può raccogliere milioni di eventi al secondo in modo che sia possibile elaborare e analizzare enormi quantità di dati generati dalle applicazioni e dai dispositivi connessi. È uno degli input più usati per l'analisi di flusso. Gli Hub eventi, insieme all'analisi di flusso, forniscono ai clienti una soluzione end-to-end per l'analisi in tempo reale. Gli Hub eventi consentono ai clienti di inserire gli eventi in Azure in tempo reale. I processi di analisi di flusso possono anche essere elaborati in tempo reale. Ad esempio, i clienti possono inviare le selezioni effettuate nel Web, le letture dei sensori, gli eventi del registro online per gli Hub eventi e creare processi di analisi di flusso per usare gli Hub eventi come flussi dei dati di input per l'applicazione di filtri, l'aggregazione e la correlazione in tempo reale.
+Gli [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) sono ingestor di eventi di pubblicazione-sottoscrizione altamente scalabili. Può raccogliere milioni di eventi al secondo in modo che sia possibile elaborare e analizzare enormi quantità di dati generati dalle applicazioni e dai dispositivi connessi. È uno degli input più usati per l'analisi di flusso. Gli Hub eventi, insieme all'analisi di flusso, forniscono ai clienti una soluzione end-to-end per l'analisi in tempo reale. Gli Hub eventi consentono ai clienti di inserire gli eventi in Azure in tempo reale. I processi di analisi di flusso possono anche essere elaborati in tempo reale. Ad esempio, i clienti possono inviare le selezioni effettuate nel Web, le letture dei sensori, gli eventi del registro online per gli Hub eventi e creare processi di analisi di flusso per usare gli Hub eventi come flussi dei dati di input per l'applicazione di filtri, l'aggregazione e la correlazione in tempo reale.
 
 È importante notare che il timestamp predefinito degli eventi proveniente dagli Hub eventi nell'analisi di flusso è il timestamp con cui l'evento è giunto nell'Hub eventi, cioè EventEnqueuedUtcTime. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
@@ -201,4 +201,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Panoramica dei livelli di messaggistica Standard e Premium del bus di servizio | Microsoft Azure"
+	pageTitle="Panoramica dei livelli di prezzo di messaggistica Standard e Premium del bus di servizio | Microsoft Azure"
 	description="Messaggistica Standard e Premium del bus di servizio"
 	services="service-bus"
 	documentationCenter=".net"
@@ -9,12 +9,12 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="sethm"/>
+	ms.date="10/15/2015"
+	ms.author="darosa"/>
 
 # Livelli di messaggistica Standard e Premium del bus di servizio 
 
@@ -41,7 +41,7 @@ Di seguito sono descritte alcune differenze tra i livelli di messaggistica Stand
 
 ### Entità partizionate
 
-Le entità partizionate sono supportate nella messaggistica Premium, ma non funzionano esattamente come nei livelli di messaggistica Standard e Basic del bus di servizio. La messaggistica Premium non usa SQL come archivio dati e non ha più la competizione possibile tra le risorse associata a una piattaforma condivisa. Di conseguenza, il partizionamento non è necessario. Inoltre, il numero delle partizioni è stato modificato da 16 partizioni nella messaggistica Standard a due partizioni in quella Premium. La presenza di due partizioni garantisce disponibilità e un numero più appropriato per l'ambiente di runtime Premium. Per altre informazioni, vedere [Partizionamento delle entità di messaggistica](https://msdn.microsoft.com/library/dn520246.aspx).
+Le entità partizionate sono supportate nella messaggistica Premium, ma non funzionano esattamente come nei livelli di messaggistica Standard e Basic del bus di servizio. La messaggistica Premium non usa SQL come archivio dati e non ha più la competizione possibile tra le risorse associata a una piattaforma condivisa. Di conseguenza, il partizionamento non è necessario. Inoltre, il numero delle partizioni è stato modificato da 16 partizioni nella messaggistica Standard a due partizioni in quella Premium. La presenza di due partizioni garantisce disponibilità e un numero più appropriato per l'ambiente di runtime Premium. Per altre informazioni, vedere [Partizionamento delle entità di messaggistica](service-bus-partitioning.md).
 
 ### Entità Express
 
@@ -54,7 +54,7 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Introduzione alla messaggistica Premium del bus di servizio di Azure (post di blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introduzione alla messaggistica Premium del bus di servizio di Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
-- [Panoramica dell'architettura del bus di servizio di Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

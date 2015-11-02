@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -264,7 +264,7 @@ Poiché gli ambienti di sviluppo e di test sono stati volutamente concepiti come
 
 ## Riepilogo ##
 
-Agile Software Development è uno strumento indispensabile per molte aziende che desiderano adottare Azure come piattaforma dell'applicazione. In questa esercitazione si è appreso a creare ed eliminare repliche esatte o molto simili dell'ambiente di produzione con facilità, anche per applicazioni complesse. Si è appreso anche a sfruttare questa possibilità per creare un processo di sviluppo in grado di compilare e testare ogni singolo commit in Azure. Questa esercitazione dovrebbe avere illustrato come usare nel modo migliore il servizio app di Azure e Gestione risorse di Azure App integrandoli per creare una soluzione di sviluppo che fornisce le metodologie Agile.
+Agile Software Development è uno strumento indispensabile per molte aziende che desiderano adottare Azure come piattaforma dell'applicazione. In questa esercitazione si è appreso a creare ed eliminare repliche esatte o molto simili dell'ambiente di produzione con facilità, anche per applicazioni complesse. Si è appreso anche a sfruttare questa possibilità per creare un processo di sviluppo in grado di compilare e testare ogni singolo commit in Azure. Questa esercitazione dovrebbe avere illustrato come usare nel modo migliore il servizio app di Azure e Gestione risorse di Azure App integrandoli per creare una soluzione di sviluppo che fornisce le metodologie Agile. Successivamente, è possibile compilare questo scenario eseguendo le tecniche avanzate di DevOps, ad esempio [test in produzione](app-service-web-test-in-production-get-start.md). Per uno scenario comune di test in produzione, vedere [Distribuzione Flighting (test beta) nel servizio di Azure App](app-service-web-test-in-production-controlled-test-flight.md).
 
 ## Altre risorse ##
 
@@ -281,4 +281,4 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 -	[Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

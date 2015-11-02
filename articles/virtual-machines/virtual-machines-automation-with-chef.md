@@ -17,6 +17,8 @@ ms.author="diviso"/>
 
 # Automazione della distribuzione delle macchine virtuali di Azure con Chef
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Chef rappresenta uno strumento molto utile che fornisce soluzioni automatizzate e configurazioni di stato personalizzate.
 
 Con il rilascio della più recente API cloud, Chef fornisce una perfetta integrazione con Azure, offrendo la possibilità di eseguire il provisioning e distribuire le configurazioni di stato attraverso un unico comando.
@@ -53,13 +55,13 @@ Creare quindi una seconda directory denominata c:\\chef\\cookbooks.
 
 A questo punto, è necessario scaricare il file di impostazioni di Azure affinché Chef possa comunicare con la sottoscrizione Azure.
 
-Scaricare le impostazioni di pubblicazione [all'indirizzo](https://manage.windowsazure.com/publishsettings/)
+Scaricare le impostazioni di pubblicazione [qui](https://manage.windowsazure.com/publishsettings/)
 
 Salvare il file delle impostazioni di pubblicazione in C:\\chef.
 
 ##Creazione di un account Chef gestito
 
-Iscriversi per ottenere un account Chef ospitato [all'indirizzo](https://manage.chef.io/signup)
+Iscriversi per ottenere un account Chef ospitato [qui](https://manage.chef.io/signup)
 
 Durante il processo di iscrizione, verrà richiesto di creare una nuova organizzazione.
 
@@ -103,7 +105,7 @@ Queste righe sono necessarie per garantire la presenza di riferimenti Knife nell
 
 ## Installazione di Chef Development Kit
 
-A questo punto, [scaricare e installare](http://downloads.getchef.com/chef-dk/windows) ChefDK (Chef Development Kit) per configurare la workstation Chef.
+A questo punto, [scaricare e installare](http://downloads.getchef.com/chef-dk/windows) il ChefDK (Chef Development Kit) per configurare la workstation Chef.
 
 ![][7]
 
@@ -237,4 +239,4 @@ Si spera che questa guida sia stata utile. Ora è possibile avviare l'infrastrut
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

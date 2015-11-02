@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="10/18/2015"
 	ms.author="msolhab;bradsev" />
 
 
 # Scenari per l'analisi avanzata in Azure Machine Learning
 
-In questo articolo vengono descritte le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con ADAPT (Advanced Analytics Process and Technology) in Azure Machine Learning. Vengono inoltre illustrate le opzioni disponibili nelle sequenze di elaborazione basate su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
+In questo articolo vengono descritte le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con il Cortana Analytics Process (CAP). Vengono inoltre illustrate le opzioni disponibili nelle sequenze di elaborazione basate su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
 
 L’**albero delle decisioni** per la scelta degli scenari di esempio appropriati per i dati dell’utente e l'obiettivo sono presentati nella sezione precedente.
 
@@ -32,8 +32,6 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
 *   [Creare un account di archiviazione](storage-whatis-account.md)
 *   [Creare un'area di lavoro Azure ML](machine-learning/machine-learning-create-workspace.md)
-
-
 
 
 ## <a name="smalllocal"></a>Scenario n. 1: Set di dati tabulari medio-piccolo in un file locale
@@ -298,8 +296,8 @@ Nel diagramma seguente sono riepilogati gli scenari descritti in precedenza e il
 Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT tramite set di dati pubblici, vedere:
 
 
-* [Advanced Analytics Process and Technology in azione: uso di SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Advanced Analytics Process and Technology in azione: uso di cluster Hadoop di HDInsight](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Il Cortana Analytics Process in azione: mediante SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
+* [Il Cortana Analytics Process in azione: mediante i cluster Hadoop di HDInsight](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -316,4 +314,4 @@ Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT t
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,14 +14,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="10/19/2015"
    ms.author="cherylmc"/>
 
 # Configurare una rete virtuale per ExpressRoute
 
-Questa procedura illustra la configurazione di una rete virtuale e un gateway da utilizzare con ExpressRoute, usando il modello classico di distribuzione. Questa configurazione non è attualmente supportata per reti virtuali e gateway creati utilizzando il modello di gestione delle risorse. Quando diventa disponibile, forniremo un collegamento da questa pagina per la documentazione.
- 
->[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione di Azure](../azure-classic-rm.md).
+Questa procedura illustra la configurazione di una rete virtuale e un gateway da utilizzare con ExpressRoute, usando il modello classico di distribuzione e Gestione servizi. Attualmente, non è disponibile la documentazione per la configurazione di una rete virtuale per ExpressRoute tramite il modello di distribuzione di Gestione risorse. Quando si dispone di un articolo pubblicato, ad esso si aggiungerà un collegamento.
+
+>[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione di Azure](../azure-classic-rm.md).
 
 1. Accedere al **Portale di Azure**.
 
@@ -60,14 +60,14 @@ Questa procedura illustra la configurazione di una rete virtuale e un gateway da
 
 10. All'avvio della creazione del gateway, verrà visualizzato un messaggio che indica che la procedura è stata avviata. La creazione del gateway potrebbe richiedere fino a 15 minuti.
 
-11. Collegare la rete al circuito. Seguire le istruzioni riportate nell'articolo [Come collegare reti virtuali a circuiti ExpressRoute](expressroute-howto-linkvnets-classic.md).
+11. Collegare la rete al circuito. Seguire le istruzioni riportate nell'articolo [Come collegare reti virtuali a circuiti ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 ## Passaggi successivi
 
-- Se si vuole aggiungere macchine virtuali alla rete virtuale, vedere [Come creare una macchina virtuale personalizzata](../virtual-machines-create-custom.md).
+- Se si vuole aggiungere macchine virtuali alla rete virtuale, vedere [Percorsi di apprendimento per le macchine virtuali](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
 - Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](expressroute-introduction.md).
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

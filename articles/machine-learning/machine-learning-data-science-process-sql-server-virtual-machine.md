@@ -2,7 +2,6 @@
 	pageTitle="Elaborazione dei dati di SQL Azure | Microsoft Azure" 
 	description="Elaborazione dei dati di SQL Azure" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="fashah" 
 	manager="paulettm" 
@@ -127,7 +126,7 @@ La funzionalità appena creata può essere aggiunta come una colonna a una tabel
 
 ##<a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
 
-L'utilizzo di Python per esplorare dati e creare funzionalità (quando i dati si trovano in SQL Server) funziona in modo analogo all'elaborazione dei dati nei BLOB di Azure usando Python, come descritto [qui](machine-learning-data-science-process-data-blob.md). I dati devono essere caricati dal database nei frame di dati Panda. A questo punto, è possibile elaborarli ulteriormente. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
+L'uso di Python per esplorare i dati e creare funzionalità, quando i dati che si trovano in SQL Server, funziona in modo analogo all'elaborazione dei dati nei BLOB di Azure mediante Python, come descritto in [Elaborare i dati BLOB di Azure in ambienti di analisi scientifica dei dati](machine-learning-data-science-process-data-blob.md). I dati devono essere caricati dal database nei frame di dati Panda. A questo punto, è possibile elaborarli ulteriormente. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
 
 Il seguente formato della stringa di connessione può essere utilizzato per connettersi a un database di SQL Server da Pyhton usando pyodbc (sostituire il nome del server, quello del database, il nome utente e la password con i valori personalizzati):
 
@@ -153,4 +152,4 @@ Per un esempio della procedura dettagliata end-to-end del processo di analisi sc
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

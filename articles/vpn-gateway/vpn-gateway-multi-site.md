@@ -5,17 +5,23 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Connettere più siti locali a una rete virtuale
+
+>[AZURE.NOTE]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione Azure](../azure-classic-rm.md).
+
+Questo articolo è applicabile alle reti virtuali e ai gateway VPN creati usando il modello di distribuzione classica (Gestione del servizio).
 
 È possibile connettere più siti locali a una singola rete virtuale. Ciò è particolarmente interessante per la creazione di soluzioni per cloud ibride. La creazione di una connessione multisito al gateway della rete virtuale di Azure è molto simile alla creazione di altre connessioni da sito a sito. Infatti, è possibile usare un gateway VPN di Azure esistente, purché sia abbia a disposizione un gateway VPN basato su route (o di routing dinamico) configurato per la rete virtuale.
 
@@ -47,9 +53,9 @@ Prima di iniziare la configurazione, verificare ci siano le condizioni seguenti:
 
 ## Creare la rete virtuale e il gateway
 
-1. **Creare una VPN da sito a sito con un gateway di routing dinamico.** Se già ne avete una, è possibile procedere e iniziare a [Esportare le impostazioni di configurazione della rete virtuale](#export). Se non ne avete una, eseguire le operazioni seguenti:
+1. **Creare una VPN da sito a sito con un gateway di routing dinamico.** Se già ne avete una, È possibile procedere e iniziare a [Esportare le impostazioni di configurazione della rete virtuale](#export). Se non ne avete una, eseguire le operazioni seguenti:
 
-	**Se già si ha a disposizione una rete virtuale da sito a sito, ma si possiede un gateway di routing statico:** **1.** Modificare il tipo di gateway in routing dinamico. Una VPN multisito richiede un gateway di routing dinamico. Per modificare il tipo di gateway, è necessario prima eliminare quello esistente e poi crearne uno nuovo. Per istruzioni, vedere [Modifica di un tipo di routing del gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configurare il nuovo gateway e creare il proprio tunnel VPN. Per istruzioni, vedere [Configurare un gateway VPN nel portale di gestione](vpn-gateway-configure-vpn-gateway-mp.md).
+	**Se già si ha a disposizione una rete virtuale da sito a sito, ma ha un gateway di routing statico:** **1.** Modificare il tipo di gateway in routing dinamico. Una VPN multisito richiede un gateway di routing dinamico. Per modificare il tipo di gateway, è necessario prima eliminare quello esistente e poi crearne uno nuovo. Per istruzioni, vedere [Modifica di un tipo di routing del gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configurare il nuovo gateway e creare il proprio tunnel VPN. Per istruzioni, vedere [Configurare un gateway VPN nel portale di gestione](vpn-gateway-configure-vpn-gateway-mp.md).
 	
 	**Se non si ha a disposizione una rete virtuale da sito a sito:** **1.** Creare una rete virtuale da sito a sito usando le istruzioni seguenti: [Creare una rete virtuale con una connessione VPN da sito a sito nel portale di gestione](vpn-gateway-site-to-site-create.md). **2.** Configurare un gateway di routing dinamico usando le istruzioni seguenti: [Configurare un gateway VPN nel portale di gestione](vpn-gateway-configure-vpn-gateway-mp.md). Assicurarsi di selezionare **routing dinamico** per il tipo di gateway.
 
@@ -171,4 +177,4 @@ Prima di iniziare la configurazione, verificare ci siano le condizioni seguenti:
 
 Per altre informazioni sui gateway VPN, vedere [Informazioni sui gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

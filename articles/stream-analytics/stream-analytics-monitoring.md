@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Informazioni sul monitoraggio dei processi di Analisi di flusso | Microsoft Azure" 
 	description="Informazioni sul monitoraggio dei processi di Analisi di flusso" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="analisi di big data, servizio cloud, internet delle cose, servizio gestito, elaborazione del flusso, analisi di flusso, dati del flusso"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -64,7 +64,7 @@ Per modificare l'intervallo di tempo visualizzato sul grafico delle metriche, se
 
 ## Personalizzazione del monitoraggio nel portale di anteprima di Azure ##
 
-È possibile modificare il tipo di grafico, le metriche visualizzate e l’intervallo di tempo nelle impostazioni di Modifica grafico. Per ulteriori informazioni, vedere [Come personalizzare il monitoraggio](./azure-portal/insights-how-to-customize-monitoring.md).
+È possibile modificare il tipo di grafico, le metriche visualizzate e l’intervallo di tempo nelle impostazioni di Modifica grafico. Per altre informazioni, vedere [Come personalizzare il monitoraggio](./azure-portal/insights-how-to-customize-monitoring.md).
 
   ![Scala temporale del portale di anteprima di Azure](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
 
@@ -104,4 +104,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -46,7 +46,7 @@ A seconda del modello, la compilazione del carico di lavoro richiede tempi diver
 
 ## Azure PowerShell
 
-Prima di iniziare, accertarsi di avere la versione corretta di Azure PowerShell installata, di avere effettuato l'accesso e di avere impostato la nuova modalità di gestione delle risorse. Per informazioni dettagliate, fare clic [qui](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Inserire un nome per la distribuzione di Azure, un nuovo nome gruppo di risorse e la posizione del data center di Azure, nel seguente set di comandi. Rimuovere tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >.
 
@@ -108,4 +108,4 @@ Una volta completata l'esecuzione del modello, si dispone di un nuovo, dominio d
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

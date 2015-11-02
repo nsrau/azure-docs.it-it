@@ -20,7 +20,7 @@ Usare le reti virtuali per:
 
 ### Come scoprire se è necessaria una rete virtuale?
 
-Per una tabella che consenta di scegliere la migliore opzione di progettazione della rete, vedere [Panoramica sulla rete virtuale](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/).
+Per una tabella che consenta di scegliere la migliore opzione di progettazione della rete, vedere [Panoramica sulla rete virtuale](virtual-networks-overview.md).
 
 ### Come iniziare?
 
@@ -265,4 +265,4 @@ Sì. È possibile usare le API REST per gestire le reti virtuali e la connettivi
 
 Sì. È possibile usare gli strumenti di PowerShell e della riga di comando per un'ampia gamma di piattaforme. Ulteriori informazioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

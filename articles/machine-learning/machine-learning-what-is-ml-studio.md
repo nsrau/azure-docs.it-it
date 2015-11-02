@@ -47,16 +47,16 @@ Nella parte superiore sono disponibili tre schede: **Home** (scheda iniziale), *
 
 Fare clic sulla scheda **Studio**. Verrà richiesto di effettuare l'accesso usando il proprio account Microsoft oppure l'account aziendale o dell'istituto di istruzione. Una volta effettuato l'accesso, a sinistra verranno visualizzate le schede seguenti:
 
-- **EXPERIMENTS**: esperimenti creati, eseguiti e salvati come bozze.
-- **WEB SERVICES**: servizi Web distribuiti tramite gli esperimenti.
-- **NOTEBOOKS**: notebook Jupyter creati.
-- **DATASETS**: set di dati caricati in Studio.
-- **TRAINED MODELS**: modelli sottoposti a training durante gli esperimenti e salvati in Studio.
+- **EXPERIMENTS** - esperimenti creati, eseguiti e salvati come bozze.
+- **WEB SERVICES** - servizi Web distribuiti tramite gli esperimenti.
+- **NOTEBOOKS** - notebook Jupyter creati.
+- **DATASETS** - set di dati caricati in Studio.
+- **TRAINED MODELS** - modelli sottoposti a training durante gli esperimenti e salvati in Studio.
 - **SETTINGS**: insieme di impostazioni che è possibile usare per configurare l'account e le risorse.
 
 ### Raccolta
 
-Scegliere la scheda **Gallery**. Verrà visualizzata la raccolta Cortana Analytics. La raccolta è un'area in cui una community di sviluppatori e data scientist condividono le soluzioni create mediante Cortana Analytics Suite.
+Fare clic sulla scheda **Gallery**. Verrà visualizzata la raccolta Cortana Analytics. La raccolta è un'area in cui una community di sviluppatori e data scientist condividono le soluzioni create mediante Cortana Analytics Suite.
 
 Per altre informazioni sulla raccolta, vedere [Condividere e individuare soluzioni nella raccolta Cortana Analytics](machine-learning-gallery-how-to-use-contribute-publish.md).
 
@@ -115,4 +115,4 @@ Quando il modello di analisi predittiva è pronto, è possibile distribuirlo com
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

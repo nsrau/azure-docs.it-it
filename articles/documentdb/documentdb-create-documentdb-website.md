@@ -2,7 +2,7 @@
 	pageTitle="Distribuire DocumentDB e app Web del servizio app di Azure mediante un modello di Gestione risorse di Azure | Microsoft Azure" 
 	description="Informazioni su come distribuire un account DocumentDB, app Web del servizio app di Azure e un'applicazione Web di esempio usando un modello di Gestione risorse di Azure." 
 	services="documentdb, app-service\web" 
-	authors="stephbaron" 
+	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="ryancraw"/>
 
 # Distribuire DocumentDB e app Web del servizio app di Azure mediante un modello di Gestione risorse di Azure #
 
@@ -33,7 +33,7 @@ Prima di seguire le istruzioni di questa esercitazione, verificare che siano dis
 
 - Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/), [Offerte per i membri](http://azure.microsoft.com/pricing/member-offers/) oppure [Versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/).
 - Un account di archiviazione di Azure Per istruzioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage-whatis-account.md).
-- Workstation con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
+- Una workstation con Azure PowerShell 0.9.8. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md). Questa esercitazione non è ancora stata aggiornata per l'anteprima di Azure PowerShell 1.0. 
 
 ##<a id="CreateDB"></a>Passaggio 1: Scaricare ed estrarre i file di esempio ##
 Per iniziare, scaricare i file di esempio che verranno usati in questa esercitazione.
@@ -210,4 +210,4 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un'app Web 
 >[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

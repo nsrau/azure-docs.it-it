@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Esercitazione con guida rapida per il linguaggio R per Azure Machine Learning | Microsoft Azure"
 	description="Usare questa esercitazione sulla programmazione R per iniziare a usare rapidamente il linguaggio R con Azure Machine Learning Studio per creare una soluzione di previsione."
-	keywords="quickstart,r language,r programming language,r programming tutorial"
+	keywords="guida introduttiva, linguaggio r, linguaggio di programmazione r, esercitazione di programmazione r"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -417,7 +417,7 @@ Eseguiamo il codice e analizziamo il log di output per lo script R. I dati rilev
 
 *Figura 9. Riepilogo del frame di dati con una variabile di fattore.*
 
-Il tipo per Month sarà: "**Factor w/ 14 levels**". Questo è ovviamente un problema poiché in un anno ci sono solo 12 mesi. È anche possibile controllare che il tipo in **Visualizza** della porta Result Dataset sia "**Categorical**".
+Il tipo per Month sarà: '**Factor w/ 14 levels**'. Questo è ovviamente un problema poiché in un anno ci sono solo 12 mesi. È anche possibile controllare che il tipo in **Visualize** della porta Result Dataset sia '**Categorical**'.
 
 Il problema è che la colonna "Month" non è stata codificata in modo sistematico. Un mese può essere denominato Aprile in alcuni casi e abbreviato in Apr. in altri. Per risolvere il problema, è possibile ridurre la stringa a tre caratteri. La riga di codice dovrebbe ora apparire così:
 
@@ -1346,4 +1346,4 @@ Alcune importanti risorse su Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

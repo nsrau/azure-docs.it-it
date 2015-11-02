@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="10/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -55,8 +55,6 @@ Gli errori temporanei sono detti anche guasti temporanei. Quando il programma ri
 | Numero di errore | Gravità | Descrizione |
 | ---: | ---: | :--- |
 | 4060 | 16 | Impossibile aprire il database "%.&#x2a;ls" richiesto dall'account di accesso. Accesso non riuscito. |
-|10928|20|ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per ulteriori informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l’ID risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>•[Governance delle risorse nel database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
-|10929|20|ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'utilizzo corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). In caso contrario, riprovare più tardi.<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l’ID risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>•[Governance delle risorse nel database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).|
 |40197|17|Il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprova più tardi. Codice di errore %d.<br/><br/>Questo errore viene visualizzato quando il servizio non è disponibile a causa di aggiornamenti software o hardware, guasti hardware o altri problemi di failover. Nel codice di errore (%d) incorporato nel messaggio di errore 40197 sono contenute ulteriori informazioni sul tipo di errore o failover che si è verificato. Alcuni esempi dei codici di errore incorporati nel messaggio di errore 40197 sono 40020, 40143, 40166 e 40540.<br/><br/>Con la riconnessione al server di database SQL verrà effettuata la connessione automatica a una copia integra del database. L'applicazione deve rilevare l'errore 40197, registrare il codice di errore incorporato (%d) nel messaggio per la risoluzione dei problemi e tentare la riconnessione al database SQL finché le risorse non saranno disponibili e la connessione non sarà stata ristabilita.|
 |40501|20|Il servizio è attualmente occupato. Ripetere la richiesta dopo 10 secondi. ID evento imprevisto: %ls. Codice: %d.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limitazione del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338079.aspx).
 |40613|17|Il database '%.&#x2a;ls' nel server '%.&#x2a;ls' non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. Se il problema persiste, contattare il supporto tecnico indicando l'ID di traccia della sessione di '%.&#x2a;ls'.|
@@ -110,6 +108,8 @@ Nella tabella seguente vengono illustrati gli errori causati dall'uso eccessivo 
 
 |Numero di errore|Gravità|Descrizione|
 |---:|---:|:---|
+|10928|20|ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L'ID Risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID Risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>•[Governance delle risorse nel database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
+|10929|20|ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'utilizzo corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). In caso contrario, riprovare più tardi.<br/><br/>L'ID Risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>•[Governance delle risorse nel database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).|
 |40544|20|Il database ha raggiunto la quota delle dimensioni. Partizionare o eliminare dati, eliminare indici o consultare la documentazione per le possibili soluzioni.|
 |40549|16|La sessione è stata terminata a causa di una transazione a esecuzione prolungata. Provare ad abbreviare la transazione.|
 |40550|16|La sessione è stata terminata perché sono stati acquisiti troppi blocchi. Provare a leggere o modificare meno righe in una singola transazione.|
@@ -242,4 +242,4 @@ Nella tabella seguente sono elencati tutti gli errori generali che non rientrano
 - [Linee guida e limitazioni generali per il database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Gestione delle risorse](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

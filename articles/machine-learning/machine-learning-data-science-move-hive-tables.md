@@ -41,7 +41,101 @@ Si supponga che i dati delle tabelle Hive siano in un formato tabulare **non com
 
 Se gli utenti vogliono fare pratica con i _dati di viaggio dei taxi di NYC_, devono prima scaricare i 24 file relativi ai <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">dati di viaggio dei taxi di NYC</a> (12 file sui viaggi e 12 file sulle tariffe), **decomprimere** tutti i file in file con estensione csv, quindi caricarli nel contenitore predefinito o appropriato dell'account di archiviazione di Azure usato dalla procedura descritta nell'argomento [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](machine-learning-data-science-customize-hadoop-cluster.md). Il processo per caricare i file con estensione csv per il contenitore predefinito nell'account di archiviazione sono disponibili in questa [pagina](machine-learning-data-science-process-hive-walkthrough/#upload).
 
-## Come inviare una query Hive
+## <a name="submit"></a>Come inviare query Hive
+È possibile inviare query Hive mediante:
+
+* Riga di comando di Hadoop presente nel nodo head del cluster
+* IPython Notebook
+* Editor Hive
+* Script di Azure PowerShell
+
+Le query Hive sono simili a SQL. Gli utenti che conoscono SQL possono trovare utile il <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">foglio informativo relativo all'uso di Hive per gli utenti di SQL</a>.
+
+Quando si invia una query Hive, è possibile controllare la destinazione dell'output, sia questo visualizzato sullo schermo o incluso in un file locale nel nodo head o in un BLOB di Azure.
+
+### Attraverso la console della riga di comando di Hadoop nel nodo head del cluster Hadoop
+
+Se la query è complessa e si inviano le query Hive direttamente dal nodo head del cluster Hadoop, il completamento dell'operazione sarà più veloce rispetto a quando si inviano usando l'editor di Hive o gli script di Azure PowerShell.
+
+Accedere al nodo head del cluster Hadoop, aprire la riga di comando presente nel desktop del nodo head e inserire il comando.
+
+    cd %hive_home%\bin
+
+Gli utenti possono inviare le query Hive nella console della riga di comando di Hadoop in tre modi:
+
+* Direttamente dalla riga di comando di Hadoop
+* Mediante i file con estensione hql
+* Dalla console dei comandi di Hive
+
+#### Inviare query Hive direttamente dalla riga di comando di Hive
+
+Gli utenti possono eseguire comandi simili al seguente
+
+	hive -e "<your hive query>;
+
+per inviare query Hive semplici direttamente alla riga di comando di Hive. In questo esempio, la casella rossa evidenzia il comando che consente di inviare la query Hive, mentre quella verde evidenzia l'output della query.
+
+![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
+
+#### Inviare query nei file con estensione hql
+
+Quando la query Hive è più complessa e dispone di numerose righe, l'operazione di modifica delle query nella riga di comando di Hadoop o nella console dei comandi di Hive non è molto pratica. Pertanto, è possibile usare un editor di testo nel nodo head del cluster Hadoop e salvare le query Hive in un file con estensione hql da inserire nella directory locale del nodo head. Quindi la query Hive nel file con estensione hql può essere inviata usando l'argomento `-f` nel comando `hive` come segue:
+
+	`hive -f "<path to the .hql file>"`
+
+
+#### Eliminare la visualizzazione relativa allo stato di avanzamento delle query Hive sullo schermo
+
+Per impostazione predefinita, dopo aver inviato una query Hive nella riga di comando di Hadoop, sullo schermo viene visualizzato lo stato di avanzamento del processo di mapping e di riduzione. Per eliminare la stampa della schermata di avanzamento del processo di mapping e riduzione, è possibile usare l'argomento `-S` (si applica la distinzione da maiuscole e minuscole) nella riga di comando nel modo seguente:
+
+	hive -S -f "<path to the .hql file>"
+	hive -S -e "<Hive queries>"
+
+#### Inviare query Hive nella console dei comandi di Hive
+
+Gli utenti possono anche immettere la console dei comandi di Hive eseguendo il comando `hive` nella riga di comando di Hadoop e quindi inviare query Hive dalla console dei comandi di Hive al prompt **hive>**. Di seguito è fornito un esempio.
+
+![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
+
+In questo esempio, le due caselle rosse evidenziano i comandi usati per inserire la console dei comandi di Hive e la query Hive inviata nella console dei comandi. La casella verde evidenzia l'output dalla query Hive.
+
+Negli esempi precedenti, i risultati della query Hive vengono visualizzati direttamente sullo schermo. Gli utenti possono anche salvare l'output su un file locale nel nodo head o in un BLOB di Azure. In seguito, gli utenti possono usare altri strumenti per analizzare ulteriormente l'output della query Hive.
+
+#### Restituire i risultati delle query Hive in un file locale.
+
+Per restituire i risultati delle query Hive in una directory locale nel nodo head, gli utenti devono inviare la query Hive nella riga di comando di Hadoop come indicato di seguito:
+
+	`hive -e "<hive query>" > <local path in the head node>`
+
+
+#### Restituire i risultati delle query Hive in un BLOB di Azure
+
+Gli utenti possono anche restituire i risultati della query Hive in un BLOB di Azure, nel contenitore predefinito del cluster Hadoop. La query Hive che consente di eseguire questa operazione ha un aspetto analogo al seguente:
+
+	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+
+Nell'esempio seguente, l'output della query Hive viene scritto in una directory del BLOB `queryoutputdir` nel contenitore predefinito del cluster Hadoop. In questo caso, è necessario fornire solo il nome della directory e non anche quello del BLOB. Verrà generato un errore se si specificano i nomi della directory e del BLOB, ad esempio **wasb:///queryoutputdir/queryoutput.txt*.
+
+![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
+
+L'output della query Hive può essere visualizzato nell'archiviazione BLOB, aprendo il contenitore predefinito del cluster Hadoop tramite lo strumento Esplora archivi Azure (o uno equivalente). È possibile applicare il filtro (evidenziato nella casella rossa) se si desidera recuperare soltanto un BLOB che contiene determinate lettere nei nomi.
+
+![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
+
+### Attraverso i comandi dell'editor Hive o di Azure PowerShell
+
+Gli utenti possono usare la Console di query (editor Hive) inserendo l'URL del modulo
+
+nome cluster *https://&#60;Hadoop>.azurehdinsight.net/Home/HiveEditor*
+
+in un Web browser. Si noti che verrà richiesto di immettere le credenziali del cluster Hadoop per l'accesso. In alternativa, [Inviare processi Hive tramite PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+
+
+## Come inviare una query Hive (precedente)
+
+Questo documento descrive le differenti modalità di invio delle query Hive ai cluster Hadoop gestiti dal servizio HDInsight in Azure (introduzione precedente - integrazione da definire).
+
+
 Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop. Per effettuare questa operazione, accedere al nodo head del cluster Hadoop, aprire la console della riga di comando e inviare le query Hive da tale posizione. Per istruzioni su come eseguire questa operazione, vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di analisi scientifica dei dati cloud](machine-learning-data-science-process-hive-tables.md).
 
 Gli utenti possono anche usare la Console Query (Editor Hive) immettendo l'URL
@@ -95,7 +189,7 @@ Di seguito è presentata la query Hive che carica i dati in una tabella Hive.
 
 Se i dati sono di grandi dimensioni, il partizionamento della tabella è utile per le query che devono solo eseguire l'analisi di alcune partizioni della tabella. Ad esempio, è ragionevole partizionare i dati di log di un sito Web per date.
 
-Oltre al partizionamento delle tabelle Hive, è inoltre utile archiviare i dati Hive in formato ORC. Per altre informazioni sulla formattazione OCR, vedere il wiki sull'<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">uso dei file ORC per migliorare le prestazioni quando Hive legge, scrive ed elabora dati</a>.
+Oltre al partizionamento delle tabelle Hive, è inoltre utile archiviare i dati Hive in formato ORC. Per altre informazioni sulla formattazione OCR, vedere l’<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">uso dei file ORC per migliorare le prestazioni quando Hive legge, scrive ed elabora dati</a>.
 
 ### Tabella partizionata
 Di seguito è presentata la query Hive che crea una tabella partizionata e vi carica i dati.
@@ -165,4 +259,9 @@ Gli utenti non possono caricare direttamente i dati del BLOB nelle tabelle Hive 
 
 Al termine della procedura, si disporrà di una tabella con i dati nel formato ORC pronta per l'uso.
 
-<!---HONumber=Oct15_HO3-->
+
+##L’ottimizzazione delle sezioni deve avvenire qui
+
+Nella parte finale del documento, vengono descritti i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
+
+<!---HONumber=Oct15_HO4-->

@@ -276,4 +276,4 @@ Ci sono un paio di opzioni usate comunemente:
 
 Questo articolo descrive in dettaglio il comportamento della libreria **IoTHubClient** inclusa in **Azure IoT device SDK per C**. Grazie a queste informazioni si dovrebbe avere una buona conoscenza delle funzionalità della libreria **IoTHubClient**. Nell'[articolo successivo](iot-hub-device-sdk-c-serializer.md) verranno forniti dettagli simili sulla libreria **serializer**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

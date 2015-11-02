@@ -2,9 +2,8 @@
 	pageTitle="Importazione di dati in blocco utilizzando le tabelle di partizione SQL | Microsoft Azure" 
 	description="Importazione di dati in blocco utilizzando le tabelle di partizione SQL" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/01/2015" 
-	ms.author="msolhab" />
+	ms.author="bradsev" />
 
 # Importazione di dati in blocco utilizzando le tabelle di partizione SQL
 
@@ -180,9 +179,9 @@ o
 
  >[AZURE.NOTE]È possibile scegliere di creare gli indici prima di importare in blocco i dati. La creazione degli indici prima dell'importazione dei dati in blocco rallenterà il caricamento dei dati.
 
-### Esempio di Advanced Analytics Process and Technology in azione
+## Esempio di Advanced Analytics Process and Technology in azione
 
-Per un esempio della procedura dettagliata end-to-end in cui viene usato ADAPT (Advanced Analytics Process and Technology) con un set di dati pubblici, vedere [Advanced Analytics Process and Technology in azione: uso di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Per un esempio della procedura dettagliata end-to-end mediante Cortana Analytics Process con un set di dati pubblico, vedere [Cortana Analytics Process in azione: utilizzo di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

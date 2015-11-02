@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/20/2015"
    ms.author="larryfr"/>
 
 #Gestire i cluster HDInsight usando Ambari (anteprima)
@@ -28,6 +28,10 @@ Vengono fornite informazioni su come usare Ambari per gestire e monitorare clust
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> semplifica la gestione di Hadoop, fornendo un'interfaccia utente Web intuitiva che può essere usata per effettuare il provisioning, la gestione e il monitoraggio dei cluster Hadoop. Gli sviluppatori possono integrare queste funzionalità nelle proprie applicazioni usando le <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">API REST Ambari</a>.
 
 Ambari viene fornito per impostazione predefinita con i cluster HDInsight basati su Linux. I cluster HDInsight basati su Windows forniscono funzionalità di monitoraggio tramite le API REST Ambari.
+
+##Connettività
+
+La connessione a Ambari nel cluster HDInsight richiede l'utilizzo di HTTPS. È necessario anche eseguire l'autenticazione ad Ambari utilizzando il nome dell'account admin (il valore predefinito è __admin__,) e la password fornita al momento della creazione del cluster.
 
 ##Proxy SSH
 
@@ -65,7 +69,7 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 
 * **Alerts**: log di informazioni, avvertenze e avvisi critici.
 
-* **Admin**: servizi e stack software che vengono installati nel cluster, informazioni sull'account di servizio e sicurezza Kerberos.
+* **Admin** - servizi/stack software che vengono installati nel cluster, informazioni sull'account di servizio e sicurezza Kerberos.
 
 * **Pulsante admin**: gestione di Ambari, impostazioni utente e disconnessione.
 
@@ -224,8 +228,8 @@ Ambari Web si basa su un'API REST sottostante, che è possibile usare per creare
 
 * **Indirizzi IP**: gli indirizzi restituiti per gli host all'interno di un cluster non sono accessibili dall'esterno del cluster, a meno che il cluster non sia membro di una rete virtuale di Azure. Gli indirizzi IP saranno quindi accessibili per altri membri della rete virtuale, ma non dall'esterno della rete.
 
-* **Alcune funzionalità non sono abilitate**: alcune funzionalità di Ambari sono disabilitate, poiché vengono gestite dal servizio cloud HDInsight, ad esempio l'aggiunta o la rimozione di host dal cluster o l’aggiunta di nuovi servizi. Altre funzionalità potrebbero non essere implementate completamente con l'anteprima di HDInsight basato su Linux.
+* **Alcune funzionalità non sono abilitate** - alcune funzionalità di Ambari sono disabilitate, poiché vengono gestite dal servizio cloud HDInsight, ad esempio l'aggiunta o la rimozione di host dal cluster o l’aggiunta di nuovi servizi. Altre funzionalità potrebbero non essere implementate completamente con l'anteprima di HDInsight basato su Linux.
 
 Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

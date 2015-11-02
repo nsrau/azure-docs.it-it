@@ -43,11 +43,7 @@ Queste attività usano solo PowerShell:
 - [Riavviare una macchina virtuale](#restart)
 - [Eliminare una macchina virtuale](#delete)
 
-Prima di iniziare, assicurarsi che Azure PowerShell sia pronto all’uso.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Modelli e gruppi di risorse di Gestione risorse di Azure
 
@@ -71,7 +67,7 @@ Nel comando seguente sostituire *resource group name* con il nome del nuovo grup
 
 ## <a id="windowsvm"></a>ATTIVITÀ: Creare una macchina virtuale
 
-Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere [Distribuire una semplice macchina virtuale di Windows negli Stati Uniti occidentali](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
+Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere l'articolo relativo alla [distribuzione di una semplice macchina virtuale di Windows negli Stati Uniti occidentali](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
@@ -130,7 +126,7 @@ Il video seguente illustra l'esecuzione di questa attività:
 
 ## <a id="customvm"></a>ATTIVITÀ: Creare una macchina virtuale con un disco specializzato
 
-Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere [Creare una macchina virtuale da un disco VHD specializzato](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
+Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere l'articolo relativo alla [creazione di una macchina virtuale da un disco VHD specializzato](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
 
 Nel comando seguente sostituire *deployment name* con il nome da usare per la distribuzione e *resource group name* con il nome del gruppo di risorse esistente, quindi eseguirlo:
 
@@ -159,7 +155,7 @@ Il video seguente illustra l'esecuzione di questa attività:
 
 ## <a id="multivm"></a>ATTIVITÀ: Creare più macchine virtuali in una rete virtuale con un servizio di bilanciamento del carico esterno
 
-Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere [Creare una macchina virtuale da un disco VHD specializzato](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
+Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere l'articolo relativo alla [creazione di una macchina virtuale da un disco VHD specializzato](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
@@ -380,4 +376,4 @@ Il video seguente illustra l'esecuzione di questa attività:
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

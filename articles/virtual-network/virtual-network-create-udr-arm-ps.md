@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="telmos" />
 
 #Creare route definite dall'utente in PowerShell
@@ -34,25 +34,33 @@ I comandi di esempio PowerShell riportati di seguito prevedono un ambiente sempl
 ## Creare la route definita dall'utente per la subnet front-end
 Per creare la tabella di route e la route necessarie per la subnet front-end in base allo scenario precedente, attenersi alla procedura seguente.
 
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+
 3. Creare una route usata per inviare tutto il traffico destinato alla subnet front-end (192.168.2.0/24) da instradare al dispositivo virtuale di rete **FW1** (192.168.0.4).
 
-		$route = New-AzureRMRouteConfig -Name RouteToBackEnd `
+		$route = New-AzureRouteConfig -Name RouteToBackEnd `
 		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Creare una tabella di route denominata **UDR-FrontEnd** nell'area **westus** contenente la route creata in precedenza.
 
-		$routeTable = New-AzureRMRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-FrontEnd -Route $route
 
 5. Creare una variabile contenente la rete virtuale in cui si trova la subnet. In questo scenario, la rete virtuale è denominata **TestVNet**.
 
-		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. Associare la tabella di route creata in precedenza alla subnet **FrontEnd**.
 		
-		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
+
+>[AZURE.WARNING]L'output per il comando precedente mostra il contenuto per l'oggetto di configurazione della rete virtuale, che esiste solo nei computer in cui si esegue PowerShell. È necessario eseguire il cmdlet **Set-AzureVirtualNetwork**,per salvare queste impostazioni in Azure.
+
+7. Salvare la nuova configurazione di subnet in Azure.
+
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
 	Output previsto:
 
@@ -92,7 +100,7 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
 		                        },
 		                        "RouteTable": {
 		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
@@ -100,26 +108,30 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
 		                        "ProvisioningState": "Succeeded"
 		                      },
 								...
-		                    ]
+		                    ]	
 
 ## Creare la route definita dall'utente per la subnet back-end
 Per creare la tabella di route e la route necessarie per la subnet back-end in base allo scenario precedente, attenersi alla procedura seguente.
 
 1. Creare una route usata per inviare tutto il traffico destinato alla subnet front-end (192.168.1.0/24) da instradare al dispositivo virtuale di rete **FW1** (192.168.0.4).
 
-		$route = New-AzureRMRouteConfig -Name RouteToFrontEnd `
+		$route = New-AzureRouteConfig -Name RouteToFrontEnd `
 		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Creare una tabella di route denominata **UDR-BackEnd** nell'area **westus** contenente la route creata in precedenza.
 
-		$routeTable = New-AzureRMRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-BackEnd -Route $route
 
 5. Associare la tabella di route creata in precedenza alla subnet **BackEnd**.
 
-		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
+
+7. Salvare la nuova configurazione di subnet in Azure.
+
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
 	Output previsto:
 
@@ -159,7 +171,7 @@ Per creare la tabella di route e la route necessarie per la subnet back-end in b
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BacEnd"
 		                        },
 		                        "RouteTable": {
 		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
@@ -173,12 +185,12 @@ Per abilitare l'inoltro dell'indirizzo IP nella scheda di interfaccia di rete us
 
 1. Creare una variabile contenente le impostazioni per la scheda di interfaccia di rete usata da FW1. In questo scenario, la scheda di interfaccia di rete è denominata **NICFW1**.
 
-		$nicfw1 = Get-AzureRMNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+		$nicfw1 = Get-AzureNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. Attivare l'inoltro dell'indirizzo IP e salvare le impostazioni della scheda di interfaccia di rete.
 
 		$nicfw1.EnableIPForwarding = 1
-		Set-AzureRMNetworkInterface -NetworkInterface $nicfw1
+		Set-AzureNetworkInterface -NetworkInterface $nicfw1
 
 	Output previsto:
 
@@ -224,4 +236,4 @@ Per abilitare l'inoltro dell'indirizzo IP nella scheda di interfaccia di rete us
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

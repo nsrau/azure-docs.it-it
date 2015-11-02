@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2015"
-   ms.author="vturecek"/>
+   ms.date="09/29/2015"
+   ms.author="claudioc"/>
 
 # Modello di progettazione di Reliable Actors: reti distribuite e grafici
 Service Fabric Reliable Actors è la scelta naturale per la modellazione di soluzioni complesse che contengono relazioni e per la modellazione di tali relazioni come oggetti.
@@ -57,7 +57,7 @@ Public class SocialPersonState
     public SocialStatus _lastStatus; // this is my last update
 }
 
-public class SocialPerson : Actor, ISocialPerson
+public class SocialPerson : Actor<SocialPersonState>, ISocialPerson
 {
     public override Task ActivateAsync()
     {
@@ -224,4 +224,4 @@ In questo caso si sfrutta semplicemente la capacità di Reliable Actors di conse
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

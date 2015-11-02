@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Criteri di indicizzazione DocumentDB | Microsoft Azure" 
     description="Comprendere il funzionamento dell'indicizzazione in DocumentDB e imparare a configurare e modificare i criteri di indicizzazione. Configurare il criterio di indicizzazione in DocumentDB per l'indicizzazione automatica e prestazioni superiori." 
-	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
+	keywords="Come funzionano: indicizzazione, indicizzazione automatica, indicizzazione del database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -39,7 +39,7 @@ Gli sviluppatori possono personalizzare i compromessi tra archiviazione, prestaz
 
 - **Includi/escludi documenti e percorsi da/a indice**. Gli sviluppatori possono scegliere determinati documenti da escludere o includere nell'indice al momento del loro inserimento o sostituzione nella raccolta. Gli sviluppatori possono inoltre scegliere di includere o escludere determinate proprietà JSON, anche note come percorsi (inclusi i modelli con caratteri jolly) da indicizzare in documenti che sono inclusi in un indice.
 - **Configurazione di vari tipi di indice**. Per ognuno dei percorsi inclusi, gli sviluppatori possono inoltre specificare il tipo di indice richiesto su una raccolta in base ai loro dati, al carico di lavoro previsto della query e alla "precisione" numerica/stringa per ogni percorso.
-- **Configurazione delle modalità di aggiornamento indice**. DocumentDB supporta tre modalità di indicizzazione che possono essere configurate tramite criteri di indicizzazione in una raccolta di DocumentDB: Coerente, Differita e Nessuna. 
+- **Configurazione delle modalità di aggiornamento dell’indice**. DocumentDB supporta tre modalità di indicizzazione che possono essere configurate tramite criteri di indicizzazione in una raccolta di DocumentDB: Coerente, Differita e Nessuna. 
 
 Il frammento di codice .NET seguente mostra come impostare criteri di indicizzazione personalizzati durante la creazione di una raccolta. Qui vengono impostati i criteri con l'indice di tipo Range per stringhe e numeri con la precisione massima. Questi criteri consentono di eseguire query orderby sulle stringhe.
 
@@ -168,7 +168,7 @@ Nella tabella seguente viene illustrata la coerenza per le query basata sulla mo
     </tbody>
 </table>
 
-Per impostazione predefinita, viene restituito un errore per tutte le query, se la raccolta viene configurata con modalità di indicizzazione Nessuna per segnalare che un'analisi potrebbe essere necessaria per soddisfare la query. Le query possono essere eseguite senza un indice di intervallo usando l'intestazione `x-ms-documentdb-enable-scans` API REST o nell'opzione della richiesta `EnableScanInQuery` usando .NET SDK. Alcune query, ad esempio, che utilizzano ORDER BY non saranno consentite con la modalità Nessuna anche con`EnableScanInQuery`.
+Per impostazione predefinita, viene restituito un errore per tutte le query, se la raccolta viene configurata con modalità di indicizzazione Nessuna per segnalare che un'analisi potrebbe essere necessaria per soddisfare la query. Le query possono essere eseguite senza un indice di intervallo usando l'intestazione `x-ms-documentdb-enable-scans` API REST o nell'opzione della richiesta `EnableScanInQuery` usando .NET SDK. Alcune query, ad esempio, che utilizzano ORDER BY non saranno consentite con la modalità Nessuna anche con `EnableScanInQuery`.
 
 Nella tabella seguente viene illustrata la coerenza per le query in base alla modalità di indicizzazione (Coerente, Differita e Nessuna) quando viene specificato EnableScanInQuery.
 
@@ -301,7 +301,7 @@ L'esempio seguente di codice mostra come creare una raccolta di DocumentDB usand
 
 ### Percorsi di indice
 
-DocumentDB modella i documenti JSON e l'indice come strutture ad albero e consente di ottimizzare i criteri per i percorsi all'interno della struttura. È possibile trovare ulteriori informazioni in [Introduzione all'indicizzazione DocumentDB](documentdb-indexing.md). All'interno dei documenti è possibile scegliere i percorsi da includere o escludere dall'indicizzazione. Questo consente di migliorare le prestazioni di scrittura e ridurre lo spazio di archiviazione dell'indice per gli scenari in cui i modelli di query sono già noti.
+DocumentDB modella i documenti JSON e l'indice come strutture ad albero e consente di ottimizzare i criteri per i percorsi all'interno della struttura. È possibile trovare altre informazioni in [Introduzione all'indicizzazione DocumentDB](documentdb-indexing.md). All'interno dei documenti è possibile scegliere i percorsi da includere o escludere dall'indicizzazione. Questo consente di migliorare le prestazioni di scrittura e ridurre lo spazio di archiviazione dell'indice per gli scenari in cui i modelli di query sono già noti.
 
 I percorsi di indice iniziano con la radice (/) e terminano in genere con il carattere jolly ?, che indica la possibilità di molteplici valori per il prefisso. Ad esempio, per usare SELECT * FROM Families F WHERE F.familyName = "Andersen", è necessario includere un percorso di indice per /"familyName"/? nei criteri di indicizzazione della raccolta.
 
@@ -607,7 +607,7 @@ Le trasformazioni di indice vengono effettuate online, vale a dire che i documen
 
 Tuttavia, durante la fase di trasformazione dell’indice, le query sono alla fine coerenti indipendentemente dalla configurazione della modalità indicizzazione (coerente o differita). Questo si applica alle query eseguite utilizzando qualsiasi interfaccia SDK, API REST, o all'interno di stored procedure e trigger. Come con l'indicizzazione differita, la trasformazione dell’indice viene eseguita in modo asincrono nelle repliche utilizzando le risorse di riserva disponibili per una determinata replica.
 
-Le trasformazioni di indice vengono eseguite anche **in situ** (sul posto), ad esempio DocumentDB non mantenere due copie dell'indice e scambia l'indice precedente con quello nuovo. Ciò significa che non è necessario ne consumato ulteriore spazio su disco nelle raccolte durante la trasformazione dell’indice.
+Le trasformazioni di indice vengono eseguite anche **in situ** (sul posto), ad esempio DocumentDB non mantiene due copie dell'indice e scambia l'indice precedente con quello nuovo. Ciò significa che non è necessario ne consumato ulteriore spazio su disco nelle raccolte durante la trasformazione dell’indice.
 
 Quando si modifica il criterio di indicizzazione, il modo in cui vengono applicate le modifiche per spostare dall'indice precedente al nuovo dipende principalmente dalle configurazioni di modalità di indicizzazione più altri valori come percorsi inclusi/esclusi, tipi di indice e precisione. Se entrambi i criteri (vecchio e nuovo) utilizzano l'indicizzazione coerente, DocumentDB esegue una trasformazione di indici online. Non è possibile applicare un'altra modifica criteri con indicizzazione in modalità coerente durante il corso della trasformazione.
 
@@ -769,4 +769,4 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

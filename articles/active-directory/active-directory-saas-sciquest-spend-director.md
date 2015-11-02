@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Esercitazione: Integrazione di Azure Active Directory con SciQuest Spend Director"
+	pageTitle="Esercitazione: Integrazione di Azure Active Directory con SciQuest Spend Director | Microsoft Azure"
 	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SciQuest Spend Director."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -195,4 +195,4 @@ In questa sezione viene descritto come testare la configurazione dell'accesso Si
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

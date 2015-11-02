@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="10/15/2015"
    ms.author="stepsic"/>
 
 #App API JavaScript
@@ -33,7 +33,7 @@ Per utilizzare l'applicazione dell'API JavaScript, è necessario creare innanzit
 
 ##Utilizzo di App API JavaScript nell'area di progettazione logica App
 ###Trigger
-È possibile creare un trigger che eseguirà il polling il servizio App logica (su un intervallo che è definire) e, se viene restituito qualsiasi contenuto, verrà eseguita l'applicazione di logica, in caso contrario, si attenderà fino al successivo intervallo di polling per controllare nuovamente.
+È possibile creare un trigger per il quale il servizio di app per la logica eseguirà il polling (su un intervallo che è definire) e, se viene restituito qualsiasi contenuto, verrà eseguita l'app per la logica, in caso contrario, si attenderà fino al successivo intervallo di polling per controllare nuovamente.
 
 Gli input per i trigger sono:-**espressioni JavaScript**: sarà valutata un'espressione. Verrà richiamato in una funzione e deve restituire`false`quando non si desidera che l'applicazione logica venga eseguita e può restituire qualsiasi altro elemento quando si desidera che l'applicazione logica venga eseguita. È possibile utilizzare il contenuto della risposta in azioni di App logica -**Oggetto di contesto**-oggetto facoltativo che può essere passato all'interno del trigger. È possibile definire tutte le proprietà desiderate, ma l'entità di primo livello deve essere un oggetto, ad esempio`{ "bar" : 0}`.
 
@@ -73,7 +73,7 @@ Si supponga, ad esempio, di utilizzare il trigger di Office 365**nuovo messaggio
 }
 ```
 
-Tuttavia, si desidera caricare tali allegati a un post Yammer. Sfortunatamente, lo schema per gli allegati Yammer è leggermente diverso. È ora possibile analizzarlo ora all'interno dell'applicazione logica. Per il passaggio solo oggetto di contesto:`@triggerBody()`e per l'espressione passaggio:
+Tuttavia, si desidera caricare tali allegati a un post Yammer. Sfortunatamente, lo schema per gli allegati Yammer è leggermente diverso. È possibile analizzarlo ora all'interno dell'app per la logica. Per il passaggio solo oggetto di contesto:`@triggerBody()`e per l'espressione passaggio:
 
 ```
 return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name; return a;})
@@ -91,4 +91,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

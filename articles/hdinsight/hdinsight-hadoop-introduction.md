@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Informazioni su Hadoop in HDInsight: analisi dei Big Data nel cloud | Microsoft Azure"
 	description="Un'introduzione ai componenti di Hadoop nel cloud in HDInsight. Informazioni su come HDInsight usa i cluster Hadoop per gestire, analizzare e creare report sui Big Data."
-	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
+	keywords="big data, analisi di big data, hadoop, introduzione a hadoop, che cos'è hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -43,7 +43,7 @@ HDInsight è un'implementazione cloud su Microsoft Azure dello stack di tecnolog
 
 Azure HDInsight effettua la distribuzione e il provisioning di cluster Hadoop nel cloud, usando **Linux** o **Windows** come sistema operativo sottostante.
 
-* **HDInsight on Linux**: un cluster Hadoop su Ubuntu. Usare questa opzione se si ha familiarità con Linux o Unix, si esegue la migrazione da una soluzione Hadoop basata su Linux esistente o si desidera un metodo facile per l'integrazione con i componenti dell'ecosistema Hadoop sviluppati per Linux.
+* **HDInsight on Linux** - un cluster Hadoop su Ubuntu. Usare questa opzione se si ha familiarità con Linux o Unix, si esegue la migrazione da una soluzione Hadoop basata su Linux esistente o si desidera un metodo facile per l'integrazione con i componenti dell'ecosistema Hadoop sviluppati per Linux.
 
 * **HDInsight on Windows**: un cluster Hadoop in Windows Server. Usare questa opzione se si ha familiarità con Windows, se si esegue la migrazione da una soluzione Hadoop basata su Windows Hadoop o se si vuole utilizzare .NET o altre tecnologie solo per Windows nel cluster.
 
@@ -78,7 +78,7 @@ Di seguito sono gli script di esempio forniti dal team di HDInsight:
 * [Hue](hdinsight-hadoop-hue-linux.md)
 
 	> [AZURE.NOTE]Lo script Hue è disponibile solo per i cluster basati su Linux.
-	
+
 * [Giraph,](hdinsight-hadoop-giraph-install-linux.md)
 
 * [R](hdinsight-hadoop-r-scripts-linux.md)
@@ -203,7 +203,7 @@ Integrare questa introduzione a Hadoop su HDInsight e all'analisi dei Big Data c
 
 * [Introduzione a HDInsight su Linux](hdinsight-hadoop-linux-tutorial-get-started.md): un'esercitazione introduttiva per il provisioning di cluster HDInsight Hadoop in Linux e l'esecuzione di query Hive di esempio.
 
-* [Introduzione a Storm basato su Linux in HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md): un'esercitazione introduttiva per il provisioning di uno Storm nel cluster HDInsight e l’esecuzione di topologie di esempio Storm.
+* [Introduzione a Storm basato su Linux in HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md): una rapida esercitazione introduttiva per il provisioning di uno Storm nel cluster HDInsight e l’esecuzione di topologie di esempio Storm.
 
 * [Provisioning di HDInsight in Linux](hdinsight-hadoop-provision-linux-clusters.md): informazioni su come effettuare il provisioning di un cluster HDInsight Hadoop in Linux tramite il portale di Azure, l’interfaccia della riga di comando di Azure o Azure PowerShell.
 
@@ -229,7 +229,7 @@ Integrare questa introduzione a Hadoop su HDInsight e all'analisi dei Big Data c
 
 * <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a>: altre informazioni sulla raccolta software di Apache Hadoop, un framework che consente l'elaborazione distribuita di set di dati di grandi dimensioni in cluster di computer.
 
-* <a target="_blank" href="http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html">HDFS</a>: altre informazioni sull'architettura e la struttura di Hadoop Distributed File System, il sistema di archiviazione principale usato dalle applicazioni Hadoop.
+* <a target="_blank" href="http://hadoop.apache.org/docs/r1.0.4/hdfs_design.html">HDFS</a>: altre informazioni sull'architettura e la struttura di Hadoop Distributed File System, il sistema di archiviazione principale usato dalle applicazioni Hadoop.
 
 * <a target="_blank" href="http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">MapReduce Tutorial</a>: altre informazioni sul framework di programmazione per la scrittura di applicazioni Hadoop in grado di elaborare rapidamente quantità elevate di dati in parallelo su cluster di grandi dimensioni di nodi di calcolo.
 
@@ -272,6 +272,5 @@ Usare l'analisi dei Big Data sui dati dell'organizzazione per ottenere informazi
 [marketing-page]: ../services/hdinsight/
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

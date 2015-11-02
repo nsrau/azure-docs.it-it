@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Gestire un account DocumentDB usando il portale di anteprima di Azure | Microsoft Azure" 
 	description="Informazioni su come gestire il proprio account DocumentDB tramite il portale di anteprima di Azure. Trovare una guida sull'utilizzo del portale di anteprima di Azure per visualizzare, copiare, eliminare e accedere agli account." 
-	keywords="Azure preview portal, documentdb, azure, Microsoft azure"
+	keywords="Portale di anteprima di Azure, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -15,13 +15,13 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Gestire un account DocumentDB usando il portale di anteprima di Azure
 
 Acquisire familiarità con le chiavi, le impostazioni di coerenza e informazioni su come eliminare un account nel portale di anteprima di Azure.
 
-## <a id="keys"></a>Per visualizzare, copiare e rigenerare le chiavi di accesso
+## <a id="keys"></a>Visualizzare, copiare e rigenerare le chiavi di accesso
 Quando si crea un account DocumentDB, il servizio genera due chiavi di accesso principali che possono essere usate per l'autenticazione quando si accede all'account DocumentDB. Fornendo due chiavi di accesso, DocumentDB consente di rigenerare le chiavi senza interruzioni dell'account DocumentDB.
 
 Nel [portale di anteprima di Microsoft Azure](https://portal.azure.com/) accedere alla parte relativa alle **chiavi** del pannello dell'**account DocumentDB** per visualizzare, copiare e rigenerare le chiavi usate per accedere all'account DocumentDB.
@@ -32,7 +32,7 @@ Nel [portale di anteprima di Microsoft Azure](https://portal.azure.com/) acceder
 
 1.      Nel [portale di anteprima di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
 
-2.      Nel filtro di **riepilogo** fare clic su **Keys**.
+2.      Nel filtro di **Riepilogo** fare clic su **Keys**.
 
 3.      Nel pannello **Keys** fare clic sul pulsante **Copy** a destra della chiave da copiare.
 
@@ -65,7 +65,7 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 
 - La coerenza **assoluta** garantisce che le operazioni di lettura restituiscano sempre il valore scritto per ultimo.
 
-- La coerenza **con obsolescenza** associata garantisce che le letture non siano troppo obsolete. In particolare, garantisce che le letture non siano più di K versioni precedenti all'ultima versione scritta.
+- La coerenza **con obsolescenza associata** garantisce che le letture non siano troppo obsolete. In particolare, garantisce che le letture non siano più di K versioni precedenti all'ultima versione scritta.
 
 - La coerenza **di sessione** garantisce letture monotoniche (non si leggeranno mai dati obsoleti, poi nuovi, poi di nuovo obsoleti), scritture monotoniche (le scritture vengono ordinate) e che si leggano le scritture più recenti in ogni singolo punto di vista del client.
 
@@ -77,7 +77,7 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 
 1.      Nel [portale di anteprima di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
 
-2.      Nel filtro **Configuration** fare clic su **Default Consistency**.
+2.      Nella sezione **Configuration** fare clic su **Default Consistency**.
 
 3.      Nel pannello **Default Consistency** selezionare il livello di coerenza predefinito desiderato per l'account DocumentDB.
 
@@ -91,7 +91,7 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 
 *Si noti che potrebbero trascorrere diversi minuti prima che una modifica alle impostazioni di coerenza predefinite si propaghi nell'intero account DocumentDB.*
 
-## <a id="delete"></a> Procedura: eliminare un account di DocumentDB nel portale di anteprima di Azure
+## <a id="delete"></a> Come eliminare un account di DocumentDB nel portale di anteprima di Azure
 Per rimuovere un account DocumentDB non più in uso dal portale di anteprima di Azure, utilizzare il comando **Elimina** nel pannello dell'account **DocumentDB**.
 
 ![Come eliminare un account di DocumentDB nel portale di anteprima di Azure](./media/documentdb-manage-account/image009.png)
@@ -113,4 +113,4 @@ Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="10/19/2015"
    ms.author="tomfitz"/>
 
-# Supporto di Gestione risorse di Azure per servizi e aree
+# Supporto di Gestione risorse per servizi, aree e versioni API
 
 Gestione risorse di Azure fornisce un nuovo modo per distribuire e gestire i servizi che costituiscono le applicazioni. La maggior parte, ma non tutti i servizi, supportano Gestione risorse e alcuni servizi supportano Gestione risorse solo parzialmente. Microsoft abiliterà Gestione risorse per ogni servizio importante per le soluzioni future, ma fino a quando il supporto sarà coerente, è necessario conoscere lo stato corrente di ogni servizio. In questo argomento è fornito un elenco di provider di risorse supportati per Gestione risorse di Azure.
 
-Durante la distribuzione delle risorse, è necessario inoltre conoscere quali aree supportano tali risorse. La sezione [Aree supportate](#supported-regions) illustra come individuare quali aree funzioneranno per la propria sottoscrizione e le proprie risorse.
+Durante la distribuzione delle risorse, è anche necessario conoscere quali aree supportano tali risorse e quali versioni dell'API sono disponibili per tali risorse. La sezione [Aree supportate](#supported-regions) illustra come trovare le aree adatte alla propria sottoscrizione e alle proprie risorse. La sezione [Versioni API supportate](#supported-api-versions) illustra come determinare quali versioni dell'API è possibile usare.
 
 Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzione e la gestione tramite Gestione risorse e quali no. La colonna denominata **Sposta risorse** indica se le risorse di questo tipo possono essere spostate sia in un nuovo gruppo di risorse che in una nuova sottoscrizione. La colonna denominata **Portale di anteprima** indica se è possibile creare il servizio tramite il portale di anteprima.
 
@@ -32,7 +32,7 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Macchine virtuali | Sì | Sì | No | [Creare una VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Sì | No | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Servizi del ciclo di vita Dynamics | Sì | No | | | |
-| Macchine virtuali (classiche) | Limitato | No | Parziale (vedere di seguito) | - | - | | App remota | No | - | - | - | - | | Infrastruttura di servizi | No | - | - | - | - |
+| Macchine virtuali (classiche) | Limitato | Sì | Parziale (vedere di seguito) | - | - | | App remota | No | - | - | - | - | | Infrastruttura di servizi | No | - | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
@@ -74,7 +74,7 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | Hub eventi | Sì | No | | [Creare l'hub eventi](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
 | Analisi dei flussi | Sì | Sì | | | |
 | HDInsights | Sì | Sì | | | |
-| Data Factory | Sì | Sì | Sì | [Creare Data factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
+| Data factory | Sì | Sì | Sì | [Creare Data factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
 | Machine Learning | No | No | - | - | - |
 
 ## Rete
@@ -86,7 +86,7 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | Bilanciamento del carico | Sì | | | [Crea servizio di bilanciamento del carico](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Reti virtuali | Sì | Sì | No | [Creare una rete virtuale](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Gestione traffico | Sì | No | | [Creare un profilo di Gestione traffico](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
-| Express Route | No | No | - | - | - |
+| ExpressRoute | Sì | No | No | [REST di ExpressRoute](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
 ## Supporti multimediali e CDN
 
@@ -135,11 +135,11 @@ Prima di distribuire le risorse, controllare le aree supportate per il tipo di r
 
 ### API REST
 
-La soluzione migliore per scoprire le aree sono disponibili per un determinato tipo di risorsa è l’operazione [Elenca tutti i provider di risorse](https://msdn.microsoft.com/library/azure/dn790524.aspx). Questa operazione restituisce solo le aree disponibili per la sottoscrizione e il tipo di risorsa.
+Per individuare le aree disponibili per un determinato tipo di risorsa nella sottoscrizione, usare l'operazione [Elenca tutti i provider di risorse](https://msdn.microsoft.com/library/azure/dn790524.aspx).
 
 ### PowerShell
 
-Nell'esempio seguente viene illustrato come ottenere le aree supportate per i siti Web utilizzando l'anteprima di Azure PowerShell 1.0. Per ulteriori informazioni sul rilascio dell’Anteprima 1.0, vedere [Anteprima di Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/)
+Nell'esempio seguente viene illustrato come ottenere le aree supportate per i siti Web utilizzando l'anteprima di Azure PowerShell 1.0. Per altre informazioni sul rilascio dell'anteprima di 1.0, vedere [Anteprima di Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/)
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -165,7 +165,7 @@ L'esempio seguente restituisce tutti i percorsi supportati per ogni tipo di riso
 
     azure location list
 
-È inoltre possibile filtrare i risultati dei percorsi con uno strumento come **jq**. Per informazioni su strumenti come jq, vedere [Strumenti utili per interagire con Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+È anche possibile filtrare i risultati dei percorsi con uno strumento come **jq**. Per informazioni su strumenti come jq, vedere [Strumenti utili per interagire con Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -177,4 +177,44 @@ Che restituisce:
             North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
     }
 
-<!---HONumber=Oct15_HO3-->
+## Versioni API supportate
+
+Quando si distribuisce un modello, è necessario specificare una versione dell'API da usare per la creazione di ogni risorsa. La versione dell'API corrisponde a una versione delle operazioni API REST che vengono rilasciate dal provider di risorse. Poiché un provider di risorse abilita nuove funzionalità, rilascerà una nuova versione dell'API REST. Di conseguenza, la versione dell'API specificata nel modello influisce sulle proprietà che è possibile specificare nel modello. In generale, è opportuno selezionare la versione più recente dell'API durante la creazione di nuovi modelli. Per i modelli esistenti, è possibile decidere se si desidera continuare a usare una versione precedente dell'API o aggiornare il modello alla versione più recente per sfruttare i vantaggi delle nuove funzionalità.
+
+### API REST
+
+Per scoprire quali versioni API sono disponibili per determinati tipi di risorse, usare l'operazione [Elenca tutti i provider di risorse](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+
+### PowerShell
+
+L'esempio seguente illustra come ottenere le versioni dell'API disponibili per un determinato tipo di risorse usando l'anteprima di Azure PowerShell 1.0.
+
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    
+L'output sarà analogo al seguente:
+    
+    2015-08-01
+    2015-07-01
+    2015-06-01
+    2015-05-01
+    2015-04-01
+    2015-02-01
+    2014-11-01
+    2014-06-01
+    2014-04-01-preview
+    2014-04-01
+
+### Interfaccia della riga di comando di Azure
+
+È possibile salvare le informazioni (incluse le versioni dell'API disponibili) per un provider di risorse in un file con il comando seguente.
+
+    azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+È possibile aprire il file e trovare l'elemento **apiVersions**
+
+## Passaggi successivi
+
+- Per altre informazioni sulla creazione di modelli di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+- Per altre informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](./azure-portal/resource-group-template-deploy.md).
+
+<!---HONumber=Oct15_HO4-->

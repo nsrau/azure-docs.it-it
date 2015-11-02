@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Interazioni RESTful con risorse di DocumentDB | Microsoft Azure" 
 	description="Esaminare i metodi HTTP in questa esercitazione sui servizi web RESTful. Informazioni su come eseguire le interazioni RESTful con risorse di Microsoft Azure DocumentDB usando verbi HTTP."
-	keywords="http methods, restful services tutorial, restful web services tutorial, http verbs, documentdb, azure, Microsoft azure"
+	keywords="metodi http, esercitazione servizi restful, esercitazione di servizi web restful, verbi http, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="h0n" 
 	manager="jhubbard" 
@@ -205,4 +205,4 @@ Vedere Informazioni di [riferimento sulle API REST di Azure DocumentDB](https://
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -42,6 +42,7 @@ I numeri indicati di seguito sono approssimativi.
 - Utilizzo della CPU: ~1% di aumento
 - Utilizzo della memoria: fino a al 10% della memoria di sistema totale
 - Utilizzo della larghezza di banda di rete: ~1 MB/1000 richieste ADFS
+
 >[AZURE.NOTE]Nel caso l'agente non sia in grado di comunicare con Azure, l'agente archivierà i dati in locale, fino a un limite massimo definito. Quando l'agente raggiunge il limite, se l'agente non è riuscito a caricare i dati nel servizio, le nuove transazioni AD FS sovrascriveranno eventuali transazioni "memorizzate nella cache" in base all'ordine di gestione a partire da quelle elaborate meno di recente.
 
 - Buffer locale per l'agente per l'integrità di AD: ~20 MB
@@ -61,7 +62,6 @@ Ad esempio, in Windows Server 2008 R2 l'installazione di .Net 4.5 Framework rich
 
 Sì. Per le operazioni in corso è possibile configurare l'agente di Health per l'inoltro delle richieste HTTP in uscita tramite un proxy HTTP. Per altre informazioni, vedere [Configurare gli agenti di Azure AD Connect Health per l'uso del proxy HTTP](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy).
 
-Per altre informazioni su <defaultProxy>, fare clic [qui](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
 Se è necessario configurare un proxy durante la registrazione dell'agente, occorre modificare le impostazioni del proxy di Internet Explorer. <br> Aprire Internet Explorer -> Impostazioni -> Opzioni Internet -> Connessioni -> Impostazioni LAN.<br> Selezionare Utilizza un server proxy per le connessioni LAN.<br> Selezionare Avanzate SE sono presenti porte proxy diverse per HTTP e HTTPS/Protetto.<br>
 
 
@@ -99,4 +99,4 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 * [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

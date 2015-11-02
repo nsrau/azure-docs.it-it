@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro di Farm Intranet di SharePoint Fase3: configurare l'infrastruttura di SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modello di distribuzione di Gestione risorse
 
 In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità SQL Server AlwaysOn in servizi di infrastruttura di Azure, vengono creati e configurati i due computer SQL Server e il computer del nodo di maggioranza cluster, quindi vengono combinati in un cluster Windows Server.
 
@@ -144,11 +143,11 @@ Utilizzare la seguente procedura due volte (una volta per ogni computer SQL serv
 
 SQL Server richiede una porta utilizzata dai client per accedere al server di database. È necessario inoltre che le porte per la connessione con SQL Server Management Studio e la gestione del gruppo di disponibilità elevata. Successivamente, eseguire il comando seguente a un prompt di Windows PowerShell a livello di amministratore per due volte (una volta per ogni SQL server) per aggiungere una regola firewall che consenta il traffico in ingresso a SQL server.
 
-	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 4234, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
+	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 1434, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
 
 Per ognuna delle macchine virtuali SQL server, disconnettersi come amministratore locale.
 
-Per informazioni sull'ottimizzazione delle prestazioni di SQL Server in Azure, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-performance-best-practices.md). È inoltre possibile disabilitare l'archiviazione con ridondanza geografica per l'account di archiviazione farm di SharePoint e utilizzare gli spazi di archiviazione per ottimizzare gli IOPS.
+Per informazioni sull'ottimizzazione delle prestazioni di SQL Server in Azure, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md). È inoltre possibile disabilitare l'archiviazione con ridondanza geografica per l'account di archiviazione farm di SharePoint e utilizzare gli spazi di archiviazione per ottimizzare gli IOPS.
 
 ## Configurare il server di un nodo di maggioranza cluster
 
@@ -164,7 +163,7 @@ I gruppi di disponibilità AlwaysOn di SQL Server si basano sulla funzionalità 
 - Il server SQL secondario
 - Server di un nodo di maggioranza cluster
 
-Il cluster di failover richiede almeno tre macchine virtuali. Due macchine ospitano SQL Server. La seconda macchina virtuale con SQL Server è una replica secondaria asincrona, che garantisce di evitare completamente la perdita di dati se la macchina principale presenta un guasto. La terza macchina non richiede di ospitare SQL Server. Il nodo di maggioranza cluster funziona come un quorum di controllo nella funzionalità clustering di failover di Windows Server. Poiché il cluster con la funzionalità cluster di failover di Windows Server si basa su un quorum per monitorare l'integrità, deve sempre essere una maggioranza per assicurarsi che il tale cluster sia online. Se solo due macchine si trovano in un cluster e uno ha esito negativo, potrebbe non esserci maggioranza quando solo uno di due ha esito negativo. Per ulteriori informazioni, vedere [Modalità Quorum della funzionalità clustering di Windows Server e configurazione del voto (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
+Il cluster di failover richiede almeno tre macchine virtuali. Due macchine ospitano SQL Server. La seconda macchina virtuale con SQL Server è una replica secondaria asincrona, che garantisce di evitare completamente la perdita di dati se la macchina principale presenta un guasto. La terza macchina non richiede di ospitare SQL Server. Il nodo di maggioranza cluster fornisce un quorum nel WSFC. Poiché il cluster con la funzionalità cluster di failover di Windows Server si basa su un quorum per monitorare l'integrità, deve sempre essere una maggioranza per assicurarsi che il tale cluster sia online. Se solo due macchine si trovano in un cluster e uno ha esito negativo, potrebbe non esserci maggioranza quando solo uno di due ha esito negativo. Per ulteriori informazioni, vedere [Modalità Quorum della funzionalità clustering di Windows Server e configurazione del voto (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
 
 Per entrambi i computer SQL server e per il nodo di maggioranza cluster, eseguire il comando seguente in un prompt di Windows PowerShell a livello di amministratore.
 
@@ -233,4 +232,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 4: C
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

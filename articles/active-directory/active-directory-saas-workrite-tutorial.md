@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="10/16/2015"
 	ms.author="markusvi"/>
 
 
@@ -64,8 +64,7 @@ Per configurare l'integrazione di Workrite in Azure AD, è necessario aggiungere
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**. <br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **Workrite**.<br><br> ![Applicazioni][5]<br>
-7. Nel riquadro dei risultati selezionare **Workrite** e quindi fare clic su **Completa** per aggiungere l'applicazione.<br>
-
+7. Nel riquadro dei risultati selezionare **Workrite** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>![Applicazioni][500]<br>
 
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -126,7 +125,7 @@ Questa sezione descrive come creare un utente test nel portale di Azure denomina
 
 3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_03.png) <br>
  
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_04.png) <br>
+4. Per aprire la finestra di dialogo **Aggiungi utente**, sulla barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_04.png) <br>
 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_05.png) <br>
 
@@ -152,7 +151,7 @@ Questa sezione descrive come creare un utente test nel portale di Azure denomina
   
     a. Prendere nota del valore in **Nuova password**.
 
-    b. Fare clic su **Completa**.
+    b. Fare clic su **Complete**.
 
   
  
@@ -194,7 +193,7 @@ L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'
 
 ### Test dell'accesso Single Sign-On
 
-L'obiettivo di questa sezione consiste nel testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro Workrite nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Workrite.
+In questa sezione viene descritto come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro Workrite nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Workrite.
 
 
 ## Risorse aggiuntive
@@ -210,6 +209,7 @@ L'obiettivo di questa sezione consiste nel testare la configurazione dell'access
 [3]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_01.png
+[500]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_05.png
 
 [6]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_02.png
@@ -231,4 +231,4 @@ L'obiettivo di questa sezione consiste nel testare la configurazione dell'access
 [401]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_401.png
 [402]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_402.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="10/15/2015"
 	ms.author="mandia"/>
 
 
 # Informazioni sui connettori SaaS di sicurezza OAUTH
-Molti Software come connettori di Servizio (SaaS), quali Facebook, Twitter, DropBox e così via, richiedono agli utenti di autorizzare l’uso del protocollo OAUTH. Quando si utilizzano questi connettori SaaS dalle App per la logica, si forniscono un'esperienza utente semplificata nella quale si fa clic su "Authorize" nella finestra di progettazione di applicazioni di logica. Quando si fa clic su **Authorize** viene chiesto di accedere in (se non è stato già fatto) e di fornire il consenso per connettersi al servizio SaaS per conto dell'utente. Quando si fornisce il consenso e l’autorizzazione, le app per la logica possono poi accedere a questi servizi SaaS.
+Molti Software come connettori di Servizio (SaaS), quali Facebook, Twitter, DropBox e così via, richiedono agli utenti di autenticarsi tramite il protocollo OAUTH. Quando si utilizzano questi connettori SaaS dalle App per la logica, si forniscono un'esperienza utente semplificata nella quale si fa clic su "Authorize" nella finestra di progettazione di applicazioni di logica. Quando si fa clic su **Authorize** viene chiesto di accedere in (se non è stato già fatto) e di fornire il consenso per connettersi al servizio SaaS per conto dell'utente. Dopo aver fornito il consenso e l’autorizzazione, le app per la logica possono accedere a questi servizi SaaS.
 
 ## Creare la propria applicazione SaaS
 Questa esperienza semplificata è possibile perché è stata precedentemente creata e registrata l'applicazione in tali servizi SaaS. In alcuni casi, si desidera registrare e utilizzare la propria applicazione. Questo è necessario, ad esempio, quando si desidera utilizzare questi connettori SaaS nelle applicazioni personalizzate, ad esempio in [Distribuire un'app API del connettore SaaS](app-service-api-connnect-your-app-to-saas-connector.md). In questo esempio si utilizza il connettore DropBox, ma il processo è lo stesso per tutti i connettori che si basano su OAUTH.
@@ -48,4 +48,4 @@ A questo punto, sarà possibile utilizzare il connettore delle App per la logica
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

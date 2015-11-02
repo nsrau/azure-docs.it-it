@@ -1,16 +1,16 @@
 <properties 
 	pageTitle="Eseguire il provisioning di una Cache Redis" 
 	description="Utilizzare il modello di Gestione risorse di Azure per distribuire una Cache Redis di Azure." 
-	services="redis-cache" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
+	ms.service="app-service" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="cache-redis" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/02/2015" 
@@ -131,4 +131,4 @@ Crea la Cache Redis di Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

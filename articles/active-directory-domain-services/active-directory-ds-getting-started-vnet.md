@@ -21,7 +21,7 @@
 ## Linee guida per la selezione di una rete virtuale di Azure
 Quando si seleziona una rete virtuale da usare con Servizi di dominio Azure AD, tenere presente le linee guida seguenti:
 
-- Assicurarsi di selezionare una rete virtuale in un'area supportata da Servizi di dominio Azure AD. L'elenco corrente delle aree di Azure supportate è disponibile nella pagina delle [aree](active-directory-ds-regions.md).
+- Assicurarsi di selezionare una rete virtuale in un'area supportata da Servizi di dominio Azure AD. L'elenco corrente delle aree di Azure supportate è disponibile nella [pagina delle aree](active-directory-ds-regions.md).
 - Se si prevede di usare una rete virtuale esistente, assicurarsi che sia una rete virtuale regionale. Con Servizi di dominio Azure AD non è possibile usare reti virtuali che usano il meccanismo dei gruppi di affinità legacy. Sarà necessario eseguire la [migrazione delle reti virtuali legacy a reti virtuali regionali](../virtual-networks-migrate-to-regional-vnet.md).
 - Selezionare la rete virtuale che ospita o ospiterà le macchine virtuali che richiedono l'accesso a Servizi di dominio Azure AD. Non sarà possibile spostare Servizi di dominio in un'altra rete virtuale in seguito.
 
@@ -55,4 +55,4 @@ Eseguire i passaggi di configurazione seguenti per creare una rete virtuale di A
 ---
 [**Passaggio successivo - Abilitare Servizi di dominio Azure AD.**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -57,6 +57,7 @@ Questa regola di avviso può chiaramente essere modificata e **disabilitata** o 
 
 ## Passaggi successivi
 
+* [Configurare webhooks su avvisi](insights-webhooks-alerts.md) per instradare le notifiche a vari canali
 * [Monitorare le metriche del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
 * [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
@@ -65,4 +66,4 @@ Questa regola di avviso può chiaramente essere modificata e **disabilitata** o 
 * [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

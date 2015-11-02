@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="sethm" />
 
 # Uso del bus di servizio da .NET con AMQP 1.0
@@ -201,4 +201,4 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

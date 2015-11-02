@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # Configurare una connessione da VNet a VNet tramite Gestione Risorse di Azure e PowerShell
@@ -78,9 +78,11 @@ Prima di iniziare la configurazione, verificare che siano soddisfatti i prerequi
 
 - Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- La versione più recente dei cmdlet di Azure PowerShell. È possibile scaricare e installare la versione più recente dalla sezione Windows PowerShell della [pagina di download](http://azure.microsoft.com/downloads/). Questo articolo è relativo ad Azure PowerShell *0.9.8*.
+- Cmdlet di Azure PowerShell 0.9.8. È possibile scaricare e installare questa versione dalla sezione Windows PowerShell della [pagina di download](http://azure.microsoft.com/downloads/). Questo articolo è stato scritto per la versione 0.9.8, ma è possibile eseguire la procedura (apportando lievi modifiche ai cmdlet) con PowerShell 1.0 Preview.
 
->[AZURE.NOTE]Se si eseguono app cruciali, continuare a usare Azure PowerShell 0.9.8. Nella maggior parte dei casi, la sola differenza tra le due versioni è che il nome del cmdlet nell'anteprima 1.0 segue il modello {verb}-AzureRm{noun}, mentre il nome nella versione 0.9.8 non include Rm. Ad esempio, New-AzureRmResourceGroup invece di New-AzureResourceGroup. Per informazioni sull'anteprima di Azure PowerShell 1.0, vedere questo [post di blog](https://azure.microsoft.com/blog/azps-1-0-pre/). Per altre informazioni sui cmdlet dell'anteprima di Azure PowerShell 1.0, vedere [Cmdlet di Gestione risorse di Azure](https://msdn.microsoft.com/library/mt125356.aspx).
+**Informazioni su come eseguire la procedura con Azure PowerShell 1.0 Preview**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
 
 
 ## 1\. Pianificare gli intervalli di indirizzi IP
@@ -113,9 +115,7 @@ Valori per VNet2:
 
 ## 2\. Eseguire la connessione alla sottoscrizione 
 
-Aprire la console di PowerShell e connettersi al proprio account. Per le istruzioni seguenti viene usato Azure PowerShell versione 0.9.8. È possibile scaricare e installare questa versione dalla sezione Windows PowerShell della [pagina di download](http://azure.microsoft.com/downloads/).
-
-Per connettersi, usare l'esempio seguente:
+Aprire la console di PowerShell e connettersi al proprio account. Per connettersi, usare l'esempio seguente:
 
 		Add-AzureAccount
 
@@ -249,8 +249,8 @@ Dopo aver verificato che le subnet del gateway siano configurate correttamente, 
 
 ## Passaggi successivi
 
-È possibile aggiungere macchine virtuali alla rete virtuale. [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
+È possibile aggiungere macchine virtuali alla rete virtuale. [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md)
 
 Per altre informazioni sui gateway VPN, vedere [Domande frequenti sul gateway VPN](vpn-gateway-faq.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

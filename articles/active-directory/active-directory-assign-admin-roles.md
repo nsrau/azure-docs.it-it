@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/19/2015"
 	ms.author="curtand"/>
 
 # Assegnazione dei ruoli di amministratore in Azure AD
@@ -44,7 +44,7 @@ Operazione consentita | Operazione non consentita
 
 Operazione consentita | Operazione non consentita
 ------------- | -------------
-<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p> <p>Reimpostare le password utente</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p> | N/D
+<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p> <p>Reimpostare le password utente</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p><p>Abilitare o disabilitare l’autenticazione a più fattori</p> | N/D
 
 ### Amministratore password
 
@@ -62,20 +62,20 @@ Operazione consentita | Operazione non consentita
 
 Operazione consentita | Operazione non consentita
 ------------- | -------------
-<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Reimpostare le password utente, con alcune limitazioni. Può reimpostare le password per gli amministratori fatturazione, globali e del servizio.</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente, con alcune limitazioni. Non può eliminare un amministratore globale o creare altri amministratori.</p> | <p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p>
+<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Reimpostare le password utente, con alcune limitazioni. Può reimpostare le password per gli amministratori fatturazione, globali e del servizio.</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente, con alcune limitazioni. Non può eliminare un amministratore globale o creare altri amministratori.</p> | <p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p><p>Abilitare o disabilitare l’autenticazione a più fattori</p>
 
 ## Dettagli sul ruolo di amministratore globale
 
 L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo di amministratore globale per la directory. Solo gli amministratori globali possono assegnare altri ruoli di amministratore.
 
-## Assegnare o rimuovere ruoli di amministratore
+## Assegnare o rimuovere ruoli di amministratore 
 
 
 1. Nel portale di gestione fare clic su **Active Directory** e quindi sul nome della directory dell'organizzazione.
 2. Nella pagina **Utenti** fare clic sul nome visualizzato dell'utente da modificare.
-3. Selezionare il menu a discesa **Ruolo aziendale** e quindi scegliere il ruolo di amministratore da assegnare all'utente oppure selezionare **Utente** per rimuovere un ruolo di amministratore esistente.
+3. Selezionare il menu a discesa **Ruolo aziendale** e quindi scegliere il ruolo di amministratore da assegnare all'utente oppure selezionare **Utente** per rimuovere un ruolo di amministratore esistente. 
 4. Nella casella **Indirizzo di posta elettronica alternativo** digitare un indirizzo di posta elettronica. Questo indirizzo viene usato per notifiche importanti, inclusa la reimpostazione self-service della password, pertanto l'utente deve poter accedere all'account di posta elettronica indipendentemente dal fatto di poter accedere o meno ad Azure.
-5. Selezionare **Consenti** o **Blocca** per specificare se l'utente è autorizzato o meno a effettuare l'accesso e ad accedere ai servizi.
+5. Selezionare **Consenti** o **Blocca** per specificare se l'utente è autorizzato o meno a effettuare l'accesso e ad accedere ai servizi. 
 6. Specificare una località nell'elenco a discesa **Località di utilizzo**.
 7. Al termine, fare clic su **Salva**.
 
@@ -85,4 +85,4 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 - [Gestire le password](active-directory-manage-passwords.md)
 - [Gestire i gruppi](active-directory-manage-groups.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

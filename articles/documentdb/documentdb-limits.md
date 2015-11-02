@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Limiti e quote di DocumentDB | Microsoft Azure" 
 	description="Informazioni sull'applicazione di limiti e quote in DocumentDB. Esaminare le quote di utilizzo dei servizi di database di Azure."
-	keywords="Quotas, database, documentdb, azure, Microsoft azure"
+	keywords="Quote, database, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -24,4 +24,4 @@ La tabella seguente descrive le quote e i limiti applicati in DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

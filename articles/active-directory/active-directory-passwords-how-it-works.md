@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Come funziona: gestione delle password di Azure AD | Microsoft Azure"
-	description="Informazioni sui diversi componenti della gestione delle password in Azure AD, ad esempio dove gli utenti registrano, reimpostano e modificano le password e dove gli amministratori configurano, creano report e abilitano la gestione delle password di Active Directory locale."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Come funziona: gestione delle password di Azure AD | Microsoft Azure" 
+	description="Informazioni sui diversi componenti della gestione delle password in Azure AD, ad esempio dove gli utenti registrano, reimpostano e modificano le password e dove gli amministratori configurano, creano report e abilitano la gestione delle password di Active Directory locale." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Funzionamento della gestione delle password
@@ -38,7 +38,8 @@ La gestione delle password in Azure Active Directory è costituita da più compo
  - Domande di sicurezza (autenticazione basata sulle informazioni)
 - Impostazione del numero di domande che un utente deve registrare per usare il metodo autenticazione basato sulle domande di sicurezza (visibile solo se le domande di sicurezza sono abilitate).
 - Impostazione del numero di domande che un utente deve specificare durante la reimpostazione per usare il metodo autenticazione basato sulle domande di sicurezza (visibile solo se le domande di sicurezza sono abilitate).
-- Definizione delle domande di sicurezza personalizzate che un utente può scegliere per registrarsi per l'uso del metodo di autenticazione basato sulle domande di sicurezza (visibile solo se sono abilitate le domande di sicurezza).
+- Se si utilizzano domande di sicurezza predefinite, localizzate, che un utente può scegliere di utilizzare al momento della registrazione per la reimpostazione della password (visibile solo se sono abilitate le domande di sicurezza)
+- Definizione delle domande di sicurezza personalizzate che un utente può scegliere di utilizzare al momento della registrazione per la reimpostazione della password (visibile solo se sono abilitate le domande di sicurezza)
 - Obbligo per gli utenti di effettuare la registrazione per la reimpostazione della password quando accedono al pannello di accesso dell'applicazione all'indirizzo [http://myapps.microsoft.com](http://myapps.microsoft.com).
 - Obbligo per gli utenti di riconfermare i dati registrati in precedenza dopo un numero configurabile di giorni trascorsi (visibili solo se è abilitata la registrazione applicata)
 - Specifica di un indirizzo di posta elettronica o di un URL del supporto tecnico personalizzato che verrà visualizzato agli utenti nel caso in cui non riescano a reimpostare la password
@@ -121,4 +122,4 @@ Per altre informazioni su Azure AD Connect, vedere [Introduzione ad Azure AD Con
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

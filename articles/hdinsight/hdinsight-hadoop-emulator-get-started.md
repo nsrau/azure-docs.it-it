@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Introduzione a un emulatore di Hadoop per HDInsight | Microsoft Azure"
 	description="Utilizzare un emulatore installato con un'esercitazione MapReduce e altri esempi per informazioni sull'ecosistema di Hadoop. L’emulatore di HDInsight funziona come un ambiente sandbox di Hadoop."
-	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
+	keywords="emulatore, ecosistema di hadoop, ambiente sandbox di hadoop, esercitazione mapreduce"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -109,7 +109,7 @@ Una volta stabilita la connessione, è possibile usare Strumenti di Visual Studi
 
 ## Risoluzione dei problemi: connessione di HDInsight Tools a HDInsight Emulator
 
-1. Durante la connessione a HDInsight Emulator, anche se la finestra di dialogo mostra che la connessione di HiveServer2 è avvenuta correttamente, è necessario impostare manualmente **hive.security.authorization.enabled property** su **false** nel file di configurazione Hive in C:\\hdp\\hive-*versione*\\conf\\hive-site.xml e quindi riavviare l'emulatore locale. HDInsight Tools per Visual Studio si connette a HiveServer2 solo quando si visualizzano in anteprima le prime 100 righe della tabella. Se non si intende usare questa query, è possibile lasciare la configurazione Hive così com'è.
+1. Durante la connessione a HDInsight Emulator, anche se la finestra di dialogo mostra che la connessione di HiveServer2 è avvenuta correttamente, è necessario impostare manualmente la proprietà **hive.security.authorization.enabled** su **false** nel file di configurazione Hive in C:\\hdp\\hive-*versione*\\conf\\hive-site.xml e quindi riavviare l'emulatore locale. HDInsight Tools per Visual Studio si connette a HiveServer2 solo quando si visualizzano in anteprima le prime 100 righe della tabella. Se non si intende usare questa query, è possibile lasciare la configurazione Hive così com'è.
 
 2. Se si usa l'allocazione degli IP dinamici (DHCP) nel computer che esegue HDInsight Emulator, potrebbe essere necessario aggiornare C:\\hdp\\hadoop-*versione*\\etc\\hadoop\\core-site.xml e modificare il valore della proprietà **hadoop.proxyuser.hadoop.hosts** in (*). In questo modo, l'utente di Hadoop può connettersi da tutti gli host per rappresentare l'utente immesso in Visual Studio.
 
@@ -498,4 +498,4 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
