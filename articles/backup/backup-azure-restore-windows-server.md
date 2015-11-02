@@ -7,7 +7,14 @@
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="21/10/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="10/21/2015"
+	 ms.author="jimpark"; "aashishr"/>
 
 # Ripristinare file da un computer che esegue Windows server o un client Windows
 In questo articolo viene illustrata la procedura necessaria per eseguire due tipi di operazioni di ripristino:
@@ -109,4 +116,4 @@ Include la terminologia utilizzata in questi passaggi:
 - [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms-introduction.md)
 - [Eseguire il backup dei carichi di lavoro di Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
