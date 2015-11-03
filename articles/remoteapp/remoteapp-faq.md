@@ -13,23 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015" 
+	ms.date="10/23/2015" 
 	ms.author="elizapo"/>
 
 # Domande frequenti su Azure RemoteApp
-Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono altre? Visitare i [forum di RemoteApp](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) per formulare le proprie domande.
+Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono altre? Visitare i [forum di RemoteApp](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) per formulare le proprie domande oppure inserire un commento di seguito.
 
 ## Informazioni su Azure RemoteApp ##
 
 
 - **Che cos'è Azure RemoteApp?** RemoteApp è un servizio di Azure che consente di fornire un accesso remoto sicuro alle applicazioni da molti dispositivi utente diversi. Altre informazioni su [Azure RemoteApp](remoteapp-whatis.md).
-- **Quali sono i due tipi di opzioni di distribuzione?** Sono disponibili due tipi di distribuzioni (o raccolte) di RemoteApp: ibrida e cloud. Valutare la migliore [opzione di distribuzione](remoteapp-whatis.md) per la propria organizzazione.
+- **Quali sono le opzioni di distribuzione?** Sono disponibili due tipi di distribuzioni di RemoteApp: ibrida e nel cloud. Quale è necessario dipende da numerosi fattori, ad esempio la necessità di aggiunta a un dominio. Tutte queste decisioni sono discusse [qui](remoteapp-collections.md).
 
+## Suggerimenti rapidi sull'uso di Azure RemoteApp ##
+- **Dopo quanto tempo si viene disconnessi? Per quanto tempo è possibile rimanere inattivi prima che venga eseguito automaticamente l'avvio?** 4 ore. Se un utente rimane inattivo per 4 ore, viene disconnesso automaticamente da Azure RemoteApp. Per verificare le altre impostazioni predefinite, vedere [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](azure-subscription-service-limits.md).
+- **È possibile provare il servizio gratuitamente?** Sì. È disponibile una versione di valutazione gratuita della durata di 30 giorni. Al termine della valutazione, è possibile passare a un account a pagamento (che è possibile usare nell'ambiente di produzione) oppure interrompere l'uso del servizio. Avviare la versione di valutazione gratuita visitando [manage.windowsazure.com](http://manage.windowsazure.com) - creare una nuova istanza di RemoteApp. Con la versione di valutazione è possibile creare 2 istanze di RemoteApp con 10 utenti per istanza. Si noti che la versione di valutazione è valida soltanto per 30 giorni.
 ## Dettagli della sottoscrizione Azure RemoteApp ##
+
 - **Quali sono i limiti del servizio?** Sarà possibile conoscere le impostazioni predefinite e i limiti di servizio di Azure RemoteApp in [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](azure-subscription-service-limits.md). Per altre domande contattare Microsoft.
 - **Quanti utenti sono necessari?** È necessario un numero minimo di 20 utenti. Il numero MINIMO è 20. Verrà emessa una fattura per 20. 
 - **Quanto costa RemoteApp?** Consultare i [dettagli dei prezzi di Azure RemoteApp](../../../pricing/details/remoteapp/).
-- **Un tipo di raccolta costa più di un altro?** Sì, è possibile, a seconda delle esigenze di raccolta. Una raccolta ibrida richiede una connessione da RemoteApp di Azure alla rete locale. Se si utilizza una Route di rete virtuale/Express esistente, non esiste alcun costo aggiuntivo. Ma se si utilizza una nuova rete virtuale di Azure e un gateway o Express Route, verrà addebitato un costo per il [gateway VPN](../../../pricing/details/vpn-gateway) o la [Express Route](../../../pricing/details/expressroute/). Questo costo (vedere informazioni dettagliato sui collegamenti) è sopra il costo mensile della RemoteApp di Azure.
+- **Un tipo di raccolta costa più di un altro?** Sì, è possibile, a seconda delle esigenze di raccolta. Una raccolta ibrida richiede una connessione da RemoteApp di Azure alla rete locale. Se si utilizza una Route di rete virtuale/Express esistente, non esiste alcun costo aggiuntivo. Se invece si usa una nuova rete virtuale di Azure e un gateway o Express Route, verrà addebitato un costo per il [gateway VPN](../../../pricing/details/vpn-gateway) o per [Express Route](../../../pricing/details/expressroute/). Questo costo (vedere informazioni dettagliato sui collegamenti) è sopra il costo mensile della RemoteApp di Azure.
 
 ## Raccolte - cos'è supportato, cosa è opportuno utilizzare e altro
 - **Le applicazioni personalizzate LOB (line-of-business) sono supportate?** Sì. Per usare un'applicazione personalizzata in Azure RemoteApp, creare un'[immagine modello personalizzata](remoteapp-create-custom-image.md) e caricarla nella raccolta RemoteApp.
@@ -44,8 +48,8 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 
 
 ## Opzioni di rete
-- **La raccolta ibrida richiede una rete virtuale. È possibile usare la rete virtuale esistente?** È possibile se la rete virtuale esistente è una rete virtuale di Azure. Per altre informazioni vedere "Passaggio 1: configurare la rete virtuale" nelle [istruzioni sulla raccolta ibrida](remoteapp-create-hybrid-deployment.md).
-- **È possibile utilizzare una rete virtuale con una raccolta di cloud?** È possibile. Estrarre [Creare una raccolta di cloud](remoteapp-create-cloud-deployment.md), in particolare il passaggio 1, per ulteriori informazioni.
+- **La raccolta ibrida richiede una rete virtuale. È possibile usare la rete virtuale esistente?** È possibile se la rete virtuale esistente è una rete virtuale di Azure. Per altre informazioni vedere "Passaggio 1: Configurare la rete virtuale" nelle [istruzioni sulla raccolta ibrida](remoteapp-create-hybrid-deployment.md).
+- **È possibile utilizzare una rete virtuale con una raccolta di cloud?** È possibile. Per altre informazioni, vedere [Creare una raccolta cloud](remoteapp-create-cloud-deployment.md), in particolare il passaggio 1.
 
 ## Opzioni di autenticazione
 
@@ -58,7 +62,7 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 - **Perché non è possibile consentire l'accesso all'account Azure Active Directory?** Gli utenti di Azure Active Directory devono provenire dalla directory associata alla sottoscrizione. È possibile visualizzare o modificare tale directory nella scheda Impostazioni nel portale. Per altre informazioni, vedere [Configurare il tenant di Azure Active Directory usato da RemoteApp](remoteapp-changetenant.md).
 
 ## Client - quali dispositivi si possono utilizzare per accedere a RemoteApp di Azure?
-È possibile trovare informazioni buone per il client, inclusi i passaggi per l'installazione di client diversi in [Accesso delle app in Azure RemoteApp](remoteapp-clients.md).
+È possibile trovare informazioni interessanti sui client, inclusi i passaggi per l'installazione di diversi client, in [Accesso alle app in Azure RemoteApp](remoteapp-clients.md).
 
 - **Quali dispositivi e sistemi operativi sono supportati dalle applicazioni client?** Per prima cosa, computer e tablet: 
 	- Windows 10 (anteprima client)
@@ -83,7 +87,7 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 
 ##Supporto, commenti e suggerimenti
 
-- **È possibile provare il servizio gratuitamente?** Sì. È disponibile una versione di valutazione gratuita della durata di 30 giorni. Al termine della valutazione, è possibile passare a un account a pagamento (che è possibile usare nell'ambiente di produzione) oppure interrompere l'uso del servizio. Avviare la versione di valutazione gratuita visitando [manage.windowsazure.com](http://manage.windowsazure.com) - creare una nuova istanza di RemoteApp. Con la versione di valutazione è possibile creare 2 istanze di RemoteApp con 10 utenti per istanza. Si noti che la versione di valutazione è valida soltanto per 30 giorni.
+
 - **Qual è il piano di supporto per RemoteApp?** Il supporto per la fatturazione e la gestione delle sottoscrizioni viene fornito gratuitamente. Il supporto tecnico è disponibile tramite i [piani di servizio di Azure](../../../support/plans/). È anche possibile ottenere supporto gratuito dalla community tramite il [forum di discussione di Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
 - **Come è possibile inviare commenti?** Visitare il [forum dei commenti](http://feedback.azure.com/forums/247748-azure-remoteapp).
 - **A chi è possibile rivolgersi per altre informazioni su Azure RemoteApp?** Oltre al [forum di discussione](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), nel quale è possibile porre domande, è possibile iscriversi al webinar settimanale [Ask the Experts](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html), in cui vengono trattati tutti gli argomenti relativi a RemoteApp.
@@ -107,5 +111,7 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 	Video Sono anche disponibili diversi video su RemoteApp. Alcuni di questi forniscono un'introduzione ([Introduzione a Azure RemoteApp](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) mentre altri forniscono procedure dettagliate per le attività di distribuzione ([distribuzione cloud](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) e [distribuzione ibrida](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Si raccomanda di accedere a queste utili risorse.
 
  
+### Come contribuire al miglioramento 
+Non tutti sanno che oltre alla classificazione di questo articolo e l'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

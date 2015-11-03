@@ -13,10 +13,16 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/05/2015"
+	ms.date="10/23/2015"
 	ms.author="sdanie"/>
 
 # Come usare Cache Redis di Azure con Java
+
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
 
 Cache Redis di Azure consente di accedere a una cache Redis dedicata, gestita da Microsoft. È possibile accedere alla cache da qualsiasi applicazione in Microsoft Azure.
 
@@ -32,7 +38,7 @@ In questa esercitazione viene utilizzato Jedis, ma è possibile utilizzare quals
 
 ## Creare una cache Redis in Azure
 
-Nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=398536) fare clic su **Nuovo**, **Dati + Archiviazione** e selezionare **Cache Redis**.
+Nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=398536) fare clic su **Nuovo**, **Dati e archiviazione** e selezionare **Cache Redis**.
 
   ![][1]
 
@@ -87,4 +93,4 @@ Fare clic sul collegamento in **Porte**, quindi su **No** per "Consenti l’acce
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

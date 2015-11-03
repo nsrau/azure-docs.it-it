@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="10/27/2015"
 	ms.author="sdanie"/>
 
 # Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
@@ -160,4 +160,4 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

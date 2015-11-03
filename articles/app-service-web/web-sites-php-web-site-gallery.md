@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
+	ms.date="10/15/2015"
 	ms.author="tomfitz"/>
 
 # Creare un'app WordPress nel servizio app di Azure
@@ -124,4 +124,4 @@ Per altre informazioni su come utilizzare le app Web del servizio app, vedere i 
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

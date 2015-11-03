@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Esercitazione di Apache Storm: Introduzione a Storm basato su Linux in HDInsight | Microsoft Azure"
 	description="Introduzione all'analisi di Big Data mediante Apache Storm ed esempi di Storm Starter in HDInsight basato su Linux. Informazioni su come usare Storm per elaborare i dati in tempo reale."
-	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+	keywords="apache storm,esercitazione su apache storm,analisi Big Data,storm starter"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 
@@ -28,7 +28,7 @@ Apache Storm è un sistema di calcolo in tempo reale scalabile, a tolleranza di 
 
 Per completare correttamente questa esercitazione di Apache Storm, è necessario quanto segue:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - **Familiarità con SSH e SCP**. Per altre informazioni sull'uso di SSH e SCP con HDInsight, vedere gli articoli seguenti:
 
@@ -42,7 +42,7 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 
 1. Accedere al [portale di anteprima di Azure][preview-portal].
 
-2. Selezionare **NUOVO**, __Analisi dei dati__ e quindi __HDInsight__.
+2. Selezionare **NUOVO**, selezionare __Analisi di dati__, quindi selezionare __HDInsight__
 
 	![Creazione di un nuovo cluster nel portale di anteprima di Azure](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
 
@@ -52,13 +52,13 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 
 	Selezionare __Ubuntu__ per creare un cluster HDInsight basato su Linux.
 	
-4. Se si dispone di più di una sottoscrizione, selezionare la voce __Sottoscrizione__ per selezionare la sottoscrizione di Azure che verrà usata per il cluster.
+4. Se sono disponibili più sottoscrizioni, selezionare la voce __Sottoscrizione__ per selezionare la sottoscrizione di Azure che verrà usata per il cluster.
 
-5. In __Gruppo di risorse__ è possibile selezionare una voce per visualizzare un elenco di gruppi di risorse esistenti, quindi selezionare quello in cui creare il cluster. In alternativa, è possibile selezionare __Crea nuovo__ e quindi immettere il nome del nuovo gruppo di risorse. Verrà visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
+5. Selezionare __Gruppo di risorse__ per visualizzare un elenco di gruppi di risorse esistenti e quindi selezionare quello in cui creare il cluster. In alternativa, è possibile selezionare __Crea nuovo__ e quindi immettere il nome del nuovo gruppo di risorse. Verrà visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
 
 	> [AZURE.NOTE]Questa voce sarà impostata su uno dei gruppi di risorse esistenti, se disponibili.
 
-6. Selezionare __Credenziali__ e quindi immettere una __password dell'account di accesso del cluster__ per il __nome utente dell'account di accesso del cluster__. È anche necessario immettere un valore nel campo __Nome utente SSH__ e un valore nel campo __PASSWORD__ o __CHIAVE PUBBLICA__, che verranno usati per autenticare l'utente SSH. Infine, usare il pulsante __Seleziona__ per impostare le credenziali.
+6. Selezionare __Credenziali__ e quindi immettere una __Password dell'account di accesso del cluster__ per il __Nome utente dell'account di accesso del cluster__. È anche necessario specificare un __Nome utente SSH__ e una __PASSWORD__ o una __CHIAVE PUBBLICA__, che verranno usati per autenticare l'utente SSH. Infine, usare il pulsante __Seleziona__ per impostare le credenziali.
 
 	![Pannello credenziali del cluster](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
 
@@ -68,41 +68,41 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 
 	* [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows)
 
-6. Per __Origine dati__ è possibile selezionare una voce per scegliere un'origine dati esistente o crearne una nuova.
+6. Selezionare la voce __Origine dati__ per scegliere un'origine dati esistente o crearne una nuova.
 
 	![Pannello di origine dati](./media/hdinsight-apache-storm-tutorial-get-started-linux/datasource.png)
 	
-	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare le seguenti informazioni per comprendere le voci nel pannello __Origine dati__.
+	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare quanto segue per comprendere le voci nel pannello __Origine dati__.
 	
-	- __Metodo di selezione__: impostare questa proprietà su __Da tutte le sottoscrizioni__ per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su __Chiave di accesso__ se si desidera immettere i valori __Nome di archiviazione__ e __Chiave di accesso__ di un account di archiviazione esistente.
+	- __Metodo di selezione__: impostare questa proprietà su __Da tutte le sottoscrizioni__ per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su __Chiave di accesso__ se si vuole specificare il __Nome archiviazione__ e la __Chiave di accesso__ di un account di archiviazione esistente.
 	
-	- __Crea nuovo__: per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
+	- __Crea nuovo__: usare questa opzione per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
 	
-	- __Scegliere il contenitore predefinito__: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
+	- __Scegliere il contenitore predefinito__: usare questa opzione per specificare il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
 	
-	- __Percorso__: l'area geografica dove si trova o dove verrà creato l'account di archiviazione.
+	- __Località__: l'area geografica in cui si trova o in cui verrà creato l'account di archiviazione.
 	
 		> [AZURE.IMPORTANT]La selezione del percorso per l'origine dati predefinito imposterà anche il percorso del cluster HDInsight. L'origine dati del cluster e l’origine dati predefinita devono trovarsi nella stessa area.
 		
-	- __Seleziona__: per salvare la configurazione dell'origine dati.
+	- __Seleziona__: usare questa opzione per salvare la configurazione dell'origine dati.
 	
 7. Selezionare __Piani tariffari per il nodo__ per visualizzare informazioni sui nodi che verranno creati per questo cluster. Per impostazione predefinita, il numero di nodi di lavoro verrà impostato su __4__. Verrà visualizzato il costo stimato del cluster in fondo al pannello.
 
 	![Pannello livelli dei prezzi di nodo](./media/hdinsight-apache-storm-tutorial-get-started-linux/nodepricingtiers.png)
 	
-	Usare il pulsante __Seleziona__ per salvare le informazioni sui __livelli dei prezzi di nodo__.
+	Usare il pulsante __Seleziona__ per salvare le informazioni sui __Piani tariffari per il nodo__.
 
 8. Selezionare __Configurazione facoltativa__. Questo pannello consente di selezionare la versione del cluster, nonché configurare altre impostazioni facoltative quali l'unione a una __rete virtuale__ o la configurazione di un __metastore personalizzato__ per memorizzare i dati per Hive e Oozie.
 
 	![Pannello configurazione facoltativa](./media/hdinsight-apache-storm-tutorial-get-started-linux/optionalconfiguration.png)
 
-9. Assicurarsi che __Aggiungi alla schermata iniziale__ sia selezionato e quindi selezionare __Crea__. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
+9. Assicurarsi che __Aggiungi alla Schermata iniziale__ sia selezionato e quindi selezionare __Crea__. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
 
 	| Durante il provisioning | Provisioning completato |
 	| ------------------ | --------------------- |
 	| ![Indicatore del provisioning sulla schermata iniziale](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioning.png) | ![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioned.png) |
 
-	> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro sulla schermata iniziale o la voce __Notifiche__ a sinistra della pagina per controllare il processo di provisioning.
+	> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro nella Schermata iniziale o la voce __Notifiche__ nella parte sinistra della pagina per controllare il processo di provisioning.
 
 ##Eseguire un esempio Storm Starter in HDInsight
 
@@ -122,13 +122,13 @@ Gli esempi di [storm-starter](https://github.com/apache/storm/tree/master/exampl
 
 2. Usare il comando seguente per avviare una topologia di esempio:
 
-        storm jar storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
 		
 	> [AZURE.NOTE]La parte `0.9.3.2.2.4.9-1` del nome di file può essere modificata quando HDinsight viene aggiornato con le versioni più recenti di Storm.
 
     Verrà avviata la topologia di esempio WordCount nel cluster usando 'wordcount' come nome descrittivo. Verranno generate in modo casuale le frasi e verranno conteggiate le occorrenze di ogni parola nelle frasi.
 
-    > [AZURE.NOTE]Durante l'invio di una topologia al cluster, è innanzitutto necessario copiare il file con estensione JAR contenente il cluster prima di usare il comando `storm`. A tale scopo, usare il comando `scp` dal client in cui è presente il file. Ad esempio: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > [AZURE.NOTE]Durante l'invio di una topologia al cluster, è prima di tutto necessario copiare il file con estensione JAR contenente il cluster prima di usare il comando `storm`. A tale scopo, usare il comando `scp` dal client in cui è presente il file. Ad esempio: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > L'esempio WordCount e altri esempi di avvio dell'utilità storm sono già inclusi nel cluster in `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
@@ -144,7 +144,7 @@ Eseguire i passaggi seguenti per visualizzare l'interfaccia utente di Storm:
 
 	> [AZURE.NOTE]Se viene richiesto di fornire un nome utente e una password, immettere l'amministratore del cluster e la password usati durante la creazione del cluster. Potrebbe venire richiesto di eseguire due volte l'autenticazione, una volta dal browser e una seconda volta dal interfaccia utente Web Ambari. Usare le stesse credenziali in entrambi i casi.
 
-2. Dall'elenco dei servizi nella parte sinistra della pagina, selezionare __Storm__. Selezionare quindi __Storm UI__ da __Quick Links__.
+2. Dall'elenco dei servizi nella parte sinistra della pagina selezionare __Storm__. Selezionare quindi __Storm UI__ da __Quick Links__.
 
     ![Voce Storm UI in Quick Links](./media/hdinsight-apache-storm-tutorial-get-started-linux/ambari-storm.png)
 
@@ -176,7 +176,7 @@ Eseguire i passaggi seguenti per visualizzare l'interfaccia utente di Storm:
 
 	* **Deactivate**: sospende una topologia in esecuzione.
 
-	* **Rebalance**: regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi del cluster. Questo consente alla topologia di regolare il parallelismo per compensare l'aumento o la diminuzione del numero di nodi del cluster. Per altre informazioni, vedere [Capire il parallelismo di una topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+	* **Rebalance**: regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi del cluster. Questo consente alla topologia di regolare il parallelismo per compensare l'aumento o la diminuzione del numero di nodi del cluster. Per altre informazioni, vedere l'articolo relativo al [parallelismo di una topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 	* **Kill**: arresta una topologia Storm dopo il timeout specificato.
 
@@ -233,4 +233,4 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -38,7 +38,7 @@ In questa esercitazione si apprenderà come:
 
 2. Fare clic su **Nuovo** > **Dati e archiviazione** > **SQL Data Warehouse**.
 
-	![Creare un data warehouse](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
+    ![Creazione](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
 1. Immettere un nome per il database nel pannello di SQL Data Warehouse. In questo esempio il database verrà denominato AdventureWorksDW.
 
@@ -128,4 +128,4 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver creato un database di esempio per SQL Data Warehouse, fare clic su [Connetti](./sql-data-warehouse-get-started-connect.md) per connettersi al database.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

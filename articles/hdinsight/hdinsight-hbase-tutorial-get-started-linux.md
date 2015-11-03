@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Esercitazione di HBase: Introduzione a HBase in Hadoop | Microsoft Azure"
 	description="Seguire questa esercitazione di HBase per iniziare a usare Apache HBase con Hadoop in HDInsight. Creare tabelle dalla shell HBase e sottoporle a query tramite Hive."
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+	keywords="Apache hbase, hbase, shell di hbase, esercitazione hbase"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -29,7 +29,7 @@ Informazioni su come eseguire il provisioning di un cluster HBase in HDInsight, 
 
 Prima di iniziare questa esercitazione di HBase, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - PuTTY e PuTTYGen per client basati su Windows. Queste utilità sono disponibili nella pagina [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - [curl](http://curl.haxx.se/download.html).
 
@@ -49,16 +49,16 @@ Prima di iniziare questa esercitazione di HBase, è necessario disporre di quant
 	- **Sistema operativo cluster**: selezionare **Ubuntu**.
 	- **Sottoscrizione**: selezionare la sottoscrizione di Azure usata per effettuare il provisioning del cluster.
 	- **Gruppo di risorse**: aggiungere o selezionare un gruppo di risorse di Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
-	- **Credenziali**. Immettere una password per l'utente del servizio Web HTTP. Il nome utente predefinito è **admin**. È anche necessario immettere un valore nel campo **Nome utente SSH** e un valore in **PASSWORD** o **CHIAVE PUBBLICA**, che verranno usati per autenticare l'utente SSH. Si consiglia di utilizzare una chiave pubblica. Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
+	- **Credenziali**. Immettere una password per l'utente del servizio Web HTTP. Il nome utente predefinito è **admin**. È anche necessario specificare un **Nome utente SSH** e una **PASSWORD** o una **CHIAVE PUBBLICA**, che verranno usati per autenticare l'utente SSH. Si consiglia di utilizzare una chiave pubblica. Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
 
 		- [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md) Fare clic su **Seleziona** per salvare le modifiche.
-	- **Origine dati**: selezionare un account di archiviazione di Azure esistente oppure crearne uno nuovo da usare come file system predefinito per il cluster. La posizione dell'account di archiviazione determina la posizione del cluster. Il cluster HDInsight e l'account di archiviazione corrispondente devono trovarsi nello stesso data center. Il nome predefinito visualizzato nel campo **Container predefinito** è il nome del cluster.  
-	- **Livelli di prezzi nota:** selezionare il numero di server di area per il cluster HBase.
+	- **Origine dati**: selezionare un account di archiviazione di Azure esistente oppure crearne uno nuovo da usare come file system predefinito per il cluster. La posizione dell'account di archiviazione determina la posizione del cluster. Il cluster HDInsight e l'account di archiviazione corrispondente devono trovarsi nello stesso data center. Il nome predefinito visualizzato nel campo **Contenitore predefinito** è il nome del cluster.  
+	- **Piani tariffari:** selezionare il numero di server di area per il cluster HBase.
 
 		> [AZURE.WARNING]Per garantire disponibilità elevata dei servizi di HBase, è necessario effettuare il provisioning di un cluster contenente almeno **tre** nodi. Questo assicura che, se un nodo viene disattivato, le aree dati HBase siano disponibili in altri nodi.
 
-	- **Configurazione facoltativa**: selezionare la versione del cluster, configurare la rete virtuale di Azure, configurare i metastore Hive/Oozie, configurare le azioni di script e aggiungere ulteriori account di archiviazione.
+	- **Configurazione facoltativa**: selezionare la versione del cluster, configurare la rete virtuale di Azure, configurare i metastore Hive/Oozie, configurare le azioni di script e aggiungere altri account di archiviazione.
 
 4. Fare clic su **Crea**.
 
@@ -87,7 +87,7 @@ Ciò può essere più utile dopo avere completato la procedura successiva.
 4. Nelle opzioni di base disponibili nella schermata della sessione di PuTTY, immettere i valori seguenti:
 
 	- Host Name: indirizzo SSH del server HDInsight nel campo Host Name (o IP address). L'indirizzo SSH è il nome del cluster, quindi **-ssh.azurehdinsight.net**. Ad esempio, *mycluster-ssh.azurehdinsight.net*.
-	- Port: 22. La porta ssh su headnode0 è 22. Vedere [Informazioni sull'uso di HDInsight in Linux (anteprima)](hdinsight-hadoop-linux-information.md#remote-access-to-services).
+	- Port: 22. La porta ssh sul nodo head 0 è 22. Vedere [Informazioni sull'uso di HDInsight in Linux (anteprima)](hdinsight-hadoop-linux-information.md#remote-access-to-services).
 4. Fare clic su **Open** per connettersi al cluster.
 5. Quando richiesto, immettere il nome utente immesso durante la creazione del cluster. Se è stata specificata una password per l'utente, sarà necessario specificare anch'essa.
 6. Eseguire il comando seguente:
@@ -114,7 +114,7 @@ Ciò può essere più utile dopo avere completato la procedura successiva.
 
 	Verranno visualizzati gli stessi risultati usando il comando di analisi, poiché esiste solo una riga.
 
-	Per altre informazioni sullo schema di tabella HBase, vedere [Introduzione alla progettazione dello schema HBase][hbase-schema]. Per altri comandi HBase, vedere la [guida di riferimento di Apache HBase][hbase-quick-start].
+	Per altre informazioni sullo schema di tabella Hbase, vedere l'[introduzione alla progettazione dello schema HBase][hbase-schema]. Per altri comandi HBase, vedere la [guida di riferimento di Apache HBase][hbase-quick-start].
 
 
 6. Chiudere la shell
@@ -232,7 +232,7 @@ SSH può essere usato anche per effettuare il tunneling di richieste locali, ad 
 4. Nelle opzioni di base disponibili nella schermata della sessione di PuTTY, immettere i valori seguenti:
 
 	- **Host Name**: indirizzo SSH del server HDInsight nel campo Host Name (o IP address). L'indirizzo SSH è il nome del cluster, quindi **-ssh.azurehdinsight.net**. Ad esempio, *mycluster-ssh.azurehdinsight.net*.
-	- **Port**: 22. La porta ssh su headnode0 è 22.  
+	- **Port**: 22. La porta ssh sul nodo head 0 è 22.  
 5. Nella sezione **Category** sul lato sinistro della finestra di dialogo espandere **Connection**, **SSH** e infine fare clic su **Tunnels**.
 6. Fornire le seguenti informazioni nel modulo "Options controlling SSH port forwarding":
 
@@ -248,7 +248,7 @@ SSH può essere usato anche per effettuare il tunneling di richieste locali, ad 
 2. Immettere le credenziali dell'account utente del cluster due volte.
 3. Nel menu a sinistra fare clic su **zookeeper**.
 4. Fare clic su uno dei tre collegamenti **ZooKeeper Server** nell'elenco di riepilogo.
-5. Copiare il valore di **Hostname**. Ad esempio, zookeepernode0.zookeepernode-0-xxxxxxxxxxxxxxxxxxxx.c7.internal.cloudapp.net.
+5. Copiare il valore di **Hostname**. Ad esempio, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
 
 **Per configurare un programma client (Firefox) e controllare lo stato del cluster**
 
@@ -305,4 +305,4 @@ Per ulteriori informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

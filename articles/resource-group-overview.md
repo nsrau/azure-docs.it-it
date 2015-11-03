@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Panoramica di Gestione risorse di Microsoft Azure
@@ -97,15 +97,19 @@ Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse d
 
 Gestione risorse di Azure consente di controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione. In modo nativo, integra la piattaforma di gestione OAuth e controllo di accesso basato sui ruoli (RBAC) e applica tale controllo di accesso a tutti i servizi nel gruppo di risorse. È possibile aggiungere utenti ai ruoli predefiniti specifici di piattaforma e risorsa e applicare tali ruoli a una sottoscrizione, a un gruppo di risorse o a una risorsa per limitare l'accesso. Ad esempio, è possibile sfruttare il ruolo predefinito denominato Collaboratore di DB SQL che consente agli utenti di gestire i database, ma non i server di database o i criteri di sicurezza. È possibile aggiungere utenti dell'organizzazione che richiedono questo tipo di accesso al ruolo Collaboratore DB SQL e assegnare il ruolo alla sottoscrizione, al gruppo di risorse o alla risorsa.
 
-Gestione risorse di Azure registra automaticamente le azioni dell'utente ai fini del controllo.
+Gestione risorse di Azure registra automaticamente le azioni dell'utente ai fini del controllo. Per informazioni sull'utilizzo dei log di controllo, vedere [Operazioni di controllo con Gestione risorse](resource-group-audit.md).
 
 Per ulteriori informazioni sul controllo di accesso basato sui ruoli, vedere [Controllo dell'accesso basato sui ruoli nel portale di anteprima di Microsoft Azure](role-based-access-control-configure.md). Questo argomento contiene un elenco dei ruoli predefiniti e delle azioni consentite. I ruoli predefiniti includono i ruoli generali, ad esempio Proprietario, Lettore e Collaboratore, oltre ai ruoli specifici del servizio come ad esempio Collaboratore Macchina virtuale, Collaboratore Rete virtuale, Gestore Sicurezza SQL, solo per citarne alcuni.
 
-Per esempi di impostazione dei criteri di accesso, vedere [Gestione e controllo di accesso alle risorse](azure-portal/resource-group-rbac.md).
+Per esempi di assegnazione di ruoli, vedere [Gestione dell'accesso alle risorse](azure-portal/resource-group-rbac.md).
 
 È anche possibile bloccare in modo esplicito le risorse critiche per impedire agli utenti di eliminarle o modificarle. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
 Per le procedure consigliate, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md)
+
+## Gestire risorse con criteri personalizzati
+
+Gestione risorse consente di creare criteri personalizzati per gestire le risorse. I tipi di criteri creati possono includere scenari, tra cui l'applicazione di una convenzione di denominazione delle risorse, la limitazione sulle aree che possono ospitare un tipo di risorsa o la richiesta di un valore di tag alle risorse per organizzare la fatturazione per reparto. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
 ## Livello di gestione coerente
 
@@ -122,13 +126,13 @@ Per altre informazioni sull'uso del portale di anteprima, vedere [Uso del portal
 
 ## Passaggi successivi
 
-- Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli](./resource-group-authoring-templates.md)
+- Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli](./resource-group-authoring-templates.md).
 - Per distribuire il modello creato, vedere [Distribuzione di modelli](azure-portal/resource-group-template-deploy.md)
-- Per comprendere le funzioni che è possibile usare in un modello, vedere [Funzioni modello](./resource-group-template-functions.md)
+- Per comprendere le funzioni che è possibile usare in un modello, vedere [Funzioni del modello](./resource-group-template-functions.md)
 - Per informazioni aggiuntive sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](best-practices-resource-manager-design-templates.md)
 
 Ecco una dimostrazione video di questa panoramica:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

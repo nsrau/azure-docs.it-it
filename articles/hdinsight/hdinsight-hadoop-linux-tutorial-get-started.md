@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/05/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 # Esercitazione di Hadoop: Introduzione all'uso di Hadoop con Hive in HDInsight in Linux
@@ -101,16 +101,20 @@ Per creare un nuovo cluster, seguire questa procedura.
 8. Fare clic su **Piani tariffari per il nodo** per visualizzare informazioni sui nodi che verranno creati per questo cluster. Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Verrà visualizzato il costo stimato del cluster all'interno del pannello.
 
 	![Pannello livelli dei prezzi di nodo](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Specificare il numero di nodi del cluster")
+    
+    > [AZURE.IMPORTANT]Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14GB di RAM.
+    >
+    > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 	Fare clic su **Seleziona** per salvare la configurazione del prezzo del nodo.
 
-9. Nel pannello **Nuovo cluster HDInsight** assicurarsi che **Aggiungi alla schermata iniziale** sia selezionato e quindi fare clic su **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
+9. Nel pannello**Nuovo cluster HDInsight** assicurarsi che **Aggiungi alla schermata iniziale** sia selezionato, quindi fare clic su **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
 
 Durante il provisioning|Provisioning completato
 ------------------|---------------------
 	![Indicatore del provisioning sulla schermata iniziale](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
-> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro sulla schermata iniziale o la voce **Notifiche** a sinistra della pagina per controllare il processo di provisioning.
+> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro nella Schermata iniziale o la voce **Notifiche** nella parte sinistra della pagina per controllare il processo di provisioning.
 
 Al termine del provisioning, fare clic sul riquadro per il cluster dalla schermata iniziale per avviare il pannello del cluster.
 
@@ -245,7 +249,7 @@ Se si è pronti per iniziare a usare i dati, ma sono necessarie altre informazio
 
 - Per informazioni sul modo in cui HDInsight usa l'archivio BLOB di Azure, vedere [Usare l'archivio BLOB di Azure con HDInsight](hdinsight-use-blob-storage.md).
 
-- Per informazioni sulle modalità di caricamento di dati in HDInsight, vedere [Caricamento di dati in HDInsight][hdinsight-upload-data].
+- Per informazioni sulle modalità di caricamento di dati in HDInsight, vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, vedere gli argomenti seguenti:
 
@@ -253,7 +257,7 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 
 - Per altre informazioni sulle opzioni che è possibile selezionare durante la creazione di un cluster HDInsight, vedere [Provisioning di HDInsight in Linux con opzioni personalizzate](hdinsight-hadoop-provision-linux-clusters.md).
 
-- Se si ha familiarità con Linux e Hadoop ma si desiderano informazioni specifiche su Hadoop in HDInsight, vedere [Uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md). In questo argomento vengono fornite informazioni quali, ad esempio:
+- Se si ha familiarità con Linux e Hadoop ma si vogliono informazioni specifiche su Hadoop in HDInsight, vedere [Uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md). In questo argomento vengono fornite informazioni quali, ad esempio:
 
 	* URL per i servizi ospitati nel cluster, ad esempio Ambari e WebHCat
 	* Il percorso del file Hadoop e gli esempi nel file system locale
@@ -282,4 +286,4 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

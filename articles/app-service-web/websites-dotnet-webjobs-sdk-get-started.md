@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="10/22/2015"
 	ms.author="tdykstra"/>
 
 # Creare un processo Web .NET nel servizio app di Azure
@@ -349,7 +349,7 @@ In questa sezione si userà **Esplora server** per impostare i valori delle stri
 
 	Facendo clic sul pulsante **Riproduci funzione** di questa pagina, il framework WebJobs SDK chiama nuovamente la funzione ed è possibile modificare i dati passati prima alla funzione.
 
->[AZURE.NOTE] Al termine del test eliminare l'app Web e l'istanza di database SQL. L'app Web è gratuita, ma l'istanza di database SQL e l'account di archiviazione causano un incremento delle spese (minime date le dimensioni ridotte). In più, se si lascia l'app Web in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel portale di Azure passare alla scheda **Dashboard** per l'app Web e quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. È quindi possibile selezionare una casella di controllo per eliminare contemporaneamente l'istanza del database SQL. Se si vuole semplicemente impedire ad altri utenti di accedere all'app Web, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti per il database SQL e l'account di archiviazione. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
+>[AZURE.NOTE]Al termine del test eliminare l'app Web e l'istanza di database SQL. L'app Web è gratuita, ma l'istanza di database SQL e l'account di archiviazione causano un incremento delle spese (minime date le dimensioni ridotte). In più, se si lascia l'app Web in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel portale di Azure passare alla scheda **Dashboard** per l'app Web e quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. È quindi possibile selezionare una casella di controllo per eliminare contemporaneamente l'istanza del database SQL. Se si vuole semplicemente impedire ad altri utenti di accedere all'app Web, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti per il database SQL e l'account di archiviazione. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
 
 ## <a id="create"></a>Creare un'applicazione completamente nuova
 
@@ -466,7 +466,7 @@ Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante de
 	- *Global.asax.cs*  
 	- Nel *controller* cartella: *AdController.cs*
 	- Nella cartella *Views\\Shared*: il file *\_Layout.cshtml*
-	- Nella cartella *Views\\Home*: *Index.cshtml*
+- Nella cartella *Views\\Home*: *Index.cshtml*
 	- Nella cartella *Views\\Ad* (creare prima di tutto la cartella): cinque file *.cshtml* <br/><br/>
 
 3. Nel progetto ContosoAdsWebJob aggiungere i file seguenti dal progetto scaricato.
@@ -481,7 +481,7 @@ Ora è possibile compilare, eseguire e implementare l'applicazione come indicato
 
 Le sezioni seguenti illustrano il codice correlato all'uso di WebJobs SDK e dei BLOB e delle code di archiviazione Azure.
 
-> [AZURE.NOTE] Per il codice specifico di WebJobs SDK, passare alle sezioni [Program.cs e Functions.cs](#programcs).
+> [AZURE.NOTE]Per il codice specifico di WebJobs SDK, passare alle sezioni [Program.cs e Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -813,4 +813,4 @@ Per altre informazioni, vedere [Accesso a un dashboard per lo sviluppo locale co
 
 Per altre informazioni, vedere [Risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

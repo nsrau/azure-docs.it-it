@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Introduzione: Connettersi ad Azure SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Connettersi a SQL Data Warehouse con Visual Studio | Microsoft Azure"
    description="Introduzione alla connessione a SQL Data Warehouse e all'esecuzione di alcune query."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,82 +13,99 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
-   ms.author="twounder"/>
+   ms.date="10/22/2015"
+   ms.author="twounder;barbkess"/>
 
-# Connettersi ed eseguire query con Visual Studio
+# Connettersi a SQL Data Warehouse con Visual Studio
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Questa procedura dettagliata mostra come connettersi ed eseguire query su un database di SQL Data Warehouse di Azure in pochi minuti usando Visual Studio. In questa procedura dettagliata si eseguiranno i passaggi seguenti:
-
-+ Installare il software prerequisito
-+ Connettersi a un database contenente il database di esempio AdventureWorksDW
-+ Eseguire una query sul database di esempio  
+Questa procedura dettagliata mostra come connettersi ed eseguire query su un database di Azure SQL Data Warehouse in pochi minuti usando SQL Server Data Tools in Visual Studio. Una volta stabilita la connessione, si eseguirà una query semplice.
 
 ## Prerequisiti
 
-+ Visual Studio 2013/2015: per scaricare e installare Visual Studio 2015 e/o SSDT, vedere [Installare Visual Studio e SSDT](sql-data-warehouse-install-visual-studio.md)
++ Database di esempio AdventureWorksDW in SQL Data Warehouse. Per crearlo, vedere [Creare un database di SQL Data Warehouse](sql-data-warehouse-get-started-create.md). 
++ SQL Server Data Tools per Visual Studio. Per istruzioni sull'installazione e sulle opzioni, vedere [Installare Visual Studio e/o SSDT](sql-data-warehouse-install-visual-studio.md)
 
-## Ottenere il nome completo del server SQL di Azure
+## Passaggio 1: Trovare il nome completo del server SQL Azure
 
-Per connettersi al database, è necessario il nome completo del server (****nomeserver**.database.windows.net*) che contiene il database a cui ci si vuole connettere.
+Il database è associato a un server SQL Azure. Per connettersi al database, è necessario il nome completo del server, **nomeserver**.database.windows.net*.
+
+Per trovare il nome completo del server.
 
 1. Passare al [portale di anteprima di Azure](https://portal.azure.com).
-2. Passare al database a cui si desidera connettersi.
-3. Trovare il nome completo del server, che verrà usato nei passaggi successivi:
+2. Fare clic su **Database SQL** e sul database a cui connettersi. Questo esempio usa il database di esempio AdventureWorksDW.
+3. Individuare il nome completo del server.
 
-![][1]
+    ![Nome completo del server][1]
 
-## Connettersi al database SQL
+## Passaggio 2: Connettersi al database SQL
 
 1. Aprire Visual Studio.
-2. Dal menu Visualizza scegliere **Esplora oggetti di SQL Server**.
+2. Aprire Esplora oggetti di SQL Server. A questo scopo, selezionare **Visualizza** > **Esplora oggetti di SQL Server**.
  
-![][2]
+    ![Esplora oggetti di SQL Server.][2]
 
-3. Fare clic sul pulsante **Aggiungi SQL Server**.
+3. Fare clic sull'icona **Aggiungi SQL Server**.
 
-![][3]
+    ![Aggiungi SQL Server][3]
 
-4. Immettere il *nome server* trovato in precedenza.
-5. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
-6. Immettere il **Nome di accesso** e la **Password** specificati quando è stato creato il server di database SQL e fare clic su **Connetti**.
+1. Compilare i campi nella finestra Connetti al server.
 
-## Eseguire query di esempio
+    ![Connetti al server][4]
 
-Dopo avere registrato il server, è possibile scrivere una query.
+    - **Nome server**. Immettere il *nome server* trovato in precedenza.
+    - **Autenticazione**. Selezionare Autenticazione di SQL Server.
+    - **Account di accesso** e **Password**. Immettere l'account di accesso e la password per il server SQL Azure.
+    - Fare clic su **Connetti**.
 
-1. Fare clic sul database utente in SSDT.
+1. Per l'esplorazione, espandere il server SQL Azure. È possibile visualizzare i database associati al server. Espandere AdventureWorksDW per visualizzare le tabelle nel database di esempio.
 
-2. Fare clic sul pulsante **Nuova query**. Verrà visualizzata una nuova finestra.
+    ![Esplorare AdventureWorksDW][5]
 
-![][4]
 
-3. Immettere il codice seguente nella finestra della query:
+## Passaggio 3: Eseguire una query di esempio
+
+Dopo essersi connessi al server, è possibile scrivere una query.
+
+1. Fare clic con il pulsante destro del mouse sul database in Esplora oggetti di SQL Server. 
+
+2. Scegliere **Nuova query**. Verrà visualizzata una nuova finestra di query.
+
+    ![Nuova query][6]
+
+3. Copiare la query TSQL seguente nella finestra di query:
 
 	```
 	SELECT COUNT(*) FROM dbo.FactInternetSales;
 	```
 
-4. Eseguire la query.
+4. Eseguire la query. A questo scopo, fare clic sulla freccia verde oppure usare la combinazione di tasti seguente: `CTRL`+`SHIFT`+`E`.
 
-	Per eseguire la query, fare clic sulla freccia verde oppure usare la combinazione di tasti seguente: `CTRL`+`SHIFT`+`E`.
+    ![Esegui query][7]
+
+1. Osservare i risultati della query. In questo esempio la tabella FactInternetSales include 60398 righe.
+
+    ![Risultati query][8]
 
 ## Passaggi successivi
 
-Ora che è possibile connettersi ed eseguire query, provare a [connettersi con PowerBI][].
+Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con PowerBI][].
 
-[connettersi con PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
+[visualizzare i dati con PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 
 
 <!--Image references-->
 
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 [2]: ./media/sql-data-warehouse-get-started-connect/open-ssdt.png
-[3]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
-[4]: ./media/sql-data-warehouse-get-started-connect/new-query.png
+[3]: ./media/sql-data-warehouse-get-started-connect/add-server.png
+[4]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
+[5]: ./media/sql-data-warehouse-get-started-connect/explore-sample.png
+[6]: ./media/sql-data-warehouse-get-started-connect/new-query2.png
+[7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
+[8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

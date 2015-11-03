@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/28/2015"
 	ms.author="juliako"/>
 
 
@@ -118,9 +118,14 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 
 4. Aprire il file App.config (aggiungere il file al progetto, se non è stato aggiunto per impostazione predefinita) e aggiungere una sezione *appSettings* al file. Impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure, come visualizzato nel seguente esempio. Per ottenere le informazioni sul nome e la chiave dell'account, aprire il portale di Azure, selezionare l'account di Servizi multimediali e fare clic sul pulsante **GESTISCI CHIAVI**.
 
-	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
-	  
-	</configuration>ion&gt; </code></pre>
+		<configuration>
+		...
+		  <appSettings>
+		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		  </appSettings>
+		  
+		</configuration>
 
 5. Sovrascrivere le istruzioni **using** esistenti all'inizio del file Program.cs con il seguente codice.
 
@@ -434,4 +439,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
