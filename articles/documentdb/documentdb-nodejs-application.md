@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Informazioni su Node.js - esercitazione Node.js di DocumentDB | Microsoft Azure" 
 	description="Informazioni su Node.js. Questa esercitazione illustra come usare il servizio Microsoft Azure DocumentDB per archiviare e accedere ai dati da un'applicazione web Node.js Express ospitata in Siti Web di Azure." 
-	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+	keywords="Sviluppo di applicazioni, esercitazione sul database, informazioni su node.js, esercitazione su node.js, DocumentDB, Azure, Microsoft Azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
+	ms.date="10/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Creare un'applicazione Web Node.js con DocumentDB
@@ -40,7 +40,7 @@ In questa esercitazione del database verrà compilata una semplice applicazione 
 
 ![Schermata dell'applicazione My Todo List creata in questa esercitazione Node.js](./media/documentdb-nodejs-application/image1.png)
 
-Non si ha tempo di completare l'esercitazione e si preferisce ottenere semplicemente la soluzione completa. Non è un problema, è possibile ottenere la soluzione di esempio completo da [GitHub][].
+Non si ha tempo di completare l'esercitazione e si preferisce ottenere semplicemente la soluzione completa. Non è un problema, è possibile ottenere la soluzione di esempio completa da [GitHub][].
 
 ## <a name="_Toc395783176"></a>Prerequisiti
 
@@ -48,7 +48,7 @@ Non si ha tempo di completare l'esercitazione e si preferisce ottenere semplicem
 
 Prima di seguire le istruzioni di questo articolo, verificare che siano disponibili gli elementi seguenti:
 
-- Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](../../pricing/free-trial/).
+- Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](../../pricing/free-trial/).
 - [Node.js][] v0.10.29 o versioni successive.
 - [Generatore di Express](http://www.expressjs.com/starter/generator.html) (è possibile installarlo tramite `npm install express-generator -g`)
 - [Git][].
@@ -396,7 +396,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 		
 		module.exports = config;
 
-3. Nel file **config.js** aggiornare i valori HOST e AUTH\_KEY usando i valori presenti nel pannello Chiavi del proprio account DocumentDB nel [portale di anteprima di Microsoft Azure](http://portal.azure.com):
+3. Nel file **config.js** aggiornare i valori di HOST e AUTH\_KEY usando i valori presenti nel pannello Chiavi del proprio account DocumentDB nel [portale di anteprima di Microsoft Azure](http://portal.azure.com):
 
 4. Salvare e chiudere il file **config.js**.
  
@@ -457,7 +457,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 
 
 
-	Ciò in effetti comunica al motore **Jade** di eseguire il rendering di una parte di HTML per l'applicazione e crea un **blocco** denominato **content** tramite cui è possibile fornire il layout per le pagine di contenuto. Salvare e chiudere questo file **layout.jade**.
+	Questa operazione comunica al motore **Jade** di eseguire il rendering di una parte di HTML per l'applicazione e crea un **blocco** denominato **content** tramite cui è possibile fornire il layout per le pagine di contenuto. Salvare e chiudere il file **layout.jade**.
 
 4. Aprire il file **index.jade**, la visualizzazione che sarà usata dall'applicazione, quindi sostituire il contenuto del file con quanto segue:
 
@@ -569,4 +569,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Node. js](/develop
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

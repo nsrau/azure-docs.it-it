@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/09/2015"
+	ms.date="10/26/2015"
 	ms.author="anhoh"/>
 
 # Visualizzare, modificare, creare e caricare documenti JSON tramite Esplora documenti di DocumentDB #
@@ -141,7 +141,8 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
 ##<a name="NextSteps"></a>Passaggi successivi
 
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
+- Per iniziare a usare codice, fare clic [qui](documentdb-get-started.md).
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

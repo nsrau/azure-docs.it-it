@@ -51,12 +51,12 @@ Vengono quindi aggiunti trigger e azioni.
 
 
 ## Aggiungere trigger HTTP
-
+1. Selezionare **Crea da zero**.
 1. Selezionare **Listener HTTP** dalla raccolta per creare un nuovo listener. Denominarlo **HTTP1**.
 2. Lasciare l'impostazione **Inviare risposta automaticamente?** su false. Configurare l'azione di attivazione impostando _HTTP Method_ su _POST_ e impostando _Relative URL_ su _/OneWayPipeline_.  
 
 	![Trigger HTTP][2]
-
+3. Fare clic sul segno di spunta verde.
 
 ## Aggiungere un'azione di convalida
 
@@ -74,8 +74,8 @@ In maniera analoga, si aggiungeranno le restanti azioni.
 ## Aggiungere un'azione di trasformazione
 È ora possibile configurare le trasformazioni per normalizzare i dati in entrata.
 
-1. Aggiungere **Transform** dalla raccolta.
-2. Per configurare una trasformazione in modo da trasformare i messaggi XML in entrata, selezionare l'azione **Transform** come quella da eseguire quando questa API viene chiamata e selezionare ```triggers(‘httplistener’).outputs.Content``` come valore per _inputXml_. *Map* è un parametro facoltativo perché i dati in entrata vengono confrontati con tutte le trasformazioni configurate e solo quelli che corrispondono allo schema vengono applicati.
+1. Aggiungere **Servizio BizTalk Transform** dalla raccolta.
+2. Per configurare una trasformazione in modo da trasformare i messaggi XML in entrata, selezionare l'azione **Transform** come azione da eseguire quando si chiama questa API e selezionare ```triggers(‘httplistener’).outputs.Content``` come valore per _inputXml_. *Map* è un parametro facoltativo perché i dati in entrata vengono confrontati con tutte le trasformazioni configurate e solo quelli che corrispondono allo schema vengono applicati.
 3. Infine, l'azione Transform viene eseguita solo se l'azione Validate ha esito positivo. Per configurare questa condizione, fare clic sull'icona a forma di ingranaggio in alto a destra e selezionare _Aggiungere una condizione da soddisfare_. Impostare la condizione su ```equals(actions('xmlvalidator').status,'Succeeded')```:  
 
 ![Trasformazioni di BizTalk][4]
@@ -86,6 +86,7 @@ A questo punto, è possibile aggiungere la destinazione in cui scrivere i dati, 
 
 1. Aggiungere un **Service Bus Connector** dalla raccolta. Impostare **Nome** su _Servicebus1_, impostare **Stringa di connessione** sulla stringa di connessione all'istanza del bus di servizio, impostare **Nome entità** su _Coda_ e ignorare **Nome sottoscrizione**.
 2. Selezionare l'azione **Invia messaggio** e impostare il campo **Messaggio** per l'azione su _actions('transformservice').outputs.OutputXml_
+3. Impostare il campo **Tipo contenuto** su application/xml
 
 ![Bus di servizio][5]
 
@@ -94,10 +95,13 @@ A questo punto, è possibile aggiungere la destinazione in cui scrivere i dati, 
 Dopo aver terminato l'elaborazione pipeline, verrà reinviata una risposta HTTP per entrambi i risultati, con i seguenti passaggi:
 
 1. Aggiungere un **Listener HTTP** dalla raccolta e selezionare l'azione **Invia risposta HTTP**.
-2. Impostare **Response Content** su *Elaborazione pipeline completata*, **Codice di stato della risposta** su *200* per indicare HTTP 200 OK e la **Condizione** sulla seguente espressione: ```@equals(actions('servicebusconnector').status,'Succeeded')``` <br/>
+2. Impostare **ID risposta** su *Invia messaggio*.
+2. Impostare **Contenuto della risposta** su *Elaborazione pipeline completata*.
+3. **Codice di stato della risposta** su *200* per indicare HTTP 200 OK.
+4. Fare clic sul menu a discesa nella parte superiore destra e selezionare **Aggiungere una condizione da soddisfare**. Impostare la condizione sull'espressione seguente: ```@equals(actions('azureservicebusconnector').status,'Succeeded')``` <br/>
+5. Ripetere i passaggi anche per inviare una risposta HTTP in caso di errore. Modificare **Condizione** impostando l'espressione seguente: ```@not(equals(actions('azureservicebusconnector').status,'Succeeded'))``` <br/>
+6. Fare clic su **OK**, quindi fare clic su **Crea**
 
-
-Ripetere i passaggi anche per inviare una risposta HTTP in caso di errore. Modifica **Condizione** sulla seguente espressione: ```@not(equals(actions('servicebusconnector').status,'Succeeded'))``` <br/>
 
 
 ## Completamento
@@ -105,7 +109,7 @@ Ogni volta che qualcuno invia un messaggio all'endpoint HTTP attiva l'app ed ese
 
 Alcuni argomenti utili:
 
-[Gestire e monitorare le App API e i connettori](app-service-logic-monitor-your-connectors.md) <br/> [Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)
+[Gestire e monitorare le app per le API e i connettori](app-service-logic-monitor-your-connectors.md) <br/> [Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)
 
 <!--image references -->
 [1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
@@ -114,4 +118,4 @@ Alcuni argomenti utili:
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

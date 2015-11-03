@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="10/21/2015"
 	ms.author="awills"/>
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
@@ -21,7 +21,7 @@ Dopo aver distribuito l'applicazione Web, è possibile configurare test web per 
 
 ![Esempio di test Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-È possibile configurare test Web per qualsiasi endpoint HTTP accessibile dalla rete Internet pubblica.
+È possibile configurare test Web per qualsiasi endpoint HTTPS accessibile dalla rete Internet pubblica.
 
 Sono disponibili due tipi di test Web:
 
@@ -246,4 +246,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

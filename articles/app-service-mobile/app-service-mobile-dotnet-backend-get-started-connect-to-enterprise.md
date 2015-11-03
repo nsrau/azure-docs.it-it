@@ -18,13 +18,13 @@
 
 # Connettere un'app mobile ad API SaaS
 
-In questa esercitazione si connetterà la propria app mobile a una soluzione SaaS (Software-as-a-Service). Si aggiornerà l'app dell'esercitazione [Autenticare l'app tramite il Single Sign-On di Azure Active Directory Authentication Library] per creare un documento di Microsoft Word in SharePoint Online quando viene aggiunto un nuovo elemento TodoItem.
+In questa esercitazione si connetterà la propria app mobile a una soluzione SaaS (Software-as-a-Service). Si aggiornerà l'app da [Single Sign-On di Azure Active Directory Authentication Library] per creare un documento di Microsoft Word in SharePoint Online quando viene aggiunto un nuovo elemento TodoItem.
 
 Per completare questa esercitazione, è necessario disporre di:
 
 * Disporre di Visual Studio 2013 in esecuzione in Windows 8.1
 * Disporre di una sottoscrizione attiva a [SharePoint Online]
-* Aver completato l'esercitazione [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]. Usare il tenant fornito dalla sottoscrizione a SharePoint.
+* Aver completato l'esercitazione [Single Sign-On di Azure Active Directory Authentication Library]. Usare il tenant fornito dalla sottoscrizione a SharePoint.
 
 [AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
@@ -182,10 +182,9 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 
 <!-- URLs. -->
 
-[Preview Azure Management Portal]: https://portal.azure.com/
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/it-IT/sharepoint/
-[Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Single Sign-On di Azure Active Directory Authentication Library]: app-service-mobile-ios-aad-sso.md
 [estensione del servizio app back-end .NET per app per dispositivi mobili]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

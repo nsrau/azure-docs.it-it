@@ -135,9 +135,15 @@ Scaricare e integrare la libreria SDK
 
 Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necessario inviare almeno una schermata (Activity) al back-end di Mobile Engagement.
 
-Accedere a **MainActivity.java** e aggiungere quanto segue per sostituire la classe di base di **MainActivity** passando da **ActionBarActivity** a **EngagementActivity**:
+Accedere a **MainActivity.java** e aggiungere quanto segue per sostituire la classe di base di **MainActivity** a **EngagementActivity**:
 
 	public class MainActivity extends EngagementActivity {
+
+È consigliabile impostare come commento (escludere) la riga seguente per questo semplice scenario di esempio:
+
+    // setSupportActionBar(toolbar);
+
+Se si vuole mantenerla, vedere lo scenario "Segnalazione di base" in [Come integrare Engagement in Android]
 
 ##<a id="monitor"></a>Connettere l'app con monitoraggio in tempo reale
 
@@ -212,11 +218,15 @@ In questo modo si definisce l'icona che viene visualizzata sia nelle notifiche d
 
 Assicurarsi di usare un'icona esistente in una delle cartelle **drawable** (ad esempio ``engagement_close.png``). La cartella **mipmap** non è supportata.
 
->[AZURE.NOTE]È consigliabile non usare l'icona di **avvio** poiché ha una risoluzione diversa e si trova in genere nelle cartelle mipmap, che non sono supportate.
+>[AZURE.NOTE]È consigliabile non usare l'icona di **avvio**, poiché ha una risoluzione diversa e si trova in genere nelle cartelle mipmap, che non sono supportate.
 
 Per le app reali, è possibile usare un'icona adatta alle notifiche in base alle [linee guida per la progettazione per Android](http://developer.android.com/design/patterns/notifications.html).
 
 >[AZURE.TIP]Per assicurarsi di usare la risoluzione corretta per l'icona, vedere [questi esempi](https://www.google.com/design/icons). Scorrere verso il basso fino alla sezione **Notification**, fare clic su un'icona e quindi su `PNGS` per scaricare il set di icone di tipo drawable. È possibile scegliere le cartelle drawable da usare con una risoluzione specifica per ogni versione dell'icona.
+
+##Creare un progetto Google Cloud Messaging con chiave API 
+
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ###Abilitare l'app per la ricezione delle notifiche push GCM
 
@@ -265,7 +275,7 @@ Per consentire a Mobile Engagement di inviare notifiche push per conto dell'uten
 	  
 	![][17]
 
-4. Nella finestra popup incollare la chiave del server GCM ottenuta nella sezione di [abilitazione di Google Cloud Messaging](#register) e quindi fare clic su **OK**.
+4. Nella finestra a comparsa incollare la chiave del server GCM ottenuta prima e quindi fare clic su **OK**.
 
 	![][18]
 
@@ -285,7 +295,7 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
 
 	a. Assegnare un nome alla campagna.
 
-	b. Impostare **Tipo di recapito** su *Notifica di sistema -> Semplice*: si tratta di un tipo di notifica push Android semplice con un titolo e una breve riga di testo.
+	b. Selezionare **Tipo di recapito** come *Notifica di sistema -> Semplice*: si tratta di un tipo di notifica push Android semplice con un titolo e una breve riga di testo.
 
 	c. Per **Ora di recapito** selezionare *In qualsiasi momento* per consentire all'app di ricevere una notifica anche se non è stata avviata.
 
@@ -306,6 +316,8 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
 <!-- URLs. -->
 [Mobile Engagement SDK per Android]: http://go.microsoft.com/?linkid=9863935
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[Come integrare Engagement in Android]: https://azure.microsoft.com/it-IT/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -327,4 +339,4 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

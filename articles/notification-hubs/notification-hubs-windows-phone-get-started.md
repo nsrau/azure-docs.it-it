@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per Windows Phone
@@ -119,7 +119,7 @@ L'hub viene creato e configurato per l'invio di notifiche autenticate per Window
 
 	Una nuova applicazione console Visual C# viene aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata.
 
-4. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Strumenti**, quindi fare clic su **Gestione pacchetti libreria** e infine su **Console di Gestione Pacchetti**.
+4. Fare clic su **Strumenti**, su **Gestione pacchetti libreria** e quindi su **Console di Gestione Pacchetti**.
 
 	Verrà visualizzata la console di Gestione pacchetti.
 
@@ -199,4 +199,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

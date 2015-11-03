@@ -514,4 +514,4 @@ In questo semplice esempio le notifiche sono state trasmesse a tutti i dispositi
 [Componente client di Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Componente di messaggistica di Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
