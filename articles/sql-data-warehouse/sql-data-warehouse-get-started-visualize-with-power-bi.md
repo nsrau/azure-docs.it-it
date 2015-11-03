@@ -17,18 +17,21 @@
     ms.author="lodipalm"/>
 
 # Visualizzare i dati con Power BI
-Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
+
 
 > [AZURE.NOTE]Per completare questa esercitazione, è necessario un database SQL Data Warehouse precaricato con il database di esempio AdventureWorksDW. In [Introduzione: effettuare il provisioning di SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) viene illustrato come crearne uno.
 > 
 > Se si ha già un database SQL Data Warehouse ma non i dati di esempio, è possibile [caricare i dati di esempio manualmente][].
 
+Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
+
+> [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
 ## Connettersi ad AdventureWorksDW
 
 Per aprire Power BI e connettersi al database AdventureWorksDW:
 
-1. Accedere al [portale di anteprima di Azure][].
+1. Eseguire l'accesso al [portale di anteprima di Azure][].
 2. Fare clic su **Database SQL** e scegliere il database SQL Data Warehouse AdventureWorks. 
 
     ![Trovare il database][1]
@@ -108,4 +111,4 @@ Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni d
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

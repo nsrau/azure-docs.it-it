@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app per .Android
@@ -120,10 +120,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 	    private static Boolean isVisible = false;
 
 
-	Assicurarsi di aggiornare i tre segnaposto:
-	* **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console).
-	* **HubListenConnectionString**: impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure].
-	* **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub, **non** l'URL completo. Ad esempio, usare `"myhub"`.
+	Assicurarsi di aggiornare i tre segnaposto: * **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure]. * **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub, **non** l'URL completo. Ad esempio, usare `"myhub"`.
 
 
 
@@ -156,7 +153,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
     	}
 
 
-7. Aggiungere il metodo **DialogNotify** all'attività per visualizzare la notifica quando l'applicazione è in esecuzione e visibile. Eseguire anche l'override di **onStart** e **onStop** per determinare se l'attività è visibile per visualizzare la finestra di dialogo.
+7. Aggiungere il metodo `DialogNotify` all'attività per visualizzare la notifica quando l'applicazione è in esecuzione e visibile. Eseguire anche l'override di `onStart`, `onPause`, `onResume` e `onStop` per determinare se l'attività è visibile per visualizzare la finestra di dialogo.
 
 	    @Override
 	    protected void onStart() {
@@ -165,11 +162,22 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 	    }
 	
 	    @Override
+	    protected void onPause() {
+	        super.onPause();
+	        isVisible = false;
+	    }
+	
+	    @Override
+	    protected void onResume() {
+	        super.onResume();
+	        isVisible = true;
+	    }
+	
+	    @Override
 	    protected void onStop() {
 	        super.onStop();
 	        isVisible = false;
 	    }
-
 
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
@@ -486,7 +494,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 
 ####Test dell'emulatore
 
-Per testare un emulatore, assicurarsi che l'immagine dell'emulatore supporti il livello Google API scelto per l'app. Se l'immagine non supporta Google APIs, verrà generata l'eccezione **SERVICE\_NOT\_AVAILABLE**.
+Per testare un emulatore, assicurarsi che l'immagine dell'emulatore supporti il livello Google API scelto per l'app. Se l'immagine non supporta Google API, verrà generata l'eccezione **SERVICE\_NOT\_AVAILABLE**.
 
 Accertarsi anche di avere aggiunto l'account Google all'emulatore in esecuzione in **Settings** > **Accounts**. In caso contrario, i tentativi di registrazione con GCM potrebbero generare l'eccezione **AUTHENTICATION\_FAILED**.
 
@@ -549,4 +557,4 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

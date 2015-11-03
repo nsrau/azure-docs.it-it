@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per Windows Phone
@@ -51,8 +51,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 L'hub viene creato e configurato per l'invio di notifiche autenticate per Windows Phone.
 
-> [AZURE.NOTE]In questa esercitazione verrà usato il Servizio notifica Push Microsoft in modalità senza autenticazione. Tale modalità prevede restrizioni in relazione alle notifiche che è possibile inviare a ciascun canale. In Hub di notifica è supportata la [modalità con autenticazione del Servizio di notifica Push di Microsoft](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx).
-<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE]In questa esercitazione verrà usato il Servizio notifica Push Microsoft in modalità senza autenticazione. Tale modalità prevede restrizioni in relazione alle notifiche che è possibile inviare a ciascun canale. Hub di notifica supporta la [modalità di autenticazione con Servizio notifica push Microsoft ](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) consentendo di caricare il certificato.
 
 ##Connettere l'app all'hub di notifica
 
@@ -119,7 +118,7 @@ L'hub viene creato e configurato per l'invio di notifiche autenticate per Window
 
 	Una nuova applicazione console Visual C# viene aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata.
 
-4. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Strumenti**, quindi fare clic su **Gestione pacchetti libreria** e infine su **Console di Gestione Pacchetti**.
+4. Fare clic su **Strumenti**, su **Gestione pacchetti libreria** e quindi su **Console di Gestione Pacchetti**.
 
 	Verrà visualizzata la console di Gestione pacchetti.
 
@@ -199,4 +198,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

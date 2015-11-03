@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/20/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app per Chrome
@@ -368,16 +368,7 @@ L'app Chrome viene creata tramite JavaScript ed è possibile usare il proprio ed
 		  }
 		}
 
-	Lo script precedente include le informazioni chiave seguenti: 
-	- *window.onload* definisce gli eventi relativi alla selezione dei due pulsanti dell'interfaccia utente. Un evento esegue la registrazione a GCM e l'altro usa l'ID di registrazione restituito dopo la registrazione a GCM per la registrazione in Hub di notifica di Azure. 
-	- *updateLog* è la funzione che definisce una semplice funzione di registrazione. 
-	- *registerWithGCM* è il gestore degli eventi di selezione del primo pulsante, che effettua la chiamata **chrome.gcm.register** a GCM per registrare questa istanza dell'app Chrome. 
-	- *registerCallback* è la funzione di callback che viene chiamata quando viene completata la chiamata di registrazione a GCM precedente. 
-	- *registerWithNH* è il gestore dell'evento di selezione del secondo pulsante, che esegue la registrazione in Hub di notifica. Ottiene **hubName** e **connectionString** specificati dall'utente e avvia la chiamata all'API REST per la registrazione nell'Hub di notifica. 
-	- *splitConnectionString* e *generateSaSToken* sono un'implementazione JavaScript della creazione di un token SaS da inviare in tutte le chiamate all'API REST. Per altre informazioni, vedere [Concetti comuni](http://msdn.microsoft.com/library/dn495627.aspx). 
-	- *sendNHRegistrationRequest* è la funzione che effettua una chiamata REST HTTP. 
-	- *registrationPayload* definisce il payload XML della registrazione. Per altre informazioni, vedere [Creare una registrazione dell'API REST per l'Hub di notifica]. L'ID della registrazione viene aggiornato con i dati ricevuti da GCM. 
-	- *client* è un'istanza di **XMLHttpRequest** usata per eseguire la richiesta POST HTTP. L'intestazione **Authorization** viene aggiornata con **sasToken**. Il corretto completamento di questa chiamata registra questa istanza dell'app Chrome in Hub di notifica di Azure.
+	Lo script precedente include le informazioni chiave seguenti: - *window.onload* definisce gli eventi relativi alla selezione dei due pulsanti dell'interfaccia utente. Un evento esegue la registrazione a GCM e l'altro usa l'ID di registrazione restituito dopo la registrazione a GCM per la registrazione in Hub di notifica di Azure. - *updateLog* è la funzione che definisce una semplice funzione di registrazione. - *registerWithGCM* è il gestore degli eventi di selezione del primo pulsante, che effettua la chiamata **chrome.gcm.register** a GCM per registrare questa istanza dell'app Chrome. - *registerCallback* è la funzione di callback che viene chiamata quando viene completata la chiamata di registrazione a GCM precedente. - *registerWithNH* è il gestore dell'evento di selezione del secondo pulsante, che esegue la registrazione in Hub di notifica. Ottiene **hubName** e **connectionString** specificati dall'utente e avvia la chiamata all'API REST per la registrazione nell'Hub di notifica. - *splitConnectionString* e *generateSaSToken* sono un'implementazione JavaScript della creazione di un token SaS da inviare in tutte le chiamate all'API REST. Per altre informazioni, vedere [Concetti comuni](http://msdn.microsoft.com/library/dn495627.aspx). - *sendNHRegistrationRequest* è la funzione che effettua una chiamata REST HTTP. - *registrationPayload* definisce il payload XML della registrazione. Per altre informazioni, vedere [Creare una registrazione dell'API REST per l'Hub di notifica]. L'ID della registrazione viene aggiornato con i dati ricevuti da GCM. - *client* è un'istanza di **XMLHttpRequest** usata per eseguire la richiesta POST HTTP. L'intestazione **Authorization** viene aggiornata con **sasToken**. Il corretto completamento di questa chiamata registra questa istanza dell'app Chrome in Hub di notifica di Azure.
 
 
 Al termine, per la cartella dovrebbe essere visualizzata la seguente vista: ![][21]
@@ -416,13 +407,13 @@ Per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure i
 
 3. Nella finestra della console eseguire il comando seguente:
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
    	Viene aggiunto un riferimento ad Azure Service Bus SDK con il <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">pacchetto NuGet WindowsAzure.ServiceBus</a>.
 
 4. Aprire il file **Program.cs** e aggiungere l'istruzione `using` seguente:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 5. Nella classe **Program** aggiungere il metodo seguente:
 
@@ -493,4 +484,4 @@ In questo semplice esempio le notifiche verranno trasmesse all'app Chrome. Per a
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

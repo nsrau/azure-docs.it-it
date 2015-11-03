@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Che cos'è Azure RemoteApp? | Microsoft Azure" 
-	description="Informazioni su Azure RemoteApp." 
+	description="Informazioni su come condividere applicazioni e risorse in qualsiasi dispositivo con Azure RemoteApp." 
 	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/28/2015" 
+	ms.date="10/23/2015" 
 	ms.author="elizapo"/>
 
 # Informazioni su Azure RemoteApp
@@ -22,15 +22,15 @@ Azure RemoteApp integra in Azure le funzionalità del programma Microsoft Remote
 
 Con RemoteApp di Azure è possibile condividere app e risorse con utenti su quasi tutti i dispositivi. Ospitiamo le app nel cloud, ossia ci occupiamo dell'hardware e della scalabilità per soddisfare le richieste degli utenti. Si devono solo caricare le app che si desidera condividere e far poi usare agli utenti tali app. [Gli utenti riescono a mantenere i propri dispositivi](remoteapp-clients.md), mentre si gestisce tutto tramite il portale di Azure. Si ha anche la possibilità di utilizzare le credenziali aziendali, consentendo di garantire la sicurezza dei dati e delle applicazioni.
 
-Continuare a leggere l'articolo per altre informazioni su RemoteApp oppure, se si è già convinti, [provarlo subito](http://azure.microsoft.com/services/remoteapp/).
+Continuare a leggere l'articolo per altre informazioni su Azure RemoteApp oppure, se si è già convinti, [provarlo subito](http://azure.microsoft.com/services/remoteapp/).
 
 Domande su Azure RemoteApp? Vedere le [Domande frequenti](remoteapp-faq.md).
 
 Azure RemoteApp fa parte dell'[infrastruttura VDI Microsoft](http://www.microsoft.com/server-cloud/products/virtual-desktop-infrastructure/explore.aspx).
 
-**Novità** Per altre informazioni su Azure RemoteApp o per verificare la scalabilità di RemoteApp, è possibile partecipare al [webinar settimanale con gli esperti](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
+**Novità** Per altre informazioni su Azure RemoteApp o per verificare la scalabilità di Azure RemoteApp, è possibile partecipare al [webinar settimanale con gli esperti](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
 
-## Raccolte RemoteApp
+## Raccolte di Azure RemoteApp
 Sono disponibili due tipi di [raccolte Azure RemoteApp](remoteapp-collections.md):
 
 
@@ -61,20 +61,23 @@ Dopo aver aggiornato l'immagine modello personalizzata, è possibile caricare la
 Per altre informazioni vedere [Aggiornare la raccolta](remoteapp-update.md).
 
 ## Client supportati di RemoteApp
-Azure RemoteApp è supportato nelle app client RemoteApp per Windows e Windows RT, nonché nelle app di Desktop remoto Microsoft per Mac, iOS e Android. Gli utenti possono usare queste app sui dispositivi mobili o di calcolo per accedere ai nuovi programmi RemoteApp.
+Azure RemoteApp è supportato nelle app client RemoteApp per Windows e Windows RT, nonché nelle app di Desktop remoto Microsoft per Mac, iOS e Android. Gli utenti possono usare queste app sui dispositivi mobili o di calcolo per accedere ai nuovi programmi di Azure RemoteApp.
 
 Per altre informazioni sui client vedere [Accesso alle app in Azure RemoteApp](remoteapp-clients.md).
 
 ## Passaggi successivi
-Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare RemoteApp:
+Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare Azure RemoteApp:
 
 - [Tipo di raccolta necessario per RemoteApp di Azure](remoteapp-collections.md)
-- [Creare un'immagine di RemoteApp](remoteapp-imageoptions.md)
-- [Come creare una raccolta RemoteApp nel cloud](remoteapp-create-cloud-deployment.md)
-- [Come creare una raccolta ibrida di RemoteApp](remoteapp-create-hybrid-deployment.md)
-- [Funzionamento delle licenze in RemoteApp](remoteapp-licensing.md)
+- [Creare un'immagine di Azure RemoteApp](remoteapp-imageoptions.md)
+- [Come creare una raccolta cloud di Azure RemoteApp](remoteapp-create-cloud-deployment.md)
+- [Come creare una raccolta ibrida per Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
+- [Funzionamento delle licenze in Azure RemoteApp](remoteapp-licensing.md)
 - [Procedure consigliate per l'uso di Azure RemoteApp](remoteapp-bestpractices.md)
 - [Domande frequenti su Azure RemoteApp](remoteapp-faq.md)
  
 
-<!---HONumber=Oct15_HO3-->
+### Come contribuire al miglioramento 
+Non tutti sanno che oltre alla classificazione di questo articolo e l'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
+
+<!---HONumber=Nov15_HO1-->

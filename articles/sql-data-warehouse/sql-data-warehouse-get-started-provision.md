@@ -38,7 +38,7 @@ In questa esercitazione si apprenderà come:
 
 2. Fare clic su **Nuovo** > **Dati e archiviazione** > **SQL Data Warehouse**.
 
-	![Creare un data warehouse](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
+    ![Creazione](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
 1. Immettere un nome per il database nel pannello di SQL Data Warehouse. In questo esempio il database verrà denominato AdventureWorksDW.
 
@@ -48,12 +48,7 @@ In questa esercitazione si apprenderà come:
 ## Passaggio 2: Configurare e creare un server
 Nel database SQL e in SQL Data Warehouse ogni database viene assegnato a un server e ogni server viene assegnato a una posizione geografica. Il server è definito server SQL logico.
 
-> [AZURE.NOTE]<a name="note"></a>Un server SQL logico:
-  >
-  > + Fornisce un sistema coerente per configurare più database nella stessa posizione geografica.
-  > + Non è un hardware fisico come avviene invece per i server locali. Fa parte del software del servizio. Ecco perché viene chiamato *server logico*.
-  > + Può ospitare più database senza rallentarne le prestazioni.
-  > + Usa una *s* minuscola per il nome. Il **s**erver SQL è un server logico di Azure, mentre SQL **S**erver è il prodotto per database locali di Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un server SQL logico: > > + Fornisce un sistema coerente per configurare più database nella stessa posizione geografica. > + Non è un hardware fisico come avviene invece per i server locali. Fa parte del software del servizio. Ecco perché viene chiamato *server logico*. > + Può ospitare più database senza rallentarne le prestazioni. > + Usa una *s* minuscola per il nome. Il **s**erver SQL è un server logico di Azure, mentre SQL **S**erver è il prodotto per database locali di Microsoft.
 
 1. Fare clic su **Server** > **Crea un nuovo server**. Non è previsto alcun addebito per il server. Se si ha già un server SQL logico versione 12 che si vuole usare, scegliere il server esistente e andare al passaggio successivo. 
 
@@ -128,4 +123,4 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver creato un database di esempio per SQL Data Warehouse, fare clic su [Connetti](./sql-data-warehouse-get-started-connect.md) per connettersi al database.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

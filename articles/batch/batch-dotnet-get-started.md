@@ -26,7 +26,7 @@ Iniziare a lavorare con la libreria .NET di Azure Batch tramite la creazione di 
 
 	- **Account Azure**: è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-	- **Account Batch**: vedere la sezione **Account Batch** in [Panoramica tecnica di Azure Batch](batch-technical-overview.md).
+	- **Account Batch**: vedere [Creare e gestire un account Azure Batch](batch-account-create-portal.md).
 
 	- **Account di archiviazione**: vedere la sezione **Creare un account di archiviazione** in [Informazioni sugli account di archiviazione di Azure](../storage-create-storage-account.md). In questa esercitazione è possibile creare un contenitore nell'account denominato **testcon1**.
 
@@ -40,9 +40,9 @@ Iniziare a lavorare con la libreria .NET di Azure Batch tramite la creazione di 
 
 	1. Dopo aver creato il progetto in Visual Studio, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online **Azure.Batch** e fare clic su **Installa** per installare il pacchetto Microsoft Azure Batch e le relative dipendenze.
 
-	2. Cercare online **WindowsAzure.Storage** e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
+	2. Cercare online **WindowsAzure.Storage** e poi fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le relative dipendenze.
 
-> [AZURE.TIP]In questa esercitazione vengono utilizzati alcuni concetti fondamentali di Batch illustrati in [Nozioni fondamentali di API per Azure Batch](batch-api-basics.md), la cui lettura è consigliata per i nuovi utenti.
+> [AZURE.TIP]Questa esercitazione usa alcuni concetti fondamentali di Batch illustrati in [Nozioni fondamentali di API per Azure Batch](batch-api-basics.md), la cui lettura è consigliata per i nuovi utenti.
 
 ## Passaggio 1: Creare e caricare i file di supporto
 
@@ -67,7 +67,7 @@ Per supportare l'applicazione viene creato un contenitore in Archiviazione di Az
 
 2. Salvare il file App.config.
 
-Per ulteriori informazioni sulle stringhe di connessione di archiviazione di Azure, vedere [configurare stringhe di connessione di archiviazione di Azure](../storage/storage-configure-connection-string.md).
+Per altre informazioni sulle stringhe di connessione di archiviazione di Azure, vedere [Configurare stringhe di connessione di archiviazione di Azure](../storage/storage-configure-connection-string.md).
 
 ### Creare il contenitore di archiviazione
 
@@ -107,15 +107,15 @@ Per ulteriori informazioni sulle stringhe di connessione di archiviazione di Azu
 
 5. Salvare il file Program.cs.
 
-	> [AZURE.NOTE]In un ambiente di produzione, si consiglia di usare una [firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx).
+	> [AZURE.NOTE]In un ambiente di produzione è consigliabile usare una [firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
-Per altre informazioni sull’archiviazione BLOB, vedere [Come utilizzare l’archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+Per altre informazioni sull'archivio BLOB, vedere [Come usare l'archivio BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
 ### Creare il programma di elaborazione
 
 1. In **Esplora soluzioni** creare un nuovo progetto di applicazione console denominato **ProcessTaskData**.
 
-2. Dopo aver creato il progetto in Visual Studio, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online **WindowsAzure.Storage** e poi fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
+2. Dopo aver creato il progetto in Visual Studio, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online **WindowsAzure.Storage** e poi fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le relative dipendenze.
 
 3. Aggiungere la seguente direttiva using all’inizio del file Program.cs:
 
@@ -208,11 +208,11 @@ Un pool di nodi di calcolo è il primo set di risorse che è necessario creare p
 			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Sostituire i valori tra parentesi quadre con quelli associati all'account di Batch, ognuno dei quali è disponibile nel [portale di anteprima di Azure](https://portal.azure.com). Per individuare questi valori, accedere al [portale di anteprima di Azure](https://portal.azure.com) e:
+	Sostituire i valori tra parentesi quadre con quelli associati all'account Batch, ognuno dei quali è disponibile nel [portale di anteprima di Azure](https://portal.azure.com). Per individuare questi valori, accedere al [portale di anteprima di Azure](https://portal.azure.com) e:
 
-	- **[nome-account]** - Fare clic su **Account Batch**, selezionare l'account Batch creato in precedenza
-	- **[chiave-account]** - Nel pannello dell’account Batch, fare clic su **Proprietà** > **URL**
-	- **[chiave-account]** - nel pannello dell’account Batch, fare clic su **Proprietà** > **Chiavi** > **Chiave di accesso primaria**
+	- **[account-name]**: fare clic su **Account Batch**, selezionare l'account Batch creato in precedenza
+	- **[account-url]**: nel pannello dell'account Batch fare clic su **Proprietà** > **URL**
+	- **[account-key]**: nel pannello dell'account Batch fare clic su **Proprietà** > **Chiavi** > **Chiave di accesso primaria**
 
 3.	Aggiungere questo metodo alla classe Program che crea il pool:
 
@@ -339,7 +339,7 @@ Dopo aver creato il processo, è possibile aggiungervi attività. Ogni attività
 		}
 
 
-	**[nome-account]** deve essere sostituito con il nome dell'account di archiviazione creato in precedenza. Nell'esempio precedente, aggiornare tutte le quattro istanze di **[nome-account]**.
+	**[account-name]**: deve essere sostituito con il nome dell'account di archiviazione creato in precedenza. Nell'esempio precedente aggiornare tutte le quattro istanze di **[account-name]**.
 
 
 2. Aggiungere questo codice a Main per chiamare il metodo appena aggiunto:
@@ -491,8 +491,8 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 
 ## Passaggi successivi
 
-1. Dopo aver appreso le nozioni di base dell'esecuzione di attività, è possibile scoprire come gestire la scalabilità automatica dei nodi di calcolo quando cambia la richiesta per l'applicazione. A tale scopo, vedere [Scalabilità automatica dei nodi di calcolo in un pool di Azure Batch](batch-automatic-scaling.md)
+1. Dopo aver appreso le nozioni di base dell'esecuzione di attività, è possibile scoprire come gestire la scalabilità automatica dei nodi di calcolo quando cambia la richiesta per l'applicazione. A questo scopo, vedere [Scalabilità automatica dei nodi di calcolo in un pool di Azure Batch](batch-automatic-scaling.md)
 
 2. Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
