@@ -63,6 +63,8 @@ Nella tabella seguente è illustrata la gerarchia di spostamento per l'interfacc
 ||Processi|Configura (dispositivo)|| 
 ||Avvisi|Manutenzione||
 
+![Video disponibile](./media/storsimple-manager-service-administration/Video_icon.png) **Video disponibile**
+
 Per guardare un video che illustra l'interfaccia utente del servizio StorSimple Manager, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Gestire il dispositivo StorSimple tramite il servizio StorSimple Manager
@@ -114,4 +116,4 @@ Se non è possibile risolvere i problemi ed è necessario creare una richiesta d
 
 -  [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
