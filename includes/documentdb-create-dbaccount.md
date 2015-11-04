@@ -17,22 +17,23 @@
 
 	- In **Gruppo di risorse** selezionare o creare un gruppo di risorse per l'account DocumentDB. Per impostazione predefinita, verrà creato un nuovo gruppo di risorse. È tuttavia possibile selezionare un gruppo di risorse esistente al quale aggiungere l'account DocumentDB. Per ulteriori informazioni, vedere [Utilizzare il portale di anteprima di Azure per gestire le risorse di Azure](resource-group-portal.md).
  
-	- Usare **Località** per specificare la posizione geografica in cui verrà ospitato l'account DocumentDB.
+	- Usare **Località** per specificare la posizione geografica in cui verrà ospitato l'account DocumentDB.   
 
-4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**. Può richiedere alcuni minuti per creare l'account DocumentDB. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale ![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea](media/documentdb-create-dbaccount/ca4.png)
+4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**.  Può richiedere alcuni minuti per creare l'account DocumentDB. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale  
+	![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea](media/documentdb-create-dbaccount/ca4.png)  
   
-	o dall'Hub di notifica.
+	o dall'Hub di notifica.  
 
-	![Creare database in modo rapido - Schermata dell'hub Notifiche, che mostra l'account DocumentDB creato](media/documentdb-create-dbaccount/ca5.png)
+	![Creare database in modo rapido - Schermata dell'hub Notifiche, che mostra l'account DocumentDB creato](media/documentdb-create-dbaccount/ca5.png)  
 
 	![Schermata dell'hub Notifiche, che mostra che l'account DocumentDB è stato creato correttamente e distribuito a un gruppo di risorse - Creatore di database online](media/documentdb-create-dbaccount/ca6.png)
 
 5.	Dopo aver creato l'account DocumentDB, è pronto per l'utilizzo con le impostazioni predefinite nel portale in linea. Si noti che la coerenza predefinita dell'account DocumentDB è impostata su **Sessione**. È possibile modificare l'impostazione di coerenza predefinita facendo clic sul riquadro **Uniformità predefinita** sul pannello **DocumentDB account**.
 
-    ![Schermata del pannello del gruppo di risorse - iniziare lo sviluppo di applicazioni](media/documentdb-create-dbaccount/ca7.png)
+    ![Schermata del pannello del gruppo di risorse - iniziare lo sviluppo di applicazioni](media/documentdb-create-dbaccount/ca7.png)  
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
