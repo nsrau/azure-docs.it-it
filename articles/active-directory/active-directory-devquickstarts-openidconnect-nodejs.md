@@ -292,7 +292,9 @@ app.get('/logout', function(req, res){
 //   la richiesta è autenticata (in genere tramite una sessione di accesso permanente),
 //   la richiesta procederà. In caso contrario, l'utente verrà reindirizzato alla
 //   pagina di accesso.
-function ensureAuthenticated(req, res, next) { if (req.isAuthenticated()) { return next(); } res.redirect('/login')
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
 }
 ```
 
@@ -305,7 +307,7 @@ app.listen(3000);
 ```
 
 
-## 5\. Creare le viste e le route in Express per visualizzare l'utente nel sito Web
+## 5. Creare le viste e le route in Express per visualizzare l'utente nel sito Web
 
 Il file `app.js` è così completato. Ora è sufficiente aggiungere le route e le viste che mostrano le informazioni ottenute dall'utente e gestire le route `/logout` e `/login` create.
 
@@ -414,4 +416,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->

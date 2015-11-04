@@ -194,7 +194,13 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 
 |Metrica|Contatore|
 |---|---|
-|CPU|\\Processore (\_Totale) \\ % tempo del processore| |Memoria disponibile|\\MByte della memoria disponibile| |IOPS|\\DiscoFisico (\_Totale)\\Trasferimentisudisco/sec| | Lettura VM (IOPS) operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Lettura operazioni/Sec| | Scrittura VM (IOPS)operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Operazioni di scrittura/S| | Produttività di lettura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>) \\Byte di lettura/sec| | produttività di scrittura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>)\\Byte di scrittura/sec|
+|CPU|\\Processore (\_Totale) \\ % tempo del processore|
+|Memoria disponibile|\\MByte della memoria disponibile|
+|IOPS|\\DiscoFisico (\_Totale)\\Trasferimentisudisco/sec|
+| Lettura VM (IOPS) operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Lettura operazioni/Sec|
+| Scrittura VM (IOPS)operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Operazioni di scrittura/S|
+| Produttività di lettura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>) \\Byte di lettura/sec|
+| produttività di scrittura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>)\\Byte di scrittura/sec|
 
 
 ## Passaggi successivi
@@ -208,4 +214,4 @@ Per avviare la distribuzione  
 - [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

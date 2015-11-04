@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/01/2015"
+	ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # Introduzione a Backup di Azure
 Questo articolo offre una panoramica di alto livello della soluzione di backup integrata nel cloud di Microsoft che consente ai clienti di eseguire il backup dei dati disponibili in locale o in Azure.
@@ -62,7 +69,8 @@ Le funzionalità principali della soluzione sono le seguenti:
 | Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
 | Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| Macchine virtuali IaaS di Azure (Windows)| - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) | | Macchine virtuali IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
+| Macchine virtuali IaaS di Azure (Windows)| - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
+| Macchine virtuali IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
 
 
 ## Passaggi successivi
@@ -70,4 +78,4 @@ Le funzionalità principali della soluzione sono le seguenti:
 - Le domande frequenti sul servizio di Backup di Azure sono disponibili [in questa pagina](backup-azure-backup-faq.md).
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
