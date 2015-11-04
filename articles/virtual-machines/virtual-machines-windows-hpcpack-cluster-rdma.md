@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 
 Questo articolo descrive come configurare un cluster RDMA Windows in Azure con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [istanze di dimensioni A8 e A9 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md) per l'esecuzione di applicazioni MPI (Message Passing Interface). Quando si configurano istanze di dimensioni A8 e A9 basate su Windows Server per eseguire un'implementazione MPI supportata, le applicazioni MPI comunicano in modo efficiente tramite una rete a bassa latenza e a velocità effettiva elevata in Azure che è basata sulla tecnologia Accesso diretto a memoria remota (RDMA).
 
->[AZURE.NOTE]La tecnologia Windows RDMA in Azure è attualmente supportata per applicazioni MPI che usano l'interfaccia Microsoft Network Direct per la comunicazione tra le istanze A8 e A9.
+>[AZURE.NOTE] La tecnologia Windows RDMA in Azure è attualmente supportata per applicazioni MPI che usano l'interfaccia Microsoft Network Direct per la comunicazione tra le istanze A8 e A9.
 >
 > Azure offre inoltre le istanze di dimensioni A10 e A11 a elevato utilizzo di calcolo, con funzionalità di elaborazione identiche a quelle delle istanze A8 e A9, ma senza una connessione a una rete back-end RDMA. Per eseguire carichi di lavoro MPI in Azure, in genere si otterranno prestazioni migliori con le istanze A8 e A9.
 
@@ -55,7 +55,7 @@ Da un cluster HPC Pack esistente, aggiungere risorse di calcolo aggiuntive sotto
 
 Di seguito sono riportati i passaggi per il potenziamento in istanze di Azure A8 o A9 da un cluster esistente (in genere locale). È possibile usare procedure simili per aggiungere istanze del ruolo di lavoro a un nodo head HPC Pack distribuito in una macchina virtuale di Azure.
 
->[AZURE.NOTE]Per un'esercitazione che esegue il burst in Azure con HPC Pack, vedere [Configurare un cluster ibrido con HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Si noti che le considerazioni nella procedura seguente si applicano specificatamente ai nodi di Azure di dimensioni A8 e A9.
+>[AZURE.NOTE] Per un'esercitazione che esegue il burst in Azure con HPC Pack, vedere [Configurare un cluster ibrido con HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Si noti che le considerazioni nella procedura seguente si applicano specificatamente ai nodi di Azure di dimensioni A8 e A9.
 
 ![Burst in Azure][burst]
 
@@ -223,7 +223,7 @@ Di seguito sono riportate alcune considerazioni per l'esecuzione di applicazioni
 
 * Per eseguire applicazioni MPI in istanze di Azure, è necessario registrare ogni applicazione MPI con Windows Firewall nelle istanze eseguendo il comando **hpcfwutil**. In questo modo vengono consentite le comunicazioni MPI su una porta assegnata dinamicamente dal firewall.
 
-    >[AZURE.NOTE]Per le distribuzioni di potenziamento in Azure, è inoltre possibile configurare un comando di eccezione del firewall da eseguire automaticamente in tutti i nuovi nodi di Azure aggiunti al cluster. Dopo aver eseguito il comando **hpcfwutil** e verificato il funzionamento dell'applicazione, aggiungere il comando a uno script di avvio per i nodi di Azure. Per altre informazioni, vedere l'articolo che illustra l'[utilizzo di uno script di avvio per i nodi di Azure].https://technet.microsoft.com/library/jj899632(v=ws.10).aspx).
+    >[AZURE.NOTE] Per le distribuzioni di potenziamento in Azure, è inoltre possibile configurare un comando di eccezione del firewall da eseguire automaticamente in tutti i nuovi nodi di Azure aggiunti al cluster. Dopo aver eseguito il comando **hpcfwutil** e verificato il funzionamento dell'applicazione, aggiungere il comando a uno script di avvio per i nodi di Azure. Per altre informazioni, vedere l'articolo che illustra l'[utilizzo di uno script di avvio per i nodi di Azure](https://technet.microsoft.com/library/jj899632(v=ws.10).aspx).
 
 
 
@@ -246,4 +246,4 @@ Di seguito sono riportate alcune considerazioni per l'esecuzione di applicazioni
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

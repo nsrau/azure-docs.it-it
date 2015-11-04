@@ -29,13 +29,13 @@ Familiarità con DocumentDB? Guardare [questo](http://azure.microsoft.com/docume
 
 Ora che avete un account di DocumentDB, il passaggio successivo consiste nel creare un database di DocumentDB. È possibile creare un database utilizzando uno dei seguenti:
 
-- Esempi di Visual c# .NET nel progetto[DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement)prog della rete [azure-documentdb-](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples)repository su GitHub.
-- Il portale di anteprima, come descritto in[creare un database DocumentDB tramite il portale Azure preview](documentdb-create-database.md).
-- Le esercitazioni complete:[.NET](documentdb-get-started.md)[MVC .NET](documentdb-dotnet-application.md)[Java](documentdb-java-application.md)[Node. js](documentdb-nodejs-application.md)o[Python](documentdb-python-application.md).
-- Il[DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).SDK di DocumentDB DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. 
+- Esempi di Visual c# .NET nel progetto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) prog della rete [azure-documentdb-](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) repository su GitHub.
+- Il portale di anteprima, come descritto in [creare un database DocumentDB tramite il portale Azure preview](documentdb-create-database.md).
+- Le esercitazioni complete:[.NET](documentdb-get-started.md)[MVC .NET](documentdb-dotnet-application.md)[Java](documentdb-java-application.md)[Node. js](documentdb-nodejs-application.md) o [Python](documentdb-python-application.md).
+- Il [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). SDK di DocumentDB DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. 
 
 
-Dopo aver creato il database, è necessario[aggiungere una o più raccolte](documentdb-create-collection.md)al database,e poi [aggiungere documenti](documentdb-view-json-document-explorer.md)alle raccolte.
+Dopo aver creato il database, è necessario [aggiungere una o più raccolte](documentdb-create-collection.md) al database,e poi [aggiungere documenti](documentdb-view-json-document-explorer.md) alle raccolte.
 
 Quando si hanno documenti in una raccolta, è possibile utilizzare [DocumentDB SQL](documentdb-sql-query.md) e [eseguire query](documentdb-sql-query.md#executing-queries) rispetto ai documenti utilizzando il [Explorer Query](documentdb-query-collections-query-explorer.md) nel portale di anteprima, [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno del [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
@@ -46,4 +46,4 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
