@@ -51,7 +51,7 @@ I servizi di calcolo di Azure, ovvero le macchine virtuali (IaaS) e i servizi cl
 
 ### Peering pubblico
 
-I servizi quali Archiviazione, database SQL e Siti Web di Azure vengono offerti su indirizzi IP pubblici. È possibile connettersi privatamente ai servizi ospitati su indirizzi IP pubblici, inclusi gli indirizzi VIP dei servizi cloud, tramite il dominio di routing di peering pubblico. È possibile connettere il dominio di peering pubblico al DMZ e connettersi a tutti i servizi di Azure sui rispettivi indirizzi IP pubblici dalla rete WAN senza doversi connettere a Internet.
+I servizi quali Archiviazione, database SQL e Siti Web di Azure vengono offerti su indirizzi IP pubblici. È possibile connettersi privatamente ai servizi ospitati su indirizzi IP pubblici, inclusi gli indirizzi VIP dei servizi cloud, tramite il dominio di routing di peering pubblico. È possibile connettere il dominio di peering pubblico al DMZ e connettersi a tutti i servizi di Azure sui rispettivi indirizzi IP pubblici dalla rete perimetrale senz doversi connettere a Internet.
 
 La connettività viene sempre attivata dalla rete WAN verso i servizi di Microsoft Azure. I servizi di Microsoft Azure non potranno attivare connessioni alla rete dell'utente tramite questo dominio di routing. Dopo l'abilitazione del peering pubblico, sarà possibile connettersi a tutti i servizi di Azure. Non è consentito scegliere in modo selettivo i servizi per cui vengono annunciate route. Per verificare l'elenco dei prefissi pubblicati tramite questo peering, vedere la pagina relativa agli [intervalli IP per i data center di Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653). La pagina viene aggiornata ogni settimana.
 
@@ -77,7 +77,7 @@ La tabella seguente confronta i tre domini di routing.
 |**Indirizzi IP per l'interfaccia di routing**|RFC1918 e indirizzi IP pubblici|Indirizzi IP pubblici registrati per i clienti in registri di routing.| Indirizzi IP pubblici registrati per i clienti in registri di routing.|
 |**Supporto per hash MD5**| Sì|Sì|Sì|
 
-È possibile scegliere di abilitare uno o più domini di routing come parte del rispettivo circuito ExpressRoute. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN se si vuole combinarli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft al DMZ.
+È possibile scegliere di abilitare uno o più domini di routing come parte del rispettivo circuito ExpressRoute. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN se si vuole combinarli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft alla rete perimetrale.
  
 Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tre coppie di sessioni BGP (una coppia per ogni tipo di peering). Le coppie di sessioni BGP forniscono un collegamento a disponibilità elevata. Se si stabilisce la connessione tramite provider di connettività di livello 2, l'utente sarà responsabile della configurazione e della gestione del routing. È possibile ottenere più informazioni esaminando i [flussi di lavoro](expressroute-workflows.md) per la configurazione di ExpressRoute.
 
@@ -90,4 +90,4 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
 	- [Configurare il routing (peering del circuito)](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
