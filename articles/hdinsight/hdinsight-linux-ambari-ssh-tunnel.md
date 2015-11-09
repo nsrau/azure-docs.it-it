@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="10/09/2015"
+ms.date="10/26/2015"
 ms.author="larryfr"/>
 
 #Vedere Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web.
@@ -144,21 +144,11 @@ Se è stato installato FoxyProxy Standard, seguire questa procedura per configur
 
 4. Fare clic sulla scheda **URL Patterns** e selezionare **Add New Pattern**. Usare i campi seguenti per definire il criterio, quindi fare clic su **OK**:
 
-	* **Pattern Name** - **headnode**: si tratta di un nome descrittivo per il criterio.
+	* **Nome del modello** - **nodo del cluster**: si tratta di un nome descrittivo per il modello.
 
-	* **URL pattern** - ***headnode***: definisce un criterio che trova la corrispondenza con qualsiasi URL contenente la parola **headnode**.
+	* **Modello di URL** - ***internal.cloudapp.net*** -definisce un modello che corrisponde al nome di dominio completo interno dei nodi del cluster.
 
 	![foxyproxy pattern](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-
-	> [AZURE.NOTE]Se si utilizza un cluster __HBase__, è inoltre necessario aggiungere il modello seguente, poiché include un'interfaccia utente web sui nodi del cluster zookeeper:
-	>
-	> * __Nome modello__ - __zookeeper__
-	> * __Modello di URL__ - __* zookeeper *__
-	>
-	> Se si utilizza un cluster __Storm__, è necessario aggiungere i seguenti modelli, poiché l’interfaccia utente di Storm si collega all'indirizzo IP dei nodi di lavoro durante il recupero dei log. Stiamo lavorando per modificare questa opzione per utilizzare il nome di dominio in un aggiornamento futuro.
-	>
-	> * __Nome modello__ - __nodesbyip__
-	> * __Modello di URL__ - __* 10.0.0.*__
 
 4. Fare clic su **OK** per aggiungere il proxy e chiudere la finestra **Proxy Settings**.
 
@@ -166,13 +156,13 @@ Se è stato installato FoxyProxy Standard, seguire questa procedura per configur
 
 	![foxyproxy select mode](./media/hdinsight-linux-ambari-ssh-tunnel/selectmode.png)
 
-Dopo aver eseguito questa procedura, solo le richieste per gli URL contenenti la stringa **headnode** verranno instradate attraverso il tunnel SSL.
+Dopo aver eseguito questa procedura, solo le richieste per gli URL contenenti la stringa __internal.cloudapp.net__ verranno instradate attraverso il tunnel SSL.
 
 ##Verificare con l’interfaccia utente web di Ambari
 
 Una volta stabilito il cluster, utilizzare la procedura seguente per verificare che sia possibile accedere all’interfaccia utente del servizio dal web Ambari:
 
-1. Nel browser, passare a https://CLUSTERNAME.azurehdinsight.net, dove NOME CLUSTER è il nome del cluster HDInsight.
+1. Nel browser, passare a https://CLUSTERNAME.azurehdinsight.net, dove NOME DEL CLUSTER è il nome del cluster HDInsight.
 
 	Quando richiesto, immettere il nome dell'account amministratore (admin) e la password per il cluster. Può essere richiesto una seconda volta dall'interfaccia utente web di Ambari. In tal caso, è necessario immettere nuovamente le informazioni.
 
@@ -193,7 +183,7 @@ Una volta stabilito il cluster, utilizzare la procedura seguente per verificare 
 
 	![Immagine dell'interfaccia utente di ResourceManager YARN](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP]Si noti l'URL della pagina. dovrebbe essere simile a \___http://headnode1.CLUSTERNAME-ssh.j8.internal.cloudapp.net:8088/cluster__. Questo utilizza il nome di dominio interno completo (FQDN) del nodo e non è accessibile senza utilizzare un tunnel SSH.
+	> [AZURE.TIP]Si noti l'URL per questa pagina. Dovrebbe essere simile a \___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Questo utilizza il nome di dominio interno completo (FQDN) del nodo e non è accessibile senza utilizzare un tunnel SSH.
 
 ##Passaggi successivi
 
@@ -207,4 +197,4 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguen
 
 * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

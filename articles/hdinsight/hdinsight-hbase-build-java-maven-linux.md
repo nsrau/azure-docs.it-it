@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 #Usare Maven per compilare applicazioni Java che usano HBase con HDInsight (Hadoop)
@@ -159,6 +159,9 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
 		    //            "zookeepernode0,zookeepernode1,zookeepernode2");
 		    //config.set("hbase.zookeeper.property.clientPort", "2181");
 		    //config.set("hbase.cluster.distributed", "true");
+            //
+            //NOTE: Actual zookeeper host names can be found using Ambari:
+            //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
 
 		    // create an admin object using the config
 		    HBaseAdmin admin = new HBaseAdmin(config);
@@ -361,4 +364,4 @@ Dopo aver finito con l'esempio, usare il comando seguente dalla sessione di Azur
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

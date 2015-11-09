@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Application Insights per le applicazioni web Java che sono già live
@@ -139,4 +139,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

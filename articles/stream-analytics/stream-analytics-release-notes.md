@@ -13,10 +13,22 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/22/2015" 
 	ms.author="jeffstok"/>
 
 #Note sulla versione di Analisi di flusso Microsoft
+
+## Note per la versione 22/10/2015 di Analisi di flusso ##
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+Titolo | Descrizione
+---|---
+Funzionalità del linguaggio di query aggiuntive | Analisi di flusso ha espanso il linguaggio di query includendo le seguenti funzionalità: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [quadrato](https://msdn.microsoft.com/library/azure/mt605288.aspx), e [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
+Rimuovere le limitazioni di aggregazione | Questa versione consente di rimuovere il limite di 15 aggregazioni in una query. A questo punto non vi sono limiti al numero di aggregazioni per ogni query.
+Nuova funzionalità GROUP BY di System.Timestamp | La funzione [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) consente ora sia window\_type sia [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
+OFFSET aggiunto per le finestre a cascata e di salto. | Per impostazione predefinita, le finestre [a cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) e [di salto](https://msdn.microsoft.com/library/azure/dn835041.aspx) sono allineate rispetto al tempo zero (1/1/0001 12:00:00 AM UTC). Il nuovo parametro (facoltativo) 'offsetsize' consente di specificare un offset personalizzato (o allineamento).
+
 
 ## Note per la versione 29/09/2015 di Analisi di flusso ##
 
@@ -104,4 +116,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

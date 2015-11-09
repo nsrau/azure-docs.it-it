@@ -40,7 +40,7 @@ PPer utilizzare Microsoft Azure DocumentDB, è necessario disporre di un[Documen
 
 	- **Default**. Questo criterio è migliore quando si eseguono query di uguaglianza su stringhe e utilizzando ORDER BY, l'intervallo e le query di uguaglianza per i numeri. Questo criterio ha un overhead di archiviazione indice inferiore rispetto a **Intervallo**.
 	- **Hash**. Questo criterio è migliore quando si eseguono le query di uguaglianza per i numeri e stringhe. Questo criterio ha l'overhead di archiviazione di indice più basso.
-	- **Range**. Questo criterio è consigliabile quando si sta utilizzando query ORDER BY, intervallo e uguaglianza su stringhe e numeri. Questo criterio ha un overhead di archiviazione indice superiore rispetto a **Predefinito** o **Hash**.
+	- **Range**. Questo criterio è migliore quando si utilizzano query ORDER BY, di intervallo e di uguaglianza sia in presenza di numeri che di stringhe. Questo criterio ha un overhead di archiviazione indice superiore rispetto a **Predefinito** o **Hash**.
 
 	Per ulteriori informazioni sulle regole di indicizzazione, vedere[DocumentDB regole di indicizzazione](documentdb-indexing-policies.md).
 
@@ -65,4 +65,4 @@ A questo punto, dopo aver creato una raccolta, il passaggio successivo consiste 
 
 Quando si hanno documenti in una raccolta, è possibile utilizzare [DocumentDB SQL](documentdb-sql-query.md) e [eseguire query](documentdb-sql-query.md#executing-queries) rispetto ai documenti utilizzando il [Explorer Query](documentdb-query-collections-query-explorer.md) nel portale di anteprima, [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno del [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

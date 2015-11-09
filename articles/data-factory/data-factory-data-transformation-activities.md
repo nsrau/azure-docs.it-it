@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/27/2015" 
 	ms.author="spelluru"/>
 
 # Trasformazione e analisi tramite Data factory di Azure
@@ -24,13 +24,11 @@ Le attività di trasformazione in Azure Data factory trasformano ed elaborano i 
 
 Attività di trasformazione | Ambiente di calcolo 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
-[Hadoop Streaming](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
-[Machine Learning Batch Scoring](data-factory-create-predictive-pipelines.md) | Macchina virtuale di Azure 
-[Stored procedure](data-factory-stored-proc-activity.md) | SQL di Azure | 
-[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] o Batch di Azure    
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [Machine Learning Batch Execution](data-factory-azure-ml-batch-execution-activity.md) | Macchina virtuale di Azure 
+[Stored procedure](data-factory-stored-proc-activity.md) | SQL di Azure |
+[Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) | Azure Data Lake Analytics. 
+[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] o Batch di Azure
+   
 
 È necessario creare un servizio collegato per l'ambiente di calcolo e quindi utilizzare il servizio collegato quando si definisce un'attività di trasformazione. Esistono due tipi di ambienti di calcolo supportati da Data factory.
 
@@ -40,6 +38,6 @@ Attività di trasformazione | Ambiente di calcolo
 Per informazioni sui servizi collegati di calcolo supportati da Data factory, vedere l'articolo [Servizi collegati di calcolo](data-factory-compute-linked-services.md).
 
 ## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md) richiede solo alcuni minuti.
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

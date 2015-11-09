@@ -1,15 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Egnyte | Microsoft Azure" description="Informazioni su come usare Egnyte con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Egnyte | Microsoft Azure" 
+    description="Informazioni su come usare Egnyte con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Egnyte
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=528188).
   
-Questa esercitazione descrive l'integrazione di Azure ed Egnyte.
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure ed Egnyte. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di Egnyte abilitata per l'accesso Single Sign-On
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Egnyte potranno accedere all'applicazione tramite il sito aziendale di Egnyte (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](https://msdn.microsoft.com/library/dn308586)
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Egnyte potranno accedere all'applicazione tramite il sito aziendale di Egnyte (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md)
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -25,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Egny
 
 ###Per abilitare l'integrazione dell'applicazione per Egnyte, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
 
     ![Active Directory](./media/active-directory-saas-egnyte-tutorial/IC700993.png "Active Directory")
 
@@ -39,7 +51,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Egny
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-egnyte-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-egnyte-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -52,9 +64,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Egny
     ![Egnyte](./media/active-directory-saas-egnyte-tutorial/IC787814.png "Egnyte")
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Egnyte tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
-Per eseguire questa procedura, è necessario creare un certificato con codifica Base 64.  
-Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Egnyte tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Per eseguire questa procedura, è necessario creare un certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -96,16 +106,16 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
     2.  In **Identity provider** selezionare **AzureAD**.
     3.  Nella pagina **Configura accesso Single Sign-On in Egnyte** nel portale di Azure copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **Identity provider login URL**.
 4.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Egnyte** nel portale di Azure copiare il valore di **ID entità** e quindi incollarlo nella casella di testo **Identity provider entity ID**.
-    5.  Creare un file con **codifica Base 64** dal certificato scaricato.  
+    5.  Creare un file **con codifica Base 64** dal certificato scaricato.  
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **Identity provider certificate**.
+    6.  Aprire il certificato con codifica base 64 nel blocco note, copiarne il contenuto negli appunti e quindi incollarlo nella casella di testo **Identity provider certificate**.
     7.  In **Default user mapping** selezionare **Email address**.
     8.  In **Use domain-specific issuer value** selezionare **disabled**.
     9.  Fare clic su **Save**.
 
-10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -145,10 +155,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-egnyte-tutorial/IC787826.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-egnyte-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

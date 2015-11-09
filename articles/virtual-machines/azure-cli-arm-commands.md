@@ -37,7 +37,7 @@ Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tr
 
 Come avviene con la [modalità Gestione servizi di Azure](../virtual-machines-command-line-tools.md), la modalità Gestione risorse dell'interfaccia della riga di comando di Azure offre comandi che consentono di creare risorse in modo imperativo nella riga di comando. Ad esempio, se si digita `azure group create <groupname> <location>`, si chiede ad Azure di creare un gruppo di risorse, mentre con `azure group deployment create <resourcegroup> <deploymentname>` si indica ad Azure di creare una distribuzione di un numero qualsiasi di elementi e di inserirli in un gruppo. Poiché per ogni tipo di risorsa sono previsti comandi imperativi, è possibile concatenarli per creare distribuzioni piuttosto complesse.
 
-L'uso di _modelli_ che descrivono un gruppo di risorse costituisce tuttavia un approccio dichiarativo molto più potente che consente di automatizzare distribuzioni complesse indipendentemente dal numero di risorse e quasi per qualunque scopo. Quando si usano modelli, l'unico comando imperativo è per distribuire uno di essi. Per informazioni generali su modelli, risorse e gruppi di risorse, vedere l'articolo relativo alla [panoramica dei gruppi di risorse di Azure](resource-groups-overview).
+L'uso di _modelli_ che descrivono un gruppo di risorse costituisce tuttavia un approccio dichiarativo molto più potente che consente di automatizzare distribuzioni complesse indipendentemente dal numero di risorse e quasi per qualunque scopo. Quando si usano modelli, l'unico comando imperativo è per distribuire uno di essi. Per informazioni generali su modelli, risorse e gruppi di risorse, vedere l'articolo relativo alla [panoramica dei gruppi di risorse di Azure](../resource-group-overview.md).
 
 ##Requisiti per l'uso
 
@@ -1742,4 +1742,4 @@ Opzioni dei parametri:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

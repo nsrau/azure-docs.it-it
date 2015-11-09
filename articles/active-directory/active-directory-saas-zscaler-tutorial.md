@@ -1,7 +1,20 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Zscaler | Microsoft Azure" description="Informazioni su come usare Zscaler con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Zscaler | Microsoft Azure" 
+    description="Informazioni su come usare Zscaler con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Zscaler
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=521842).
   
 Questa esercitazione descrive l'integrazione di Azure e Zscaler. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -30,15 +43,15 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Zsca
 
 2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.
+3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
     ![Applicazioni](./media/active-directory-saas-zscaler-tutorial/IC700994.png "Applicazioni")
 
-4.  Fare clic su **Aggiungi** nella parte inferiore della pagina.
+4.  Fare clic su **Add** nella parte inferiore della pagina.
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-zscaler-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-zscaler-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -91,7 +104,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Choose Authentication Options](./media/active-directory-saas-zscaler-tutorial/IC769488.png "Choose Authentication Options")
 
-    1.  Selezionare **Authenticate using SAML Single Sign-on**.
+    1.  Selezionare **Authenticate using SAML Single Sign-On**.
     2.  Fare clic su **Configure SAML Single Sign-On Parameters**.
 
 9.  Nella pagina della finestra di dialogo **Configure SAML Single Sign-On Parameters** procedere come descritto di seguito e quindi fare clic su **Done**:
@@ -166,8 +179,8 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler, è necessario eseg
 
     ![Aggiunta di un utente](./media/active-directory-saas-zscaler-tutorial/IC781038.png "Aggiunta di un utente")
 
-    1.  Digitare **UserID**, **User Display Name**, **Password** e **Confirm Password** e quindi selezionare **Groups** e **Department** di un account Azure AD valido di cui si vuole eseguire il provisioning.
-    2.  Fare clic su **Save**.
+    1.  Digitare **UserID**, **User Display Name**, **Password** e **Confirm Password** e quindi selezionare **Groups** e **Department** di un account ADD valido di cui si vuole eseguire il provisioning.
+    2.  Fare clic su **Salva**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zscaler per eseguire il provisioning degli account utente Azure AD.
 
@@ -187,6 +200,6 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-zscaler-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

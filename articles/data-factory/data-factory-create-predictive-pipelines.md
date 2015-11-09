@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning 
@@ -315,4 +315,4 @@ Nell'esempio JSON precedente:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

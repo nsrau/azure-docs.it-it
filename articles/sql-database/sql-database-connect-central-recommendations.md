@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -23,6 +23,8 @@
 
 Questo argomento è un ottimo strumento per iniziare a utilizzare la connettività dei client al database SQL di Azure. Vengono forniti collegamenti agli esempi di codice per le varie tecnologie che è possibile utilizzare per connettersi e interagire con il database SQL. Rientrano in queste tecnologie Enterprise Library, JDBC e PHP e molte altre. Le informazioni contenute in questa sezione si applicano indipendentemente dalla tecnologia specifica utilizzata per connettersi al database SQL.
 
+
+<a id="a-tech-independent-recommend" name="a-tech-independent-recommend"></a>
 
 ## Indicazioni non correlate alla tecnologia
 
@@ -35,6 +37,8 @@ Questo argomento è un ottimo strumento per iniziare a utilizzare la connettivit
  - Applicazione dei limiti
  - Limitazione
 
+
+<a id="b-authentication-recommend" name="b-authentication-recommend"></a>
 
 ## Indicazioni di autenticazione
 
@@ -63,8 +67,10 @@ L'approccio dell'utente indipendente presenta vantaggi e svantaggi:
  - Un utente indipendente in diversi database potrebbe avere più password da ricordare o da aggiornare.
 
 
-In [Database indipendenti](http://msdn.microsoft.com/library/ff929071.aspx) sono disponibili altre informazioni.
+Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](http://msdn.microsoft.com/library/ff929188.aspx).
 
+
+<a id="c-connection-recommend" name="c-connection-recommend"></a>
 
 ## Indicazioni di connessione
 
@@ -73,8 +79,7 @@ In [Database indipendenti](http://msdn.microsoft.com/library/ff929071.aspx) sono
  - Il valore predefinito di 15 secondi è troppo breve per connessioni che dipendono da Internet.
 
 
-- Assicurarsi che il [firewall del database SQL di Azure](sql-database-firewall-configure.md) consenta la comunicazione TCP in uscita sulla porta 1433.
- - È possibile configurare le impostazioni del firewall su un server del database SQL o per un singolo database.
+- Nel computer che ospita il programma client, verificare che il firewall consenta le comunicazioni TCP in uscita sulla porta 1433.
 
 
 - Se il programma client si connette a SQL Database V12 mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire gli intervalli di porta 11000-11999 e 14000-14999 nella macchina virtuale: Per informazioni dettagliate, fare clic [qui](sql-database-develop-direct-route-ports-adonet-v12.md).
@@ -145,6 +150,8 @@ Quando si verifica un errore del database SQL, viene generata un'eccezione [SqlE
 Per altre informazioni, vedere:- [Sviluppo nel database SQL di Azure: Procedure](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Risoluzione dei problemi di connessione al Database SQL Azure](http://support.microsoft.com/kb/2980233/)
 
 
+<a id="e-technologies" name="e-technologies"></a>
+
 ## Tecnologie
 
 
@@ -167,4 +174,4 @@ Vengono forniti vari esempi di codice per i client che eseguono Windows, Linux e
 
 - [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

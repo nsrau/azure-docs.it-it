@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 
@@ -292,9 +292,9 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
 
 	Verranno restituite informazioni simili alle seguenti:
 
-		headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net
+		hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net
 
-	La porta usata per JobTracker è 8050, quindi l'indirizzo completo da usare per JobTracker sarà **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050**.
+	La porta usata per JobTracker è 8050, quindi l'indirizzo completo da usare per JobTracker sarà **hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050**.
 
 1. Usare quanto segue per creare la configurazione della definizione del processo Oozie:
 
@@ -390,13 +390,13 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
 	Verrà restituito un valore simile al seguente:
 
 		<name>oozie.base.url</name>
-		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
+		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	La parte ****http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** è l'URL da usare con il comando Oozie.
+	La parte ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** è l'URL da usare con il comando Oozie.
 
 2. Usare quanto segue per creare una variabile di ambiente per l'URL, in modo che non sia necessario digitarlo per ogni comando:
 
-		export OOZIE_URL=http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie
+		export OOZIE_URL=http://HOSTNAMEt:11000/oozie
 
 	Sostituire l'URL con quello ricevuto in precedenza.
 
@@ -721,4 +721,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

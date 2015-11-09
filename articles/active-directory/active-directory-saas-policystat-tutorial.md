@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con PolicyStat | Microsoft Azure" description="Informazioni su come usare PolicyStat con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con PolicyStat | Microsoft Azure" 
+    description="Informazioni su come usare PolicyStat con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con PolicyStat
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=616313).
   
 In questa esercitazione viene illustrata l'integrazione di Azure e PolicyStat. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant PolicyStat
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a PolicyStat saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di PolicyStat (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586)
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a PolicyStat saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di PolicyStat (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md)
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -79,7 +92,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Menu Amministratore](./media/active-directory-saas-policystat-tutorial/IC808633.png "Menu Amministratore")
 
-7.  Nella sezione **Impostazione** selezionare **Abilitare integrazione di Single Sign-On**.
+7.  Nella sezione **Configurazione** selezionare **Abilitare integrazione di Single Sign-On**.
 
     ![Configurazione di Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC808634.png "Configurazione di Single Sign-On")
 
@@ -139,6 +152,6 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Sì](./media/active-directory-saas-policystat-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

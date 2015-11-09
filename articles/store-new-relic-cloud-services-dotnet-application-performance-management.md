@@ -3,8 +3,8 @@
 	description="Informazioni sull'uso del servizio New Relic per gestire e monitorare l'applicazione Azure." 
 	services="" 
 	documentationCenter=".net" 
-	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	authors="nickfloyd" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -14,23 +14,22 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="stepsic"/>
+	ms.author="nickfloyd@newrelic.com"/>
 
 
 
-#Gestione delle prestazioni delle applicazioni con New Relic in Siti Web di Azure
+# Gestione delle prestazioni delle applicazioni con New Relic in Siti Web di Azure
 
-In questa guida viene illustrata l'aggiunta di New Relic per un monitoraggio di qualità superiore delle prestazioni delle applicazioni ospitate in Azure. Verrà illustrato un processo semplice e rapido per aggiungere New Relic all'applicazione e ne verranno introdotte alcune delle funzionalità. Per altre informazioni sull'utilizzo di New Relic, vedere [Utilizzo di New Relic](#using-new-relic).
+In questa guida viene illustrata l'aggiunta di New Relic per un monitoraggio di qualità superiore delle prestazioni delle applicazioni ospitate in Azure. Verrà illustrato un processo semplice e rapido per aggiungere New Relic all'applicazione e ne verranno introdotte alcune delle funzionalità. Per ulteriori informazioni sull'utilizzo di New Relic, vedere [Utilizzo di New Relic](#using-new-relic).
 
-Informazioni su New Relic 
---
+## Informazioni su New Relic
 
 New Relic è uno strumento destinato agli sviluppatori per il monitoraggio delle applicazioni di produzione, in grado di fornire informazioni molto approfondite su prestazioni e affidabilità. Lo strumento è progettato per consentire di risparmiare tempo quando si identificano o si diagnosticano problemi di prestazioni ed è in grado di mettere alla portata dell'utente tutte le informazioni necessarie per la risoluzione di tali problemi.
 
 New Relic tiene traccia del tempo di caricamento e della velocità effettiva della transazione Web, sia dal server che dai browser degli utenti. Visualizza il tempo trascorso nel database, analizza le query e le richieste Web più lente, fornisce il monitoraggio del tempo di attività e l'invio di avvisi, tiene traccia delle eccezioni delle applicazioni e molto altro ancora.
 
-New Relic a un prezzo speciale tramite Azure Store 
---
+## New Relic a un prezzo speciale tramite Azure Store
+
 
 New Relic Standard è gratuito per gli utenti di Azure. New Relic Pro viene offerto in base alle dimensioni delle istanze per i servizi cloud di Azure
 
@@ -40,8 +39,7 @@ Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Sto
 
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
-Iscrizione a New Relic tramite Azure Store 
---
+## Iscrizione a New Relic utilizzando Azure Store
 
 New Relic si integra facilmente con i ruoli Web e di lavoro di Azure.
 
@@ -95,7 +93,7 @@ Per iscriversi a New Relic direttamente da Azure Store, attenersi alla procedura
 	![Pubblicare il progetto cloud](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
-**Nota:** se si sta distribuendo l'app in Azure per la prima volta, verrà richiesta l'immissione delle credenziali di Azure. Per altre informazioni, vedere l'articolo relativo alla <a href="/develop/net/tutorials/get-started/">distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure</a>.
+**Nota:** se si sta distribuendo l'app in Azure per la prima volta, verrà richiesta l'immissione delle credenziali di Azure. Per altre informazioni, vedere l'articolo relativo alla [distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure](app-service-web\web-sites-dotnet-get-started.md)
 
 ![Impostazioni di pubblicazione](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
@@ -117,49 +115,23 @@ Per visualizzare il dashboard di New Relic:
 
 Dopo avere selezionato l'applicazione dall'elenco nel menu Applications, nel dashboard Overview verranno visualizzate le informazioni relative al server applicazioni e al browser. Per passare da una visualizzazione all'altra, fare clic sul pulsante **App server** o **Browser**.
 
-Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">interfaccia utente standard di New Relic</a> e dal <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">drill-down dei dashboard</a>, nel dashboard Applications Overview sono disponibili funzioni aggiuntive.
+Oltre alle funzioni fornite dall'[interfaccia utente standard di New Relic](https://newrelic.com/docs/site/the-new-relic-ui#functions") e dal [drill-down dei dashboard](https://newrelic.com/docs/site/the-new-relic-ui#drilldown), nel dashboard Applications Overview sono disponibili funzioni aggiuntive.
 
-<table border="1">
-  <thead>
-    <tr>
-      <th><b>Per...</b></th>
-      <th><b>Eseguire l'operazione seguente...</b></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-       <td>Visualizzare informazioni del dashboard per il server applicazioni o browser selezionato</td>
-       <td>Fare clic sul pulsante <b>App Server</b> o <b>Browser</b>.</td>
-    </tr>
-     <tr>
-       <td>Visualizzare i livelli di soglia per il punteggio <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> dell'applicazione</td>
-       <td>Selezionare l'icona del punteggio Apdex <b>?<b>.</b></b></td>
-    </tr>
-    <tr>
-       <td>Visualizzare dettagli Apdex a livello globale</td>
-       <td>Nella visualizzazione <b>Browser</b> della schermata Overview selezionare un punto qualsiasi nella mappa Global Apdex.<br /><b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Geography</a> per l'app selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
-    </tr>
-    <tr>
-       <td>Visualizzare il dashboard <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web Transactions</a></td>
-       <td>Fare clic sulla tabella Web Transactions nel dashboard Applications Overview. Oppure per visualizzare dettagli relativi a una transazione Web specifica (comprese quelle del gruppo <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>) fare clic sul nome della transazione.</td>
-    </tr>
-    <tr>
-       <td>Visualizzare il dashboard <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a></td>
-       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br /><b>Suggerimento:</b> è anche possibile visualizzare il dashboard Errors selezionando <b>Applications</b> > (applicazione) > Events > Errors.</td>
-    </tr>
-    <tr>
-       <td>Visualizzare i dettagli relativi al server applicazioni</td>
-       <td><p>Eseguire una o più delle operazioni seguenti:<p>
-        <ul>
-          <li>Passare da una visualizzazione in tabella degli host a una dei dettagli sulle metriche di suddivisione per ogni host.</li>
-          <li>Fare clic sul nome di un server specifico.</li>
-          <li>Selezionare il punteggio Apdex per un server specifico.</li>
-          <li>Fare clic sull'utilizzo della CPU o della memoria di un server specifico.</li>
-        </ul>
-       </p></p></td>
-    </tr>
-  </tbody>
-</table>
+| Per... | Effettuare l'operazione seguente: |
+| ----------------- | ---------- |
+| Visualizzare informazioni del dashboard per il server applicazioni o il browser selezionato | Fare clic sul pulsante **App Server** o **Browser**. |
+| Visualizzare i livelli di soglia per il punteggio [Apdex](https://newrelic.com/docs/site/apdex) dell'applicazione | Selezionare l'icona del punteggio Apdex **?**. |
+| Visualizzare i dettagli Apdex a livello globale | Nella visualizzazione **Browser** della schermata Overview selezionare un punto qualsiasi nella mappa Global Apdex. **Suggerimento:** per passare direttamente al dashboard [Geography](https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard") per l'app selezionata, fare clic sul titolo **Global Apdex** oppure fare clic in un punto qualsiasi della mappa Global Apdex. |
+| Visualizzare il dashboard [Web Transactions](https://newrelic.com/docs/applications-dashboards/web-transactions) | Fare clic sulla tabella Web Transactions nel dashboard Applications Overview. Oppure, per visualizzare i dettagli relativi a una transazione Web specifica (comprese quelle del gruppo [Key Transactions](https://newrelic.com/docs/site/key-transactions")), fare clic sul nome della transazione. |
+| Visualizzare il dashboard [Errori](https://newrelic.com/docs/site/errors) | Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview. **Suggerimento:** è anche possibile visualizzare il dashboard Errors selezionando **Applications** > (applicazione) > Events > Errors. |
+
+
+Inoltre, se si desidera visualizzare i dettagli del server dell'app, eseguire una o più dell seguenti operazioni:
+
+- Passare da una visualizzazione in tabella degli host a una dei dettagli sulle metriche di suddivisione per ogni host.
+- Fare clic sul nome di un server specifico.
+- Selezionare il punteggio Apdex per un server specifico.
+- Fare clic sull'utilizzo della CPU o della memoria di un server specifico.
 
 Di seguito è riportato un esempio del dashboard Applications Overview quando è selezionata la visualizzazione Browser.
 
@@ -176,4 +148,4 @@ Per altre informazioni, è possibile consultare le seguenti risorse aggiuntive:
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): presentazione del modo in cui la funzionalità RUM registra i dettagli relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricare le pagine Web e ai tipi di browser usati
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

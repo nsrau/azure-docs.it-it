@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="garye;raymondl"/>
 
 # Utilizzare un servizio Web di Azure Machine Learning con un modello di app Web
 
-Dopo avere creato e distribuito un servizio Web predittivo dall'esperimento in Machine Learning Studio, è possibile accedere al modello predittivo tramite un'API REST. Ci sono diversi modi per utilizzare l'API REST e accedere al servizio Web. Ad esempio, è possibile scrivere un'applicazione in C#, R o Python usando il codice di esempio generato automaticamente quando è stato distribuito il servizio Web, disponibile nella pagina della Guida dell'API nel dashboard del servizio Web in Machine Learning Studio. In alternativa, è possibile usare la cartella di lavoro di Microsoft Excel di esempio creata, disponibile anche nel dashboard del servizio Web in Studio.
+Dopo aver sviluppato il modello predittivo e averlo distribuito come un servizio web di Azure mediante Machine Learning Studio o mediante strumenti come R o Python, è possibile accedere al modello operazionalizzato utilizzando un'API REST.
+
+Ci sono diversi modi per utilizzare l'API REST e accedere al servizio Web. Ad esempio, è possibile scrivere un'applicazione in C#, R o Python usando il codice di esempio generato automaticamente quando è stato distribuito il servizio Web, disponibile nella pagina della Guida dell'API nel dashboard del servizio Web in Machine Learning Studio. In alternativa, è possibile usare la cartella di lavoro di Microsoft Excel di esempio creata, disponibile anche nel dashboard del servizio Web in Studio.
 
 Il modo più rapido e semplice per accedere al servizio Web consiste però nell'usare i modelli di app Web disponibili nel [Marketplace delle app Web di Azure](https://azure.microsoft.com/marketplace/web-applications/all/).
 
@@ -44,7 +46,7 @@ Dopo aver distribuito il servizio Web, è possibile seguire i passaggi seguenti 
 
 ![Processo per l'uso del modello Web RRS][image1]
 
-1. In Machine Learning Studio aprire la scheda **Web Services** scheda e quindi aprire il servizio Web a cui si vuole accedere. Copiare la chiave indicata in **API key** e salvarla.
+1. In Machine Learning Studio aprire la scheda **Web Services** e quindi aprire il servizio Web a cui si vuole accedere. Copiare la chiave indicata in **API key** e salvarla.
 
 	![API Key][image3]
 
@@ -64,7 +66,7 @@ Dopo aver distribuito il servizio Web, è possibile seguire i passaggi seguenti 
 
 	![Crea app Web][image5]
 
-4. Quando Azure ha terminato la distribuzione dell'app Web, fare clic su **URL** nella pagina delle impostazioni dell'app Web in Azure o immettere l'URL in un Web browser. Ad esempio, `http://carprediction.azurewebsites.net.`
+4. Quando Azure ha terminato la distribuzione dell'app Web, fare clic su **URL** nella pagina delle impostazioni dell'app Web in Azure o immettere l'URL in un browser web. Ad esempio, `http://carprediction.azurewebsites.net.`
 
 5. Quando l'app Web viene eseguita per la prima volta, verranno richiesti i valori di **API Post URL** e **API Key**. Immettere i valori salvati in precedenza:
 	- **Request URI** dalla pagina della Guida dell'API per **API Post URL**
@@ -74,7 +76,7 @@ Dopo aver distribuito il servizio Web, è possibile seguire i passaggi seguenti 
 
 	![Immettere Post URI e API Key][image6]
 
-6. L'app Web visualizza la propria pagina **Web App Configuration** con le impostazioni del servizio Web correnti. Qui è possibile apportare modifiche alle impostazioni usate dall'app Web.
+6. L'app Web visualizza la propria pagina **Configurazione app Web** con le impostazioni del servizio Web correnti. Qui è possibile apportare modifiche alle impostazioni usate dall'app Web.
 
 	> [AZURE.NOTE]La modifica delle impostazioni in questa pagina si applicano solo a questa app Web. Non vengono modificate le impostazioni predefinite del servizio Web. Ad esempio, se si modifica la voce **Description** qui, non viene modificata la descrizione indicata nel dashboard del servizio Web in Machine Learning Studio.
 
@@ -123,4 +125,4 @@ Per altre informazioni su...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

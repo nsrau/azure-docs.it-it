@@ -5,7 +5,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -77,4 +77,4 @@ Questo articolo descrive i diversi parametri che si applicano durante l'aggiorna
 [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

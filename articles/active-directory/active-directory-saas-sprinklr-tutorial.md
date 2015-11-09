@@ -1,15 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Zscaler | Microsoft Azure" description="Informazioni su come usare Sprinklr con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Zscaler | Microsoft Azure" 
+    description="Informazioni su come usare Sprinklr con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Sprinklr
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=526454).
   
-Questa esercitazione descrive l'integrazione di Azure e Sprinklr.  
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e Sprinklr. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Un tenant Sprinklr
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Sprinklr potranno accedere all'applicazione tramite il sito aziendale di Sprinklr (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Sprinklr potranno accedere all'applicazione tramite il sito aziendale di Sprinklr (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -40,7 +52,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Spri
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-sprinklr-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-sprinklr-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -54,9 +66,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Spri
 
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Sprinklr tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
-Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Sprinklr tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -78,15 +88,15 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di Sprinklr come amministratore.
 
-6.  Passare a **Amministrazione > Impostazioni**.
+6.  Passare a **Administration > Settings**.
 
     ![Amministrazione](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Amministrazione")
 
-7.  Andare a **Gestisci partner > Single Sign On** nel riquadro sinistro.
+7.  Andare a **Manage Partner > Single Sign** nel riquadro sinistro.
 
     ![Gestisci partner](./media/active-directory-saas-sprinklr-tutorial/IC782908.png "Gestisci partner")
 
-8.  Fare clic su **+ Aggiungi accessi Single Sign On**.
+8.  Fare clic su **+ Add Single Sign Ons**.
 
     ![Accessi Single Sign-On](./media/active-directory-saas-sprinklr-tutorial/IC782909.png "Accessi Single Sign-On")
 
@@ -94,20 +104,20 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
     ![Accessi Single Sign-On](./media/active-directory-saas-sprinklr-tutorial/IC782910.png "Accessi Single Sign-On")
 
-    1.  Nella casella di testo **Nome** digitare un nome per la configurazione (ad esempio *WAADSSOTest*).
-    2.  Selezionare **Abilitato**.
-    3.  Selezionare **Utilizza nuovo certificato SSO**.
+    1.  Nella casella di testo **Name** digitare un nome per la configurazione (ad esempio *WAADSSOTest*).
+    2.  Selezionare **Enabled**.
+    3.  Selezionare **Use new SSO Certificate**.
     4.  Creare un file **con codifica Base 64** dal certificato scaricato.  
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
-    5.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **Certificato provider di identità**.
-    6.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sprinklr** del portale di Azure copiare il valore di **ID provider di identità** e quindi incollarlo nella casella di testo **Autorità di certificazione**.
-    7.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sprinklr** del portale di Azure copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **URL accesso provider di identità**.
-    8.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sprinklr** del portale di Azure copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **URL accesso provider di identità**.
-    9.  In **Tipo di identità SAML** selezionare **L’asserzione contiene il nome utente sprinklr.com dell’utente**.
-    10. In **Località identità SAML** selezionare **L’ID utente è nell’elemento NameIdentifier dell’istruzione Subject**.
-    11. Chiudere **Salva**.
+    5.  Aprire il certificato con codifica base 64 nel blocco note, copiarne il contenuto negli appunti e quindi incollarlo nella casella di testo **Identity Provider Certificate**.
+    6.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sprinklr** del portale di Azure copiare il valore di **ID provider di identità** e quindi incollarlo nella casella di testo **Entity Id**.
+    7.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sprinklr** del portale di Azure copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **Identity Provider Login URL**.
+    8.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sprinklr** del portale di Azure copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **Identity Provider Logout URL**.
+    9.  In **SAML User ID Type**, selezionare **Assertion contains User”s sprinklr.com username**.
+    10. In **SAML User ID Location**, selezionare **User ID is in the Name Identifier element of the Subject statement**.
+    11. Chiudere **Save**.
 
         ![SAML](./media/active-directory-saas-sprinklr-tutorial/IC782911.png "SAML")
 
@@ -117,43 +127,42 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
 ##Configurazione del provisioning utente
   
-Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provisioning nell'applicazione Sprinklr.  
-In questa sezione viene descritto come creare gli account utente AAD in Sprinklr.
+Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provisioning nell'applicazione Sprinklr. In questa sezione viene descritto come creare gli account utente AAD in Sprinklr.
 
 ###Per eseguire il provisioning di un account utente in Sprinklr, eseguire la procedura seguente:
 
 1.  Accedere al sito aziendale di Sprinklr come amministratore.
 
-2.  Passare a **Amministrazione > Impostazioni**.
+2.  Passare a **Administration > Settings**.
 
     ![Amministrazione](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Amministrazione")
 
-3.  Andare a **Gestisci client > Utenti** dal riquadro di sinistra.
+3.  Andare a **Manage Client > Users** dal riquadro di sinistra.
 
     ![Impostazioni](./media/active-directory-saas-sprinklr-tutorial/IC782914.png "Impostazioni")
 
-4.  Fare clic su **Aggiungi utente**.
+4.  Fare clic su **Add User**.
 
     ![Impostazioni](./media/active-directory-saas-sprinklr-tutorial/IC782915.png "Impostazioni")
 
-5.  Nella finestra di dialogo **Modifica utente** eseguire la procedura seguente:
+5.  Nella finestra di dialogo **Edit User** seguire la procedura seguente:
 
     ![Modifica utente](./media/active-directory-saas-sprinklr-tutorial/IC782916.png "Modifica utente")
 
     1.  Nelle caselle di testo **Posta elettronica**, **Nome** e **Cognome**, digitare le informazioni di un account utente di Windows Azure di cui si desidera eseguire il provisioning.
-    2.  Selezionare **Password disabilitata**.
-    3.  Selezionare una **Lingua**.
-    4.  Selezionare un **Tipo di utente**.
-    5.  Fare clic su **Aggiorna**.
+    2.  Selezionare **Password disabled**.
+    3.  Selezionare una **Language**.
+    4.  Selezionare un **User Type**.
+    5.  Fare clic su **Update**.
 
-    >[AZURE.IMPORTANT]L’opzione **Password disabilitata** deve essere selezionata per consentire agli utenti di accedere tramite un provider di identità.
+    >[AZURE.IMPORTANT]L’opzione **Password disabled** deve essere selezionata per consentire agli utenti di accedere tramite un provider di identità.
 
-6.  Andare a **Ruolo** ed eseguire la procedura seguente:
+6.  Passare a **Role** ed eseguire la procedura seguente:
 
     ![Ruoli partner](./media/active-directory-saas-sprinklr-tutorial/IC782917.png "Ruoli partner")
 
-    1.  Dall’elenco **Globale**, selezionare **ALL\_Permissions**.
-    2.  Fare clic su **Aggiorna**.
+    1.  Dall’elenco **Global**, selezionare **ALL\_Permissions**.
+    2.  Fare clic su **Update**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento di creazione di account utente di Sprinklr o API fornita da Sprinklr per eseguire il provisioning degli account utente di Azure AD.
 
@@ -169,10 +178,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-sprinklr-tutorial/IC782918.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-sprinklr-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,14 +14,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/13/2015"
+	ms.date="10/29/2015"
 	ms.author="jroth" />
 
 # Indicazioni sulle prestazioni del database SQL di Azure per i singoli database
 
 ## Panoramica
 
-Il database SQL di Microsoft Azure offre tre [livelli di servizio](sql-database-service-tiers.md), ovvero Basic, Standard e Premium. Grazie al controllo rigoroso della quantità di risorse del database SQL di Azure e delle relative repliche secondarie, il livello di servizio Premium è in grado di offrire prestazioni più prevedibili per le applicazioni cloud. Nel database SQL di Azure questo concetto si applica anche al livello di servizio Standard, garantendo in tal modo un elevato livello di prevedibilità delle prestazioni dei database con requisiti delle prestazioni inferiori rispetto a quelli offerti dal livello Premium. Il livello di servizio Basic è stato sviluppato per soddisfare i requisiti delle prestazioni per database di costo inferiore.
+Il database SQL di Microsoft Azure offre tre [livelli di servizio](sql-database-service-tiers.md), ovvero Basic, Standard e Premium. I tre livelli isolano rigorosamente la risorsa fornita al database SQL di Azure e garantiscono prestazioni prevedibili. La velocità effettiva garantita per il database aumenta dal livello Basic a quello Standard fino al livello Premium.
 
 >[AZURE.NOTE]I livelli di servizio Business e Web verranno ritirati a settembre 2015. Per altre informazioni, vedere [Domande frequenti sull'interruzione delle edizioni Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Per informazioni dettagliate sull'aggiornamento di database Web e Business esistenti ai nuovi livelli di servizio, vedere [Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-new-service-tiers.md).
 
@@ -37,13 +37,10 @@ Questo documento fornisce indicazioni per stabilire quale livello di servizio ra
 
 Per comprendere in che modo i livelli di servizio Basic, Standard e Premium migliorano il servizio del database SQL di Azure, è opportuno avere una buona conoscenza di base del database SQL di Azure. Ci sono molti motivi per scegliere il database SQL di Azure. Uno di questi è la possibilità di evitare il lungo ciclo di acquisto e di installazione dell'hardware. Il database SQL di Azure consente di creare ed eliminare i database immediatamente, senza dover aspettare l'approvazione di un ordine di acquisto, l'arrivo dei computer, il miglioramento del sistema di alimentazione e raffreddamento o l'esecuzione dell'installazione. Microsoft gestisce questi problemi e riduce in maniera significativa il tempo necessario per passare dall'idea alla soluzione effettuando il pre-provisioning dell'hardware in base alla domanda di aggregazione in ognuno dei propri data center. In questo modo l'azienda può risparmiare settimane o mesi rispetto all'acquisto e alla distribuzione manuali dell'hardware.
 
-Microsoft include anche numerose funzionalità automatiche di gestione nel database SQL, ad esempio la disponibilità elevata, la gestione incorporata e il bilanciamento del carico automatici.
+Microsoft include anche numerose funzionalità automatiche di gestione nel database SQL di Azure, ad esempio la disponibilità elevata automatica e la gestione incorporata.
 
 ### Disponibilità elevata automatica (HA) 
  Il database SQL di Azure mantiene almeno tre repliche per ogni database utente e include anche una logica per eseguire automaticamente il commit di ogni modifica in modo sincrono a un quorum di repliche. Ciò garantisce che qualsiasi errore di una singola macchina non causerà la perdita di dati. Inoltre, ogni replica viene posizionata in rack hardware differenti in modo che eventuali perdite di alimentazione o commutazioni di rete non influiscano sul database. Infine, è disponibile una logica per ricompilare automaticamente le repliche in caso di perdita di una macchina in modo che tramite il sistema vengano mantenute automaticamente le proprietà di integrità desiderate anche se la macchina è compromessa. Grazie a questi meccanismi viene evitato il lungo processo richiesto oggi per installare e configurare le attuali soluzioni a disponibilità elevata. Con una soluzione a disponibilità elevata preconfigurata per i dati viene risolto un altro annoso problema relativo alla compilazione di una soluzione di database di importanza critica usando le tecniche tradizionali.
-
-### Bilanciamento del carico 
- A differenza delle macchine virtuali tradizionali, il database SQL include anche un meccanismo per bilanciare automaticamente il carico tra più macchine. Il servizio di bilanciamento del carico controlla dinamicamente l'utilizzo delle risorse per un cluster e sposta le repliche di database nelle macchine del cluster per condividere in modo dinamico ed equo il carico tra numerosi utenti. In questo modo viene estesa la funzionalità di capacità su richiesta del database e un utente potrà tener conto dei requisiti di capacità per ogni database in modo indipendente, dal momento che tramite il servizio di bilanciamento del carico sarà possibile eseguire la migrazione da database occupati. Durante la creazione di soluzioni estese in numerosi database, questa logica offre un livello di astrazione che consente di concentrarsi sulle esigenze di capacità di ogni database anziché sulle limitazioni specifiche delle dimensioni di una macchina virtuale.
 
 ### Gestione incorporata 
  Il database SQL di Azure viene gestito come servizio. Di conseguenza, vi sono obiettivi di tempo definiti per ogni database, che evitano lunghi tempi di inattività di manutenzione. Microsoft offre una soluzione con fornitore unico per il servizio, quindi sarà necessario contattare un'unica società in caso di eventuali problemi. Inoltre, aggiorna continuamente il servizio, aggiungendo in ogni aggiornamento funzionalità, capacità e modalità di ricerca per migliorare l'esperienza utente. Gli aggiornamenti vengono eseguiti in modo trasparente e senza tempi di inattività, di conseguenza vengono integrati nel normale meccanismo di failover di disponibilità elevata. Questo consente di usare immediatamente le nuove funzionalità ogni volta che Microsoft ne annuncia la disponibilità, anziché attendere l'aggiornamento di un server durante eventuali tempi di inattività.
@@ -51,16 +48,13 @@ Microsoft include anche numerose funzionalità automatiche di gestione nel datab
 Tutte queste funzionalità vengono fornite in tutti i livelli di servizio, a partire da una fascia di prezzo di base bassa, pari a pochi euro al mese. Si tratta di un prezzo molto inferiore rispetto al costo di acquisto ed esecuzione del proprio server, pertanto anche per il progetto più piccolo è possibile avvalersi di Azure senza spendere molto.
 
 ## Differenze dei livelli di servizio
-
-Microsoft ha collaborato con numerosi clienti durante l'onboarding iniziale nel database SQL di Azure per ottenere informazioni su come hanno usato il servizio e per istruire in seguito il team di progettazione sulla futura pianificazione delle funzionalità. Durante questi appuntamenti, ha scoperto che per alcuni tipi di clienti il set di funzionalità si era rivelato effettivamente adatto alle loro esigenze. Ad esempio, imprese in fase di avviamento che sviluppano nuovi servizi cloud hanno spesso rilevato che la combinazione di capacità su richiesta e overhead amministrativo ridotto ha semplificato il loro lavoro e ha permesso di concentrarsi sulla loro attività principale. Altri clienti hanno riscontrato problemi in alcune aree correlate a rigidi requisiti delle prestazioni che non venivano attualmente soddisfatti dal servizio di database SQL di Azure, ad esempio per l'utilizzo di un'API in una soluzione di database multilivello di grandi dimensioni. Dai commenti era emerso che alcuni clienti erano ben disposti ad accettare una varianza di prestazioni più elevata per ottenere una fascia di prezzo molto bassa, mentre altri erano più interessati a garanzie specifiche in termini di prestazioni in modo da poter eseguire più facilmente compilazioni di livello superiore in questi database.
-
-Per soddisfare tutte le esigenze, Microsoft offre tre livelli di servizio: Basic, Standard e Premium. Per ogni livello di servizio sono disponibili uno o più livelli di prestazioni che forniscono la potenza di elaborazione necessaria all'esecuzione dei database in modo prevedibile. La potenza di elaborazione viene espressa [DTU (Database Throughput Unit, unità di velocità effettiva dei database)](sql-database-technical-overview.md#understand-dtus).
+Sono disponibili tre livelli di servizio: Basic, Standard e Premium. Per ogni livello di servizio sono disponibili uno o più livelli di prestazioni che forniscono la potenza di elaborazione necessaria all'esecuzione dei database in modo prevedibile. La potenza di elaborazione viene espressa in [DTU (Database Transaction Units, unità di transazione del database)](sql-database-technical-overview.md#understand-dtus).
 
 Il livello di servizio Basic è stato sviluppato per offrire una prevedibilità di prestazioni soddisfacente per ogni database calcolata a intervalli di un'ora ciascuno. Il valore di DTU di un database Basic consente di fornire risorse sufficienti al raggiungimento di prestazioni accettabili per i database di piccole dimensioni senza richieste simultanee.
 
 Il livello di servizio Standard offre una migliore prevedibilità delle prestazioni e aumenta gli standard relativi ai database con più richieste simultanee, quali gruppi di lavoro e applicazioni Web. L'uso di un database con livello di servizio Standard consente di ridimensionare le applicazioni di database in base alle prestazioni prevedibili minuto per minuto.
 
-La caratteristica principale del livello di servizio Premium in termini di prestazioni è rappresentata dalla prevedibilità delle prestazioni calcolata secondo per secondo per ciascun database Premium. L'uso del livello di servizio Premium consente di ridimensionare le applicazioni di database in base al carico massimo del database in questione e consente di eliminare i casi in cui la varianza di prestazioni può causare piccole query che possono richiedere più tempo del previsto in operazioni sensibili alla latenza. Questo modello può semplificare notevolmente i cicli di sviluppo e di convalida del prodotto necessari per applicazioni per cui occorre fare dichiarazioni forti sulle esigenze di risorse relative ai picchi, sulla varianza di prestazioni o sulla latenza di query. Può inoltre permettere la migrazione di alcune applicazioni locali senza modifiche significative, poiché si tratta dell'esperienza che più si avvicina a quella isolata e tradizionale che si presuppone in applicazioni di questo tipo al momento della compilazione.
+La caratteristica principale del livello di servizio Premium in termini di prestazioni è rappresentata dalla prevedibilità delle prestazioni calcolata secondo per secondo per ciascun database Premium. L'uso del livello di servizio Premium consente di ridimensionare le applicazioni di database in base al carico massimo del database in questione e consente di eliminare i casi in cui la varianza di prestazioni può causare piccole query che possono richiedere più tempo del previsto in operazioni sensibili alla latenza. Questo modello può semplificare notevolmente i cicli di sviluppo e di convalida del prodotto necessari per applicazioni per cui occorre fare dichiarazioni forti sulle esigenze di risorse relative ai picchi, sulla varianza di prestazioni o sulla latenza di query.
 
 Come per il livello Standard, con il livello di servizio Premium è possibile scegliere tra diversi livelli di prestazioni in base all'isolamento desiderato di un cliente.
 
@@ -91,7 +85,112 @@ Il livello esatto necessario dipende dai requisiti del carico massimo per ciascu
 
 Per altre informazioni sui livelli di servizio, vedere [Livelli di servizio e delle prestazioni del database SQL di Azure](sql-database-service-tiers.md).
 
-## Informazioni sull'utilizzo delle risorse
+## Limiti e funzionalità dei livelli di servizio
+Ogni livello di servizio e prestazione è associato a limiti e caratteristiche di prestazione differenti. La tabella seguente descrive queste caratteristiche per un singolo database.
+
+[AZURE.INCLUDE [Tabella livelli di servizio database SQL](../../includes/sql-database-service-tiers-table.md)]
+
+Le sezioni seguenti forniscono altre informazioni sulle aree della tabella precedente.
+
+### Dimensioni massime del database
+
+**Dimensioni massime del database** è semplicemente il limite delle dimensioni del database espresso in GB.
+
+### DTU
+
+**DTU** fa riferimento alle unità di transazione del database. Si tratta dell'unità di misura nel database SQL che rappresenta la potenza relativa dei database basata su una misura del mondo reale: la transazione del database. Consiste in una serie di operazioni tipiche per una richiesta di elaborazione di una transazione in linea (OLTP), misurate in base al numero di transazioni completate al secondo in condizioni di carico totale. Per altre informazioni sulle DTU, vedere [Comprendere le DTU](sql-database-technical-overview.md#understand-dtus). Per altre informazioni su come vengono misurate le DTU, vedere [Informazioni generali sul benchmark](sql-database-benchmark-overview.md).
+
+### Ripristino temporizzato
+
+Il **ripristino temporizzato** consente di ripristinare il database a un momento precedente. Il livello di servizio determina il numero di giorni di conservazione. Per altre informazioni, vedere [Ripristinare un database SQL di Azure a seguito di un errore causato dall'utente](sql-database-user-error-recovery.md).
+
+### Ripristino di emergenza
+
+Il **ripristino di emergenza** consente il ripristino da un'interruzione nel database SQL primario.
+
+Il *ripristino geografico* è disponibile per tutti i livelli di servizio senza costi aggiuntivi. In caso di interruzione, è possibile usare il backup con ridondanza geografica più recente per ripristinare il database in qualsiasi area di Azure.
+
+La replica geografica attiva e standard fornisce funzionalità di ripristino di emergenza analoghe, ma con un obiettivo del punto di ripristino più limitato. Ad esempio, con il ripristino geografico, l'obiettivo del punto di ripristino è inferiore a 1 ora (in altre parole, il backup può fare riferimento all'ora precedente). Con la replica geografica, invece, l'obiettivo del punto di ripristino è inferiore a 5 secondi.
+
+Per altre informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+
+### Archiviazione in memoria XTP massima
+L'**archiviazione in memoria XTP massima** fa riferimento alla quantità massima di spazio di archiviazione disponibile per l'[anteprima OLTP in memoria](sql-database-in-memory.md) per i database Premium. Per monitorare l'uso dell'archiviazione in memoria, è possibile usare il portale di Azure o la vista **sys.dm\_db\_resource\_stats**. Per altre informazioni sul monitoraggio, vedere l'argomento relativo al [monitoraggio dell'archiviazione in memoria XTP](sql-database-in-memory-oltp-monitoring.md).
+
+>[AZURE.NOTE]L'anteprima OLTP in memoria è attualmente supportata solo per i database singoli e non per i database nei pool di database elastici.
+
+### Numero massimo di richieste simultanee
+
+**Numero massimo di richieste simultanee** è il numero massimo di richieste simultanee eseguite da un utente o da un'applicazione contemporaneamente nel database. Per visualizzare il numero di richieste simultanee, eseguire la query Transact-SQL seguente sul database SQL:
+
+	SELECT COUNT(*) AS [Concurrent_Requests] 
+	FROM sys.dm_exec_requests R
+
+Se si analizza il carico di lavoro di un database SQL Server locale, è necessario modificare la query per filtrare il database specifico che si sta analizzando. Ad esempio, se si dispone di un database locale denominato MyDatabase, la query Transact-SQL seguente restituirà il numero di richieste simultanee in tale database.
+
+	SELECT COUNT(*) AS [Concurrent_Requests] 
+	FROM sys.dm_exec_requests R
+	INNER JOIN sys.databases D ON D.database_id = R.database_id
+	AND D.name = 'MyDatabase'
+
+Tenere presente che questo è solo uno snapshot in un singolo punto nel tempo. Per una migliore comprensione del carico di lavoro, è necessario raccogliere molti esempi nel tempo per comprendere i requisiti delle richieste simultanee.
+
+### Numero massimo di accessi simultanei
+
+Il **numero massimo di accessi simultanei** rappresenta il limite del numero di utenti o applicazioni che tentano di connettersi al database contemporaneamente. Si noti che anche se questi client usano la stessa stringa di connessione, il servizio autentica ogni account di accesso. Pertanto se dieci utenti sono connessi contemporaneamente al database con nome utente e password identici, ci saranno dieci account di accesso simultanei. Questo limite si applica solo alla durata dell'account di accesso e dell'autenticazione. Pertanto, se gli stessi dieci utenti sono connessi in sequenza al database, il numero di account di accesso simultanei non sarà mai superiore a uno.
+
+>[AZURE.NOTE]Questo limite attualmente non si applica ai database nel pool di database elastici.
+
+Non esiste alcuna query o DMV che consente di visualizzare la cronologia o il numero degli accessi simultanei. Per avere un'idea della frequenza degli accessi, è possibile analizzare i modelli dell'utente e dell'applicazione. È inoltre possibile eseguire carichi reali in un ambiente di test per assicurarsi di non raggiungere questo o gli altri limiti descritti in questo argomento.
+
+### Numero massimo di sessioni
+
+**Numero massimo di sessioni** è il numero massimo di connessioni aperte simultanee al database. Quando un utente accede, viene stabilita una sessione che rimane attiva finché l'utente si disconnette o la sessione scade. Per visualizzare il numero di sessioni attive, eseguire la query Transact-SQL seguente sul database SQL:
+
+	SELECT COUNT(*) AS [Sessions]
+	FROM sys.dm_exec_connections
+
+Se si analizza un carico di lavoro di SQL Server locale, modificare la query per concentrarsi su un database specifico. Ciò consentirà di determinare le possibili esigenze della sessione per tale database se è necessario spostarlo nel database SQL di Azure.
+
+	SELECT COUNT(*)  AS [Sessions]
+	FROM sys.dm_exec_connections C
+	INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+	INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+	WHERE D.name = 'MyDatabase'
+
+Queste query restituiscono un numero riferito a un determinato momento, pertanto la raccolta di più esempi in un periodo di tempo più ampio offre informazioni più precise sull'utilizzo della sessione.
+
+Per l'analisi del database SQL, è possibile anche eseguire una query **sys.resource\_stats** per ottenere dati statistici cronologici sulle sessioni mediante la colonna **active\_session\_count**. Nella seguente sezione sul monitoraggio sono disponibili altre informazioni sull'uso di questa vista.
+
+## Monitoraggio dell'uso delle risorse
+Sono disponibili due viste che consentono di monitorare l'utilizzo delle risorse per un database SQL rispetto al relativo livello di servizio:
+
+- [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+- [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+
+>[AZURE.NOTE]È inoltre possibile usare il portale di gestione di Azure per visualizzare l'utilizzo delle risorse. Per un esempio, vedere [Livelli di servizio - Monitoraggio delle prestazioni](sql-database-service-tiers.md#monitoring-performance).
+
+### Uso di sys.dm\_db\_resource\_stats
+La vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) è presente in ogni database SQL e fornisce dati di utilizzo delle risorse recenti rispetto al livello di servizio. Informazioni relative a percentuali medie della CPU, dati I/O, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
+
+Poiché questa vista fornisce una visione più granulare sull'utilizzo delle risorse, è consigliabile usare innanzitutto **sys.dm\_db\_resource\_stats** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, la query seguente mostra l'utilizzo medio e massimo delle risorse per il database corrente nell'ultima ora:
+
+	SELECT  
+	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
+	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
+	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent', 
+	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent', 
+	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
+	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
+	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent', 
+	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent' 
+	FROM sys.dm_db_resource_stats;  
+
+Per altre query, vedere gli esempi in [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+
+### Uso di sys.resource\_stats
+
+La vista [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) nel database **master** fornisce informazioni aggiuntive per il monitoraggio dell'uso delle prestazioni del database SQL nell'ambito del relativo livello di servizio e di prestazioni. I dati vengono raccolti ogni cinque minuti e conservati per circa 14 giorni. Questa vista è più utile per analisi cronologiche a lungo termine dell'utilizzo delle risorse del database SQL.
 
 Il grafico seguente illustra l'utilizzo di risorse della CPU per un database Premium con livello di prestazioni P2 per ogni ora nell'arco di una settimana. Questo grafico specifico inizia di lunedì, con 5 giorni lavorativi e un fine settimana in cui l'utilizzo di risorse nell'applicazione è molto inferiore.
 
@@ -101,7 +200,11 @@ In base ai dati, per il livello di prestazioni P2 il carico massimo della CPU di
 
 È interessante notare che lo stesso grafico può essere interpretato in modo diverso da altri tipi di applicazioni. Ad esempio, se tramite un'applicazione si è tentato di elaborare i dati del libro paga ogni giorno ed è stato usato lo stesso grafico, questo tipo di modello di processo batch potrebbe essere eseguito correttamente con un livello di prestazioni P1. Il valore di DTU del livello di prestazioni P1 è pari a 100, mentre quello del livello P2 è pari a 200. Ciò significa che il livello di prestazioni fornito dal livello di servizio P2 è doppio rispetto a quello fornito dal livello P1. Il 50% dell'utilizzo della CPU nel livello P2 corrisponde dunque al 100% dell'utilizzo della CPU nel livello P1. Finché l'applicazione non presenta dei timeout, è possibile che non sia importante che il completamento di un processo di grandi dimensioni richieda 2 o 2,5 ore, a condizione che venga però eseguito in giornata. Per un'applicazione che rientra in questa categoria probabilmente è sufficiente usare il livello di prestazioni P1. Si può sfruttare la presenza di periodi di tempo durante il giorno in cui l'utilizzo delle risorse è inferiore, in altre parole si può spalmare un picco massimo in altri momenti nel corso della giornata. Il livello di prestazioni P1 potrebbe essere ideale per un'applicazione di questo tipo (consentendo inoltre di limitare i costi), a condizione che i processi possano essere completati in orario ogni giorno.
 
-Il database SQL di Azure espone le informazioni sulla risorsa usata per ogni database attivo nella vista **sys.resource\_stats** del database master in ogni server. I dati nella tabella vengono aggregati per intervalli di 5 minuti. Con i livelli di servizio Basic, Standard e Premium, la visualizzazione dei dati nella tabella può richiedere più di cinque minuti. Di conseguenza questi dati sono più adatti a un'analisi cronologica che a un'analisi quasi in tempo reale. Se si esegue una query sulla vista **sys.resource\_stats**, viene visualizzata la cronologia recente di un database, in cui è possibile convalidare se tramite la prenotazione selezionata sono state fornite le risorse desiderate, quando necessario. L'esempio seguente illustra l'esposizione dei dati in questa vista:
+Il database SQL di Azure espone le informazioni sulla risorsa utilizzata per ogni database attivo nella vista **sys.resource\_stats** del database **master** in ogni server. I dati nella tabella vengono aggregati per intervalli di 5 minuti. Con i livelli di servizio Basic, Standard e Premium, la visualizzazione dei dati nella tabella può richiedere più di cinque minuti. Di conseguenza questi dati sono più adatti a un'analisi cronologica che a un'analisi quasi in tempo reale. Se si esegue una query sulla vista **sys.resource\_stats**, viene visualizzata la cronologia recente di un database, in cui è possibile convalidare se tramite la prenotazione selezionata sono state fornite le risorse desiderate, quando necessario.
+
+>[AZURE.NOTE]È necessario essere connessi al database **master** del server logico del database SQL per eseguire la query **sys.resource\_stats** negli esempi seguenti.
+
+L'esempio seguente illustra l'esposizione dei dati in questa vista:
 
 	SELECT TOP 10 * 
 	FROM sys.resource_stats 
@@ -110,13 +213,11 @@ Il database SQL di Azure espone le informazioni sulla risorsa usata per ogni dat
 
 ![Statistiche relative alle risorse di sistema](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
->[AZURE.NOTE]Alcune colonne della tabella sono state troncate per motivi di spazio. Per una descrizione completa dell'output, vedere l'argomento [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx).
+L'esempio seguente illustra i vari modi mediante i quali è possibile comprendere l'utilizzo delle risorse del database SQL usando la vista del catalogo **sys.resource\_stats**.
 
-## Come monitorare l'utilizzo delle risorse
+>[AZURE.NOTE]Alcune delle colonne di **sys.resource\_stats** sono state modificate nella versione 12 dei database correnti, pertanto è possibile che le query di esempio negli esempi seguenti generino errori. Gli aggiornamenti futuri di questo argomento forniranno le nuove versioni delle query per risolvere questo problema.
 
-Questa sezione illustra come monitorare l'utilizzo delle risorse del database SQL di Azure e come mettere a confronto l'utilizzo delle risorse correnti con i diversi livelli di prestazioni.
-
-1. Alla vista del catalogo **sys.resource\_stats** sono state aggiunte altre informazioni cronologiche sull'utilizzo delle risorse a livello di database. Ad esempio, per esaminare l'utilizzo delle risorse della settimana passata per il database, "userdb1", è possibile eseguire la query seguente.
+1. Ad esempio, per esaminare l'utilizzo delle risorse della settimana passata per il database, "userdb1", è possibile eseguire la query seguente.
 	
 		SELECT * 
 		FROM sys.resource_stats 
@@ -188,8 +289,15 @@ Anche se i livelli di servizio sono progettati per migliorare la stabilità e la
 - **Applicazioni con progettazione di accesso ai dati non ottimale**: le applicazioni con problemi intrinseci di concorrenza per l'accesso ai dati, ad esempio il deadlock, potrebbero non trarre vantaggio dalla scelta di un livello di prestazioni superiore. Gli sviluppatori di applicazioni devono provare a ridurre i round trip nel database SQL di Azure memorizzando nella cache i dati sul lato client tramite il servizio di caching di Azure o altre tecnologie di memorizzazione nella cache. Vedere la sezione "Memorizzazione nella cache a livello di applicazione" riportata di seguito.
 
 ## Tecniche di ottimizzazione
-
 Questa sezione illustra alcune tecniche che è possibile usare per ottimizzare il database SQL di Azure in modo da ottenere prestazioni ottimali dall'applicazione ed eseguire così operazioni usando il livello di prestazioni più basso possibile. Diverse tecniche corrispondono alle tradizionali procedure consigliate di ottimizzazione di SQL Server, ma alcune sono specifiche per il database SQL di Azure. In alcuni casi è possibile estendere le tecniche tradizionali di SQL Server per poterle usare anche nel database SQL di Azure esaminando le risorse utilizzate per un database in modo da poter individuare le aree da ottimizzare ulteriormente.
+
+### Query Performance Insight e Index Advisor
+Il database SQL fornisce due strumenti nel portale di Azure per l'analisi e la risoluzione dei problemi di prestazioni con il database:
+
+- [Query Performance Insight](sql-database-query-performance.md)
+- [Index Advisor](sql-database-index-advisor.md)
+
+Per altre informazioni su ciascuno strumento e sul relativo utilizzo, vedere i collegamenti precedenti. Le due sezioni seguenti sugli indici mancanti e sull'ottimizzazione delle query forniscono altri modi per trovare e correggere manualmente problemi di prestazioni simili. Si consiglia di provare innanzitutto gli strumenti nel portale per diagnosticare e correggere i problemi in modo più efficiente. Usare l'approccio di ottimizzazione manuale per i casi particolari.
 
 ### Indici mancanti
 Un problema comune nelle prestazioni del database OLTP è correlato alla progettazione fisica del database. Spesso gli schemi di database vengono progettati e forniti senza verificare la scala (nel caricamento o nel volume di dati). Purtroppo, le prestazioni di un piano di query possono essere accettabili su scala ridotta, ma potrebbero peggiorare notevolmente in caso di volumi elevati di dati a livello di produzione. L'origine più comune di questo problema è legata alla mancanza di indici adatti per soddisfare i filtri o altre restrizioni in una query. Spesso, questa situazione si manifesta come una scansione di tabella quando potrebbe essere sufficiente una ricerca dell'indice.
@@ -215,6 +323,8 @@ L'esempio seguente crea un caso in cui il piano di query selezionato contiene un
 ![Piano di query con indici mancanti](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
 
 Il database SQL di Azure include una funzionalità per suggerire agli amministratori del database come individuare e correggere condizioni comuni di indici mancanti. Le DMV incorporate nel database SQL di Azure considerano i casi in cui, durante la compilazione di query, l'uso di un indice consentirebbe di ridurre in modo significativo il costo stimato per l'esecuzione di una query. Durante l'esecuzione di query, si tiene traccia della frequenza con cui viene eseguito ogni piano di query e del divario stimato tra l'esecuzione del piano di query e quello immaginato in cui sarebbe presente l'indice in questione. Questo consente a un amministratore di database di ipotizzare rapidamente quali modifiche di progettazione fisica del database potrebbero migliorare il costo complessivo del carico di lavoro per un database specificato e il relativo carico di lavoro reale.
+
+>[AZURE.NOTE]Prima di usare le DMV per trovare gli indici mancanti, innanzitutto rivedere la sezione su [Query Performance Insight e Index Advisor](query-performance-insight-and-index-advisor.md).
 
 La query seguente può essere usata per valutare i potenziali indici mancanti.
 
@@ -356,11 +466,13 @@ Esaminando **sys.resource\_stats** è possibile determinare se la risorsa usata 
 Se un carico di lavoro include un set di query ripetute, è spesso consigliabile acquisire e convalidare la validità di quelle scelte del piano poiché probabilmente determinerà l'unità di dimensioni della risorsa minima per ospitare il database. Dopo l'esecuzione della convalida, con un nuovo esame occasionale di quei piani sarà possibile garantirne la validità. Per altre informazioni sugli hint per la query, vedere [Hint per la query (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
 ### Partizionamento orizzontale tra database
-Poiché il database SQL di Azure viene eseguito in hardware apposito, vi sono in genere limiti della capacità inferiori per un singolo database rispetto a quelli in un'installazione tradizionale di SQL Server. Molti clienti usano tecniche di partizionamento orizzontale per estendere le operazioni in più database quando non rientrano nei limiti relativi a un singolo database nel database SQL di Azure. La maggior parte dei clienti che al momento usa le tecniche di partizionamento orizzontale nel database SQL di Azure suddivide i dati di una singola dimensione in più database. L'approccio prevede che si sia a conoscenza del fatto che spesso tramite le applicazioni OLTP si effettuano transazioni che si applicano solo a una riga o a un piccolo gruppo di righe nello schema. Ad esempio, se un database include il cliente, l'ordine e i dettagli dell'ordine (come illustrato nel database di esempio Northwind tradizionale disponibile in SQL Server), questi dati possono essere suddivisi in più database raggruppando un cliente con le relative informazioni sull'ordine e sui dettagli dell'ordine e garantendo che rimangano in un singolo database. L'applicazione suddividerebbe i diversi clienti tra database, estendendo di fatto il carico tra più database. Questo consente ai clienti di evitare di raggiungere il limite massimo delle dimensioni del database, ma consente anche al database SQL di Azure di elaborare carichi di lavoro notevolmente maggiori rispetto ai limiti corrispondenti ai diversi livelli di prestazioni, a condizione che ogni singolo database rientri nel relativo valore di DTU.
+Poiché il database SQL di Azure viene eseguito in hardware apposito, vi sono in genere limiti della capacità inferiori per un singolo database rispetto a quelli in un'installazione tradizionale di SQL Server. Molti clienti usano tecniche di partizionamento orizzontale per estendere le operazioni in più database quando non rientrano nei limiti relativi a un singolo database nel database SQL di Azure. La maggior parte dei clienti che al momento usa le tecniche di partizionamento orizzontale nel database SQL di Azure suddivide i dati di una singola dimensione in più database. L'approccio prevede che si sia a conoscenza del fatto che spesso tramite le applicazioni OLTP si effettuano transazioni che si applicano solo a una riga o a un piccolo gruppo di righe nello schema.
+
+>[AZURE.NOTE]Il database SQL offre ora una libreria per semplificare il partizionamento orizzontale. Per altre informazioni, vedere [Panoramica della libreria client dei database elastici](sql-database-elastic-database-client-library.md).
+
+Ad esempio, se un database include il cliente, l'ordine e i dettagli dell'ordine (come illustrato nel database di esempio Northwind tradizionale disponibile in SQL Server), questi dati possono essere suddivisi in più database raggruppando un cliente con le relative informazioni sull'ordine e sui dettagli dell'ordine e garantendo che rimangano in un singolo database. L'applicazione suddividerebbe i diversi clienti tra database, estendendo di fatto il carico tra più database. Questo consente ai clienti di evitare di raggiungere il limite massimo delle dimensioni del database, ma consente anche al database SQL di Azure di elaborare carichi di lavoro notevolmente maggiori rispetto ai limiti corrispondenti ai diversi livelli di prestazioni, a condizione che ogni singolo database rientri nel relativo valore di DTU.
 
 Anche se il partizionamento orizzontale del database non riduce la capacità di risorse aggregate per una soluzione, questa tecnica è estremamente efficiente nel supportare soluzioni di grandi dimensioni estese in più database e consente l'esecuzione di ciascun database in un livello di prestazioni diverso, in modo da supportare database effettivi di notevoli dimensioni con requisiti di risorse elevati.
-
-Si noti che il database SQL offre ora una libreria per semplificare il partizionamento orizzontale. Per altre informazioni, vedere [Panoramica della libreria client dei database elastici](sql-database-elastic-database-client-library.md).
 
 ### Partizionamento funzionale
 Gli utenti di SQL Server combinano spesso molte funzioni all'interno di un singolo database. Ad esempio, se un'applicazione include la logica per gestire l'inventario di un negozio, è possibile che quel database includa la logica associata all'inventario, il rilevamento degli ordini di acquisto, le stored procedure e le viste indicizzate o materializzate mediante le quali sono stati gestiti i report di fine mese e altre funzioni. Questa tecnica offre il vantaggio di poter amministrare facilmente il database per operazioni come il backup, ma richiede anche il ridimensionamento dell'hardware per gestire il carico massimo in tutte le funzioni di un'applicazione.
@@ -379,4 +491,4 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 I livelli di servizio nel database SQL di Azure consentono di aumentare gli standard relativi ai tipi di applicazioni create nel cloud. Insieme a un'ottimizzazione diligente delle applicazioni, offre prestazioni potenti e prevedibili per la propria applicazione. Questo documento descrive le tecniche consigliate per ottimizzare il consumo di risorse da parte di un database in modo da rientrare perfettamente in uno dei livelli di prestazioni. L'ottimizzazione è un esercizio continuo nel modello cloud e i livelli di servizio, con i livelli di prestazioni correlati, consentono agli amministratori di ottenere massimi livelli di prestazioni e al tempo stesso ridurre i costi nella piattaforma Microsoft Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

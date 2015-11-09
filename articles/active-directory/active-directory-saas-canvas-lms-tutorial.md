@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Canvas LMS | Microsoft Azure" description="Informazioni su come usare Canvas LMS con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Canvas LMS | Microsoft Azure" 
+    description="Informazioni su come usare Canvas LMS con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Canvas LMS
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=524182).
 
 Questa esercitazione descrive l'integrazione di Azure e Canvas. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant di Canvas
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Canvas potranno accedere all'applicazione tramite il sito aziendale di Canvas (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Canvas potranno accedere all'applicazione tramite il sito aziendale di Canvas (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -24,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Canv
 
 ###Per abilitare l'integrazione dell'applicazione per Canvas, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
 
     ![Active Directory](./media/active-directory-saas-canvas-lms-tutorial/IC700993.png "Active Directory")
 
@@ -38,7 +51,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Canv
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-canvas-lms-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-canvas-lms-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -51,7 +64,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Canv
     ![Canvas](./media/active-directory-saas-canvas-lms-tutorial/IC775986.png "Canvas")
 ##Configurazione dell'accesso Single Sign-On
 
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Canvas tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Canvas richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che illustra [come recuperare il valore di identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Canvas tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Canvas richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -89,15 +102,15 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Canvas** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Log On URL**.
     3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Canvas** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Log Out URL**.
     4.  Nella finestra di dialogo **Configura accesso Single Sign-On in Canvas** del portale di Azure copiare il valore di **Modifica URL password** e quindi incollarlo nella casella di testo **Change Password Link**.
-    5.  Copiare il valore di **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Certificate Fingerprint**.  
+    5.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Certificate Fingerprint**.  
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come recuperare il valore di identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
     6.  Nell'elenco **Login Attribute** selezionare **NameID**.
     7.  Nell'elenco **Identifier Format** selezionare **emailAddress**.
     8.  Fare clic su **Save authentication settings**.
 
-9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/IC775993.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -116,7 +129,7 @@ Per consentire agli utenti di Azure AD di accedere a Canvas, è necessario esegu
 
     ![Users](./media/active-directory-saas-canvas-lms-tutorial/IC775995.png "Utenti")
 
-4.  Fare clic su **Add New User**.
+4.  Fare clic su **Add new user**.
 
     ![Utenti](./media/active-directory-saas-canvas-lms-tutorial/IC775996.png "Utenti")
 
@@ -144,10 +157,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegnazione degli utenti](./media/active-directory-saas-canvas-lms-tutorial/IC775998.png "Assegnazione degli utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-canvas-lms-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Tenere traccia delle richieste HTTP in un'applicazione Web Java
@@ -36,7 +36,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
       <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
-        <version>[0.9,)</version>
+        <version>[1.0,)</version>
       </dependency>
     </dependencies>
 
@@ -47,7 +47,7 @@ Se il progetto è già stato configurato per usare Gradle per la compilazione, u
 Aggiornare quindi le dipendenze progetto per fare in modo che i file binari vengano scaricati.
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.0.+'
     }
 
 ## Aggiungere il filtro HTTP di Application Insights al progetto
@@ -139,4 +139,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

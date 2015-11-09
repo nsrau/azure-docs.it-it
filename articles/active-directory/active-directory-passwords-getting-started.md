@@ -185,7 +185,10 @@ Per poter abilitare e usare il writeback delle password, verificare che vengano 
   >[AZURE.NOTE]Se si esegue una versione precedente di Windows Server 2008 o 2008 R2, è comunque possibile usare questa funzionalità, ma sarà necessario [scaricare e installare la KB 2386717](https://support.microsoft.com/kb/2386717) per poter applicare i criteri delle password di Active Directory locale nel cloud.
   
 - È necessario che sia installato lo strumento Azure AD Connect e che l'ambiente Active Directory sia stato preparato per la sincronizzazione con il cloud. Per altre informazioni, vedere [Usare l'infrastruttura di identità locale nel cloud](active-directory-aadconnect.md).
-- Se si usa DirSync, è necessario assicurarsi che il firewall dell'organizzazione sia configurato per bloccare le connessioni in uscita e per sbloccare la **porta TCP 828 o 818**, per abilitare e usare il writeback delle password. Se si usa Azure AD Sync o Azure AD Connect, questo passaggio non è necessario, poiché è necessario aprire solo la porta **TCP 443** in uscita (e in alcuni casi la porta **TCP 9350-9354**).
+
+  >[AZURE.NOTE]Prima di testare il writeback delle password, assicurarsi di eseguire un'importazione completa e una sincronizzazione completa sia da AD che da Azure AD.
+
+- Se si usa Azure AD Sync o Azure AD Connect, è necessario aprire solo la porta **TCP 443** in uscita (e in alcuni casi la porta **TCP 9350-9354**). Per altre informazioni, vedere [Passaggio 3: Configurare il firewall](#step-3-configure-your-firewall). L'uso di DirSync per questo scenario non è più supportato. Se si usa ancora DirSync, eseguire l'aggiornamento all'ultima versione di Azure AD Connect prima di distribuire il writeback delle password.
 
   >[AZURE.NOTE]È consigliabile che chiunque usi gli strumenti Azure AD Sync o DirSync esegua l'aggiornamento alla versione più recente di Azure AD Connect in modo da ottenere la migliore esperienza possibile e le nuove funzionalità non appena vengono rilasciate.
   
@@ -248,7 +251,7 @@ Dopo aver abilitato il writeback delle password nello strumento Azure AD Connect
 ### Passaggio 4: Impostare le autorizzazioni di Active Directory appropriate
 Per ogni foresta che contiene utenti di cui verranno reimpostate le password, se X è l'account specificato per tale foresta nella configurazione guidata iniziale, sarà necessario assegnare a X i diritti estesi **Reimposta password**, **Modifica password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet` sull'oggetto radice per ogni dominio della foresta. I diritti devono essere contrassegnati come ereditati da tutti gli oggetti utente.
 
-Se non si è certi dell’identità dell’account al quale si fa riferimento, aprire la configurazione di Azure Active Directory Connect dell'interfaccia utente e fare clic sull’opzione **Esaminare la soluzione**. L'account necessario per aggiungere autorizzazioni è sottolineato in rosso nella schermata seguente.
+Se non si è certi dell'identità dell'account al quale si fa riferimento, aprire la configurazione di Azure Active Directory Connect dell'interfaccia utente e fare clic sull'opzione **Esaminare la soluzione**. L'account necessario per aggiungere autorizzazioni è sottolineato in rosso nella schermata seguente.
 
 **<font color="red">Assicurarsi di impostare questa autorizzazione per ogni dominio in ogni foresta nel sistema, in caso contrario il writeback delle password non funzionerà correttamente.</font>**
 
@@ -276,9 +279,7 @@ Se non si è certi dell’identità dell’account al quale si fa riferimento, a
 8.	Nell'elenco a discesa nella parte superiore selezionare **Oggetti Utente discendente**.
 9.	Nella finestra di dialogo **Voci di autorizzazione** visualizzata selezionare la casella per **Reimpostare password**, **Modificare password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet`.
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	Quindi fare clic su **Applica/OK** nelle finestre di dialogo aperte.
 
@@ -350,4 +351,4 @@ Dopo aver abilitato il writeback delle password, è possibile verificarne il fun
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

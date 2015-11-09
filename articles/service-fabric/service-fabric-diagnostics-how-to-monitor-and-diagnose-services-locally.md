@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -79,4 +79,4 @@ Lo stesso codice di tracciamento aggiunto all'applicazione precedente per la dia
 * [Diagnostica e monitoraggio delle prestazioni per Azure Service Fabric Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnostica di Reliable Services con stato](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

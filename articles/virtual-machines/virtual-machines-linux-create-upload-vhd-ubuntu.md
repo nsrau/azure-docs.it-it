@@ -27,7 +27,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 **Note sull'installazione di Ubuntu**
 
-- Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
+- Il formato VHDX non è supportato in Azure, solo nei **VHD fissi**. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
 
 - Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi. Se si preferisce, su dischi di dati si può usare LVM o [RAID](virtual-machines-linux-configure-raid.md).
 
@@ -36,7 +36,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 - Tutti i dischi rigidi virtuali devono avere dimensioni multiple di 1 MB.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04: ##
+## <a id="ubuntu"> </a>Ubuntu 12.04 ##
 
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
 
@@ -119,4 +119,4 @@ Kernel di attivazione (HWE) HardWare Ubuntu
 - [http://blog.utlemming.org/2015/01/Ubuntu-1404-Azure-Images-Now-Tracking.HTML](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-Azure-cloud-Images-Now-using-Hwe.HTML](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

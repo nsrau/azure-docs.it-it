@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Zendesk | Microsoft Azure" description="Informazioni su come usare Zendesk con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Zendesk | Microsoft Azure" 
+    description="Informazioni su come usare Zendesk con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Zendesk
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=522569).
   
 Questa esercitazione descrive l'integrazione di Azure e Zendesk. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant di Zendesk
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Zendesk potranno accedere all'applicazione tramite il sito aziendale di Zendesk (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Zendesk potranno accedere all'applicazione tramite il sito aziendale di Zendesk (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -77,13 +90,13 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 6.  Fare clic su **Admin**.
 
-7.  Nel riquadro di spostamento sinistro fare clic su **Settings** e quindi su **Security**.
+7.  Nel riquadro di spostamento sinistro fare clic su **Impostazioni** e quindi su **Sicurezza**.
 
     ![Sicurezza](./media/active-directory-saas-zendesk-tutorial/IC773089.png "Sicurezza")
 
-8.  Nella pagina **Security** selezionare la scheda **Admin & Agents**.
+8.  Nella pagina **Sicurezza** selezionare la scheda **Amministratore e Agenti**.
 
-9.  Selezionare **Single sign-on (SSO) and SAML** e quindi **SAML**.
+9.  Selezionare **Single sign-on (SSO) e SAML** e quindi **SAML**.
 
 10. Nella finestra di dialogo **Configura accesso Single Sign-On in Zendesk** del portale di Azure AD copiare il valore di **URL SSO SAML** e quindi incollarlo nella casella di testo **SAML SSO URL**.
 
@@ -91,13 +104,13 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC773090.png "Single Sign-On")
 
-12. Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Certificate Fingerprint**.
+12. Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato**.
 
-	>[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+	>[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
-13. Fare clic su **Save**.
+13. Fare clic su **Salva**.
 
-14. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+14. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Configura accesso Single Sign-On")
 
@@ -109,13 +122,13 @@ Per consentire agli utenti di Azure AD di accedere a **Zendesk**, è necessario 
 
 1.  Accedere al tenant di **Zendesk**.
 
-2.  Selezionare la scheda **Customer List**.
+2.  Selezionare la scheda **Lista di utenti**.
 
-3.  Selezionare la scheda **User** e fare clic su **Add**.
+3.  Selezionare la scheda **Utente** e fare clic su **Aggiungi**.
 
     ![Add user](./media/active-directory-saas-zendesk-tutorial/IC773632.png "Add user")
 
-4.  Digitare l'indirizzo di posta elettronica di un account Azure AD esistente di cui si vuole eseguire il provisioning e quindi fare clic su **Save**.
+4.  Digitare l'indirizzo di posta elettronica di un account Azure AD esistente di cui si vuole eseguire il provisioning e quindi fare clic su **Salva**.
 
     ![New user](./media/active-directory-saas-zendesk-tutorial/IC773633.png "New user")
 
@@ -137,6 +150,6 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-zendesk-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

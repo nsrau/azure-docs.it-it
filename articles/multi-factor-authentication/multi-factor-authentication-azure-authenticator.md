@@ -127,7 +127,9 @@ Se si desidera aggiungere manualmente un account, seguire questa procedura.
 Se si desidera aggiungere manualmente un account non Azure, ad esempio il proprio account Microsoft, seguire questa procedura:
 
 
-- In primo luogo, è necessario ottenere la chiave privata dal sito a cui è associato l'account. In Outlook.com, ad esempio, accedere alle impostazioni dell'account, passare alle impostazioni di sicurezza e selezionare l'opzione per la configurazione di un'app di autenticazione. Per ottenere la chiave privata, è necessario selezionare l'opzione in cui si dichiara di non riuscire a eseguire la scansione del codice a barre.
+- L’aggiunta manuale di un account non di Azure può essere eseguita analizzando il codice QR o immettendo la chiave privata.
+- Se si immette manualmente la chiave privata, è possibile ottenere la chiave privata dal sito associato all'account. In Outlook.com, ad esempio, accedere alle impostazioni dell'account, passare alle impostazioni di sicurezza e selezionare l'opzione per la configurazione di un'app di autenticazione. Per ottenere la chiave privata, è necessario selezionare l'opzione in cui si dichiara di non riuscire a eseguire la scansione del codice a barre.
+- 
 
 ![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
@@ -135,11 +137,11 @@ Se si desidera aggiungere manualmente un account non Azure, ad esempio il propri
 
 ![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- Fare clic sul pulsante Immetti manualmente nella parte inferiore della pagina.
+- Analizzare il codice QR oppure fare clic sul pulsante Immetti manualmente nella parte inferiore della pagina. Se si esegue l'analisi del codice QR ignorare il passaggio successivo, poiché l'attivazione inizierà immediatamente.
 
 ![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
-- Immettere il nome account e la chiave privata riportati nella stessa pagina in cui era contenuto il codice a barre. Le informazioni devono essere inserite nelle caselle del codice e dell'URL dell'app per dispositivi mobili. Viene avviata l'attivazione.
+- Se si inserisce manualmente la chiave privata, inserire il nome dell’account e la chiave privata riportati nella stessa pagina in cui era contenuto il codice a barre. Le informazioni devono essere inserite nelle caselle del codice e dell'URL dell'app per dispositivi mobili. Viene avviata l'attivazione.
 
 ![Aggiunta di un account](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
@@ -162,4 +164,4 @@ In questo modo, ogni volta che viene richiesto di verificare i propri dettagli d
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

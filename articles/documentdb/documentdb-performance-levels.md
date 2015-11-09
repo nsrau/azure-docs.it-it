@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/16/2015" 
 	ms.author="johnmac"/>
 
 #Livelli di prestazioni in DocumentDB
@@ -29,7 +29,7 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 ##Introduzione ai livelli di prestazioni
 
-Per ogni raccolta di DocumentDB creata con un account standard viene eseguito il provisioning con un livello di prestazioni associato. I livelli di prestazioni sono designati come S1, S2 o S3, classificati dal minimo al massimo delle prestazioni. Il livello di prestazioni della raccolta determina la quantità di risorse di servizio riservate per l'applicazione. Ogni raccolta in un database può avere un livello di prestazioni diverso, consentendo di designare una velocità effettiva maggiore per le raccolte a cui si accede di frequente e una minore velocità effettiva per le raccolte a cui si accede raramente.
+Per ogni raccolta di DocumentDB creata con un account standard viene eseguito il provisioning con un livello di prestazioni associato. I livelli di prestazioni sono designati come S1, S2 o S3, classificati dal minimo al massimo delle prestazioni. Il livello di prestazione della raccolta determina la quantità di risorse di elaborazione riservate per l'applicazione. Ogni raccolta in un database può avere un livello di prestazioni diverso, consentendo di designare una velocità effettiva maggiore per le raccolte a cui si accede di frequente e una minore velocità effettiva per le raccolte a cui si accede raramente. Il livello di prestazioni minimo per qualsiasi raccolta è S1.
 
 A ogni livello di prestazioni è associato un limite di frequenza dell'unità di richiesta (RU). Si tratta della velocità effettiva che sarà riservata per una raccolta basata sul relativo livello di prestazioni ed è disponibile esclusivamente per l'uso in tale raccolta. È possibile creare le raccolte tramite il [portale di Azure](http://portal.azure.com) o uno qualsiasi degli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Le API di DocumentDB consentono di specificare il livello di prestazioni di una raccolta.
 
@@ -122,4 +122,4 @@ Per altre informazioni su DocumentDB, vedere la [documentazione](http://azure.mi
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

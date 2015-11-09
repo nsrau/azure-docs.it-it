@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Creazione di modelli di Gestione risorse di Azure
@@ -174,6 +174,15 @@ Il seguente esempio mostra come definire i parametri:
 
 Nella sezione delle variabili è possibile creare valori da usare per semplificare le espressioni di linguaggio del modello. Solitamente, queste variabili sono basate sui valori forniti dai parametri.
 
+Le variabili vengono definite con la struttura seguente:
+
+    "variables": {
+       "<variable-name>": "<variable-value>",
+       "<variable-name>": { 
+           <variable-complex-type-value> 
+       }
+    }
+
 Nell'esempio seguente viene illustrato come definire una variabile creata da due valori di parametro:
 
     "parameters": {
@@ -228,6 +237,7 @@ Le risorse vengono definite con la struttura seguente:
          "name": "<name-of-the-resource>",
          "location": "<location-of-resource>",
          "tags": "<name-value-pairs-for-resource-tagging>",
+         "comments": "<your-reference-notes>",
          "dependsOn": [
            "<array-of-related-resource-names>"
          ],
@@ -245,6 +255,7 @@ Le risorse vengono definite con la struttura seguente:
 | name | Sì | Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986.
 | location | No | Aree geografiche supportate della risorsa specificata.
 | tags | No | Tag associati alla risorsa.
+| commenti | No | Le note per documentare le risorse nel modello
 | dependsOn | No | Risorse da cui dipende la risorsa in via di definizione. Le dipendenze tra risorse vengono valutate e le risorse vengono distribuite in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, si cerca di distribuirle in parallelo. Il valore può essere un elenco delimitato da virgole di nomi di risorse o di identificatori univoci di risorse.
 | properties | No | Impostazioni di configurazione specifiche delle risorse.
 | resources | No | Risorse figlio che dipendono dalla risorsa in via di definizione.
@@ -429,4 +440,4 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per visualizzare gli schemi disponibili, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Tinfoil Security | Microsoft Azure" description="Informazioni su come usare Tinfoil Security con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Tinfoil Security | Microsoft Azure"
+    description="Informazioni su come usare Tinfoil Security con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Tinfoil Security
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=613055).
   
 In questa esercitazione verrà illustrata l'integrazione di Azure e Tinfoil Security. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di Tinfoil Security abilitata per l'accesso Single Sign-On.
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Tinfoil Security potranno accedere all'applicazione tramite il sito aziendale di Tinfoil Security (accesso avviato dal provider di identità) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Tinfoil Security potranno accedere all'applicazione tramite il sito aziendale di Tinfoil Security (accesso avviato dal provider di identità) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -53,7 +66,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Tinfoil Security tramite il proprio account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Tinfoil Security richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che illustra [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Tinfoil Security tramite il proprio account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Tinfoil Security richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
@@ -85,7 +98,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Sicurezza](./media/active-directory-saas-tinfoil-security-tutorial/IC798972.png "Sicurezza")
 
-8.  Nella pagina **Single Sign-On** eseguire la procedura seguente:
+8.  Nella pagina di configurazione **Single Sign-On** eseguire la procedura seguente:
 
     ![Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798973.png "Single Sign-On")
 
@@ -94,10 +107,10 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Tinfoil Security** del portale di Azure, copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **URL post SAML**.
     4.  Copiare il valore di **Identificazione personale** dal certificato esportato e incollarlo nella casella di testo **Impronta certificato SAML**.  
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
     5.  Copiare l’**ID account**.
-    6.  Fare clic su **Salva**.
+    6.  Fare clic su **Save**.
 
 9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -146,6 +159,6 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Sì](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

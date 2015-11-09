@@ -46,7 +46,7 @@ Le attività di installazione e registrazione seguenti possono essere automatizz
 È possibile creare un nuovo insieme di credenziali per il backup usando il cmdlet **New-AzureRMBackupVault**. L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
@@ -300,4 +300,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Se si vogliono aggiungere funzionalità per la creazione di grafici all'output del report, leggere questo articolo sulla [creazione di grafici con PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)sul blog TechNet
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

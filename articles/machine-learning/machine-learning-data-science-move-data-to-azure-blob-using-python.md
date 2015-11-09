@@ -18,6 +18,8 @@
 
 # Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python.
 
+Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da un archivio BLOB di Azure sono disponibili qui:
+
 [AZURE.INCLUDE [selettore dello strumento di archiviazione BLOB](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## Introduzione
@@ -121,4 +123,4 @@ Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenito
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

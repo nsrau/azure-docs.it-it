@@ -13,24 +13,43 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="10/23/2015" 
     ms.author="elizapo" />
 
 
 
-# Novità di RemoteApp
+# Novità di RemoteApp di Azure
 
-Uno dei vantaggi di RemoteApp è che viene costantemente migliorato. Ogni modifica apportata viene comunicata qui.
+Uno dei vantaggi di Azure RemoteApp è che viene costantemente migliorato. Ogni modifica apportata viene comunicata qui.
+
+## Settembre 2015
+- Aggiunta di Infopath all'immagine delle raccolte e dei modelli di Microsoft Office 365. Per condividere Infopath, assicurarsi di aggiornare le raccolte con l'immagine più recente.
+- Aggiornamenti client:
+	- Aggiornamento dei client Windows per consentire agli utenti di condividere commenti e suggerimenti, soprattutto sui problemi di connessione.
+	- Aggiornamento dei client iOS per correggere un errore di messaggistica e per risolvere un problema in cui le credenziali scadevano prima del previsto.
+- Microsoft sta lavorando al test del supporto per Office 2016. Una volta completato, cercare le immagini aggiornate.
+- Pubblicazione di un nuovo articolo sulle [differenze tra le raccolte cloud e ibride](remoteapp-collections.md), che aiuta a scegliere il tipo di raccolta più adatto alle proprie app: solo cloud, cloud + rete virtuale o ibrido.
+- Se si vuole condividere QuickBooks con Azure RemoteApp, ma non si è certi della procedura da seguire, vedere il [nuovo articolo di Eric Orman](remoteapp-quickbooks.md) che illustra tutti i passaggi.
+
+## Agosto 2015
+In agosto sono state apportate notevoli modifiche, tra cui:
+
+- Possibilità di usare una rete virtuale di Azure con una raccolta nel cloud. Per la nuova procedura, vedere le [istruzioni per la creazione cloud](remoteapp-create-cloud-deployment.md).
+- Possibilità di aggiungere app al menu **Start** per il nuovo client Windows RemoteApp. Le app verranno visualizzate nell'elenco di applicazioni ed è possibile aggiungerle al menu **Start** di Windows.
+- Aggiunta di una nuova immagine alla raccolta di VM di Azure: Host sessione Desktop remoto di Windows Server con Microsoft Office 365 ProPlus.
+- Correzione del client Mac per evitare il blocco delle app con finestre modali.
+- Documentazione sull'uso della [sottoscrizione di Office 365 ProPlus](remoteapp-officesubscription.md) con Azure RemoteApp.
+- Informazioni dettagliate su come [proteggere le app e i dati](remoteapp-secure.md) nella raccolta di Azure RemoteApp.
 
 ## 2015 luglio 2014
 
 A luglio vengono portati in scena le novità in arrivo nel mese di agosto, pertanto non c’è molto di cui parlare di ora, principalmente aggiornamenti dei documenti. Ecco le modifiche più recenti:
 
 - Aggiunta della scheda **Supporto** al portale, in modo da poter accedere più facilmente alle risorse di supporto, ad esempio i forum.
-- Rielaborazione delle informazioni sulla risoluzione dei problemi per la creazione di una raccolta ibrida. Esaminare [le ultimissime novità](remoteapp-hybridtrouble.md) per suggerimenti sulla risoluzione dei problemi, come identificare le porte appropriate per configurare la rete VNET.
-- Documentato come i [dati utente](remoteapp-upd.md) vengono creati e salvati in Azure RemoteApp.
-- Documentato come [bloccare le applicazioni](remoteapp-secure.md).
-- Pubblicati i [cmdlet di Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
+- Rielaborazione delle informazioni sulla risoluzione dei problemi per la creazione di una raccolta ibrida. Vedere [le ultimissime novità](remoteapp-hybridtrouble.md) per suggerimenti sulla risoluzione dei problemi, ad esempio come identificare le porte appropriate per configurare la rete virtuale.
+- Documentazione della creazione e del salvataggio dei [dati utente](remoteapp-upd.md) in Azure RemoteApp.
+- Documentazione di come [bloccare le app](remoteapp-secure.md).
+- Pubblicazione dei [cmdlet di Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
 - Infine, abbiamo iniziato una conversazione con alcuni utenti di Azure RemoteApp sulla terminologia. Cercare le modifiche al modo in cui si fa riferimento alle diverse opzioni della raccolta.
 
 ## Giugno 2015
@@ -61,4 +80,8 @@ Si desidera vedere RemoteApp di Azure nel mondo reale? Consultare l’esercitazi
 
 Grazie per l’attenzione. Ulteriori aggiornamenti saranno comunicati il mese prossimo.
 
-<!---HONumber=Oct15_HO3-->
+
+### Come contribuire al miglioramento 
+Non tutti sanno che oltre alla classificazione di questo articolo e l'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
+
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/12/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 
@@ -39,8 +39,9 @@ Nell'anteprima corrente il **Catalogo dati di Azure** supporta la registrazione 
 * Directory e BLOB di archiviazione di Azure
 * File e directory HDFS
 * Tabelle Hive di HDInsight
+* Tabelle Teradata e visualizzazioni
 
-> [AZURE.NOTE]Il supporto di SQL Server include anche il database SQL di Microsoft Azure
+> [AZURE.NOTE]Il supporto di SQL Server include anche il database SQL di Microsoft Azure e SQL Data Warehouse di Microsoft Azure
 
 <br/>
 
@@ -63,7 +64,7 @@ Oltre ai metadati descrittivi estratti dall'origine dati, gli utenti possono anc
 
 Per impostazione predefinita, solo i metadati vengono estratti dalle origini dati e copiati nel servizio **Catalogo dati di Azure**, ma un'origine dati spesso è più facile da comprendere osservando un esempio dei dati che contiene.
 
-Lo strumento di registrazione dell'origine dati del **Catalogo dati di Azure** consente agli utenti di includere un'anteprima sotto forma di snapshot dei dati in ogni tabella e vista registrate. Se l'utente sceglie di includere anteprime durante la registrazione, lo strumento di registrazione includerà un massimo di 20 record da ogni tabella e vista. Questo snapshot viene quindi copiato nel catalogo insieme ai metadati strutturali e descrittivi.
+Lo strumento di registrazione dell'origine dati del **Catalogo dati di Azure** consente agli utenti di includere un'anteprima sotto forma di snapshot dei dati in ogni tabella e visualizzazione registrate. Se l'utente sceglie di includere anteprime durante la registrazione, lo strumento di registrazione includerà un massimo di 20 record da ogni tabella e vista. Questo snapshot viene quindi copiato nel catalogo insieme ai metadati strutturali e descrittivi.
 
 
 > [AZURE.NOTE]Nell'anteprima delle tabelle di grandi dimensioni con un numero elevato di colonne potrebbero essere inclusi meno di 20 record.
@@ -94,4 +95,4 @@ La nuova registrazione di un'origine dati già registrata esegue un'operazione d
 ## Riepilogo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Dopo la registrazione di un'origine dati, questa potrà essere annotata, gestita e individuata tramite il portale del **Catalogo dati di Azure**.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

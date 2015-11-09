@@ -37,10 +37,10 @@ Gli esempi di configurazione di router riportati di seguito si applicano al peer
       network-object <IP> <Subnet_Mask>
     
     object-group network on-prem-range-1
-      network-object <IP> <Subnet_Mask>
+      network-object <IP> <Subnet-Mask>
     
     object-group network on-prem-range-2
-      network-object <IP> <Subnet_Mask>
+      network-object <IP> <Subnet-Mask>
     
     object-group network on-prem
       network-object object on-prem-range-1
@@ -48,6 +48,34 @@ Gli esempi di configurazione di router riportati di seguito si applicano al peer
     
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
+### Configurazione PAT per il traffico da Microsoft alla rete del cliente
+
+#### Interfacce e Direzione:
+	Source Interface (where the traffic enters the ASA): inside
+	Destination Interface (where the traffic exits the ASA): outside
+
+#### Configurazione:
+Pool NAT:
+
+	object network outbound-PAT
+		host <NAT-IP>
+
+Server di destinazione:
+
+	object network Customer-Network
+		network-object <IP> <Subnet-Mask>
+
+Gruppo dell’oggetto per gli indirizzi IP del cliente
+
+	object-group network MSFT-Network-1
+		network-object <MSFT-IP> <Subnet-Mask>
+	
+	object-group network MSFT-PAT-Networks
+		network-object object MSFT-Network-1
+
+Comandi NAT:
+
+	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
 ## Router serie Juniper MX 
@@ -64,7 +92,7 @@ Gli esempi di configurazione di router riportati di seguito si applicano al peer
 	        unit 100 {
 	            vlan-id 100;
 	            family inet {
-	                address <IP_Address/Subnet_mask>;
+	                address <IP-Address/Subnet-mask>;
 	            }
 	        }
 	    }
@@ -78,7 +106,7 @@ Gli esempi di configurazione di router riportati di seguito si applicano al peer
 	            description "To Microsoft via Edge Router";
 	            vlan-id 100;
 	            family inet {
-	                address <IP_Address/Subnet_mask>;
+	                address <IP-Address/Subnet-mask>;
 	            }
 	        }
 	    }
@@ -134,49 +162,49 @@ Gli esempi di configurazione di router riportati di seguito si applicano al peer
 		security {
 		    nat {
 		        source {
-		            pool SNAT_To_ExpressRoute {
+		            pool SNAT-To-ExpressRoute {
 		                routing-instance {
-		                    External_ExpressRoute;
+		                    External-ExpressRoute;
 		                }
 		                address {
-		                    <NAT_IP_address/Subnet_mask>;
+		                    <NAT-IP-address/Subnet-mask>;
 		                }
 		            }
-		            pool SNAT_From_ExpressRoute {
+		            pool SNAT-From-ExpressRoute {
 		                routing-instance {
 		                    Internal;
 		                }
 		                address {
-		                    <NAT_IP_address/Subnet_mask>;
+		                    <NAT-IP-address/Subnet-mask>;
 		                }
 		            }
 		            rule-set Outbound_NAT {
 		                from routing-instance Internal;
-		                to routing-instance External_ExpressRoute;
-		                rule SNAT_Out {
+		                to routing-instance External-ExpressRoute;
+		                rule SNAT-Out {
 		                    match {
 		                        source-address 0.0.0.0/0;
 		                    }
 		                    then {
 		                        source-nat {
 		                            pool {
-		                                SNAT_To_ExpressRoute;
+		                                SNAT-To-ExpressRoute;
 		                            }
 		                        }
 		                    }
 		                }
 		            }
-		            rule-set Inbound_NAT {
-		                from routing-instance External_ExpressRoute;
+		            rule-set Inbound-NAT {
+		                from routing-instance External-ExpressRoute;
 		                to routing-instance Internal;
-		                rule SNAT_In {
+		                rule SNAT-In {
 		                    match {
 		                        source-address 0.0.0.0/0;
 		                    }
 		                    then {
 		                        source-nat {
 		                            pool {
-		                                SNAT_From_ExpressRoute;
+		                                SNAT-From-ExpressRoute;
 		                            }
 		                        }
 		                    }
@@ -194,12 +222,12 @@ Fare riferimento agli esempi riportati nella pagina [Esempi di configurazione de
 ### 6\. Creare criteri
 
 	routing-options {
-	    	      autonomous-system <Customer_ASN>;
+	    	      autonomous-system <Customer-ASN>;
 	}
 	policy-options {
-	    prefix-list Microsoft_Prefixes {
-	        <IP_Address/Subnet_Mask;
-	        <IP_Address/Subnet_Mask;
+	    prefix-list Microsoft-Prefixes {
+	        <IP-Address/Subnet-Mask;
+	        <IP-Address/Subnet-Mask;
 	    }
 	    prefix-list private-ranges {
 	        10.0.0.0/8;
@@ -207,18 +235,18 @@ Fare riferimento agli esempi riportati nella pagina [Esempi di configurazione de
 	        192.168.0.0/16;
 	        100.64.0.0/10;
 	    }
-	    policy-statement Advertise_NAT_Pools {
+	    policy-statement Advertise-NAT-Pools {
 	        from {
 	            protocol static;
-	            route-filter <NAT_Pool_Address/Subnet_mask> prefix-length-range /32-/32;
+	            route-filter <NAT-Pool-Address/Subnet-mask> prefix-length-range /32-/32;
 	        }
 	        then accept;
 	    }
-	    policy-statement Accept_from_Microsoft {
+	    policy-statement Accept-from-Microsoft {
 	        term 1 {
 	            from {
-	                instance External_ExpressRoute;
-	                prefix-list-filter Microsoft_Prefixes orlonger;
+	                instance External-ExpressRoute;
+	                prefix-list-filter Microsoft-Prefixes orlonger;
 	            }
 	            then accept;
 	        }
@@ -226,7 +254,7 @@ Fare riferimento agli esempi riportati nella pagina [Esempi di configurazione de
 	            then reject;
 	        }
 	    }
-	    policy-statement Accept_from_Internal {
+	    policy-statement Accept-from-Internal {
 	        term no-private {
 	            from {
 	                instance Internal;
@@ -252,35 +280,35 @@ Fare riferimento agli esempi riportati nella pagina [Esempi di configurazione de
 	        interface reth0.100;
 	        routing-options {
 	            static {
-	                route <NAT_Pool_IP_Address/Subnet_mask> discard;
+	                route <NAT-Pool-IP-Address/Subnet-mask> discard;
 	            }
-	            instance-import Accept_from_Microsoft;
+	            instance-import Accept-from-Microsoft;
 	        }
 	        protocols {
 	            bgp {
 	                group customer {
-	                    export <Advertise_NAT_Pools>;
-	                    peer-as <Customer_ASN_1>;
-	                    neighbor <BGP_Neighbor_IP_Address>;
+	                    export <Advertise-NAT-Pools>;
+	                    peer-as <Customer-ASN-1>;
+	                    neighbor <BGP-Neighbor-IP-Address>;
 	                }
 	            }
 	        }
 	    }
-	    External_ExpressRoute {
+	    External-ExpressRoute {
 	        instance-type virtual-router;
 	        interface reth1.100;
 	        routing-options {
 	            static {
-	                route <NAT_Pool_IP_Address/Subnet_mask> discard;
+	                route <NAT-Pool-IP-Address/Subnet-mask> discard;
 	            }
-	            instance-import Accept_from_Internal;
+	            instance-import Accept-from-Internal;
 	        }
 	        protocols {
 	            bgp {
-	                group edge_router {
-	                    export <Advertise_NAT_Pools>;
-	                    peer-as <Customer_Public_ASN>;
-	                    neighbor <BGP_Neighbor_IP_Address>;
+	                group edge-router {
+	                    export <Advertise-NAT-Pools>;
+	                    peer-as <Customer-Public-ASN>;
+	                    neighbor <BGP-Neighbor-IP-Address>;
 	                }
 	            }
 	        }
@@ -291,4 +319,4 @@ Fare riferimento agli esempi riportati nella pagina [Esempi di configurazione de
 
 Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

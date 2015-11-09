@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/04/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 # Distribuzione e gestione di topologie Apache Storm in HDInsight basato su Linux
@@ -143,7 +143,14 @@ Per altre informazioni, vedere l'articolo relativo all'<a href="https://github.c
 
 ### URI di base
 
-L'URI di base per l'API REST nei cluster HDInsight basati su Linux è **https://headnode0:8744/api/v1/</a>**.
+L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibile nel nodo head in * ***https://HEADNODEFQDN:8744/api/v1/**; tuttavia, il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
+
+È possibile trovare il nome di dominio completo (FQDN) per il nodo head del cluster in diversi modi:
+
+* __Da una sessione SSH__: utilizzare il comando `headnode -f` da una sessione SSH al cluster.
+* __Dal Web Ambari__: selezionare __Servizi__ dalla parte superiore della pagina, quindi selezionare __Storm__. Dalla scheda __Riepilogo__ selezionare __Server dell'interfaccia utente di Storm__. Il nome FQDN del nodo su cui sono in esecuzione l'interfaccia utente di Storm e le API REST sarà nella parte superiore della pagina.
+* __Dall'API REST Ambari__: utilizzare il comando `curl -u admin:PASSWORD -G "https://CLUSTERNAME
+.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` per recuperare informazioni sul nodo su cui sono in esecuzione l'interfaccia utente di Storm e le API REST. Sostituire __PASSWORD__ con la password di amministratore per il cluster. Sostituire __CLUSTERNAME__ con il nome del cluster Nella risposta, la voce "host\_name" contiene il nome di dominio completo del nodo.
 
 ### Autenticazione
 
@@ -161,4 +168,4 @@ A questo punto, dopo aver appreso come distribuire e monitorare le topologie usa
 
 Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm per Apache Storm in HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

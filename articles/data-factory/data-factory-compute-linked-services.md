@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Servizi collegati di calcolo
@@ -234,6 +234,40 @@ mlEndpoint | L’URL del batch punteggio. | Sì
 apiKey | Modello dell'area di lavoro pubblicato di API. | Sì
 
 
+## Servizio collegato di Azure Data Lake Analytics
+Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un servizio di calcolo di Azure Data Lake Analytics a una Data factory di Azure prima di usare l'[attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) in una pipeline.
+
+Nell'esempio seguente viene fornita la definizione JSON per un servizio collegato di Azure Data Lake Analytics.
+
+	{
+	    "name": "AzureDataLakeAnalyticsLinkedService",
+	    "properties": {
+	        "type": "AzureDataLakeAnalytics",
+	        "typeProperties": {
+	            "accountName": "adftestaccount",
+	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+	            "authorization": "<authcode>",
+				"sessionId": "<session ID>", 
+	            "subscriptionId": "<subscription id>",
+	            "resourceGroupName": "<resource group name>"
+	        }
+	    }
+	}
+
+
+La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON.
+
+Proprietà | Descrizione | Obbligatorio
+-------- | ----------- | --------
+Tipo | La proprietà tipo deve essere impostata su **AzureDataLakeAnalytics**. | Sì
+accountName | Nome dell'account di Azure Data Lake Analytics. | Sì
+dataLakeAnalyticsUri | URI di Azure Data Lake Analytics. | No 
+autorizzazione | Il codice di autorizzazione viene recuperato automaticamente dopo aver fatto clic sul pulsante **Autorizza** nell'editor di Data factory e aver completato l'accesso OAuth. | Sì 
+subscriptionId | ID sottoscrizione di Azure | No (se non specificata, viene usata la sottoscrizione della Data factory). 
+resourceGroupName | Nome del gruppo di risorse di Azure | No (se non specificata, viene usato il gruppo di risorse della Data factory).
+sessionId | ID di sessione dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questo valore viene generato automaticamente nell'editor di Data factory. | Sì
+
+
 ## Servizio collegato di Azure SQL
 
 Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
@@ -247,4 +281,4 @@ Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività d
  
    
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

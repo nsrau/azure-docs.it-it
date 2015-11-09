@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con 15Five | Microsoft Azure" description="Informazioni su come usare 15Five con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con 15Five | Microsoft Azure" 
+    description="Informazioni su come usare 15Five con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con 15Five
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=528017).
 
 Questa esercitazione descrive l'integrazione di Azure e 15Five. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di 15Five abilitata per l'accesso Single Sign-On
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a 15Five potranno accedere all'applicazione tramite il sito aziendale di 15Five (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](https://msdn.microsoft.com/library/dn308586)
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a 15Five potranno accedere all'applicazione tramite il sito aziendale di 15Five (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md)
 
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -73,7 +86,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     >[AZURE.NOTE]L'accesso Single Sign-On deve essere abilitato dal team di supporto di 15Five.
 
-5.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+5.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-15five-tutorial/IC784674.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -84,11 +97,11 @@ Per consentire agli utenti di Azure AD di accedere a 15Five, è necessario esegu
 
 1.  Accedere al sito aziendale di **15Five** come amministratore.
 
-2.  Passare a **Manage Company**.
+2.  Passare a **Gestisci azienda**.
 
     ![Manage Company](./media/active-directory-saas-15five-tutorial/IC784675.png "Manage Company")
 
-3.  Passare a **People > Add People**.
+3.  Passare a **Persone > Aggiungi persone**.
 
     ![People](./media/active-directory-saas-15five-tutorial/IC784676.png "People")
 
@@ -96,7 +109,7 @@ Per consentire agli utenti di Azure AD di accedere a 15Five, è necessario esegu
 
     ![Add New Person](./media/active-directory-saas-15five-tutorial/IC784677.png "Add New Person")
 
-    1.  Nelle caselle di testo **First Name**, **Last Name**, **Title**, **Email address** digitare il nome, il cognome, il titolo e l'indirizzo di posta elettronica di un account utente Azure Active Directory valido di cui si vuole eseguire il provisioning.
+    1.  Digitare il **Nome**, **Cognome**, **Titolo**, **Indirizzo email** di un account utente Azure Active Directory valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Done**.
 
     >[AZURE.NOTE]Il titolare dell'account Azure AD riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
@@ -115,10 +128,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-15five-tutorial/IC784678.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-15five-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

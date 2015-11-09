@@ -36,6 +36,8 @@ Per un approfondimento sulla scalabilità orizzontale utilizzando più Ambienti 
 
 Per vedere come è stata configurata l'architettura di sicurezza illustrata negli approfondimenti di AzureCon, vedere l'articolo sull'implementazione di una [architettura di sicurezza a più livelli](app-service-app-service-environment-layered-security.md) con gli ambienti del servizio app.
 
+Le app in esecuzione in ambienti di servizio app possono avere l'accesso controllato da dispositivi upstream, quali i firewall di applicazione web (WAF). L'articolo sulla [configurazione di un WAF per gli ambienti di servizio app](app-service-app-service-environment-web-application-firewall.md) tratta di questo scenario.
+
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Risorse di calcolo dedicate ##
@@ -103,4 +105,4 @@ Per altre informazioni sull'uso di un ambiente del servizio app con ExpressRoute
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

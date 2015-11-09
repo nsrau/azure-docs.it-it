@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/13/2015"
+	ms.date="10/23/2015"
 	ms.author="jeffstok"/>
 
 # Informazioni sugli input di analisi di flusso
@@ -137,7 +137,7 @@ La tabella seguente illustra ciascuna proprietà nella scheda di input dell'arch
 </tr>
 <tr>
 <td>Schema prefisso percorso [facoltativo]</td>
-<td>Percorso del file usato per individuare i BLOB nel contenitore specificato. All'interno del percorso è possibile scegliere di specificare una o più istanze delle 3 variabili seguenti:<BR>{date}, {time},<BR>{partition}<BR>Esempio 1: cluster1/logs/{date}/{time}/{partition}<BR>Esempio 2: cluster1/logs/{date}</td>
+<td>Percorso del file usato per individuare i BLOB nel contenitore specificato. All'interno del percorso è possibile scegliere di specificare una o più istanze delle 3 variabili seguenti:<BR>{date}, {time},<BR>{partition}<BR>Esempio 1: cluster1/logs/{date}/{time}/{partition}<BR>Esempio 2: cluster1/logs/{date}<P>Si noti che "*" non è un valore consentito per pathprefix. Sono consentiti solo <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Caratteri BLOB di Azure</a> validi.</td>
 </tr>
 <tr>
 <td>Formato data [facoltativo]</td>
@@ -201,4 +201,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

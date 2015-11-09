@@ -1,7 +1,20 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Central Desktop | Microsoft Azure" description="Informazioni su come usare Central Desktop con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Central Desktop | Microsoft Azure" 
+    description="Informazioni su come usare Central Desktop con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Central Desktop
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=522411).
 
 Questa esercitazione descrive l'integrazione di Azure e Central Desktop. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -22,7 +35,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Cent
 
 ###Per abilitare l'integrazione dell'applicazione per Central Desktop, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
 
     ![Active Directory](./media/active-directory-saas-central-desktop-tutorial/IC700993.png "Active Directory")
 
@@ -49,9 +62,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Cent
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
 ##Configurazione dell'accesso Single Sign-On
 
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Central Desktop tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
-Come parte di questa procedura, verrà richiesto di caricare un file di certificato con codifica Base 64 nel tenant di Central Desktop.  
-Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Central Desktop tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di caricare un file di certificato con codifica Base 64 nel tenant di Central Desktop. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 
 
@@ -65,7 +76,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-central-desktop-tutorial/IC777628.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app** eseguire la procedura seguente, quindi fare clic su **Avanti**:
+3.  Nella pagina **Configura URL app** seguire questa procedura e quindi fare clic su **Avanti**:
 
     -   Nella casella di testo **URL accesso Central Desktop** digitare l'URL del tenant di Central Desktop (ad esempio: **http://contoso.centraldesktop.com*).
 -   Nella casella di testo URL di risposta Central Desktop digitare l'URL AssertionConsumerService Central Desktop (ad esempio: https://contoso.centraldesktop.com/saml2-assertion.php).
@@ -84,7 +95,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
     ![Setup - Advanced](./media/active-directory-saas-central-desktop-tutorial/IC769563.png "Setup - Advanced")
 
-7.  Nella finestra di dialogo **Single Sign-On Settings** seguire questa procedura:
+7.  Nella pagina **Single Sign-On Settings** seguire questa procedura:
 
     ![Single Sign On Settings](./media/active-directory-saas-central-desktop-tutorial/IC769564.png "Single Sign On Settings")
 
@@ -101,13 +112,13 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
     2.  Nell'elenco **SSO Certificate** selezionare **RSH SHA256**.
     3.  Creare un file di testo dal certificato scaricato, copiare il contenuto del file di testo e quindi incollarlo nel campo **SSO Certificate**.  
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere il video relativo alla [conversione di un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Selezionare **Display a link to your SAMLv2 login page**.
 
 9.  Fare clic su **Update**.
 
-10. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-central-desktop-tutorial/IC769566.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -124,7 +135,7 @@ Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provis
 
     ![People](./media/active-directory-saas-central-desktop-tutorial/IC781051.png "People")
 
-4.  Nella casella di testo **Email Address of New Members** digitare un account AAD di cui si vuole eseguire il provisioning e quindi fare clic su **Next**.
+4.  Nella casella di testo **Email Address of New Members** digitare un account ADD di cui si vuole eseguire il provisioning e quindi fare clic su **Next**.
 
     ![Email Addresses of New Members](./media/active-directory-saas-central-desktop-tutorial/IC781052.png "Email Addresses of New Members")
 
@@ -148,10 +159,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-central-desktop-tutorial/IC769567.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

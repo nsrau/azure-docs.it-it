@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/20/2015"
+	ms.date="10/23/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -28,9 +28,10 @@
 
 In questo articolo vengono fornite istruzioni per l'esportazione di un file BACPAC del database SQL Azure con PowerShell.
 
-Un BACPAC è un file con estensione bacpac che contiene lo schema del database e dati. Per ulteriori informazioni, vedere il pacchetto di Backup (con estensione bacpac) in [Applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx).
+Un [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) è un file con estensione .bacpac che contiene lo schema del database e i dati. L'utilizzo primario per un file BACPAC è quello di spostare un database da un server all’altro, a [migrazione di un database locale nel cloud](sql-database-cloud-migrate.md), e di archiviare un database esistente in un formato aperto.
 
-> [AZURE.NOTE]Il database SQL di Azure crea automaticamente i backup per ogni database dell’utente. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> [AZURE.NOTE]I BACPAC non sono destinati a essere utilizzati per il backup e le operazioni di ripristino. Il database SQL di Azure crea automaticamente i backup per ogni database dell’utente. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+
 
 Il file BACPAC viene esportato in un contenitore di BLOB di archiviazione di Azure che è possibile scaricare una volta che l'operazione è stata completata correttamente.
 
@@ -55,7 +56,7 @@ Dopo aver effettuato l'accesso, sullo schermo verranno visualizzate informazioni
 
 ### Selezionare la sottoscrizione ad Azure
 
-Per selezionare la sottoscrizione, è necessario l’ID sottoscrizione o il nome della sottoscrizione (**-SubscriptionName**) che può essere copiato dal passaggio precedente o, se si dispone di più sottoscrizioni e si necessita di maggiori informazioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
+Per selezionare la sottoscrizione, è necessario l’ID sottoscrizione o il nome della sottoscrizione (**-SubscriptionName**) È possibile copiare l'ID sottoscrizione dalle informazioni visualizzate nel passaggio precedente o, se si dispone di più sottoscrizioni e si necessita di altre informazioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -69,7 +70,7 @@ Esistono alcune variabili in cui è necessario sostituire i valori di esempio co
 Sostituire i nomi del server e del database con il server e database che sono attualmente presenti nell'account. Per il nome del BLOB, immettere il nome del file BACPAC che verrà creato. Immettere il nome desiderato per il file BACPAC e includere l'estensione bacpac.
 
     $ServerName = "servername"
-    $DatabaseName = "nameofdatabasetobackup"
+    $DatabaseName = "nameofdatabasetoexport"
     $BlobName = "filename.bacpac"
 
 Nel [portale di anteprima di Azure](https://portal.azure.com) passare all'account di archiviazione per ottenere questi valori. È possibile trovare la chiave di accesso primaria facendo clic su **Tutte le impostazioni** e su **Chiavi** dal pannello dell'account di archiviazione.
@@ -147,4 +148,4 @@ L’esecuzione di questo comando richiede una password. Immettere la password de
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

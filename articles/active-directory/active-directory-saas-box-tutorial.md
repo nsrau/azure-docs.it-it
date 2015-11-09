@@ -1,5 +1,18 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Box | Microsoft Azure" description="Informazioni su come usare Box con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Box | Microsoft Azure" 
+    description="Informazioni su come usare Box con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
 
 
 
@@ -7,7 +20,6 @@
 #Esercitazione: Integrazione di Azure Active Directory con Box
 
 
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=522410).
   
 Questa esercitazione descrive l'integrazione di Azure e Box. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -33,7 +45,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Box.
 
 ###Per abilitare l'integrazione dell'applicazione per Box, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
 
     ![Active Directory](./media/active-directory-saas-box-tutorial/IC700993.png "Active Directory")
 
@@ -85,7 +97,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 5.  Inoltrare il file dei metadati al team di supporto di Box. La configurazione dell'accesso Single Sign-On deve essere eseguita dal team di supporto.
 
-6.  Selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  Selezionare la conferma della configurazione Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-box-tutorial/IC769540.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -98,10 +110,10 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 2. Nella finestra di dialogo **Abilita provisioning utenti in Box** fare clic su **Abilita provisioning utenti**. <br><br> ![Abilita provisioning utenti automatico](./media/active-directory-saas-box-tutorial/IC769544.png "Abilita provisioning utenti automatico")
 
-3. Nella pagina **Log in to grant access to Box** specificare le credenziali richieste e fare clic su **Authorize**. <br><br> ![Abilita provisioning utenti automatico](./media/active-directory-saas-box-tutorial/IC769546.png "Abilita provisioning utenti automatico")
+3. Nella pagina **Entrare per garantire l’accesso a Box** specificare le credenziali richieste e fare clic su **Autorizza**. <br><br> ![Abilita provisioning utenti automatico](./media/active-directory-saas-box-tutorial/IC769546.png "Abilita provisioning utenti automatico")
 
 
-4. Fare clic su **Grant access to Box** per autorizzare l'operazione e tornare al portale di gestione di Azure. <br><br> ![Abilita provisioning utenti automatico](./media/active-directory-saas-box-tutorial/IC769549.png "Abilita provisioning utenti automatico")
+4. Fare clic su **Garantire l’accesso a Box** per autorizzare l'operazione e tornare al portale di gestione di Azure. <br><br> ![Abilita provisioning utenti automatico](./media/active-directory-saas-box-tutorial/IC769549.png "Abilita provisioning utenti automatico")
 
 5. Per completare la configurazione fare clic sul pulsante Completa. <br><br> ![Abilita provisioning utenti automatico](./media/active-directory-saas-box-tutorial/IC769551.png "Abilita provisioning utenti automatico")
 
@@ -117,7 +129,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 2. Nella pagina di integrazione dell'applicazione **Box** fare clic su **Assegna utenti**. <br><br> ![Assegna utenti](./media/active-directory-saas-box-tutorial/IC769552.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione. <br><br> ![Sì](./media/active-directory-saas-box-tutorial/IC767830.png "Sì")
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione. <br><br> ![Sì](./media/active-directory-saas-box-tutorial/IC767830.png "Sì")
   
 
 È ora necessario attendere 10 minuti e verificare che l'account sia stato sincronizzato con Box.
@@ -131,7 +143,7 @@ Un ciclo di provisioning utenti completato correttamente è indicato da uno stat
 <br><br> ![Integration status](./media/active-directory-saas-box-tutorial/IC769555.png "Integration status")
 
 
-Nel tenant Box gli utenti sincronizzati sono visualizzati nella sezione **Managed Users** di **Admin Console**.
+Nel tenant Box gli utenti sincronizzati sono visualizzati nella sezione **Utenti gestiti** di **Admin Console**.
 
 <br><br> ![Integration status](./media/active-directory-saas-box-tutorial/IC769556.png "Integration status")
 
@@ -141,4 +153,4 @@ Nel tenant Box gli utenti sincronizzati sono visualizzati nella sezione **Manage
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

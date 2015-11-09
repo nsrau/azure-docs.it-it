@@ -1,11 +1,21 @@
-<properties pageTitle="Esercitazione: Configurazione di Workday per la sincronizzazione in ingresso | Microsoft Azure" description="Informazioni su come usare la sincronizzazione in entrata con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Configurazione di Workday per la sincronizzazione in ingresso | Microsoft Azure" 
+    description="Informazioni su come usare la sincronizzazione in entrata con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Configurazione di Workday per la sincronizzazione in ingresso
 >[AZURE.NOTE]Azure Active Directory (AD) Premium sono disponibili per i clienti in Cina che usano l'istanza globale di Azure AD. Azure AD Premium non è attualmente supportato nel servizio Microsoft Azure gestito da 21Vianet in Cina.
-
-& nbsp;
-
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=330042).
 
 Questa esercitazione descrive i passaggi da eseguire in Workday e Microsoft Azure AD per importare utenti da Workday in Microsoft Azure AD. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -38,7 +48,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Sale
 
 	![Applicazioni](./media/active-directory-saas-inbound-synchronization-tutorial/IC700994.png "Applicazioni")
 
-4.  Per aprire la **Raccolta di applicazioni**, fare clic su **Aggiungi app** e quindi su **Aggiungi un'applicazione che verrà utilizzata dall'organizzazione**.
+4.  Per aprire la **Raccolta di applicazioni**, fare clic su **Aggiungi app**, quindi fare clic su **Aggiungi un'applicazione che verrà utilizzata dall'organizzazione**.
 
 	![Come procedere](./media/active-directory-saas-inbound-synchronization-tutorial/IC700995.png "Come procedere")
 
@@ -147,9 +157,9 @@ Questa sezione descrive come configurare Microsoft Azure AD per importare utenti
 
 ###Per configurare l'importazione di utenti in Microsoft Azure AD, seguire questa procedura:
 
-1.  Nella pagina relativa all'integrazione dell'applicazione **Workday** fare clic su **Configura importazione utente** per aprire la finestra di dialogo **Configura provisioning**.    
+1.  Nella pagina di integrazione dell'applicazione **Workday** fare clic su **Configura importazione utenti** per aprire la finestra di dialogo **Configura provisioning**.    
 
-2.  Nella pagina **Impostazioni e credenziali amministratore** seguire questa procedura, quindi fare clic su Avanti:
+2.  Nella pagina **Impostazioni e credenziali amministratore** seguire questa procedura e quindi fare clic su Avanti:
 
 	![Impostazioni e credenziali di amministratore](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "Impostazioni e credenziali di amministratore")
 
@@ -157,7 +167,7 @@ Questa sezione descrive come configurare Microsoft Azure AD per importare utenti
     2.  Nella casella di testo **Password amministratore Workday** digitare la password dell'utente creato nella sezione [Creazione di un utente del sistema di integrazione](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
     3.  Nella casella di testo **URL tenant Workday** digitare l'URL o il tenant di Workday.    
 
-3.  Nella pagina **Test connessione** fare clic su **Avvia test** per confermare la connettività, quindi fare clic su **Avanti**.
+3.  Nella pagina **Connessione di test** fare clic su **Avvia test** per verificare la connettività e quindi fare clic su **Avanti**.
 
 	![Connessione di test](./media/active-directory-saas-inbound-synchronization-tutorial/IC750996.png "Connessione di test")
 
@@ -165,10 +175,10 @@ Questa sezione descrive come configurare Microsoft Azure AD per importare utenti
 
 	![Opzioni di provisioning](./media/active-directory-saas-inbound-synchronization-tutorial/IC750997.png "Opzioni di provisioning")
 
-5.  Nella finestra di dialogo **Avvia provisioning** fare clic su **Completo**.
+5.  Nella finestra di dialogo **Avvia il provisioning** fare clic su **Completa**.
 
 	![Avvia provisioning](./media/active-directory-saas-inbound-synchronization-tutorial/IC750998.png "Avvia provisioning")
 
 È ora possibile passare alla sezione **Utenti** e verificare se l'utente Workday è stato importato.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

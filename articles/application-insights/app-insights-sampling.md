@@ -30,17 +30,27 @@ Il campionamento attualmente è disponibile nella versione beta e in futuro potr
 Il campionamento attualmente è disponibile per ASP.NET SDK o per [qualsiasi pagina Web](#other-web-pages).
 
 ### Server ASP.NET
-Per configurare il campionamento nell'applicazione, inserire il frammento di codice seguente nel metodo `Application_Start()` in Global.asax.cs:
 
-```C#
+1. Aggiornare i pacchetti NuGet del progetto all'ultima versione *preliminare* di Application Insights. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web. 
 
-    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+2. Aggiungere questo frammento ad ApplicationInsights.config:
+
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
 ```
 
-> [AZURE.NOTE]Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. I valori validi, ad esempio, includono 50 (=1/2), 33,33 (= 1/3), 25 (=1/4), 20 (=1/5) e così via. Il campionamento attualmente non supporta altri valori.
+> [AZURE.NOTE]Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. Il campionamento attualmente non supporta altri valori.
 
+<a name="other-web-pages"></a>
 ### Pagine Web con JavaScript
 
 È possibile configurare le pagine Web per il campionamento da qualsiasi server. Per i server ASP.NET, configurare sia il lato client che il lato server.
@@ -63,6 +73,26 @@ Quando si [configurano le pagine Web per Application Insights](app-insights-java
 Assicurarsi di specificare in JavaScript la stessa percentuale di campionamento del lato server.
 
 [Altre informazioni sull'API](app-insights-api-custom-events-metrics.md)
+
+
+### In alternativa: impostare campionamento nel codice server
+
+
+Invece di impostare il parametro di campionamento nel file .config, è possibile utilizzare il codice. In questo modo è possibile attivare o disattivare il campionamento.
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
+    // It's recommended to set SamplingPercentage in the .config file instead.
+
+    // This configures sampling percentage at 10%:
+    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+
+```
 
 
 ## Quando usare il campionamento?
@@ -132,4 +162,4 @@ L'SDK lato client (JavaScript) partecipa al campionamento insieme all'SDK lato s
 
 * No, il campionamento per le applicazioni per dispositivo al momento non è supportato. 
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

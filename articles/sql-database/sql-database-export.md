@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/20/2015"
+	ms.date="10/23/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -27,9 +27,9 @@
 
 In questo articolo vengono fornite istruzioni per l'esportazione di un file BACPAC del database SQL Azure con il [portale di anteprima di Azure](https://portal.azure.com).
 
-Un BACPAC è un file con estensione bacpac che contiene lo schema del database e dati. Per ulteriori informazioni, vedere il pacchetto di Backup (con estensione bacpac) in [Applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx).
+Un [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) è un file con estensione .bacpac che contiene lo schema del database e i dati. L'utilizzo primario per un file BACPAC è quello di spostare un database da un server all’altro, a [migrazione di un database locale nel cloud](sql-database-cloud-migrate.md), e di archiviare un database esistente in un formato aperto.
 
-> [AZURE.NOTE]Il database SQL di Azure crea automaticamente i backup per ogni database dell’utente. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> [AZURE.NOTE]I BACPAC non sono destinati a essere utilizzati per il backup e le operazioni di ripristino. Il database SQL di Azure crea automaticamente i backup per ogni database dell’utente. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
 
 Il file BACPAC viene esportato in un contenitore di BLOB di archiviazione di Azure che è possibile scaricare una volta che l'operazione è stata completata correttamente.
@@ -38,12 +38,12 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
 - Database SQL di Azure. Se non si dispone di un database SQL, crearne uno seguendo i passaggi indicati in questo articolo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
-- Un [account di archiviazione Azure](storage-create-storage-account.md) con un contenitore di BLOB per archiviare il backup del database. Attualmente l'account di archiviazione deve utilizzare il modello di distribuzione classica, quindi selezionate **Classico** durante la creazione di un account di archiviazione. 
+- Un [account di archiviazione Azure](storage-create-storage-account.md) con un contenitore di BLOB per archiviare il BACPAC. Attualmente l'account di archiviazione deve utilizzare il modello di distribuzione classica, quindi selezionate **Classico** durante la creazione di un account di archiviazione. 
 
 
 ## Esportazione del database
 
-Aprire il pannello del database SQL per il database che si desidera esportare come file con estensione .bacpac:
+Aprire il pannello del Database SQL per il database che si desidera esportare:
 
 > [AZURE.IMPORTANT]Per garantire un file BACPAC coerente dal punto di vista transazionale è necessario innanzitutto [creare una copia del database](sql-database-copy.md) e quindi esportare la copia del database.
 
@@ -59,7 +59,7 @@ Aprire il pannello del database SQL per il database che si desidera esportare co
 
     ![esporta database][2]
 
-1.  Immettere l’ **account di accesso dell’amministratore del Server** e la **Password** per il server SQL di Azure che contiene il database di cui si vuole eseguire il backup.
+1.  Immettere l’ **account di accesso dell’amministratore del Server** e la **Password** per il server SQL di Azure che contiene il database che si vuole esportare.
 1.  Fare clic su **Crea** per esportare il database.
 
 Facendo clic su **Crea** si crea una richiesta di esportazione del database e la si invia al servizio. A seconda delle dimensioni del database, l'operazione di esportazione potrebbe richiedere molto tempo.
@@ -76,9 +76,9 @@ Facendo clic su **Crea** si crea una richiesta di esportazione del database e la
 ## Verificare che il file BACPAC sia nel contenitore di archiviazione
 
 2.	Fare clic su **ESPLORA TUTTO**.
-3.	Fare clic su **Account di archiviazione (classico)**.
+3.	Fare clic su **Account di archiviazione (classica)**.
 2.	Selezionare l'account di archiviazione in cui è memorizzato il file BACPAC.
-3.	Fare clic su **Contenitori** e selezionare il contenitore in cui è stato esportato il database per i dettagli del backup (da qui è possibile scaricare e salvare il file BACPAC).
+3.	Fare clic su **Contenitori** e selezionare il contenitore in cui è stato esportato il database per i dettagli (da qui è possibile scaricare e salvare il file BACPAC).
 
     ![dettagli del file con estensione bacpac][5]
 
@@ -103,4 +103,4 @@ Facendo clic su **Crea** si crea una richiesta di esportazione del database e la
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

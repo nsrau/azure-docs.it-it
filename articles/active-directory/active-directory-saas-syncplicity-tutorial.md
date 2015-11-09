@@ -1,16 +1,29 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Syncplicity | Microsoft Azure" description="Informazioni su come usare Syncplicity con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Syncplicity | Microsoft Azure" 
+    description="Informazioni su come usare Syncplicity con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Syncplicity
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=522417).
   
-L'obiettivo di questa esercitazione è di illustrare come impostare il single sign-on tra Azure Active Directory (ad) e Syncplicity.
+L'obiettivo di questa esercitazione è di illustrare come impostare il single sign-on tra Azure Active Directory (Azure AD) e Syncplicity.
   
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant Syncplicity
   
-Al termine dell'esercitazione, gli utenti di AAD assegnati a Syncplicity saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di Syncplicity (accesso avviato dal provider di servizi) o tramite il pannello di accesso ad AAD.
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Syncplicity saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di Syncplicity (accesso avviato dal provider di servizi) o tramite il pannello di accesso ad Azure AD.
 
 1.  Abilitazione dell'integrazione dell'applicazione per Syncplicity
 2.  Configurazione dell'accesso Single Sign-On
@@ -39,7 +52,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-syncplicity-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-syncplicity-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -77,7 +90,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 5.  Accedere al tenant **Syncplicity**.
 
-6.  Nel menu nella parte superiore, fare clic su **admin**, selezionare **impostazioni**, quindi fare clic su **Personalizza dominio e Single Sign-On**.
+6.  Nel menu nella parte superiore, fare clic su **admin**, selezionare **settings**, quindi fare clic su **Custom domain and single sign-on**.
 
     ![Syncplicity](./media/active-directory-saas-syncplicity-tutorial/IC769545.png "Syncplicity")
 
@@ -85,15 +98,15 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Accesso Single Sign-On (SSO)](./media/active-directory-saas-syncplicity-tutorial/IC769550.png "Accesso Single Sign-On (SSO)")
 
-    1.  Nella casella di testo **Personalizza dominio**, digitare il nome del dominio.
-    2.  Selezionare **Abilitato** come **Stato Single Sign-On**.
-    3.  Nel portale di Microsoft Azure, nella pagina **Configura accesso Single Sign-On in Syncplicity**, copiare il valore **Entity ID** e incollarlo nella casella di testo **ID entità**.
-    4.  Nel portale di Microsoft Azure, nella pagina **Configura accesso Single Sign-On in Syncplicity**, copiare il valore **URL servizio Single Sign-On** e incollarlo nella casella di testo **URL pagina di accesso**.
-    5.  Nel portale di Microsoft Azure, nella pagina **Configura accesso Single Sign-On in Syncplicity**, copiare il valore **Remote Logout URL** e incollarlo nella casella di testo **URL pagina di disconnessione**.
-    6.  In **Certificato Provider di identità**fare clic su **Scegli file**, quindi caricare il certificato scaricato dal portale di Microsoft Azure.
+    1.  Nella casella di testo **Custom Domain**, digitare il nome del dominio.
+    2.  Selezionare **Enabled** come **Single Sign-On Status**.
+    3.  Nel portale di Microsoft Azure, nella pagina **Configura accesso Single Sign-On in Syncplicity**, copiare il valore **Entity ID** e incollarlo nella casella di testo **Entity Id**.
+    4.  Nel portale di Microsoft Azure, nella pagina **Configura accesso Single Sign-On in Syncplicity**, copiare il valore **URL servizio Single Sign-On** e incollarlo nella casella di testo **Sign-in page URL**.
+    5.  Nel portale di Microsoft Azure, nella pagina **Configura accesso Single Sign-On in Syncplicity**, copiare il valore **Remote Logout URL** e incollarlo nella casella di testo **Logout page URL**.
+    6.  In **Identity Provider Certificate**fare clic su **Choose file**, quindi caricare il certificato scaricato dal portale di Microsoft Azure.
     7.  Fare clic su **Salva modifiche**.
 
-8.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la pagina **Configura accesso Single Sign-On**.
+8.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Conferma](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "Conferma")
 
@@ -105,13 +118,13 @@ Per essere in grado di effettuare l’accesso, è necessario effettuare il provi
 
 1.  Accedere al tenant **Syncplicity** (ad esempio: **https://company.Syncplicity.com*).
 
-2.  Fare clic su **Admin** e selezionare **account utente**.
+2.  Fare clic su **Admin** e selezionare **user accounts**.
 
-3.  Fare clic su **Aggiungi un utente**.
+3.  Fare clic su **Add a user**.
 
     ![Gestisci utenti](./media/active-directory-saas-syncplicity-tutorial/IC769764.png "Gestisci utenti")
 
-4.  Digitare l’**indirizzo di posta elettronica** di un account AAD di cui si desidera effettuare il provisioning, selezionare **Utente** come **ruolo**, quindi fare clic su **Avanti**.
+4.  Digitare l’**indirizzo di posta elettronica** di un account ADD di cui si desidera effettuare il provisioning, selezionare **Utente** come **ruolo**, quindi fare clic su **Avanti**.
 
     ![Informazioni account](./media/active-directory-saas-syncplicity-tutorial/IC769765.png "Informazioni account")
 
@@ -141,10 +154,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-syncplicity-tutorial/IC769557.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-syncplicity-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

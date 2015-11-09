@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/26/2015"
    ms.author="tomfitz"/>
 
 # Comprendere la distribuzione di Gestione delle risorse e distribuzione classica
@@ -155,15 +155,17 @@ Esistono alcune importanti considerazioni da tenere presente quando si utilizzan
 - Le macchine virtuali distribuite con il modello di distribuzione di Gestione risorse deve essere incluso in una rete virtuale.
 - Le macchine virtuali distribuite con il modello di distribuzione di Gestione risorse deve essere incluso in una rete virtuale.
 
+Se è possibile affrontare i tempi di inattività per le macchine virtuali, è possibile passarle dalla distribuzione classica alla Gestione risorse con gli [script di PowerShell ASM2ARM](https://github.com/fullscale180/asm2arm).
+
 Per un elenco di comandi equivalenti dell'interfaccia della riga di comando di Azure durante la transizione dalla distribuzione classica per Gestione risorse, vedere [Comandi della Gestione risorse equivalente e della gestione dei servizi per le operazioni della macchina virtuale](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
 
-Per ulteriori informazioni sul passaggio di calcolo, l'archiviazione e le risorse di rete, vedere [Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Per ulteriori informazioni sul passaggio di calcolo, l’archiviazione e le risorse di rete, vedere [Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
-Per altre informazioni sulla connessione di reti virtuali da diversi modelli di distribuzione, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](./virtual-network/virtual-networks-arm-asm-s2s.md).
+Per informazioni sulla connessione di reti virtuali da diversi modelli di distribuzione, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Passaggi successivi
 
-- Per altre informazioni sulla creazione dei modelli di distribuzione dichiarativa, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+- Per informazioni sulla creazione dei modelli di distribuzione dichiarativa, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

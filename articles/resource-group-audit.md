@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="tomfitz"/>
 
 # Operazioni di controllo con Gestione risorse
@@ -22,21 +22,30 @@ In caso di problemi durante la distribuzione o nel corso del ciclo di vita della
 
 Il log di controllo include tutte le azioni eseguite sulle risorse, quindi se un utente dell'organizzazione modifica una risorsa, è possibile identificare l'azione, l'ora e l'utente.
 
+Esistono due importanti limitazioni da tenere presenti quando si lavora con i log di controllo:
+
+1. I log di controllo vengono conservati solo per 90 giorni.
+2. È possibile eseguire solo query per un intervallo di 15 giorni o meno.
+
 Si possono recuperare le informazioni dai log di controllo tramite Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST o il portale di anteprima di Azure.
 
 ## PowerShell
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Per recuperare le voci del log, eseguire il comando **Get AzureRmLog** (o **Get AzureResourceGroupLog** per le versioni precedenti ad Anteprima 1.0 di PowerShell). Fornire parametri aggiuntivi per filtrare l'elenco di voci.
+Per recuperare le voci del log, eseguire il comando **Get- AzureRmLog** (o **Get-AzureResourceGroupLog** per le versioni precedenti ad Anteprima 1.0 di PowerShell). Fornire parametri aggiuntivi per filtrare l'elenco di voci.
 
-L'esempio seguente mostra come usare il log di controllo per cercare le azioni eseguite durante il ciclo di vita della soluzione. È possibile vedere quando si è verificata l'azione e chi l'ha richiesta.
+L'esempio seguente mostra come usare il log di controllo per cercare le azioni eseguite durante il ciclo di vita della soluzione. È possibile vedere quando si è verificata l'azione e chi l'ha richiesta. Le date di inizio e fine vengono specificate in un formato Data.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+
+In alternativa, è possibile utilizzare funzioni data per specificare l'intervallo di date come ad esempio gli ultimi 15 giorni.
+
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15)
 
 A seconda dell'ora di inizio specificata, il comando precedente può restituire un lungo elenco di azioni per quel gruppo di risorse. I risultati possono essere filtrati in base all'elemento da cercare specificando i criteri di ricerca. Ad esempio, se si vuole cercare il motivo per cui un'app Web è stata arrestata, è possibile eseguire il comando seguente e vedere che someone@example.com ha eseguito un'azione di arresto.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -56,7 +65,7 @@ A seconda dell'ora di inizio specificata, il comando precedente può restituire 
 
 Nell'esempio successivo si cercheranno le azioni non riuscite dopo l'ora di inizio specificata. Per vedere i messaggi di errore, si includerà anche il parametro **DetailedOutput**.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) -Status Failed –DetailedOutput
     
 Se questo comando restituisce troppe voci e proprietà, è possibile concentrare le attività di controllo recuperando la proprietà **properties**.
 
@@ -153,4 +162,4 @@ Visualizzare quindi l'elenco delle operazioni più recenti.
 - Per informazioni su come concedere l'accesso a un'entità servizio, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
 - Per informazioni su come agire su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

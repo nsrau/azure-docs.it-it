@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestione e controllo dell'accesso alle risorse"
+   pageTitle="Gestione dell'accesso alle risorse"
    description="Usare il controllo di accesso basato sui ruoli (RBAC) per gestire le autorizzazioni utente per le risorse di distribuzione in Azure."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="10/28/2015"
    ms.author="tomfitz"/>
 
 # Gestione dell'accesso alle risorse
@@ -265,7 +265,8 @@ Creare l'assegnazione dei ruoli.
 - Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](../role-based-access-control-configure.md).
 - Per altre informazioni sull'uso delle entità servizio per gestire l'accesso per le applicazioni nella propria sottoscrizione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](../resource-group-authenticate-service-principal.md) e [Creare una nuova entità servizio di Azure usando il portale di Azure classico](../resource-group-create-service-principal-portal.md).
 - Per altre informazioni sulle operazioni di controllo all'interno dell'organizzazione, vedere [Operazioni di controllo con Gestione risorse](../resource-group-audit.md).
+- È possibile applicare restrizioni e convenzioni all’interno della sottoscrizione con criteri personalizzati. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](../resource-manager-policy.md).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

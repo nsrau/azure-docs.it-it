@@ -1,10 +1,22 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con ServiceNow | Microsoft Azure" description="Informazioni su come usare ServiceNow con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con ServiceNow | Microsoft Azure" 
+    description="Informazioni su come usare ServiceNow con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con ServiceNow
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=521880).
   
-Questa esercitazione descrive l'integrazione di Azure e ServiceNow.  
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e ServiceNow. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant in ServiceNow
@@ -25,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Serv
 
 ###Per abilitare l'integrazione dell'applicazione per ServiceNow, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
 
     ![Active Directory](./media/active-directory-saas-servicenow-tutorial/IC700993.png "Active Directory")
 
@@ -54,7 +66,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Serv
   
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a ServiceNow tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
 
-Come parte di questa procedura, verrà richiesto di caricare un file di certificato con codifica Base 64 nel tenant di Dropbox for Business. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Come parte di questa procedura, verrà richiesto di caricare un file di certificato con codifica Base 64 nel tenant di Dropbox for Business. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
@@ -95,7 +107,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
      6\.6. Per **Sign LogoutRequest** selezionare **Yes**.
 
-     6.7. Nella casella di testo **In caso di errore Single Sign-On SAML 2.0 per mancata autenticazione sessione o per primo accesso, reindirizza a questo URL** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
+     6\.7. Nella casella di testo **When SAML 2.0 single sign-on fails because the session is not authenticated, or this is the first login, redirect to this URL** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
 
   
 
@@ -139,7 +151,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
      11\.4. Per **Format** selezionare **PEM**.
 
-     11\.5. Creare un file con codifica Base 64 dal certificato scaricato. >[AZURE.NOTE]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+     11\.5. Creare un file con codifica Base 64 dal certificato scaricato. >[AZURE.NOTE]Per informazioni dettagliate, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
      11\.6. Nel **Blocco note** aprire il file con codifica Base 64 file e quindi copiarne il contenuto negli Appunti.
 
@@ -149,7 +161,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
 
 
-12. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su Completa per chiudere la finestra di dialogo Configura accesso Single Sign-On. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749326.png "Configura accesso Single Sign-On")
+12. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su Completa per chiudere la finestra di dialogo Configura accesso Single Sign-On. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749326.png "Configura accesso Single Sign-On")
 
 
 
@@ -202,7 +214,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-servicenow-tutorial/IC769499.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-servicenow-tutorial/IC767830.png "Sì")
   
@@ -214,4 +226,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

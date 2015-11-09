@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="10/28/2015"
    ms.author="patshea" />
 
 # Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio
@@ -88,11 +88,11 @@ Per disconnettere il debugger da tutti i processi nell'istanza o nel ruolo, apri
 
 ## Limitazioni del debug remoto in Azure
 
-Per Azure SDK 4.3, il debug remoto presenta le seguenti limitazioni.
+Da Azure SDK 2.3, il debug remoto presenta le seguenti limitazioni.
 
 - Con il debug remoto abilitato, non è possibile pubblicare un servizio cloud in cui un ruolo contiene più di 25 istanze.
 
-- Il debugger usa le porte da 30400 a 30424 e da 31400 a 31424. Se prova a usare una di queste porte, non sarà possibile pubblicare il servizio e verrà visualizzato uno dei seguenti messaggi di errore nel log delle attività per Azure:
+- Il debugger usa le porte da 30400 a 30424, da 31400 a 31424e da 32400 a 32424. Se prova a usare una di queste porte, non sarà possibile pubblicare il servizio e verrà visualizzato uno dei seguenti messaggi di errore nel log delle attività per Azure:
 
     - Errore durante la convalida del file con estensione cscfg in base al file con estensione csdef. L'intervallo di porte riservate 'intervallo' per l’endpoint Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector del ruolo 'ruolo' si sovrappone con una porta o un intervallo già definiti.
     - Allocazione non riuscita. Riprovare più tardi, provare a ridurre la dimensione della VM o il numero di istanze del ruolo oppure provare a distribuire in un'area diversa.
@@ -190,4 +190,4 @@ I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina v
 - Usare **Intellitrace** per raccogliere un registro degli eventi e delle chiamate da un server di rilascio. Vedere [Debug di un servizio cloud pubblicato con IntelliTrace e Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Usare **Diagnostica di Azure** per registrare informazioni dettagliate dal codice eseguito all'interno dei ruoli, sia che essi siano eseguiti nell'ambiente di sviluppo o in Azure. Vedere [Raccogliere dati di registrazione usando Diagnostica di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/22/2015"
 	ms.author="szarkos"/>
 
 # Preparare una macchina virtuale basata su CentOS per Azure
@@ -32,7 +32,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 **Note sull'installazione di CentOS**
 
-- Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
+- Il formato VHDX non è supportato in Azure, solo nei **VHD fissi**. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
 
 - Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi. Se si preferisce, su dischi di dati si può usare LVM o [RAID](virtual-machines-linux-configure-raid.md).
 
@@ -82,33 +82,12 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 		# sudo chkconfig network on
 
 
-8. **Solo CentOS 6.3**: installare i driver per Linux Integration Services
+8. **Solo CentOS 6.3**: installare i driver per Linux Integration Services (LIS)
 
-	**Importante: questo passaggio è valido solo per CentOS 6.3 e versioni precedenti.** In CentOS 6.4+ Linux Integration Services è *già disponibile nel kernel*.
+	**Importante: questo passaggio è valido solo per CentOS 6.3 e versioni precedenti.** In CentOS 6.4+ Linux Integration Services è *già disponibile nel kernel standard*.
 
-	a) Scaricare il file ISO contenente i driver per Linux Integration Services dall'[Area download Microsoft](http://www.microsoft.com/download/details.aspx?id=41554).
+	- Seguire le istruzioni di installazione nella [pagina di download LIS](https://www.microsoft.com/it-IT/download/details.aspx?id=46842) e installare l’RPM nell'immagine.  
 
-	b) Nella console di gestione di Hyper-V, nel riquadro **Azioni** fare clic su **Impostazioni**.
-
-	![Apertura impostazioni di Hyper-V](./media/virtual-machines-linux-create-upload-vhd-centos/settings.png)
-
-	c) Nel riquadro **Hardware** fare clic su **Controller IDE 1**.
-
-	![Aggiunta unità DVD con supporti di installazione](./media/virtual-machines-linux-create-upload-vhd-centos/installiso.png)
-
-	d) Nella casella **Controller IDE** fare clic su **Unità DVD**, quindi fare clic su **Aggiungi**.
-
-	e) Selezionare **File immagine**, passare a **Linux IC v3.2.iso** e quindi fare clic su **Apri**.
-
-	f) Nella pagina **Impostazioni** fare clic su **OK**.
-
-	g) Fare clic su **Connetti** per aprire la finestra della macchina virtuale.
-
-	h) Nella finestra del prompt dei comandi digitare i comandi seguenti:
-
-		# sudo mount /dev/cdrom /media
-		# sudo /media/install.sh
-		# sudo reboot
 
 9. Installare il pacchetto python-pyasn1 eseguendo il comando seguente:
 
@@ -365,4 +344,4 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
 
 16. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
