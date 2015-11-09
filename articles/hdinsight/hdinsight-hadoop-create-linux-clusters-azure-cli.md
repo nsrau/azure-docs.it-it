@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="larryfr"/>
 
 #Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
@@ -26,6 +26,10 @@ L'interfaccia della riga di comando di Azure è un'utilità della riga di comand
 I modelli di Gestione risorse di Azure sono documenti JSON che descrivono un __gruppo di risorse__ e tutte le risorse in esso contenute, ad esempio HDInsight. Questo approccio basato sui modelli consente di definire tutte le risorse necessarie per HDInsight in un modello e di gestire le modifiche apportate all'intero gruppo mediante __distribuzioni__ che applicano modifiche al gruppo.
 
 I passaggi illustrati in questo documento descrivono il processo di creazione di un nuovo cluster HDInsight tramite l'interfaccia della riga di comando di Azure e un modello:
+
+> [AZURE.IMPORTANT]I passaggi descritti in questo documento utilizzano il numero di nodi di lavoro predefinito (4) per un cluster HDInsight. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
+>
+> Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Prerequisiti
 
@@ -117,4 +121,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

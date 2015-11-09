@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 #Creare cluster basati su Linux in HDInsight tramite Azure PowerShell
@@ -50,37 +50,31 @@ I due parametri più importanti da impostare per il provisioning dei cluster Lin
 
 Lo script seguente illustra come creare un nuovo cluster:
 
-    # Use the new Azure Resource Manager mode
-    Switch-AzureMode AzureResourceManager
-
     ###########################################
     # Create required items, if none exist
     ###########################################
 
     # Sign in
-    Add-AzureAccount
+    Add-AzureRmAccount
 
     # Select the subscription to use
-    $subscriptionName = "<SubscriptionName>"        # Provide your Subscription Name
-    Select-AzureSubscription -SubscriptionName $subscriptionName
-
-    # Register your subscription to use HDInsight
-    Register-AzureProvider -ProviderNamespace "Microsoft.HDInsight" -Force
+    $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
+    Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
     # Create an Azure Resource Group
     $resourceGroupName = "<ResourceGroupName>"      # Provide a Resource Group name
     $location = "<Location>"                        # For example, "West US"
-    New-AzureResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
     # Create an Azure Storage account
     $storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-    New-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
+    New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 
     # Create an Azure Blob Storage container
     $containerName = "<ContainerName>"              # Provide a container name
-    $storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-    New-AzureStorageContainer -Name $containerName -Context $destContext
+    $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+    $destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    New-AzureRmStorageContainer -Name $containerName -Context $destContext
 
     ###########################################
     # Create an HDInsight Cluster
@@ -99,12 +93,16 @@ Lo script seguente illustra come creare un nuovo cluster:
     $sshCredentials = Get-Credential
 
     # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-    $location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
+    $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
 
     # Create a new HDInsight cluster
-    New-AzureHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -OSType Linux -Version "3.2" -SshCredential $sshCredentials
+    New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -OSType Linux -Version "3.2" -SshCredential $sshCredentials
 
-> [AZURE.NOTE]I valori specificati per **$clusterCredentials** vengono usati per creare l'account utente Hadoop per il cluster. Questo account verrà usato per connettersi al cluster. I valori specificati per **$sshCredentials** vengono usati per creare l'utente SSH per il cluster. Questo account viene usato per avviare una sessione SSH remota nel cluster ed eseguire i processi. Se si usa l'opzione Creazione rapida del portale di Azure per effettuare il provisioning di un cluster, il nome utente Hadoop predefinito è "admin" e il nome utente SSH predefinito è "hdiuser".
+I valori specificati per **$clusterCredentials** vengono usati per creare l'account utente Hadoop per il cluster. Questo account verrà usato per connettersi al cluster. I valori specificati per **$sshCredentials** vengono usati per creare l'utente SSH per il cluster. Questo account viene usato per avviare una sessione SSH remota nel cluster ed eseguire i processi. Se si usa l'opzione Creazione rapida del portale di Azure per effettuare il provisioning di un cluster, il nome utente Hadoop predefinito è "admin" e il nome utente SSH predefinito è "hdiuser".
+
+> [AZURE.IMPORTANT]In questo script, è necessario specificare il numero di nodi di lavoro che verranno inclusi nel cluster. Se si prevede di utilizzare più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario specificare anche una dimensione del nodo head con almeno 8 core e 14GB di RAM.
+>
+> Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Ci possono volere fino a 15 minuti per completare il provisioning.
 
@@ -129,4 +127,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

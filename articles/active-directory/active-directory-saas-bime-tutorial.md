@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Bime | Microsoft Azure" description="Informazioni su come usare Bime con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Bime | Microsoft Azure" 
+    description="Informazioni su come usare Bime con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Bime
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=524328).
 
 Questa esercitazione descrive l'integrazione di Azure e Bime. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant di Bime
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Bime potranno accedere all'applicazione tramite il sito aziendale di Bime (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Bime potranno accedere all'applicazione tramite il sito aziendale di Bime (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -24,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Bime
 
 ###Per abilitare l'integrazione dell'applicazione per Bime, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
 
     ![Active Directory](./media/active-directory-saas-bime-tutorial/IC700993.png "Active Directory")
 
@@ -51,7 +64,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Bime
     ![Bime](./media/active-directory-saas-bime-tutorial/IC775554.png "Bime")
 ##Configurazione dell'accesso Single Sign-On
 
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Bime tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Bime richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che illustra [come recuperare il valore di identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Bime tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Bime richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -81,15 +94,15 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-bime-tutorial/IC775559.png "Configura accesso Single Sign-On")
 
-    1.  Selezionare **Enable SAML authentication**.
+    1.  Selezionare **Abilita autenticazione SAML**.
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Bime** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Remote Login URL**.
-    3.  Copiare il valore di **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Certificate Fingerprint**.  
+    3.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato**.  
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come recuperare il valore di identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
     4.  Fare clic su **Save**.
 
-8.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+8.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-bime-tutorial/IC775560.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -100,15 +113,15 @@ Per consentire agli utenti di Azure AD di accedere a Bime, è necessario eseguir
 
 1.  Accedere al tenant di **Bime**.
 
-2.  Nella barra degli strumenti fare clic su **Admin** e quindi su **Users**.
+2.  Nella barra degli strumenti fare clic su **Admin** e quindi su **Utenti**.
 
     ![Amministratore](./media/active-directory-saas-bime-tutorial/IC775561.png "Amministratore")
 
-3.  In **Users List** fare clic su **Add New User** ("+").
+3.  Nella **Lista utenti** fare clic su **Aggiungi nuovo utente** ("+").
 
     ![Utenti](./media/active-directory-saas-bime-tutorial/IC775562.png "Utenti")
 
-4.  Nella finestra di dialogo **User Details** seguire questa procedura:
+4.  Nella finestra di dialogo **Dettagli utente** seguire questa procedura:
 
     ![User Details](./media/active-directory-saas-bime-tutorial/IC775563.png "User Details")
 
@@ -133,6 +146,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-bime-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

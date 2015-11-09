@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/09/2015"
+      ms.date="10/28/2015"
       ms.author="hascipio; v-divte" />
 
 # Guida alla creazione di un modello di soluzione per Azure Marketplace
@@ -44,16 +44,6 @@ Caricare un file ZIP contenente tutti i file necessari per eseguire il provision
 
 Dopo aver caricato il file ZIP, fare clic su **Richiedi certificazione**. Il team di certificazione Microsoft esaminerà i file e certificherà la topologia.
 
-È inoltre possibile convalidare l'esperienza di creazione senza l'effettiva distribuzione per l'utente finale usando i passaggi seguenti.
-
-1. Salvare il file *createUiDefinition.json* e generare l'URL assoluto. L'URL deve essere accessibile pubblicamente.
-2. Codificare l'URL [[http://www.url-encode-decode.com/](http://www.url-encode-decode.com/)].
-3. Sostituire il testo evidenziato con il percorso (URL codificato) del file *createUiDefinition.json* che richiede la convalida.
-
-  https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
-  
-4. Copiare e incollare l'URL in qualsiasi browser e visualizzare l'esperienza utente finale del file createUiDefinition.json.
-
 > [AZURE.TIP]Mentre gli sviluppatori lavorano sulla creazione delle topologie del modello di soluzione e sulla relativa certificazione, il reparto commerciale/marketing/legale dell'azienda può occuparsi dei contenuti di marketing e legali.
 
 ## Passaggi successivi
@@ -64,7 +54,7 @@ Dopo avere creato il modello di soluzione e inviato il file ZIP con i file richi
 
 **Immagini di macchina virtuale** - [Informazioni sulle macchine virtuali in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-**Estensioni di macchina virtuale** - [Informazioni generali sull'agente VM e sulle estensioni VM](https://msdn.microsoft.com/library/azure/dn832621.aspx) - [ Estensioni VM e funzionalità di Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+**Estensioni di macchina virtuale** - [Panoramica sull'agente VM e sulle estensioni VM](https://msdn.microsoft.com/library/azure/dn832621.aspx) - [ Estensioni VM e funzionalità di Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
 **ARM** - [Creazione di modelli ARM di Azure](../resource-group-authoring-templates/) - [Semplici esempi di modelli ARM](https://github.com/rjmax/ArmExamples)
 
@@ -75,4 +65,4 @@ Dopo avere creato il modello di soluzione e inviato il file ZIP con i file richi
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

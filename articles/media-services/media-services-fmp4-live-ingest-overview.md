@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure" 
-	description="Questa specifica descrive il protocollo e il formato per l'inserimento di un live streaming basato sul formato MP4 frammentato con Servizi multimediali di Microsoft Azure. Servizi multimediali di Microsoft Azure fornisce un servizio di live streaming che consente ai clienti di trasmettere in streaming eventi live e trasmettere contenuti in tempo reale usando Microsoft Azure come piattaforma cloud. Fino a oggi, l'MP4 frammentato pre-codificato costituisce l'unico formato che consente l'inserimento di un live streaming in Servizi multimediali di Microsoft Azure. Questo documento illustra inoltre le procedure consigliate per creare meccanismi di inserimento live affidabili e altamente ridondanti." 
+	description="Questa specifica descrive il protocollo e il formato per l'inserimento di un live streaming basato sul formato MP4 frammentato con Servizi multimediali di Microsoft Azure. Servizi multimediali di Microsoft Azure fornisce un servizio di live streaming che consente ai clienti di trasmettere in streaming eventi live e trasmettere contenuti in tempo reale usando Microsoft Azure come piattaforma cloud. Questo documento illustra inoltre le procedure consigliate per creare meccanismi di inserimento live affidabili e altamente ridondanti." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="cenkdin,juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,18 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/21/2015" 
 	ms.author="juliako"/>
 
 #Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure
 
-Questa specifica descrive il protocollo e il formato per l'inserimento di un live streaming basato sul formato MP4 frammentato con Servizi multimediali di Microsoft Azure. Servizi multimediali di Microsoft Azure fornisce un servizio di live streaming che consente ai clienti di trasmettere in streaming eventi live e trasmettere contenuti in tempo reale usando Microsoft Azure come piattaforma cloud. Fino a oggi, l'MP4 frammentato pre-codificato costituisce l'unico formato che consente l'inserimento di un live streaming in Servizi multimediali di Microsoft Azure. Questo documento illustra inoltre le procedure consigliate per creare meccanismi di inserimento live affidabili e altamente ridondanti.
+Questa specifica descrive il protocollo e il formato per l'inserimento di un live streaming basato sul formato MP4 frammentato con Servizi multimediali di Microsoft Azure. Servizi multimediali di Microsoft Azure fornisce un servizio di live streaming che consente ai clienti di trasmettere in streaming eventi live e trasmettere contenuti in tempo reale usando Microsoft Azure come piattaforma cloud. Questo documento illustra inoltre le procedure consigliate per creare meccanismi di inserimento live affidabili e altamente ridondanti.
 
-##Nota di conformità
+
+##1\. Nota di conformità
 
 Le parole chiave "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY" e "OPTIONAL" in questo documento vanno interpretate come descritto nella specifica RFC 2119.
 
-##Diagramma del servizio 
+##2\. Diagramma del servizio 
 
 Il diagramma seguente illustra l'architettura di alto livello del servizio di live streaming in Servizi multimediali di Microsoft Azure.
 
@@ -36,9 +37,11 @@ Il diagramma seguente illustra l'architettura di alto livello del servizio di li
 ![Immagine1][image1]
 
 
-##Formato del flusso di bit: MP4 frammentato ISO 14496-12
+##3\. Formato del flusso di bit: MP4 frammentato ISO 14496-12
 
-Il formato di trasmissione per il processo di inserimento di un live streaming illustrato in questo documento si basa sullo standard [ISO 14496-12]. Fare riferimento a [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili sia per i file video on demand sia per l'inserimento di un live streaming.
+Il formato di trasmissione per il processo di inserimento di un live streaming illustrato in questo documento si basa sullo standard [ISO 14496-12]. Fare riferimento a [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili sia per i file video on demand sia per l'inserimento di un live streaming.
+
+###Definizioni del formato di inserimento live 
 
 Di seguito sono elencate alcune speciali definizioni di formato applicabili all'inserimento live in Servizi multimediali di Microsoft Azure.
 
@@ -51,11 +54,13 @@ Di seguito sono elencate alcune speciali definizioni di formato applicabili all'
 7. La durata del frammento MP4 dovrebbe (SHOULD) essere compresa tra 2 e 6 secondi circa.
 8. I timestamp e gli indici (TrackFragmentExtendedHeaderBox fragment\_absolute\_time e fragment\_index) del frammento MP4 dovrebbero (SHOULD) arrivare in ordine crescente. Sebbene Servizi multimediali di Azure sia resiliente alla duplicazione di frammenti, presenta una capacità molto limitata di riordinare i frammenti in base alla sequenza temporale dei contenuti.
 
-##Formato del protocollo: HTTP
+##4\. Formato del protocollo: HTTP
 
 L'inserimento live basato sul formato ISO MP4 frammentato per Servizi multimediali di Microsoft Azure usa una richiesta HTTP POST standard con esecuzione prolungata per trasmettere al servizio dati multimediali codificati in formato MP4 frammentato. Ogni HTTP POST invia un flusso in bit MP4 frammentato completo ("flusso") iniziando con le caselle di intestazione ("ftyp", "Live Server Manifest Box" e casella "moov") e continuando con una sequenza di frammenti (caselle "moof" e "mdat"). Fare riferimento alla sezione 9.2 di [1] per la sintassi dell'URL relativo alla richiesta HTTP POST. Un esempio di URL POST è:
 
 	http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+
+###Requisiti
 
 Di seguito sono elencati i requisiti dettagliati:
 
@@ -67,11 +72,11 @@ Di seguito sono elencati i requisiti dettagliati:
 6. Il codificatore non deve (MUST NOT) usare il nome Events() come descritto nella sezione 9.2 di [1] per l'inserimento live in Servizi multimediali di Microsoft Azure.
 7. Se la richiesta HTTP POST termina o scade prima della fine del flusso con un errore TCP, il codificatore deve (MUST) inviare una nuova richiesta POST usando una nuova connessione e attenendosi ai requisiti sopra riportati, nonché al requisito aggiuntivo che il codificatore deve (MUST) nuovamente inviare i due precedenti frammenti MP4 per ogni traccia del flusso e riprendere l'attività senza introdurre discontinuità nella sequenza temporale dei contenuti. L'invio degli ultimi due frammenti MP4 per ogni traccia impedisce eventuali perdite di dati. In altre parole, se un flusso contiene una traccia audio e una video e la richiesta POST corrente ha esito negativo, il codificatore deve riconnettersi e inviare nuovamente sia gli ultimi due frammenti per la traccia audio, già correttamente inviati in precedenza, sia gli ultimi due frammenti per la traccia video, anch'essi già correttamente inviati in precedenza, in modo da garantire che non vi siano perdite di dati. Il codificatore deve (MUST) mantenere un buffer "anticipato" di frammenti di contenuti, che invia nuovamente quando si riconnette.
 
-##Scala cronologica 
+##5\. Scala cronologica 
 
 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) descrive l'uso della scala cronologica per SmoothStreamingMedia (sezione 2.2.2.1), StreamElement (sezione 2.2.2.3), StreamFragmentElement (2.2.2.6) e LiveSMIL (sezione 2.2.7.3.1). Se non è presente un valore di scala cronologica, il valore predefinito usato è 10.000.000 (10 MHz). Sebbene le specifiche del formato Smooth Streaming non impediscano l'uso di altri valori di scala cronologica, la maggior parte delle implementazioni di codificatori usa questo valore predefinito (10 MHz) per generare dati di inserimento Smooth Streaming. In presenza della funzione di [creazione dinamica dei pacchetti di Azure Media](media-services-dynamic-packaging-overview.md), è consigliabile usare un valore di scala cronologica di 90 kHz per i flussi video e di 44,1 o 48,1 kHz per i flussi audio. Se vengono usati valori di scala cronologica differenti per flussi diversi, è necessario (MUST) inviare il valore di scala cronologica del livello di flusso. Fare riferimento a [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
-##Definizione di "flusso"  
+##6\. Definizione di "flusso"  
 
 Il "flusso" è l'unità di base delle operazioni nel processo di inserimento live per la composizione di presentazioni live e la gestione di scenari di ridondanza e failover di streaming. Il "flusso" è definito come un singolo flusso in bit MP4 frammentato che può contenere una singola traccia o più tracce. Una presentazione live completa può contenere uno o più flussi a seconda della configurazione del codificatore live. Gli esempi seguenti illustrano varie modalità d'uso dei flussi per comporre una presentazione live completa.
 
@@ -107,7 +112,7 @@ In questo caso, il cliente sceglie di creare un bundle con la traccia audio e la
 
 Quanto sopra riportato NON costituisce un elenco completo di tutte le possibili opzioni di inserimento applicabili a questo esempio. In realtà, qualsiasi forma di raggruppamento di tracce in flussi è supportata dal processo di inserimento live. Clienti e fornitori di codificatori possono scegliere le proprie implementazioni in base alla complessità di progettazione, alla capacità del codificatore e a considerazioni sui livelli di ridondanza e failover. È bene notare, tuttavia, che nella maggior parte dei casi è presente una sola traccia audio per l'intera presentazione live ed è quindi molto importante verificare l'integrità del flusso di inserimento che contiene la traccia audio. Questa considerazione determina spesso la scelta di inserire la traccia audio in un flusso indipendente (come nell'opzione 2) o di aggregarla in bundle con la traccia video con velocità in bit più bassa (come nell'opzione 3). Anche per ottenere un miglior grado di ridondanza e tolleranza di errore, l'invio della stessa traccia audio in due flussi diversi (opzione 2 con tracce audio ridondanti) o l'aggregazione in bundle della traccia audio con almeno due delle tracce video a velocità in bit più bassa (opzione 3 con audio aggregato in bundle in almeno due flussi video) è fortemente consigliato quando si esegue l'inserimento live in Servizi multimediali di Microsoft Azure.
 
-##Failover del servizio 
+##7\. Failover del servizio 
 
 Data la particolare natura del live streaming, un buon livello di supporto per il failover è essenziale per garantire la disponibilità del servizio. Servizi multimediali di Microsoft Azure è progettato per gestire vari tipi di errori, tra cui errori di rete, errori del server, problemi di archiviazione e così via. Se usato contestualmente a una logica di failover adeguata dal lato del codificatore live, il cliente può ottenere dal cloud un servizio di live streaming estremamente affidabile.
 
@@ -125,7 +130,7 @@ Questa sezione illustra gli scenari di failover del servizio. In questo caso, l'
 	4. Gli ultimi due frammenti inviati per ogni traccia devono (MUST) essere nuovamente inviati e lo streaming deve essere ripristinato senza introdurre una discontinuità nella sequenza temporale dei contenuti. I timestamp del frammento MP4 devono aumentare costantemente, anche con richieste HTTP POST diverse.
 6. Se i dati non vengono inviati a una velocità adeguata alla durata del frammento MP4, il codificatore dovrebbe (SHOULD) terminare la richiesta HTTP POST. Una richiesta HTTP POST che non invia dati può impedire a Servizi multimediali di Azure di disconnettersi rapidamente dal codificatore in caso di aggiornamento del servizio. Per questo motivo, la richiesta HTTP POST per tracce di tipo sparse (segnale dell'annuncio) dovrebbe (SHOULD) avere una durata breve e terminare non appena viene inviato il frammento di tipo sparse.
 
-##Failover del codificatore
+##8\. Failover del codificatore
 
 Il failover del codificatore è il secondo tipo di scenario di failover che deve essere affrontato per la distribuzione di un live streaming end-to-end. In questo scenario, la condizione di errore si è verificata sul lato del codificatore.
 
@@ -141,7 +146,7 @@ Di seguito è descritto il comportamento previsto in corrispondenza dell'endpoin
 5. Il nuovo flusso deve (MUST) essere semanticamente equivalente al flusso precedente e intercambiabile a livello di intestazione e di frammento.
 6. Il nuovo codificatore deve (MUST) tentare di ridurre al minimo la perdita di dati. I valori fragment\_absolute\_time e fragment\_index dei frammenti multimediali dovrebbero (SHOULD) aumentare progressivamente dal punto in cui si è interrotto il codificatore. I valori fragment\_absolute\_time e fragment\_index dovrebbero (SHOULD) aumentare in modo costante ma, se necessario, è possibile introdurre una discontinuità. Poiché Servizi multimediali di Azure ignora i frammenti già ricevuti ed elaborati, è preferibile sbagliare inviando nuovamente frammenti già ricevuti piuttosto che introdurre discontinuità nella sequenza temporale dei contenuti. 
 
-##Ridondanza del codificatore 
+##9\. Ridondanza del codificatore 
 
 In caso di eventi live critici per i quali sono richiesti livelli molto elevati di disponibilità e qualità di esperienza, è consigliabile usare codificatori ridondanti di tipo attivo-attivo in modo da conseguire un failover efficiente senza perdita di dati.
 
@@ -151,13 +156,13 @@ Come illustrato nel diagramma precedente, due gruppi di codificatori inviano con
 
 I requisiti per questo scenario sono molto simili ai requisiti descritti per il failover del codificatore, tranne per il fatto che il secondo set di codificatori viene eseguito contemporaneamente ai codificatori primari.
 
-##Ridondanza del servizio  
+##10\. Ridondanza del servizio  
 
 Per una distribuzione globale altamente ridondante, può essere necessario eseguire un backup pertinente a più aree geografiche per poter gestire situazioni di emergenza nelle aree interessate. Estendendo la topologia descritta in "Ridondanza del codificatore", i clienti possono scegliere di distribuire il servizio ridondante in un'area diversa, correlata al secondo set di codificatori. I clienti possono anche usare un provider di rete CDN per distribuire un GTM (Global Traffic Manager) davanti alle due distribuzioni del servizio, in modo da indirizzare correttamente il traffico del client. I requisiti per i codificatori sono identici a quelli descritti nella sezione "Ridondanza del codificatore", con la sola eccezione che il secondo set di codificatori deve puntare a un diverso endpoint dell'inserimento live. Il diagramma seguente illustra questa configurazione:
 
 ![Immagine7][image7]
 
-##Tipi speciali di formati di inserimento 
+##11\. Tipi speciali di formati di inserimento 
 
 Questa sezione illustra alcuni tipi speciali di formati di inserimento live appositamente sviluppati per gestire scenari specifici.
 
@@ -195,7 +200,6 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di tracce au
 2. Usare flussi distinti per inviare le due velocità in bit video più basse. Ciascuno di questi flussi dovrebbe (SHOULD) inoltre contenere una copia di ogni singola traccia audio. Se, ad esempio, sono supportate più lingue, i flussi dovrebbero (SHOULD) contenere tracce audio per ogni lingua.
 3. Usare istanze del server (codificatore) distinte per codificare e inviare i flussi ridondanti citati in (1) e (2). 
 
-
 ##Percorsi di apprendimento di Media Services
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
@@ -215,4 +219,4 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di tracce au
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

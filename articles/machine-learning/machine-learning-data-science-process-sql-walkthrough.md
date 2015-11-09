@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015" 
+	ms.date="10/27/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
 
 # Il Cortana Analytics Process in azione: mediante SQL Server
 
-In questa esercitazione, si assisterà alla procedura dettagliata di costruzione e distribuzione di un modello utilizzando un set di dati disponibili pubblicamente -- il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procedura segue la guida di Advanced Analytics Process and Technology (ADAPT)
+In questa esercitazione, si assisterà alla procedura dettagliata di costruzione e distribuzione di un modello utilizzando un set di dati disponibili pubblicamente -- il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procedura segue il flusso di lavoro del Cortana Analytics Process (CAP).
 
 
 ## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
@@ -714,4 +714,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

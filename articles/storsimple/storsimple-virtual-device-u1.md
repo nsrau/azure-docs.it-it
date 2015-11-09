@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/16/2015"
+   ms.date="10/23/2015"
    ms.author="alkohli" />
 
 # Distribuire e gestire un dispositivo virtuale StorSimple in Azure
@@ -40,7 +40,7 @@ Questa esercitazione si applica a tutti i dispositivi virtuali StorSimple con ve
 
 ## Differenze tra il dispositivo virtuale e il dispositivo fisico
 
-Il dispositivo virtuale StorSimple consiste in una versione esclusivamente software di StorSimple che viene eseguita in un singolo nodo di una macchina virtuale di Microsoft Azure. Il dispositivo virtuale supporta il ripristino di emergenza nei casi in cui il dispositivo fisico non sia disponibile. Tale funzionalità deve essere usata in scenari di sviluppo e test basati su cloud.
+Il dispositivo virtuale StorSimple consiste in una versione esclusivamente software di StorSimple che viene eseguita in un singolo nodo di una macchina virtuale di Microsoft Azure. Il dispositivo virtuale supporta il ripristino di emergenza nei casi in cui il dispositivo fisico non sia disponibile, e tale funzionalità debba essere usata nel recupero a livello di elemento dai backup, nel ripristino di emergenza locale e negli scenari di sviluppo e test basati su cloud.
 
 ### Differenze rispetto al dispositivo fisico
 
@@ -128,16 +128,16 @@ Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata d
 
 	1. **Nome**: un nome univoco per il dispositivo virtuale.
 
-	2. **Versione**: scegliere la versione del dispositivo virtuale. Questa opzione non è presente se con il servizio sono registrati solo dispositivi fisici con versione Update 1. Il campo viene visualizzato solo se con il servizio è registrata una combinazione di dispositivi fisici con versione Update 1 o precedente. Se si considera che la versione del dispositivo virtuale determina il dispositivo fisico da cui è possibile eseguire il failover o la clonazione, è importante creare una versione appropriata del dispositivo virtuale. Selezionare:
+	2. **Versione**: scegliere la versione del dispositivo virtuale. Questa opzione non è presente se con il servizio sono registrati solo dispositivi fisici con versione Update 1. Il campo viene visualizzato solo se con il servizio è registrata una combinazione di dispositivi fisici con versione di pre-aggiornamento 1 o post-aggiornamento 1. Se si considera che la versione del dispositivo virtuale determina il dispositivo fisico da cui è possibile eseguire il failover o la clonazione, è importante creare una versione appropriata del dispositivo virtuale. Selezionare:
 
-	   - Update 0.3 se si prevede di eseguire il failover o il ripristino di emergenza da un dispositivo fisico con versione GA oppure Update 0.1 o 0.3. 
-	   - Update 1 se si prevede di eseguire il failover o la clonazione da un dispositivo fisico con versione Update 1 (o successiva). 
+	   - Update 0.3 se si prevede di eseguire il failover o la clonazione da un dispositivo fisico con versione GA oppure Update 0.1 o 0.3. 
+	   - Update 1 se si prevede di eseguire il failover o la clonazione da un dispositivo fisico con versione Update 1 (o successiva). La scelta di aggiornamento 1 nell'elenco a discesa provocherà effettivamente l’esecuzione del provisioning di un dispositivo virtuale di aggiornamento 1.1.
  
 	3. **Rete virtuale**: il nome della rete virtuale che si desidera utilizzare con il dispositivo virtuale.
 
 	4. **Subnet**: la subnet nella rete virtuale da utilizzare con il dispositivo virtuale.
 
-	5. **Account di archiviazione per creare un dispositivo virtuale**: l'account di archiviazione che verrà utilizzato per conservare l'immagine del dispositivo virtuale durante il provisioning. Questo account di archiviazione deve trovarsi nella stessa area del dispositivo virtuale e della rete virtuale. Inoltre, non deve essere utilizzato dal dispositivo fisico o dal dispositivo virtuale per archiviare i dati. Per effettuare questa operazione, verrà creato un nuovo account di archiviazione (impostazione predefinita). Tuttavia, se già si dispone di un account di archiviazione adatto a eseguire l'operazione, selezionarlo dall'elenco.
+	5. **Account di archiviazione per creare un dispositivo virtuale** - questo account di archiviazione verrà utilizzato per conservare l'immagine del dispositivo virtuale durante il provisioning, e ospiterà i dischi del dispositivo virtuale dopo il provisioning. Questo account di archiviazione deve trovarsi nella stessa area del dispositivo virtuale e della rete virtuale. Inoltre, non deve essere utilizzato dal dispositivo fisico o dal dispositivo virtuale per archiviare i dati. Per effettuare questa operazione, verrà creato un nuovo account di archiviazione (impostazione predefinita). Tuttavia, se già si dispone di un account di archiviazione adatto a eseguire l'operazione, selezionarlo dall'elenco.
 
     >[AZURE.NOTE]Il dispositivo virtuale può essere usato solo con gli account di archiviazione di Azure. Altri provider di servizi cloud come Amazon, HP e OpenStack (che sono supportati per il dispositivo fisico) non sono supportati per il dispositivo virtuale StorSimple.
 	
@@ -392,4 +392,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 Informazioni su come [ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

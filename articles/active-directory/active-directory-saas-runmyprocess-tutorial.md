@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con RunMyProcess | Microsoft Azure" description="Informazioni su come usare RunMyProcess con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con RunMyProcess | Microsoft Azure" 
+    description="Informazioni su come usare RunMyProcess con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con RunMyProcess
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=528571).
   
 In questa esercitazione viene illustrata l'integrazione di Azure e RunMyProcess. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant RunMyProcess
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a RunMyProcess saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di RunMyProcess (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a RunMyProcess saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di RunMyProcess (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -51,7 +64,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
     ![RunMyProcess](./media/active-directory-saas-runmyprocess-tutorial/IC789616.png "RunMyProcess")
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a RunMyProcess tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a RunMyProcess tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
@@ -87,12 +100,12 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in RunMyProcess** del portale di Azure, copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **Reindirizzamento SSO**.
     3.  Nella finestra di dialogo **Configura accesso Single Sign-On in RunMyProcess** del portale di Azure, copiare il valore di **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Reindirizzamento disconnessione**.
     4.  Nella casella di testo **Formato ID nome**, digitare **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
-    5.  Creare un file **con codifica Base 64** dal certificato scaricato.  
+    5.  Creare un file con **codifica Base 64** dal certificato scaricato.  
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
     6.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato**.
-    7.  Fare clic su **Salva**.
+    7.  Fare clic su **Save**.
 
 9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -116,7 +129,7 @@ Per consentire agli utenti di Azure AD di accedere a RunMyProcess, è necessario
     1.  Digitare il **nome** e l’**indirizzo di posta elettronica** di un account di Azure Active Directory valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
     2.  Selezionare una **lingua IDE**, una **lingua** e un **profilo**.
     3.  Selezionare **Inviami un messaggio di posta elettronica di creazione account**.
-    4.  Fare clic su **Salva**.
+    4.  Fare clic su **Save**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da RunMyProcess per eseguire il provisioning degli account utente di Azure AD.
 
@@ -136,6 +149,6 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Sì](./media/active-directory-saas-runmyprocess-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/26/2015"
    ms.author="cherylmc" />
 
 # Domande frequenti sul gateway VPN
@@ -70,6 +70,10 @@ Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](../express
 ### Quali operazioni è opportuno eseguire se si possiede un dispositivo VPN non incluso nell'elenco di dispositivi con compatibilità nota?
 
 Se un dispositivo non è elencato tra i dispositivi VPN con compatibilità nota e si desidera usarlo per la connessione VPN, è necessario verificare che soddisfi i parametri e le opzioni di configurazione IPsec/IKE elencati [qui](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). I dispositivi che soddisfano i requisiti minimi dovrebbero funzionare correttamente con i gateway VPN. Contattare il produttore del dispositivo per assistenza e istruzioni di configurazione.
+
+### Perché il tunnel VPN basato su criteri si arresta quando il traffico è inattivo?
+
+Questo comportamento è previsto per gateway VPN basate su criteri (anche note come routing statico). Quando il traffico attraverso il tunnel è inattivo per più di 5 minuti, il tunnel verrà arrestato. Ma non appena il traffico inizierà a scorrere in entrambe le direzioni, il tunnel verrà ripristinato immediatamente. Se si dispone di un gateway VPN basato su route (noto anche come dinamico), questo comportamento non si verificherà.
 
 ### È possibile usare soluzioni software VPN per connettersi ad Azure?
 
@@ -252,4 +256,4 @@ Per dettagli aggiuntivi, vedere altre domande frequenti sulla rete:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

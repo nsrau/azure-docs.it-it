@@ -55,8 +55,6 @@ Una VPN da sito a sito consente di creare una connessione protetta tra il sito l
 
 Se si vuole configurare una connessione gateway VPN da sito a sito, vedere[Configurare una rete virtuale con una connessione di gateway VPN da sito a sito](vpn-gateway-site-to-site-create.md).
 
-Se si vuole configurare una connessione gateway VPN da sito a sito con RRAS, vedere [Configurare una VPN da sito a sito mediante RRAS (Routing and Remote Access Service, servizio Routing e accesso remoto) di Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
-
 
 ## Connessioni Point-to-Site
 
@@ -89,6 +87,6 @@ Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a Ex
 
 ## Passaggi successivi
 
-Vedere [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) e [Domande frequenti su Gateway VPN](vpn-gateway-vpn-faq.md) per ulteriori informazioni.
+Vedere [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) e [Domande frequenti su Gateway VPN](vpn-gateway-vpn-faq.md) per altre informazioni.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

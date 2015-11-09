@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Funzionalità Hybrid Runbook Workers di Automazione di Azure
@@ -30,6 +30,8 @@ Grazie a tale funzionalità, è possibile designare uno o più computer del data
 >[AZURE.NOTE]Operational Insights sta per essere integrato in Operations Management Suite, pertanto nel portale e nella documentazione è possibile che vengano usati entrambi i nomi.
 
 Non sono previsti requisiti di firewall in ingresso per supportare Hybrid Runbook Workers. L'agente nel computer locale avvia tutte le comunicazioni con Automazione di Azure nel cloud. Quando un runbook viene avviato, Automazione di Azure crea un'istruzione che viene recuperata dall'agente, che esegue quindi il pull del runbook e di tutti i parametri prima dell'esecuzione, oltre a recuperare da Automazione di Azure gli eventuali [asset](http://msdn.microsoft.com/library/dn939988.aspx) usati dal runbook.
+
+>[AZURE.NOTE]Il ruolo di lavoro ibrido per runbook attualmente non supporta le [Configurazioni DSC](automation-dsc-overview.md).
 
 ## Gruppi di computer di lavoro runbook ibridi
 
@@ -73,7 +75,7 @@ Quando si aggiunge un agente a Operations Management Suite, la soluzione di auto
 
 Aprire una sessione di PowerShell in modalità amministratore ed eseguire i comandi seguenti per importare il modulo.
 
-	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\5.2.20826.0\HybridRegistration"
+	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation<version>\HybridRegistration"
 	Import-Module HybridRegistration.psd1
 
 
@@ -111,8 +113,6 @@ Usare il parametro **RunOn**. È possibile eseguire il comando seguente per avvi
 	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 
 >[AZURE.NOTE]Il parametro **RunOn** è stato aggiunto al cmdlet **Start-AzureAutomationRunbook** nella versione 0.9.1 di Microsoft Azure PowerShell. È consigliabile [scaricare la versione più recente](http://azure.microsoft.com/downloads) se la versione installata è precedente. È sufficiente installare questa versione nella workstation in cui si avvierà il runbook da Windows PowerShell. Non è necessario installarla nel computer di lavoro, a meno che non si intenda avviare i runbook da tale computer. Non è attualmente possibile avviare un runbook in un computer di lavoro runbook ibrido da un altro runbook, in quanto nell'account di automazione dovrebbe essere installata la versione più recente di Azure PowerShell. Tale versione verrà aggiornata automaticamente in Automazione di Azure e verrà presto inviata automaticamente tramite push ai computer di lavoro.
-
->[AZURE.NOTE]Il ruolo di lavoro ibrido per runbook può eseguire solo [runbook grafici e del flusso di lavoro PowerShell](automation-runbook-types.md). Non è possibile attualmente avviare un [runbook di PowerShell ](automation-runbook-types.md) in un ruolo di lavoro ibrido per runbook.
 
 ## Risoluzione dei problemi relativi ai runbook nel ruolo di lavoro ibrido per runbook
 
@@ -164,4 +164,4 @@ Per determinare se per le proprie esigenze sia più opportuno ricorrere ad Autom
 - [Modifica di un runbook in Automazione di Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

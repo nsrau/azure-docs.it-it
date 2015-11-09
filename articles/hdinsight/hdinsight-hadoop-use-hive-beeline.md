@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/05/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #Usare Hive con Hadoop in HDInsight con Beeline
@@ -55,17 +55,23 @@ Per altre informazioni sull'uso di PuTTY, vedere [Uso di SSH con Hadoop basato s
 
 ##<a id="beeline"></a>Usare il comando Beeline
 
-2. Dopo la connessione, avviare l'interfaccia della riga di comando di Hive mediante il comando seguente:
+1. Una volta connessi, utilizzare quanto segue per ottenere il nome host del nodo head:
+
+        hostname -f
+    
+    Salvare il nome host restituito, verrà utilizzato in un secondo momento durante la connessione a HiveServer2 da Beeline.
+    
+2. Avviare l'interfaccia della riga di comando di Hive mediante il comando seguente:
 
         beeline
 
-2. Al prompt di `beeline>` usare il comando seguente per connettersi al servizio HiveServer2:
+2. Al prompt di `beeline>` usare il comando seguente per connettersi al servizio HiveServer2: Sostituire __HOSTNAME__ con il nome host restituito per il nodo head precedentemente:
 
-        !connect jdbc:hive2://headnode0:10001/;transportMode=http admin
+        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
 
     Quando richiesto, immettere la password di amministratore (admin) per il cluster HDInsight. Una volta stabilita la connessione, il prompt cambierà nel modo seguente:
     
-        jdbc:hive2://headnode0:10001/>
+        jdbc:hive2://HOSTNAME:10001/>
 
 3. I comandi di Beeline iniziano di solito con un carattere `!`, ad esempio `!help` visualizza la Guida. Tuttavia `!` può spesso essere omesso. Ad esempio, anche `help` funzionerà.
 
@@ -164,15 +170,15 @@ Beeline può anche essere usato per eseguire un file che contiene istruzioni Hiv
 
     * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
     * **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
-    * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.
+    * **INSERT OVERWRITE ... SELECT**: - seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, poi inserisce i dati nella tabella **errorLogs**.
     
     > [AZURE.NOTE]A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
     
 3. Per salvare il file usare __CTRL__+___\_X__, quindi immettere __Y__ e infine premere __INVIO__.
 
-4. Usare il codice seguente per eseguire il file tramite Beeline:
+4. Usare il codice seguente per eseguire il file tramite Beeline: Sostituire __HOSTNAME__ con il nome ottenuto in precedenza per il nodo head e __PASSWORD__ con la password per l'account amministratore:
 
-        beeline -u 'jdbc:hive2://headnode0:10001/;transportMode=http' -n admin -p GiantR0b0! -f query.hql
+        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
 
 5. Per verificare che la tabella **errorLogs** è stata creata, avviare Beeline e connettersi a HiveServer2, quindi usare l'istruzione seguente per restituire tutte le righe da **errorLogs**:
 
@@ -237,4 +243,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

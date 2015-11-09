@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con OfficeSpace Software | Microsoft Azure" description="Informazioni su come utilizzare OfficeSpace Software con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con OfficeSpace Software | Microsoft Azure" 
+    description="Informazioni su come utilizzare OfficeSpace Software con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con OfficeSpace Software
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=524940).
   
 In questa esercitazione viene illustrata l'integrazione di Azure e OfficeSpace Software. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di OfficeSpace Software abilitata per l'accesso Single Sign-On
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a OfficeSpace Software saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di OfficeSpace Software (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a OfficeSpace Software saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di OfficeSpace Software (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -51,7 +64,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
     ![OfficeSpace Software](./media/active-directory-saas-officespace-software-tutorial/IC781007.png "OfficeSpace Software")
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a OfficeSpace Software tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per OfficeSpace Software richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che illustra [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a OfficeSpace Software tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per OfficeSpace Software richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
@@ -89,11 +102,11 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     2.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in OfficeSpace Software** del portale di Azure copiare il valore **URL disconnessione remota** e incollarlo nella casella di testo **URL di destinazione client IDP**.
     3.  Copiare il valore di **Identificazione personale** dal certificato esportato e incollarlo nella casella di testo relativa all'**impronta digitale del certificato client IDP**.  
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
     4.  Fare clic su **Salva impostazioni**.
 
-9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-software-tutorial/IC777772.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -114,10 +127,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-officespace-software-tutorial/IC777773.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-officespace-software-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

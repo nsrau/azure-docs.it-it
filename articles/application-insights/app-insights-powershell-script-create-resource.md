@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
 
 #  Script di PowerShell per creare una risorsa di Application Insights
@@ -29,7 +29,7 @@ Se, ad esempio, si intende sviluppare un'app per dispositivi mobili, è probabil
 
 *Output*
 
-* App Insights Name = erimattestapp
+* App Insights Name = mytestapp
 * IKey = 00000000-0000-0000-0000-000000000000
 
 *Script di PowerShell*
@@ -43,7 +43,8 @@ cls
 # Set Values
 ##################################################################
 
-#If running manually, comment this out before the first execution to login to the Azure Portal
+#If running manually, comment this out before the first execution to login to the Azure Portal:
+
 #Add-AzureAccount
 
 #Set the name of the Application Insights Resource
@@ -65,14 +66,14 @@ Switch-AzureMode AzureResourceManager
 Select-AzureSubscription -SubscriptionName "MySubscription"
 
 #Create the App Insights Resource
-$resource = New-AzureResource -Name $appInsightsName -ResourceGroupName $resourceGroupName -Tag @{ Name = "AppInsightsApp"; Value = $applicationTagName} -ResourceType "Microsoft.Insights/Components" -Location "Central US" -ApiVersion "2014-08-01" -PropertyObject @{"Type"="ASP.NET"} -Force 
+$resource = New-AzureResource -ResourceName $appInsightsName -ResourceGroupName $resourceGroupName -Tag @{ Name = "AppInsightsApp"; Value = $applicationTagName} -ResourceType "Microsoft.Insights/Components" -Location "Central US" -ApiVersion "2014-08-01" -PropertyObject @{"Type"="ASP.NET"} -Force -OutputObjectFormat New
 
 #Give team owner access - http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/
 New-AzureRoleAssignment -Mail "myTeam@fabrikam.com" -RoleDefinitionName Owner -Scope $resource.ResourceId | Out-Null
 
 #Display iKey
-Write-Host "App Insights Name = " $resource.Properties["Name"]
-Write-Host "IKey = " $resource.Properties["InstrumentationKey"]
+Write-Host "App Insights Name = " $resource.Name
+Write-Host "IKey = " $resource.Properties.InstrumentationKey
 
 ```
 
@@ -94,4 +95,4 @@ Per identificare le singole risorse, viene usata una chiave di strumentazione (i
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

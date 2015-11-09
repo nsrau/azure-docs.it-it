@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come utilizzare un client HTML | Microsoft Azure"
+	pageTitle="Come usare un client HTML con i Servizi mobili di Azure | Microsoft Azure"
 	description="Informazioni sull'uso di un client HTML per Servizi mobili di Azure."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/23/2015"
 	ms.author="glenga"/>
 
 # Come usare un client HTML/JavaScript per Servizi mobili di Azure
@@ -504,10 +504,9 @@ Nell'esempio seguente viene illustrato come utilizzare il Live SDK con APIs WinJ
 	// Start the sign-in process.
 	authenticate();
 
-Questo codice inizializza il client Live Connect, invia una nuova richiesta di accesso all'account Microsoft, invia il token di autenticazione restituito a Servizi mobili e quindi visualizza informazioni sull'utente connesso. L'applicazione non viene avviata fino a che l'autenticazione non ha esito positivo.
-
-###Memorizzazione nella cache del token di autenticazione
-In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. È possibile utilizzare [sessionStorage] o [localStorage] per memorizzare nella cache l'identità dell'utente corrente al primo accesso e a ogni controllo della presenza dell'identità dell'utente nella cache effettuato in seguito. Se la cache è vuota o le chiamate non vengono eseguite (in quanto la sessione di accesso corrente è scaduta), è comunque necessario ripetere la procedura di accesso.
+Questo codice inizializza il client Live Connect, invia una nuova richiesta di accesso all'account Microsoft, invia il token di autenticazione restituito a Servizi mobili e quindi visualizza informazioni sull'utente connesso. L'app non viene avviata fino a che l'autenticazione non ha esito positivo. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+###Caching the authentication token
+In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
     // After logging in
     sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -522,6 +521,7 @@ In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la pr
      // Log out
     client.logout();
     sessionStorage.loggedInUser = null;
+-->
 
 ##<a name="push-notifications"></a>Procedura: Registrarsi per le notifiche push
 
@@ -665,4 +665,4 @@ Per controllare quali siti Web possono interagire con il servizio mobile e invia
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [riferimento alle opzioni di query del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

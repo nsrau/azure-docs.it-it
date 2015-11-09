@@ -4,7 +4,7 @@
 	services="" 
 	documentationCenter="" 
 	authors="Joharve2" 
-	manager="carolz" 
+	manager="Chrisnie" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="azure-government" 
-	ms.date="01/21/2014" 
+	ms.date="10/29/2015" 
 	ms.author="jharve"/>
 
 
@@ -66,6 +66,16 @@ Attualmente Azure Government offre i seguenti servizi disponibili nelle agenzie 
 - Utilità di pianificazione
 - Reti virtuali
 - Database SQL
+- File di Azure
+- Servizi multimediali
+- Gestione traffico
+- Bus di servizio
+- StorSimple
+- Cache Redis
+- Backup di Azure
+- Automazione
+- ExpressRoute
+- e così via.
 
 Altri servizi sono già disponibili e altri ancora verranno aggiunti regolarmente. Per l'elenco più aggiornato dei servizi, vedere la [pagina aree](http://azure.microsoft.com/regions/#services) in cui sono evidenziate tutte le aree disponibili e i relativi servizi.
 
@@ -78,7 +88,6 @@ Usare la seguente tabella come guida quando si esegue il mapping di endpoint pub
 
 Tipo di servizio|Azure Public|Azure Government
 ---|---|---
-Home page di Azure Government|windowsazure.com|microsoftazure.us
 Portale di gestione|manage.windowsazure.com|manage.windowsazure.us
 Generale|*.windows.net|*.usgovcloudapi.net
 Core|*.core.windows.net|*.core.usgovcloudapi.net
@@ -87,9 +96,23 @@ Archiviazione BLOB|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Queue 
 Archiviazione tabelle|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Gestione dei servizi|management.core.windows.net|management.core.usgovcloudapi.net
 Database SQL|*.database.windows.net|*.database.usgovcloudapi.net
+Endpoint con bilanciamento del carico ARM|https://management.windows.net|https://management.usgovcloudapi.net  
+
+* Per l'autenticazione ARM tramite Azure AD, fare riferimento a [Autenticazione di richieste di gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
 ## <a name="next"></a>Passaggi successivi
-Per altre informazioni su Azure Government e su come un'organizzazione può qualificarsi per l'accesso, passare alla pagina <A href="http://azure.com/gov">http://www.azure.com/gov</a>
+
+Per altre informazioni dettagliate su Azure Government, servirsi dei collegamenti riportati di seguito.
+
+- **[Iscriversi per una versione di valutazione gratuita](https://azuregov.microsoft.com/trial/azuregovtrial)**
+
+- **[Acquisizione e accesso in Azure Government](http://azure.com/gov)**
+
+- **[Panoramica di Azure Government](/azure-government-overview)**
+
+- **[Blog di Azure Government](http://blogs.msdn.com/b/azuregov/)**
+
+- **[Conformità di Azure](http://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -105,4 +128,4 @@ Per altre informazioni su Azure Government e su come un'organizzazione può qual
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

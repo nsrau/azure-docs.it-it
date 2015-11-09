@@ -74,7 +74,35 @@ Sono consentiti i tipi di file seguenti:
 	
 > Per i processi Web continui da eseguire in modo affidabile su tutte le istanze, abilitare l'impostazione di configurazione Always On* per l'app Web, altrimenti è possibile che l'esecuzione dei processi venga interrotta quando il sito host SCM rimane inattivo per troppo tempo.
 
-## <a name="CreateScheduled"></a>Creare un processo Web pianificato
+## <a name="CreateScheduledCRON"></a>Creare un processo Web pianificato utilizzando un'espressione CRON
+
+Questa tecnica è disponibile per App Web in esecuzione in modalità Standard o Premium e richiede l’impostazione **Always On** per attivare l'applicazione.
+
+Per trasformare un processo Web On Demand in un processo Web pianificato, includere semplicemente un file `settings.job` nella directory principale del file zip del processo Web. Questo file JSON deve includere una `schedule` proprietà con un [espressione CRON](https://en.wikipedia.org/wiki/Cron), per esempio quanto riportato di seguito.
+
+L'espressione CRON è composta da 6 campi: `{second} {minute} {hour} {day} {month} {day of the week}`.
+
+Ad esempio, per attivare il processo Web ogni 15 minuti, `settings.job` avrebbe:
+
+```json
+{
+    "schedule": "0 */15 * * * *"
+}
+``` 
+
+Altri esempi di programmazione CRON:
+
+- Ogni ora (ad esempio ogni volta che il numero di minuti è 0): `* 0 * * * *` 
+- Ogni ora dalle 9 di mattina alle 5 del pomeriggio:`* 0 9-17 * * *` 
+- Alle 9:30 di mattina ogni giorno: `* 30 9 * * *`
+- Alle 9:30 di mattina ogni giorno della settimana: `* 30 9 * * 1-5`
+
+**Nota**: quando si distribuisce un processo Web da Visual Studio, assicurarsi di contrassegnare le proprietà del file `settings.job` come 'Copia se più recente'.
+
+
+## <a name="CreateScheduled"></a>Creare un processo Web pianificato utilizzando l’Utilità di pianificazione di Azure
+
+La tecnica alternativa seguente usa l'utilità di pianificazione di Azure. In questo caso, il processo Web non dispone di alcuna conoscenza diretta della pianificazione. Al contrario, l'utilità di pianificazione di Azure verrà configurata per attivare il processo Web in una pianificazione.
 
 Il portale di gestione di Azure non permette ancora di creare un processo Web pianificato; tuttavia, attualmente è possibile eseguire questa operazione utilizzando il [portale precedente](http://manage.windowsazure.com).
 
@@ -211,4 +239,4 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

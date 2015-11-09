@@ -92,7 +92,7 @@ L'esempio seguente mostra come usare l'interfaccia della riga di comando di Azur
 
 2. Digitare quindi il comando seguente nell'interfaccia della riga di comando di Azure per ottenere la stringa di connessione per l'account:
 
-		azure storage account connectionString show youraccountname
+		azure storage account connectionstring show youraccountname
 
 3. Creare una variabile di ambiente con la stringa di connessione appena generata:
 
@@ -358,4 +358,4 @@ In caso di domande su questa libreria, è possibile pubblicare un post nel [foru
 [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

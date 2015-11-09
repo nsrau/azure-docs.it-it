@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Installare e usare Solr nei cluster Hadoop di HDInsight
@@ -158,11 +158,21 @@ Il dashboard di Solr è un'interfaccia utente Web che consente di utilizzare Sol
 
 Dopo aver stabilito un tunnel SSH, seguire questa procedura per usare il dashboard di Solr:
 
-1. Nel browser connettersi a \_\___http://headnode0:8983/solr/#/__. Il traffico dovrebbe essere instradato attraverso il tunnel SSH a headnode0 per il cluster HDInsight. Verrà visualizzata una pagina simile alla seguente:
+1. Determinare il nome host per il nodo head:
+
+    1. In un browser, passare a https://CLUSTERNAME.azurehdinsight.net. Quando richiesto, utilizzare il nome utente amministratore e la password per l'autenticazione nel sito.
+    
+    2. Dal menu nella parte superiore della pagina selezionare __Hosts__.
+    
+    3. Selezionare la voce che inizia con __hn0__. Quando viene visualizzata la pagina, il nome host viene visualizzato nella parte superiore. Il formato del nome host è __hn0- PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. Questo è il nome host da utilizzare quando ci si connette al dashboard Solr.
+    
+1. Nel browser, connettersi a \___http://HOSTNAME:8983/solr/#/__, dove __HOSTNAME__ è il nome è stabilito nei passaggi precedenti.
+
+    La richiesta dovrebbe essere inviata attraverso il tunnel SSH al nodo head per il cluster HDInsight. Verrà visualizzata una pagina simile alla seguente:
 
 	![Immagine del dashboard di Solr](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
-2. Nel riquadro sinistro selezionare**collection1** nell'elenco a discesa **Core Selector**. Sotto __collection1__ dovrebbero essere selezionate diverse voci.
+2. Nel riquadro sinistro selezionare**Core Selector** nell'elenco a discesa **collection1**. Sotto __collection1__ dovrebbero essere selezionate diverse voci.
 
 3. Dalle voci elencate in __collection1__ selezionare __Query__. Usare i valori seguenti per popolare la pagina di ricerca:
 
@@ -240,9 +250,13 @@ Se è necessario arrestare o avviare Solr manualmente, usare i comandi seguenti:
 
 È consigliabile eseguire il backup dei dati indicizzati dai nodi del cluster Solr nell'archivio BLOB di Azure. Eseguire quindi la procedura seguente:
 
-1. Connettersi al cluster tramite SSH, quindi usare il comando seguente per creare uno snapshot dei dati indicizzati:
+1. Connettersi al cluster tramite SSH, quindi usare il comando seguente per ottenere il nome host per il nodo head:
 
-		curl http://headnode0:8983/solr/replication?command=backup
+        hostname -f
+        
+2. Utilizzare quanto segue per creare uno snapshot dei dati indicizzati. Sostituire __HOSTNAME__ con il nome restituito dal comando precedente:
+
+		curl http://HOSTNAME:8983/solr/replication?command=backup
 
 	Viene visualizzata una risposta simile alla seguente:
 
@@ -294,4 +308,4 @@ Per altre informazioni sulle operazioni di backup e ripristino di Solr, vedere l
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

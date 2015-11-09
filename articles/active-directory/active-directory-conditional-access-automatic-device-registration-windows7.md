@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="10/26/2015"
 	ms.author="femila"/>
 
 # Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio
@@ -22,7 +22,7 @@ In qualità di amministratore IT, è possibile configurare i dispositivi Windows
 
 ##Installazione del pacchetto software per la registrazione dei dispositivi nei dispositivi Windows 7 aggiunti a un dominio
 
-Il software per la registrazione dei dispositivi per Windows 7 è disponibile come pacchetto MSI scaricabile. Il pacchetto deve essere installato nei computer Windows 7 aggiunti a un dominio di Active Directory. È necessario distribuire il pacchetto usando un sistema di distribuzione software, ad esempio System Center Configuration Manager. Il pacchetto MSI supporta le opzioni standard di installazione invisibile all'utente usando il parametro /quiet. Il pacchetto software è disponibile per il download dal sito Web Microsoft Connect. Qui sarà possibile selezionare e scaricare il software per l'aggiunta all'area di lavoro per Windows 7.
+Il software per la registrazione dei dispositivi per Windows 7 è disponibile come [pacchetto MSI scaricabile](https://connect.microsoft.com/site1164). Il pacchetto deve essere installato nei computer Windows 7 aggiunti a un dominio di Active Directory. È necessario distribuire il pacchetto usando un sistema di distribuzione software, ad esempio System Center Configuration Manager. Il pacchetto MSI supporta le opzioni standard di installazione invisibile all'utente usando il parametro /quiet. Il pacchetto software è disponibile per il download dal [sito Web Microsoft Connect](https://connect.microsoft.com/site1164). Qui sarà possibile selezionare e scaricare il software per l'aggiunta all'area di lavoro per Windows 7.
 
 ![](./media/active-directory-conditional-access/device-registration-process-windows7.gif)
 
@@ -52,4 +52,4 @@ Aprire quindi un prompt dei comandi nel computer Windows 7 ed eseguire il comand
 
 Nel registro eventi del computer Windows 7 verranno visualizzati i messaggi relativi all'aggiunta all'area di lavoro. Saranno disponibili i messaggi per gli eventi relativi all'aggiunta all'area di lavoro riusciti e non. Il registro eventi si trova nel Visualizzatore eventi in Registri applicazioni e servizi > Microsoft > Aggiunta all'area di lavoro.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

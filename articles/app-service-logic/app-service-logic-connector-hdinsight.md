@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="10/22/2015"
    ms.author="sameerch"/>
 
 
 # Uso del connettore HDInsight e aggiunta all'app per la logica
-Il connettore HDInsight consente di creare un cluster Hadoop in Azure e di inviare diversi processi Hadoop, ad esempio Hive, Pig, MapReduce e Streaming MapReduce. Il servizio Azure HDInsight distribuisce ed esegue il provisioning dei cluster Apache Hadoop nel cloud, offrendo un framework software progettato per gestire, analizzare e creare report sui Big Data. La memoria centrale di Hadoop fornisce un'archiviazione dei dati affidabile grazie ad Hadoop Distributed File System (HDFS), nonché un modello di programmazione semplice, MapReduce, per elaborare e analizzare in parallelo i dati archiviati nel sistema distribuito. Con il connettore HDInsight è possibile creare o eliminare un cluster, inviare un processo e attenderne il completamento.
+Un connettore HDInsight consente di creare un cluster Hadoop in Azure e di inviare diversi processi Hadoop, ad esempio Hive, Pig, MapReduce e Streaming MapReduce. Il servizio Azure HDInsight distribuisce ed esegue il provisioning dei cluster Apache Hadoop nel cloud, offrendo un framework software progettato per gestire, analizzare e creare report sui Big Data. La memoria centrale di Hadoop fornisce un'archiviazione dei dati affidabile grazie ad Hadoop Distributed File System (HDFS), nonché un modello di programmazione semplice, MapReduce, per elaborare e analizzare in parallelo i dati archiviati nel sistema distribuito. Con il connettore HDInsight è possibile creare o eliminare un cluster, inviare un processo e attenderne il completamento.
 
 I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un flusso. È possibile aggiungere il connettore HDInsight al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
@@ -66,7 +66,7 @@ Il connettore HDInsight può essere usato solo come azione in un'app per la logi
 
 
 1. Nella scheda 'Start logic' fare clic su 'Run this logic manually'.
-2. Selezionare l'app per le API del connettore HDInsight creata dalla raccolta. Vengono elencate le azioni disponibili: ![][5]
+2. Selezionare l'app per le API del connettore HDInsight creato in precedenza nella raccolta (è possibile trovare il connettore HDInsight creato nell'elenco delle app per le API a destra dello schermo.). Selezionare la freccia destra nera. Vengono elencate le azioni disponibili: ![][12]
 
 3. Selezionare 'Create cluster', specificare tutti i parametri del cluster necessari e selezionare ✓: ![][6]
 
@@ -105,5 +105,6 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
+[12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

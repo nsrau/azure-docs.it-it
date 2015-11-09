@@ -18,6 +18,12 @@
 
 
 # Caricare dati con PolyBase
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 Questa esercitazione descrive come caricare dati in SQL Data Warehouse di Azure tramite PolyBase.
 
 
@@ -166,4 +172,4 @@ Per altre informazioni su PolyBase, fare riferimento all'[esercitazione PolyBase
 [Creare credenziale con ambito database]: https://msdn.microsoft.com/it-IT/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

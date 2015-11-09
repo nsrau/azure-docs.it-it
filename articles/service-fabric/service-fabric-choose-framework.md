@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -36,4 +36,4 @@ Tenere presente che è perfettamente plausibile usare framework diversi per serv
 - [Altre informazioni sulle API Reliable Actors](service-fabric-reliable-actors-introduction.md)
 - [Altre informazioni sulle API Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

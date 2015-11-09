@@ -20,7 +20,7 @@
 
 Questo **menu** collega ad argomenti che descrivono come campionare dei dati da vari ambienti di archiviazione. Questa attività è un passaggio nel Cortana Analytics Process (CAP).
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-explore-data-selector.md)]
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Introduzione
 
@@ -32,4 +32,4 @@ In questo documento viene descritto come campionare dei dati che sono immagazzin
 - **Dati di SQL Server** vengono campionati utilizzando sia il linguaggio di programmazione Python che SQL. 
 - **Dati della tabella hive** vengono campionati utilizzando le query Hive.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

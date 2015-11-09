@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="sdanie"/>
 
 # Riferimento ai criteri di Gestione API di Azure
@@ -32,6 +32,8 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 	-	[validate-JWT][]\: impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.
 -	[Criteri avanzati][]
 	-	[choose][]\: applica in modo condizionale istruzioni dei criteri sulla base dei risultati della valutazione di [espressioni][] booleane.
+	-	[Inoltro richiesta][] - Inoltra la richiesta al servizio back-end.
+	-	[Registro a Hub eventi][] -invia messaggi nel formato specificato a una destinazione del messaggio definita da un’entità [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) .
 	-	[set-variable][]\: rende persistente un valore in una variabile [context][] denominata e consente di accedervi successivamente.
 -	[Criteri di autenticazione][]
 	-	[authentication-basic][]\: consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
@@ -72,6 +74,8 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 [set-variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [espressioni]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 [context]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
+[Inoltro richiesta]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
+[Registro a Hub eventi]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
 
 [Criteri di autenticazione]: https://msdn.microsoft.com/library/azure/dn894079.aspx
 [authentication-basic]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
@@ -105,4 +109,4 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

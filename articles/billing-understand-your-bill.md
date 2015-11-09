@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/16/2015"
+   ms.date="10/22/2015"
    ms.author="kareni"/>
 
 
@@ -24,7 +24,15 @@ Gli addebiti per le sottoscrizioni di Microsoft Azure dipendono dal piano tariff
 
 Si noti che è possibile che fino a 24 ore di utilizzo latente dal periodo di fatturazione precedente vengano segnalati nel periodo di fatturazione corrente.
 
-Per altre informazioni sul consumo, sull'utilizzo e sui piani tariffari, vedere la [pagina relativa alle opzioni di acquisto di Microsoft Azure](http://azure.microsoft.com/pricing/purchase-options/).
+Per altre informazioni sul consumo e sui piani tariffari, vedere la [pagina relativa alle opzioni di acquisto di Microsoft Azure](http://azure.microsoft.com/pricing/purchase-options/).
+
+I collegamenti riportati di seguito riguardano un elenco completo di tutti i servizi di Microsoft Azure.
+
+- [Elenco dei dettagli sul servizio (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+- [Elenco dei dettagli sul servizio (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+
+*NOTA: il collegamento **csv1** fa riferimento ai nomi dell’intestazione di colonna per la versione csv 1 e il collegamento **csv2** fa riferimento ai nuovi nomi dell’intestazione di colonna per la versione csv 2. Questi file vengono aggiornati ogni mese.*
+
 
 ## Contenuto:
 
@@ -237,14 +245,6 @@ Oltre ad alcuni nuovi campi e alle modifiche dei nomi nella Versione 2 csv, per 
 ![tags](./media/billing-understand-your-bill/tags.png)
 
 
-Per informazioni più dettagliate su ciascun servizio, vedere le seguenti fonti aggiuntive. Questi file sono aggiornati su base mensile, pubblicati il 25 di ogni mese e disponibili a partire da **maggio 2015** per la Versione 1 CSV, e da **giugno 2015** per la Versione 2 CSV. Di seguito è riportato l'URL del file di base per i campi di download del servizio:
-
->>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v2_MMYYYY.xlsx
-
-
-
-Per trovare la versione più aggiornata, immettere l'anno e il mese. Se si cerca un file di maggio 2015, immettere **052015** nella sezione _**"MMYYYY"**_ nell'URL precedente. Questo foglio di calcolo fornisce un elenco di tutte le combinazioni possibili dei campi correlati al servizio nel **report relativo al download di utilizzo**.
-
 ## Altre risorse
 Passare alla sezione **Gestire account, sottoscrizioni e ruoli amministrativi** di [Gestione dei servizi](https://msdn.microsoft.com/library/azure/dn578292.aspx) per alcuni collegamenti molto utili:
 
@@ -262,4 +262,4 @@ Passare alla sezione **Gestire account, sottoscrizioni e ruoli amministrativi** 
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

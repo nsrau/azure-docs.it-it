@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 
@@ -44,6 +44,8 @@ Sono disponibili diversi tipi di cluster HDInsight:
 Durante la configurazione sarà possibile selezionare uno di questi tipi di cluster. È possibile aggiungere altre tecnologie, ad esempio Hue, Spark o R, a questi tipi di base mediante [Azioni script](#scriptaction).
 
 Ogni tipo di cluster usa una terminologia specifica per i nodi nel cluster, oltre a un numero di nodi specifico e a dimensioni predefinite per le VM per ogni tipo di nodo:
+
+> [AZURE.IMPORTANT]Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
 ![Nodi del cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)
 
@@ -152,11 +154,13 @@ Per impostazione predefinita, questo contenitore ha lo stesso nome del cluster. 
 
 È possibile selezionare le dimensioni delle risorse di calcolo usate dal cluster. Ad esempio, se si prevede di eseguire operazioni che richiedono una quantità elevata di memoria, è consigliabile selezionare una risorsa di calcolo con più memoria.
 
-> [AZURE.NOTE]Diversi tipi di cluster hanno diversi tipi, numeri e dimensioni di nodi. Ad esempio, un cluster Hadoop ha due _nodi head_ e, per impostazione predefinita, quattro _nodi dati_, mentre un cluster di tipo Storm ha due _nodi Nimbus_, tre _nodi Zookeeper_ e, per impostazione predefinita, quattro _nodi supervisore_.
+Diversi tipi di cluster hanno diversi tipi, numeri e dimensioni di nodi. Ad esempio, un cluster Hadoop ha due _nodi head_ e, per impostazione predefinita, quattro _nodi dati_, mentre un cluster di tipo Storm ha due _nodi Nimbus_, tre _nodi Zookeeper_ e, per impostazione predefinita, quattro _nodi supervisore_.
+
+> [AZURE.IMPORTANT]Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
 Quando si usa il portale di anteprima di Azure per configurare il cluster, le dimensioni del nodo vengono esposte tramite il pannello __Piano tariffario per il nodo__ e verrà visualizzato anche il costo associato alle diverse dimensioni di nodo.
 
-> [AZURE.IMPORTANT]La fatturazione inizia dopo la creazione del nodo e si interrompe solo quando il nodo viene eliminato. Per altre informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/it-IT/pricing/details/hdinsight/).
+> [AZURE.IMPORTANT]La fatturazione inizia dopo la creazione del nodo e si interrompe solo quando il nodo viene eliminato. Per altre informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##<a id="optionalconfiguration"></a>Configurazione facoltativa
 
@@ -164,7 +168,7 @@ Le sezioni seguenti descrivono opzioni di configurazione facoltative, oltre a sc
 
 ### Versione HDInsight
 
-Consente di determinare la versione di HDInsight usata per questo cluster. Per altre informazioni, vedere [Versioni e componenti di Hadoop in HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409).
+Consente di determinare la versione di HDInsight usata per questo cluster. Per altre informazioni, vedere [Versioni di HDInsight e componenti di Hadoop](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
 
 ### Usare le reti virtuali di Azure
 
@@ -182,12 +186,12 @@ Una [rete virtuale di Azure](http://azure.microsoft.com/documentation/services/v
 
 Per altre informazioni sulle funzionalità, i vantaggi e le capacità della rete virtuale, vedere la [panoramica della rete virtuale di Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-> [AZURE.NOTE]È necessario creare la rete virtuale di Azure prima di creare un cluster. Per altre informazioni, vedere [Come creare una rete virtuale](virtual-networks-create-vnet.md).
+> [AZURE.NOTE]È necessario creare la rete virtuale di Azure prima di creare un cluster. Per alte informazioni, vedere [Come creare una rete virtuale](virtual-networks-create-vnet.md).
 >
 > Azure HDInsight supporta solo reti virtuali basate sulla posizione e attualmente non funziona con le reti virtuali basate su set di affinità. Usare il cmdlet Get-AzureVNetConfig di Azure PowerShell per verificare se una rete virtuale esistente di Azure è basata sulla posizione. Se la rete virtuale non è basata sulla posizione, saranno disponibili le opzioni seguenti:
 >
 > - Esportare la configurazione di rete virtuale esistente, quindi creare una nuova rete virtuale. Per impostazione predefinita, tutte le nuove reti virtuali sono basate sulla posizione.
-> - Eseguire la migrazione a una rete virtuale basata sulla posizione. Vedere il blog relativo alla [migrazione di servizi esistenti a un ambito a livello di area](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
+> - Eseguire la migrazione a una rete virtuale basata sulla posizione. Vedere la pagina relativa alla [migrazione di servizi esistenti a un ambito a livello di area](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
 >
 > È consigliabile designare una singola subnet per un cluster.
 >
@@ -195,13 +199,13 @@ Per altre informazioni sulle funzionalità, i vantaggi e le capacità della rete
 >
 > Non è possibile usare una rete virtuale di Azure v1 (classica) con HDInsight basato su Linux. La rete virtuale deve essere v2 (Gestione risorse di Azure) per poter essere elencata come opzione durante il processo di creazione di cluster HDInsight nel portale di anteprima di Azure o possa essere usata durante la creazione di un cluster mediante l'interfaccia della riga di comando di Azure o Azure PowerShell.
 >
-> Se sono disponibili risorse in una rete v1 e si vuole rendere HDInsight direttamente accessibile a tali risorse attraverso una rete virtuale, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md) per informazioni su come connettere una rete virtuale v2 a una rete virtuale v1. Una volta stabilita la connessione, è possibile creare il cluster HDInsight nella rete virtuale v2.
+> Se si dispone di risorse in una rete v1 e si desidera rendere HDInsight direttamente accessibile a tali risorse attraverso una rete virtuale, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md) per informazioni su come connettersi una rete virtuale v2 a una rete virtuale v1. Una volta stabilita la connessione, è possibile creare il cluster HDInsight nella rete virtuale v2.
 
 ### Metastore
 
 Il metastore contiene metadati Hive e Oozie, ad esempio informazioni su tabelle di Hive, partizioni, schemi e colonne. Consente di conservare i propri metadati Hive e Oozie, in modo che non sia necessario creare di nuovo tabelle di Hive o processi Oozie quando si crea un nuovo cluster.
 
-L'uso dell'opzione di configurazione Metastore consente di specificare un metastore esterno mediante il database SQL. Ciò consente di conservare le informazioni dei metadati quando si elimina un cluster, perché vengono archiviate esternamente nel database. Per istruzioni su come creare un database SQL in Azure, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md).
+L'uso dell'opzione di configurazione Metastore consente di specificare un metastore esterno mediante il database SQL. Ciò consente di conservare le informazioni dei metadati quando si elimina un cluster, perché vengono archiviate esternamente nel database. Per istruzioni su come creare un database SQL in Azure, vedere [Creare il primo Database di SQL Azure](sql-database-get-started.md).
 
 ###<a id="scriptaction"></a>Azione script
 
@@ -276,4 +280,4 @@ In questo articolo sono state fornite informazioni di base sulla creazione di un
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

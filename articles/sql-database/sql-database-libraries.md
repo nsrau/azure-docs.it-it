@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="08/04/2015"
 	ms.author="pehteh"/>
 
 
@@ -22,14 +22,6 @@
 
 
 In questo argomento viene elencato il numero di versione minima per ogni libreria/driver che è possibile utilizzare nei programmi client quando ci si connette al database SQL di Azure o a Microsoft SQL Server.
-
-
-L’argomento è suddiviso in due sezioni:
-
-
-- *Tabella delle librerie di driver rilasciate da Microsoft*: vengono illustrate le librerie rilasciate da Microsoft. Microsoft gestisce le informazioni contenute in questa sezione.
-- *Librerie di terze parti*: vengono elencate le librerie rilasciate e gestite da terze parti e piuttosto che da Microsoft. **Questa sezione è gestita unicamente dalla community di sviluppatori pubblica. Microsoft non gestisce questa sezione.**
-
 
 ## Tabella delle librerie di driver rilasciate da Microsoft
 
@@ -45,6 +37,14 @@ Nella tabella seguente vengono visualizzate le librerie rilasciate da Microsoft.
 | ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0 + | Driver Microsoft ODBC per SQL Server | [Collegamento](http://msdn.microsoft.com/library/jj730308.aspx) |
 | ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Driver Microsoft ODBC per SQL Server | . |
 | ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Driver Microsoft ODBC per SQL Server | . |
+
+### Supporto ODBC
+
+Quando si utilizza la creazione guidata del nome di origine dati (SDSN) per definire un'origine dati per il Database di SQL Azure, fare clic sull'opzione **con autenticazione di SQL Server utilizzando un ID di accesso e password immessi dall'utente** e selezionare il **Connetti a SQL Server per ottenere le impostazioni predefinite per ulteriori opzioni di configurazione**. Immettere il nome utente e password per connettersi al server di Database SQL Azure come **ID di accesso** e **Password**. Cancellare la casella di controllo **Connetti a SQL Server per ottenere le impostazioni predefinite...**. Fare clic su **Modifica il database predefinito con:** e immettere il nome del Database SQL Azure, anche se non viene visualizzato nell'elenco. Si noti che la procedura guidata riporta varie lingue nell’elenco **Modifica la lingua per i messaggi di sistema di SQL Server:**.
+
+In questa versione, il Database SQL di Microsoft Azure supporta solo la lingua inglese, quindi selezionare l'inglese come lingua. Il Database SQL di Microsoft Azure non supporta **Server Mirror** o **Collega Database**, pertanto lasciare gli elementi vuoti. Fare clic su **Test connessione**.
+
+Quando si utilizza il driver SQL Server 2008 Native Client ODBC, il pulsante **Test connessione** può provocare un errore che riporta che **master.dbo.syscharsets** non è supportato. Ignorare questo errore, salvare il DSN e utilizzarlo.
 
 
 ### OLEDB per DB2 e SQL Server, per la progettazione DRDA
@@ -82,4 +82,4 @@ Nella tabella seguente vengono visualizzate le librerie rilasciate da terze part
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

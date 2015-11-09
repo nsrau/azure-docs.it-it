@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/11/2015" 
+    ms.date="10/27/2015" 
     ms.author="arramac"/>
     
 # Utilizzo dei dati geospaziali in Azure DocumentDB
@@ -31,7 +31,7 @@ Consultare il [progetto Github](https://github.com/Azure/azure-documentdb-net/tr
 I dati spaziali descrivono la posizione e la forma degli oggetti nello spazio. Nella maggior parte delle applicazioni, questi corrispondono a oggetti sulla terra, vale a dire dati geospaziali. I dati spaziali possono essere utilizzati per rappresentare la posizione di una persona, un luogo di interesse o i confini di una città o di un lago. Casi di utilizzo comuni includono spesso query di prossimità, ad esempio, "trova tutti i negozi vicino alla mia posizione attuale".
 
 ### GeoJSON
-DocumentDB supporta l'indicizzazione e le query dei dati geospaziali rappresentati utilizzando la [specifica GeoJSON](http://geojson.org/geojson-spec.html). Le strutture di dati GeoJSON sono sempre oggetti JSON validi, quindi possono essere archiviate e interrogate utilizzando DocumentDB senza librerie o strumenti specializzati. Gli SDK di DocumentDB forniscono classi helper e metodi che semplificano il lavoro con i dati spaziali.
+DocumentDB supporta l'indicizzazione e le query dei dati di punti geo-spaziali che ha rappresentato mediante la [specifica GeoJSON](http://geojson.org/geojson-spec.html). Le strutture di dati GeoJSON sono sempre oggetti JSON validi, quindi possono essere archiviate e interrogate utilizzando DocumentDB senza librerie o strumenti specializzati. Gli SDK di DocumentDB forniscono classi helper e metodi che semplificano il lavoro con i dati spaziali.
 
 ### Punti, oggetti linestring e poligoni
 Un **punto** indica una posizione singola nello spazio. In dati geospaziali, un punto rappresenta la posizione esatta, che può essere un indirizzo di un negozio, un chiosco, un'automobile o una città. Un punto viene rappresentato in GeoJSON (e DocumentDB) mediante la sua coppia di coordinate o longitudine e latitudine. Di seguito è riportato un esempio JSON per un punto.
@@ -81,7 +81,7 @@ Oltre ai punti, GeoJSON supporta oggetti linestring e poligoni. I **LineStrings*
 >
 >I punti all'interno di un poligono devono essere specificati in senso antiorario. Un poligono specificato in senso orario rappresenta l'inverso dell'area al suo interno.
 
-Oltre a punto, LineString e poligono, GeoJSON specifica inoltre la rappresentazione della modalità di raggruppamento di più posizioni geospaziali, nonché come associare proprietà arbitrarie alla georilevazione come **Caratteristica**. Poiché questi sono oggetti JSON validi, essi possono essere memorizzati ed elaborati tutti in DocumentDB.
+Oltre a punto, LineString e poligono, GeoJSON specifica inoltre la rappresentazione della modalità di raggruppamento di più posizioni geospaziali, nonché come associare proprietà arbitrarie alla georilevazione come **Caratteristica**. Poiché questi sono oggetti JSON validi, essi possono essere memorizzati ed elaborati tutti in DocumentDB. Tuttavia DocumentDB supporta solo l'indicizzazione automatica dei punti.
 
 ### Sistemi di riferimento delle coordinate
 
@@ -177,7 +177,7 @@ Le funzioni spaziali possono essere utilizzate per eseguire query di prossimità
       "id": "WakefieldFamily"
     }]
 
-Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per ulteriori informazioni sull’indicizzazione spaziale, vedere la sezione seguente. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire query spaziali specificando `x-ms-documentdb-query-enable-scan` intestazione della richiesta con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l’argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true.
+Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per altre informazioni sull'indicizzazione spaziale, vedere la sezione seguente. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire query spaziali specificando `x-ms-documentdb-query-enable-scan` intestazione della richiesta con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l’argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true.
 
 ST\_WITHIN può essere utilizzato per controllare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente utilizzati per rappresentare limiti come codici postali, confini di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le query "within" verranno servite in modo efficiente tramite l'indice.
 
@@ -355,4 +355,4 @@ Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in Docu
 - Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
 - Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

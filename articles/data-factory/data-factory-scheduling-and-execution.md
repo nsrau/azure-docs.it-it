@@ -511,6 +511,8 @@ L'attività Hive usa i due input e genera una sezione di output giornaliera. È 
 	}
 
 
+## Concatenamento di attività
+È possibile concatenare due attività usando il set di dati di output di un'attività come set di dati di input di altre attività. Le attività possono essere nella stessa pipeline o in pipeline diverse. La seconda attività viene eseguita solo quando la prima viene completata correttamente. Il concatenamento si verifica a livello di intervallo di tempo (unità discreta all'interno di un set di dati).
 
 ## Variabili di sistema della data factory
 
@@ -518,7 +520,7 @@ Nome variabile | Descrizione | Ambito dell'oggetto | Ambito JSON e casi d'uso
 ------------- | ----------- | ------------ | ------------------------
 WindowStart | Inizio dell'intervallo di tempo relativo alla finestra di esecuzione dell'attività | attività | <ol><li>Definizione delle query di selezione dei dati. Vedere gli articoli connettore a cui fa riferimento l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md).</li><li>Passaggio dei parametri a uno script Hive (esempio illustrato in precedenza).</li>
 WindowEnd | Fine dell'intervallo di tempo relativo alla finestra di esecuzione dell'attività | attività | come sopra
-SliceStart | Inizio dell'intervallo di tempo relativo alla sezione di dati in fase di produzione | set di dati<br/>attività | <ol><li>Definizione di nomi di file e percorsi di cartelle dinamici durante l'utilizzo dell'[archivio BLOB di Azure](data-factory-azure-blob-connector.md) e dei [set di dati del File System](data-factory-onprem-file-system-connector.md).</li><li>Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.</li></ol>
+SliceStart | Inizio dell'intervallo di tempo relativo alla sezione di dati in fase di produzione | set di dati<br/>attività | <ol><li>Definizione di nomi di file e percorsi di cartelle dinamici durante l'utilizzo dell'[archivio BLOB di Azure](data-factory-azure-blob-connector.md) e dei [set di dati del file system](data-factory-onprem-file-system-connector.md).</li><li>Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.</li></ol>
 SliceEnd | Fine dell'intervallo di tempo relativo alla sezione di dati in fase di produzione | set di dati<br/>attività | come sopra. 
 
 > [AZURE.NOTE]La data factory richiede attualmente che la pianificazione specificata nell'attività corrisponda esattamente alla pianificazione specificata nella disponibilità del set di dati di output. In questo modo, il mapping delle variabili WindowStart, WindowEnd, SliceStart e SliceEnd verrà sempre eseguito allo stesso periodo di tempo e a un'unica sezione di output.
@@ -611,7 +613,7 @@ In [Monitorare e gestire le pipeline di Data factory di Azure](data-factory-moni
 
 ## Dati esterni
 
-Se un set di dati viene contrassegnato come esterno (come illustrato nel file JSON seguente), significa che non è stato generato con Data factory di Azure. In questo caso, al criterio del set di dati è possibile applicare un set di parametri aggiuntivo che definisce i criteri di convalida e ripetizione per il set di dati. Per una descrizione di tutte le proprietà, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md).
+Se un set di dati viene contrassegnato come esterno (come illustrato nel file JSON seguente), significa che non è stato generato con Data factory di Azure. In questo caso, al criterio del set di dati è possibile applicare un set di parametri aggiuntivo che definisce i criteri di convalida e ripetizione per il set di dati. Per una descrizione di tutte le proprietà, vedere [Creazione di pipeline](data-factory-create-pipelines.md).
 
 Analogamente ai set di dati prodotti dalla data factory, è necessario che le sezioni di dati per i dati esterni siano pronte prima che le sezioni dipendenti possano essere elaborate.
 
@@ -676,4 +678,4 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 
   
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

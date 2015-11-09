@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
@@ -24,7 +24,7 @@ Domande o problemi relativi ad [Application Insights per Visual Studio in Java][
 
 *Quando si aggiunge Application Insights SDK in Eclipse tramite Maven o Gradle, vengono visualizzati errori di convalida relativi a compilazione o checksum.*
 
-* Se l'elemento di dipendenza <version> usa un criterio di ricerca con caratteri jolly, ad esempio (Maven) `<version>[0.9,)</version>` o (Gradle) `version:'0.9.+'`, provare a indicare una versione specifica, come `0.9.3`.
+* Se l'elemento di dipendenza <version> usa un criterio di ricerca con caratteri jolly, ad esempio (Maven) `<version>[1.0,)</version>` o (Gradle) `version:'1.0.+'`, provare a indicare una versione specifica, come `1.0.2`. Vedere le [note sulla versione](app-insights-release-notes-java.md) per la versione più recente.
 
 ## Dati non presenti 
 
@@ -138,4 +138,4 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

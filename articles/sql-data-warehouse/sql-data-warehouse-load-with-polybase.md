@@ -26,6 +26,7 @@ Con PolyBase, è possibile eseguire query sui dati memorizzati nell'archiviazion
 - Creare oggetti PolyBase: origine dati esterna, formato di file esterno e tabella esterna. 
 - Eseguire query sui dati memorizzati nell'archiviazione BLOB di Azure.
 - Caricare dati dall'archiviazione BLOB di Azure in SQL Data Warehouse.
+- Esportare i dati da SQL Data Warehouse nella risorsa di archiviazione BLOB di Azure.
 
 
 ## Prerequisiti
@@ -108,7 +109,7 @@ DROP EXTERNAL DATA SOURCE azure_storage
 ;
 ```
 
-Argomento di riferimento: [DROP ORIGINE DATI ESTERNA (Transact-SQL)][].
+Argomento di riferimento: [DROP EXTERNAL DATA SOURCE (Transact-SQL)][].
 
 ## Creare un formato di file esterno
 Il formato di file esterno è un oggetto di database che specifica il formato dei dati esterni. In questo esempio i dati sono stati decompressi in un file di testo e i campi sono separati dal carattere barra verticale ('|').
@@ -138,7 +139,7 @@ Per eliminare un riferimento esterno il formato di file la sintassi è:
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
-Argomento di riferimento: [DROP FILE DI FORMATO ESTERNO (Transact-SQL)][].
+Argomento di riferimento: [DROP EXTERNAL FILE FORMAT (Transact-SQL)][].
 
 ## Creare una tabella esterna
 
@@ -167,8 +168,6 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE]Si noti che per il momento non è possibile creare statistiche su una tabella esterna.
-
 Argomento di riferimento: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 Gli oggetti appena creati vengono archiviati nel database di SQL Data Warehouse. È possibile visualizzarli in Esplora oggetti di SQL Server Data Tools (SSDT).
@@ -183,9 +182,9 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 
 > [AZURE.NOTE]Quando si elimina una tabella esterna è necessario utilizzare `DROP EXTERNAL TABLE`. **Non è possibile** usare `DROP TABLE`.
 
-Argomento di riferimento: [DROP TABELLA ESTERNA (Transact-SQL)][].
+Argomento di riferimento: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
-È inoltre importante notare che sono visibili in entrambe le tabelle esterne `sys.tables` e in particolare in `sys.external_tables` viste del catalogo.
+È inoltre importante notare che entrambe le tabelle esterne sono visibili nelle viste del catalogo `sys.tables` e in particolare in `sys.external_tables`.
 
 ## Rotazione delle chiavi di archiviazione
 
@@ -227,7 +226,7 @@ Archiviando i dati direttamente viene eliminato il tempo di trasferimento dei da
 
 Questo esempio usa l'istruzione CREATE TABLE AS SELECT per caricare i dati. La nuova tabella eredita le colonne indicate nella query. Eredita i tipi di dati di tali colonne dalla definizione della tabella esterna.
 
-CREATE TABLE AS SELECT è un'istruzione Transact-SQL a prestazioni elevate che sostituisce l'istruzione INSERT... SELECT. È stata sviluppata in origine per il motore di elaborazione a elevato parallelismo (MPP) nel sistema di piattaforma di analisi ed è ora inclusa in SQL Data Warehouse.
+CREATE TABLE AS SELECT è un’istruzione con elevate prestazioni di Transact-SQL che carica i dati in parallelo per tutti i nodi di calcolo di SQL Data Warehouse. È stata sviluppata in origine per il motore di elaborazione a elevato parallelismo (MPP) nel sistema di piattaforma di analisi ed è ora inclusa in SQL Data Warehouse.
 
 ```
 -- Load data from Azure blob storage to SQL Data Warehouse 
@@ -245,6 +244,33 @@ FROM   [ext].[CarSensor_Data]
 ```
 
 Vedere [CREATE TABLE AS SELECT (Transact-SQL)][].
+
+
+## Esportare i dati in archiviazione BLOB di Azure
+Questa sezione illustra come esportare i dati da SQL Data Warehouse nella risorsa di archiviazione BLOB di Azure. In questo esempio si utilizza CREATE EXTERNAL TABLE AS SELECT che è un’istruzione con elevate prestazioni di Transact-SQL per esportare i dati in parallelo da tutti i nodi di calcolo.
+
+Nell'esempio seguente si crea una tabella esterna Weblogs2014 utilizzando le definizioni delle colonne e dati dalla tabella dbo.Weblogs. La definizione della tabella esterna viene archiviata in SQL Data Warehouse e i risultati dell’istruzione SELECT sono esportati nella directory "/ archiviazione/log2014 /" nel contenitore BLOB specificato dall'origine dati. I dati vengono esportati nel formato di file di testo specificato.
+
+```
+CREATE EXTERNAL TABLE Weblogs2014 WITH
+(
+    LOCATION='/archive/log2014/',
+    DATA_SOURCE=azure_storage,
+    FILE_FORMAT=text_file_format
+)
+AS
+SELECT
+    Uri,
+    DateRequested
+FROM
+    dbo.Weblogs
+WHERE
+    1=1
+    AND DateRequested > '12/31/2013'
+    AND DateRequested < '01/01/2015';
+```
+
+
 
 
 ## Risolvere il requisito PolyBase UTF-8
@@ -325,13 +351,13 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP ORIGINE DATI ESTERNA (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146367.aspx
-[DROP FILE DI FORMATO ESTERNO (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146379.aspx
-[DROP TABELLA ESTERNA (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

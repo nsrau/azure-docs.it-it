@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Aggiunta di report sull'integrità di Service Fabric personalizzati"
+   pageTitle="Aggiungere report sull'integrità dell’Infrastruttura di servizi personalizzati | Microsoft Azure"
    description="Questo articolo descrive come inviare report sull'integrità personalizzati alle entità di integrità di Azure Service Fabric. Offre consigli per la progettazione e l'implementazione di report efficaci relativi all'integrità."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Aggiunta di report sull'integrità di Service Fabric personalizzati
@@ -274,4 +274,4 @@ In base ai dati sull'integrità, gli sviluppatori del servizio e gli amministrat
 [Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

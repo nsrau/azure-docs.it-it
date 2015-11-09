@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/29/2015" 
+    ms.date="10/28/2015" 
     ms.author="elizapo" />
 
 
@@ -30,7 +30,7 @@ Leggere le informazioni specifiche sui dati del profilo utente.
 
 ## Come può un amministratore accedere ai dati?
 
-Se è necessario accedere ai dati per un utente (per il ripristino di emergenza o se l'utente lascia l'azienda), contattare[Azure RemoteApp](mailto:remoteappforum@microsoft.com)e fornire le informazioni di sottoscrizione e l'identità dell'utente. Il team di Azure RemoteApp fornirà un URL in cui è possibile accedere ai dati - da qui è possibile sfogliare e recuperare tutti i documenti o file necessari.
+Se è necessario accedere ai dati per un utente (per il ripristino di emergenza o se l'utente lascia l'azienda), contattare[Azure RemoteApp](mailto:remoteappforum@microsoft.com)e fornire le informazioni di sottoscrizione e l'identità dell'utente. Il team di Azure RemoteApp fornirà un URL per il disco rigido virtuale. Scaricare il disco rigido virtuale e recuperare i documenti o i file necessari. Si noti che il disco rigido virtuale è di 50GB, pertanto ci può volere del tempo per scaricarlo.
 
 
 ## Si esegue il backup dei dati?
@@ -126,4 +126,4 @@ No, tale opzione non è supportata da RemoteApp di Azure, che utilizza host sess
 
 No, tale opzione non è supportata da Azure RemoteApp.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

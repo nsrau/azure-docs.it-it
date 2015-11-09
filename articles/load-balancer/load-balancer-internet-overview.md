@@ -23,7 +23,7 @@
 
 Il bilanciamento del carico di Azure esegue il mapping dell'indirizzo IP pubblico e del numero di porta del traffico in ingresso all'indirizzo IP privato e al numero di porta della macchina virtuale e viceversa per il traffico di risposta proveniente dalla macchina virtuale.
 
->[AZURE.NOTE]Quando si configura il bilanciamento del carico del traffico tra più macchine virtuali o servizi usando le impostazioni predefinite, viene fornita una distribuzione casuale del traffico in ingresso. Se si vuole ottenere l'affinità di sessione, vedere l'argomento relativo alla [modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
+>[AZURE.NOTE]Il servizio di bilanciamento del carico di Azure fornirà un traffico di rete di distribuzione hash tra più istanze di macchine virtuali utilizzando le impostazioni predefinite (ulteriori informazioni sulla distribuzione hash in [funzionalità del servizio di bilanciamento carico](load-balancer-overview.md#load-balancer-features). Se si vuole ottenere l'affinità di sessione, vedere l'argomento relativo alla [modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md).
 
 Per un servizio cloud contenente istanze di ruoli Web o ruoli di lavoro, è possibile definire un endpoint pubblico nella definizione del servizio (file con estensione csdef).
  
@@ -36,7 +36,7 @@ La figura seguente mostra un endpoint con carico bilanciato per il traffico Web 
 
 
 
-Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubblico del servizio cloud e alla porta TCP 443, il servizio di bilanciamento del carico di Azure esegue un bilanciamento del carico basato su hash di queste richieste tra le tre macchine virtuali del set con carico bilanciato. È possibile ottenere ulteriori informazioni sull'algoritmo di bilanciamento di carico in [pagina panoramica del bilanciamento di carico](load-balancer-overview#load-balancer-features).
+Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubblico del servizio cloud e alla porta TCP 443, il servizio di bilanciamento del carico di Azure esegue un bilanciamento del carico basato su hash di queste richieste tra le tre macchine virtuali del set con carico bilanciato. È possibile ottenere ulteriori informazioni sull'algoritmo di bilanciamento di carico in [pagina panoramica del bilanciamento di carico](load-balancer-overview.md#load-balancer-features).
 
 
 ## Passaggi successivi
@@ -52,4 +52,4 @@ Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubbli
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

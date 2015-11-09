@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Modalità di visualizzazione dello stato aggregato delle entità Infrastruttura di servizi di Azure"
+   pageTitle="Modalità di visualizzazione dello stato aggregato delle entità Infrastruttura di servizi di Azure | Microsoft Azure"
    description="Viene descritto come eseguire una query dello stato aggregato delle entità Infrastruttura di servizi di Azure, come visualizzarlo e come valutarlo, tramite query dello stato e query generali."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Come visualizzare i report di integrità di Infrastruttura di servizi
@@ -833,7 +833,7 @@ Ogni volta che si verifica un problema in cluster o in un'applicazione, osservar
 
 [Come eseguire il monitoraggio e la diagnosi dei servizi localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Aggiornamento di un’applicazione Infrastruttura di servizi](service-fabric-application-upgrade.md)
+[Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

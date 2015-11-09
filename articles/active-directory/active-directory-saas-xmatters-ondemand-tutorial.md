@@ -1,14 +1,26 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con xMatters OnDemand | Microsoft Azure" description="Informazioni su come usare xMatters OnDemand con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con xMatters OnDemand | Microsoft Azure" description="Informazioni su come usare xMatters OnDemand con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con xMatters OnDemand
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=524330).
   
 Questa esercitazione descrive l'integrazione di Azure e xMatters OnDemand. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant di xMatters OnDemand
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a xMatters OnDemand potranno accedere all'applicazione tramite il sito aziendale di xMatters OnDemand (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a xMatters OnDemand potranno accedere all'applicazione tramite il sito aziendale di xMatters OnDemand (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -77,21 +89,21 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di XMatters OnDemand come amministratore.
 
-6.  Sulla barra degli strumenti in alto fare clic su **Admin** e quindi su **Company Details** sulla barra di spostamento a sinistra.
+6.  Sulla barra degli strumenti in alto fare clic su **Admin** e quindi su **Informazioni azienda** sulla barra di spostamento a sinistra.
 
     ![Admin](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "Admin")
 
-7.  Nella pagina **SAML Configuration** seguire questa procedura:
+7.  Nella pagina **Configurazione SAML** seguire la procedura seguente:
 
     ![SAML configuration](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML configuration")
 
-    1.  Selezionare **Enable SAML**.
+    1.  Selezionare **Abilita SAML**.
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in XMatters OnDemand** del portale di Azure copiare il valore di **ID provider di identità** e quindi incollarlo nella casella di testo **Identity Provider ID**.
     3.  Nella finestra di dialogo **Configura accesso Single Sign-On in XMatters OnDemand** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **Single Sign On URL**.
     4.  Nella finestra di dialogo **Configura accesso Single Sign-On in XMatters OnDemand** del portale di Azure copiare il valore di **URL servizio Single Sign-Out** e quindi incollarlo nella casella di testo **Single Logout URL**.
-    5.  Nella parte superiore della pagina Company Details fare clic su **Save Changes**. ![Company details](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Company details")
+    5.  Nella parte superiore della pagina Informazioni sull’azienda fare clic su **Salva modifiche**. ![Company details](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Company details")
 
-8.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+8.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.png "Configura accesso Single Sign-On")
 
@@ -103,19 +115,19 @@ Per consentire agli utenti di Azure AD di accedere a XMatters OnDemand, è neces
 
 1.  Accedere al tenant di **XMatters OnDemand**.
 
-2.  Fare clic sulla scheda **Users**.
+2.  Fare clic sulla scheda **Utenti**.
 
-3.  Fare clic su **Add User**.
+3.  Fare clic su **Aggiungi utente**.
 
     ![Users](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "Users")
 
-4.  Selezionare **Active**.
+4.  Selezionare **Attivo**.
 
-5.  Nella sezione **Add a User** seguire questa procedura:
+5.  Nella sezione **Aggiungi un utente** eseguire la procedura seguente:
 
     ![Add a User](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "Add a User")
 
-    1.  Nelle apposite caselle di testo immettere i valori di **UserID**, **First name**, **Last name** e **Site** di un account Azure AD valido di cui si vuole eseguire il provisioning.
+    1.  Nelle apposite caselle di testo immettere i valori di **ID utente**, **Nome**, **Cognome** e **Sito** di un account Azure AD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Save**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da XMatters OnDemand per eseguire il provisioning degli account utente Azure AD.
@@ -132,10 +144,10 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-xmatters-ondemand-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

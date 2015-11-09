@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Eseguire query sui dati dall'archiviazione BLOB compatibile con HDFS | Microsoft Azure"
-	description="HDInsight usa l'archiviazione BLOB come archivio Big Data per HDFS. Informazioni su come eseguire query sui dati dall'archiviazione BLOB e archiviare i risultati dell'analisi."
+	description="HDInsight usa l'archiviazione BLOB di Azure come archivio Big Data per HDFS. Informazioni su come eseguire query sui dati dall'archiviazione BLOB e archiviare i risultati dell'analisi."
 	keywords="archiviazione BLOB, hdfs, dati strutturati, dati non strutturati"
 	services="hdinsight,storage"
 	documentationCenter=""
@@ -15,13 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/23/2015"
 	ms.author="jgao"/>
 
 
 # Usare l'archiviazione BLOB di Azure compatibile con HDFS con Hadoop in HDInsight
 
-In questa esercitazione viene descritto come usare l'archiviazione BLOB di Azure a basso costo con HDInsight, creare un account di archiviazione di Azure e un contenitore di archiviazione BLOB e quindi indirizzare i dati al suo interno.
+Informazioni su come usare l'archiviazione BLOB di Azure a basso costo con HDInsight, creare un account di archiviazione di Azure e un contenitore di archiviazione BLOB e quindi indirizzare i dati al suo interno.
 
 L'archiviazione BLOB di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. Grazie a un'interfaccia HDFS (Hadoop Distributed File System), tutti i componenti disponibili in HDInsight possono agire direttamente sui dati strutturati o non strutturati presenti nell'archiviazione BLOB.
 
@@ -36,7 +36,7 @@ L'archiviazione dei dati nell'archiviazione BLOB consente l'eliminazione sicura 
 Per informazioni sul provisioning di un cluster HDInsight, vedere [Introduzione a HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
 
 
-## <a id="architecture"></a>Architettura di archiviazione di HDInsight
+## Architettura di archiviazione di HDInsight
 Nel diagramma seguente viene mostrata una visualizzazione astratta dell'architettura di archiviazione di HDInsight:
 
 ![I cluster Hadoop usano l'API HDFS per accedere e archiviare dati strutturati e non strutturati nell'archiviazione BLOB.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architettura di archiviazione di HDInsight")
@@ -84,13 +84,14 @@ Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non
 
 
 
-## <a id="preparingblobstorage"></a>Creare un contenitore BLOB
+## Creare dei contenitori BLOB
 
 Per usare i BLOB, è necessario creare innanzitutto un [account di archiviazione di Azure][azure-storage-create]. Nel corso di questa procedura si specifica il data center di Azure in cui verranno archiviati gli oggetti creati usando questo account. L'account di archiviazione deve trovarsi nello stesso data center del cluster. Il database SQL Server del metastore Hive, inoltre, deve trovarsi nello stesso data center del database SQL Server del metastore Oozie.
 
 Ovunque si trovi, ogni oggetto BLOB creato appartiene a un contenitore presente nell'account di archiviazione di Azure. Può trattarsi di un contenitore BLOB esistente, creato all'esterno di HDInsight, oppure di un contenitore creato per un cluster HDInsight.
 
-Non condividere un contenitore di archiviazione predefinito con più cluster HDInsight. Se è necessario usare un contenitore condiviso per consentire l'accesso ai dati a più cluster HDInsight, è possibile aggiungerlo come ulteriore account di archiviazione nella configurazione del cluster. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. È comunque possibile riusare un contenitore di archiviazione predefinito dopo l'eliminazione del cluster HDInsight originale. Per i cluster HBase, in realtà, è possibile mantenere i dati e lo schema della tabella HBase effettuare il provisioning di un nuovo cluster HBase tramite il contenitore di archiviazione BLOB predefinito usato da un cluster HBase eliminato.
+
+Il contenitore Blob predefinito archivia informazioni specifiche del cluster, come i log e la cronologia processo. Non condividere un contenitore BLOB predefinito con più cluster HDInsight. Ciò potrebbe danneggiare la cronologia processo e il cluster non funzionerà correttamente. È consigliabile utilizzare un contenitore diverso per ogni cluster e inserire i dati condivisi in un account di archiviazione collegato specificato nella distribuzione di tutti i cluster rilevanti, anziché l'account di archiviazione predefinito. Per ulteriori informazioni sulla configurazione degli account di archiviazione collegati, vedere [Provisioning di cluster HDInsight][hdinsight-provision]. È comunque possibile riusare un contenitore di archiviazione predefinito dopo l'eliminazione del cluster HDInsight originale. Per i cluster HBase, in realtà, è possibile mantenere i dati e lo schema della tabella HBase effettuare il provisioning di un nuovo cluster HBase tramite il contenitore di archiviazione BLOB predefinito usato da un cluster HBase eliminato.
 
 
 ### Utilizzo del Portale di anteprima di Azure
@@ -137,7 +138,7 @@ Se è stato [installato e configurato Azure PowerShell][powershell-install], è 
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 
-## <a id="addressing"></a>Riferimenti a file nell'archiviazione BLOB
+## Riferimenti a file nell'archiviazione BLOB
 
 Lo schema URI per l'accesso ai file nell'archiviazione BLOB da HDInsight è il seguente:
 
@@ -167,7 +168,7 @@ Se non viene specificato né &lt;BlobStorageContainerName&gt; né &lt;StorageAcc
 
 > [AZURE.NOTE]Quando si usano i BLOB al di fuori di HDInsight, la maggior parte delle utilità non riconosce il formato WASB e richiede invece un formato del percorso di base, ad esempio `example/jars/hadoop-mapreduce-examples.jar`.
 
-## <a id="azurecli"></a>BLOB di accesso con l’interfaccia della riga di comando di Azure
+## BLOB di accesso mediante l’interfaccia della riga di comando di Azure
 
 Usare il comando seguente per ottenere un elenco dei comandi relativi ai BLOB:
 
@@ -189,7 +190,7 @@ Usare il comando seguente per ottenere un elenco dei comandi relativi ai BLOB:
 
 	azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-## <a id="powershell"></a>BLOB di accesso con Azure PowerShell
+## Accesso ai BLOB tramite Azure PowerShell
 
 > [AZURE.NOTE]I comandi in questa sezione forniscono un esempio di base dell'utilizzo di PowerShell per accedere ai dati archiviati nei BLOB. Per un esempio completo personalizzato per l'utilizzo di HDInsight, vedere [Strumenti HDInsight](https://github.com/Blackmist/hdinsight-tools).
 
@@ -291,7 +292,7 @@ Questo esempio illustra come elencare una cartella da un account di archiviazion
 
 	Invoke-Hive -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-## <a id="nextsteps"></a>Passaggi successivi
+## Passaggi successivi
 
 In questo articolo si è appreso come usare l'archiviazione BLOB di Azure compatibile con HDFS con HDInsight e come l'archiviazione BLOB di Azure sia un componente fondamentale di HDInsight. In questo modo sarà possibile creare soluzioni scalabili di acquisizione e archiviazione a lungo termine dei dati con l'archiviazione BLOB di Azure e usare HDInsight per sbloccare le informazioni all'interno dei dati strutturati e non strutturati archiviati.
 
@@ -316,4 +317,4 @@ Per altre informazioni, vedere:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

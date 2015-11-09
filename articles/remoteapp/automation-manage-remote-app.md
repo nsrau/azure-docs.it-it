@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
+	ms.date="10/23/2015"
 	ms.author="csand"/>
 
 
@@ -42,4 +42,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 
 * Vedere l'[esercitazione introduttiva](../automation-create-runbook-from-samples.md) di Automazione di Azure
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

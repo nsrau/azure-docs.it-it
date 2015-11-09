@@ -93,6 +93,9 @@ La chiave dell'account viene ottenuta [qui](https://datamarket.azure.com/account
  
 ---
 
+##API di batch
+Il servizio di Analisi del testo consente di eseguire estrazioni di sentiment e frase chiave in modalità batch. Per GetSentimentBatch e GetKeyPhrasesBatch, ognuno dei record ha assegnato dei conteggi come una transazione. Quindi, ad esempio, se si ottiene sentiment per 1000 record in una singola chiamata, verranno dedotte 1000 transazioni.
+
 ###GetSentimentBatch###
 
 **URL**
@@ -205,4 +208,4 @@ Nella risposta di seguito viene ottenuto l'elenco delle frasi chiave associate a
 Gli ID immessi nel sistema corrispondono agli ID restituiti dal sistema. Il servizio Web non verifica che gli ID siano univoci. È responsabilità del chiamante verificarne l'univocità.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Zoho Mail | Microsoft Azure" description="Informazioni su come usare Zoho Mail con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Zoho Mail | Microsoft Azure" 
+    description="Informazioni su come usare Zoho Mail con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Zoho Mail
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=528578).
   
 Questa esercitazione descrive l'integrazione di Azure e Zoho Mail. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant di Zoho Mail
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Zoho Mail potranno accedere all'applicazione tramite il sito aziendale di Zoho Mail (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Zoho Mail potranno accedere all'applicazione tramite il sito aziendale di Zoho Mail (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -39,7 +52,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Zoho
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-zoho-mail-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-zoho-mail-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -92,7 +105,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Zoho Mail** del portale di Azure copiare il valore di **Modifica URL password** e quindi incollarlo nella casella di testo **Change Password URL**.
     4.  Creare un file **con codifica Base 64** dal certificato scaricato.  
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     5.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **PublicKey**
     6.  In **Algorithm** selezionare **RSA**.
@@ -143,6 +156,6 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-zoho-mail-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

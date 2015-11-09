@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/23/2015"
 	ms.author="markusvi"/>
 
 
@@ -63,8 +63,7 @@ Per configurare l'integrazione di 23 Video in Azure AD, è necessario aggiungere
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **23 Video**.<br><br> ![Applicazioni][5]<br>
-7. Nel riquadro dei risultati selezionare **23 Video**, quindi fare clic su **Completa** per aggiungere l'applicazione.
-
+7. Nel riquadro dei risultati selezionare **23 Video**, quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>![Applicazioni][25]<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con 23 Video in base a un utente test di nome "Britta Simon".
@@ -114,7 +113,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure.<br> Nell'elenco utenti, selezionare **Britta Simon**. <br><br>![Creare un utente di Azure AD][20]<br>
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
@@ -122,7 +121,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l'elenco utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
  
 4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) <br>
 
@@ -162,18 +161,18 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in 23 Video.
 
 1. Accedere al sito aziendale di 23 Video come amministratore.
 
-1. Passare a **Settings**.
+1. Passare a **Impostazioni**.
 
 
-2. Nella sezione **Users** fare clic su **Configure**. <br><br>![Assegna utente][400]<br>
+2. Nella sezione **Utenti** fare clic su **Configura**. <br><br>![Assegna utente][400]<br>
 
-3. Fare clic su **Add new user**. <br><br>![Assegna utente][401]<br>
+3. Fare clic su **Aggiungi nuovo utente**. <br><br>![Assegna utente][401]<br>
 
-4. Nella sezione **Invite someone to join this site** seguire questa procedura: <br><br>![Assegna utente][402]<br>
+4. Nella sezione **Invita qualcuno a questo sito** seguire questa procedura: <br><br>![Assegna utente][402]<br>
 
-    a. Nella casella di testo **E-mail addresses** digitare l'indirizzo di posta elettronica di Britta Simon in Azure Active Directory.
+    a. Nella casella di testo **Indirizzi e-mail** digitare l'indirizzo di posta elettronica di Britta Simon in Azure AD.
 
-    b. Fare clic su **Add the user**.
+    b. Fare clic su **Aggiungi questo utente**.
 
 
 ### Assegnazione dell'utente test di Azure AD
@@ -185,7 +184,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
 2. Nell'elenco delle applicazioni selezionare **23 Video**. <br><br>![Assegna utente][202] <br>
 1. Scegliere **Utenti** dal menu in alto. <br><br>![Assegna utente][203] <br>
-1. Nell'elenco di utenti selezionare **Britta Simon**.
+1. Nell'elenco utenti selezionare **Britta Simon**.
 
 2. Sulla barra degli strumenti in basso fare clic su **Assegna**. <br><br>![Assegna utente][205]
 
@@ -208,6 +207,7 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [3]: ./media/active-directory-saas-23video-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-23video-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_01.png
+[25]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_02.png
 
 [6]: ./media/active-directory-saas-23video-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_03.png
@@ -228,4 +228,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

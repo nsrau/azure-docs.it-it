@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Jitbit Helpdesk | Microsoft Azure" description="Informazioni su come usare Jitbit Helpdesk con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Jitbit Helpdesk | Microsoft Azure" 
+    description="Informazioni su come usare Jitbit Helpdesk con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Jitbit Helpdesk
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=524767).
   
 Questa esercitazione descrive l'integrazione di Azure e Jitbit Helpdesk. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant di Jitbit Helpdesk
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Jitbit Helpdesk potranno accedere all'applicazione tramite il sito aziendale di Jitbit Helpdesk (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Jitbit Helpdesk potranno accedere all'applicazione tramite il sito aziendale di Jitbit Helpdesk (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -38,7 +51,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Jitb
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -65,7 +78,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777679.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL accesso Jitbit Helpdesk** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*https://\<nome-tenant>.Jitbit.com*" e quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL accesso Jitbit Helpdesk** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*https://\<tenant-name>.Jitbit.com*" e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777528.png "Configura URL app")
 
@@ -91,12 +104,12 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Jitbit Helpdesk** del portale di Azure copiare il valore di **Endpoint inizializzato da provider di servizi** e incollarlo nella casella di testo **EndPoint URL**.
     3.  Creare un file **con codifica Base 64** dal certificato scaricato.
         
-		>[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+		>[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **X.509 Certificate**.
-    5.  Fare clic su **Save changes**.
+    5.  Fare clic su **Salva modifiche**.
 
-9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777684.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -107,7 +120,7 @@ Per consentire agli utenti di Azure AD di accedere a Jitbit Helpdesk, è necessa
 
 1.  Accedere al tenant di **Jitbit Helpdesk**.
 
-2.  Nel menu in alto fare clic su **Administration**.
+2.  Scegliere **Administration** dal menu disponibile nella parte superiore.
 
     ![Amministrazione](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777681.png "Amministrazione")
 
@@ -115,7 +128,7 @@ Per consentire agli utenti di Azure AD di accedere a Jitbit Helpdesk, è necessa
 
     ![Users, companies and permissions](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777682.png "Users, companies and permissions")
 
-4.  Fare clic su **Add user**.
+4.  Fare clic su **Add User**.
 
     ![Add user](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777685.png "Add user")
 
@@ -143,6 +156,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

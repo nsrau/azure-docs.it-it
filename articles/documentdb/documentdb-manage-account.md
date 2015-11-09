@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="10/22/2015" 
 	ms.author="anhoh"/>
 
 # Gestire un account DocumentDB usando il portale di anteprima di Azure
@@ -65,9 +65,9 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 
 - La coerenza **assoluta** garantisce che le operazioni di lettura restituiscano sempre il valore scritto per ultimo.
 
-- La coerenza **con obsolescenza associata** garantisce che le letture non siano troppo obsolete. In particolare, garantisce che le letture non siano più di K versioni precedenti all'ultima versione scritta.
+- La coerenza **con obsolescenza associata** garantisce che le letture non siano troppo obsolete. In particolare, garantisce che le letture non siano più di *K* versioni precedenti all'ultima versione scritta.
 
-- La coerenza **di sessione** garantisce letture monotoniche (non si leggeranno mai dati obsoleti, poi nuovi, poi di nuovo obsoleti), scritture monotoniche (le scritture vengono ordinate) e che si leggano le scritture più recenti in ogni singolo punto di vista del client.
+- La coerenza **di sessione** garantisce letture monotoniche (non si leggeranno mai dati obsoleti, poi nuovi, poi di nuovo obsoleti), scritture monotoniche (le scritture vengono ordinate) e che si leggano le scritture più recenti nell’ambito di ogni singolo punto di vista del client.
 
 - La coerenza **finale** garantisce che le operazioni di lettura leggano sempre un subset di scritture valido e che alla fine convergano.
 
@@ -77,9 +77,9 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 
 1.      Nel [portale di anteprima di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
 
-2.      Nella sezione **Configuration** fare clic su **Default Consistency**.
+2.      Nella sezione **Configurazione** fare clic su **Coerenza di default**.
 
-3.      Nel pannello **Default Consistency** selezionare il livello di coerenza predefinito desiderato per l'account DocumentDB.
+3.      Nel pannello **Coerenza di default** selezionare il livello di coerenza predefinito desiderato per l'account DocumentDB.
 
 ![Sessione coerenza predefinita](./media/documentdb-manage-account/image005.png)
 
@@ -92,11 +92,11 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 *Si noti che potrebbero trascorrere diversi minuti prima che una modifica alle impostazioni di coerenza predefinite si propaghi nell'intero account DocumentDB.*
 
 ## <a id="delete"></a> Come eliminare un account di DocumentDB nel portale di anteprima di Azure
-Per rimuovere un account DocumentDB non più in uso dal portale di anteprima di Azure, utilizzare il comando **Elimina** nel pannello dell'account **DocumentDB**.
+Per rimuovere un account DocumentDB non più in uso dal portale di anteprima di Azure, utilizzare il comando **Elimina** nel pannello dell'**account DocumentDB**.
 
 ![Come eliminare un account di DocumentDB nel portale di anteprima di Azure](./media/documentdb-manage-account/image009.png)
 
-1.      Nel [portale di anteprima di Azure](https://portal.azure.com/) accedere all'account DocumentDB da eliminare. 
+1.      Nel [portale di anteprima di Azure](https://portal.azure.com/) accedere all'account DocumentDB che si desidera eliminare. 
 
 2.      Nel pannello dell'**account DocumentDB** fare clic sul comando **Elimina**.
 
@@ -106,11 +106,11 @@ Per rimuovere un account DocumentDB non più in uso dal portale di anteprima di 
 
 ## <a id="next"></a>Passaggi successivi
 
-Altre informazioni su come [iniziare a usare l'account DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
+Informazioni su come [iniziare a usare l'account DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
 
 Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure DocumentDB in [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
  
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

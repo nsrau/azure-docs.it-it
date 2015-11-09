@@ -1,7 +1,19 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Thoughtworks Mingle | Microsoft Azure" description="Informazioni su come usare Thoughtworks Mingle con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Thoughtworks Mingle | Microsoft Azure" 
+    description="Informazioni su come usare Thoughtworks Mingle con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Thoughtworks Mingle
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=528082).
   
 In questa esercitazione verrà illustrata l'integrazione di Azure e Thoughtworks Mingle. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -37,7 +49,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -59,7 +71,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configura accesso Single Sign-On")
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a TeamSeer** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
+2.  Nella pagina **Stabilire come si desidera che gli utenti accedano alla pagina Thoughtworks Mingle** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Configura accesso Single Sign-On")
 
@@ -134,6 +146,6 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Sì](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -12,7 +12,7 @@
      ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="nana"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="michelb"/>
 
@@ -656,4 +656,4 @@ Questo articolo descrive in dettaglio gli aspetti univoci della libreria **seria
 
 Questo articolo conclude anche la serie in tre parti relativa allo sviluppo di applicazioni con **Azure IoT device SDK per C**. Le informazioni dovrebbero essere sufficienti non solo per iniziare, ma anche per avere una conoscenza abbastanza approfondita del funzionamento delle API. In caso siano necessari altri dettagli, nell'SDK sono disponibili alcuni esempi non illustrati sopra. In alternativa, se sono necessarie altre informazioni, ad esempio la [documentazione dell'SDK](https://github.com/Azure/azure-iot-sdks) è una risorsa molto utile per altre informazioni.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

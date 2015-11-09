@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/27/2015" 
 	ms.author="spelluru"/>
 
 # Trasformazione e analisi tramite Data factory di Azure
@@ -40,6 +40,6 @@ Attività di trasformazione | Ambiente di calcolo
 Per informazioni sui servizi collegati di calcolo supportati da Data factory, vedere l'articolo [Servizi collegati di calcolo](data-factory-compute-linked-services.md).
 
 ## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md) richiede solo alcuni minuti.
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

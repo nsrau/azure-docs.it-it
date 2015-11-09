@@ -1,7 +1,20 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con LogicMonitor | Microsoft Azure" description="Informazioni su come utilizzare LogicMonitor con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con LogicMonitor | Microsoft Azure" 
+    description="Informazioni su come utilizzare LogicMonitor con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con LogicMonitor
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=528728).
   
 In questa esercitazione viene illustrata l'integrazione di Azure e LogicMonitor. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -36,7 +49,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-logicmonitor-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-logicmonitor-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -79,7 +92,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790053.png "Single Sign-On")
 
-8.  Nella sezione **Impostazioni per Single Sign-on (SSO)** eseguire la procedura seguente:
+8.  Nella sezione **Impostazioni Single Sign-on (SSO)** eseguire questa procedura:
 
     ![Impostazioni Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Impostazioni Single Sign-On")
 
@@ -99,7 +112,7 @@ Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provis
 
 1.  Accedere al sito aziendale di LogicMonitor come amministratore.
 
-2.  Nel menu in alto fare clic su **Impostazioni**, quindi fare clic su **Ruoli o utenti**.
+2.  Nel menu in alto fare clic su **Impostazioni**, quindi fare clic su **Ruoli e utenti**.
 
     ![Ruoli e utenti](./media/active-directory-saas-logicmonitor-tutorial/IC790056.png "Ruoli e utenti")
 
@@ -127,10 +140,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-logicmonitor-tutorial/IC790058.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

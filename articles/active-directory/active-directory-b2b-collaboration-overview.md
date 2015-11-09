@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory B2B (business-to-business) Collaboration"
+   pageTitle="Azure Active Directory B2B Collaboration | Microsoft Azure"
    description="Azure Active Directory B2B Collaboration consente ai partner aziendali di accedere alle proprie risorse aziendali con ciascuno dei propri utenti rappresentato da un unico account di Azure AD"
    services="active-directory"
    documentationCenter=""
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="10/27/2015"
    ms.author="curtand"/>
 
-# Azure Active Directory B2B Collaboration
+# Azure Active Directory (Azure AD) B2B Collaboration
 
-Azure Active Directory B2B Collaboration permette di abilitare l'accesso alle applicazioni aziendali da identità gestite dai partner. È possibile creare relazioni tra società invitando e autorizzando gli utenti di società partner ad accedere alle proprie risorse. Questo consente di ridurre la complessità perché ogni società esegue la federazione con Azure Active Directory (Azure AD) una sola volta e ogni utente è rappresentato da un singolo account Azure AD e di aumentare la sicurezza perché l'accesso degli utenti che terminano il rapporto di lavoro con le società viene revocato per impedire l'accesso non autorizzato tramite l'appartenenza alle directory interne. Per i partner aziendali che ancora non usano Azure AD, B2B Collaboration offre un'esperienza di iscrizione semplificata per fornire gli account Azure AD ai propri partner aziendali.
+Azure A D B2B Collaboration permette di abilitare l'accesso alle applicazioni aziendali da identità gestite dai partner. È possibile creare relazioni tra società invitando e autorizzando gli utenti di società partner ad accedere alle proprie risorse. Questo consente di ridurre la complessità perché ogni società esegue la federazione con Azure Active Directory una sola volta e ogni utente è rappresentato da un singolo account Azure AD e di aumentare la sicurezza perché l'accesso degli utenti che terminano il rapporto di lavoro con le società viene revocato per impedire l'accesso non autorizzato tramite l'appartenenza alle directory interne. Per i partner aziendali che ancora non usano Azure AD, B2B Collaboration offre un'esperienza di iscrizione semplificata per fornire gli account Azure AD ai propri partner aziendali.
 
 -   I partner aziendali usano le proprie credenziali di accesso, evitando così la necessità di dover gestire una directory del partner esterna e di dover rimuovere l'accesso quando gli utenti terminano il rapporto di lavoro con l'organizzazione del partner.
 
@@ -61,5 +61,15 @@ wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.
 jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
+## Passaggi successivi
+Vedere gli altri articoli su Azure B2B Collaboration.
 
-<!---HONumber=Oct15_HO3-->
+- [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Funzionamento](active-directory-b2b-how-it-works.md)
+- [Procedura dettagliata](active-directory-b2b-detailed-walkthrough.md)
+- [Riferimento sul formato di file CSV](active-directory-b2b-references-csv-file-format.md)
+- [Formato del token per l'utente esterno](active-directory-b2b-references-external-user-token-format.md)
+- [Modifiche agli attributi dell'oggetto utente esterno](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
+
+<!---HONumber=Nov15_HO1-->

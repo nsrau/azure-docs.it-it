@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: integrazione di Azure Active Directory con Thirdlight | Microsoft Azure" description="Informazioni su come usare Thirdlight con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: integrazione di Azure Active Directory con Thirdlight | Microsoft Azure" 
+    description="Informazioni su come usare Thirdlight con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Thirdlight
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=529835).
   
 In questa esercitazione viene descritta l'integrazione di Azure e Thirdlight. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di Thirdlight abilitata per l'accesso Single Sign-On
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Thirdlight saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di Thirdlight (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586)
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Thirdlight saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di Thirdlight (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md)
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -53,7 +66,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Thirdlight tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Thirdlight richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che illustra [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Thirdlight tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Thirdlight richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
@@ -61,7 +74,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805839.png "Configura accesso Single Sign-On")
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a TeamSeer** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
+2.  Nella pagina **Stabilire come si desidera che gli utenti accedano alla pagina Thirdlight** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Configura accesso Single Sign-On")
 
@@ -88,7 +101,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     3.  Aprire il file dei metadati scaricato, copiare il contenuto e incollarlo nella casella di testo **XML metadati IDP**.
     4.  Fare clic su **Salva impostazioni SAML2**.
 
-8.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+8.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805845.png "Configura accesso Single Sign-On")
 
@@ -124,10 +137,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-thirdlight-tutorial/IC805846.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-thirdlight-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

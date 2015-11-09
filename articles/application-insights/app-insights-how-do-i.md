@@ -195,10 +195,29 @@ Se si desidera un elenco di utenti con i dati quali, ad esempio, le pagine visua
 
 ## Ridurre il traffico dall'app ad Application Insights
 
-* In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) disabilitare tutti i moduli non necessari, ad esempio i contatori delle prestazioni.
+* In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) disabilitare tutti i moduli non necessari, come gli agenti di raccolta del contatore della prestazione.
+* Utilizzare [Campionamento e filtri](app-insights-api-filtering-sampling.md) nell’SDK.
 * Se si usa [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcolare l'aggregazione di batch di valori delle metriche prima di inviare il risultato. Un overload di TrackMetric() esegue questa operazione.
 
+
 Altre informazioni su [prezzi e quote](app-insights-pricing.md).
+
+## Disabilitare telemetria
+
+Per **avviare e arrestare in modo dinamico** la raccolta e la trasmissione di dati di telemetria dal server:
+
+```
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+
+
+Per **disabilitare gli agenti di raccolta standard selezionati** - ad esempio, i contatori delle prestazioni, delle richieste HTTP o delle dipendenze - eliminare o impostare come commento le righe pertinenti in [Applicationinsights.config](app-insights-api-custom-events-metrics.md). È possibile eseguire questa operazione, ad esempio, se si vogliono inviare i propri dati TrackRequest.
+
+
 
 ## Visualizzare i contatori delle prestazioni di sistema
 
@@ -224,4 +243,4 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 
 Attualmente non viene eseguito il monitoraggio dei contatori delle prestazioni.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

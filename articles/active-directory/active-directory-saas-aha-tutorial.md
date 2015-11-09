@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Aha! | Microsoft Azure" description="Informazioni su come usare Aha! con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Aha! | Microsoft Azure" 
+    description="Informazioni su come usare Aha! con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Aha!
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=550992).
 
 Questa esercitazione descrive l'integrazione di Azure e Aha! Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione Aha! abilitata per l'accesso Single Sign-On
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati ad Aha! potranno accedere all'applicazione tramite il sito aziendale di Aha! (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati ad Aha! potranno accedere all'applicazione tramite il sito aziendale di Aha! (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -63,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798947.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso a Aha!** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Aha!, ad esempio "**https://company.aha.io/session/new*"), quindi fare clic su **Avanti**
+3.  Nella casella di testo **URL di accesso a Aha!** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Aha!, Applicazione, ad esempio "**https://company.aha.io/session/new*"), quindi fare clic su **Avanti**
 
     ![Configura URL app](./media/active-directory-saas-aha-tutorial/IC798948.png "Configura URL app")
 
@@ -73,7 +86,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di Aha! come amministratore.
 
-6.  Nel menu in alto fare clic su **Settings**.
+6.  Nel menu in alto fare clic su **Impostazioni**.
 
     ![Impostazioni](./media/active-directory-saas-aha-tutorial/IC798950.png "Impostazioni")
 
@@ -81,22 +94,22 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Profilo](./media/active-directory-saas-aha-tutorial/IC798951.png "Profilo")
 
-8.  Fare clic su **Security and single sign-on**.
+8.  Fare clic su **Sicurezza e single sign-on**.
 
     ![Security and single sign-on](./media/active-directory-saas-aha-tutorial/IC798952.png "Security and single sign-on")
 
-9.  Nella sezione **Single Sign-On** selezionare **SAML2.0** per **Identity Provider**.
+9.  Nella sezione **Single Sign-On** selezionare **SAML2.0** per **Provider di identità**.
 
     ![Security and single sign-on](./media/active-directory-saas-aha-tutorial/IC798953.png "Security and single sign-on")
 
-10. Nella pagina di configurazione per **Single Sign-On** seguire questa procedura:
+10. Nella pagina di configurazione **Single Sign-On** eseguire la procedura seguente:
 
     ![Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798954.png "Single Sign-On")
 
-    1.  Nella casella di testo **Name** digitare un nome per la configurazione.
-    2.  Per **Configure using**, selezionare **Metadata File**.
-    3.  Per caricare il file di metadati scaricato, fare clic su **Browse**.
-    4.  Fare clic su **Update**.
+    1.  Nella casella di testo **Nome** digitare un nome per la configurazione.
+    2.  Per **Uso della configurazione**, selezionare **File di metadati**.
+    3.  Per caricare il file di metadati scaricato, fare clic su **Sfoglia**.
+    4.  Fare clic su **Aggiorna**.
 
 11. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -121,10 +134,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-aha-tutorial/IC798956.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-aha-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/26/2015" 
 	ms.author="v-dedomi"/>
 
 # Come usare l'archiviazione file da Java
@@ -222,4 +222,4 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

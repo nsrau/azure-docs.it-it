@@ -135,7 +135,6 @@ Se si specifica un'istanza, questa verrà raccolta come proprietà "CounterInsta
 Se si preferisce, è possibile scrivere codice per ottenere lo stesso effetto:
 
     var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
@@ -194,4 +193,4 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -18,11 +18,11 @@
 
 # Come usare la libreria client iOS per le app mobili di Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-client-library.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-client-library.md)]
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-Questa guida descrive come eseguire scenari comuni usando le più recenti app per dispositivi mobili di Azure [SDK per iOS ](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se si ha familiarità con le App per dispositivi mobili di Azure, completare innanzitutto [Azure Mobile App Quick Start] per creare un back-end, creare una tabella e scaricare un progetto Xcode iOS preesistente. In questa Guida, l'attenzione è posta sul lato client iOS SDK. Per ulteriori informazioni sul SDK .NET sul lato server per il back-end, vedere [Utilizzare back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+Questa guida descrive come eseguire scenari comuni usando le più recenti app per dispositivi mobili di Azure [SDK per iOS ](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se non si ha familiarità con le App per dispositivi mobili di Azure, completare innanzitutto [Azure Mobile App Quick Start] per creare un back-end, creare una tabella e scaricare un progetto Xcode iOS preesistente. In questa Guida, l'attenzione è posta sul lato client iOS SDK. Per ulteriori informazioni sul SDK .NET sul lato server per il back-end, vedere [Utilizzare back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
 ##<a name="Setup"></a>Installazione e prerequisiti
 
@@ -227,7 +227,7 @@ Il file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azur
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure Mobile App Quick Start]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Azure Mobile App Quick Start]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
@@ -249,4 +249,4 @@ Il file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azur
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Gestione dei problemi di conflitto]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
