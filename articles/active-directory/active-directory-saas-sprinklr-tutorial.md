@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con Sprinklr
   
-Questa esercitazione descrive l'integrazione di Azure e Sprinklr. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e Sprinklr.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Un tenant Sprinklr
@@ -66,7 +67,9 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Spri
 
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Sprinklr tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Sprinklr tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
+Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 

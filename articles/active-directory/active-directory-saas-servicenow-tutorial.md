@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con ServiceNow
   
-Questa esercitazione descrive l'integrazione di Azure e ServiceNow. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e ServiceNow.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant in ServiceNow

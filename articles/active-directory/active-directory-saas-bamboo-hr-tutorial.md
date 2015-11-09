@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con BambooHR
 
-Questa esercitazione descrive l'integrazione di Azure e BambooHR. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e BambooHR.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di BambooHR abilitata per l'accesso Single Sign-On
@@ -64,7 +65,9 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Bamb
     ![BambooHR](./media/active-directory-saas-bamboo-hr-tutorial/IC796687.png "BambooHR")
 ##Configurazione dell'accesso Single Sign-On
 
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a BambooHR tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a BambooHR tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
+Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -111,7 +114,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configura accesso Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere a BambooHR, è necessario eseguirne il provisioning in BambooHR. Nel caso di BambooHR, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere a BambooHR, è necessario eseguirne il provisioning in BambooHR.  
+Nel caso di BambooHR, il provisioning è un'attività manuale.
 
 ###Per eseguire il provisioning di un account utente, seguire questa procedura:
 

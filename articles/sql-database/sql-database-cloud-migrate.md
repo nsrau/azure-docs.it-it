@@ -93,7 +93,7 @@ Se vengono rilevate incompatibilità del database, sarà necessario correggerle 
 
 Dopo aver verificato di disporre di un database compatibile, è necessario scegliere il metodo di migrazione. Innanzitutto, è necessario decidere se è opportuno portare il database fuori produzione durante la migrazione. In caso contrario, usare la replica delle transazioni di SQL Server illustrata di seguito. Se è possibile sostenere i tempi di inattività o si esegue una migrazione di test del database di produzione di cui in un secondo momento è possibile eseguire la migrazione tramite la replica transazionale, considerare uno dei tre metodi seguenti.
 
-### Migrazione di un database compatibile con tempi di inattività   
+***Migrazione di un database compatibile tramite SQL Server Management Studio (SSMS) ***
 L'elenco seguente illustra le opzioni per la migrazione di un database compatibile al database SQL di Azure quando è possibile sostenere tempi di inattività durante la migrazione e prima di indirizzare utenti e applicazioni al database migrato nel database SQL di Azure. Con questi metodi, si esegue la migrazione del database esistente in un determinato momento.
 
 > [AZURE.WARNING]Prima di eseguire la migrazione del database mediante uno di questi metodi, assicurarsi che non siano attive transazioni, in modo da garantire la coerenza transazionale durante la migrazione. Per disattivare un database sono disponibili vari metodi, dalla disabilitazione della connettività client alla creazione di uno [snapshot del database](https://msdn.microsoft.com/library/ms175876.aspx).
