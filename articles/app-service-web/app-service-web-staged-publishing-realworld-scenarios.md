@@ -362,9 +362,9 @@ Per procedere con la configurazione è necessario aggiornare il file courier.con
   </repositories>
  ```
 
-Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
+In `<repositories>` immettere l'URL del sito di produzione e le informazioni dell'utente. Se si usa il provider di appartenenze Umbraco predefinito, aggiungere l'ID per l'utente Administration nella sezione <user>. Se si usa il provider di appartenenze Umbraco personalizzato, usare `<login>` e `<password>` affinché il modulo Courier2 possa connettersi al sito di produzione. Per altre informazioni, consultare la [documentazione](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) relativa al modulo Courier.
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+Analogamente, installare il modulo Courier nel sito di produzione e configurarlo affinché gestisca in modo temporaneo l'app Web nel relativo file courier.config, come illustrato di seguito
 
 ```xml
   <!-- Repository connection settings -->
@@ -429,4 +429,4 @@ Questo esempio illustra la flessibilità della piattaforma in cui è possibile c
 
 [Come bloccare l'accesso Web agli slot di distribuzione non di produzione](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->
