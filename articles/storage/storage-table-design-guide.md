@@ -209,13 +209,18 @@ I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate enti
 
 La sezione precedente [Panoramica del servizio tabelle di Azure](#azure-table-service-overview) descrive alcune funzionalità chiave del servizio tabelle di Azure, che influiscono direttamente sulla progettazione della query. Se ne possono ricavare le seguenti linee guida generali per la progettazione di query del servizio tabelle. Si noti che la sintassi del filtro usata negli esempi seguenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) su MSDN.
 
--	Una ***Query di tipo punto*** è il tipo di ricerca più efficiente da usare ed è consigliata per le ricerche con volumi elevati o per le ricerche che richiedono una latenza molto bassa. Una query di questo tipo può usare gli indici per trovare in modo molto efficiente una singola entità specificando entrambi i valori **PartitionKey** e **RowKey**. Ad esempio, $filter=(PartitionKey eq 'Sales') e (RowKey eq '2')  
--	La seconda miglior ricerca è la ***query di intervallo*** che usa **PartitionKey** e applica il filtro a un intervallo di valori **RowKey** per restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori **RowKey** identificano un subset delle entità in quella partizione. Ad esempio, $filter=PartitionKey eq 'Sales' e RowKey ge 'S' e RowKey lt 'T'  
--	La terza miglior ricerca è l'***analisi della partizione*** che usa **PartitionKey** e applica il filtro a un'altra proprietà non chiave e che potrebbe restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori della proprietà selezionano un subset delle entità in quella partizione. Ad esempio: $filter=PartitionKey eq 'Sales' e LastName eq 'Smith'  
--	Una ***scansione di tabella*** non include **PartitionKey** ed è molto inefficiente perché cerca le entità corrispondenti in tutte le partizioni della tabella, una alla volta. Una scansione di tabella viene eseguita indipendentemente dal fatto che il filtro usi **RowKey** o meno. Ad esempio: $filter = LastName eq 'Jones'  
+-	Una ***Query di tipo punto*** è il tipo di ricerca più efficiente da usare ed è consigliata per le ricerche con volumi elevati o per le ricerche che richiedono una latenza molto bassa. Una query di questo tipo può usare gli indici per trovare in modo molto efficiente una singola entità specificando entrambi i valori **PartitionKey** e **RowKey**. Ad esempio,
+$filter=(PartitionKey eq 'Sales') e (RowKey eq '2')  
+-	La seconda miglior ricerca è la ***query di intervallo*** che usa **PartitionKey** e applica il filtro a un intervallo di valori **RowKey** per restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori **RowKey** identificano un subset delle entità in quella partizione. Ad esempio,
+$filter=PartitionKey eq 'Sales' e RowKey ge 'S' e RowKey lt 'T'  
+-	La terza miglior ricerca è l'***analisi della partizione*** che usa **PartitionKey** e applica il filtro a un'altra proprietà non chiave e che potrebbe restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori della proprietà selezionano un subset delle entità in quella partizione. Ad esempio:
+$filter=PartitionKey eq 'Sales' e LastName eq 'Smith'  
+-	Una ***scansione di tabella*** non include **PartitionKey** ed è molto inefficiente perché cerca le entità corrispondenti in tutte le partizioni della tabella, una alla volta. Una scansione di tabella viene eseguita indipendentemente dal fatto che il filtro usi **RowKey** o meno. Ad esempio:
+$filter = LastName eq 'Jones'  
 -	Le query che restituiscono più entità le ordinano in base a **PartitionKey** e **RowKey**. Per non dover riordinare le entità nel client, scegliere un valore **RowKey** che definisca l'ordinamento più comune.  
 
-Si noti che, se si usa "**or**" per specificare un filtro basato su valori **RowKey**, si ottiene un'analisi della partizione che non viene considerata come query di intervallo. Pertanto, è consigliabile evitare query che utilizzano filtri ad esempio: $filter = PartitionKey eq "Sales" e (RowKey '121' o RowKey eq '322')
+Si noti che, se si usa "**or**" per specificare un filtro basato su valori **RowKey**, si ottiene un'analisi della partizione che non viene considerata come query di intervallo. Pertanto, è consigliabile evitare query che utilizzano filtri ad esempio:
+$filter = PartitionKey eq "Sales" e (RowKey '121' o RowKey eq '322')
 
 Per esempi di codice lato client che usano la libreria client di archiviazione per eseguire query efficienti, vedere:
 
@@ -561,7 +566,9 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 Usare questo modello quando si desidera garantire la coerenza finale tra entità esistenti in tabelle o partizioni diverse. È possibile estendere il modello per garantire la coerenza finale per le operazioni tra il servizio tabelle e il servizio BLOB e altre origini dati di archiviazione non Azure, quali database o file system.
 
 #### Modelli correlati e informazioni aggiuntive  
-I seguenti modelli e le indicazioni seguenti possono essere importanti anche quando si implementa il pattern:- [Transazioni dei gruppi di entità](#entity-group-transactions) - [Unisci o sostituisci](#merge-or-replace)
+I seguenti modelli e le indicazioni seguenti possono essere importanti anche quando si implementa il pattern:  
+-	[Transazioni dei gruppi di entità](#entity-group-transactions)  
+-	[Unisci o sostituisci](#merge-or-replace)  
 
 >[AZURE.NOTE]Se l'isolamento delle transazioni è importante per la soluzione, è consigliabile riprogettare le tabelle per consentire l'uso delle transazioni ETG.
 
@@ -596,7 +603,10 @@ Per la seconda opzione, usare entità di indice che archiviano i dati seguenti:
 
 La proprietà **EmployeeIDs** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.
 
-I passaggi seguenti illustrano il processo da seguire per aggiungere un nuovo dipendente se si usa la seconda opzione. In questo esempio si aggiunge al reparto vendite un dipendente con ID 000152 e cognome Jones: 1. Recuperare l'entità di indice con il valore **PartitionKey** "Sales" e il valore **RowKey** "Jones". Salvare il valore ETag dell'entità per utilizzarlo nel passaggio 2. 2. Creare una transazione del gruppo di entità che inserisca la nuova entità dipendente (con valore **PartitionKey** e valore **RowKey** "000152") e aggiorni l'entità di indice (con valore **PartitionKey** "Sales" e valore **RowKey** "Jones") aggiungendo il nuovo ID dipendente all'elenco nel campo EmployeeIDs. Per informazioni sulle transazioni di gruppi di entità, vedere la sezione [Transazioni di gruppi di entità](#entity-group-transactions). 3. Se la transazione del gruppo di entità ha esito negativo a causa di un errore di concorrenza ottimistica (un altro utente ha appena modificato l'entità di indice), è necessario ricominciare dal passaggio 1.
+I passaggi seguenti illustrano il processo da seguire per aggiungere un nuovo dipendente se si usa la seconda opzione. In questo esempio si aggiunge al reparto vendite un dipendente con ID 000152 e cognome Jones:  
+1.	Recuperare l'entità di indice con il valore **PartitionKey** "Sales" e il valore **RowKey** "Jones". Salvare il valore ETag dell'entità per utilizzarlo nel passaggio 2.  
+2.	Creare una transazione del gruppo di entità che inserisca la nuova entità dipendente (con valore **PartitionKey** e valore **RowKey** "000152") e aggiorni l'entità di indice (con valore **PartitionKey** "Sales" e valore **RowKey** "Jones") aggiungendo il nuovo ID dipendente all'elenco nel campo EmployeeIDs. Per informazioni sulle transazioni di gruppi di entità, vedere la sezione [Transazioni di gruppi di entità](#entity-group-transactions). 
+3.	Se la transazione del gruppo di entità ha esito negativo a causa di un errore di concorrenza ottimistica (un altro utente ha appena modificato l'entità di indice), è necessario ricominciare dal passaggio 1.  
 
 Se si usa la seconda opzione, è possibile adottare un approccio simile per l'eliminazione di un dipendente. Modificare il cognome del dipendente è un'operazione leggermente più complessa, in quanto è necessario eseguire una transazione del gruppo di entità che aggiorna tre entità: l'entità dipendente, l'entità di indice per il cognome precedente e l'entità di indice per il nuovo cognome. È necessario recuperare ogni entità prima di apportare qualsiasi modifica, per recuperare i valori ETag da usare in seguito per eseguire gli aggiornamenti usando la concorrenza ottimistica.
 
@@ -618,7 +628,12 @@ Con la terza opzione non è possibile usare transazioni ETG per mantenere la coe
 
 #### Considerazioni e problemi  
 
-Tenere presente quanto segue prima di decidere come implementare questo modello. Questa soluzione richiede almeno due query per recuperare entità corrispondenti: una per eseguire una query dell’entità dell’indice e ottenere l'elenco dei valori **RowKey**, e una per eseguire una query e recuperare ogni entità nell'elenco. Dal momento che una singola entità ha una dimensione massima di 1 MB, l'opzione 2 e l'opzione 3 nella soluzione implicano che l'elenco degli ID dipendente per un determinato cognome non sia mai maggiore di 1 MB. Se l'elenco degli ID dipendente è possibilmente maggiore di 1 MB di dimensioni, utilizzare l'opzione 1 e archiviare i dati dell'indice nell'archiviazione blob. Se si utilizza l'opzione 2 (utilizzando EGT per gestire l'aggiunta e l'eliminazione di dipendenti e la modifica del cognome del dipendente) è necessario valutare se il volume di transazioni raggiungerà i limiti di scalabilità in una determinata partizione. In questo caso, è necessario considerare una soluzione con coerenza finale (opzione 1 o 3) che utilizza le code per gestire le richieste di aggiornamento e consente di archiviare le entità di indice in una partizione separata dalle entità dipendente. L’opzione 2 in questa soluzione implica che si desidera cercare in base al cognome in un reparto: ad esempio si desidera recuperare un elenco di dipendenti con il cognome Jones nel reparto vendite. Se si desidera poter cercare tutti i dipendenti con un cognome Jones nell'intera organizzazione, utilizzare l'opzione 1 o 3. È possibile implementare una soluzione basata su coda che garantisce coerenza finale (vedere la [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern) per ulteriori dettagli).
+Tenere presente quanto segue prima di decidere come implementare questo modello. Questa soluzione richiede almeno due query per recuperare entità corrispondenti:  
+-	una per eseguire una query dell’entità dell’indice e ottenere l'elenco dei valori **RowKey**, e una per eseguire una query e recuperare ogni entità nell'elenco.  
+-	Dal momento che una singola entità ha una dimensione massima di 1 MB, l'opzione 2 e l'opzione 3 nella soluzione implicano che l'elenco degli ID dipendente per un determinato cognome non sia mai maggiore di 1 MB. Se l'elenco degli ID dipendente è possibilmente maggiore di 1 MB di dimensioni, utilizzare l'opzione 1 e archiviare i dati dell'indice nell'archiviazione blob.  
+-	Se si utilizza l'opzione 2 (utilizzando EGT per gestire l'aggiunta e l'eliminazione di dipendenti e la modifica del cognome del dipendente) è necessario valutare se il volume di transazioni raggiungerà i limiti di scalabilità in una determinata partizione. In questo caso, è necessario considerare una soluzione con coerenza finale (opzione 1 o 3) che utilizza le code per gestire le richieste di aggiornamento e consente di archiviare le entità di indice in una partizione separata dalle entità dipendente.  
+-	L’opzione 2 in questa soluzione implica che si desidera cercare in base al cognome in un reparto: ad esempio si desidera recuperare un elenco di dipendenti con il cognome Jones nel reparto vendite. Se si desidera poter cercare tutti i dipendenti con un cognome Jones nell'intera organizzazione, utilizzare l'opzione 1 o 3.
+-	È possibile implementare una soluzione basata su coda che garantisce coerenza finale (vedere la [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern) per ulteriori dettagli).  
 
 #### Quando usare questo modello  
 
@@ -626,7 +641,11 @@ Usare questo modello quando si desidera cercare un set di entità che condividon
 
 #### Modelli correlati e informazioni aggiuntive  
 
-I modelli e le indicazioni seguenti possono essere importanti anche quando si implementa questo modello: [Modello per chiave composta](#compound-key-pattern), [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern), [Transazioni per i gruppi di entità](#entity-group-transactions) e [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types).
+I modelli e le indicazioni seguenti possono essere importanti anche quando si implementa questo modello:  
+-	[Modello per chiave composta](#compound-key-pattern),  
+-	[Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern),  
+-	[Transazioni per i gruppi di entità](#entity-group-transactions)，  
+-	[Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types).  
 
 ### Modello di denormalizzazione:  
 
@@ -657,7 +676,10 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 Usare questo modello quando è necessario cercare spesso informazioni correlate. Questo modello riduce il numero di query che il client deve eseguire per recuperare i dati necessari.
 
 #### Modelli correlati e informazioni aggiuntive
-I modelli e le indicazioni seguenti possono essere importanti anche quando si implementa questo modello: [Modello per chiave composta](#compound-key-pattern), [Transazioni per i gruppi di entità](#entity-group-transactions) e [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types).
+I modelli e le indicazioni seguenti possono essere importanti anche quando si implementa questo modello:  
+-	[Modello per chiave composta](#compound-key-pattern),  
+-	[Transazioni per i gruppi di entità](#entity-group-transactions)  
+-	[Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types).
 
 ### Modello per chiave composta  
 
@@ -809,7 +831,9 @@ Con questa progettazione è possibile usare un'operazione di unione per aggiorna
 
 #### Considerazioni e problemi  
 
-Tenere presente quanto segue prima di decidere come implementare questo modello: se le serie complete di dati non rientrano in una singola entità (un'entità può contenere fino a 252 proprietà), utilizzare un archivio dati alternativo, ad esempio un BLOB. Se si dispone di più client di aggiornamento di un'entità contemporaneamente, è necessario utilizzare **ETag** per implementare la concorrenza ottimistica. Se si dispone di molti client, potrebbe verificarsi un conflitto elevato.
+Tenere presente quanto segue prima di decidere come implementare questo modello:  
+-	se le serie complete di dati non rientrano in una singola entità (un'entità può contenere fino a 252 proprietà), utilizzare un archivio dati alternativo, ad esempio un BLOB.  
+-	Se si dispone di più client di aggiornamento di un'entità contemporaneamente, è necessario utilizzare **ETag** per implementare la concorrenza ottimistica. Se si dispone di molti client, potrebbe verificarsi un conflitto elevato.  
 
 #### Quando usare questo modello  
 
@@ -1428,7 +1452,8 @@ Tuttavia, è comunque necessario generare i token delle firme di accesso condivi
 
 ### Operazioni asincrone e parallele  
 
-A condizione che le richieste vengano distribuite in più partizioni, è possibile migliorare la velocità effettiva e la velocità di risposta del client usando le query parallele o asincrone. Ad esempio, si potrebbero avere due o più istanze del ruolo di lavoro che accedono alle tabelle in parallelo. Si potrebbero avere singoli ruoli di lavoro responsabili di specifici set di partizioni o semplicemente avere più istanze del ruolo di lavoro, ciascuna in grado di accedere a tutte le partizioni in una tabella.
+A condizione che le richieste vengano distribuite in più partizioni, è possibile migliorare la velocità effettiva e la velocità di risposta del client usando le query parallele o asincrone.
+Ad esempio, si potrebbero avere due o più istanze del ruolo di lavoro che accedono alle tabelle in parallelo. Si potrebbero avere singoli ruoli di lavoro responsabili di specifici set di partizioni o semplicemente avere più istanze del ruolo di lavoro, ciascuna in grado di accedere a tutte le partizioni in una tabella.
 
 All'interno di un'istanza del client, è possibile migliorare la velocità effettiva effettuando operazioni di archiviazione in modo asincrono. La libreria client di archiviazione semplifica la scrittura di query e modifiche asincrone. Ad esempio, è possibile iniziare con il metodo sincrono che recupera tutte le entità in una partizione come mostrato nel codice C# seguente:
 
@@ -1550,4 +1575,4 @@ I nostri ringraziamenti vanno inoltre ai Microsoft MVP seguenti per i preziosi c
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
