@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/19/2015"
+    ms.date="10/29/2015"
     ms.author="larryfr"/>
 
 # Sviluppo di azioni di script con HDInsight
@@ -43,7 +43,7 @@ Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opport
 - [Scrivere informazioni in STDOUT e STDERR](#bPS7)
 - [Salvare i file in formato ASCII con terminazioni di riga LF](#bps8)
 
-> [AZURE.IMPORTANT]Le azioni di script devono essere completate entro 15 minuti; in caso contrario si verifica un timeout. Durante il provisioning dei nodi, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script può richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
+> [AZURE.IMPORTANT]Le azioni di script devono essere completate entro 60 minuti; in caso contrario si verifica un timeout. Durante il provisioning dei nodi, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script può richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
 
 ### <a name="bPS1"></a>Usare la versione di Hadoop
 
@@ -71,7 +71,7 @@ Se, ad esempio, al momento della prima esecuzione uno script personalizzato inst
 
 ### <a name="bPS5"></a>Verificare la disponibilità elevata dell'architettura del cluster
 
-I cluster HDInsight basati su Linux forniscono due nodi head attivi all'interno del cluster e le azioni script vengono eseguite per entrambi i nodi. Se i componenti installati prevedono un solo nodo head, è necessario progettare uno script che installi il componente solo in uno dei due nodi del cluster. I nodi head sono denominati **headnode0** e **headnode1**.
+I cluster HDInsight basati su Linux forniscono due nodi head attivi all'interno del cluster e le azioni script vengono eseguite per entrambi i nodi. Se i componenti installati prevedono un solo nodo head, è necessario progettare uno script che installi il componente solo in uno dei due nodi del cluster.
 
 > [AZURE.IMPORTANT]I servizi predefiniti installati come parte di HDInsight sono progettati per il failover tra i due nodi head, se necessario. Questa funzionalità non è tuttavia estesa ai componenti personalizzati installati tramite le azioni script. Se i componenti installati tramite un'azione script richiedono la disponibilità elevata, è necessario implementare un meccanismo di failover personalizzato per l'uso dei due nodi head disponibili.
 
@@ -91,7 +91,7 @@ La maggior parte delle utilità e dei pacchetti di installazione scrivono già l
 
         echo "Getting ready to install Foo"
 
-Per impostazione predefinita, `echo` invia la stinga a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. Ad esempio:
+Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. Ad esempio:
 
         >&2 echo "An error occured installing Foo"
 
@@ -108,7 +108,7 @@ Gli script Bash devono essere archiviati nel formato ASCII con righe terminate d
 
 ## <a name="helpermethods"></a>Metodi helper per gli script personalizzati
 
-I metodi di supporto degli script azione sono utilità che è possibile utilizzare durante la scrittura di script personalizzati. Questi metodi sono definiti nella pagina all'indirizzo [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) e possono essere inclusi negli script personalizzati nel modo seguente:
+I metodi di supporto degli script azione sono utilità che è possibile utilizzare durante la scrittura di script personalizzati. Questi metodi sono definiti nella pagina all'indirizzo [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) e possono essere inclusi negli script mediante la seguente procedura:
 
     # Import the helper method module.
     wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
@@ -141,7 +141,7 @@ L'impostazione di una variabile di ambiente viene eseguita nel modo seguente:
 
     VARIABLENAME=value
 
-Dove VARIABLENAME è il nome della variabile. Per accedere quindi alla variabile, usare `$VARIABLENAME`. Ad esempio, per assegnare un valore fornito da un parametro posizionale come variabile di ambiente denominata PASSWORD, usare la stringa seguente:
+Dove VARIABLENAME è il nome della variabile. Per accedere poi alla variabile, usare `$VARIABLENAME`. Ad esempio, per assegnare un valore fornito da un parametro posizionale come variabile di ambiente denominata PASSWORD, usare la stringa seguente:
 
     PASSWORD=$1
 
@@ -214,10 +214,10 @@ _Risoluzione_: salvare il file in formato ASCII o UTF-8 senza un carattere BOM. 
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-Per il comando precedente sostituire __INFILE__ con il file contenente il carattere BOM. __OUTFILE__ deve essere un nuovo nome file, che conterrà lo script senza il carattere BOM.
+Per il comando precedente sostituire __INFILE__ con il file contenente il carattere BOM. __OUTFILE__ deve essere un nuovo nome di file, che conterrà lo script senza il carattere BOM.
 
 ## <a name="seeAlso"></a>Vedere anche
 
 [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilizzo dei report di integrità del sistema per la risoluzione dei problemi"
-   description="Vengono descritti i rapporti di integrità del sistema e come utilizzarli per la risoluzione dei problemi del cluster o delle applicazioni"
+   pageTitle="Risoluzione dei problemi con i report sull’integrità del sistema | Microsoft Azure"
+   description="Descrive i report di integrità inviati dai componenti dell’Infrastruttura dei servizi di Azure e il relativo utilizzo per la risoluzione dei problemi del cluster o dei problemi delle applicazioni."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Utilizzo dei report di integrità del sistema per la risoluzione dei problemi
@@ -527,7 +527,7 @@ System.Hosting segnala una condizione di errore se si verifica un errore di conv
 
 [Come eseguire il monitoraggio e la diagnosi dei servizi localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Aggiornamento di un’applicazione Infrastruttura di servizi](service-fabric-application-upgrade.md)
+[Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Asset di tipo variabile in Automazione di Azure | Microsoft Azure"
-   description="Gli asset di tipo variabile sono valori disponibili per tutti i runbook in Automazione di Azure. Questo articolo illustra nel dettaglio le variabili e spiega come usarle nella creazione testuale e grafica."
+   description="Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le configurazioni DSC in Automazione di Azure. Questo articolo illustra nel dettaglio le variabili e spiega come usarle nella creazione testuale e grafica."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,22 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Asset di tipo variabile in Automazione di Azure
 
-Gli asset di tipo variabile sono valori disponibili per tutti i runbook nell'account di automazione. Possono essere creati, modificati e recuperati dal portale di Azure, da Windows PowerShell e dall'interno di un runbook. Le variabili di automazione sono utili per gli scenari seguenti:
+Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le configurazioni DSC nell'account di automazione. Possono essere creati, modificati e recuperati dal portale di Azure, da Windows PowerShell e dall'interno di un runbook o di una configurazione DSC. Le variabili di automazione sono utili per gli scenari seguenti:
 
-- Condivisione di un valore tra più runbook.
+- Condivisione di un valore tra più runbook o configurazioni DSC.
 
-- Condivisione di un valore tra più processi dello stesso runbook
+- Condivisione di un valore tra più processi dello stesso runbook o configurazione DSC.
 
-- Gestione di un valore dal portale o dalla riga di comando di Windows PowerShell usata dai runbook
+- Gestione di un valore dal portale o dalla riga di comando di Windows PowerShell usata dai runbook o dalle configurazioni DSC.
 
-Le variabili di automazione vengono salvate in maniera permanente in modo da continuare a essere disponibili anche in caso di errore del runbook. In tal modo, è anche possibile impostare in un runbook un valore che verrà quindi usato da un altro runbook oppure dallo stesso runbook alla successiva esecuzione.
+Le variabili di automazione vengono salvate in maniera permanente in modo da continuare a essere disponibili anche in caso di errore del runbook o della configurazione DSC. In tal modo, è anche possibile impostare in un runbook un valore che verrà quindi usato da un altro runbook oppure dallo stesso runbook o configurazione DSC alla successiva esecuzione.
 
-Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata. Se una variabile viene crittografata, viene archiviata in modo sicuro in Automazione di Azure e non è possibile recuperarne il valore tramite il cmdlet [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx) incluso nel modulo Azure PowerShell. L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook.
+Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata. Se una variabile viene crittografata, viene archiviata in modo sicuro in Automazione di Azure e non è possibile recuperarne il valore tramite il cmdlet [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx) incluso nel modulo Azure PowerShell. L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook o configurazione DSC.
 
 >[AZURE.NOTE]Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata mediante il certificato master e viene quindi usata per crittografare l'asset.
 
@@ -39,7 +39,7 @@ Quando si crea una variabile con il portale di Azure, è necessario selezionare 
 
 ## Cmdlet e attività flusso di lavoro
 
-I cmdlet della tabella seguente vengono usati per creare e gestire variabili di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](../powershell-install-configure.md), disponibile per l'uso nei runbook di automazione.
+I cmdlet della tabella seguente vengono usati per creare e gestire variabili di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](../powershell-install-configure.md), disponibile per l'uso nei runbook di Automazione e nella configurazione DSC.
 
 |Cmdlet|Descrizione|
 |:---|:---|
@@ -48,14 +48,14 @@ I cmdlet della tabella seguente vengono usati per creare e gestire variabili di 
 |[Remove-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913775.aspx)|Rimuove una variabile esistente.|
 |[Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx)|Imposta il valore di una variabile esistente.|
 
-Le attività flusso di lavoro incluse nella tabella seguente vengono usate per accedere alle variabili di automazione in un runbook. Sono disponibili per l'uso solo in un runbook e non vengono fornite come parte del modulo Azure PowerShell.
+Le attività flusso di lavoro incluse nella tabella seguente vengono usate per accedere alle variabili di automazione in un runbook. Sono disponibili per l'uso solo in un runbook o configurazione DSC e non vengono fornite come parte del modulo Azure PowerShell.
 
 |Attività flusso di lavoro|Descrizione|
 |:---|:---|
 |Get-AutomationVariable|Recupera il valore di una variabile esistente.|
 |Set-AutomationVariable|Imposta il valore di una variabile esistente.|
 
->[AZURE.NOTE]È consigliabile evitare di usare le variabili nel parametro –Name di **Get-AutomationVariable** in un runbook perché ciò può complicare l'individuazione delle dipendenze tra i runbook e le variabili di automazione durante la fase di progettazione.
+>[AZURE.NOTE]È consigliabile evitare di usare le variabili nel parametro –Name di **Get-AutomationVariable** in un runbook o configurazione DSC perché ciò può complicare l'individuazione delle dipendenze tra i runbook o configurazioni DSC e le variabili di automazione durante la fase di progettazione.
 
 ## Creazione di una nuova variabile di automazione
 
@@ -96,9 +96,9 @@ I comandi di esempio seguenti mostrano come creare una variabile di tipo comples
 
 
 
-## Uso di una variabile in un runbook
+## Uso di una variabile in un Runbook o in una configurazione DSC
 
-Usare l'attività **Set-AutomationVariable** per impostare il valore di una variabile di automazione in un runbook e **Get-AutomationVariable** per recuperarlo. Non è consigliabile usare i cmdlet **Set-AzureAutomationVariable** o **Get-AzureAutomationVariable** in un runbook perché sono meno efficienti rispetto alle attività flusso di lavoro. Non è inoltre possibile recuperare il valore delle variabili sicure con **Get-AzureAutomationVariable**. L'unico modo per creare una nuova variabile dall'interno di un runbook consiste nell'usare il cmdlet [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
+Usare l'attività **Set-AutomationVariable** per impostare il valore di una variabile di automazione in un runbook o configurazione DSC e **Get-AutomationVariable** per recuperarlo. Non è consigliabile usare i cmdlet **Set-AzureAutomationVariable** o **Get-AzureAutomationVariable** in un runbook o configurazione DSC perché sono meno efficienti rispetto alle attività flusso di lavoro. Non è inoltre possibile recuperare il valore delle variabili sicure con **Get-AzureAutomationVariable**. L'unico modo per creare una nuova variabile dall'interno di un runbook o configurazione DSC consiste nell'usare il cmdlet [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
 
 
 ### Esempi di runbook testuali
@@ -188,4 +188,4 @@ La figura seguente illustra come filtrare gli oggetti archiviati in una variabil
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

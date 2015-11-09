@@ -14,11 +14,11 @@
   
 3. Scegliere il provider di identità che si vuole usare e attenersi alla procedura riportata nell'articolo corrispondente per configurare l'app per le API con tale provider. Questi articoli sono stati scritti per le app per dispositivi mobili, ma le procedure sono le stesse per le app per le API. Per alcune procedure è necessario usare il [portale di Azure]
 
- - [Account Microsoft](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Account di accesso di Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Account di accesso di Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Account di accesso di Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
+ - [Account Microsoft](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
+ - [Account di accesso di Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
+ - [Account di accesso di Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
+ - [Account di accesso di Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
+ - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
 
 Ad esempio, le schermate seguenti mostrano cosa verrà visualizzato nelle pagine del [portale di Azure] e nei pannelli del [portale di anteprima di Azure] dopo aver configurato l'autenticazione di Azure Active Directory.
 
@@ -38,4 +38,4 @@ Nel portale di Azure, la scheda **Configura** dell'applicazione creata nella sch
 
 L'URL di risposta nell'immagine è ripetuto due volte, una volta con `http:` e una volta con `https:`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

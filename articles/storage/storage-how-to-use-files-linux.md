@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="10/06/2015"
+      ms.date="10/26/2015"
       ms.author="jutang;tamram" />
 
 
@@ -27,6 +27,12 @@ L’archiviazione file di Azure offre condivisioni di file nel cloud utilizzando
 Le applicazioni in esecuzione in Azure possono montare condivisioni file dalle macchine virtuali di Azure. Con la versione più recente dell’archiviazione di file, è inoltre possibile montare una condivisione di file da un'applicazione locale che supporta SMB 3.0.
 
 Si noti che poiché il client SMB Linux non supporta ancora la crittografia, il montaggio di una condivisione di file da Linux richiede ancora che il client si trovi nella stessa area di Azure della condivisione di file. Tuttavia, il supporto della crittografia per Linux fa paret del programma degli sviluppatori Linux responsabili della funzionalità di SMB. In futuro, le distribuzioni di Linux che supportano la crittografia saranno in grado di montare una condivisione di file di Azure da qualsiasi luogo.
+
+## Video: Come usare l'archiviazione file di Azure con Linux
+
+Ecco un video che illustra come creare e usare Condivisioni file di Azure in Linux.
+
+> [AZURE.VIDEO azure-file-storage-with-linux]
 
 ## Scegliere una distribuzione Linux da usare ##
 
@@ -98,7 +104,7 @@ Il [portale di anteprima di Azure](https://portal.azure.com/) ora offre un'inter
 
 Gli sviluppatori possono creare un'applicazione con l'archiviazione di file usando la [libreria client di Archiviazione di Azure per Java](https://github.com/azure/azure-storage-java). Per esempi di codice, vedere [Come usare l'archiviazione file da Java](storage-java-how-to-use-file-storage.md).
 
-È inoltre possibile usare la [libreria client di Archiviazione di Azure per Node.js](https://github.com/Azure/azure-storage-node) per lo sviluppo per l'archiviazione di file.
+È inoltre possibile usare la [libreria client di Archiviazione di Azure per Node.js](https://github.com/Azure/azure-storage-node) da sviluppare per l'archiviazione di file.
 
 ## Commenti e suggerimenti e altre informazioni ##
 
@@ -110,8 +116,9 @@ L'archiviazione di file di Azure per il gruppo di utenti Linux fornisce un forum
 
 Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione file di Azure.
 
-### Articoli concettuali
+### Articoli concettuali e video
 
+- [Archiviazione di file in Azure: un file system SMB nel cloud senza problemi per Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Come usare l'archiviazione file di Azure con Windows](storage-dotnet-how-to-use-files.md)
 
 ### Strumenti di supporto per l'archiviazione file
@@ -130,4 +137,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Veracode | Microsoft Azure" description="Informazioni su come usare Veracode con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Veracode | Microsoft Azure" 
+    description="Informazioni su come usare Veracode con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Veracode
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=615291).
   
 Questa esercitazione descrive l'integrazione di Azure e Veracode. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di Veracode abilitata per l'accesso Single Sign-On
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Veracode potranno eseguire l'accesso Single Sign-On all'applicazione seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Veracode potranno eseguire l'accesso Single Sign-On all'applicazione seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -81,23 +94,23 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Amministrazione](./media/active-directory-saas-veracode-tutorial/IC802911.png "Amministrazione")
 
-7.  Scegliere la scheda **SAML**.
+7.  Fare clic sulla scheda **SAML**.
 
-8.  Nella sezione **Organization SAML Settings** seguire questa procedura:
+8.  Nella sezione **Impostazioni SAML dell’organizzazione** seguire questa procedura:
 
     ![Amministrazione](./media/active-directory-saas-veracode-tutorial/IC802912.png "Amministrazione")
 
-    1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Veracode** del portale di Azure copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Issuer**.
+    1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Veracode** del portale di Azure copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Autorità di certificazione**.
     2.  Per caricare il certificato scaricato, fare clic su **Scegli file**.
-    3.  Selezionare **Enable Self Registration**.
+    3.  Selezionare **Abilita la registrazione automatica**.
 
-9.  Nella sezione **Self Registration Settings** seguire questa procedura e quindi fare clic su **Save**:
+9.  Nella sezione **Impostazioni di registrazione automatica** seguire questa procedura e quindi fare clic su **Salva**:
 
     ![Amministrazione](./media/active-directory-saas-veracode-tutorial/IC802913.png "Amministrazione")
 
-    1.  In **New User Activation** selezionare **No Activation Required**.
-    2.  In **User Data Updates** selezionare **Preference Veracode User Data**.
-    3.  In **SAML Attribute Details** selezionare le opzioni seguenti:
+    1.  In **Attivazione nuovo utente** selezionare **Nessuna attivazione richiesta**.
+    2.  In **Aggiornamenti dati utenti** selezionare **Dati utenti Veracode di preferenza**.
+    3.  In **Dettagli sull’attributo SAML** selezionare le opzioni seguenti:
         -   **User Roles**
         -   **Policy Administrator**
         -   **Reviewer**
@@ -109,7 +122,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
         -   **Team Memberships**
         -   **Default Team**
 
-10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la pagina **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configura accesso Single Sign-On")
 
@@ -133,7 +146,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     3.  Nella casella di testo **Valore attributo**, selezionare il valore dell'attributo indicato per la riga.
 
-    4.  Fare clic su **Completa**.
+    4.  Fare clic su **Complete**.
 
 13. Fare clic su **Applica modifiche**.
 
@@ -157,10 +170,10 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-veracode-tutorial/IC802915.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-veracode-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

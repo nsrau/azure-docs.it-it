@@ -78,20 +78,12 @@ Il server Azure Multi-Factor Authentication può essere usato per proteggere ris
 - Non è un requisito che il Server Azure multi-Factor Authentication essere installata nel server federativo ADFS tuttavia l'Adapter per l'autenticazione a più fattori per ADFS deve essere installato in un'esecuzione di ADFS di Windows Server 2012 R2. È possibile installare il server in un computer diverso, purché è una versione supportata e installare separatamente la scheda ADFS nel server federativo ADFS. Vedere la procedura seguente per istruzioni sull'installazione dell'adapter separatamente.
 - L'installazione guidata scheda ADFS di multi-Factor Authentication consente di creare un gruppo di sicurezza denominato PhoneFactor Admins in Active Directory e quindi aggiunge l'account del servizio ADFS del servizio federativo a questo gruppo. È consigliabile verificare nel controller di dominio che effettivamente creato il gruppo PhoneFactor Admins e account del servizio AD FS è un membro di questo gruppo. Se necessario, aggiungere l'account del servizio ADFS manualmente al gruppo PhoneFactor Admins sul controller di dominio.
 
-### Portale utenti
+### Portale per gli utenti
 Questo portale viene eseguito in un sito Web Internet Information Server (IIS), che consente l'uso delle funzionalità self-service e fornisce un set completo di funzionalità di amministrazione degli utenti. Per configurare questo componente, usare le linee guida riportate di seguito:
 
 - È necessario IIS 6 o versione successiva
 - ASP.NET v2.0.507207 deve essere installato e registrato
 - Questo server può essere distribuito in una rete perimetrale.
-- Se è presente un firewall che filtra le comunicazioni tra il server e Azure, è necessaria la porta TCP 443 in uscita per consentire la comunicazione con gli URL seguenti:
-	- https://pfd.phonefactor.net 
-	- https://pfd2.phonefactor.net 
-	- https://css.phonefactor.net
-- Se i firewall in uscita sono limitati alla porta 443, sarà necessario consentire gli intervalli di indirizzi IP in uscita seguenti:
-	- 134\.170.116.0/25
-	- 134\.170.165.0/25
-	- 70\.37.154.128/25
 
 
 
@@ -129,4 +121,4 @@ Anche se questo articolo evidenzia alcune procedure consigliate per Azure MFA, s
 - [Esperienza di installazione per Azure multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md)
 - [Domande frequenti su Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

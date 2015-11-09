@@ -27,26 +27,14 @@ Questi passaggi seguono un approccio basato sul completamento di valori predefin
 
 ## Passaggio 1: installare Azure PowerShell
 
-È anche necessario disporre di Azure PowerShell 1.0.0 o versione successiva. Se Azure PowerShell non è stato installato e configurato, fare clic [qui](../powershell-install-configure.md) per le istruzioni.
-
-Per verificare la versione di Azure PowerShell installata, usare il comando seguente al prompt di Azure PowerShell.
-
-	Get-Module azure | format-table version
-
-Di seguito è fornito un esempio.
-
-	Version
-	-------
-	1.0.0
-
-Se non si dispone della versione 1.0.0 o di una versione successiva, è necessario rimuovere Azure PowerShell tramite Programmi e funzionalità del Pannello di controllo e quindi installare la versione più recente. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Passaggio 2: Impostare la sottoscrizione
 
 In primo luogo, avviare un prompt di Azure PowerShell.
 
 Accedere al proprio account.
-	
+
 	Login-AzureRmAccount
 
 Ottenere il nome della sottoscrizione usando il comando seguente.
@@ -130,8 +118,8 @@ Usare il comando seguente per elencare i set di disponibilità esistenti.
 
 	Get-AzureRmAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-### Regole NAT	
-	
+### Regole NAT
+
 Le macchine virtuali basate su Gestione Risorse possono essere configurate con le regole NAT in entrata per consentire il traffico in ingresso da Internet e possono trovarsi in un set con carico bilanciato. In entrambi i casi, è necessario specificare un'istanza del servizio di bilanciamento del carico e altre impostazioni. Per ulteriori informazioni, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Le macchine virtuali create con il modello di distribuzione di Gestione risorse richiedono una rete virtuale di Gestione risorse. Se necessario, creare una nuova rete virtuale basata su Gestione risorse con almeno una subnet per la nuova macchina virtuale. Di seguito è riportato un esempio di una nuova rete virtuale denominata **TestNet** con due subnet denominate **frontendSubnet** e **backendSubnet**.
@@ -386,9 +374,9 @@ Ecco il set di comandi di Azure PowerShell per creare la macchina virtuale.
 
 ## Risorse aggiuntive
 
-[Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Panoramica di Gestione risorse di Azure](../resource-group-overview.md)
+[Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md)
 
 [Distribuire e gestire macchine virtuali di Azure usando modelli di Gestione risorse e PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
@@ -396,4 +384,4 @@ Ecco il set di comandi di Azure PowerShell per creare la macchina virtuale.
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

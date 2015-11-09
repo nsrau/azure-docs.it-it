@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -65,6 +65,8 @@ Gli errori temporanei sono detti anche guasti temporanei. Quando il programma ri
 **Nota:** gli errori della federazione 10053 e 10054 potrebbero anche determinare l’inclusione nella logica di ripetizione tentativi.
 
 
+<a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
+
 ## Errori di copia del database
 
 
@@ -88,6 +90,8 @@ Nella tabella seguente vengono illustrati i diversi errori che è possibile rile
 |40571|16|Copia del database non riuscita a causa di un errore interno. Rimuovere il database di destinazione e riprovare in un secondo momento.|
 
 
+<a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
+
 ## Errori di governance delle risorse
 
 
@@ -108,7 +112,7 @@ Nella tabella seguente vengono illustrati gli errori causati dall'uso eccessivo 
 
 |Numero di errore|Gravità|Descrizione|
 |---:|---:|:---|
-|10928|20|ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L'ID Risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID Risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>•[Governance delle risorse nel database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
+|10928|20|ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L'ID Risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>•[Governance delle risorse nel database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
 |10929|20|ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'utilizzo corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). In caso contrario, riprovare più tardi.<br/><br/>L'ID Risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>•[Governance delle risorse nel database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).|
 |40544|20|Il database ha raggiunto la quota delle dimensioni. Partizionare o eliminare dati, eliminare indici o consultare la documentazione per le possibili soluzioni.|
 |40549|16|La sessione è stata terminata a causa di una transazione a esecuzione prolungata. Provare ad abbreviare la transazione.|
@@ -123,6 +127,8 @@ Per altre informazioni sulla governance delle risorse e gli errori correlati, ve
 
 - [Governance delle risorse del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).
 
+
+<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
 
 ## Errori della federazione
 
@@ -163,6 +169,8 @@ Nella tabella seguente vengono illustrati gli errori che è possibile riscontrar
 |45022|16|Operazione <statement> non riuscita. Il valore di limite specificato esiste già per la chiave di federazione <distribution_name> e la federazione <federation_name>|Specificare un valore che è già un valore limite.|
 |45023|16|Operazione <statement> non riuscita. Il valore di limite specificato non esiste per la chiave di federazione <distribution_name> e la federazione <federation_name>|Specificare un valore che non è già un valore limite.|
 
+
+<a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
 
 ## Errori generali
 
@@ -242,4 +250,4 @@ Nella tabella seguente sono elencati tutti gli errori generali che non rientrano
 - [Linee guida e limitazioni generali per il database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Gestione delle risorse](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

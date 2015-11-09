@@ -18,6 +18,12 @@
 
 
 # Caricare dati con bcp
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 **[bcp][]** è un'utilità di caricamento bulk da riga di comando che permette di copiare dati tra SQL Server, file di dati e SQL Data Warehouse. Usare bcp per importare numeri elevati di righe nelle tabelle di SQL Data Warehouse o per esportare i dati dalle tabelle di SQL Server ai file di dati. bcp richiede competenze in ambito di Transact-SQL solo quando viene usato con l'opzione queryout.
 
 bcp costituisce un modo semplice e rapido per spostare set di dati di dimensioni ridotte da e verso un database di SQL Data Warehouse. La quantità esatta di dati che è consigliabile caricare/estrarre tramite bcp dipenderà dalla connessione di rete per il data center di Azure. In genere, le tabelle delle dimensioni possono essere caricate ed estratte, ma è possibile che tabelle dei fatti di dimensioni abbastanza elevate richiedano una quantità di tempo significativa per il caricamento o l'estrazione.
@@ -32,7 +38,10 @@ In questa esercitazione verranno illustrate le attività seguenti:
 - Importare dati in una tabella tramite l'utilità bcp nel comando
 - Esportare dati da una tabella tramite l'utilità bcp dal comando
 
+>[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
+
 ## Prerequisiti
+
 Per eseguire questa esercitazione, è necessario:
 
 - Un database di SQL Data Warehouse
@@ -41,10 +50,12 @@ Per eseguire questa esercitazione, è necessario:
 
 >[AZURE.NOTE]È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][].
 
-##Importare i dati in SQL Data Warehouse
+## Importare i dati in SQL Data Warehouse
+
 In questa esercitazione verrà creata una tabella in Azure SQL Data Warehouse e verranno importati dati nella tabella.
 
 ### Passaggio 1: Creare una tabella in Azure SQL Data Warehouse
+
 Da un prompt dei comandi connettersi all'istanza usando il comando seguente, sostituendo i valori in base alla necessità:
 
 ```
@@ -162,4 +173,4 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

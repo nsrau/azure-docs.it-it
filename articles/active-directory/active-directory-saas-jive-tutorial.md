@@ -1,7 +1,21 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Jive | Microsoft Azure" description="Informazioni su come usare Jive con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Jive | Microsoft Azure" 
+    description="Informazioni su come usare Jive con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Jive
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=330042). Per altre informazioni su questo argomento, vedere l'articolo relativo alle [procedure consigliate per la gestione dei miglioramenti dell'accesso alle applicazioni per Azure Active Directory](http://go.microsoft.com/fwlink/?LinkId=329963).
+
   
 Questa esercitazione descrive l'integrazione di Azure e Jive. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -29,7 +43,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Jive
 
     ![Applicazioni](./media/active-directory-saas-jive-tutorial/IC700994.png "Applicazioni")
 
-4.  Per aprire la **Raccolta di applicazioni**, fare clic su **Aggiungi app** e quindi su **Aggiungi un'applicazione che verrà utilizzata dall'organizzazione**.
+4.  Per aprire la **Raccolta di applicazioni**, fare clic su **Aggiungi app**, quindi fare clic su **Aggiungi un'applicazione che verrà utilizzata dall'organizzazione**.
 
     ![Come procedere](./media/active-directory-saas-jive-tutorial/IC700995.png "Come procedere")
 
@@ -70,4 +84,4 @@ La schermata seguente mostra un esempio della finestra di dialogo correlata in A
   
 È ora possibile creare un account di test. Attendere 10 minuti e quindi verificare che l'account sia stato sincronizzato con Jive.com.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

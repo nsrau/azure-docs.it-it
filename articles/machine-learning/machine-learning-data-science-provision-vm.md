@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/27/2015" 
 	ms.author="bradsev" />
 
 
@@ -48,10 +48,10 @@ Per creare una VM di Azure sono necessari gli elementi seguenti:
 Ecco i passaggi necessari per la creazione dell'istanza della VM per l'analisi scientifica dei dati:
 
 1.	Accedere al portale di Azure.
-2.	Passare a **Nuovo** -> **Calcolo** -> **Marketplace** e cercare *Data Science Virtual Machine*. Selezionare la VM denominata "**Data Science Virtual Machine**" pubblicata da Microsoft per visualizzare un pannello che descrive la macchina virtuale per l'analisi scientifica dei dati.
-3.	Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata. ![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
-4.	 Le sezioni seguenti forniscono gli input per ogni passaggio della procedura guidata usata per creare la VM per l'analisi scientifica dei dati
-
+2.	Passare a **Nuovo** -> **Calcolo** -> **Marketplace** e cercare *Data Science Virtual Machine*.![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
+3.	Selezionare la VM denominata "**Data Science Virtual Machine**" pubblicata da Microsoft per visualizzare un pannello che descrive la macchina virtuale per l'analisi scientifica dei dati. 	
+4.	 Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata. ![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+5.	 Le sezioni seguenti forniscono gli input per ognuno dei 5 passaggi (elencati in ordine numerico sulla parte destra della figura precedente) della procedura guidata usata per creare la VM per l'analisi scientifica dei dati. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
 
  **1. Basics**:
 
@@ -119,4 +119,4 @@ Nota: è necessario un account Office 365 per accedere a Power BI.
 ## Altri strumenti di sviluppo Microsoft
 È possibile usare [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) per trovare e scaricare altri strumenti di sviluppo Microsoft. Sul desktop della VM è anche disponibile un collegamento allo strumento.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

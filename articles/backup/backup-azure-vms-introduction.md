@@ -1,59 +1,82 @@
 <properties
-	pageTitle="Introduzione al backup delle macchine virtuali di Azure | Microsoft Azure"
-	description="Introduzione al backup delle macchine virtuali di Azure usando il servizio Backup di Azure"
+	pageTitle="Pianificare l'infrastruttura di backup delle macchine virtuali in Azure | Microsoft Azure"
+	description="Considerazioni importanti per la pianificazione dell'infrastruttura di backup delle macchine virtuali in Azure"
 	services="backup"
 	documentationCenter=""
-	authors="trinadhk"
-	manager="shreeshd"
+	authors="Jim-Parker"
+	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/23/2015"
+	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
-# Backup di una macchina virtuale di Azure
+# Pianificare l'infrastruttura di backup delle macchine virtuali in Azure
+Questo articolo illustra le considerazioni principali da tenere in considerazione durante la pianificazione dell'infrastruttura di backup delle macchine virtuali. Se è stato [preparato l'ambiente](backup-azure-vms-prepare.md), questo è il passaggio successivo prima di iniziare a [eseguire il backup delle macchine virtuali](backup-azure-vms.md). Per altre informazioni sulle macchine virtuali di Azure, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-Questa sezione offre un'introduzione all'uso del servizio Backup di Microsoft Azure per la protezione delle macchine virtuali di Azure. Leggendo l'articolo si apprenderà quanto segue:
+## In che modo Azure esegue il backup delle macchine virtuali?
+Quando il servizio Backup di Azure avvia un processo di backup all'ora pianificata, richiede all'estensione per il backup di acquisire uno snapshot temporizzato. Questo snapshot viene acquisito in combinazione con il Servizio Copia Shadow del volume per ottenere uno snapshot coerente dei dischi nella macchina virtuale senza che sia necessario spegnerla.
 
-- Come viene eseguito il backup di una macchina virtuale di Azure
-- La procedura per eseguire il backup della macchina virtuale di Azure
-- I prerequisiti per eseguire un backup senza problemi
-- Gli errori tipici rilevati e come gestirli
-- L'elenco degli scenari non supportati e come suggerire modifiche al prodotto
-
-Per altre informazioni sulle macchine virtuali, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
-
-## Perché eseguire il backup della macchina virtuale di Azure?
-Il cloud computing consente l'esecuzione delle applicazioni in un ambiente scalabile a disponibilità elevata ed è questo il motivo per cui Microsoft ha sviluppato le macchine virtuali di Azure. I dati generati dalle macchine virtuali di Azure sono importanti ed è necessario eseguirne il backup per motivi di sicurezza. Di seguito sono indicati gli scenari tipici che rendono necessario il ripristino da backup:
-
-- Eliminazione di file accidentale o da parte di utenti malintenzionati
-- Danneggiamento della macchina virtuale durante l'aggiornamento di una patch
-- Eliminazione dell'intera macchina virtuale accidentale o da parte di utenti malintenzionati
-
-È possibile eseguire il backup dei dati da queste macchine virtuali in due modi diversi:
-
-- Eseguire il backup delle singole origini dati dall'interno della macchina virtuale
-- Eseguire il backup dell'intera macchina virtuale
-
-L'esecuzione del backup dell'intera macchina virtuale è il metodo più comune perché è molto più semplice da gestire e facilita il completo ripristino dell'applicazione e del sistema operativo. È possibile usare Backup di Azure per eseguire il backup dei dati in-guest o dell'intera macchina virtuale.
-
-Di seguito sono elencati i vantaggi per l'azienda derivanti dall'uso del servizio Backup di Azure per il backup delle macchine virtuali:
-
-- Automazione dei flussi di lavoro di backup e ripristino delle macchine virtuali
-- Backup coerenti con l'applicazione per assicurare che i dati ripristinati vengano avviati da uno stato coerente.
-- Nessun tempo di inattività durante il backup della macchina virtuale.
-- Possibilità di eseguire il backup di macchine virtuali Windows o Linux.
-- Disponibilità di punti di ripristino per un facile ripristino nell'insieme di credenziali di Backup di Azure.
-- Eliminazione e garbage collection automatiche dei punti di ripristino precedenti.
-
-## Come viene eseguito il backup di una macchina virtuale di Azure?
-Per eseguire il backup di una macchina virtuale è prima necessario acquisire uno snapshot dei dati in un momento specifico. Il servizio Backup di Azure avvia il processo di backup all'ora pianificata e avvia l'estensione per il backup per acquisire uno snapshot. L'estensione per il backup si coordina con il servizio VSS in-guest per assicurare coerenza e, dopo averla ottenuta, richiama l'API snapshot del BLOB del servizio Archiviazione di Azure. Questa operazione viene eseguita per ottenere uno snapshot coerente dei dischi della macchina virtuale senza che sia necessario arrestarla.
-
-Dopo l'acquisizione dello snapshot, il servizio Backup di Azure trasferisce i dati all'insieme di credenziali per il backup. Il servizio provvede a identificare e trasferire soltanto i blocchi che sono stati modificati dopo l'ultimo backup, rendendo in questo modo efficiente l'archiviazione dei backup. Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino. È possibile visualizzare tale punto di ripristino nel portale di gestione di Azure.
+Dopo l'acquisizione dello snapshot, il servizio Backup di Azure trasferisce i dati nell'insieme di credenziali per il backup. Per aumentare l'efficienza del processo di backup, il servizio identifica e trasferisce solo i blocchi di dati che sono stati modificati dall'ultimo backup.
 
 ![Architettura del backup delle macchine virtuali di Azure](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
->[AZURE.NOTE]Per quanto riguarda le macchine virtuali Linux, è possibile eseguire soltanto backup coerenti a livello di file.
+Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino.
 
-## Calcolo delle istanze protette
+### Coerenza dei dati
+Le operazioni di backup e ripristino dei dati aziendali critici sono ulteriormente complicate dal fatto che è necessario eseguire il backup mentre le applicazioni che generano i dati sono in esecuzione. Per risolvere il problema, il servizio Backup di Azure fornisce funzionalità di backup coerenti con l'applicazione per i carichi di lavoro Microsoft avvalendosi del Servizio Copia Shadow del volume per garantire che la scrittura dei dati nell'archiviazione venga effettuata correttamente.
+
+>[AZURE.NOTE]Per le macchine virtuali Linux, è disponibile solo il backup coerente con i file, perché Linux non ha una piattaforma equivalente al Servizio Copia Shadow del volume.
+
+Questa tabella illustra i tipi di coerenza e le condizioni in cui si verificano durante le procedure di backup e ripristino delle macchine virtuali di Azure.
+
+| Coerenza | Basato su VSS | Spiegazione e dettagli |
+|-------------|-----------|---------|
+| Coerenza con l'applicazione | Sì | Questo è il tipo di coerenza ideale per i carichi di lavoro Microsoft perché garantisce:<ol><li> L'*avvio* della macchina virtuale. <li>L'*assenza di qualsiasi danneggiamento*. <li>L'*assenza di perdite di dati*.<li> La coerenza dei dati con l'applicazione che li usa, grazie all'impiego dell'applicazione al momento del backup tramite il Servizio Copia Shadow del volume.</ol> La maggior parte dei carichi di lavoro di Microsoft ha writer del Servizio snapshot del volume che eseguono azioni specifiche di un carico di lavoro correlate alla coerenza dei dati. Ad esempio, Microsoft SQL Server ha un writer del Servizio snapshot del volume che garantisce l'esecuzione corretta delle operazioni di scrittura nel file di log delle transazioni e nel database.<br><br> Per il backup delle VM di Azure, il recupero di un punto di ripristino coerente con un'applicazione significa che l'estensione per il backup è riuscita a richiamare il flusso di lavoro del Servizio snapshot del volume e a essere completata *correttamente* prima dell'esecuzione dello snapshot della VM. Naturalmente, questo significa che anche i writer del Servizio snapshot del volume di tutte le applicazioni nella VM di Azure sono stati richiamati.<br><br>Leggere le [nozioni di base del Servizio snapshot del volume](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) per approfondimenti sui dettagli di [funzionamento](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
+| Coerenza con i file system | Sì, per i computer Windows | Esistono due scenari in cui il punto di ripristino può essere *coerente con i file system*:<ul><li>Backup di macchine virtuali in Azure, poiché Linux non ha una piattaforma equivalente al Servizio Copia Shadow del volume.<li>Errore del Servizio Copia Shadow del volume durante il backup per macchine virtuali Windows in Azure.</li></ul> In entrambi i casi la soluzione ottimale è garantire: <ol><li>L'*avvio* della macchina virtuale. <li>L'*assenza di qualsiasi danneggiamento*.<li>L'*assenza di perdite di dati*.</ol> Le applicazioni devono implementare il proprio meccanismo di correzione sui dati ripristinati.|
+| Coerenza dei dati | No | Questa situazione è equivalente a quella di un computer che si sia arrestato in modo anomalo (a causa di un ripristino software o hardware). Ciò si verifica in genere quando la macchina virtuale di Azure viene arrestata durante il backup. Per il backup della macchina virtuale di Azure, ottenere un punto di ripristino coerente con l'arresto anomalo significa che il Backup di Azure non fornisce alcuna garanzia in merito alla coerenza dei dati nel supporto di archiviazione, sia dal punto di vista del sistema operativo che dal punto di vista dell'applicazione. Solo i dati già esistente sul disco al momento del backup vengono acquisiti e sottoposti a backup. <br/> <br/> Anche se non ci sono garanzie, nella maggior parte dei casi il sistema operativo verrà avviato. Questa operazione è in genere seguita da una procedura di controllo come chkdsk per risolvere eventuali errori di danneggiamento del disco. I dati in memoria o le scritture che non sono state scaricate completamente sul disco andranno persi. In genere l'applicazione esegue il proprio meccanismo di verifica nel caso in cui sia necessario effettuare il rollback di dati. Per il backup della macchina virtuale di Azure, ottenere un punto di ripristino coerente con l'arresto anomalo significa che il Backup di Azure non fornisce alcuna garanzia in merito alla coerenza dei dati nella risorsa di archiviazione, sia dal punto di vista del sistema operativo che dal punto di vista dell'applicazione. Questo accade solitamente quando la VM di Azure è spenta al momento del backup.<br><br>Ad esempio, se il log delle transazioni contiene voci che non sono presenti nel database, il software del database esegue un rollback fino a quando i dati non sono coerenti. Quando si usano dati distribuiti tra più dischi virtuali (ad esempio volumi con spanning), un punto di ripristino coerente con l'arresto anomalo del sistema non fornisce alcuna garanzia della correttezza dei dati.|
+
+
+## Prestazioni e utilizzo delle risorse
+Come il software di backup distribuito in locale, anche il backup delle macchine virtuali in Azure deve essere pianificato in termini di capacità e utilizzo delle risorse. I [limiti del servizio di archiviazione di Azure](azure-subscription-service-limits.md#storage-limits) definiscono il modo in cui sono strutturate le distribuzioni delle macchine virtuali per ottenere prestazioni ottimali con il minimo impatto sui carichi di lavoro in esecuzione.
+
+Di seguito sono riportati i due limiti principali del servizio di archiviazione di Azure che influiscono sulle prestazioni del backup:
+
+- Numero massimo in uscita per account di archiviazione
+- Frequenza delle richieste totale per account di archiviazione
+
+### Limiti dell'account di archiviazione
+Quando i dati di backup vengono copiati dall'account di archiviazione del cliente, vengono conteggiati ai fini delle metriche relative alle operazioni di I/O al secondo (IOPS) e ai dati in uscita (velocità effettiva) dell'account di archiviazione. Al contempo, le macchine virtuali sono in esecuzione e utilizzano operazioni di I/O al secondo (IOPS) e velocità effettiva. L'obiettivo è garantire che il traffico totale, del backup e delle macchine virtuali, non superi i limiti previsti per l'account di archiviazione.
+
+### Numero di dischi
+Il processo di backup tenta di consumare il maggior numero di risorse possibile per completare il backup più rapidamente. Tutte le operazioni di I/O sono tuttavia limitate dalla *velocità effettiva da raggiungere per BLOB singolo* che ha un limite di *60 MB al secondo*. Per accelerare il processo di backup, si prova a eseguire *in parallelo* il backup di ogni disco della macchina virtuale. Quindi, se una macchina virtuale contiene 4 dischi, il servizio Backup di Azure proverà a eseguire il backup di tutti e 4 i dischi in parallelo. Di conseguenza, il fattore più importante che determina il traffico di backup in uscita da un account di archiviazione del cliente è il **numero di dischi** di cui viene eseguito il backup.
+
+### Pianificazione dei backup
+Un secondo aspetto che influisce sulle prestazioni è la **pianificazione dei backup**. Se tutte le macchine virtuali sono configurate per l'esecuzione del backup alla stessa ora, aumenta il numero di dischi di cui viene eseguito il backup *in parallelo*, perché il servizio Backup di Azure prova a eseguire il backup del maggior numero possibile di dischi. Per ridurre il traffico di backup da un account di archiviazione è possibile pianificare il backup delle singole macchine virtuali a diverse ore del giorno, senza sovrapposizioni.
+
+## Pianificazione della capacità
+Tutti questi fattori indicano che è necessario pianificare in modo appropriato l'utilizzo dell'account di archiviazione. Scaricare il [foglio di Excel per la pianificazione della capacità di backup delle macchine virtuali](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) per valutare l'impatto delle scelte relative alla pianificazione dei backup e dei dischi.
+
+### Velocità effettiva del backup
+Per ogni disco di cui si esegue il backup, il servizio Backup di Azure legge i blocchi nel disco e archivia solo i dati modificati (backup incrementale). Questa tabella illustra i valori medi della velocità effettiva che è possibile aspettarsi dal Backup di Azure. In questo modo è possibile stimare la quantità di tempo necessaria per il backup di un disco con le dimensioni specificate.
+
+| Operazione di backup | Velocità effettiva ottimale |
+| ---------------- | ---------- |
+| Backup iniziale | 160 Mbps |
+| Backup incrementale (ripristino di emergenza) | 640 Mbps <br><br> Questo valore può abbassarsi in modo significativo in presenza di una varianza dislocata elevata sul disco di cui si esegue il backup |
+
+### Tempo totale di backup della macchina virtuale
+Nonostante maggior parte del tempo venga impiegata per la lettura e la copia dei dati, altre operazioni che influiscono sul tempo totale necessario per il backup di una macchina virtuale:
+
+- Tempo necessario per l'[installazione o l'aggiornamento dell'estensione per il backup](backup-azure-vms.md#offline-vms)
+- Tempo di attesa nella coda: poiché il servizio di backup elabora i backup di più clienti, l'operazione di backup potrebbe non essere avviata immediatamente. Nei periodi di massimo carico, sia possono estendere al massimo di 8 ore i tempi di attesa a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
+
+## Modalità di calcolo delle istanze protette
 Le macchine virtuali di Azure di cui viene eseguito il backup mediante Backup di Azure sono soggette a fatturazione sulla base dei [prezzi di tale servizio](http://azure.microsoft.com/pricing/details/backup/). Il calcolo delle istanze protette si basa sulle dimensioni *effettive* della macchina virtuale, ovvero sul totale di tutti i dati presenti in quest'ultima con esclusione del “disco risorse”. La fatturazione *non* sarà basata sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale, ma sui dati effettivi archiviati nel disco dati. Analogamente, la fattura relativa all'archiviazione dei backup è basata sulla quantità di dati archiviata con Backup di Azure, ovvero sul totale dei dati effettivi presenti in ogni punto di ripristino.
 
 Si prenda ad esempio una macchina virtuale di dimensioni A2-Standard dotata di due dischi dati aggiuntivi con capacità massima di 1 TB ciascuno. La tabella seguente indica i dati effettivi archiviati in ciascuno di tali dischi:
@@ -69,58 +92,14 @@ In questo caso, le dimensioni *effettive* della macchina virtuale sono 17 GB + 3
 
 La fatturazione inizia solo dopo il completamento del primo backup corretto. A questo punto inizierà la fatturazione sia per le istanze di archiviazione sia per quelle protette. La fatturazione continua fino a quando per la macchina virtuale sono presenti *dati di backup archiviati con Backup di Azure*. Se i dati di backup vengono mantenuti, l'esecuzione dell'operazione Arresta protezione non interrompe la fatturazione. La fatturazione relativa a una macchina virtuale specificata verrà interrotta solo se la protezione viene arrestata *e* i dati di backup vengono eliminati. Quando non sono presenti processi di backup attivi (quando la protezione è stata interrotta), le dimensioni della macchina virtuale al momento dell'ultimo backup corretto diventano le dimensioni dell'istanza protetta su cui è basata la fattura mensile.
 
-## Prerequisiti
-### 1\. Insieme di credenziali per il backup
-Per avviare il backup delle macchine virtuali di Azure è prima necessario creare un insieme di credenziali per il backup. L'insieme di credenziali per il backup è un'entità che archivia tutti i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali contiene inoltre i criteri di backup che verranno applicati alle macchine virtuali di cui viene eseguito il backup.
-
-La figura seguente mostra le relazioni tra le diverse entità di backup di Azure: ![Entità e relazioni di Backup di Azure](./media/backup-azure-vms-introduction/vault-policy-vm.png)
-
-### Per creare un insieme di credenziali per il backup
-
-1. Accedere al [portale di gestione](http://manage.windowsazure.com/).
-
-2. Fare clic su **Nuovo** > **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali per il backup** > **Creazione rapida**. Se all'account aziendale sono associate più sottoscrizioni, scegliere quella corretta da associare all'insieme di credenziali per il backup. In ogni sottoscrizione di Azure possono essere presenti più insiemi di credenziali per il backup per organizzare la protezione delle macchine virtuali.
-
-3. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. È necessario che il nome sia univoco per ogni sottoscrizione.
-
-4. In **Area** selezionare l'area geografica per l'insieme di credenziali. Si tenga presente che l'insieme di credenziali deve trovarsi nella stessa area geografica delle macchine virtuali che si desidera proteggere. Se si dispone di macchine virtuali situate in aree geografiche differenti, creare un insieme di credenziali in ciascuna di esse. Per archiviare i dati di backup non è necessario specificare account di archiviazione perché l'insieme di credenziali per il backup e il servizio Backup di Azure gestiranno questa operazione in modo automatico. ![Creare un insieme di credenziali per il backup](./media/backup-azure-vms-introduction/backup_vaultcreate.png)
-
-5. Fare clic su **Crea insieme di credenziali**. La creazione dell'insieme di credenziali per il backup può richiedere alcuni minuti. Monitorare le notifiche di stato nella parte inferiore del portale. ![Creare una notifica di tipo avviso popup dell'insieme di credenziali](./media/backup-azure-vms-introduction/creating-vault.png)
-
-6. Viene visualizzato un messaggio per confermare che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali verrà quindi elencato come attivo nella pagina Servizi di ripristino. Subito dopo la creazione dell'insieme di credenziali, assicurarsi di aver scelto l'opzione di ridondanza dell'archiviazione corretta. Leggere l'articolo relativo all'[impostazione dell'opzione di ridondanza nell'insieme di credenziali per il backup](backup-configure-vault.md#azure-backup---storage-redundancy-options). ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-introduction/backup_vaultslist.png)
-
-7. Se si fa clic sull'insieme di credenziali per il backup, viene visualizzata la pagina **Guida introduttiva** in cui sono riportate le istruzioni per il backup delle macchine virtuali di Azure. ![Istruzioni per il backup delle macchine virtuali nella pagina Dashboard](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
-
-
-### 2\. Agente di macchine virtuali
-Prima di iniziare ad eseguire il backup della macchina virtuale di Azure, assicurarsi che l'agente di macchine virtuali di Azure (agente VM) sia installato correttamente nella macchina virtuale. Per eseguire il backup della macchina virtuale, il servizio Backup di Azure installa un'estensione nell'agente di macchine virtuali. Poiché al momento della creazione della macchina virtuale l'agente VM è un componente opzionale, è necessario assicurarsi che la relativa casella di controllo sia selezionata prima di eseguire il provisioning della macchina virtuale.
-
-Per altre informazioni, leggere gli articoli relativi all'[agente VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e all'[installazione dell'agente VM](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
-
-## Limitazioni
-
-- Il Backup delle macchine virtuali di gestione risorse di Azure basato su (aka IaaS V2) non è supportato.
-- Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
-- Il backup di macchine virtuali con Archiviazione Premium non è supportato.
-- Il backup di macchine virtuali con più IP riservati non è supportato.
-- Il backup delle macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
-- Il backup delle macchine virtuali utilizzando più schede di rete non è supportato.
-- Il backup di macchine virtuali in una configurazione con carico bilanciato (interna e su internet) non è supportata.
-- La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. È necessario eliminare prima la macchina virtuale esistente e gli eventuali dischi associati e quindi ripristinare i dati dal backup.
-- L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
-- Il backup di macchine virtuali mediante l’utilizzo del servizio Backup di Azure è supportato in tutte le aree pubbliche. Ecco un [elenco](http://azure.microsoft.com/regions/#services) di aree geografiche supportate. Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
-- Il backup di macchine virtuali mediante il servizio Backup di Azure è supportato soltanto per versioni specifiche dei sistemi operativi seguenti:
-  - **Linux**: l'elenco delle distribuzioni approvate da Azure è disponibile [qui](../virtual-machines-linux-endorsed-distributions.md). È possibile usare altre distribuzioni personali di Linux a condizione che l'agente VM sia disponibile nella macchina virtuale.
-  - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
-- Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Ulteriori informazioni sul [ripristino di un controller di dominio con più controller di dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms)
-
-Se si desidera includere funzionalità aggiuntive, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
+## Domande?
+In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
 ## Passaggi successivi
-Per iniziare a eseguire il backup di macchine virtuali, leggere le informazioni relative a:
 
 - [Backup delle macchine virtuali](backup-azure-vms.md)
-- [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
+- [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
+- [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

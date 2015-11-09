@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -53,4 +53,4 @@ L'operazione è terminata. È ora possibile avviare Visual Studio e continuare l
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

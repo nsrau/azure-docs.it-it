@@ -1,14 +1,26 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con ScreenSteps | Microsoft Azure" description="Informazioni su come usare ScreenSteps con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con ScreenSteps | Microsoft Azure" 
+    description="Informazioni su come usare ScreenSteps con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con ScreenSteps
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=525874).
   
 In questa esercitazione viene illustrata l'integrazione di Azure e ScreenSteps. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant ScreenSteps
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a ScreenSteps saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di ScreenSteps (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586)
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a ScreenSteps saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di ScreenSteps (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -38,7 +50,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-screensteps-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-screensteps-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -73,34 +85,34 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di ScreenSteps come amministratore.
 
-6.  Fare clic su **Gestione account**.
+6.  Fare clic su **Account Management**.
 
     ![Gestione account](./media/active-directory-saas-screensteps-tutorial/IC778523.png "Gestione account")
 
-7.  Fare clic su **Autenticazione remota**.
+7.  Fare clic su **Remote Authentication**.
 
     ![Autenticazione remota](./media/active-directory-saas-screensteps-tutorial/IC778524.png "Autenticazione remota")
 
-8.  Fare clic su **Crea endpoint di autenticazione**.
+8.  Fare clic su **Create authentication endpoint**.
 
     ![Autenticazione remota](./media/active-directory-saas-screensteps-tutorial/IC778525.png "Autenticazione remota")
 
-9.  Nella sezione **Crea endpoint di autenticazione**, eseguire la procedura seguente:
+9.  Nella sezione **Create an Authentication Endpoint**, eseguire la procedura seguente:
 
     ![Crea endpoint di autenticazione](./media/active-directory-saas-screensteps-tutorial/IC778526.png "Crea endpoint di autenticazione")
 
-    1.  Nella casella di testo **Titolo**, digitare un titolo.
-    2.  Dall’elenco **Modalità**, selezionare **SAML**.
+    1.  Nella casella di testo **Title**, digitare un titolo.
+    2.  Dall’elenco **Mode**, selezionare **SAML**.
     3.  Fare clic su **Crea**.
 
-10. Nella sezione **Endpoint di autenticazione remota**, eseguire la procedura seguente:
+10. Nella sezione **Remote Authentication Endpoint**, eseguire la procedura seguente:
 
     ![Endpoint di autenticazione remota](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Endpoint di autenticazione remota")
 
-    1.  Nella pagina **Configura accesso Single Sign-On in ScreenSteps** del portale di Azure AD copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL accesso remoto**.
-    2.  Nella pagina **Configura accesso Single Sign-On in ScreenSteps** del portale di Azure AD copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL disconnessione**.
-    3.  Fare clic su **Scegli un file** e caricare il certificato scaricato.
-    4.  Fare clic su **Aggiorna**.
+    1.  Nella pagina **Configura accesso Single Sign-On in ScreenSteps** del portale di Azure AD copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Remote Login URL**.
+    2.  Nella pagina **Configura accesso Single Sign-On in ScreenSteps** del portale di Azure AD copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Log out URL**.
+    3.  Fare clic su **Choose a file** e quindi caricare il certificato scaricato.
+    4.  Fare clic su **Update**.
 
 11. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -113,25 +125,25 @@ Per consentire agli utenti di Azure AD di accedere a **ScreenSteps**, è necessa
 
 1.  Accedere al tenant **ScreenSteps**.
 
-2.  Fare clic su **Gestione account**.
+2.  Fare clic su **Account Management**.
 
     ![Gestione account](./media/active-directory-saas-screensteps-tutorial/IC778523.png "Gestione account")
 
-3.  Fare clic su **Utenti**.
+3.  Fare clic su **Users**.
 
     ![Utenti](./media/active-directory-saas-screensteps-tutorial/IC778544.png "Utenti")
 
-4.  Fare clic su **Crea utente**.
+4.  Fare clic su **Create a user**.
 
     ![All Users](./media/active-directory-saas-screensteps-tutorial/IC778545.png "Tutti gli utenti")
 
-5.  Dall’elenco **Ruolo utente** selezionare un ruolo per l'utente.
+5.  Dall’elenco **User Role** selezionare un ruolo per l'utente.
 
-6.  Nella sezione Ruolo utente, digitare il **nome**, il **cognome**, l’**indirizzo di posta elettronica**, l’**accont di accesso**, la **password** e la **password di conferma** di un account di Azure Active Directory valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
+6.  Nella sezione Ruolo utente, digitare il **nome**, il **cognome**, l’**indirizzo di posta elettronica**, l’**account di accesso**, la **password** e la **password di conferma** di un account di ADD valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
 
     ![Nuovo utente](./media/active-directory-saas-screensteps-tutorial/IC778546.png "Nuovo utente")
 
-7.  Nella sezione Gruppi selezionare **Gruppo di autenticazione (SAML)** e fare clic su **Crea utente**.
+7.  Nella sezione Groups selezionare **Authentication Group (SAML)** e fare clic su **Create User**.
 
     ![Gruppi](./media/active-directory-saas-screensteps-tutorial/IC778547.png "Gruppi")
 
@@ -149,10 +161,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-screensteps-tutorial/IC773094.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Assegna utenti](./media/active-directory-saas-screensteps-tutorial/IC778548.png "Assegna utenti")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
-   ms.date="07/22/2015"
-   ms.author="john.harvey@microsoft.com"/>
+   ms.date="10/28/2015"
+   ms.author="jharve"/>
 
-#  Panoramica su Microsoft Azure Government 
+# Panoramica su Microsoft Azure Government 
 
 <p> Microsoft Azure Government è un'istanza fisica e con isolamento di rete di Microsoft Azure. Questa panoramica fornisce un'introduzione all'ambiente e ai servizi nonché collegamenti a informazioni aggiuntive.
 
@@ -27,7 +27,7 @@ Azure Government è un cloud della community governativa (GCC) progettato allo s
 
 Inoltre, Azure Government è progettato per soddisfare le esigenze di conformità e sicurezza di alto livello per i carichi di lavoro sensibili e dedicati dell'amministrazione pubblica statunitense rilevati nelle regolamentazioni, quali il programma FedRAMP (United States Federal Risk and Authorization Management Program), l'ECSB (Department of Defense Enterprise Cloud Service Broker), i requisiti della politica di sicurezza CJIS (Criminal Justice Information Services) e l'atto HIPAA (Health Insurance Portability and Accountability Act).
 
-Di seguito viene riportata una visualizzazione di riepilogo dei framework, dei servizi e dell'infrastruttura del cloud di Azure Government, disponibili al fine di agevolare le organizzazioni governative nella creazione di soluzioni cloud ibride per raggiungere i loro obiettivi. Dal momento che alcuni dei servizi riportati di seguito sono disponibili solo in anteprima, consultare la [pagina delle aree](http://azure.microsoft.com/regions/#services) in cui è presente un elenco più aggiornato dei servizi generalmente disponibili.
+Di seguito viene riportata una visualizzazione di riepilogo dei framework, dei servizi e dell'infrastruttura di Azure Government, disponibili al fine di agevolare le organizzazioni governative nella creazione di soluzioni cloud ibride per raggiungere i loro obiettivi. Consultare la [pagina delle aree](http://azure.microsoft.com/regions/#services) in cui è presente un elenco più aggiornato dei servizi generalmente disponibili in quelle zone.
 
 ![][2]
 
@@ -39,13 +39,13 @@ Oltre a fornire funzionalità e servizi del cloud pubblico di Azure, Azure Gover
 
 - **Sicurezza, privacy e conformità**: Microsoft ha implementato i requisiti di sicurezza, privacy e il framework relativo ai controlli della conformità, unendo ulteriori controlli rigidi per soddisfare i requisiti di alto livello rilevati nei livelli di impatto ECSB e CJIS.
 
-- **Archiviazione dati**: l'ambiente di Azure Government mantiene 2 datacenter a oltre 500 miglia di distanza. Tutti i dati gestiti dai clienti vengono archiviati all'interno dei datacenter CONUS (Continental United States).
+- **Archiviazione dati** - l'ambiente di Azure Government mantiene 2 datacenter a oltre 800 miglia di distanza. Tutti i dati gestiti dai clienti vengono archiviati all'interno dei datacenter CONUS (Continental United States).
 
 - **Personale degli USA**: tutti gli amministratori e gli operatori di Azure Government sono selezionati tra i cittadini statunitensi.
 
 - **Gestione delle identità**: la gestione delle identità all'interno dell'ambiente di Azure Government è un'istanza separata di Azure Active Directory.
 
-- **Conformità**: Microsoft si impegna costantemente per soddisfare i requisiti severi e in continuo cambiamento relativi alla conformità locale, statale e federale, quali FedRAMP, CJIS, ECSB e HIPAA per le soluzioni cloud governative statunitensi.
+- **Conformità**: Microsoft si impegna costantemente per soddisfare i requisiti severi e in continuo cambiamento relativi alla conformità locale, statale e federale, quali FedRAMP, CJIS, ECSB, HIPAA e IRS 1075 per le soluzioni cloud governative statunitensi.
 
 - **Integrazione cloud**: Azure Government fornisce un ambiente integrato con O365 Government che consente l'accesso Single Sign-On nei servizi cloud e servizi avanzati, come 1 TB di spazio di archiviazione disponibile in OneDrive.
 
@@ -60,7 +60,7 @@ Le organizzazioni governative statunitensi interessate ai servizi cloud possono 
 
 
 ## <a name="Features"></a> Funzionalità attualmente disponibili in Microsoft Azure Government
-Attualmente Azure Government offre i seguenti servizi disponibili nelle agenzie governative statunitensi dell'Iowa e della Virginia:
+Servizi di Azure Government disponibili nelle agenzie governative statunitensi dell'Iowa e della Virginia:
 
 - Macchine virtuali
 - Microsoft Azure
@@ -74,6 +74,11 @@ Attualmente Azure Government offre i seguenti servizi disponibili nelle agenzie 
 - Gestione traffico
 - Bus di servizio
 - StorSimple
+- Cache Redis
+- Backup di Azure
+- Automazione
+- ExpressRoute
+- e così via.
 
 Altri servizi sono già disponibili e altri ancora verranno aggiunti regolarmente. Per l'elenco più aggiornato dei servizi, vedere la [pagina aree](http://azure.microsoft.com/regions/#services) in cui sono evidenziate tutte le aree disponibili e i relativi servizi.
 
@@ -85,9 +90,17 @@ Attualmente, le agenzie governative statunitensi dell'Iowa e della Virginia sono
 
 Per altre informazioni dettagliate su Azure Government, servirsi dei collegamenti riportati di seguito.
 
-- **<A href="http://azure.com/gov">Acquisizione e accesso in Azure Government</a>**
+- **[Iscriversi per una versione di valutazione gratuita](https://azuregov.microsoft.com/trial/azuregovtrial)**
 
-- **<A href="/azure-government-developer-guide">Guida per sviluppatori di Azure Government</a>**
+- **[Acquisizione e accesso in Azure Government](http://azure.com/gov)**
+
+- **[Guida per sviluppatori di Azure Government](/azureazure-government-developer-guide)**
+
+- **[Blog di Azure Government](http://blogs.msdn.com/b/azuregov/)**
+
+- **[Conformità di Azure](http://azure.microsoft.com/support/trust-center/compliance/)**
+
+
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
@@ -104,4 +117,4 @@ Per altre informazioni dettagliate su Azure Government, servirsi dei collegament
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

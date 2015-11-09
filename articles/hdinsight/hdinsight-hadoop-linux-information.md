@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 # Informazioni sull'uso di HDInsight in Linux
@@ -23,7 +23,19 @@ I cluster Azure HDInsight basati su Linux forniscono Hadoop in un ambiente Linux
 
 ## Nomi di dominio
 
-Il nome di dominio completo (FQDN) da usare per la connessione al cluster è **&lt;nome cluster>.azurehdinsight.net** o (solo per SSH) **&lt;nome cluster-ssh>.azurehdinsight.net**.
+Il nome di dominio completo (FQDN) da usare per la connessione al cluster da Internet è **&lt;nome cluster>.azurehdinsight.net** o (solo per SSH) **&lt;nome cluster-ssh>.azurehdinsight.net**.
+
+Internamente, ogni nodo del cluster ha un nome assegnato durante la configurazione del cluster. Per trovare i nomi del cluster, è possibile visitare la pagina __Hosts__ nell'interfaccia utente Web di Ambari o usare il comando seguente per ottenere un elenco di host dall'API REST Ambari con [cURL](http://curl.haxx.se/) e [jq](https://stedolan.github.io/jq/):
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+
+Sostituire __PASSWORD__ con la password dell'account amministratore e __CLUSTERNAME__ con il nome del cluster. Verrà restituito un documento JSON che contiene un elenco degli host nel cluster, quindi jq estrae il valore dell'elemento `host_name` per ogni host del cluster.
+
+Se è necessario trovare il nome del nodo per un servizio specifico, è possibile eseguire una query in Ambari per tale componente. Ad esempio, per trovare gli host per il nodo con nome HDFS, usare il comando seguente.
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+
+Viene restituito un documento JSON che descrive il servizio e quindi jq estrae solo il valore `host_name` per gli host.
 
 ## Accesso remoto ai servizi
 
@@ -35,7 +47,7 @@ Il nome di dominio completo (FQDN) da usare per la connessione al cluster è **&
 
 	> [AZURE.IMPORTANT]Sebbene Ambari per il cluster sia accessibile direttamente su Internet, alcune funzionalità si basano sull'accesso ai nodi con il nome di dominio interno usato dal cluster. Poiché si tratta di un nome di dominio interno e non pubblico, si riceveranno errori di "server non trovato" se si tenta di accedere ad alcune funzionalità tramite Internet.
 	>
-	> Per usare le funzionalità complete dell'interfaccia utente Web di Ambari, usare un tunnel SSH per inoltrare il traffico Web al nodo head del cluster. Vedere [Usare il tunneling SSH per accedere all'interfaccia Web Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md).
+	> Per usare le funzionalità complete dell'interfaccia utente Web di Ambari, usare un tunnel SSH per inoltrare il traffico Web al nodo head del cluster. Vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -49,7 +61,7 @@ Il nome di dominio completo (FQDN) da usare per la connessione al cluster è **&
 	>
 	> L'autenticazione è in testo non crittografato. Usare sempre HTTPS per garantire che la connessione sia protetta.
 
-* **SSH** - &lt;nome cluster>-ssh.azurehdinsight.net sulla porta 22 o 23. La porta 22 viene utilizzata per connettersi a headnode0, mentre la porta 23 viene utilizzata per connettersi a headnode1. Per altre informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;nome cluster>-ssh.azurehdinsight.net sulla porta 22 o 23. La porta 22 viene usata per connettersi al nodo head 0, mentre la porta 23 viene usata per connettersi al nodo head 1. Per maggiori informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
 
 	> [AZURE.NOTE]È possibile accedere al nodo head del cluster solo tramite SSH da un computer client. Una volta connessi, è quindi possibile accedere ai nodi di lavoro mediante SSH dal nodo head.
 
@@ -58,7 +70,7 @@ Il nome di dominio completo (FQDN) da usare per la connessione al cluster è **&
 I file relativi ad Hadoop si trovano nei nodi del cluster in `/usr/hdp`. La directory contiene le sottodirectory seguenti:
 
 * __2.2.4.9-1__: questa directory è denominata in base alla versione di Hortonworks Data Platform usata da HDInsight, di conseguenza il numero visualizzato nel cluster potrebbe essere diverso da quello mostrato qui.
-* __corrente__: questa directory contiene collegamenti alle directory all'interno della directory __2.2.4.9-1__ e consente di non dover digitare il numero della versione (che può cambiare) ogni volta che si vuole accedere a un file.
+* __current__: questa directory contiene collegamenti alle directory all'interno della directory __2.2.4.9-1__ e consente di non dover digitare il numero della versione (che può cambiare) ogni volta che si vuole accedere a un file.
 
 Dati di esempio e i file con estensione jar sono disponibili nel file system Hadoop Distributed File System (HDFS) o nell'archivio BLOB di Azure in '/example' o 'wasb:///example'.
 
@@ -182,7 +194,7 @@ L'operazione di ridimensionamento può influire sui tipi di cluster come indicat
 
 		1. [Creare un tunnel SSH al cluster e aprire l'interfaccia utente Web Ambari](hdinsight-linux-ambari-ssh-tunnel.md).
 
-		2. Dall'elenco dei servizi nella parte sinistra della pagina, selezionare __Storm__. Selezionare quindi __Storm UI__ da __Quick Links__.
+		2. Dall'elenco dei servizi nella parte sinistra della pagina selezionare __Storm__. Selezionare quindi __Storm UI__ da __Quick Links__.
 
 
 			![Voce Storm UI in Quick Links](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
@@ -191,7 +203,7 @@ L'operazione di ridimensionamento può influire sui tipi di cluster come indicat
 
 			![interfaccia utente Storm](./media/hdinsight-hadoop-linux-information/storm-ui.png)
 
-		3. Selezionare la topologia da ribilanciare, quindi fare clic sul pulsante __Rebalance__. Specificare il ritardo prima dell'esecuzione dell'operazione di ribilanciamento.
+		3. Selezionare la topologia da ribilanciare e quindi fare clic sul pulsante __Rebalance__. Specificare il ritardo prima dell'esecuzione dell'operazione di ribilanciamento.
 
 Per informazioni specifiche sul ridimensionamento del cluster HDInsight, vedere:
 
@@ -232,7 +244,7 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 
 > [AZURE.WARNING]I componenti forniti con il cluster HDInsight sono supportati in modo completo e il supporto tecnico Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
 >
-> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
+> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come [il forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
 
 ## Passaggi successivi
 
@@ -240,4 +252,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

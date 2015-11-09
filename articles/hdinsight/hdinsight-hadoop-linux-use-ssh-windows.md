@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #Uso di SSH con Hadoop basato su Linux in HDInsight da Windows:
@@ -137,7 +137,7 @@ Per altre informazioni sull'uso di questo comando, vedere l'articolo [Provisioni
 
 6. Quando richiesto, immettere il nome utente immesso durante la creazione del cluster. Se è stata specificata una password per l'utente, sarà necessario specificare anch'essa.
 
-> [AZURE.NOTE]I passaggi precedenti presuppongono che si utilizzi la porta 22, che si connetterà a headnode0 nel cluster HDInsight. Se si utilizza la porta 23, si è connessi a headnode1. Per maggiori informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
+> [AZURE.NOTE]I passaggi precedenti presuppongono che si utilizzi la porta 22, che si connetterà al nodo head 0 nel cluster HDInsight. Se si utilizza la porta 23, si è connessi al nodo head 1. Per maggiori informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
 
 ###Connettersi ai nodi di lavoro
 
@@ -233,4 +233,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

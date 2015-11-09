@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/01/2015"
+   ms.date="10/28/2015"
    ms.author="andalmia"/>
 
 #BizTalk Rules
@@ -84,37 +84,41 @@ Ora verranno usate le regole di business per implementare questa logica di busin
 ##Creazione dell'app per le API delle regole
 
 
-1. Accedere al portale di Azure e passare alla home page.
-1. Fare clic su Nuovo -> Azure Marketplace->App per le API->BizTalk Rules->Crea ![Alt text][3]
+1. Eseguire l'accesso al portale di Azure
+2. Selezionare Nuovo-> Marketplace, quindi cercare *BizTalk Rules*
+3. Selezionare BizTalk Rules dall'elenco dei risultati. Verrà aperto il pannello BizTalk Rules.
+4. Selezionare il pulsante *Crea*. ![Alt text][3]
 1. Nel nuovo pannello che viene visualizzato, immettere le informazioni seguenti:  
 	1. Nome: specificare un nome per l'app per le API delle regole
-	1. Piano di hosting app: selezionare o creare un piano di hosting Web
+	1. Piano di servizio app: selezionare o creare un nuovo piano di servizio app
 	1. Piano tariffario: scegliere il piano tariffario desiderato per l'app
 	1. Gruppo di risorse: selezionare o creare il gruppo di risorse desiderato per quest'app
+	2. Sottoscrizione: selezionare la sottoscrizione da usare
 	1. Località: scegliere la località geografica in cui si vuole distribuire l'app.
-4.	Fare clic su Crea. Entro pochi minuti verranno create le app per le app per le API di BizTalk Rules.
+4.	Selezionare *Crea*. Entro pochi minuti verranno create le app per le app per le API di BizTalk Rules.
 
 ##Creazione del vocabolario
-Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo prevede la creazione di vocabolari. Questo esercizio viene in genere eseguito dallo sviluppatore. Per effettuare questa operazione, eseguire i passaggi seguenti:
+Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo prevede la creazione di vocabolari. Questo esercizio viene in genere eseguito dallo sviluppatore. Ecco come fare:
 
 
-1. Passare all'app per le API creata selezionando Sfoglia->App per API-><Your Rules API App>. Dovrebbe venire visualizzato un dashboard dell'app per le API delle regole simile al seguente:
+1. Avviare l'app per le API BizTalk Rules dal portale facendo clic su Sfoglia->App per le API-><Your Rules API App>. Verrà visualizzato un dashboard dell'app per le API delle regole simile al seguente:
 
    ![Alt text][4]
 
-2\.Fare quindi clic su "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario. Fare clic su "Aggiungi" per iniziare ad aggiungere nuove definizioni del vocabolario. Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
+2\. Selezionare "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario. 3. Selezionare "Aggiungi" per iniziare ad aggiungere nuove definizioni di vocabolario. Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
 
 ##Definizione Valore letterale
 1.	Dopo aver fatto clic su "Aggiungi", viene visualizzato il pannello "Aggiungi definizione". Immettere i valori seguenti
   1.	Nome: sono previsti solo caratteri alfanumerici senza caratteri speciali. Il nome deve essere univoco per l'elenco di definizioni del vocabolario esistente.
   2.	Descrizione: campo facoltativo.
-  3.	Tipo: sono supportati 2 tipi. In questo esempio scegliere Valore letterale
-  4.	Tipo di input: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono selezionabili 4 tipi di dati: 
-    i.	Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio")  
-    ii.	Booleano: può essere true o false  
-    iii.	Numero: può essere qualsiasi numero decimale  
-    iv.	DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\PM  
-    v.	Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. L'utente può immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando le parole chiave "da" e "a". L'utente può, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per il numero.
+  3.	Tipo definizione: sono supportati 2 tipi. In questo esempio scegliere Valore letterale
+  4.	Tipo di dati: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono supportati 4 tipi di dati: 
+  i. Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio") 
+  ii. Booleano: può essere true o false 
+  iii. Numero: può essere qualsiasi numero decimale 
+  iv. DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\\PM  
+  5. Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. È possibile immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando la parola chiave *a*. È possibile, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per i numeri.
+  6. Selezionare *OK*.
 
 ![Alt text][5]
 ##Definizione XML
@@ -126,7 +130,7 @@ Se si sceglie XML come tipo di vocabolario, è necessario specificare gli input 
 ![Alt text][6]
 
 ### Aggiunta in blocco
-Nei passaggi precedenti sono state descritte le operazioni di creazione delle definizioni del vocabolario. Una volta create, le definizioni del vocabolario verranno visualizzate in forma di elenco. Per poter generare più definizioni dello schema stesso anziché ripetere ogni volta i passaggi precedenti vi sono dei requisiti. È in questa situazione che la funzionalità di aggiunta in blocco risulta particolarmente utile. Facendo clic su "Aggiungi in blocco" viene visualizzato un nuovo pannello. Il primo passaggio prevede la selezione dello schema per il quale è necessario creare più definizioni. Facendo clic su questa opzione si aprirà un nuovo pannello che consente all'utente di scegliere da un elenco di schemi già caricati o di caricarne uno nuovo. La proprietà XPATHS viene sbloccata. Facendo clic su questa opzione verrà aperto il visualizzatore di schema in cui è possibile selezionare più nodi. Per impostazione predefinita, per i nomi delle varie definizioni create verrà usato il nome del nodo selezionato. Questi nomi possono essere sempre modificati dopo la creazione.
+Nei passaggi precedenti sono state descritte le operazioni di creazione delle definizioni del vocabolario. Una volta create, le definizioni del vocabolario verranno visualizzate in forma di elenco. Per poter generare più definizioni dello schema stesso anziché ripetere ogni volta i passaggi precedenti vi sono dei requisiti. È in questa situazione che la funzionalità di aggiunta in blocco risulta particolarmente utile. Selezionando "Aggiungi in blocco" verrà visualizzato un nuovo pannello. Il primo passaggio prevede la selezione dello schema per il quale è necessario creare più definizioni. Selezionando questa opzione si aprirà un nuovo pannello che consente di scegliere da un elenco di schemi già caricati o di caricarne uno nuovo. La proprietà XPATHS viene sbloccata. Selezionando questa opzione verrà aperto il visualizzatore di schema in cui è possibile selezionare più nodi. Per impostazione predefinita, per i nomi delle varie definizioni create verrà usato il nome del nodo selezionato. Questi nomi possono essere sempre modificati dopo la creazione.
 
 ![Alt text][7]
 
@@ -169,24 +173,22 @@ Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta l'uten
 ![Alt text][9]
 
 ##Concatenamento diretto esplicito
-BizTalk Rules supporta il concatenamento diretto esplicito. Ciò significa che se gli utenti desiderano rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:  
-   1.	update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione.  
-   2.	Halt: questa parola chiave interrompe tutte le esecuzioni di regole
+Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate: 1. update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione. 2. Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 
-##Abilitazione\disabilitazione di regole
+##Abilitazione\\disabilitazione di regole
 Ogni regola del criterio può essere abilitata o disabilitata. Per impostazione predefinita tutte le regole sono abilitate. Le regole disabilitate non verranno eseguite durante l'esecuzione dei criteri. L'abilitazione/disabilitazione delle regole può essere eseguita direttamente dal pannello delle regole, usando i comandi disponibili nella barra dei comandi nella parte superiore del pannello, o dal criterio; nel menu di scelta rapida (visualizzato facendo clic con il pulsante destro del mouse su una regola) è disponibile l'opzione di abilitazione/disabilitazione.
 
 ##Priorità delle regole
 Tutte le regole dei criteri vengono eseguite in ordine. La priorità di esecuzione è determinata dall'ordine in cui si verificano nel criterio. Questa priorità può essere modificata semplicemente trascinando e rilasciando la regola.
 
 ##Testare un criterio
-Dopo aver creato il criterio, è possibile testarlo prima di usarlo nell'ambiente di produzione. Usando il comando "Test criterio", gli utenti possono accedere al relativo pannello, dove è disponibile un elenco di definizioni del vocabolario usate nel criterio che richiedono un input dell'utente. Gli utenti possono aggiungere manualmente i valori per questi input per il proprio scenario di test. In alternativa, possono importare XML di test per gli input. Una volta inseriti tutti gli input, il test può essere eseguito e nella colonna di output verranno visualizzati gli output per ogni definizione del vocabolario per un semplice confronto. Per visualizzare log semplici da usare per i business analyst, fare clic su "Visualizza log" per visualizzare i log di esecuzione. Per salvare i log, è disponibile l'opzione "Salva output" che consente di archiviare tutti i dati correlati ai test per l'analisi indipendente.
+È possibile testare i criteri usando il comando "Test dei criteri" nel pannello Test dei criteri. dove è disponibile un elenco di definizioni del vocabolario usate nel criterio che richiedono un input dell'utente. Gli utenti possono aggiungere manualmente i valori per questi input per il proprio scenario di test. In alternativa, possono importare XML di test per gli input. Una volta inseriti tutti gli input, il test può essere eseguito e nella colonna di output verranno visualizzati gli output per ogni definizione del vocabolario per un semplice confronto. Per visualizzare log semplici da usare per i business analyst, fare clic su "Visualizza log" per visualizzare i log di esecuzione. Per salvare i log, è disponibile l'opzione "Salva output" che consente di archiviare tutti i dati correlati ai test per l'analisi indipendente.
 
 ## Uso delle regole nelle app per la logica
-Una volta che il criterio è stato creato e verificato, è pronto per l'uso. Gli utenti possono creare una nuova app per la logica selezionando Nuovo -> App per la logica. Nella finestra di progettazione, BizTalk Rules è disponibile nella raccolta a destra e può essere ora trascinata e rilasciata nell'area di progettazione. Al termine, sarà possibile scegliere l'app per le API delle regole di destinazione. Le azioni includono l'elenco dei criteri da eseguire. Scegliere un criterio specifico dopo il quale occorre inserire gli input necessari per il criterio. Gli utenti possono usare l'output dell'app per le API delle regole a valle per altri processi decisionali.
+Una volta che il criterio è stato creato e verificato, è pronto per l'uso. È possibile creare una nuova app per la logica selezionando App per la logica nel lato sinistro della home page del portale. Una volta creata l'app per la logica, avviarla, quindi selezionare *Trigger e azioni*. È quindi possibile selezionare il modello *Crea da zero*. Seguire i passaggi per aggiungere l'app per le API BizTalk Rules all'app per la logica. Al termine, sarà possibile scegliere l'app per le API delle regole di destinazione. Le azioni includono l'elenco dei criteri da eseguire. Scegliere un criterio specifico dopo il quale occorre inserire gli input necessari per il criterio. Gli utenti possono usare l'output dell'app per le API delle regole a valle per altri processi decisionali.
 
 ## Uso di regole tramite le API
-L'app per le API delle regole può essere chiamata anche usando una vasta gamma di API disponibili. In questo modo gli utenti non sono costretti a usare solo i flussi e possono usare le regole in qualsiasi applicazione effettuando chiamate REST. Le API REST esatte disponibili possono essere visualizzate facendo clic sulla sezione "Definizione API" nel dashboard delle regole.
+L'app per le API delle regole può essere chiamata anche usando una vasta gamma di API. In questo modo gli utenti non sono costretti a usare solo le app per la logica e possono usare le regole in qualsiasi applicazione effettuando chiamate REST. Le API REST esatte disponibili possono essere visualizzate facendo clic sulla sezione "Definizione API" nel dashboard delle regole.
 
 ![Alt text][10]
 
@@ -237,4 +239,4 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

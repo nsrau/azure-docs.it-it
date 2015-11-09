@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/03/2015"
+   ms.date="10/26/2015"
    ms.author="joaoma" />
 
 # Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure
@@ -44,7 +44,7 @@ Gli elementi seguenti devono essere configurati prima di creare un servizio di b
 
 È possibile ottenere altre informazioni sui componenti del servizio di bilanciamento del carico con Gestione risorse di Azure in [Supporto di Gestione risorse di Azure per il bilanciamento del carico](load-balancer-arm.md).
 
-I passaggi seguenti illustrano come configurare il servizio di bilanciamento del carico in modo che il carico sia bilanciato tra 2 macchine virtuali.
+I passaggi seguenti illustrano come configurare il servizio di bilanciamento del carico tra 2 macchine virtuali.
 
 
 ## Procedura dettagliata con PowerShell
@@ -109,6 +109,7 @@ Creare un indirizzo IP pubblico che verrà usato dal pool di indirizzi IP front-
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
+>[AZURE.NOTE]La proprietà Label del nome di dominio dell’indirizzo IP pubblico sarà il FQDN per il bilanciamento del carico.
 
 ## Creare il pool di indirizzi IP front-end e il pool di indirizzi back-end
 
@@ -241,7 +242,37 @@ PS C:\> $backendnic1
 
 Usare il comando Add-AzureVMNetworkInterface per assegnare la scheda di rete a una macchina virtuale.
 
-È possibile trovare la procedura dettagliata per creare una macchina virtuale e assegnare una scheda di rete nella documentazione disponibile in [Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+È possibile trovare la procedura dettagliata per creare una macchina virtuale e assegnare una scheda di rete nell’opzione di documentazione [Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) 4 o 5.
+
+## Aggiornare un bilanciamento del carico esistente
+
+
+### Passaggio 1
+
+Utilizzare il bilanciamento del carico dall'esempio precedente, assegnare l'oggetto bilanciamento del carico alla variabile $slb utilizzando Get-AzureLoadBalancer
+
+	$slb=get-azureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+
+### Passaggio 2
+
+Nell'esempio seguente, si aggiungerà una nuova regola NAT in ingresso mediante la porta 81 nel front-end e la porta 8181 per il pool di back-end a un bilanciamento del carico esistente
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### Passaggio 3
+
+Salvare la nuova configurazione utilizzando Set AzureLoadBalancer
+
+	$slb | Set-AzureLoadBalancer
+
+## Rimuovere un bilanciamento del carico
+
+Utilizzare il comando Remove-AzureLoadBalancer per eliminare un bilanciamento del carico creato in precedenza denominato "NRP-LB" in un gruppo di risorse denominato "NRP-RG"
+
+	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]È possibile utilizzare l’opzione facoltativa - Forzare per evitare la richiesta di eliminazione.
 
 
 ## Vedere anche
@@ -251,4 +282,4 @@ Usare il comando Add-AzureVMNetworkInterface per assegnare la scheda di rete a u
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

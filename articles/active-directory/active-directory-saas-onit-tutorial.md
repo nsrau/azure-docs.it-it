@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Onit | Microsoft Azure" description="Informazioni su come utilizzare Onit con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Onit | Microsoft Azure" 
+    description="Informazioni su come utilizzare Onit con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Onit
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=530341).
   
 In questa esercitazione viene illustrata l'integrazione di Azure e Onit Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di Onit abilitata per l'accesso Single Sign-On
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Onit saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di Onit (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](https://msdn.microsoft.com/library/dn308586)
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Onit saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di Onit (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md).
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -38,7 +51,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Onit
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-onit-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-onit-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -51,7 +64,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Onit
     ![Onit](./media/active-directory-saas-onit-tutorial/IC795325.png "Onit")
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Onit tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Onit richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che illustra [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Onit tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Onit richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
   
 L'applicazione Onit prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli **attributi del token SAML**. La schermata seguente mostra un esempio relativo a questa operazione.
 
@@ -102,28 +115,28 @@ L'applicazione Onit prevede un formato specifico per le asserzioni SAML. È quin
 
     ![Amministrazione](./media/active-directory-saas-onit-tutorial/IC791174.png "Amministrazione")
 
-11. Fare clic su**Modifica società**.
+11. Fare clic su**Edit Corporation**.
 
     ![Modifica società](./media/active-directory-saas-onit-tutorial/IC791175.png "Modifica società")
 
-12. Fare clic sulla scheda **Sicurezza**.
+12. Fare clic sulla scheda **Security**.
 
     ![Modifica informazioni società](./media/active-directory-saas-onit-tutorial/IC791176.png "Modifica informazioni società")
 
-13. Nella scheda **Sicurezza** eseguire la procedura seguente:
+13. Nella scheda **Security** seguire questa procedura:
 
     ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
 
     1.  Come **strategia di autenticazione** selezionare **Single Sign-On e password**.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Onit** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL di destinazione IDP**.
-    3.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Onit** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL disconnessione IDP**.
-    4.  Copiare il valore di **Identificazione personale** dal certificato esportato e incollarlo nella casella di testo relativa all'**impronta digitale del certificato IDP (SHA1)**.  
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Onit** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Idp Target URL**.
+    3.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Onit** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Idp logout URL**.
+    4.  Copiare il valore di **Identificazione personale** dal certificato esportato e incollarlo nella casella di testo relativa a**Idp Cert Fingerprint (SHA1)**.  
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
-    5.  Come **tipo SSO** selezionare **SAML**.
-    6.  Nella casella di testo relativa al **testo del pulsante di accesso SSO** digitare il testo desiderato per il pulsante.
-    7.  Selezionare l’opzione di **accesso con SSO richiesto per i seguenti domini/utenti**, digitare l'indirizzo di posta elettronica di un utente test nella relativa casella di testo, quindi fare clic su **Aggiorna**.![Modifica società](./media/active-directory-saas-onit-tutorial/IC791178.png "Modifica società")
+    5.  Come **Type** selezionare **SAML**.
+    6.  Nella casella di testo relativa al **SSO login button text** digitare il testo desiderato per il pulsante.
+    7.  Selezionare **Login with SSO: Required for the following domains/users**, digitare l'indirizzo di posta elettronica di un utente test nella relativa casella di testo, quindi fare clic su **Update**.![Modifica società](./media/active-directory-saas-onit-tutorial/IC791178.png "Modifica società")
 
 14. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -136,15 +149,15 @@ Per consentire agli utenti di Azure AD di accedere a Onit, è necessario eseguir
 
 1.  Accedere al sito aziendale di **Onit** come amministratore.
 
-2.  Fare clic su **Aggiungi utente**.
+2.  Fare clic su **Add User**.
 
     ![Amministrazione](./media/active-directory-saas-onit-tutorial/IC791180.png "Amministrazione")
 
-3.  Nella pagina della finestra di dialogo **Aggiungi utente** eseguire la procedura seguente:
+3.  Nella pagina della finestra di dialogo **Add User** seguire questa procedura:
 
     ![Aggiunta di un utente](./media/active-directory-saas-onit-tutorial/IC791181.png "Aggiunta di un utente")
 
-    1.  Digitare il **nome** e l'**indirizzo di posta elettronica** di un account AAD valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
+    1.  Digitare il **Name** e **Email Address** di un account ADD valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
     2.  Fare clic su **Crea**.  
 
         >[AZURE.NOTE]Il titolare dell'account riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
@@ -163,10 +176,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-onit-tutorial/IC791182.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-onit-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

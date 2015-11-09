@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/24/2015"
+   ms.date="10/22/2015"
    ms.author="alkohli"/>
 
 # Software, disponibilità elevata e requisiti di rete di StorSimple
@@ -163,6 +163,9 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 
 <sup>3</sup> Gli indirizzi IP fissi per il controller sul dispositivo StorSimple devono essere instradabili e in grado di connettersi a Internet. Gli indirizzi IP fissi vengono usati per l'installazione degli aggiornamenti nel dispositivo. Se i controller del dispositivo non possono connettersi a Internet tramite gli indirizzi IP fissi, non sarà possibile aggiornare il dispositivo StorSimple.
 
+> [AZURE.IMPORTANT]Verificare che il firewall non modifichi o esegua la decrittografia del traffico SSL tra il dispositivo StorSimple e Azure.
+
+<br></br>
 ### Routing delle porte
 
 Il routing delle porte varia in base alla versione del software in esecuzione nel dispositivo StorSimple.
@@ -197,4 +200,4 @@ Oltre ai requisiti di rete sopra illustrati, per ottenere prestazioni ottimali n
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

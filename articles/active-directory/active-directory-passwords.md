@@ -17,6 +17,9 @@
 	ms.author="asteen"/>
 
 # Gestire le password da qualsiasi posizione
+
+  >[AZURE.IMPORTANT]Si desidera reimpostare la password di Azure o di O365? Se è questo il caso, [seguire le istruzioni contenute qui](https://support.microsoft.com/kb/2606983).
+  
 Self-Service è stato a lungo un obiettivo chiave per i reparti IT di tutto il mondo come misura di riduzione dei costi e facile utilizzo. In effetti, nel mercato si sono diffusi prodotti che consentono di gestire gruppi locali, password o profili utente dal cloud o in locale. Azure AD si distingue da queste offerte fornendo alcune delle funzionalità self-service più efficaci e semplici da usare disponibili attualmente.
 
 **Gestione delle password di Azure AD** è un insieme di funzionalità che consentono agli utenti di gestire le password da qualsiasi dispositivo, in qualsiasi momento, da qualsiasi posizione, pur rimanendo conforme ai criteri di sicurezza definiti.
@@ -114,7 +117,7 @@ Di seguito sono riportate alcune interessanti funzionalità in fase di elaborazi
 **Risorse aggiuntive**
 
 
-* [Funzionamento della gestione delle password](active-directory-passwords-how-it-works.md)
+* [Funzionamento di Gestione delle password](active-directory-passwords-how-it-works.md)
 * [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md)
 * [Personalizzare la gestione delle password](active-directory-passwords-customize.md)
 * [Procedure consigliate per la gestione delle password](active-directory-passwords-best-practices.md)
@@ -124,4 +127,4 @@ Di seguito sono riportate alcune interessanti funzionalità in fase di elaborazi
 * [Altre informazioni](active-directory-passwords-learn-more.md)
 * [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

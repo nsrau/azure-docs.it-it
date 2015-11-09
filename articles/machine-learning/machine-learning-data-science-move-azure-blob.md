@@ -22,7 +22,7 @@
 
 ## Introduzione
 
-In questo argomento viene descritto l’uso di tre tecnologie per spostare i dati da e verso l'archiviazione BLOB di Azure:
+Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da un archivio BLOB di Azure sono disponibili qui:
 
 [AZURE.INCLUDE [selettore dello strumento di archiviazione BLOB](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -44,4 +44,4 @@ In questo documento si presuppone di avere una sottoscrizione di Azure, un accou
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

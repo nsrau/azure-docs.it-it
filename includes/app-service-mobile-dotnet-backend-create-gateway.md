@@ -1,11 +1,13 @@
 
-Follow these steps to create a new App Service gateway to handle authentication. If you already have a gateway in the same resource group, you do not need to complete this section.
+Seguire questi passaggi per creare un nuovo gateway del servizio app per gestire l'autenticazione. Se si dispone già di un gateway nello stesso gruppo di risorse, non è necessario completare questa sezione.
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. Click **Settings** > **Mobile** > **User authentication**. 
+1. Visitare il [portale di Azure]. Fare clic su **Esplora tutto** > **App per dispositivi mobili** > e sul back-end appena creato. Fare clic su **Impostazioni** > **Dispositivi mobili** > **Autenticazione utente**. 
 
-2. You will be presented with a blade for creating your gateway. You do not need to enter any information, and the name of this gateway is automatically generated for you. Click **Create**.
+2. Verrà visualizzato un pannello per la creazione del gateway. Non è necessario immettere alcuna informazione. Il nome di questo gateway viene generato automaticamente. Fare clic su **Crea**.
 
-Next, you will use this gateway with an authentication provider.
+Successivamente, il gateway verrà usato con un provider di autenticazione.
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
+
+<!---HONumber=Nov15_HO1-->

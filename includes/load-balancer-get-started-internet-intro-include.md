@@ -1,7 +1,9 @@
-You can use a load balancer to provide high availability for your workloads in Azure. An Azure load balancer is a Layer-4 (TCP, UDP) type load balancer that distributes incoming traffic among healthy service instances in cloud services or virtual machines defined in a load balancer set.
+È possibile utilizzare un servizio di bilanciamento del carico per garantire un'elevata disponibilità per i carichi di lavoro in Azure. Un servizio di bilanciamento del carico di Azure è un bilanciamento del carico di livello-4 (TCP, UDP), che distribuisce il traffico in ingresso tra istanze del servizio integre in macchine virtuali o servizi cloud definiti in un set di bilanciamento del carico.
  
-You can configure a load balancer to.
+È possibile configurare un servizio bilanciamento del carico a.
 
-- Load balance incoming Internet traffic to virtual machines (VMs). We refer to a load balancer in this scenario as an [Internet facing load balancer](load-balancer-internet-overview.md).
-- Load balance traffic between VMs in a virtual network (VNet), VMs in cloud services, or between on-premises computers and VMs in a cross-premises virtual network. We refer to a load balancer in this scenario as an [internal load balancer (ILB)](load-balancer-internal-overview.md).
-- 	Forward external traffic to a specific VM instance.
+- Bilanciare il carico del traffico Internet in ingresso nelle macchine virtuali (VMs). Si fa riferimento a un servizio di bilanciamento del carico in questo scenario come un [Bilanciamento del carico con connessione Internet](load-balancer-internet-overview.md).
+- Bilanciare il carico del traffico tra macchine virtuali in una rete virtuale, tra macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. Si fa riferimento a un servizio di bilanciamento del carico in questo scenario come un [Bilanciamento del carico interno](load-balancer-internal-overview.md).
+- 	Inoltrare il traffico esterno a una specifica istanza di macchina virtuale
+
+<!---HONumber=Nov15_HO1-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduzione al monitoraggio dell'integrità di Service Fabric"
-   description="Questo articolo illustra il modello di monitoraggio dell'integrità di Azure Service Fabric, incluse le entità di integrità, la creazione di report e la valutazione."
+   pageTitle="Monitoraggio dell’integrità in Infrastruttura di servizi | Microsoft Azure"
+   description="Introduzione al modello il Monitoraggio dell’integrità dell’Infrastruttura di servizi di Azure, che fornisce il monitoraggio del cluster e i relativi servizi e applicazioni."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Introduzione al monitoraggio dell'integrità di Service Fabric
@@ -336,4 +336,4 @@ Il modello di integrità viene usato in larga misura per il monitoraggio e la di
 [Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -16,7 +16,8 @@
    ms.author="joaoma" />
 
 
-# Panoramica del bilanciamento del carico 
+# Che cos'è il bilanciamento del carico di Azure?
+ 
 Il bilanciamento del carico di Azure offre elevati livelli di disponibilità e prestazioni di rete per le applicazioni. Si tratta di un bilanciamento del carico di livello-4 (TCP, UDP), che distribuisce il traffico in ingresso tra istanze del servizio integre in macchine virtuali o servizi cloud definiti in un set di bilanciamento del carico.
  
 Il servizio può essere configurato per:
@@ -87,7 +88,7 @@ La configurazione di bilanciamento del carico di Azure supporta il processo NAT 
 
 A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pubblico con carico bilanciato. Ciò consente di ospitare più siti Web SSL e/o più listener del gruppo di disponibilità SQL AlwaysOn nello stesso set di macchine virtuali. Per altre informazioni, vedere [Indirizzi VIP multipli per un servizio cloud](load-balancer-multivip.md)
 
-**Distribuzioni basate su modelli con Gestione risorse di Azure (anteprima pubblica)** Gestione risorse di Azure è il nuovo framework di gestione per i servizi di Azure. È ora possibile gestire il bilanciamento del carico di Azure con API e strumenti basati su Gestione risorse di Azure. Per altre informazioni su Gestione risorse di Azure, vedere [Semplificazione di scenari IaaS con Gestione risorse di Azure](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
+****Distribuzioni basate su modelli con Gestione risorse di Azure ** Gestione risorse di Azure è il nuovo framework di gestione per i servizi di Azure. È ora possibile gestire il bilanciamento del carico di Azure con API e strumenti basati su Gestione risorse di Azure. Per altre informazioni su Gestione risorse di Azure, vedere [Semplificazione di scenari IaaS con Gestione risorse di Azure](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
 
 
 ## Passaggi successivi
@@ -99,4 +100,4 @@ A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pub
 [Introduzione - Bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

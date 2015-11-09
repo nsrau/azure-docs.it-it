@@ -1,0 +1,391 @@
+<properties 
+	pageTitle="Campionamento, filtro e pre-elaborazione in Application Insights SDK" 
+	description="Scrivere plug-in per l'SDK per filtrare, campionare o aggiungere proprietà ai dati prima che la telemetria venga inviata al portale di Application Insights." 
+	services="application-insights"
+    documentationCenter="" 
+	authors="alancameronwills" 
+	manager="douge"/>
+ 
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/22/2015" 
+	ms.author="awills"/>
+
+# Campionamento, filtro e pre-elaborazione della telemetria in Application Insights SDK
+
+*Application Insights è disponibile in anteprima.*
+
+È possibile scrivere e configurare plug-in per Application Insights SDK per personalizzare l'acquisizione e l'elaborazione della telemetria prima che venga inviata al servizio Application Insights.
+
+Queste funzionalità attualmente sono disponibili per ASP.NET SDK.
+
+* Il [campionamento](#sampling) riduce il volume della telemetria senza effetti sulle statistiche. Tiene insieme i punti dati correlati per poter passare da uno all'altro quando si diagnostica un problema. Nel portale i conteggi totali vengono moltiplicati per compensare il campionamento.
+* L'[applicazione di filtri](#filtering) consente di selezionare o di modificare la telemetria nell'SDK prima che venga inviata al server. È possibile, ad esempio, ridurre il volume della telemetria escludendo le richieste dei robot. Questo approccio alla riduzione del traffico è più semplice del campionamento. Offre un controllo maggiore su ciò che viene trasmesso, ma occorre tenere presente che avrà effetto sulle statistiche, ad esempio se si filtrano tutte le richieste riuscite.
+* [Aggiunta di proprietà](#add-properties) a qualsiasi telemetria inviata dall'app, inclusa la telemetria dai moduli standard. È possibile, ad esempio, aggiungere valori calcolati oppure i numeri di versione in base a cui filtrare i dati nel portale.
+* L'[API SDK](app-insights-api-custom-events-metrics.md) viene usata per inviare metriche ed eventi personalizzati.
+
+Prima di iniziare:
+
+* Installare [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md) nell'app. Installare manualmente i pacchetti NuGet e selezionare l'ultima versione *preliminare*.
+* Provare l'[API Application Insights](app-insights-api-custom-events-metrics.md). 
+
+
+## Campionamento
+
+*Questa funzionalità è nella versione beta.*
+
+Modo consigliato per ridurre il traffico mantenendo accurate le statistiche. Il filtro seleziona gli elementi correlati per poter passare da uno all'altro nella diagnosi. I conteggi eventi vengono modificati in Esplora metriche per compensare gli elementi filtrati.
+
+1. Aggiornare i pacchetti NuGet del progetto all'ultima versione *preliminare* di Application Insights. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web. 
+
+2. Aggiungere questo frammento ad ApplicationInsights.config:
+
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10, 1 (=100/100), 0.1 (=100/1000) ... -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
+```
+
+
+Per ottenere il campionamento sui dati dalle pagine Web, immettere una riga aggiuntiva nel [frammento di Application Insights](app-insights-javascript.md) inserito (in genere una pagina master, ad esempio \_Layout.cshtml):
+
+*JavaScript*
+
+```JavaScript
+
+	}({ 
+
+	samplingPercentage: 10.0, 
+
+	instrumentationKey:...
+	}); 
+```
+
+* Impostare una percentuale (10 in questi esempi) uguale a 100/N dove N è un numero intero, ad esempio 50 (=100/2), 33,33 (=100/3), 25 (=100/4), 10 (=100/5). 
+* Se è presente una grande quantità di dati, è possibile usare frequenze di campionamento molto basse, ad esempio 0,1.
+* Se si imposta il campionamento sia nella pagina Web che nel server, assicurarsi di impostare la stessa percentuale di campionamento in entrambi.
+* I lati client e server coordineranno la selezione degli elementi correlati.
+
+[Altre informazioni sul campionamento](app-insights-sampling.md).
+
+## Filtri
+
+Questa tecnica offre un controllo più diretto su ciò che viene incluso o escluso dal flusso di telemetria. È possibile usarla insieme al campionamento oppure separatamente.
+
+Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo con l'SDK. Tutta la telemetria passa attraverso il processore ed è possibile scegliere di eliminarla dal flusso o di aggiungere le proprietà. È inclusa la telemetria dei moduli standard, ad esempio l'agente di raccolta delle richieste HTTP e l'agente di raccolta delle dipendenze, oltre alla telemetria scritta manualmente. È possibile, ad esempio, filtrare la telemetria sulle richieste dei robot o le chiamate di dipendenza riuscite.
+
+> [AZURE.WARNING]Se si filtra la telemetria inviata dall'SDK usando i processori, le statistiche visualizzate nel portale possono essere alterate e può risultare difficile seguire gli elementi correlati.
+> 
+> In alternativa, valutare la possibilità di usare il [campionamento](#sampling).
+
+### Creare un processore di telemetria
+
+1. Per creare un filtro, implementare ITelemetryProcessor, un altro punto di estendibilità come il modulo di telemetria, l'inizializzatore di telemetria e il canale di telemetria. 
+
+    Si noti che i processori di telemetria creano una catena di elaborazione. Quando si crea un'istanza di un processore di telemetria, si passa un collegamento al processore successivo nella catena. Quando un punto dati della telemetria viene passato al metodo Process, esegue le operazioni necessarie e quindi chiama il processore di telemetria successivo nella catena.
+
+    ``` C#
+
+    namespace FilteringTelemetryProcessor
+    {
+      using Microsoft.ApplicationInsights.Channel;
+      using Microsoft.ApplicationInsights.DataContracts;
+
+      class UnauthorizedRequestFilteringProcessor : ITelemetryProcessor
+      {
+        public UnauthorizedRequestFilteringProcessor(ITelemetryProcessor next)
+		//Initialization will fail without this constructor. Link processors to each other
+        {
+            this.Next = next;
+        }
+        public void Process(ITelemetry item)
+        {
+            // To filter out an item, just return 
+            if (!OKtoSend(item)) { return; }
+            // Modify the item if required 
+            ModifyItem(item);
+
+            this.Next.Process(item);
+        }      private ITelemetryProcessor Next { get; set; }
+      }
+    }
+
+    ```
+2. In una classe di inizializzazione adatta, ad esempio AppStart in Global.asax.cs, inserire il processore nella catena:
+
+    ```C#
+
+    var builder = new TelemetryChannelBuilder();
+    builder.Use((next) => new UnauthorizedRequestFilteringProcessor(next));
+
+    // If you have more processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    TelemetryConfiguration.Active.TelemetryChannel = builder.Build();
+
+    ```
+
+    Gli elementi TelemetryClient creati dopo questo punto useranno i processori dell'utente.
+
+### Filtri di esempio
+
+#### Richieste sintetiche
+
+Filtrare i robot e i test Web. Anche se Esplora metriche consente di filtrare le origini sintetiche, questa opzione riduce il traffico filtrandole nell'SDK.
+
+``` C#
+
+public void Process(ITelemetry item)
+{
+    if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource))
+    { return; }
+
+    this.Next.Process(item);
+}
+
+```
+
+#### Autenticazione non riuscita
+
+Filtrare le richieste con risposta "401".
+
+```C#
+
+public void Process(ITelemetry item)
+{
+    var request = item as RequestTelemetry;
+
+    if (request != null &&
+    request.ResponseCode.Equals("401", StringComparison.OrdinalIgnoreCase))
+    {
+        // To filter out an item, just terminate the chain: 
+        return;
+    }
+    // Send everything else: 
+    this.Next.Process(item);
+}
+
+```
+
+#### Filtrare le chiamate di dipendenza remote rapide
+
+Per diagnosticare solo le chiamate lente, filtrare quelle rapide.
+
+> [AZURE.NOTE]In questo modo le statistiche visualizzate nel portale verranno modificate. Il grafico delle dipendenze apparirà come se tutte le chiamate di dipendenza fossero non riuscite.
+
+``` C#
+
+public void Process(ITelemetry item)
+{
+    var request = item as DependencyTelemetry;
+            
+    if (request != null && request.Duration.Milliseconds < 100)
+    {
+        return;
+    }
+    this.Next.Process(item);
+}
+
+```
+
+
+## Aggiungere le proprietà
+
+Utilizzare gli inizializzatori di telemetria per definire le proprietà globali che vengono inviate con tutti i dati di telemetria; eseguire l'override del comportamento selezionato dei moduli di telemetria standard.
+
+Ad esempio, il pacchetto Application Insights per il Web raccoglie dati di telemetria relativi alle richieste HTTP e, per impostazione predefinita, contrassegna come non riuscita qualsiasi richiesta con un codice di risposta > = 400. Tuttavia, se si vuole considerare 400 come un risultato positivo, è possibile fornire un inizializzatore di telemetria che imposti la proprietà Success.
+
+In tal modo, verrà chiamato ogni volta che viene chiamato il metodo Track*(). Sono inclusi i metodi chiamati dai moduli di telemetria standard. Per convenzione, questi moduli non impostano le proprietà che sono già state impostate da un inizializzatore.
+
+**Definire l'inizializzatore**
+
+*C#*
+
+```C#
+
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+
+    namespace MvcWebRole.Telemetry
+    {
+      /*
+       * Custom TelemetryInitializer that overrides the default SDK 
+       * behavior of treating response codes >= 400 as failed requests
+       * 
+       */
+      public class MyTelemetryInitializer : ITelemetryInitializer
+      {
+        public void Initialize(ITelemetry telemetry)
+        {
+            var requestTelemetry = telemetry as RequestTelemetry;
+            // Is this a TrackRequest() ?
+            if (requestTelemetry == null) return;
+            int code;
+            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
+            if (!parsed) return;
+            if (code >= 400 && code < 500)
+            {
+                // If we set the Success property, the SDK won't change it:
+                requestTelemetry.Success = true;
+                // Allow us to filter these requests in the portal:
+                requestTelemetry.Context.Properties["Overridden400s"] = "true";
+            }
+            // else leave the SDK to set the Success property      
+        }
+      }
+    }
+```
+
+**Caricare l'inizializzatore**
+
+In ApplicationInsights.config:
+
+    <ApplicationInsights>
+      <TelemetryInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/> 
+        ...
+      </TelemetryInitializers>
+    </ApplicationInsights>
+
+*In alternativa,* è possibile creare un'istanza dell'inizializzatore nel codice, ad esempio nel file Global.aspx.cs:
+
+
+```C#
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.TelemetryInitializers
+        .Add(new MyTelemetryInitializer());
+    }
+```
+
+
+[Vedere questo esempio nel dettaglio.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+
+<a name="js-initializer"></a>
+### Inizializzatori di telemetria JavaScript
+
+*JavaScript*
+
+Inserire un inizializzatore di telemetria immediatamente dopo il codice di inizializzazione ottenuto dal portale:
+
+```JS
+
+    <script type="text/javascript">
+        // ... initialization code
+        ...({
+            instrumentationKey: "your instrumentation key"
+        });
+        window.appInsights = appInsights;
+
+
+        // Adding telemetry initializer.
+        // This is called whenever a new telemetry item
+        // is created.
+
+        appInsights.queue.push(function () {
+            appInsights.context.addTelemetryInitializer(function (envelope) {
+                var telemetryItem = envelope.data.baseData;
+
+                // To check the telemetry item’s type - for example PageView:
+                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+                    // this statement removes url from all page view documents
+                    telemetryItem.url = "URL CENSORED";
+                }
+
+                // To set custom properties:
+                telemetryItem.properties = telemetryItem.properties || {};
+                telemetryItem.properties["globalProperty"] = "boo";
+
+                // To set custom metrics:
+                telemetryItem.measurements = telemetryItem.measurements || {};
+                telemetryItem.measurements["globalMetric"] = 100;
+            });
+        });
+
+        // End of inserted code.
+
+        appInsights.trackPageView();
+    </script>
+```
+
+Per un riepilogo delle proprietà non personalizzate disponibili in telemetryItem, vedere il [modello di dati](app-insights-export-data-model.md/#lttelemetrytypegt).
+
+È possibile aggiungere tutti gli inizializzatori desiderati.
+
+
+## Documentazione di riferimento
+
+* [Panoramica API](app-insights-api-custom-events-metrics.md)
+
+* [Riferimento ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
+* [Riferimento Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [Informazioni di riferimento su JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+
+## Codice SDK
+
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [SDK per Java](https://github.com/Microsoft/ApplicationInsights-Java)
+* [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+* [Tutte le piattaforme](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
+
+## Domande
+
+* *Le chiamate Track\_() quali eccezioni potrebbero generare?*
+    
+    Nessuna. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà un messaggio che verrà visualizzato nell'output della console di debug e quindi nella ricerca diagnostica per approfondirne i dettagli.
+
+
+
+* *Esiste un'API REST?*
+
+    Sì, ma è non ancora pubblicata.
+
+## <a name="next"></a>Passaggi successivi
+
+
+[Cercare eventi e log][diagnostic]
+
+[Esempi e procedure dettagliate](app-insights-code-samples.md)
+
+[Risoluzione dei problemi][qna]
+
+
+<!--Link references-->
+
+[client]: app-insights-javascript.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
+[diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-asp-net-exceptions.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[metrics]: app-insights-metrics-explorer.md
+[qna]: app-insights-troubleshoot-faq.md
+[trace]: app-insights-search-diagnostic-logs.md
+[windows]: app-insights-windows-get-started.md
+
+ 
+
+<!---HONumber=Nov15_HO1-->

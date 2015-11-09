@@ -1,14 +1,27 @@
-<properties pageTitle="Esercitazione: Integrazione di Azure Active Directory con Clarizen | Microsoft Azure" description="Informazioni su come usare Clarizen con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Clarizen | Microsoft Azure" 
+    description="Informazioni su come usare Clarizen con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Esercitazione: Integrazione di Azure Active Directory con Clarizen
->[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=526793).
 
 Questa esercitazione descrive l'integrazione di Azure e Clarizen. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di Clarizen abilitata per l'accesso Single Sign-On
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Clarizen potranno accedere all'applicazione tramite il sito aziendale di Clarizen (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Clarizen potranno accedere all'applicazione tramite il sito aziendale di Clarizen (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -24,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Clar
 
 ###Per abilitare l'integrazione dell'applicazione per Clarizen, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
 
     ![Active Directory](./media/active-directory-saas-clarizen-tutorial/IC700993.png "Active Directory")
 
@@ -69,25 +82,25 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 4.  In un'altra finestra del Web browser accedere al sito aziendale di **Clarizen** come amministratore (ad esempio: **https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx*).
 
-5.  Fare clic sul nome utente e quindi su **Settings**.
+5.  Fare clic sul nome utente e quindi su **Impostazioni**.
 
     ![Impostazioni](./media/active-directory-saas-clarizen-tutorial/IC784685.png "Impostazioni")
 
-6.  Fare clic su **Global Settings** e quindi su **edit** accanto a **Federated Authentication**.
+6.  Fare clic su **Impostazioni globali** e quindi su **modifica** accanto a **Autenticazione federata**.
 
     ![Global Settings](./media/active-directory-saas-clarizen-tutorial/IC786906.png "Global Settings")
 
-7.  Nella finestra di dialogo **Federated Authentication** seguire questa procedura:
+7.  Nella finestra di dialogo **Autenticazione federata** seguire questa procedura:
 
     ![Federated Authentication](./media/active-directory-saas-clarizen-tutorial/IC785892.png "Federated Authentication")
 
-    1.  Per caricare il certificato scaricato, fare clic su **Upload**.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Clarizen** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **Sign-in URL**.
-    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Clarizen** del portale di Azure copiare il valore di **URL servizio Single Sign-Out** e quindi incollarlo nella casella di testo **Sign-out URL**.
-    4.  Selezionare **Use POST**.
+    1.  Per caricare il certificato scaricato, fare clic su **Carica**.
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Clarizen** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **URL di accesso**.
+    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Clarizen** del portale di Azure copiare il valore di **URL servizio Single Sign-Out** e quindi incollarlo nella casella di testo **URL di disconnessione**.
+    4.  Selezionare **Utilizza POST**.
     5.  Fare clic su **Save**.
 
-8.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+8.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784688.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -98,11 +111,11 @@ Per consentire agli utenti di Azure AD di accedere a Clarizen, è necessario ese
 
 1.  Accedere al sito aziendale di **Clarizen** come amministratore.
 
-2.  Fare clic su **People**.
+2.  Fare clic su **Persone**.
 
     ![People](./media/active-directory-saas-clarizen-tutorial/IC784689.png "People")
 
-3.  Fare clic su **Invite User**.
+3.  Fare clic su **Invita Utente**.
 
     ![Invite Users](./media/active-directory-saas-clarizen-tutorial/IC784690.png "Invite Users")
 
@@ -111,7 +124,7 @@ Per consentire agli utenti di Azure AD di accedere a Clarizen, è necessario ese
     ![Invite People](./media/active-directory-saas-clarizen-tutorial/IC784691.png "Invite People")
 
     1.  Nella casella di testo **Email** digitare l'indirizzo di posta elettronica di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
-    2.  Fare clic su **Invite**.
+    2.  Fare clic su **Invita**.
 
     >[AZURE.NOTE]Il titolare dell'account Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
 
@@ -131,6 +144,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-clarizen-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
