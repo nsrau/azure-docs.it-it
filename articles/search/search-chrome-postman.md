@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Utilizzare Chrome Postman con Ricerca di Azure | Microsoft Azure"
-	description="Utilizzare Chrome Postman con Ricerca di Azure. Installare e configurare Postman. Creare un indice di Ricerca di Azure. Pubblicare i documenti ed eseguire query nell'indice con Postman."
+	description="Usare Chrome Postman con Ricerca di Azure, un servizio di ricerca cloud ospitato. Installare e configurare Postman. Creare un indice di Ricerca di Azure. Pubblicare i documenti ed eseguire query nell'indice con Postman."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Come utilizzare Chrome Postman con Ricerca di Azure #
@@ -118,4 +118,4 @@ La documentazione per l'API REST è disponibile in [MSDN](https://msdn.microsoft
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

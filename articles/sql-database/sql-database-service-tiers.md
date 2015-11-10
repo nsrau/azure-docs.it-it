@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Livelli di servizio del database SQL"
-   description="Confrontare le prestazioni e le funzionalità di continuità aziendale dei vari livelli di servizio del database SQL di Azure per trovare il giusto compromesso tra costi e funzionalità a fronte di un livello di scalabilità su richiesta senza tempi di inattività."
-   services="sql-database"
-   documentationCenter=""
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="Livelli di servizio del database SQL"
+	description="Confrontare le prestazioni e le funzionalità di continuità aziendale dei vari livelli di servizio del database SQL di Azure per trovare il giusto compromesso tra costi e funzionalità a fronte di un livello di scalabilità su richiesta senza tempi di inattività."
+	services="sql-database"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="10/29/2015"
-   ms.author="jroth"/>
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="11/03/2015"
+	ms.author="jroth"/>
 
 # Livelli di servizio del database SQL
  
@@ -95,4 +95,4 @@ Se si è interessati alla gestione di più database come gruppo, considerare i [
 Dopo aver acquisito familiarità con i livelli di database SQL, provare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

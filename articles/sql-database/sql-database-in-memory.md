@@ -21,9 +21,9 @@
 # Introduzione alle tecnologie in memoria (anteprima)
 
 
-Le tecnologie SQL in memoria migliorano notevolmente le prestazioni dei carichi di lavoro transazionali e analitici. Con OLTP in memoria è possibile ottenere una velocità effettiva fino a 30 volte superiore per le transazioni e con le analisi in memoria si possono ottenere prestazioni delle query fino a 100 volte migliori, in base al carico di lavoro.
+Le tecnologie SQL in memoria migliorano notevolmente le prestazioni dei carichi di lavoro transazionali e analitici. Con OLTP in memoria è possibile ottenere una velocità effettiva fino a 30 volte superiore per le transazioni e con le analisi in memoria si possono ottenere prestazioni delle query fino a 100 volte migliori, in base al carico di lavoro. Con le analisi in tempo reale è possibile combinare queste tecnologie per ottenere le informazioni aziendali in tempo reale basate su dati operativi.
 
-Le analisi in memoria sono disponibili a livello generale. OLTP in memoria è disponibile in anteprima per i database SQL di Azure Premium.
+Le analisi in memoria sono disponibili a livello generale nel database di Azure. OLTP in memoria e analisi dei dati operativi in tempo reale sono in anteprima, per i database SQL Azure Premium.
 
 
 ## Introduzione
@@ -31,18 +31,18 @@ Le analisi in memoria sono disponibili a livello generale. OLTP in memoria è di
 Per provare a usare OLTP in memoria per carichi di lavoro transazionali:
 
 
-- [Arricchire un database AdventureWorksLT con esempi OLTP in memoria](#Enrich-an-AdventureWorksLT-database-with-In-Memory-OLTP-samples).
+- [Installare l'esempio di OLTP in memoria](#install-the-in-memory-oltp-sample).
 - [Usare OLTP in memoria in un'applicazione esistente del database SQL di Azure.](sql-database-in-memory-oltp-migration.md)
 - [Monitorare l'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md).
 
 
-Per provare a usare le analisi in memoria per i carichi di lavoro transazionali:
+Provare a usare le analisi in memoria per i carichi di lavoro analitici:
 
-- [Installare le analisi in memoria](#Install-the-In-Memory-Analytics-sample).
+- [Installare l'esempio di analisi in memoria](#install-the-in-memory-analytics-sample).
 - Altre informazioni sugli [Indici Columnstore](https://msdn.microsoft.com/library/gg492088.aspx) su MSDN.
 
 
-## Arricchire un database AdventureWorksLT con esempi OLTP in memoria
+## Installare l'esempio di OLTP in memoria
 
 È possibile creare il database AdventureWorksLT [V12] di esempio con pochi clic nel portale di anteprima di Azure. I passaggi seguenti illustrano come arricchire il database AdventureWorksLT con tabelle e stored procedure compilate in modalità nativa per illustrare gli oggetti OLTP in memoria.
 
@@ -241,16 +241,18 @@ Alcune funzionalità di Transact-SQL non sono supportate con OLTP in memoria. Pe
 
 ## Risorse aggiuntive
 
-Altre informazioni su OLTP e analisi in memoria: [OLTP in memoria (ottimizzazione in memoria)](https://msdn.microsoft.com/library/dn133186.aspx)
+[Informazioni su OLTP in memoria su MSDN](https://msdn.microsoft.com/library/dn133186.aspx)
 
-[Altre informazioni sugli indici Columnstore su MSDN](https://msdn.microsoft.com/library/gg492088.aspx)
+[Informazioni sulle analisi In memoria (Columnstore) su MSDN](https://msdn.microsoft.com/library/gg492088.aspx)
 
-Il [white paper sui modelli comuni dei carichi di lavoro e sulle considerazioni relative alla migrazione](https://msdn.microsoft.com/library/dn673538.aspx) descrive modelli di carico di lavoro in cui OLTP in memoria fornisce in genere miglioramenti significativi delle prestazioni.
+[Informazioni sulle analisi operative in tempo reale su MSDN](https://msdn.microsoft.com/library/dn817827.aspx)
+
+Il [white paper sui modelli comuni di carichi di lavoro e sulle considerazioni relative alla migrazione](https://msdn.microsoft.com/library/dn673538.aspx) descrive modelli di carico di lavoro in cui OLTP in memoria fornisce in genere miglioramenti significativi delle prestazioni.
 
 ## Passaggi successivi
 
-Vedere [Usare OLTP in memoria in un'applicazione esistente del database SQL di Azure.](sql-database-in-memory-oltp-migration.md)
+Vedere [Usare OLTP in memoria in un'applicazione SQL di Azure esistente.](sql-database-in-memory-oltp-migration.md)
 
 [Monitorare l'archiviazione in memoria ](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

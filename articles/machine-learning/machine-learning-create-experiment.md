@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Creare un semplice esperimento in Machine Learning Studio | Microsoft Azure"
 	description="Una prima esercitazione di Machine Learning per creare un semplice esperimento per eseguire il training e il test di un modello semplice in Azure Machine Learning Studio."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
+	keywords="esperimento, regressione lineare, algoritmi di machine learning, esercitazione su machine learning, tecniche di modellazione predittiva"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
+	ms.date="11/03/2015"
 	ms.author="garye"/>
 
 # Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio
@@ -23,13 +23,13 @@ Nella prima esercitazione di Machine Learning, verrà creato un modello di regre
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Un esperimento Machine Learning Studio consiste in trascinare e rilasciare componenti in un'area di disegno e connetterli al fine di *creare un modello*, *provare il modello* e *valutare e testare il modello*. L'esperimento usa tecniche di modellazione predittiva sotto forma di moduli di Machine Learning Studio che inseriscono dati, eseguono il training di un modello e applicano il modello ai nuovi dati. È anche possibile aggiungere moduli per pre-elaborare i dati e selezionare caratteristiche, suddividere i dati in set di training e di test e quindi valutare o eseguire la convalida incrociata della qualità del modello.
+Un esperimento di Machine Learning Studio consiste nel trascinare e rilasciare componenti in un'area di disegno e connetterli per *creare un modello*, *eseguire il training del modello* e *generare un punteggio e testare il modello*. L'esperimento usa tecniche di modellazione predittiva sotto forma di moduli di Machine Learning Studio che inseriscono dati, eseguono il training di un modello e applicano il modello ai nuovi dati. È anche possibile aggiungere moduli per pre-elaborare i dati e selezionare caratteristiche, suddividere i dati in set di training e di test e quindi valutare o eseguire la convalida incrociata della qualità del modello.
 
-Immettere Machine Learning Studio:[https://studio.azureml.net](https://studio.azureml.net)e fare clic sul pulsante **Scarica subito**. È possibile scegliere l'accesso Guest o l’accesso con l'account Microsoft.
+Accedere a Machine Learning Studio:[https://studio.azureml.net](https://studio.azureml.net)e fare clic sul pulsante **Get started**. È possibile scegliere l'accesso Guest o l’accesso con l'account Microsoft.
 
 Per informazioni più generali su Machine Learning Studio, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
 
->[AZURE.TIP]Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP]Per scaricare e stampare un diagramma che include una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 
 ## Cinque passaggi per la creazione di un esperimento
@@ -66,7 +66,7 @@ In Machine Learning Studio sono disponibili numerosi set di dati di esempio ed �
 
 	![Set di dati][screen1]
 
-Per visualizzare l'aspetto dei dati, fare clic sulla porta di output nella parte inferiore del set di dati delle automobili e selezionare **Visualize**. Le variabili del set di dati vengono visualizzate sotto forma di colonne e ogni istanza di un'automobile viene visualizzata sotto forma di riga. La colonna all'estrema destra (colonna 26 e intitolata "price") è la variabile di destinazione che verrà stimata.
+Per visualizzare l'aspetto dei dati, fare clic sulla porta di output nella parte inferiore del set di dati relativo alle automobili e selezionare **Visualize**. Le variabili del set di dati vengono visualizzate sotto forma di colonne e ogni istanza di un'automobile viene visualizzata sotto forma di riga. La colonna all'estrema destra (colonna 26 e intitolata "price") è la variabile di destinazione che verrà stimata.
 
 ![Visualizzazione set di dati][screen1b]
 
@@ -140,19 +140,19 @@ La *classificazione* e la *regressione* sono due tipi di tecniche di Machine Lea
 
 Volendo stimare il prezzo di un'automobile, che può essere un valore qualsiasi, si userà un modello basato su regressione. Per questo esempio, verrà eseguito il training di un semplice modello di *regressione lineare*, che verrà testato nel passaggio successivo.
 
-1. È possibile usare i dati sia per il training sia per il test, suddividendoli in set di training e di test distinti. Selezionare e trascinare il modulo [Split][split] nell'area di disegno dell'esperimento e connetterlo all'output dell'ultimo modulo [Project Columns][project-columns]. Impostare **Fraction of rows in the first output dataset** su 0,75. In questo modo per il training del modello verrà usato il 75% dei dati, mentre il restante 25% verrà usato per il testing.
+1. È possibile usare i dati sia per il training sia per il test, suddividendoli in set di training e di test distinti. Selezionare e trascinare il modulo [Split Data][split] nell'area di disegno dell'esperimento e connetterlo all'output dell'ultimo modulo [Project Columns][project-columns]. Impostare **Fraction of rows in the first output dataset** su 0,75. In questo modo per il training del modello verrà usato il 75% dei dati, mentre il restante 25% verrà usato per il testing.
 
 	> [AZURE.TIP]Modificando il parametro **Random seed**, è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
 
-2. Eseguire l'esperimento. In questo modo, i moduli [Project Columns][project-columns] e [Split][split] potranno passare le definizioni di colonna ai moduli che verranno aggiunti successivamente.
+2. Eseguire l'esperimento. In questo modo, i moduli [Project Columns][project-columns] e [Split Data][split] potranno passare le definizioni di colonna ai moduli che saranno aggiunti successivamente.
 
 3. Per selezionare l'algoritmo di apprendimento, espandere la categoria **Machine Learning** nella tavolozza dei moduli a sinistra dell'area di disegno e quindi espandere **Initialize Model**. Verranno visualizzate diverse categorie di moduli che possono essere usate per inizializzare gli algoritmi di Machine Learning.
 
 	Per questo esperimento, selezionare il modulo [Linear Regression][linear-regression] nella categoria **Regression** (è anche possibile trovare il modulo digitando "linear regression" nella casella Search della tavolozza) e trascinarlo nell'area di disegno dell'esperimento.
 
-4. Trovare e trascinare il modulo [Train Model][train-model] nell'area di disegno dell'esperimento. Connettere la porta di input sinistra all'output del modulo [Linear Regression][linear-regression]. Connettere la porta di input destra all'output dei dati di training (porta sinistra) del modulo [Split][split].
+4. Trovare e trascinare il modulo [Train Model][train-model] nell'area di disegno dell'esperimento. Connettere la porta di input sinistra all'output del modulo [Linear Regression][linear-regression]. Connettere la porta di input destra all'output dei dati di training (porta sinistra) del modulo [Split Data][split].
 
-5. Selezionare il modulo [Train Model][train-model], fare clic su **Launch column selector** nel riquadro **Properties** e selezionare la colonna **price**. Questo è il valore che si intende stimare con il modello.
+5. Selezionare il modulo [Train Model][train-model], fare clic su **Launch column selector** nel riquadro **Properties** e quindi selezionare la colonna **price**. Questo è il valore che si intende stimare con il modello.
 
 	![Selezione colonna "price"][screen7]
 
@@ -166,7 +166,7 @@ Il risultato è un modello di regressione basato su training che può essere usa
 
 Dopo aver eseguito il training del modello usando il 75% dei dati, è possibile usarlo per classificare il restante 25% e verificarne il funzionamento.
 
-1. Trovare il modulo [Score Model][score-model], trascinarlo sull'area di disegno dell'esperimento e connettere la porta di input sinistra all'output del modulo [Train Model][train-model]. Connettere la porta di input destra all'output dei dati di test (porta destra) del modulo [Split][split].  
+1. Trovare il modulo [Score Model][score-model], trascinarlo sull'area di disegno dell'esperimento e connettere la porta di input sinistra all'output del modulo [Train Model][train-model]. Connettere la porta di input destra all'output dei dati di test (porta destra) del modulo [Split Data][split].  
 
 	![Modulo Score Model][screen8a]
 
@@ -176,7 +176,7 @@ Dopo aver eseguito il training del modello usando il 75% dei dati, è possibile 
 
 4. Eseguire l'esperimento.
 
-Per visualizzare l'output del modulo [Evaluate Model][evaluate-model], fare clic sulla porta di output e selezionare **Visualize**. Per il modello vengono visualizzate le seguenti statistiche:
+Per visualizzare l'output del modulo [Evaluate Model][evaluate-model], fare clic sulla porta di output e quindi selezionare **Visualize**. Per il modello vengono visualizzate le seguenti statistiche:
 
 - **Mean Absolute Error** (MAE, errore assoluto medio): media degli errori assoluti (un *errore* è la differenza tra il valore stimato e quello effettivo).
 - **Root Mean Squared Error** (RMSE, radice errore quadratico medio): radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
@@ -204,7 +204,7 @@ Una volta ottenuto il modello desiderato, è possibile distribuirlo come servizi
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Per una procedura più completa e dettagliata delle tecniche di modellazione predittiva per la creazione, il training, la valutazione e la distribuzione di un modello, vedere [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning][walkthrough].
+Per una procedura più completa e dettagliata delle tecniche di modellazione predittiva per la creazione, il training, l'assegnazione dei punteggi e la distribuzione di un modello, vedere [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -234,4 +234,4 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

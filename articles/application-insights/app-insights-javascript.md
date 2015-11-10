@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/10/2015"
+	ms.date="11/03/2015"
 	ms.author="awills"/>
 
 # Application Insights per app Web JavaScript
@@ -53,6 +53,8 @@ Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di 
 
 Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa di Application Insights.
 
+[Spiegazione più approfondita dello script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/)
+
 *(Se si usa un framework di pagine Web noto, cercare adattatori Application Insights. Ad esempio, [un modulo AngularJS](http://ngmodules.org/modules/angular-appinsights)).*
 
 
@@ -60,7 +62,7 @@ Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa
 
 Eseguire l'app Web, usarla un periodo di tempo per generare dati di telemetria e attendere alcuni secondi. È possibile eseguirla premendo **F5** sul computer di sviluppo o pubblicarla e metterla a disposizione degli utenti.
 
-Se si desidera controllare i dati di telemetria che un'app Web sta inviando ad Application Insights, usare gli strumenti di debug del browser (**F12** in molti browser). I dati vengono inviati a dc.services.visualstudio.com.
+Se si vuole controllare i dati di telemetria che un'app Web sta inviando ad Application Insights, usare gli strumenti di debug del browser, **F12** in molti browser. I dati vengono inviati a dc.services.visualstudio.com.
 
 ## Esplorare i dati
 
@@ -184,4 +186,4 @@ Se non è stata ancora eseguita questa operazione, è possibile ottenere informa
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

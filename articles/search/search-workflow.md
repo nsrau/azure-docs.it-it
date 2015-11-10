@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Flusso di lavoro tipico per lo sviluppo di Ricerca di Azure | Microsoft Azure"
-	description="Flusso di lavoro o guida di orientamento per la creazione di applicazioni prototipo e di produzione integrate con Ricerca di Azure."
+	description="Flusso di lavoro o guida di orientamento per la creazione di applicazioni prototipo e di produzione integrate con Ricerca di Azure, un servizio di ricerca cloud ospitato."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Flusso di lavoro tipico per lo sviluppo di Ricerca di Azure
 
-In questo articolo viene riportata una guida di orientamento per includere Ricerca di Azure come componente che fornisce la funzionalità di ricerca nell’applicazione personalizzata. Sia che si stia sondando il terreno o si sia pronti per l’utilizzo, sono necessarie alcune indicazioni preliminari su come integrare Ricerca di Azure nel progetto di sviluppo personalizzato.
+Questo articolo è una guida di orientamento per includere Ricerca di Azure, un servizio di ricerca cloud ospitato, come componente che fornisce l'esperienza di ricerca nell'applicazione personalizzata. Sia che si stia sondando il terreno o si sia pronti per l’utilizzo, sono necessarie alcune indicazioni preliminari su come integrare Ricerca di Azure nel progetto di sviluppo personalizzato.
 
 Nelle sezioni seguenti, è stato suddiviso un flusso di lavoro tipico come un prototipo iniziale che consentirà di valutare come Ricerca di Azure soddisfi i requisiti di ricerca dell'applicazione. Nella seconda parte di questo articolo vengono illustrate importanti decisioni di progettazione da tenere presenti per una più seria attività di sviluppo dell’applicazione.
 
@@ -190,4 +190,4 @@ Si tenga presente che solo il livello di prezzo standard può essere aumentato o
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

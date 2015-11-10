@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare un servizio di Ricerca di Azure nel portale | Microsoft Azure"
-	description="Aggiungere un servizio di Ricerca di Azure gratuito o standard a una sottoscrizione esistente tramite il portale di Azure"
+	description="Aggiungere un servizio di Ricerca di Azure Gratuito o Standard a una sottoscrizione esistente tramite il portale di Azure. Ricerca di Azure è il servizio di ricerca cloud ospitato per le applicazioni personalizzate."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Creare un servizio di Ricerca di Azure nel portale di Azure
@@ -120,4 +120,4 @@ Gli argomenti riportati di seguito contengono informazioni su come creare e gest
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

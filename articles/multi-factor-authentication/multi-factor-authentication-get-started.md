@@ -30,7 +30,6 @@ Nelle sezioni seguenti verranno fornite istruzioni su come determinare ciascun a
 Per determinare la soluzione Multi-Factor Authentication corretta, innanzitutto è necessario stabilire ciò che si sta tentando di proteggere con un secondo metodo di autenticazione. Si tratta di un'applicazione in Azure? Oppure si tratta, ad esempio, di un sistema di accesso remoto? Durante la definizione degli elementi da proteggere, stabiliremo dove abilitare la modalità Multi-Factor Authentication.
 
 
-
 Cosa si intende proteggere| Multi-Factor Authentication nel cloud|Server Multi-Factor Authentication 
 ------------- | :-------------: | :-------------: |
 App prodotte direttamente da Microsoft|* |* |
@@ -82,9 +81,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-**Risorse aggiuntive**
-
-* [Per gli utenti](multi-factor-authentication-end-user.md)
-* [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

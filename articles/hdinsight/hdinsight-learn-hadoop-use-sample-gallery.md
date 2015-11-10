@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="07/09/2015"
+   ms.date="10/29/2015"
    ms.author="jgao"/>
 
 # Informazioni su Hadoop tramite la raccolta di introduzione HDInsight di Azure.
@@ -45,7 +45,7 @@ E’ possibile accedere al dashboard dall’indirizzo http://<YourHDInsightClust
 **Per eseguire un esempio dalla raccolta di introduzione**
 
 1. Accedere al [portale di anteprima di Azure][azure.portal].
-2. Fare clic su **Esplora tutto** dal menu a sinistra, fare clic su **Cluster HDInsight**, e poi sul nome del cluster.
+2. Fare clic su **Esplora** dal menu a sinistra, fare clic su **Cluster HDInsight** e poi sul nome del cluster.
 3. Fare clic su **Dashboard** nel menu principale.
 4. Immettere il nome utente e password per l'utente HTTP (denominato anche utente del cluster).
 6. Fare clic su **Getting Started Gallery** nella parte superiore della pagina.
@@ -68,4 +68,4 @@ Di seguito sono indicati altri modi e strumenti per imparare a usare HDInsight:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

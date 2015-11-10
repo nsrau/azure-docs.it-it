@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.topic="get-started-article" 
+	ms.date="11/02/2015" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare e monitorare una data factory mediante Visual Studio
@@ -240,4 +240,4 @@ Vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-e
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->
