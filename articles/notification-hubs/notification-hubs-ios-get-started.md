@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/19/2015"
+	ms.date="11/04/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app per iOS
@@ -302,8 +302,8 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 				signature = [self CF_URLEncodedString:[rawHmac base64EncodedStringWithOptions:0]];
 
 				// Construct authorization token string
-				token = [NSString stringWithFormat:@"SharedAccessSignature sr=%@&sig=%@&se=%qu&skn=%@",
-					targetUri, signature, expires, HubSasKeyName];
+				token = [NSString stringWithFormat:@"SharedAccessSignature sig=%@&se=%qu&skn=%@&sr=%@",
+					signature, expires, HubSasKeyName, targetUri];
 			}
 			@catch (NSException *exception)
 			{
@@ -365,7 +365,7 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-		        if (error || httpResponse.statusCode != 200)
+		        if (error || (httpResponse.statusCode != 200 && httpResponse.statusCode != 201))
 		        {
 		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
 		        }
@@ -433,9 +433,9 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 11. Compilare il progetto e verificare che non siano presenti errori.
 
 
+> [AZURE.NOTE]Se si verifica un errore di compilazione in Xcode7 relativo al supporto per bitcode, è necessario modificare "Build Settings" -> "Enable Bitcode"(ENABLE\_BITCODE) impostandolo su 'NO' in Xcode. Notification Hubs SDK non supporta attualmente bitcode.
 
 È possibile trovare tutti i payload di notifica disponibili nella [guida alla programmazione di notifiche push e locali] di Apple.
-
 
 
 ##Test dell'app
@@ -459,7 +459,7 @@ In caso di problemi o suggerimenti per migliorare questa esercitazione per tutti
 
 ##Passaggi successivi
 
-In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi iOS. Come passaggio successivo del percorso di apprendimento, è consigliabile passare all'esercitazione [Usare Hub di notifica per inviare notifiche push agli utenti]. Questa esercitazione illustra in dettaglio la creazione di un back-end per l'invio delle notifiche tramite tag.
+In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi iOS. Come passaggio successivo del percorso di apprendimento, è consigliabile passare all'esercitazione [Usare Hub di notifica di Azure per inviare notifiche agli utenti]. Questa esercitazione illustra in dettaglio la creazione di un back-end per l'invio delle notifiche tramite tag.
 
 Se si vuole segmentare gli utenti per gruppi di interesse, è possibile vedere anche [Usare Hub di notifica per inviare le ultime notizie].
 
@@ -499,9 +499,9 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Usare Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-send-breaking-news.md
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/02/2015"
 	ms.author="genemi"/>
 
 
@@ -81,17 +81,10 @@ Quando il programma comunica con il database SQL di Azure tramite middleware di 
 ### Incremento dell'intervallo tra i tentativi
 
 
-Il programma deve attendere sempre almeno 6-10 secondi prima del primo tentativo. In caso contrario, è possibile che il servizio cloud sia inondato di richieste che non riesce a elaborare.
 
+È consigliabile attendere 5 secondi prima di riprovare. Al primo tentativo con un ritardo inferiore a 5 secondi, si rischia di sovraccaricare il servizio cloud. Per ogni tentativo successivo, aumentare in modo esponenziale il ritardo, fino a un massimo di 60 secondi.
 
-Se sono necessari più tentativi, è necessario incrementare l'intervallo prima di ogni tentativo successivo, fino a un valore massimo specificato. Sono disponibili queste due strategie alternative:
-
-
-- Incremento progressivo dell'intervallo. Ad esempio, è possibile aggiungere 5 secondi a ogni intervallo successivo.
-
-
-- Incremento esponenziale dell'intervallo. Ad esempio, è possibile moltiplicare ogni intervallo successivo per 1,5.
-
+Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di blocco* in [Pool di connessioni di SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 È anche possibile che si voglia impostare un numero massimo di nuovi tentativi prima dell'autoterminazione del programma.
 
@@ -115,13 +108,13 @@ Per testare la logica di ripetizione dei tentativi, è necessario simulare o pro
 ### Eseguire il test mediante la disconnessione dalla rete
 
 
-Uno dei modi per testare la logica di ripetizione dei tentativi consiste nel disconnettere il computer client dalla rete mentre il programma è in esecuzione. Verrà visualizzato un errore analogo al seguente: - **SqlException.Number** = 11001 - Messaggio: "Host sconosciuto".
+Uno dei modi per testare la logica di ripetizione dei tentativi consiste nel disconnettere il computer client dalla rete mentre il programma è in esecuzione. Verrà visualizzato un errore analogo a: - **SqlException.Number** = 11001 - Messaggio: "Host sconosciuto".
 
 
 Come parte del primo tentativo, il programma può correggere l'errore di digitazione e quindi provare a connettersi.
 
 
-Per semplificare le operazioni, disconnettere il computer dalla rete prima di avviare il programma. Il programma riconoscerà quindi un parametro di runtime che ha le conseguenze seguenti sul programma: 1. Aggiunta temporanea di 11001 al rispettivo elenco di errori da considerare temporanei. 2. Tentativo della prima connessione come di consueto. 3. Dopo il rilevamento dell'errore, rimozione di 11001 dall'elenco. 4. Visualizzazione di un messaggio che richiede all'utente di connettere il computer alla rete. - Sospensione di ulteriori esecuzioni mediante il metodo **Console.ReadLine** o una finestra di dialogo con un pulsante OK. L'utente preme il tasto INVIO dopo la connessione del computer alla rete. 5. Nuovo tentativo di connessione, con esito positivo previsto.
+Per semplificare le operazioni, disconnettere il computer dalla rete prima di avviare il programma. Il programma riconoscerà quindi un parametro di runtime che ha le conseguenze seguenti sul programma: 1. Aggiunta temporanea di 11001 al rispettivo elenco di errori da considerare temporanei. 2. Tentativo della prima connessione come di consueto. 3. Dopo il rilevamento dell'errore, rimozione di 11001 dall'elenco. 4. Visualizzazione di un messaggio che richiede all'utente di connettere il computer alla rete. - Sospendere altre esecuzioni usando il metodo **Console.ReadLine** o una finestra di dialogo con un pulsante OK. L'utente preme il tasto INVIO dopo la connessione del computer alla rete. 5. Nuovo tentativo di connessione, con esito positivo previsto.
 
 
 ### Eseguire il test mediante la digitazione non corretta del nome del database durante la connessione
@@ -191,7 +184,7 @@ Ad esempio, se il programma client è ospitato in un computer Windows, Windows F
 7. &gt; Nuova regola
 
 
-Se il programma client è ospitato in una macchina virtuale (VM) di Azure, vedere <br/>[Porte superiori alla 1433 per ADO.NET 4.5 e il database SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Se il programma client è ospitato in una macchina virtuale (VM) di Azure, vedere <br/>[Porte superiori a 1433 per ADO.NET 4.5 e database SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 Per informazioni generali sulla configurazione di porte e indirizzi IP, vedere [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
@@ -202,7 +195,7 @@ Per informazioni generali sulla configurazione di porte e indirizzi IP, vedere [
 ## Connessione: ADO.NET 4.5
 
 
-Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** per la connessione al database SQL di Azure SQL, è consigliabile usare .NET Framework versione 4.5 o versione successiva.
+Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** per la connessione al database SQL di Azure, è consigliabile usare .NET Framework versione 4.5 o successiva.
 
 
 ADO.NET 4.5: - Aggiunge il supporto per il protocollo TDS 7.4, inclusi miglioramenti alla connessione superiori rispetto a quelli della versione 4.0. - Supporta i pool di connessioni, inclusa una verifica efficiente del funzionamento dell'oggetto connessione fornito al programma.
@@ -222,7 +215,7 @@ Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiorn
 Se il programma non riesce a connettersi al database SQL di Azure, un'opzione di diagnostica consente di provare a connettersi mediante un programma di utilità. Idealmente l'utilità si connette mediante la stessa libreria usata dal programma.
 
 
-In qualsiasi computer Windows è possibile provare a usare queste utilità: - SQL Server Management Studio (ssms.exe), che si connette mediante ADO.NET. - sqlcmd.exe, che si connette mediante [ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
+In qualsiasi computer Windows è possibile provare a usare queste utilità: - SQL Server Management Studio (ssms.exe), che si connette tramite ADO.NET. - sqlcmd.exe, che si connette tramite [ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
 
 
 Dopo la connessione, verificare il funzionamento di una breve query SQL SELECT.
@@ -271,7 +264,7 @@ La diagnosi di un problema intermittente è spesso agevolata dal rilevamento di 
 Il client può supportare l'analisi tramite la registrazione di tutti gli errori rilevati. È possibile che si riesca a correlare le voci del log con i dati di errore registrati internamente dal database SQL di Azure.
 
 
-Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la registrazione: - [5 - Più facile che mai: uso del blocco di applicazioni di registrazione](http://msdn.microsoft.com/library/dn440731.aspx)
+Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la registrazione: - [5 - Più facile che mai: uso del blocco applicazione di registrazione](http://msdn.microsoft.com/library/dn440731.aspx)
 
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
@@ -284,7 +277,7 @@ Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log alla ricer
 
 | Query di un log | Descrizione |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La visualizzazione [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) offre informazioni sui singoli eventi, inclusi gli errori di connettività correlati alla riconfigurazione, alla limitazione e all'accumulo eccessivo di risorse.<br/><br/>In teoria è possibile correlare i valori **start\_time** o **end\_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>**SUGGERIMENTO:** è necessario connettersi al database **master** per eseguire questa operazione. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La visualizzazione [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) offre informazioni sui singoli eventi, inclusi quelli che possono causare errori temporanei o di connettività.<br/><br/>In teoria è possibile correlare il valore **start\_time** o **end\_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>**SUGGERIMENTO:** è necessario connettersi al database **master** per eseguire questa operazione. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | La visualizzazione [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) offre un conteggio aggregato dei tipi di evento, per consentire operazioni di diagnostica aggiuntive.<br/><br/>**SUGGERIMENTO:** è necessario connettersi al database **master** per eseguire questa operazione. |
 
 
@@ -338,10 +331,10 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL di Azure SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in: - [Enterprise Library 6 - Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
+Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL di Azure SQL. Gli argomenti dedicati a ogni area in cui EntLib60 può risultare utile sono disponibili in: - [Enterprise Library 6 - Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
-La logica di ripetizione dei tentativi per la gestione di errori temporanei è una delle aree per cui EntLib60 può risultare utile: - [4 - Perseveranza, il segreto di ogni successo: uso del blocco applicazioni di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+La logica di ripetizione dei tentativi per la gestione di errori temporanei è una delle aree per cui EntLib60 può risultare utile: - [4 - Perseveranza, il segreto di ogni successo: uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
 Un breve esempio di codice C# che usa EntLib60 nella logica di ripetizione dei tentativi è disponibile in: - [Codice di esempio: logica di ripetizione tentativi di Enterprise Library 6 in C# per la connessione al database SQL](sql-database-develop-entlib-csharp-retry-windows.md)
@@ -384,7 +377,7 @@ Ecco i collegamenti alle informazioni relative a EntLib60:
 
 - Procedure consigliate: [Indicazioni generali per la ripetizione di tentativi](best-practices-retry-general.md) offre un'eccellente discussione approfondita della logica di ripetizione dei tentativi.
 
-- Download NuGet del [blocco applicazioni per la gestione di errori temporanei in Enterprise Library 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
+- Download NuGet di [Enterprise Library - Blocco applicazione per la gestione di errori temporanei 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
 
 ### EntLib60: il blocco di registrazione
@@ -399,7 +392,7 @@ Ecco i collegamenti alle informazioni relative a EntLib60:
 - Il blocco di registrazione astrae la funzionalità di registrazione dalla destinazione di registrazione, in modo che il codice applicazione sia coerente, indipendentemente dalla posizione e dal tipo di archivio di registrazione di destinazione.
 
 
-Per informazioni dettagliate vedere [5 - Più facile che mai: uso del blocco di applicazioni di registrazione](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
+Per informazioni dettagliate vedere [5 - Più facile che mai: uso del blocco applicazione di registrazione](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
 
 ### Codice sorgente del metodo IsTransient di EntLib60
@@ -485,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

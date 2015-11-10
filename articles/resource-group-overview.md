@@ -79,7 +79,7 @@ Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli
 
 Per gli schemi del modello, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-Per informazioni sull'utilizzo di un modello per la distribuzione, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md).
+Per informazioni sull'uso di un modello per la distribuzione, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
 Per indicazioni su come strutturare i modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](best-practices-resource-manager-design-templates.md).
 
@@ -101,7 +101,7 @@ Gestione risorse di Azure registra automaticamente le azioni dell'utente ai fini
 
 Per ulteriori informazioni sul controllo di accesso basato sui ruoli, vedere [Controllo dell'accesso basato sui ruoli nel portale di anteprima di Microsoft Azure](role-based-access-control-configure.md). Questo argomento contiene un elenco dei ruoli predefiniti e delle azioni consentite. I ruoli predefiniti includono i ruoli generali, ad esempio Proprietario, Lettore e Collaboratore, oltre ai ruoli specifici del servizio come ad esempio Collaboratore Macchina virtuale, Collaboratore Rete virtuale, Gestore Sicurezza SQL, solo per citarne alcuni.
 
-Per esempi di assegnazione di ruoli, vedere [Gestione dell'accesso alle risorse](azure-portal/resource-group-rbac.md).
+Per esempi di assegnazione di ruoli, vedere [Gestione dell'accesso alle risorse](resource-group-rbac.md).
 
 È anche possibile bloccare in modo esplicito le risorse critiche per impedire agli utenti di eliminarle o modificarle. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
@@ -127,7 +127,7 @@ Per altre informazioni sull'uso del portale di anteprima, vedere [Uso del portal
 ## Passaggi successivi
 
 - Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli](./resource-group-authoring-templates.md).
-- Per distribuire il modello creato, vedere [Distribuzione di modelli](azure-portal/resource-group-template-deploy.md)
+- Per distribuire il modello creato, vedere [Distribuzione di modelli](resource-group-template-deploy.md)
 - Per comprendere le funzioni che è possibile usare in un modello, vedere [Funzioni del modello](./resource-group-template-functions.md)
 - Per informazioni aggiuntive sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](best-practices-resource-manager-design-templates.md)
 
@@ -135,4 +135,4 @@ Ecco una dimostrazione video di questa panoramica:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

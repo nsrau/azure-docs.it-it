@@ -10,7 +10,7 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
     ms.date="10/20/2015"
@@ -144,4 +144,4 @@ Dopo aver creato il database, verranno visualizzati i relativi dettagli.
 
 - [Database SQL di Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

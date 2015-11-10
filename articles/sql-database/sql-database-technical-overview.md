@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/30/2015"
@@ -59,4 +59,4 @@ Il server SQL vanta una tradizione di sicurezza dei dati continua che rispetta i
 
 - Per iniziare, [creare il primo database](sql-database-get-started.md). Poi costruire la prima app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

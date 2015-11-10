@@ -99,7 +99,7 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 ## Visualizzare i dati di telemetria relativi alle prestazioni
 
-Accedere al [portale di anteprima di Azure](http://portal.azure.com), passare ad Application Insights e aprire la risorsa creata.
+Accedere al [portale di Azure](http://portal.azure.com), passare ad Application Insights e aprire la risorsa creata.
 
 ![Scegliere Sfoglia, Application Insights, quindi selezionare l'app](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -216,4 +216,4 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

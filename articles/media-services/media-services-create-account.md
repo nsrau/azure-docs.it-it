@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/28/2015"  
+	ms.date="11/03/2015"  
 	ms.author="juliako"/>
 
 
@@ -35,13 +35,20 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
 -   **Account di Servizi multimediali**. L'account consente di accedere a un set di Servizi multimediali basati su cloud disponibili in Azure. In un account di Servizi multimediali non è possibile archiviare contenuti multimediali effettivi, ma è possibile archiviare i metadati relativi al contenuto multimediale e i processi di elaborazione dei file multimediali. Al momento della creazione dell'account, è necessario selezionare un'area di Servizi multimediali disponibile. L'area selezionata è un data center in cui sono archiviati i record dei metadati per l'account.
 
-    > [AZURE.NOTE]Le aree di servizi multimediali disponibili includono i seguenti: Europa settentrionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti orientali, sud-est asiatico, Asia orientale, Giappone occidentale, Giappone orientale. In Servizi multimediali non vengono utilizzati gruppi di affinità.
+    > [AZURE.NOTE]Le aree di Servizi multimediali (AMS) disponibili includono: Europa settentrionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti orientali, Asia sudorientale, Asia orientale, Giappone occidentale, Giappone orientale. In Servizi multimediali non vengono utilizzati gruppi di affinità.
+    >
+	> AMS è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di gestione di Azure per [creare account di Servizi multimediali](media-services-create-account.md#create-a-media-services-account-using-quick-create) ed eseguire diverse attività descritte [qui](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è tuttavia abilitata, né sono disponibili tutti i tipi di unità riservate di codifica.
+	>
+	>- Brasile meridionale: sono disponibili solo unità riservate di codifica Standard e Basic
+	>- India occidentale, India meridionale e India centrale: sono disponibili solo unità riservate di codifica Basic
+
+
 -   **Account di archiviazione associato**. L'account di archiviazione è un account di archiviazione di Azure associato all'account di Servizi multimediali. L'account di archiviazione offre l'archiviazione BLOB per i file multimediali e deve trovarsi nella stessa area geografica dell'account di Servizi multimediali. Quando si crea un account di Servizi multimediali, è possibile scegliere un account di archiviazione esistente nella stessa area geografica oppure è possibile crearne uno nuovo, ma sempre nella stessa area. Se si elimina un account di Servizi multimediali, gli oggetti BLOB presenti nell'account di archiviazione associato non vengono eliminati.
 
 <a id="quick"></a>
 ## Creare un account di Servizi multimediali tramite Creazione rapida
 
-1. Nel [portale di Azure][] fare clic su **New**, quindi su **Media Service** e infine su **Quick Create**.
+1. Nel [portale di Azure][] fare clic su **Nuovo**, quindi su **Servizio multimediale** e infine su **Creazione rapida**.
 
 	![Creazione rapida di Servizi multimediali](./media/media-services-create-account/wams-QuickCreate.png)
 
@@ -63,9 +70,9 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
 	![Pagina Servizi multimediali](./media/media-services-create-account/wams-mediaservices-page.png)
 
-	Quando si fa doppio clic sul nome dell'account, per impostazione predefinita viene visualizzata la pagina **Avvio Rapido**. Questa pagina consente di eseguire alcune attività di gestione disponibili anche in altre pagine del portale. È ad esempio possibile caricare un file video sia da questa pagina sia dalla pagina **CONTENUTO**.
+	Quando si fa doppio clic sul nome dell'account, per impostazione predefinita viene visualizzata la pagina **Avvio rapido**. Questa pagina consente di eseguire alcune attività di gestione disponibili anche in altre pagine del portale. È ad esempio possibile caricare un file video da questa pagina o dalla pagina **CONTENUTO**.
 
-	È inoltre possibile visualizzare il codice usato dall'SDK di Servizi multimediali di Azure per eseguire attività di caricamento, codifica e pubblicazione di video. È inoltre possibile fare clic su uno dei collegamenti disponibili nella sezione **SCRIVI CODICE**, copiare il codice e usarlo nella propria applicazione.
+	È inoltre possibile visualizzare il codice usato dall'SDK di Servizi multimediali di Azure per eseguire attività di caricamento, codifica e pubblicazione di video. È possibile fare clic su uno dei collegamenti disponibili nella sezione **SCRIVI CODICE**, copiare il codice e usarlo nella propria applicazione.
 
 ##Percorsi di formazione di Media Services
 
@@ -92,4 +99,4 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
   [portale di Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
