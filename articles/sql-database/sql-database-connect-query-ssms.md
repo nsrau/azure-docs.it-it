@@ -45,14 +45,14 @@ Quando si usa il database SQL, è necessario usare la versione più recente di S
 
 I motivi più comuni per cui si verificano errori di connessione sono gli errori nel nome del server, nel nome utente o nella password, nonché il blocco delle connessioni da parte del server per motivi di sicurezza. Assicurarsi che le impostazioni del firewall del server consentano le connessioni dall'indirizzo IP del computer locale e dall'indirizzo IP usato dal client di SSMS. In alcuni casi i due indirizzi IP sono diversi.
 
-Se la connessione ha esito negativo a causa di una regola firewall, l'indirizzo IP viene indicato nel messaggio di errore. Aggiungere questo indirizzo IP per la regola firewall del server. Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall nel database SQL di Azure](sql-database-configure-firewall-settings.md).
+Se la connessione non riesce a causa di impostazioni del firewall, la versione più recente di SQL Server Management Studio (SSMS) creerà automaticamente la regola del firewall dopo avere chiesto conferma. Per ottenere SSMS, vedere [Download di SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Se si usa una versione precedente, l'indirizzo IP è segnalato in un messaggio di errore ed è necessario aggiungerlo alla regola del firewall del server. Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall nel database SQL di Azure](sql-database-configure-firewall-settings.md).
 
 ## Eseguire query di esempio
 
-Dopo la connessione, è possibile eseguire una query di esempio. Se si è creato il database usando il database di esempio AdventureWorks in [Introduzione al database SQL di Microsoft Azure](sql-database-get-started.md), questa query non funzionerà. Per altre informazioni, passare direttamente ai passaggi successivi.
+Dopo la connessione, è possibile eseguire una query di esempio. Se il database non è stato creato usando l'esempio AdventureWorks in [Creare il primo database SQL di Microsoft Azure](sql-database-get-started.md), questa query non funzionerà. Per altre informazioni, passare direttamente ai passaggi successivi.
 
 1. In **Esplora oggetti** passare al database **AdventureWorks**.
-2. Fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
+2. Fare clic con il pulsante destro del mouse sul database e selezionare **Nuova query**.
 
 	![Nuova query](./media/sql-database-connect-query-ssms/4-run-query.png)
 
@@ -72,8 +72,8 @@ Dopo la connessione, è possibile eseguire una query di esempio. Se si è creato
 
 ## Passaggi successivi
 
-È possibile usare istruzioni Transact-SQL per creare e gestire i database in Azure in modo analogo a SQL Server. Se si ha familiarità con l'uso di Transact-SQL con SQL Server, vedere [Informazioni su Transact-SQL nel database SQL di Azure](sql-database-transact-sql-information.md) per un riepilogo delle differenze.
+È possibile usare istruzioni Transact-SQL per creare e gestire i database in Azure in modo analogo a SQL Server. Se si ha familiarità con l'uso di Transact-SQL con SQL Server, vedere [Informazioni su Transact-SQL nel Database SQL di Azure](sql-database-transact-sql-information.md) per un riepilogo delle differenze.
 
 Se non si ha familiarità con Transact-SQL, vedere [Esercitazione: Scrittura di istruzioni Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) e [Guida di riferimento a Transact-SQL (Motore di database)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

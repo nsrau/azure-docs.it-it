@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/05/2015"
 	ms.author="heidist"/>
 
 # Introduzione alla prima applicazione Ricerca di Azure in .NET
 
-Informazioni su come compilare un'applicazione di ricerca .NET personalizzata in Visual Studio 2013 o versione successiva che usa Ricerca di Azure per l'esperienza di ricerca. Nell'esercitazione viene usato [.NET SDK di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) per compilare le classi per gli oggetti e le operazioni usate nell'esercizio, nonché l'API REST del servizio Ricerca di Azure.
+Informazioni su come compilare un'applicazione di ricerca .NET personalizzata in Visual Studio 2013 o versione successiva che usa Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, per l'esperienza di ricerca. Nell'esercitazione viene usato [.NET SDK di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) per compilare le classi per gli oggetti e le operazioni usate nell'esercizio, nonché l'API REST del servizio Ricerca di Azure.
 
 Per eseguire questo esempio, è necessario un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com).
 
@@ -794,4 +794,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

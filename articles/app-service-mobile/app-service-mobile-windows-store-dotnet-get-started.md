@@ -95,4 +95,4 @@ In questa sezione viene scaricato un progetto di modello di app universale di Wi
 [portale di Azure]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

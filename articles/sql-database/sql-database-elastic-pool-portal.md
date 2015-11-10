@@ -10,10 +10,10 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015"
+	ms.date="10/29/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -44,7 +44,7 @@ Nel [portale di anteprima di Azure](https://ms.portal.azure.com/) fare clic su *
 Se viene visualizzato un messaggio che informa che esiste un pool consigliato per un server, fare clic per esaminare facilmente e creare un pool ottimizzato per i database del server. Per altre informazioni, vedere [Pool di database elastici consigliati](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
    
   
-![Creare un pool elastico][1]
+   ![Creare un pool elastico][1]
 
 
 Il pannello **Pool di database elastico** fornisce opzioni per scegliere il livello di prezzo, aggiungere i database e configurare le caratteristiche di prestazioni del pool.
@@ -199,4 +199,4 @@ Dopo aver creato un pool di database elastici, è possibile gestire i database n
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -3,10 +3,9 @@
 	description="Questo argomento descrive come effettuare l'iscrizione all'edizione Premium di Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="MarkusVi"
-	writer="markvi"
+	authors="markusvi"
 	manager="stevenpo" 
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.date="10/30/2015"
 	ms.author="markvi"/>
 
 # Introduzione ad Azure Active Directory Premium
@@ -122,4 +121,4 @@ La disponibilità di servizi e funzionalità per un servizio cloud Microsoft var
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

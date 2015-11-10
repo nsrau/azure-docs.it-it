@@ -120,7 +120,11 @@ Assegnare l’intervallo di indirizzo 10.0.0.0/24 al subnet variabile da utilizz
 	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 Crea una rete virtuale denominata "appgwvnet" nel gruppo di risorsa "appw-rg" per l'area Stati Uniti occidentali utilizzando il prefisso 10.0.0.0/16 con subnet 10.0.0.0/24
+
+### Passaggio 3
 	
+	$subnet=$vnet.Subnets[0]
+
 ## Creare l'indirizzo IP pubblico per la configurazione front-end
 
 	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
@@ -178,7 +182,7 @@ Crea la regola routing del servizio di bilanciamento del carico denominata "rule
 
 Configura le dimensioni dell'istanza del Gateway Applicazione
 
->[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
 
 ## Creare un Gateway Applicazione utilizzando New-AzureApplicationGateway
 
@@ -205,7 +209,7 @@ Ottenere l'oggetto Gateway Applicazione e associare a una variabile "$getgw":
 
 ### Passaggio 2
 	 
-Utilizzare `Start-AzureApplicationGateway`per avviare il Gateway Applicazione:
+Usare `Start-AzureApplicationGateway` per avviare il gateway applicazione:
 
 	 Start-AzureApplicationGateway -ApplicationGateway $getgw  
 
@@ -213,7 +217,7 @@ Utilizzare `Start-AzureApplicationGateway`per avviare il Gateway Applicazione:
 
 ## Verificare lo stato del Gateway Applicazione
 
-Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'azione *Start-AzureApplicationGateway* è riuscita, lo stato dovrebbe essere *In esecuzione* e le voci per l'indirizzo VIP e DnsName dovrebbero essere valide.
+Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se *Start-AzureApplicationGateway* è riuscito nel passaggio precedente, lo stato dovrebbe essere *In esecuzione* e i valori di Vip e DnsName dovrebbero essere validi.
 
 Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto per accettare il traffico destinato a `http://<generated-dns-name>.cloudapp.net`.
 
@@ -380,7 +384,7 @@ Ottenere l'oggetto Gateway Applicazione e associare a una variabile "$getgw":
 
 ### Passaggio 2
 	 
-Utilizzare `Stop-AzureApplicationGateway`per arrestare il Gateway Applicazione:
+Usare `Stop-AzureApplicationGateway` per arrestare il gateway applicazione:
 
 	Stop-AzureApplicationGateway -ApplicationGateway $getgw  
 
@@ -407,11 +411,11 @@ Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `
 
 Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione per l'uso con ILB, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione da usare con ILB, vedere [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

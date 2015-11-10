@@ -120,26 +120,34 @@ Microsoft contrassegnerà i prefissi annunciati tramite il peering pubblico e il
 
 | **Area geopolitica** | **Area di Microsoft Azure (si applica anche a Office 365)** | **Valore della community BGP** |
 |---|---|---|
-| **Stati Uniti** |	Stati Uniti orientali | 12076:3004 |
-| | Stati Uniti orientali 2 | 12076:3005 |
-| | Stati Uniti occidentali | 12076:3006 |
-| | Stati Uniti centrali | 12076:3009 |
-| | Stati Uniti centro-settentrionali | 12076:3007 |
-| | Stati Uniti centro-meridionali | 12076:3008 |
-| **America del Sud** | Brasile meridionale | 12076:3014 |
-| **Europa** | Europa settentrionale | 12076:3003 |
-| | Europa occidentale | 12076:3002 |
-| **Asia Pacifico** | Asia orientale | 12076:3010 |
-| | Asia sudorientale | 12076:3011 |
-| **Giappone** | Giappone orientale | 12076:3012 |
-| | Giappone occidentale | 12076:3013 |
-| **Australia** | Australia orientale | 12076:3015 |
-| | Australia sudorientale | 12076:3016 |
-| **India** | India meridionale | 12076:3019 |
-| | India occidentale | 12076:3018 |
-| | India centrale | 12076:3017 |
+| **America del Nord** | | 12076:51201 |
+| | Stati Uniti Orientali | 12076:51004 |
+| | Stati Uniti orientali 2 | 12076:51005 |
+| | Stati Uniti occidentali | 12076:51006 |
+| | Stati Uniti centro-settentrionali | 12076:51007 |
+| | Stati Uniti centro-meridionali | 12076:51008 |
+| | Stati Uniti centrali | 12076:51009 |
+| **America del Sud** | | 12076:51202 |
+| | Brasile meridionale | 12076:51014 |
+| **Europa** | | 12076:51203 |
+| | Europa settentrionale | 12076:51003 |
+| | Europa occidentale | 12076:51002 |
+| **Asia Pacifico** | | 12076:51204 |
+| | Asia orientale | 12076:51010 |
+| | Asia sudorientale | 12076:51011 |
+| **Giappone** | Giappone orientale | 12076:51012 |
+| | Giappone occidentale | 12076:51013 |
+| **Australia** | Australia orientale | 12076:51015 |
+| | Australia sudorientale | 12076:51016 |
+| **India** | India meridionale | 12076:51019 |
+| | India occidentale | 12076:51018 |
+| | India centrale | 12076:51017 |
+| **Globale** | **Supportato e pubblicato solo quando è abilitato il componente aggiuntivo Premium** | 12076:51000 |
+| **Anycast** | | 12076:51250 |
 
 Tutte le route annunciate da Microsoft verranno contrassegnate con il valore della community appropriato.
+
+>[AZURE.IMPORTANT]I prefissi globali verranno contrassegnati con un valore della community appropriato e saranno annunciati solo quando è abilitato il componente aggiuntivo ExpressRoute Premium.
 
 
 Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP.
@@ -151,12 +159,11 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | **Skype For Business** | 12076:5030 |
 | **CRM Online** | 12076:5040 |
 | **Altri servizi di Office 365** | 12076:5100 |
-| **Prefissi globali / Anycast** | 12076:5200 |
 
 
 ### Modifica delle preferenze di routing
 
-Microsoft non riconosce eventuali valori della community BGP impostati dall'utente. È necessario configurare una coppia di sessioni BGP per peering per assicurarsi che i requisiti per il [contratto di servizio per la disponibilità](http://azure.microsoft.com/support/legal/sla/) siano soddisfatti. È tuttavia possibile configurare la propria rete in modo che preferisca un collegamento anziché un altro usando le tecniche di modifica delle route BGP standard. È possibile applicare preferenze locali BGP diverse a ogni collegamento per preferire un collegamento dalla propria rete a Microsoft a un altro. È possibile far precedere il percorso AS agli annunci delle route per influenzare il flusso del traffico da Microsoft alla propria rete.
+Microsoft non riconosce eventuali valori della community BGP impostati dall'utente. È necessario configurare una coppia di sessioni BGP per peering per assicurarsi che i requisiti per il [contratto di servizio relativo alla disponibilità](http://azure.microsoft.com/support/legal/sla/) siano soddisfatti. È tuttavia possibile configurare la propria rete in modo che preferisca un collegamento anziché un altro usando le tecniche di modifica delle route BGP standard. È possibile applicare preferenze locali BGP diverse a ogni collegamento per preferire un collegamento dalla propria rete a Microsoft a un altro. È possibile far precedere il percorso AS agli annunci delle route per influenzare il flusso del traffico da Microsoft alla propria rete.
 
 ## Passaggi successivi
 
@@ -166,4 +173,4 @@ Microsoft non riconosce eventuali valori della community BGP impostati dall'uten
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

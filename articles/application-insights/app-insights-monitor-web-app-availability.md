@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="11/04/2015"
 	ms.author="awills"/>
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
@@ -217,14 +217,17 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
 ## Domande? Problemi?
 
-
-* *Esiste una differenza tra "test Web" e "disponibilità"?*
-
-    I due termini vengono usati in modo intercambiabile.
-
 * *È possibile chiamare codice da un test Web?*
 
     No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono numerosi plug-in che potrebbero risultare utili.
+
+* *HTTPS è supportato?*
+
+    Attualmente, sono supportati SSL 3.0 e TLS 1.0.
+
+* *Esiste una differenza tra "test Web" e "test di disponibilità"?*
+
+    I due termini vengono usati in modo intercambiabile.
 
 ## <a name="video"></a>Video
 
@@ -246,4 +249,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

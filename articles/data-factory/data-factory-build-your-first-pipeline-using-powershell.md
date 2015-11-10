@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.topic="hero-article"
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Creare la prima pipeline di Data factory di Azure con Azure PowerShell
@@ -33,6 +33,10 @@ Questo articolo descrive come usare Azure PowerShell per creare la prima pipelin
 Questo articolo non fornisce una panoramica concettuale del servizio Data factory di Azure. Per una panoramica dettagliata del servizio, vedere l'articolo [Introduzione al servizio Data factory di Azure](data-factory-introduction.md).
 
 > [AZURE.IMPORTANT]Leggere l'articolo [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) e completare i prerequisiti prima di eseguire questa esercitazione.
+>   
+> Questo articolo non illustra tutti i cmlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
+>    
+> Se si usa Azure PowerShell 1.0 Preview, sarà necessario usare i cmdlet documentati [qui](https://msdn.microsoft.com/library/dn820234.aspx). Usare ad esempio New-AzureRMDataFactory invece di New-AzureDataFactory.
 
 ## Passaggio 1: Creazione della data factory
 
@@ -45,7 +49,7 @@ In questo passaggio è possibile usare Azure PowerShell per creare una data fact
 2. Passare alla modalità AzureResourceManager perché i cmdlet di Data factory di Azure sono disponibili in questa modalità.
 
 		Switch-AzureMode AzureResourceManager
-3. Creare un gruppo di risorse di Azure denominato *ADFTutorialResourceGroup* eseguendo il comando seguente.
+3. Creare un gruppo di risorse di Azure denominato *ADFTutorialResourceGroup* tramite il comando seguente.
 
 		New-AzureResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -54,7 +58,7 @@ In questo passaggio è possibile usare Azure PowerShell per creare una data fact
 
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH –Location "West US"
 
-	> [AZURE.IMPORTANT]È necessario specificare un nome univoco globale per la Data factory di Azure. Se viene visualizzato un errore simile a **Il nome di Data Factory "DataFactoryMyFirstPipelinePSH"**, cambiare il nome (ad esempio, nomeutenteADFTutorialDataFactoryPSH). Durante l'esecuzione di passaggi in questa esercitazione usare questo nome anziché ADFTutorialFactoryPSH. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
+	> [AZURE.IMPORTANT]È necessario specificare un nome univoco globale per la Data factory di Azure. Se viene visualizzato un errore simile a **Il nome di Data Factory "DataFactoryMyFirstPipelinePSH" non è disponibile**, modificare il nome, ad esempio, nomeutenteADFTutorialDataFactoryPSH. Durante l'esecuzione di passaggi in questa esercitazione usare questo nome anziché ADFTutorialFactoryPSH. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
 	> 
 	> Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 
@@ -77,10 +81,10 @@ In questo passaggio si procederà al collegamento dell'account di archiviazione 
 		    }
 		}
 
-	Sostituire **account name** con il nome dell'account di archiviazione di Azure e **account key** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
+	Sostituire **accountname** con il nome dell'account di archiviazione di Azure e **accountkey** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere la sezione [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 2.	In Azure PowerShell passare alla cartella ADFGetStartedPSH.
-3.	È possibile usare il cmdlet **New-AzureDataFactoryLinkedService** per creare un servizio collegato. Questo cmdlet e altri cmdlet di Data factory usati in questa esercitazione richiedono il passaggio di valori per i parametri *ResourceGroupName* e *DataFactoryName*. In alternativa, è possibile usare **Get-AzureDataFactory** per ottenere un oggetto **DataFactory** e passare l'oggetto senza digitare *ResourceGroupName* e *DataFactoryName* ogni volta che si esegue un cmdlet. Eseguire il comando seguente per assegnare l'output del cmdlet **Get-AzureDataFactory** a una variabile **$df**.
+3.	È possibile usare il cmdlet **New-AzureDataFactoryLinkedService** per creare un servizio collegato. Questo cmdlet e altri cmdlet di Data factory usati in questa esercitazione richiedono il passaggio di valori per i parametri *ResourceGroupName* e *DataFactoryName*. In alternativa, è possibile usare **Get-AzureDataFactory** per ottenere un oggetto **DataFactory** e passarlo senza digitare *ResourceGroupName* e *DataFactoryName* ogni volta che si esegue un cmdlet. Eseguire il comando seguente per assegnare l'output del cmdlet **Get-AzureDataFactory** a una variabile **$df**.
 
 		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
@@ -92,7 +96,7 @@ In questo passaggio si procederà al collegamento dell'account di archiviazione 
 
 		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
 
-	Se si chiude Azure PowerShell a metà esercitazione, sarà necessario eseguire il cmdlet **Get-AzureDataFactory** al successivo avvio di Azure PowerShell per completare l'esercitazione.
+	Se si chiude Azure PowerShell durante l'esercitazione, per completarla sarà necessario eseguire il cmdlet **Get-AzureDataFactory** al successivo avvio di Azure PowerShell.
 
 ### Creare un servizio collegato Azure HDInsight
 Si creerà ora un servizio collegato per il cluster HDInsight di Azure su richiesta che sarà usato per eseguire lo script Hive.
@@ -199,13 +203,13 @@ In questo passaggio si creerà la prima pipeline.
 
 	Nell'esempio precedente, si crea una pipeline costituita da una singola attività che usa Hive per elaborare i dati in un cluster HDInsight.
 
-	Il file di script Hive, partitionweblogs.hql, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato StorageLinkedService) e in un contenitore denominato **script**.
+	Il file di script Hive, partitionweblogs.hql, è archiviato nell'account di archiviazione di Azure, specificato da scriptLinkedService, denominato StorageLinkedService, e in un contenitore denominato **script**.
 
-	La sezione **extendedProperties** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive (ad esempio, ${hiveconf:PartitionedData}).
+	La sezione **extendedProperties** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive, ad esempio ${hiveconf:PartitionedData}.
 
-	Le proprietà **start** ed **end** della pipeline specificano il periodo attivo della pipeline.
+	Le proprietà **start** ed **end** della pipeline ne specificano il periodo attivo.
 
-	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata dal servizio collegato, **HDInsightOnDemandLinkedService**.
+	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sul computer specificato dal servizio collegato, **HDInsightOnDemandLinkedService**.
 2. Eseguire il comando seguente per creare la tabella di Data factory.
 
 		New-AzureDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
@@ -265,9 +269,11 @@ Vedere [Riferimento ai cmdlet di Data factory](https://msdn.microsoft.com/librar
 
 
 ## Passaggi successivi
-In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta di Azure. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati da un BLOB di Azure ad Azure SQL](./data-factory-get-started.md).
+In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta di Azure. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure in Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](./data-factory-get-started.md).
 
 ## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md) richiede solo alcuni minuti.
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO4-->
+[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
+<!---HONumber=Nov15_HO2-->
