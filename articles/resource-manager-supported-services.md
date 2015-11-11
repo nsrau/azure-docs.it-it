@@ -68,10 +68,8 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | Ricerca | Sì | [Sì](https://portal.azure.com/#create/Microsoft.Search) | Sì | [REST Ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Sì | [Sì](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
 | StorSimple | No | No | - | - | - |
-| Backup | No | No | - | - | - |
-| Site Recovery | No | No | - | - | - |
 | Cache gestita | No | No | - | - | - |
-| Catalogo dati | No | No | - | - | - |
+
 
 ## Analytics
 
@@ -81,7 +79,8 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | Analisi dei flussi | Sì | [Sì](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Sì | [Sì](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Data factory | Sì | [Sì](https://portal.azure.com/#create/Microsoft.DataFactory) | Sì | [Creare Data factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Machine Learning | No | No | - | - | - | | Catalogo dati | No | No | - | - | - |
+| Machine Learning | No | No | - | - | - |
+| Catalogo dati | No | No | - | - | - |
 
 ## Rete
 
@@ -107,7 +106,8 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Servizi BizTalk | Sì | No | | | [01/04/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Bus di servizio | Sì | No | | [REST bus di servizio](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Backup | No | No | - | - | - | | Ripristino sito | No | No | - | - | - |
+| Backup | No | No | - | - | - |
+| Ripristino sito | No | No | - | - | - |
 
 ## Gestione dell'identità e dell'accesso 
 
@@ -234,4 +234,4 @@ Per Azure PowerShell 0.9.8, utilizzare:
 - Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per altre informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](./azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
