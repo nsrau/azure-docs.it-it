@@ -19,7 +19,7 @@
 # Trasformazione e analisi tramite Data factory di Azure
 
 ## Panoramica
-Le attività di trasformazione in Azure Data factory trasformano ed elaborano i dati non elaborati in stime e approfondimenti. L'attività di trasformazione viene eseguita in un ambiente di elaborazione, ad esempio cluster HDInsight di Azure o un Batch di Azure. Data factory di Azure supporta le seguenti attività di trasformazione che possono essere aggiunte a[pipeline](data-factory-create-pipelines.md)singolarmente o con un'altra attività concatenata.
+Le attività di trasformazione in Azure Data factory trasformano ed elaborano i dati non elaborati in stime e approfondimenti. L'attività di trasformazione viene eseguita in un ambiente di elaborazione, ad esempio cluster HDInsight di Azure o un Batch di Azure. Data factory di Azure supporta le seguenti attività di trasformazione che possono essere aggiunte a [pipeline](data-factory-create-pipelines.md) singolarmente o con un'altra attività concatenata.
 
 
 Attività di trasformazione | Ambiente di calcolo 
@@ -42,4 +42,4 @@ Per informazioni sui servizi collegati di calcolo supportati da Data factory, ve
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md) richiede solo alcuni minuti.
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
