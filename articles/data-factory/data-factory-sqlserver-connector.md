@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da e verso SQL Server locale o in IaaS (VM di Azure) utilizzando Data factory di Azure
@@ -204,6 +204,15 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	   }
 	}
 
+> [AZURE.NOTE]Nell'esempio precedente, la proprietà **sqlReaderQuery** è specificata per SqlSource. L'attività di copia esegue questa query nell'origine del database del server SQL per ottenere i dati.
+>  
+> In alternativa, è possibile specificare una stored procedure specificando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se la stored procedure accetta parametri).
+>  
+> Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, le colonne definite nella sezione della struttura del set di dati JSON vengono usate per compilare una query (selezionare column1, column2 da mytable) da eseguire nel database del server di SQL. Se la definizione del set di dati non dispone della struttura, vengono selezionate tutte le colonne della tabella.
+
+
+Vedere la sezione [SqlSource](#sqlsource) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) per l'elenco delle proprietà supportate da SqlSource e BlobSink.
+
 ## Esempio: Copiare i dati dal BLOB di Azure in SQL Server
 
 L'esempio seguente mostra:
@@ -329,7 +338,7 @@ L'esempio copia i dati in una tabella denominata "MyTable" in SQL Server. È nec
 
 **Pipeline con attività di copia**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo **source** è impostato su **BlobSource** e il tipo di **sink** è impostato su **SqlSink**.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **BlobSource** e il tipo di **sink** è impostato su **SqlSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -422,7 +431,7 @@ Se vengono specificati nome utente e password, il gateway li userà per rapprese
 	     } 
 	}
 
-Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dei dati SQl Server.
+Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dei dati SQL Server.
 
 ## Proprietà del tipo del set di dati SQL Server
 
@@ -438,15 +447,29 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
 
+> [AZURE.NOTE]L'attività di copia accetta solo un input e produce solo un output.
+
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
+
+### SqlSource
 
 In caso di attività di copia con origine di tipo **SqlSource**, sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. Ad esempio: selezionare * da MyTable. Se non specificato, l'istruzione SQL eseguita: selezionare da MyTable. | No |
+| sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. | Nome della stored procedure. | No |
+| storedProcedureParameters | Parametri per la stored procedure. | Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No |
 
-**SqlSink** supporta le seguenti proprietà:
+Se la proprietà **sqlReaderQuery** è specificata per SqlSource, l'attività di copia esegue questa query nell'origine del database del server di SQL per ottenere i dati.
+
+In alternativa, è possibile specificare una stored procedure specificando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se la stored procedure accetta parametri).
+
+Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, le colonne definite nella sezione della struttura del set di dati JSON vengono usate per compilare una query (selezionare column1, column2 da mytable) da eseguire nel database del server di SQL. Se la definizione del set di dati non dispone della struttura, vengono selezionate tutte le colonne della tabella.
+
+### SqlSink
+
+**SqlSink** supporta le proprietà seguenti:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -518,4 +541,4 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # Come creare una raccolta ibrida per Azure RemoteApp
@@ -54,7 +54,7 @@ Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 ## Passaggio 1: configurare la rete virtuale
 È possibile distribuire una raccolta ibrida che utilizza una rete virtuale di Azure esistente oppure è possibile creare una nuova rete virtuale. Una rete virtuale consente agli utenti di accedere ai dati nella rete locale mediante le risorse remote di RemoteApp. L'uso di una rete virtuale di Azure offre alla raccolta accesso di rete diretto ad altri servizi e macchine virtuali di Azure distribuiti in tale rete virtuale.
 
-Assicurarsi di rivedere le informazioni relative alla [panificazione della rete virtuale](remoteapp-planvpn.md) e alle [dimensioni delle reti virtuali](remoteapp-vnetsizing.md) prima di creare una rete virtuale.
+Assicurarsi di rivedere le informazioni relative alla [panificazione della rete virtuale](remoteapp-planvnet.md) e alle [dimensioni delle reti virtuali](remoteapp-vnetsizing.md) prima di creare una rete virtuale.
 
 ### Creare una rete virtuale di Azure e aggiungerla alla distribuzione di Active Directory
 
@@ -86,6 +86,8 @@ Altre informazioni sulla creazione di macchine virtuali di Azure e su come colle
 5. Fare clic su **Crea raccolta RemoteApp**.
 
 Dopo avere creato la raccolta di Azure RemoteApp, fare doppio clic sul nome della raccolta. Questo visualizzerà la pagina **Avvio rapido** - qui è possibile completare la configurazione della raccolta.
+
+Nel caso in cui si siano verificati problemi Estrarre le [informazioni sulla risoluzione dei problemi per la raccolta ibrida](remoteapp-hybridtrouble.md).
 
 ## Passaggio 3: Collegare la raccolta al dominio locale ##
 
@@ -145,6 +147,6 @@ La procedura è stata completata e la raccolta ibrida RemoteApp di Azure è stat
 
  
 ### Come contribuire al miglioramento 
-Non tutti sanno che oltre alla classificazione di questo articolo e l'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
+Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

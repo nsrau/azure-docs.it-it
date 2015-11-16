@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Esercitazione sull'aggiornamento di un'applicazione di Service Fabric"
-   description="Questo articolo descrive in modo dettagliato l'aggiornamento di un'applicazione di Service Fabric."
+   pageTitle="Esercitazione sull'aggiornamento di un'applicazione | Microsoft Azure"
+   description="In questo articolo vengono esaminati l'esperienza di distribuzione di un'applicazione dell’infrastruttura di servizi, la modifica del codice e l’implementazione di un aggiornamento."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -24,7 +24,7 @@ Il metodo di aggiornamento consigliato usato più frequentemente è l'aggiorname
 
 L'aggiornamento in sequenza in modalità monitorata di Service Fabric consente all'amministratore di applicazioni di configurare i criteri di valutazione dell'integrità usati da Service Fabric per determinare se l'applicazione è integra. Consente anche all'amministratore di configurare l'azione da intraprendere se la valutazione dell'integrità ha esito negativo, ad esempio il rollback automatico. Questa sezione descrive in modo dettagliato un aggiornamento in modalità monitorata per uno degli esempi di SDK.
 
-## Passaggio 1: Creare e distribuire l'esempio di oggetti visivi
+## Passaggio 1: creare e distribuire l'esempio di oggetti visivi
 
 Queste operazioni possono essere eseguite aprendo il progetto in Visual Studio, facendo clic con il pulsante destro del mouse sulla soluzione e scegliendo il comando di distribuzione dal menu di Service Fabric. Per altre informazioni, vedere l'articolo relativo alla [gestione di un'applicazione di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md). In alternativa, è possibile usare PowerShell.
 
@@ -34,7 +34,7 @@ Dopo aver compilato il progetto in Visual Studio, è possibile usare il comando 
 
 È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui è possibile accedere in Internet Explorer digitando [http://localhost:80](http://localhost:80) sulla barra degli indirizzi. Verranno visualizzati alcuni oggetti visivi mobili sullo schermo. È anche possibile usare **Get-ServiceFabricApplication** per controllare lo stato dell'applicazione.
 
-## Passaggio 2: Aggiornare l'esempio di oggetti visivi
+## Passaggio 2: aggiornare l'esempio di oggetti visivi
 
 È possibile osservare che con la versione distribuita al passaggio 1 gli oggetti visivi non ruotano. L'applicazione può essere aggiornata in modo che gli oggetti visivi ruotino.
 
@@ -78,7 +78,7 @@ UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout = 3000
 
-## Passaggio 4: Preparare l'applicazione per l'aggiornamento
+## Passaggio 4: preparare l'applicazione per l'aggiornamento
 
 L'applicazione ora è compilata e pronta per l'aggiornamento. Se si apre una finestra di PowerShell come amministratore e si digita **Get-ServiceFabricApplication**, verrà indicato che è stato distribuito il tipo di applicazione 1.0.0.0 di **VisualObjects**. Il pacchetto applicazione è archiviato nel percorso relativo seguente, dove è stato decompresso Service Fabric SDK - *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug*. In questa directory deve essere contenuta una cartella "Package", dove è archiviato il pacchetto applicazione. Controllare i timestamp per assicurarsi che si tratti dell'ultima build (potrebbe essere anche necessario modificare i percorsi in base alle esigenze).
 
@@ -97,7 +97,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 
 Se il comando precedente ha esito negativo, è probabile che sia necessario ricompilare tutti i servizi. Come indicato nel passaggio 2, potrebbe essere necessario aggiornare anche la versione di WebService.
 
-## Passaggio 5: Avviare l'aggiornamento dell'applicazione
+## Passaggio 5: avviare l'aggiornamento dell'applicazione
 
 È ora possibile avviare l'aggiornamento dell'applicazione usando il comando seguente:
 
@@ -126,4 +126,4 @@ In pochi minuti lo stato che usa il comando di PowerShell precedente dovrebbe in
 [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

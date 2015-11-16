@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/03/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -23,6 +23,7 @@
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
+
 
 **[bcp][]** è un'utilità di caricamento bulk da riga di comando che permette di copiare dati tra SQL Server, file di dati e SQL Data Warehouse. Usare bcp per importare numeri elevati di righe nelle tabelle di SQL Data Warehouse o per esportare i dati dalle tabelle di SQL Server ai file di dati. bcp richiede competenze in ambito di Transact-SQL solo quando viene usato con l'opzione queryout.
 
@@ -34,7 +35,7 @@ con bcp è possibile:
 - Utilizzare una semplice utilità della riga di comando per estrarre dati dall’SQL Data Warehouse.
 
 In questa esercitazione verranno illustrate le attività seguenti:
- 
+
 - Importare dati in una tabella tramite l'utilità bcp nel comando
 - Esportare dati da una tabella tramite l'utilità bcp dal comando
 
@@ -64,14 +65,20 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 Dopo la connessione, copiare lo script di tabella seguente nel prompt di sqlcmd e quindi premere INVIO:
 
 ```
-CREATE TABLE DimDate2 (DateId INT NOT NULL, CalendarQuarter TINYINT NOT NULL, FiscalQuarter TINYINT NOT NULL);
-```
-
-Nella riga seguente immettere il terminatore di batch GO e premere INVIO per eseguire l'istruzione:
-
-```
+CREATE TABLE DimDate2 
+(
+    DateId INT NOT NULL,
+    CalendarQuarter TINYINT NOT NULL,
+    FiscalQuarter TINYINT NOT NULL
+)
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = ROUND_ROBIN
+);
 GO
 ```
+>[AZURE.NOTE]Vedere l’argomento [Progettazione tabella][] nel gruppo di sviluppo di argomenti per ulteriori informazioni sulle possibilità disponibili nella clausola WITH.
 
 ### Passaggio 2: Creare un file di dati di origine
 
@@ -127,6 +134,19 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
+### Passaggio 4: creare le statistiche sui dati appena caricati 
+
+SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][] nel gruppo di argomenti sullo sviluppo. Di seguito è possibile vedere un rapido esempio di come creare statistiche nella tabella caricata in questo esempio.
+
+Da un prompt di sqlcmd, eseguire le istruzioni CREATE STATISTICS seguenti:
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+GO
+```
+
 ## Esportare i dati da SQL Data Warehouse
 In questa esercitazione verrà creato un file di dati da una tabella in SQL Data Warehouse. I dati creati in precedenza verranno esportati in un nuovo file denominato DimDate2\_export.txt.
 
@@ -163,8 +183,11 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 
 <!--Article references-->
 
-[Caricare i dati in SQL Data Warehouse]: ./sql-data-warehouse-overview-load/
-[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
+[Caricare i dati in SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Progettazione tabella]: ./sql-data-warehouse-develop-table-design.md
+[Statistiche]: ./sql-data-warehouse-develop-statistics.md
+
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -173,4 +196,4 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

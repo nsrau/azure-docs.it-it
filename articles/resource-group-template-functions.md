@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Funzioni del modello di Gestione risorse di Azure"
-   description="Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, stringhe di formato e informazioni sulla distribuzione."
+   pageTitle="Funzioni del modello di gestione risorse | Microsoft Azure"
+   description="Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, lavorare con stringhe e valori numerici, e recuperare informazioni sulla distribuzione."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
 
 Questo argomento descrive tutte le funzioni che è possibile usare in un modello di Gestione risorse di Azure.
+
+Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**.
 
 ## add
 
@@ -68,7 +70,7 @@ L'esempio seguente mostra come combinare più valori per restituirne uno solo.
 
 **copyIndex(offset)**
 
-Restituisce l'indice corrente di un ciclo di iterazione. Per esempio di uso di questa funzione, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+Restituisce l'indice corrente di un ciclo di iterazione. Per esempi di uso di questa funzione, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 
 ## deployment
 
@@ -543,6 +545,6 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 - Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md)
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
-- Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
+- Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

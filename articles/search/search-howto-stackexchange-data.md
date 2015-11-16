@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come cercare dati di StackExchange con Ricerca di Azure | Microsoft Azure"
-	description="Informazioni su come eseguire ricerche REST tramite Ricerca di Azure."
+	description="Informazioni su come eseguire ricerche REST tramite la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="liamca"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="10/15/2015"
+	ms.date="11/04/2015"
 	ms.author="liamca"/>
 
 # Come cercare dati di StackExchange con Ricerca di Azure
@@ -109,4 +109,4 @@ Al termine, è possibile usare il [portale Azure](https://portal.azure.com) sceg
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

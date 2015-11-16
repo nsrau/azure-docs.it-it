@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="11/03/2015" 
 	ms.author="tomfitz"/>
 
 # Eseguire il provisioning di un'app per le API con un gateway esistente
@@ -191,4 +191,4 @@ Si noti che i nomi del gateway e dell'app Web di hosting sono definiti come prop
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -1,11 +1,10 @@
 <properties 
-    title="Elastic Scale Security Configurations" 
-    pageTitle="Configurazioni di sicurezza per Scalabilità elastica" 
+    pageTitle="Configurazioni di sicurezza per Scalabilità elastica | Microsoft Azure" 
     description="Impostazione dei certificati 409 per la crittografia" 
     metaKeywords="Elastic Database certificates security" 
     services="sql-database" documentationCenter="" 
     manager="jhubbard" 
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags 
     ms.service="sql-database" 
@@ -13,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/07/2015" 
-    ms.author="sidneyh" />
+    ms.date="11/04/2015" 
+    ms.author="torsteng;sidneyh" />
 
 # Configurazione della sicurezza dei servizi di "split and merge"  
 
@@ -474,4 +473,4 @@ Le credenziali archiviate in questo database vengono crittografate. Come procedu
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

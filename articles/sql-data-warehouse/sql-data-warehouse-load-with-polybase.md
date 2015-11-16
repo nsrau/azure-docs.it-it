@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/04/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -245,6 +245,17 @@ FROM   [ext].[CarSensor_Data]
 
 Vedere [CREATE TABLE AS SELECT (Transact-SQL)][].
 
+## Creare statistiche sui dati appena caricati
+
+SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][] nel gruppo di argomenti sullo sviluppo. Di seguito è possibile vedere un rapido esempio di come creare statistiche nella tabella caricata in questo esempio.
+
+```
+create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
+create statistics [CustomerKey] on [Customer_Speed] ([CustomerKey]);
+create statistics [GeographyKey] on [Customer_Speed] ([GeographyKey]);
+create statistics [Speed] on [Customer_Speed] ([Speed]);
+create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
+```
 
 ## Esportare i dati in archiviazione BLOB di Azure
 Questa sezione illustra come esportare i dati da SQL Data Warehouse nella risorsa di archiviazione BLOB di Azure. In questo esempio si utilizza CREATE EXTERNAL TABLE AS SELECT che è un’istruzione con elevate prestazioni di Transact-SQL per esportare i dati in parallelo da tutti i nodi di calcolo.
@@ -269,8 +280,6 @@ WHERE
     AND DateRequested > '12/31/2013'
     AND DateRequested < '01/01/2015';
 ```
-
-
 
 
 ## Risolvere il requisito PolyBase UTF-8
@@ -338,6 +347,7 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[Statistiche]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -360,4 +370,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189450.aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

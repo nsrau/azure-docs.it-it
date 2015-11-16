@@ -1,10 +1,10 @@
-<properties pageTitle="API REST di gestione di Ricerca di Azure: versione 2015-02-28" description="API REST di gestione di Ricerca di Azure versione 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="API REST di gestione di Ricerca di Azure versione 28/02/2015 | Microsoft Azure" description="API REST di gestione di Ricerca di Azure versione 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="09/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
 # API di gestione: versione 2015-02-28
 
-In questo documento viene descritta la versione **2015-02-28** dell’API REST di gestione di Ricerca di Azure. E’ stata quindi sostituita dalle versioni più recenti. Per la versione più recente, vedere [API REST di gestione di ricerca di Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) su MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure. In questo documento viene descritta la versione **2015-02-28** dell’API REST di gestione di Ricerca di Azure. E’ stata quindi sostituita dalle versioni più recenti. Per la versione più recente, vedere [API REST di gestione di ricerca di Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) su MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ##Operazioni di gestione del servizio
 
@@ -810,6 +810,6 @@ Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 2
 
 ###Contenuto risposta###
 
-Nessuno.
+Nessuna.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -37,16 +37,9 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Completare l'[esercitazione della guida introduttiva](../app-service-mobile-windows-store-dotnet-get-started.md).  
 
 
+##<a name="create-hub"></a>Creare un hub di notifica
 
-##<a name="create-gateway"></a>Creare un hub di notifica
-
-Eseguire questa procedura per creare un nuovo hub di notifica per gestire le notifiche push. Se è già disponibile un hub nello stesso gruppo di risorse, non è necessario completare questa sezione.
-
-1. Visitare il [portale di Azure]. Fare clic su **Esplora tutto** > **App per dispositivi mobili** > e sul back-end appena creato. Fare clic su **Impostazioni** > **Dispositivi mobili** > **Push**. 
-
-2. Seguire il flusso di lavoro per creare un hub di notifica. Sarà necessario creare un nuovo spazio dei nomi, se il gruppo di risorse attuale non include spazi dei nomi. Fare clic su **Crea** dopo avere configurato tutte le impostazioni.
-
-Usare quindi l'hub di notifica per abilitare le notifiche push per l'app.
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
 ##Registrare l'app per le notifiche push
 
@@ -56,7 +49,7 @@ Per potere inviare notifiche push alle app di Windows da Azure, è prima di tutt
 
     ![Associa l’app con Windows Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-win8-app.png)
     
-2. Nella procedura guidata fare clic su **Avanti**, accedere con l'account Microsoft, immettere un nome per l'app in **Riserva nuovo nome applicazione** e quindi fare clic su **Riserva**.
+2. Nella procedura guidata fare clic su **Avanti**, accedere con l'account Microsoft, immettere un nome per l'app in **Riserva un nuovo nome dell’app** e quindi fare clic su **Riserva**.
 
 3. Dopo la creazione della registrazione dell'app, selezionare il nuovo nome dell'app, fare clic su **Avanti** e quindi su **Associa**. Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
 
@@ -66,7 +59,7 @@ Per potere inviare notifiche push alle app di Windows da Azure, è prima di tutt
 
 8. Nella pagina **Notifiche push** fare clic su **Sito di servizi Live** in **Servizi mobili di Microsoft Azure**.
 
-9. Nella scheda **Impostazioni app** annotare i valori di **Segreto client** e **SID pacchetto**.
+9. Nella scheda **Impostazioni app** annotare i valori di **Chiave privata client** e **SID di pacchetto**.
 
     ![Impostazione dell’app nel centro per sviluppatori](./media/app-service-mobile-windows-store-dotnet-get-started-push/mobile-services-win8-app-push-auth.png)
 
@@ -76,7 +69,7 @@ Per potere inviare notifiche push alle app di Windows da Azure, è prima di tutt
 
 1. Accedere al [portale di Azure], selezionare **Sfoglia** > **App per dispositivi mobili** > app > **Servizi notifica Push**.
 
-2. In **Servizio di notifica Windows** immettere la **Chiave di sicurezza** (segreto client) e il **SID pacchetto** ottenuti dal sito di servizi Live, quindi fare clic su **Salva**.
+2. In **Servizio di notifica Windows** immettere la **Chiave di sicurezza** (chiave privata client) e il **SID di pacchetto** ottenuti dal sito di servizi Live, quindi fare clic su **Salva**.
 
 Il back-end dell'app per dispositivi mobili è ora configurato per l'uso del Servizio di notifica Windows.
 
@@ -192,4 +185,4 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

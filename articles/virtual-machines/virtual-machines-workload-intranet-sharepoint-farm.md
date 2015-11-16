@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/29/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Intranet
@@ -48,9 +48,9 @@ Per creare un ambiente di sviluppo/testing per una farm di SharePoint ospitata i
 
 ### Rete virtuale solo cloud
 
-Una rete virtuale solo cloud non è connessa a una rete locale. Se si vuole solo creare rapidamente una farm di SharePoint di base o a disponibilità elevata, vedere l'articolo relativo alla [server farm di SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). L'esempio seguente illustra la configurazione di base di una farm di SharePoint.
+Una rete virtuale solo cloud non è connessa a una rete locale. Se si vuole solo creare rapidamente una farm di SharePoint di base o a disponibilità elevata, vedere l'articolo [Creare server farm di SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). L'esempio seguente illustra la configurazione di base di una farm di SharePoint.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
 
 ### Rete virtuale cross-premise
 
@@ -128,4 +128,4 @@ Dopo aver eseguito la configurazione, è possibile espandere questa farm di Shar
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

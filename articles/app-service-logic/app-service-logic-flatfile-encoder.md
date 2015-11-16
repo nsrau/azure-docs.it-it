@@ -8,39 +8,30 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="app-service-logic" 	
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/01/2015"
+   ms.date="10/29/2015"
    ms.author="rajram"/>
 
 # BizTalk Flat File Encoder
 
-Utilizzare il connettore BizTalk Flat File Encode per l'interoperabilità tra i dati dei file flat (ad esempio di Excel, csv) e i dati XML. Può convertire un'istanza specifica di file flat in XML e viceversa.
+Usare il connettore BizTalk Flat File Encoder per l'interoperabilità tra i dati dei file flat (ad esempio file Excel o con estensione csv) e i dati XML. Può convertire un'istanza specifica di file flat in XML e viceversa.
 
 ##Uso di BizTalk Flat File Encoder
-Per usare BizTalk Flat File Encoder, è prima di tutto necessario creare un'istanza dell'app per le API BizTalk Flat File Encoder. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API BizTalk Flat File Encoder da Azure Marketplace.
+Per usare BizTalk Flat File Encoder, è prima di tutto necessario creare un'istanza dell'app per le API BizTalk Flat File Encoder. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API BizTalk Flat File Encoder da Azure Marketplace. Di seguito sono riportati i passaggi per creare un'app per le API BizTalk Flat File Encoder da Azure Marketplace: 1. Accedere al portale di Azure (http://portal.azure.com) 2. Selezionare Nuovo > Marketplace > Tutto 3. Cercare "BizTalk Flat File Encoder" nella casella di ricerca 4. Selezionare BizTalk Flat File Encoder dall'elenco di risultati 5. Selezionare "Crea", quindi specificare un nome e gli altri dettagli necessari 6. Selezionare "Crea". Si verrà reindirizzati alla pagina iniziale in cui è possibile visualizzare lo stato di avanzamento della creazione. Questa operazione può richiedere alcuni minuti. Al termine, si riceverà una notifica.
 
 ###Configurare BizTalk Flat File Encoder
-BizTalk Flat File Encoder accetta schemi come parte della configurazione. Gli utenti possono avviare il pannello di configurazione dell'app per le API avviando l'app per le API direttamente dal portale di Azure oppure facendo doppio clic sull'app per le API nell'area di progettazione.
+Dopo aver creato l'app per le API, è possibile avviarla direttamente dalla pagina iniziale del portale di Azure o dall'area di progettazione durante la creazione di un'app per la logica.
 
-![Configurazione di BizTalk Flat File Encoder][1]
-
-Nel pannello dell'app per le API gli utenti possono configurare gli schemi facendo clic sulla parte *Schemi*.
-
-![Parte relativa agli schemi di BizTalk Flat File Encoder][2]
-
-Gli utenti possono caricare gli schemi dal disco o generarne uno da un'istanza di file flat o un'istanza JSON.
-
-![Parte relativa agli schemi di BizTalk Flat File Encoder][3]
-
+Per avviarla dalla pagina iniziale di Azure, è possibile cercarla digitandone il nome assegnato a BizTalk Flat File Encoder al momento della creazione. A questo scopo: 1. Immettere il nome di BizTalk Flat File Encoder nella casella di ricerca nel portale di Azure e avviare la ricerca 2. Successivamente, selezionare BizTalk Flat File Encoder dall'elenco. Viene aperto il pannello dell'app per le API in cui è possibile configurare l'app per le API BizTalk Flat File Encoder. Per avviare la configurazione, è opportuno aggiungere uno schema: 1. Selezionare il componente "Schemi" ![Parte relativa agli schemi di BizTalk Flat File Encoder][2] 2. Selezionare "Aggiungi nuovo" nel pannello Schemi visualizzato ![Elenco di azioni di BizTalk Flat File Encoder][7] 3. Selezionare una delle tre opzioni per fornire lo schema. Le opzioni sono CARICA NUOVO SCHEMA, GENERA DA JSON e GENERA DA FILE FLAT ![Elenco di azioni di BizTalk Flat File Encoder][8] 4. Seguire la procedura per fornire lo schema, in base alla selezione nel passaggio precedente. Si noterà che lo schema è stato caricato: ![Elenco di azioni di BizTalk Flat File Encoder][9]
 
 ###Uso di BizTalk Flat File Encoder nell'area di progettazione
-Dopo la configurazione, gli utenti possono fare clic su *->* e scegliere un'azione da un elenco di azioni.
+Dopo aver configurato Biztalk Flat File Encoder, è possibile usarlo in un'app per la logica. Per iniziare, creare una nuova app per la logica o avviarne una creata in precedenza e attenersi alla procedura seguente: 1. Nella scheda 'Start logic' fare clic su 'Run this logic manually'. 2. Selezionare l'app per le API BizTalk Flat File Encoder creata in precedenza nella raccolta (è possibile trovare il connettore BizTalk Flat File Encoder creato nell'elenco delle app per le API a destra della schermata.). 3. Selezionare la freccia destra nera. Vengono presentate le due operazioni disponibili (da file flat a XML e da XML a file flat): ![Elenco di azioni di BizTalk Flat File Encoder][1] ![Elenco di azioni di BizTalk Flat File Encoder][4]
 
-![Elenco di azioni di BizTalk Flat File Encoder][4]
+Seguire i passaggi seguenti in base all'operazione selezionata
 
 ####Da file flat a XML
 
@@ -48,9 +39,9 @@ Dopo la configurazione, gli utenti possono fare clic su *->* e scegliere un'azio
 
 Parametro|Tipo|Descrizione del parametro
 ---|---|---
-File flat|stringa|Contenuto del file flat di input
-Nome schema|stringa|Nome dello schema che rappresenta il file flat di input
-Nome radice|stringa|Nome del nodo radice dello schema di file flat
+Flat File|stringa|Contenuto del file flat di input
+Schema Name|stringa|Nome dello schema che rappresenta il file flat di input
+Root Name|stringa|Nome del nodo radice dello schema di file flat
 
 
 L'azione restituisce l'output sotto forma di stringa - XML di output. XML di output contiene la rappresentazione XML del contenuto del file flat di input
@@ -61,7 +52,7 @@ L'azione restituisce l'output sotto forma di stringa - XML di output. XML di out
 
 Parametro|Tipo|Descrizione del parametro
 ---|---|---
-XML di input|stringa|Contenuto XML di input
+Input Xml|stringa|Contenuto XML di input
 
 L'azione restituisce l'output sotto forma di stringa - File flat. XML di output contiene la rappresentazione file flat del contenuto XML di input
 
@@ -72,6 +63,10 @@ L'azione restituisce l'output sotto forma di stringa - File flat. XML di output 
 [4]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.ListOfActions.PNG
 [5]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.FlatFileToXml.PNG
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
+[7]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.addschema.PNG
+[8]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.selectschemauploadoption.PNG
+[9]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.shemauploaded.PNG
+
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

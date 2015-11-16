@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="10/28/2015"
 	ms.author="tomfitz"/>
 
 
@@ -155,8 +155,9 @@ Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fattu
 
 ## Passaggi successivi
 
+- È possibile applicare restrizioni e convenzioni all’interno della sottoscrizione con criteri personalizzati. Il criterio definito potrebbe richiedere che un determinato tag sia impostato per tutte le risorse. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 - Per un'introduzione all'uso di Azure PowerShell per la distribuzione delle risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md).
 - Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](./xplat-cli-azure-resource-manager.md).
 - Per un'introduzione all'uso del portale di anteprima, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](./resource-group-portal.md)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

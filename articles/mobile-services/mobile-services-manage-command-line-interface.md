@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # Eseguire l'automazione dei servizi mobili con gli strumenti da riga di comando 
@@ -184,4 +184,4 @@ Per altre informazioni sulla registrazione di script, vedere la pagina relativa 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

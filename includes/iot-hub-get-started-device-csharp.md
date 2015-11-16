@@ -62,6 +62,9 @@ In questa sezione si scriverà un'app console di Windows che simula un dispositi
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
 
+  Per impostazione predefinita, il metodo **Crea** un **DeviceClient** che usa il protocollo AMQP per comunicare con IoT Hub. Per usare il protocollo HTTPS, usare l'override del metodo **Crea** per specificare il protocollo. Se si sceglie di utilizzare il protocollo HTTPS, è inoltre necessario aggiungere il pacchetto NuGet **Microsoft.AspNet.WebApi.Client** al progetto per includere lo spazio dei nomi **System.Net.Http.Formatting**.
+
+
 > [AZURE.NOTE]Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione si consiglia di implementare criteri di nuovi tentativi (ad esempio backoff esponenziale), come indicato nell'articolo di MSDN [Gestione degli errori temporanei].
 
 <!-- Links -->
@@ -72,4 +75,4 @@ In questa sezione si scriverà un'app console di Windows che simula un dispositi
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

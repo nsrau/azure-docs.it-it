@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="10/01/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Novità dell’ultimo aggiornamento di Ricerca di Azure#
 
-Ricerca di Azure è disponibile a livello genere, offrendo un contratto a livello del servizio (SLA) con disponibilità del 99,9% per le configurazioni supportate della [versione del 28/02/2015 dell'API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure. È generalmente disponibile, offrendo un contratto a livello del servizio (SLA) con disponibilità del 99,9% per le configurazioni supportate della [versione del 28/02/2015 dell'API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##Controllo delle versioni e distribuzione delle funzionalità
 
@@ -32,7 +32,7 @@ La libreria .NET e le API REST hanno di più versioni. Le API precedenti restano
 
 Questa versione aggiunge un nuovo [supporto per la sintassi della query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) che può essere utilizzato con la [versione di anteprima dell'API REST del servizio di ricerca di Azure](search-api-2015-02-28-preview.md). Per utilizzare la nuova sintassi, è necessario specificare il `queryType` in un'operazione di ricerca documenti.
 
-Inoltre, entrambe le seguenti funzionalità sono passate fuori dall’anteprima, e fanno ora parte dell'API ufficiale su MSDN: - processori naturali del linguaggio - POST nella ricerca, suggerimenti e query di ricerca
+Inoltre, entrambe le seguenti funzionalità sono passate fuori dall’anteprima, e fanno ora parte dell'API ufficiale su MSDN: - [Processori naturali del linguaggio](search-language-support.md) - POST nella ricerca, suggerimenti e query di ricerca
 
 ##.NET SDK 0.10.0-anteprima
 **Data di rilascio: agosto 2015**
@@ -125,4 +125,4 @@ La versione di anteprima dell'[API REST di gestione](search-management-api-2014-
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

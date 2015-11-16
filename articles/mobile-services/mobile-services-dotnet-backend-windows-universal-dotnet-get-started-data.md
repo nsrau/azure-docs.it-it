@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere Servizi mobili a un'app esistente
@@ -121,4 +121,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

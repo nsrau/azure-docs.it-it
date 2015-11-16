@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/04/2015" 
 	ms.author="bradsev" />
 
 
@@ -28,30 +28,32 @@ La macchina virtuale per l'analisi scientifica dei dati è un'immagine di macchi
 - Visual Studio Community Edition
 - Power BI Desktop
 - SQL Server Express Edition
+- Azure SDK
 
 
-L'esecuzione di analisi scientifica dei dati implica l'iterazione di una sequenza di attività: ricerca, caricamento e pre-elaborazione dei dati, generazione e test di modelli e distribuzione dei modelli per l'utilizzo in applicazioni intelligenti. Non è raro che i data scientist usino un'ampia gamma di strumenti per completare queste attività. Trovare le versioni corrette del software e quindi scaricarle e installarle può essere un'operazione molto dispersiva in termini di tempo. La macchina virtuale per l'analisi scientifica dei dati può rendere queste attività molto più facili.
+L'esecuzione di analisi scientifica dei dati implica l'iterazione di una sequenza di attività: ricerca, caricamento e pre-elaborazione dei dati, generazione e test di modelli e distribuzione dei modelli per l'utilizzo in applicazioni intelligenti. Non è raro che i data scientist usino un'ampia gamma di strumenti per completare queste attività. Trovare le versioni software appropriate e quindi scaricarle e installarle può essere un'operazione molto dispersiva in termini di tempo. Per facilitare questa operazione, è possibile usare la macchina virtuale per l'analisi scientifica dei dati.
 
-Usare la macchina virtuale per l'analisi scientifica dei dati per facilitare questa operazione. Avviare il progetto di analisi dei dati mediante la creazione di un'immagine che includa il software usato comunemente per analisi e le attività di apprendimento automatico in una gamma di linguaggi, tra cui R, Python, SQL, C#. Visual Studio fornisce un IDE facile da usare per sviluppare e testare il codice. Azure SDK incluso nella VM consente di compilare le applicazioni usando vari servizi sulla piattaforma cloud di Microsoft.
+La macchina virtuale per l'analisi scientifica dei dati avvia rapidamente il progetto di analisi. Consente di svolgere attività in vari tipi di linguaggio, tra cui R, Python, SQL e C#. Visual Studio fornisce un IDE facile da usare per sviluppare e testare il codice. Azure SDK incluso nella VM consente di compilare le applicazioni usando vari servizi sulla piattaforma cloud di Microsoft.
+
 
 ## Prerequisiti
 
 Per creare una VM di Azure sono necessari gli elementi seguenti:
 
-- **Sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Sottoscrizione di Azure**: per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-*   **Account di archiviazione di Azure**: vedere [Creare un account di archiviazione di Azure](storage-whatis-account.md). L'account di archiviazione può essere creato come parte del processo di creazione della VM se non si vuole usare un account esistente.
+*   **Account di archiviazione di Azure**: per crearne uno, vedere [Creare un account di archiviazione di Azure](storage-whatis-account.md). In alternativa, è possibile creare l'account di archiviazione nell'ambito del processo di creazione della VM, se si preferisce non usare un account esistente.
 
 
 ## Creare la VM per l'analisi scientifica dei dati
 
-Ecco i passaggi necessari per la creazione dell'istanza della VM per l'analisi scientifica dei dati:
+Di seguito sono riportati i passaggi necessari per creare un'istanza della macchina virtuale per l'analisi scientifica dei dati:
 
-1.	Accedere al portale di Azure.
+1.	Eseguire l'accesso al [portale Azure](https://ms.portal.azure.com/).
 2.	Passare a **Nuovo** -> **Calcolo** -> **Marketplace** e cercare *Data Science Virtual Machine*.![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
 3.	Selezionare la VM denominata "**Data Science Virtual Machine**" pubblicata da Microsoft per visualizzare un pannello che descrive la macchina virtuale per l'analisi scientifica dei dati. 	
 4.	 Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata. ![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
-5.	 Le sezioni seguenti forniscono gli input per ognuno dei 5 passaggi (elencati in ordine numerico sulla parte destra della figura precedente) della procedura guidata usata per creare la VM per l'analisi scientifica dei dati. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
+5.	 Le sezioni seguenti forniscono gli **input** per ognuno dei **5 passaggi** (elencati in ordine numerico sulla parte destra della figura precedente) della procedura guidata usata per creare la VM per l'analisi scientifica dei dati. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
 
  **1. Basics**:
 
@@ -68,17 +70,18 @@ Ecco i passaggi necessari per la creazione dell'istanza della VM per l'analisi s
 
  **3. Settings**
 
- **4. Disk Type**:
+- **Tipo di disco**: scegliere Premium se si preferisce un'unità a stato solido (SSD); in caso contrario scegliere "Standard".
+- **Account di archiviazione**: è possibile creare un nuovo account di archiviazione di Azure nella sottoscrizione o usarne uno esistente nella stessa *posizione* scelta nel passaggio Basic della procedura guidata.
+- **Altri parametri**: nella maggior parte dei casi si userà semplicemente i valori predefiniti. Nel caso in cui si desideri usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni su campi specifici.
 
-- Scegliere Premium se si preferisce SSD, altrimenti scegliere "Standard".
+ **4. Riepilogo**:
 
- **5. Storage Account**:
-
-
-- È possibile creare un nuovo account di archiviazione di Azure nella sottoscrizione o usarne uno esistente nella stessa posizione scelta nel passaggio Basic della procedura guidata.
-- Nella maggior parte dei casi si userà semplicemente il valore predefinito per gli altri parametri. Nel caso in cui si voglia usare un valore non predefinito, è possibile passare il puntatore sul collegamento informativo per altre informazioni sul campo specifico.
 - Verificare che tutte le informazioni immesse siano corrette.
-- Fare clic su **Buy** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La VM non ha costi aggiuntivi oltre quelli per il calcolo delle dimensioni del server è scelto nel passaggio **Size**. 
+
+ **5. Acquista**:
+
+- Fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size**. 
+
 
 Per il provisioning sono necessari circa 10-20 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
 
@@ -97,26 +100,26 @@ Se si vuole usare R per l'analisi, nella VM è installato Revolution R Open (RRO
 Per lo sviluppo tramite Python, è installata distribuzione Anaconda Python 2.7. Questa distribuzione contiene il linguaggio Python di base con circa 300 dei più diffusi pacchetti di matematica, ingegneria e analisi dei dati. È possibile usare l'IDE incluso in Anaconda come IDLE o Spyder. È possibile avviare uno di questi IDE eseguendo una ricerca sulla barra di ricerca (**Win**+**S**).
 
 ### IPython Notebook
-La distribuzione Anaconda include anche IPython Notebook, un ambiente per condividere il codice e le analisi. È stato preconfigurato un server Ipython Notebook. Sul desktop è disponibile un'icona per avviare il browser per accedere al server Notebook. Se si usa la VM tramite desktop remoto è anche possibile visitare il sito [https://localhost:9999/](https://localhost:9999/) per accedere al server IPython Notebook. Nota: scegliere semplicemente di continuare se viene visualizzato un avviso relativo al certificato.
+La distribuzione Anaconda include anche IPython Notebook, un ambiente per condividere il codice e le analisi. È stato preconfigurato un server IPython Notebook. Sul desktop è disponibile un'icona per avviare il browser per accedere al server Notebook. Se si usa la VM tramite desktop remoto, è anche possibile visitare il sito [https://localhost:9999/](https://localhost:9999/) per accedere al server IPython Notebook. Nota: scegliere semplicemente di continuare se viene visualizzato un avviso relativo al certificato.
 
 ### Visual Studio 2015 Community Edition
-Visual Studio Community Edition è installato nella VM. È una versione gratuita di IDE più diffuso di Microsoft che è possibile usare per scopi di valutazione e per team molto piccoli. È possibile estrarre le condizioni per l'utilizzo ***qui*** (collegamento da definire). Aprire Visual Studio facendo doppio clic sull'icona del desktop o sul menu **Start**. È anche possibile cercare i programmi con **Win**+**S** e immettendo "Visual Studio".
+Visual Studio Community Edition è installato nella VM. È una versione gratuita di IDE più diffuso di Microsoft che è possibile usare per scopi di valutazione e per team molto piccoli. È possibile consultare le condizioni di licenza [qui](https://www.visualstudio.com/support/legal/mt171547). Aprire Visual Studio facendo doppio clic sull'icona del desktop o sul menu **Start**. È anche possibile cercare i programmi premendo i tasti **Win** + **S** e immettendo "Visual Studio".
 
 Nota: è possibile che venga visualizzato un messaggio indicante che il periodo di valutazione è scaduto. È possibile immettere le credenziali di un account Microsoft o crearne uno e immetterlo per accedere a Visual Studio Community Edition. È quindi possibile creare progetti in linguaggi come C# e Python.
 
 ### SQL Server Express
-Con Visual Studio Community Edition viene fornita anche una versione limitata di SQL Server. È possibile accedere a SQL server avviando **SQL Server Management Studio**. Il nome della VM verrà popolato come Nome server. Usare l'autenticazione di Windows durante l'accesso come amministratore a Windows. Una volta eseguito l'accesso a SQL Server Management Studio è possibile creare altri utenti, creare database, importare i dati ed eseguire query SQL.
+Con Visual Studio Community Edition viene fornita anche una versione limitata di SQL Server. È possibile accedere a SQL Server avviando **SQL Server Management Studio**. Il nome della VM verrà popolato come Nome server. Usare l'autenticazione di Windows durante l'accesso come amministratore a Windows. Una volta eseguito l'accesso a SQL Server Management Studio è possibile creare altri utenti, creare database, importare i dati ed eseguire query SQL.
 
 ### Azure 
-Nella VM sono installati diversi strumenti di Azure: - È disponibile un collegamento sul desktop per accedere alla documentazione di Azure SDK. - **AzCopy** usato per spostare i dati all'interno e dall'account di archiviazione di Microsoft Azure. - **Esplora archivi di Azure** usato per scorrere gli oggetti archiviati nell'account di archiviazione di Azure. - **Microsoft Azure Powershell**, è installato nella VM e viene usato per amministrare le risorse di Azure in un linguaggio di script.
+Nella VM sono installati diversi strumenti di Azure: - È disponibile un collegamento sul desktop per accedere alla documentazione di Azure SDK. - **AzCopy** usato per spostare i dati all'interno e dall'account di archiviazione di Microsoft Azure. - **Esplora archivi di Azure** usato per scorrere gli oggetti archiviati nell'account di archiviazione di Azure. - **Microsoft Azure Powershell** è installato nella VM e viene usato per amministrare le risorse di Azure in un linguaggio di script.
 
 ###Power BI
 
-È stato installato **Power BI Desktop** per facilitare la creazione di dashboard e interessanti visualizzazioni. Usare questo strumento per estrarre dati da origini diverse, per creare dashboard e report e pubblicarli nel cloud. Per informazioni, visitare il sito [Power BI](http://powerbi.microsoft.com).
+È stato installato **Power BI Desktop** per facilitare la creazione di dashboard e interessanti visualizzazioni. Usare questo strumento per estrarre dati da origini diverse, per creare dashboard e report e pubblicarli nel cloud. Per informazioni, visitare il sito di [Power BI](http://powerbi.microsoft.com).
 
 Nota: è necessario un account Office 365 per accedere a Power BI.
 
 ## Altri strumenti di sviluppo Microsoft
 È possibile usare [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) per trovare e scaricare altri strumenti di sviluppo Microsoft. Sul desktop della VM è anche disponibile un collegamento allo strumento.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

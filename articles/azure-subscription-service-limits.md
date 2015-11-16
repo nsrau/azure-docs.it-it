@@ -50,6 +50,7 @@ Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse
 - [Data Factory](#data-factory-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
+- [Hub IoT](#iot-hub-limits)
 - [Insieme di credenziali di chiave](#key-vault-limits)
 - [Servizi multimediali](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
@@ -195,6 +196,10 @@ Per altre informazioni sui limiti di Ricerca di Azure, vedere [Limiti e Vincoli]
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
+### Limiti di IoT Hub
+
+[AZURE.INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
+
 ### Limiti di Data factory
 
 [AZURE.INCLUDE [limiti di data factory Azure](../includes/azure-data-factory-limits.md)]
@@ -259,4 +264,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modello di progettazione Smart Cache di Reliable Actors"
-   description="Modello di progettazione su come usare Reliable Actors come infrastruttura di caching in applicazioni basate sul Web"
+   pageTitle="Modello di progettazione Smart Cache | Microsoft Azure"
+   description="Modello di progettazione su come usare il modello di programmazione dei Reliable Actors dell'infrastruttura dei servizi per creare un'infrastruttura di memorizzazione nella cache per le applicazioni basate sul web."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,11 +17,13 @@
    ms.author="vturecek"/>
 
 # Modello di progettazione di Reliable Actors: Smart Cache
+
 Le nuove applicazioni sono generalmente costituite dalla combinazione di un livello Web, un livello di caching, un livello di archiviazione e, in alcuni casi, un livello di lavoro. Il livello di caching, in genere, è essenziale per le prestazioni e può essere costituito da più sotto-livelli. In molti casi, le cache sono costituite da semplici coppie chiave-valore. In altri casi, vengono usati come cache sistemi simili a [Redis](http://redis.io), che offrono una semantica più completa. Seppur speciale, tuttavia, qualsiasi livello di caching è limitato nella semantica e, soprattutto, costituisce un ulteriore livello da gestire. E se invece gli oggetti si limitassero a mantenere lo stato in variabili locali e potessero essere automaticamente salvati in uno snapshot o in modo permanente in un archivio stabile? Raccolte complete come elenchi, set ordinati, code e altri tipi personalizzati verrebbero semplicemente modellate come metodi e variabili membro.
 
 ![][1]
 
 ## Esempio della classifica
+
 Le classifiche costituiscono un esempio interessante. Un oggetto classifica deve mantenere un elenco ordinato di giocatori con i relativi punteggi, in modo che possa essere interrogato, ad esempio per trovare i "100 migliori giocatori" o per individuare la posizione di un giocatore rispetto ai +- N giocatori sopra/sotto in classifica. In una soluzione basata su strumenti tradizionali, sarebbe necessario eseguire il GET dell'oggetto classifica (raccolta che supporta l'inserimento di una nuova tupla<Player  Points> denominata Score), ordinarlo e infine eseguirne il "PUT" nella cache. Per coerenza, inoltre, si bloccherebbe l'oggetto classifica (GETLOCK, PUTLOCK). Si pensi invece a una soluzione basata su attori in cui lo stato e il comportamento siano insieme. Sono disponibili due opzioni:
 
 * Implementare la raccolta Classifica come parte dell'attore
@@ -280,6 +282,7 @@ Il modello Smart Cache offre, essenzialmente, i seguenti vantaggi:
 
 
 ## Passaggi successivi
+
 [Modello: Reti distribuite e grafici](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [Modello: Governance delle risorse](service-fabric-reliable-actors-pattern-resource-governance.md)
@@ -298,4 +301,4 @@ Il modello Smart Cache offre, essenzialmente, i seguenti vantaggi:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

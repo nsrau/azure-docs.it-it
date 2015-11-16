@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso il BLOB di Azure mediante Data factory di Azure
@@ -385,7 +385,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 | format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altri dettagli, vedere la sezione [Specifica di TextFormat](#specifying-textformat) disponibile di seguito. | No
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Vedere la sezione [Supporto della compressione](#compression-support) per ulteriori dettagli. | No |
 
-### Uso della proprietà partionedBy
+### Uso della proprietà partitionedBy
 Come indicato in precedenza, è possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy**, macro Data factory e variabili di sistema: SliceStart e SliceEnd, che indicano l'ora di inizio e fine per una sezione di dati specificata.
 
 Vedere [Variabili di sistema Data factory](data-factory-scheduling-and-execution.md#data-factory-system-variables) e [Riferimento alle funzioni di Data fctory](data-factory-scheduling-and-execution.md#data-factory-functions-reference) per scoprire le variabili di sistema di Data factory e funzioni che è possibile utilizzare nella sezione partitionedBy.
@@ -510,4 +510,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la seguente st
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md) richiede solo alcuni minuti.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

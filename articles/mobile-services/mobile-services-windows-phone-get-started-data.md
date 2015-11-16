@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/25/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 
@@ -193,4 +193,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 [sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

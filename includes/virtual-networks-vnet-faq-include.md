@@ -219,15 +219,16 @@ All’interno delle reti virtuali, è possibile usare solo servizi di calcolo. I
 
 ### È possibile usare app Web con la rete virtuale?
 
-No, un'app Web di Azure non può essere distribuita in una rete virtuale. Tuttavia, le app Web possono eseguire la connessione e l'accesso alle risorse in una rete virtuale di Azure in modo sicuro se si dispone di point-to-site configurati per la rete virtuale. Per altre informazioni, vedere quanto segue:
+Sì. È possibile distribuire App Web all'interno di una rete virtuale utilizzando Esplora archivi Azure (Ambiente del servizio app). Oltre a questo, le app Web possono eseguire la connessione e l'accesso alle risorse in una rete virtuale di Azure in modo sicuro se si dispone di point-to-site configurati per la rete virtuale. Per altre informazioni, vedere quanto segue:
 
-- [Integrazione della rete virtuale di app Web](http://azure.microsoft.com/blog/
-- 014/09/15/azure-websites-virtual-network-integration/)
+
+- [Creare app Web in un ambiente del servizio app](https://azure.microsoft.com/it-IT/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+
+- [Integrazione della rete virtuale di app Web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
 - [Utilizzo dell’integrazione della rete virtuale e delle connessioni ibride con app Web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Integrazione di un'app Web in una rete virtuale di Azure](web-sites-integrate-with-vnet.md)
-
 
 ### È possibile distribuire servizi cloud con ruoli web e di lavoro (PaaS) in una rete virtuale?
 
@@ -265,4 +266,4 @@ Sì. È possibile usare le API REST per gestire le reti virtuali e la connettivi
 
 Sì. È possibile usare gli strumenti di PowerShell e della riga di comando per un'ampia gamma di piattaforme. Ulteriori informazioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

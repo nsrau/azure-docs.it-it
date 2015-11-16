@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gestione delle applicazioni di Service Fabric in Visual Studio"
-   description="È possibile gestire le applicazioni e i servizi di Microsoft Azure Service Fabric tramite Visual Studio."
+   pageTitle="Gestire le applicazioni in Visual Studio | Microsoft Azure"
+   description="Usare Visual Studio per creare, sviluppare, creare pacchetti, distribuire ed effettuare il debug di applicazioni dell’infrastruttura di servizi e di servizi."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Gestione delle applicazioni di Service Fabric in Visual Studio
+# Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni dell’infrastruttura di servizi
 
-È possibile gestire le applicazioni e i servizi di Microsoft Azure Service Fabric tramite Visual Studio. Dopo aver [configurato l'ambiente di sviluppo](../service-fabric-setup-your-development-environment), è infatti possibile usare Visual Studio per creare applicazioni di Service Fabric, aggiungere servizi o creare i pacchetti, registrare e distribuire le applicazioni nel cluster di sviluppo locale.
+È possibile gestire le applicazioni e i servizi dell’infrastruttura di servizi tramite Visual Studio. Dopo aver [configurato l'ambiente di sviluppo](service-fabric-setup-your-development-environment.md), è infatti possibile usare Visual Studio per creare applicazioni di Service Fabric, aggiungere servizi o creare i pacchetti, registrare e distribuire le applicazioni nel cluster di sviluppo locale.
 
-Per gestire l'applicazione di Service Fabric, in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto dell'applicazione.
+Per gestire l'applicazione, in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto dell'applicazione.
 
 ![Gestire l'applicazione di Service Fabric facendo clic con il pulsante destro del mouse sul progetto dell'applicazione][manageservicefabric]
 
 ## Distribuzione dell'applicazione di Service Fabric
 
-Distribuendo un'applicazione di Service Fabric, si combinano in un'unica operazione i passaggi seguenti:
+Distribuendo un'applicazione, si combinano in un'unica operazione i passaggi seguenti:
 
 1. Creazione del pacchetto applicazione
 2. Caricamento del pacchetto applicazione in Image Store
@@ -79,4 +79,4 @@ Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

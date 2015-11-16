@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="arramac"/>
 	
 # L'indicizzazione automatica in Azure DocumentDB
@@ -55,7 +55,7 @@ Un'importante implicazione del trattamento di entrambi i valori di schema e d'is
 
 ![Indice come una struttura ad albero](media/documentdb-indexing/IndexAsTree.png)
 
-Nonostante sia privo di schema, l’SQL di DocumentDB e i linguaggi di query di JavaScript forniscono proiezioni relazionali e filtri, navigazione gerarchica tra documenti e la chiamata di funzioni definite dall'utente interamente scritte in JavaScript. La fase di esecuzione delle query di DocumentDB è in grado di supportare tali query, poiché può operare direttamente sulla rappresentazione della struttura di indice dei dati.
+Nonostante sia privo di schema, l’SQL di DocumentDB e i linguaggi di query di JavaScript forniscono proiezioni relazionali e filtri, navigazione gerarchica tra documenti, operazioni spaziali e la chiamata di funzioni definite dall'utente interamente scritte in JavaScript. La fase di esecuzione delle query di DocumentDB è in grado di supportare tali query, poiché può operare direttamente sulla rappresentazione della struttura di indice dei dati.
 
 I criteri di indicizzazione predefiniti automaticamente indicizzano tutte le proprietà di tutti i documenti e forniscono query coerenti (ovvero l'indice viene aggiornato in modo sincrono con la scrittura del documento). In che modo DocumentDB supporta aggiornamenti consistenti per la struttura dell'indice su larga scala? DocumentDB utilizza tecniche di manutenzione dell’indice con scrittura ottimizzata, blocco libero e log strutturato. Questo significa che DocumentDB supporta un volume consistente di scritture veloci e al tempo stesso l'esecuzione di query coerenti.
 
@@ -67,4 +67,4 @@ L'indicizzazione di DocumentDB è progettata per l'efficienza di archiviazione e
 - Informazioni su come personalizzare l'indice di DocumentDB [qui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

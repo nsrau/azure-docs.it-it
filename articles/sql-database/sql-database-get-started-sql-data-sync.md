@@ -20,10 +20,9 @@
 #Introduzione all'anteprima di sincronizzazione dati di SQL Azure
 In questa esercitazione vengono fornite le nozioni di base della sincronizzazione dati SQL Azure tramite il portale di Azure (anteprima).
 
-
 Per questa esercitazione è necessario conoscere già in generale SQL Server e il database SQL di Azure. Nell'esercitazione verrà creato un gruppo di sincronizzazione ibrido (istanze del database SQL Server e del database SQL) completamente configurato e impostato per la sincronizzazione in base alla pianificazione specificata.
 
-**Nota** La documentazione tecnica completa impostata per la sincronizzazione dati SQL di Azure, che si trovava in precedenza su MSDN, è ora un singolo PDF da scaricare [qui](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+> [AZURE.NOTE]La documentazione tecnica completa impostata per la sincronizzazione dati SQL di Azure, che si trovava in precedenza su MSDN, è ora un singolo PDF da scaricare [qui](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Passaggio 1: connettersi al database SQL di Azure
 
@@ -64,7 +63,7 @@ Nel computer in cui viene installato l'agente client devono essere installati an
 <a id="InstallClient"></a>
 ### Passaggio 2b: installare un nuovo agente client
 
-Per installare l'agente, seguire le istruzioni disponibili in [Installare un agente client (di sincronizzazione dati SQL)]((http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
+Per installare l'agente, seguire le istruzioni disponibili in [Installare un agente client (di sincronizzazione dati SQL)](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 
 
@@ -203,4 +202,4 @@ Per altre informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

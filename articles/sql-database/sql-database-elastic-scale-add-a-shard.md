@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Aggiunta di una partizione utilizzando gli strumenti di database elastici" 
+	pageTitle="Aggiunta di una partizione utilizzando gli strumenti di database elastici | Microsoft Azure" 
 	description="Informazioni su come impostare API di scalabilità elastica per aggiungere nuove partizioni a un set di partizioni." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # Aggiunta di una partizione utilizzando gli strumenti di database elastici
 
@@ -79,4 +79,4 @@ In alcuni casi è possibile che pur avendo già eseguito il mapping di un interv
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

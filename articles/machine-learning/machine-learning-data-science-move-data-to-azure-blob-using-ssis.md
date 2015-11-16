@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/28/2015" 
 	ms.author="bradsev" />
 
 # Spostare i dati in o da un archivio BLOB di Azure mediante connettori SSIS
 
 Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da un archivio BLOB di Azure sono disponibili qui:
 
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+[AZURE.INCLUDE [selettore dello strumento di archiviazione BLOB](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## Introduzione
 
@@ -45,7 +45,7 @@ Per eseguire le attività illustrate in questo articolo, è necessario avere con
 Per usare i **connettori SSIS** è necessario scaricare:
 
 - **SQL Server 2014 o 2016 Standard (o versioni successive)**: l'installazione include SQL Server Integration Services.
-- **Microsoft SQL Server 2016 Integration Services Feature Pack for Azure**: disponibile per il download nella pagina di [SQL Server Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
+- **Microsoft SQL Server 2014 o 2016 Pacchetto delle caratteristiche del servizio di integrazione per Azure**: disponibili, rispettivamente per il download nelle pagine di [SQL Server 2014 Servizi di integrazione](http://www.microsoft.com/download/details.aspx?id=47366) e [SQL Server 2016 Servizi di integrazione](https://www.microsoft.com/download/details.aspx?id=49492).
 
 > [AZURE.NOTE]SSIS viene installato con SQL Server, ma non è incluso nella versione Express. Per informazioni sulle applicazioni incluse nelle diverse edizioni di SQL Server, vedere [Edizioni di SQL Server](http://www.microsoft.com/it-IT/server-cloud/products/sql-server-editions/)
 
@@ -54,7 +54,7 @@ Per materiale di formazione su SSIS, vedere [Risorse pratiche per la formazione 
 Per informazioni su come iniziare subito a usare SSIS per creare semplici pacchetti di estrazione, trasformazione e caricamento (ETL), vedere [Esercitazione SSIS: Creazione di un pacchetto ETL semplice](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## Scaricare il set di dati NYC Taxi  
-Questo esempio usa un set di dati disponibile pubblicamente, ovvero il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Il set di dati è costituito da circa 173 milioni di corse su taxi a NYC nell'anno 2013. Sono disponibili due tipi di dati: i dettagli sul tragitto e i dettagli sul costo del tragitto. Poiché è disponibile un file per ogni mese, sono presenti 24 file in tutto, ognuno dei quali ha dimensioni pari a circa 2 GB, senza compressione. Il set di dati può essere scaricato facilmente da [Github](https://github.com/andresmh/nyctaxitrips)
+Questo esempio usa un set di dati disponibile pubblicamente, ovvero il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Il set di dati è costituito da circa 173 milioni di corse su taxi a NYC nell'anno 2013. Sono disponibili due tipi di dati: i dettagli sul tragitto e i dettagli sul costo del tragitto. Poiché è disponibile un file per ogni mese, sono presenti 24 file in tutto, ognuno dei quali ha dimensioni pari a circa 2 GB, senza compressione.
 
 
 ## Caricare dati nell'archivio BLOB di Azure
@@ -88,4 +88,4 @@ Si noti che il Feature Pack di SSIS consente la gestione di flussi più compless
 - Per eseguire uno script Hive in un cluster Azure HDInsight con SSIS, usare [Azure HDInsight Hive Task](https://msdn.microsoft.com/library/mt146771.aspx).
 - Per eseguire uno script Pig in un cluster Azure HDInsight con SSIS, usare [Azure HDInsight Pig Task](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

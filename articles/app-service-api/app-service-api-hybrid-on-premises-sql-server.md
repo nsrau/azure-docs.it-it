@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
-	ms.author="tarcher"/>
+	ms.date="11/03/2015" 
+	ms.author="tdykstra"/>
 
 # Connettersi a un'istanza di SQL Server locale da un'app per le API nel servizio app di Azure mediante le connessioni ibride
 
@@ -430,4 +430,4 @@ Dopo avere completato l'infrastruttura della connessione ibrida, sarà possibile
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

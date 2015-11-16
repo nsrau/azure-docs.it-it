@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview) | Microsoft Azure"
-	description="Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)"
+	description="Ricerca di Azure è un servizio di ricerca ospitato sul cloud che supporta l'ottimizzazione dei risultati in base ai profili di punteggio definiti dall'utente."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="10/01/2015" />
+	ms.date="11/04/2015" />
 
 # Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)
 
@@ -370,4 +370,4 @@ Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

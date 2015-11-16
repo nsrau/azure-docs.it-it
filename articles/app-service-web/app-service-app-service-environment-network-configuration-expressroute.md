@@ -32,7 +32,7 @@ Esistono requisiti di connettività di rete per gli ambienti del servizio app ch
 -  Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area come l’ambiente di servizio app, così come gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di archiviazione Azure si risolvono con i seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
 -  Connettività di rete in uscita agli endpoint Sql DB che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL si risolvono nel dominio seguente: *database.windows.net*.
 -  Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (sia gli endpoint ASM che quelli ARM). Ciò include la connettività in uscita verso *management.core.windows.net* e *management.azure.com*. 
--  Connettività di rete in uscita verso *mscrl.microsoft.com* e *crl.microsoft.com*. È necessario per supportare la funzionalità SSL.
+-  Connettività di rete in uscita verso *ocsp.msocsp.com*. È necessario per supportare la funzionalità SSL.
 -  La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Se questi endpoint non possono essere risolti, il tentativo di creazione dell’ambiente del servizio App avrà esito negativo, e gli ambienti del servizio App esistenti verranno contrassegnati come non integri.
 -  Se è presente un server DNS personalizzato nell’altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che contiene l’ambiente di servizio app. 
 -  Il percorso di rete in uscita non può attraversare i proxy aziendali interni, né può essere sottoposto a tunneling forzato all’ambiente locale. In questo modo viene modificato l'indirizzo NAT effettivo del traffico di rete in uscita dall'ambiente di servizio app. La modifica dell'indirizzo NAT del traffico di rete in uscita di un ambiente del servizio app provocherà errori di connettività a molti degli endpoint sopra elencati. Ciò comporta dei tentativi non riusciti nella creazione dell’ambiente di servizio app, così come il fatto che ambienti di servizio app che prima erano integri vengano contrassegnati come non integri.  
@@ -137,4 +137,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

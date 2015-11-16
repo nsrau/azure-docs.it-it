@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso il database SQL di Azure mediante Data factory di Azure
@@ -562,4 +562,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L'inv
 
 	 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

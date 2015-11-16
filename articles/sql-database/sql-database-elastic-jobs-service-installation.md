@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Installazione dei processi di database elastici" 
+	pageTitle="Installazione dei processi di database elastici | Microsoft Azure" 
 	description="Installazione dettagliata della funzionalità dei processi elastici." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
-	ms.author="ddove; sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # Installazione dei processi di database elastici (panoramica)
-I **Processi di database elastici** possono essere installati tramite PowerShell o tramite il portale di Azure, anche se si ottiene l'accesso solo per creare e gestire processi utilizzando l'API PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento. Per ulteriori informazioni sui **processi di database elastici**, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
+I [**Processi di database elastici**](sql-database-elastic-jobs-overview.md) possono essere installati tramite PowerShell o tramite il portale di Azure. È possibile ottenere l'accesso solo per creare e gestire processi utilizzando l'API PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento.
 
 Se sono già stati installati i **Processi database elastici** tramite il portale da un’esistente **pool di database elastici**, l'ultima anteprima di Powershell include gli script per aggiornare l'installazione esistente. È consigliabile aggiornare l'installazione alla versione più recente dei componenti dei **Processi di database elastici** per trarre vantaggio dalle nuove funzionalità esposte tramite le API di PowerShell.
 
@@ -178,7 +178,7 @@ Se è necessaria la disinstallazione, eliminare il gruppo di risorse. Vedere [Co
 
 ## Passaggi successivi
 
-Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di script venga creata in ogni database nel gruppo, per ulteriori informazioni, vedere [come aggiungere utenti a tutti i database nel gruppo di database](sql-database-elastic-jobs-add-logins-to-dbs.md). Vedere [Creazione e gestione di processi di database elastici](sql-database-elastic-jobs-create-and-manage.md).
+Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di script venga creata in ogni database nel gruppo, per ulteriori informazioni, vedere [come aggiungere utenti a tutti i database nel gruppo di database](sql-database-elastic-jobs-add-logins-to-dbs.md). Per un’introduzione, vedere [Creazione e gestione di processi di database elastici](sql-database-elastic-jobs-create-and-manage.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
@@ -187,4 +187,4 @@ Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di sc
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,14 +13,18 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/02/2015"
+   ms.date="11/04/2015"
    ms.author="cherylmc"/>
 
 # Creare e modificare la configurazione di routing di ExpressRoute
 
+> [AZURE.SELECTOR]
+[PowerShell Classic](expressroute-howto-routing-classic.md)
+[PowerShell Resource Manager](expressroute-howto-routing-arm.md)
+
 Questo articolo descrive le procedure per creare e gestire la configurazione di routing per un circuito ExpressRoute usando i cmdlet di PowerShell e il modello di distribuzione classico. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute.
 
->[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione di Azure](../azure-classic-rm.md).
+>[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione Azure](../azure-classic-rm.md).
 
 
 ## Prerequisiti di configurazione
@@ -312,4 +316,4 @@ Per rimuovere la configurazione di peering, eseguire il cmdlet seguente.
 -  Per ulteriori informazioni sui flussi di lavoro, vedere [Flussi di lavoro ExpressRoute](expressroute-workflows.md).
 -  Per altre informazioni sul peering dei circuiti, vedere l'articolo relativo ai [circuiti ExpressRoute e domini di routing](expressroute-circuit-peerings.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

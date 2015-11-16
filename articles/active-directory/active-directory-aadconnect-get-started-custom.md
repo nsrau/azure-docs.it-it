@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/02/2015"
 	ms.author="billmath;andkjell"/>
 
 # Installazione personalizzata di Azure AD Connect
@@ -90,7 +90,7 @@ Impostazione | Descrizione
 ------------- | ------------- |
 [Gli utenti vengono rappresentati solo una volta tra tutte le foreste](active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) | Tutti gli utenti vengono creati come oggetti singoli in Azure AD.<br> Gli oggetti non vengono uniti nel metaverse.
 [Attributo di posta](active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) | Questa opzione unisce utenti e contatti se l'attributo di posta ha lo stesso valore in foreste diverse. Si consiglia di usare questa opzione se i contatti sono stati creati mediante GALSync.
-[ObjectSID e msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|Questa opzione unisce un utente abilitato in una foresta di account a un utente disabilitato in una foresta di risorse di Exchange. Questa opzione è anche nota come cassetta postale collegata in Exchange.
+[ObjectSID e msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|Questa opzione unisce un utente abilitato in una foresta di account a un utente disabilitato in una foresta di risorse di Exchange. Questa opzione è anche nota come cassetta postale collegata in Exchange. Questa opzione può essere utilizzata anche se si utilizza solo Lync, ed Exchange non è presente nella foresta delle risorse.
 sAMAccountName e MailNickName|Questa opzione crea un join degli attributi in cui si prevede la possibilità di trovare l'ID di accesso dell'utente.
 Attributo personale|Questa opzione consente di selezionare un attributo personale. **Limitazione:** assicurarsi di selezionare un attributo già presente nel metaverse. Se si sceglie un attributo personalizzato, non sarà possibile completare la procedura guidata.
 
@@ -246,4 +246,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

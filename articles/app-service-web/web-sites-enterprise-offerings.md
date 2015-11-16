@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/03/2015" 
 	ms.author="anwestg"/>
 
 # Servizio di applicazione Azure Web App offerte per white paper aziendali #
@@ -153,4 +153,4 @@ Per altre informazioni, sul servizio Siti Web di Microsoft Azure, visitare [http
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="06/16/2015" 
+    ms.date="10/28/2015" 
     ms.author="anhoh"/>
 
 #Connessione di DocumentDB con Ricerca di Azure tramite indicizzatori
@@ -137,7 +137,7 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 |Booleano|Edm.Boolean, Edm.String|
 |Numeri che rappresentano numeri interi|Edm.Int32, Edm.Int64, Edm.String|
 |Numeri che rappresentano numeri a virgola mobile|Edm.Double, Edm.String|
-|Stringa|Edm.String|
+|String|Edm.String|
 |Matrici di tipi primitivi, ad esempio "a", "b", "c" |Collection(Edm.String)|
 |Stringhe che rappresentano date| Edm.DateTimeOffset, Edm.String|
 |Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
@@ -270,4 +270,4 @@ Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerc
  - Per altre informazioni su Ricerca di Azure, fare clic [qui](/services/search/).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

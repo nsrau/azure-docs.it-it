@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/07/2015"
+   ms.date="11/02/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Informazioni su Transact-SQL del Database SQL di Azure
 
-La maggior parte delle istruzioni relative a Transact-SQL di SQL Server 2016 sono completamente supportate nel Database SQL di Microsoft Azure. Sono inclusi i tipi di dati di SQL Server, operatori e la stringa, funzioni aritmetiche, logiche e di cursore e gli altri elementi Transact-SQL da cui dipende la maggior parte delle applicazioni. Alcune funzioni non sono supportate o sono supportate parzialmente poiché il Database SQL gestisce il database in modo diverso (ad esempio file, disponibilità elevata e funzionalità di sicurezza) o per le funzionalità speciali, ad esempio Service broker. Poiché il Database SQL isola molte funzionalità dalla dipendenza nel database master, molte attività a livello di server sono inappropriate e non supportate. Le funzionalità deprecate in SQL Server in genere non sono supportate nel Database SQL.
+La maggior parte delle istruzioni relative a Transact-SQL di SQL Server 2016 sono completamente supportate nel Database SQL di Microsoft Azure. Sono inclusi i tipi di dati di SQL Server, operatori e la stringa, funzioni aritmetiche, logiche e di cursore e gli altri elementi Transact-SQL da cui dipende la maggior parte delle applicazioni. Alcune funzioni non sono supportate o sono supportate parzialmente poiché il database SQL gestisce il database in modo diverso (ad esempio file, disponibilità elevata e funzionalità di sicurezza) o per le funzionalità speciali, ad esempio Service broker. Poiché il database SQL isola molte funzionalità dalla dipendenza nel database master, molte attività a livello di server sono inappropriate e non supportate. Le funzionalità deprecate in SQL Server in genere non sono supportate nel Database SQL.
 
 ## Eseguire l'aggiornamento alla versione 12 del Database SQL
 
@@ -76,6 +76,8 @@ La versione 12 di Database SQL supporta alcuni ma non tutti gli argomenti presen
 - SHUTDOWN
 - sp\_addmessage
 - opzioni di sp\_configure e RECONFIGURE
+- sp\_helpuser
+- sp\_migrate\_user\_to\_contained
 - SQL Server audit (utilizzare il controllo di Database SQL invece)
 - SQL Server Profiler
 - Traccia SQL Server
@@ -92,6 +94,6 @@ Per ulteriori informazioni sulla grammatica Transact-SQL, uso ed esempi, vedere[
 
 Il riferimento a Transact-SQL include argomenti relativi a SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 e Database SQL di Microsoft Azure. Nella parte superiore di ogni argomento c’è una sezione che indica quali prodotti supportano l'oggetto dell'argomento. Se un prodotto viene omesso, la funzionalità descritta dall'argomento non è disponibile in tale prodotto. Ad esempio, i gruppi di disponibilità sono stati introdotti in SQL Server 2012. L’argomento**CREA AVAILABILITY GROUP**indica che si applica a**SQL Server (SQL Server 2012 fino alla versione corrente)**poiché non è applicabile a SQL Server 2008, SQL Server 2008 R2 o Database SQL di Microsoft Azure.
 
-In alcuni casi, l'oggetto generale dell’argomento può essere utilizzato in un prodotto, ma non tutti gli argomenti sono supportati. Ad esempio, gli utenti di database indipendente sono stati introdotti in SQL Server 2012. L’istruzione**CREATE USER**può essere utilizzata in qualsiasi prodotto di SQL Server, tuttavia la sintassi **WITH PASSWORD**non può essere utilizzata con le versioni precedenti. In questo caso, ulteriori sezioni **si applica a**vengono inserite nella descrizione dell’argomento appropriato nel corpo dell'argomento.
+In alcuni casi, l'oggetto generale dell’argomento può essere utilizzato in un prodotto, ma non tutti gli argomenti sono supportati. Ad esempio, gli utenti di database indipendente sono stati introdotti in SQL Server 2012. L’istruzione**CREATE USER**può essere utilizzata in qualsiasi prodotto di SQL Server, tuttavia la sintassi **WITH PASSWORD**non può essere utilizzata con le versioni precedenti. In questo caso, ulteriori sezioni **si applica a** vengono inserite nella descrizione dell’argomento appropriato nel corpo dell'argomento.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

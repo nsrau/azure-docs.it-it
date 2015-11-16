@@ -750,7 +750,7 @@ __.chain()
 </table>
 
 ## Supporto di runtime
-L'[ SDK lato server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](documentdb-interactions-with-resources.md).
+L'[SDK lato server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Sicurezza
 Le stored procedure e i trigger di JavaScript vengono create in modalità sandbox in modo che gli effetti di un unico script non vengano trasferiti all'altro senza che siano stati prima sottoposti all'isolamento delle transazioni snapshot a livello di database. Gli ambienti di runtime vengono riuniti in pool, ma ripuliti dal contesto dopo ciascuna esecuzione. Di conseguenza è possibile garantirne la sicurezza rispetto a effetti collaterali imprevisti causati l'un l'altro.
@@ -920,4 +920,4 @@ Quando si dispone di uno o più stored procedure, trigger e funzioni definite da
 -	[Database architettura orientata ai servizi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hosting del Runtime .NET in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

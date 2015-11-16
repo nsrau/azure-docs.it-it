@@ -42,7 +42,7 @@ Un processo di indicizzazione può generare i seguenti output:
 
 Questo argomento illustra come creare processi di indicizzazione per **indicizzare un asset** e **indicizzare più file**.
 
-Per gli aggiornamenti più recenti relativi ad Azure Media Indexer, vedere i [blog di Servizi multimediali](http://azure.microsoft.com/blog/topics/media-services/).
+Per gli aggiornamenti più recenti relativi ad Azure Media Indexer, vedere i [blog di Servizi multimediali](#preset).
 
 ## Uso di file configurazione e manifesto per l'indicizzazione delle attività
 
@@ -50,7 +50,7 @@ Per gli aggiornamenti più recenti relativi ad Azure Media Indexer, vedere i [bl
 
 È anche possibile elaborare più file multimediali contemporaneamente usando un file manifesto.
 
-Per altre informazioni, vedere [Set di impostazioni per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](#).
 
 ## Indicizzare un asset
 
@@ -143,43 +143,22 @@ Si noti che, qualora non venga specificato un file di configurazione, il file mu
 	                                                   mediaProcessorName));
 
 	    return processor;
-	}
-
+	}  
+<!-- __ -->
 ### <a id="output_files"></a>File di output
 
 Per impostazione definita, il processo di indicizzazione genera i seguenti file di output. I file verranno archiviati nel primo asset di output.
 
+Quando è presente più di un file multimediale di input, Indetex genera un file manifesto per gli output del processo, denominato ‘JobResult.txt’. Per ogni file multimediale di input, i file AIB, SAMI, TTML, WebVTT e di parole chiave risultanti verranno numerati in sequenza e denominati usando l'"alias".
 
-<table border="1">
-<tr><th>Nome file</th><th>Descrizione</th></tr>
-<tr><td>InputFileName.aib </td>
-<td>File BLOB di indicizzazione audio.<br/><br/>
-Un file AIB (Audio Indexing Blob) è un file binario in cui è possibile eseguire ricerche full-text con Microsoft SQL Server. Questo file è più potente dei semplici file di sottotitoli perché contiene alternative per ogni parola, offrendo funzioni di ricerca più avanzate.
-<br/>
-<br/>
-Per il file è necessaria l'installazione del componente aggiuntivo Indexer SQL su un computer che esegue Microsoft SQL Server 2008 o versioni successive. La ricerca full-text nel file AIB con Microsoft SQL Server restituisce risultati più precisi rispetto ai file di sottotitoli codificati generati da WAMI. Questo perché il file AIB contiene parole alternative con un suono simile, mentre i file di sottotitoli codificati contengono la parola con la massima probabilità per ogni segmento dell'audio. Se la ricerca di descrizioni vocali ha un'importanza molto rilevante, si consiglia di usare il file AIB insieme a Microsoft SQL Server.
-<br/><br/>
-Per scaricare il componente aggiuntivo, fare clic su <a href="http://aka.ms/indexersql">Componente aggiuntivo SQL Azure Media Indexer</a>.
-<br/><br/>
-È anche possibile usare altri motori di ricerca come Apache Lucene/Solr per indicizzare semplicemente il video basato sui file di sottotitoli codificati e sui file XML di parole chiave, ma questo produrrà risultati della ricerca meno precisi.</td></tr>
-<tr><td>InputFileName.smi<br/>InputFileName.ttml<br/>InputFileName.vtt</td>
-<td>File di sottotitoli chiusi (CC) nei formati SAMI TTML e WebVTT.
-<br/><br/>
-Possono essere utili per rendere i file audio e video accessibili alle persone con problemi uditivi.
-<br/><br/>
-I file di sottotitoli codificati includono un tag denominato <b>Recognizability</b>, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine. È possibile usare il valore di <b>Recognizability</b> per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.</td></tr>
-<tr><td>InputFileName.kw.xml
-<br/>
-InputFileName.info
-</td>
-<td>Parola chiave e file di informazioni.
-<br/><br/>
-Un file di parole chiave è un file XML che contiene parole chiave estratte da contenuti vocali, con informazioni sulla frequenza e sull'offset.
-<br/><br/>
-Il file di informazioni è un file di testo che contiene informazioni granulari su ogni termine riconosciuto. La prima riga è speciale e contiene il punteggio Recognizability. Ogni riga successiva è un elenco separato da tabulazioni dei dati seguenti: ora di inizio, ora di fine, parola/frase, sicurezza. I tempi sono espressi in secondi e la sicurezza è indicata come un numero da 0 a 1  <br/><br/>Riga di esempio: "1,20 &#160;&#160;&#160;1,45 &#160;&#160;&#160;parola &#160;&#160;&#160;0,67"
-<br/><br/>
-È possibile usare questi file per vari scopi, ad esempio per eseguire analisi vocali o esporli ai motori di ricerca come Bing, Google o Microsoft SharePoint per rendere i file multimediali più individuabili o persino usarli per produrre annunci pubblicitari più pertinenti.</td></tr>
-</table>
+Nome file | Descrizione
+----------|------------
+__InputFileName.aib__ | File BLOB di indicizzazione audio. <br /><br /> Un file AIB (Audio Indexing Blob) è un file binario in cui è possibile eseguire ricerche full-text con Microsoft SQL Server. Questo file è più potente dei semplici file di sottotitoli perché contiene alternative per ogni parola, offrendo funzioni di ricerca più avanzate. <br/> <br/>Per il file è necessaria l'installazione del componente aggiuntivo Indexer SQL in un computer che esegue Microsoft SQL Server 2008 o versioni successive. La ricerca full-text nel file AIB con Microsoft SQL Server restituisce risultati più precisi rispetto ai file di sottotitoli codificati generati da WAMI. Questo perché il file AIB contiene parole alternative con un suono simile, mentre i file di sottotitoli codificati contengono la parola con la massima probabilità per ogni segmento dell'audio. Se la ricerca di descrizioni vocali ha un'importanza molto rilevante, si consiglia di usare il file AIB insieme a Microsoft SQL Server.<br/><br/> Per scaricare il componente aggiuntivo, fare clic su <a href="http://aka.ms/indexersql">Componente aggiuntivo SQL Azure Media Indexer</a>. <br/><br/>È anche possibile usare altri motori di ricerca come Apache Lucene/Solr per indicizzare semplicemente il video basato sui file di sottotitoli codificati e sui file XML di parole chiave, ma questo produrrà risultati della ricerca meno precisi.
+__InputFileName.smi__<br />\_\_InputFileName.ttml\_\_<br />\_\_InputFileName.vtt\_\_ |File di sottotitoli (CC, Closed Caption) in formato SAMI, TTML e WebVTT.<br/><br/>Possono essere usati per rendere i file audio e video accessibili alle persone con problemi di udito.<br/><br/>I file di sottotitoli includono un tag <b>Recognizability</b> che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine. È possibile usare il valore di <b>Recognizability</b> per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.
+__InputFileName.kw.xml<br />InputFileName.info__ |Parola chiave e file di informazioni. <br/><br/>Un file di parole chiave è un file XML che contiene parole chiave estratte da contenuti vocali, con informazioni sulla frequenza e sull'offset. <br/><br/>Il file di informazioni è un file di testo che contiene informazioni granulari su ogni termine riconosciuto. La prima riga è speciale e contiene il punteggio Recognizability. Ogni riga successiva è un elenco separato da tabulazioni dei dati seguenti: ora di inizio, ora di fine, parola/frase, sicurezza. I tempi sono espressi in secondi e la sicurezza è indicata come un numero da 0 a 1 <br/><br/>Riga di esempio: "1.20 1.45 word 0.67" <br/><br/>È possibile usare questi file per vari scopi, ad esempio per eseguire analisi vocali o esporli ai motori di ricerca come Bing, Google o Microsoft SharePoint per rendere i file multimediali più individuabili o persino usarli per produrre annunci pubblicitari più pertinenti.
+__JobResult.txt__ |Manifesto di output, presente solo quando si indicizzano più file, contenente le informazioni seguenti:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media\_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media\_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media\_3</td><td>600</td><td>0</td></tr></table><br/>
+
+
 
 Se non tutti i file multimediali di input vengono indicizzati correttamente, il processo di indicizzazione ha esito negativo con codice errore 4000. Per altre informazioni, vedere [Codici di errore](#error_codes).
 
@@ -187,7 +166,7 @@ Se non tutti i file multimediali di input vengono indicizzati correttamente, il 
 
 Il seguente metodo carica più file multimediali come asset e crea un processo per indicizzare tutti i file in un batch.
 
-Viene creato un file manifesto con estensione lst, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Viene creato un file manifesto con estensione lst, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -262,49 +241,6 @@ Viene creato un file manifesto con estensione lst, che viene caricato nell'asset
 	    return asset;
 	}
 
-
-### File di output
-
-Quando è presente più di un file multimediale di input, Indetex genera un file manifesto per gli output del processo, denominato ‘JobResult.txt’. Per ogni file multimediale di input, i file AIB, SAMI, TTML, WebTT, e di parole chiave risultanti verranno numerati in sequenza, come elencato di seguito.
-
-Per le descrizioni dei file di output, vedere [File di output](#output_files).
-
-
-<table border="1">
-<tr><th>Nome file</th><th>Descrizione</th></tr>
-<tr><td>JobResult.txt</td>
-<td>Manifesto di output
-<br/><br/>Di seguito è riportato il formato del file manifesto di output (JobResult.txt).
-<br/><br/>
-
-<table border="1">
-<tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Errore</th></tr>
-<tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr>
-<tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr>
-<tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr>
-</table><br/>
-Ogni riga rappresenta un singolo file multimediale di input:
-<br/><br/>
-InputFile: nome del file di asset o URL del file multimediale di input.
-<br/><br/>
-Alias: nome del file di output corrispondente.
-<br/><br/>
-MediaLength: lunghezza del file multimediale di input, espressa in secondi. Può essere pari a 0 se l'input è interessato da un errore.
-<br/><br/>
-Error: indica se il file multimediale viene indicizzato correttamente. 0 in caso di esito positivo, altro valore in caso di esito negativo. Per gli errori concreti, fare riferimento a <a href="#error_codes">Codici di errore</a>.
-</td></tr>
-<tr><td>Media_1.aib </td>
-<td>File #0: file BLOB di indicizzazione audio.</td></tr>
-<tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>File #0 - File di sottotitoli chiusi (CC) nei formati SAMI TTML e WebVTT.</td></tr>
-<tr><td>Media_1.kw.xml</td>
-<td>File #0: file di parole chiave.</td></tr>
-<tr><td>Media_2.aib </td>
-<td>File #1: file BLOB di indicizzazione audio.</td></tr>
-</table>
-
-Se non tutti i file multimediali di input vengono indicizzati correttamente, il processo di indicizzazione ha esito negativo con codice errore 4000. Per altre informazioni, vedere [Codici di errore](#error_codes).
-
 ### Processo parzialmente completato
 
 Se non tutti i file multimediali di input vengono indicizzati correttamente, il processo di indicizzazione ha esito negativo con codice errore 4000. Per altre informazioni, vedere [Codici di errore](#error_codes).
@@ -312,36 +248,40 @@ Se non tutti i file multimediali di input vengono indicizzati correttamente, il 
 
 Vengono generati gli stessi output dei processi completati. È possibile fare riferimento al file manifesto di output per scoprire quali file di input hanno avuto esito negativo in base ai valori presenti nella colonna Error. Per i file di input con esito negativo, NON verranno generati i file AIB, SAMI, TTML, Web TT e delle parole chiave risultanti.
 
+### <a id="preset"></a> Set di impostazioni di attività per Azure Media Indexer
+
+L'elaborazione in Azure Media Indexer può essere personalizzata fornendo un set di impostazioni facoltativo insieme all'attività. La tabella seguente descrive il formato di questo file xml di configurazione.
+
+Nome | Valore richiesto | Descrizione
+----|----|---
+__input__ | false | File di asset da indicizzare.</p><p>Azure Media Indexer supporta i formati di file multimediale seguenti: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>È possibile specificare uno o più nomi file nell'attributo **name** o **list** dell'elemento **input** (come mostrato sotto). Se non si specifica il file di asset da indicizzare, viene selezionato il file primario. Se non viene impostato alcun file di asset primario, viene indicizzato il primo file nell'asset di input.</p><p>Per specificare in modo esplicito il nome file di asset, eseguire:<br />`<input name="TestFile.wmv">`<br /><br />È anche possibile indicizzare più file di asset per volta (fino a 10 file). A questo scopo:<br /><br /><ol class="ordered"><li><p>Creare un file di testo (file manifesto) con l'estensione lst. </p></li><li><p>Aggiungere un elenco di tutti i nomi file di asset nell'asset di input a questo file manifesto. </p></li><li><p>Aggiungere (caricare) il file manifesto all'asset. </p></li><li><p>Specificare il nome del file manifesto nell'attributo list dell'input.<br />`<input list="input.lst">`</li></ol><br /><br />Nota: se si aggiungono più di 10 file al file manifesto, il processo di indicizzazione avrà esito negativo con codice di errore 2006.
+__metadata__ | false | Metadati per uno o più file di asset specificati usati per l'adattamento al vocabolario. Utili per preparare l'indicizzatore per riconoscere le parole di vocabolario non standard, ad esempio i nomi propri.<br />`<metadata key="..." value="..."/>` <br /><br />È possibile specificare i __valori__ per le __chiavi__ predefinite. Attualmente sono supportate le chiavi seguenti:<br /><br />"title" e "description", usate per l'adattamento al vocabolario per perfezionare il modello linguistico del processo e migliorare la precisione del riconoscimento vocale I valori alimentano le ricerche per trovare documenti di testo pertinenti a livello di contesto, usando i contenuti per ampliare il dizionario interno per tutta la durata dell'attività di indicizzazione.<br />`<metadata key="title" value="[Title of the media file]" />`<br />`<metadata key="description" value="[Description of the media file] />"`
+__features__ <br /><br /> Aggiunto nella versione 1.2. Attualmente la sola funzionalità supportata è il riconoscimento vocale ("ASR").| false | La funzionalità di riconoscimento vocale ha le chiavi di impostazioni seguenti:<table><tr><th><p>Chiave</p></th> <th><p>Descrizione</p></th><th><p>Valore di esempio</p></th></tr><tr><td><p>Language</p></td><td><p>Linguaggio naturale da riconoscere nel file multimediale.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>Elenco di valori separati da punto e virgola dei formati di sottotitolo desiderati (se presenti)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Flag booleano che specifica se un file AIB sia obbligatorio o meno (da usare con SQL Server e l'IFilter indicizzatore del cliente). Per altre informazioni, vedere <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">Uso dei file AIB con Azure Media Indexer e SQL Server</a>.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Flag booleano che specifica se un file XML di parole chiave sia obbligatorio o meno.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Flag booleano che specifica se forzare o meno i sottotitoli completi (indipendentemente dal livello di probabilità). </p><p>Il valore predefinito è false e in questo caso le parole e le frasi con un livello di probabilità inferiore al 50% vengono omesse dagli output finali dei sottotitoli e sostituite da puntini di sospensione ("..."). I puntini di sospensione sono utili per il controllo della qualità dei sottotitoli.</p></td><td><p>True; False. </p></td></tr></table>
 
 ### <a id="error_codes"></a>Codici di errore
 
+In caso di errore, Azure Media Indexer dovrebbe segnalare uno dei codici di errore seguente:
 
-<table border="1">
-<tr><th>Codice</th><th>Nome</th><th>Possibili cause</th></tr>
-<tr><td>2000</td><td>Configurazione non valida.</td><td>Configurazione non valida.</td></tr>
-<tr><td>2001</td><td>Asset di input non valido</td><td>Asset di input mancanti o vuoti.</td></tr>
-<tr><td>2002</td><td>File manifesto non valido</td><td>Il manifesto è vuoto oppure contiene elementi non validi.</td></tr>
-<tr><td>2003</td><td>Impossibile scaricare il file multimediale</td><td>URL non valido nel file manifesto.</td></tr>
-<tr><td>2004</td><td>Protocollo non supportato</td><td>Il protocollo dell'URL multimediale non è supportato.</td></tr>
-<tr><td>2005</td><td>Tipo di file non supportato</td><td>Il tipo di file multimediale di input non è supportato.</td></tr>
-<tr><td>2006</td><td>Troppi file di input</td><td>Sono presenti oltre 10 file nel manifesto di input. </td></tr>
-<tr><td>3000</td><td>Impossibile decodificare il file multimediale</td>
-<td>Codec multimediale non supportato.
-<br/>oppure<br/>
-File multimediale danneggiato.
-<br/>oppure<br/>
-Nessun flusso audio nei file multimediali di input.</td></tr>
-<tr><td>4000</td><td>Indicizzazione batch parzialmente completata</td><td>Non è stato possibile indicizzare alcuni file multimediali di input. Per altre informazioni, vedere <a href="output_files">File di output</a>.</td></tr>
-<tr><td>Altro</td><td>Errori interni</td><td>Contattare il team di supporto.</td></tr>
-</table>
+Codice | Nome | Possibili cause
+-----|------|------------------
+2000 | Configurazione non valida. | Configurazione non valida.
+2001 | Asset di input non valido | Asset di input mancanti o vuoti.
+2002 | File manifesto non valido | Il manifesto è vuoto oppure contiene elementi non validi.
+2003 | Impossibile scaricare il file multimediale | URL non valido nel file manifesto.
+2004 | Protocollo non supportato | Il protocollo dell'URL multimediale non è supportato.
+2005 | Tipo di file non supportato | Il tipo di file multimediale di input non è supportato.
+2006 | Troppi file di input | Sono presenti oltre 10 file nel manifesto di input.
+3000 | Impossibile decodificare il file multimediale | Codec multimediale non supportato <br/>oppure<br/> File multimediale danneggiato <br/>oppure<br/> Nessun flusso audio nei file multimediali di input.
+4000 | Indicizzazione batch parzialmente completata | Non è stato possibile indicizzare alcuni file multimediali di input. Per altre informazioni, vedere <a href="output_files">File di output</a>.
+Altro | Errori interni | Contattare il team di supporto. indexer@microsoft.com
 
 
-##<a id="supported_languages"></a>Lingue supportate
+## <a id="supported_languages"></a>Lingue supportate
 
-Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazioni, vedere [Azure Media Indexer in lingua spagnola](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazioni, vedere il [post di blog sulla versione 1.2](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
-##Percorsi di apprendimento di Media Services
+## Percorsi di apprendimento di Media Services
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
 
@@ -349,7 +289,7 @@ Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazion
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-##Collegamenti correlati
+## Collegamenti correlati
 
 [Uso dei file AIB con Azure Media Indexer e SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
@@ -359,4 +299,4 @@ Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazion
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

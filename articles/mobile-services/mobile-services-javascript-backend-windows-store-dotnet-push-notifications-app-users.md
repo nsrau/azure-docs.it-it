@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # Inviare notifiche push agli utenti autenticati
@@ -96,7 +96,7 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 [Aggiungere notifiche push all'app]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Aggiungere notifiche push all’app]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portale di gestione di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

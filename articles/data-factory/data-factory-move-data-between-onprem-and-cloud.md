@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati tra origini locali e il cloud mediante il Gateway di gestione dati
@@ -149,10 +149,15 @@ In questo passaggio viene usato il portale di gestione di Azure per creare un'is
 	4. **Registrazione** è impostato su **Registrato**.
 	5. La barra di stato visualizza **Connesso al servizio cloud del Gateway di gestione dati** insieme a un **segno di spunta verde**.
 
-8. Passare a **Certificati**. Il certificato specificato in questa scheda viene usato per crittografare e decrittografare le credenziali per l'archivio dati locale specificato nel portale. Fare clic su **Modifica** per usare il proprio certificato. Per impostazione predefinita, il gateway usa il certificato generato automaticamente dal servizio Data factory.
+8. Passare alla scheda **Certificati**. Il certificato specificato in questa scheda viene usato per crittografare e decrittografare le credenziali per l'archivio dati locale specificato nel portale. Fare clic su **Modifica** per usare il proprio certificato. Per impostazione predefinita, il gateway usa il certificato generato automaticamente dal servizio Data factory.
 
 	![Configurazione certificati del gateway](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
-9. Nel portale di Azure fare clic su **OK** nel pannello **Configura** e quindi nel pannello **Nuovo gateway dati**.
+9. (Facoltativo) Passare alla scheda **Diagnostica**, selezionare l'opzione **Abilita registrazione dettagliata per la risoluzione dei problemi** se si vuole abilitare la registrazione dettagliata che è possibile usare per risolvere i problemi del gateway. Le informazioni sulla registrazione si trovano nel **Visualizzatore eventi**, nel nodo **Registri applicazioni e servizi** -> **Gateway di gestione dati**. 
+
+	![Scheda Diagnostica](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
+
+	È possibile usare questa pagina anche per **testare la connessione** a un'origine dati locale usando il gateway.
+10. Nel portale di Azure fare clic su **OK** nel pannello **Configura** e quindi nel pannello **Nuovo gateway dati**.
 6. Verrà visualizzato **adftutorialgateway** in **Gateway dati** nella visualizzazione albero a sinistra. Se si fa clic su di esso, viene visualizzato l'oggetto JSON associato. 
 	
 
@@ -182,7 +187,7 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 	4. Se si usa l'autenticazione SQL:
 		1. Per il database specificare il **nome del server**, il **nome del database**, l'**ID utente** e la **password** in **connectionString**.       
 		2. Rimuovere le ultime due proprietà JSON, **userName** e **password**, da JSON.
-		3. Rimuovere il carattere finale (**, virgola)** alla fine della riga che specifica il valore della proprietà **gatewayName**. 
+		3. Rimuovere il carattere finale **, (virgola)** alla fine della riga che specifica il valore della proprietà **gatewayName**. 
 
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
@@ -261,7 +266,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 	- L'oggetto **type** è impostato su **SqlServerTable**.
 	- **tablename** è impostato su **emp**.
 	- **linkedServiceName** è impostato su **SqlServerLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
-	- Per una tabella di input non generata da un'altra pipeline in Data Factory di Azure, è necessario impostare **external** su **true**. Indica che i dati di input sono generati al di fuori del servizio Data factory di Azure. È possibile specificare i criterio di dati esterni necessari usando l'elemento **externalData** nella sezione **Policy**.    
+	- Per una tabella di input non generata da un'altra pipeline in Data Factory di Azure, è necessario impostare **external** su **true**. Indica che i dati di input sono generati al di fuori del servizio Data factory di Azure. È possibile specificare i criteri di dati esterni necessari usando l'elemento **externalData** nella sezione **Policy**.    
 
 	Vedere il [riferimento agli script JSON][json-script-reference] per dettagli sulle proprietà JSON.
 
@@ -297,7 +302,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 	- L'oggetto **type** è impostato su **AzureBlob**.
 	- **linkedServiceName** è impostato su **StorageLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
 	- **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. È necessario creare solo il contenitore **adftutorial**.
-	- L'oggetto **availability** è impostato su **hourly**. L'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**. Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure. 
+	- L'oggetto **availability** è impostato su **hourly** (l'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure. 
 
 	Se non si specifica un oggetto **fileName** per una **tabella di input**, tutti i file/BLOB della cartella di input (**folderPath**) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Vedere i file di esempio nell'[esercitazione][adf-tutorial] per gli esempi.
  
@@ -379,7 +384,7 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
  
 	- Nella sezione delle attività esiste una sola attività con **type** impostato su **Copy**.
 	- **Input** per l'attività è impostato su **EmpOnPremSQLTable** e **output** per l'attività è impostato su **OutputBlobTable**.
-	- Nella sezione **transformation** **SqlSource** è specificato come **tipo di origine** e **BlobSink ** come **tipo di sink**.
+	- Nella sezione **transformation** **SqlSource** è specificato come **tipo di origine** e **BlobSink** come **tipo di sink**.
 - La query SQL **select * from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
 
 	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
@@ -466,13 +471,13 @@ Questa sezione illustra la procedura per spostare il client del gateway da un co
 4. Nel pannello **Gateway dati** fare clic su **Scaricare e installare il gateway dati**.
 	
 	![Collegamento di download del gateway](./media/data-factory-move-data-between-onprem-and-cloud/DownloadGatewayLink.png) 
-5. Nel riquadro **Configura** fare clic su **Scaricare e installare il gateway dati** e seguire le istruzioni per installare il gateway dati nel computer. 
+5. Nel pannello **Configura** fare clic su **Scaricare e installare il gateway dati** e seguire le istruzioni per installare il gateway dati nel computer. 
 
 	![Pannello Configura](./media/data-factory-move-data-between-onprem-and-cloud/ConfigureBlade.png)
 6. Tenere aperto **Gestione configurazione di Gateway di gestione dati di Microsoft**. 
  
 	![Gestione configurazione](./media/data-factory-move-data-between-onprem-and-cloud/ConfigurationManager.png)	
-7. Nel pannello **Configura** del portale fare clic su **Ricrea chiave ** nella barra dei comandi e su **Sì** per il messaggio di avviso. Fare clic sul **pulsante Copia** accanto al testo della chiave per copiare la chiave negli Appunti. Il gateway nel computer precedente smetterà di funzionare non appena si ricrea la chiave.  
+7. Nel pannello **Configura** del portale fare clic su **Ricrea chiave** nella barra dei comandi e su **Sì** per il messaggio di avviso. Fare clic sul **pulsante Copia** accanto al testo della chiave per copiare la chiave negli Appunti. Il gateway nel computer precedente smetterà di funzionare non appena si ricrea la chiave.  
 	
 	![Ricrea chiave](./media/data-factory-move-data-between-onprem-and-cloud/RecreateKey.png)
 	 
@@ -584,7 +589,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 ## Flusso di dati per la copia mediante il Gateway di gestione dati
 Quando si usa un'attività di copia in una pipeline di dati per inserire dati locali nel cloud ai fini di una successiva elaborazione o per esportare nuovamente i dati memorizzati nel cloud in un archivio dati locale, l'attività di copia usa un gateway per trasferire i dati dall'origine dati locale nel cloud e viceversa.
 
-Di seguito sono riportati un flusso di dati di alto livello e un riepilogo dei passaggi per la copia con il gateway di dati: ![Flusso di dati mediante gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi per la copia con il gateway di dati: ![Flusso di dati mediante gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	Lo sviluppatore di dati crea un nuovo gateway per una data factory di Azure usando il [portale di Azure](http://portal.azure.com) o un [cmdlet di PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Tramite il pannello "Servizi collegati" viene definito un nuovo servizio collegato per un archivio dati locale all'interno del gateway. Una parte della configurazione del servizio collegato consiste nell'uso dell'applicazione Impostazione credenziali per specificare i tipi di autenticazione e le credenziali come illustrato nella procedura dettagliata. La finestra di dialogo dell'applicazione Impostazione credenziali comunicherà con l'archivio dati per eseguire il test della connessione e con il gateway per salvare le credenziali.
@@ -597,11 +602,11 @@ Di seguito sono riportati un flusso di dati di alto livello e un riepilogo dei p
 
 1. Come descritto in precedenza nella procedura dettagliata, sono disponibili diversi modi per impostare le credenziali per gli archivi dati locali con Data factory. Per le porte occorre fare considerazioni diverse a seconda delle opzioni selezionate.	
 
-	- Uso dell'applicazione **Impostazione credenziali**: per impostazione predefinita il programma di installazione del Gateway di gestione dati apre le porte **8050** e **8051** in Windows Firewall nel computer del gateway. Queste porte vengono usate dall'applicazione Impostazione credenziali per trasmettere le credenziali al gateway e vengono aperte solo nel computer locale in cui è attivo Windows Firewall. Queste porte non sono raggiungibili da Internet e non è necessario tenerle aperte nel firewall aziendale.
+	- Uso dell'applicazione **Impostazione credenziali**: per impostazione predefinita, il programma di installazione del Gateway di gestione dati apre le porte **8050** e **8051** in Windows Firewall nel computer del gateway. Queste porte vengono usate dall'applicazione Impostazione credenziali per trasmettere le credenziali al gateway e vengono aperte solo nel computer locale in cui è attivo Windows Firewall. Queste porte non sono raggiungibili da Internet e non è necessario tenerle aperte nel firewall aziendale.
 	2.	Uso del cmdlet di PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx): se si usa un cmdlet di PowerShell per crittografare le credenziali e di conseguenza non si desidera che durante l'installazione del gateway vengano aperte le porte in ingresso in Windows Firewall sul computer del gateway, questa operazione può essere eseguita usando il comando seguente durante l'installazione:
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
-3.	Se si usa l'applicazione **Impostazione credenziali** è necessario avviarla in un computer che possa connettersi al Gateway di gestione dati per impostare le credenziali per l'origine dati e testare la connessione all'origine dati.
+3.	Se si usa l'applicazione **Impostazione credenziali**, è necessario avviarla in un computer che possa connettersi al Gateway di gestione dati per impostare le credenziali per l'origine dati e testare la connessione all'origine dati.
 4.	Quando si copiano dati da e verso un database di SQL Server locale verso o da un database SQL di Azure, verificare quanto segue:	
 	- 	Il firewall nel computer del gateway consente la comunicazione TCP in uscita sulla porta **TCP** **1433**.
 	- 	Configurare le [impostazioni del firewall SQL di Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) aggiungendo l'**indirizzo IP del computer del gateway** agli **indirizzi IP consentiti**.
@@ -610,4 +615,4 @@ Di seguito sono riportati un flusso di dati di alto livello e un riepilogo dei p
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md) richiede solo alcuni minuti.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

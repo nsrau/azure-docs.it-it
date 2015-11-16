@@ -18,6 +18,8 @@
 
 # Come configurare un'applicazione per usare l'account di accesso Microsoft
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Questo argomento descrive come configurare le app per dispositivi mobili di Azure per usare l'account Microsoft come provider di autenticazione.
@@ -32,7 +34,7 @@ Questo argomento descrive come configurare le app per dispositivi mobili di Azur
 
 4. Fare clic su **Crea applicazione**, quindi digitare un nome in **Nome applicazione** e fare clic su **Accetto**.
 
-5. Fare clic su **API Settings**. Selezionare **Yes** per **Mobile or desktop client app**. Nel campo **URL di reindirizzamento** immettere l'**URL di reindirizzamento** copiato in precedenza. Si tratta del gateway dell'app per dispositivi mobili con _/signin-microsoft_ come suffisso. ad esempio `https://contosogateway.azurewebsites.net/signin-microsoft`. Assicurarsi che sia in uso lo schema HTTPS. Dopo avere immesso l'URL di reindirizzamento, fare clic su **Save**.
+5. Fare clic su **API Settings**. Selezionare **Yes** per **Mobile or desktop client app**. Nel campo **URL di reindirizzamento** immettere l'**URL di reindirizzamento** copiato in precedenza. Si tratta del gateway dell'app per dispositivi mobili con _/signin-microsoft_ come suffisso. Ad esempio: `https://contosogateway.azurewebsites.net/signin-microsoft`. Assicurarsi che sia in uso lo schema HTTPS. Dopo avere immesso l'URL di reindirizzamento, fare clic su **Save**.
 
 	![][0]
 
@@ -45,7 +47,7 @@ Questo argomento descrive come configurare le app per dispositivi mobili di Azur
 
 ## <a name="secrets"> </a>Aggiungere le informazioni dell'account Microsoft all'app per dispositivi mobili
 
-1. Tornare al [portale di gestione di Azure], quindi nel pannello delle impostazioni dell'account Microsoft per l'app per dispositivi mobili incollare i valori relativi all'ID client e al segreto client ottenuti in precedenza. Fare quindi clic su **Salva**.
+1. Tornare al [portale di gestione di Azure], nel pannello delle impostazioni dell'account Microsoft per l'app per dispositivi mobili, incollare i valori relativi all'ID client e alla chiave privata client ottenuti in precedenza. Fare quindi clic su **Salva**.
 
     ![][1]
 
@@ -68,6 +70,5 @@ Questo argomento descrive come configurare le app per dispositivi mobili di Azur
 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portale di gestione di Azure]: https://portal.azure.com/
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

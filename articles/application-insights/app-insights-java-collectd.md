@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="11/03/2015" 
 	ms.author="awills"/>
  
 # collectd: metriche delle prestazioni Unix in Application Insights
@@ -40,7 +40,7 @@ Copiare la chiave di strumentazione, che identifica la risorsa.
 Nei computer server Unix:
 
 1. Installare [collectd](http://collectd.org/) versione 5.4.0 o successive.
-2. Scaricare il [plug-in di scrittura collectd di Application Insights](http://go.microsoft.com/fwlink/?LinkId=618634). Annotare il numero di versione.
+2. Scaricare il [plug-in di scrittura collectd di Application Insights](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Annotare il numero di versione.
 3. Copiare il file JAR del plug-in in `/usr/share/collectd/java`.
 3. Modificare `/etc/collectd/collectd.conf`:
  * Assicurarsi che il [plug-in Java](https://collectd.org/wiki/index.php/Plugin:Java) sia abilitato.
@@ -143,4 +143,4 @@ Separare le direttive con un valore NewLine.
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

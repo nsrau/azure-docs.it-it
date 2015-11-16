@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Descrizione del cluster di Resource Balancer"
-   description="Specifica della descrizione del cluster per Resource Balancer"
+   pageTitle="Descrizione del cluster di Resource Balancer | Microsoft Azure"
+   description="Descrivere un’infrastruttura di servizi specificando i domini di errore, i domini di aggiornamento, le proprietà del nodo e le capacità del nodo per Resource Balancer."
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -16,7 +16,7 @@
    ms.date="09/03/2015"
    ms.author="masnider"/>
 
-# Descrizione del cluster
+# Descrivere un cluster di infrastruttura dei servizi
 
 Service Fabric Resource Balancer offre diversi meccanismi per la descrizione di un cluster. In fase di runtime Resource Balancer usa queste informazioni per posizionare i servizi. In questo modo viene garantita la disponibilità elevata dei servizi in esecuzione sul cluster, assicurando al tempo stesso il massimo utilizzo delle risorse di quest'ultimo. Le funzionalità di Resource Balancer che descrivono un cluster sono domini di errore, domini di aggiornamento, proprietà del nodo e capacità del nodo. Resource Balancer offre inoltre di alcune opzioni di configurazione che consentono di modificarne le prestazioni.
 
@@ -192,4 +192,4 @@ Per altre informazioni: [Architettura di Resource Balancer](service-fabric-resou
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

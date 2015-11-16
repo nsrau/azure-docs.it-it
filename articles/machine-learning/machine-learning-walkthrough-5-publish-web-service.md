@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="garye"/>
 
 
@@ -89,8 +89,7 @@ Il servizio non necessita dei dati della carta di credito originali. Necessita p
 
 Eseguire l'esperimento ancora una volta (facendo clic su **Esegui**). Se si vuole verificare che il modello funzioni ancora, fare clic sull'output del modulo [Score Model][score-model] e selezionare **Visualizza risultati**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
 
-##
-Distribuire il servizio web
+## Distribuire il servizio web
 
 Per distribuire un servizio Web derivato dall'esperimento, fare clic su **Distribuisci servizio web** sotto l'area di disegno. Machine Learning Studio distribuisce l'esperimento come servizio Web e apre il dashboard del servizio.
 
@@ -98,8 +97,11 @@ Per distribuire un servizio Web derivato dall'esperimento, fare clic su **Distri
 
 È possibile configurare il servizio facendo clic sulla scheda **CONFIGURAZIONE**, dove è possibile modificare il nome del servizio (per impostazione predefinita ha il nome dell'esperimento) e aggiungere una descrizione. È anche possibile inserire etichette più descrittive per le colonne di input e output.
 
+![Configurare il servizio Web][5]
+
 ## Testare il servizio Web
-Nella pagina **DASHBOARD** fare clic sul collegamento **Test** in **Default Endpoint**. Verrà visualizzata una finestra di dialogo e verranno richiesti i dati di input per il servizio. Sono le stesse colonne visualizzate nel set di dati del rischio di credito tedesco.
+Nella pagina **DASHBOARD** fare clic sul collegamento **Test** in **Default Endpoint**. Verrà visualizzata una finestra di dialogo e verranno richiesti i dati di input per il servizio. Sono le stesse colonne visualizzate nel set di dati del rischio di credito tedesco ![Testare il servizio Web][6]
+
 
 Immettere un set di dati e quindi fare clic su **OK**.
 
@@ -114,6 +116,8 @@ Il risultato generato dal servizio Web viene visualizzato in fondo al dashboard.
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
+[5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
+[6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
 
 
 <!-- Module References -->
@@ -127,4 +131,4 @@ Il risultato generato dal servizio Web viene visualizzato in fondo al dashboard.
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

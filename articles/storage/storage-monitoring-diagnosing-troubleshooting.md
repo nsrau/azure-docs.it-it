@@ -3,8 +3,8 @@
 	description="Informazioni su come usare funzionalità quali l'analisi dell'archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati al servizio di archiviazione di Azure."
 	services="storage"
 	documentationCenter=""
-	authors="dominicbetts"
-	manager="adinah"
+	authors="jasonnewyork"
+	manager="tadb"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="v-dobett"/>
+	ms.author="jahogg"/>
 
 # Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione Microsoft Azure
 
@@ -910,4 +910,4 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

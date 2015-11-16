@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors - Modello di progettazione Governance delle risorse"
-   description="Modello di progettazione sull'uso di Service Fabric Actors per modellare un'applicazione su cui sia possibile applicare la scalabilità ma che usi risorse vincolate"
+   pageTitle="Modello di progettazione della governance delle risorse | Microsoft Azure"
+   description="Modello di progettazione sull'uso dei Reliable Actors dell’infrastruttura di servizi per modellare un'applicazione su cui sia possibile applicare la scalabilità ma che usi risorse vincolate"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,6 +17,7 @@
    ms.author="vturecek"/>
 
 # Modello di progettazione di Reliable Actors: governance delle risorse
+
 Questo modello e i relativi scenari sono facilmente riconoscibili dagli sviluppatori (aziendali e non solo) che dispongono di risorse vincolate in locale o nel cloud, non immediatamente scalabili, e che desiderano inviare nel cloud dati e applicazioni su larga scala.
 
 Nelle organizzazioni, queste risorse vincolate, ad esempio i database, vengono eseguite su hardware ad alta scalabilità verticale. Chiunque disponga di una lunga esperienza in azienda sa che si tratta di una situazione comune a livello locale. A livello di cloud, invece, questa situazione si verifica quando un servizio cloud tenta di superare il limite TCP di 64 KB per le connessioni tra un indirizzo e una tupla di porta o quando si tenta di connettersi a un database basato su cloud che limita il numero di connessioni simultanee.
@@ -30,6 +31,7 @@ Il diagramma seguente illustra questo scenario:
 ![][1]
 
 ## Modellazione di scenari di cache con attori
+
 L'accesso alle risorse viene modellato come un attore o più attori che svolgono la funzione di proxy (ovvero di connessione) in una risorsa o un gruppo di risorse. È quindi possibile gestire direttamente la risorsa tramite singoli attori oppure usare un attore di coordinamento che gestisce gli attori risorsa. Per rendere questo concetto più concreto, si simulerà la necessità di lavorare con un livello di archiviazione partizionato per motivi di prestazioni e scalabilità. La prima opzione è piuttosto semplice: è possibile usare una funzione statica per eseguire il mapping e risolvere gli attori in risorse a valle. Una funzione di questo tipo può restituire, ad esempio, una stringa di connessione con un determinato input. La modalità di implementazione di questa funzione è interamente a propria discrezione. Questo approccio, ovviamente, presenta anche degli svantaggi, ad esempio un'affinità statica che rende molto difficile il ripartizionamento delle risorse o il remapping di un attore in risorse. Di seguito è riportato un esempio molto semplice in cui si usa il modulo aritmetico per determinare il nome di database tramite l'ID utente e si fa riferimento all'area geografica per identificare il server di database.
 
 ## Esempio di codice per la governance delle risorse: risoluzione statica
@@ -140,6 +142,7 @@ public class Resolver : Actor<ResolverState>, IResolver
 ```
 
 ## Accesso alle risorse con capacità limitata
+
 Si esaminerà ora un altro esempio: l'accesso esclusivo a risorse preziose, quali database, account di archiviazione e file system, con funzionalità a velocità effettiva limitata. In questo scenario si desidera elaborare gli eventi usando un attore denominato EventProcessor, responsabile di elaborare l'evento e di salvarlo in modo permanente, in questo caso in un file con estensione csv per maggiore semplicità. Sebbene sia possibile scalare orizzontalmente le risorse seguendo l'approccio di partizionamento illustrato in precedenza, rimane comunque la necessità di affrontare i problemi di concorrenza. Ecco perché è stato scelto un esempio basato su file per illustrare questo punto specifico: la presenza di più attori che scrivono in un unico file genera problemi di concorrenza. Per risolvere il problema è possibile introdurre un altro attore denominato EventWriter, che detiene la proprietà esclusiva delle risorse vincolate. Lo scenario è illustrato di seguito:
 
 ![][3]
@@ -398,6 +401,7 @@ Questo modello è molto comune negli scenari in cui gli sviluppatori dispongono 
 
 
 ## Passaggi successivi
+
 [Modello: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Modello: Reti distribuite e grafici](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -417,4 +421,4 @@ Questo modello è molto comune negli scenari in cui gli sviluppatori dispongono 
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

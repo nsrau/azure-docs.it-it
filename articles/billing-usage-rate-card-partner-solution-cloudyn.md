@@ -1,5 +1,5 @@
 <properties
-   pageTitle="L’API di utilizzo e l’API RateCard di Microsoft Azure Usage consentono a Cloudyn di fornire ITFM ai clienti"
+   pageTitle="L’API di utilizzo e l’API RateCard di Microsoft Azure Usage consentono a Cloudyn di fornire ITFM ai clienti | Microsoft Azure"
    description="Fornisce un punto di vista unico del partner di fatturazione di Microsoft Azure, Cloudyn, sulle esperienze di integrazione delle API di fatturazione di Azure nel prodotto. Ciò è particolarmente utile per i clienti di Azure e Cloudyn che sono interessati a utilizzare/provare Cloudyn per Servizi di Azure."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/14/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;bryanla"/>
 
 # L’API di utilizzo e l’API RateCard di Microsoft Azure Usage consentono a Cloudyn di fornire ITFM ai clienti 
@@ -74,9 +74,9 @@ Di seguito viene fornito un breve video in cui viene mostrato come un cliente di
 + Avviare una versione di valutazione gratuita di [Cloudyn per Azure](https://www.cloudyn.com/microsoft-azure/) per scoprire come ottenere la trasparenza dei costi grazie alla creazione di report e all’analisi personalizzate per la distribuzione cloud di Microsoft Azure.
 + Per una panoramica sulle API di utilizzo delle risorse e sulle API RateCard di Azure, vedere [Ottenere informazioni significative sul consumo di risorse di Microsoft Azure](billing-usage-rate-card-overview.md). 
 + Per ulteriori informazioni su entrambe le API, appartenenti al set di API fornito da Gestione risorse di Azure, vedere il [riferimento all'API REST di fatturazione di Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
-+ Se si desidera approfondire il codice di esempio, vedere gli [esempi di codice dell'API di fatturazione di Microsoft Azure in Github](https://github.com/Azure/BillingCodeSamples).
++ Se si desidera approfondire il codice di esempio, vedere gli esempi di codice dell'API di fatturazione di Microsoft Azure in [Esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
-## Ulteriori informazioni
+## Altre informazioni
 + Per ulteriori informazioni sulle offerte relative al contratto di Microsoft Azure Enterprise, visitare [Licenze di Azure per l’azienda](http://azure.microsoft.com/pricing/enterprise-agreement/)
 + Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 + Per ulteriori informazioni sulla suite di strumenti necessari per conoscere la spesa relativa al cloud, fare riferimento all’articolo di Gartner sulla [Guida di mercato agli strumenti ITFM](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
@@ -90,4 +90,4 @@ Di seguito viene fornito un breve video in cui viene mostrato come un cliente di
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

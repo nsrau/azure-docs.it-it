@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="10/26/2015"
+ms.date="11/02/2015"
 ms.author="larryfr"/>
 
 #Vedere Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web.
@@ -197,4 +197,4 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguen
 
 * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/29/2015" 
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione per usare l'account di accesso di Azure Active Directory
@@ -26,7 +26,7 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 
 1. Accedere all'[anteprima del portale di gestione di Azure] e passare all'app per dispositivi mobili.
 
-2. In **Impostazioni** fare clic su **Autenticazione utente** e quindi su **Azure Active Directory**. Copiare i valori di **URL app** e **URL di risposta** disponibili in questa schermata. Verranno usati in seguito. Assicurarsi che per **URL app** e **URL di risposta ** venga usato lo schema HTTPS.
+2. In **Impostazioni** fare clic su **Autenticazione per dispositivi mobili** e quindi su **Azure Active Directory**. Copiare i valori di **URL app** e **URL di risposta** disponibili in questa schermata. Verranno usati in seguito. Assicurarsi che per **URL app** e **URL di risposta ** venga usato lo schema HTTPS.
 
     ![][1]
 
@@ -73,6 +73,5 @@ Autenticare gli utenti della propria app per dispositivi mobili con Single Sign-
 [anteprima del portale di gestione di Azure]: https://portal.azure.com/
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/30/2015"
 	ms.author="femila"/>
 
 # Anteprima dell'accesso condizionale di Azure per app SaaS
@@ -55,7 +55,7 @@ Per impostazione predefinita, i criteri verranno applicati a tutti gli utenti ch
 
 È anche possibile escludere in modo esplicito i gruppi di sicurezza dai criteri selezionando l'opzione relativa alle eccezioni e quindi specificando uno o più gruppi. Gli utenti membri di un gruppo nell'elenco delle eccezioni non saranno soggetti al requisito di autenticazione a più fattori, anche se sono membri di un gruppo a cui si applica la regola di accesso. La regola di accesso mostrata di seguito impone a tutti gli utenti del gruppo Responsabili di usare l'autenticazione a più fattori quando accedono all'applicazione.
 
-![Impostazione delle regole di accesso condizionale con MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.jpg)
+![Impostazione delle regole di accesso condizionale con MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
 
 ##Regole di accesso condizionale con MFA
 Se un utente è stato configurato usando la funzionalità di autenticazione a più fattori per utente, questa impostazione per l'utente avrà la precedenza rispetto alle regole di autenticazione a più fattori per l'app. Di conseguenza, un utente configurato per l'autenticazione a più fattori per utente dovrà eseguire l'autenticazione a più fattori anche se è stato escluso dalle regole di autenticazione a più fattori per l'applicazione. Altre informazioni sull'autenticazione a più fattori e le impostazioni per utente.
@@ -86,4 +86,4 @@ L'esempio seguente illustra come abilitare MFA in locale usando il [cmdlet Set-M
 
 Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve essere configurata in modo da eseguire l'autenticazione a più fattori. Seguire le istruzioni per la distribuzione locale di Azure Multi-Factor Authentication.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -19,7 +19,7 @@
 
 # Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]((azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md).
 
 In questo articolo viene descritto come usare l'interfaccia della riga di comando di Azure in modalità Gestione dei servizi (asm) per creare, gestire ed eliminare servizi nella riga di comando di computer Mac, Linux e Windows. È possibile eseguire molte delle stesse attività usando le diverse librerie di Azure SDK con Azure PowerShell e tramite il portale di Azure. L'uso dei servizi di Azure in modalità Gestione dei servizi è simile alla creazione e alla gestione di singoli concetti e servizi di Azure come Siti Web, Macchine virtuali, Reti virtuali, Archiviazione e così via.
 
@@ -2350,4 +2350,4 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

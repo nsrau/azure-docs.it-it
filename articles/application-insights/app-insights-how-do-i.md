@@ -183,6 +183,10 @@ Se gli utenti effettuano l'accesso, è possibile impostare l'[ID dell'utente aut
 
 ![](./media/app-insights-how-do-i/115-metrics.png)
 
+## Modificare i nomi della proprietà o i valori
+
+Creare un filtro(app-insights-api-filtering-sampling.md#filtering). Consente di modificare o filtrare la telemetria prima che venga inviata dall'app ad Application Insights.
+
 ## Elencare utenti specifici e il relativo uso
 
 Se si desidera [cercare utenti specifici](#search-specific-users), è possibile impostare l'[ID dell'utente autenticato](app-insights-api-custom-events-metrics/#authenticated-users).
@@ -196,7 +200,7 @@ Se si desidera un elenco di utenti con i dati quali, ad esempio, le pagine visua
 ## Ridurre il traffico dall'app ad Application Insights
 
 * In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) disabilitare tutti i moduli non necessari, come gli agenti di raccolta del contatore della prestazione.
-* Utilizzare [Campionamento e filtri](app-insights-api-filtering-sampling.md) nell’SDK.
+* Usare [Campionamento e filtri](app-insights-api-filtering-sampling.md) nell’SDK.
 * Se si usa [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcolare l'aggregazione di batch di valori delle metriche prima di inviare il risultato. Un overload di TrackMetric() esegue questa operazione.
 
 
@@ -204,7 +208,7 @@ Altre informazioni su [prezzi e quote](app-insights-pricing.md).
 
 ## Disabilitare telemetria
 
-Per **avviare e arrestare in modo dinamico** la raccolta e la trasmissione di dati di telemetria dal server:
+Per **avviare e arrestare in modo dinamico** la raccolta e la trasmissione della telemetria dal server:
 
 ```
 
@@ -228,7 +232,7 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 ### Se non vengono visualizzati dati dei contatori delle prestazioni
 
 * **Server IIS** sul proprio computer o in una macchina virtuale. [Installare Status Monitor](app-insights-monitor-performance-live-website-now.md). 
-* **Sito Web di Azure**: i contatori delle prestazioni non sono ancora supportati. Esistono diverse metriche che è possibile ottenere come una parte standard del Pannello di controllo del sito Web di Azure.
+* **Sito Web di Azure** - i contatori delle prestazioni non sono ancora supportati. Esistono diverse metriche che è possibile ottenere come una parte standard del Pannello di controllo del sito Web di Azure.
 * **Server Unix** - [Installare collectd](app-insights-java-collectd.md)
 
 ### Per visualizzare altri contatori delle prestazioni
@@ -236,11 +240,4 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 * Innanzitutto [aggiungere un nuovo grafico](app-insights-metrics-explorer.md) e verificare che il contatore sia incluso nel set di base offerto.
 * In caso contrario, [aggiungere il contatore al set raccolto dal modulo del contatore delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters).
 
-
- 
-
-### Ruoli Web di Azure
-
-Attualmente non viene eseguito il monitoraggio dei contatori delle prestazioni.
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

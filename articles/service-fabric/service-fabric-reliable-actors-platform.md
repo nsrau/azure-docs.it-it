@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modalità d'uso della piattaforma Service Fabric da parte di Reliable Actors"
-   description="Questo articolo descrive le modalità d'uso delle funzionalità della piattaforma Service Fabric da parte di Reliable Actors. Vengono descritti i concetti relativi alla piattaforma Service Fabric dal punto di vista degli sviluppatori attori."
+   pageTitle="Reliable Actors nell'infrastruttura di servizi | Microsoft Azure"
+   description="Descrive come i Reliable Actors usano le funzionalità della piattaforma dell'infrastruttura dei servizi trattando concetti dal punto di vista degli sviluppatori attori."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -18,8 +18,9 @@
 
 # Modalità d'uso della piattaforma Service Fabric da parte di Reliable Actors
 
-## Concetti relativi al modello di applicazione di Service Fabric per gli attori
-Gli attori usano il modello di applicazione di Service Fabric per gestire il ciclo di vita dell'applicazione. Ogni tipo di attore viene mappato a un [tipo di servizio](service-fabric-application-model.md#describe-a-service) di Service Fabric. Il codice attore viene [incluso in un pacchetto](service-fabric-application-model.md#package-an-application) come applicazione di Service Fabric e [distribuito](service-fabric-deploy-remove-applications.md#deploy-an-application) sul cluster.
+Gli attori usano il modello di applicazione di Service Fabric per gestire il ciclo di vita dell'applicazione. Ogni tipo di attore viene mappato a un [tipo di servizio](service-fabric-application-model.md#describe-a-service) di infrastruttura di servizi. Il codice attore viene [incluso in un pacchetto](service-fabric-application-model.md#package-an-application) come applicazione di Service Fabric e [distribuito](service-fabric-deploy-remove-applications.md#deploy-an-application) sul cluster.
+
+## Concetto di modello dell'applicazione di esempio per gli attori
 
 Per illustrare alcuni dei concetti precedenti, verrà esaminato l'esempio di un progetto attore [creato tramite Visual Studio](service-fabric-reliable-actors-get-started.md).
 
@@ -242,4 +243,4 @@ Si noti che per modificare il provider di stato è necessario ricreare il serviz
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

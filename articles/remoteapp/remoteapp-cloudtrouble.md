@@ -13,14 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="11/04/2015" 
     ms.author="vikbucha" />
 
 
 
 # Risoluzione dei problemi di creazione di raccolte di cloud di RemoteApp
 
-Errori più frequenti visualizzati nel portale di gestione di Azure:
+Se si riscontrano problemi durante la creazione di una raccolta di cloud, consultare le informazioni seguenti.
+
+## L'immagine non è valida ##
+Se viene visualizzato un messaggio del tipo "GoldImageInvalid" quando si è in attesa di Azure per eseguire il provisioning per la raccolta, significa che l'immagine del modello non soddisfa i [requisiti definiti per l’immagine](remoteapp-imagereqs.md). Quindi, leggere quei [requisiti](remoteapp-imagereqs.md), correggere l'immagine e cercare di creare nuovamente la raccolta.
+
+## Errori più frequenti visualizzati nel portale di gestione di Azure:
 
 	DNS server could not be reached
 	ProvisioningTimeout
@@ -38,4 +43,4 @@ Se si usa una delle immagini Microsoft incluse nella sottoscrizione, provare a c
 Se viene visualizzato questo errore in genere significa che è stato effettuato l'aggiornamento a un account a pagamento, ma si sta tentando di usare un'immagine fornita da Microsoft che è valida solo durante la modalità di valutazione del servizio. In questo caso, provare a creare nuovamente la raccolta cloud, ma assicurarsi di specificare l'immagine corretta.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

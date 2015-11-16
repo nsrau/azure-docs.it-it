@@ -57,7 +57,12 @@ DirSync supporta le modifiche di configurazione seguenti che verranno aggiornate
 - Sincronizzazione password e impostazioni ibride di Exchange
 - Impostazioni di Azure AD e di foresta/dominio
 
-Non è possibile aggiornare le modifiche seguenti. Se è stata apportata una di queste modifiche, l'aggiornamento verrà bloccato. In questi casi si consiglia di installare un nuovo server Azure AD Connect in [modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode) e verificare la configurazione precedente di DirSync e quella nuova di Azure AD Connect.
+Non è possibile aggiornare le modifiche seguenti. Se è stata apportata una di queste modifiche, l'aggiornamento verrà bloccato.
+
+![Aggiornamento bloccato](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
+
+In questi casi si consiglia di installare un nuovo server Azure AD Connect in [modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode) e verificare la configurazione precedente di DirSync e quella nuova di Azure AD Connect. Riapplicare le modifiche utilizzando la configurazione personalizzata, come descritto in [configurazione personalizzata della sincronizzazione di Azure ADConnect](active-directory-aadconnectsync-whatis.md).
+
 
 - Modifiche non supportate di DirSync, ad esempio attributi rimossi e uso di una DLL di estensione personalizzata
 - Opzioni di filtro basate sugli attributi dell'utente
@@ -88,7 +93,7 @@ Nei casi seguenti sono necessari altri passaggi:
 4. Al termine dell'analisi, vengono visualizzati alcuni consigli su come procedere.  
     - Se si usa SQL Server Express e sono disponibili meno di 50.000 oggetti, viene visualizzata la schermata seguente: ![Analisi completata. È possibile eseguire l'aggiornamento da DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
     - Se si usa una versione completa di SQL Server per DirSync verrà invece visualizzata questa pagina: ![Analisi completata. È possibile eseguire l'aggiornamento da DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)<BR/> Vengono visualizzate le informazioni riguardanti il server di database SQL Server esistente usato da DirSync. Se necessario, apportare le modifiche appropriate. Fare clic su **Avanti** per continuare l'installazione.
-    - Se sono disponibili più di 50.000 oggetti, verrà invece visualizzata questa schermata: ![Analisi completata. È possibile eseguire l'aggiornamento da DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)<BR/> Per continuare con un aggiornamento sul posto, fare clic sulla casella di controllo accanto al messaggio **Continua ad aggiornare DirSync in questo computer**. Per eseguire invece un [distribuzione parallela](#parallel-deployment), esportare le impostazioni di configurazione di DirSync e spostarle nel nuovo server.
+    - Se sono disponibili più di 50.000 oggetti, verrà invece visualizzata questa schermata: ![Analisi completata. È possibile eseguire l'aggiornamento da DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)<BR/> Per continuare con un aggiornamento sul posto, fare clic sulla casella di controllo accanto al messaggio **Continua ad aggiornare DirSync in questo computer**. Per eseguire invece una [distribuzione parallela](#parallel-deployment), esportare le impostazioni di configurazione di DirSync e spostarle nel nuovo server.
 5. Fornire la password per l'account attualmente usato per la connessione ad Azure AD. Deve essere l'account attualmente usato da DirSync. ![Immettere le credenziali di Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)
 6. Fornire un account amministratore dell'organizzazione per Active Directory. ![Immettere le credenziali di ADDS.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. È ora possibile procedere alla configurazione. Quando si fa clic su **Aggiorna**, DirSync viene disinstallato e Azure AD Connect viene configurato e viene avviata la sincronizzazione. ![Pronto per la configurazione](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
@@ -155,6 +160,8 @@ All'interno dell'applicazione sarà necessario visualizzare la scheda **Operazio
 - Sincronizzazione completa in AD Connector
 - Sincronizzazione completa in Azure AD Connector
 
+![Importazione e sincronizzazione completate](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsynccompleted.png)
+
 Esaminare il risultato di tali operazioni e assicurarsi che non siano presenti errori.
 
 Se si desidera visualizzare e controllare le modifiche che verranno esportate in Azure AD, leggere come verificare la configurazione in [modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode). Apportare le modifiche di configurazione necessarie fino a quando non si verificano eventi imprevisti.
@@ -191,4 +198,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

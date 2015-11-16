@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso di Hub di notifica di Azure per inviare notifiche agli utenti"
+	pageTitle="Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET"
 	description="Informazioni su come inviare notifiche push agli utenti in Azure. Gli esempi di codice sono scritti in Objective-C e nell'API .NET per il back-end."
 	documentationCenter="ios"
 	authors="wesmc7777"
@@ -16,7 +16,7 @@
 	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
-#Uso di Hub di notifica di Azure per inviare notifiche agli utenti
+#Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -465,4 +465,4 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

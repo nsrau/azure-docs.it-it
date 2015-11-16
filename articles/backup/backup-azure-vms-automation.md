@@ -14,7 +14,9 @@
 Questo articolo descrive come usare Azure PowerShell per il backup e il ripristino delle macchine virtuali dell'infrastruttura distribuita come servizio (IaaS) di Azure.
 
 ## Concetti
-Vedere l'[introduzione al backup di macchine virtuali IaaS di Azure](backup-azure-vms-introduction.md) nella documentazione del servizio Backup di Azure, in cui vengono fornite informazioni di base sui motivi per i quali è consigliabile eseguire il backup delle macchine virtuali, sui prerequisiti e sulle limitazioni.
+Vedere l'[introduzione al backup di macchine virtuali IaaS di Azure](backup-azure-vms-introduction.md) nella documentazione del servizio Backup di Azure,
+
+> [AZURE.WARNING]Prima di iniziare, assicurarsi di avere gli elementi di base per i [prerequisiti](backup-azure-vms-prepare.md) necessari per usare il servizio Backup di Azure, e le [limitazioni](backup-azure-vms-prepare.md#limitations) della soluzione attuale di backup della macchina virtuale.
 
 Per un utilizzo efficace di PowerShell, è necessario comprendere la gerarchia degli oggetti e da dove iniziare.
 
@@ -300,4 +302,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Se si vogliono aggiungere funzionalità per la creazione di grafici all'output del report, leggere questo articolo sulla [creazione di grafici con PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)sul blog TechNet
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

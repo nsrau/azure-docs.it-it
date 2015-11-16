@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione all'API REST di gestione di Ricerca di Azure" 
-	description="Introduzione all'API REST di gestione di Ricerca di Azure" 
+	pageTitle="Introduzione all'API REST di gestione di Ricerca di Azure | Microsoft Azure" 
+	description="Gestire il servizio di Ricerca di Azure ospitato sul cloud mediante un'API REST di gestione" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Introduzione all'API REST di gestione di Ricerca di Azure
@@ -204,4 +204,4 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

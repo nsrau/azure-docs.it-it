@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
 
 # Campionamento, filtro e pre-elaborazione della telemetria in Application Insights SDK
@@ -42,7 +42,7 @@ Modo consigliato per ridurre il traffico mantenendo accurate le statistiche. Il 
 
 1. Aggiornare i pacchetti NuGet del progetto all'ultima versione *preliminare* di Application Insights. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web. 
 
-2. Aggiungere questo frammento ad ApplicationInsights.config:
+2. Aggiungere questo frammento ad [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
 ```XML
 
@@ -91,21 +91,26 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 
 ### Creare un processore di telemetria
 
-1. Per creare un filtro, implementare ITelemetryProcessor, un altro punto di estendibilità come il modulo di telemetria, l'inizializzatore di telemetria e il canale di telemetria. 
+1. Aggiornamento di Application Insights SDK alla versione più recente (2.0.0-beta2 o versione successiva). Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni di Visual Studio e scegliere Gestisci pacchetti NuGet. In gestione pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web.
+
+1. Per creare un filtro, implementare ITelemetryProcessor, un altro punto di estendibilità come il modulo di telemetria, l'inizializzatore di telemetria e il canale di telemetria.
 
     Si noti che i processori di telemetria creano una catena di elaborazione. Quando si crea un'istanza di un processore di telemetria, si passa un collegamento al processore successivo nella catena. Quando un punto dati della telemetria viene passato al metodo Process, esegue le operazioni necessarie e quindi chiama il processore di telemetria successivo nella catena.
 
     ``` C#
 
-    namespace FilteringTelemetryProcessor
-    {
-      using Microsoft.ApplicationInsights.Channel;
-      using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.Extensibility;
 
-      class UnauthorizedRequestFilteringProcessor : ITelemetryProcessor
+    public class SuccessfulDependencyFilter : ITelemetryProcessor
       {
-        public UnauthorizedRequestFilteringProcessor(ITelemetryProcessor next)
-		//Initialization will fail without this constructor. Link processors to each other
+        private ITelemetryProcessor Next { get; set; }
+
+        // You can pass values from .config
+        public string MyParamFromConfigFile { get; set; }
+
+        // Link processors to each other in a chain.
+        public SuccessfulDependencyFilter(ITelemetryProcessor next)
         {
             this.Next = next;
         }
@@ -117,17 +122,52 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
             ModifyItem(item);
 
             this.Next.Process(item);
-        }      private ITelemetryProcessor Next { get; set; }
-      }
+        }
+
+        // Example: replace with your own criteria.
+        private bool OKtoSend (ITelemetry item)
+        {
+            var dependency = item as DependencyTelemetry;
+            if (dependency == null) return true;
+
+            return dependency.Success != true;
+        }
+
+        // Example: replace with your own modifiers.
+        private void ModifyItem (ITelemetry item)
+        {
+            item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
+        }
     }
+    
 
     ```
-2. In una classe di inizializzazione adatta, ad esempio AppStart in Global.asax.cs, inserire il processore nella catena:
+2. Inserirlo in ApplicationInsights.config: 
+
+```XML
+
+    <TelemetryProcessors>
+      <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
+         <!-- Set public property -->
+         <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+(Si noti che questa è la stessa sezione utilizzata per inizializzare un filtro di campionamento.)
+
+È possibile passare i valori della stringa dal file .config fornendo proprietà denominate come pubbliche nella classe.
+
+> [AZURE.WARNING]Prestare attenzione a fare corrispondere il nome del tipo e i nomi delle proprietà nel file. config ai nomi di classe e di proprietà nel codice. Se il file. config fa riferimento a un tipo inesistente o una proprietà, l’SDK potrebbe automaticamente non riuscire a inviare nessuna telemetria.
+
+ 
+**In alternativa,** è possibile inizializzare il filtro nel codice. In una classe di inizializzazione adatta, ad esempio AppStart in Global.asax.cs, inserire il processore nella catena:
 
     ```C#
 
-    var builder = new TelemetryChannelBuilder();
-    builder.Use((next) => new UnauthorizedRequestFilteringProcessor(next));
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
@@ -136,7 +176,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 
     ```
 
-    Gli elementi TelemetryClient creati dopo questo punto useranno i processori dell'utente.
+Gli elementi TelemetryClient creati dopo questo punto useranno i processori dell'utente.
 
 ### Filtri di esempio
 
@@ -146,19 +186,19 @@ Filtrare i robot e i test Web. Anche se Esplora metriche consente di filtrare le
 
 ``` C#
 
-public void Process(ITelemetry item)
-{
-    if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource))
-    { return; }
+    public void Process(ITelemetry item)
+    {
+      if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
 
-    this.Next.Process(item);
-}
+      // Send everything else: 
+      this.Next.Process(item);
+    }
 
 ```
 
 #### Autenticazione non riuscita
 
-Filtrare le richieste con risposta "401".
+Filtrare le richieste con una risposta "401".
 
 ```C#
 
@@ -333,33 +373,14 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 * [Panoramica API](app-insights-api-custom-events-metrics.md)
 
 * [Riferimento ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
-* [Riferimento Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
-* [Informazioni di riferimento su JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 
 ## Codice SDK
 
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [SDK per Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
-* [Tutte le piattaforme](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
-## Domande
-
-* *Le chiamate Track\_() quali eccezioni potrebbero generare?*
-    
-    Nessuna. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà un messaggio che verrà visualizzato nell'output della console di debug e quindi nella ricerca diagnostica per approfondirne i dettagli.
-
-
-
-* *Esiste un'API REST?*
-
-    Sì, ma è non ancora pubblicata.
 
 ## <a name="next"></a>Passaggi successivi
 
@@ -388,4 +409,4 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

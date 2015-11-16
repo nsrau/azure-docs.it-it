@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="mebha"/>
+	ms.date="11/03/2015"
+	ms.author="meetb"/>
 
 
 # Connettersi al database SQL tramite Node.js in Windows
@@ -224,4 +224,4 @@ Per il funzionamento di questo esempio di codice, è necessario innanzitutto ave
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/develop/nodejs/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
