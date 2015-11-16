@@ -4,8 +4,8 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
-	editor=""/>
+	authors="ddove" 
+	editor="sidneyh"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,34 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh@microsoft.com"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
-#Iniziare a utilizzare gli strumenti di database elastici
+# Iniziare a utilizzare gli strumenti di database elastici
 
-L'aumento o la riduzione della capacità su richiesta è una delle promesse principali del cloud computing. Nel caso delle applicazioni di database, una tecnica importante per realizzare soluzioni scalabili è rappresentata dal modello definito "partizione". In tale modello, i dati vengono sottoposti a partizionamento fisico su una serie di database strutturati in modo identico. In generale, la creazione e la gestione di applicazioni che usano la partizione richiede molto codice esterno alla logica di business.
-
-Gli strumenti di database elastici facilitano la creazione e la gestione di applicazioni poiché utilizzano la partizione nel database SQL di Azure. Gli strumenti includono la libreria client di database elastico e lo strumento di divisione-unione Quando vengono usati insieme, consentono di implementare gli aspetti relativi all'infrastruttura del partizionamento orizzontale, permettendo quindi di concentrarsi sulla logica di business dell'applicazione.
-
-In questo documento viene presentata l'esperienza di sviluppo usando la libreria client del database elastico.
-
-Per ulteriori informazioni sul funzionamento degli strumenti di database elastici, vedere [Panoramica degli strumenti di database elastici](sql-database-elastic-scale-introduction.md)
-
-Per un elenco di tutti gli argomenti relativi agli strumenti di database elastici, consultare la [mappa di apprendimento](sql-database-elastic-scale-documentation-map.md)
-
-## Applicazione di esempio relativa al database elastico
-
-Nell'esempio viene creata una semplice applicazione partizionata si esplorano le funzionalità chiave degli strumenti di database elastici. Per scaricare ed eseguire l'applicazione, attenersi alla procedura descritta di seguito o nel video di [introduzione alla scalabilità elastica](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started).
+In questo documento viene presentata l'esperienza di sviluppo eseguendo l’app di esempio. Nell'esempio viene creata una semplice applicazione partizionata si esplorano le funzionalità chiave degli strumenti di database elastici. L'esempio illustra le funzioni della [libreria client di database elastico](sql-database-elastic-database-client-library.md)
 
 ## Prerequisiti
-Per eseguire l'app di esempio è necessario usare Visual Studio e avere accesso a un database SQL di Azure in esecuzione su Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile effettuare la [sottoscrizione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/).
-### Visual Studio e Nuget
 
 1. È richiesto Visual Studio 2012 o versioni successive con C#. Scaricare una versione gratuita dalla pagina [Download di Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 2. Nuget 2.7 o versioni successive. Per ottenere la versione più recente, vedere il documento relativo all'[installazione di NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
-### Creare un database SQL di Azure
-
-* Vedere [Introduzione al database SQL di Microsoft Azure](sql-database-get-started.md).
 
 ## Scaricare ed eseguire l'app di esempio
 
@@ -115,4 +98,4 @@ Per ulteriori informazioni sugli strumenti di database elastici, vedere:
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -23,9 +23,14 @@
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-In questa esercitazione si aggiungeranno notifiche push al progetto di [avvio rapido di iOS] per attivare l'invio di una notifica push ogni volta che viene inserito in record. Questa esercitazione è basata sull'esercitazione relativa all'[avvio rapido di iOS], che deve essere completata per prima. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+## Panoramica
+In questa esercitazione si aggiungeranno notifiche push al progetto di [avvio rapido di iOS] per attivare l'invio di una notifica push ogni volta che viene inserito un record. Questa esercitazione è basata sull'esercitazione relativa all'[avvio rapido di iOS], che deve essere completata per prima. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Il [simulatore iOS non supporta le notifiche push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), quindi per questa esercitazione è necessario un dispositivo iOS fisico e l'[iscrizione all'Apple Developer Program](https://developer.apple.com/programs/ios/).
+
+##<a name="create-hub"></a>Creare un hub di notifica
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
 ## <a id="register"></a>Registrare l'app per le notifiche push
 
@@ -66,4 +71,4 @@ Il [simulatore iOS non supporta le notifiche push](https://developer.apple.com/l
 <!-- URLs. -->
 [avvio rapido di iOS]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Debug dell'applicazione di Service Fabric in Visual Studio tramite F5"
-   description="Migliorare l'affidabilità e le prestazioni dei servizi mediante Visual Studio e un cluster di sviluppo locale."
+   pageTitle="Debug dell’applicazione in Visual Studio | Microsoft Azure"
+   description="Migliorare l'affidabilità e la prestazione dei servizi mediante il loro sviluppo e debug in Visual Studio e in un cluster di sviluppo locale."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Debug dell'applicazione di Service Fabric in Visual Studio tramite F5
+# Debug dell'applicazione dell’infrastruttura di servizi mediante Visual Studio
 
 Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Service Fabric ed eseguirne il debug in un cluster di sviluppo locale. Visual Studio può distribuire l'applicazione nel cluster locale e connettere automaticamente il debugger a tutte le istanze dell'applicazione.
 
@@ -66,4 +66,4 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

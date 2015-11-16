@@ -29,6 +29,10 @@ Quando si crea una macchina virtuale nel portale di Azure, vengono creati automa
 
 - [Informazioni sui gruppi di sicurezza di rete](virtual-networks-nsg.md)
 
+Notare che i gruppi di sicurezza di rete controllano l'accesso alla macchina virtuale, ma non forniscono le funzionalità di inoltro di porta. Per l'inoltro di porta, vedere l'articolo seguente:
+
+- [Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md)
+
 Ogni endpoint dispone di una porta pubblica e di una porta privata.
 
 - La porta pubblica viene usata dal servizio di bilanciamento del carico di Azure per restare in attesa di traffico in ingresso sulla macchina virtuale da Internet.
@@ -96,4 +100,4 @@ Per usare un cmdlet di Azure PowerShell per impostare questa funzionalità, vede
 
 [Bilanciamento del carico per i servizi di infrastruttura di Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

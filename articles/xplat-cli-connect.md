@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="10/30/2015"
 	ms.author="danlep"/>
 
 # Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure
@@ -27,15 +27,17 @@ L'interfaccia della riga di comando di Azure è un insieme di comandi multipiatt
 
 Per connettersi alla propria sottoscrizione dall'interfaccia della riga di comando di Azure, è possibile procedere in due modi:
 
-* **Accedere a Azure utilizzando un identità dell’ account aziendale o dell’istituto di istruzione Microsoft** - Questo utilizza entrambi i tipi di identità dell'account per l'autenticazione. A partire dalla versione 0.9.9 dell’interfaccia della riga di comando, l’interfaccia della riga di comando supporta l'autenticazione interattiva per gli account che dispongono dell'autenticazione a più fattori abilitata. Dopo l'accesso in modalità interattiva, è possibile usare Gestione risorse o i comandi classici (Gestione dei servizi).
+* **Accedere a Azure utilizzando un identità dell’ account aziendale o dell’istituto di istruzione Microsoft** - Questo utilizza entrambi i tipi di identità dell'account per l'autenticazione. L’attuale interfaccia della riga di comando supporta anche l'autenticazione interattiva per gli account che dispongono dell'autenticazione a più fattori abilitata. Dopo l'accesso in modalità interattiva, è possibile usare Gestione risorse o i comandi classici (Gestione dei servizi).
 
-* **Scaricare e usare un file di impostazioni di pubblicazione**. In questo caso viene installato un certificato che consente di eseguire attività di gestione per tutto il periodo di validità della sottoscrizione e del certificato. Questa soluzione consente di usare soltanto i comandi classici (Gestione dei servizi).
+* **Scaricare e usare un file di impostazioni di pubblicazione**. In questo caso viene installato un certificato sul computer locale che consente di eseguire attività di gestione per tutto il periodo di validità della sottoscrizione e del certificato. Questa soluzione consente di usare soltanto i comandi classici (Gestione dei servizi).
 
 Per altre informazioni sulla gestione di autenticazione e sottoscrizione, vedere [Qual è la differenza tra l'autenticazione basata su account e quella basata su certificati?][authandsub].
 
 Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][free-trial].
 
-> [AZURE.NOTE]Se si utilizza una versione dell’interfaccia della riga di comando di Azure precedente alla versione 0.9.9, è possibile utilizzare il comando `azure login` solo per le identità dell’account aziendale o dell’istituto di istruzione. Le identità dell’account Microsoft non funzionano. Tuttavia, è possibile utilizzare qualsiasi identità per accedere all'account con il comando interattivo `azure login` con le versioni dell’interfaccia della riga di comando di Azure 0.9.9 e versioni successive.
+>[AZURE.NOTE]Se si utilizza una versione dell’interfaccia della riga di comando di Azure precedente alla versione 0.9.10, è possibile utilizzare il comando `azure login` solo per le identità dell’account aziendale o dell’istituto di istruzione. Le identità dell’account Microsoft non funzionano. Tuttavia, è possibile utilizzare qualsiasi identità per accedere all'account con il comando interattivo `azure login` con le versioni dell’interfaccia della riga di comando di Azure 0.9.10 e versioni successive.
+>
+Le versioni dell’interfaccia della riga di comando 0.9.9 e versioni successive supportano l’autenticazione a più fattori.
 
 
 
@@ -46,23 +48,23 @@ Utilizzare il comando `azure login` -- senza alcun argomento -- per autenticare 
 - un’identità dell’account aziendale o dell’istituto di istruzione che richiede l'autenticazione a più fattori, o
 - con un'identità dell'account Microsoft quando si desidera accedere alle funzionalità di modalità di distribuzione di Gestione risorse
 
-> [AZURE.NOTE]In entrambi casi, l'autenticazione e l’autorizzazione vengono eseguite mediante Azure Active Directory, nel caso di account Microsoft tramite l'accesso al dominio predefinito di Azure Active Directory. (Se è stata effettuata l'iscrizione per una valutazione gratuita, si potrebbe non essere conoscenza della creazione di un dominio predefinito di Azure Active Directory per l'account.)
+> [AZURE.NOTE]In entrambi i casi, l'autenticazione e l’autorizzazione vengono eseguite mediante Azure Active Directory. Se si utilizza un'identità dell'account Microsoft, il log nel processo accede al dominio predefinito di Azure Active Directory. (Se è stata effettuata l'iscrizione per una valutazione gratuita, si potrebbe non essere conoscenza della creazione di un dominio predefinito di Azure Active Directory per l'account.)
 
 L’accesso interattivo è semplice; digitare `azure login` e seguire le istruzioni, come illustrato di seguito:
 
 	azure login                                                                                                                                                                                         
 	info:    Executing command login
-	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code B4MGHQS7K to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
-	
-Copiare il codice offerto in precedenza all'utente e aprire un browser per http://aka.ms/devicelogin. Inserire il codice, verrà richiesto di inserire il nome utente e la password per l'identità che si desidera utilizzare. Al termine di quel processo, la shell del comando completerà la procedura di accesso. Potrebbe essere simile a:
-	
+	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
+
+Copiare il codice offerto in precedenza all'utente e aprire un browser per http://aka.ms/devicelogin. Inserire il codice, poi viene richiesto di inserire il nome utente e la password per l'identità che si desidera utilizzare. Al termine di quel processo, la shell del comando completa la procedura di accesso. Potrebbe essere simile a:
+
 	info:    Added subscription Visual Studio Ultimate with MSDN
 	info:    Added subscription Azure Free Trial
 	info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
 	+
 	info:    login command OK
 
-## Utilizzo del log non interattivo con un account aziendale o dell’istituto di istruzione
+## Utilizzare un log non interattivo con un account aziendale o dell’istituto di istruzione
 
 
 La soluzione basata sull'accesso non interattivo funziona soltanto con un account aziendale o dell'istituto di istruzione, detto anche *account a livello di organizzazione*. L'account è gestito dall'organizzazione e definito nell'Azure Active Directory aziendale. È possibile [creare un account aziendale](#create-an-organizational-account) se non si dispone di uno, o è possibile [creare un ID aziendale o dell’istituto di istruzione a partire dall’ID account di Microsoft](./virtual-machines/resource-group-create-work-id-from-personal.md). Richiede di specificare un nome utente o un nome utente e una password per il comando `azure login`, come illustrato di seguito:
@@ -73,7 +75,7 @@ La soluzione basata sull'accesso non interattivo funziona soltanto con un accoun
 	|info:    Added subscription Visual Studio Ultimate with MSDN
 	+
 	info:    login command OK
-	
+
 Immettere la password quando viene richiesto.
 
 	If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
@@ -101,7 +103,7 @@ Verrà aperto il browser predefinito e richiesto di accedere al [portale di Azur
 * **Per importare il file di impostazioni di pubblicazione**, eseguire il comando seguente.
 
 		azure account import <path to your .publishsettings file>
-	
+
 	Dopo l'importazione delle impostazioni di pubblicazione, è consigliabile eliminare il file `.publishsettings` in quanto non è più necessario per l'interfaccia della riga di comando di Azure e presenta un rischio di sicurezza perché può essere usato per accedere alla sottoscrizione.
 
 
@@ -125,7 +127,7 @@ La sottoscrizione predefinita diventerà in questo modo Azure-sub-2.
 
 Se si desidera usare una sottoscrizione non predefinita con l'interfaccia della riga di comando di Azure, ma senza cambiare quella attualmente predefinita, è possibile usare l'opzione `--subscription` e specificare il nome della sottoscrizione da usare per l'operazione.
 
-Una volta che si è connessi alla sottoscrizione di Azure, iniziare a utilizzare i comandi dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere la pagina [Come usare l'interfaccia della riga di comando di Azure](xplat-cli-install.md).
+Una volta che si è connessi alla sottoscrizione di Azure, iniziare a utilizzare i comandi dell'interfaccia della riga di comando di Azure.
 
 ## Archiviazione delle impostazioni dell'interfaccia della riga di comando
 
@@ -154,6 +156,6 @@ Quando si accede con un account aziendale o dell'istituto di istruzione o si imp
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

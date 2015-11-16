@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/20/2015"
+   ms.date="11/03/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
@@ -21,6 +21,44 @@
 Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
 
 Lo scopo di questo articolo è consentire agli utenti di esaminare le versioni rilasciate e verificare l'opportunità di effettuare l'aggiornamento alla versione più recente.
+
+Collegamenti correlati:
+
+- Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade)
+- [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.0.9125.0
+Data di rilascio: novembre 2015
+
+**Nuove funzionalità:**
+
+- È possibile riconfigurare l’ADFS a trust AD Azure.
+- È possibile aggiornare lo schema di Active Directory e rigenerare le regole di sincronizzazione.
+- È possibile disattivare una regola di sincronizzazione.
+- È possibile definire "AuthoritativeNull" come un nuovo valore letterale in una regola di sincronizzazione.
+
+**Nuove funzionalità di anteprima:**
+
+- [Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md).
+- Supporto per la sincronizzazione della password dei [Servizi di dominio Azure AD](active-directory-ds-getting-started.md)
+
+**Nuovo scenario supportato:**
+
+- Supporta più organizzazioni di Exchange locali Per altre informazioni, vedere la pagina [Distribuzioni ibride con più insiemi di strutture di Active Directory](https://technet.microsoft.com/it-IT/library/jj873754.aspx)
+
+**Problemi risolti:**
+
+- Problemi sulla sincronizzazione delle password:
+    - Un oggetto spostato dal all’esterno all’interno dell’ambito non avrà la password sincronizzata. Questo include unità Organizzativa e filtro attributi.
+    - Selezione di una nuova unità Organizzativa da includere nella sincronizzazione non richiede una sincronizzazione completa della password.
+    - Quando un utente disabilitato è abilitato la password non viene sincronizzata.
+    - La coda di tentativi di password è infinita e il limite precedente di 5.000 oggetti da ritirare è stato rimosso.
+    - [Risoluzione dei problemi migliorata](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+- Impossibile connettersi ad Active Directory con livello di funzionalità foresta Windows Server 2016.
+- Impossibile modificare il gruppo utilizzato per il filtro di gruppo dopo l'installazione iniziale.
+- Non si creerà un nuovo profilo utente nel server di Azure AD Connect per ogni utente che effettua una modifica della password con attivato il writeback delle password.
+- Non è possibile usare valori Intero lungo negli ambiti di regole sincronizzate.
+- La casella di controllo "dispositivo writeback" rimane disabilitato se sono presenti controller di dominio non raggiungibili.
 
 ## 1\.0.8667.0
 Data di rilascio: agosto 2015
@@ -41,6 +79,7 @@ Data di rilascio: agosto 2015
 - Non è possibile abilitare e disabilitare la "Modalità di gestione temporanea" se sono stati aggiunti attributi di estensione.
 - Il writeback delle password ha esito negativo in alcune configurazioni a causa di una password non valida in Active Directory Connector.
 - Non è possibile aggiornare DirSync se si usa dn nel filtro di attributi.
+- Utilizzo eccessivo della CPU quando si utilizza la reimpostazione della password.
 
 **Funzionalità di anteprima rimosse:**
 
@@ -56,10 +95,10 @@ Il nome è stato modificato da Azure AD Sync ad Azure AD Connect.
 **Nuove funzionalità:**
 
 - Installazione [Impostazioni rapide](active-directory-aadconnect-get-started-express.md)
-- È possibile [configurare ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs):
+- È possibile [configurare ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 - È possibile [aggiornare da DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [Impedire eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-- Introdotta la [Modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode)
+- Introdotta la [modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode)
 
 **Nuove funzionalità di anteprima:**
 
@@ -160,4 +199,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

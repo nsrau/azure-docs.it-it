@@ -1,16 +1,16 @@
 
 <properties
-	pageTitle="Backup di Azure: Gestire macchine virtuali | Microsoft Azure"
-	description="Informazioni su come gestire una macchina virtuale di Azure"
+	pageTitle="Gestire e monitorare i backup della macchina virtuale di Azure | Microsoft Azure"
+	description="Informazioni su come gestire e monitorare i backup della macchina virtuale di Azure"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
-# Gestire e monitorare il backup delle macchine virtuali di Azure
+# Gestire e monitorare i backup della macchina virtuale di Azure
 
 ## Gestire le macchine virtuali protette
 
@@ -249,4 +249,4 @@ Gli avvisi basati su eventi sono soggetti alle limitazioni seguenti:
 
 - [Ripristinare una macchina virtuale](backup-azure-restore-vms.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

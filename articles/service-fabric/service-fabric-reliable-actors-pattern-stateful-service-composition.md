@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Modello di progettazione Composizione dei servizi con stato di Reliable Actors"
-   description="Modello di progettazione di Service Fabric Reliable Actors che usa attori con stato per mantenere lo stato tra più chiamate al servizio e memorizzare nella cache i risultati dei servizi precedenti. Lo stato, inoltre, può essere salvato in modo permanente o temporaneo."
+   pageTitle="Modello di composizione del servizio con stato | Microsoft Azure"
+   description="Modello di progettazione dei Reliable Actors dell’infrastruttura di servizi che usa attori con stato per mantenere lo stato tra più chiamate al servizio e memorizzare nella cache i risultati dei servizi precedenti."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -18,9 +18,11 @@
    ms.author="vturecek"/>
 
 # Modello di progettazione di Reliable Actors: composizione dei servizi con stato
+
 Gli sviluppatori hanno trascorso gli ultimi quindici anni cercando di creare servizi senza stato a N livelli. Hanno realizzato servizi basati su database, compilato servizi di ordine superiore basati su altri servizi e sviluppato motori di orchestrazione e middleware orientato ai messaggi per coordinare questi servizi. Con l'evolversi dei carichi di lavoro utente, e il conseguente aumento della domanda di interattività e scalabilità, un'architettura basata su servizi senza stato ha iniziato a rivelarsi inadeguata.
 
 ## Il passato: servizi SOA
+
 Se da un lato i servizi SOA (Service-Oriented Architecture) possono essere facilmente scalati orizzontalmente grazie alla loro natura senza stato, dall'altro creano un collo di bottiglia nel livello di archiviazione, in termini sia di simultaneità sia di velocità effettiva. L'accesso all'archiviazione, quindi, diventava sempre più costoso. Come prassi comune, gli sviluppatori introducevano il caching nelle proprie soluzioni per ridurre la domanda di archiviazione, ma anche questa soluzione non era priva di svantaggi: un ulteriore livello da gestire, accesso simultaneo alla cache, modifiche e restrizioni semantiche e scarsa coerenza. Come dimostrato in precedenza per il modello Smart Cache, il modello Actor virtuale offre una soluzione perfetta per questo tipo di esigenza.
 
 Alcuni sviluppatori avevano tentato di risolvere il problema replicando il livello di archiviazione. Questo approccio, tuttavia, non garantiva una corretta scalabilità e raggiungeva rapidamente i confini del punto di accesso client. Il secondo problema riguardava l'evoluzione delle esigenze: sia le aziende sia gli utenti finali richiedevano servizi interattivi, ovvero una risposta alle richieste in termini di millisecondi anziché di secondi. Per soddisfare questa esigenza, gli sviluppatori hanno iniziato a mettere a punto servizi facciata basati su altri servizi, in alcuni casi su decine di servizi, allo scopo di creare servizi orientati agli utenti. La combinazione di più servizi downstream, tuttavia, ha rapidamente dimostrato problemi di latenza.
@@ -34,6 +36,7 @@ Il diagramma seguente illustra questo punto:
 ![][1]
 
 ## Soluzione migliore con gli attori
+
 Ai fini della composizione dei servizi, gli attori possono essere con o senza stato.
 
 * Gli attori senza stato possono essere usati come proxy dei servizi sottostanti. Possono essere scalati in modo dinamico nel cluster di Azure Service Fabric e possono memorizzare nella cache determinate informazioni relative al servizio, ad esempio l'endpoint non appena viene rilevato.
@@ -46,6 +49,7 @@ La maggior parte degli sviluppatori desidera adottare un approccio all'architett
 In un approccio basato sugli attori, un attore utente può rappresentare sia il comportamento dell'utente (la consultazione di un catalogo, l'apprezzamento di un prodotto, l'aggiunta di un elemento al carrello, la raccomandazione di un prodotto a un amico) sia il relativo stato composto (il profilo personale, gli elementi presenti nel carrello, l'elenco degli elementi consigliati dagli amici, la cronologia degli acquisti, la posizione geografica corrente e così via).
 
 ## Uso di attori con stato
+
 Si consideri un esempio in cui l'attore utente deve popolare il proprio stato recuperando i dati da più servizi. Per questo scenario non si fornirà un esempio di codice, poiché è valido quanto descritto per il modello Smart Cache. È possibile attivare l'attore utente al momento dell'accesso e popolarlo con dati sufficienti recuperati dai servizi back-end. Naturalmente, come già emerso più volte in questo articolo, lo stato parziale o intero può essere prepopolato su richiesta o in base a un timer (o in entrambi i modi) e memorizzato nella cache dell'attore. Per questo esempio sono illustrati di seguito il profilo e la lista dei desideri:
 
 ![][2]
@@ -71,6 +75,7 @@ I punti deboli dei servizi senza stato appaiono evidenti nella creazione dei ser
 
 
 ## Passaggi successivi
+
 [Modello: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Modello: Reti distribuite e grafici](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -91,4 +96,4 @@ I punti deboli dei servizi senza stato appaiono evidenti nella creazione dei ser
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

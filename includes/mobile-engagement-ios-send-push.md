@@ -43,6 +43,17 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 
 	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
+7. Sarà possibile ricevere la notifica sul dispositivo iOS nel centro di notifica, come mostrato di seguito:
+
+	![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
+
+8. Se si dispone di un controllo Apple abbinato a questo dispositivo iOS, allora verrà visualizzata la notifica nel controllo Apple:
+
+	![](./media/mobile-engagement-ios-send-push/apple-watch.png)
+
+
  
 
-<!---HONumber=Oct15_HO3-->
+ 
+
+<!---HONumber=Nov15_HO2-->

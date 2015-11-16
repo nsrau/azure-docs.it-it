@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="11/03/2015"
    ms.author="bwren" />
 
 # Funzionalità Hybrid Runbook Workers di Automazione di Azure
@@ -51,6 +51,10 @@ Tenere presente quanto segue per i ruoli di lavoro ibridi:
 - Designare più ruoli di lavoro ibridi in ogni gruppo per garantire disponibilità elevata.  
 - I ruoli di lavoro ibridi possono coesistere con server runbook Service Management Automation o System Center Orchestrator.
 - È consigliabile usare un computer situato fisicamente all'interno o in prossimità dell'area dell'account di automazione, poiché i dati dei processi vengono inviati nuovamente ad Automazione di Azure quando termina un processo.
+
+Requisiti di firewall:
+
+- Il computer locale che esegue il ruolo di lavoro ibrido per runbook deve avere accesso in uscita a *. cloudapp.net sulle porte 443, 9354 e 30199 30000.
 
 ## Installazione di Hybrid Runbook Workers
 La procedura riportata di seguito descrive come installare e configurare il ruolo di lavoro ibrido per runbook. Eseguire i primi due passaggi una volta per l'ambiente di automazione e quindi ripetere i passaggi rimanenti per ogni computer di lavoro.
@@ -164,4 +168,4 @@ Per determinare se per le proprie esigenze sia più opportuno ricorrere ad Autom
 - [Modifica di un runbook in Automazione di Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

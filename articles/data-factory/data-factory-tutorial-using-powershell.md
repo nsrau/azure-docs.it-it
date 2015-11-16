@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Spostare ed elaborare i file di log con Data factory [PowerShell]
 Questo articolo fornisce una procedura dettagliata end-to-end per uno scenario canonico di elaborazione dei log con Data factory di Azure per trasformare i dati da file di log a informazioni.
+
+> [AZURE.IMPORTANT]Questo articolo non illustra tutti i cmlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
+>    
+> Se si usa Azure PowerShell 1.0 Preview, sarà necessario usare i cmdlet documentati [qui](https://msdn.microsoft.com/library/dn820234.aspx). Usare ad esempio New-AzureRMDataFactory invece di New-AzureDataFactory.
 
 ## Scenario
 Contoso è una società di giochi online che crea giochi per più piattaforme: console di gioco, dispositivi palmari e personal computer (PC). Ognuno di questi giochi genera grandi quantità di log. L'obiettivo di Contoso è raccogliere e analizzare i log generati da questi giochi per ottenere informazioni sull'utilizzo, identificare opportunità di upselling e cross-selling, sviluppare nuove accattivanti funzionalità e così via, per migliorare il business e offrire una migliore esperienza ai clienti.
@@ -558,4 +562,4 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

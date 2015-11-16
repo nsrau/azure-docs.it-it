@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure"
+   pageTitle="Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure | Microsoft Azure"
    description="Fornisce una panoramica concettuale sull'utilizzo dell’API di fatturazione e dell’API RestCard di Azure, che sono utilizzate per fornire informazioni sul consumo di risorse e sulle tendenze di Azure."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/07/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure 
@@ -72,10 +72,10 @@ In [Cloud Cruiser e integrazione dell’API di fatturazione di Microsoft Azure](
 
 ## Passaggi successivi
 + Per informazioni più dettagliate su entrambe le API, che sono parte del set di API fornito da Gestione risorse di Azure, vedere il [riferimento all’API REST di fatturazione di Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
-+ Se si desidera approfondire il codice di esempio, vedere gli [esempi di codice dell’API di fatturazione di Microsoft Azure in Github](https://github.com/Azure/BillingCodeSamples).
++ Se si desidera approfondire il codice di esempio, vedere gli esempi di codice dell'API di fatturazione di Microsoft Azure in [Esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ## Altre informazioni
 + Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 + Per ulteriori informazioni sulla suite di strumenti necessari per conoscere la spesa relativa al cloud, fare riferimento all’articolo di Gartner sulla [Guida di mercato agli strumenti ITFM](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -2,6 +2,7 @@
 Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/virtual-machines-disks-vhds.md).
 
 ##<a id="attachempty"></a>Procedura: Collegare un disco vuoto
+
 Il collegamento di un disco vuoto costituisce il modo più semplice per aggiungere un disco dati perché Azure crea automaticamente il file con estensione vhd e lo archivia nell'account di archiviazione.
 
 1. Fare clic su **Macchine virtuali** e quindi selezionare la macchina virtuale appropriata.
@@ -28,6 +29,8 @@ Il collegamento di un disco vuoto costituisce il modo più semplice per aggiunge
 4.	Una volta creato e collegato, il disco dati verrà elencato nel dashboard della macchina virtuale.
 
 	![Disco dati vuoto collegato correttamente](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
+	
+> [AZURE.NOTE]Dopo l'aggiunta di un nuovo disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione.
 
 ##<a id="attachexisting"></a>Procedura: Collegare un disco esistente
 
@@ -55,6 +58,4 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 
 	![Disco dati correttamente collegato](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
 
-> [AZURE.NOTE]Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione.
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

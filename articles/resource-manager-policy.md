@@ -13,16 +13,24 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="10/06/2015"
+	ms.date="11/02/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usare i criteri per gestire le risorse e controllare l'accesso
 
-Gestione risorse di Azure consente ora di controllare l'accesso tramite criteri personalizzati. Un criterio rappresenta una o più violazioni che è possibile impedire per l'ambito desiderato. L'ambito, in questo caso, può essere una sottoscrizione, un gruppo di risorse o una singola risorsa.
+Gestione risorse di Azure consente ora di controllare l'accesso tramite criteri personalizzati. Con i criteri è possibile impedire agli utenti dell'organizzazione di violare le convenzioni necessarie per gestire le risorse dell'organizzazione.
 
-I criteri sono un sistema per consentire determinate condizioni per impostazione predefinita. I criteri vengono definiti tramite una definizione di criteri e applicati tramite un'assegnazione di criteri. Le assegnazioni di criteri consentono di controllare l'ambito in cui è possibile applicare un criterio.
+È possibile creare definizioni dei criteri che descrivono le azioni o le risorse specificamente negate. Le definizioni dei criteri vengono assegnate all'ambito desiderato, ad esempio la sottoscrizione, un gruppo di risorse o una singola risorsa.
 
-In questo articolo verrà illustrata la struttura di base del linguaggio di definizione dei criteri che è possibile usare per creare i criteri. Verranno quindi descritte le modalità per l'applicazione dei criteri in ambiti diversi e infine verranno illustrati alcuni esempi di come sia possibile ottenere questi risultati tramite l'API REST. È prevista a breve anche l'aggiunta di informazioni sul supporto di PowerShell.
+Questo articolo illustra la struttura di base del linguaggio di definizione dei criteri che è possibile usare per creare i criteri. Descrive quindi le modalità per l'applicazione di tali criteri in ambiti diversi e infine illustra alcuni esempi di come sia possibile ottenere questi risultati tramite l'API REST.
+
+## Quali sono le differenze rispetto al controllo degli accessi in base al ruolo?
+
+Vi sono alcune differenze sostanziali tra il controllo degli accessi in base al ruolo e i criteri, ma il primo aspetto da considerare è che i criteri e il controllo degli accessi in base al ruolo funzionano insieme. Per poter usare i criteri, l'utente deve essere autenticato tramite il controllo degli accessi in base al ruolo. A differenza del controllo degli accessi in base al ruolo, i criteri rappresentano un sistema con autorizzazioni predefinite e negazione esplicita.
+
+Il controllo degli accessi in base al ruolo è incentrato sulle azioni che un **utente** può eseguire in ambiti diversi. Ad esempio, un determinato utente viene aggiunto al ruolo di collaboratore per un gruppo di risorse nell'ambito desiderato, in modo che possa apportare modifiche a tale gruppo di risorse.
+
+Il criterio è incentrato sulle azioni delle **risorse** nei vari ambiti. Tramite i criteri, ad esempio, è possibile controllare i tipi di risorse di cui è possibile eseguire il provisioning o limitare le posizioni in cui è possibile eseguire il provisioning delle risorse.
 
 ## Scenari comuni
 
@@ -60,14 +68,15 @@ Gli operatori logici supportati con la relativa sintassi sono elencati di seguit
 
 | Nome operatore | Sintassi |
 | :------------- | :------------- |
-| Not | "not" : {&lt;condizione&gt;} |
+| Not | "not": {&lt;condizione o operatore &gt;} |
 | E | "allOf" : [ {&lt;condizione1&gt;},{&lt;condizione2&gt;}] |
 | Or | "anyOf" : [ {&lt;condizione1&gt;},{&lt;condizione2&gt;}] |
 
+Le condizioni nidificate non sono supportate.
 
 ## Condizioni
 
-Le condizioni supportate con la relativa sintassi sono elencate di seguito:
+Una condizione valuta se un **campo** o un'**origine** soddisfa determinati criteri. I nomi e la sintassi delle condizioni supportate sono elencati di seguito:
 
 | Nome condizione | Sintassi |
 | :------------- | :------------- |
@@ -80,11 +89,15 @@ Le condizioni supportate con la relativa sintassi sono elencate di seguito:
 
 ## Campi e origini
 
-Le condizioni vengono create usando campi e origini. Sono supportati i campi e le origini seguenti:
+Le condizioni vengono create usando campi e origini. Un campo rappresenta le proprietà nel payload delle richieste di risorse. Un'origine rappresenta le caratteristiche della richiesta stessa.
+
+Sono supportati i campi e le origini seguenti:
 
 Campi: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
-Origini: **action**
+Origini: **action**.
+
+Per altre informazioni sulle azioni, vedere l'articolo relativo ai [ruoli predefiniti del controllo degli accessi in base al ruolo](active-directory/role-based-access-built-in-roles.md).
 
 ## Esempi di definizioni di criteri
 
@@ -181,7 +194,7 @@ Questa sezione include informazioni dettagliate sulla procedura per la creazione
 
 ### Creare una definizione di criteri con l'API REST
 
-È possibile creare criteri con l'[API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx). L'API REST consente di creare ed eliminare le definizioni dei criteri, e di ottenere informazioni sulle definizioni esistenti.
+È possibile creare un criterio con l'[API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx). L'API REST consente di creare ed eliminare le definizioni dei criteri, e di ottenere informazioni sulle definizioni esistenti.
 
 Per creare un nuovo criterio, eseguire:
 
@@ -211,7 +224,7 @@ Con un corpo della richiesta simile al seguente:
     }
 
 
-La definizione dei criteri può essere definita come uno degli esempi illustrati in precedenza. Per api-version usare *2015-10-01-preview*. Per esempi e altri dettagli, vedere [API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La definizione dei criteri può essere definita come uno degli esempi illustrati in precedenza. Per api-version, usare *2015-10-01-preview*. Per esempi e altre informazioni dettagliate, vedere [API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Creare una definizione di criteri tramite PowerShell
 
@@ -237,13 +250,13 @@ L'output dell'esecuzione viene archiviato nell'oggetto $policy, in modo da poter
 
 ### Assegnazione dei criteri con l'API REST
 
-È possibile applicare la definizione dei criteri nell'ambito desiderato tramite l'[API REST per le assegnazioni dei criteri](https://msdn.microsoft.com/library/azure/mt588466.aspx). L'API REST consente di creare ed eliminare le assegnazioni dei criteri e ottenere informazioni sulle assegnazioni esistenti.
+È possibile applicare la definizione dei criteri all'ambito desiderato tramite l'[API REST per le assegnazioni dei criteri](https://msdn.microsoft.com/library/azure/mt588466.aspx). L'API REST consente di creare ed eliminare le assegnazioni dei criteri e ottenere informazioni sulle assegnazioni esistenti.
 
 Per creare una nuova assegnazione di criteri, eseguire:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} è il nome dell'assegnazione di criteri. Per api-version usare *2015-10-01-preview*.
+{policy-assignment} è il nome dell'assegnazione di criteri. Per api-version, usare *2015-10-01-preview*.
 
 Con un corpo della richiesta simile al seguente:
 
@@ -258,7 +271,7 @@ Con un corpo della richiesta simile al seguente:
       "name":"VMPolicyAssignment"
     }
 
-Per esempi e altri dettagli, vedere [API REST per le assegnazioni dei criteri](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+Per esempi e altre informazioni dettagliate, vedere [API REST per le assegnazioni dei criteri](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
 ### Assegnazione di criteri tramite PowerShell
 
@@ -276,4 +289,4 @@ Se si desidera rimuovere l'assegnazione dei criteri precedente, è possibile pro
 
 Analogamente, è possibile ottenere, modificare o rimuovere le assegnazioni dei criteri tramite i cmdlet Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment e Remove-AzureRmPolicyAssignment, rispettivamente.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

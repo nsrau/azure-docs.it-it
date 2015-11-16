@@ -19,7 +19,7 @@
 
 # DocumentDB come output di Analisi di flusso di Azure
 
-Analisi di flusso di Azure ora supporta [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) come output, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive come implementare al meglio questa integrazione. Per chi non ha familiarità con DocumentDB, vedere l'articolo che descrive il [percorso di apprendimento di DocumentDB](../articles/documentdb-get-started.md/) per iniziare.
+Analisi di flusso di Azure ora supporta [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) come output, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive come implementare al meglio questa integrazione. Per chi non ha familiarità con DocumentDB, vedere l'articolo che descrive il [percorso di apprendimento di DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) per un’introduzione.
 
 L'output di Azure DocumentDB in Analisi di flusso consente la scrittura dei risultati di elaborazione del flusso nelle raccolte di DocumentDB. Analisi di flusso non crea raccolte nel database, ma ne richiede la creazione anticipata da parte dell'utente. In questo modo, i costi di fatturazione delle raccolte di DocumentDB sono trasparenti per l'utente ed è possibile ottimizzare direttamente le prestazioni, la coerenza e la capacità delle raccolte usando le [API di DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx). È consigliabile usare un database di DocumentDB per ogni processo di streaming, per separare in modo logico le raccolte per un processo di streaming.
 
@@ -59,4 +59,4 @@ La creazione di DocumentDB come output in Analisi di flusso genera una richiesta
 -   **Chiave di partizione **: nome del campo negli eventi di output usato per specificare la chiave per il partizionamento dell'output tra le raccolte. Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId.  
 -   **ID documento**: valore facoltativo. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

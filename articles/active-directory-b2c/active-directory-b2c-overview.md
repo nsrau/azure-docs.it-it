@@ -54,7 +54,8 @@ Informazioni su come utilizzare funzionalità di anteprima di Azure Active Direc
 
 I collegamenti seguenti sono utili per un'esplorazione più approfondita del servizio:
 
-- Per ottenere supporto su Stack Overflow, usare i tag [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
+- Vedere le [Informazioni sui prezzi di Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c)
+- Per ottenere supporto sull’Overflow dello stack, usare i tag [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
 - Per inviare i commenti e i suggerimenti sulla versione di anteprima, è possibile usare [UserVoice](http://feedback.azure.com/forums/169401-azure-active-directory). Specificare "AzureADB2C:" nel titolo del post per permetterci di individuarlo.
 - Azure Active Directory B2C supporta protocolli standard del settore, OpenID Connect e OAuth 2.0, utilizzando un modello di registrazione dell'applicazione chiamato "Modello App v 2.0".
   - [Riferimento al protocollo di Modello app 2.0](active-directory-b2c-reference-protocols.md)
@@ -62,4 +63,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita del ser
 - [Domande frequenti Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Richieste di supporto del file su Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="nitinme"/>
 
 # Eseguire il provisioning di un cluster HDInsight con Archivio Data Lake tramite il portale di anteprima di Azure
@@ -23,9 +23,14 @@
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Informazioni su come usare il portale di anteprima di Azure per configurare un cluster HDInsight (Hadoop, HBase o Storm) in modo da interagire con Archivio Data Lake di Azure. Alcune considerazioni importanti per questa versione: * **Per i cluster Hadoop e Storm (Windows e Linux)**, Archivio Data Lake può essere usato solo come account di archiviazione aggiuntivo. L'account di archiviazione predefinito per tali cluster continuerà a essere WASB (BLOB di Archiviazione di Azure). * **Per i cluster HBase (Windows e Linux)**, Archivio Data Lake può essere usato come risorsa di archiviazione predefinita o aggiuntiva.
+Informazioni su come usare il portale di anteprima di Azure per configurare un cluster HDInsight (Hadoop, HBase o Storm) in modo da interagire con Archivio Data Lake di Azure. Alcune considerazioni importanti per questa versione:
 
-In questo articolo si eseguirà il provisioning di un cluster Hadoop con Archivio Data Lake come risorsa di archiviazione aggiuntiva. La configurazione di HDInsight in modo che interagisca con Archivio Data Lake tramite il portale di anteprima di Azure prevede i passaggi seguenti:
+* **Per i cluster Hadoop e Storm (Windows e Linux)**, Archivio Data Lake può essere usato solo come account di archiviazione aggiuntivo. L'account di archiviazione predefinito per tali cluster continuerà a essere WASB (BLOB di Archiviazione di Azure).
+
+* **Per i cluster HBase (Windows e Linux)**, Archivio Data Lake può essere usato come risorsa di archiviazione predefinita o aggiuntiva.
+
+
+In questo articolo si effettuerà il provisioning di un cluster Hadoop con Archivio Data Lake come risorsa di archiviazione aggiuntiva. La configurazione di HDInsight in modo che interagisca con Archivio Data Lake tramite il portale di anteprima di Azure prevede i passaggi seguenti:
 
 * Creare un cluster HDInsight con autenticazione per un'entità servizio di Azure Active Directory
 * Configurare l'accesso ad Archivio Data Lake usando la stessa entità servizio
@@ -53,7 +58,7 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Archivio Data L
 
 4. Nel pannello **Identità AAD cluster** è possibile scegliere di selezionare un'entità servizio esistente o crearne una nuova.
 	
-	* **Creare una nuova entità servizio**. Nel pannello **Identità AAD cluster** fare clic su **Crea nuovo**. Fare clic su **Entità servizio** e nel pannello **Crea un'entità servizio** specificare i valori necessari per creare una nuova entità servizio. Nell'ambito questa operazione vengono creati anche un certificato e un'applicazione Azure Active Directory. Fare clic su **Crea**.
+	* **Creare una nuova entità servizio**. Nel pannello **Identità AAD cluster** fare clic su **Crea nuovo**. Fare clic su **Entità servizio** e nel pannello **Crea un'entità servizio** specificare i valori necessari per creare una nuova entità servizio. Nell'ambito questa operazione vengono creati anche un certificato e un'applicazione Azure Active Directory. Fare clic su **Create**.
 
 		![Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.4.png "Aggiungere entità servizio a cluster HDInsight")
 
@@ -160,13 +165,13 @@ Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di te
 
 ## Accedere ad Archivio Data Lake tramite comandi HDFS
 
-Dopo aver configurato il cluster HDInsight in modo da interagire con Archivio Data Lake, è possibile usare i comandi della shell HDFS per accedere all'archivio.
+Dopo aver configurato il cluster HDInsight perché funzioni con Archivio Data Lake, è possibile usare i comandi della shell HDFS per accedere all'archivio.
 
 1. Accedere al nuovo [portale di anteprima di Azure](https://portal.azure.com).
 
-2. Fare clic su **Sfoglia**, su **cluster HDInsight** e quindi sul cluster HDInsight creato.
+2. Fare clic su **Sfoglia**, su **Cluster HDInsight** e quindi sul cluster HDInsight creato.
 
-3. Nel pannello del cluster fare clic su **Desktop remoto** e quindi, nel pannello **Desktop remoto**, fare clic su **Connetti**.
+3. Nel pannello del cluster fare clic su **Desktop remoto** e quindi nel pannello **Desktop remoto** fare clic su **Connetti**.
 
 	![Remoto nel cluster HDI](./media/data-lake-store-hdinsight-hadoop-use-portal/ADL.HDI.PS.Remote.Desktop.png "Creare un gruppo di risorse di Azure")
 
@@ -202,4 +207,4 @@ Per istruzioni su come aggiungere un'entità servizio al file system di Archivio
 [makecert]: https://msdn.microsoft.com/it-IT/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/it-IT/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

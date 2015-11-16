@@ -40,7 +40,7 @@ Pool di database flessibile in Database SQL Azure è consentire agli ISV di SaaS
 
 I pool di database elastici sono adatti per un numero elevato di database con i modelli di utilizzo specifici. Per un determinato database, questo modello è caratterizzato da un utilizzo medio ridotto con picchi di utilizzo relativamente poco frequenti.
 
-Più database è possibile aggiungere a un pool di maggiore che diventano i risparmi, ma a seconda del modello l'utilizzo dell'applicazione, è possibile vedere risparmi con minor 2 S3 database.
+Più database è possibile aggiungere a un pool, maggiori diventano i risparmi. In base al modello di uso dell'applicazione, è possibile vedere i risparmi con un minor di 2 S3 database.
 
 Le sezioni seguenti consentono di comprendere come valutare se la raccolta specifica di database trarrà vantaggio dall'utilizzo di un pool di database elastici. Gli esempi utilizzano pool di database elastici Standard, ma gli stessi principi si applicano anche ai pool Basic e Premium.
 
@@ -435,4 +435,4 @@ Non tutti i singoli database sono candidati ottimali per pool database elastica.
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

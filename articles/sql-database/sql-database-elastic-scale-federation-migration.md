@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Migrazione di federazioni" 
+    pageTitle="Migrazione di federazioni | Microsoft Azure" 
     description="In questo articolo vengono illustrati i passaggi per eseguire la migrazione di un'app esistente compilata con la funzionalità Federazioni al modello del database elastico." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/14/2015" 
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # Migrazione di federazioni 
 
@@ -108,7 +108,7 @@ L'utilità di migrazione federazioni offre la possibilità di:
 
 ## Confronto tra le funzionalità
 
-Anche se gli strumenti di database elastici offrono molte funzionalità aggiuntive (ad esempio [esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md), [suddivisione e unione di partizioni](sql-database-elastic-scale-overview-split-and-merge.md), [elasticità di partizionamento](sql-database-elastic-scale-elasticity.md), [memorizzazione nella cache lato client](sql-database-elastic-scale-shard-map-management.md) e molte altre), esistono alcune importanti funzionalità delle federazioni non supportate negli strumenti database elastici.
+Anche se gli strumenti di database elastici offrono molte funzionalità aggiuntive (ad esempio [esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md), [suddivisione e unione di partizioni](sql-database-elastic-scale-overview-split-and-merge.md), elasticità di partizionamento, [memorizzazione nella cache lato client](sql-database-elastic-scale-shard-map-management.md), e molte altre), esistono alcune importanti funzionalità delle federazioni non supportate negli strumenti database elastici.
   
 - L'uso di **FILTERING=ON**. In alternativa, si consiglia di usare la sicurezza a livello di riga per filtrare le righe. In modo analogo all'applicazione di filtri nelle federazione, la sicurezza a livello di riga aggiunge automaticamente un predicato a tutte le query di una tabella di partizione. Per ulteriori dettagli, vedere [Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga](sql-database-elastic-tools-multi-tenant-row-level-security.md). 
  
@@ -150,4 +150,4 @@ Se l'applicazione non è ancora pronta per l'uso senza federazioni, contattare i
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

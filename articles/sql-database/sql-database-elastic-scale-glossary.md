@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Glossario sugli strumenti di database elastici" 
+    pageTitle="Glossario sugli strumenti di database elastici | Microsoft Azure" 
     description="Spiegazione dei termini utilizzati per gli strumenti dei database elastici" 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,23 +13,23 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/24/2015" 
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # Glossario sugli strumenti di database elastici
-Di seguito sono elencate le definizioni dei termini usati per gli strumenti dei database elastici, una funzionalità del database SQL di Azure. Gli strumenti includono la libreria client, lo strumento di suddivisione-unione, i pool elastici e le query.
+Di seguito sono elencate le definizioni dei termini usati per gli [strumenti di database elastici](sql-database-elastic-scale-introduction.md), una funzionalità del database SQL di Azure. Gli strumenti includono la [libreria client](sql-database-elastic-database-client-library.md), lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md), i [pool elastici](sql-database-elastic-pool.md) e le [query](sql-database-elastic-query-overview.md).
 
 ![Termini della scalabilità elastica][1]
 
-**Database**: un database SQL di Azure SQL.
+**Database**: un database SQL di Azure.
 
 **Routing dipendente dei dati**: la funzionalità che consente a un'applicazione di connettersi a una partizione in base a una specifica chiave di partizionamento orizzontale. Confrontare con **Query su più partizioni**.
 
-**Mappa globale partizioni**: il set di mapping tra le chiavi di partizionamento orizzontale e le rispettivi partizioni all'interno di un **set di partizioni**. La mappa globale partizioni viene archiviate nel **gestore mappe partizioni**. Confrontare con la **mappa locale partizioni**.
+**Mappa globale partizioni**: il set di mapping tra le chiavi di partizionamento orizzontale e le rispettivi partizioni all'interno di un **set di partizioni**. La mappa partizioni globale viene archiviata nel **gestore mappe partizioni**. Confrontare con la **mappa partizioni locale **.
 
 **Mappa partizioni di tipo elenco**: una mappa partizioni in cui le chiavi di partizionamento orizzontale vengono mappate singolarmente. Confrontare con la **mappa partizioni di tipo intervallo**.
 
-**Mappa di partizione locale**: archiviata in una partizione, la mappa locale partizioni contiene i mapping per gli shardlet che risiedono nella partizione.
+**Mappa partizioni locale**: archiviata in una partizione, la mappa partizioni locale contiene i mapping per gli shardlet che risiedono nella partizione.
 
 **Esecuzione di query su più partizioni**: la possibilità di eseguire una query su più partizioni; i set di risultati vengono restituiti usando la semantica di UNION ALL (nota anche come "query di tipo fan-out"). Confrontare con **Routing dipendente dai dati**.
 
@@ -80,4 +80,4 @@ Di seguito sono elencate le definizioni dei termini usati per gli strumenti dei 
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

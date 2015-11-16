@@ -4,13 +4,13 @@
    services="sql-database"
    documentationCenter=""
    authors="sidneyh"
-   manager="jhubbard"
+   manager="jeffreyg"
    editor=""
    tags=""/>
 <tags
    ms.service="sql-database"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/14/2015"
@@ -95,4 +95,4 @@ Per creare o gestire i database è possibile usare istruzioni Transact-SQL. Per 
 [6]: ./media/sql-database-connect-to-database/server-name.png
 [7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

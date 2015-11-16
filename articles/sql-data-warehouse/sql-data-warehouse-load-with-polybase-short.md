@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="11/04/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -24,7 +24,7 @@
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
-Questa esercitazione descrive come caricare dati in SQL Data Warehouse di Azure tramite PolyBase.
+Questa esercitazione descrive come caricare dati in SQL Data Warehouse di Azure tramite PolyBase. Per altre informazioni su PolyBase, fare riferimento all'[esercitazione PolyBase in SQL Data Warehouse][].
 
 
 ## Prerequisiti
@@ -75,7 +75,6 @@ Quindi, è necessario creare le tabelle esterne in SQL Data Warehouse per fare r
 - [Creare origine dati esterna]\: per specificare il percorso dell'archivio BLOB di Azure.
 - [Creare formato file esterno]\: per specificare il layout dei dati.
 - [Creare tabella esterna]\: per fare riferimento ai dati di archiviazione di Azure.
-
 
 
 ```
@@ -132,7 +131,7 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ## Passaggio 4: Caricare i dati in SQL Data Warehouse
 
-- Per caricare i dati in una nuova tabella, eseguire l'istruzione CREATE TABLE AS SELECT. La nuova tabella eredita le colonne indicate nella query. Eredita i tipi di dati di tali colonne dalla definizione della tabella esterna. 
+- Per caricare i dati in una nuova tabella, eseguire l'istruzione [CREATE TABLE AS SELECT (Transact-SQL)][] La nuova tabella eredita le colonne indicate nella query. Eredita i tipi di dati di tali colonne dalla definizione della tabella esterna. 
 - Per caricare i dati in una tabella esistente, usare l'istruzione INSERT...SELECT.  
 
 
@@ -144,18 +143,25 @@ CREATE TABLE dbo.DimDate2
 WITH 
 (   
     CLUSTERED COLUMNSTORE INDEX,
-		DISTRIBUTION = ROUND_ROBIN
+    DISTRIBUTION = ROUND_ROBIN
 )
 AS 
 SELECT * 
 FROM   [dbo].[DimDate2External];
 
 ```
-Vedere [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 
-Per altre informazioni su PolyBase, fare riferimento all'[esercitazione PolyBase in SQL Data Warehouse][].
+## Passaggio 5: creare le statistiche sui dati appena caricati 
 
+SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][] nel gruppo di argomenti sullo sviluppo. Di seguito è possibile vedere un rapido esempio di come creare statistiche nella tabella caricata in questo esempio.
+
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+```
 
 <!--Article references-->
 [esercitazione PolyBase in SQL Data Warehouse]: sql-data-warehouse-load-with-polybase.md
@@ -172,4 +178,9 @@ Per altre informazioni su PolyBase, fare riferimento all'[esercitazione PolyBase
 [Creare credenziale con ambito database]: https://msdn.microsoft.com/it-IT/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
-<!---HONumber=Nov15_HO1-->
+
+<!--Article references-->
+
+[Statistiche]: ./sql-data-warehouse-develop-statistics.md
+
+<!---HONumber=Nov15_HO2-->

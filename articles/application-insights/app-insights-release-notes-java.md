@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Note sulla versione per Application Insights per Java" 
-	description="Gli aggiornamenti più recenti per Java SDK." 
-	services="application-insights" 
+<properties
+	pageTitle="Note sulla versione per Application Insights per Java"
+	description="Gli aggiornamenti più recenti per Java SDK."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="awills"/>
- 
+
 # Note sulla versione per Application Insights SDK per Java
 
 [Application Insights SDK per Java](app-insights-java-get-started.md) invia dati di telemetria sull'app attiva ad [Application Insights](http://azure.microsoft.com/services/application-insights/), dove è possibile analizzarne l'utilizzo e le prestazioni.
@@ -22,7 +22,7 @@
 
 Vedere [Introduzione all'SDK per Java](app-insights-java-get-started.md).
 
-#### Per eseguire l'aggiornamento all'SDK più recente 
+#### Per eseguire l'aggiornamento all'SDK più recente
 
 Dopo l'aggiornamento, è necessario unire nuovamente le personalizzazioni apportate al file ApplicationInsights.xml. Eseguirne una copia per confrontarla con il nuovo file.
 
@@ -33,14 +33,15 @@ Dopo l'aggiornamento, è necessario unire nuovamente le personalizzazioni apport
 
 *In caso contrario*
 
-* Scaricare la versione più recente delle [librerie di Azure per Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) e sostituire quelle precedenti. 
- 
+* Scaricare la versione più recente delle [librerie di Azure per Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) e sostituire quelle precedenti.
+
 Confrontare il vecchio e il nuovo file ApplicationInsights.xml. Molte delle modifiche visibili sono dovute all'aggiunta e alla rimozione di moduli. Ripristinare eventuali personalizzazioni apportate.
 
 ## Versione 1.0.2
+- Impedire l'override della chiave di strumentazione usando quella specificata nella configurazione quando viene fornita in modo esplicito nel codice.
+- Gestire tutti i codici di stato HTTP con esito positivo ed eseguire il report delle richieste HTTP rilevanti indicando che hanno avuto esito positivo.
+- Gestire tutte le eccezioni generate dal ConfigurationFileLocator.
 
-- Compatibilità con Docker
-- Correzioni di bug - individuare tutte le eccezioni, gestire tutti i codici di stato delle operazioni riuscite
 
 ## Versione 1.0.1
 - L'[agente Java](app-insights-java-agent.md) raccoglie le informazioni sulle dipendenze per i seguenti elementi:
@@ -71,6 +72,5 @@ Confrontare il vecchio e il nuovo file ApplicationInsights.xml. Molte delle modi
 - Supporto della raccolta dei contatori delle prestazioni da computer Windows a 32 bit.
 - Supporto del rilevamento manuale delle dipendenze con una nuova API del metodo ```trackDependency```.
 - Possibilità di apporre un tag a un elemento di telemetria come sintetico aggiungendo una proprietà ```SyntheticSource``` all'elemento segnalato.
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

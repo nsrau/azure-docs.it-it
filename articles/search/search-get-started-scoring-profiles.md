@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come usare i profili di assegnazione dei punteggi in Ricerca di Azure" 
-	description="Introduzione ai profili di punteggio in Ricerca di Azure" 
+	pageTitle="Come usare i profili di assegnazione dei punteggi in Ricerca di Azure | Microsoft Azure" 
+	description="Ottimizzare le priorità di ricerca tramite i profili di punteggio in Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Come usare i profili di assegnazione dei punteggi in Ricerca di Azure
@@ -126,4 +126,4 @@ Per altre informazioni sulla creazione degli indici, [Guardare questo video](htt
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

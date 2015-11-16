@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="11/03/2015"
 	ms.author="sdanie"/>
 
 # Come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API
@@ -547,4 +547,4 @@ Per un'altra dimostrazione relativa alla configurazione e all'uso di questi crit
 [Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
 [Gestire la prima API in Gestione API di Azure]: api-management-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

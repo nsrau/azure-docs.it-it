@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Informazioni tecniche"
+   pageTitle="Panoramica tecnica dell’infrastruttura di servizi | Microsoft Azure"
    description="Informazioni tecniche su Infrastruttura di servizi. Vengono illustrati i concetti chiave e i cenni preliminari sull'architettura"
    services="service-fabric"
    documentationCenter=".net"
@@ -54,4 +54,4 @@ Per ulteriori informazioni su Infrastruttura di servizi, vedere:
 - [Scenari applicativi](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

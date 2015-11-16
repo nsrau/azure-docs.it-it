@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="10/27/2015"
 	ms.author="dkshir"/>
 
 # Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows
@@ -30,9 +30,9 @@ Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è 
 
 Nella prima sezione 'Passaggi di base' vengono elencati i passaggi per risolvere problemi di connessione comuni, la seconda sezione descrive la procedura di risoluzione per messaggi di errore specifici e l'ultima sezione consente di eseguire la risoluzione dettagliata dei problemi relativi a ciascun componente di rete.
 
-## Passaggi di base
+## Passaggi di base - modello di distribuzione classica
 
-I passaggi di base possono consentire di risolvere la maggior parte degli errori comuni di connessione Desktop remoto. Dopo l'esecuzione di ciascun passaggio tentare la riconnessione alla macchina virtuale.
+Questi passaggi di base aiutano a risolvere la maggior parte dei problemi comuni di connessione nelle macchine virtuali create con il modello di distribuzione classica: Dopo l'esecuzione di ciascun passaggio tentare la riconnessione alla macchina virtuale.
 
 - Reimpostare il servizio Desktop remoto dal [portale di Azure](https://portal.azure.com) per risolvere i problemi di avvio con il server RDP.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale Windows > **Reimposta accesso remoto**.
 
@@ -44,13 +44,40 @@ I passaggi di base possono consentire di risolvere la maggior parte degli errori
 
 - Esaminare il log o la cattura di schermata della console della macchina virtuale per correggere i problemi di avvio. Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale Windows > **Diagnostica di avvio**
 
+- Controllare l'integrità delle risorse della macchina virtuale per qualsiasi problema di piattaforma. Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale Windows > **Controlla integrità**.
+-  
+
+## Passaggi di base - modello di distribuzione di Gestione risorse
+
+Questi passaggi di base aiutano a risolvere la maggior parte dei problemi comuni di connessione nelle macchine virtuali create con il modello di distribuzione di Gestione risorse. Dopo l'esecuzione di ciascun passaggio tentare la riconnessione alla macchina virtuale.
+
+- Reimpostare l'accesso remoto mediante Powershell<br> a. Se necessario, [installare Azure PowerShell e connettersi alla sottoscrizione di Azure](../powershell-install-configure.md) con il metodo di Azure AD.
+
+	b. Passare alla modalità Gestione risorse.
+
+	```
+	Switch-AzureMode -Name AzureResourceManager
+	```
+	c. Eseguire il comando Set-AzureVMAccessExtension per reimpostare la connessione RDP, come illustrato nell'esempio seguente.
+
+	```
+	Set-AzureVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
+	```
+
+- Riavviare la macchina virtuale per risolvere altri problemi di avvio.<br> Fare clic su Esplora tutto > Macchine virtuali > macchina virtuale Windows > **Riavvia**.
+
+- Ridimensionare la macchina virtuale per risolvere eventuali problemi di host.<br> Fare clic su Esplora tutto > Macchine virtuali > macchina virtuale Windows > Impostazioni > **Dimensioni**.
+
+- Esaminare il log o la cattura di schermata della console della macchina virtuale per correggere i problemi di avvio. Fare clic su Esplora tutto > Macchine virtuali > macchina virtuale Windows > **Diagnostica di avvio**
+
+
 ## Risoluzione degli errori RDP comuni
 
 Di seguito sono descritti gli errori più comuni che è possibile riscontrare durante i tentativi di connessione Desktop remoto alla macchina virtuale di Azure:
 
-1. [Errore di connessione Desktop remoto: La sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza](#rdplicense).
+1. [Errore di connessione Desktop remoto: la sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza](#rdplicense).
 
-2. [Errore di connessione Desktop remoto: Impossibile trovare il computer "nome"](#rdpname).
+2. [Errore di connessione Desktop remoto: impossibile trovare il computer "nome"](#rdpname).
 
 3. [Errore di connessione Desktop remoto: Si è verificato un errore di autenticazione. Impossibile contattare l'autorità di sicurezza locale](#rdpauth).
 
@@ -143,4 +170,4 @@ Se nessuno di questi errori si è verificato ed è ancora impossibile connetters
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

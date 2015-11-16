@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="11/02/2015"
 	ms.author="donnam"/>
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
@@ -182,4 +182,4 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [estensione Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

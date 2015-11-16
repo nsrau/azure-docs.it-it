@@ -90,4 +90,4 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 - Informazioni su come [creare route nel modello di distribuzione di Gestione risorse](../virtual-network-create-udr-arm-template) e associarle alle subnet. 
 - Informazioni su come [creare route nel modello di distribuzione classica](../virtual-network-create-udr-classic-ps) e associarle a subnet.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

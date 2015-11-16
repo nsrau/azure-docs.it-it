@@ -31,11 +31,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/).
 - **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell 1.0 o versione successiva**. Per istruzioni, vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md). Dopo avere installato Azure PowerShell 1.0 o versione successiva, è necessario eseguire il cmdlet seguente per installare il modulo Azure Data Lake Store.
-
-		Install-Module AzureRM.DataLakeStore
-
-	Per altre informazioni sul modulo **AzureRM.DataLakeStore**, vedere [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+- **Azure PowerShell 1.0**. Per installarlo, fare clic [qui](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
 
 ## Creare un account di Azure Data Lake Store
 
@@ -54,7 +50,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore" 
 
 
-2. Un account di Azure Data Lake Store è associato a un gruppo di risorse di Azure. Creare un gruppo di risorse di Azure.
+2. Un account di Archivio Azure Data Lake è associato a un gruppo di risorse di Azure. Per iniziare, creare un gruppo di risorse di Azure.
 
 		$resourceGroupName = "<your new resource group name>"
     	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
@@ -99,7 +95,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 È possibile caricare i dati in Data Lake Store direttamente a livello di radice o in una directory creata all'interno dell'account. I frammenti di codice riportati di seguito illustrano come caricare alcuni dati di esempio nella directory (**mynewdirectory**) creata nella sezione precedente.
 
-Se si sta cercando alcuni dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dell'[archivio Git per Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Scaricare il file e archiviarlo in una directory locale nel computer, ad esempio C:\\sampledata.
+Se si stanno cercando alcuni dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dell'[archivio Git per Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Scaricare il file e archiviarlo in una directory locale nel computer, ad esempio C:\\sampledata.
 
 	Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
@@ -143,4 +139,4 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 - [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

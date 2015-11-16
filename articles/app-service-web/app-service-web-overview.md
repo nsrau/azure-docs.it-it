@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/27/2015"
 	ms.author="jaime.espinosa"/>
 
 
@@ -27,7 +27,7 @@ Il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) è una piattafo
 
 ## Molto più di semplici siti Web##
 
-Le aziende moderne interagiscono con i propri clienti in modi sempre più sofisticati. Imprese di ogni tipo considerano la propria presenza sul Web un aspetto critico della propria attività, nonché un componente principale del proprio business plan. Per adeguarsi a questa priorità, le aziende hanno bisogno di una piattaforma che fornisca loro l'agilità, la sicurezza e la scalabilità necessarie. Inoltre, devono essere in grado di collegarsi al proprio sistema aziendale esistente, di distribuire nuovo codice e avviare nuove istanze rapidamente e a livello globale. Con il servizio app di Azure e le app Web, le organizzazioni sono finalmente in grado di soddisfare i propri clienti in modo rapido ed economico.
+Le aziende moderne interagiscono con i propri clienti in modi sempre più sofisticati. Imprese di ogni tipo considerano la propria presenza sul Web un aspetto critico della propria attività, nonché un componente principale del proprio business plan. Per adattare questa importanza, le aziende cercano una piattaforma che dovrà fornire loro flessibilità, sicurezza e la scalabilità. Inoltre, richiedono la possibilità di collegarsi al sistema aziendale esistente, di essere in grado di distribuire rapidamente un nuovo codice e di creare istanze in tutto il mondo. Con il servizio app di Azure e le app Web, le organizzazioni sono finalmente in grado di soddisfare i propri clienti in modo rapido ed economico.
 
 ## Perché passare al servizio app Web? ##
 
@@ -39,7 +39,7 @@ App Web del servizio app di Azure è una piattaforma completamente gestita che c
 
 ## Concetti del servizio app Web ##
 
-- **Raccolta app Web**: è possibile scegliere da un elenco in continua crescita di modelli di applicazione esistenti. È possibile sfruttare le migliori offerte della community di app OSS per installare in un singolo clic pacchetti come Wordpress, Joomla e Drupal. Avviare il proprio processo di sviluppo delle applicazioni nel modo migliore sfruttando framework come .NET MVC, Django e CakePHP.
+- **Raccolta app Web**: è possibile scegliere da un elenco in continua crescita di modelli di applicazione esistenti. È possibile sfruttare le migliori offerte della community di app OSS per installare in un singolo clic pacchetti come Wordpress, Joomla e Drupal. Avviare il proprio processo di sviluppo dell’applicazione nel modo migliore sfruttando framework come .NET MVC, Django e CakePHP.
 - **Scalabilità automatica**: il servizio app Web consente di aumentare o scalare orizzontalmente le app in modo rapido, per gestire qualsiasi carico di lavoro proveniente dalla clientela. Selezionare manualmente il numero e le dimensioni delle macchine virtuali o configurare la scalabilità automatica per adattare i server in base al carico o alla pianificazione.
 - **Integrazione continua**: configurare l'integrazione continua e i flussi di lavoro di distribuzione con VSO, GitHub, TeamCity, Hudson o BitBucket, per compilare, testare e distribuire automaticamente l'app Web dopo ogni archiviazione di codice o test di integrazione eseguito con esito positivo.
 - **Slot di distribuzione**: implementare la [distribuzione di gestione temporanea][Slots] e per verificare il codice in un ambiente pre-produzione identico a quello dell'app Web di produzione nel servizio app di Azure. Una volta soddisfatti, rilasciare una nuova versione dell'app con tempo di inattività pari a zero eseguendo un'operazione di scambio. 
@@ -65,4 +65,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

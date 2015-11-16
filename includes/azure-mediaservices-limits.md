@@ -9,7 +9,7 @@ Processi per ogni account di Servizi multimediali di Azure ||50,000<sup>2</sup>
 Localizzatori univoci associati a un asset contemporaneamente||5<sup>4</sup>
 Canali live per ogni account AMS </p></td>|5</p></td>|N/D<sup>1</sup>
 Programmi con stato arrestato per canale </p></td>|50</p></td>|N/D<sup>1</sup>
-Programmi con stato in esecuzione per canale </p></td>|3</p></td>|N/D<sup>1</sup>
+Programmi con stato in esecuzione per canale </p></td>|3</p></td>|3
 Endpoint di streaming con stato in esecuzione per ogni account AMS </p></td>|2</p></td>|N/D<sup>1</sup>
 Unità di streaming per endpoint di streaming </p></td>|10 </p></td>|N/D<sup>1</sup>
 Unità di codifica per ogni account AMS </p></td>|25</p></td>|N/D<sup>1</sup>
@@ -25,4 +25,4 @@ Account di archiviazione | |1\.000<sup>5</sup>
 
 <sup>5</sup> Gli account di archiviazione devono appartenere alla stessa sottoscrizione di Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

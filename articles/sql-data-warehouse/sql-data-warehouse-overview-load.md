@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/04/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Caricare i dati in SQL Data Warehouse
@@ -163,6 +163,16 @@ Si noti che è inoltre possibile caricare una sottosezione delle righe da una ta
 
 Oltre all’istruzione `CREATE TABLE...AS SELECT` è inoltre possibile caricare dati da tabelle esterne in tabelle preesistenti utilizzando l’istruzione 'INSERT...INTO'.
 
+##  Creare le statistiche sui dati appena caricati 
+
+SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][] nel gruppo di argomenti sullo sviluppo. Di seguito è possibile vedere un rapido esempio di come creare statistiche nella tabella caricata in questo esempio.
+
+
+```
+create statistics [<name>] on [<Table Name>] ([<Column Name>]);
+create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
+```
+
 ## Passaggi successivi
 Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo sviluppo][].
 
@@ -175,6 +185,7 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 [panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
 [Migrazione dello schema]: sql-data-warehouse-migrate-schema.md
 [Migrazione del codice]: sql-data-warehouse-migrate-code.md
+[Statistiche]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -189,4 +200,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 [Documentazione di archiviazione di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/storage-create-storage-account/
 [documentazione di ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

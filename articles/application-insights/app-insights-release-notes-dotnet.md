@@ -32,6 +32,18 @@ Vedere [Introduzione ad Application Insights per .NET](app-insights-start-monito
 * Confrontare ApplicationInsights.config con la copia precedente. La maggior parte delle modifiche visualizzate è dovuta al fatto che alcuni moduli sono stati rimossi e altri sono stati resi parametrizzabili. Ripristinare eventuali personalizzazioni apportate al file precedente.
 * Ricompilare la soluzione.
 
+## Versione 2.0.0-beta2
+- Aggiunta del supporto per ITelemetryProcessor e possibilità di configurare tramite codice o configurazione. [Abilita il filtro personalizzato nell’SDK](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
+- Inizializzatori di contesto rimossi. Usare invece [Inizializzatori di telemetria](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
+- Application Insights aggiornato per .Net framework 4.6. 
+- I nomi degli eventi personalizzati ora possono avere un massimo di 512 caratteri.
+- Proprietà ```OperationContext.Name``` rinominata in ```RootName```.
+- Proprietà ```RequestTelemetry.Id``` rimossa.
+- La proprietà ```Id``` e ```Context.Operation.Id``` di RequestTelemetry non verrebbero inizializzate durante la creazione di nuovi RequestTelemetry.
+- ```RequestTelemetry.Name``` non è più inizializzato. Verrà invece utilizzato ```RequestTelemetry.Context.Operation.Name```.
+- Nel monitorare la richiesta, il codice di risposta 401 fa parte dell'handshake di autenticazione normale e genererà una richiesta completata.
+- Correggere il thread dell'interfaccia utente di blocco durante l'inizializzazione di InMemoryChannel (canale predefinito) dal thread dell'interfaccia utente. Consente di risolvere i problemi di congelamento dell’interfaccia utente con le applicazioni WPF.
+ 
 ## Versione 2.0.0 - beta1
 - TrackDependency produrrà codice JSON valido quando non vengono specificati tutti i campi obbligatori.
 - La proprietà ridondante ```RequestTelemetry.ID``` costituisce un proxy per ```RequestTelemetry.Operation.Id```.
@@ -97,4 +109,4 @@ Per le versioni precedenti non sono disponibili le note sulla versione.
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

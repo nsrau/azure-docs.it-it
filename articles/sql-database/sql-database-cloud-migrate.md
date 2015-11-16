@@ -93,7 +93,7 @@ Se vengono rilevate incompatibilità del database, sarà necessario correggerle 
 
 Dopo aver verificato di disporre di un database compatibile, è necessario scegliere il metodo di migrazione. Innanzitutto, è necessario decidere se è opportuno portare il database fuori produzione durante la migrazione. In caso contrario, usare la replica delle transazioni di SQL Server illustrata di seguito. Se è possibile sostenere i tempi di inattività o si esegue una migrazione di test del database di produzione di cui in un secondo momento è possibile eseguire la migrazione tramite la replica transazionale, considerare uno dei tre metodi seguenti.
 
-***Migrazione di un database compatibile tramite SQL Server Management Studio (SSMS) ***
+### Migrazione di un database compatibile con tempi di inattività   
 L'elenco seguente illustra le opzioni per la migrazione di un database compatibile al database SQL di Azure quando è possibile sostenere tempi di inattività durante la migrazione e prima di indirizzare utenti e applicazioni al database migrato nel database SQL di Azure. Con questi metodi, si esegue la migrazione del database esistente in un determinato momento.
 
 > [AZURE.WARNING]Prima di eseguire la migrazione del database mediante uno di questi metodi, assicurarsi che non siano attive transazioni, in modo da garantire la coerenza transazionale durante la migrazione. Per disattivare un database sono disponibili vari metodi, dalla disabilitazione della connettività client alla creazione di uno [snapshot del database](https://msdn.microsoft.com/library/ms175876.aspx).
@@ -104,19 +104,20 @@ L'elenco seguente illustra le opzioni per la migrazione di un database compatibi
 
 	 ![Diagramma di migrazione di SSMS](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-### Migrazione di un database compatibile senza tempi di inattività
+***Migrazione di un database compatibile tramite SQL Server Management Studio (SSMS) ***
 
-Quando non è possibile rimuovere il database SQL Server dalla produzione quando è in corso la migrazione, è possibile usare la replica transazionale di SQL Server come soluzione di migrazione. Questo metodo è attualmente in modalità di anteprima con [SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/). Con la replica transazionale, tutte le modifiche ai dati o agli schemi che si verificano tra il momento in cui inizia la migrazione e quello in cui viene completata vengono visualizzate nel database SQL di Azure. Una volta completata la migrazione, è sufficiente modificare la stringa di connessione delle applicazioni in modo che puntino al database SQL di Azure anziché al database locale. Una volta che la replica transazionale completa le eventuali modifiche rimaste nel database locale e tutte le applicazioni puntano al database di Azure, è possibile disinstallare la replica lasciando il database SQL di Azure come sistema di produzione.
+Quando non è possibile rimuovere il database SQL Server dalla produzione quando è in corso la migrazione, è possibile usare la replica transazionale di SQL Server come soluzione di migrazione. Con la replica transazionale, tutte le modifiche ai dati o agli schemi che si verificano tra il momento in cui inizia la migrazione e quello in cui viene completata vengono visualizzate nel database SQL di Azure. Una volta completata la migrazione, è sufficiente modificare la stringa di connessione delle applicazioni in modo che puntino al database SQL di Azure anziché al database locale. Una volta che la replica transazionale completa le eventuali modifiche rimaste nel database locale e tutte le applicazioni puntano al database di Azure, è possibile disinstallare la replica lasciando il database SQL di Azure come sistema di produzione.
 
  ![Diagramma di SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
 
 La replica transazionale è una tecnologia integrata in SQL Server a partire dalla versione 6.5. Si tratta di una tecnologia sperimentata e consolidata che la maggior parte degli amministratori di database conosce e con cui hanno esperienza. Con l'[anteprima di SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/), è ora possibile configurare il database SQL di Azure come [sottoscrittore di replica transazionale](https://msdn.microsoft.com/library/mt589530.aspx) alla pubblicazione locale. L'esperienza che si ottiene impostando il database da Management Studio è identica alla configurazione di un sottoscrittore di replica transazionale in un server locale. Il supporto per questo scenario viene fornito con le versioni di SQL Server seguenti:
 
- - SQL14 SP1 CU3 e successiva
- - SQL14 RTM CU10 e successiva
- - SQL11 SP2 CU8 e successiva
- - SQL11 SP3 quando verrà rilasciata
+ - SQL Server 2016 CTP3 (anteprima) e versioni successive 
+ - SQL Server 2014 SP1 CU3 e versioni successive
+ - SQL Server 2014 RTM CU10 e versioni successive
+ - SQL Server 2012 SP2 CU8 e versioni successive
+ - SQL Server 2013 SP3 quando verrà rilasciata
 
 È inoltre possibile usare la replica transazionale per eseguire la migrazione di un subset del database locale. La pubblicazione di cui si esegue la replica nel database SQL di Azure può essere limitata a un subset delle tabelle nel database replicato. Inoltre, per ogni tabella replicata, è possibile limitare i dati a un subset di righe e/o di colonne.
 
@@ -276,4 +277,4 @@ Se si determina che il database SQL Server di origine non è compatibile, sarà 
 
 - SQL Server Management Studio. È possibile risolvere i problemi in Management Studio usando alcuni comandi Transact-SQL, ad esempio **ALTER DATABASE**.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

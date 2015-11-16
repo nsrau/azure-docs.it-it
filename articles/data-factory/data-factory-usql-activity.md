@@ -48,10 +48,10 @@ La tabella seguente fornisce le descrizioni delle proprietà usate nella definiz
 
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
-Type | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Sì
+Tipo | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Sì
 accountName | Nome dell'account di Azure Data Lake Analytics. | Sì
 dataLakeAnalyticsUri | URI di Azure Data Lake Analytics. | No 
-authorization | Il codice di autorizzazione viene recuperato automaticamente dopo aver fatto clic sul pulsante **Autorizza** nell'editor di Data factory e aver completato l'accesso OAuth. | Sì 
+autorizzazione | Il codice di autorizzazione viene recuperato automaticamente dopo aver fatto clic sul pulsante **Autorizza** nell'editor di Data factory e aver completato l'accesso OAuth. | Sì 
 subscriptionId | ID sottoscrizione di Azure | No (se non specificata, viene usata la sottoscrizione della Data factory). 
 resourceGroupName | Nome del gruppo di risorse di Azure | No (se non specificata, viene usato il gruppo di risorse della Data factory).
 sessionId | ID di sessione dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questo valore viene generato automaticamente nell'editor di Data factory. | Sì
@@ -178,7 +178,7 @@ Ecco la definizione del servizio collegato dell'archivio di Azure Data Lake di e
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -187,4 +187,4 @@ Ecco la definizione del servizio collegato dell'archivio di Azure Data Lake di e
 
 Vedere [Spostare dati da e verso l'archivio di Azure Data Lake](data-factory-azure-datalake-connector.md) per una descrizione delle proprietà JSON nel servizio collegato dell'archivio di Azure Data Lake e negli snippet JSON dei set di dati precedenti.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

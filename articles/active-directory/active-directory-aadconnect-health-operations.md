@@ -110,8 +110,8 @@ Per consentire a un utente l'accesso a livello di *tutte le istanze del servizio
 1. Fare clic sulla parte "Utenti" dalla sezione Configura.<br> ![Pannello principale del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 [//]: # (RBAC\_MainBladeUserPart)
 2. Selezionare "Aggiungi"
-3. Selezionare il "Ruolo", ad esempio "Proprietario"<br> ![Aggiungere utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
 [//]: # (RBAC\_AddRole)
+3. Selezionare il "Ruolo", ad esempio "Proprietario"<br> ![Aggiungere utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
 4. Digitare il nome o l'identificatore dell'utente o del gruppo. È possibile selezionare uno o più utenti o gruppi contemporaneamente. Fare clic su "seleziona". ![Selezionare utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Selezionare "Ok".<br>
 [//]: # (RBAC\_LastStep)
@@ -137,8 +137,9 @@ Per rimuovere un utente o un gruppo aggiunto alla parte del controllo degli acce
 ## Collegamenti correlati
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Installazione dell'agente di Azure AD Connect Health per AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Installazione dell'agente di Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
+* [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

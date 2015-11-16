@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="11/03/2015"
 	ms.author="juliako"/>
 
 
@@ -31,14 +31,14 @@ Fare clic sul video desiderato (assicurarsi che sia stato [pubblicato](media-ser
  
 Considerazioni applicabili:
 
-- Il **LETTORE DI CONTENUTI DI SERVIZI MULTIMEDIALI** esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, usare un altro lettore, ad esempio [Lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+- Il **LETTORE DI CONTENUTI DI SERVIZI MULTIMEDIALI** esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, usare un altro lettore, ad esempio [Lettore multimediale di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
  
 
 ![AMSPlayer][AMSPlayer]
 
-###Lettore di Servizi multimediali di Azure
+###Azure Media Player
 
-Usare il [lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) per riprodurre i contenuti (in chiaro o protetti) in uno dei seguenti formati:
+Usare il [lettore multimediale di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) per riprodurre i contenuti (in chiaro o protetti) in uno dei seguenti formati:
 
 - Smooth Streaming
 - MPEG DASH
@@ -89,4 +89,4 @@ Per informazioni su come sviluppare i propri lettori, vedere [Sviluppo di lettor
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

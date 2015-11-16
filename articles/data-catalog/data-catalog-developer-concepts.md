@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
+   ms.date="10/27/2015"
    ms.author="derrickv"/>
 
 # Concetti per sviluppatori del Catalogo dati di Azure
@@ -40,7 +40,7 @@ Gli utenti sono entità di sicurezza che dispongono delle autorizzazioni per ese
 
 Diversi sono i ruoli disponibili che un utente può avere. Per altre informazioni sui ruoli, vedere la sezione Ruoli e autorizzazione.
 
-È possibile aggiungere solo singoli utenti (non gruppi di sicurezza).
+È possibile aggiungere singoli utenti e gruppi di sicurezza.
 
 Il Catalogo dati di Azure usa Azure Active Directory per la gestione delle identità e degli accessi. Ogni utente del catalogo deve essere un membro di Active Directory per l'account.
 
@@ -92,19 +92,19 @@ Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi d
 
 > [AZURE.NOTE]Le proprietà i cui nomi iniziano con un doppio carattere di sottolineatura sono tipi di sistema.
 
-<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>Data e ora dell'ultima modifica apportata alla radice. Viene impostato dal client. Il server non gestisce questo valore.</td></tr><tr><td>__id</td><td>Guid</td><td>ID dell'elemento (sola lettura). Questo ID è univoco per l'asset. La chiave per l'elemento è quindi __Id, __id della radice. Questa tupla è univoca all'interno di una directory.</td></tr><tr><td>__typeId</td><td>Guid</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>__creatorId</td><td>String</td><td>Stringa usata dall'autore dell'asset per identificare in modo univoco l'asset. </td></tr></table>
+<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>Data e ora dell'ultima modifica apportata alla radice. Viene impostato dal client. Il server non gestisce questo valore.</td></tr><tr><td>__id</td><td>String</td><td>ID dell'elemento (sola lettura). Questo ID è univoco per l'asset all’interno di un catalogo.</td></tr><tr><td>__type</td><td>String</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>__creatorId</td><td>String</td><td>Stringa usata dall'autore dell'asset per identificare in modo univoco l'asset. </td></tr></table>
 
 ### Proprietà radice comuni
 
 Queste proprietà si applicano a tutti i tipi di asset radice.
 
-<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>String</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>Percorso dell'origine dati</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l’asset. Vedere la sezione relativa all’identità doppia. La struttura del percorso dell’origine dati varia in base al tipo di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l’asset più di recente. Contiene l'ID univoco per l'utente (upn) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>Data e ora dell'ultima registrazione dell’asset nel catalogo.</td></tr></table>
+<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>String</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>Percorso dell'origine dati</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l’asset. Vedere la sezione relativa all’identità doppia. La struttura del percorso dell’origine dati varia in base al tipo di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l’asset più di recente. Contiene l'ID univoco per l'utente (upn) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>Data e ora dell'ultima registrazione dell’asset nel catalogo.</td></tr><tr><td>containerId</td><td>String</td><td>ID dell'asset di contenitore per l'origine dati. Questa proprietà non è supportata per il tipo di contenitore.</td></tr></table>
 
 ### Tipi di asset radice
 
 I tipi di asset radice rappresentano i diversi tipi di asset di dati che possono essere registrati nel catalogo.
 
-<table><tr><td><b>Tipo di asset</b></td><td><b>Proprietà aggiuntive</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>Tabella</td><td></td><td></td><td>Tabella che rappresenta i dati tabulari. Può trattarsi di una tabella SQL, vista SQL, tabella tabulare di Analysis Services, dimensione multidimensionale di Analysis Services, tabella Oracle e così via.   </td></tr><tr><td>Measure</td><td></td><td></td><td>Tipo che rappresenta una misura di Analysis Services.</td></tr><tr><td></td><td>Measure</td><td>Colonna</td><td>Metadati che descrivono la misura.</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>Specifica se la misura viene calcolata o meno.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>Contenitore fisico per la misura.</td></tr><tr><td>KPI</td><td></td><td></td><td>Tipo che rappresenta un indicatore di prestazioni chiave di Analysis Services.</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td>Espressione numerica MDX o calcolo che restituisce il valore di destinazione dell'indicatore KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td>Espressione numerica MDX che restituisce il valore effettivo dell'indicatore KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td>Espressione MDX che rappresenta lo stato dell'indicatore KPI in un punto specifico nel tempo.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td>Espressione MDX che restituisce il valore dell'indicatore KPI nel tempo. La tendenza può essere un qualsiasi criterio basato sul tempo utile in un contesto aziendale specifico.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>Contenitore fisico per la misura.</td></tr><tr><td>Report</td><td></td><td></td><td>Tipo che rappresenta un report di SQL Server Reporting Services. </td></tr><tr><td></td><td>CreatedBy</td><td>String</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>String</td><td></td></tr></table>
+<table><tr><td><b>Tipo di asset</b></td><td><b>Proprietà aggiuntive</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>Tabella</td><td></td><td></td><td>Tabella che rappresenta i dati tabulari. Può trattarsi di una tabella SQL, vista SQL, tabella tabulare di Analysis Services, dimensione multidimensionale di Analysis Services, tabella Oracle e così via.   </td></tr><tr><td>Measure</td><td></td><td></td><td>Tipo che rappresenta una misura di Analysis Services.</td></tr><tr><td></td><td>Measure</td><td>Colonna</td><td>Metadati che descrivono la misura.</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>Specifica se la misura viene calcolata o meno.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>Contenitore fisico per la misura.</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td>Espressione numerica MDX o calcolo che restituisce il valore di destinazione dell'indicatore KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td>Espressione numerica MDX che restituisce il valore effettivo dell'indicatore KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td>Espressione MDX che rappresenta lo stato dell'indicatore KPI in un punto specifico nel tempo.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td>Espressione MDX che restituisce il valore dell'indicatore KPI nel tempo. La tendenza può essere un qualsiasi criterio basato sul tempo utile in un contesto aziendale specifico.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>Contenitore fisico per la misura.</td></tr><tr><td>Report</td><td></td><td></td><td>Tipo che rappresenta un report di SQL Server Reporting Services. </td></tr><tr><td></td><td>CreatedBy</td><td>String</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>String</td><td></td></tr><tr><td>Contenitore:</td><td></td><td></td><td>Questo tipo rappresenta un contenitore di altri asset, ad esempio un database SQL, un contenitore di BLOB di Azure o un modello di Analysis Services.</td></tr></table>
 
 ### Tipi di annotazione
 
@@ -123,6 +123,10 @@ I tipi di annotazione sono tipi di metadati che possono essere assegnati ad altr
 
 <tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>Il numero di righe nel set di dati</td></tr>
+
+<tr><td>Documentazione</td><td></td><td></td><td>Un determinato asset può avere solo una documentazione associata.</td></tr>
+<tr><td></td><td>mimeType</td><td>string</td><td>Il tipo mime del contenuto.</td></tr>
+<tr><td></td><td>content</td><td>string</td><td>Il contenuto della documentazione.</td></tr>
 
 
 </table>
@@ -258,4 +262,4 @@ Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere us
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

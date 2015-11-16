@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/29/2015"
 	ms.author="stepsic"/>
 	
 # Eseguire una distribuzione da Visual Studio
@@ -65,4 +65,4 @@ In futuro sarà possibile modificare l'app per la logica nel controllo del codic
 
 Se non si vuole usare Visual Studio, ma si desidera comunque utilizzare gli strumenti necessari per distribuire l'app per la logica dal controllo di origine, è possibile usare l'[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [PowerShell](../powershell-azure-resource-manager.md) direttamente per automatizzare le distribuzioni.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

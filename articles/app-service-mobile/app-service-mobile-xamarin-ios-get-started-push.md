@@ -40,6 +40,10 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Completare l'[esercitazione della guida introduttiva](../app-service-mobile-xamarin-ios-get-started.md).
 
+##<a name="create-hub"></a>Creare un hub di notifica
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
 ## <a id="register"></a>Registrare l'app per le notifiche push
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
@@ -154,4 +158,4 @@ L'esercitazione è stata completata.
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

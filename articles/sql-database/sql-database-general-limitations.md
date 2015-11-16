@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="jroth" />
 
 # Limitazioni e linee guida generali per il database SQL di Azure
@@ -41,9 +41,7 @@ Il database SQL di Azure non supporta le transazioni distribuite, che hanno effe
 
 ## Supporto delle regole di confronto di SQL Server
 
-La regola di confronto del database predefinita usata dal database SQL di Microsoft Azure è **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, dove **LATIN1\_GENERAL** è l'inglese (Stati Uniti), **CP1** è la tabella codici 1252, **CI** indica l'assenza di distinzione tra maiuscole e minuscole e **AS** indica la distinzione tra caratteri accentati e non accentati.
-
-Quando si usa SQL Server locale, è possibile impostare regole di confronto a livello di server, di database, di colonna e di espressione. Il database SQL di Microsoft Azure non consente di impostare le regole di confronto a livello di server. Per usare le regole di confronto non predefinite con il database SQL di Microsoft Azure, impostare le regole di confronto con l'opzione Create Database Collate, a livello di colonna o di espressione. Il database SQL non supporta l'opzione Collate con il comando Alter Database. Per impostazione predefinita, nel database SQL i dati temporanei avranno le stesse regole di confronto del database. Per altre informazioni su come impostare le regole di confronto, vedere [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+La regola di confronto del database predefinita usata dal database SQL di Microsoft Azure è **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, dove **LATIN1\_GENERAL** è l'inglese (Stati Uniti), **CP1** è la tabella codici 1252, **CI** indica l'assenza di distinzione tra maiuscole e minuscole e **AS** indica la distinzione tra caratteri accentati e non accentati. È possibile modificare le regole di confronto per i database V12 tramite Transact-SQL. Per altre informazioni su come impostare le regole di confronto, vedere [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## Requisiti di denominazione
 
@@ -71,4 +69,4 @@ I nomi utente e di accesso non possono nemmeno contenere il carattere \\ (l'aute
 
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

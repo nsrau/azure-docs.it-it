@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/03/2015" 
 	ms.author="awills"/>
  
 # Monitorare dipendenze, eccezioni e tempi di esecuzione nelle app Web Java
@@ -33,7 +33,7 @@ Per usare l'agente Java, installarlo nel server. Le app Web devono essere strume
 
 ## Installare l'agente di Application Insights per Java
 
-1. [Scaricare l'agente](http://go.microsoft.com/fwlink/?LinkId=618633) sul computer che esegue il server Java.
+1. [Scaricare l'agente](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html) sul computer che esegue il server Java.
 2. Modificare lo script di avvio del server applicazioni e aggiungere il codice JVM seguente:
 
     `javaagent:`*full path to the agent JAR file*
@@ -122,4 +122,4 @@ Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

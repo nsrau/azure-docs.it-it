@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""
     manager="jeffreyg"
-    authors="sidneyh"
+    authors="ddove"
     editor=""/>
 
 <tags
@@ -13,12 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/29/2015"
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015"
+    ms.author="ddove;sidneyh"/>
 
 # Panoramica della libreria client dei database elastici
 
-La **libreria client dei database elastici** aiuta a sviluppare facilmente applicazioni partizionate usando centinaia, o anche migliaia, di database SQL di Azure ospitati in Microsoft Azure. Tali progettazioni vengono comunemente usate per le applicazioni SaaS (Software as a Service), in genere architetture single-tenant, dove ogni tenant è dotato di un database. La compilazione e la gestione di un'applicazione è un obiettivo della libreria. La libreria client è una libreria di .NET Framework che può essere installata in un progetto di applicazione tramite [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) e [Nuget](http://go.microsoft.com/?linkid=9862605). La libreria client fa parte degli strumenti di database elastici che sono specificatamente una [funzionalità di database elastici](sql-database-elastic-scale-introduction.md).
+La **libreria client dei database elastici** aiuta a sviluppare facilmente applicazioni partizionate usando centinaia, o anche migliaia, di database SQL di Azure ospitati in Microsoft Azure. Tali progettazioni vengono comunemente usate per le applicazioni SaaS (Software as a Service), in genere architetture single-tenant, dove ogni tenant è dotato di un database. La compilazione e la gestione di un'applicazione è un obiettivo della libreria.
+
+Per installare la libreria, vedere [Database SQL di Microsoft Azure: scalabilità elastica](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). La libreria client fa parte degli strumenti di database elastici che sono specificatamente una [funzionalità di database elastici](sql-database-elastic-scale-introduction.md).
 
 ## Funzionalità client
 
@@ -40,7 +42,7 @@ In generale, i clienti che utilizzano gli strumenti dei database elastici quando
 
 Provare l’[app di esempio](sql-database-elastic-scale-get-started.md)che illustra le funzioni client.
 
-Per installare la libreria, andare su [Libreria client di database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+Per installare la libreria, passare a [Libreria client di database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 Per istruzioni sull'uso dello strumento di suddivisione-unione, vedere [Panoramica sullo strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md).
 
@@ -53,4 +55,4 @@ Per istruzioni sull'uso dello strumento di suddivisione-unione, vedere [Panorami
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

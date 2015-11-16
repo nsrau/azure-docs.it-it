@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Architettura di Resource Balancer"
-   description="Panoramica dell'architettura di Service Fabric Resource Balancer"
+   pageTitle="Architettura di Resource Balancer | Microsoft Azure"
+   description="Panoramica dell'architettura di Resource Balancer dell’infrastruttura di servizi."
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -38,4 +38,4 @@ Funzionalità di bilanciamento delle risorse:
 [Image1]: media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

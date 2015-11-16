@@ -3,7 +3,7 @@
 	description="Informazioni sull'uso di un account di lavoro o di scuola per sfruttare gli account utente, i criteri e le impostazioni esistenti o le distribuzioni del server locali già configurate e migliorare l'efficienza tra l'infrastruttura di identità locale aziendale e Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="markvi"
+	authors="markusvi"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/30/2015"
 	ms.author="markvi"/>
 
 
@@ -35,4 +35,4 @@ Per iscriversi ad Azure come organizzazione [**Effettua l'iscrizione ora**](http
 * [Informazioni su Azure AD](active-directory-whatis.md)
 * [Usare l'infrastruttura di identità locale nel cloud](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
