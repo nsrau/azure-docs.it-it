@@ -33,7 +33,7 @@ Il campionamento attualmente è disponibile per ASP.NET SDK o per [qualsiasi pag
 
 1. Aggiornare i pacchetti NuGet del progetto all'ultima versione *preliminare* di Application Insights. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web. 
 
-2. Aggiungere questo frammento ad ApplicationInsights.config:
+2. Aggiungere questo frammento ad [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
 ```XML
 
@@ -162,4 +162,6 @@ L'SDK lato client (JavaScript) partecipa al campionamento insieme all'SDK lato s
 
 * No, il campionamento per le applicazioni per dispositivo al momento non è supportato. 
 
-<!---HONumber=Nov15_HO1-->
+>>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
+
+<!---HONumber=Nov15_HO2-->

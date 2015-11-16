@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Creazione e gestione di processi elastici di database"
+	pageTitle="Creazione e gestione di processi elastici di database | Micosoft Azure"
 	description="Informazioni sulla gestione e la creazione di un processo elastico di database."
 	services="sql-database"
 	documentationCenter=""
 	manager="jhubbard"
-	authors="sidneyh"
+	authors="ddove"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/04/2015"
 	ms.author="ddove; sidneyh"/>
 
 # Creazione e gestione di processi elastici di un Database SQL con il portale (anteprima)
@@ -115,4 +115,4 @@ Se un processo ha esito negativo, è disponibile un log dell'esecuzione. Fare cl
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

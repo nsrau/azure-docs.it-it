@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
  
 # Risoluzione dei problemi e domande - Application Insights per ASP.NET
@@ -136,12 +136,15 @@ Vedere le [note sulla versione](app-insights-release-notes.md) dell'SDK appropri
 + Fare clic sul pulsante Aggiorna. Il pannello viene automaticamente aggiornato periodicamente, ma è anche possibile farlo manualmente. L'intervallo di aggiornamento è più lungo per intervalli di tempo maggiori.
 + Nella schermata iniziale di Microsoft Azure osservare la mappa dello stato dei servizi. Se ci sono indicazioni di avviso, attendere che tornino alla normalità, quindi chiudere e riaprire il pannello dell'applicazione di Application Insights.
 + Controllare anche il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
++ Se si è modificato ApplicationInsights.config, controllare attentamente la configurazione di TelemetryInitializers e TelemetryProcessors. Un tipo o un parametro denominato in modo non corretto può impedire a SDK l'invio dei dati.
 
 #### Nessun dato dopo la pubblicazione dell'applicazione al server
 
++ Verificare di aver effettivamente copiato tutti i Microsoft. DLL ApplicationInsights al server, insieme a Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 + Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com e f5.services.visualstudio.com.
 + Se è necessario usare un proxy per inviare all'esterno della rete aziendale, impostare [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
 + Windows Server 2008: assicurarsi che siano stati installati i seguenti aggiornamenti: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+
 
 #### <a name="q04"></a>In Dati di analisi utilizzo non ci sono dati per il mio sito Web
 
@@ -243,4 +246,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Utilizzo della libreria client dei database elastici con Dapper" 
+	pageTitle="Utilizzo della libreria client di database elastico con Dapper | Microsoft Azure" 
 	description="Utilizzo della libreria client dei database elastici con Dapper." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="torsteng"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 # Utilizzo della libreria client dei database elastici con Dapper 
 
@@ -174,4 +174,4 @@ Le applicazioni che usano Dapper e DapperExtensions possono trarre vantaggio fac
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

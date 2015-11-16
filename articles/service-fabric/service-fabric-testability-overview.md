@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Panoramica di Testabilità"
-   description="In questo articolo viene descritta la funzionalità di testabilità in Infrastruttura di servizi di Microsoft Azure."
+   pageTitle="Panoramica della testabilità | Microsoft Azure"
+   description="In questo articolo viene descritta la funzionalità di testabilità nell’infrastruttura di servizi di Microsoft Azure per provocare errori ed eseguire gli scenari di test con i servizi."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -94,4 +94,4 @@ Per creare servizi effettivamente di scala cloud, è fondamentale la capacità d
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

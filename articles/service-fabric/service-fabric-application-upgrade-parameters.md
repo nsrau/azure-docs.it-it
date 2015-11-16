@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Aggiornamento di un'applicazione di Service Fabric: parametri di aggiornamento"
-   description="Questo articolo descrive i diversi parametri correlati all'aggiornamento di un'applicazione di Service Fabric."
+   pageTitle="Aggiornamento di un'applicazione: parametri di aggiornamento | Microsoft Azure"
+   description="Vengono descritti i parametri relativi all'aggiornamento di un'applicazione dell’infrastruttura di servizi, inclusi i controlli di integrità per eseguire e i criteri per annullare automaticamente l'aggiornamento."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -77,4 +77,4 @@ Questo articolo descrive i diversi parametri che si applicano durante l'aggiorna
 [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

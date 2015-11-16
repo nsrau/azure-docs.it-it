@@ -60,7 +60,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 Si aggiunge questa risorsa al modello per impedire le azioni specificate in una risorsa. Il blocco si applica a tutti gli utenti e gruppi. In genere, si applica un blocco solo per una durata limitata, ad esempio, quando un processo è in esecuzione e ci si desidera assicurare che un utente dell'organizzazione non modifichi o elimini inavvertitamente una risorsa.
 
-Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. Dei ruoli predefiniti, solo **Owner** e **User Access Administrator** garantiscono tali azioni. Per informazioni sul controllo degli accessi basato sul ruolo, vedere [Gestione e controllo dell'accesso alle risorse](./azure-portal/resource-group-rbac.md).
+Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. Dei ruoli predefiniti, solo **Owner** e **User Access Administrator** garantiscono tali azioni. Per informazioni sul controllo degli accessi basato sul ruolo, vedere [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md).
 
 Il blocco viene applicato alla risorsa specificata e a tutte le risorse figlio. Se si applica più di un blocco a una risorsa, il blocco più restrittivo ha la precedenza. Ad esempio, se si applica ReadOnly a livello padre (ad esempio, il gruppo di risorse) e CanNotDelete a una risorsa all'interno del gruppo, il blocco più restrittivo (ReadOnly) dell'elemento padre ha la precedenza.
 
@@ -133,4 +133,4 @@ Nell'esempio seguente viene applicato un blocco di sola lettura al gruppo di ris
 - Per informazioni sulla struttura del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per altre informazioni sui blocchi, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

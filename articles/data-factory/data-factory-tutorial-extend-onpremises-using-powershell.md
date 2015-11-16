@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 
@@ -23,6 +23,10 @@ In questa procedura dettagliata si imparerà a configurare l'ambiente per consen
 Nell'ultimo passaggio dello scenario di elaborazione dei log dalla prima procedura dettagliata con flusso di lavoro Partizione -> Arricchimento -> Analisi, l'output dell'efficacia della campagna di marketing è stato copiato in un database SQL di Azure. È anche possibile spostare questi dati in SQL Server locale per l'analisi nell'organizzazione.
  
 Per copiare i dati dell'efficacia della campagna di marketing dal BLOB di Azure a SQL Server locale, è necessario creare altri servizi collegati, tabelle e pipeline locali con lo stesso set di cmdlet presentati nella prima procedura dettagliata.
+
+> [AZURE.IMPORTANT]Questo articolo non illustra tutti i cmlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
+>    
+> Se si usa Azure PowerShell 1.0 Preview, sarà necessario usare i cmdlet documentati [qui](https://msdn.microsoft.com/library/dn820234.aspx). Usare ad esempio New-AzureRMDataFactory invece di New-AzureDataFactory.
 
 ## Prerequisiti
 
@@ -170,4 +174,4 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

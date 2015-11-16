@@ -51,7 +51,7 @@ Usando l'editor di testo preferito aggiungere quanto segue alla parte superiore 
 
 ## Configurare una connessione di archiviazione di Azure
 
-Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di usare **Azure::BlobService** con il codice seguente:
+Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di usare **Azure::BLOB::BlobService** con il codice seguente:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
@@ -68,11 +68,11 @@ Per ottenere questi valori:
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-L'oggetto **Azure::BlobService** consente di lavorare con contenitori e BLOB. Per creare un contenitore usare il metodo **create\_container()**.
+L'oggetto **Azure::BLOB::BlobService** consente di lavorare con contenitori e BLOB. Per creare un contenitore usare il metodo **create\_container()**.
 
 Nell'esempio seguente viene creato un contenitore o stampato l'eventuale errore.
 
-	azure_blob_service = Azure::BlobService.new
+	azure_blob_service = Azure::Blob::BlobService.new
 	begin
 	  container = azure_blob_service.create_container("test-container")
 	rescue
@@ -146,4 +146,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Archivio [Azure SDK per Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

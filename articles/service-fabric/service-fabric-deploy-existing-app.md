@@ -34,13 +34,7 @@ Prima di esaminare i dettagli della distribuzione di un'applicazione esistente, 
 
   Il seguente è un esempio di un manifesto di un'applicazione:
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationManifest ApplicationTypeName="actor2Application"
-                       ApplicationTypeVersion="1.0.0.0"
-                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  ```xml <?xml version="1.0" encoding="utf-8"?> <ApplicationManifest ApplicationTypeName="actor2Application" ApplicationTypeVersion="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
@@ -55,8 +49,7 @@ Prima di esaminare i dettagli della distribuzione di un'applicazione esistente, 
       </Service>
     </DefaultServices>
 
-  </ApplicationManifest>
-  ```
+  </ApplicationManifest> ```
 
 * **Manifesto del servizio**
 
@@ -64,16 +57,7 @@ Prima di esaminare i dettagli della distribuzione di un'applicazione esistente, 
 
   Il seguente è un esempio di un manifesto del servizio
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ServiceManifest Name="actor2Pkg"
-                   Version="1.0.0.0"
-                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="actor2Type" />
-    </ServiceTypes>
+  ```xml <?xml version="1.0" encoding="utf-8"?> <ServiceManifest Name="actor2Pkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ServiceTypes> <StatelessServiceType ServiceTypeName="actor2Type" /> </ServiceTypes>
 
     <CodePackage Name="Code" Version="1.0.0.0">
       <EntryPoint>
@@ -90,8 +74,7 @@ Prima di esaminare i dettagli della distribuzione di un'applicazione esistente, 
         <Endpoint Name="ServiceEndpoint" />
       </Endpoints>
     </Resources>
-  </ServiceManifest>
-  ```
+  </ServiceManifest> ```
 
 ## Struttura del file del pacchetto dell’applicazione
 Per distribuire un'applicazione utilizzando, ad esempio, i powershell cmdlet, l'applicazione deve seguire una struttura di directory predefinita.
@@ -294,7 +277,7 @@ Un servizio Service Fabric può essere distribuito in varie 'configurazioni', ad
 
 * `InstanceCount`: consente di specificare il numero di istanze del servizio da avviare nel cluster di infrastruttura di servizi. È possibile impostare il valore `InstanceCount` in base al tipo di applicazione da distribuire. I due scenari più comuni sono:
 
-	* `InstanCount = "1"`: in questo caso solo un'istanza del servizio verrà distribuita nel cluster. L’utilità di pianificazione di Service Fabric determina il nodo in cui il servizio dovrà essere distribuito. Un conteggio di istanza singola è utile anche per applicazioni che richiedono una configurazione diversa se vengono eseguiti in più istanze. In questo caso risulta più semplice definire più servizi in uno stesso file manifesto dell'applicazione e usare l'elemento `InstanceCount = "1"`. Il risultato finale sarà pertanto quello di disporre di più istanze dello stesso servizio, ma ciascuna con una configurazione specifica. Un valore superiore a uno per l'elemento `InstanceCount` può essere usato solo se l'obiettivo consiste nell'ottenere più istanze della stessa configurazione.
+	* `InstanceCount = "1"`: in questo caso solo un'istanza del servizio verrà distribuita nel cluster. L’utilità di pianificazione di Service Fabric determina il nodo in cui il servizio dovrà essere distribuito. Un conteggio di istanza singola è utile anche per applicazioni che richiedono una configurazione diversa se vengono eseguiti in più istanze. In questo caso risulta più semplice definire più servizi in uno stesso file manifesto dell'applicazione e usare l'elemento `InstanceCount = "1"`. Il risultato finale sarà pertanto quello di disporre di più istanze dello stesso servizio, ma ciascuna con una configurazione specifica. Un valore superiore a uno per l'elemento `InstanceCount` può essere usato solo se l'obiettivo consiste nell'ottenere più istanze della stessa configurazione.
 
 	* `InstanceCount ="-1"`: in questo caso solo un'istanza del servizio verrà distribuita in ogni nodo del cluster di infrastruttura di servizi. Il risultato finale sarà quello di avere una (e solo una) istanza del servizio per ogni nodo del cluster. Si tratta di una configurazione utile per applicazioni front-end (ad esempio: un endpoint REST) poiché le applicazioni client dovranno semplicemente “connettersi” a qualsiasi nodo del cluster per poter utilizzare l'endpoint. Questa configurazione può essere inoltre utilizzata quando, ad esempio, tutti i nodi del cluster di Service Fabric sono connessi a un servizio di bilanciamento del carico cosi che il traffico del client può essere distribuito nel servizio in esecuzione su tutti i nodi del cluster.
 
@@ -353,4 +336,4 @@ Per altre informazioni su come sviluppare un'app di infrastruttura di servizi tr
 [5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
 [6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

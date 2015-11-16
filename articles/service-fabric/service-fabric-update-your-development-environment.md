@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2015"
+   ms.date="10/30/2015"
    ms.author="seanmck"/>
 
 # Aggiornare l'ambiente di sviluppo di Service Fabric
@@ -53,4 +53,4 @@ L'operazione è terminata. È ora possibile avviare Visual Studio e continuare l
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

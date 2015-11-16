@@ -13,12 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="10/30/2015"
    ms.author="maroche"/>
 
 # Novità di Catalogo dati di Azure
 
 Gli aggiornamenti su **Catalogo dati di Azure** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includeranno nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio **Catalogo dati di Azure**.
+
+## Novità della versione della settimana del 30 ottobre 2015
+
+Nella settimana del 30 ottobre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
+
+- Supporto per la crittografia locale delle anteprime e dei profili dati per le origini dati registrate. Catalogo dati di Azure esegue in modo trasparente la crittografia dei record di anteprima e delle origini dei profili dati registrati con il servizio, senza che gli amministratori del catalogo debbano eseguire alcuna operazione di gestione.
 
 ## Novità della versione della settimana del 23 ottobre 2015
 
@@ -71,7 +77,7 @@ Nella settimana del 18 settembre 2015 sono state aggiunte a **Catalogo dati di A
 
 ## Novità della versione della settimana dell'11 settembre 2015
 
-Nella settimana del 11 settembre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
+Nella settimana dell'11 settembre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
 
 - Supporto per la registrazione e l'individuazione degli oggetti di SQL Server Analysis Services tramite HTTP/HTTPS. Gli utenti possono ora connettersi ai server SSAS usando un URL (ad esempio https://servername/olap/msmdpump.dll) anziché un nome di server e possono usare l'autenticazione di base e le connessioni anonime oltre all'autenticazione di Windows. Per altre informazioni sulle connessioni HTTP/HTTPS a SSAS, vedere [Configurare l'accesso HTTP ad Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
 - Supporto per le origini dati Hive in HDInsight. Gli utenti possono ora registrarsi e individuare le tabelle Hive per Apache Hive di Hadoop sulle origini dati HDInsight. Per altre informazioni su Hive in HDInsight, vedere il [centro di documentazione di HDInsight](../hdinsight-use-hive/).
@@ -102,8 +108,8 @@ Nella settimana del 21 agosto 2015 sono state aggiunte a **Catalogo dati di Azur
 
 - Supporto per fornire informazioni sulla richiesta di accesso per le origini dati registrate. Per qualsiasi asset di dati registrato, gli utenti possono ora fornire istruzioni per richiedere l'accesso, inclusi URL o collegamenti di posta elettronica, per una facile integrazione con i processi e gli strumenti esistenti.
 - Descrizioni comandi per i tag e gli esperti, per semplificare l'individuazione dei metadati forniti dagli utenti per gli asset di dati registrati.
-- Nuovo menu e pulsante "User" nella barra di spostamento superiore. Questo menu consente di vedere l'account usato per accedere a **Catalogo dati di Azure** ed eventualmente per disconnettersi. Questo menu visualizza anche il nome del catalogo, utile per gli sviluppatori che usano l'API REST di **Catalogo dati di Azure**.
+- Nuovo menu e pulsante "User" nella barra di spostamento superiore. Questo menu consente di vedere l'account usato per accedere a **Catalogo dati di Azure** ed eventualmente disconnettersi. Questo menu visualizza anche il nome del catalogo, utile per gli sviluppatori che usano l'API REST di **Catalogo dati di Azure**.
 - Solo per l'edizione Standard: quando si aggiungono proprietari ad asset di dati, **Catalogo dati di Azure** supporta ora come proprietari sia account utente sia gruppi di sicurezza. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

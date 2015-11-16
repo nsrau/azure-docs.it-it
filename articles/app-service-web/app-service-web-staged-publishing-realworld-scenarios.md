@@ -312,7 +312,7 @@ Questa sezione illustra come usare moduli personalizzati di Umbraco CMS per eseg
 Ricordare sempre di rimuovere la cartella `install` nell'applicazione e di non caricarla mai nelle app Web di staging o di produzione. Per questa esercitazione, si userà WebMatrix
 
 #### Configurare un ambiente di staging
-Creare uno slot di distribuzione come indicato in precedenza per un'app Web Umbraco CMS, presupponendo esista già un'app Web Umbraco CMS operativa. In caso contrario, è possibile crearne una dal Marketplace. Per altre informazioni, fare clic [qui](web-sites-gallery-umbraco).
+Creare uno slot di distribuzione come indicato in precedenza per un'app Web Umbraco CMS, presupponendo esista già un'app Web Umbraco CMS operativa. In caso contrario, è possibile crearne una dal Marketplace.
 
 Aggiornare le stringhe di connessione per lo slot di distribuzione "stage" affinché facciano riferimento al database appena creato, **umbraco-stage-db**. L'app Web di produzione, (umbraositecms-1), e l'app Web di staging (umbracositecms-1-stage) **DEVONO** fare riferimento a database diversi.
 
@@ -333,11 +333,11 @@ Fare clic su **Ottieni impostazioni di pubblicazione** per lo slot di distribuzi
 - Dopo aver pubblicato l'app Web locale Umbraco nell'app Web di staging, esplorarla ed eseguire alcuni test per rilevare eventuali problemi.
 
 #### Configurare il modulo di distribuzione Courier2
-Grazie al modulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2) è possibile fare clic con il pulsante destro del mouse per eseguire il push di contenuto, fogli di stile, moduli di sviluppo e altro ancora da un'app Web di staging a un'app Web di produzione in modo da semplificare le operazioni di distribuzione e ridurre il rischio di interrompere l'app Web di produzione durante la distribuzione di aggiornamenti. Acquistare una licenza di Courier2 per il dominio `*.azurewebsites.net` e il dominio personalizzato, ad esempio http://abc.com. Dopo aver acquistato la licenza, salvare il file di licenza (file LIC) nella cartella `bin`.
+Grazie al modulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2) è possibile fare clic con il pulsante destro del mouse per eseguire il push di contenuto, fogli di stile, moduli di sviluppo e altro ancora da un'app Web di staging a un'app Web di produzione in modo da semplificare le operazioni di distribuzione e ridurre il rischio di interrompere l'app Web di produzione durante la distribuzione di aggiornamenti. Acquistare una licenza di Courier2 per il dominio `*.azurewebsites.net` e il dominio personalizzato, (ad esempio http://abc.com). Dopo aver acquistato la licenza, salvare il file di licenza (file LIC) nella cartella `bin`.
 
 ![Salvare il file di licenza nella cartella bin](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
-Scaricare il pacchetto di Courier2 da [qui](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/). Accedere all'app Web di staging, http://umbracocms-site-stage.azurewebsites.net/umbraco, fare clic sul menu **Developer** e quindi selezionare **Packages** . Fare clic su **Install** local package
+Scaricare il pacchetto di Courier2 da [qui](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/). Accedere all'app Web di staging, ad esempio http://umbracocms-site-stage.azurewebsites.net/umbraco, fare clic sul menu **Developer** e quindi selezionare **Packages** . Fare clic sul pacchetto locale **Install**
 
 ![Programma di installazione del pacchetto Umbraco](./media/app-service-web-staged-publishing-realworld-scenarios/14umbpkg.png)
 
@@ -362,23 +362,16 @@ Per procedere con la configurazione è necessario aggiornare il file courier.con
   </repositories>
  ```
 
-In `<repositories>` immettere l'URL del sito di produzione e le informazioni dell'utente. Se si usa il provider di appartenenze Umbraco predefinito, aggiungere l'ID per l'utente Administration nella sezione <user>. Se si usa il provider di appartenenze Umbraco personalizzato, usare `<login>` e `<password>` affinché il modulo Courier2 possa connettersi al sito di produzione. Per altre informazioni, consultare la [documentazione](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) relativa al modulo Courier.
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-Analogamente, installare il modulo Courier nel sito di produzione e configurarlo affinché gestisca in modo temporaneo l'app Web nel relativo file courier.config, come illustrato di seguito
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
-Fare clic sulla scheda Courier2 nel dashboard dell'app Web Umbraco CMS e selezionare la località. Verrà visualizzato il nome del repository come indicato in `courier.config`. Ripetere la stessa operazione sia per l'app Web di staging che di produzione.
+Fare clic sulla scheda Courier2 nel dashboard dell'app Web Umbraco CMS e selezionare la località. Verrà visualizzato il nome del repository come indicato in `courier.config`. Ripetere la stessa operazione sia per le app Web di staging che di produzione.
 
 ![Visualizzare il repository dell'app Web di destinazione](./media/app-service-web-staged-publishing-realworld-scenarios/16courierloc.png)
 
@@ -429,4 +422,4 @@ Questo esempio illustra la flessibilità della piattaforma in cui è possibile c
 
 [Come bloccare l'accesso Web agli slot di distribuzione non di produzione](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione per usare l'account di accesso di Facebook
@@ -28,7 +28,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 1. Accedere al [portale di gestione di Azure] e passare all'app per dispositivi mobili. Copiare l'**URL**. Verrà usato per configurare l'app Facebook.
  
-2. Fare clic su **Impostazioni**, **Autenticazione utente** e quindi fare clic su **Facebook**. Copiare quindi l'**URI di reindirizzamento** dal pannello Facebook. Verrà usato con l'app Facebook.
+2. Fare clic su **Impostazioni**, **Autenticazione per dispositivi mobili** e quindi fare clic su **Facebook**. Copiare quindi l'**URI di reindirizzamento** dal pannello Facebook. Verrà usato con l'app Facebook.
  
 3. In un'altra finestra del browser passare al sito Web [Facebook Developers] e accedere con le credenziali dell'account Facebook.
 
@@ -54,7 +54,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 12. Fare clic sulla scheda **Advanced** e aggiungere l'**URI di reindirizzamento** dell'app per dispositivi mobili copiato in precedenza in **Valid OAuth redirect URIs**. Fare clic su **Save Changes**. L'URI di reindirizzamento corrisponde all'URL del gateway dell'app per dispositivi mobili con l'aggiunta del percorso _/signin-facebook_ come suffisso. Ad esempio: `https://contosogateway.azurewebsites.net/signin-facebook`. Assicurarsi che sia in uso lo schema HTTPS.
 
-13. L'account di Facebook usato per registrare l'applicazione sarà un account di amministratore dell'app. A questo punto, solo gli amministratori potranno effettuare l'accesso a questa applicazione. Per autenticare altri account di Facebook, fare clic su **Status & Review** nella barra di spostamento a sinistra, quindi su **Yes** per abilitare l'accesso pubblico.
+13. L'account di Facebook usato per registrare l'applicazione sarà un account di amministratore dell'app. A questo punto, solo gli amministratori potranno effettuare l'accesso a questa applicazione. Per autenticare altri account di Facebook, fare clic su **Status & Review** nella barra di spostamento a sinistra. quindi su **Yes** per abilitare l'accesso pubblico.
 
 
 ## <a name="secrets"> </a>Aggiungere le informazioni di Facebook all'app per dispositivi mobili
@@ -79,6 +79,5 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /it-IT/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portale di gestione di Azure]: https://portal.azure.com/
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

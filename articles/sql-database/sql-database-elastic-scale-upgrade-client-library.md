@@ -1,11 +1,11 @@
 <properties
 	
-	pageTitle="Upgrade to the latest elastic database client library" 
+	pageTitle="Upgrade to the latest elastic database client library | Microsoft Azure" 
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
-	ms.author="sidneyh" />
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh" />
 
 # Eseguire l'aggiornamento alla libreria client di database elastico
 
-Le nuove versioni della libreria client di database elastico sono disponibili tramite [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) e l'interfaccia NuGetPackage Manager in Visual Studio. Gli aggiornamenti contengono correzioni di bug e supporto delle nuove funzionalità della libreria client.
+Le nuove versioni della [libreria client di database elastico](sql-database-elastic-database-client-library.md) sono disponibili tramite [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) e l'interfaccia NuGetPackage Manager in Visual Studio. Gli aggiornamenti contengono correzioni di bug e supporto delle nuove funzionalità della libreria client.
 
 Compilazione dell'applicazione con la nuova libreria, nonché la modifica dei metadati Shard Map Manager esistenti archiviati nei database SQL di Azure in modo che supportino le nuove funzionalità.
 
@@ -97,4 +97,4 @@ Versione iniziale di anteprima
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

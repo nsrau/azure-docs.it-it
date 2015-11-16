@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
+<properties
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement"
 	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 
@@ -35,6 +35,10 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-android-sdk
 
 ##Note sulla versione
 
+##4\.1.1 (11/04/2015)
+
+Miglioramenti della stabilità.
+
 ##4\.1.0 (08/25/2015)
 
 - Gestione di un nuovo modello di autorizzazione per Android M.
@@ -48,4 +52,4 @@ Per le versioni precedenti, vedere le [note sulla versione complete](mobile-enga
 
 Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, consultare [Procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

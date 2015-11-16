@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso di Hub di notifica di Azure per inviare notifiche agli utenti"
+	pageTitle="Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET"
 	description="Informazioni su come inviare notifiche push sicure in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET."
 	documentationCenter="windows"
 	authors="wesmc7777"
@@ -16,7 +16,7 @@
 	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
-#Uso di Hub di notifica di Azure per inviare notifiche agli utenti
+#Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -384,4 +384,4 @@ In questa sezione viene aggiornato il codice nel progetto completato per l’ese
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

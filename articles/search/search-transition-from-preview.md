@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Transizione dalla versione api di anteprima =2014* alla versione api=2015*#
 
-Le linee guida seguenti sono indirizzate ai clienti che hanno compilato applicazioni personalizzate nelle versioni di anteprima di Ricerca di Azure e desiderano eseguire la migrazione alla versione disponibile a livello generale del 28/02/2015.
+Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure. Le linee guida seguenti sono indirizzate ai clienti che hanno compilato applicazioni personalizzate nelle versioni di anteprima di Ricerca di Azure e desiderano eseguire la migrazione alla versione disponibile a livello generale del 28/02/2015.
 
 La versione di anteprima utilizzata può essere stata una delle due seguenti:
 
@@ -144,4 +144,4 @@ La versione dell'API `2015-02-28` è nel contratto di servizio. Utilizzare le op
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

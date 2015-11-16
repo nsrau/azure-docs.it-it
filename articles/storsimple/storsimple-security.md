@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/25/2015"
+   ms.date="10/29/2015"
    ms.author="v-sharos"/>
 
-# sicurezza e protezione dei dati di StorSimple
+# Sicurezza e protezione dei dati di StorSimple
 
 ## Panoramica
 
@@ -46,70 +46,75 @@ Poiché il servizio StorSimple Manager è ospitato in Azure, viene protetto dall
 
 Il dispositivo StorSimple è un dispositivo di archiviazione ibrido locale contenente unità SSD e unità disco rigido, oltre a controller ridondanti e funzionalità di failover automatico. I controller gestiscono la suddivisione in livelli dell'archiviazione, inserendo i dati attualmente usati (o hot data) nella risorsa di archiviazione locale (nel dispositivo StorSimple o nei server locali) e spostando nel cloud i dati usati meno di frequente.
 
-## Controllare l'accesso a StorSimple mediante la registrazione del dispositivo
+Solo i dispositivi StorSimple autorizzati possono aggiungere il servizio StorSimple Manager creato nella sottoscrizione di Azure. Per autorizzare un dispositivo, è necessario registrarlo con il servizio StorSimple Manager inserendo la chiave di registrazione del servizio. La chiave di registrazione del servizio è un codice casuale a 128 bit generato nel portale.
 
-Solo i dispositivi StorSimple autorizzati possono aggiungere il servizio StorSimple Manager creato nella sottoscrizione di Azure.
+![Chiave di registrazione del servizio](./media/storsimple-security/ServiceRegistrationKey.png)
 
-Per autorizzare un dispositivo, è necessario registrarlo con il servizio StorSimple Manager inserendo la chiave di registrazione del servizio. La chiave di registrazione del servizio è un codice casuale a 128 bit generato nel portale. Per informazioni su come ottenere una chiave di registrazione del servizio, vedere [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
+Per informazioni su come ottenere una chiave di registrazione del servizio, vedere [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
-> [AZURE.NOTE]La chiave di registrazione del servizio è un codice lungo contenente più di 100 caratteri. È possibile copiare la chiave e salvarla in un file di testo in un percorso sicuro per poterla usare per autorizzare altri dispositivi, se necessario.
-> 
-> * Se si perde la chiave di registrazione del servizio dopo aver registrato il primo dispositivo, è possibile generare una nuova chiave dal servizio StorSimple Manager. L'operazione non avrà effetto sul funzionamento dei dispositivi esistenti. 
-> * Un dispositivo, dopo essere stato registrato, usa i token per comunicare con Microsoft Azure. La chiave di registrazione del servizio non viene usata dopo la registrazione del dispositivo.
-> * È consigliabile rigenerare la chiave di registrazione del servizio dopo ogni utilizzo.
+La chiave di registrazione del servizio è un codice lungo contenente più di 100 caratteri. È possibile copiare la chiave e salvarla in un file di testo in un percorso sicuro per poterla usare per autorizzare altri dispositivi, se necessario. Se si perde la chiave di registrazione del servizio dopo aver registrato il primo dispositivo, è possibile generare una nuova chiave dal servizio StorSimple Manager. L'operazione non avrà effetto sul funzionamento dei dispositivi esistenti.
+
+Un dispositivo, dopo essere stato registrato, usa i token per comunicare con Microsoft Azure. La chiave di registrazione del servizio non viene usata dopo la registrazione del dispositivo.
+
+> [AZURE.NOTE]È consigliabile rigenerare la chiave di registrazione del servizio dopo ogni uso.
 
 ## Proteggere la soluzione StorSimple con le password
 
-Le password sono un componente importante della sicurezza dei computer e vengono usate di frequente nella soluzione Microsoft Azure StorSimple per garantire che i dati siano accessibili solo a utenti autorizzati. StorSimple consente di configurare le seguenti password:
+Le password sono un componente importante della sicurezza dei computer e vengono usate di frequente nella soluzione StorSimple per garantire che i dati siano accessibili solo a utenti autorizzati. StorSimple consente di configurare le seguenti password:
 
-- Password di Windows PowerShell per StorSimple
 - Password amministratore del dispositivo StorSimple
 - Password di destinazione e iniziatore CHAP (Challenge Handshake Authentication Protocol)
 - Password di Gestione snapshot StorSimple
 
-### Password amministratore di Windows PowerShell per StorSimple e del dispositivo StorSimple
+### Windows PowerShell per StorSimple e la password amministratore del dispositivo StorSimple
 
 Windows PowerShell per StorSimple è un'interfaccia della riga di comando che può essere usata per gestire il dispositivo StorSimple. Windows PowerShell per StorSimple include funzionalità che permettono di registrare il dispositivo, configurare l'interfaccia di rete nel dispositivo, installare determinati tipi di aggiornamento, risolvere i problemi del dispositivo tramite l'accesso alla sessione di supporto e modificare lo stato del dispositivo. È possibile accedere a Windows PowerShell per StorSimple connettendosi alla console seriale sul dispositivo o usando la comunicazione remota di Windows PowerShell.
 
-La comunicazione remota di PowerShell può essere stabilita su HTTPS o HTTP. Se la gestione remota su HTTPS è abilitata, sarà necessario scaricare il certificato di gestione remota dal dispositivo e installarlo nel client remoto.
-
-> [AZURE.IMPORTANT]
-
-> * La gestione remota è disattivata per impostazione predefinita. Per abilitarla, è possibile usare il servizio StorSimple Manager. Come procedura consigliata per la sicurezza, è opportuno abilitare l'accesso remoto solo per il periodo di tempo in cui è effettivamente necessario.
-> * Se si cambia la password, assicurarsi di notificarlo a tutti gli utenti di accesso remoto per evitare una perdita imprevista della connettività.
-> * Il servizio StorSimple Manager non può recuperare le password esistenti, ma solo reimpostarle. È consigliabile archiviare tutte le password in un luogo sicuro per non dover reimpostare una password nel caso la si dimentichi. Se è necessario reimpostare una password, assicurarsi di notificarlo a tutti gli utenti prima di reimpostarla. 
-> * È possibile accedere all'interfaccia di Windows PowerShell usando una connessione seriale al dispositivo. È anche possibile accedervi in modalità remota usando HTTP o HTTPS, che offrono una maggiore sicurezza. HTTPS offre un livello più elevato di sicurezza rispetto a una connessione seriale o HTTP. Per usare HTTPS, tuttavia, prima è necessario installare un certificato nel computer client che accederà al dispositivo. È possibile scaricare il certificato di accesso remoto dalla pagina di configurazione del dispositivo nel servizio StorSimple Manager. Se il certificato per l'accesso remoto viene perso, è necessario scaricare un nuovo certificato e propagarlo a tutti i client autorizzati a usare la gestione remota.
+La comunicazione remota di PowerShell può essere stabilita su HTTPS o HTTP. Se la gestione remota su HTTPS è abilitata, sarà necessario scaricare il certificato di gestione remota dal dispositivo e installarlo nel client remoto. Per altre informazioni sulla comunicazione remota di PowerShell, vedere [Connettersi in remoto al dispositivo StorSimple](storsimple-remote-connect).
 
 Dopo aver usato Windows PowerShell per StorSimple per connettersi al dispositivo, sarà necessario immettere la password amministratore per accedere al dispositivo.
+
+![Password amministratore del dispositivo](./media/storsimple-security/DeviceAdminPW.png)
+
+Tenere presenti le procedure consigliate seguenti:
+
+- La gestione remota è disattivata per impostazione predefinita. Per abilitarla, è possibile usare il servizio StorSimple Manager. Come procedura consigliata per la sicurezza, è opportuno abilitare l'accesso remoto solo per il periodo di tempo in cui è effettivamente necessario.
+- Se si cambia la password, assicurarsi di notificarlo a tutti gli utenti di accesso remoto per evitare una perdita imprevista della connettività.
+- Il servizio StorSimple Manager non può recuperare le password esistenti, ma solo reimpostarle. È consigliabile archiviare tutte le password in un luogo sicuro per non dover reimpostare una password nel caso la si dimentichi. Se è necessario reimpostare una password, assicurarsi di notificarlo a tutti gli utenti prima di reimpostarla. 
+
+È possibile accedere all'interfaccia di Windows PowerShell usando una connessione seriale al dispositivo. È anche possibile accedervi in modalità remota usando HTTP o HTTPS, che offrono una maggiore sicurezza. HTTPS offre un livello più elevato di sicurezza rispetto a una connessione seriale o HTTP. Per usare HTTPS, tuttavia, prima è necessario installare un certificato nel computer client che accederà al dispositivo. È possibile scaricare il certificato di accesso remoto dalla pagina di configurazione del dispositivo nel servizio StorSimple Manager. Se il certificato per l'accesso remoto viene perso, è necessario scaricare un nuovo certificato e propagarlo a tutti i client autorizzati a usare la gestione remota.
 
 ### Password di destinazione e iniziatore CHAP (Challenge Handshake Authentication Protocol)
 
 CHAP è uno schema di autenticazione usato dal dispositivo StorSimple per convalidare l'identità dei client remoti. La verifica si basa su una password condivisa. CHAP può essere unidirezionale o bidirezionale (reciproco). Con CHAP unidirezionale, la destinazione (il dispositivo StorSimple) autentica un iniziatore (host). Per l'autenticazione CHAP reciproca è necessario che la destinazione autentichi l'iniziatore e viceversa. Azure StorSimple può essere configurato per l'utilizzo di entrambi i metodi.
 
-> [AZURE.IMPORTANT]
-> 
-> * Il nome dell'utente CHAP deve contenere meno di 233 caratteri.
-> * La password CHAP deve essere compresa tra 12 e 16 caratteri. Se si prova a usare un nome utente o una password più lunga, si verificherà un errore di autenticazione sull'host Windows.
-> * Non è possibile usare la stessa password sia per l'iniziatore CHAP che per la destinazione CHAP.
-> * Dopo aver impostato la password, è possibile cambiarla, ma non recuperarla. Se la password viene cambiata, assicurarsi di notificarlo a tutti gli utenti di accesso remoto in modo che riescano a connettersi al dispositivo StorSimple.
+Quando si configura l'autenticazione CHAP, tenere presente quanto segue:
 
-Per ulteriori informazioni e per configurare CHAP, visitare [Configurare CHAP per il dispositivo StorSimple](storsimple-configure-chap.md)
+- Il nome dell'utente CHAP deve contenere meno di 233 caratteri.
+- La password CHAP deve essere compresa tra 12 e 16 caratteri. Se si prova a usare un nome utente o una password più lunga, si verificherà un errore di autenticazione sull'host Windows.
+- Non è possibile usare la stessa password sia per l'iniziatore CHAP che per la destinazione CHAP.
+- Dopo aver impostato la password, è possibile cambiarla, ma non recuperarla. Se la password viene cambiata, assicurarsi di notificarlo a tutti gli utenti di accesso remoto in modo che riescano a connettersi al dispositivo StorSimple.
+
+Per altre informazioni sull'autenticazione CHAP e su come configurarla per la soluzione StorSimple, vedere [Configurare CHAP per il dispositivo StorSimple](storsimple-configure-chap.md).
 
 ### Password di Gestione snapshot StorSimple
 
 Gestione snapshot StorSimple è uno snap-in MMC (Microsoft Management Console) che usa gruppi di volumi e il Servizio Copia shadow del volume di Windows per generare backup coerenti con l'applicazione. È possibile usare Gestione snapshot StorSimple anche per creare pianificazioni di backup e clonare o ripristinare volumi.
 
-Quando si configura un dispositivo per usare Gestione snapshot StorSimple, sarà necessario immettere la password di Gestione snapshot StorSimple. Questa password viene impostata in Windows PowerShell per StorSimple durante la registrazione. La password può essere impostata e cambiata anche dal servizio StorSimple Manager. Questa password autentica il dispositivo con Gestione snapshot StorSimple.
+Quando si configura un dispositivo per usare Gestione snapshot StorSimple, è necessario immettere la password di Gestione snapshot StorSimple. Questa password viene impostata in Windows PowerShell per StorSimple durante la registrazione. La password può essere impostata e cambiata anche dal servizio StorSimple Manager. Questa password autentica il dispositivo con Gestione snapshot StorSimple.
 
-> [AZURE.IMPORTANT]<ul><li>Questa password deve essere composta da 14 o 15 caratteri e contenere 3 o più elementi di una combinazione di lettere maiuscole, lettere minuscole, numeri e caratteri speciali.</li><li>Dopo aver impostato la password di StorSimple Snapshot Manager è possibile modificarla ma non recuperarla. Se si cambia la password, assicurarsi di notificarla a tutti gli utenti remoti.</li></ul>
+![Password di Gestione snapshot StorSimple](./media/storsimple-security/SnapshotMgrPassword.png)
 
+La password di Gestione snapshot StorSimple deve essere composta da 14 o 15 caratteri e contenere 3 o più elementi di una combinazione di lettere maiuscole, lettere minuscole, numeri e caratteri speciali. Dopo aver impostato la password di Gestione snapshot StorSimple, è possibile cambiarla, ma non recuperarla. Se si cambia la password, assicurarsi di notificarla a tutti gli utenti remoti.
+
+Per altre informazioni su Gestione snapshot StorSimple, vedere [Che cos'è Gestione snapshot StorSimple?](storsimple-what-is-snapshot-manager.md).
 
 ### Procedure consigliate per le password
 
-Si consiglia di usare le linee guida seguenti per assicurarsi che le password di Azure StorSimple siano complesse e protette:
+È consigliabile usare le linee guida seguenti per assicurarsi che le password di StorSimple siano complesse e protette:
 
 - Cambiare le password ogni tre mesi. La modifica della password viene richiesta ogni anno.
-- Usare password complesse. Per altre informazioni, vedere [Creare password più complesse e proteggerle](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+- Usare password complesse. Per altre informazioni, vedere l'articolo relativo alla [creazione e protezione di password più complesse](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Usare sempre password diverse per ogni meccanismo di accesso. Ogni password specificata deve essere univoca.
 - Non condividere le password con nessuno che non sia autorizzato ad accedere al dispositivo StorSimple.
 - Non parlare di una password davanti ad altri e non accennare al formato di una password.
@@ -118,40 +123,51 @@ Si consiglia di usare le linee guida seguenti per assicurarsi che le password di
 
 ## Protezione dei dati di StorSimple
 
-Questa sezione descrive le funzionalità di sicurezza di Azure StorSimple per i dati archiviati e in transito.
+Questa sezione descrive le funzionalità di sicurezza di StorSimple per i dati archiviati e in transito.
 
-Come descritto in altre sezioni, per autorizzare e autenticare gli utenti in modo da consentire loro l'accesso alla soluzione Microsoft Azure StorSimple è previsto l'uso di password. Un'altra considerazione sulla sicurezza riguarda la protezione dei dati dagli utenti non autorizzati durante il trasferimento da un sistema di archiviazione a un altro e durante l'archiviazione. Le sezioni seguenti descrivono le funzionalità di protezione dei dati fornite con Azure StorSimple.
+Come descritto in altre sezioni, per autorizzare e autenticare gli utenti in modo da consentire loro l'accesso alla soluzione StorSimple è previsto l'uso di password. Un'altra considerazione sulla sicurezza riguarda la protezione dei dati dagli utenti non autorizzati durante il trasferimento da un sistema di archiviazione a un altro e durante l'archiviazione. Le sezioni seguenti descrivono le funzionalità di protezione dei dati offerte da StorSimple.
 
 > [AZURE.NOTE]La deduplicazione fornisce una protezione aggiuntiva per i dati archiviati nel dispositivo StorSimple e nell'archiviazione di Microsoft Azure. Quando i dati vengono deduplicati, gli oggetti dati vengono archiviati separatamente dai metadati usati per la mappatura e l'accesso: non è disponibile un contesto a livello di archiviazione per ricostruire i dati in base alla struttura del volume, al file system o al nome file.
 
 ## Proteggere il flusso di dati attraverso il servizio
 
-Lo scopo principale del servizio StorSimple Manager è di gestire e configurare il dispositivo StorSimple. Il servizio StorSimple Manager viene eseguito in Microsoft Azure. Si usa il portale di gestione di Windows Azure per immettere i dati di configurazione del dispositivo e quindi Microsoft Azure usa il servizio StorSimple Manager per inviare i dati al dispositivo. Il servizio StorSimple Manager usa un sistema di coppie di chiavi asimmetriche per garantire che, nel caso in cui venga compromesso il servizio di Azure, non vengano compromesse anche le informazioni archiviate. Il sistema di chiavi asimmetriche aiuta a proteggere il flusso di dati attraverso il sistema come segue:
+Lo scopo principale del servizio StorSimple Manager è di gestire e configurare il dispositivo StorSimple. Il servizio StorSimple Manager viene eseguito in Microsoft Azure. Si usa il portale di gestione di Windows Azure per immettere i dati di configurazione del dispositivo e quindi Microsoft Azure usa il servizio StorSimple Manager per inviare i dati al dispositivo. StorSimple usa un sistema di coppie di chiavi asimmetriche per garantire che, nel caso in cui venga compromesso il servizio di Azure, non vengano compromesse anche le informazioni archiviate.
+
+![Crittografia dei dati in esecuzione](./media/storsimple-security/DataEncryption.png)
+
+Il sistema di chiavi asimmetriche aiuta a proteggere il flusso di dati attraverso il sistema come segue:
 
 1. Un certificato di crittografia dei dati che usa una coppia di chiavi pubblica e privata asimmetriche viene generato nel dispositivo e usato per proteggere i dati. Le chiavi vengono generate quando viene registrato il primo dispositivo. 
-2. Le chiavi del certificato di crittografia dei dati vengono esportate in un file pfx (Personal Information Exchange) protetto dalla chiave DEK del servizio, che è una chiave a 128 bit complessa generata in modo casuale dal primo dispositivo durante la registrazione.
+2. Le chiavi del certificato di crittografia dei dati vengono esportate in un file con estensione pfx (Personal Information Exchange) protetto dalla chiave DEK del servizio, che è una chiave a 128 bit complessa generata in modo casuale dal primo dispositivo durante la registrazione.
 3. La chiave pubblica del certificato è resa disponibile in modo sicuro per il servizio StorSimple Manager e la chiave privata rimane con il dispositivo.
 4. L'immissione di dati nel servizio viene crittografata con la chiave pubblica e decrittografata con la chiave privata archiviata nel dispositivo, in modo che il servizio di Azure non riesca a decrittografare il flusso di dati verso il dispositivo.
 
+La chiave DEK del servizio viene generata solo nel primo dispositivo registrato nel servizio. Ogni altro dispositivo registrato in seguito con il servizio deve usare la stessa chiave DEK del servizio.
+
 > [AZURE.IMPORTANT]
 > 
-> * La chiave DEK del servizio viene generata solo nel primo dispositivo registrato nel servizio. Ogni altro dispositivo registrato in seguito con il servizio deve usare la stessa chiave DEK del servizio. È molto importante creare una copia di questa chiave e salvarla in una posizione sicura. Si consiglia di archiviare una copia della chiave DEK del servizio in modo che sia accessibile a una persona autorizzata e possa essere facilmente comunicata all'amministratore del dispositivo.
-> * Per modificare la chiave DEK del servizio e il corrispondente certificato di crittografia dei dati, selezionare l'opzione **Modifica chiave DEK del servizio** nel dashboard del servizio. Per modificare le chiavi di crittografia, è necessario che ogni dispositivo venga aggiornato con la nuova chiave. Quindi, è consigliabile modificare la chiave quando tutti i dispositivi sono online. Se i dispositivi sono offline, le rispettive chiavi possono essere modificate in un altro momento. I dispositivi con chiavi scadute potranno ancora eseguire i backup, ma non potranno ripristinare i dati finché le chiavi non verranno aggiornate. Per altre informazioni, vedere [Utilizzo del dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
-> * Per essere certi che la sicurezza dei dati non venga compromessa, è necessario usare un dispositivo StorSimple fisico per modificare la chiave DEK del servizio.
-> * Se si perde la chiave DEK del servizio, il personale di supporto Microsoft può aiutare a recuperarla purché almeno un dispositivo sia online. È consigliabile modificare la chiave DEK del servizio dopo averla recuperata. Per istruzioni, vedere [Modificare la chiave DEK del servizio](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
-> * La chiave DEK del servizio e il certificato di crittografia dei dati non scadono. Tuttavia è consigliabile modificare regolarmente la chiave DEK del servizio per evitare che venga compromessa.</li></ul>
+> È molto importante creare una copia di questa chiave e salvarla in una posizione sicura. Si consiglia di archiviare una copia della chiave DEK del servizio in modo che sia accessibile a una persona autorizzata e possa essere facilmente comunicata all'amministratore del dispositivo.
+>
+> Se si perde la chiave DEK del servizio, il personale di supporto Microsoft può aiutare a recuperarla purché almeno un dispositivo sia online. È consigliabile modificare la chiave DEK del servizio dopo averla recuperata. Per istruzioni, vedere [Modificare la chiave DEK del servizio](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
+Per modificare la chiave DEK del servizio e il corrispondente certificato di crittografia dei dati, selezionare l'opzione **Modifica chiave DEK del servizio** nel dashboard del servizio. Per essere certi che la sicurezza dei dati non venga compromessa, è necessario usare un dispositivo StorSimple fisico per modificare la chiave DEK del servizio. Per modificare le chiavi di crittografia, è necessario che ogni dispositivo venga aggiornato con la nuova chiave. Quindi, è consigliabile modificare la chiave quando tutti i dispositivi sono online. Se i dispositivi sono offline, le rispettive chiavi possono essere modificate in un altro momento. I dispositivi con chiavi scadute potranno ancora eseguire i backup, ma non potranno ripristinare i dati finché le chiavi non verranno aggiornate. Per altre informazioni, vedere l'articolo relativo all'[uso del dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
+
+La chiave DEK del servizio e il certificato di crittografia dei dati non scadono. Tuttavia, è consigliabile modificare regolarmente la chiave DEK del servizio per evitare che venga compromessa.
 
 ## Proteggere i dati inattivi
 
-Il dispositivo StorSimple gestisce i dati archiviandoli in più livelli localmente e nel cloud, in base alla frequenza d'uso. Tutti i computer host connessi al dispositivo inviano dati al dispositivo, che li sposta quindi nel cloud, se necessario. I dati vengono trasferiti dal dispositivo al cloud in modo sicuro tramite Internet. Ogni dispositivo ha una destinazione iSCSI che copre tutti i volumi condivisi del dispositivo. Tutti i dati vengono crittografati prima di essere inviati all'archiviazione cloud. Per garantire la sicurezza e l'integrità dei dati spostati nel cloud, Azure StorSimple consente di definire le chiavi di crittografia per l'archiviazione cloud come segue:
+Il dispositivo StorSimple gestisce i dati archiviandoli in più livelli localmente e nel cloud, in base alla frequenza d'uso. Tutti i computer host connessi al dispositivo inviano dati al dispositivo, che li sposta quindi nel cloud, se necessario. I dati vengono trasferiti dal dispositivo al cloud in modo sicuro tramite Internet. Ogni dispositivo ha una destinazione iSCSI che copre tutti i volumi condivisi del dispositivo. Tutti i dati vengono crittografati prima di essere inviati all'archiviazione cloud.
+
+![Chiave di crittografia di archiviazione cloud](./media/storsimple-security/CloudStorageEncryption.png)
+
+Per garantire la sicurezza e l'integrità dei dati spostati nel cloud, StorSimple consente di definire le chiavi di crittografia per l'archiviazione cloud come segue:
 
 - Si specifica la chiave di crittografia per l'archiviazione cloud quando si crea un contenitore dei volumi. La chiave non può essere modificata o aggiunta in seguito. 
 - Tutti i volumi in un contenitore condividono la stessa chiave di crittografia. Se si vuole una formato di crittografia diverso per un volume specifico, è consigliabile creare un nuovo contenitore per ospitare tale volume.
 - Quando si immette la chiave di crittografia per l'archiviazione cloud nel servizio StorSimple Manager, la chiave viene crittografata con la parte pubblica della chiave DEK del servizio e quindi inviata al dispositivo.
 - La chiave di crittografia per l'archiviazione cloud non viene archiviata nel servizio ed è nota solo al dispositivo.
 - Specificare una chiave di crittografia per l'archiviazione cloud è facoltativo. È possibile inviare i dati crittografati nell'host al dispositivo.
-- È consigliabile ruotare la chiave di crittografia di archiviazione cloud trimestralmente. Non verrà richiesta la rotazione delle chiavi.
+- È consigliabile ruotare la chiave di crittografia di archiviazione cloud trimestralmente. Tuttavia, non verrà richiesta la rotazione delle chiavi.
 
 ### Procedure di sicurezza aggiuntive
 
@@ -165,12 +181,10 @@ Ogni sottoscrizione di Microsoft Azure può creare uno o più account di archivi
 
 Quando si crea un account di archiviazione, Microsoft Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, una delle quali viene usata per l'autenticazione quando il dispositivo StorSimple accede all'account di archiviazione. Una sola di queste chiavi è in uso. L'altra chiave è tenuta di riserva per far ruotare periodicamente le chiavi. Per far ruotare le chiavi, si rende attiva la chiave secondaria e quindi si elimina la chiave primaria. È quindi possibile creare una nuova chiave da usare durante la rotazione successiva. Per motivi di sicurezza, molti data center richiedono la rotazione delle chiavi.
 
-> [AZURE.IMPORTANT]
-> 
-> Per la rotazione delle chiavi, è opportuno seguire queste procedure consigliate:
-> 
-> * Far ruotare regolarmente le chiavi dell'account di archiviazione per impedire a utenti non autorizzati di accedere all'account di archiviazione.
-> * L'amministratore di Azure deve modificare o rigenerare periodicamente la chiave primaria o secondaria usando la sezione Archiviazione del portale di gestione per accedere direttamente all'account di archiviazione.
+Per la rotazione delle chiavi, è opportuno seguire queste procedure consigliate:
+
+- Far ruotare regolarmente le chiavi dell'account di archiviazione per impedire a utenti non autorizzati di accedere all'account di archiviazione.
+- L'amministratore di Azure deve modificare o rigenerare periodicamente la chiave primaria o secondaria usando la sezione Archiviazione del portale di gestione per accedere direttamente all'account di archiviazione.
 
 
 ## Proteggere i dati mediante la crittografia
@@ -181,16 +195,19 @@ StorSimple usa i seguenti algoritmi di crittografia per proteggere i dati archiv
 | --------- | ---------- | ------------------------------- |
 | RSA | 2048 | RSA PKCS 1 v1.5 viene usato dal portale di gestione per crittografare i dati di configurazione inviati al dispositivo: ad esempio, le credenziali dell'account di archiviazione, la configurazione del dispositivo StorSimple e le chiavi di crittografia per l'archiviazione cloud. |
 | AES | 256 | AES con CBC viene usato per crittografare la parte pubblica della chiave DEK del servizio prima che venga inviata al portale di gestione dal dispositivo StorSimple. Viene usato anche dal dispositivo StorSimple per crittografare i dati prima che vengano inviati all'account di archiviazione cloud. |
-| RSA | 2048 | RSA PKCS 1 v1.7 viene usato dal portale di gestione per crittografare la parte pubblica della chiave DEK del servizio prima di archiviarla nella risorsa di archiviazione del portale locale. |
 
+
+## Sicurezza del dispositivo virtuale StorSimple
+
+[AZURE.INCLUDE [sicurezza del dispositivo virtuale StorSimple](../../includes/storsimple-virtual-device-security.md)]
 
 ## Domande frequenti (FAQ)
 
 Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a Microsoft Azure StorSimple.
 
-**D:**il mio servizio è compromesso. Quali sono i passaggi successivi da eseguire?
+**D:** Il servizio è compromesso. Quali sono i passaggi successivi da eseguire?
 
-**R:** È necessario modificare subito la chiave DEK del servizio e le chiavi dell'account di archiviazione per l'account usato per suddividere in livelli i dati. Per istruzioni, vedere:
+**R:** È necessario modificare subito la chiave DEK del servizio e le chiavi dell'account di archiviazione per l'account usato per suddividere i dati in livelli. Per istruzioni, vedere:
 
 - [Modificare la chiave DEK del servizio](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 - [Rotazione delle chiavi degli account di archiviazione](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
@@ -211,9 +228,9 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **R:** Se il periodo di timeout è scaduto, sarà necessario autorizzare nuovamente il dispositivo per la modifica della chiave DEK del servizio e riavviare il processo.
 
-**D:** Ho modificato la chiave DEK del servizio, ma non sono riuscito ad aggiornare gli altri dispositivi entro le 4 ore. Devo avviare nuovamente il processo?
+**D:** Ho modificato la chiave DEK del servizio, ma non ho potuto aggiornare gli altri dispositivi entro 4 ore. Devo avviare nuovamente il processo?
 
-**R:** Il periodo di tempo di 4 ore è solo per iniziare la modifica. Dopo aver avviato il processo di aggiornamento sul dispositivo StorSimple autorizzato, l'autorizzazione è valida fino all'aggiornamento di tutti gli altri dispositivi.
+**R:** Il periodo di tempo di 4 ore si riferisce solo all'avvio della modifica. Dopo aver avviato il processo di aggiornamento sul dispositivo StorSimple autorizzato, l'autorizzazione è valida fino all'aggiornamento di tutti gli altri dispositivi.
 
 **D:** L'amministratore di StorSimple ha lasciato l'azienda. Cosa devo fare?
 
@@ -223,7 +240,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 - [Modificare la chiave DEK del servizio](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 - [Configurare CHAP per il dispositivo StorSimple](storsimple-configure-chap.md)
 
-**D:** Vorrei fornire la password di Gestione snapshot StorSimple a un host che si connette al dispositivo StorSimple, ma la password non è disponibile. In che modo è possibile risolvere questo problema?
+**D:** Vorrei comunicare la password di Gestione snapshot StorSimple a un host che si connette al dispositivo StorSimple, ma la password non è disponibile. In che modo è possibile risolvere questo problema?
 
 **R:** Se si dimentica la password, è necessario crearne una nuova. Informare quindi tutti gli utenti esistenti che la password è stata modificata e che devono aggiornare i client per usare la nuova password. Per istruzioni, vedere:
 
@@ -242,7 +259,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **D:** Se un utente riesce ad accedere al certificato di crittografia dei dati, i miei dati verranno compromessi?
 
-**R:** Microsoft Azure archivia la chiave di crittografia di dati del cliente (file con estensione pfx) in formato crittografato. Dato che il file pfx è crittografato e il servizio StorSimple non ha la chiave DEK del servizio per decrittografarlo, il semplice accesso al file pfx non espone alcun dato segreto.
+**R:** Microsoft Azure archivia la chiave di crittografia dei dati del cliente (file con estensione pfx) in formato crittografato. Dato che il file con estensione pfx è crittografato e il servizio StorSimple non ha la chiave DEK del servizio per decrittografarlo, il semplice accesso al file con estensione pfx non espone alcun dato segreto.
 
 **D:** Cosa accade se un ente pubblico chiede i miei dati a Microsoft?
 
@@ -253,4 +270,4 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 [Distribuire il dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # Registrare l'utente corrente per le notifiche push mediante un servizio mobile
@@ -122,4 +122,4 @@ Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

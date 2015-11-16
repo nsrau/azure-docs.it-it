@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="10/30/2015"
    ms.author="tomfitz"/>
 
 # Autenticazione di un'entità servizio con Gestione risorse di Azure
@@ -78,7 +78,7 @@ In questa sezione, si eseguiranno i passaggi per creare un’entità servizio pe
 
      È stata creata un'entità servizio nella directory, ma al servizio non sono assegnate autorizzazioni o ambiti. È necessario concedere esplicitamente le autorizzazioni dell'entità servizio per eseguire operazioni in un ambito.
 
-3. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](azure-portal/resource-group-rbac.md)
+3. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md)
 
         PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -202,7 +202,7 @@ In primo luogo, è necessario configurare alcuni valori di PowerShell che verran
 
     È stata creata un'entità servizio nella directory, ma al servizio non sono assegnate autorizzazioni o ambiti. È necessario concedere esplicitamente le autorizzazioni dell'entità servizio per eseguire operazioni in un ambito.
 
-5. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](azure-portal/resource-group-rbac.md)
+5. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md)
 
         PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -275,13 +275,13 @@ Iniziare creando un'entità servizio. Per farlo, è necessario creare un'applica
 
     È stata creata un'entità servizio nella directory, ma al servizio non sono assegnate autorizzazioni o ambiti. È necessario concedere esplicitamente le autorizzazioni dell'entità servizio per eseguire operazioni in un ambito.
 
-4. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](azure-portal/resource-group-rbac.md)
+4. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md)
 
         azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
 
 5. Determinare il **TenantId** del tenant in cui si trova l'assegnazione di ruolo dell'entità servizio elencando gli account e cercando la proprietà **TenantId** nell'output.
 
-        azure account list
+        azure account list --json
 
 6. Accedere usando l'entità servizio come identità. Per il nome utente, usare l'**ApplicationId** usato durante la creazione dell'applicazione. Per la password, usare quella specificata durante la creazione dell'account.
 
@@ -291,7 +291,7 @@ Iniziare creando un'entità servizio. Per farlo, è necessario creare un'applica
 
 ## Passaggi successivi
   
-- Per una panoramica sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](azure-portal/resource-group-rbac.md)  
+- Per una panoramica sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md)  
 - Per altre informazioni sull'uso del portale con le entità servizio, vedere [Creare una nuova entità servizio di Azure tramite il portale di Azure](./resource-group-create-service-principal-portal.md)  
 - Per indicazioni su come implementare la sicurezza con Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md)
 
@@ -299,4 +299,4 @@ Iniziare creando un'entità servizio. Per farlo, è necessario creare un'applica
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

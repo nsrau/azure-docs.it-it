@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Esecuzione del test chaos."
-   description="In questo articolo vengono discussi gli scenari di infrastruttura di servizi predefiniti forniti da Microsoft."
+   pageTitle="Test di failover e chaos | Microsoft Azure"
+   description="Utilizzando i test chaos dell'infrastruttura di servizi e gli scenari dei test di failover per provocare gli errori e verificare l'affidabilità dei servizi."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -28,7 +28,7 @@ Lo scenario di chaos genera errori nell’intero cluster dell’infrastruttura d
 ### Errori simulati nel test chaos
  - Riavvio di un nodo
  - Riavvio di un pacchetto di codice distribuito
- - Rimozione di repliche
+ - Rimozione di una replica
  - Rimozione di una replica
  - Spostamento di una replica primaria (facoltativo)
  - Spostamento di una replica secondaria (facoltativo)
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

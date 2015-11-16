@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Collections"
-   description="Le raccolte Reliable Collections consentono di sviluppare applicazioni cloud a disponibilità elevata, scalabili e a bassa latenza."
+   pageTitle="Reliable Collections | Microsoft Azure"
+   description="I servizi con stato dell’infrastruttura di servizi forniscono delle Reliable Collections che consentono di sviluppare applicazioni cloud a disponibilità elevata, scalabili e a bassa latenza."
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="mcoskun"/>
 
-# Reliable Collections
+# Introduzione alle Reliable Collections nei servizi con stato dell’infrastruttura di servizi
 
 Le raccolte Reliable Collections consentono di sviluppare applicazioni cloud a disponibilità elevata, scalabili e a bassa latenza nello stesso modo in cui vengono sviluppate applicazioni per singoli computer. Le classi presenti nello spazio dei nomi `Microsoft.ServiceFabric.Data.Collections` forniscono un insieme di raccolte predefinite che assicurano automaticamente la disponibilità elevata dello stato. Gli sviluppatori devono soltanto programmare le API delle raccolte Reliable Collections e consentire a queste ultime di gestire lo stato replicato e locale.
 
@@ -38,7 +38,7 @@ Le raccolte Reliable Collections offrono garanzie predefinite di coerenza assolu
 
 Le API delle raccolte Reliable Collections sono un'evoluzione delle API delle raccolte Concurrent Collections (disponibili nello spazio dei nomi `System.Collections.Concurrent`) e sono:
 
-1. Asincrone: restituiscono un'attività, dal momento che, a differenza delle raccolte Reliable Collections, le operazioni vengono replicate e rese persistenti.
+1. Asincrone: restituiscono un'attività dal momento che, a differenza delle raccolte Concurrent Collections, le operazioni vengono replicate e rese persistenti.
 2. Senza parametri out: usano `ConditionalResult<T>` per restituire una variabile booleana e un valore anziché parametri out. `ConditionalResult<T>` è simile a `Nullable<T>` ma non necessità di T per essere una struttura.
 3. Transazioni: usano un oggetto transazione per consentire all'utente di raggruppare azioni su più raccolte Reliable Collections in una transazione.
 
@@ -78,7 +78,7 @@ Reliable State Manager e le raccolte Reliable Collections seguono un modello di 
 
 Per comprendere meglio il modello basato su log e checkpoint, si prenda prima in considerazione lo scenario con disco infinito. Reliable State Manager registra ogni operazione prima che questa venga replicata. Questo consente alla raccolta Reliable Collections di applicare l'operazione soltanto in memoria. Dal momento che i log sono persistenti, anche se la replica ha esito negativo e deve essere riavviata, Reliable State Manager dispone di informazioni sufficienti per riprodurre tutte le operazioni perse dalla replica. Poiché il disco è infinito, non è mai necessario rimuovere i record del log e Reliable Collection deve soltanto gestire lo stato in memoria.
 
-Si prenda ora in considerazione lo scenario con disco finito. A un certo punto Reliable State Manager non avrà più spazio su disco a disposizione. Prima che questo accada, Reliable State Manager deve troncare il proprio log per fare spazio ai record più recenti. Richiederà quindi alle raccolte di inserire un checkpoint del proprio stato in memoria. È responsabilità delle raccolte Reliable Collections rendere persistente il proprio stato fino a tale punto. Dopo che le raccolte Reliable Collections hanno completato i propri checkpoint, Reliable State Manager può troncare il log per liberare spazio su disco. In questo modo, quando è necessario riavviare la replica, le raccolte Reliable Collections ripristineranno il proprio stato in corrispondenza del checkpoint e Reliable State Manager ripristinerà e riprodurrà tutte le modifiche apportate allo stato a partire dal checkpoint.
+Si prenda ora in considerazione lo scenario con disco finito. A un certo punto Reliable State Manager non avrà più spazio su disco a disposizione. Prima che questo accada, Reliable State Manager deve troncare il proprio log per fare spazio ai record più recenti. Richiederà quindi alle Reliable Collections di inserire un checkpoint del proprio stato in memoria sul disco. È responsabilità delle raccolte Reliable Collections rendere persistente il proprio stato fino a tale punto. Dopo che le raccolte Reliable Collections hanno completato i propri checkpoint, Reliable State Manager può troncare il log per liberare spazio su disco. In questo modo, quando è necessario riavviare la replica, le raccolte Reliable Collections ripristineranno il proprio stato in corrispondenza del checkpoint e Reliable State Manager ripristinerà e riprodurrà tutte le modifiche apportate allo stato a partire dal checkpoint.
 
 ## Blocco
 Nelle raccolte Reliable Collections tutte le transazioni si articolano in due fasi: una transazione non rilascia i blocchi acquisiti fino a quando non termina con un'interruzione o un commit.
@@ -115,7 +115,7 @@ Occorre tenere presente i concetti seguenti:
 
 - [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
 - [Introduzione ai servizi delle API Web di Microsoft Azure Service Fabric con self-hosting OWIN](service-fabric-reliable-services-communication-webapi.md)
-- [Uso avanzato del modello di programmazione Reliable Services](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
+- [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

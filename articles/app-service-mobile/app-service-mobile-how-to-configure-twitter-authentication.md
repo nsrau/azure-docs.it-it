@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione per usare l'account di accesso di Twitter
@@ -29,7 +29,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 1. Accedere al [portale di gestione di Azure] e passare all'app per dispositivi mobili. Copiare l'**URL**. Verrà usato per configurare l'app Twitter.
 
-2. Fare clic su **Impostazioni**, **Autenticazione utente** e quindi su **Twitter**. Copiare il valore di **URL callback**. Verrà usato per configurare l'app Twitter.
+2. Fare clic su **Impostazioni**, **Autenticazione per dispositivi mobili** e quindi su **Twitter**. Copiare il valore di **URL callback**. Verrà usato per configurare l'app Twitter.
 
 3. Passare al sito Web [Twitter Developers], accedere con le credenziali dell'account Twitter e quindi fare clic su **Create New App**.
 
@@ -70,6 +70,5 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [portale di gestione di Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

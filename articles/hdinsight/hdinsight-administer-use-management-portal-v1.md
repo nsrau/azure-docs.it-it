@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite il portale di Azure
@@ -150,11 +150,6 @@ Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibi
 6. Per **NOME UTENTE** e **NUOVA PASSWORD** immettere rispettivamente il nuovo nome utente e la nuova password per il cluster.
 7. Fare clic su **SAVE**.
 
-È possibile effettuare questa operazione anche con i cmdlet di Azure PowerShell:
-
-- Grant-AzureHDInsightHttpServicesAccess
-- Revoke-AzureHDInsightHttpServicesAccess
-
 Vedere [Amministrare cluster Hadoop in HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md)
 
 ##Aprire la riga di comando di Hadoop.
@@ -199,10 +194,8 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 * [Introduzione ad Azure HDInsight](../hdinsight-get-started.md)
 * [Versione di Hadoop inclusa in Azure HDInsight](hdinsight-component-versioning.md)
 
-[image-cluster-quickcreate]: ./media/hdinsight-administer-use-management-portal/HDI.QuickCreateCluster.png
-[image-cluster-landing]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG "Pagina di destinazione del cluster"
-[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
-[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Riga di comando di Hadoop"
-[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
+[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png
+[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
+[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

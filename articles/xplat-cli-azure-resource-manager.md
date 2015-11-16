@@ -44,7 +44,7 @@ L'uso di Gestione risorse di Azure tramite l'interfaccia della riga di comando d
 
 Per altre informazioni sull'autenticazione a Microsoft Azure, vedere l'argomento relativo alla [connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE]Quando si usa un account aziendale o dell'istituto di istruzione, che viene gestito da Azure Active Directory, è anche possibile usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso e l'uso delle risorse di Azure. Per informazioni dettagliate, vedere l'articolo relativo alla [gestione e controllo dell'accesso alle risorse](../azure-portal/resource-group-rbac.md).
+>[AZURE.NOTE]Quando si usa un account aziendale o dell'istituto di istruzione, che viene gestito da Azure Active Directory, è anche possibile usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso e l'uso delle risorse di Azure. Per informazioni dettagliate, vedere l'articolo relativo alla [gestione e controllo dell'accesso alle risorse](resource-group-rbac.md).
 
 ## Impostare la modalità di gestione risorse di Azure
 
@@ -88,29 +88,30 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo, quindi in
 
 1. Scaricare i file .azuredeploy.json e .azuredeploy.parameters.json da [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) a una cartella di lavoro nel computer locale.
 
-2. Aprire il file azuredeploy.parameters.json in un editor di testo e immettere i valori dei parametri appropriati per l'ambiente (lasciando invariato il valore **ubuntuOSVersion**). ```
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "newStorageAccountName": {
-	      "value": "MyStorageAccount"
-	    },
-	    "adminUsername": {
-	      "value": "MyUserName"
-	    },
-	    "adminPassword": {
-	      "value": "MyPassword"
-	    },
-	    "dnsNameForPublicIP": {
-	      "value": "MyDomainName"
-	    },
-	    "ubuntuOSVersion": {
-	      "value": "14.04.2-LTS"
-	    }
-	  }
-	}
-```
+2. Aprire il file azuredeploy.parameters.json in un editor di testo e immettere i valori dei parametri appropriati per l'ambiente (lasciando invariato il valore **ubuntuOSVersion**).
+
+		{
+	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	  	"contentVersion": "1.0.0.0",
+	  	"parameters": {
+		    "newStorageAccountName": {
+		      "value": "MyStorageAccount"
+		    },
+		    "adminUsername": {
+		      "value": "MyUserName"
+		    },
+		    "adminPassword": {
+		      "value": "MyPassword"
+		    },
+		    "dnsNameForPublicIP": {
+		      "value": "MyDomainName"
+		    },
+		    "ubuntuOSVersion": {
+		      "value": "14.04.2-LTS"
+		    }
+		  }
+		}
+	```
 3. Dopo aver salvato il file azuredeploy.parameters.json, utilizzare il seguente comando per creare un nuovo gruppo di risorse in base al modello. L’opzione `-e` specifica il file azuredeploy.parameters.json che è stato modificato nel passaggio precedente. Sostituire *testRG* con il nome del gruppo che si desidera usare e *testDeploy* con un nome di distribuzione a scelta. La località dovrebbe corrispondere a quella specificata nel file dei parametri del modello.
 
 		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
@@ -209,4 +210,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

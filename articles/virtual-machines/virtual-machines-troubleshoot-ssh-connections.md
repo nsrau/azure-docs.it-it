@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Impossibile connettersi a una macchina virtuale di Azure tramite SSH | Microsoft Azure"
+	pageTitle="Risoluzione dei problemi di connessione a una macchina virtuale di Azure tramite SSH | Microsoft Azure"
 	description="Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure che esegue Linux."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/27/2015"
 	ms.author="dkshir"/>
 
 # Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux
@@ -25,7 +25,7 @@
 
 Possono essere varie le cause degli errori SSH per una macchina virtuale di Azure basata su Linux. Questo articolo consente di individuarle e correggere gli errori.
 
-> [AZURE.NOTE]Questo articolo si applica solo a macchine virtuali di Azure che eseguono Linux. Per la risoluzione dei problemi di connessioni a macchine virtuali di Azure che eseguono Windows, vedere [questo articolo](virtual-machines-troubleshoot-remote-desktop-connections.md).
+Questo articolo si applica solo a macchine virtuali di Azure che eseguono Linux. Per la risoluzione dei problemi di connessioni a macchine virtuali di Azure che eseguono Windows, vedere [questo articolo](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
 ## Contattare il supporto tecnico di Azure
 
@@ -42,7 +42,7 @@ Per risolvere gli errori di connessione SSH più comuni nelle macchine virtuali 
 
 	![Reimpostare l'accesso remoto](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. **Riavviare** la macchina virtuale. Dal [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > macchina virtuale Windows > **Riavvia**. Dal [portale di gestione di Azure](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
+2. **Riavviare** la macchina virtuale. Dal [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali (classiche)** > macchina virtuale Windows > **Riavvia**. Dal [portale di gestione di Azure](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
 
 3. [**Ridimensionare** la macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -51,6 +51,8 @@ Per risolvere gli errori di connessione SSH più comuni nelle macchine virtuali 
 	- Reimpostare la password o la chiave SSH.
 	- Creare un nuovo account utente sudo.
 	- Reimpostare la configurazione SSH.
+
+5. Controllare l'integrità delle risorse della macchina virtuale per qualsiasi problema di piattaforma. Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale Linux > **Controlla integrità**.
 
 
 ## Passaggi di base - modello di distribuzione di Gestione risorse
@@ -286,4 +288,4 @@ Per le macchine virtuali nel modello di distribuzione classica, [Come reimpostar
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

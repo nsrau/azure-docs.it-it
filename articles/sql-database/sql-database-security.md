@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/13/2015"
+   ms.workload="data-management"
+   ms.date="10/21/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -96,7 +96,7 @@ Per altri modi crittografare dati sensibili, è consigliabile prendere in consid
 
 * [Crittografia a livello di cella](https://msdn.microsoft.com/library/ms179331.aspx) per crittografare colonne specifiche o anche celle di dati con chiavi di crittografia diverse.
 * Se è necessario un modulo di sicurezza Hardware o la gestione centralizzata della gerarchia di chiavi di crittografia, è consigliabile utilizzare l'[insieme di credenziali chiave di Azure con SQL Server in una relativa macchina virtuale](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
-
+* [Sempre crittografati](https://msdn.microsoft.com/library/mt163865.aspx) (in anteprima) effettua la crittografia trasparente alle applicazioni e consente ai client di crittografare dati riservati all'interno delle applicazioni del client senza condividere le chiavi di crittografia con il Database SQL.
 
 ## Controllo
 
@@ -106,4 +106,4 @@ Il controllo e il monitoraggio di eventi del database consentono di mantenere la
 
 Oltre alle caratteristiche e alle funzionalità che consentono all'applicazione di soddisfare i diversi requisiti di conformità di sicurezza, il database SQL di Azure prende parte inoltre a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere il [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [Certificazioni di conformità del database SQL](http://azure.microsoft.com/support/trust-center/services/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

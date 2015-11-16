@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Aggiornamento di un'applicazione di Service Fabric: argomenti avanzati"
+   pageTitle="Aggiornamento di un'applicazione: argomenti avanzati | Microsoft Azure"
    description="Questo articolo illustra alcuni degli argomenti avanzati relativi all'aggiornamento di un'applicazione di Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -16,7 +16,7 @@
    ms.date="07/17/2015"
    ms.author="subramar"/>
 
-# Aggiornamento di un'applicazione di Service Fabric: argomenti avanzati
+# Aggiornamento di un'applicazione di infrastruttura di servizi: argomenti avanzati
 
 ## Modalità di aggiornamento manuale
 
@@ -51,4 +51,4 @@ L'uso di un pacchetto Diff è consigliato nei casi seguenti:
 [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

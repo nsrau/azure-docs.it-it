@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric"
-   description="Come creare un'applicazione Service Fabric con i servizi con e senza stato."
+   pageTitle="Guida introduttiva a Reliable Services | Microsoft Azure"
+   description="Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="10/15/2015"
    ms.author="vturecek"/>
 
-# Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric
+# Guida introduttiva a Reliable Services dell’infrastruttura di servizi di Microsoft Azure
 
-Un'applicazione di Service Fabric contiene uno o più servizi che consentono l'esecuzione del codice. Questa esercitazione illustra i passaggi della creazione dell'applicazione "Hello World" di Service Fabric sia con stato sia senza stato usando il [modello di programmazione *Reliable Services*](../Service-Fabric/service-fabric-reliable-services-introduction.md).
+Un'applicazione dell’infrastruttura di servizi contiene uno o più servizi che consentono l'esecuzione del codice. Questa esercitazione illustra i passaggi della creazione dell'applicazione "Hello World" dell’infrastruttura di servizi sia con stato sia senza stato usando il [modello di programmazione *Reliable Services*](service-fabric-reliable-services-introduction.md).
 
 Il servizio senza stato è il tipo di servizio attualmente più presente nelle applicazioni cloud. Un servizio viene considerato senza stato se non contiene dati che devono essere archiviati in modo affidabile o con disponibilità elevata. In altri termini, in caso di arresto di un'istanza di un servizio senza stato l'intero stato interno viene perso. In questi tipi di servizi lo stato deve essere reso persistente mediante un archivio esterno, ad esempio tabelle di Azure o un database SQL, in modo da assicurare elevata disponibilità e affidabilità.
 
-Service Fabric introduce un nuovo tipo di servizio con stato. Si tratta di un servizio che mantiene lo stato affidabile all'interno del servizio stesso, nel percorso condiviso con il codice che lo utilizza. L'elevata disponibilità dello stato è assicurata da Service Fabric, senza necessità di rendere persistente lo stato mediante un archivio esterno.
+L’infrastruttura di servizi introduce un nuovo tipo di servizio con stato. Si tratta di un servizio che mantiene lo stato affidabile all'interno del servizio stesso, nel percorso condiviso con il codice che lo utilizza. L'elevata disponibilità dello stato è assicurata da Service Fabric, senza necessità di rendere persistente lo stato mediante un archivio esterno.
 
 In questa esercitazione viene implementato un servizio senza stato e un servizio con stato che mantiene un contatore interno. Nel servizio senza stato, quando si riavvia o si sposta il servizio il valore del contatore viene perso. Nel servizio con stato, invece, lo stato del contatore viene reso affidabile da Service Fabric. In questo modo, se l'esecuzione del servizio viene arrestata per qualsiasi motivo durante il conteggio, quest'ultimo può essere ripreso esattamente dal punto in cui era stato interrotto.
 
@@ -30,9 +30,9 @@ In questa esercitazione viene implementato un servizio senza stato e un servizio
 
 L'esercitazione inizia con un servizio senza stato.
 
-Avviare Visual Studio 2015 RC come **Amministratore** e creare un nuovo progetto **applicazione di Service Fabric** denominato *HelloWorld*:
+Avviare Visual Studio 2015 RC come **Amministratore** e creare un nuovo progetto **applicazione dell’infrastruttura di servizi** denominato *HelloWorld*:
 
-![Usare la finestra di dialogo New Project per creare una nuova applicazione Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Usare la finestra di dialogo New Project per creare una nuova applicazione dell’infrastruttura di servizi](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
 Creare quindi un progetto **servizio senza stato** denominato *HelloWorldStateless*:
 
@@ -110,7 +110,7 @@ Nella stessa applicazione **HelloWorld** aggiungere un nuovo servizio facendo cl
 
 Selezionare **Service Fabric Stateful Service** e assegnare il nome "HelloWorldStateful". Fare clic su **Aggiungi**.
 
-![Usare la finestra di dialogo New Project per creare un nuovo servizio di Service Fabric con stato](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![Usare la finestra di dialogo New Project per creare un nuovo servizio di infrastruttura di servizi con stato](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
 A questo punto l'applicazione dispone di due servizi: il servizio senza stato *HelloWorld* e il servizio con stato *HelloWorldStateful*.
 
@@ -204,4 +204,4 @@ Una volta che i servizi sono in esecuzione, è possibile visualizzare gli eventi
 
 [Guida di riferimento per gli sviluppatori per Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

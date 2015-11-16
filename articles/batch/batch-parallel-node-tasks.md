@@ -13,7 +13,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="vm-windows"
    	ms.workload="big-compute"
-   	ms.date="09/30/2015"
+   	ms.date="11/02/2015"
    	ms.author="v-marsma"/>
 
 # Ottimizzare l'utilizzo delle risorse di calcolo di Azure Batch con attività dei nodi simultanee
@@ -38,7 +38,7 @@ Per mostrare i vantaggi dell'esecuzione parallela di attività, si supponga che 
 
 La configurazione dei nodi di calcolo nella soluzione Batch per l'esecuzione parallela di attività viene eseguita a livello del pool. Quando si usa l'API Batch .NET, la proprietà [CloudPool.MaxTasksPerComputeNode][maxtasks_net] viene impostata durante la creazione del pool. Nell'API Batch REST l'elemento [maxTasksPerNode][maxtasks_rest] viene impostato nel corpo della richiesta durante la creazione del pool.
 
-In Azure Batch il numero massimo di attività per nodo consentito è pari a quattro volte (4x) il numero di core del nodo. Ad esempio se il pool è configurato con nodi di dimensioni "Large" (quattro core), è possibile impostare il valore di `maxTasksPerNode` su sedici. Per informazioni sul numero di core per le dimensioni dei nodi, vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-size-specs.md) e per altre informazioni sui limiti del servizio, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+In Azure Batch il numero massimo di attività per nodo consentito è pari a quattro volte (4x) il numero di core del nodo. Ad esempio se il pool è configurato con nodi di dimensioni "Large" (quattro core), è possibile impostare il valore di `maxTasksPerNode` su sedici. Per informazioni sul numero di core per le dimensioni dei nodi, vedere [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md) e per altre informazioni sui limiti del servizio, vedere [Quote e limiti per il servizio Batch di Azure](batch-quota-limit.md).
 
 > [AZURE.TIP]Assicurarsi di tenere conto del valore di `maxTasksPerNode` durante la creazione di una [formula di scalabilità automatica][enable_autoscaling] per il pool. Ad esempio, l'impatto di un aumento delle attività per nodo può influire in modo significativo su una formula che valuta `$RunningTasks`. Per altre informazioni, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](batch-automatic-scaling.md).
 
@@ -106,11 +106,11 @@ La seconda esecuzione dell'esempio mostra una riduzione significativa della dura
 
 ## Mappa termica di Batch Explorer
 
-[Batch Explorer][batch_explorer], una delle [applicazioni di esempio][github_samples], contiene una funzionalità *Mappa termica* che fornisce una visualizzazione dell'utilizzo dei core del nodo all'interno di un pool. Durante l'esecuzione dell'applicazione di esempio [ParallelTasks][parallel_tasks_sample] usare la funzionalità Mappa termica per visualizzare facilmente l'attività dei core del nodo.
+[Batch Explorer][batch_explorer], una delle [applicazioni di esempio][github_samples], contiene una funzionalità *Mappa termica* che fornisce una visualizzazione dell’esecuzione dell’attività Durante l'esecuzione dell'applicazione di esempio [ParallelTasks][parallel_tasks_sample] usare la funzionalità Mappa termica per visualizzare facilmente l'esecuzione delle attività parallele in ogni nodo.
 
 ![Mappa termica di Batch Explorer][1]
 
-*Mappa termica Batch Explorer che mostra quattro nodi con quattro core ciascuno, con ogni core che esegue attualmente un'attività*
+*La mappa termica di Batch Explorer mostra un pool di quattro nodi, in cui ogni nodo esegue attualmente quattro attività*
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
@@ -127,4 +127,4 @@ La seconda esecuzione dell'esempio mostra una riduzione significativa della dura
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

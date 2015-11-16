@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/29/2015"
+	ms.date="11/03/2015"
 	ms.author="jroth" />
 
 # Indicazioni sulle prestazioni del database SQL di Azure per i singoli database
 
-## Panoramica
+## Panoramica 
 
 Il database SQL di Microsoft Azure offre tre [livelli di servizio](sql-database-service-tiers.md), ovvero Basic, Standard e Premium. I tre livelli isolano rigorosamente la risorsa fornita al database SQL di Azure e garantiscono prestazioni prevedibili. La velocità effettiva garantita per il database aumenta dal livello Basic a quello Standard fino al livello Premium.
 
@@ -114,8 +114,8 @@ La replica geografica attiva e standard fornisce funzionalità di ripristino di 
 
 Per altre informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
-### Archiviazione in memoria XTP massima
-L'**archiviazione in memoria XTP massima** fa riferimento alla quantità massima di spazio di archiviazione disponibile per l'[anteprima OLTP in memoria](sql-database-in-memory.md) per i database Premium. Per monitorare l'uso dell'archiviazione in memoria, è possibile usare il portale di Azure o la vista **sys.dm\_db\_resource\_stats**. Per altre informazioni sul monitoraggio, vedere l'argomento relativo al [monitoraggio dell'archiviazione in memoria XTP](sql-database-in-memory-oltp-monitoring.md).
+### Archiviazione di OLTP in memoria massima
+L'**archiviazione OLTP in memoria massima** fa riferimento alla quantità massima di spazio di archiviazione disponibile per l'[anteprima OLTP in memoria](sql-database-in-memory.md) per i database Premium. Ciò è talvolta definita *archiviazione XTP in memoria*. Per monitorare l'uso dell'archiviazione in memoria, è possibile usare il portale di Azure o la vista **sys.dm\_db\_resource\_stats**. Per altre informazioni sul monitoraggio, vedere l'argomento relativo al [Monitoraggio dell'archiviazione OLTP in memoria XTP](sql-database-in-memory-oltp-monitoring.md).
 
 >[AZURE.NOTE]L'anteprima OLTP in memoria è attualmente supportata solo per i database singoli e non per i database nei pool di database elastici.
 
@@ -491,4 +491,4 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 I livelli di servizio nel database SQL di Azure consentono di aumentare gli standard relativi ai tipi di applicazioni create nel cloud. Insieme a un'ottimizzazione diligente delle applicazioni, offre prestazioni potenti e prevedibili per la propria applicazione. Questo documento descrive le tecniche consigliate per ottimizzare il consumo di risorse da parte di un database in modo da rientrare perfettamente in uno dei livelli di prestazioni. L'ottimizzazione è un esercizio continuo nel modello cloud e i livelli di servizio, con i livelli di prestazioni correlati, consentono agli amministratori di ottenere massimi livelli di prestazioni e al tempo stesso ridurre i costi nella piattaforma Microsoft Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

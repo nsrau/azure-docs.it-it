@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Prova Azure App Service con Ricerca di Azure" 
-   description="Prova la Ricerca di Azure gratuitamente, per un'ora intera utilizzando il modello TryAzureAppService." 
+   pageTitle="Prova Servizio app di Azure con Ricerca di Azure | Microsoft Azure" 
+   description="Prova la Ricerca di Azure, un servizio di ricerca ospitato sul cloud, gratuitamente per un'ora intera utilizzando il modello TryAzureAppService." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/13/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Prova Azure App Service con Ricerca di Azure
@@ -529,4 +529,4 @@ Nella istantanea video che seguente viene illustrato lo schema utilizzato per cr
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

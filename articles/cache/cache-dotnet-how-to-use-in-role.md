@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="sdanie"/>
 
 
@@ -411,7 +411,7 @@ A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitar
 [Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
+[Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

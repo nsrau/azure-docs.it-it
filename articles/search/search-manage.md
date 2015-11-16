@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gestire il servizio di ricerca in Microsoft Azure | Microsoft Azure" 
-	description="Gestire il servizio di ricerca in Microsoft Azure" 
+	description="Gestire la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Gestire il servizio di ricerca in Microsoft Azure
 
-Ricerca di Azure è un servizio basato sul cloud nonché un'API basata su HTTP che è possibile usare in applicazioni di ricerca personalizzate. Il servizio di ricerca fornisce il motore per l'analisi del testo tramite ricerca full-text, funzionalità avanzate di ricerca, archiviazione di dati di ricerca e una sintassi dei comandi di query.
+Ricerca di Azure è un servizio basato sul cloud con un'API basata su HTTP che è possibile usare in applicazioni di ricerca personalizzate. Il servizio di ricerca fornisce il motore per l'analisi del testo tramite ricerca full-text, funzionalità avanzate di ricerca, archiviazione di dati di ricerca e una sintassi dei comandi di query.
 
 Questo articolo spiega come amministrare un servizio di ricerca nel [portale di Azure](https://portal.azure.com).
 
@@ -193,4 +193,4 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/29/2015" 
 	ms.author="stepsic"/>
 
 # Scalare il piano tariffario in Azure App Service
@@ -28,7 +28,7 @@ Per informazioni su Azure App Service Per informazioni sui piani di servizio app
 
 Infine, la scalabilità funziona in modo diverso se si desidera utilizzare un oggetto dedicato[ambiente App](app-service-app-service-environment-intro.md). Vedere[la scalabilità di applicazioni web in un ambiente App](app-service-web-scale-a-web-app-in-an-app-service-environment.md)per ulteriori dettagli.
 
-> [AZURE.NOTE]Prima di passare un'app Web dalla modalità **Gratuita** a **Base**, **Standard** o **Premium**, è necessario innanzitutto rimuovere i limiti di spesa applicati alla sottoscrizione di Azure App Service. Per visualizzare o modificare le opzioni per la sottoscrizione di Microsoft Azure App Service, vedere [Sottoscrizioni di Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE]Prima di passare dalla modalità **Gratuita** a **Base**, **Standard** o **Premium**, è necessario innanzitutto rimuovere i limiti di spesa applicati alla sottoscrizione di Azure App Service. Per visualizzare o modificare le opzioni per la sottoscrizione di Microsoft Azure App Service, vedere [Sottoscrizioni di Microsoft Azure][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
@@ -131,4 +131,4 @@ A seconda del piano tariffario, sono disponibili le seguenti funzionalità orien
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

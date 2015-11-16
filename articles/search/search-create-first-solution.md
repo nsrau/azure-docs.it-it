@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare la prima soluzione di ricerca con Ricerca di Azure" 
-	description="Creare la prima soluzione di ricerca con Ricerca di Azure" 
+	pageTitle="Creare la prima soluzione di ricerca con Ricerca di Azure | Microsoft Azure" 
+	description="Creare la prima soluzione di ricerca mediante Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Creare la prima soluzione di ricerca con Ricerca di Azure
@@ -206,4 +206,4 @@ Per approfondire l'argomento, è possibile considerare l'aggiunta di una pagina 
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

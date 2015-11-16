@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere Servizi mobili a un'app esistente
@@ -111,7 +111,7 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 [Introduzione all'autenticazione]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Introduzione alle notifiche push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[sincronizzazione dei dati offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
@@ -121,4 +121,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

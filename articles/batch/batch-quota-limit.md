@@ -29,7 +29,7 @@ Se si prevede di eseguire carichi di lavoro Batch di produzione, potrebbe essere
 ## Quote di sottoscrizione
 Risorsa|Limite predefinito|Limite massimo
 ---|---|---
-Account Batch per area per sottoscrizione|1|20
+Account Batch per area per sottoscrizione|1|50
 
 ## Quote di account Batch
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -95,4 +95,4 @@ Si verrà contatti dal supporto di Azure. Il completamento della richiesta può 
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

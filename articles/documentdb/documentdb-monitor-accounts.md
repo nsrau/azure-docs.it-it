@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/30/2015" 
 	ms.author="mimig"/>
 
 # Monitorare un account DocumentDB usando il portale di anteprima di Azure 
@@ -30,7 +30,7 @@
 
 
 3.	Se si fa clic sulla parte **Richieste totali** o **Media richieste al secondo**, verrà visualizzato il pannello **Metrica** dettagliato.
-4.	Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate. Nella parte superiore del pannello è riportato un grafico, sotto il quale viene visualizzata una tabella contenente i valori aggregati delle metriche selezionate, ad esempio media, minimo e massimo. Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.   
+4.	Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate. Nella parte superiore del pannello è riportato un grafico, sotto il quale viene visualizzata una tabella contenente i valori aggregati delle metriche selezionate, ad esempio medio, minimo e massimo. Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.   
 
 	![Schermata del pannello Metrica](./media/documentdb-monitor-accounts/madocdb2.png)
 
@@ -90,4 +90,4 @@ Sarà possibile considerare questa parte come tutte le altre parti delle metrich
 Per altre informazioni sulla capacità di DocumentDB, vedere [Gestire la capacità di DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/04/2015"
    ms.author="kunalds"/>
 
 
@@ -79,4 +79,4 @@ Lo stesso codice di tracciamento aggiunto all'applicazione precedente per la dia
 * [Diagnostica e monitoraggio delle prestazioni per Azure Service Fabric Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnostica di Reliable Services con stato](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # Inviare notifiche push agli utenti autenticati
@@ -99,4 +99,4 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

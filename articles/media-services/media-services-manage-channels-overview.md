@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="11/03/2015"  
 	ms.author="juliako"/>
 
 #Uso di canali che ricevono il flusso live a più velocità in bit da codificatori locali
@@ -204,7 +204,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 Stato del canale|Indicatori dell'interfaccia utente del portale|Fatturato?
 ---|---|---|---
 Avvio in corso|Avvio in corso|No (stato temporaneo)
-Running|Pronto (nessun programma in esecuzione)<p>o<p>Streaming (almeno un programma in esecuzione)|Sì
+In esecuzione|Pronto (nessun programma in esecuzione)<p>o<p>Streaming (almeno un programma in esecuzione)|Sì
 Arresto in corso|Arresto in corso|No (stato temporaneo)
 Arrestato|Arrestato|No
 
@@ -240,7 +240,7 @@ Altre considerazioni relative all'uso dei canali e dei componenti correlati:
 
 ##Come creare canali che ricevono il flusso live a più velocità in bit da codificatori locali
 
-Per altre informazioni sui codificatori live locali, vedere [Uso di codificatori di terze parti con Servizi multimediali di Azure](https://msdn.microsoft.com/library/azure/dn783464.aspx).
+Per altre informazioni sui codificatori live locali, vedere [Uso di codificatori di terze parti con Servizi multimediali di Azure](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
 Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire canali e programmi.
 
@@ -266,4 +266,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->
