@@ -32,7 +32,9 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Macchine virtuali | Sì | Sì, molte opzioni | No | [Creare una VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Sì | [Sì (solo classica)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Servizi del ciclo di vita Dynamics | Sì | No | | | |
-| Macchine virtuali (classiche) | Limitato | Sì, molte opzioni | Parziale (vedere di seguito) | - | - | | App remota | No | No | - | - | - | | Infrastruttura di servizi | No | No | - | - | - |
+| Macchine virtuali (classiche) | Limitato | Sì | Parziale (vedere di seguito) | - | - |
+| App remota | No | - | - | - | - |
+| Infrastruttura di servizi | No | - | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
@@ -66,6 +68,7 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | Ricerca | Sì | [Sì](https://portal.azure.com/#create/Microsoft.Search) | Sì | [REST Ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Sì | [Sì](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
 | StorSimple | No | No | - | - | - | | Cache gestita | No | No | - | - | - |
+| Catalogo dati | No | No | - | - | - |
 
 ## Analytics
 
@@ -108,7 +111,9 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 | Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | No | No | - | - | - | | Azure Active Directory B2C | No | No | - | - | - | | Multi-Factor Authentication | No | No | - | - | - |
+| Azure Active Directory | No | No | - | - | - |
+| Azure Active Directory B2C | No | No | - | - | - |
+| Multi-Factor Authentication | No | No | - | - | - |
 
 ## Servizi per gli sviluppatori 
 
