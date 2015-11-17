@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/02/2015" 
 	ms.author="genemi"/>
 
 
@@ -100,16 +100,6 @@ A meno che la connessione non venga riutilizzata dal programma per un'altra oper
 - Chiudere la connessione.
 
 
-#### Eccezione generata quando si usa un pool
-
-
-Quando il pool di connessioni è abilitato e si verifica un errore di timeout o un altro errore di accesso, verrà generata un'eccezione. I tentativi di connessione successivi avranno esito negativo per i successivi 5 secondi. Questo periodo viene denominato *periodo di blocco*.
-
-Se l'applicazione tenta di connettersi durante il periodo di blocco, verrà generata nuovamente la prima eccezione. Al termine del periodo di blocco, gli errori successivi danno luogo a un nuovo periodo di blocco che dura il doppio del periodo di blocco precedente.
-
-La durata massima di un periodo di blocco è 60 secondi.
-
-
 ### Porte diverse da 1433 in V12
 
 
@@ -131,7 +121,12 @@ Il sistema Azure è in grado di riconfigurare dinamicamente i server quando si v
 
 Una riconfigurazione potrebbe tuttavia causare la perdita della connessione del programma client al database SQL. Questo errore è denominato *errore temporaneo*.
 
-Il programma client può tentare di ristabilire la connessione dopo un'attesa di 6-60 secondi tra un tentativo e l'altro. È necessario specificare la logica di ripetizione dei tentativi nel client.
+Se il programma client dispone di logica di ripetizione dei tentativi, è possibile provare a ristabilire una connessione dopo aver dato all’errore temporaneo del tempo per correggere stesso.
+
+È consigliabile attendere 5 secondi prima di riprovare. Al primo tentativo con un ritardo inferiore a 5 secondi, si rischia di sovraccaricare il servizio cloud. Per ogni tentativo successivo, aumentare in modo esponenziale il ritardo, fino a un massimo di 60 secondi.
+
+Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di blocco* in [Pool di connessioni di SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+
 
 Per esempi di codice che illustrino la logica di ripetizione dei tentativi, vedere: [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
@@ -174,4 +169,4 @@ Vengono forniti vari esempi di codice per i client che eseguono Windows, Linux e
 
 - [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

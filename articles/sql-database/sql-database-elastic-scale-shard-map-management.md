@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Gestione mappe partizioni" 
+	pageTitle="Gestione delle mappe partizioni | Microsoft Azure" 
 	description="Come utilizzare ShardMapManager, libreria client dei database elastici" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # Gestione mappe partizioni
-Una **mappa partizioni** in un ambiente con database partizionati gestisce le informazioni permettendo a un'applicazione di connettersi al database corretto in base al valore della **chiave di partizionamento orizzontale**. La comprensione della modalità di creazione di queste mappe è essenziale per la gestione delle partizioni con la libreria client dei database elastici.
+
+Usare la [libreria client del database elastico](sql-database-elastic-database-client-library.md) per gestire le applicazioni partizionate. Una [**mappa partizioni**](sql-database-elastic-scale-glossary.md) in un ambiente con database partizionati gestisce le informazioni consentendo a un'applicazione di connettersi al database corretto in base al valore della **chiave di partizionamento orizzontale**. Per gestire le mappe partizioni, è fondamentale comprenderne il processo di creazione.
 
 ## Mappe partizioni e mapping di partizioni
  
@@ -37,7 +38,7 @@ Scalabilità elastica supporta i seguenti tipi di .NET Framework come chiavi di 
 Le mappe partizioni possono essere create usando **elenchi di singoli valori di chiavi di partizionamento orizzontale** oppure tramite **intervalli di valori di chiavi di partizionamento orizzontale**.
 
 ###Mappe partizioni di tipo elenco
-Le **partizioni** includono **shardlet** e il mapping degli shardlet alle partizioni viene gestito da una mappa partizioni. Una **mappa partizioni di tipo elenco** è un'associazione tra i singoli valori di chiave che identificano gli shardlet e i database che fungono da partizioni. I **mapping di tipo elenco** sono espliciti (ad esempio, la chiave 1 è mappata al Database A) ed è possibile mappare valori di chiave diversi allo stesso database (i valori di chiave 3 e 6 fanno riferimento entrambi al Database B).
+Le **partizioni** includono **shardlet** e il mapping degli shardlet alle partizioni viene gestito da una mappa partizioni. Una **mappa partizioni di tipo elenco** è un'associazione tra i singoli valori di chiave che identificano gli shardlet e i database che fungono da partizioni. I **mapping di tipo elenco** sono espliciti (ad esempio, la chiave 1 è mappata al Database A) ed è possibile mappare valori di chiave diversi allo stesso database (i valori di chiave 3 e 6 fanno entrambi riferimento al Database B).
 
 | Chiave | Percorso della partizione |
 |-----|----------------|
@@ -71,7 +72,7 @@ Il gestore mappe partizioni nella libreria client è una raccolta di mappe parti
 
 2. **Mappa locale partizioni**: ogni database specificato per l'uso come partizione in una mappa partizioni verrà modificato in modo da includere alcune tabelle di piccole dimensioni e stored procedure speciali, che includono e gestiscono informazioni sulle mappe partizioni specifiche per la partizione indicata. Queste informazioni sono ridondanti rispetto alle informazioni nella mappa globale partizioni, ma permettono all'applicazione di convalidare le informazioni sulla mappa partizioni memorizzate nella cache, senza sovraccaricare la mappa globale partizioni. L'applicazione usa la mappa locale partizioni per determinare se un mapping memorizzato nella cache è ancora valido. Le tabelle corrispondenti alla mappa locale partizioni in ogni partizione sono disponibili nello schema **\_\_ShardManagement**.
 
-3. **Cache dell'applicazione**: ogni istanza di applicazione che accede a un oggetto **ShardMapManager** gestisce una cache in memoria locale dei rispettivi mapping. in cui vengono archiviate le informazioni di routing appena recuperate.
+3. **Cache dell'applicazione**: ogni istanza di applicazione che accede a un oggetto **ShardMapManager** gestisce una cache in memoria locale dei rispettivi mapping, in cui vengono archiviate le informazioni di routing appena recuperate.
 
 ## Creazione di un oggetto ShardMapManager
 La creazione di istanze di un oggetto **ShardMapManager** nell'applicazione viene eseguita tramite un modello factory. Il metodo **ShardMapManagerFactory.GetSqlShardMapManager** accetta credenziali, inclusi il nome del server e il nome del database che include la mappa globale partizioni, sotto forma di oggetto **ConnectionString** e restituisce un'istanza di **ShardMapManager**.
@@ -106,7 +107,7 @@ Nel seguente codice un'applicazione tenta di aprire un oggetto **ShardMapManager
         // for privileges on both the GSM and the shards themselves.
     } 
  
-In alternativa, è possibile utilizzare Powershell per creare un nuovo gestore delle mappe di partizionamento. Un esempio è disponibile [qui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+In alternativa, è possibile usare PowerShell per creare un nuovo gestore delle mappe di partizionamento. Un esempio è disponibile [qui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ### Credenziali di amministrazione delle mappe partizioni
 
@@ -116,7 +117,7 @@ Per le applicazioni che amministrano le mappe partizioni (aggiunta o modifica di
 
 ### Impatto solo sui metadati 
 
-I metodi usati per popolare o modificare i dati di **ShardMapManager** non influiscono sui dati utente archiviati nelle partizioni stesse. Ad esempio, i metodi come **CreateShard**, **DeleteShard**, **UpdateMapping**, e così via interessano solo i metadati della mappa di partizionamento. Essi non rimuovono, aggiungono o modificano i dati utente contenuti nelle partizioni. Questi metodi sono stati invece progettati per l'uso insieme a operazioni separate eseguite per creare o rimuovere i database effettivi o per rimuovere righe da una partizione a un'altra, in modo da bilanciare nuovamente un ambiente partizionato. (Il servizio di **suddivisione-unione** incluso negli strumenti dei database elastici usa queste API, oltre a orchestrare lo spostamento effettivo dei dati tra le partizioni).
+I metodi usati per popolare o modificare i dati di **ShardMapManager** non influiscono sui dati utente archiviati nelle partizioni stesse. Ad esempio, i metodi come **CreateShard**, **DeleteShard**, **UpdateMapping** e così via interessano solo i metadati della mappa partizioni. Essi non rimuovono, aggiungono o modificano i dati utente contenuti nelle partizioni. Questi metodi sono stati invece progettati per l'uso insieme a operazioni separate eseguite per creare o rimuovere i database effettivi o per rimuovere righe da una partizione a un'altra, in modo da bilanciare nuovamente un ambiente partizionato (lo strumento di **suddivisione-unione** incluso negli strumenti del database elastico usa queste API, oltre a orchestrare lo spostamento effettivo dei dati tra le partizioni).
 
 ## Popolamento di una mappa partizioni: esempio
  
@@ -126,7 +127,7 @@ Di seguito è disponibile una sequenza di esempio delle operazioni necessarie pe
 2. Aggiunta di metadati per due partizioni diverse a una mappa partizioni. 
 3. Aggiunta di diversi mapping di intervalli di chiavi e visualizzazione dei contenuti complessivi della mappa partizioni. 
 
-Il codice è scritto in modo che sia possibile eseguire di nuovo l'intero metodo in caso di errore imprevisto. Ogni richiesta verifica se esiste già una partizione o un mapping, prima di tentarne la creazione. Il seguente codice presuppone che i database denominati **sample\_shard\_0**, **sample\_shard\_1** e **sample\_shard\_2** siano già stati creati nel server a cui fa riferimento la stringa **shardServer**.
+Il codice è scritto in modo che sia possibile eseguire di nuovo l'intero metodo in caso di errore imprevisto. Ogni richiesta verifica se esiste già una partizione o un mapping, prima di tentarne la creazione. Il codice seguente presuppone che i database denominati **sample\_shard\_0**, **sample\_shard\_1** e **sample\_shard\_2** siano già stati creati nel server a cui fa riferimento la stringa **shardServer**.
 
     public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
         {            
@@ -210,7 +211,7 @@ Il gestore delle mappe partizioni viene usato principalmente dalle applicazioni 
 
 Si noti che queste applicazioni, che usano l'oggetto **ShardMapManager** aperto con credenziali di sola lettura, non potranno apportare modifiche alle mappe o ai mapping. A questo scopo è possibile creare applicazioni specifiche per l'amministrazione o script di PowerShell che forniscono credenziali con privilegi elevati, come illustrato in precedenza.
 
-Per ulteriori informazioni dettagliate, vedere [Routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md).
+Per informazioni dettagliate, vedere [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md).
 
 ## Modifica di una mappa partizioni 
 
@@ -228,7 +229,7 @@ Questi metodi interagiscono tra loro come i blocchi predefiniti disponibili per 
 
 * Per suddividere in due gli intervalli esistenti o unire intervalli adiacenti in un unico intervallo, usare **SplitMapping** e **MergeMappings**.
 
-    Si noti che le operazioni di suddivisione e unione **non modificano la partizione a cui sono mappati i valori di chiave**. Una suddivisione divide un intervallo esistente in due parti, ma ne mantiene il mapping alla stessa partizione. Un'unione viene applicata a due intervalli adiacenti già mappati alla stessa partizione e li unisce in un singolo intervallo. Lo spostamento di punti o degli stessi intervalli tra le partizioni deve essere coordinato tramite l'uso di **UpdateMapping** insieme allo spostamento effettivo dei dati. È possibile usare il servizio di **suddivisione/unione**, incluso nello strumento dei database elastici, per coordinare le modifiche della mappa partizioni con lo spostamento dei dati, nei casi in cui lo spostamento è necessario.
+    Si noti che le operazioni di suddivisione e unione **non modificano la partizione a cui sono mappati i valori di chiave**. Una suddivisione divide un intervallo esistente in due parti, ma ne mantiene il mapping alla stessa partizione. Un'unione viene applicata a due intervalli adiacenti già mappati alla stessa partizione e li unisce in un singolo intervallo. Lo spostamento di punti o degli stessi intervalli tra le partizioni deve essere coordinato tramite l'uso di **UpdateMapping** insieme allo spostamento effettivo dei dati. È possibile usare il servizio di **suddivisione/unione**, incluso negli strumenti del database elastico, per coordinare le modifiche della mappa partizioni con lo spostamento dei dati, nei casi in cui lo spostamento è necessario.
 
 * Per eseguire di nuovo il mapping o spostare singoli punti o intervalli in partizioni diverse, usare **UpdateMapping**.
 
@@ -248,9 +249,9 @@ Le applicazioni devono spesso aggiungere semplicemente nuove partizioni per gest
 
 Se il nuovo intervallo di valori di chiave non è già incluso in un mapping esistente e non è necessario alcuno spostamento di dati, l'aggiunta della nuova partizione e l'associazione della nuova chiave o dell'intervallo a quella partizione risulteranno molto semplici. Per informazioni dettagliate sull'aggiunta di nuove partizioni, vedere [Aggiunta di una nuova partizione](sql-database-elastic-scale-add-a-shard.md).
 
-Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di suddivisione-unione è necessario per l'orchestrazione dello spostamento di dati tra le partizioni insieme agli aggiornamenti necessari per la mappa partizioni. Per informazioni dettagliate sull'uso del servizio di suddivisione-unione, vedere [Panoramica del servizio di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md)
+Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di suddivisione-unione è necessario per l'orchestrazione dello spostamento di dati tra le partizioni insieme agli aggiornamenti necessari per la mappa partizioni. Per informazioni dettagliate sull'uso del servizio di suddivisione-unione, vedere [Panoramica del servizio di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

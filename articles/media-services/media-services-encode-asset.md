@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="10/29/2015"  
 	ms.author="juliako"/>
 
 #Panoramica e confronto dei codificatori multimediali su richiesta di Azure
@@ -166,6 +166,7 @@ AVI (non compresso 8 bit/10 bit)|Sì|Sì |Sì
 Formato di file Smooth Streaming (PIFF 1.3)|Sì|Sì|No
 [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Sì|No|No
 Matroska/WebM |Sì|No|No
+QuickTime (.mov) |Sì|No|No
 
 ###Codec video di input
 
@@ -181,6 +182,12 @@ Windows Media Video/VC-1 |Sì|Sì|Sì
 Canopus HQ/HQX |No|Sì|No
 MPEG-4 parte 2 |Sì|No|No
 [Theora](https://en.wikipedia.org/wiki/Theora) |Sì|No|No
+Apple ProRes 422 |Sì|No|No
+Apple ProRes 422 LT |Sì|No|No
+Apple ProRes 422 HQ |Sì|No|No
+Apple ProRes Proxy|Sì|No|No
+Apple ProRes 4444 |Sì|No|No
+Apple ProRes 4444 XQ |Sì|No|No
 
 ###Codec audio di input
 
@@ -254,4 +261,4 @@ Windows Media Audio|No|Sì|Sì
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="davidmu"/>
+	ms.author="josephd"/>
 
 # Il modello di gestione risorse di farm di SharePoint a tre server
 
@@ -376,4 +376,4 @@ Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

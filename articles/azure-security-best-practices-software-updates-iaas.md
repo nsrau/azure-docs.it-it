@@ -119,4 +119,4 @@ Oltre alle considerazioni generali descritte in questo articolo, è consigliabil
 
 Usare le linee guida descritte in questo articolo per determinare le opzioni migliori per gli aggiornamenti software delle macchine virtuali nell'ambiente IaaS di Azure. Esistono molte analogie tra le procedure consigliate per gli aggiornamenti software in un data center tradizionale e un ambiente IaaS di Azure, quindi è consigliabile valutare i criteri di aggiornamento software attuali e includere nel processo di aggiornamento software globale le macchine virtuali di Azure e le procedure consigliate pertinenti descritte in questo articolo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

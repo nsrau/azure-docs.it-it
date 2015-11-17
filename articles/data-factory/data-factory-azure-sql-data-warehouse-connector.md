@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure
@@ -371,6 +371,8 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	   }
 	}
 
+Vedere l’articolo [Caricare i dati con Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) nella documentazione di SQL Data Warehouse di Azure per una procedura dettagliata.
+
 ## Proprietà del servizio collegato di Azure SQL Data Warehouse
 
 La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato di Azure SQL Data Warehouse
@@ -471,14 +473,14 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
 
 ### Mapping dei tipi per Azure SQL Data Warehouse
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
+Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipo automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
 
 Quando si spostano dati da e verso SQL Azure, SQL Server, Sybase verranno usati i mapping seguenti dal tipo SQL di tipo .NET e viceversa.
 
-Il mapping è uguale al mapping del tipo di [dati di SQL Server per ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
+Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
 
 | Tipo di motore di database di SQL Server | Tipo di .NET Framework |
 | ------------------------------- | ------------------- |
@@ -521,4 +523,4 @@ Il mapping è uguale al mapping del tipo di [dati di SQL Server per ADO.NET](htt
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

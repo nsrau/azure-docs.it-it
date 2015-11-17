@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/28/2015" 
 	ms.author="tomfitz"/>
 
 # Bloccare le risorse con Gestione risorse di Azure
@@ -106,5 +106,6 @@ PowerShell di Azure fornisce altri comandi per la gestione dei blocchi, ad esemp
 - Per altre informazioni sull'uso dei blocchi di risorse, vedere il post di blog relativo al [blocco delle risorse di Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx).
 - Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse](resource-group-using-tags.md).
 - Per modificare il gruppo di risorse in cui si trova una risorsa, vedere l'articolo relativo allo [spostamento delle risorse in un nuovo gruppo di risorse](resource-group-move-resources.md).
+- È possibile applicare restrizioni e convenzioni all’interno della sottoscrizione con criteri personalizzati. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

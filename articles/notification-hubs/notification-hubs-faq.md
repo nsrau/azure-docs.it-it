@@ -39,6 +39,9 @@ Diversi clienti utilizzano Hub di notifica. Di seguito ne sono indicati alcuni:
 * 7Digital - [Caso studio - 7Digital]
 * Bing App – 10 milioni di dispositivi, invio di 3 milioni di notifiche al giorno
 
+###4\. Come eseguire l'aggiornamento o il downgrade degli hub di notifica per modificare il livello di servizio?
+Visitare il [portale di Azure], fare clic su Bus di servizio e fare clic su uno spazio dei nomi quindi sull'hub di notifica. Nella scheda di scalabilità, sarà possibile modificare il livello di servizio degli hub di notifica.
+
 ##Progettazione e sviluppo
 ###1\. Quali piattaforme sul lato servizio sono supportate?
 Sono forniti SDK ed esempi per .NET, Java, PHP, Python, Node. js in modoack-end in modo che un'app possa essere configurata per comunicare con Hub di notifica utilizzando una qualsiasi di queste piattaforme. Le API di Hub di notifica si basano sull'interfaccia REST per cui è possibile scegliere di comunicare direttamente. Ulteriori informazioni qui - [NH - API REST]
@@ -71,7 +74,7 @@ Poiché le notifiche push vengono recapitate da un servizio notifica push specif
 
 *Spazi dei nomi:* gli spazi dei nomi possono essere utilizzati anche per il raggruppamento di distribuzione. Possono inoltre essere utilizzati per rappresentare tutti gli hub di notifica per tutti i tenant della stessa app nello scenario multi-tenant.
 
-*Distribuzione geografica: *la distribuzione geografica non è sempre fondamentale in caso di notifiche push. È utile notare che i diversi servizi di notifica push (ad esempio, APNS, GCM e così via) che recapitano le notifiche push ai dispositivi non sono distribuiti in modo uniforme. Tuttavia, se si dispone di un'applicazione che viene utilizzata in tutto il mondo è possibile creare diversi hub in diversi spazi dei nomi sfruttando il vantaggio della disponibilità del servizio Hub di notifica in diverse aree di Azure nel mondo. Si noti che questo metodo comporta un aumento dei costi di gestione in particolare quelli relative alle registrazioni, per cui non è molto consigliabile e deve essere utilizzato solo se è veramente necessario.
+*Distribuzione geografica: * la distribuzione geografica non è sempre fondamentale in caso di notifiche push. È utile notare che i diversi servizi di notifica push (ad esempio, APNS, GCM e così via) che recapitano le notifiche push ai dispositivi non sono distribuiti in modo uniforme. Tuttavia, se si dispone di un'applicazione che viene utilizzata in tutto il mondo è possibile creare diversi hub in diversi spazi dei nomi sfruttando il vantaggio della disponibilità del servizio Hub di notifica in diverse aree di Azure nel mondo. Si noti che questo metodo comporta un aumento dei costi di gestione in particolare quelli relative alle registrazioni, per cui non è molto consigliabile e deve essere utilizzato solo se è veramente necessario.
 
 ###10\. È necessario eseguire registrazioni dal back-end dell'applicazione o direttamente dai dispositivi?
 Le registrazioni dal back-end dell'app sono utili quando è necessario eseguire l'autenticazione di un client prima di creare la registrazione o in presenza si tag che devono essere creati o modificati dal back-end dell'app in base a una logica di applicazione. Ulteriori informazioni sono disponibili qui - [Guida alla registrazione back-end] e [Guida alla registrazione del back-end - 2]
@@ -110,6 +113,7 @@ Gli hub di notifica di Azure forniscono numerose funzionalità a scopo di risolu
 ###2\. Sono disponibili le funzionalità di telemetria?
 Gli Hub di notifica di Azure consentono la visualizzazione di dati di telemetria nel portale di gestione di Azure. I dettagli delle metriche disponibili sono reperibili qui: [NH - Metriche]. Si noti che le notifiche sono considerate riuscite quando sono state recapitate al Servizio di notifica Push esterno (APNS di Apple, GCM per Google e così via), per cui è responsabilità del PNS recapitare le notifiche ai dispositivi, e il PNS non espone tali metriche. È offerta inoltre la possibilità di esportare i dati di telemetria a livello di codice (nel livello Standard). Vedere questo esempio per ulteriori informazioni - [NH - Esempio di metriche]
 
+[portale di Azure]: https://manage.windowsazure.com
 [Prezzi di Hub di notifica]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Contratto di servizio di Hub di notifica]: http://azure.microsoft.com/support/legal/sla/
 [Caso studio - Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -130,4 +134,4 @@ Gli Hub di notifica di Azure consentono la visualizzazione di dati di telemetria
 [NH - Esempio di metriche]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Esportazione/importazione di registrazioni]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare e monitorare una data factory mediante Azure PowerShell
@@ -27,6 +27,10 @@
 L'esercitazione [Introduzione a Data factory di Azure][adf-get-started] illustra come creare e monitorare una data factory di Azure mediante il [portale di anteprima di Azure][azure-preview-portal]. In questa esercitazione verrà creata e monitorata una data factory di Azure mediante i cmdlet di Azure PowerShell. La pipeline nella data factory creata in questa esercitazione copia i dati da un BLOB di Azure e li inserisce in un database SQL di Azure.
 
 > [AZURE.NOTE]Questo articolo non illustra tutti i cmlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
+>  
+>  Se si usa Azure PowerShell 1.0 Preview, sarà necessario usare i cmdlet documentati [qui](https://msdn.microsoft.com/library/dn820234.aspx). Usare ad esempio New-AzureRMDataFactory invece di New-AzureDataFactory.
+
+
 
 ##Prerequisiti
 Oltre ai prerequisiti elencati nell'argomento di panoramica dell'esercitazione, sarà necessario avere Azure PowerShell installato nel computer. Se non è già disponibile, scaricare e installare [Azure PowerShell][download-azure-powershell] nel computer.
@@ -129,7 +133,7 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 
 ## <a name="CreateInputAndOutputDataSets"></a>Passaggio 3: Creare tabelle di input e di output
 
-Nel passaggio precedente sono stati creati i servizi collegati **StorageLinkedService** e **AzureSqlLinkedService** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFTutorialDataFactoryPSH**. In questo passaggio verranno create tabelle che rappresentano i dati di input e di output per l'attività di copia nella pipeline che verrà creata nel passaggio successivo.
+Nel passaggio precedente sono stati creati i servizi collegati **StorageLinkedService** e **AzureSqlLinkedService** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFTutorialDataFactoryPSH**. In questo passaggio verranno creati set di dati che rappresentano i dati di input e di output per l'attività di copia nella pipeline che verrà creata nel passaggio successivo.
 
 Una tabella è un set di dati rettangolare ed è l'unico tipo di set di dati supportato in questa fase. La tabella di input di questa esercitazione fa riferimento a un contenitore BLOB nella risorsa di archiviazione di Azure a cui fa riferimento StorageLinkedService e la tabella di output fa riferimento a una tabella SQL nel database SQL di Azure a cui fa riferimento AzureSqlLinkedService.
 
@@ -253,7 +257,7 @@ In questa parte del passaggio si creerà una tabella di output denominata **EmpS
 			      }
 			    ],
 			    "type": "AzureSqlTable",
-			    "linkedServiceName": "AzureSqlLinkedService1",
+			    "linkedServiceName": "AzureSqlLinkedService",
 			    "typeProperties": {
 			      "tableName": "emp"
 			    },
@@ -266,7 +270,7 @@ In questa parte del passaggio si creerà una tabella di output denominata **EmpS
 
      Tenere presente quanto segue:
 	
-	* Il set di dati **type** è impostato su **AzureSqlTable**.
+	* il set di dati **type** è impostato su **AzureSqlTable**.
 	* L'oggetto **linkedServiceName** è impostato su **AzureSqlLinkedService**.
 	* L'oggetto **tablename** è impostato su **emp**.
 	* Nella tabella emp del database sono presenti tre colonne, **ID**, **FirstName** e **LastName**, ma ID è una colonna di identità, quindi è necessario specificare solo **FirstName** e **LastName**.
@@ -354,7 +358,7 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
  
 2.	Eseguire **Get-AzureDataFactorySlice** per ottenere dettagli su tutte le sezioni di **EmpSQLTable**, ovvero la tabella di output della pipeline.
 
-		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
+		Get-AzureDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
 	Sostituire la parte relativa ad anno, mese e data del parametro **StartDateTime** con l'anno, il mese e la data correnti. Questi valori dovrebbero corrispondere al valore **Start** nel file JSON della pipeline.
 
@@ -386,7 +390,7 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
 
 3.	Eseguire **Get-AzureDataFactoryRun** per ottenere i dettagli delle esecuzioni di attività per una sezione **specifica**. Cambiare il valore del parametro **StartDateTime** in modo che corrisponda all'orario specificato per **Start** per la sezione dall'output precedente. Il valore di **StartDateTime** deve essere in [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Ad esempio: 2014-03-03T22:00:00Z.
 
-		Get-AzureDataFactoryRun $df -TableName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
+		Get-AzureDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
 	L'output dovrebbe essere simile al seguente:
 
@@ -433,4 +437,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L’i
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

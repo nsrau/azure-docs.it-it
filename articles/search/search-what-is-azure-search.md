@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Che cos'è la Ricerca di Azure?"
-	description="Panoramica tecnica di Ricerca di Azure e riepilogo funzionalità"
+	description="Ricerca di Azure è un servizio di ricerca ospitato sul cloud. Altri informazioni su questa panoramica tecnica e sul riepilogo delle funzionalità"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,12 +14,12 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Che cos'è la Ricerca di Azure?
 
-Il servizio di Ricerca di Azure è un servizio cloud completamente gestito che consente agli sviluppatori di compilare applicazioni di ricerca avanzate utilizzando un SDK .NET o API REST. Include la ricerca full-text concentrata sul contenuto, su comportamenti di ricerca avanzati simili a quelli disponibili nei motori di ricerca web commerciali, ad esempio suggerimenti digitazione query in base a un termine parziale di input, evidenziazione e navigazione sfaccettata. É integrato un supporto per linguaggio naturale, utilizzando le regole linguistiche appropriate per la lingua specificata.
+Il servizio di Ricerca di Azure è un servizio di ricerca ospitato sul cloud completamente gestito che consente agli sviluppatori di compilare applicazioni di ricerca avanzate utilizzando un SDK .NET o API REST. Include la ricerca full-text concentrata sul contenuto, su comportamenti di ricerca avanzati simili a quelli disponibili nei motori di ricerca web commerciali, ad esempio suggerimenti digitazione query in base a un termine parziale di input, evidenziazione e navigazione sfaccettata. É integrato un supporto per linguaggio naturale, utilizzando le regole linguistiche appropriate per la lingua specificata.
 
 È possibile scalare il servizio in base alla necessità di capacità di archiviazione o maggiore di ricerca. Ad esempio i rivenditori possono aumentare capacità per soddisfare volumi aggiuntivi associati agli eventi di acquisti o promozionale festività.
 
@@ -131,4 +131,4 @@ Visitare [creare un servizio di ricerca di Azure](search-create-service-portal.m
 
 [Come utilizzare la Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) [iniziare a utilizzare Ricerca di Azure .NET](search-get-started-dotnet.md) [Ricerca di Azure: esempi di esercitazioni e demo video](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

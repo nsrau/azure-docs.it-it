@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="10/30/2015"
    ms.author="maroche"/>
 
 # Domande frequenti sul Catalogo dati di Azure
@@ -70,7 +70,7 @@ Durante l'anteprima, il **Catalogo dati Azure** supporta la registrazione e l'in
 - BLOB di Archiviazione di Azure
 - Directory di archiviazione di Azure
 - File HDFS
-- Directory HDSF
+- Directory HDFS
 - Tabella Teradata
 - Visualizzazione Teradata
 
@@ -79,7 +79,7 @@ Oltre alle attività sopra indicate, il **Catalogo dati di Azure** supporta l'in
 - Database di SQL Server
 - Oracle Database
 - Cluster HDFS
-- Database Teradata 
+- Database Teradata
 
 
 ## D: come si richiede il supporto per un'altra origine dati?
@@ -172,4 +172,4 @@ Se si verificano dei problemi o per richiedere assistenza per l'anteprima del **
 
 Tenere sotto controllo il [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

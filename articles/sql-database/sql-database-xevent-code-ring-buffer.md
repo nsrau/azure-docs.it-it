@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Codice del file evento XEvent per il database SQL | Microsoft Azure" 
+	pageTitle="Codice del buffer circolare XEvent per il database SQL | Microsoft Azure" 
 	description="Fornisce un esempio di codice Transact-SQL reso semplice e veloce tramite l'uso della destinazione del buffer circolare nel database SQL di Azure." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/22/2015" 
 	ms.author="genemi"/>
 
 
@@ -377,4 +377,4 @@ Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai c
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

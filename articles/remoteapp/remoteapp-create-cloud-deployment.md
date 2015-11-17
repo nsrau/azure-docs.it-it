@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # Come creare una raccolta cloud di Azure RemoteApp
@@ -40,7 +40,7 @@ Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 - Questa procedura presuppone che verrà usata una delle immagini modello fornite nell'ambito della sottoscrizione oppure che sia stata già caricata l'immagine modello da usare. Se è necessario caricare un'immagine modello diversa, è possibile effettuare questa operazione nella pagina Immagini modello. Fare clic su **carica un'immagine modello** e seguire i passaggi della procedura guidata. 
 - Se si desidera usare l'immagine di Office 365 ProPlus, Consultare le informazioni in [questo articolo](remoteapp-officesubscription.md).
 - Se si vogliono offrire app personalizzate o programmi line-of-business, Creare una nuova [immagine](remoteapp-imageoptions.md) e usarla nella raccolta nel cloud.
-- Determinare se è necessario connettersi a una rete virtuale. Se si sceglie di connettersi a una rete virtuale, assicurarsi che soddisfi le [linee guida sulle dimensioni](remoteapp-vnetsizing.md) e che [possa connettersi a RemoteApp](remoteapp-vnet.md). Per altre informazioni, vedere l'[articolo sulla pianificazione della rete virtuale](remoteapp-planvpn.md).
+- Determinare se è necessario connettersi a una rete virtuale. Se si sceglie di connettersi a una rete virtuale, assicurarsi che soddisfi le [linee guida sulle dimensioni](remoteapp-vnetsizing.md) e che [possa connettersi a RemoteApp](remoteapp-vnet.md). Per altre informazioni, vedere l'[articolo sulla pianificazione della rete virtuale](remoteapp-planvnet.md).
 - Se si usa una rete virtuale, decidere se si desidera aggiungerla al dominio locale di Active Directory.
 
 ## Passaggio 1: Creare una raccolta cloud con o senza una rete virtuale##
@@ -107,6 +107,6 @@ A questo punto, dopo avere creato la raccolta, è necessario aggiungere gli uten
 La procedura è stata completata e la raccolta di Azure RemoteApp nel cloud è stata creata e distribuita. Il passaggio successivo consiste nel chiedere agli utenti di scaricare e installare il client Desktop remoto. L'URL del client è indicato nella pagina Avvio rapido di Azure RemoteApp. Chiedere quindi agli utenti di connettersi al client e di accedere alle app pubblicate.
 
 ### Come contribuire al miglioramento 
-Non tutti sanno che oltre alla classificazione di questo articolo e l'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
+Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

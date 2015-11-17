@@ -95,8 +95,9 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 ## Collegamenti correlati
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Installazione dell'agente di Azure AD Connect Health per AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
-* [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
+* [Installazione dell'agente di Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
+* [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
@@ -96,7 +96,8 @@ La sicurezza è della massima importanza per chiunque gestisca la propria attivi
 - [Ruoli applicazione](http://msdn.microsoft.com/library/ms190998.aspx) gestiti con GRANT, DENY, REVOKE
 - [Crittografia dati trasparente](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx)
 - [Connettersi al Database SQL utilizzando l’autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
- - Il Database SQL supporta ora l'autenticazione di Azure Active Directory, un meccanismo di connessione al Database SQL utilizzando le identità in Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire centralmente le identità degli utenti del database e altri servizi Microsoft in una posizione centrale.
+ - Il Database SQL supporta ora l'autenticazione di Azure Active Directory, un meccanismo di connessione al Database SQL utilizzando le identità in Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft.
+- [Sempre crittografati](https://msdn.microsoft.com/library/mt163865.aspx) (in anteprima) effettua la crittografia trasparente alle applicazioni e consente ai client di crittografare dati riservati all'interno delle applicazioni del client senza condividere le chiavi di crittografia con il Database SQL.
 
 
 ## Aumento della continuità aziendale quando è necessario il ripristino
@@ -161,4 +162,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

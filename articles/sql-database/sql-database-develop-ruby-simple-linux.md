@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="09/21/2015" 
 	ms.author="andrela"/>
 
 
@@ -38,7 +38,7 @@ Dopo che il computer è configurato con FreeTDS, installare Ruby se non è già 
 
 Se si verificano problemi con le firme, eseguire il comando riportato di seguito.
 
-    command curl -sSL https://rvm.io/mpapis.asc | gph --import - 
+    command curl -sSL https://rvm.io/mpapis.asc | gpg --import - 
 
 Se non si verificano problemi con le firme, eseguire il seguente comando.
 
@@ -117,4 +117,4 @@ Per allinearlo con il formato Microsoft SQL Server[datetime](http://msdn.microso
     puts row
     end 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

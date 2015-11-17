@@ -1,11 +1,10 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="Come aggiungere un utente a un pool elastico di database" 
 	description="È necessario aggiungere un utente con privilegi a ogni database del pool" 
 	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="11/03/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Come aggiungere utenti a un pool di database elastici
@@ -33,7 +32,7 @@ La funzione **processi di database elastici** (anteprima) consente di eseguire u
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. L'utente deve disporre anche di autorizzazioni sufficienti per l'esecuzione dello script specificato per il processo. Seguire la procedura **sp\_addrolemember** per fornire all'utente le autorizzazioni minime necessarie per eseguire correttamente lo script.
+3. L'utente deve disporre anche di autorizzazioni sufficienti per l'esecuzione dello script specificato per il processo. Usare l’elemento [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) per fornire all'utente le autorizzazioni minime necessarie per eseguire correttamente lo script.
 
 ## Passaggi successivi
 
@@ -45,4 +44,4 @@ Per creare e gestire i processi, vedere [Creazione e gestione dei processi di da
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

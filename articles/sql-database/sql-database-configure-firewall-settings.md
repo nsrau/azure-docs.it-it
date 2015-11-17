@@ -56,7 +56,7 @@ Le regole del firewall a livello di server possono essere create e gestite trami
 3. Le regole del firewall a livello di server possono essere selezionate, create, aggiornate o eliminate all'interno della finestra di query.
 4. Per creare o aggiornare le regole del firewall a livello di server, eseguire la stored procedure della regola sp\_set\_firewall. Nell'esempio seguente viene abilitato un intervallo di indirizzi IP nel server di Contoso.<br/>Iniziare verificando quali regole esistono già.
 
-		SELECT * FROM sys.database_firewall_rules ORDER BY name;
+		SELECT * FROM sys.firewall_rules ORDER BY name;
 
 	Successivamente, aggiungere una regola del firewall.
 
@@ -141,4 +141,4 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare il primo dat
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

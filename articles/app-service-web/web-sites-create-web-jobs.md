@@ -92,10 +92,10 @@ Ad esempio, per attivare il processo Web ogni 15 minuti, `settings.job` avrebbe:
 
 Altri esempi di programmazione CRON:
 
-- Ogni ora (ad esempio ogni volta che il numero di minuti è 0): `* 0 * * * *` 
-- Ogni ora dalle 9 di mattina alle 5 del pomeriggio:`* 0 9-17 * * *` 
-- Alle 9:30 di mattina ogni giorno: `* 30 9 * * *`
-- Alle 9:30 di mattina ogni giorno della settimana: `* 30 9 * * 1-5`
+- Ogni ora (ad esempio ogni volta che il numero di minuti è 0): `0 0 * * * *` 
+- Ogni ora dalle 9 di mattina alle 5 del pomeriggio:`0 0 9-17 * * *` 
+- Alle 9:30 di mattina ogni giorno: `0 30 9 * * *`
+- Alle 9:30 di mattina ogni giorno della settimana: `0 30 9 * * 1-5`
 
 **Nota**: quando si distribuisce un processo Web da Visual Studio, assicurarsi di contrassegnare le proprietà del file `settings.job` come 'Copia se più recente'.
 
@@ -239,4 +239,4 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Database SQL di Azure - strumenti di database elastici "
+    pageTitle="Panoramica delle funzionalità degli strumenti di database elastici | Microsoft Azure"
     description="Gli sviluppatori di Software come Servizio (Saas) possono facilmente creare database elastici e scalabili nel cloud utilizzando questi strumenti"
     services="sql-database"
     documentationCenter=""
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/27/2015"
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015"
+    ms.author="ddove;sidneyh"/>
 
 # Panoramica sulle funzionalità di database elastico
 
@@ -108,4 +108,4 @@ Cosa si può fare meglio? Questo argomento spiega chiaramente la funzionalità? 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

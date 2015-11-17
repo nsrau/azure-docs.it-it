@@ -47,7 +47,7 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
 
 - **Per tutti i dati di Azure**
 
-    Data Lake Analytics può usare numerose origini dati di Azure, tra cui BLOB di archiviazione di Azure e database SQL di Azure, ed è ottimizzato in particolar modo per usare l'archivio di Azure Data Lake, in modo da offrire il più elevato livello di prestazioni, velocità effettiva e parallelizzazione dei carichi di lavoro dei Big Data.
+    Data Lake Analytics può usare numerose origini dati di Azure: archiviazione BLOB di Azure, database SQL di Azure, ed è ottimizzato in particolar modo per usare l'archivio di Azure Data Lake, in modo da offrire il più elevato livello di prestazioni, velocità effettiva e parallelizzazione dei carichi di lavoro dei Big Data.
 
 ## Vedere anche
 
@@ -77,4 +77,4 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     - [Inviare una richiesta di funzionalità](http://aka.ms/adlafeedback)
     - [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Collegare un disco a una macchina virtuale | Microsoft Azure"
-	description="Collegare un disco dati da una macchina virtuale creata con il modello di distribuzione classico e inizializzarla."
+	description="Collegare un disco dati da una macchina virtuale Windows creata con il modello di distribuzione classico e inizializzarla."
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/14/2015"
 	ms.author="cynthn"/>
 
 # Collegare un disco dati da una macchina virtuale di Windows creata con il modello di distribuzione classico.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-attach-disk-preview.md).
 
-È possibile collegare dischi vuoti e i dischi dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso.
+Se è necessario un disco dati aggiuntivo, è possibile collegare un disco vuoto o un disco esistente con dei dati a una macchina virtuale. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che devono risiedere in un account di archiviazione di Azure. Nel caso di un nuovo disco, dopo aver collegato il disco, è anche necessario inizializzarlo in modo che sia pronto per essere usato da una macchina virtuale Windows.
 
-È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. **Non utilizzare l’unità D per archiviare i dati.** Come si può dedurre dal nome, l’unità D fornisce solo un’archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
+È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. **Non utilizzare il disco temporaneo per archiviare i dati.** Come si può dedurre dal nome, il disco temporaneo fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
 
 ## Video con la procedura dettagliata
 
@@ -43,9 +43,9 @@ Di seguito è riportata una procedura dettagliata dei passaggi in questa esercit
 
 3. Espandere il menu e selezionare **Dischi**.
 
-4. Nella sezione **Dischi** è visualizzato un elenco con tre dischi: disco 0, disco 1 e disco 2. Il disco 0 è il disco del sistema operativo, il disco 1 è il disco temporaneo (che non deve essere usato per l'archiviazione dei dati) e il disco 2 è il disco dati connesso alla macchina virtuale. Il disco dati ha una capacità di 5 GB, come specificato quando il disco è stato collegato. Fare clic con il pulsante destro del mouse sul disco 2 e scegliere **Inizializza**.
+4. La sezione **dischi** contiene un elenco dei dischi. Nella maggior parte dei casi, avrà disco 0, disco 1 e disco 2. Il disco 0 è il disco del sistema operativo, il disco 1 è il disco temporaneo (che non deve essere usato per l'archiviazione dei dati) e il disco 2 è il disco dati che è stato appena connesso alla macchina virtuale. Il nuovo disco dati elencherà la partizione come **sconosciuta**. Fare clic con il pulsante destro del mouse sul disco e scegliere **Inizializza**.
 
-5.	Si riceverà una notifica che tutti i dati verranno cancellati quando viene inizializzato il disco. Fare clic su **Sì** per accettare il messaggio di avviso e inizializzare il disco. Poi, fare di nuovo clic con il pulsante destro del mouse sul disco 2 e scegliere **Nuovo volume**.
+5.	Si riceverà una notifica che tutti i dati verranno cancellati quando viene inizializzato il disco. Fare clic su **Sì** per accettare il messaggio di avviso e inizializzare il disco. Una volta completata l’operazione, la partizione verrà elencata come **GPT**. Fare di nuovo clic con il pulsante destro del mouse sul disco e scegliere **Nuovo volume**.
 
 6.	Completare la procedura guidata usando i valori predefiniti. Al termine della procedura guidata, nella sezione **Volumi** verrà visualizzato il nuovo volume. Il disco sarà ora online e pronto per l'archiviazione di dati.
 
@@ -61,4 +61,4 @@ Di seguito è riportata una procedura dettagliata dei passaggi in questa esercit
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

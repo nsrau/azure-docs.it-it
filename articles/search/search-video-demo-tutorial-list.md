@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Video, esempi ed esercitazioni in Ricerca di Azure"
-	description="Trovare tutti i video, gli esempi, le demo e le esercitazioni create per Ricerca di Azure in un unico elenco centrale."
+	pageTitle="Video, esempi ed esercitazioni in Ricerca di Azure | Microsoft Azure"
+	description="Elenco centrale di tutti i video, gli esempi, le demo e le esercitazioni create per la Ricerca di Azure, un servizio cloud ospitato in Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/29/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 #Ricerca di Azure: esercitazioni, demo video ed esempi
@@ -25,13 +25,16 @@ Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazio
 
 [**Demo del portale dei processi di New York City (NYC) per Ricerca di Azure**](http://aka.ms/azjobsdemo) è un sito Web ASP.NET che illustra le funzionalità di Ricerca di Azure utilizzando i dati di NYC Open Data Initiative.
 
-[**Provare il servizio app e Ricerca di Azure**](search-tryappservice.md) è una sessione di un'ora disponibile con Ricerca di Azure che include dati, un'applicazione Web funzionale e il codice sorgente che è possibile modificare online per provare le varie funzionalità di ricerca.
+[**Provare il servizio app e Ricerca di Azure nell’app combinata ASP.NET MVC**](search-tryappservice.md) è una sessione di un'ora gratuita con Ricerca di Azure che include dati, un'applicazione Web funzionale e un codice sorgente che è possibile modificare online per provare le varie funzionalità di ricerca in un’applicazione ASP.NET.
+
+[**Sito Demo Ricerca di Azure**](https://searchsamples.azurewebsites.net/#/) è una raccolta di app demo per la Ricerca di Azure. Prova la ricerca dei file multimediali, la ricerca geografica e le app dell’inventario del prodotto mediante la Ricerca di Azure.
 
 ##Video
 
 Collegamento|Descrizione
 ----|-----------
-[AzureCon 2015 procedure consigliate per la ricerca di Azure](https://azure.microsoft.com/it-IT/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Consigli pratici su come ottenere scalabilità, prestazioni ottimali ed efficienza di codifica durante la creazione di app per scenari mobili o Web. 
+[Che cos'è la Ricerca di Azure?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|Panoramica sulla Ricerca di Azure in un minuto e mezzo.
+[AzureCon 2015 procedure consigliate per la ricerca di Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Consigli pratici su come ottenere scalabilità, prestazioni ottimali ed efficienza di codifica durante la creazione di app per scenari mobili o Web. 
 [Microsoft Virtual Academy: aggiungere Ricerca di Azure a siti Web e app](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|Serie di 7 parti sull'aggiunta di Ricerca di Azure a un'applicazione, presentata da Liam Cavanagh, Janusz Lembicz e Bernardita Torres Garayar.
 [Build 2015: dati moderni](http://channel9.msdn.com/Events/Build/2015/2-663)|29 minuti di sessione per informazioni sulle modalità di integrazione di Ricerca di Azure nella rivoluzione dei dati moderni, presentata da Shawn Bice e Pablo Castro.
 [Build 2015: uso di Ricerca di Azure per compilare eccezionali esperienze di ricerca in dispositivi mobili e WebApp](http://channel9.msdn.com/Events/Build/2015/2-745)|Pablo Castro presente al Microsoft Build 2015.
@@ -50,6 +53,7 @@ Collegamento|Descrizione
 
 Procedura dettagliata|Descrizione
 -----------|-----------
+[Come cercare dati di StackExchange con Ricerca di Azure](search-howto-stackexchange-data.md)|Ricerca full-text su dati di StackExchange in un'applicazione integrata con la Ricerca di Azure.
 [Come utilizzare Ricerca di Azure con D3.js per creare visualizzazioni di dati interattivi](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Post di blog e codice di esempio che illustra come aggiungere funzionalità di ricerca visiva all'app personalizzata.
 [Introduzione a Ricerca di Azure in .NET](search-get-started-dotnet.md)|Acquisire familiarità con la Ricerca di Azure nel codice gestito.
 [Introduzione a Ricerca di Azure in NodeJS](search-get-started-nodejs.md)|Acquisire familiarità con la ricerca di Azure in NodeJS.
@@ -67,12 +71,12 @@ Procedura dettagliata|Descrizione
 
 [****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) è un archivio GitHub contenente esempi di codice creati da Liam Cavanagh. Gli esempi seguenti sono disponibili in questo archivio:
 
-- [AdventureWorksWP8]() è un'applicazione di Windows phone.
+- [AdventureWorksWP8]() è un'app di Windows phone.
 - [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
 - [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) è un file index.html che fornisce i dati in un'esercitazione.
 - [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) è un'applicazione ASP.NET MVC per Ricerca di Azure.
 - [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) fornisce il codice sorgente per il sito demo live dei processi NYC.
-- [Indicazioni](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) utilizza Active Data Factory, Database SQL, archiviazione BLOB e HDInsight per implementare i consigli sui prodotti in base alla frequenza con cui i prodotti vengano acquistati insieme.
+- [Indicazioni](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) usa Active Data Factory, Database SQL, archiviazione BLOB e HDInsight per implementare i consigli sui prodotti in base alla frequenza con cui i prodotti vengano acquistati insieme.
 
 [****https://github.com/AzureSearch**](https://github.com/AzureSearch) è un repository GitHub di Ricerca di Azure contenente esempi di codice creati dal team di sviluppo di Ricerca di Azure. È possibile esplorare il repository per visualizzare il contenuto o fare clic sui collegamenti seguenti per passare direttamente a esempi specifici.
 
@@ -91,4 +95,4 @@ In CodePlex, è possibile trovare diversi esempi pubblicati durante l'anteprima 
 - [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) è un'applicazione della console di Windows che carica un set di righe di SQL Server da un database locale integrato.
 - [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) è un'applicazione della console di Windows che definisce, esegue e aggiorna un profilo di assegnazione dei punteggi per ottimizzare i risultati della ricerca.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

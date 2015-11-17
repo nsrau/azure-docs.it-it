@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Case study sugli sviluppatori di Ricerca di Azure: in che modo WhatToPedia ha creato un portale di informazioni multimediale in Microsoft Azure" 
-	description="Informazioni su come creare un portale di informazioni e un meta motore di ricerca utilizzando il servizio di ricerca in Microsoft Azure" 
+	pageTitle="Case study sugli sviluppatori di Ricerca di Azure: in che modo WhatToPedia ha creato un portale di informazioni multimediale in Microsoft Azure | Microsoft Azure" 
+	description="Informazioni su come creare un portale di informazioni e un meta motore di ricerca usando Ricerca di Azure, un servizio di ricerca ospitato sul cloud per sviluppatori." 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Case study per gli sviluppatori di Ricerca di Azure
@@ -421,4 +421,4 @@ Il codice seguente compila l'indicizzatore menzionato nella sezione sulla compil
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

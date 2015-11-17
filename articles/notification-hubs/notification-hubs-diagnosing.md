@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="wesmc"/>
 
 #Hub di notifica di Azure - Linee guida sulla diagnostica
@@ -115,7 +115,7 @@ Di seguito vengono illustrate le diverse strategie per diagnosticare e identific
 
 	![][8]
  
-	> [AZURE.NOTE]La funzionalità di Visual Studio per la modifica delle registrazioni deve essere usata solo durante le attività di sviluppo/test su un numero limitato di registrazioni. Se è necessario correggere le registrazioni in blocco, è possibile usare la funzionalità di esportazione/importazione delle registrazioni descritta in [Esportazione/Importazione di registrazioni] (disponibile solo nel livello Standard)
+	> [AZURE.NOTE]La funzionalità di Visual Studio per la modifica delle registrazioni deve essere usata solo durante le attività di sviluppo/test su un numero limitato di registrazioni. Se è necessario correggere le registrazioni in blocco, è possibile usare la funzionalità di esportazione/importazione delle registrazioni descritta in [Esportazione/Importazione di registrazioni](https://msdn.microsoft.com/library/dn790624.aspx)
 
 2. **Service Bus Explorer**
 
@@ -228,7 +228,7 @@ Per informazioni dettagliate:
 [Linee guida sui modelli]: https://msdn.microsoft.com/library/dn530748.aspx
 [Linee guida sul servizio APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [Linee guida su GCM]: http://developer.android.com/google/gcm/adv.html
-[Esportazione/Importazione di registrazioni]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer]: http://msdn.microsoft.com/library/dn530751.aspx
 [codice di Service Bus Explorer]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Informazioni generali su Esplora server di Visual Studio]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
@@ -240,4 +240,4 @@ Per informazioni dettagliate:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

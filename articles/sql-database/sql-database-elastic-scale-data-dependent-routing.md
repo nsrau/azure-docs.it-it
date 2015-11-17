@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Routing dipendente dei dati" 
-	description="Informazioni su come usare ShardMapManager per il routing basato sui dati, una funzionalità dei database elastici database per il database SQL di Azure" 
+	pageTitle="Routing dipendente dei dati | Microsoft Azure" 
+	description="Informazioni su come usare ShardMapManager per il routing basato sui dati, una funzionalità dei database elastici database per il Database SQL di Azure" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 #Routing dipendente dei dati
 
 La classe **ShardMapManager** consente alle applicazioni ADO.NET di indirizzare facilmente query e comandi al database fisico corretto in un ambiente condiviso. Questo comportamento viene definito **routing dipendente dai dati** e costituisce un criterio fondamentale quando si usano database condivisi. Ogni query o transazione specifica in un'applicazione che usa il routing dipendente dai dati viene limitata all'accesso a un singolo database per richiesta.
 
 Se si usa il routing dipendente dai dati, non è necessario che l'applicazione rilevi le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. Piuttosto, il [Gestore mappe partizioni](sql-database-elastic-scale-shard-map-management.md) si occupa di fornire connessioni aperte al database corretto, quando necessario, in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale di destinazione della richiesta dell'applicazione. Questa chiave è in genere *customer\_id*, *tenant\_id*, *date\_key* o un altro identificatore specifico che costituisce un parametro fondamentale della richiesta di database.
+
+## Scaricare la libreria client
+
+Per installare la libreria, passare a [Libreria client di database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## Uso di ShardMapManager in un'applicazione di routing dipendente dai dati 
 
@@ -46,7 +50,7 @@ Il metodo **ShardMap.OpenConnectionForKey(key, connectionString, connectionOptio
 
 Se la convalida della mappa locale partizioni non riesce (indicando che la cache non è corretta), tramite Gestore mappe partizioni viene eseguita una query sulla mappa globale partizioni per ottenere il nuovo valore corretto per la ricerca, aggiornare la cache e ottenere e restituire la connessione al database appropriato.
 
-Il solo caso in cui **ConnectionOptions.None** (non viene eseguita la convalida) è accettabile si verifica quando le modifiche al mapping di partizioni non sono previste mentre l'applicazione è online. In tal caso, i valori memorizzati nella cache possono essere considerati sempre corretti e la chiamata di convalida round trip aggiuntiva al database di destinazione può essere tranquillamente ignorata. Che può ridurre le latenze della transazione e il traffico del database. L'enumerazione **connectionOptions** può anche essere impostata tramite un valore in un file di configurazione per indicare se le modifiche di partizionamento sono o meno previste durante un intervallo di tempo.
+L’unico caso in cui **ConnectionOptions.None** (non viene eseguita la convalida) è accettabile si verifica quando le modifiche al mapping di partizioni non sono previste mentre l'applicazione è online. In tal caso, i valori memorizzati nella cache possono essere considerati sempre corretti e la chiamata di convalida round trip aggiuntiva al database di destinazione può essere tranquillamente ignorata. Che può ridurre le latenze della transazione e il traffico del database. L'enumerazione **connectionOptions** può anche essere impostata tramite un valore in un file di configurazione per indicare se le modifiche di partizionamento sono o meno previste durante un intervallo di tempo.
 
 Di seguito è riportato un esempio di codice che usa il gestore mappe partizioni per eseguire il routing dipendente dai dati in base al valore di una chiave numero intero **CustomerID**, usando un oggetto **ShardMap** denominato **customerShardMap**.
 
@@ -117,4 +121,4 @@ Le proprietà transazionali sono garantite per tutte le operazioni locali rispet
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

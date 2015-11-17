@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -34,7 +34,8 @@ In questo argomento sono elencate diverse categorie di messaggi di errore. La ma
 Nel programma client, è possibile fornire all'utente un messaggio alternativo personalizzato per ogni errore specificato.
 
 
-**Suggerimento:** di estrema importanza è la sezione relativa ai *guasti temporanei*. Con questi errori viene richiesto al programma client di eseguire la logica di *ripetizione tentativi* progettata per ritentare l'operazione.
+> [AZURE.TIP]La sezione seguente relativa agli [*errori temporanei*](#bkmk_connection_errors) è di estrema importanza.
+
 
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
@@ -44,25 +45,42 @@ Nel programma client, è possibile fornire all'utente un messaggio alternativo p
 
 Nella tabella seguente vengono illustrati gli errori di perdita della connessione e altri errori temporanei, che possono verificarsi durante l'utilizzo su Internet di Database SQL Azure.
 
-Gli errori temporanei sono detti anche guasti temporanei. Quando il programma rileva una `SqlException`, può verificare se il valore `sqlException.Number` è elencato in questa sezione di guasti temporanei. Se il valore `Number` indica un guasto temporaneo, il programma può provare a ristabilire una connessione e quindi ripetere l'esecuzione della query tramite la connessione. Per esempi di codice relativi alla logica di ripetizione dei tentativi, vedere:
+
+### Errori temporanei più comuni
+
+
+Gli errori temporanei solitamente si manifestano sotto forma di uno dei messaggi di errore seguenti dei programmi client:
+
+- Il database <db_name> nel server <Azure_instance> non è attualmente disponibile. Eseguire un altro tentativo di connessione più tardi. Se il problema persiste, contattare il supporto tecnico indicando l'ID traccia sessione di <session_id>
+
+- Il database <db_name> nel server <Azure_instance> non è attualmente disponibile. Eseguire un altro tentativo di connessione più tardi. Se il problema persiste, contattare il supporto tecnico indicando l'ID traccia sessione di <session_id>. (Microsoft SQL Server, Errore: 40613)
+
+- Connessione in corso interrotta forzatamente dall'host remoto.
+
+- System.Data.Entity.Core.EntityCommandExecutionException: errore durante l'esecuzione della definizione del comando. Per altre informazioni, vedere l'eccezione interna. ---> System.Data.SqlClient.SqlException: si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: provider di sessione, errore: 19 - impossibile usare la connessione fisica)
+
+Gli errori temporanei richiedono che il programma client esegua la *logica di ripetizione* impostata per ritentare l'operazione. Per esempi di codice relativi alla logica di ripetizione dei tentativi, vedere:
 
 
 - [Sviluppo client ed esempi di codice di avvio rapido per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-- [Procedura: Effettuare una connessione affidabile a un database SQL di Azure](http://msdn.microsoft.com/library/azure/dn864744.aspx)
+- [Azioni per la risoluzione di errori di connessione e di errori temporanei nel database SQL](sql-database-connectivity-issues.md)
+
+
+### Numeri di errore degli errori temporanei
 
 
 | Numero di errore | Gravità | Descrizione |
 | ---: | ---: | :--- |
 | 4060 | 16 | Impossibile aprire il database "%.&#x2a;ls" richiesto dall'account di accesso. Accesso non riuscito. |
-|40197|17|Il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprova più tardi. Codice di errore %d.<br/><br/>Questo errore viene visualizzato quando il servizio non è disponibile a causa di aggiornamenti software o hardware, guasti hardware o altri problemi di failover. Nel codice di errore (%d) incorporato nel messaggio di errore 40197 sono contenute ulteriori informazioni sul tipo di errore o failover che si è verificato. Alcuni esempi dei codici di errore incorporati nel messaggio di errore 40197 sono 40020, 40143, 40166 e 40540.<br/><br/>Con la riconnessione al server di database SQL verrà effettuata la connessione automatica a una copia integra del database. L'applicazione deve rilevare l'errore 40197, registrare il codice di errore incorporato (%d) nel messaggio per la risoluzione dei problemi e tentare la riconnessione al database SQL finché le risorse non saranno disponibili e la connessione non sarà stata ristabilita.|
-|40501|20|Il servizio è attualmente occupato. Ripetere la richiesta dopo 10 secondi. ID evento imprevisto: %ls. Codice: %d.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limitazione del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338079.aspx).
+|40197|17|Il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprova più tardi. Codice di errore %d.<br/><br/>Questo errore viene visualizzato quando il servizio non è disponibile a causa di aggiornamenti software o hardware, guasti hardware o altri problemi di failover. Nel codice di errore (%d) incorporato nel messaggio di errore 40197 sono contenute ulteriori informazioni sul tipo di errore o failover che si è verificato. Alcuni esempi dei codici di errore incorporati nel messaggio di errore 40197 sono 40020, 40143, 40166 e 40540.<br/><br/>Con la riconnessione al server del database SQL verrà eseguita la connessione automatica a una copia integra del database. L'applicazione deve rilevare l'errore 40197, registrare il codice di errore incorporato (%d) nel messaggio per la risoluzione dei problemi e tentare la riconnessione al database SQL finché le risorse non saranno disponibili e la connessione non sarà stata ristabilita.|
+|40501|20|Il servizio è attualmente occupato. Ripetere la richiesta dopo 10 secondi. ID evento imprevisto: %ls. Codice: %d.<br/><br/>*Nota:* per altre informazioni, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md).
 |40613|17|Il database '%.&#x2a;ls' nel server '%.&#x2a;ls' non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. Se il problema persiste, contattare il supporto tecnico indicando l'ID di traccia della sessione di '%.&#x2a;ls'.|
 |49918|16|Impossibile elaborare una richiesta. Risorse insufficienti per elaborare la richiesta.<br/><br/>Il servizio è attualmente occupato. Si prega di ripetere la richiesta più tardi. |
-|49919|16|Il processo non può creare o aggiornare la richiesta. Troppe operazioni di creazione o aggiornamento in corso per ”%Id” della sottoscrizione. <br/><br/>Il servizio è occupato nell’esecuzione di più richieste di creazione o aggiornamento per la sottoscrizione o il server. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) per operazioni in sospeso. Attendere che le richieste di creazione o aggiornamento in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
-|49920|16|Impossibile elaborare una richiesta. Troppe operazioni di creazione o aggiornamento in corso per ”%Id” della sottoscrizione. <br/><br/>Il servizio è occupato nell’esecuzione di più richieste per la presente sottoscrizione. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) per lo stato delle operazioni. Attendere che le richieste in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
+|49919|16|Il processo non può creare o aggiornare la richiesta. Troppe operazioni di creazione o aggiornamento in corso per "%ld" della sottoscrizione.<br/><br/>Il servizio è occupato nell'esecuzione di più richieste di creazione o aggiornamento per la sottoscrizione o il server. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) per le operazioni in sospeso. Attendere che le richieste di creazione o aggiornamento in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
+|49920|16|Impossibile elaborare una richiesta. Troppe operazioni di creazione o aggiornamento in corso per "%ld" della sottoscrizione.<br/><br/>Il servizio è occupato nell'esecuzione di più richieste per la presente sottoscrizione. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) per lo stato delle operazioni. Attendere che le richieste in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
 
-**Nota:** gli errori della federazione 10053 e 10054 potrebbero anche determinare l’inclusione nella logica di ripetizione tentativi.
+**Nota:** è possibile che anche gli errori della federazione 10053 e 10054 debbano essere inclusi nella logica di ripetizione.
 
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
@@ -70,7 +88,7 @@ Gli errori temporanei sono detti anche guasti temporanei. Quando il programma ri
 ## Errori di copia del database
 
 
-Nella tabella seguente vengono illustrati i diversi errori che è possibile rilevare durante la copia di un database in Database SQL Azure. Per altre informazioni, vedere, [Copia di database nel database SQL di Azure](http://msdn.microsoft.com/library/azure/ff951624.aspx).
+Nella tabella seguente vengono illustrati i diversi errori che è possibile rilevare durante la copia di un database in Database SQL Azure. Per altre informazioni, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
 
 |Numero di errore|Gravità|Descrizione|
@@ -101,31 +119,31 @@ Nella tabella seguente vengono illustrati gli errori causati dall'uso eccessivo 
 - Forse la transazione è rimasta aperta troppo a lungo.
 - Forse la transazione contiene troppi blocchi.
 - Forse il programma utilizza troppa memoria.
-- Forse il programma utilizza troppo spazio `TempDb`.
+- Forse il programma usa troppo spazio `TempDb`.
 
 
-**Suggerimento:** il collegamento seguente fornisce altre informazioni relative alla maggior parte o a tutti gli errori in questa sezione:
+**Suggerimento:** il collegamento seguente offre altre informazioni relative alla maggior parte o a tutti gli errori in questa sezione:
 
 
-- [Limiti delle risorse del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338081.aspx).
+- [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
 
 
 |Numero di errore|Gravità|Descrizione|
 |---:|---:|:---|
-|10928|20|ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L'ID Risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>•[Governance delle risorse nel database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
-|10929|20|ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'utilizzo corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). In caso contrario, riprovare più tardi.<br/><br/>L'ID Risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>•[Governance delle risorse nel database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).|
+|10928|20|ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md). |
+|10929|20|ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'utilizzo corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). In caso contrario, riprovare più tardi.<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md).|
 |40544|20|Il database ha raggiunto la quota delle dimensioni. Partizionare o eliminare dati, eliminare indici o consultare la documentazione per le possibili soluzioni.|
 |40549|16|La sessione è stata terminata a causa di una transazione a esecuzione prolungata. Provare ad abbreviare la transazione.|
 |40550|16|La sessione è stata terminata perché sono stati acquisiti troppi blocchi. Provare a leggere o modificare meno righe in una singola transazione.|
-|40551|16|La sessione è stata terminata a causa dell'utilizzo eccessivo di `TEMPDB`. Provare a modificare la query per ridurre l'utilizzo di spazio della tabella temporanea.<br/><br/>*Suggerimento:* se si usano oggetti temporanei, liberare spazio nel database `TEMPDB` rimuovendo gli oggetti temporanei se non sono più necessari per la sessione.|
-|40552|16|La sessione è stata terminata a causa di un utilizzo eccessivo di spazio del log della transazione. Provare a modificare un numero inferiore di righe in una sola transazione.<br/><br/>*Suggerimento:* se si eseguono inserimenti bulk usando l’utilità `bcp.exe` o la classe `System.Data.SqlClient.SqlBulkCopy`, provare a usare le opzioni `-b batchsize` o `BatchSize` per limitare il numero di righe copiate nel server in ogni transazione. In caso di ricompilazione di un indice con l’istruzione `ALTER INDEX`, provare a usare l’opzione `REBUILD WITH ONLINE = ON`.|
+|40551|16|Sessione terminata a causa di un utilizzo eccessivo di `TEMPDB`. Provare a modificare la query per ridurre l'uso di spazio della tabella temporanea.<br/><br/>*Suggerimento:* se si usano oggetti temporanei, liberare spazio nel database `TEMPDB` rimuovendo gli oggetti temporanei se non sono più necessari per la sessione.|
+|40552|16|La sessione è stata terminata a causa di un utilizzo eccessivo di spazio del log della transazione. Provare a modificare un numero inferiore di righe in un'unica transazione.<br/><br/>*Suggerimento:* se si eseguono inserimenti bulk usando l'utilità `bcp.exe` o la classe `System.Data.SqlClient.SqlBulkCopy`, provare a usare le opzioni `-b batchsize` o `BatchSize` per limitare il numero di righe copiate nel server in ogni transazione. In caso di ricompilazione di un indice con l'istruzione `ALTER INDEX`, provare a usare l'opzione `REBUILD WITH ONLINE = ON`.|
 |40553|16|La sessione è stata terminata a causa di un utilizzo eccessivo della memoria. Provare a modificare la query per elaborare un numero inferiore di righe.<br/><br/>*Suggerimento:* la riduzione del numero di operazioni `ORDER BY` e `GROUP BY` nel codice Transact-SQL consente di ridurre i requisiti di memoria della query.|
 
 
 Per altre informazioni sulla governance delle risorse e gli errori correlati, vedere:
 
 
-- [Governance delle risorse del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).
+- [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md).
 
 
 <a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
@@ -133,21 +151,21 @@ Per altre informazioni sulla governance delle risorse e gli errori correlati, ve
 ## Errori della federazione
 
 
-Nella tabella seguente vengono illustrati gli errori che è possibile riscontrare durante l'uso delle federazioni. Per altre informazioni, vedere [Gestione di federazioni di database (database SQL di Azure)](http://msdn.microsoft.com/library/azure/hh597455.aspx).
+Nella tabella seguente vengono illustrati gli errori che è possibile riscontrare durante l'uso delle federazioni.
 
 
-> [AZURE.IMPORTANT]L'implementazione corrente delle federazioni verrà ritirata con i livelli di servizio Web e Business. La versione V12 di Database SQL di Azure non supporta i livelli di servizio Web e Business.
+> [AZURE.IMPORTANT]L'implementazione corrente delle federazioni verrà ritirata con i livelli di servizio Web e Business. La versione 12 del database SQL di Azure non supporta i livelli di servizio Web e Business.
 > 
 > La funzionalità Scalabilità elastica è progettata per creare applicazioni di partizionamento orizzontale con uno sforzo minimo.
 > 
-> Per altre informazioni sulla Scalabilità elastica, vedere gli [argomenti relativi alla Scalabilità elastica di Database SQL di Azure](sql-database-elastic-scale-documentation-map.md). Valutare la possibilità di distribuire soluzioni di partizionamento orizzontale personalizzato per l’ottimizzazione di scalabilità, flessibilità e prestazioni. Per altre informazioni sul partizionamento orizzontale personalizzato, vedere [Scalabilità orizzontale dei database SQL di Azure](http://msdn.microsoft.com/library/azure/dn495641.aspx).
+> Per altre informazioni sulla scalabilità elastica, vedere gli [argomenti relativi alla scalabilità elastica del database SQL di Azure](sql-database-elastic-scale-documentation-map.md). Valutare la possibilità di distribuire soluzioni di partizionamento orizzontale personalizzato per l’ottimizzazione di scalabilità, flessibilità e prestazioni. Per altre informazioni sul partizionamento orizzontale personalizzato, vedere [Panoramica sulle funzionalità di database elastico](sql-database-elastic-scale-introduction.md).
 
 
 |Numero di errore|Gravità|Descrizione|Mitigazione|
 |---:|---:|:---|:---|
-|266|16|L’istruzione <statement> non è consentita nelle transazioni a istruzioni multiple|Controllare che `@@trancount` sia 0 nella connessione prima di eseguire l'istruzione.|
-|2072|16|Il database '%.&#x2a;ls' non esiste|Controllare `sys.databases` per lo stato del database prima di eseguire `USE FEDERATION`.|
-|2209|16|%s Errore di sintassi in prossimità di ‘%ls’|`FEDERATED ON` può essere usato solo quando si creano tabelle nei membri federativi.|
+|266|16|L'istruzione <statement> non è consentita nelle transazioni a istruzioni multiple|Controllare che `@@trancount` sia 0 nella connessione prima di eseguire l'istruzione.|
+|2072|16|Il database '%.&#x2a;ls' non esiste|Controllare `sys.databases` per verificare lo stato del database prima di eseguire `USE FEDERATION`.|
+|2209|16|%s Errore di sintassi in prossimità di ‘%ls’|`FEDERATED ON` può essere usato solo quando si creano tabelle nei membri di federazione.|
 |2714|16|Nel database esiste già un oggetto con il nome '%.&#x2a;ls'|Il nome federativo esiste già.|
 |10054, 10053|20|Si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. Una connessione stabilita è stata interrotta dal software nel computer host|Implementare la logica di ripetizione tentativi nell'applicazione.|
 |40530|15|<statement> deve essere l'unica istruzione nel batch|Verificare che nel batch non siano presenti altre istruzioni|
@@ -163,7 +181,7 @@ Nella tabella seguente vengono illustrati gli errori che è possibile riscontrar
 |45009|16|Operazione <statement> non riuscita. L’operazione non è supportata nelle connessioni di filtro|Non supportato.|
 |45010|16|Operazione <statement> non riuscita. Impossibile aggiornare la chiave federativa|Non supportato.|
 |45011|16|Operazione <statement> non riuscita. Impossibile aggiornare lo schema della chiave di federazione|Non supportato.|
-|45012|16|Il valore specificato per la chiave di federazione non è valido|Il valore deve essere compreso nell'intervallo indirizzato della connessione.<br/><br/>Se viene filtrato, il valore specificato della chiave di federazione.<br/><br/>Se non viene filtrato, l'intervallo usato dal membro di federazione.|
+|45012|16|Il valore specificato per la chiave di federazione non è valido|Il valore deve essere compreso nell'intervallo indirizzato dalla connessione.<br/><br/>Se viene filtrato, il valore specificato della chiave di federazione.<br/><br/>Se non viene filtrato, l'intervallo usato dal membro di federazione.|
 |45013|16|Il SID già esiste per un nome utente diverso|Il SID per un utente in un membro di federazione viene copiato dal SID dello stesso account utente nella radice di federazione. In determinate condizioni, è possibile che il SID sia già in uso.|
 |45014|16|%ls non è supportato in %ls|Operazione non supportata.|
 |45022|16|Operazione <statement> non riuscita. Il valore di limite specificato esiste già per la chiave di federazione <distribution_name> e la federazione <federation_name>|Specificare un valore che è già un valore limite.|
@@ -226,13 +244,13 @@ Nella tabella seguente sono elencati tutti gli errori generali che non rientrano
 |40632|16|Convalida della password non riuscita. La password non soddisfa i criteri in quanto non è sufficientemente complessa.|
 |40636|16|Impossibile utilizzare un nome di database riservato '%.&#x2a;ls' in questa operazione.|
 |40638|16|ID sottoscrizione non valido <subscription-id>. La sottoscrizione non esiste.|
-|40639|16|Richiesta non conforme allo schema:<schema error>.|
+|40639|16|Richiesta non conforme allo schema: <schema error>.|
 |40640|20|Eccezione imprevista rilevata dal server.|
 |40641|16|Il percorso specificato non è valido.|
 |40642|17|Server attualmente troppo occupato. Riprovare più tardi.|
 |40643|16|Valore dell'intestazione x-ms-version specificato non valido.|
 |40644|14|Impossibile autorizzare l'accesso alla sottoscrizione specificata.|
-|40645|16|Il nome del server <servername> non può essere vuoto o Null. Può essere costituito solo da lettere in minuscolo comprese tra a e z, numeri da 0 a 9 e dal segno meno (-) che non può essere la parte iniziale o finale del nome|
+|40645|16|Il nome del server <servername> non può essere vuoto o null. Può essere costituito solo da lettere in minuscolo comprese tra a e z, numeri da 0 a 9 e dal segno meno (-) che non può essere la parte iniziale o finale del nome|
 |40646|16|L’ID sottoscrizione non può essere vuoto.|
 |40647|16|Server nomeserver non disponibile per la sottoscrizione < id-sottoscrizione.|
 |40648|17|Esecuzione di un numero eccessivo di richieste. Riprovare più tardi.|
@@ -247,7 +265,7 @@ Nella tabella seguente sono elencati tutti gli errori generali che non rientrano
 
 ## Collegamenti correlati
 
-- [Linee guida e limitazioni generali per il database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
-- [Gestione delle risorse](http://msdn.microsoft.com/library/azure/dn338083.aspx)
+- [Limitazioni e linee guida generali per il database SQL di Azure](sql-database-general-limitations.md)
+- [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

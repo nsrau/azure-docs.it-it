@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Scenari di Testabilità di Infrastruttura di servizi: comunicazione tra i servizi" 
+   pageTitle="Testabilità: comunicazione del servizio | Microsoft Azure" 
    description="Le comunicazioni da servizio a servizio sono un punto di integrazione critico di un'applicazione Infrastruttura di servizi. In questo articolo vengono illustrate alcune considerazioni di progettazione e tecniche di test." 
    services="service-fabric" 
    documentationCenter=".net" 
@@ -101,4 +101,4 @@ In questo esempio, viene impostato `QuorumLossMode` su `PartialQuorumLoss`, per 
 
 [Ulteriori informazioni sugli scenari di Testabilità](service-fabric-testability-scenarios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -82,7 +82,7 @@ Usando Service Fabric è possibile:
 
 - Monitorare e diagnosticare l'integrità delle applicazioni e impostare i criteri per eseguire riparazioni automatiche.
 
-- Scalare facilmente il cluster di Service Fabric verticalmente o orizzontalmente, sapendo che le applicazioni vengono scalate in base alle risorse disponibili.
+- Scalare facilmente il cluster dell’infrastruttura di servizi verticalmente o orizzontalmente, sapendo che le applicazioni vengono scalate in base alle risorse disponibili.
 
 - Osservare il bilanciamento delle risorse con riparazione automatica che orchestra la ridistribuzione delle applicazioni all'interno del cluster di Service Fabric per il ripristino da errori e per ottimizzare la distribuzione del carico in base alle risorse disponibili.
 
@@ -98,4 +98,4 @@ Usando Service Fabric è possibile:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

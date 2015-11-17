@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Scenari e progettazione di applicazioni con Service Fabric" 
-   description="Categorie di applicazioni. Progettazione di applicazioni con servizi con e senza stato" 
+   pageTitle="Scenari e progettazione di applicazioni | Microsoft Azure" 
+   description="Panoramica delle categorie di applicazioni cloud nell'infrastruttura di servizi. Illustra la progettazione dell’applicazione mediante servizi con e senza stato."
    services="service-fabric" 
    documentationCenter=".net" 
    authors="msfussell" 
@@ -16,7 +16,7 @@
    ms.date="08/21/2015"
    ms.author="mfussell"/>
 
-# Scenari di applicazioni di Service Fabric
+# Scenari di applicazione dell’infrastruttura di servizi
 
 L’infrastruttura di servizi di Microsoft Azure offre una piattaforma flessibile e affidabile che consente di scrivere ed eseguire molti tipi di applicazioni e servizi aziendali. Queste applicazioni e questi microservizi possono essere con o senza stato e implementano il bilanciamento delle risorse tra le macchine virtuali per ottimizzare l'efficienza. La particolare architettura di Service Fabric consente di eseguire operazioni di analisi dei dati e di calcolo in memoria, transazioni parallele ed elaborazione degli eventi quasi in tempo reale nelle applicazioni. È possibile aumentare o ridurre facilmente il numero di applicazioni a seconda dei requisiti di risorse.
 
@@ -34,12 +34,12 @@ La piattaforma Service Fabric in Azure è ideale per le categorie di applicazion
  
 - **Analisi dei dati e flussi di lavoro**: le operazioni di lettura/scrittura rapide di Service Fabric abilitano applicazioni che devono elaborare in modo affidabile eventi o flussi di dati. Service Fabric abilita anche applicazioni che descrivono una pipeline di elaborazione, dove i risultati devono essere affidabili e passare senza perdite di dati alla fase di elaborazione successiva, inclusi sistemi transazionali e finanziari in cui la coerenza dei dati e le garanzie di calcolo sono essenziali.
 
-## Progettazione di applicazioni costituite da microservizi con e senza stato ##
+## Progettazione di applicazioni costituite da microservizi con e senza stato
 La creazione di applicazioni con ruoli di lavoro del servizio cloud di Azure è un esempio di servizi senza stato. Al contrario, i microservizi con stato mantengono lo stato autorevole oltre la richiesta e la risposta, fornendo disponibilità elevata e coerenza dello stato tramite semplici API che forniscono garanzie transazionali sostenute dalla replica. I servizi con stato dell’infrastruttura di servizi democratizzano la disponibilità elevata (HA), per tutti i tipi di applicazioni, non solo per database e altri archivi di dati. Si tratta di una progressione naturale: le applicazioni sono già passate dall'utilizzo di database esclusivamente relazionali per la disponibilità elevata, a database NoSQL; ora le applicazioni stesse possono avere lo stato "attivo" e i dati gestiti all'interno di essi per ulteriori miglioramenti delle prestazioni senza compromettere disponibilità, affidabilità o la coerenza.
 
 Quando si creano applicazioni costituite da microservizi, si dispone in genere di una combinazione di app Web senza stato (ASP.NET, node.js e così via) che effettuano chiamate a servizi aziendali di livello intermedio con e senza stato, tutti distribuiti nello stesso cluster di Service Fabric con i comandi di distribuzione di Service Fabric. Ognuno di questi servizi è indipendente per quanto riguarda l'utilizzo di scalabilità, affidabilità e risorse, migliorando notevolmente la flessibilità dello sviluppo e della gestione del ciclo di vita.
   
-I microservizi con stato semplificano la progettazione delle applicazioni poiché non è più necessario usare code e cache aggiuntive, che invece erano necessarie in passato per soddisfare i requisiti di disponibilità e latenza di un'applicazione interamente senza stato. L'elevata disponibilità e la bassa latenza dei servizi con stato implicano un uso ridotto di componenti mobili da gestire in un'applicazione nel suo insieme. I diagrammi seguenti illustrano le differenze tra la progettazione di un'applicazione senza stato rispetto alla progettazione di un'applicazione con stato. Sfruttando i modelli di programmazione [Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md) e [Reliable Actors](service-fabric-reliable-actors-introduction.md), i servizi con stato semplificano la complessità delle applicazioni, pur garantendo un'elevata velocità effettiva e una bassa latenza.
+I microservizi con stato semplificano la progettazione delle applicazioni poiché non è più necessario usare code e cache aggiuntive, che invece erano necessarie in passato per soddisfare i requisiti di disponibilità e latenza di un'applicazione interamente senza stato. L'elevata disponibilità e la bassa latenza dei servizi con stato implicano un uso ridotto di componenti mobili da gestire in un'applicazione nel suo insieme. I diagrammi seguenti illustrano le differenze tra la progettazione di un'applicazione senza stato rispetto alla progettazione di un'applicazione con stato. Sfruttando i modelli di programmazione [Reliable Services](service-fabric-reliable-services-introduction.md) e [Reliable Actors](service-fabric-reliable-actors-introduction.md), i servizi con stato semplificano la complessità delle applicazioni, pur garantendo un'elevata velocità effettiva e una bassa latenza.
 
 ## Applicazione creata con servizi senza stato##
 ![Applicazione che usa un servizio senza stato][Image1]
@@ -57,7 +57,7 @@ Vedere anche gli argomenti seguenti:
 
 [Definizione e gestione dello stato di un servizio](service-fabric-concepts-state.md)
 
-[Disponibilità dei servizi](../service-fabric-concepts-availability-services.md)
+[Disponibilità dei servizi](service-fabric-concepts-availability-services.md)
 
 [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
 
@@ -68,4 +68,4 @@ Vedere anche gli argomenti seguenti:
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

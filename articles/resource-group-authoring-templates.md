@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # Creazione di modelli di Gestione risorse di Azure
@@ -54,33 +54,7 @@ La sintassi di base del modello è JSON. Tuttavia, espressioni e funzioni estend
 
 Solitamente, si usano espressioni con funzioni per eseguire operazioni per la configurazione della distribuzione. Proprio come in JavaScript, le chiamate di funzione sono formattate come **functionName(arg1,arg2,arg3)**. Per i riferimenti alle proprietà si usano il punto e gli operatori [index].
 
-Nell'elenco seguente vengono riportate le funzioni comuni.
-
-- **parameters(parameterName)**
-
-    Restituisce un valore di parametro che viene fornito al momento dell'esecuzione della distribuzione.
-
-- **variables(variableName)**
-
-    Restituisce una variabile che viene definita nel modello.
-
-- **concat(arg1,arg2,arg3,...)**
-
-    Combina più valori di stringa. Questa funzione può accettare qualsiasi numero di argomenti.
-
-- **base64(inputString)**
-
-    Restituisce la rappresentazione base64 della stringa di input.
-
-- **resourceGroup()**
-
-    Restituisce un oggetto strutturato (dotato di proprietà ID, nome e percorso) che rappresenta il gruppo di risorse corrente.
-
-- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
-
-    Restituisce l'identificatore univoco di una risorsa. Può essere usato per recuperare risorse da un altro gruppo di risorse.
-
-L'esempio seguente illustra come usare diverse funzioni per la costruzione di valori:
+L'esempio seguente illustra come usare diverse funzioni al momento di costruite i valori:
  
     "variables": {
        "location": "[resourceGroup().location]",
@@ -88,7 +62,7 @@ L'esempio seguente illustra come usare diverse funzioni per la costruzione di va
        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-Per ora, si hanno a disposizione conoscenze sufficienti sulle espressioni e sulle funzioni per comprendere le sezioni del modello. Per informazioni più dettagliate su tutte le funzioni dei modelli, inclusi i parametri e il formato dei valori restituiti, vedere [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md).
+Per l’elenco completo delle funzioni del modello, vedere [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md).
 
 
 ## Parametri
@@ -107,7 +81,10 @@ I parametri vengono definiti con la struttura seguente:
          "minValue": <optional-minimum-value-for-int-parameters>,
          "maxValue": <optional-maximum-value-for-int-parameters>,
          "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
-         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>,
+         "metadata": {
+             "description": "<optional-description-of-the parameter>" 
+         }
        }
     }
 
@@ -121,6 +98,7 @@ I parametri vengono definiti con la struttura seguente:
 | maxValue | No | Il valore massimo per i parametri di tipo int, questo valore è inclusivo.
 | minLength | No | La lunghezza minima per la stringa, i parametri di tipo secureString e matrice, questo valore è inclusivo.
 | maxLength | No | La lunghezza massima per la stringa, i parametri di tipo secureString e matrice, questo valore è inclusivo.
+| description | No | Descrizione del parametro che verrà mostrato agli utenti del modello tramite l'interfaccia del modello personalizzato del portale.
 
 I valori e i tipi consentiti sono:
 
@@ -348,7 +326,7 @@ Questo argomento offre un'analisi iniziale del modello. Tuttavia, il proprio sce
 
 Potrebbe essere necessario unire due modelli o usare un modello figlio all'interno di un modello padre. Per altre informazioni, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md).
 
-Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
 
 Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo di risorse diverso. Questo è comune quando si usano account di archiviazione o reti virtuali condivisi tra più gruppi di risorse. Per altre informazioni, vedere la [funzione resourceId](../resource-group-template-functions#resourceid).
 
@@ -436,8 +414,8 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 
 ## Passaggi successivi
 - Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md)
-- Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
+- Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per visualizzare gli schemi disponibili, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

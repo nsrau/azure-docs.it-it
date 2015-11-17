@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Limiti dei servizi in Ricerca di Azure | Microsoft Azure"
-	description="Limiti della Ricerca di Azure utilizzati nella pianificazione della capacità e limiti massimi di richieste e risposte."
+	description="Limiti del servizio utilizzati nella pianificazione della capacità e limiti massimi di richieste e risposte per Ricerca di Azure, un servizio di ricerca ospitato sul cloud."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/18/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Limiti dei servizi in Ricerca di Azure
@@ -39,6 +39,7 @@ Unità massima di ricerca|N/D
 Numero massimo di indicizzatori|3
 Numero massimo di origini dati indicizzatore|3
 Numero massimo di documenti indicizzati per ogni chiamata indicizzatore|10\.000
+Tempo di esecuzione dell’indicizzatore massimo|3 minuti
 
 Si noti che non sono presenti quote o limiti massimi associati alle query. Il valore di query al secondo (QPS) è variabile a seconda della larghezza di banda disponibile e della concorrenza per le risorse di sistema. Le risorse di calcolo e di archiviazione di Azure che supportano il servizio condiviso vengono condivise da più sottoscrittori, pertanto il valore di QPS per la soluzione varia a seconda di come i numerosi altri carichi di lavoro sono in esecuzione nello stesso momento.
 
@@ -132,4 +133,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 - 1000 documenti al massimo restituiti per pagina di risultati della ricerca
 - 100 suggerimenti al massimo restituiti per richiesta di API di suggerimento
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

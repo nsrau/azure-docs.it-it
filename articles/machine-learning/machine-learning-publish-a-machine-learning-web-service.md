@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="11/03/2015"
 	ms.author="garye"/>
 
 # Distribuire un servizio Web di Azure Machine Learning
@@ -24,11 +24,11 @@ In generale, questo avviene in tre passaggi:
 
 - **[Creare un esperimento di training]** - Azure Machine Learning Studio è un ambiente di sviluppo visivo di collaborazione che consente di eseguire il training e il test di un modello di analisi predittiva usando i dati di training forniti.
 - **[Convertirlo in un esperimento di classificazione]** - Dopo aver sottoposto il modello a training con i dati esistenti, preparare e semplificare l'esperimento di assegnazione dei punteggi quando si è pronti a usarlo per valutare nuovi dati.
-- **[Distribuirlo come servizio Web]** - Con un semplice clic è possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. Gli utenti possono inviare dati al modello e ricevere le relative previsioni.
+- **[Distribuirlo come servizio Web]** - Con un semplice clic è possibile distribuire l'esperimento di assegnazione dei punteggi come servizio Web di Azure. Gli utenti possono inviare dati al modello e ricevere le relative previsioni.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Dopo aver pubblicato il servizio Web, è possibile:
+Dopo aver distribuito il servizio Web, è possibile:
 
 - **[Accedervi]** tramite l'API del servizio Web
 - **[Gestirlo]** tramite il portale di gestione di Azure e
@@ -55,9 +55,9 @@ Il processo di creazione e gestione degli esperimenti di training è trattato in
 
 ## Convertire l'esperimento di training in un esperimento predittivo
 
-Dopo aver eseguito il training del modello, è possibile usarlo per valutare nuovi dati. A tale scopo, è necessario convertire l'esperimento di training in un esperimento predittivo. Effettuando la conversione a un esperimento predittivo, si prepara il modello sottoposto a training per essere pubblicato come servizio Web di classificazione. Gli utenti del servizio Web possono inviare dati di input al modello che poi restituirà i risultati della stima. Pertanto, effettuando la conversione a un esperimento predittivo, è possibile valutare il modo in cui il modello verrà usato da altri utenti.
+Dopo aver eseguito il training del modello, è possibile usarlo per valutare nuovi dati. A tale scopo, è necessario convertire l'esperimento di training in un esperimento predittivo. Effettuando la conversione in un esperimento predittivo, si prepara il modello sottoposto a training per la distribuzione come servizio Web di classificazione. Gli utenti del servizio Web possono inviare dati di input al modello che poi restituirà i risultati della stima. Pertanto, effettuando la conversione a un esperimento predittivo, è possibile valutare il modo in cui il modello verrà usato da altri utenti.
 
-Per convertire l'esperimento di training in un esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell’esperimento, quindi fare clic su **Installa servizio Web**.
+Per convertire l'esperimento di training in un esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell’esperimento, quindi fare clic su **Installa servizio Web**, poi scegliere **Servizio Web Predittivo**.
 
 ![Eseguire la conversione a un esperimento di assegnazione dei punteggi](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
@@ -66,9 +66,9 @@ Per ulteriori dettagli su come eseguire questa conversione, vedere [Conversione 
 
 ## Distribuire l’esperimento predittivo come servizio web
 
-Ora che l'esperimento predittivo è stato sufficientemente preparato, è possibile pubblicarlo come servizio Web di Azure. Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le previsioni.
+Ora che l'esperimento predittivo è stato sufficientemente preparato, è possibile distribuirlo come servizio Web di Azure. Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le previsioni.
 
-Per pubblicare l'esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell'esperimento, quindi fare clic su **PUBBLICA SERVIZIO WEB**. Il servizio Web viene configurato e viene visualizzato il dashboard del servizio Web.
+Per distribuire l'esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell'esperimento, e poi fare clic su **Pubblica Servizio Web**. Il servizio Web viene configurato e viene visualizzato il dashboard del servizio Web.
 
 ![Distribuire il servizio web](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
 
@@ -89,12 +89,12 @@ Dopo aver distribuito il servizio Web da Machine Learning Studio, è possibile i
 
 Il dashboard offre tutte le informazioni necessarie per accedere al servizio Web. Ad esempio, la chiave API viene offerta per consentire l'accesso autorizzato al servizio, mentre le pagine della guida API hanno lo scopo di aiutare nella scrittura di codice.
 
-Per altre informazioni su come accedere a un servizio Web di Machine Learning, vedere [Come usare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
+Per altre informazioni su come accedere a un servizio Web di Machine Learning, vedere [Come usare un servizio Web di Azure Machine Learning distribuito](machine-learning-consume-web-services.md).
 
 
 ## Gestire il servizio Web nel portale di gestione di Azure
 
-Nel portale di gestione di Azure è possibile gestire i servizi Web facendo clic sul servizio **Machine Learning**, aprendo l'area di lavoro Machine Learning e quindi aprendo il servizio Web dalla scheda **SERVIZI WEB**. Da questa pagina è possibile monitorare il servizio Web, aggiornarlo ed eliminarlo. È anche possibile aggiungere un secondo endpoint per il servizio Web oltre all'endpoint predefinito creato al momento della pubblicazione.
+Nel portale di gestione di Azure è possibile gestire i servizi Web facendo clic sul servizio **Machine Learning**, aprendo l'area di lavoro Machine Learning e quindi aprendo il servizio Web dalla scheda **SERVIZI WEB**. Da questa pagina è possibile monitorare il servizio Web, aggiornarlo ed eliminarlo. È anche possibile aggiungere un secondo endpoint per il servizio Web oltre all'endpoint predefinito creato al momento della distribuzione.
 
 Per altre informazioni, vedere [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md).
 <!-- When this article gets published, fix the link and uncomment
@@ -104,12 +104,12 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 ## Aggiornare il servizio Web
 
-È possibile apportare modifiche al servizio Web, ad esempio aggiornare il modello con ulteriori dati di training e ripubblicarlo, sovrascrivendo il servizio Web originale.
+È possibile apportare modifiche al servizio Web, ad esempio aggiornare il modello con ulteriori dati di training e ridistribuirlo, sovrascrivendo il servizio Web originale.
 
-Per aggiornare il servizio Web, aprire l'esperimento predittivo originale usato per distribuire il servizio Web e creare una copia modificabile facendo clic su **SALVA CON NOME**. Eseguire le modifiche e fare clic su **DISTRIBUISCI SERVIZIO WEB**. Poiché l'esperimento è stato pubblicato in precedenza, Machine Learning Studio chiede se si desidera sovrascrivere il servizio esistente. Facendo clic su **SÌ**, il servizio Web esistente si arresta e al suo posto viene pubblicato il nuovo esperimento predittivo.
+Per aggiornare il servizio Web, aprire l'esperimento predittivo originale usato per distribuire il servizio Web e creare una copia modificabile facendo clic su **SALVA CON NOME**. Eseguire le modifiche e fare clic su **Distribuisci Servizio Web**. Poiché l'esperimento è stato distribuito in precedenza, Machine Learning Studio chiede se si desidera sovrascrivere il servizio esistente. Facendo clic su **SÌ**, il servizio Web esistente si arresta e al suo posto viene distribuito il nuovo esperimento predittivo.
 
 > [AZURE.NOTE]Se sono state apportate modifiche di configurazione al servizio Web originale, ad esempio immettendo un nuovo nome o descrizione, è necessario immettere nuovamente questi valori.
 
 Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

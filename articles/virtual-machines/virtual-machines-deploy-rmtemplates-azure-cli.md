@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="11/01/2015"
 	ms.author="rasquill"/>
 
 # Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure
@@ -22,7 +22,6 @@
 Questo articolo illustra come usare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per eseguire attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per altri modelli disponili, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [Creare framework di applicazioni utilizzando modelli](virtual-machines-app-frameworks.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica. Non è possibile utilizzare i modelli nel modello di distribuzione classica.
-
 
 - [Creazione rapida di una macchina virtuale in Azure](#quick-create-a-vm-in-azure)
 - [Distribuire una macchina virtuale in Azure da un modello](#deploy-a-vm-in-azure-from-a-template)
@@ -38,16 +37,16 @@ Questo articolo illustra come usare i modelli di Gestione risorse e l'interfacci
 
 ## Preparazione
 
-Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, è necessario installare la versione corretta dell'interfaccia della riga di comando di Azure e un account aziendale o dell'istituto di istruzione.
+Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure e di un account Azure. Se non si dispone dell'interfaccia della riga di comando di Azure, è necessario [installarla](xplat-cli-install.md).
 
 ### Aggiornare la versione dell'interfaccia della riga di comando di Azure alla 0.9.0 o successiva
 
-Digitare `azure --version` per verificare se è già installata la versione 0.9.0. o una versione successiva.
+Digitare `azure --version` per verificare se è già installata la versione 0.9.0 o una versione successiva.
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-Se la versione installata non è la 0.9.0 o una versione successiva, sarà necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) o l'aggiornamento usando uno dei programmi di installazione nativi oppure tramite **npm** digitando `npm update -g azure-cli`.
+Se la versione installata non corrisponde alla 0.9.0 o a una versione successiva, è necessario aggiornarla usando uno dei programmi di installazione nativi oppure tramite **npm** digitando `npm update -g azure-cli`.
 
 È anche possibile eseguire l'interfaccia della riga di comando di Azure come contenitore Docker usando l'[immagine Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/) seguente. Da un host Docker, eseguire il comando seguente:
 
@@ -57,9 +56,9 @@ Se la versione installata non è la 0.9.0 o una versione successiva, sarà neces
 
 Se non si dispone già una sottoscrizione di Azure, ma si dispone di un abbonamento MSDN, è possibile attivare i [Vantaggi per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per una versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-Per usare i modelli di Gestione risorse di Azure è necessario avere un account aziendale o dell'istituto di istruzione. Se si ha un account, è possibile digitare `azure login`, immettere il nome utente e la password ed eseguire l'accesso.
+[Accedere all'account Azure in modo interattivo](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguendo le istruzioni dell'esperienza interattiva per l'accesso all'account Azure.
 
-> [AZURE.NOTE]Se non è disponibile, verrà visualizzato un messaggio di errore che indica che è necessario un diverso tipo di account. Per crearne uno dall'account Azure corrente, vedere [Creazione di un'identità aziendale o dell'istituto di istruzione in Azure Active Directory](resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE]Se si dispone di un ID aziendale o dell'istituto di istruzione e si è certi che l'autenticazione a due fattori non è abilitata, è **anche** possibile usare `azure login -u` con l'ID aziendale o dell'istituto di istruzione per accedere *senza* una sessione interattiva. Se non si dispone di un ID aziendale o dell'istituto di istruzione, è possibile [crearne uno dall'account Microsoft personale](resource-group-create-work-id-from-personal.md) per accedere nello stesso modo.
 
 L'account può includere più di una sottoscrizione. È possibile elencare le sottoscrizioni digitando `azure account list`, comando che potrebbe essere visualizzato in modo simile al seguente:
 
@@ -84,15 +83,11 @@ Per impostazione predefinita, l'interfaccia della riga di comando di Azure viene
 
 	azure config mode arm
 
-
-
-> [AZURE.NOTE]È possibile passare nuovamente al set predefinito di comandi digitando `azure config mode asm`.
-
 ## Informazioni su modelli di risorse e gruppi di risorse di Azure
 
 La maggior parte delle applicazioni è costituita da una combinazione di tipi di risorse diversi, ad esempio una o più macchine virtuali e account di archiviazione, un database SQL, una rete virtuale o una rete per la distribuzione di contenuti. L'API di gestione del servizio Azure predefinita e il portale di Azure rappresentano questi elementi tramite un approccio servizio per servizio. Questo approccio prevede che i singoli servizi vengano distribuiti e gestiti individualmente (o tramite appositi strumenti) e non come una singola unità logica di distribuzione.
 
-I *modelli di Gestione risorse di Azure* consentono di distribuire e gestire queste risorse diverse come una singola unità logica di distribuzione in modo dichiarativo. Anziché in modo imperativo indicando a Azure gli elementi da distribuire un comando dopo l'altro, è possibile descrivere l'intera distribuzione in un file JSON (tutte le risorse, la configurazione associata e i parametri di distribuzione) e indicare ad Azure di distribuire le risorse come un singolo gruppo.
+I *modelli di Gestione risorse di Azure*, tuttavia, consentono di distribuire e gestire queste risorse diverse come una singola unità logica di distribuzione in modo dichiarativo. Anziché in modo imperativo indicando a Azure gli elementi da distribuire un comando dopo l'altro, è possibile descrivere l'intera distribuzione in un file JSON (tutte le risorse, la configurazione associata e i parametri di distribuzione) e indicare ad Azure di distribuire le risorse come un singolo gruppo.
 
 È quindi possibile gestire il ciclo di vita complessivo delle risorse del gruppo tramite i comandi di gestione delle risorse dell'interfaccia della riga di comando di Azure per effettuare le operazioni seguenti:
 
@@ -103,7 +98,7 @@ I *modelli di Gestione risorse di Azure* consentono di distribuire e gestire que
 
 Per altre informazioni sui gruppi di risorse di Azure e su come usarli, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-## <a id="quick-create-a-vm-in-azure"></a>Attività: Creazione rapida di una macchina virtuale in Azure
+## <a id="quick-create-a-vm-in-azure"></a>Attività: Creare rapidamente una macchina virtuale in Azure
 
 A volte si sa quale immagine è necessaria e occorre una macchina virtuale di tale immagine al momento e non è rilevante eccessivamente l'infrastruttura (forse potrebbe essere necessario testare un elemento in una nuova macchina virtuale). Ovvero quando si desidera utilizzare il comando `azure vm quick-create` e passare gli argomenti necessari per creare una macchina virtuale e la relativa infrastruttura.
 
@@ -434,7 +429,7 @@ Una volta definiti questi valori, è possibile creare un gruppo relativo e distr
 
 Dopo aver preparato i valori di parametro, è necessario creare un gruppo di risorse per la distribuzione del modello, quindi procedere con l'operazione.
 
-Per creare il gruppo di risorse, digitare `azure group create <group name> <location>` con il nome del gruppo desiderato e la località del data center in cui si intende effettuare la distribuzione. Ciò si verifica rapidamente:
+Per creare il gruppo di risorse, digitare `azure group create <group name> <location>` con il nome del gruppo desiderato e la posizione del data center in cui si intende eseguire la distribuzione. Ciò si verifica rapidamente:
 
     azure group create myResourceGroup westus
     info:    Executing command group create
@@ -694,11 +689,11 @@ Ovviamente, è necessario un file VHD per questa operazione. È possibile usarne
 
 Per una macchina virtuale basata su Windows, vedere [Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure](virtual-machines-create-upload-vhd-windows-server.md).
 
-Per una macchina virtuale basata su Linux, vedere [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
+Per una macchina virtuale basata su Linux, vedere [Creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
 
 ### Passaggio 3: Creare la macchina virtuale usando il modello
 
-A questo punto è possibile creare una nuova macchina virtuale in base al file VHD. Creare un gruppo in cui effettuare la distribuzione, usando `azure group create <location>`:
+A questo punto è possibile creare una nuova macchina virtuale in base al file VHD. Creare un gruppo in cui eseguire la distribuzione, usando `azure group create <location>`:
 
     azure group create myResourceGroupUser eastus
     info:    Executing command group create
@@ -713,7 +708,7 @@ A questo punto è possibile creare una nuova macchina virtuale in base al file V
     data:
     info:    group create command OK
 
-Creare quindi la distribuzione usando l'opzione `--template-uri` che consente di chiamare direttamente il modello. In alternativa, usare l'opzione `--template-file` per usare un file salvato in locale. Si noti che poiché nel modello sono specificati valori predefiniti, sarà necessario fornire solo poche informazioni. Se si distribuisce il modello in posizioni diverse, potrebbero verificarsi alcuni conflitti di denominazione con i valori predefiniti (in particolare per il nome DNS creato).
+Creare quindi la distribuzione usando l'opzione `--template-uri`, che consente di chiamare direttamente il modello. In alternativa, l'opzione `--template-file` consente di usare un file salvato in locale. Si noti che poiché nel modello sono specificati valori predefiniti, sarà necessario fornire solo poche informazioni. Se si distribuisce il modello in posizioni diverse, potrebbero verificarsi alcuni conflitti di denominazione con i valori predefiniti (in particolare per il nome DNS creato).
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json \
@@ -1108,7 +1103,7 @@ Di seguito il contenuto del file JSON per il modello. Se si desidera la versione
 
 ### Passaggio 2: Creare la distribuzione usando il modello
 
-Creare un gruppo di risorse per il modello usando l'opzione `azure group create <location>`. Creare quindi una distribuzione nel gruppo di risorse usando `azure group deployment create` e passando il gruppo di risorse, un nome di distribuzione e specificando i parametri del modello per cui non sono previsti valori predefiniti.
+Creare un gruppo di risorse per il modello usando l'opzione `azure group create <location>`. Creare quindi una distribuzione nel gruppo di risorse usando `azure group deployment create` e passando il gruppo di risorse e un nome di distribuzione, nonché specificando i parametri del modello per cui non sono previsti valori predefiniti.
 
 
     azure group create lbgroup westus
@@ -1176,7 +1171,7 @@ Si noti che questo modello distribuisce un'immagine di Windows Server. Questa im
 
 ## <a id="remove-a-resource-group"></a>Attività: Rimuovere un gruppo di risorse
 
-Tenere presente che in un gruppo di risorse è possibile effettuare una nuova distribuzione, tuttavia, se il gruppo di risorse non è più necessario, è possibile eliminarlo usando il comando `azure group delete <group name>`.
+Tenere presente che in un gruppo di risorse è possibile eseguire una nuova distribuzione, tuttavia, se il gruppo di risorse non è più necessario, è possibile eliminarlo usando il comando `azure group delete <group name>`.
 
     azure group delete myResourceGroup
     info:    Executing command group delete
@@ -1186,9 +1181,9 @@ Tenere presente che in un gruppo di risorse è possibile effettuare una nuova di
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>Attività: Visualizzare il log per una distribuzione nel gruppo di risorse
 
-Questa operazione è piuttosto comune durante la creazione o l'utilizzo di modelli. Il comando per chiamare la visualizzazione dei log di distribuzione per un gruppo è `azure group log show <groupname>`, che fornisce numerose informazioni utili per comprendere il motivo per cui si è verificato, o non si è verificato, un evento. Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzioni o ad altri errori, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-group-deploy-debug.md).
+Questa operazione è piuttosto comune durante la creazione o l'utilizzo di modelli. Il comando per visualizzare i log di distribuzione per un gruppo è `azure group log show <groupname>` e offre numerose informazioni utili per comprendere il motivo per cui si è verificato, o non si è verificato, un evento. Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzioni o ad altri errori, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-group-deploy-debug.md).
 
-Per errori specifici ad esempio, è possibile utilizzare strumenti come **jq** per eseguire query in modo più preciso, ad esempio individuare i singoli errori che è necessario correggere. Nell'esempio seguente viene usato **jq** per analizzare un log di distribuzione per **lbgroup** al fine di trovare eventuali errori.
+Per errori specifici, è possibile usare strumenti quali **jq** per eseguire query in modo più preciso, ad esempio per individuare i singoli errori che è necessario correggere. L'esempio seguente usa **jq** per analizzare un log di distribuzione per **lbgroup**, per trovare eventuali errori.
 
     azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 
@@ -1269,7 +1264,7 @@ Selezionare quindi myVM1:
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Attività: Accedere a una macchina virtuale basata su Linux
 
-In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere la pagina relativa all'[Uso di SSH con Linux in Azure](virtual-machines-linux-use-ssh-key.md).
+In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## <a id="stop-a-virtual-machine"></a>Attività: Arrestare una macchina virtuale
 
@@ -1302,8 +1297,8 @@ Quindi è necessario montare il disco, come si farebbe normalmente in Linux (o i
 
 ## Passaggi successivi
 
-Per altri esempi che mostrano come usare l'interfaccia della riga di comando di Azure nella modalità **Gestione risorse di Azure**, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure.](xplat-cli-azure-resource-manager.md). Per altre informazioni sulle risorse di Azure e concetti correlati, vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md).
+Per altri esempi che mostrano come usare l'interfaccia della riga di comando di Azure nella modalità **Gestione risorse di Azure**, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure.](xplat-cli-azure-resource-manager.md). Per altre informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md).
 
-Per altri modelli disponili, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [Creare framework di applicazioni utilizzando modelli](virtual-machines-app-frameworks.md).
+Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](http://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

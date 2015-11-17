@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)" 
+pageTitle="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview) | Microsoft Azure" 
 description="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/29/2015" 
+ms.date="11/04/2015" 
 ms.author="heidist" />
 
 #Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)#
@@ -21,7 +21,7 @@ ms.author="heidist" />
 
 ## Panoramica ##
 
-Ricerca di Azure può integrarsi direttamente con alcune origini dati comuni, eliminando la necessità di scrivere codice per l'indicizzazione dei dati. Per impostare questo servizio, è possibile chiamare l'API di Ricerca di Azure in modo da creare e gestire **indicizzatori** e **origini dati**.
+Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure. Ricerca di Azure può integrarsi direttamente con alcune origini dati comuni, eliminando la necessità di scrivere codice per l'indicizzazione dei dati. Per impostare questo servizio, è possibile chiamare l'API di Ricerca di Azure in modo da creare e gestire **indicizzatori** e **origini dati**.
 
 Un **indicizzatore** è una risorsa che connette le origini dati agli indici di ricerca di destinazione. Un indicizzatore viene usato nei modi seguenti:
 
@@ -776,4 +776,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

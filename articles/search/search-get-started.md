@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Introduzione a Ricerca di Azure | Microsoft Azure" 
-	description="Introduzione a Ricerca di Azure" 
+	description="Introduzione a Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Introduzione a Ricerca di Azure
 
-Ricerca di Microsoft Azure è un nuovo servizio che consente di incorporare funzionalità di ricerca in applicazioni personalizzate. Fornisce il motore di ricerca e l'archiviazione per i dati, è possibile accedere e gestire utilizzando una libreria .NET o un'API REST.
+Ricerca di Microsoft Azure è un servizio di ricerca ospitato sul cloud che consente di incorporare funzionalità di ricerca in applicazioni personalizzate. Fornisce il motore di ricerca e l'archiviazione per i dati, è possibile accedere e gestire utilizzando una libreria .NET o un'API REST.
 
 In questo articolo viene presentato con l'API REST di Ricerca di Azure.
 
@@ -378,4 +378,4 @@ Pronti per il passaggio successivo? Fare clic sui collegamenti seguenti per acce
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

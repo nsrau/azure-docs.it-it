@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come impaginare i risultati della ricerca in Ricerca di Azure" 
-	description="Impaginazione in Ricerca di Azure" 
+	pageTitle="Come impaginare i risultati della ricerca in Ricerca di Azure | Microsoft Azure" 
+	description="L’impaginazione in Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Come impaginare i risultati della ricerca in Ricerca di Azure#
@@ -114,4 +114,4 @@ Vedere [Ricerca nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.c
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

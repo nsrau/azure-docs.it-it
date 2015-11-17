@@ -108,6 +108,6 @@ Se è necessario passare un valore dal modello collegato al modello principale, 
 
 ## Passaggi successivi
 - [Creazione di modelli](./resource-group-authoring-templates.md)
-- [Distribuzione di modelli](azure-portal/resource-group-template-deploy.md)
+- [Distribuzione di modelli](resource-group-template-deploy.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/03/2015"
 	ms.author="spelluru"/>
 
 # Spostare dati da e in Archivio Azure Data Lake con Data factory di Azure
@@ -54,7 +54,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un archivio BLOB di
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -227,7 +227,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un Archivio Azure D
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -395,9 +395,9 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 È possibile collegare un account di archiviazione di Azure a una data factory di Azure tramite un servizio collegato Archiviazione di Azure. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato Archiviazione di Azure.
 
 | Proprietà | Descrizione | Obbligatorio |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | type | La proprietà type deve essere impostata su: **AzureDataLakeStore** | Sì |
-| dataLakeUri | Specificare le informazioni sull'account Archivio Azure Data Lake. È nel formato seguente: https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 | Sì |
+| dataLakeUri | Specificare le informazioni sull'account Archivio Azure Data Lake. È nel formato seguente: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sì |
 | authorization | Fare clic sul pulsante **Autorizza** nell'**Editor di Data factory** e immettere le credenziali, per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì |
 | sessionId | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID sessione è univoco e può essere usato solo una volta. Viene generato automaticamente quando si usa l'editor di Data factory. | Sì |  
 | accountName | Nome dell'account Data Lake | No |
@@ -412,15 +412,17 @@ Per un elenco completo delle proprietà e delle sezioni JSON disponibili per la 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni su percorso, formato dei dati e così via nell'archivio dati. La sezione typeProperties per il set di dati di tipo **AzureDataLakeStore** include le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatorio |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | folderPath | Percorso del contenitore e della cartella nell'Archivio Azure Data Lake. | Sì |
 | fileName | <p>Nome del file nell'Archivio Azure Data Lake. fileName è facoltativa. </p><p>Se si specifica un nome file, l'attività (inclusa la copia) funziona sul file specifico.</p><p>Quando fileName non è specificato, la copia include tutti i file nella proprietà folderPath per il set di dati di input.</p><p>Quando fileName non è specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
 | partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Vedere la sezione Uso della proprietà partitionedBy di seguito per informazioni dettagliate ed esempi. | No |
+| format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altre informazioni, vedere la sezione [Definizione di TextFormat](#specifying-textformat) disponibile di seguito. | No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
 ### Uso della proprietà partitionedBy
-Come indicato in precedenza, è possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy**, macro Data factory e variabili di sistema, SliceStart e SliceEnd, che indicano l'ora di inizio e di fine per una sezione dati specificata.
+Come indicato in precedenza, è possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy**, macro Data factory e le variabili di sistema SliceStart e SliceEnd, che indicano l'ora di inizio e fine per una sezione di dati specificata.
 
-Per informazioni dettagliate sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md) e [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md).
+Per altre informazioni sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md) e [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md).
 
 #### Esempio 1
 
@@ -446,6 +448,94 @@ Nell'esempio precedente, {Slice} viene sostituito con il valore della variabile 
 
 Nell'esempio precedente, anno, mese, giorno e ora di SliceStart vengono estratti in variabili separate che vengono usate dalle proprietà folderPath e fileName.
 
+### Specifica di TextFormat
+
+Se il formato è impostato su **TextFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Format**.
+
+| Proprietà | Descrizione | Obbligatorio |
+| -------- | ----------- | -------- |
+| columnDelimiter | Caratteri usati come separatori di colonne in un file. Questo tag è facoltativo. Il valore predefinito è la virgola (,). | No |
+| rowDelimiter | Carattere/i usato/i come separatore raw in un file. Questo tag è facoltativo. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No |
+| escapeChar | <p>Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere.</p><p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.</p><p>Non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No | 
+| quoteChar | <p>Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .</p><p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No |
+| nullValue | <p>Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Questo tag è facoltativo. Il valore predefinito è "\\N".</p><p>Ad esempio, in base al precedente esempio, "NaN" in BLOB verrà tradotto come valore null durante la copia in SQL Server.</p> | No |
+| encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8. | No | 
+
+#### Esempi
+L'esempio seguente illustra alcune delle proprietà del formato per TextFormat.
+
+	"typeProperties":
+	{
+	    "folderPath": "mycontainer/myfolder",
+	    "fileName": "myfilename"
+	    "format":
+	    {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "quoteChar": """,
+	        "NullValue": "NaN"
+	    }
+	},
+
+Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar con la stringa seguente:
+
+	"escapeChar": "$",
+
+### Specifica di AvroFormat
+Se il formato è impostato su AvroFormat, non è necessario specificare proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+
+	"format":
+	{
+	    "type": "AvroFormat",
+	}
+
+Per usare il formato Avro in una tabella Hive, fare riferimento all'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+
+### Supporto della compressione  
+L'elaborazione di set di dati di grandi dimensioni può causare colli di bottiglia I/O e di rete. Pertanto, i dati compressi negli archivi possono non solo velocizzare il trasferimento dei dati attraverso la rete e risparmiare spazio su disco, ma apportare anche miglioramenti significativi delle prestazioni nell'elaborazione di dati di grandi dimensioni. Attualmente, la compressione è supportata per gli archivi di dati basati su file, ad esempio BLOB di Azure o il file system locale.
+
+Per specificare la compressione per un set di dati, usare la proprietà **compression** nel set di dati JSON come illustrato di seguito:
+
+	{  
+		"name": "AzureDatalakeStoreDataSet",  
+	  	"properties": {  
+	    	"availability": {  
+	    		"frequency": "Day",  
+	    	  	"interval": 1  
+	    	},  
+	    	"type": "AzureDatalakeStore",  
+	    	"linkedServiceName": "DataLakeStoreLinkedService",  
+	    	"typeProperties": {  
+	    		"fileName": "pagecounts.csv.gz",  
+	    	  	"folderPath": "compression/file/",  
+	    	  	"compression": {  
+	    	    	"type": "GZip",  
+	    	    	"level": "Optimal"  
+	    	  	}  
+    		}  
+	  	}  
+	}  
+ 
+Tenere presente che la sezione **compression** dispone di due proprietà:
+  
+- **Type:** il codec di compressione, che può essere **GZIP**, **Deflate** o **BZIP2**.  
+- **Level:** il rapporto di compressione, che può essere **Optimal** o **Fastest**. 
+	- **Fastest:** l'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non viene compresso in modo ottimale. 
+	- **Optimal**: l'operazione di compressione deve comprimere il file in modo ottimale, anche se il completamento richiede più tempo. 
+	
+	Per altre informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx).
+
+Supponendo che il set di dati di esempio sopra riportato venga usato come output di un'attività di copia, l'attività di copia comprimerà i dati di output con il codec GZIP usando un rapporto ottimale e quindi scriverà i dati compressi in un file denominato pagecounts.csv.gz in Archvio Data Lake di Azure.
+
+Quando si specifica una proprietà di compressione in un set di dati di input JSON, la pipeline può leggere i dati compressi dall'origine. Quando si specifica la proprietà in un set di dati di output JSON, l'attività di copia può scrivere i dati compressi nella destinazione. Di seguito vengono forniti alcuni scenari di esempio:
+
+- Leggere i dati compressi GZIP da Archivio Data Lake di Azure, decomprimerli e scrivere i dati del risultato in un database SQL di Azure. In questo caso, definire il set di dati di input di Archivio Data Lake di Azure con la proprietà compression di JSON. 
+- Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in Archivio Data Lake di Azure. In questo caso, definire il set di dati di output di Azure Data Lake con la proprietà compression di JSON.  
+- Leggere i dati compressi GZIP da Archivio Data Lake di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in Archivio Data Lake di Azure. In questo caso, il set di dati di input di Archivio Data Lake di Azure viene definito con il tipo di compressione impostato su GZIP e il set di dati di output viene definito con il tipo di compressione impostato su BZIP2.   
+
+
 ## Proprietà del tipo di attività di copia di tabelle di Azure Data Lake  
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
 
@@ -463,7 +553,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Specifica il comportamento di copia. | <p>**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione, ad esempio, il percorso relativo del file di origine per la cartella di origine è identico al percorso relativo del file di destinazione per la cartella di destinazione.</p><p>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente.</p><p>**MergeFiles:** unisce tutti i file dalla cartella di origine in un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</p> | No |
+| copyBehavior | Specifica il comportamento di copia. | <p>**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione; ad esempio, il percorso relativo del file di origine per la cartella di origine è identico al percorso relativo del file di destinazione per la cartella di destinazione.</p><p>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente.</p><p>**MergeFiles:** unisce tutti i file dalla cartella di origine in un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</p> | No |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -472,4 +562,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

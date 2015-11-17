@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Scenari di test personalizzati"
-   description="Come proteggere i servizi in caso di errori normali o anomali"
+   pageTitle="Scenari di test personalizzati | Microsoft Azure"
+   description="Come proteggere i servizi in caso di errori normali e anomali"
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -153,4 +153,4 @@ class Test
 ```
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

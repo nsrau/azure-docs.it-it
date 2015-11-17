@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2015"   
+	ms.date="11/03/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 - [Problemi noti correnti](#issues)
 - [Cronologia delle versioni dell'API REST](#rest_version_history)
+- [Versione ottobre 2015](#oct_changes_15)
 - [Versione di settembre 2015](#september_changes_15)
 - [Versione di agosto 2015](#august_changes_15)
 - [Versione di luglio 2015](#july_changes_15)
@@ -74,6 +75,14 @@ Gli oggetti di Servizi multimediali nel modulo SDK non possono essere serializza
 
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
+##<a id="oct_changes_15"></a>Versione ottobre 2015
+
+Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di gestione di Azure per [creare account di Servizi multimediali](media-services-create-account.md#create-a-media-services-account-using-quick-create) ed eseguire diverse attività descritte [qui](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è tuttavia abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
+
+- Brasile meridionale: sono disponibili solo unità riservate di codifica Standard e Basic
+- India occidentale, India meridionale e India centrale: sono disponibili solo unità riservate di codifica Basic
+
+
 ##<a id="september_changes_15"></a>Versione di settembre 2015 
 
 - AMS offre ora la possibilità di proteggere le video on Demand (VOD) e i flussi Live con la tecnologia DRM modulare Widevine. È possibile utilizzare i seguenti partner dei servizi di recapito per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
@@ -89,11 +98,11 @@ Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali
 	- È ora possibile utilizzare il formato Apple HTTP Live Streaming (HLS) con il filtro solo audio. Questo aggiornamento consente di rimuovere solo la traccia audio specificando (solo audio = false) nell'URL.
 	- Quando si definiscono i filtri per gli asset, ora è possibile combinare più filtri (fino a 3) in un singolo URL.
 
-	Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Per altre informazioni, vedere [questo](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
 
 - AMS supporta ora gli I-Frames in HLS v4. Il supporto I-Frame consente di ottimizzare le operazioni di avanzamento veloce e riavvolgimento. Per impostazione predefinita, tutti gli output v4 HLS includono le playlist I-Frame (EXT-X-I-FRAME-STREAM-INF).
  
-	Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Per altre informazioni, vedere [questo](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
 
 ##<a id="august_changes_15"></a>Versione di agosto 2015
 
@@ -602,4 +611,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

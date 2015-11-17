@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="11/02/2015" 
 	ms.author="juliako"/>
 
 
@@ -36,7 +36,7 @@ Per altre informazioni:
 - [Documentazione di Azure Media Player](http://aka.ms/ampdocs) 
 - [Blog di introduzione ad Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
 - [Iscriversi per restare aggiornati sulle ultime novità di Azure Media Player](http://aka.ms/ampsignup)
-- [Aggiungere richieste di nuove funzionalità, idee e commenti e suggerimenti](http://feedback.azure.com/forums/293565-azure-media-player/filters/my_feedback) 
+- [Aggiungere richieste di nuove funzionalità, idee e commenti e suggerimenti](http://aka.ms/ampuservoice) 
 
 
 ##Altri strumenti per la creazione di applicazioni di lettore
@@ -48,7 +48,7 @@ Per altre informazioni:
 - [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
 - [Documentazione di HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Plug-in Microsoft Smooth Streaming per OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Licenza per Microsoft® Smooth Streaming Client Porting Kit](https://www.microsoft.com/mediaplatform/sspk.aspx) 
+- [Licenza per Microsoft® Smooth Streaming Client Porting Kit](http://aka.ms/sspk) 
 - [Sviluppo di applicazioni video per XBox](http://xbox.create.msdn.com/) 
  
 
@@ -82,4 +82,4 @@ Per informazioni sul supporto di sottotitoli codificati e annunci nei video in s
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

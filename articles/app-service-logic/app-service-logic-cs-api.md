@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/17/2015"
+   ms.date="10/29/2015"
    ms.author="jehollan"/>
 
 #App C# API
@@ -79,7 +79,7 @@ Si supponga, ad esempio, di utilizzare il trigger di Office 365**nuovo messaggio
 }
 ```
 
-Tuttavia, si desidera caricare tali allegati a un post Yammer. Sfortunatamente, lo schema per gli allegati Yammer è leggermente diverso. È ora possibile analizzarlo ora all'interno dell'applicazione logica. Per il passaggio solo oggetto di contesto:`@triggerBody()`e per l'espressione passaggio:
+Tuttavia, si desidera caricare tali allegati a un post Yammer. Sfortunatamente, lo schema per gli allegati Yammer è leggermente diverso. È ora possibile analizzarlo all'interno dell'applicazione per la logica. Per il passaggio solo oggetto di contesto:`@triggerBody()`e per l'espressione passaggio:
 
 ```javascript
 JArray YammerAttachments = new JObject();
@@ -105,4 +105,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

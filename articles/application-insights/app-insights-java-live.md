@@ -40,7 +40,7 @@ Se si dispone di un'applicazione web che è già in esecuzione sul server J2EE, 
 
 ## 2\. Scaricare l'SDK
 
-1. Scaricare [Application Insights SDK per Java](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip). 
+1. Scaricare [Application Insights SDK per Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
 2. Sul server, estrarre i contenuti SDK nella directory da cui vengono caricati i file binari del progetto. Se si utilizza Tomcat, in genere il risultato sarà in`webapps<your_app_name>\WEB-INF\lib`
 
 
@@ -139,4 +139,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

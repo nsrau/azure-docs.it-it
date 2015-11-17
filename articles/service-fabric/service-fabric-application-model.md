@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modello applicativo di Service Fabric"
-   description="Come modellare un'applicazione in Service Fabric"
+   pageTitle="Modello di un'applicazione di infrastruttura di servizi | Microsoft Azure"
+   description="Come modellare e descrivere le applicazioni e servizi in infrastruttura di servizi."
    services="service-fabric"
    documentationCenter=".net"
    authors="alexwun"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/02/2015"
    ms.author="alexwun"/>
 
 # Modellare un'applicazione in Service Fabric
@@ -232,4 +232,4 @@ Dopo aver inserito correttamente l'applicazione nel pacchetto e aver superato la
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/03/2015" 
 	ms.author="tdykstra"/>
 
 # Distribuire e configurare un'app per le API del connettore SaaS nel servizio app di Azure
@@ -236,4 +236,4 @@ Nei passaggi seguenti verrà effettuata una richiesta Get al connettore Dropbox 
 [portale di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

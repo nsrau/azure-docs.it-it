@@ -1,10 +1,9 @@
 <properties
-	pageTitle="Modificare la lettera di unità del disco temporaneo | Microsoft Azure"
-	description="Modificare la lettera di unità del disco temporaneo su una macchina virtuale creata con un modello di distribuzione classica."
+	pageTitle="Trasformare l'unità D di una macchina virtuale in disco dati | Microsoft Azure"
+	description="Descrive come modificare le lettere di unità per una macchina virtuale Windows creata usando il modello di distribuzione classico, in modo da poter usare l'unità D: come unità dati."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="cynthn
-"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,43 +14,90 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="11/03/2015"
 	ms.author="cynthn"/>
 
-#Modificare la lettera di unità del disco temporaneo di Windows su una macchina virtuale creata con un modello di distribuzione classica
+# Usare l'unità D come unità dati in una macchina virtuale Windows 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
-Se si desidera usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per usare un'unità diversa per il disco temporaneo. Non utilizzare mai il disco temporaneo per archiviare i dati da conservare.
+Se si desidera usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per usare una lettera di unità diversa per il disco temporaneo. Non utilizzare mai il disco temporaneo per archiviare i dati da conservare.
 
-Prima di iniziare è necessario disporre di un disco dati collegato alla macchina virtuale da usare per l'archiviazione del file di paging di Windows (pagefile.sys) durante la procedura. Se non si dispone di un disco dati collegato, vedere [Come collegare un disco dati a una macchina virtuale Windows][Attach]. Per istruzioni su come individuare quali dischi sono collegati, vedere "Individuazione del disco" in [Come scollegare un disco dati da una macchina virtuale Windows][Detach].
+## Collegare il disco dati
 
-Se si desidera utilizzare un disco dati esistente nell'unità D, assicurarsi di aver caricato anche il disco rigido virtuale nell'account di archiviazione. Per istruzioni, vedere i passaggi 3 e 4 in [Creazione e caricamento di un disco rigido virtuale di Windows Server in Azure][VHD].
+Per prima cosa è necessario collegare il disco dati alla macchina virtuale. Per collegare un nuovo disco, vedere [Come collegare un disco dati a una macchina virtuale Windows][Attach].
 
-> [AZURE.WARNING]Se si ridimensiona o si "arresta (dealloca)" una macchina virtuale, potrebbe essere attivata una un posizionamento della macchina virtuale su un nuovo hypervisor. Tale posizionamento può attivare un evento di manutenzione pianificato o non pianificato. In questo scenario il disco temporaneo sarà riassegnato alla prima lettera di unità disponibile. Se si dispone di un'applicazione che richiede specificamente l'unità "D", verificare che dopo lo spostamento del file di paging, si assegna un nuovo disco permanente, attribuendogli la lettera D. Azure non prenderà nuovamente la lettera D.
+Se si desidera usare un disco dati esistente, verificare di aver caricato anche il disco rigido virtuale nell'account di archiviazione. Per istruzioni, vedere i passaggi 3 e 4 in [Creare e caricare un disco rigido virtuale con Windows Server in Azure][VHD].
 
-> [AZURE.WARNING]Se si ridimensiona una macchina virtuale dopo lo spostamento esplicito del file di paging, notare che è possibile riscontrare un errore all'avvio se il disco temporaneo della nuova macchina virtuale non è sufficientemente grande da contenere il file di paging delle dimensioni originali della VM. Questo errore può verificarsi anche se l'unità temporanea non è stata impostata alla successiva lettera di unità disponibile, forzando Windows a fare riferimento a una lettera di unità non valida nella configurazione del file di paging mentre Azure crea l’unità temporanea con la lettera di unità disponibile successiva.
 
-##Modificare la lettera di unità
+## Spostare temporaneamente pagefile.sys nell'unità C
 
-1. Accedere alla macchina virtuale. Per informazioni dettagliate, vedere [Come accedere a una macchina virtuale che esegue Windows Server][Logon].
+1. Connettersi alla macchina virtuale. 
 
-2. Spostare pagefile.sys dall'unità D a un'altra unità.
+2. Fare clic con il pulsante destro del mouse sul menu **Start** e selezionare **Sistema**.
 
-3. Riavviare la macchina virtuale.
+3. Nel menu a sinistra selezionare **Impostazioni di sistema avanzate**.
 
-4. Eseguire di nuovo l'accesso e modificare la lettera di unità D in E.
+4. Nella sezione **Prestazioni** selezionare **Impostazioni**.
 
-5. Dal [portale di Azure](http://manage.windowsazure.com), collegare un disco dati esistente o un disco dati vuoto.
+5. Selezionare la scheda **Avanzate**.
 
-6.	Accedere di nuovo alla macchina virtuale, inizializzare il disco e assegnare la lettera D all'unità per il disco appena collegato.
+5. Nella sezione **Memoria virtuale** selezionare **Modifica**.
 
-7.	Verificare che l'unità E sia stata mappata al disco temporaneo.
+6. Selezionare l'unità **C** e quindi fare clic su **Dimensioni gestite dal sistema** e su **Imposta**.
 
-8.	Spostare pagefile.sys dall'altra unità all'unità E.
+7. Selezionare l'unità **D** e quindi fare clic su **Nessun file di paging** e su **Imposta**.
 
-9.	Riavviare la macchina virtuale.
+8. Fare clic su Applica. Verrà visualizzato un avviso che informa che è necessario riavviare il computer per rendere effettive le modifiche.
+
+9. Riavviare la macchina virtuale.
+
+
+
+
+## Modificare le lettere di unità 
+
+1. Dopo il riavvio della macchina virtuale, accedere alla macchina virtuale.
+
+2. Fare clic sul menu **Start**, digitare **diskmgmt.msc** e premere Invio. Verrà avviato Gestione disco.
+
+3. Fare clic con il pulsante destro del mouse su **D**, l'unità di archiviazione temporanea, e quindi selezionare **Cambia lettera e percorso di unità**.
+
+4. In Lettera unità selezionare l'unità **G** e quindi fare clic su **OK**.
+
+5. Fare clic con il pulsante destro del mouse sul disco dati e selezionare **Cambia lettera e percorso di unità**.
+
+6. In Lettera unità selezionare l'unità **D** e quindi fare clic su **OK**.
+
+7. Fare clic con il pulsante destro del mouse su **G**, l'unità di archiviazione temporanea, e quindi selezionare **Cambia lettera e percorso di unità**.
+
+8. In Lettera unità selezionare l'unità **E** e quindi fare clic su **OK**.
+
+> [AZURE.NOTE]Se la macchina virtuale dispone di altri dischi o unità, usare lo stesso metodo per riassegnare le lettere di unità degli altri dischi e unità. Si desidera la configurazione seguente per il disco: - C: disco del sistema operativo - D: disco dati - E: disco temporaneo
+
+
+
+## Spostare nuovamente pagefile.sys nell'unità di archiviazione temporanea 
+
+1. Fare clic con il pulsante destro del mouse sul menu **Start** e selezionare **Sistema**.
+
+2. Nel menu a sinistra selezionare **Impostazioni di sistema avanzate**.
+
+3. Nella sezione **Prestazioni** selezionare **Impostazioni**.
+
+4. Selezionare la scheda **Avanzate**.
+
+5. Nella sezione **Memoria virtuale** selezionare **Modifica**.
+
+6. Selezionare l'unità del sistema operativo **C** e quindi fare clic su **Nessun file di paging** e su **Imposta**.
+
+7. Selezionare l'unità di archiviazione temporanea **E** e quindi fare clic su **Dimensioni gestite dal sistema** e su **Imposta**.
+
+8. Fare clic su **Apply**. Verrà visualizzato un avviso che informa che è necessario riavviare il computer per rendere effettive le modifiche.
+
+9. Riavviare la macchina virtuale.
+
 
 
 
@@ -65,8 +111,6 @@ Se si desidera utilizzare un disco dati esistente nell'unità D, assicurarsi di 
 <!--Link references-->
 [Attach]: storage-windows-attach-disk.md
 
-
-
 [VHD]: virtual-machines-create-upload-vhd-windows-server.md
 
 [Logon]: virtual-machines-log-on-windows-server.md
@@ -75,4 +119,4 @@ Se si desidera utilizzare un disco dati esistente nell'unità D, assicurarsi di 
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -51,8 +51,9 @@ L'API Node.js è un set di wrapper che consente l'implementazione tramite il mod
 
 ## Gestione delle chiavi degli archivi
 
-I contenitori dell’insieme di credenziali delle chiavi di Azure (insiemi di credenziali) possono essere gestiti tramite PowerShell o l’interfaccia della riga di comando, come descritto nei seguenti articoli:
+I contenitori dell’insieme di credenziali delle chiavi di Azure (insiemi di credenziali) possono essere gestiti tramite REST, PowerShell o l’interfaccia della riga di comando, come descritto nei seguenti articoli:
 
+- [Creare e gestire insiemi di credenziali chiave con REST](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [Creare e gestire insiemi di credenziali chiave con PowerShell](key-vault-get-started.md)
 - [Creare e gestire insiemi di credenziali chiave con l’interfaccia della riga di comando](key-vault-manage-with-cli.md)
 
@@ -67,4 +68,4 @@ Gli articoli seguenti forniscono indicazioni specifiche dell’attività:
 
 - Questo download contiene sia l'applicazione di esempio HelloKeyVault che un esempio di servizio Web di Azure. [Esempi di codice di insieme di credenziali chiave di Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

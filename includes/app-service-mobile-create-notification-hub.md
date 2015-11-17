@@ -1,10 +1,12 @@
-Follow these steps to create a new notification hub to use for push notifications. You can skip this section when you have already created a notification hub in the same resource group as your Mobile App backend.
+Eseguire questa procedura per creare un nuovo hub di notifica da usare per le notifiche push. Quando un hub di notifica è già stato creato nello stesso gruppo di risorse come back-end dell'App per dispositivi mobili, è possibile saltare questa sezione.
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** and click your Mobile App backend
+1. Visitare il [portale di Azure]. Fare clic su **Esplora tutto** > **App per dispositivi mobili** e fare clic su back-end dell'App peri dispositivi mobili
 
-2. Click **Settings** > **Mobile** > **Push**. 
+2. Fare clic su **Impostazioni** > **Dispositivi mobili** > **Push**.
 
-2. Follow the work flow to create a notification hub. You will need to create a new namespace if there is none in your current resource group. Click **Create** once you've configured all the settings.
+2. Seguire il flusso di lavoro per creare un hub di notifica. Sarà necessario creare un nuovo spazio dei nomi, se il gruppo di risorse attuale non include spazi dei nomi. Fare clic su **Crea** dopo avere configurato tutte le impostazioni.
 
 
-[Azure Portal]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
+
+<!---HONumber=Nov15_HO2-->
