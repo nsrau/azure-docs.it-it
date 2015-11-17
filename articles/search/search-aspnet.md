@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connettere Ricerca di Azure con app Web ASP.NET MVC | Microsoft Azure"
-	description="Associare un'app Web ASP.NET MVC con Ricerca di Azure, un servizio di ricerca cloud ospitato. Informazioni su come connettere, eseguire query ed eseguire il rendering di risultati mediante la libreria .NET o l'API REST."
+	pageTitle="Connettere Ricerca di Azure ad app Web ASP.NET MVC | Microsoft Azure | Servizio di ricerca cloud ospitato"
+	description="Associare un'app Web ASP.NET MVC a Ricerca di Azure, un servizio di ricerca cloud ospitato. Informazioni su come connettere, eseguire query ed eseguire il rendering di risultati mediante la libreria .NET o l'API REST."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -462,4 +462,4 @@ Per una migliore comprensione dell'integrazione tra Ricerca di Azure e ASP.NET, 
 - [Case study per gli sviluppatori di Ricerca di Azure](search-dev-case-study-whattopedia.md)
 - [Flusso di lavoro tipico per lo sviluppo di Ricerca di Azure](search-workflow.md) 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

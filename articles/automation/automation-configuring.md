@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/22/2015"
+   ms.date="11/02/2015"
    ms.author="bwren" />
 
 # Configurazione di Automazione di Azure
@@ -21,7 +21,7 @@ Questo articolo illustra le azioni da eseguire per iniziare a usare Automazione 
 
 ## Account di Automazione
 
-Al primo avvio di Automazione di Azure sarà necessario creare almeno un account di Automazione. Gli account di Automazione consentono di isolare le risorse di Automazione (Runbook, asset) dalle risorse di Automazione contenute in altri account di Automazione. È possibile usare gli account di Automazione per separare le risorse di Automazione in ambienti logici distinti. Ad esempio, è possibile usare un account per lo sviluppo e un altro per la produzione.
+Al primo avvio di Automazione di Azure sarà necessario creare almeno un account di Automazione. Gli account di Automazione consentono di isolare le risorse di Automazione (runbook, asset, configurazioni) dalle risorse di Automazione contenute in altri account di Automazione. È possibile usare gli account di Automazione per separare le risorse di Automazione in ambienti logici distinti. Ad esempio, è possibile usare un account per lo sviluppo e un altro per la produzione.
 
 Le risorse di Automazione per ogni account di Automazione sono associate a una singola area di Azure, ma gli account di Automazione possono gestire servizi di Azure in qualsiasi area. Il motivo principale per cui creare gli account di Automazione in aree diverse è la presenza di criteri che richiedono dati e risorse per essere isolati in un'area specifica.
 
@@ -67,4 +67,4 @@ Quando si accede alle risorse di Azure tramite i [cmdlet di Azure](http://msdn.m
 - [Automazione di Azure: Autenticazione in Azure tramite Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

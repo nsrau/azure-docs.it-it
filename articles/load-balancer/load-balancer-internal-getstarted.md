@@ -23,6 +23,7 @@
 
 La funzionalità di bilanciamento del carico interno di Azure consente di bilanciare il carico tra le macchine virtuali che risiedono in un servizio cloud o una rete virtuale nell'ambito di un'area. Per informazioni sull'uso e sulla configurazione di reti virtuali nell'ambito di un'area, vedere [Reti virtuali regionali](virtual-networks-migrate-to-regional-vnet.md). Le reti virtuali esistenti che sono state configurate per un gruppo di affinità non possono usare il bilanciamento del carico interno.
 
+
 ## Per creare un set con carico bilanciato interno per le macchine virtuali
 
 Per creare un set con carico bilanciato interno di Azure e i server che invieranno il traffico a esso, è necessario eseguire le operazioni seguenti:
@@ -332,4 +333,4 @@ Per ottenere altre informazioni sui cmdlet per il bilanciamento del carico inter
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

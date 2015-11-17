@@ -13,18 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="09/02/2015"
+   ms.date="11/05/2015"
    ms.author="elizapo"/>
 
 # Eseguire qualsiasi app su qualsiasi dispositivo con Azure RemoteApp
 
-È possibile eseguire un'applicazione Windows ovunque e veramente su qualsiasi dispositivo - semplicemente utilizzando Azure RemoteApp. Che si tratti di Internet Explorer 6, un'applicazione personalizzata scritta 10 anni fa, o di un'app di Office, gli utenti non saranno più vincolati a uno specifico sistema operativo (come Windows XP) per quelle poche applicazioni.
+È possibile eseguire un'applicazione Windows ovunque e veramente su qualsiasi dispositivo - semplicemente utilizzando Azure RemoteApp. Che si tratti di un'applicazione personalizzata scritta 10 anni fa o di un'app di Office, gli utenti non saranno più vincolati a uno specifico sistema operativo (come Windows XP) per quelle poche applicazioni.
 
 Con Azure RemoteApp, gli utenti possono usare dispositivi Android o Apple e usufruire della stessa esperienza che ottengono in Windows (o con i dispositivi Windows Phone). A questo scopo, occorre ospitare l'applicazione Windows in una raccolta di macchine virtuali Windows in Azure, dove gli utenti possono ottenere l'accesso ovunque sia disponibile una connessione Internet.
 
 Continuare a leggere per un esempio di come eseguire esattamente questa operazione.
 
-In questo articolo, si condividerà Access con tutti gli utenti. Tuttavia, è possibile usare QUALSIASI app. Poiché è possibile installare l'app in un computer Windows Server 2012 R2, è possibile condividerla usando la procedura seguente. È possibile esaminare i [requisiti dell'app](remoteapp-appreqs), per assicurarsi che l'app funzionerà.
+In questo articolo, si condividerà Access con tutti gli utenti. Tuttavia, è possibile usare QUALSIASI app. Poiché è possibile installare l'app in un computer Windows Server 2012 R2, è possibile condividerla usando la procedura seguente. È possibile esaminare i [requisiti dell'app](remoteapp-appreqs.md), per assicurarsi che l'app funzionerà.
 
 Si noti che poiché Access è un database e come tale è necessario che sia utile, si eseguiranno alcuni passaggi aggiuntivi per consentire agli utenti di accedere alla condivisione dei dati di Access. Se l'app non è un database o non è necessario che gli utenti siano in grado di accedere a una condivisione di file, è possibile ignorare tali passaggi nell'esercitazione.
 
@@ -118,4 +118,4 @@ Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

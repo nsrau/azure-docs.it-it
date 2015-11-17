@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare un indice di Ricerca di Azure nel portale | Microsoft Azure"
+	pageTitle="Creare un indice di Ricerca di Azure nel portale | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Aggiungere un indice a Ricerca di Azure, un servizio di ricerca cloud ospitato, compilando le definizioni dei campi nel portale di Azure."
 	services="search"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="search"
-	ms.devlang="rest-api"
+	ms.devlang="na"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
@@ -18,6 +18,11 @@
 	ms.author="heidist"/>
 
 # Creare un indice di Ricerca di Azure nel portale di Azure
+> [AZURE.SELECTOR]
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
+- [.NET](search-create-index-dotnet.md)
+- [REST API](search-create-index-rest-api.md)
 
 È possibile rapidamente creare un prototipo di un indice di Ricerca di Azure creandone uno nel portale di Azure. L’utilizzo del portale è ideale per test di verifica dei concetti, ma può inoltre essere utilizzato per visualizzare le definizioni di schema e l'utilizzo delle risorse per qualsiasi indice distribuito al servizio.
 
@@ -27,7 +32,7 @@ Per completare questa attività, assicurarsi di disporre di un servizio di Ricer
 
 2. Aprire il dashboard relativo al servizio Ricerca di Azure. Di seguito alcuni modi per trovare il dashboard.
 	- Nell'indice, fare clic su **Home page**. La home page dispone di sezioni per ogni servizio incluso nella sottoscrizione. Fare clic sull'icona per aprire il dashboard del servizio.
-	- Nell'indice, fare clic su **Sfoglia tutte le** > **Filtrare in base a** > **Ricerca servizi** per trovare il servizio di ricerca nell'elenco.
+	- Nell'indice fare clic su **Esplora tutto** > **Filtra per** > **Servizi di ricerca** per trovare il servizio di ricerca nell'elenco.
 
 3. Nel dashboard del servizio, verrà visualizzata una barra dei comandi nella parte superiore, compresa una per l’**aggiunta dell’indice**.
 
@@ -39,7 +44,7 @@ Per completare questa attività, assicurarsi di disporre di un servizio di Ricer
 
      ![][2]
 
-5. Per creare un nuovo indice nel portale, fare clic su **Aggiungi indice** e assegnarvi un nome, ad esempio *hotel*.
+5. Per creare un nuovo indice nel portale, fare clic su **Aggiungi indice** e assegnargli un nome, ad esempio *hotel*.
 
 	Potrebbe occorrere un minuto per creare l'indice, ma quando sarà pronto da utilizzare, verrà visualizzato nell'elenco degli indici.
 
@@ -63,7 +68,7 @@ In Ricerca di Azure gli attributi di indice, quali searchable, facetable e filte
 
 Il portale è diverso. Nel portale i comportamenti di ricerca sono disattivati per impostazione predefinita in modo che sia possibile selezionare tutti i comportamenti che si applicano, da campo a campo.
 
-1. Fare clic sull’opzione per l’**aggiunta o la modifica dei campi** per aggiungere ulteriori campi. In questo esercizio, è possibile ricreare il *hotel* indice descritto nell'articolo [come utilizzare Fiddler con Ricerca di Azure](search-fiddler.md).
+1. Fare clic sull’opzione per l’**aggiunta o la modifica dei campi** per aggiungere ulteriori campi. In questo esercizio verrà ricreato l'indice *hotel* descritto nell'articolo [Usare Fiddler per valutare e testare le API REST di Ricerca di Azure](search-fiddler.md).
 
 	![][4]
 
@@ -71,25 +76,25 @@ Il portale è diverso. Nel portale i comportamenti di ricerca sono disattivati p
 
 	![][5]
 
-	Revisione [regole di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx) e [tipi di dati supportati](https://msdn.microsoft.com/library/azure/dn798938.aspx) per informazioni sui nomi di campo e tipi di riferimento.
+	Per informazioni di riferimento sui nomi e i tipi di campo, vedere [Regole di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx) e [Tipi di dati supportati](https://msdn.microsoft.com/library/azure/dn798938.aspx).
 
     Attributi dell'indice sono i seguenti elementi:
 
-	- **Retrievable** specifica se un campo può essere restituito in un risultato di ricerca.
-	- **Filterable** consente il campo da utilizzare in **$filter** query.
-	- **Sortable** consente il campo da utilizzare come opzione di ordinamento.
-	- **Facetable** consente a un campo da utilizzare in una struttura di spostamento di collaborazione per il filtro autodidattico. In genere i campi contenenti valori ricorrenti che è possibile utilizzare per raggruppare più documenti (ad esempio, più documenti che rientrano in un singolo prodotto o una categoria di servizi) funzionano meglio come facet.
-	- **Chiave** è l'ID univoco di ogni documento utilizzato per cercare di documento. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.
-	- **Ricercabile** il campo viene contrassegnato come full-text è possibile eseguire ricerche.
+	- **Recuperabile** specifica se un campo può essere restituito in un risultato della ricerca.
+	- **Filtrabile** consente l'uso del campo nelle query **$filter**.
+	- **Ordinabile** consente l'uso del campo come opzione di ordinamento.
+	- **Con facet** consente l'uso di un campo in una struttura di esplorazione in base a facet per i filtri autoindirizzati. In genere i campi contenenti valori ricorrenti che è possibile utilizzare per raggruppare più documenti (ad esempio, più documenti che rientrano in un singolo prodotto o una categoria di servizi) funzionano meglio come facet.
+	- **Chiave** è l'ID univoco di ogni documento usato per la ricerca dei documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostato su Edm.String.
+	- **Ricercabile** contrassegna il campo per la ricerca full-text.
 
-3. Per rimuovere tutti i campi non desiderati, mouse e selezionare **eliminare**.
+3. Per rimuovere i campi che non si vuole usare, fare clic con il pulsante destro del mouse e scegliere **Elimina**.
 
-4. Fare clic su **OK** Salva l'indice appena definito, quindi fare clic su **OK** nella pagina di indice Aggiungi per creare l'indice.
+4. Fare clic su **OK** per salvare l'indice definito e quindi fare clic su **OK** nella pagina Aggiungi indice per creare l'indice.
 
 
 ## Passaggi successivi
 
-Anche se l'indice è definito, non potrà essere utilizzato fino a quando non si caricano documenti. Supponendo di stare ricreando l’indice Hotel, utilizzato per scopi di test, è possibile caricare facilmente un numero ridotto di documenti per tale indice in [Fiddler](search-fiddler.md) utilizzando le istruzioni nella sezione Carica documenti di [Come utilizzare Fiddler con Ricerca di Azure](search-fiddler.md). È quindi possibile seguire i passaggi rimanenti dell'articolo per eseguire alcune query.
+Anche se l'indice è definito, non potrà essere utilizzato fino a quando non si caricano documenti. Supponendo di voler ricreare l'indice Hotels usato a scopo di test, è possibile caricare facilmente un numero limitato di documenti per tale indice in [Fiddler](search-fiddler.md), seguendo le istruzioni nella sezione Caricare i documenti dell'articolo [Usare Fiddler per valutare e testare le API REST di Ricerca di Azure](search-fiddler.md). È quindi possibile seguire i passaggi rimanenti dell'articolo per eseguire alcune query.
 
 Una volta acquisita familiarità con l'indice di base, prendere in considerazione l'aggiunta di un analizzatore del linguaggio o componente per il suggerimento per aggiungere supporto multilingue o suggerimenti di completamento automatico. Entrambe le funzionalità vengono specificate nello schema di indice. Vedere [Supporto linguistico](https://msdn.microsoft.com/elibrary/azure/dn879793.aspx) e [Creare un indice](https://msdn.microsoft.com/library/azure/dn798941.aspx) per ulteriori informazioni.
 
@@ -100,4 +105,4 @@ Una volta acquisita familiarità con l'indice di base, prendere in considerazion
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

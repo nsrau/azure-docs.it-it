@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configurare un gateway applicazione per l'offload SSL tramite Gestione risorse di Azure | Microsoft Azure"
-   description="Questa pagina fornisce istruzioni per la creazione di un gateway applicazione con offload SSL tramite Gestione risorse di Azure."
+   description="Questa pagina fornisce istruzioni per creare un gateway applicazione con offload SSL tramite Gestione risorse di Azure"
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
@@ -17,54 +17,57 @@
 
 # Configurare un gateway applicazione per l'offload SSL tramite Gestione risorse di Azure
 
+> [AZURE.SELECTOR]
+-[Azure Classic Powershell](application-gateway-ssl.md)
+-[Azure Resource Manager Powershell](application-gateway-ssl-arm.md)
 
  Gateway applicazione può essere configurato per terminare la sessione SSL nel gateway, evitando così una costosa decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
 
 
->[AZURE.IMPORTANT]Prima di lavorare con le risorse di Azure, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. È importante comprendere i [modelli e gli strumenti di distribuzione](azure-classic-rm.md) prima di utilizzare una risorsa di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustrerà la creazione di un gateway applicazione tramite Gestione risorse di Azure. Per usare la versione classica, passare all'articolo [Configurare un gateway applicazione per l'offload SSL tramite PowerShell (classico)](application-gateway-ssl.md).
+>[AZURE.IMPORTANT]Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, Gestione risorse e modello di distribuzione classico. È importante comprendere i [modelli e strumenti di distribuzione](azure-classic-rm.md) prima di usare qualsiasi risorsa di Azure. Per visualizzare la documentazione relativa a ogni strumento, fare clic sulle schede nella parte superiore dell'articolo. Questo documento illustra come creare un gateway applicazione con Gestione risorse di Azure. Per usare la versione del modello di distribuzione classico, passare all'articolo [Configurare un gateway applicazione per l'offload SSL tramite la distribuzione classica di Azure](application-gateway-ssl.md).
 
 
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della pagina [Download](http://azure.microsoft.com/downloads/).
-2. Si creerà una rete virtuale e una subnet per il Gateway Applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
-3. È necessario che i server che si configureranno per l'uso del gateway applicazione esistano oppure che i loro endpoint siano stati creati nella rete virtuale o che sia stato loro assegnato un indirizzo VIP/IP pubblico.
+1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina Download](http://azure.microsoft.com/downloads/).
+2. Verranno create una rete virtuale e una subnet per il gateway applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud usi la subnet. Nella subnet della rete virtuale deve essere presente solo il gateway applicazione.
+3. È necessario che i server che si configureranno per l'uso del gateway applicazione esistano oppure che i relativi endpoint siano stati creati nella rete virtuale o che sia stato assegnato loro un indirizzo IP/VIP pubblico.
 
-## Che cosa è necessario per creare un gateway applicazione?
+## Elementi necessari per creare un gateway applicazione
  
 
-- **Pool di server back-end**: elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
-- **Impostazioni del pool di server back-end**: ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
-- **Porta front-end**: è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-- **Listener**: ha una porta front-end, un protocollo (Http o Https che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
-- **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. Attualmente è supportata solo la regola *di base*. La regola *di base* è una distribuzione del carico di tipo round robin.
+- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
+- **Impostazioni del pool di server back-end:** per ogni pool sono disponibili impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+- **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+- **Listener:** il listener ha una porta front-end, un protocollo (Http o Https che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
+- **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
 
 **Note aggiuntive sulla configurazione:**
 
 Per la configurazione dei certificati SSL, il protocollo in **HttpListener** deve essere sostituito con *Https* (distinzione tra maiuscole e minuscole). L'elemento **SslCertificate** deve essere aggiunto a **HttpListener** con il valore della variabile configurato per il certificato SSL. La porta front-end deve essere aggiornata in 443.
 
-**Per abilitare l'affinità basata sui cookie**: un gateway applicazione può essere configurato per verificare che una richiesta proveniente da una sessione client sia sempre indirizzata alla stessa VM nella Web farm. A tale scopo viene usata l'aggiunta di un cookie di sessione che consente al gateway di indirizzare il traffico in modo appropriato. Per abilitare l'affinità basata sui cookie, impostare **CookieBasedAffinity** su *Enabled* nell'elemento **BackendHttpSettings**.
+**Per abilitare l'affinità basata su cookie**: un gateway applicazione può essere configurato per verificare che una richiesta proveniente da una sessione client sia sempre diretta alla stessa macchina virtuale nella Web farm. A tale scopo viene usata l'aggiunta di un cookie di sessione che consente al gateway di indirizzare il traffico in modo appropriato. Per abilitare l'affinità basata su cookie, impostare **CookieBasedAffinity** su *Enabled* nell'elemento **BackendHttpSettings**.
 
  
 ## Creare un nuovo gateway applicazione
 
-La differenza tra utilizzare la gestione risorse di Azure e Azure classico sarà l'ordine in cui che si creerà il gateway applicazione e gli elementi necessari da configurare.
+La differenza tra l'uso del modello di distribuzione classico di Azure e Gestione risorse di Azure sta nell'ordine in cui verrà creato il gateway applicazione e gli elementi necessari da configurare.
 
-Con Gestione risorse, tutti gli elementi che creeranno una Gateway Applicazione saranno configurati singolarmente e poi riuniti per creare la risorsa di Gateway Applicazione.
+Con Gestione risorse, tutti gli elementi che costituiscono un gateway applicazione saranno configurati singolarmente e poi combinati per creare la risorsa gateway applicazione.
 
 
-Di seguito i passaggi necessari per creare un Gateway applicazione:
+Per creare un gateway applicazione, seguire questa procedura:
 
 1. Creare un gruppo di risorse per Gestione risorse
-2. Creare una rete virtuale, una subnet e un IP pubblico per Gateway Applicazione
-3. Creare un oggetto di configurazione di Gateway applicazione
-4. Creare una risorsa per il gateway applicazione
+2. Creare una rete virtuale, una subnet e un indirizzo IP pubblico per il gateway applicazione
+3. Creare un oggetto di configurazione gateway applicazione
+4. Creare una risorsa gateway applicazione
 
 
 ## Creare un gruppo di risorse per Gestione risorse
 
-Verificare di passare alla modalità di PowerShell per usare i cmdlet ARM. Altre informazioni sono disponibili in [Uso di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager.md).
+Verificare di passare alla modalità di PowerShell per usare i cmdlet ARM. Altre informazioni sono disponibili in Uso di [Windows PowerShell con Gestione risorse](powershell-azure-resource-manager.md).
 
 ### Passaggio 1
 
@@ -95,11 +98,11 @@ Creare un nuovo gruppo di risorse (ignorare questo passaggio se si usa un gruppo
 
     New-AzureResourceGroup -Name appgw-rg -location "West US"
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un Gateway Applicazione usino lo stesso gruppo di risorse.
+Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
 
 Nell'esempio precedente è stato creato un gruppo di risorse denominato "appgw-RG" e la località "West US".
 
-## Crea rete virtuale e subnet per il Gateway applicazione
+## Creare la rete virtuale e la subnet per il gateway applicazione
 
 Nell'esempio seguente viene illustrato come creare una rete virtuale utilizzando risorse di gestione:
 
@@ -127,13 +130,13 @@ L'oggetto subnet viene assegnato alla variabile $subnet per i passaggi successiv
 Crea una risorsa IP pubblica "publicIP01" nel gruppo di risorse "appw-rg" per l'area Stati Uniti occidentali.
 
 
-## Creare un oggetto di configurazione di Gateway applicazione
+## Creare un oggetto di configurazione gateway applicazione
 
 ### Passaggio 1
 
 	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Crea una configurazione IP del gateway applicazione denominata "gatewayIP01". Quando viene avviato il gateway applicazione, ottiene un indirizzo IP dalla subnet configurata e indirizza il traffico di rete agli indirizzi IP nel pool IP di back-end. Tenere in considerazione che ogni istanza avrà un indirizzo IP.
+Questo passaggio crea una configurazione IP del gateway applicazione denominata "gatewayIP01". All'avvio, il gateway applicazione selezionerà un indirizzo IP dalla subnet configurata e indirizza il traffico di rete agli indirizzi IP nel pool IP back-end. Tenere in considerazione che ogni istanza avrà un indirizzo IP.
  
 ### Passaggio 2
 
@@ -145,7 +148,7 @@ Questo passaggio configura il pool di indirizzi IP di back-end denominato "pool0
 
 	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-Configura le impostazioni del gateway applicazione "poolsetting01" per il traffico di rete con bilanciamento del carico nel pool di back-end.
+Questo passaggio configura le impostazioni del gateway applicazione "poolsetting01" per il traffico di rete con bilanciamento del carico nel pool back-end.
 
 ### Passaggio 4
 
@@ -167,7 +170,7 @@ Crea la configurazione IP front-end denominata "fipconfig01" e associa l'indiriz
 
 ### Passaggio 7
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
 Crea il listener denominato "listener01" e associa la porta front-end al certificato e alla configurazione IP front-end.
@@ -182,30 +185,30 @@ Crea la regola routing del servizio di bilanciamento del carico denominata "rule
 
 	$sku = New-AzureApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-Configura le dimensioni dell'istanza del gateway applicazione.
+Questo passaggio configura le dimensioni dell'istanza del gateway applicazione.
 
->[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
 
-## Creare un Gateway Applicazione utilizzando New-AzureApplicationGateway
+## Creare un gateway applicazione usando il metodo New-AzureApplicationGateway
 
 	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-Crea un gateway applicazione con tutti gli elementi di configurazione dai passaggi precedenti. Nell'esempio il gateway applicazione è denominato "appgwtest".
+Questo metodo crea un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio il gateway applicazione è denominato "appgwtest".
 
 
-## Avvia il Gateway applicazione
+## Avviare il gateway applicazione
 
 Dopo la configurazione del gateway, usare il cmdlet `Start-AzureApplicationGateway` per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
 
 
 **Nota:** il completamento del cmdlet `Start-AzureApplicationGateway` potrebbe richiedere fino a 15-20 minuti.
 
-Per l'esempio riportato di seguito, il Gateway applicazione è denominato "appgwtest" e il gruppo di risorse è "app-rg":
+Per l'esempio seguente il gateway applicazione è denominato "appgwtest" e il gruppo di risorse è "app-rg":
 
 
 ### Passaggio 1
 
-Ottenere l'oggetto Gateway Applicazione e associare a una variabile "$getgw":
+Ottenere l'oggetto gateway applicazione e associarlo a una variabile "$getgw":
  
 	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
 
@@ -217,9 +220,9 @@ Usare `Start-AzureApplicationGateway` per avviare il gateway applicazione:
 
 	
 
-## Verificare lo stato del Gateway Applicazione
+## Verificare lo stato del gateway applicazione
 
-Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se *Start-AzureApplicationGateway* è riuscito nel passaggio precedente, lo stato dovrebbe essere *In esecuzione* e i valori di Vip e DnsName dovrebbero essere validi.
+Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'operazione *Start-AzureApplicationGateway* è riuscita, lo stato risulterà *In esecuzione* e le voci per l'indirizzo VIP e DnsName saranno valide.
 
 Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto per accettare il traffico destinato a `http://<generated-dns-name>.cloudapp.net`.
 
@@ -372,11 +375,11 @@ Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto p
 ## Passaggi successivi
 
 
-Per configurare un gateway applicazione da usare con ILB, vedere [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione da usare con il bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

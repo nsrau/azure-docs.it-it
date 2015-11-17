@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/02/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 
@@ -128,4 +128,4 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

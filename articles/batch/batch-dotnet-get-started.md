@@ -63,7 +63,7 @@ Per supportare l'applicazione viene creato un contenitore in Archiviazione di Az
 
 	- **[account-name]**: nome dell'account di archiviazione creato in precedenza.
 
-	- **[account key]**: chiave primaria dell'account di archiviazione. È possibile trovare la chiave primaria nella pagina Archiviazione nel portale di Azure.
+	- **[account key]**: chiave primaria dell'account di archiviazione. È possibile trovare la chiave primaria nella pagina Archiviazione del portale di anteprima di Azure.
 
 2. Salvare il file App.config.
 
@@ -208,7 +208,7 @@ Un pool di nodi di calcolo è il primo set di risorse che è necessario creare p
 			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Sostituire i valori tra parentesi quadre con quelli associati all'account Batch, ognuno dei quali è disponibile nel [portale di anteprima di Azure](https://portal.azure.com). Per individuare questi valori, accedere al [portale di anteprima di Azure](https://portal.azure.com) e:
+	Sostituire i valori tra parentesi quadre con quelli associati all'account Batch, disponibili nel [portale di anteprima di Azure](https://portal.azure.com). Per individuare questi valori, accedere al [portale di anteprima di Azure](https://portal.azure.com) e:
 
 	- **[account-name]**: fare clic su **Account Batch**, selezionare l'account Batch creato in precedenza
 	- **[account-url]**: nel pannello dell'account Batch fare clic su **Proprietà** > **URL**
@@ -487,7 +487,7 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 			Task status: Completed
 			Task start: 7/17/2015 8:31:57 PM
 
-8. A questo punto è possibile passare al portale di Azure per esaminare le risorse create. Per eliminare le risorse, premere INVIO fino al completamento del programma.
+8. A questo punto è possibile passare al portale di anteprima di Azure per esaminare le risorse create. Per eliminare le risorse, premere INVIO fino al completamento del programma.
 
 ## Passaggi successivi
 
@@ -495,4 +495,4 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 
 2. Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

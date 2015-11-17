@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="10/05/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 
@@ -90,7 +90,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
 1. Individuare il percorso in cui sono stati salvati i file compressi del progetto ed espanderli nel computer in uso, quindi avviare uno dei file di comando seguenti dalla sottocartella **server**.
 
-	+ **launch-windows** (computer Windows)
+	+ **.\\start-iisexpress.ps1** (computer Windows)
 	+ **launch-mac.command** (computer Mac OS X)
 	+ **launch-linux.sh** (computer Linux)
 
@@ -106,7 +106,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
    	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
 
-	> [AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file app.js.
+	> [AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file page.js.
 
 4. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItems**.
 
@@ -154,4 +154,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

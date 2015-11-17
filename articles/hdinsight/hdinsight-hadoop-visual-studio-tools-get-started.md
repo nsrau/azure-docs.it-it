@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Informazioni sull'uso di Hadoop Tools per Visual Studio per HDInsight | Microsoft Azure"
 	description="Informazioni su come installare e usare Hadoop Tools per Visual Studio per HDInsight per connettersi a un cluster Hadoop ed eseguire una query Hive."
-	keywords="hadoop tools,hive query,visual studio"
+	keywords="strumenti Hadoop, query Hive, Visual Studio"
 	services="HDInsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -43,7 +43,7 @@ Per completare questa esercitazione e usare Hadoop Tools in Visual Studio, sarà
 
 ## Installare HDInsight Tools per Visual Studio
 
-HDInsight Tools per Visual Studio e ODBC Driver di Microsoft Hive sono inclusi nel pacchetto di Microsoft Azure SDK per .NET versione 2.5.1 o successiva. È possibile installarlo utilizzando il [Programma di installazione della piattaforma Web](http://go.microsoft.com/fwlink/?LinkId=255386). È necessario scegliere quello che corrisponde alla versione di Visual Studio in uso. Se non si dispone di Visual Studio installato, è possibile installare la versione più recente di Visual Studio Community di Azure SDK utilizzando il [Programma di installazione della piattaforma Web](http://go.microsoft.com/fwlink/?LinkId=255386) o i seguenti collegamenti:
+HDInsight Tools per Visual Studio e ODBC Driver di Microsoft Hive sono inclusi nel pacchetto di Microsoft Azure SDK per .NET versione 2.5.1 o successiva. A tale scopo, è possibile usare l'[Installazione guidata piattaforma Web](http://go.microsoft.com/fwlink/?LinkId=255386). È necessario scegliere quello che corrisponde alla versione di Visual Studio in uso. Se Visual Studio non è installato nel computer, è possibile installare la versione più recente di Visual Studio Community e Azure SDK tramite l'[Installazione guidata piattaforma Web](http://go.microsoft.com/fwlink/?LinkId=255386) o i collegamenti seguenti:
 
 - [Visual Studio Community 2015 con Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids) 
 - [Visual Studio Community 2013 con Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids) 
@@ -180,15 +180,36 @@ La versione più recente dello strumento consente di visualizzare i contenuti de
 
 	![Hadoop Tools: HDInsight Tools per Visual Studio visualizzano i processi Hive][12]
 
+### Esecuzione di processi Hive più veloce tramite HiveServer2
+
+>[AZURE.NOTE]Questa funzionalità è disponibile solo per i cluster HDInsight versione 3.2 e successive.
+
+In passato, gli strumenti HDInsight inviavano processi Hive tramite WebHCat (noto anche come Templeton). Per restituire i dettagli del processo e le informazioni sugli errori occorreva molto tempo. Per risolvere questo problema di prestazioni, gli strumenti HDInsight eseguono i processi direttamente nel cluster tramite HiveServer2, in modo da ignorare i protocolli RDP/SSH. Oltre a ottenere prestazioni migliori, gli utenti possono visualizzare Hive in grafici Tez e i dettagli dell'attività.
+
+Per i cluster HDInsight versione 3.2 o successive, è disponibile un pulsante **Execute via HiveServer2**:
+
+![Esecuzione di Strumenti di Visual Studio per HDInsight tramite HiveServer2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
+
+Ed è possibile visualizzare i log in streaming in tempo reale e i grafici del processo, se si esegue la query Hive in Tex.
+ 
+![Esecuzione di processi Hive più veloce di Strumenti di Visual Studio per HDInsight](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
+
+
 ### Grafico delle prestazioni del processo Hive Tez
 
-Gli Strumenti di Visual Studio per HDInsight supportano la visualizzazione di grafici delle prestazioni per i processi Hive eseguiti dal motore di esecuzione Tez. Per informazioni sull'abilitazione di Tez, vedere [Usare Hive in HDInsight][hdinsight.hive]. Dopo avere inviato un processo Hive in Visual Studio, Visual Studio mostra il grafico al termine del processo. Per ottenere l'ultimo stato del processo, potrebbe essere necessario fare clic sul pulsante **Aggiorna**.
+Gli Strumenti di Visual Studio per HDInsight supportano la visualizzazione di grafici delle prestazioni per i processi Hive eseguiti dal motore di esecuzione Tez. Per informazioni su come abilitare Tez, vedere [Usare Hive in HDInsight][hdinsight.hive]. Dopo avere inviato un processo Hive in Visual Studio, Visual Studio mostra il grafico al termine del processo. Per ottenere l'ultimo stato del processo, potrebbe essere necessario fare clic sul pulsante **Aggiorna**.
 
 > [AZURE.NOTE]Questa funzionalità è disponibile solo per le versioni del cluster HDInsight successive alla 3.2.4.593 e può funzionare solo per i processi completati. Si possono usare cluster basati sia su Windows che su Linux.
 
 ![grafico delle prestazioni tez hive hadoop](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
 Per comprendere meglio la query Hive, è stata aggiunta la funzionalità Visualizzazione operatore Hive in questa versione. Per visualizzare tutti gli operatori all'interno di un vertice, fare doppio clic sui vertici del grafico del processo. Per visualizzare altri dettagli di un operatore specifico, passare il puntatore sull'operatore.
+
+### Visualizzazione dell'esecuzione dell'attività per i processi Hive in Tez
+
+È possibile usare la visualizzazione dell'esecuzione dell'attività per i processi Hive in Tez per ottenere informazioni strutturate e visive per i processi Hive e per visualizzare informazioni dettagliate sul processo. Quando si verificano problemi di prestazioni, questa visualizzazione consente di ottenere altri dettagli, ad esempio il funzionamento di ogni attività e le relative informazioni dettagliate (lettura-scrittura dei dati, ora di inizio/fine della pianificazione e così via), per poter regolare le configurazioni del processo o l'architettura del sistema in base alle informazioni visualizzate.
+
+![Visualizzazione dell'ssecuzione dell'attività di Strumenti di Visual Studio per HDInsight](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png)
 
 ## Eseguire script Pig
 
@@ -237,4 +258,4 @@ In questo articolo è stato mostrato come connettersi a cluster HDInsight da Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
