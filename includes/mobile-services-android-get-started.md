@@ -10,7 +10,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. Attendere il completamento dell'attività di sincronizzazione con Gradle. Se viene visualizzato un errore che segnala che non è possibile trovare la destinazione, significa che la versione usata in Android Studio non corrisponde a quella dell'esempio. Il modo più semplice per risolvere il problema è fare clic sul collegamento **Install missing platform(s) and sync project** nel messaggio di errore. Se vengono visualizzati altri messaggi di errore relativi alla versione, sarà sufficiente ripetere questo processo finché non vengono più trovati errori.
+4. Attendere il completamento dell'attività di sincronizzazione con Gradle. Se viene visualizzato un errore che segnala che non è possibile trovare la destinazione, significa che la versione usata in Android Studio non corrisponde a quella dell'esempio. Il modo più semplice per risolvere il problema è fare clic sul collegamento **Install missing platform(s) and sync project** nel messaggio di errore. Se vengono visualizzati altri messaggi di errore relativi alla versione, ripetere semplicemente questo processo finché non verranno più restituiti errori.
     - Esiste un altro modo per risolvere il problema, se si vuole eseguire la versione migliore e più recente di Android. È possibile aggiornare **targetSdkVersion** nel file *build.gradle* nella directory *app* in modo che corrisponda alla versione già installata nel computer. Per conoscere tale versione, fare clic sull'icona **SDK Manager**. Premere quindi **Sync Project with Gradle Files**. Se viene visualizzato un messaggio di errore relativo alla versione di Build Tools, correggerlo nello stesso modo.
 
 ### Esecuzione dell'app
@@ -19,7 +19,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 1. Per eseguirla da un dispositivo, connetterlo al computer con un cavo USB. È necessario [configurare il dispositivo per lo sviluppo](https://developer.android.com/training/basics/firstapp/running-app.html). Se si esegue lo sviluppo su un computer Windows, è anche necessario scaricare e installare un driver USB.
 
-2. Per l'esecuzione con l'emulatore di Android, è necessario definire almeno un Android Virtual Device (AVD). Fare clic sull'icona AVD Manager per creare e gestire questi dispositivi.
+2. Per l'esecuzione con l'emulatore Android, è necessario definire almeno un dispositivo virtuale Android (AVD). Fare clic sull'icona AVD Manager per creare e gestire questi dispositivi.
 
 3. Scegliere **Run** dal menu **Run** per avviare il progetto e scegliere un dispositivo o un emulatore nella finestra di dialogo visualizzata.
 
@@ -39,4 +39,4 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

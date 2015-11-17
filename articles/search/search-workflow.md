@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Flusso di lavoro tipico per lo sviluppo di Ricerca di Azure | Microsoft Azure"
+	pageTitle="Flusso di lavoro tipico per lo sviluppo di Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Flusso di lavoro o guida di orientamento per la creazione di applicazioni prototipo e di produzione integrate con Ricerca di Azure, un servizio di ricerca cloud ospitato."
 	services="search"
 	documentationCenter=""
@@ -190,4 +190,4 @@ Si tenga presente che solo il livello di prezzo standard può essere aumentato o
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

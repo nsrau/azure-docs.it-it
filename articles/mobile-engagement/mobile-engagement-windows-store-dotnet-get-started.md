@@ -157,28 +157,47 @@ Ora la configurazione per l’invio di popup è pronta. Ora è necessario verifi
 
 ###Concedere l'accesso a Mobile Engagement per inviare notifiche
 
-1. Sarà necessario associare l'app a un'app di Windows Store per ottenere **Identificatore di sicurezza del pacchetto (SID)** e ** Chiave privata** (segreto client). È possibile creare un'app da [Windows Store Dev Center] e quindi assicurarsi di **associare l'app a Store** da Visual Studio.
+1. Aprire il [Dev Center per Windows Store] nel Web browser, accedere e creare un account, se necessario.
+2. Fare clic su **Dashboard** nell'angolo superiore destro, quindi scegliere **Crea nuova applicazione** dal menu nel pannello sinistro. 
 
-	![][7]
+	![][9]
 
-2. Passare a **Impostazioni** del portale Mobile Engagement e fare clic sulla sezione **Push nativo** a sinistra
+2. Creare l'app riservandone il nome.
 
-3. Fare clic sul pulsante **Modifica** per immettere l'**Identificatore di sicurezza pacchetto (SID)** e la **Chiave segreta**, come illustrato di seguito:
+	![][10]
+
+3. Dopo la creazione dell'app, passare a **Servizi -> Notifiche push** dal menu a sinistra.
+
+	![][11]
+
+4. Nella sezione relativa alle notifiche push, fare clic sul collegamento relativo al sito **servizi Live**.
+
+	![][12]
+
+5. Verrà visualizzata la sezione relativa alle credenziali push. Assicurarsi di trovarsi nella sezione **Impostazioni app** e quindi copiare i valori di **SID pacchetto** e **Segreto client**.
+
+	![][13]
+
+6. Passare a **Impostazioni** del portale Mobile Engagement e fare clic sulla sezione **Push nativo** a sinistra. Fare quindi clic sul pulsante **Modifica** per immettere l'**Identificatore di sicurezza pacchetto (SID)** e la **Chiave segreta**, come illustrato di seguito:
 
 	![][6]
+
+8. Assicurarsi infine di avere associato l'app di Visual Studio all'app creata nell'App Store. Per eseguire questa operazione, fare clic su **Associa applicazione a Store** in Visual Studio.
+
+	![][7]
 
 ##<a id="send"></a>Inviare una notifica all'app
 
 [AZURE.INCLUDE [Creare una campagna Push Windows](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Se l'app era in esecuzione verrà visualizzata una notifica all'interno dell'app, in caso contrario verrà visualizzato una notifica popup se l'applicazione è stata chiusa. Se appare una notifica all'interno dell'app ma non una notifica popup e si esegue l'applicazione in modalità di debug in Visual Studio, allora provare a eseguire **Eventi del ciclo di vita -> Sospendere** nella barra degli strumenti per assicurarsi che l'applicazione venga effettivamente sospesa. Se è stato appena fatto clic sul pulsante Home durante il debug dell'applicazione in Visual Studio, allora non sempre viene sospeso e durante la notifica verrà visualizzato come in-app, non verrà visualizzato come notifica popup.
+Se l'app era in esecuzione verrà visualizzata una notifica all'interno dell'app, in caso contrario verrà visualizzato una notifica popup se l'applicazione è stata chiusa. Se appare una notifica all'interno dell'app ma non una notifica popup e si esegue l'applicazione in modalità di debug in Visual Studio, allora provare a selezionare **Eventi del ciclo di vita -> Sospendere** sulla barra degli strumenti per assicurarsi che l'applicazione venga effettivamente sospesa. Se è stato appena fatto clic sul pulsante Home durante il debug dell'applicazione in Visual Studio, allora non sempre viene sospeso e durante la notifica verrà visualizzato come in-app, non verrà visualizzato come notifica popup.
 
 ![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
-[Windows Store Dev Center]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
+[Dev Center per Windows Store]: https://dev.windows.com
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
@@ -189,5 +208,10 @@ Se l'app era in esecuzione verrà visualizzata una notifica all'interno dell'app
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 [8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
+[9]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_create_app.png
+[10]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_app_name.png
+[11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
+[12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
+[13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

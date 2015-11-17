@@ -19,7 +19,7 @@
 
 # Distribuzione delle farm di SharePoint con i modelli di Gestione risorse di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica. Non è possibile creare questa risorsa con il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica. Non è possibile creare questa risorsa con il modello di distribuzione classico.
 
 Utilizzare le istruzioni riportate in questo articolo per distribuire una nuova farm di SharePoint Server 2013 a tre o nove server utilizzando i modelli di gestione risorse.
 
@@ -50,7 +50,7 @@ A seconda del modello, la compilazione del carico di lavoro richiede tempi diver
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire **New-AzureRMResourceGroup** con **New-AzureResourceGroup**, sostituire **New-AzureResourceGroupDeployment** con **New-AzureResourceGroupDeployment** e quindi aggiungere il comando **Switch-AzureMode AzureResourceManager** prima del comando **New-AzureResourceGroup**. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire **New-AzureRMResourceGroup** con **New-AzureResourceGroup**, sostituire **New-AzureRMResourceGroupDeployment** con **New-AzureResourceGroupDeployment** e quindi aggiungere il comando **Switch-AzureMode AzureResourceManager** prima del comando **New-AzureResourceGroup**. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Inserire un nome per la distribuzione di Azure, un nuovo nome gruppo di risorse e la posizione del data center di Azure, nel seguente set di comandi. Rimuovere tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >.
 
@@ -122,7 +122,7 @@ A seconda del modello, la compilazione del carico di lavoro richiede tempi diver
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire **New-AzureRMResourceGroup** con **New-AzureResourceGroup**, sostituire **New-AzureResourceGroupDeployment** con **New-AzureResourceGroupDeployment** e quindi aggiungere il comando **Switch-AzureMode AzureResourceManager** prima del comando **New-AzureResourceGroup**. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire **New-AzureRMResourceGroup** con **New-AzureResourceGroup**, sostituire **New-AzureRMResourceGroupDeployment** con **New-AzureResourceGroupDeployment** e quindi aggiungere il comando **Switch-AzureMode AzureResourceManager** prima del comando **New-AzureResourceGroup**. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Inserire un nome per la distribuzione di Azure, un nuovo nome gruppo di risorse e la posizione del data center di Azure, nel seguente set di comandi. Rimuovere tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >.
 
@@ -186,4 +186,4 @@ Al termine, si disporrà di una nuova farm di SharePoint Server 2013 a nove serv
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

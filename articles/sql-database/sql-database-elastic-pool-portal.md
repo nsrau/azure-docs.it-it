@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare e gestire un database di pool di database elastici SQL tramite PowerShelll | Microsoft Azure"
-	description="Creare un singolo pool di risorse da condividere tra un gruppo di database SQL di Azure."
+	pageTitle="Creare un pool di database elastici con database SQL di Azure tramite il portale di anteprima di Azure | Microsoft Azure"
+	description="Creare un pool di database elastici per condividere risorse tra più database SQL di Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,24 +10,26 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/29/2015"
+	ms.date="11/06/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creare un pool di database elastici
+# Creare un pool di database elastici con il portale di anteprima di Azure
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
-- [C#](sql-database-client-library.md)
+- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-In questo articolo viene illustrato come creare un pool di database elastico, che semplifica il processo di creazione, manutenzione e gestione delle prestazioni e dei costi per più database. Prima di iniziare, è necessario almeno un database in un server di database SQL V12. Se non è disponibile, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md) per crearne uno in meno di cinque minuti.
+Questo articolo illustra come creare un [pool di database elastici](sql-database-elastic-pool.md) con il portale di anteprima di Azure.
+
+> [AZURE.NOTE]I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server.md) in un unico passaggio.
 
 
-> [AZURE.NOTE]I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12.
+Prima di iniziare, è necessario avere un database in un server di database SQL V12. Se non è disponibile, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md) per crearne uno in meno di cinque minuti. In alternativa, se si ha già un server di database SQL V11 è possibile [eseguire l'aggiornamento a V12 nel portale](sql-database-v12-upgrade.md) e tornare a seguire queste istruzioni per creare un pool.
 
 
 ## Passaggio 1: aggiungere un pool a un server
@@ -35,7 +37,7 @@ In questo articolo viene illustrato come creare un pool di database elastico, ch
 Creare un pool di database elastici aggiungendo un nuovo pool a un server. È possibile aggiungere più pool a un server, ma solo un (1) server può essere associato a ciascun pool. Inoltre, tutti o alcuni dei database in un server possono essere aggiunti a un pool.
 
 
-Nel [portale di anteprima di Azure](https://ms.portal.azure.com/) fare clic su **SQL Server**, fare clic sul server che ospita i database che si desidera aggiungere al pool, quindi fare clic su **Aggiungi pool**.
+Nel [portale di anteprima di Azure](https://ms.portal.azure.com/) fare clic su **SQL Server**, fare clic sul server che ospita i database da aggiungere al pool e quindi fare clic su **Aggiungi pool**.
 
 ![Aggiungere un pool a un server](./media/sql-database-elastic-pool-portal/elastic-pool-add-pool.png)
 
@@ -44,12 +46,12 @@ Nel [portale di anteprima di Azure](https://ms.portal.azure.com/) fare clic su *
 Se viene visualizzato un messaggio che informa che esiste un pool consigliato per un server, fare clic per esaminare facilmente e creare un pool ottimizzato per i database del server. Per altre informazioni, vedere [Pool di database elastici consigliati](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
    
   
-   ![Creare un pool elastico][1]
+![Creare un pool elastico][1]
 
 
-Il pannello **Pool di database elastico** fornisce opzioni per scegliere il livello di prezzo, aggiungere i database e configurare le caratteristiche di prestazioni del pool.
+Il pannello **Pool di database elastici** fornisce opzioni per scegliere il piano tariffario, aggiungere i database e configurare le caratteristiche delle prestazioni del pool.
 
-> [AZURE.NOTE]Quando si seleziona il comando **Aggiungi pool** per la prima volta è necessario accettare le condizioni dell'anteprima selezionando **CONDIZIONI PER L'ANTEPRIMA** e completando il pannello **Condizioni per l'anteprima**. È sufficiente eseguire questa operazione una volta per ogni sottoscrizione.
+> [AZURE.NOTE]Quando si seleziona il comando **Aggiungi pool** per la prima volta, è necessario accettare le condizioni dell'anteprima selezionando **CONDIZIONI PER L'ANTEPRIMA** e completando il pannello **Condizioni per l'anteprima**. È sufficiente eseguire questa operazione una volta per ogni sottoscrizione.
 
    ![Configurare un pool elastico][2]
 
@@ -98,17 +100,17 @@ Quando si seleziona un database da aggiungere a un pool, è necessario soddisfar
 
 ## Passaggio 4: modificare le caratteristiche delle prestazioni
 
-È possibile configurare le prestazioni del pool impostando i parametri delle prestazioni sia per il pool e che per i database elastici nel pool. Tenere presente che le **impostazioni dei database elastici** si applicano a tutti i database nel pool.
+È possibile configurare le prestazioni del pool impostando i parametri delle prestazioni sia per il pool e che per i database elastici nel pool. Tenere presente che **Impostazioni database elastico** si applica a tutti i database nel pool.
 
    ![Configurare un pool elastico][3]
 
-È possibile impostare tre parametri che definiscono le prestazioni per il pool: la garanzia di eDTU per il pool e il numero MIN e MAX di eDTU per i database elastici nel pool. Nella tabella seguente vengono descritti singolarmente e vengono fornite alcune indicazioni su come impostarli. Per le specifiche impostazioni dei valori disponibili, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
+È possibile impostare tre parametri che definiscono le prestazioni per il pool: la garanzia di eDTU per il pool e il numero MIN e MAX di eDTU per i database elastici nel pool. Nella tabella seguente vengono descritti singolarmente e vengono fornite alcune indicazioni su come impostarli. Per le impostazioni specifiche dei valori disponibili, vedere [Riferimento al pool di database elastici](sql-database-elastic-pool-reference.md).
 
 | Parametro di prestazioni | Descrizione |
 | :--- | :--- |
-| **eDTU POOL** - garanzia eDTU per il pool | La garanzia eDTU per il pool è il numero garantito di eDTU disponibili e condivise da tutti i database nel pool. <br> È necessario eseguire il provisioning della dimensione della garanzia eDTU specificata per un gruppo considerando l'utilizzo di eDTU cronologico del gruppo. In alternativa, è possibile impostare questa dimensione mediante la garanzia eDTU desiderata per database e l'utilizzo dei database attivi contemporaneamente. La garanzia eDTU per il pool, inoltre, è correlata alla quantità di spazio di archiviazione disponibile per il pool, per ogni eDTU allocata al pool si ottiene una quantità fissa di spazio di archiviazione del database. <br> **Su quale valore deve essere impostata la garanzia eDTU del pool?** <br>Come minimo, è necessario impostare la garanzia eDTU del pool su ([numero dei database] x [utilizzo medio DTU per database]) |
-| **MIN eDTU** - Garanzia eDTU per ciascun database | La garanzia eDTU per database è il numero di eDTU garantito a un singolo database del pool. Ad esempio, nei pool Standard è possibile impostare questa garanzia su 0, 10, 20, 50 o 100 eDTU oppure è possibile scegliere di non fornire una garanzia ai database nel gruppo (MIN eDTU = 0). <br> **Su quale valore deve essere impostata la garanzia eDTU per database?** <br> In genere, la garanzia di eDTU per ogni database (eDTU MIN) è impostata su un punto qualsiasi compreso tra 0 e l’ ([utilizzo medio per ogni database]). La garanzia eDTU per database è un'impostazione globale che consente di impostare la garanzia eDTU per tutti i database nel pool. |
-| **MAX eDTU** - Limite di utilizzo delle eDTU per database | Il valore MAX eDTU per database è il numero massimo di eDTU che un singolo database del pool può utilizzare. Impostare il limite di utilizzo eDTU per database su un valore sufficientemente elevato per gestire burst massimi o picchi che potrebbero verificarsi nei database. È possibile impostare questo limite di utilizzo sul limite di sistema, che dipende dal livello di prezzo del pool (1000 eDTU per il livello Premium). La dimensione specifica di questo limite di utilizzo deve essere in grado di contenere i modelli di utilizzo dei database all'interno del gruppo. È previsto un certo grado di overcommitt del gruppo, poiché il pool in genere presuppone schemi di utilizzo a freddo e a caldo per i database, in cui tutti i database non raggiungono il picco contemporaneamente.<br> **Su quale valore deve essere impostato il limite di utilizzo delle eDTU?** <br> Impostare il valore MAX eDTU o il limite di utilizzo delle eDTU per database su ([picco di utilizzo del database]). Si supponga, ad esempio, che il picco di utilizzo per database sia 50 DTU e che solo il 20% dei 100 database nel gruppo raggiunga il picco contemporaneamente. Se il limite di utilizzo delle eDTU per database è impostato su 50 eDTU, è ragionevole eseguire l’overcommit del pool moltiplicando per 5 e impostare la garanzia eDTU per il gruppo (eDTU POOL) su 1.000 eDTU. Vale inoltre la pena notare che il limite di utilizzo delle eDTU non è una garanzia di risorse per un database, bensì un limite massimo di eDTU che è possibile raggiungere, se disponibile. |
+| **eDTU POOL**: garanzia eDTU per il pool | La garanzia eDTU per il pool è il numero garantito di eDTU disponibili e condivise da tutti i database nel pool. <br> È necessario eseguire il provisioning della dimensione della garanzia eDTU specificata per un gruppo considerando l'utilizzo cronologico di eDTU del gruppo. In alternativa, è possibile impostare questa dimensione mediante la garanzia eDTU desiderata per database e l'utilizzo dei database attivi contemporaneamente. La garanzia eDTU per il pool, inoltre, è correlata alla quantità di spazio di archiviazione disponibile per il pool, per ogni eDTU allocata al pool si ottiene una quantità fissa di spazio di archiviazione del database. <br>**Su quale valore deve essere impostata la garanzia eDTU del pool?** <br>Come minimo, è necessario impostare la garanzia eDTU del pool su ([numero dei database] x [utilizzo medio DTU per database]). |
+| **MIN eDTU**: garanzia eDTU per ogni database | La garanzia eDTU per database è il numero di eDTU garantito a un singolo database del pool. Ad esempio, nei pool Standard è possibile impostare questa garanzia su 0, 10, 20, 50 o 100 eDTU oppure è possibile scegliere di non fornire una garanzia ai database nel gruppo (MIN eDTU = 0). <br> **Su quale valore deve essere impostata la garanzia eDTU per database?** <br> In genere, la garanzia eDTU per ogni database (MIN eDTU) è impostata su un valore qualsiasi compreso tra 0 e ([utilizzo medio per ogni database]). La garanzia eDTU per database è un'impostazione globale che consente di impostare la garanzia eDTU per tutti i database nel pool. |
+| **MAX eDTU**: limite di utilizzo delle eDTU per database | Il valore MAX eDTU per database è il numero massimo di eDTU che un singolo database del pool può utilizzare. Impostare il limite di utilizzo eDTU per database su un valore sufficientemente elevato per gestire burst massimi o picchi che potrebbero verificarsi nei database. È possibile impostare questo limite di utilizzo sul limite di sistema, che dipende dal livello di prezzo del pool (1000 eDTU per il livello Premium). La dimensione specifica di questo limite di utilizzo deve essere in grado di contenere i modelli di utilizzo dei database all'interno del gruppo. È previsto un certo grado di overcommitt del gruppo, poiché il pool in genere presuppone schemi di utilizzo a freddo e a caldo per i database, in cui tutti i database non raggiungono il picco contemporaneamente.<br> **Su quale valore deve essere impostato il limite di utilizzo delle eDTU?** <br> Impostare il valore MAX eDTU o il limite di utilizzo delle eDTU per database su ([picco di utilizzo del database]). Si supponga, ad esempio, che il picco di utilizzo per database sia 50 DTU e che solo il 20% dei 100 database nel gruppo raggiunga il picco contemporaneamente. Se il limite di utilizzo delle eDTU per database è impostato su 50 eDTU, è ragionevole eseguire l’overcommit del pool moltiplicando per 5 e impostare la garanzia eDTU per il gruppo (eDTU POOL) su 1.000 eDTU. Vale inoltre la pena notare che il limite di utilizzo delle eDTU non è una garanzia di risorse per un database, bensì un limite massimo di eDTU che è possibile raggiungere, se disponibile. |
 
 ## Pool di database elastici consigliati
 
@@ -199,4 +201,4 @@ Dopo aver creato un pool di database elastici, è possibile gestire i database n
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

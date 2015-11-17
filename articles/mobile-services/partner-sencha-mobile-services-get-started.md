@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili e Sencha Touch
@@ -42,6 +42,7 @@ Di seguito è riportata una schermata dell'app completata:
 - Scaricare e installare [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
 
 - Java Runtime Environment (JRE) o Java Development Kit (se si intende creare app per Android)
+- Ruby e SASS.
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
@@ -94,7 +95,7 @@ Nella maggior parte delle applicazioni Touch se si desidera aggiungere una libre
 
 Per aggiungere manualmente le estensioni di Azure all'applicazione, utilizzare la procedura seguente:
 
-1. Scaricare [qui](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure) il pacchetto di estensioni per Azure. Per accedere a quest'area, è possibile utilizzare l'ID dei forum Sencha.
+1. Scaricare [qui](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure) il pacchetto di estensioni per Azure. Per accedere a quest'area, è possibile utilizzare l'ID dei forum Sencha.
 
 2. Copiare il pacchetto di estensioni per Azure dalla directory di download a quella in cui si desidera salvarla e decomprimerla:
 
@@ -111,7 +112,7 @@ Per aggiungere manualmente le estensioni di Azure all'applicazione, utilizzare l
 
 Tutte le applicazioni generate da Sencha Cmd contengono una cartella "packages" nella radice. Il percorso della cartella "packages" è configurabile, tuttavia, indipendentemente dal percorso, tale cartella viene utilizzata per archiviare tutti i pacchetti utilizzati dall'applicazione o delle applicazioni se è stato creata un'area di lavoro di Sencha.
 
-Poiché Ext.Azure è un "pacchetto" di Sencha Cmd, il codice sorgente può essere può essere facilmente installato e incluso nell'applicazione tramite Sencha Cmd. Per ulteriori informazioni, vedere la pagina relativa ai [pacchetti di Sencha Cmd](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages).
+Poiché Ext.Azure è un "pacchetto" di Sencha Cmd, il codice sorgente può essere può essere facilmente installato e incluso nell'applicazione tramite Sencha Cmd. Per ulteriori informazioni, vedere la pagina relativa ai [pacchetti di Sencha Cmd](http://docs.sencha.com/cmd/6.x/cmd_packages/cmd_packages.html).
 
 Per scaricare e installare il pacchetto di estensione per Azure dall'archivio dei pacchetti di Sencha, sarà necessario aggiungere il nome del pacchetto al file **app.json** e compilare l'applicazione:
 
@@ -663,7 +664,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
   2. In Sencha Cmd eseguire i comandi seguenti:
 
-    * *sencha app refresh* : indica a Sencha Cmd di individuare tutte le dipendenze dell'app e scaricare gli eventuali pacchetti necessari (ad esempio [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
+    * *sencha app refresh* : indica a Sencha Cmd di individuare tutte le dipendenze dell'app e scaricare gli eventuali pacchetti necessari (ad esempio [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
 
     * *sencha web start* : verrà avviato un server Web locale per testare l'applicazione.
 
@@ -701,7 +702,7 @@ Sono inoltre disponibili ulteriori informazioni su Sencha Touch Extensions for A
 ##Risorse aggiuntive
 
   * [Download di Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
-  * [Sencha Touch Extensions per Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
+  * [Sencha Touch Extensions per Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
 
 ##Riepilogo
@@ -716,4 +717,4 @@ Per ulteriori informazioni introduttive su Sencha Touch, vedere l'insieme comple
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

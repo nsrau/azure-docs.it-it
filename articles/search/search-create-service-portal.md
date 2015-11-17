@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare un servizio di Ricerca di Azure nel portale | Microsoft Azure"
+	pageTitle="Creare un servizio di Ricerca di Azure nel portale | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Aggiungere un servizio di Ricerca di Azure Gratuito o Standard a una sottoscrizione esistente tramite il portale di Azure. Ricerca di Azure è il servizio di ricerca cloud ospitato per le applicazioni personalizzate."
 	services="search"
 	documentationCenter=""
@@ -19,11 +19,11 @@
 
 # Creare un servizio di Ricerca di Azure nel portale di Azure
 
-Ricerca di Microsoft Azure è un nuovo servizio che consente di incorporare funzionalità di ricerca in applicazioni personalizzate. Fornisce il motore di ricerca e il servizio di archiviazione per i dati di ricerca, ai quali è possibile accedere e che possono essere gestiti tramite il portale di Azure, un .NET SDK o un'API REST. Funzionalità chiave includono query di completamento automatico, corrispondenza fuzzy, esplorazione in base a facet, collaborazione e supporto multilingue. Per altre informazioni sulle funzionalità di Ricerca di Azure, vedere l'articolo di [introduzione a Ricerca di Azure](fundamentals-azure-search-chappell/).
+Ricerca di Microsoft Azure è un servizio di ricerca ospitato sul cloud che consente di incorporare funzionalità di ricerca in applicazioni personalizzate. Fornisce un motore di ricerca e il servizio di archiviazione per i dati di ricerca, ai quali è possibile accedere e che possono essere gestiti tramite il portale di Azure, .NET SDK o un'API REST. Le funzionalità chiave includono query con completamento automatico, corrispondenza fuzzy, evidenziazione dei risultati, esplorazione in base a facet, profili di punteggio e supporto multilingue. Per altre informazioni sulle funzionalità di Ricerca di Azure, vedere l'articolo [Che cos'è la Ricerca di Azure](seach-what-is-search.md).
 
-## Aggiungere Ricerca di Azure alla sottoscrizione  
+## Aggiungere gratuitamente Ricerca di Azure alla sottoscrizione
 
-In qualità di amministratore, è possibile aggiungere Ricerca di Azure a una sottoscrizione esistente senza costi aggiuntivi se si sceglie il servizio condiviso o a un prezzo standard se si sceglie la soluzione con risorse dedicate.
+L'amministratore può aggiungere Ricerca di Azure a una sottoscrizione di Azure esistente senza costi aggiuntivi se si sceglie il servizio condiviso oppure a un prezzo standard se si sceglie la soluzione con risorse dedicate.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -52,25 +52,14 @@ In qualità di amministratore, è possibile aggiungere Ricerca di Azure a una so
 
 Controllare le notifiche nell'indice. Quando il servizio è pronto per l'uso, viene visualizzato un avviso.
 
-<a id="sub-2"></a>
-## Individuare il nome del servizio e le chiavi API del servizio Ricerca di Azure
-
-Dopo aver creato il servizio, è possibile tornare al portale di Azure per ottenere l'URL o `api-key`. Per le connessioni al servizio Ricerca di Azure è necessario disporre sia dell'URL che di una `api-key` per l'autenticazione della chiamata.
-
-1. Nell'indice fare clic su **Home** e quindi sul servizio Ricerca di Azure per aprire il dashboard del servizio.
-
-2. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
-
-  	![][3]
-
-3. Copiare l'URL del servizio e una chiave di amministrazione. Sarà necessario utilizzarli per l'attività successiva, [testare le operazioni di servizio](#sub-4).
-
 <a id="sub-3"></a>
-## Eseguire l'aggiornamento al livello standard
+## Aggiungere un servizio di ricerca con il piano Standard per ottenere risorse dedicate
 
-Molti clienti iniziano con il servizio gratuito, quindi eseguono l'aggiornamento al livello standard quando le prestazioni delle query o le risorse di archiviazione diventano insufficienti per i carichi di lavoro da eseguire. Il livello standard consente di ottenere risorse dedicate che possono essere usate solo dall'utente in un data center di Azure. Le operazioni di Ricerca di Azure richiedono repliche di archiviazione e del servizio. Quando si effettua l'iscrizione per la ricerca standard, è possibile ottimizzare la configurazione del servizio per usare una maggiore quantità della risorsa più importante per lo scenario corrente.
+Molti clienti iniziano con il servizio gratuito e quindi passano al piano Standard per supportare carichi di lavoro più grandi. Il piano Standard offre risorse dedicate in un data center di Azure che possono essere usate solo dall'utente.
 
-Per usare il livello standard, ripetere i passaggi precedenti riportati in questo articolo per creare un nuovo servizio di Ricerca di Azure scegliendo il piano tariffario Standard. Si noti che la configurazione di risorse dedicate può richiedere fino a 15 minuti o oltre.
+Le operazioni di Ricerca di Azure richiedono repliche di archiviazione e del servizio. A differenza di servizio gratuito che non offre alcuna opzione per l'aggiunta di risorse, il piano Standard consente di aggiungere risorse di archiviazione o il supporto delle query, aumentando la risorsa più critica per il proprio scenario.
+
+Per usare il piano Standard, è necessario creare un nuovo servizio di ricerca con quel piano tariffario. È possibile ripetere i passaggi precedenti in questo articolo per creare un nuovo servizio di Ricerca di Azure. Si noti che la configurazione di risorse dedicate può richiedere fino a 15 minuti o oltre.
 
 Non esiste alcun aggiornamento sul posto della versione gratuita. Il passaggio al livello Standard, che include la scalabilità, richiede un nuovo servizio. Sarà necessario ricaricare gli indici e i documenti usati dall'applicazione di ricerca.
 
@@ -85,6 +74,20 @@ Un servizio di Ricerca di Azure al livello standard viene creato con una replica
 Le repliche e le partizioni aggiuntive vengono fatturate in termini di unità di ricerca. Le unità di ricerca totali per supportare qualsiasi configurazione di risorsa specifica vengono visualizzate nella pagina, durante l'aggiunta delle risorse.
 
 Per informazioni sul prezzo per unità, vedere [Dettagli prezzi](http://go.microsoft.com/fwlink/p/?LinkID=509792). Per assistenza su come configurare le combinazioni di partizione e replica, vedere [Limitazioni e vincoli](search-limits-quotas-capacity.md).
+
+<a id="sub-2"></a>
+## Individuare il nome del servizio e le chiavi API del servizio Ricerca di Azure
+
+Dopo aver creato il servizio, è possibile tornare al portale di Azure per ottenere l'URL o `api-key`. Per le connessioni al servizio Ricerca di Azure è necessario avere sia l'URL che una `api-key` per autenticare la chiamata.
+
+1. Nell'indice fare clic su **Home** e quindi sul servizio di Ricerca di Azure per aprire il relativo dashboard.
+
+2. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
+
+  	![][3]
+
+3. Copiare l'URL del servizio e una chiave di amministrazione. Sarà necessario utilizzarli per l'attività successiva, [testare le operazioni di servizio](#sub-4).
+
 
 <a id="sub-4"></a>
 ## Testare le operazioni del servizio
@@ -120,4 +123,4 @@ Gli argomenti riportati di seguito contengono informazioni su come creare e gest
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

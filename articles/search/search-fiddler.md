@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure | Microsoft Azure"
+	pageTitle="Usare Fiddler per valutare e testare le API REST di Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Utilizzare Fiddler per un approccio senza scrittura di codice alla verifica della disponibilità di Ricerca di Azure e alla valutazione delle API REST."
 	services="search"
 	documentationCenter=""
@@ -13,12 +13,18 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/10/2015"
 	ms.author="heidist"/>
 
-# Utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure
+# Usare Fiddler per valutare e testare le API REST di Ricerca di Azure
+> [AZURE.SELECTOR]
+- [Overview](search-query-overview.md)
+- [Fiddler](search-fiddler.md)
+- [Postman](search-chrome-postman.md)
+- [.NET](search-query-dotnet.md)
+- [REST](search-query-rest-api.md)
 
-In questo articolo viene illustrato come utilizzare Fiddler, disponibile come un [gratuitamente dal Telerik](http://www.telerik.com/fiddler),, per eseguire richieste HTTP a e visualizzare le risposte utilizzando l'API REST di Ricerca di Azure, senza dover scrivere alcun codice. Ricerca di Azure è un servizio di ricerca cloud ospitato in Microsoft Azure e completamente gestito, facilmente programmabile con le API REST e .NET. Le API REST del servizio di Ricerca di Azure sono documentate in [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Questo articolo illustra come usare Fiddler, disponibile come [download gratuito da Telerik](http://www.telerik.com/fiddler), per eseguire richieste HTTP e visualizzare risposte tramite l'API REST di Ricerca di Azure, senza dover scrivere codice. Ricerca di Azure è un servizio di ricerca cloud ospitato in Microsoft Azure e completamente gestito, facilmente programmabile con le API REST e .NET. Le API REST del servizio Ricerca di Azure sono documentate in [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 Nei seguenti passaggi verrà creato un indice, verranno caricati i documenti, si eseguirà una query sull'indice e quindi si eseguirà una query sul sistema per ottenere informazioni sul servizio.
 
@@ -28,7 +34,7 @@ Per completare questi passaggi, è necessario disporre del servizio Ricerca di A
 
 1. Avviare Fiddler Nel menu **File** disattivare **Capture Traffic** per nascondere attività HTTP estranee non correlate all'attività corrente.
 
-3. Nella scheda **Composer** formulare una richiesta con l'aspetto simile al seguente:
+3. Nella scheda **Composer** formulare una richiesta simile alla schermata seguente.
 
   	![][1]
 
@@ -163,7 +169,7 @@ Entro pochi secondi si dovrebbe visualizzare una risposta HTTP 200 nella session
 
 ## Eseguire una query sull'indice
 
-Ora che l'indice e i documenti sono stati caricati, è possibile eseguire query su di essi. Nella scheda **Composer**, un comando **GET** che esegue una query sul servizio avrà un aspetto simile alla seguente schermata.
+Ora che l'indice e i documenti sono stati caricati, è possibile eseguire query su di essi. Nella scheda **Composer** un comando **GET** che esegue una query sul servizio avrà un aspetto simile alla schermata seguente.
 
    ![][3]
 
@@ -198,7 +204,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 ## Eseguire query sul sistema
 
-È possibile eseguire query sul sistema per ottenere il numero di documenti e informazioni sull'utilizzo dello spazio di archiviazione. Nella scheda **Composer** la richiesta avrà un aspetto simile al seguente e la risposta restituirà un conteggio relativo al numero di documenti e allo spazio utilizzato.
+È possibile eseguire query sul sistema per ottenere il numero di documenti e informazioni sull'utilizzo dello spazio di archiviazione. Nella scheda **Composer** la richiesta avrà un aspetto simile al seguente e la risposta restituirà un conteggio relativo al numero di documenti e allo spazio usato.
 
  ![][5]
 
@@ -219,7 +225,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 5.	Fare clic su **Execute**. Entro pochi secondi si dovrebbe visualizzare un codice di stato HTTP 200 nell'elenco della sessione. Selezionare la voce inserita per il comando.
 
-6.	Fare clic sulla scheda **Controlli**, selezionare la scheda **Intestazioni** e quindi selezionare il formato JSON. Verrà visualizzato il numero di documenti e la dimensione dello spazio di archiviazione (in KB).
+6.	Fare clic sulla scheda **Inspectors**, sulla scheda **Headers** e quindi selezionare il formato JSON. Verrà visualizzato il numero di documenti e la dimensione dello spazio di archiviazione (in KB).
 
 ## Passaggi successivi
 
@@ -235,4 +241,4 @@ I collegamenti seguenti forniscono informazioni aggiuntive per un approccio senz
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

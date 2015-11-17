@@ -13,7 +13,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="10/07/2015" 
 	ms.author="riande"/>
 
@@ -35,15 +35,15 @@ Contenuto dell'esercitazione:
 * Come archiviare dati relazionali nel cloud usando il Database SQL Azure.
 * Come distribuire un progetto Web che usa un database in un'[app Web](http://go.microsoft.com/fwlink/?LinkId=529714) nel servizio app di Azure.
 
->[AZURE.NOTE]Si tratta di un'esercitazione lunga. Per una rapida introduzione ai progetti Web del Servizio app di Azure e di Visual Studio, vedere [Creare un'app Web ASP.NET nel Servizio app di Azure](web-sites-dotnet-get-started.md). Per info sulla risoluzione dei problemi, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
+>[AZURE.NOTE]Si tratta di un'esercitazione lunga. Per una rapida introduzione ai progetti Web del Servizio app di Azure e di Visual Studio, vedere [Creare un'app Web ASP.NET nel Servizio app di Azure](web-sites-dotnet-get-started.md). Per informazioni su come risolvere i problemi, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
 >
->Oppure, per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account Azure, passare al sito [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), in cui è possibile creare immediatamente un'app Web temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>Oppure, per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account Azure, passare al sito [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) in cui è possibile creare immediatamente un'app Web temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Prerequisiti
 
 Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) o versione successiva e la versione più recente di [Azure SDK per .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Il presente articolo è stato scritto per Visual Studio Update 4 e SDK 2.7.1. Le stesse istruzioni si applicano a Visual Studio 2015 con la versione più recente di [Azure SDK per .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) installata. Tenere presente che alcune schermate potrebbero essere diverse da quelle illustrate.
+Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) o versione superiore e la versione più recente di [Azure SDK per .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Il presente articolo è stato scritto per Visual Studio Update 4 e SDK 2.7.1. Le stesse istruzioni si applicano a Visual Studio 2015 con la versione più recente di [Azure SDK per .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) installata. Tenere presente che alcune schermate potrebbero essere diverse da quelle illustrate.
 
 ## Creazione di un'applicazione ASP.NET MVC 5
 
@@ -67,7 +67,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 
 1. Fare clic su **OK**.
 
-3. Quando viene visualizzata la finestra di dialogo **Configura impostazioni app Web di Microsoft Azure**, assicurarsi di avere eseguito l'accesso ad Azure. In caso contrario, eseguire l'accesso o immettere di nuovo le credenziali se la sessione è scaduta.
+3. Quando viene visualizzata la finestra di dialogo **Configura impostazioni app Web di Microsoft Azure**, assicurarsi di aver eseguito l'accesso ad Azure. In caso contrario, eseguire l'accesso o immettere di nuovo le credenziali se la sessione è scaduta.
 
 	![Conferma credenziali](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/reentercredentials.png)
 
@@ -288,7 +288,7 @@ La funzionalità di scaffolding di ASP.NET MVC consente di generare automaticame
 
 1. Fare clic su **Aggiungi**.
 
-   Visual Studio crea un controller con metodi e visualizzazioni per operazioni CRUD su database per oggetti **Contact**.
+   Visual Studio crea un controller con metodi e visualizzazioni di un controller per operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) su database per oggetti **Contact**.
 
 ## Abilitazione delle migrazioni, creazione del database, aggiunta di dati di esempio e di un inizializzatore di dati ##
 
@@ -309,7 +309,7 @@ L'attività successiva consiste nell'abilitare la funzionalità [Migrazioni Code
 		add-migration Initial
 
 
-	Il comando **add-migration Initial** genera un file con nome **&lt;indicatore\_data&gt;Initial** nella cartella *Migrations*. Il codice in questo file crea le tabelle di database. Il primo parametro (**Initial**) viene usato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**.
+	Il comando **add-migration Initial** consente di generare un file con nome **&lt;indicatore\_data&gt;Initial** nella cartella *Migrations*. Il codice in questo file crea le tabelle di database. Il primo parametro **(Initial)** viene usato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**.
 
 	Nella classe **Initial** il metodo **Up** consente di creare la cartella Contacts e il metodo **Down**, utilizzato quando si desidera tornare allo stato precedente, consente di rimuoverla.
 
@@ -392,7 +392,7 @@ L'attività successiva consiste nell'abilitare la funzionalità [Migrazioni Code
 
 >[AZURE.NOTE]Per istruzioni dettagliate su come usare i siti portale per sviluppatori di Google e Facebook, in questa esercitazione sono disponibili collegamenti alle esercitazioni del sito ASP.NET. Google e Facebook, tuttavia, modificano i siti più spesso di quanto vengano aggiornate le esercitazioni, che risultano attualmente obsolete. In caso di problemi a seguire le indicazioni, vedere il commento Disqus alla fine di questa esercitazione per un elenco delle modifiche.
 
-[OAuth](http://oauth.net/ "http://oauth.net/") è un protocollo aperto che consente di eseguire l'autenticazione sicura in un metodo semplice e standard da applicazioni Web, per dispositivi mobili e desktop. Il modello Internet ASP.NET MVC usa OAuth per esporre Facebook, Twitter, Google e Microsoft come provider di autenticazione. Benché in questa esercitazione venga usato solo Google come provider di autenticazione, è possibile modificare con facilità il codice per usare un altro provider. I passaggi per l'implementazione di altri provider sono molto simili ai passaggi illustrati in questa esercitazione. Per usare Facebook come provider di autenticazione, vedere l'esercitazione relativa alla creazione di un'[app MVC 5 con autenticazione OAuth2 mediante Facebook, Twitter, LinkedIn e Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
+[OAuth](http://oauth.net/ "http://oauth.net/") è un protocollo aperto che consente di eseguire l'autenticazione sicura in un metodo semplice e standard da applicazioni Web, per dispositivi mobili e desktop. Il modello Internet ASP.NET MVC usa OAuth per esporre Facebook, Twitter, Google e Microsoft come provider di autenticazione. Benché in questa esercitazione venga usato solo Google come provider di autenticazione, è possibile modificare con facilità il codice per usare un altro provider. I passaggi per l'implementazione di altri provider sono molto simili ai passaggi illustrati in questa esercitazione. Per usare Facebook come provider di autenticazione, vedere l'esercitazione relativa alla [creazione di un'app MVC 5 con autenticazione OAuth2 mediante Facebook, Twitter, LinkedIn e Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
 
 Oltre all'autenticazione, questa esercitazione usa anche i ruoli per implementare l'autorizzazione. Solo gli utenti aggiunti al ruolo *canEdit* potranno modificare i dati, ovvero creare, modificare o eliminare contatti.
 
@@ -404,7 +404,7 @@ Oltre all'autenticazione, questa esercitazione usa anche i ruoli per implementar
 
 ## Utilizzo dell'API di appartenenza
 
-In questa sezione verranno aggiunti al database di appartenenza un utente locale e il ruolo *canEdit*. Solo gli utenti con ruolo *canEdit* saranno in grado di modificare i dati. È consigliabile assegnare ai ruoli un nome corrispondente alle azioni che consentono di eseguire, quindi il nome *canEdit* è preferibile rispetto ad *admin*. Man mano che l'applicazione si evolve, sarà possibile aggiungere nuovi ruoli quali *canDeleteMembers*, invece di ruoli con nomi meno descrittivi quali *superAdmin*.
+In questa sezione verranno aggiunti al database di appartenenza un utente locale e il ruolo *canEdit*. Solo gli utenti con ruolo *canEdit* saranno in grado di modificare i dati. È consigliabile assegnare ai ruoli un nome corrispondente alle azioni che consentono di eseguire, quindi il nome *canEdit* è preferibile rispetto ad *admin*. Nel corso dell'evolversi dell'applicazione, sarà possibile aggiungere nuovi ruoli quali *canDeleteMembers*, invece di ruoli con nomi meno descrittivi quali *superAdmin*.
 
 1. Aprire il file *migrations\\configuration.cs* e aggiungere le istruzioni `using` seguenti:
 
@@ -445,11 +445,11 @@ In questa sezione verranno aggiunti al database di appartenenza un utente locale
 
 	![Immagine del codice](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Questo codice crea un nuovo ruolo denominato *canEdit*, crea un nuovo utente locale **user1@contoso.com* e aggiunge **user1@contoso.com* al ruolo *canEdit*. Per altre informazioni, vedere la pagina relativa alle [esercitazioni per ASP.NET Identity](http://www.asp.net/identity/overview/features-api) nel sito ASP.NET.
+	Questo codice consente di creare un nuovo ruolo denominato *canEdit*, quindi di creare un nuovo utente locale **user1@contoso.com* e infine di aggiungere **user1@contoso.com* al ruolo *canEdit*. Per altre informazioni, vedere la pagina relativa alle [esercitazioni per ASP.NET Identity](http://www.asp.net/identity/overview/features-api) nel sito ASP.NET.
 
 ## Utilizzo di codice temporaneo per aggiungere al ruolo canEdit nuovi utenti di accesso a social networking  ##
 
-In questa sezione sarà possibile modificare temporaneamente il metodo **ExternalLoginConfirmation** nel controller Account per aggiungere nuovi utenti che eseguono l'autenticazione con un provider OAuth oppure OpenID al ruolo *canEdit*. Microsoft prevede di rendere disponibile in futuro uno strumento simile a [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) che consentirà di creare e modificare account utente e ruoli. Fino a quel momento, sarà possibile ottenere lo stesso risultato usando il codice temporaneo.
+In questa sezione sarà possibile modificare temporaneamente il metodo **ExternalLoginConfirmation** nel controller Account per aggiungere nuovi utenti che eseguono l'autenticazione con un provider OAuth oppure OpenID al ruolo *canEdit*. Ci auguriamo di riuscire a rendere disponibile in futuro uno strumento simile a [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) che consentirà di creare e modificare account utente e ruoli. Fino a quel momento, sarà possibile ottenere lo stesso risultato usando il codice temporaneo.
 
 1. Aprire il file **Controllers\\AccountController.cs** e passare al metodo **ExternalLoginConfirmation**.
 
@@ -516,7 +516,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 		    filters.Add(new RequireHttpsAttribute());
 		}
 		
-	Questo codice aggiunge il filtro [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) e il filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) all'applicazione. Il filtro [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) impedisce agli utenti anonimi di accedere ai metodi dell'applicazione. È possibile utilizzare l'attributo [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) per rifiutare esplicitamente il requisito di autorizzazione in un paio di metodi, per consentire agli utenti anonimi di effettuare l'accesso e visualizzare la home page. Con [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) si rende obbligatorio l'accesso all'app Web tramite HTTPS.
+	Questo codice aggiunge il filtro [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) e il filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) all'applicazione. Il filtro [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) consente di impedire agli utenti anonimi di accedere ai metodi dell'applicazione. È possibile utilizzare l'attributo [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) per rifiutare esplicitamente il requisito di autorizzazione in un paio di metodi, per consentire agli utenti anonimi di effettuare l'accesso e visualizzare la home page. Con [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) si rende obbligatorio l'accesso all'app Web tramite HTTPS.
 
 	Un approccio alternativo consiste nell'aggiungere l'attributo [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) e l'attributo [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) a ogni controller, ma è consigliabile applicarli all'intera applicazione, per assicurare una protezione migliore. Grazie all'aggiunta a livello globale, ogni nuovo controller e ogni metodo di azione aggiunti saranno protetti automaticamente e non sarà necessario ricordarsi di applicare gli attributi. Per ulteriori informazioni, vedere la pagina relativa alla [protezione dell'app ASP.NET MVC e al nuovo attributo AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx).
 
@@ -715,7 +715,7 @@ In caso di problemi, ecco alcuni suggerimenti su come procedere.
 * Errori durante il provisioning del database SQL: verificare che sia installato l'SDK corrente. Le versioni precedenti alla 2.7.1 contengono un bug che in alcuni scenari causa errori quando VS cerca di creare il server di database o il database.
 * Messaggio di errore simile a "Operazione non supportata per il tipo di offerta di sottoscrizione" durante la creazione di risorse di Azure: come sopra.
 * Errori durante la distribuzione: vedere l'articolo sulla [distribuzione ASP.NET di base](web-sites-dotnet-get-started.md). Tale scenario di distribuzione è più semplice e, se si verifica lo stesso problema, potrebbe essere più facile isolarlo. In alcuni ambienti aziendali, ad esempio, un firewall aziendale potrebbe impedire a Distribuzione Web di stabilire i tipi di connessione ad Azure necessari.
-* Nessuna opzione per selezionare la stringa di connessione nella procedura guidata Pubblica sito Web durante la distribuzione: se è stato usato un metodo diverso per creare le risorse di Azure (ad esempio, si sta cercando di eseguire la distribuzione in un'app Web e in un database SQL creati nel portale), è possibile che il database SQL non sia associato all'app Web. La soluzione più semplice consiste nel creare una nuova app Web e un nuovo database usando VS, come mostrato nell'esercitazione. Non è necessario ricominciare l'esercitazione da capo. Nella procedura guidata Pubblica sito Web è infatti possibile scegliere di creare una nuova app Web. In questo modo verrà aperta la stessa finestra di dialogo di creazione delle risorse di Azure che si apre quando si crea il progetto.
+* Nessuna opzione per selezionare la stringa di connessione nella procedura guidata Pubblica sito Web durante la distribuzione: se è stato usato un metodo diverso per creare le risorse di Azure (ad esempio, si sta cercando di eseguire la distribuzione in un'app Web e in un database SQL creati nel portale), il database SQL potrebbe non essere associato all'app Web. La soluzione più semplice consiste nel creare una nuova app Web e un nuovo database usando VS, come mostrato nell'esercitazione. Non è necessario ricominciare l'esercitazione da capo. Nella procedura guidata Pubblica sito Web è infatti possibile scegliere di creare una nuova app Web. In questo modo verrà aperta la stessa finestra di dialogo di creazione delle risorse di Azure che si apre quando si crea il progetto.
 * Le indicazioni relative al portale per sviluppatori di Google o Facebook sono obsolete: vedere il commento Disqus alla fine di questa esercitazione.
 
 ## Passaggi successivi
@@ -798,4 +798,4 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

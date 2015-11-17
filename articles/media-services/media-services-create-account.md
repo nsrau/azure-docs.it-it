@@ -37,7 +37,7 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
     > [AZURE.NOTE]Le aree di Servizi multimediali (AMS) disponibili includono: Europa settentrionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti orientali, Asia sudorientale, Asia orientale, Giappone occidentale, Giappone orientale. In Servizi multimediali non vengono utilizzati gruppi di affinità.
     >
-	> AMS è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di gestione di Azure per [creare account di Servizi multimediali](media-services-create-account.md#create-a-media-services-account-using-quick-create) ed eseguire diverse attività descritte [qui](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è tuttavia abilitata, né sono disponibili tutti i tipi di unità riservate di codifica.
+	> AMS è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di gestione di Azure per [creare account di Servizi multimediali](media-services-create-account.md#create-a-media-services-account-using-quick-create) ed eseguire diverse attività descritte [qui](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è tuttavia abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
 	>
 	>- Brasile meridionale: sono disponibili solo unità riservate di codifica Standard e Basic
 	>- India occidentale, India meridionale e India centrale: sono disponibili solo unità riservate di codifica Basic
@@ -74,12 +74,16 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
 	È inoltre possibile visualizzare il codice usato dall'SDK di Servizi multimediali di Azure per eseguire attività di caricamento, codifica e pubblicazione di video. È possibile fare clic su uno dei collegamenti disponibili nella sezione **SCRIVI CODICE**, copiare il codice e usarlo nella propria applicazione.
 
-##Percorsi di formazione di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Percorsi di apprendimento di Media Services
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ## Passaggi successivi
 
@@ -99,4 +103,4 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
   [portale di Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -28,8 +28,6 @@
 
 Usare il portale di Azure, .NET SDK o l'API REST per creare un account di Servizi multimediali di Azure.
 
-
-
 <a id="setup_dev_env"></a>
 ## Configurare l'ambiente di sviluppo  
 
@@ -45,11 +43,12 @@ Scegliere .NET o REST API per connettersi a livello di codice a Servizi multimed
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
 
-##Passaggi successivi: percorsi di apprendimento AMS
+##Passaggi successivi: Percorsi di apprendimento di Servizi multimediali di Azure
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

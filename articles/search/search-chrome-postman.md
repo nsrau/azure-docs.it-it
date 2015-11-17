@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilizzare Chrome Postman con Ricerca di Azure | Microsoft Azure"
+	pageTitle="Usare Chrome Postman con Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Usare Chrome Postman con Ricerca di Azure, un servizio di ricerca cloud ospitato. Installare e configurare Postman. Creare un indice di Ricerca di Azure. Pubblicare i documenti ed eseguire query nell'indice con Postman."
 	services="search"
 	documentationCenter=""
@@ -14,10 +14,16 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/10/2015"
 	ms.author="heidist"/>
 
 # Come utilizzare Chrome Postman con Ricerca di Azure #
+> [AZURE.SELECTOR]
+- [Overview](search-query-overview.md)
+- [Fiddler](search-fiddler.md)
+- [Postman](search-chrome-postman.md)
+- [.NET](search-query-dotnet.md)
+- [REST](search-query-rest-api.md)
 
 [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") è uno strumento fornito con Google Chrome che consente agli sviluppatori di lavorare in modo efficiente con servizi API basati su REST, ad esempio Ricerca di Azure. È possibile utilizzare Postman per creare rapidamente ed eseguire query degli indici di ricerca mediante l'invio di chiamate API tramite Postman, senza dover scrivere righe di codice. Questo approccio è un modo efficiente per conoscere l’API e provarne le nuove funzionalità.
 
@@ -25,7 +31,7 @@
 
 ## Requisiti ##
 
-È necessario disporre di un servizio Ricerca di Azure. Come con qualsiasi applicazione personalizzata che utilizza Ricerca di Azure, sarà necessario disporre dell'URL del servizio, oltre a un amministratore `api-key` in grado di creare l'indice. Per istruzioni su come ottenere i valori per il servizio Ricerca, vedere [Creare un servizio nel portale di](search-create-service-portal.md).
+È necessario disporre di un servizio Ricerca di Azure. Come con qualsiasi applicazione personalizzata che utilizza Ricerca di Azure, sarà necessario disporre dell'URL del servizio, oltre a un amministratore `api-key` in grado di creare l'indice. Per istruzioni su come ottenere i valori per il servizio Ricerca, vedere [Creare un servizio di Ricerca di Azure nel portale di Azure](search-create-service-portal.md).
 
 ## Per installare Postman ##
 Per scaricare Postman, visitare il [Google Web Store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). Il collegamento in questa pagina consente di scaricare e installare il client REST per Postman. Una volta installato, è possibile avviare Postman dall’applicazione Chrome Launcher.
@@ -36,13 +42,13 @@ Per scaricare Postman, visitare il [Google Web Store](https://chrome.google.com/
 Per configurare Postman, seguire questi passaggi:
 
 1. Immettere l'URL del servizio di Ricerca di Azure dove viene indicato di inserirlo.  
-2. Aggiungere all'URL: `?api-version=2015-02-28`. È inoltre possibile specificare una versione diversa di API. Per informazioni dettagliate, vedere [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+2. Aggiungere all'URL: `?api-version=2015-02-28`. È inoltre possibile specificare una versione diversa di API. Per informazioni dettagliate, vedere [Controllo delle versioni del servizio Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx).
 3. Assicurarsi che venga scelto `GET`.
-4. Fare clic sul pulsante relativo alle **intestazioni**.
+4. Fare clic sul pulsante **Headers**.
 5. Immettere i valori per:
 	- `api-key`: [Admin Key]
 	- `Content-Type`: `application/json; charset=utf-8`
-6. Fare clic sul pulsante di **invio** per inoltrare la chiamata REST a Ricerca di Azure e visualizzare la risposta JSON.
+6. Fare clic sul pulsante **Send** per inviare la chiamata REST a Ricerca di Azure e visualizzare la risposta JSON.
 
 ![][3]
 
@@ -94,7 +100,7 @@ Il passaggio finale consiste nell’effettuare una query dell’indice e nell’
 
 1. Immettere le informazioni seguenti nell'URL: `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail` utilizzando il nome del servizio di ricerca. Si noti che l'URL include il parametro di query `search` e un termine di ricerca di *sentiero*.
 2. Modificare il tipo di richiesta HTTP in `GET`.
-3. Fare clic su **Invia**.
+3. Fare clic su **Send**.
 
 Nella risposta verranno visualizzati i risultati della ricerca JSON restituiti da Ricerca di Azure.
 
@@ -118,4 +124,4 @@ La documentazione per l'API REST è disponibile in [MSDN](https://msdn.microsoft
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

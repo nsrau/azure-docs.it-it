@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/22/2015"
+	ms.date="11/12/2015"
 	ms.author="cabailey"/>
 
 
@@ -38,7 +38,7 @@ La seguente tabella permette di capire meglio come l'insieme di credenziali chia
 | ------------- |-------------|-----|
 | Sviluppatore di un'applicazione Azure | "Voglio scrivere un'applicazione per Azure che usi chiavi per la firma e la crittografia, che però dovranno essere esterne all'applicazione, in modo che la soluzione sia adatta a un'applicazione geograficamente distribuita. <br/><br/>Si vuole anche che queste chiavi e questi segreti siano protetti senza dover scrivere manualmente il codice e si vuole poterli usare agevolmente dalle applicazioni create con prestazioni ottimali". | √ Le chiavi vengono archiviate in un insieme di credenziali e richiamate dall'URI quando è necessario.<br/><br/> √ Le chiavi sono protette da Azure con algoritmi, lunghezze di chiave e moduli di protezione hardware standard del settore.<br/><br/> √ Le chiavi vengono elaborate in moduli HSM disponibili negli stessi data center di Azure delle applicazioni, per garantire una disponibilità migliore e una latenza ridotta rispetto alle le chiavi disponibili in una posizione separata, ad esempio in locale.|
 | Sviluppatore di software come un servizio (SaaS) |"Non voglio essere in alcun modo responsabile delle chiavi e dei segreti dei tenant dei miei clienti. <br/><br/>Voglio che siano i clienti a possedere e gestire le chiavi per potermi concentrare su ciò che so fare meglio, ovvero fornire le principali funzionalità del software." | √ I clienti possono importare le loro chiavi in Azure e gestirle. Quando un'applicazione SaaS deve eseguire operazioni di crittografia usando le chiavi dei clienti, è l'insieme di credenziali chiave a farlo per conto dell'applicazione. L'applicazione non vede le chiavi dei clienti.|
-| Responsabile della sicurezza | "Voglio la certezza che le applicazioni siano conformi ai moduli di protezione hardware FIPS 140-2 livello 2 per la gestione delle chiavi protetta. <br/><br/>Voglio assicurarmi che la mia organizzazione abbia il controllo del ciclo di vita delle chiavi e possa monitorare l'utilizzo delle chiavi. <br/><br/>Anche se usiamo più servizi e risorse di Azure, voglio gestire le chiavi da una sola posizione in Azure. |√ I moduli di protezione hardware hanno la certificazione FIPS 140-2 livello 2.<br/><br/>√ L'insieme di credenziali delle chiavi è progettato in modo che Microsoft non possa vedere né estrarre le chiavi.<br/><br/>√ Registrazione dell'utilizzo delle chiavi in tempo quasi reale (attualmente non disponibile).<br/><br/>√ L'insieme di credenziali offre un'unica interfaccia, indipendentemente dal numero di insiemi di credenziali presenti in Azure, dalle aree supportate e dalle applicazioni che li usano. |
+| Responsabile della sicurezza | "Voglio la certezza che le applicazioni siano conformi ai moduli di protezione hardware FIPS 140-2 livello 2 per la gestione delle chiavi protetta. <br/><br/>Voglio assicurarmi che la mia organizzazione abbia il controllo del ciclo di vita delle chiavi e possa monitorare l'utilizzo delle chiavi. <br/><br/>Anche se usiamo più servizi e risorse di Azure, voglio gestire le chiavi da una sola posizione in Azure. |√ I moduli di protezione hardware hanno la certificazione FIPS 140-2 livello 2.<br/><br/>√ L'insieme di credenziali delle chiavi è progettato in modo che Microsoft non possa vedere né estrarre le chiavi.<br/><br/>√ Registrazione dell'utilizzo delle chiavi in tempo quasi reale (attualmente disponibile in [anteprima](http://blogs.technet.com/b/kv/archive/2015/11/10/keyvault_2d00_logging_2d00_preview.aspx)).<br/><br/>√ L'insieme di credenziali offre un'unica interfaccia, indipendentemente dal numero di insiemi di credenziali presenti in Azure, dalle aree supportate e dalle applicazioni che li usano. |
 
 
 Chiunque abbia una sottoscrizione di Azure può creare e usare insiemi di credenziali chiave. Anche se l'insieme di credenziali chiave è un vantaggio per sviluppatori e amministratori della sicurezza, può essere implementato e gestito dall'amministratore di un'organizzazione che gestisce altri servizi di Azure per un'organizzazione. Ad esempio, questo amministratore potrebbe accedere con una sottoscrizione di Azure, creare un insieme di credenziali per l'organizzazione, in cui archiviare le chiavi, e quindi essere responsabile di attività operative, ad esempio:
@@ -49,11 +49,11 @@ Chiunque abbia una sottoscrizione di Azure può creare e usare insiemi di creden
 + Configurare l'utilizzo delle chiavi (ad esempio, la firma o la crittografia)
 + Monitorare l'utilizzo delle chiavi
 
-L'amministratore quindi fornirebbe agli sviluppatori gli URI da chiamare dalle applicazioni e fornirebbe all'amministrazione della sicurezza le informazioni sulla registrazione dell'utilizzo delle chiavi. **Le informazioni sulla registrazione dell'utilizzo delle chiavi non sono attualmente disponibili.**
+L'amministratore quindi fornirebbe agli sviluppatori gli URI da chiamare dalle applicazioni e fornirebbe all'amministrazione della sicurezza le informazioni sulla registrazione dell'utilizzo delle chiavi. Tenere presente che la registrazione dell'utilizzo è attualmente disponibile in [anteprima](http://blogs.technet.com/b/kv/archive/2015/11/10/keyvault_2d00_logging_2d00_preview.aspx).
 
    ![Panoramica dell'insieme di credenziali chiave di Azure][1]
 
-Gli sviluppatori possono gestire le chiavi anche direttamente, usando le API. Per altre informazioni, vedere la [guida per gli sviluppatori di credenziali delle chiavi](key-vault-developers-guide.md).
+Gli sviluppatori possono gestire le chiavi anche direttamente, usando le API. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure](key-vault-developers-guide.md).
 
 ## Passaggi successivi
 
@@ -65,4 +65,4 @@ Per altre informazioni sull'uso di chiavi e segreti con l'insieme di credenziali
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

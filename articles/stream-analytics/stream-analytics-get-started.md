@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Introduzione all’uso di Analisi di flusso di Azure: rilevamento di illeciti in tempo reale | Microsoft Azure"
 	description="Informazioni su come creare una soluzione per il rilevamento di illeciti in tempo reale con Analisi di flusso. Utilizzare un hub eventi per l'elaborazione di eventi in tempo reale."
-	keywords="event hub,fraud detection,real-time,real-time processing"
+	keywords="hub eventi, rilevazione frodi, in tempo reale, elaborazione in tempo reale"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="10/05/2015"
+	ms.date="11/06/2015"
 	ms.author="jeffstok" />
 
 
@@ -50,7 +50,7 @@ Per creare un hub eventi:
 	![Criteri di accesso condivisi in cui è possibile creare un nuovo criterio con autorizzazioni di gestione.](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
 
 5.	Fare clic su **Save** nella parte inferiore della pagina.
-6.	Passare al **Dashboard** e fare clic su **Informazioni di connessione** nella parte inferiore della pagina e quindi salvare le informazioni di connessione.
+6.	Passare al **Dashboard** e fare clic su **Informazioni di connessione** nella parte inferiore della pagina e quindi copiare e salvare le informazioni di connessione.
 
 ## Configurare e avviare l'applicazione di generazione di eventi
 
@@ -84,14 +84,14 @@ Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile imp
 
 ### Eseguire il provisioning di un processo di Analisi di flusso
 
-1.	Nel portale di Azure fare clic su **Nuovo > Servizi dati > Analisi di flusso > Creazione rapida**.
+1.	Nel portale di Azure fare clic su **Nuovo > Servizi dati > Analisi dei flussi > Creazione rapida**.
 2.	Specificare i valori seguenti, quindi fare clic su **Crea processo di Analisi dei flussi**:
 
 	* **Nome processo**: immettere un nome per il processo.
 
 	* **Area**: scegliere l'area in cui si desidera eseguire il processo. È consigliabile inserire il processo e l'hub eventi nella stessa area per garantire prestazioni migliori ed evitare addebiti connessi al trasferimento di dati tra aree diverse.
 
-	* **Account di archiviazione**: scegliere l'account di archiviazione di Azure da usare per archiviare i dati di monitoraggio per tutti i processi di Analisi di flusso in esecuzione all'interno dell'area scelta. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.
+	* **Account di archiviazione**: scegliere l'account di archiviazione di Azure da usare per archiviare i dati di monitoraggio per tutti i processi di Analisi dei flussi in esecuzione all'interno dell'area scelta. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.
 
 3.	Fare clic su **Analisi dei flussi** nel riquadro sinistro per visualizzare un elenco dei processi di Analisi dei flussi.
 
@@ -114,7 +114,7 @@ Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile imp
 
 	* **Nome del criterio hub eventi**: selezionare il criterio dell'hub eventi creato precedentemente in questa esercitazione.
 
-	* **Gruppo di consumer dell'hub eventi**: immettere il gruppo di consumer creato in precedenza in questa esercitazione.
+	* **Gruppo di consumer dell'hub eventi**: digitare il gruppo di consumer creato in precedenza in questa esercitazione.
 5.	Fare clic sul pulsante a destra.
 6.	Specificare i valori seguenti:
 
@@ -127,11 +127,11 @@ Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile imp
 Analisi di flusso supporta un semplice modello di query dichiarative per descrivere le trasformazioni per l’elaborazione in tempo reale. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/dn834998.aspx). Questa esercitazione consente di creare e testare diverse query sul flusso in tempo reale dei dati chiamata.
 
 #### Facoltativo: dati di input di esempio
-Per convalidare la query in base al tipo di dati effettivo del processo, è possibile utilizzare la funzionalità **Dati di esempio** per estrarre gli eventi dal flusso e creare un file JSON di eventi per il test. La procedura seguente illustra come eseguire questa operazione e viene inoltre fornito un file [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) di esempio a scopo di test.
+Per convalidare la query in base al tipo di dati effettivo del processo, è possibile utilizzare la funzionalità **Dati di esempio** per estrarre gli eventi dal flusso e creare un file JSON di eventi per il test. La procedura seguente illustra come eseguire questa operazione e viene anche fornito un file [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) di esempio a scopo di test.
 
 1.	Selezionare l'input dell'hub eventi e fare clic su **Dati di esempio** nella parte inferiore della pagina.
 2.	Nella finestra di dialogo visualizzata specificare un valore per **Ora di inizio** da cui iniziare a raccogliere dati e un valore per **Durata** per la quantità di dati aggiuntivi da utilizzare.
-3.	Fare clic sul segno di spunta per avviare i dati di campionamento dell'input. Per la produzione del file sono richiesti uno o due minuti. Dopo il completamento del processo, fare clic su **Dettagli** e scaricare e salvare il file JSON che viene generato.
+3.	Fare clic sul segno di spunta per avviare i dati di campionamento dell'input. Per la produzione del file sono richiesti uno o due minuti. Dopo il completamento del processo, fare clic su **Dettagli** e scaricare e salvare il file JSON generato.
 
 	![Scaricare e salvare i dati elaborati in un file JSON](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
 
@@ -147,7 +147,7 @@ Se si desidera archiviare ogni evento, è possibile utilizzare una query passthr
 	> Assicurarsi che il nome dell'origine di input corrisponda al nome dell'input specificato precedentemente.
 
 3.	Fare clic su **Test** nell'editor di query.
-4.	Fornire un file di test, che può essere sia un file creato mediante la procedura precedente che [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Fornire un file di test, che può essere sia un file creato con la procedura precedente sia un file [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Fare clic sul segno di spunta e vedere i risultati visualizzati sotto la definizione della query.
 
 	![Risultati della definizione della query](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -178,7 +178,7 @@ Per confrontare la quantità di chiamate in ingresso per area verrà utilizzata 
 
 	In questa query viene utilizzata la parola chiave **Timestamp By** per specificare un campo di timestamp nel payload da utilizzare nel calcolo temporale. Se il campo non è stato specificato, verrà eseguita l'operazione di windowing utilizzando l’orario in cui ogni evento è arrivato all’hub eventi. Vedere la sezione relativa a [tempo di arrivo e tempo di applicazione nel riferimento per il linguaggio di query di Analisi dei flussi](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-	Si noti che è possibile accedere a un timestamp per la fine di ciascuna finestra usando la proprietà **System.Timestamp**.
+	Si noti che è possibile accedere a un timestamp per la fine di ogni finestra usando la proprietà **System.Timestamp**.
 
 2.	Fare clic su **Riesegui** nell'editor di query per visualizzare i risultati della query.
 
@@ -208,7 +208,7 @@ Ora che è stato definito un flusso di eventi, un input dell’hub eventi per ac
 
 Attenersi alla procedura seguente per creare un contenitore per l'archivio BLOB, se non è già disponibile:
 
-1.	Usare un account di archiviazione esistente o crearne uno nuovo facendo clic su **Nuovo > Servizi dati > Archiviazione > Creazione rapida** e seguendo le istruzioni.
+1.	Usare un account di archiviazione esistente o crearne uno nuovo facendo clic su **NUOVO > SERVIZI DATI > ARCHIVIAZIONE > CREAZIONE RAPIDA** e seguendo le istruzioni.
 2.	Selezionare l'account di archiviazione, fare clic su **CONTENITORI** nella parte superiore della pagina e quindi fare clic su **AGGIUNGI**.
 3.	Specificare un **NOME** per il contenitore e impostare il relativo **ACCESSO** al BLOB pubblico.
 
@@ -219,7 +219,7 @@ Attenersi alla procedura seguente per creare un contenitore per l'archivio BLOB,
 3.	Digitare o selezionare i valori seguenti nella terza pagina:
 
 	* **ALIAS DI OUTPUT**: immettere un nome descrittivo per l'output del processo.
-	* **SOTTOSCRIZIONE**: se l'archivio BLOB creato si trova nella stessa sottoscrizione del processo di analisi di flusso, selezionare **Usare l'account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, selezionare l’opzione per **utilizzare l’account di archiviazione utilizzato da un'altra sottoscrizione** e immettere manualmente le informazioni relative all’**ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE DELL’ACCOUNT DI ARCHIVIAZIONE**, **CONTENITORE**.
+	* **SOTTOSCRIZIONE**: se l'archivio BLOB creato si trova nella stessa sottoscrizione del processo di analisi dei flussi, selezionare **Usare l'account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, selezionare l’opzione per **utilizzare l’account di archiviazione utilizzato da un'altra sottoscrizione** e immettere manualmente le informazioni relative all’**ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE DELL’ACCOUNT DI ARCHIVIAZIONE**, **CONTENITORE**.
 	* **ACCOUNT DI ARCHIVIAZIONE**: selezionare il nome dell’account di archiviazione.
 	* **CONTENITORE**: selezionare il nome del contenitore.
 	* **PREFISSO DEL NOME FILE**: digitare un prefisso di file da utilizzare nella scrittura dell’output del BLOB
@@ -237,7 +237,7 @@ Attenersi alla procedura seguente per creare un contenitore per l'archivio BLOB,
 Poiché l'input, la query e l'output di un processo sono stati specificati, a questo punto è possibile avviare il processo di Analisi di flusso.
 
 1.	Dal processo **DASHBOARD**, fare clic su **AVVIA** nella parte inferiore della pagina.
-2.	Nella finestra di dialogo visualizzata selezionare **ORA DI INIZIO DEL PROCESSO**, quindi fare clic sul pulsante con il segno di spunta nella parte inferiore della finestra di dialogo. Lo stato del processo cambierà da **Avvio** e a breve passerà a **In esecuzione**.
+2.	Nella finestra di dialogo visualizzata selezionare **ORA DI INIZIO PROCESSO**, quindi fare clic sul pulsante con il segno di spunta nella parte inferiore della finestra di dialogo. Lo stato del processo cambierà da **Avvio** e a breve passerà a **In esecuzione**.
 
 ## Visualizzare l'output di rilevamento di illeciti
 
@@ -257,4 +257,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
