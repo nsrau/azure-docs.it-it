@@ -22,7 +22,7 @@
 
 L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. Una delle maggiori difficoltà con i progetti IoT è quella di connettere in modo affidabile e sicuro i dispositivi al back-end applicazioni. Per semplificare questo scenario, l'hub IoT di Azure offre messaggistica da dispositivo a cloud e da cloud a dispositivo affidabile su scala elevatissima, consente comunicazioni sicure con credenziali di sicurezza e controllo di accesso per ogni dispositivo e include librerie di dispositivi per i linguaggi e le piattaforme più comuni.
 
-Questa esercitazione illustra non solo come usare il portale di Azure per creare un hub IoT, ma anche come creare un'identità di dispositivo nell'hub IoT e come creare un dispositivo simulato che invia messaggi da dispositivo a cloud e riceve questi messaggi dal back-end cloud.
+Questa esercitazione illustra come usare il portale di anteprima di Azure per creare un hub IoT. Mostra anche come creare un'identità del dispositivo nell'hub IoT, creare un dispositivo simulato che invia messaggi dal dispositivo al cloud e riceve questi messaggi dal back-end cloud.
 
 Al termine di questa esercitazione si avranno tre applicazioni console Windows:
 
@@ -129,4 +129,4 @@ Altre informazioni sull'hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

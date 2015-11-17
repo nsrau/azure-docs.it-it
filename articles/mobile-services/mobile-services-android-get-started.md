@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="11/05/2015"
 	ms.author="ricksal"/>
 
 # Introduzione a Servizi mobili per Android (back-end JavaScript)
@@ -28,11 +28,13 @@ Questa esercitazione illustra come aggiungere un servizio back-end basato sul cl
 
 > [AZURE.VIDEO mobile-get-started-android]
 
-Di seguito è riportata una schermata dell'app completata: ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+Di seguito è riportata una schermata dell'app completata:
+
+![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
 ## Prerequisiti
 
-Per completare questa esercitazione, è necessario avere [Android Developer Tools](https://developer.android.com/sdk/index.html) che include l'ambiente di sviluppo integrato di Android Studio e la piattaforma Android più recente. È necessario Android 4.2 o versione successiva.
+Per completare questa esercitazione, è necessario avere [Android Developer Tools](https://developer.android.com/sdk/index.html) che include l'IDE (Integrated Development Environment) di Android Studio e la piattaforma Android più recente. È necessario Android 4.2 o versione successiva.
 
 Il progetto di guida introduttiva scaricato contiene l'SDK di Servizi mobili di Azure per Android.
 
@@ -93,4 +95,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

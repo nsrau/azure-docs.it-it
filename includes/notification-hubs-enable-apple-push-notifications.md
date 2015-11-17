@@ -6,7 +6,7 @@ Il servizio Apple Push Notification Service (APNS) usa i certificati per autenti
 
 Generare il file della richiesta di firma del certificato usato da Apple per la generazione di un certificato push firmato.
 
-1. Sul Mac eseguire lo strumento Accesso Portachiavi. Può essere eseguito dalla cartella **Utility** o **Altro** nella finestra di avvio.
+1. Sul Mac eseguire lo strumento Accesso Portachiavi. Può essere aperto dalla cartella **Utility** o **Altro** nella finestra di avvio.
 
 2. Fare clic su **Accesso Portachiavi**, espandere **Assistente Certificato**, quindi fare clic su **Richiedi un certificato da una Autorità di Certificazione**.
 
@@ -33,7 +33,7 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
 
-2. Aggiornare i tre campi seguenti per la nuova app e quindi fare clic su **Continua**:
+2. Aggiornare i tre campi seguenti per la nuova app e quindi fare clic su **Continue**:
 
 	* **Name**: digitare un nome descrittivo per l'app nel campo **Name** della sezione **App ID Description**.
 	
@@ -126,13 +126,13 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
 
-6. Infine, scegliere un nome per il profilo in **Profile Name**, fare clic su **Generate** e quindi su **Done**
+6. Scegliere infine un nome per il profilo in **Profile Name** e fare clic su **Generate**.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
 
-7. Una volta creato il nuovo profilo di provisioning, fare clic per scaricarlo e installarlo nel computer di sviluppo Xcode. Fare clic su **Done**.
+7. Una volta creato il nuovo profilo di provisioning, fare clic per scaricarlo e installarlo nel computer di sviluppo Xcode. Fare quindi clic su **Done**.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

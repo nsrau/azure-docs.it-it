@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -218,4 +218,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

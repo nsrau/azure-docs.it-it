@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione alla prima applicazione Ricerca di Azure in .NET | Microsoft Azure"
+	pageTitle="Introduzione alla prima applicazione di Ricerca di Azure in .NET | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Esercitazione sulla compilazione di una soluzione Visual Studio usando la libreria client .NET da .NET SDK di Ricerca di Azure."
 	services="search"
 	documentationCenter=""
@@ -794,4 +794,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

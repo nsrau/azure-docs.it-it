@@ -24,11 +24,11 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica.
+<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
 
 
-Questa esercitazione mostra come è facile creare una macchina virtuale di Azure in pochi minuti nel portale di anteprima. Verrà usata un'immagine Windows Server 2012 R2 Datacenter come esempio per creare la macchina virtuale, ma è solo una delle molte immagini offerte da Azure. Le opzioni relative all'immagine dipendono dalla sottoscrizione. Ad esempio, gli abbonati MSDN possono usufruire di immagini desktop.
+Questa esercitazione illustra come è facile creare una macchina virtuale di Azure in pochi minuti nel portale di anteprima di Azure. Verrà usata un'immagine Windows Server 2012 R2 Datacenter come esempio per creare la macchina virtuale, ma è solo una delle molte immagini offerte da Azure. Le opzioni relative all'immagine dipendono dalla sottoscrizione. Ad esempio, gli abbonati MSDN possono usufruire di immagini desktop.
 
 È inoltre possibile creare macchine virtuali usando le proprie immagini, con modelli di Gestione risorse o con strumenti di automazione. Per altre informazioni sui diversi metodi, vedere [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -44,15 +44,15 @@ Di seguito è riportata una procedura dettagliata di questa esercitazione.
 
 ## Selezionare l'immagine
 
-1. Accedere al [portale di anteprima](https://portal.azure.com).
+1. Accedere al portale di anteprima di Azure.
 
 2. Nel menu Hub fare clic su **Nuovo** > **Calcolo** > **Windows Server 2012 R2 Datacenter**.
 
 	![Marketplace](./media/virtual-machines-windows-tutorial/marketplace_new.png)
 
-	>[AZURE.TIP]Per trovare immagini aggiuntive, fare clic su **Marketplace**, quindi eseguire una ricerca o applicare un filtro per visualizzare gli elementi disponibili.
+	>[AZURE.TIP]Per individuare immagini aggiuntive, fare clic su **Marketplace**, quindi eseguire una ricerca o applicare un filtro per gli elementi disponibili.
 
-3. Nella pagina **Windows Server 2012 R2 Datacenter**, in **Selezionare un modello di distribuzione** fare clic su **Gestione risorse**. Fare clic su **Create**.
+3. Nella pagina **Windows Server 2012 R2 Datacenter** fare clic su **Gestione risorse** in **Selezionare un modello di distribuzione**. Fare clic su **Crea**.
 
 	![Ricerca in Marketplace](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 
@@ -60,7 +60,7 @@ Di seguito è riportata una procedura dettagliata di questa esercitazione.
 
 Dopo aver selezionato l'immagine, è possibile usare le impostazioni predefinite di Azure per quasi tutto il processo di configurazione e creare rapidamente la macchina virtuale.
 
-1. Nel pannello **Crea macchina virtuale** fare clic su **Informazioni di base**. Immettere il **nome** desiderato per la macchina virtuale, il **nome utente** amministrativo e una **password** complessa. Se si hanno più sottoscrizioni, specificare quella per la nuova macchina virtuale, un **gruppo di risorse** nuovo o esistente e la **Località** per il data center di Azure.
+1. Nel pannello **Crea macchina virtuale**, fare clic su **Informazioni di base**. Immettere un **Nome** per la macchina virtuale, il **Nome utente** amministrativo e una **Password** complessa. Se si hanno più sottoscrizioni, specificare quella per la nuova macchina virtuale, un **Gruppo di risorse** nuovo o esistente e la **Località** per il data center di Azure.
 
 	![Configurazione delle informazioni di base della macchina virtuale](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
@@ -80,7 +80,7 @@ Dopo aver selezionato l'immagine, è possibile usare le impostazioni predefinite
 
 	![Configurazione delle impostazioni della macchina virtuale](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. Mentre Azure crea la macchina virtuale, è possibile tenere traccia dello stato di avanzamento in **Notifiche**, nel menu Hub. Dopo che Azure ha creato la macchina virtuale, quest'ultima verrà visualizzata nella schermata iniziale a meno che non sia stata deselezionata l'opzione **Aggiungi alla Schermata iniziale** nel pannello **Crea macchina virtuale**.
+8. Mentre Azure crea la macchina virtuale, è possibile tenere traccia dello stato di avanzamento in **Notifiche** nel menu Hub. Dopo che Azure ha creato la macchina virtuale, quest'ultima verrà visualizzata nella schermata iniziale, a meno che non sia stata deselezionata l'opzione **Aggiungi alla Schermata iniziale** nel pannello **Crea macchina virtuale**.
 
 ## Accesso alla macchina virtuale
 
@@ -88,9 +88,9 @@ Dopo aver creato la macchina virtuale, sarà possibile accedervi per gestire le 
 
 >[AZURE.NOTE]Per informazioni sui requisiti e suggerimenti per la risoluzione dei problemi, vedere [Connettersi a una macchina virtuale di Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. Se necessario, accedere al [portale di anteprima](https://portal.azure.com).
+1. Accedere al portale di anteprima di Azure se questa operazione non è già stata eseguita.
 
-2. Fare clic sulla macchina virtuale nella Schermata iniziale. Per individuarla, fare clic su **Esplora tutto** > **Recenti** o **Esplora tutto** > **Macchine virtuali**. Selezionare quindi la macchina virtuale dall'elenco.
+2. Fare clic sulla macchina virtuale nella Schermata iniziale. Per trovarla, fare clic su **Esplora tutto** > **Recenti** o **Esplora tutto** > **Macchine virtuali**. Selezionare quindi la macchina virtuale dall'elenco.
 
 3. Nel pannello della macchina virtuale fare clic su **Connetti**.
 
@@ -108,7 +108,7 @@ Dopo aver creato la macchina virtuale, sarà possibile accedervi per gestire le 
 
 ## Passaggi successivi
 
-* Usare Azure PowerShell e l'interfaccia della riga di comando di Azure per [individuare e selezionare le immagini delle macchine virtuali](resource-groups-vm-searching.md).
-* Automatizzare la gestione e la distribuzione della macchina virtuale e del carico di lavoro usando [Gestione risorse di Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e tramite i [modelli di Gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
+* Usare Azure PowerShell e l'interfaccia della riga di comando di Azure per [Trovare e selezionare le immagini delle macchine virtuali](resource-groups-vm-searching.md).
+* Automatizzare la gestione e la distribuzione della macchina virtuale e del carico di lavoro con [Gestione risorse di Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e i [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

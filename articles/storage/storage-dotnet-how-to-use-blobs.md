@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/16/2015"
+	ms.date="11/11/2015"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Panoramica
 
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB.
+In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. La libreria client di archiviazione è un SDK che semplifica l'interazione con l'API REST dell'archivio BLOB. Gli scenari descritti in questa guida includono **caricamento**, **elenco**, **download** ed **eliminazione** di BLOB e dovrebbero richiedere circa un'ora per il completamento. Per un video introduttivo, guardare la [panoramica dell'archiviazione di Azure in 5 minuti](https://azure.microsoft.com/it-IT/documentation/videos/azure-storage-5-minute-overview/) oppure è possibile vedere [Introduzione ad Archiviazione di Azure in cinque minuti](https://azure.microsoft.com/it-IT/documentation/articles/storage-getting-started-guide/).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -109,7 +109,7 @@ Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore, 
 
 ## Elencare i BLOB in un contenitore
 
-Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile utilizzare il metodo **ListBlobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere al set avanzato di proprietà e metodi per un oggetto **IListBlobItem** restituito, è necessario eseguirne il cast in un oggetto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory**. Se il tipo è sconosciuto, è possibile usare un controllo del tipo per determinare quello in cui viene eseguito il cast. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ogni elemento del contenitore `photos`:
+Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile utilizzare il metodo **ListBlobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere al set avanzato di proprietà e metodi per un oggetto **IListBlobItem** restituito, è necessario eseguirne il cast in un oggetto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory**. Se il tipo è sconosciuto, è possibile usare un controllo del tipo per determinare quello in cui viene eseguito il cast. Il codice seguente illustra come recuperare e visualizzare l'URI di ogni elemento del contenitore `photos`:
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -334,11 +334,24 @@ Nell'esempio seguente si crea un nuovo blob di accodamento e vi si aggiungono al
     //Read the append blob to the console window.
     Console.WriteLine(appendBlob.DownloadText());
 
-Vedere [Informazioni sui BLOB in blocchi, BLOB di pagine e BLOB di accodamento](https://msdn.microsoft.com/library/azure/ee691964.aspx)per ulteriori informazioni sulle differenze tra i tre tipi di BLOB.
+Per altre informazioni sulle differenze tra i tre tipi di BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di accodamento e sui BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse. <ul> <li>Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio BLOB: <ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Riferimento per la libreria client di archiviazione per .NET</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Riferimento per l'API REST</a></li> </ul> </li> <li>Informazioni su ulteriori attività avanzate che si possono eseguire con Archiviazione di Azure nella pagina relativa all’<a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">archiviazione e all’accesso ai dati in Azure</a>.</li> <li>Per ulteriori informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK.</li> <li>Per informazioni su altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità. <ul> <li>Per archiviare dati strutturati, usare <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Archiviazione tabella</a>.</li> <li>Per archiviare dati non strutturati, usare <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Archiviazione coda</a>.</li> <li>Per archiviare dati relazionali, usare <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Database SQL</a>.</li> </ul> </li> </ul>
+A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visitare i collegamenti seguenti per altre informazioni.
+
+### Documentazione di riferimento dell'archivio BLOB
+
+- [Informazioni di riferimento sulla libreria client di archiviazione per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+- [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
+
+### Altre guide alle funzionalità
+
+- [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md)
+- [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
+- [Come usare l'archiviazione file di Azure](storage-dotnet-how-to-use-files.md)
+- [Come usare il database SQL di Azure in applicazioni .NET](../sql-database/articles/sql-database-dotnet-how-to-use.md)
+- [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -353,4 +366,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

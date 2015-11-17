@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Database NoSQL - iniziare a utilizzare il SDK di .NET DocumentDB | Microsoft Azure"
 	description="Informazioni su come creare un database e configurare un account Azure DocumentDB. Creare un database, una raccolta e archiviare documenti JSON all'interno dell'account di database NoSQL."
-	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
+	keywords="Creare un database, crea database, database NoSQL, database NoSQL, NuGet, DocumentDB, Azure, Microsoft Azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="09/16/2015"
+	ms.date="11/05/2015"
 	ms.author="anhoh"/>
 
 #Introduzione a DocumentDB .NET SDK  
@@ -45,19 +45,19 @@ Ecco come procedere.
 
 Assicurarsi di disporre di quanto segue:
 
-- Un account Azure attivo. Se non è disponibile una sottoscrizione, è possibile iscriversi per una [versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
+- Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+- [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 
 ## Passaggio 1: Creare un account DocumentDB
 
-Creare un account DocumentDB. Se è già disponibile un account da usare, è possibile passare a [Configurare una soluzione Visual Studio](#SetupVS).
+Creare un account DocumentDB. Se si ha già un account, è possibile ignorare questo passaggio e passare a [Configurare la soluzione Visual Studio](#SetupVS).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> Passaggio 2: Configurare una soluzione Visual Studio
+##<a id="SetupVS"></a> Passaggio 2: Configurare la soluzione Visual Studio
 
 1. Aprire **Visual Studio** nel computer.
-2. Scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
+2. Scegliere **Nuovo** dal menu **File** e quindi selezionare **Progetto**.
 3. Nella finestra di dialogo **Nuovo progetto** selezionare **Modelli** / **Visual C#** / **Applicazione console**, assegnare un nome al progetto e quindi fare clic su **OK**.
 4. In **Esplora soluzioni**, fare clic sulla nuova applicazione console che si trova nella soluzione di Visual Studio.
 5. Senza lasciare il menu fare clic su **Gestisci pacchetti NuGet...**
@@ -76,14 +76,16 @@ In primo luogo, aggiungere questi riferimenti all'inizio dell'applicazione c#, n
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
 
-Salvare quindi l'endpoint dell'account di DocumentDB e la chiave di accesso primaria o secondaria, reperibile nel [portale di anteprima di Azure](https://portal.azure.com).
+> [AZURE.IMPORTANT]Per completare questa applicazione, assicurarsi di aggiungere le dipendenze illustrate in precedenza.
+
+Successivamente, salvare l'endpoint dell'account DocumentDB e la chiave di accesso primaria o secondaria, disponibili nel [portale di anteprima di Azure](https://portal.azure.com).
 
 ![Schermata del portale di anteprima di Azure, che mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]
 
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
 
-Si avvierà l'applicazione demo introduttiva creando una nuova istanza di **DocumentClient**. Creare una nuova attività asincrona denominata **GetStartedDemo** e creare istanze del nuovo **DocumentClient**.
+Per avviare l'applicazione demo della guida introduttiva è necessario creare una nuova istanza di **DocumentClient**. Quindi, creare una nuova attività asincrona denominata **GetStartedDemo** e creare un'istanza del nuovo oggetto **DocumentClient**.
 
 	private static async Task GetStartedDemo()
     {
@@ -91,7 +93,7 @@ Si avvierà l'applicazione demo introduttiva creando una nuova istanza di **Docu
     	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
 	}
 
-Chiamare l'attività asincrona dal metodo **Main** simile al codice riportato di seguito.
+Infine, chiamare l'attività asincrona dal metodo **Main** simile al codice seguente.
 
 	public static void Main(string[] args)
     {
@@ -462,7 +464,7 @@ Per creare la soluzione GetStarted completa contenente tutti gli esempi riportat
 -   [Account DocumentDB][documentdb-create-account].
 -   La soluzione [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) disponibile su GitHub.
 
-Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic con il pulsante destro del mouse sulla soluzione **GetStarted** in Esplora soluzioni e quindi scegliere il **comando per abilitare il ripristino del pacchetto NuGet**. Nel file App.config aggiornare quindi i valori EndpointUrl e AuthorizationKey come illustrato nell'articolo [Connettersi a un account DocumentDB](#Connect).
+Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic con il pulsante destro del mouse sulla soluzione **GetStarted** in Esplora soluzioni e quindi scegliere **Abilita ripristino dei pacchetti NuGet**. Nel file App.config aggiornare quindi i valori EndpointUrl e AuthorizationKey come illustrato nell'articolo [Connettersi a un account DocumentDB](#Connect).
 
 ## Passaggi successivi
 
@@ -478,4 +480,4 @@ Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

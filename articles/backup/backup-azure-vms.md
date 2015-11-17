@@ -70,11 +70,11 @@ Si registra una macchina virtuale per associarla al servizio Backup di Azure. Qu
 
     ![register job](./media/backup-azure-vms/register-create-job.png)
 
-   La macchina virtuale viene visualizzata anche nell'elenco di elementi registrati insieme allo stato dell'operazione di registrazione.
+    La macchina virtuale viene visualizzata anche nell'elenco di elementi registrati insieme allo stato dell'operazione di registrazione.
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-    When the operation completes, the status will change to reflect the *registered* state.
+    Al termine dell'operazione, lo stato passerà a *registrato*.
 
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
@@ -116,10 +116,10 @@ Gli insiemi di credenziali di Backup di Azure creati dopo maggio 2015 includono 
 
     In questa immagine di esempio:
 
-    - **Criteri di Conservazione giornaliera**: i backup eseguiti ogni giorno vengono archiviati per 30 giorni.
-    - **Criteri di Conservazione settimanale**: i backup eseguiti ogni domenica vengono conservati per 104 settimane.
-    - **Criteri di Conservazione mensile**: i backup eseguiti l'ultima domenica di ogni mese vengono conservati per 120 mesi.
-    - **Criteri di Conservazione annuale**: i backup eseguiti la prima domenica di ogni gennaio vengono conservati per 99 anni.
+    - **Criteri di conservazione giornaliera**: i backup eseguiti ogni giorno vengono archiviati per 30 giorni.
+    - **Criteri di conservazione settimanale**: i backup eseguiti ogni domenica vengono conservati per 104 settimane
+    - **Criteri di conservazione mensile**: i backup eseguiti l'ultima domenica di ogni mese vengono conservati per 120 mesi
+    - **Criteri di conservazione annuale**: i backup eseguiti la prima domenica di ogni gennaio vengono conservati per 99 anni.
 
     Viene creato un processo per configurare i criteri di protezione e associare ogni macchina virtuale selezionata a questi criteri.
 
@@ -161,4 +161,4 @@ In caso di problemi durante il backup della macchina virtuale, vedere le informa
 - [Gestire e monitorare il backup delle macchine virtuali di Azure](backup-azure-manage-vms.md)
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

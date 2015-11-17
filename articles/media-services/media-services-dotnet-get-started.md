@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/28/2015"
+	ms.date="11/08/2015"
 	ms.author="juliako"/>
 
 
@@ -28,6 +28,12 @@ Questa esercitazione illustra il processo di implementazione di un'applicazione 
 
 
 L'esercitazione descrive il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione usati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione sarà possibile eseguire lo streaming o il download progressivo di un file multimediale di esempio caricato, codificato e scaricato.
+
+
+##Scaricare un esempio
+
+È possibile ottenere ed eseguire un esempio [qui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+
 
 ## Prerequisiti
 Per iniziare l'attività di sviluppo con l'SDK di Servizi multimediali per .NET sono previsti i seguenti prerequisiti.
@@ -51,19 +57,19 @@ Questa guida rapida illustra come effettuare le seguenti attività.
 
 ##Creare un account di Servizi multimediali usando il portale
 
-1. Nel portale di Azure fare clic su **New**, quindi su **Media Service** e infine su **Quick Create**.
+1. Nel portale di Azure fare clic su **Nuovo**, quindi su **Servizi multimediali** e infine su **Creazione rapida**.
 
 	![Creazione rapida di Servizi multimediali](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
-2. In **NAME** immettere il nome per il nuovo account. Un nome di account Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
+2. In **NOME** immettere il nome per il nuovo account. Un nome di account Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
 
-3. In **REGION** selezionare l'area geografica che verrà utilizzata per archiviare i record dei metadati per l'account di Servizi multimediali. Nell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili.
+3. In **AREA** selezionare l'area geografica che verrà usata per archiviare i record dei metadati per l'account di Servizi multimediali. Nell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili.
 
-4. In **STORAGE ACCOUNT** selezionare un account di archiviazione per l'archiviazione BLOB del contenuto multimediale dell'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica.
+4. In **ACCOUNT DI ARCHIVIAZIONE** selezionare un account di archiviazione per l'archiviazione BLOB del contenuto multimediale dell'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica.
 
-5. Se è stato creato un nuovo account di archiviazione, in **NEW STORAGE ACCOUNT NAME** specificare un nome per l'account di archiviazione. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
+5. Se è stato creato un nuovo account di archiviazione, in **NUOVO NOME ACCOUNT DI ARCHIVIAZIONE** specificare un nome per l'account di archiviazione. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
 
-6. Nella parte inferiore del modulo fare clic su **Quick Create**.
+6. Nella parte inferiore del modulo fare clic su **Creazione rapida**.
 
 	È possibile monitorare lo stato di elaborazione nell'area dei messaggi, nella parte inferiore della finestra.
 
@@ -90,7 +96,7 @@ Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in
 
 Per modificare il numero di unità riservate di streaming, effettuare le seguenti operazioni:
 
-1. Nel [portale](https://manage.windowsazure.com/) fare clic su **Media Services**. Fare quindi clic sul nome del servizio multimediale.
+1. Nel [portale](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
 
 2. Selezionare la pagina ENDPOINT DI STREAMING. Quindi, fare clic sull'endpoint di streaming da modificare.
 
@@ -116,7 +122,7 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 
 3. Aggiungere un riferimento all'assembly System.Configuration, che contiene la classe **System.Configuration.ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config.
 
-4. Aprire il file App.config (aggiungere il file al progetto, se non è stato aggiunto per impostazione predefinita) e aggiungere una sezione *appSettings* al file. Impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure, come visualizzato nel seguente esempio. Per ottenere le informazioni sul nome e la chiave dell'account, aprire il portale di Azure, selezionare l'account di Servizi multimediali e fare clic sul pulsante **GESTISCI CHIAVI**.
+4. Aprire il file App.config (aggiungere il file al progetto, se non è stato aggiunto per impostazione predefinita) e aggiungere una sezione *appSettings* al file. Impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure, come visualizzato nel seguente esempio. Per ottenere le informazioni sul nome e sulla chiave dell'account, aprire il portale di Azure, selezionare l'account di Servizi multimediali e fare clic sul pulsante **GESTISCI CHIAVI**.
 
 		<configuration>
 		...
@@ -144,9 +150,9 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 
 ##Connettersi all'account di Servizi multimediali
 
-Quando si usa Servizi multimediali con .NET, è necessario usare la classe **CloudMediaContext** per la maggior parte delle attività di programmazione di Servizi multimediali: connessione all'account di Servizi multimediali, creazione, aggiornamento, accesso ed eliminazione dei seguenti oggetti: asset, file di asset, processi, criteri di accesso, localizzatori e così via.
+Quando si usa Servizi multimediali con .NET, è necessario usare la classe **CloudMediaContext** per la maggior parte delle attività di programmazione di Servizi multimediali, ovvero connessione all'account di Servizi multimediali, creazione, aggiornamento, accesso ed eliminazione dei seguenti oggetti: asset, file di asset, processi, criteri di accesso, localizzatori e così via.
 
-Sovrascrivere la classe predefinita Program con il codice seguente. Il codice mostra come leggere i valori di connessone dal file App.config e come creare l'oggetto **CloudMediaContext** per connettersi a Servizi multimediali. Per altre informazioni sulla connessione a Servizi multimediali, vedere [Connessione a Servizi multimediali con Media Services SDK for .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Sovrascrivere la classe predefinita Program con il codice seguente. Il codice mostra come leggere i valori di connessione dal file App.config e come creare l'oggetto **CloudMediaContext** per connettersi a Servizi multimediali. Per altre informazioni sulla connessione a Servizi multimediali, vedere [Connessione a Servizi multimediali con Media Services SDK for .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 La funzione **Main** chiama metodi che verranno definiti più in dettaglio in questa sezione.
 
@@ -203,7 +209,7 @@ In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asse
 
 Il metodo **UploadFile** definito di seguito chiama **CreateFromFile** (definito nelle estensioni dell'SDK per .NET). **CreateFromFile** crea un nuovo asset in cui viene caricato il file di origine specificato.
 
-Il metodo **CreateFromFile** acquisisce **AssetCreationOptions** che consente di specificare una delle seguenti opzioni di creazione:
+Il metodo **CreateFromFile** accetta **AssetCreationOptions** che consente di specificare una delle seguenti opzioni di creazione di asset:
 
 - **None**: non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale. Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
 - **StorageEncrypted**: usare questa opzione per crittografare localmente il contenuto non crittografato applicando la crittografia AES a 256 bit e quindi caricarlo nel servizio Archiviazione di Azure, dove viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
@@ -243,7 +249,7 @@ Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è ne
 - Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva,  
 - Ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti.
 
-Il seguente codice mostra come inviare un processo di codifica. Il processo contiene un'attività che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con il **Codificatore multimediale di Azure**. Il codice invia il processo e ne attende il completamento.
+Il seguente codice mostra come inviare un processo di codifica. Il processo contiene un'attività che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Azure Media Encoder**. Il codice invia il processo e ne attende il completamento.
 
 Al termine, è possibile eseguire lo streaming dell'asset o il download progressivo dei file MP4 creati con la transcodifica. Non è necessario disporre di più di 0 unità di streaming per poter eseguire il download progressivo dei file MP4.
 
@@ -419,14 +425,14 @@ Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](h
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
 
 
-##Passaggi successivi
+##Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
 
-###Percorsi di apprendimento di Media Services
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+##Fornire commenti e suggerimenti
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ### Se si è alla ricerca di qualcos’altro.
 
@@ -440,4 +446,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

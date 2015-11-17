@@ -61,37 +61,39 @@ Seguire questa procedura per creare un'app Web nel servizio app di Azure e abili
 
 	Il nome deve essere univoco nel dominio azurewebsites.net perché l'URL dell'app Web sarà {nome}.azurewebsites.net. Se il nome immesso non è univoco, nella casella di testo verrà visualizzato un punto esclamativo rosso.
 
-5. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
+5. Selezionare una **sottoscrizione**.
+
+6. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
 
 	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](../resource-group-portal.md).
 
-5. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
+7. Selezionare un **Piano di servizio app/Località** o crearne uno nuovo.
 
 	Per altre informazioni sui piani del servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-6. Fare clic su **Crea**.
+8. Fare clic su **Crea**.
    
 	![][portal-quick-create2]
 
 	In meno di un minuto Azure completa la creazione della nuova app Web.
 
-7. Fare clic su **App Web > {nuova app Web}**.
+9. Fare clic su **App Web > {nuova app Web personale}**.
 
 	![](./media/web-sites-nodejs-develop-deploy-mac/gotowebapp.png)
 
-8. Nel pannello **App Web** fare clic sulla parte **Distribuzione**.
+10. Nel pannello **App Web** fare clic sulla parte **Distribuzione**.
 
 	![][deployment-part]
 
-9. Nel pannello **Distribuzione continua** fare clic su **Scegliere l'origine**.
+11. Nel pannello **Distribuzione continua** fare clic su **Scegliere l'origine**.
 
-14. Fare clic su **Archivio Git locale**, quindi su **OK**.
+12. Fare clic su **Repository Git locale** e quindi su **OK**.
 
 	![][setup-git-publishing]
 
-11. Configurare le credenziali di distribuzione, se non è stato ancora fatto.
+13. Configurare le credenziali di distribuzione, se non è stato ancora fatto.
 
-	a. Nel pannello App Web fare clic su **Impostazioni > Credenziali di distribuzione**.
+	a. Nel pannello dell'app Web fare clic su **Impostazioni > Credenziali di distribuzione**.
 
 	![][deployment-credentials]
  
@@ -99,21 +101,21 @@ Seguire questa procedura per creare un'app Web nel servizio app di Azure e abili
 	
 	![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 
-11. Nel pannello App Web fare clic su **Impostazioni**, quindi su **Proprietà**.
+14. Nel pannello dell'app Web fare clic su **Impostazioni** e quindi su **Proprietà**.
  
-	Per pubblicare occorre effettuare il push in un repository Git remoto. L'URL per il repository è elencato in **URL GIT**. Questo URL verrà usato più avanti nell'esercitazione.
+	Per pubblicare occorre effettuare il push in un repository Git remoto. L'URL del repository viene visualizzato in **URL GIT**. Questo URL verrà usato più avanti nell'esercitazione.
 
 	![][git-url]
 
 ## Creazione e test dell'applicazione in locale
 
-In questa sezione verrà creato un file **server.js** che contiene una versione lievemente modificata dell'esempio 'Hello World' di [nodejs.org]. Il codice aggiunge process.env.PORT come porta su cui rimanere in ascolto durante l'esecuzione in un'app Web di Azure.
+In questa sezione verrà creato un file **server.js** contenente una versione leggermente modificata dell'esempio 'Hello World' di [nodejs.org]. Il codice aggiunge process.env.PORT come porta su cui rimanere in ascolto durante l'esecuzione in un'app Web di Azure.
 
 1. Creare una directory denominata *helloworld*.
 
-2. Usare un editor di testo per creare un nuovo file denominato **server.js** nella directory *helloworld*.
+2. Usare un editor di testo per creare un nuovo fine denominato **server.js** nella directory *helloworld*.
 
-2. Copiare il codice seguente nel file **server.js**, quindi salvare il file:
+2. Copiare il codice seguente nel file **server.js** e quindi salvare il file:
 
         var http = require('http')
         var port = process.env.PORT || 1337;
@@ -136,7 +138,7 @@ In questa sezione verrà creato un file **server.js** che contiene una versione 
 
 1. Se non è già stato fatto, installare Git.
 
-	Per istruzioni di installazione specifiche per la piattaforma, vedere la [pagina di download di Git](http://git-scm.com/download).
+	Per le istruzioni di installazione in una specifica piattaforma, vedere la [pagina di download di Git](http://git-scm.com/download).
 
 1. Dalla riga di comando passare alla directory **helloworld** e immettere il comando seguente per inizializzare un repository Git locale.
 
@@ -198,19 +200,19 @@ In questa sezione verrà creato un file **server.js** che contiene una versione 
 
 ## Eseguire il rollback di una distribuzione
 
-Nel pannello **App Web** è possibile fare clic su **Impostazioni > Distribuzione continua** per visualizzare la cronologia delle distribuzioni nel pannello **Distribuzioni**. Se è necessario eseguire il rollback a una versione precedente, è possibile selezionarla e quindi fare clic su **Ridistribuisci** nel pannello **Dettagli distribuzione**.
+Dal pannello **App Web** è possibile fare clic su **Impostazioni > Distribuzione continua** per visualizzare la cronologia di distribuzione nel pannello **Distribuzioni**. Se occorre eseguire il rollback a una distribuzione precedente, è possibile selezionarla e quindi fare clic su **Ridistribuisci** nel pannello **Dettagli distribuzione**.
 
 ## Passaggi successivi
 
-È stata distribuita un'applicazione Node.js in un'app Web nel servizio app di Azure. Per altre informazioni sul modo in cui le app Web del servizio app di Azure eseguono le applicazioni Node.js, vedere il post di blog sulle [app Web del servizio app di Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) e [Specifica di una versione di Node.js in un'applicazione Azure](../nodejs-specify-node-version-azure-apps.md).
+È stata distribuita un'applicazione Node.js in un'app Web nel servizio app di Azure. Per altre informazioni su come le app Web del servizio app eseguono le applicazioni Node.js, vedere [App Web del servizio app di Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) e [Specifica di una versione Node.js in un'applicazione Azure](../nodejs-specify-node-version-azure-apps.md).
 
-Node.js fornisce un ecosistema completo di moduli che è possibile usare nelle applicazioni. Per informazioni sull'utilizzo delle app Web con i moduli, vedere [Utilizzo di moduli Node.js con le applicazioni Azure](../nodejs-use-node-modules-azure-apps.md).
+Node.js fornisce un ecosistema completo di moduli che è possibile usare nelle applicazioni. Per informazioni su come usare le app Web con i moduli, vedere [Uso di moduli Node.js con applicazioni Azure](../nodejs-use-node-modules-azure-apps.md).
 
 Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, vedere [Come eseguire il debug di un'app Web Node.js nel servizio app di Azure](web-sites-nodejs-debug.md) per informazioni su come diagnosticare l'errore.
 
-Questo articolo usa il portale di Azure per creare un'app Web. È anche possibile usare l'[interfaccia da riga di comando di Azure](../xplat-cli-install.md) o [Azure PowerShell](../install-configure-powershell.md) per eseguire le stesse operazioni.
+Questo articolo usa il portale di Azure per creare un'app Web. Per eseguire le stesse operazioni, è anche possibile usare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) o [Azure PowerShell](../install-configure-powershell.md).
 
-Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere il [centro per sviluppatori Node.js](/develop/nodejs/).
+Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere il [Centro per sviluppatori Node.js](/develop/nodejs/).
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
@@ -222,4 +224,4 @@ Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere 
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

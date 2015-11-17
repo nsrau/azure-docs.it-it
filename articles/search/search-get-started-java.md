@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione a Ricerca di Azure in Java | Microsoft Azure"
+	pageTitle="Introduzione a Ricerca di Azure in Java | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Come compilare un'applicazione di ricerca cloud ospitata in Azure usando Java come linguaggio di programmazione."
 	services="search"
 	documentationCenter=""
@@ -231,4 +231,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->
