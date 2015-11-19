@@ -486,11 +486,11 @@ In questo semplice esempio le notifiche verranno trasmesse all'app Chrome. Per a
 [modello GCM per app Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [App Web installabili]: https://developers.google.com/chrome/apps/docs/
 [App Chrome su dispositivi mobili]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Creare una registrazione dell'API REST per l'Hub di notifica]: http://msdn.microsoft.com/library/azure/dn223265.aspx
+[Creare una registrazione - API REST di Hub di notifica]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [libreria crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging per Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!----HONumber=Nov15_HO1-->
+<!-----HONumber=Nov15_HO1-->
