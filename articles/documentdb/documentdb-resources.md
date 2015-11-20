@@ -34,7 +34,8 @@ Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di 
 
 >[AZURE.NOTE]DocumentDB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modello di risorse gerarchico di DocumentDB][1] **Modello di risorse gerarchico**
+![Modello di risorse gerarchico di DocumentDB][1]  
+**Modello di risorse gerarchico**
 
 Per iniziare a lavorare con le risorse, è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ciascuno contenente più **raccolte**, ognuna delle quali include a sua volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e gli **allegati** correlati (funzionalità di anteprima). Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, funzioni definite dall'utente, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.
 
@@ -78,6 +79,8 @@ Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\
 |/dbs/{_rid-db} |Database con proprietà ID univoca con il valore {_rid-db}
 |/dbs/{_rid-db}/colls/ |Feed di raccolte in un database.
 |/dbs/{_rid-db}/colls/{_rid-coll} |Raccolta con proprietà ID univoca con valore {_rid-coll}
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs |Feed di documenti in una raccolta
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |Documento con un ID corrispondente al valore {_rid-doc} 
 |/dbs/{_rid-db}/users/ |Feed di utenti in un database.
 |/dbs/{_rid-db}/users/{_rid-user} |Utente con proprietà ID univoca con valore {_rid-user}
 |/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed di autorizzazioni in un database.

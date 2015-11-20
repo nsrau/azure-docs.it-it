@@ -493,4 +493,4 @@ In questo semplice esempio le notifiche verranno trasmesse all'app Chrome. Per a
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!-----HONumber=Nov15_HO1-->
+<!------HONumber=Nov15_HO1-->
