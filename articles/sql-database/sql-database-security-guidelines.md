@@ -96,7 +96,7 @@ Per ulteriori informazioni su account di accesso e utenti, vedere [Gestione di d
 
 Considerare i seguenti punti per rendere le applicazioni del Database SQL di Azure meno vulnerabili alle minacce alla sicurezza:
 
-- Utilizzare sempre gli aggiornamenti più recenti: durante la connessione al Database SQL, utilizzare sempre la versione più aggiornata di strumenti e librerie per impedire la vulnerabilità di sicurezza. Per ulteriori informazioni sulle librerie e sugli strumenti supportati, vedere [Linee guida generali per il Database SQL Azure e limitazioni](https://msdn.microsoft.com/library/azure/ee336245.aspx).
+- Utilizzare sempre gli aggiornamenti più recenti: durante la connessione al Database SQL, utilizzare sempre la versione più aggiornata di strumenti e librerie per impedire la vulnerabilità di sicurezza.
 - Bloccare le connessioni in ingresso sulla porta TCP 1433: sono necessarie solo le connessioni in uscita sulla porta TCP 1433 alle applicazioni per comunicare con il Database SQL. Se le comunicazioni in ingresso non sono necessarie ad altre applicazioni nel computer, assicurarsi che il firewall continuerà a bloccare le connessioni in ingresso sulla porta TCP 1433.
 - Impedire la vulnerabilità di tipo injection: per assicurarsi che le applicazioni non dispongano di vulnerabilità di tipo injection di SQL, utilizzare query con parametri laddove possibile. Inoltre, assicurarsi di esaminare attentamente il codice ed eseguire un test di penetrazione prima di distribuire l'applicazione.
 
@@ -107,8 +107,6 @@ Considerare i seguenti punti per rendere le applicazioni del Database SQL di Azu
 
 [Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](sql-database-configure-firewall-settings.md)
 
-[Linee guida e limitazioni generali per il database SQL di Azure](https://msdn.microsoft.com/library/azure/ee336245.aspx)
-
 [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

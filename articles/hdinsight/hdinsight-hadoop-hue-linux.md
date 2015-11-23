@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/05/2015" 
 	ms.author="nitinme"/>
 
 # Installare e usare Hue nei cluster Hadoop di HDInsight
@@ -42,18 +42,20 @@ L'azione script [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigac
 
 	> [AZURE.NOTE]Per installare Hue nei cluster HDInsight, la dimensione consigliata del nodo head è minimo A4 (8 core, 14 GB di memoria).
 
-2. Nel pannello **Configurazione facoltativa** selezionare **Azioni script** e specificare le informazioni seguenti:
+2. Nel pannello **Configurazione facoltativa** selezionare **Azioni script** e specificare le informazioni come mostrato di seguito:
+
+	![Specificare i parametri di azione script per Hue](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Specificare i parametri di azione script per Hue")
 
 	* __NOME__: immettere un nome descrittivo per l'azione script.
 	* __URI SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
 	* __HEAD__: selezionare questa opzione.
-	* __LAVORO__: lasciare vuoto questo campo.
+	* __RUOLO DI LAVORO__: lasciare vuoto questo campo.
 	* __ZOOKEEPER__: lasciare vuoto questo campo.
 	* __PARAMETRI__: lo script prevede la **password amministratore del cluster** come parametro. Questa è la password specificata durante il provisioning del cluster. Considerazioni importanti al momento di fornire la password:
 		* Se il nome utente del cluster è "admin", è sufficiente specificare la password all'interno di virgolette singole.
 		* Se il nome utente del cluster è un elemento diverso da "admin", è necessario specificare il parametro come `-u [username] [password in single quotes]`
 
-3. Nella parte inferiore di **Azioni di script** usare il pulsante **Seleziona** per salvare la configurazione. Usare infine il pulsante **Seleziona** nella parte inferiore del pannello **Configurazione facoltativa** per salvare le informazioni relative alla configurazione facoltativa.
+3. Nella parte inferiore di **Azioni script** usare il pulsante **Seleziona** per salvare la configurazione. Usare infine il pulsante **Seleziona** nella parte inferiore del pannello **Configurazione facoltativa** per salvare le informazioni relative alla configurazione facoltativa.
 
 4. Continuare il provisioning del cluster come descritto in [Effettuare il provisioning dei cluster HDInsight in Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
@@ -61,7 +63,7 @@ L'azione script [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigac
 
 Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è in esecuzione. Il tunneling tramite SSH consente al traffico di raggiungere direttamente il nodo head del cluster in cui viene eseguito Hue. Al termine del provisioning del cluster, seguire questa procedura per usare Hue in un cluster HDInsight Linux.
 
-1. Utilizzare le informazioni contenute in [Utilizzare SSH Tunneling per accedere all'interfaccia utente Web Ambari, a ResourceManager, JobHistory, NameNode, Oozie e ad altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md) per creare un tunnel SSH dal sistema client al cluster HDInsight e quindi configurare il browser Web per utilizzare il tunnel SSH come proxy.
+1. Utilizzare le informazioni contenute in [Utilizzare SSH Tunneling per accedere all'interfaccia utente Web Ambari, a ResourceManager, JobHistory, NameNode, Oozie e ad altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md) per creare un tunnel SSH dal sistema client al cluster HDInsight e quindi configurare il browser Web per usare il tunnel SSH come proxy.
 
 2. Dopo aver creato un tunnel SSH e configurato il browser per inoltrare il traffico attraverso di esso, è necessario trovare il nome host del nodo head. Usare la procedura seguente per ottenere queste informazioni da Ambari:
 
@@ -79,7 +81,7 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 ### Eseguire una query Hive
 
-1. Nel portale di Hue fare clic su **Editor della query** e quindi su **Hive** per aprire l'editor Hive.
+1. Nel portale di Hue fare clic su **Query Editors** e quindi su **Hive** per aprire l'editor Hive.
 
 	![Usare Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Usare Hive")
 
@@ -91,7 +93,7 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 ### Esplorare l'archiviazione cluster
 
-1. Nel portale di Hue fare clic su **Esplora file** nell'angolo superiore destro della barra dei menu.
+1. Nel portale di Hue fare clic su **Esplora File** nell'angolo superiore destro della barra del menu.
 
 2. Per impostazione predefinita, il browser file viene aperto in corrispondenza della directory **/user/myuser**. Fare clic sulla barra subito prima della directory user nel percorso per passare alla radice del contenitore di archiviazione di Azure associato al cluster.
 
@@ -99,7 +101,7 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 3. Fare clic son il pulsante destro del mouse su un file o una cartella per visualizzare le operazioni disponibili. Usare il pulsante **Carica** nell'angolo destro per caricare i file nella directory corrente. Usare il pulsante **Nuovo** per creare nuovi file o directory.
 
-> [AZURE.NOTE]Il browser file Hue può mostrare solo il contenuto del contenitore predefinito associato al cluster HDInsight. Eventuali account di archiviazione o contenitori aggiuntivi associati al cluster non saranno accessibili tramite il browser file. I contenitori aggiuntivi associati al cluster saranno comunque sempre accessibili per i processi Hive. Ad esempio, se si immette il comando `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` nell'editor Hive, è possibile vedere il contenuto anche dei contenitori aggiuntivi. In questo comando **newcontainer** non è il contenitore predefinito associato a un cluster.
+> [AZURE.NOTE]Il browser file Hue può mostrare solo il contenuto del contenitore predefinito associato al cluster HDInsight. Eventuali account di archiviazione o contenitori aggiuntivi associati al cluster non saranno accessibili tramite il browser file. I contenitori aggiuntivi associati al cluster saranno comunque sempre accessibili per i processi Hive. Ad esempio, se si immette il comando `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` nell'editor Hive, è possibile vedere il contenuto anche dei contenitori aggiuntivi. In questo comando, **newcontainer** non è il contenitore predefinito associato a un cluster.
 
 ## Considerazioni importanti
 
@@ -117,7 +119,7 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 	Questo è causato da un problema noto. Come soluzione alternativa, modificare Ambari in modo che anche l'istanza di Gestione Risorse attiva venga eseguita sul nodo head 0.
 
-5.	Hue riconosce WebHDFS mentre i cluster HDInsight usano Archiviazione di Azure tramite `wasb://`. Lo script personalizzato usato con l'azione script installa WebWasb, un servizio compatibile con WebHDFS-per comunicare con WASB. Quindi, anche se in alcuni punti nel portale di Hue è indicato HDFS (come quando si sposta il mouse su **Esplora file**), dovrà essere interpretato come WASB.
+5.	Hue riconosce WebHDFS mentre i cluster HDInsight usano Archiviazione di Azure Storage tramite `wasb://`. Lo script personalizzato usato con l'azione script installa WebWasb, un servizio compatibile con WebHDFS-per comunicare con WASB. Quindi, anche se in alcuni punti nel portale di Hue è indicato HDFS (come quando si sposta il mouse su **File Browser**), dovrà essere interpretato come WASB.
 
 
 ## Passaggi successivi
@@ -135,4 +137,4 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

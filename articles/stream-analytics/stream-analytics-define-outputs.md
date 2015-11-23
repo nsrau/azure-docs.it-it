@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/14/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 # Informazioni sugli output di analisi di flusso
@@ -143,6 +143,8 @@ Dopo aver autenticato l'account Power BI, è possibile configurare le proprietà
 | Nome tabella | Immettere un nome per la tabella nel set di dati dell'output di Power BI. Attualmente, l’output di Power BI da processi di Analisi di flusso può avere solo una tabella in un set di dati |
 | Nome gruppo | Per abilitare la condivisione dei dati con altri utenti di Power BI, scrivere i dati nei gruppi. È possibile selezionare i gruppi all'interno dell'account Power BI o scegliere "My Workspace" se non si vuole eseguire la scrittura in un gruppo. L'aggiornamento di un gruppo esistente richiede il rinnovo dell'autenticazione di Power BI. |
 
+Per una procedura dettagliata di configurazione di un output di Power BI e del dashboard, vedere l'articolo [Analisi dei flussi di Azure e Power BI](stream-analytics-power-bi-dashboard.md).
+
 > [AZURE.NOTE]Non creare in modo esplicito il set di dati e la tabella nel dashboard di Power BI. Il set di dati e la tabella verranno compilati automaticamente quando il processo viene avviato e il processo inizia a generare output in Power BI. Si noti che se la query di processo non genera alcun risultato, il set di dati e la tabella non verranno creati. Tenere anche presente che se Power BI ha già un set di dati e una tabella con lo stesso nome fornito dall'utente nel processo di analisi di flusso, i dati esistenti verranno sovrascritti.
 
 ### Rinnovare l'autorizzazione di Power BI
@@ -265,4 +267,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

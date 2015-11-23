@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="11/10/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
 # Visualizzare i report di accesso e utilizzo
@@ -159,6 +159,10 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 | :-------------     | :-------        |
 | Usare questo report per visualizzare l'utilizzo di tutte le applicazioni SaaS presenti nella directory. Questo report si basa sul numero di selezioni dell'applicazione eseguite nel Pannello di accesso. | Scheda Directory > Report |
 
+Questo report include gli accessi a _tutte_ le applicazioni a cui ha accesso la directory, incluse le applicazioni Microsoft preintegrate.
+
+Le applicazioni Microsoft preintegrate includono Office 365, SharePoint, il portale di gestione di Azure e altre.
+
 ![Riepilogo utilizzo applicazione](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
@@ -239,7 +243,7 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
 
 - Contattare l'utente per verificare l'attività
 - Reimpostare la password dell'utente
-- [Abilitare l'autenticazione a più fattori](http://go.microsoft.com/fwlink/?linkid=335774) per una maggiore sicurezza
+- [Abilitare l'autenticazione a più fattori](multi-factor-authentication-get-started.md) per una maggiore sicurezza
 
 ## Visualizzare o scaricare un report
 
@@ -256,7 +260,7 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
 	- Fino a 1000 eventi saranno visualizzati nel portale di gestione di Azure.
 5. Se applicabile, fare clic su **Download** per scaricare il report in un file compresso in formato valori separati da virgole (CSV) per visualizzarlo offline o a scopo di archiviazione.
 	- Fino a 75.000 eventi verranno inclusi nel file scaricato.
-	- Per ulteriori dati, consultare la [l'API di Reporting AD Azure](active-directory-reporting-api-getting-started.md).
+	- Per altri dati, consultare l'[API di creazione report di Azure AD](active-directory-reporting-api-getting-started.md).
 
 ## Ignorare un evento
 
@@ -271,4 +275,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="nitinme"/>
 
 # Introduzione ad Azure Data Lake Store con .NET SDK
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake, vedere [Azure Data Lake Store](data-lake-store-overview.md).
 
@@ -50,7 +51,7 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 5. Aggiungere il pacchetto NuGet al progetto.
 
 	1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**.
-	2. Nella finestra di dialogo **Gestione pacchetti NuGet** assicurarsi che l'opzione **Origine pacchetto** sia impostata su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
+	2. Nella scheda **Gestione pacchetti NuGet** assicurarsi che l'opzione **Origine pacchetto** sia impostata su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
 	3. Cercare e installare i pacchetti seguenti:
 	
 		* Microsoft.Azure.Common.Authentication
@@ -212,7 +213,8 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 ## Altre modalità di creazione di un account di Data Lake Store
 
 - [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
-- [Introduzione a Data Lake Store mediante PowerShell](data-lake-store-get-started-powershell.md) 
+- [Introduzione ad Archivio Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
+- [Introduzione a Data Lake Store mediante l'interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
 
 
 ## Passaggi successivi
@@ -221,4 +223,4 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 - [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

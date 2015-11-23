@@ -17,7 +17,9 @@
     ms.author="ddove;sidneyh"/>
 
 # Glossario sugli strumenti di database elastici
-Di seguito sono elencate le definizioni dei termini usati per gli [strumenti di database elastici](sql-database-elastic-scale-introduction.md), una funzionalità del database SQL di Azure. Gli strumenti includono la [libreria client](sql-database-elastic-database-client-library.md), lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md), i [pool elastici](sql-database-elastic-pool.md) e le [query](sql-database-elastic-query-overview.md).
+Di seguito sono elencate le definizioni dei termini usati per gli [strumenti di database elastici](sql-database-elastic-scale-introduction.md), una funzionalità del database SQL di Azure. Gli strumenti vengono usati per gestire le [mappe partizioni](sql-database-elastic-scale-shard-map-management.md), e includono la [libreria client](sql-database-elastic-database-client-library.md), lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md), i [pool elastici](sql-database-elastic-pool.md), e le [query](sql-database-elastic-query-overview.md).
+
+Questi termini vengono usati in [Aggiungere una partizione mediante gli strumenti di Database elastico](sql-database-elastic-scale-add-a-shard.md) e [Usare la classe RecoveryManager per risolvere i problemi di partizionamento della mappa](sql-database-elastic-database-recovery-manager.md).
 
 ![Termini della scalabilità elastica][1]
 
@@ -31,7 +33,7 @@ Di seguito sono elencate le definizioni dei termini usati per gli [strumenti di 
 
 **Mappa partizioni locale**: archiviata in una partizione, la mappa partizioni locale contiene i mapping per gli shardlet che risiedono nella partizione.
 
-**Esecuzione di query su più partizioni**: la possibilità di eseguire una query su più partizioni; i set di risultati vengono restituiti usando la semantica di UNION ALL (nota anche come "query di tipo fan-out"). Confrontare con **Routing dipendente dai dati**.
+**Esecuzione di query su più partizioni**: la possibilità di eseguire una query su più partizioni; i set di risultati vengono restituiti usando la semantica di UNION ALL (nota anche come "query di tipo fan-out"). Confrontare con **routing dipendente dai dati**.
 
 **Mappa partizioni di tipo intervallo**: una mappa partizioni in cui la strategia di distribuzione delle partizioni è basata su più intervalli di valori contigui.
 
@@ -80,4 +82,4 @@ Di seguito sono elencate le definizioni dei termini usati per gli [strumenti di 
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

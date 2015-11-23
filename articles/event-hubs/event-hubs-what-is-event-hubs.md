@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Che cos'è l'hub di eventi di Azure?"
-	description="Panoramica degli hub di eventi di Azure."
+	pageTitle="Che cos'è Hub eventi di Azure? | Microsoft Azure"
+	description="Panoramica di Hub eventi di Azure"
 	services="event-hubs"
 	documentationCenter=".net"
 	authors="nberdy"
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Che cos'è l'hub di eventi di Azure?
@@ -30,7 +30,7 @@ Hub eventi di Azure è un servizio di elaborazione eventi che fornisce un punto 
 
 Esempi di tali scenari sono il rilevamento del comportamento in app per dispositivi mobili, informazioni sul traffico da web farm, l’acquisizione di eventi in gioco nei giochi di console o i dati di telemetria raccolti da computer industriali o veicoli connessi.
 
-A differenza di[le code del Bus di servizio e gli argomenti](../service-bus/service-bus-messaging-overview.md)gli hub di eventi è incentrato sulla fornitura di messaggistica la gestione del flusso a livello di scalabilità. Pertanto, le funzionalità di Hub eventi di Azure differiscono dagli argomenti di Bus di servizio in quando sono fortemente orientati agli scenari con velocità effettiva elevata ed elaborazione di eventi. Di conseguenza, gli Hub eventi non implementano alcune delle funzionalità di messaggistica disponibili per gli [argomenti](service-bus/fundamentals-service-bus-hybrid-solutions.md#topics). Se tali funzionalità sono necessarie, gli argomenti rimangano la scelta ottimale.
+A differenza di[le code del Bus di servizio e gli argomenti](../service-bus/service-bus-messaging-overview.md)gli hub di eventi è incentrato sulla fornitura di messaggistica la gestione del flusso a livello di scalabilità. Pertanto, le funzionalità di Hub eventi di Azure differiscono dagli argomenti di Bus di servizio in quando sono fortemente orientati agli scenari con velocità effettiva elevata ed elaborazione di eventi. Di conseguenza, gli Hub eventi non implementano alcune delle funzionalità di messaggistica disponibili per gli [argomenti](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Se tali funzionalità sono necessarie, gli argomenti rimangano la scelta ottimale.
 
 ## Passaggi successivi
 
@@ -39,10 +39,10 @@ Per informazioni dettagliate sugli hub di eventi, vedere gli argomenti seguenti.
 - [Panoramica di Hub eventi](event-hubs-overview.md)
 - [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
 - [Domande frequenti sulla disponibilità e il supporto di Hub eventi](event-hubs-availability-and-support-faq.md)
-- Iniziare con un’[esercitazione di Hub eventi].
-- Un'[applicazione di esempio completa che usa Hub eventi]
+- Iniziare con un'[esercitazione di Hub eventi][].
+- Un'[applicazione di esempio completa che usa Hub eventi][]
 
-[esercitazione di Hub eventi]: service-bus-event-hubs-csharp-ephcs-getstarted.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[esercitazione di Hub eventi]: event-hubs-csharp-ephcs-getstarted.md
+[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

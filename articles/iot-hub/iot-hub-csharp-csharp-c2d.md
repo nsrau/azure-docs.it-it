@@ -22,7 +22,7 @@
 
 L’hub IoT Azure è un servizio completamente gestito che consente la comunicazione bidirezionale affidabile e sicura tra milioni di dispositivi IoT e un'applicazione back-end. L’esercitazione [Introduzione all’hub IoT] illustra come creare un hub IoT, eseguire il provisioning dell’identità di un dispositivo al suo interno e creare il codice di un dispositivo simulato che invia messaggi da dispositivo a cloud.
 
-Questa esercitazione si basa sull’[Introduzione all’hub IoT] e illustra come inviare messaggi da cloud a dispositivo a un unico dispositivo, come richiedere la conferma del recapito (*feedback*) e riceverla dal back-end cloud dell’applicazione.
+Questa esercitazione si basa sull'[Introduzione all'hub IoT] e illustra come inviare messaggi da cloud a dispositivo a un unico dispositivo, come richiedere la conferma del recapito (*feedback*) e riceverla dal back-end cloud dell'applicazione.
 
 È possibile trovare ulteriori informazioni sui messaggi da cloud a dispositivo nella [Guida per sviluppatori di hub IoT][IoT Hub Developer Guide - C2D].
 
@@ -67,7 +67,7 @@ Altre informazioni sull'hub IoT:
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Elaborare messaggi da dispositivo a cloud]: iot-hub-csharp-csharp-process-d2c.md
@@ -77,8 +77,9 @@ Altre informazioni sull'hub IoT:
 [Linee guida dell’hub IoT]: iot-hub-guidance.md
 [Guida per sviluppatori di hub IoT]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
+[Introduzione all'hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Introduzione all’hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

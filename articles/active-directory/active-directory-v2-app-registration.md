@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Come registrare un'app con Microsoft
@@ -41,4 +41,4 @@ Dopo aver creato un'app Microsoft, è possibile completare una delle esercitazio
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

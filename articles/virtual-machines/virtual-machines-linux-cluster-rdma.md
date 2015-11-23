@@ -370,4 +370,4 @@ In un cluster funzionante con due nodi dovrebbe venire visualizzato un output si
 
 * Per istruzioni su Intel MPI, vedere la [documentazione relativa a Intel MPI Library](https://software.intel.com/it-IT/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

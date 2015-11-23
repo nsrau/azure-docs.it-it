@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="10/30/2015"
 	ms.author="mwasson"/>
 
 
@@ -33,7 +33,7 @@ Per questo progetto, verrà utilizzato l'esempio di chat dell'[archivio GitHub S
 1.  Scaricare una [versione archiviata ZIP o GZ][release] del progetto Socket.IO (per questo documento è stata usata la versione 1.3.5)
 
 
-3.  Estrarre l'archivio e copiare la directory **examples\\\chat** in una nuova posizione. Ad esempio, **\\node\\chat**.
+3.  Estrarre l'archivio e copiare la directory **examples\\chat** in una nuova posizione. Ad esempio, **\\node\\chat**.
 
 ## Modificare app.js e installare i moduli
 
@@ -57,7 +57,7 @@ Per questo progetto, verrà utilizzato l'esempio di chat dell'[archivio GitHub S
 		  "socket.io": "1.3.5"
 		}
 
-4. Dalla riga di comando passare alla directory **\\\node\\\chat** e utilizzare npm per installare i moduli necessari per questa applicazione:
+4. Dalla riga di comando passare alla directory **\\node\\chat** e utilizzare npm per installare i moduli necessari per questa applicazione:
 
         npm install
 
@@ -69,7 +69,7 @@ Per creare un'app Web di Azure, abilitare la pubblicazione Git e quindi abilitar
 
 > [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">versione di valutazione gratuita di Azure</a>.
 
-1. Installare l'interfaccia della riga di comando di Azure e connettersi alla propria sottoscrizione. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli).
+1. Installare l'interfaccia della riga di comando di Azure e connettersi alla propria sottoscrizione. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli).
 
 2. Se si tratta della prima impostazione di un repository in Azure, è necessario creare le credenziali di accesso. Dall'interfaccia della riga di comando di Azure, immettere il comando seguente:
 
@@ -119,7 +119,7 @@ Le applicazioni Socket.IO possono essere scalate usando un __adattatore__ per di
 
 ###Creare una cache Redis
 
-Eseguire la procedura descritta in [Creare una cache in Cache Redis di Azure](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409) per creare una nuova cache.
+Eseguire la procedura descritta in [Creare una cache in Cache Redis di Azure](https://azure.microsoft.com/it-IT/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) per creare una nuova cache.
 
 > [AZURE.NOTE]Salvare il __Nome host__ e la __Chiave primaria__ per la cache in quanto saranno necessari nei passaggi successivi.
 
@@ -145,7 +145,7 @@ Eseguire la procedura descritta in [Creare una cache in Cache Redis di Azure](ht
 
 	> [AZURE.NOTE]Anche se l'adattatore __socket.io-redis__ possa comunicare direttamente con Redis, la versione corrente non supporta l'autenticazione richiesta dalla cache Redis di Azure. Pertanto, la connessione iniziale viene creata usando il modulo __redis__, quindi il client viene passato all'adattatore __socket.io-redis__.
 	>
-	> Nonostante la cache Redis di Azure supporti le connessioni sicure usando la porta 6380, alla data del 14 luglio 2014 i moduli usati in questo esempio non supportano le connessioni sicure. Il codice riportato sopra usa la porta 6380, predefinita e non sicura.
+	> Nonostante la cache Redis di Azure supporti le connessioni sicure usando la porta 6380, alla data del 14 luglio 2014 i moduli usati in questo esempio non supportano le connessioni sicure. Il codice riportato sopra usa la porta 6379, predefinita e non sicura.
 
 3. Salvare il file __app.js modificato__
 
@@ -285,4 +285,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -57,12 +57,14 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 4. Dopo aver configurato il monitoraggio, fare clic su **Save**. Analogamente a quanto accade per le metriche di Servizi multimediali, i dati di monitoraggio dovrebbero iniziare a essere visualizzati nel dashboard dopo circa un'ora. Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle denominate $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Per ulteriori informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione](http://go.microsoft.com/fwlink/?LinkId=256668).
 
 
+
 ##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]flusso di lavoro Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 <!-- Images -->
@@ -71,4 +73,4 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

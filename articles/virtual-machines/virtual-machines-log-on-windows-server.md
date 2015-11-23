@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come accedere a una VM | Microsoft Azure"
-	description="Utilizzare il portale per accedere a una macchina virtuale di Windows creata con il modello di distribuzione classico."
+	description="Usare il portale di Azure per accedere a una macchina virtuale di Windows creata con il modello di distribuzione classico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -38,7 +38,7 @@ Di seguito è riportata una procedura video dettagliata dei passaggi in questa e
 
 ## Connettersi alla macchina virtuale
 
-1. Accedere al [portale di Azure](http://manage.windowsazure.com).
+1. Accedere al portale di Azure.
 
 2. Fare clic su **Macchine virtuali**, quindi selezionare la macchina virtuale.
 
@@ -56,9 +56,9 @@ Di seguito è riportata una procedura video dettagliata dei passaggi in questa e
 
 Ecco alcuni aspetti da provare:
 
--	Se il pulsante **Connetti** non è attivo o si verificano altri problemi di connessione per il Desktop remoto, provare a reimpostare la configurazione. Dal dashboard della macchina virtuale, in **Riepilogo rapido**, fare clic su **Reimposta configurazione remota**.
+-	Se il pulsante **Connetti** non è attivo o si verificano altri problemi di connessione Desktop remoto, provare a reimpostare la configurazione. Dal dashboard della macchina virtuale, in **Riepilogo rapido**, fare clic su **Reimposta configurazione remota**.
 -	Per problemi con la password, provare a reimpostarla. Dal dashboard della macchina virtuale, in **Riepilogo rapido**, fare clic su **Reimposta password**.
 
 Se le precedenti istruzioni non sono sufficienti o non sono quelle necessarie, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

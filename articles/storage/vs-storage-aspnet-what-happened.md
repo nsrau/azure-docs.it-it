@@ -3,7 +3,7 @@
 	description="Viene descritto cosa succede dopo l'aggiunta di archiviazione di Azure a un progetto ASP.NET utilizzando i servizi connessi a Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Cosa è successo a un progetto ASP.NET (servizio connesso a Visual Studio Archiviazione di Azure)?
 
@@ -40,4 +40,4 @@ Nel file web.config del progetto è stato creato un elemento con la stringa di c
 
 Per altre informazioni, vedere [ASP.NET](http://www.asp.net).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

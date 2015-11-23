@@ -46,26 +46,26 @@ Se è necessario creare i file:
 
 	- Per Mac, assicurarsi di visitare il [Sito web del prodotto di protezione Apple](https://support.apple.com/HT201222) e, se necessario, scegliere gli aggiornamenti appropriati.
 	- Per distribuzioni di Linux basate su Debian, come Ubuntu, Debian, Mint e così via:
-		
+
 			sudo apt-get update ssh-keygen
 			sudo apt-get update openssl
-			
+
 	- Per distribuzioni di Linux basate su RPM, come CentOS e Oracle Linux:
-		
+
 			sudo yum update ssh-keygen
 			sudo yum update openssl
-			
+
 	- Per SLES e OpenSUSE
-		
+
 			sudo zypper update ssh-keygen
 			sudo zypper update openssl
-	
+
 2. Utilizzare **ssh-keygen** per creare dei file di chiave pubblici e privati RSA a 2048 bit, e a meno che non si disponga di una posizione specifica o di nomi specifici per i file, accettare la posizione predefinita e il nome di `~/.ssh/id_rsa`. Il comando basic è:
 
 		ssh-keygen -t rsa -b 2048 
-	
+
 	In genere, l’implementazione **ssh-keygen** aggiunge un commento, spesso il nome utente e il nome host del computer. È possibile specificare un commento specifico utilizzando l’opzione `-C`.
-	
+
 3. Creare un file .pem del file `~/.ssh/id_rsa` per consentire di lavorare con il portale classico. Utilizzare l’**openssl** come indicato di seguito:
 
 		openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
@@ -125,7 +125,7 @@ Nell'esempio seguente viene illustrato come utilizzare il formato **ssh-rsa** co
 	data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	data:    ContentVersion     : 1.0.0.0
 	data:    Name                   Type    Value
-	
+
 	data:    newStorageAccountName  String  testtestsshvmtemplate3
 	data:    adminUserName          String  ops
 	data:    sshKeyData             String  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAkek3P6V3EhmD+xP+iKDZco9 user@macbookpro
@@ -157,7 +157,7 @@ Nell'esempio seguente viene illustrato come utilizzare il formato **ssh-rsa** co
 	+ Configuring certificate
 	+ Creating VM
 	info:    vm create command OK
-	
+
 
 ## Connettersi alla macchina virtuale
 
@@ -166,11 +166,11 @@ Il comando **ssh** accetta un nome utente con cui accedere, l'indirizzo di rete 
 Un uso tipico con la distribuzione di Gestione risorse potrebbe essere simile al seguente, se è stato specificato semplicemente un sotto-dominio e un percorso di distribuzione:
 
 	ssh user@subdomain.westus.cloudapp.azure.com -p 22
-	
+
 in alternativa, se ci si connette a un servizio cloud di distribuzione classica l’indirizzo da utilizzare potrebbe essere simile al seguente:
 
 	ssh user@subdomain.cloudapp.net -p 22
-	
+
 Poiché il formato dell’indirizzo può essere modificato -- è sempre possibile utilizzare l'indirizzo IP o forse si dispone di un nome di dominio personalizzato assegnato -- sarà necessario individuare l'indirizzo della macchina virtuale di Azure.
 
 ### Individuare l'indirizzo SSH della macchina virtuale di Azure con le distribuzioni classiche
@@ -266,27 +266,27 @@ Se è stata creata una macchina virtuale utilizzando un file .pem creato dal `~/
 	Saving password to keychain failed
 	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-	
+
 	* Documentation:  https://help.ubuntu.com/
-	
+
 	System information as of Sat Oct 10 20:53:08 UTC 2015
-	
+
 	System load: 0.52              Memory usage: 5%   Processes:       80
 	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
-	
+
 	Graph this data and manage this system at:
 		https://landscape.canonical.com/
-	
+
 	Get cloud support with Ubuntu Advantage Cloud Guest:
 		http://www.ubuntu.com/business/services/cloud
-	
+
 	0 packages can be updated.
 	0 updates are security updates.
-	
+
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-	
+
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
 
@@ -295,7 +295,7 @@ Se è stata creata una macchina virtuale utilizzando un file .pem creato dal `~/
 È possibile leggere i suggerimenti in [Risoluzione dei problemi di connessioni SSH](virtual-machines-troubleshoot-ssh-connections.md) per verificare se è possibile risolvere la situazione.
 
 ## Passaggi successivi
-
+ 
 Ora che si è connessi alla macchina virtuale, assicurarsi di aggiornare la distribuzione scelta prima di continuare a utilizzarla.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

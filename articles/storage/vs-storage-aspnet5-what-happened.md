@@ -3,7 +3,7 @@
 	description="Viene descritto cosa succede dopo la connessione a un account di archiviazione di Azure in un progetto di Visual Studio ASP.NET 5 utilizzando i servizi connessi a Visual Studio "
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Cosa è successo a un progetto ASP.NET 5 (servizi connessi a Visual Studio Archiviazione di Azure)?
 
@@ -47,4 +47,4 @@ Nel file config.json del progetto è stato creato un elemento con la stringa di 
 
 Per altre informazioni, vedere [ASP.NET 5](http://www.asp.net/vnext).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="11/11/2015" 
 	ms.author="andrl"/>
 
 # Programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente
@@ -902,7 +902,7 @@ In questo caso, il pre-trigger da eseguire con la richiesta è specificato nell'
 
 ## Codice di esempio
 
-È possibile trovare altri esempi di codice sul lato server (inclusi [upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [eliminazione bulk](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) e [aggiornamento](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)) nell'[archivio Github](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples).
+È possibile trovare altri esempi di codice sul lato server (inclusi [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [eliminazione bulk](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [aggiornamento](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) nell'[archivio Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Si desidera condividere la stored procedure awesome? Inviare una richiesta di pull!
 
@@ -920,4 +920,4 @@ Quando si dispone di uno o più stored procedure, trigger e funzioni definite da
 -	[Database architettura orientata ai servizi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hosting del Runtime .NET in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -5,15 +5,15 @@
    documentationCenter=""
    authors="BrucePerlerMS"
    manager="mbaldwin"
-   editor="mbaldwin" />
+   editor="bruceper" />
 <tags
    ms.service="key-vault"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/22/2015"
-   ms.author="mbaldwin" />
+   ms.date="11/06/2015"
+   ms.author="bruceper" />
 
 # Guida per gli sviluppatori dell’insieme di credenziali chiave Azure
 
@@ -33,21 +33,11 @@ Le operazioni sugli insiemi di credenziali chiave vengono autenticate e autorizz
 
 ## Programmazione dell'insieme di credenziali chiave
 
-Il sistema di gestione delle credenziali chiave per i programmatori è costituito da diverse interfacce, che hanno come base REST. In questo articolo il riferimento REST fornisce concetti di base, [sulle chiavi e i segreti](https://msdn.microsoft.com/library/azure/dn903623.aspx)
+Il sistema di gestione delle credenziali chiave per i programmatori è costituito da diverse interfacce, che hanno come base REST. [Informazioni di riferimento sull'API REST dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-### REST
-
-L'API REST è alla base di tutte le interazioni a livello di programmazione con l'insieme di credenziali chiave.
-
-L’insieme di credenziali chiave dispone di un proprio endpoint REST descritto nel [Riferimento all'API REST dell’insieme di credenziali chiave](https://msdn.microsoft.com/library/azure/dn903609.aspx)
-
-### .NET
-
-L'API .NET è un set di wrapper che consente l'implementazione tramite il modello di programmazione C# senza la necessità di interagire direttamente con l'endpoint REST. Qui è possibile trovare il [Riferimento all’API client .NET dell’insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903301.aspx).
-
-### Node.js
-
-L'API Node.js è un set di wrapper che consente l'implementazione tramite il modello di programmazione node.js senza la necessità di interagire direttamente con l'endpoint REST. Qui è possibile trovare [SDK di Microsoft Azure per la gestione dell’insieme di credenziali chiave Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
+|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|:--:|:--:|
+|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 
 ## Gestione delle chiavi degli archivi
 
@@ -67,5 +57,12 @@ Gli articoli seguenti forniscono indicazioni specifiche dell’attività:
 ## esempi
 
 - Questo download contiene sia l'applicazione di esempio HelloKeyVault che un esempio di servizio Web di Azure. [Esempi di codice di insieme di credenziali chiave di Azure](http://www.microsoft.com/download/details.aspx?id=45343)
+- In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web in Azure. [Usare l'insieme di credenziali chiave di Azure da un'applicazione Web](key-vault-use-from-web-application.md)
 
-<!---HONumber=Nov15_HO2-->
+## Supporto di librerie
+
+- La [libreria principale dell'insieme di credenziali delle chiavi di Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) fornisce le interfacce IKey e IKeyResolver per l'individuazione delle chiavi dagli identificatori e l'esecuzione di operazioni con le chiavi.
+
+- Le [estensioni dell'insieme di credenziali delle chiavi di Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) fornisce funzionalità estese per l'insieme di credenziali delle chiavi di Azure.
+
+<!---HONumber=Nov15_HO3-->

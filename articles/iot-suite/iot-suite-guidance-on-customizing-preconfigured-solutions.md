@@ -45,7 +45,7 @@ Il secondo processo interviene sui valori Device-to-Threshold creati nella pagin
 
 ## Aggiunta di regole personalizzate
 
-Oltre a modificare i processi preconfigurati di analisi di flusso di Azure, è possibile usare il portale di Azure per aggiungere nuovi processi o nuove query ai processi esistenti.
+Oltre a modificare i processi preconfigurati di analisi di flusso di Azure, è possibile usare il portale di anteprima di Azure per aggiungere nuovi processi o nuove query ai processi esistenti.
 
 ## Personalizzazione dei dispositivi
 
@@ -69,4 +69,4 @@ Per altre informazioni sui dispositivi IoT, vedere il [Sito per sviluppatori Azu
 
 [SDK per dispositivi IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

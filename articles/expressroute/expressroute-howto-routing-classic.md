@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Come configurare il routing per un circuito ExpressRoute | Microsoft Azure"
+   pageTitle="Come configurare il routing per un circuito ExpressRoute per il modello di distribuzione classica mediante PowerShell | Microsoft Azure"
    description="Questo articolo descrive come creare ed eseguire il provisioning di un circuito ExpressRoute per il peering privato, il peering pubblico e il peering Microsoft. Questo articolo mostra anche come controllare lo stato e aggiornare o eliminare i peering per un circuito."
    documentationCenter="na"
    services="expressroute"
@@ -13,24 +13,23 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
+   ms.date="11/05/2015"
    ms.author="cherylmc"/>
 
-# Creare e modificare la configurazione di routing di ExpressRoute
+# Creare e modificare il routing per un circuito ExpressRoute mediante PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-routing-classic.md)
-[PowerShell Resource Manager](expressroute-howto-routing-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
 Questo articolo descrive le procedure per creare e gestire la configurazione di routing per un circuito ExpressRoute usando i cmdlet di PowerShell e il modello di distribuzione classico. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute.
 
->[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione Azure](../azure-classic-rm.md).
-
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## Prerequisiti di configurazione
 
 - Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare il modulo PowerShell più recente dalla sezione relativa a PowerShell della [pagina Download di Azure](http://azure.microsoft.com/downloads). Seguire le istruzioni fornite nella pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per indicazioni dettagliate su come configurare il computer per l'uso dei moduli di Azure PowerShell. 
-- Prima di procedere con la configurazione, leggere la pagina [prerequisiti](expressroute-prerequisites.md), la pagina [requisiti di routing](expressroute-routing.md) e la pagina [flussi di lavoro](expressroute-workflows.md).
+- Prima di procedere con la configurazione, leggere le pagine relative ai [prerequisiti](expressroute-prerequisites.md), ai [requisiti di routing](expressroute-routing.md) e ai [flussi di lavoro](expressroute-workflows.md).
 - È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti di seguito deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
 
 >[AZURE.IMPORTANT]Queste istruzioni si applicano solo ai circuiti creati con provider di servizi che offrono servizi di connettività di livello 2. Se si usa un provider di servizi che offre servizi gestiti di livello 3 (di solito un IPVPN, come MPLS), il provider di connettività configurerà e gestirà il routing per conto dell'utente. In questo caso, non sarà possibile creare o gestire i peering.
@@ -41,7 +40,7 @@ Per un circuito ExpressRoute è possibile configurare uno, due o tutti e tre i p
 
 Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed eliminare la configurazione del peering privato di Azure per un circuito ExpressRoute.
 
-### Creare un peering privato di Azure
+### Per creare un peering privato di Azure
 
 1. **Importare il modulo PowerShell per ExpressRoute.**
 	
@@ -95,7 +94,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 	>[AZURE.IMPORTANT]Assicurarsi di specificare il numero AS come ASN di peering e non come ASN cliente.
 
-### Ottenere i dettagli relativi al peering privato di Azure
+### Per ottenere i dettagli relativi al peering privato di Azure
 
 Per ottenere i dettagli di configurazione, usare il cmdlet seguente
 
@@ -115,25 +114,26 @@ Per ottenere i dettagli di configurazione, usare il cmdlet seguente
 	VlanId                         : 100
 
 
-### Aggiornare la configurazione del peering privato di Azure
+### Per aggiornare la configurazione del peering privato di Azure
 
 Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente. Nell'esempio seguente il valore dell'ID VLAN del circuito viene aggiornato da 100 a 500.
 
 	Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
 
-### Eliminare un peering privato di Azure
+### Per eliminare un peering privato di Azure
 
 Per rimuovere la configurazione di peering, eseguire il cmdlet seguente.
 
+>[AZURE.WARNING]Assicurarsi che tutte le reti virtuali siano scollegate dal circuito ExpressRoute prima di eseguire questo cmdlet.
+
 	Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
->[AZURE.IMPORTANT]Assicurarsi che tutte le reti virtuali siano scollegate dal circuito ExpressRoute prima di eseguire questo cmdlet.
 
 ## Peering pubblico di Azure
 
 Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed eliminare la configurazione del peering pubblico di Azure per un circuito ExpressRoute.
 
-### Creare un peering pubblico di Azure
+### Per creare un peering pubblico di Azure
 
 1. **Importare il modulo PowerShell per ExpressRoute.**
 	
@@ -188,7 +188,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 	>[AZURE.IMPORTANT]Assicurarsi di specificare il numero AS come ASN di peering e non come ASN cliente.
 
-### Ottenere i dettagli relativi al peering pubblico di Azure
+### Per ottenere i dettagli relativi al peering pubblico di Azure
 
 Per ottenere i dettagli di configurazione, usare il cmdlet seguente
 
@@ -208,7 +208,7 @@ Per ottenere i dettagli di configurazione, usare il cmdlet seguente
 	VlanId                         : 200
 
 
-### Aggiornare la configurazione del peering pubblico di Azure
+### Per aggiornare la configurazione del peering pubblico di Azure
 
 Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente
 
@@ -216,7 +216,7 @@ Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente
 
 Nell'esempio precedente il valore dell'ID VLAN è stato aggiornato da 200 a 600.
 
-### Eliminare un peering pubblico di Azure
+### Per eliminare un peering pubblico di Azure
 
 Per rimuovere la configurazione di peering, eseguire il cmdlet seguente
 
@@ -226,7 +226,7 @@ Per rimuovere la configurazione di peering, eseguire il cmdlet seguente
 
 Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed eliminare la configurazione del peering Microsoft per un circuito ExpressRoute.
 
-### Creare il peering Microsoft
+### Per creare il peering Microsoft
 
 1. **Importare il modulo PowerShell per ExpressRoute.**
 	
@@ -278,7 +278,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 		New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 
-### Ottenere i dettagli del peering Microsoft
+### Per ottenere i dettagli del peering Microsoft
 
 Per ottenere i dettagli di configurazione, usare il cmdlet seguente.
 
@@ -298,13 +298,13 @@ Per ottenere i dettagli di configurazione, usare il cmdlet seguente.
 	VlanId                         : 300
 
 
-### Aggiornare la configurazione del peering Microsoft
+### Per aggiornare la configurazione del peering Microsoft
 
 Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente.
 
 		Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
-### Eliminare il peering Microsoft
+### Per eliminare il peering Microsoft
 
 Per rimuovere la configurazione di peering, eseguire il cmdlet seguente.
 
@@ -312,8 +312,10 @@ Per rimuovere la configurazione di peering, eseguire il cmdlet seguente.
 
 ## Passaggi successivi
 
--  Successivamente, [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+Successivamente, [collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+
+
 -  Per ulteriori informazioni sui flussi di lavoro, vedere [Flussi di lavoro ExpressRoute](expressroute-workflows.md).
 -  Per altre informazioni sul peering dei circuiti, vedere l'articolo relativo ai [circuiti ExpressRoute e domini di routing](expressroute-circuit-peerings.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

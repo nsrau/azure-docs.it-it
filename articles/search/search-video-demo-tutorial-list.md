@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Video, esempi ed esercitazioni in Ricerca di Azure | Microsoft Azure"
+	pageTitle="Video, esempi ed esercitazioni in Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Elenco centrale di tutti i video, gli esempi, le demo e le esercitazioni create per la Ricerca di Azure, un servizio cloud ospitato in Microsoft Azure."
 	services="search"
 	documentationCenter=""
@@ -95,4 +95,4 @@ In CodePlex, è possibile trovare diversi esempi pubblicati durante l'anteprima 
 - [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) è un'applicazione della console di Windows che carica un set di righe di SQL Server da un database locale integrato.
 - [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) è un'applicazione della console di Windows che definisce, esegue e aggiorna un profilo di assegnazione dei punteggi per ottimizzare i risultati della ricerca.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

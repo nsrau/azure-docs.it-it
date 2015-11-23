@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/02/2015"
+   ms.date="11/09/2015"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
 
 Questo argomento descrive tutte le funzioni che è possibile usare in un modello di Gestione risorse di Azure.
 
-Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**.
+Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**. Durante la valutazione, la distinzione tra maiuscole e minuscole sarà mantenuta, a meno che non venga modificata espressamente dalla funzione (ad esempio toUpper o toLower). Alcuni tipi di risorse possono avere requisiti per le maiuscole e minuscole indipendentemente dalla modalità di valutazione delle espressioni.
 
 ## add
 
@@ -547,4 +547,4 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

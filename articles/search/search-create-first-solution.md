@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare la prima soluzione di ricerca con Ricerca di Azure | Microsoft Azure" 
+	pageTitle="Creare la prima soluzione di ricerca con Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
 	description="Creare la prima soluzione di ricerca mediante Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -206,4 +206,4 @@ Per approfondire l'argomento, è possibile considerare l'aggiunta di una pagina 
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

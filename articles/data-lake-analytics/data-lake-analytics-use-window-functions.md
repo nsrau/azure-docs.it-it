@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/11/2015"
    ms.author="jgao"/>
 
 
@@ -603,10 +603,10 @@ I risultati sono:
 Sono presenti 6 righe nella partizione in cui la chiave di partizione è "Web" (quarta riga e successive):
 
 - Sono presenti 6 righe con valore uguale o minore di 500, quindi CUME\_DIST è uguale a 6/6=1
-- Sono presenti 5 righe con valore uguale o minore di 500, quindi CUME\_DIST è uguale a 5/6=0,83
-- Sono presenti 4 righe con valore uguale o minore di 500, quindi CUME\_DIST è uguale a 5/6=0,66
-- Sono presenti 3 righe con valore uguale o minore di 500, quindi CUME\_DIST è uguale a 3/6=0,5. Sono presenti due righe con lo stesso valore di latenza.
-- È presente 1 riga con valore uguale o minore di 500, quindi CUME\_DIST è uguale a 1/6=1. 
+- Sono presenti 5 righe con valore uguale o minore di 400, quindi CUME\_DIST è uguale a 5/6=0,83.
+- Sono presenti 4 righe con valore uguale o minore di 300, quindi CUME\_DIST è uguale a 5/6=0,66.
+- Sono presenti 3 righe con valore uguale o minore di 200, quindi CUME\_DIST è uguale a 3/6=0,5. Sono presenti due righe con lo stesso valore di latenza.
+- È presente 1 riga con valore uguale o minore di 100, quindi CUME\_DIST è uguale a 1/6=0,16. 
 
 
 **Note sull'utilizzo:**
@@ -743,4 +743,4 @@ PERCENTILE\_DISC non esegue l'interpolazione dei valori, quindi il valore median
 - [Gestire Analisi Azure Data Lake con Azure PowerShell](data-lake-analytics-use-powershell.md)
 - [Monitorare e risolvere i problemi dei processi di Analisi Azure Data Lake tramite il portale di anteprima di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

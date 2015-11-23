@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transizione dalla versione api di anteprima =2014* alla versione api=2015*" 
+	pageTitle="Transizione dalla versione api di anteprima =2014* alla versione api=2015* | Microsoft Azure | Servizio di ricerca cloud ospitato" 
 	description="Informazioni sulle modifiche rilevanti e su come eseguire la migrazione di codice scritto nella versione di anteprima 31/07/2014 o 20/10/2014 in Ricerca di Azure alla versione dell'API 28/02/2015." 
 	services="search" 
 	documentationCenter="" 
@@ -22,12 +22,12 @@ Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure
 
 La versione di anteprima utilizzata può essere stata una delle due seguenti:
 
-- [Versione di anteprima del 31/07/2014](search-api-2014-07-31-preview.md)
-- [Versione di anteprima del 20/10/2014](search-api-2014-10-20-preview.md)
+- Versione di anteprima del 20140731
+- Versione di anteprima del 20141020
 
 Ora che Azure è disponibile a livello generale, si invita ad eseguire la transizione a versioni più recenti: la versione del 28/ 02/2015 è la versione API ufficiale della versione disponibile a livello generale di Ricerca di Azure. Questa versione è documentata in [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
-È in corso anche la distribuzione della prossima versione di anteprima, [28/02/2015-Anteprima](search-api-2015-02-28-preview.md), che introduce funzionalità ancora in fase di sviluppo. È possibile fornire commenti e suggerimenti sull'anteprima della API tramite il [Azure Cerca](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) nei forum o la [pagina commenti](http://feedback.azure.com/forums/263029-azure-search).
+È in corso anche la distribuzione della prossima versione di anteprima, [28/02/2015-Anteprima](search-api-2015-02-28-preview.md), che introduce funzionalità ancora in fase di sviluppo. È possibile fornire commenti e suggerimenti sull'API di anteprima tramite il [forum di Ricerca di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) o la [pagina dei commenti](http://feedback.azure.com/forums/263029-azure-search).
 
 ###Elenco di controllo per la migrazione###
 
@@ -144,4 +144,4 @@ La versione dell'API `2015-02-28` è nel contratto di servizio. Utilizzare le op
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

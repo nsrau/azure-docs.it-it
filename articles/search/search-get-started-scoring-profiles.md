@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare i profili di assegnazione dei punteggi in Ricerca di Azure | Microsoft Azure" 
+	pageTitle="Come usare i profili di assegnazione dei punteggi in Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
 	description="Ottimizzare le priorità di ricerca tramite i profili di punteggio in Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -126,4 +126,4 @@ Per altre informazioni sulla creazione degli indici, [Guardare questo video](htt
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

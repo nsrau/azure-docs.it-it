@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Modello di dati di esportazione di Application Insights
@@ -120,43 +120,6 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 
     *Esempi*<br/> www.fabrikam.com<br/>www.contoso.com<br/>bretwpc711.azurewebsites.net<br/>
 
-**urlData.port**
-
-    string <telemetrytype>.urldata.port      Max: 100
-* 
-    La porta dell'elemento di dati URL, se è rappresentato l'URL completo. In caso contrario, è vuoto. 
-
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
-
-    *Esempi*<br/> 80<br/>443
-
-**urlData.protocol**
-
-    string <telemetrytype>.urldata.protocol      Max: 100
-* 
-    Il protocollo (HTTP, FTP ecc.) dell'elemento di dati URL 
-
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
-
-    *Esempi*<br/> http<br/>https
-
-**urlData.queryParameters.parameter**
-
-    string <telemetrytype>.urldata.queryparameters.parameter      Max: 100
-* 
-    Una matrice dei nomi di parametro di query dell'elemento di dati URL 
-
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
-
-    *Esempi*<br/> etc<br/>extraqs<br/>pagemode<br/>pagetype
-
-**urlData.queryParameters.value**
-
-    string <telemetrytype>.urldata.queryparameters.value      Max: 100
-* 
-    Una matrice di valori del parametro di query analizzati dall'elemento di dati URL 
-
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
 
 
 ## disponibilità
@@ -531,15 +494,6 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 
     *Esempi*<br/> 640<br/>800<br/>1080
 
-**userAgentString**
-
-    string context.device.useragent      Max: 1000
-* 
-    L'agente utente del browser del client 
-
-    *Predefinito:* se Null, impostare sull'agente utente HTTP acquisito nell'endpoint della raccolta dati
-
-    *Esempi*<br/> Opera/9.80 (Windows NT 5.1) Presto/2.12.388 Version/12.17<br/>Mozilla/5.0 (iPad; CPU OS 8\_3 come Mac OS X) AppleWebKit/600.1.4 (KHTML, come Gecko) Version/8.0 Mobile/12F69 Safari/600.1.4<br/>Chrome/37.0.2062.124 Safari/537.36<br/>Mozilla/4.0 (compatibile; MSIE 7.0; Windows NT 6.1; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)<br/>Safari/537.36<br/>+S89
 
 **aiAgentVersion**
 
@@ -581,17 +535,6 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 
     *Esempi*<br/> Belarus<br/>Paesi Bassi<br/>Germania
 
-**latitudine**
-
-    long context.location.point.lat      
-* 
-    *Esempi*<br/> 53,9<br/>45,7788 
-
-**longitudine**
-
-    long context.location.point.lon      
-* 
-    *Esempi*<br/> 27,5667<br/>-119,529 
 
 **state**
 
@@ -625,7 +568,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Se issynthetic = true, questo elemento di dati rappresenta l'origine dei dati sintetici. 
 
-    *Predefinito:* se Null, nell'agente utente vengono cercate eventuali origini sintetiche note (agente di ricerca Web ecc.) e in base a queste informazioni può essere impostata l'origine.
+    *Predefinito:* se Null, nell'agente utente vengono cercate eventuali origini sintetiche note (agenti di ricerca Web e così via) e in base a queste informazioni può essere impostata l'origine.
 
 **syntheticTransaction**
 
@@ -1081,4 +1024,4 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * [Esportazione continua](app-insights-export-telemetry.md)
 * [Esempi di codice](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

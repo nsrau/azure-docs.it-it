@@ -71,6 +71,15 @@ Attualmente, la funzionalità Multi-NIC presenta i requisiti e i vincoli seguent
 |DS12|4|
 |DS13|8|
 |DS14|16|
+|D1\_v2|1|
+|D2\_v2|2|
+|D3\_v2|4|
+|D4\_v2|8|
+|D5\_v2|16|
+|D11\_v2|2|
+|D12\_v2|4|
+|D13\_v2|8|
+|D14\_v2|16|
 |G1|1|
 |G2|2|
 |G3|4|
@@ -218,7 +227,7 @@ Per aggiungere una route predefinita nella NIC secondaria, attenersi alla proced
 		===========================================================================
 
 2. Si noti la seconda voce nella tabella, con un indice pari a 27 (in questo esempio).
-3. Dal prompt dei comandi, eseguire il comando **aggiungere route** come illustrato di seguito. In questo esempio si specifica 192.168.2.1 come gateway predefinito per la NIC secondaria:
+3. Dal prompt dei comandi, eseguire il comando **route add** come illustrato di seguito. In questo esempio si specifica 192.168.2.1 come gateway predefinito per la NIC secondaria:
 
 		route ADD -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5000 IF 27
 
@@ -249,4 +258,4 @@ Per aggiungere una route predefinita nella NIC secondaria, attenersi alla proced
 
 Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento predefinito dell'host routing vulnerabile, è consigliabile che le schede NIC secondarie siano limitate ai flussi di traffico all'interno della stessa subnet. Tuttavia se alcune situazioni richiedono la connettività all'esterno della subnet, gli utenti devono attivare la “policy based routing” per fare in modo che il traffico in entrata e in uscita utilizzi la stessa scheda NIC.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

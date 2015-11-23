@@ -187,7 +187,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 - Bus di servizio impone l'applicazione dei limiti di dimensione della coda. Le dimensioni massime della coda vengono specificate al momento della creazione della coda stessa e possono avere un valore compreso tra 1 e 80 GB. Se viene raggiunto il valore delle dimensioni della coda impostato al momento della creazione, i successivi messaggi in arrivo verranno rifiutati e il codice chiamante riceverà un'eccezione. Per altre informazioni sulle quote nel bus di servizio, vedere [Quote del bus di servizio](https://msdn.microsoft.com/library/ee732538.aspx).
 
-- È possibile creare code del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato (ovvero l'impostazione predefinita), il bus di servizio crea 16 partizioni per ciascun GB specificato. Di conseguenza, se si crea una coda di 5 GB di dimensioni, con 16 partizioni la dimensione massima della coda diventa (5 * 16) = 80 GB. È possibile visualizzare la dimensione massima della coda o dell'argomento partizionato esaminando la relativa voce nel portale di gestione di Azure.
+- È possibile creare code del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato (ovvero l'impostazione predefinita), il bus di servizio crea 16 partizioni per ciascun GB specificato. Di conseguenza, se si crea una coda di 5 GB di dimensioni, con 16 partizioni la dimensione massima della coda diventa (5 * 16) = 80 GB. È possibile visualizzare le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel portale di Azure.
 
 - Con le code di Azure, se il contenuto del messaggio non è XML-safe, deve avere la codifica **Base64**. Se per il messaggio non è stata usata la codifica **Base64**, il payload dell'utente può essere fino a 48 KB, anziché 64.
 
@@ -195,7 +195,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 - Se le comunicazioni tra client e code del bus di servizio vengono stabilite tramite il protocollo TCP, il numero massimo di connessioni simultanee a una singola coda del bus di servizio è limitato a 100. Questo numero è condiviso tra mittenti e destinatari. Se viene raggiunta questa quota, le successive richieste di connessioni aggiuntive verranno rifiutate e il codice chiamante riceverà un'eccezione. Questo limite non viene imposto ai client tramite cui viene effettuata la connessione alle code mediante l'API basata su REST.
 
-- Se si richiedono più di 10.000 code in un unico spazio dei nomi del bus di servizio, è possibile contattare il team di supporto tecnico di Azure e richiedere un aumento. Per ridimensionare più di 10.000 code con il bus di servizio, è anche possibile creare spazi dei nomi aggiuntivi tramite il portale di gestione di Azure.
+- Se si richiedono più di 10.000 code in un unico spazio dei nomi del bus di servizio, è possibile contattare il team di supporto tecnico di Azure e richiedere un aumento. Per ridimensionare più di 10.000 code con il bus di servizio, è anche possibile creare spazi dei nomi aggiuntivi tramite il portale di Azure.
 
 ## Gestione e operazioni
 
@@ -311,4 +311,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 - [Informazioni sulla fatturazione di Archiviazione di Azure – Larghezza di banda, transazioni e capacità](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/06/2015"
 	ms.author="larryfr"/>
 
 #Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Linux in HDInsight (anteprima)
@@ -76,7 +76,8 @@ Di seguito è riportato un esempio molto semplice relativo ai film:
 4. Usare i comandi seguenti per copiare i dati nella memoria di HDInsight:
 
         cd ml-100k
-        hadoop fs -copyFromLocal ml-100k/u.data /example/data/u.data
+        hdfs dfs -put u.data /example/data
+
 
     I dati contenuti in questo file presentano una struttura di `userID`, `movieID`, `userRating` e `timestamp`, che indica come ogni utente ha classificato un film. Di seguito è riportato un esempio dei dati:
 
@@ -91,7 +92,7 @@ Di seguito è riportato un esempio molto semplice relativo ai film:
 
 Per eseguire il processo di raccomandazione, usare il comando seguente:
 
-	mahout recommenditembased -s SIMILARITY_COOCCURRENCE --input /example/data/u.data --output /example/data/mahoutout  --tempDir /temp/mahouttemp
+	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
 > [AZURE.NOTE]Il completamento del processo potrebbe richiedere alcuni minuti ed è possibile eseguire più processi MapReduce.
 
@@ -99,7 +100,7 @@ Per eseguire il processo di raccomandazione, usare il comando seguente:
 
 1. Una volta completato il processo, usare il seguente comando per visualizzare l'output generato:
 
-		hadoop fs -text /example/data/mahoutout/part-r-00000
+		hdfs dfs -text /example/data/mahoutout/part-r-00000
 
 	L'output verrà visualizzato come segue:
 
@@ -112,7 +113,7 @@ Per eseguire il processo di raccomandazione, usare il comando seguente:
 
 2. Alcuni altri dati contenuti nella directory **ml-100k** possono essere usati per rendere i dati più descrittivi. Innanzitutto, scaricare i dati usando il comando seguente:
 
-		hadoop fs -copyToLocal /example/data/mahoutout/part-r-00000 recommendations.txt
+		hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
 
 	I dati di output verranno copiati in un file denominato **recommendations.txt** nella directory corrente.
 
@@ -122,55 +123,55 @@ Per eseguire il processo di raccomandazione, usare il comando seguente:
 
 	All’apertura dell’editor, usare il codice seguente come contenuto del file:
 
-		#!/usr/bin/env python
-
-		import sys
-
-		if len(sys.argv) != 5:
-		        print "Arguments: userId userDataFilename movieFilename recommendationFilename"
-		        sys.exit(1)
-
-		userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
-
-		print "Reading Movies Descriptions"
-		movieFile = open(movieFilename)
-		movieById = {}
-		for line in movieFile:
-		        tokens = line.split("|")
-		        movieById[tokens[0]] = tokens[1:]
-		movieFile.close()
-
-		print "Reading Rated Movies"
-		userDataFile = open(userDataFilename)
-		ratedMovieIds = []
-		for line in userDataFile:
-		        tokens = line.split("\t")
-		        if tokens[0] == userId:
-		                ratedMovieIds.append((tokens[1],tokens[2]))
-		userDataFile.close()
-
-		print "Reading Recommendations"
-		recommendationFile = open(recommendationFilename)
-		recommendations = []
-		for line in recommendationFile:
-		        tokens = line.split("\t")
-		        if tokens[0] == userId:
-		                movieIdAndScores = tokens[1].strip("[]\n").split(",")
-		                recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
-		                break
-		recommendationFile.close()
-
-		print "Rated Movies"
-		print "------------------------"
-		for movieId, rating in ratedMovieIds:
-		        print "%s, rating=%s" % (movieById[movieId][0], rating)
-		print "------------------------"
-
-		print "Recommended Movies"
-		print "------------------------"
-		for movieId, score in recommendations:
-		        print "%s, score=%s" % (movieById[movieId][0], score)
-		print "------------------------"
+        #!/usr/bin/env python
+        
+        import sys
+        
+        if len(sys.argv) != 5:
+                print "Arguments: userId userDataFilename movieFilename recommendationFilename"
+                sys.exit(1)
+        
+        userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
+        
+        print "Reading Movies Descriptions"
+        movieFile = open(movieFilename)
+        movieById = {}
+        for line in movieFile:
+                tokens = line.split("|")
+                movieById[tokens[0]] = tokens[1:]
+        movieFile.close()
+        
+        print "Reading Rated Movies"
+        userDataFile = open(userDataFilename)
+        ratedMovieIds = []
+        for line in userDataFile:
+                tokens = line.split("\t")
+                if tokens[0] == userId:
+                        ratedMovieIds.append((tokens[1],tokens[2]))
+        userDataFile.close()
+        
+        print "Reading Recommendations"
+        recommendationFile = open(recommendationFilename)
+        recommendations = []
+        for line in recommendationFile:
+                tokens = line.split("\t")
+                if tokens[0] == userId:
+                        movieIdAndScores = tokens[1].strip("[]\n").split(",")
+                        recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
+                        break
+        recommendationFile.close()
+        
+        print "Rated Movies"
+        print "------------------------"
+        for movieId, rating in ratedMovieIds:
+                print "%s, rating=%s" % (movieById[movieId][0], rating)
+        print "------------------------"
+        
+        print "Recommended Movies"
+        print "------------------------"
+        for movieId, score in recommendations:
+                print "%s, score=%s" % (movieById[movieId][0], score)
+        print "------------------------"
 
 	Premere **Ctrl-X**, **Y** e infine **INVIO** per salvare i dati.
 
@@ -178,9 +179,9 @@ Per eseguire il processo di raccomandazione, usare il comando seguente:
 
 		chmod +x show_recommendations.py
 
-4. Eseguire lo script Python:
+4. Eseguire lo script Python. Nell'esempio seguente si presuppone di trovarsi nella directory ml-100k, dove si trovano i file `u.data` e `u.item`:
 
-		./show_recommendations.py 4 ml-100k/u.data ml-100k/u.item recommendations.txt
+		./show_recommendations.py 4 u.data u.item recommendations.txt
 
 	Verranno esaminate le raccomandazioni generate per l'ID utente 4.
 
@@ -238,9 +239,11 @@ Per eseguire il processo di raccomandazione, usare il comando seguente:
 
 I processi Mahout non rimuovono i dati temporanei creati durante l'elaborazione del processo. Nel processo di esempio è specificato il parametro `--tempDir` per isolare i file temporanei in un percorso specifico per semplificarne l'eliminazione. Per rimuovere i file temporanei, usare il comando seguente:
 
-	hadoop fs -rm -f -r wasb:///temp/mahouttemp
+	hdfs dfs -rm -f -r /temp/mahouttemp
 
-> [AZURE.WARNING]Se non si rimuovono i file temporanei o il file di output, verrà visualizzato un messaggio di errore 'impossibile sovrascrivere il file' alla successiva esecuzione del processo con lo stesso percorso `--tempDir`.
+> [AZURE.WARNING]Se si vuole eseguire nuovamente il comando, è inoltre necessario eliminare la directory di output. Per eliminare la directory, usare il codice seguente:
+>
+> ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
 ##Passaggi successivi
 
@@ -264,4 +267,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

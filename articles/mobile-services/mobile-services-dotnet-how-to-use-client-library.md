@@ -44,7 +44,9 @@ Il tipo .NET tipizzato corrispondente sul lato client è il seguente:
 		public bool Complete { get; set; }
 	}
 
-Quando è abilitato lo schema dinamico, in Servizi mobili di Azure vengono generate automaticamente nuove colonne basate sull'oggetto nelle richieste di inserimento o di aggiornamento. Per ulteriori informazioni, vedere [Schema dinamico](http://go.microsoft.com/fwlink/?LinkId=296271).
+Si noti che il [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) viene utilizzato per definire il mapping tra il mapping di PropertyName tra il tipo di client e la tabella.
+
+Quando è abilitato lo schema dinamico, in un servizio per dispositivi mobili di back-end JavaScript, Servizi mobili di Azure genera automaticamente nuove colonne basate sull'oggetto nelle richieste di inserimento o di aggiornamento. Per ulteriori informazioni, vedere [Schema dinamico](http://go.microsoft.com/fwlink/?LinkId=296271). In un servizio per dispositivi mobili di back-end .NET, la tabella è definita nel modello di dati del progetto.
 
 ##<a name="create-client"></a>Procedura: Creare il client di Servizi mobili
 
@@ -62,12 +64,12 @@ Nel codice riportato sopra sostituire `AppUrl` e `AppKey` con l'URL del servizio
 
 ##<a name="instantiating"></a>Procedura: Creare un riferimento alla tabella
 
-Tutto il codice che accede ai dati nella tabella di Servizi mobili o li modifica chiama funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare la funzione [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) su un'istanza dell'oggetto `MobileServiceClient`.
+Tutto il codice che accede ai dati nella tabella di Servizi mobili o li modifica chiama funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare il metodo [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) su un'istanza dell'oggetto `MobileServiceClient`, come di seguito illustrato:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-Questo è il modello tipizzato di serializzazione. Più avanti in questo argomento verrà illustrato il <a href="#untyped">modello di serializzazione non tipizzato</a>.
+Questo è il modello tipizzato di serializzazione. Più avanti in questo argomento verrà illustrato il [modello di serializzazione non tipizzato](#untyped).
 
 ##<a name="querying"></a>Procedura: Eseguire query sui dati da un servizio mobile
 
@@ -400,7 +402,7 @@ Nel codice seguente viene illustrato come risolvere un conflitto di scrittura, q
 Per un esempio più completo dell'utilizzo della concorrenza ottimistica per Servizi mobili, vedere l'[esercitazione relativa alla concorrenza ottimistica].
 
 
-##<a name="binding"></a>Procedura: Associare dati di un servizio mobile a un'interfaccia utente Windows
+##<a name="binding"></a>Procedura: associare dati di un servizio mobile a un'interfaccia utente Windows
 
 Questa sezione illustra come visualizzare gli oggetti dati restituiti usando elementi dell'interfaccia utente in un'app Windows. Per eseguire una query sugli elementi incompleti in `todoTable` e visualizzarli in un semplice elenco, è possibile avviare il codice di esempio seguente per associare l'origine dell'elenco a una query. Mediante `MobileServiceCollection` è possibile creare una raccolta di associazione compatibile con Servizi mobili.
 
@@ -669,16 +671,19 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 		await table.InsertAsync(newItem);
 	}
 
-	public class MyHandler : DelegatingHandler
-	{
-		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-		{
-			request.Headers.Add("x-my-header", "my value");
-			var response = awaitbase.SendAsync(request, cancellationToken);
-			response.StatusCode = HttpStatusCode.ServiceUnavailable;
-			return response;
-		}
-	}
+    public class MyHandler : DelegatingHandler
+    {
+        protected override async Task<HttpResponseMessage> 
+            SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            // Add a custom header to the request.
+            request.Headers.Add("x-my-header", "my value");
+            var response = await base.SendAsync(request, cancellationToken);
+            // Set a differnt response status code.
+            response.StatusCode = HttpStatusCode.ServiceUnavailable;
+            return response;
+        }
+    }
 
 Questo codice aggiunge una nuova intestazione **x-my-header** nella richiesta e imposta arbitrariamente il codice di risposta su non disponibile. In uno scenario reale è necessario impostare il codice di stato della risposta in base alla logica personalizzata necessaria per l'applicazione.
 
@@ -738,6 +743,7 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
 [esercitazione relativa alla concorrenza ottimistica]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
+[MobileServiceClient]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
@@ -746,4 +752,4 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [API personalizzata nei Servizi mobili di Azure - SDK client]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

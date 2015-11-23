@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="11/06/2015"
    ms.author="larryfr"/>
 
 # Usare MapReduce in Hadoop su HDInsight
@@ -193,4 +193,4 @@ Pur includendo potenti funzionalità diagnostiche, MapReduce può presentare dif
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

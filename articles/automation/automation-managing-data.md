@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="11/02/2015"
    ms.author="bwren;sngun" />
 
 # Gestione dei dati di Automazione di Azure
@@ -34,12 +34,15 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 |Moduli|Rimossi definitivamente 90 giorni dopo l'eliminazione del modulo da parte di un utente o 90 giorni dopo l'eliminazione dell'account che include il modulo da parte di un utente.|
 |Runbook|Rimossi definitivamente 90 giorni dopo l'eliminazione della risorsa da parte di un utente o 90 giorni dopo l'eliminazione dell'account che include la risorsa da parte di un utente.|
 |Processi|Eliminati e rimossi definitivamente 90 giorni dopo l'ultima modifica, ad esempio dopo il completamento, l'arresto o la sospensione del processo.|
+|Configurazioni di nodo/File MOF| La configurazione di nodo precedente verrà rimossa definitivamente 90 giorni dopo che viene generata una nuova configurazione di nodo.|
+|Nodi DSC| Vengono rimossi in modo permanente 90 giorni dopo l’annullamento della registrazione del nodo dall’Account di automazione tramite il portale di Azure o il cmdlet [Unregister AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx) in Windows PowerShell. I nodi vengono rimossi in modo permanente anche 90 giorni dopo che l'account che possiede il nodo viene eliminato da un utente. |
+|Report sul nodo| Vengono rimossi in modo permanente 90 giorni dopo la generazione di un nuovo report per quel nodo|
 
 I criteri di conservazione sono applicabili a tutti gli utenti e non è attualmente possibile personalizzarli.
 
 ## Backup di Automazione di Azure
 
-Quando si elimina un account di automazione in Microsoft Azure, vengono eliminati tutti gli oggetti presenti nell'account, ad esempio Runbook, moduli, impostazioni, processi e asset. Non sarà possibile ripristinare gli oggetti dopo l'eliminazione dell'account. È possibile usare le informazioni seguenti per eseguire il backup dei contenuti dell'account di Automazione prima di eliminarlo.
+Quando si elimina un account di automazione in Microsoft Azure, vengono eliminati tutti gli oggetti presenti nell'account, ad esempio Runbook, moduli, configurazioni, impostazioni, processi e asset. Non sarà possibile ripristinare gli oggetti dopo l'eliminazione dell'account. È possibile usare le informazioni seguenti per eseguire il backup dei contenuti dell'account di Automazione prima di eliminarlo.
 
 ### Runbook
 
@@ -60,6 +63,11 @@ Non è possibile recuperare il valore delle variabili crittografate o il campo p
 
 Non è possibile esportare certificati da Automazione di Azure. È necessario assicurarsi che eventuali certificati siano disponibili all'esterno di Azure.
 
+### Configurazioni DSC
+
+È possibile esportare le configurazioni in file di script tramite il portale di gestione Azure o il cmdlet [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) in Windows PowerShell. Queste configurazioni possono essere importate e usate in un altro account di automazione.
+
+
 ##Replica geografica in Automazione di Azure
 
 Replica geografica, standard negli account di automazione di Azure, backup dei dati di account in un'area geografica diversa per la ridondanza. È possibile scegliere un'area primaria quando si configura l’account, poi un'area secondaria viene assegnata automaticamente. I dati secondari, copiati dall'area primaria, vengono continuamente aggiornati in caso di perdita di dati.
@@ -76,4 +84,4 @@ Nella tabella seguente vengono illustrate le associazioni di aree primarie e sec
 
 Nell'eventualità improbabile che vengano persi dei dati di un’area primaria, Microsoft tenta di ripristinarli. Qualora non fosse possibile ripristinare i dati primari, viene eseguito il failover geografico e i clienti interessati saranno informati attraverso la propria sottoscrizione.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

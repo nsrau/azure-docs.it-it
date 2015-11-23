@@ -20,6 +20,8 @@
 
 Questo argomento mostra come usare l'SDK del server back-end .NET in scenari chiave di App per dispositivi mobili del servizio app di Azure. Azure Mobile Apps SDK aiuta a lavorare con i client mobili dall'applicazione ASP.NET.
 
+>[AZURE.TIP]L’[SDK del server .NET per app per dispositivi mobili di Azure](https://github.com/Azure/azure-mobile-apps-net-server) è open source su GitHub. Il repository contiene l’intero gruppo di test dell’unità SDK del server, nonché alcuni progetti di esempio.
+
 ## Procedura: Scaricare e inizializzare l'SDK
 
 L'SDK è disponibile in [NuGet.org]. Il pacchetto include le funzionalità di base necessarie per iniziare a usare l'SDK. Per inizializzare l'SDK, è necessario eseguire alcune operazioni nell'oggetto **HttpConfiguration**.
@@ -28,7 +30,7 @@ L'SDK è disponibile in [NuGet.org]. Il pacchetto include le funzionalità di ba
 
 Per installare l'SDK, fare clic con il pulsante destro del mouse sul progetto server in Visual Studio, scegliere **Gestisci pacchetti NuGet**, cercare il pacchetto [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) e quindi fare clic su **Installa**.
 
-###Inizializzare il progetto server
+###<a name="server-project-setup"></a> Inizializzare il progetto server
 
 Un progetto server back-end .NET viene inizializzato in modo simile ad altri progetti ASP.NET, includendo una classe di avvio OWIN. Per aggiungere questa classe in Visual Studio, fare clic con il pulsante destro del mouse sul progetto server e scegliere **Aggiungi** -> **Nuovo elemento** e quindi **Web** -> **Generale** -> **Classe di avvio OWIN**.
 
@@ -79,7 +81,7 @@ I pacchetti di estensione basati su NuGet seguenti forniscono diverse funzionali
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) Implementa la pagina predefinita *this mobile app is up and running* per la radice del sito Web. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddMobileAppHomeController**.
 
-- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) Include le classi per usare i dati e configura la pipeline dei dati. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddTables**.
+- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) include le classi per usare i dati e configura la pipeline dei dati. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddTables**.
 
 - [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) Consente a Entity Framework di accedere ai dati nel database SQL. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddTablesWithEntityFramework**.
 
@@ -121,27 +123,27 @@ I controller a cui non è applicato **MobileAppControllerAttribute** continuano 
 
 ## Procedura: Definire un controller tabelle
 
-Un controller tabelle fornisce l'accesso ai dati delle entità in un archivio dati basato su tabelle, ad esempio il database SQL o l'Archivio tabelle di Azure. I controller tabelle ereditano dalla classe generica **TableController**, dove il tipo generico è un'entità nel modello che rappresenta lo schema della tabella, come indicato di seguito:
+Un controller tabelle fornisce l'accesso ai dati delle entità in un archivio dati basato su tabelle, ad esempio il database SQL o l'Archivio tabelle di Azure. I controller della tabella ereditano dalla classe generica **TableController**, dove il tipo generico è un'entità nel modello che rappresenta lo schema della tabella, come indicato di seguito:
 
 	public class TodoItemController : TableController<TodoItem>
     {  
 		//...
 	}
 
-I controller tabelle vengono inizializzati usando il metodo di estensione **AddTables**. L'esempio seguente inizializza un controller tabelle che usa Entity Framework per accedere ai dati:
+I controller della tabella vengono inizializzati usando il metodo di estensione **AddTables**. L'esempio seguente inizializza un controller tabelle che usa Entity Framework per accedere ai dati:
 
     new MobileAppConfiguration().AddTables(
         new MobileAppTableConfiguration()
         .MapTableControllers()
         .AddEntityFramework()).ApplyTo(config);
  
-Per un esempio di un controller tabelle che usa Entity Framework per accedere ai dati da un database SQL di Azure, vedere la classe **TodoItemController** nel progetto server di avvio rapido che è possibile scaricare dal portale di Azure.
+Per un esempio di un controller di tabella che usa Entity Framework per accedere ai dati da un database SQL di Azure, vedere la classe **TodoItemController** nel progetto server di avvio rapido che è possibile scaricare dal portale di Azure.
 
 ## Procedura: Aggiungere l'autenticazione a un progetto server
 
 È possibile aggiungere l'autenticazione al progetto server estendendo l'oggetto **MobileAppConfiguration** e configurando il middleware OWIN. Quando si installa il pacchetto [Microsoft.Azure.Mobile.Server.Quickstart] e si chiama il metodo di estensione **UseDefaultConfiguration**, è possibile andare al passaggio 3.
 
-1. In Visual Studio installare il pacchetto [Microsoft.Azure.Mobile.Server.Authentication]. 
+1. In Visual Studio, installare il pacchetto [Microsoft.Azure.Mobile.Server.Authentication]. 
 
 2. Nel file di progetto Startup.cs aggiungere la riga di codice seguente all'inizio del metodo **Configuration**:
 
@@ -205,4 +207,4 @@ Eseguire la procedura seguente per pubblicare il progetto server in Azure:
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 5: Creare il gruppo di disponibilità e aggiungere i database dell'applicazione
@@ -72,7 +72,7 @@ Usare questi passaggi per il ripristino del database.
 4.	Nel riquadro sinistro, fare clic con il pulsante destro del mouse su **Database**, quindi fare clic su **Ripristina database**.
 5.	Nella sezione **Origine** selezionare **Dispositivo** e fare clic sul pulsante dei puntini di sospensione (...)
 6.	In **Seleziona dispositivi di backup**, fare clic su **Aggiungi**.
-7.	In **Percorso del file di Backup**, digitare **\\[machineName]\\backup**, premere **Invio**, selezionare **[databaseName].bak**, e poi fare clic su **OK** per due volte. A questo punto dovrebbero essere visualizzati il backup completo e il backup del log nella sezione **Set di Backup da ripristinare**.
+7.	In **Percorso del file di Backup**, digitare **\[machineName]\\backup**, premere **Invio**, selezionare **[databaseName].bak**, e poi fare clic su **OK** per due volte. A questo punto dovrebbero essere visualizzati il backup completo e il backup del log nella sezione **Set di Backup da ripristinare**.
 8.	In **Selezione pagina**, fare clic su **Opzioni**. Nella sezione **Opzioni di ripristino** in **Stato di recupero**, selezionare **RESTORE WITH NORECOVERY**, quindi fare clic su **OK**. 
 9.	Quando richiesto, fare clic su **OK**.
 
@@ -128,4 +128,4 @@ Dopo la configurazione del listener, è necessario configurare tutte le macchine
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

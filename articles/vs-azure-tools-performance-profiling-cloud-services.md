@@ -3,7 +3,7 @@
    description="Test delle prestazioni di un servizio cloud con il profiler di Visual Studio"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/14/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 
 # Test delle prestazioni di un servizio cloud 
@@ -146,4 +146,4 @@ Viene creata una sessione di profilatura per ogni istanza di un ruolo nel serviz
 
 [Pubblicazione in un servizio cloud di Azure da Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creazione di pipeline" 
-	description="Informazioni sulle pipeline di Data factory di Azure e su come crearle per spostare e trasformare i dati al fine di produrre informazioni che possano essere usate per una maggiore conoscenza" 
+	description="Informazioni sulle pipeline di Data factory di Azure e su come crearle per spostare e trasformare i dati al fine di produrre informazioni che possano essere utilizzate per una maggiore conoscenza" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -286,10 +286,10 @@ Data factory di Azure fornisce vari meccanismi per creare e distribuire le pipel
 
 Per altre informazioni su questo cmdlet, vedere il cmdlet [New-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn820227.aspx).
 
-### Uso dell'API REST
+### Utilizzo dell'API REST
 È possibile creare e distribuire la pipeline anche tramite le API REST. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per altre informazioni su questo argomento, vedere [Creare o aggiornare una pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
 
-### Uso di .NET SDK
+### Utilizzo di .NET SDK
 È possibile creare e distribuire la pipeline anche tramite .NET SDK. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per altre informazioni su questo argomento, vedere [Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md).
 
 
@@ -310,8 +310,7 @@ Una volta distribuita una pipeline, è possibile gestire e monitorare le pipelin
 - Informazioni sulla [gestione e il monitoraggio in Data factory di Azure](data-factory-monitor-manage-pipelines.md).
 - [Creare e distribuire la prima pipeline](data-factory-build-your-first-pipeline.md). 
 
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md) richiede solo alcuni minuti.
+
  
 
    
@@ -336,4 +335,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L'inv
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

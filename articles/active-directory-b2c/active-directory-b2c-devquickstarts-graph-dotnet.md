@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Anteprima di Azure AD B2C | Microsoft Azure"
+	pageTitle="Anteprima di Azure AD B2C: Utilizzo di API Graph | Microsoft Azure"
 	description="Come chiamare l'API Graph per un tenant B2C utilizzando l'identità di un'applicazione per automatizzare il processo."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -222,7 +222,7 @@ Content-Length: 338
 {
 	// These properties are all required for creating consumer users.
 	 
-	"accountEnabled": false,                    // always set to false
+	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'
@@ -349,4 +349,4 @@ L'operazione è terminata. Con B2CGraphClient, ora si dispone di un'applicazione
 
 Per domande o richieste sulle azioni che si desidera eseguire con l'API Graph sul tenant B2C, invitiamo gli utenti a contattarci. Lasciare un commento nell'articolo o aggiungere un post nel repository GitHub del codice di esempio.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

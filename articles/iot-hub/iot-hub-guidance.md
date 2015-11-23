@@ -26,7 +26,7 @@ Per il provisioning di dispositivi sono necessari numerosi requisiti e strategie
 
 ## Gateway sul campo
 
-Un gateway sul campo è un dispositivo specializzato o un software di uso generico che agisce come componente che abilita la comunicazione e potenzialmente come sistema di controllo locale dei dispositivi e hub di elaborazione dei dati dei dispositivi. Un gateway sul campo può eseguire funzioni di controllo ed elaborazione locali verso i dispositivi. Può inoltre filtrare o aggregare la telemetria del dispositivo e quindi ridurre la quantità di dati trasferiti al back-end.
+Un gateway sul campo è un dispositivo specializzato o un software di uso generico che agisce come componente che abilita la comunicazione e potenzialmente come sistema di controllo locale dei dispositivi e hub di elaborazione dei dati dei dispositivi. Un gateway sul campo può eseguire funzioni di controllo ed elaborazione locali verso i dispositivi. Sull'altro lato può filtrare o aggregare la telemetria del dispositivo e quindi ridurre la quantità di dati trasferiti al back-end.
 
 L'ambito di un gateway sul campo include il gateway stesso e tutti i dispositivi collegati. Come implica il nome, i gateway sul campo operano all'esterno della struttura di elaborazione dei dati e sono solitamente associati alla posizione. Un gateway sul campo è diverso da un semplice router di traffico, in quanto ha un ruolo attivo nella gestione dell'accesso e del flusso di informazioni. Per questo motivo è un'entità indirizzata all'applicazione e un terminale di sessione o connessione di rete, ad esempio i gateway in questo contesto possono essere utili per il provisioning dei dispositivi, la trasformazione dei dati, la conversione dei protocolli e l'elaborazione delle regole eventi. I dispositivi o i firewall NAT, al contrario, non sono idonei come gateway sul campo perché non sono terminali di sessione o di connessione espliciti, ma piuttosto inoltrano (o negano) le connessioni o le sessioni che li attraversano.
 
@@ -88,4 +88,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

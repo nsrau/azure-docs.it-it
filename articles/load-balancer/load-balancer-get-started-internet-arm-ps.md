@@ -17,13 +17,13 @@
    ms.date="10/21/2015"
    ms.author="joaoma" />
 
-# Creare un servizio di bilanciamento del carico Internet in Gestione risorse con PowerShell
+# Introduzione su come creare un servizio di bilanciamento del carico per Internet in Gestione risorse con PowerShell.
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. Se si sta cercando il modello di distribuzione classica di Azure, passare a [Introduzione alla creazione del servizio di bilanciamento del carico Internet tramite la distribuzione classica](load-balancer-get-started-internet-classic-portal.md)
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -53,7 +53,7 @@ Assicurarsi di disporre della versione di produzione più recente del modulo Azu
 
 ### Passaggio 1
 
-1. Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Al prompt di Azure PowerShell eseguire il cmdlet **Switch-AzureMode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
 		Switch-AzureMode AzureResourceManager
@@ -69,20 +69,6 @@ Assicurarsi di disporre della versione di produzione più recente del modulo Azu
 
 ### Passaggio 2
 
- Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata. Al prompt di Azure PowerShell eseguire il cmdlet **Switch-AzureMode** per passare alla modalità Gestione risorse, come illustrato di seguito.
-
-		Switch-AzureMode AzureResourceManager
-	
-	Expected output:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-
->[AZURE.WARNING]Il cmdlet Switch-AzureMode verrà presto dichiarato obsoleto. Di conseguenza, tutti i cmdlet di Gestione risorse verranno rinominati.
-
-
-### Passaggio 3
-
 Accedere all'account Azure.
 
 
@@ -91,7 +77,7 @@ Accedere all'account Azure.
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
 
-### Passaggio 4
+### Passaggio 3
 
 Scegliere le sottoscrizioni ad Azure da utilizzare.
 
@@ -120,7 +106,7 @@ Creare un indirizzo IP pubblico (PIP) denominato *PublicIP* che dovrà essere us
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT]Il servizio di bilanciamento del carico userà l'etichetta di dominio dell'indirizzo IP pubblico come nome di dominio completo. Questa è una differenza rispetto alla distribuzione classica, che usa il servizio cloud come nome di dominio completo del servizio di bilanciamento del carico. In questo esempio il nome di dominio completo sarà *loadbalancernrp.westus.cloudapp.azure.com*.
+>[AZURE.IMPORTANT]Il servizio di bilanciamento del carico userà l'etichetta di dominio dell'indirizzo IP pubblico come nome di dominio completo. Questa è una differenza rispetto al modello di distribuzione classica, che usa il servizio cloud come nome di dominio completo del servizio di bilanciamento del carico. In questo esempio il nome di dominio completo sarà *loadbalancernrp.westus.cloudapp.azure.com*.
 
 ## Creare un pool di indirizzi IP front-end e un pool di indirizzi back-end
 
@@ -140,11 +126,14 @@ Creare un pool di indirizzi back-end denominato *LB-backend*.
 
 Questo esempio crea gli elementi seguenti:
 
-- Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 3441 alla porta 3389.
+- Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 3441 alla porta 3389<sup>1</sup>.
 - Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 3442 alla porta 3389.
 - Regola del servizio di bilanciamento del carico per il bilanciamento di tutto il traffico in ingresso sulla porta 80 verso la porta 80 negli indirizzi nel pool back-end.
 - Regola probe per il controllo dello stato di integrità in una pagina denominata *HealthProbe.aspx*.
 - Servizio di bilanciamento del carico che usa tutti gli oggetti precedenti.
+
+
+<sup>1</sup> le regole NAT vengono associate a un’istanza di macchina virtuale specifica dietro al servizio di bilanciamento del carico. Il traffico di rete in ingresso sulla porta 3341 sarà inviato ad una macchina virtuale specifica sulla porta 3389 associata alla regola NAT nell’esempio seguente. E’ necessario scegliere un protocollo per la regola NAT, UDP o TCP. Entrambi i protocolli non possono essere assegnati alla stessa porta.
 
 ### Passaggio 1
 
@@ -254,6 +243,36 @@ Usare il cmdlet `Add-AzureVMNetworkInterface` per assegnare le schede NIC a macc
 
 È possibile trovare istruzioni per creare una macchina virtuale e assegnare una NIC in [Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), usando l'opzione 5 nell'esempio.
 
+## Aggiornare un bilanciamento del carico esistente
+
+
+### Passaggio 1
+
+Utilizzare il bilanciamento del carico dall'esempio precedente, assegnare l'oggetto bilanciamento del carico alla variabile $slb utilizzando Get-AzureLoadBalancer
+
+	$slb=get-azureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+### Passaggio 2
+
+Nell'esempio seguente, si aggiungerà una nuova regola NAT in ingresso mediante la porta 81 nel front-end e la porta 8181 per il pool di back-end a un bilanciamento del carico esistente
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### Passaggio 3
+
+Salvare la nuova configurazione utilizzando Set AzureLoadBalancer
+
+	$slb | Set-AzureLoadBalancer
+
+## Rimuovere un bilanciamento del carico
+
+Utilizzare il comando Remove-AzureLoadBalancer per eliminare un bilanciamento del carico creato in precedenza denominato "NRP-LB" in un gruppo di risorse denominato "NRP-RG"
+
+	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]È possibile utilizzare l’opzione facoltativa - Forzare per evitare la richiesta di eliminazione.
+
 ## Passaggi successivi
 
 [Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-internal-getstarted.md)
@@ -262,4 +281,4 @@ Usare il cmdlet `Add-AzureVMNetworkInterface` per assegnare le schede NIC a macc
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

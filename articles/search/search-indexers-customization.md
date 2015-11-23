@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Personalizzazione dell'indicizzatore di Ricerca di Azure | Microsoft Azure" 
+	pageTitle="Personalizzazione dell'indicizzatore di Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
 	description="Informazioni su come personalizzare le impostazioni e i criteri degli indicizzatori nella Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -117,4 +117,4 @@ Anche se si sceglie di tollerare alcuni errori, le informazioni sui documenti pe
 A completamento di questo articolo, si consiglia di inviare commenti o suggerimenti per nuove idee di contenuto tramite tweet, usando l'hashtag #AzureSearch, o dalla [pagina del forum UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="11/06/2015" 
 	ms.author="tomfitz"/>
 
 # Collegamento di risorse in Gestione risorse di Azure
@@ -28,96 +28,7 @@ Tutte le risorse collegate devono appartenere alla stessa sottoscrizione. Ogni r
 
 ## Collegamento nei modelli
 
-Nell'esempio seguente viene illustrato un modello che crea una risorsa di tipo "Microsoft.AppService/apiapps" con un set di relazioni unidirezionali per un sito Web, un hub di notifica e database SQL.
-
-    {
-        "$schema": "http://schemas.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "$system": {
-                "type": "Object"
-            }
-        },
-        "resources": [
-            {
-                "apiVersion": "2014-11-01",
-                "type": "Microsoft.Web/sites",
-                "name": "[parameters('$system').siteName]",
-                "location": "[parameters('$system').location]",
-                "resources": [
-                    {
-                        "apiVersion": "2014-11-01",
-                        "name": "appsettings",
-                        "type": "config",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        ],
-                        "properties": {
-                            "MS_MobileServiceName": "[parameters('$system').apiAppName]",
-                            "MS_NotificationHubName": "[variables('notificationHubName')]",
-                            "MS_NotificationHubConnectionString": "[listkeys(resourceId('Microsoft.NotificationHubs/namespaces/notificationHubs/authorizationRules', variables('notificationHubNamespace'), variables('notificationHubName'), 'DefaultFullSharedAccessSignature'), '2014-09-01').primaryConnectionString]"
-                        }
-                    }
-                ]
-            },
-            {
-                "apiVersion": "[parameters('$system').apiVersion]",
-                "type": "Microsoft.AppService/apiapps",
-                "name": "[parameters('$system').apiAppName]",
-                "properties": {
-                    "accessLevel": "PublicAnonymous"
-                },
-                "resources": [
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-codesite",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]",
-                            "[resourceId('Microsoft.Web/Sites', variables('userSiteName'))]"
-                        ],
-                        "properties": {
-                            "targetId": "[resourceId('Microsoft.Web/sites', variables('userSiteName'))]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-notificationhub",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]",
-                            "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        ],
-                        "properties": {
-                            "targetId": "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-sqlserver",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]"
-                        ],
-                        "properties": {
-                            "targetId": "[concat('/subscriptions/', parameters('userDatabase').subscriptionId, '/resourcegroups/', parameters('userDatabase').resourceGroupName, '/providers/Microsoft.Sql/servers/', parameters('userDatabase').serverName)]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-sqldb",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]"
-                        ],
-                        "properties": {
-                            "targetId": "[concat('/subscriptions/', parameters('userDatabase').subscriptionId, '/resourcegroups/', parameters('userDatabase').resourceGroupName, '/providers/Microsoft.Sql/servers/', parameters('userDatabase').serverName, '/databases/', parameters('userDatabase').databaseName)]"
-                        }
-                    }
-                ]
-            }
-        ]
-    }
+Per definire un collegamento tra le risorse in un modello, vedere [Collegamenti alle risorse - schema del modello](resource-manager-template-links.md).
 
 ## Collegamento con l'API REST
 
@@ -146,4 +57,4 @@ Per altri esempi, tra cui come recuperare le informazioni sui collegamenti, vede
 - È inoltre possibile organizzare le risorse con i tag. Per altre informazioni sull'applicazione di tag alle risorse, vedere [Uso dei tag per organizzare le risorse](resource-group-using-tags.md).
 - Per una descrizione su come creare modelli e definire le risorse da distribuire, vedere [Creazione di modelli](resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -19,9 +19,9 @@ Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto neces
 
 Per creare uno spazio dei nomi del servizio:
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di Azure][].
 
-2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Bus di servizio**.
+2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
 
 3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.
 	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
@@ -37,11 +37,11 @@ Per creare uno spazio dei nomi del servizio:
 
 	![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
 
-Sarà necessario attendere qualche istante affinché venga attivato lo spazio dei nomi creato che verrà quindi visualizzato nel portale di gestione. Prima di continuare, attendere che lo stato dello spazio dei nomi sia **Attivo**.
+Sarà necessario attendere qualche istante affinché venga attivato lo spazio dei nomi creato che verrà quindi visualizzato nel portale di Azure. Prima di continuare, attendere che lo stato dello spazio dei nomi sia **Attivo**.
 
 ## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
-Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi. È possibile ottenere questi valori nel portale di gestione di Azure.
+Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi. È possibile ottenere questi valori nel portale di Azure.
 
 ###Per ottenere le credenziali di gestione dal portale
 
@@ -60,4 +60,4 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

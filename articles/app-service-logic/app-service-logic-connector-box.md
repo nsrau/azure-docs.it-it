@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 # Uso del connettore Box e aggiunta all'app per la logica 
 Connettersi a Box per ottenere, caricare, eliminare e svolgere altre operazioni sui file. È possibile usare i connettori nelle app per la logica come parte di un "flusso di lavoro".
@@ -107,4 +107,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

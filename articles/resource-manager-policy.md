@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/02/2015"
+	ms.date="11/10/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usare i criteri per gestire le risorse e controllare l'accesso
@@ -23,6 +23,8 @@ Gestione risorse di Azure consente ora di controllare l'accesso tramite criteri 
 È possibile creare definizioni dei criteri che descrivono le azioni o le risorse specificamente negate. Le definizioni dei criteri vengono assegnate all'ambito desiderato, ad esempio la sottoscrizione, un gruppo di risorse o una singola risorsa.
 
 Questo articolo illustra la struttura di base del linguaggio di definizione dei criteri che è possibile usare per creare i criteri. Descrive quindi le modalità per l'applicazione di tali criteri in ambiti diversi e infine illustra alcuni esempi di come sia possibile ottenere questi risultati tramite l'API REST.
+
+I criteri sono attualmente disponibili come anteprima.
 
 ## Quali sono le differenze rispetto al controllo degli accessi in base al ruolo?
 
@@ -289,4 +291,4 @@ Se si desidera rimuovere l'assegnazione dei criteri precedente, è possibile pro
 
 Analogamente, è possibile ottenere, modificare o rimuovere le assegnazioni dei criteri tramite i cmdlet Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment e Remove-AzureRmPolicyAssignment, rispettivamente.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
     ms.date="10/05/2015" 
-    ms.author="mimig"/>
+    ms.author="arramac"/>
 
 
 # Criteri di indicizzazione di DocumentDB
@@ -769,4 +769,4 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

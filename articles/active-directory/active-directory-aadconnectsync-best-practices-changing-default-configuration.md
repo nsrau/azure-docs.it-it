@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Procedure consigliate per modificare la configurazione predefinita | Microsoft Azure | Microsoft Azure"
+	pageTitle="Procedure consigliate per modificare la configurazione predefinita | Microsoft Azure"
 	description="Fornisce le procedure consigliate per modificare la configurazione predefinita del servizio di sincronizzazione Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/11/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -36,30 +36,51 @@ Il servizio di sincronizzazione Azure AD Connect è impostato per sincronizzare 
 
 ## Modifiche apportate alle regole di sincronizzazione
 
-Anche se è possibile modificare la configurazione del servizio di sincronizzazione Azure AD Connect, si consiglia di applicare le modifiche con cautela perché si suppone che il servizio di sincronizzazione Azure AD Connect sia il più possibile simile a un dispositivo.
+L'installazione guidata fornisce una configurazione valida per gli scenari più comuni. Nel caso in cui sia necessario apportare modifiche alla configurazione, seguire queste regole per disporre ancora di una configurazione supportata.
 
-Di seguito è riportato un elenco di comportamenti previsti:
+- L'unica modifica supportata per una regola di sincronizzazione predefinita è una modifica per la disabilitazione. Qualsiasi altra modifica potrebbe andare perse durante un aggiornamento.
+- Se è necessario apportare qualsiasi altra modifica a una regola predefinita, effettuarne una copia e disabilitare la regola originale. A tale scopo, avviare e usare l'editor delle regole di sincronizzazione.
+- Esportare le regole di sincronizzazione personalizzate usando l'editor delle regole di sincronizzazione. In questo modo, viene fornito uno script di PowerShell che è possibile usare per ricrearle facilmente nel caso di uno scenario di ripristino di emergenza.
 
-- Dopo l'aggiornamento di Azure AD Connect a una versione più recente, verrà ripristinata la maggior parte delle impostazioni predefinite.
-- Le modifiche apportate alle regole di sincronizzazione predefinite vengono perdute dopo aver applicato un aggiornamento.
-- Le regole di sincronizzazione predefinite eliminate vengono ricreate durante un aggiornamento a una versione più recente.
-- Le regole di sincronizzazione personalizzate create restano inalterate dopo aver applicato un aggiornamento a una versione più recente.
+>[AZURE.WARNING]Le regole di sincronizzazione predefinite hanno un'identificazione personale associata. Se si apporta una modifica a queste regole, l'identificazione personale non corrisponderà più e potrebbero verificarsi problemi quando si tenta di applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
 
+### Eliminare una regola di sincronizzazione indesiderata
+Non eliminare una regola di sincronizzazione predefinita; verrà ricreata durante l'aggiornamento successivo.
 
+In alcuni casi l'installazione guidata ha generato una configurazione non adatta alla topologia dell'utente. Ad esempio, se si dispone di una topologia di foresta di account-risorse ma lo schema nella foresta degli account è stato esteso con lo schema Exchange, le regole per lo schema verranno create per la foresta degli account e per quella delle risorse. In questo caso è necessario disabilitare la regola di sincronizzazione per Exchange.
 
-Quando è necessario modificare la configurazione predefinita, eseguire le operazioni seguenti:
+![Regola di sincronizzazione disabilitata](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/exchangedisabledrule.png)
 
-- Evitare di modificare un flusso di attributi di una regola di sincronizzazione predefinita. Creare invece una nuova regola di sincronizzazione con una priorità superiore (valore numerico inferiore) che contenga il flusso di attributi necessario.
-- Esportare le regole di sincronizzazione personalizzate usando l'Editor regole di sincronizzazione. In questo modo, viene fornito uno script di PowerShell che è possibile usare per ricrearle facilmente nel caso di uno scenario di ripristino di emergenza.
-- Se è necessario modificare l'ambito o l'impostazione di unione in una regola di sincronizzazione predefinita, documentare quest'esigenza e riapplicare la modifica dopo l'aggiornamento a una versione più recente di Azure AD Sync.
+Nell'esempio precedente l'installazione guidata ha rilevato un vecchio schema Exchange 2003 nella foresta degli account. Questo è stato aggiunto prima dell'introduzione della foresta delle risorse nell'ambiente di Fabrikam. Per assicurarsi che non vengano sincronizzati gli attributi dall'implementazione di Exchange precedente, la regola deve essere disabilitata, come illustrato.
 
+### Modifica delle regole predefinite
+Se è necessario apportare modifiche a una regola predefinita, effettuarne una copia e disabilitare la regola originale. Quindi apportare le modifiche alla regola clonata. A tale scopo è possibile usare l'editor delle regole di sincronizzazione. Quando si apre una regola predefinita viene visualizzata questa finestra di dialogo:
 
+![Avviso regola predefinita](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
+
+Selezionare **Sì** per creare una copia della regola. Viene quindi aperta la regola clonata.
+
+![Regola clonata](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/clonedrule.png)
+
+In questa regola clonata, apportare le modifiche necessarie all'ambito, al join e alle trasformazioni.
+
+### Non trasmettere un attributo
+Sono disponibili due modalità per non trasmettere un attributo. Il primo è disponibile nell'installazione guidata e consente di [rimuovere gli attributi selezionati](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). Questa opzione funziona se l'attributo non è mai stato sincronizzato in precedenza. Tuttavia se si è iniziato a sincronizzare questo attributo e lo si rimuoverà in seguito con questa funzionalità, il motore di sincronizzazione interromperà la gestione dell'attributo e i valori esistenti verranno lasciati in Azure AD.
+
+Se si desidera rimuovere il valore di un attributo e assicurarsi che non venga trasmesso in futuro, sarà necessario creare una regola personalizzata.
+
+In Fabrikam è stato notato che alcuni degli attributi sincronizzati nel cloud non dovrebbero trovarsi in tale posizione. Si desidera assicurarsi che questi attributi vengano rimossi da Azure AD.
+
+![Attributi di estensione](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/badextensionattribute.png)
+
+- Creare una nuova regola di sincronizzazione in ingresso e popolare la descrizione ![Descrizioni](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/syncruledescription.png)
+- Creazione flussi di attributi di tipo **Expression** e con origine **AuthoritativeNull**. Il valore letterale **AuthoritativeNull** indica che il valore dovrebbe essere vuoto in MV anche se una regola di sincronizzazione di precedenza inferiore tenta di popolare il valore. ![Attributi di estensione](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/syncruletransformations.png)
+- Salvare la regola di sincronizzazione Avviare il **servizio di sincronizzazione**, trovare il connettore, selezionare **Esegui** e avviare una **sincronizzazione completa**. Questo consentirà di ricalcolare tutti i flussi degli attributi.
+- Verificare che le modifiche richieste stiano per essere esportate mediante la ricerca dello spazio connettore. ![Eliminazione di gestione temporanea](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/deletetobeexported.png)
 
 ## Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!--Image references-->
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -75,8 +75,7 @@ Lo stesso codice di tracciamento aggiunto all'applicazione precedente per la dia
 ## Passaggi successivi
 
 * [Introduzione all'integrità di Service Fabric](service-fabric-health-introduction.md)
-* [Configurazione di Application Insights](service-fabric-diagnostics-application-insights-setup.md)
 * [Diagnostica e monitoraggio delle prestazioni per Azure Service Fabric Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnostica di Reliable Services con stato](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

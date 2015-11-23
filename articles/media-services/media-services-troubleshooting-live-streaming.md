@@ -67,4 +67,12 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 	
 >[AZURE.NOTE]Se dopo aver seguito le procedure di risoluzione dei problemi non è ancora possibile eseguire correttamente il flusso, inviare un ticket di supporto tramite il portale di gestione di Azure.
 
-<!---HONumber=Oct15_HO3-->
+##Percorsi di apprendimento di Media Services
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

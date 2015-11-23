@@ -3,7 +3,7 @@
    description="Come creare e configurare l'app per le API o del connettore SMTP e usarlo in un'app per la logica in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
+   authors="rajeshramabathiran"
    manager="dwrede"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 
 # Uso del connettore SMTP e aggiunta all'app per la logica
@@ -100,4 +100,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

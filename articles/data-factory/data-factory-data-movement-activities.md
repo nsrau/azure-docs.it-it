@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Attività di spostamento dei dati
@@ -51,7 +51,10 @@ L'attività di copia acquisisce un set di dati di input (**origine**) e copia i 
 L'attività di copia offre le funzionalità seguenti:
 
 ### <a name="global"></a>Spostamento di dati disponibile a livello globale
-Il servizio di spostamento di dati alla base dell'attività di copia è disponibile a livello globale nelle aree geografiche seguenti. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e nella maggior parte dei casi consente di evitare passaggi tra diverse aree.
+Anche se la Factory di dati di Azure stessa è disponibile solo nell'area degli Stati Uniti occidentali, il potenziamento del servizio di spostamento dei dati dell'attività di copia è disponibile a livello globale nelle seguenti aree geografiche. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e nella maggior parte dei casi consente di evitare passaggi tra diverse aree.
+
+
+Se si desidera copiare da un'origine cloud a una destinazione cloud (ad esempio: BLOB di Azure -> SQL Azure), il servizio di spostamento dei dati sceglie la distribuzione più vicina al percorso di sink per eseguire il trasferimento. Nel caso di copia dei dati da un'origine dati locale al cloud o viceversa (ad esempio: SQL Server locale-> BLOB di Azure), lo spostamento dei dati viene effettivamente eseguito dal Gateway di gestione dati con nessun coinvolgimento dal servizio di spostamento dei dati.
 
 | Area | Area geografica |
 | ------ | --------- | 
@@ -66,6 +69,8 @@ Il servizio di spostamento di dati alla base dell'attività di copia è disponib
 | Europa occidentale | Europa, Medio Oriente e Africa |
 | Asia sudorientale | Asia Pacifico |
 | Giappone orientale | Asia Pacifico |
+
+
 
 ### <a name="moveonpremtocloud"></a>Spostamento sicuro di dati tra un ambiente locale e il cloud
 Una delle maggiori difficoltà relative all'integrazione moderna dei dati consiste nello spostamento uniforme di dati da ambienti locali al cloud e viceversa. Il Gateway di gestione dati è un agente che è possibile installare in locale per abilitare le pipeline di dati ibride.
@@ -98,8 +103,4 @@ Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione
 
 Quando viene eseguita un'attività di copia, nella sezione **typeProperties** vengono visualizzate proprietà diverse a seconda dei tipi di origini e sink. Ciascuna pagina relativa agli archivi dati elencati sopra contiene informazioni su queste proprietà, che variano in base al tipo di archivio dati.
 
-
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md) richiede solo alcuni minuti.
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

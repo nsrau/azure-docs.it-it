@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 
 Questo articolo descrive come configurare un cluster RDMA Windows in Azure con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [istanze di dimensioni A8 e A9 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md) per l'esecuzione di applicazioni MPI (Message Passing Interface). Quando si configurano istanze di dimensioni A8 e A9 basate su Windows Server per eseguire un'implementazione MPI supportata, le applicazioni MPI comunicano in modo efficiente tramite una rete a bassa latenza e a velocità effettiva elevata in Azure che è basata sulla tecnologia Accesso diretto a memoria remota (RDMA).
 
->[AZURE.NOTE] La tecnologia Windows RDMA in Azure è attualmente supportata per applicazioni MPI che usano l'interfaccia Microsoft Network Direct per la comunicazione tra le istanze A8 e A9.
+>[AZURE.NOTE]La tecnologia Windows RDMA in Azure è attualmente supportata per applicazioni MPI che usano l'interfaccia Microsoft Network Direct per la comunicazione tra le istanze A8 e A9.
 >
 > Azure offre inoltre le istanze di dimensioni A10 e A11 a elevato utilizzo di calcolo, con funzionalità di elaborazione identiche a quelle delle istanze A8 e A9, ma senza una connessione a una rete back-end RDMA. Per eseguire carichi di lavoro MPI in Azure, in genere si otterranno prestazioni migliori con le istanze A8 e A9.
 
@@ -55,7 +55,7 @@ Da un cluster HPC Pack esistente, aggiungere risorse di calcolo aggiuntive sotto
 
 Di seguito sono riportati i passaggi per il potenziamento in istanze di Azure A8 o A9 da un cluster esistente (in genere locale). È possibile usare procedure simili per aggiungere istanze del ruolo di lavoro a un nodo head HPC Pack distribuito in una macchina virtuale di Azure.
 
->[AZURE.NOTE] Per un'esercitazione che esegue il burst in Azure con HPC Pack, vedere [Configurare un cluster ibrido con HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Si noti che le considerazioni nella procedura seguente si applicano specificatamente ai nodi di Azure di dimensioni A8 e A9.
+>[AZURE.NOTE]Per un'esercitazione che esegue il burst in Azure con HPC Pack, vedere [Configurare un cluster ibrido con HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Si noti che le considerazioni nella procedura seguente si applicano specificatamente ai nodi di Azure di dimensioni A8 e A9.
 
 ![Burst in Azure][burst]
 
@@ -71,7 +71,7 @@ Di seguito sono riportati i passaggi per il potenziamento in istanze di Azure A8
 
 6. **Creare un nuovo servizio cloud e un account di archiviazione**
 
-    Usare il portale di gestione di Azure per creare un servizio cloud e un account di archiviazione per la distribuzione in un'area in cui le istanze a elevato utilizzo di calcolo sono disponibili. Non associare il servizio cloud e l'account di archiviazione a un gruppo di affinità esistente usato per altre distribuzioni.
+    Usare il portale di Azure per creare un servizio cloud e un account di archiviazione per la distribuzione in un'area in cui sono disponibili le istanze a elevato utilizzo di calcolo. Non associare il servizio cloud e l'account di archiviazione a un gruppo di affinità esistente usato per altre distribuzioni.
 
 7. **Creare un modello di nodo di Azure**
 
@@ -246,4 +246,4 @@ Di seguito sono riportate alcune considerazioni per l'esecuzione di applicazioni
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

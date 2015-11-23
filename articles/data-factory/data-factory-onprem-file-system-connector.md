@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da e verso il file system locale usando Data factory di Azure
@@ -52,7 +52,7 @@ Innanzitutto, impostare il Gateway di gestione dati in base alle istruzioni cont
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -273,7 +273,7 @@ L'esempio copia i dati appartenenti a una serie temporale da una tabella nel dat
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -427,7 +427,7 @@ I dati vengono copiati in un nuovo file ogni ora e il percorso per il BLOB rifle
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 type | La proprietà type deve essere impostata su **OnPremisesFileServer**. | Sì 
-host | Nome host del server. Usare ' \\ ' come carattere di escape, come nell'esempio seguente: se la condivisione è: \\servername, specificare \\\servername.<p>Se il file system è locale rispetto al computer gateway, usare Local o localhost. Se il file system si trova su un server diverso dal computer gateway, usare \\\servername.</p> | Sì
+host | Nome host del server. Usare ' \\ ' come carattere di escape, come nell'esempio seguente: se la condivisione è: \\servername, specificare \\servername.<p>Se il file system è locale rispetto al computer gateway, usare Local o localhost. Se il file system si trova su un server diverso dal computer gateway, usare \\servername.</p> | Sì
 userid | Specificare l'ID dell'utente che ha accesso al server | No (se si sceglie encryptedCredential)
 password | Specificare la password per l'utente (userid) | No (se si sceglie encryptedCredential) 
 encryptedCredential | Specificare le credenziali crittografate che è possibile ottenere eseguendo il cmdlet New-AzureDataFactoryEncryptValue<p>**Nota:** è necessario usare Azure PowerShell 0.8.14 o versione successiva per usare cmdlet come New-AzureDataFactoryEncryptValue con il parametro type impostato su OnPremisesFileSystemLinkedService</p> | No (se si sceglie di specificare ID utente e password in testo normale)
@@ -442,7 +442,7 @@ Per informazioni dettagliate sull'impostazione delle credenziali per un'origine 
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -555,7 +555,7 @@ Se il formato è impostato su **AvroFormat**, non è necessario specificare prop
 	    "type": "AvroFormat",
 	}
 	
-Per usare il formato Avro in una tabella Hive successiva, fare riferimento all'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Per usare il formato Avro in una tabella Hive successiva, vedere l'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
@@ -599,4 +599,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la seguente st
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

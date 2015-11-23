@@ -203,13 +203,14 @@ Il metodo seguente carica un file multimediale come asset e crea un processo med
 
 
 
+##Percorsi di apprendimento di Media Services
 
-## Percorsi di apprendimento di Media Services
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+##Fornire commenti e suggerimenti
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 
@@ -220,4 +221,4 @@ Il metodo seguente carica un file multimediale come asset e crea un processo med
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

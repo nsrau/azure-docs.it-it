@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/09/2015"
 	ms.author="spelluru"/>
 
 # Spostare dati da e in Archivio Azure Data Lake con Data factory di Azure
-Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati in Archivio Azure Data Lake da un altro archivio dati e spostare dati da un altro archivio dati in Archivio Azure Data Lake. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l’attività di copia e le combinazioni di archivio dati supportate.
+Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati in Archivio Azure Data Lake da un altro archivio dati e spostare dati da Archivio Azure Data Lake a un altro archivio dati. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l’attività di copia e le combinazioni di archivio dati supportate.
 
 > [AZURE.NOTE]È necessario creare un account Archivio Azure Data Lake prima di creare una pipeline con un'attività di copia per spostare i dati da e in Archivio Azure Data Lake. Per altre informazioni su Archivio Azure Data Lake, vedere [Introduzione ad Archivio Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
@@ -490,7 +490,7 @@ Se il formato è impostato su AvroFormat, non è necessario specificare propriet
 	    "type": "AvroFormat",
 	}
 
-Per usare il formato Avro in una tabella Hive, fare riferimento all'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Per usare il formato Avro in una tabella Hive, vedere l'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 
 ### Supporto della compressione  
@@ -553,7 +553,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Specifica il comportamento di copia. | <p>**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione; ad esempio, il percorso relativo del file di origine per la cartella di origine è identico al percorso relativo del file di destinazione per la cartella di destinazione.</p><p>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente.</p><p>**MergeFiles:** unisce tutti i file dalla cartella di origine in un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</p> | No |
+| copyBehavior | Specifica il comportamento di copia. | <p>**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione; ad esempio, il percorso relativo del file di origine per la cartella di origine è identico al percorso relativo del file di destinazione per la cartella di destinazione.</p><p>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente. </p><p>**MergeFiles:** (questa funzionalità sarà presto disponibile) unisce tutti i file dalla cartella di origine a un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</p> | No |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -562,4 +562,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

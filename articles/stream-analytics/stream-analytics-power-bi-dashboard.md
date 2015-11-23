@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 	
 # Analisi di flusso di Azure e Power BI: dashboard dinamico per analisi in tempo reale del flusso di dati
@@ -64,9 +64,9 @@ Per questa esercitazione, si presuppone che l’utente utilizzi l’hub di event
 
 > [AZURE.NOTE]Questo esempio usa il numero predefinito di partizioni, che è pari a 16.
 
-* **Nome dell’hub eventi**: selezionare il nome dell’hub eventi di Azure disponibile.
-* **Nome criterio dell’hub eventi**: selezionare il criterio dell’hub eventi per l’hub eventi utilizzato. Assicurarsi che il criterio disponga di autorizzazioni di gestione.
-*	**Gruppo utenti dell’hub eventi**: è possibile lasciare il campo vuoto o specificare un gruppo di utenti disponibile sull’hub eventi. Tenere presente che ogni gruppo di utenti di un hub eventi può avere solo 5 lettori alla volta. Pertanto, è necessario scegliere il gruppo di utenti appropriato al processo. Se si lascia il campo vuoto, verrà utilizzato il gruppo di utenti predefinito.
+* **Nome dell’hub eventi** - selezionare il nome dell’hub eventi di Azure disponibile.
+* **Nome criterio dell’hub eventi** - selezionare il criterio dell’hub eventi per l’hub eventi utilizzato. Assicurarsi che il criterio disponga di autorizzazioni di gestione.
+*	**Gruppo utenti dell’hub eventi** - è possibile lasciare il campo vuoto o specificare un gruppo di utenti disponibile sull’hub eventi. Tenere presente che ogni gruppo di utenti di un hub eventi può avere solo 5 lettori alla volta. Pertanto, è necessario scegliere il gruppo di utenti appropriato al processo. Se si lascia il campo vuoto, verrà utilizzato il gruppo di utenti predefinito.
 
 *	Fare clic sul pulsante a destra.
 *	Specificare i valori seguenti:
@@ -161,12 +161,12 @@ A questo punto, quando si visualizza il dashboard con il report aggiunto, si ved
 
 Tenere presente che in questa esercitazione è stato mostrato come creare solo uno dei tipi di grafici possibili per un set di dati. Power BI consente di creare altri strumenti di business intelligence per clienti per l'organizzazione. Per visualizzare un altro esempio di dashboard Power BI, guardare il video [Introduzione a Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
 
-Un’altra risorsa utile per ulteriori informazioni su come creare dashboard con Power BI è [Dashboard nell’anteprima Power BI](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
+Per altre informazioni sulla configurazione di un output di Power BI e per usare i gruppi di Power BI, vedere la [sezione Power BI](stream-analytics-define-outputs.md#power-bi) di [Informazioni sugli output di analisi di flusso](stream-analytics-define-outputs.md "Informazioni sugli output di analisi di flusso"). Un’altra risorsa utile per ulteriori informazioni su come creare dashboard con Power BI è [Dashboard nell’anteprima Power BI](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
 ## Limitazioni e procedure consigliate ##
 Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Prezzi di Power BI")
 
-A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. È consigliabile utilizzare TumblingWindow o HoppingWindow per garantire che il push dei dati sia di al massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile utilizzare l’equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi: ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
+A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. È consigliabile usare TumblingWindow o HoppingWindow per garantire che il push dei dati sia al massimo di 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi: ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
 Ad esempio, se si dispone di 1.000 dispositivi che inviano dati ogni secondo, si utilizza la SKU di Power BI Pro che supporta 1.000.000 righe/ora e si desiderano ottenere i dati medi per dispositivo su Power BI, è possibile effettuare al massimo un push ogni 4 secondi per dispositivo (come mostrato di seguito): 
 ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
@@ -222,4 +222,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

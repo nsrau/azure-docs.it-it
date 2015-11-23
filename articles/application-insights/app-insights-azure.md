@@ -26,7 +26,8 @@ La configurazione è molto semplice e i risultati saranno visibili in pochi minu
 
 Che tipo di app si ha a disposizione?
 
-* [Azure Web App - Ruoli Web e di lavoro](app-insights-cloudservices.md)
+* [App Web di Azure](insights-perf-analytics.md)
+* [App Servizi cloud di Azure - ruoli di lavoro e Web](app-insights-cloudservices.md)
 * [App Web in IIS nella macchina virtuale di Azure](../insights-perf-analytics.md)
 * [Applicazione all'esterno di Azure](app-insights-overview.md)
 
@@ -39,4 +40,4 @@ Che tipo di app si ha a disposizione?
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

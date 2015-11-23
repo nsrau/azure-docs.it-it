@@ -168,7 +168,7 @@ public class Job : IComparable<Job>
 }
 ```
 
-Infine, si implementa l'interfaccia IJobQueue nel livello di dettaglio. Per maggiore chiarezza sono stati appositamente omessi i dettagli di implementazione della coda di priorità. Un'implementazione di esempio è disponibile negli esempi di accompagnamento.
+Infine, si implementa l'interfaccia IJobQueue nell'attore. Per maggiore chiarezza sono stati appositamente omessi i dettagli di implementazione della coda di priorità. Un'implementazione di esempio è disponibile negli esempi di accompagnamento.
 
 ## Esempio di codice per Smart Cache: coda di processi
 
@@ -240,7 +240,7 @@ Negli esempi precedenti, Classifica e JobQueue, sono state usate due tecniche di
 
 * Nell'esempio di JobQueue, invece, è stato deciso di implementare l'attore come una coda di priorità, anziché fare riferimento a un altro oggetto definito altrove.
 
-Gli attori offrono agli sviluppatori la flessibilità necessaria per definire strutture di oggetti complete all'interno degli attori o nei grafici oggetti di riferimento all'esterno degli attori. In termini di caching, gli attori possono eseguire operazioni di write-behind o write-through. È possibile anche usare tecniche diverse con una granularità a livello di variabile membro. In altre parole, si dispone di un controllo completo su cosa e quando salvare in modo permanente. Non è necessario, inoltre, salvare in modo permanente uno stato transitorio o uno stato che è possibile creare a partire dallo stato salvato. Per quanto riguarda la necessità di popolare le cache degli attori, inoltre, sono disponibili varie opzioni. Gli attori offrono metodi virtuali denominati OnActivateAsync() e OnDectivateAsync() per segnalare quando un'istanza dell'attore è attivata o disattivata. Si ricordi che l'attore viene attivato su richiesta nel momento in cui viene inviata ad esso la prima richiesta. È possibile usare OnActivateAsync() per popolare lo stato su richiesta come nel read-through, ad esempio da un archivio esterno stabile. Oppure è possibile popolare lo stato in base a un timer, ad esempio un attore "tasso di cambio" che offre la funzione di conversione in base ai più recenti tassi di cambio. Questo attore può popolare periodicamente (ad esempio, ogni 5 secondi) il proprio stato facendo ricorso a un servizio esterno e usare lo stato per la funzione di conversione. Vedere l'esempio seguente:
+Gli attori offrono agli sviluppatori la flessibilità necessaria per definire strutture di oggetti complete all'interno degli attori o nei grafici oggetti di riferimento all'esterno degli attori. In termini di caching, gli attori possono eseguire operazioni di write-behind o write-through. È possibile anche usare tecniche diverse con una granularità a livello di variabile membro. In altre parole, si dispone di un controllo completo su cosa e quando salvare in modo permanente. Non è necessario, inoltre, salvare in modo permanente uno stato transitorio o uno stato che è possibile creare a partire dallo stato salvato. Per quanto riguarda la necessità di popolare le cache degli attori, inoltre, sono disponibili varie opzioni. Gli attori offrono metodi virtuali denominati OnActivateAsync() e OnDeactivateAsync() per segnalare quando un'istanza dell'attore è attivata o disattivata. Si ricordi che l'attore viene attivato su richiesta nel momento in cui viene inviata ad esso la prima richiesta. È possibile usare OnActivateAsync() per popolare lo stato su richiesta come nel read-through, ad esempio da un archivio esterno stabile. Oppure è possibile popolare lo stato in base a un timer, ad esempio un attore "tasso di cambio" che offre la funzione di conversione in base ai più recenti tassi di cambio. Questo attore può popolare periodicamente (ad esempio, ogni 5 secondi) il proprio stato facendo ricorso a un servizio esterno e usare lo stato per la funzione di conversione. Vedere l'esempio seguente:
 
 ## Esempio di codice per Smart Cache: convertitore di frequenza
 
@@ -301,4 +301,4 @@ Il modello Smart Cache offre, essenzialmente, i seguenti vantaggi:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

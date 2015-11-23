@@ -3,7 +3,7 @@
    description="Uso di Emulator Express per l'esecuzione e il debug di un servizio cloud in un computer locale"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/14/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 
 # Uso di Emulator Express per l'esecuzione e il debug di un servizio cloud in un computer locale
@@ -54,4 +54,4 @@ Prima di usare l'emulatore Express, è necessario tenere presenti alcune limitaz
 
 [Debug di servizi cloud](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -17,19 +17,20 @@
    ms.date="10/21/2015"
    ms.author="joaoma" />
 
-#Creare un servizio di bilanciamento del carico Internet mediante l’utilizzo di un modello.
+# Creare un servizio di bilanciamento del carico Internet mediante l’utilizzo di un modello.
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. Se si sta cercando il modello di distribuzione classica di Azure, passare a [Introduzione alla creazione del servizio di bilanciamento del carico Internet tramite la distribuzione classica](load-balancer-get-started-internet-classic-portal.md)
+
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## Distribuire il modello ARM tramite clic per la distribuzione
 
-Il modello di esempio disponibile nel repository pubblico usa un file di parametro che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Distribuire questo modello mediante clic per la distribuzione, seguire [questo collegamento](http://go.microsoft.com/fwlink/?LinkId=544801), fare clic su **Distribuisci in Azure**, sostituire i valori del parametro predefinito se necessario e seguire le istruzioni nel portale.
+Il modello di esempio disponibile nel repository pubblico usa un file di parametro che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Per distribuire questo modello mediante clic per la distribuzione, seguire [questo collegamento](http://go.microsoft.com/fwlink/?LinkId=544801), fare clic su **Distribuisci in Azure**, sostituire i valori del parametro predefinito se necessario e seguire le istruzioni nel portale.
 
 ## Distribuire il modello ARM tramite PowerShell
 
@@ -66,8 +67,8 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 		info:    New mode is arm
 
 3. Dal browser passare a ****https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.parameters.json**, copiare il contenuto del file JSON e incollarlo in un nuovo file nel computer. Per questo scenario, copiare i valori seguenti in un file denominato **c:\\lb\\azuredeploy.parameters.json**.
-4. Eseguire il cmdlet **azure group deployment create** per distribuire il nuovo sevizio di bilanciamento del carico utilizzando il modello e il parametro file scaricato e modificato in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
+4. Eseguire il cmdlet **azure group deployment create** per distribuire il nuovo sevizio di bilanciamento del carico usando i file di modello e dei parametri scaricati e modificati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

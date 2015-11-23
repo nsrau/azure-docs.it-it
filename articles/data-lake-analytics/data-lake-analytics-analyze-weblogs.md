@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/09/2015"
    ms.author="jgao"/>
 
 # Esercitazione: Analizzare i log dei siti Web con Analisi Azure Data Lake
@@ -58,18 +58,18 @@ Prima di poter compilare e testare qualsiasi script U-SQL, è necessario connett
 **Per accedere agli account Analisi Data Lake personali**
 
 1. In Visual Studio aprire **Esplora server** premendo **CTRL+ALT+S**.
-2. Da **Esplora server** espandere **Azure** e quindi **Analisi Data Lake**. Verrà visualizzato l'elenco degli account Analisi Data Lake personali, se disponibili. Non è possibile creare account Analisi Data Lake da Visual Studio. Per creare un account, vedere [Introduzione ad Analisi Azure Data Lake tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md) o [Introduzione ad Analisi Azure Data Lake con Azure PowerShell](data-lake-get-started-powershell.md).
+2. Da **Esplora server** espandere **Azure** e quindi **Analisi Data Lake**. Verrà visualizzato l'elenco degli account Analisi Data Lake personali, se disponibili. Non è possibile creare account Analisi Data Lake da Visual Studio. Per creare un account, vedere [Introduzione ad Analisi Data Lake di Azure tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md) o [Introduzione ad Analisi Data Lake di Azure mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Sviluppare un'applicazione U-SQL 
 
 Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni su U-SQL, vedere [Introduzione a U-SQL](data-lake-analytics-u-sql-get-started.md).
 
-È possibile aggiungere all'applicazione operatori addizione definiti dall'utente. [Sviluppare operatori U-SQL definiti dall'utente per i processi di Analisi Data Lake](data-lake-analytics-u-sql-user-defined-operators.md).
+È possibile aggiungere all'applicazione operatori addizione definiti dall'utente. [Sviluppare operatori U-SQL definiti dall'utente per i processi di Analisi Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md).
  
 **Per creare e inviare un processo di Analisi Data Lake**
 
 1. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
-2. Selezionare il tipo progetto U-SQL.
+2. Selezionare il tipo Progetto U-SQL.
 
 	![nuovo progetto U-SQL di Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 	
@@ -129,6 +129,8 @@ Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni
                 s_timetaken int
             FROM @"/Samples/Data/WebLog.log"
             USING Extractors.Text(delimiter:' ');
+		    RETURN;
+		END;
         
         // Create a table for storing referrers and status 
         DROP TABLE IF EXISTS SampleDBTutorials.dbo.ReferrersPerDay;
@@ -151,6 +153,10 @@ Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni
                 cs_referer, 
                 sc_status;
         
+    Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL con Analisi Data Lake](data-lake-analytics-u-sql-get-started.md).
+       
+5. Aggiungere al progetto un nuovo script U-SQL e immettere quanto segue:
+
         // Query the referrers that ran into errors
         @content =
             SELECT *
@@ -161,21 +167,23 @@ Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni
         TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
 
-    Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL con Analisi Data Lake](data-lake-analytics-u-sql-get-started.md).
-       
-5. Accanto al pulsante **Invia** specificare l'account Analisi.
-5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Script.usql** e quindi scegliere l'opzione per la **compilazione dello script**. Verificare il risultato nel riquadro di output.
-6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Script.usql** e quindi scegliere l'opzione per l'**invio dello script**.
-7. Verificare che **Account Analisi** sia quello in cui si vuole eseguire il processo e quindi fare clic su **Invia**. Al termine della procedura di invio, nella finestra dei risultati di Data Lake Tools per Visual Studio saranno disponibili i risultati dell'operazione di invio e il collegamento al processo.
-8. Attendere che il processo venga completato. Se il processo non riesce, è molto probabile che manchi il file di origine. Vedere la sezione Prerequisiti di questa esercitazione. Per altre informazioni sulla risoluzione dei problemi, vedere [Monitoraggio e risoluzione dei problemi dei processi di Analisi Azure Data Lake](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+6. Tornare al primo script U-SQL e accanto al pulsante **Invia**, specificare l'account di analisi.
+7. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Script.usql** e quindi fare clic su **Compila script**. Verificare il risultato nel riquadro di output.
+8. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Script.usql** e quindi fare clic su **Invia script**.
+9. Verificare che **Account Analisi** sia quello in cui si vuole eseguire il processo e quindi fare clic su **Invia**. Al termine della procedura di invio, nella finestra dei risultati di Data Lake Tools per Visual Studio saranno disponibili i risultati dell'operazione di invio e il collegamento al processo.
+10. Attendere che il processo venga completato. Se il processo non riesce, è molto probabile che manchi il file di origine. Vedere la sezione Prerequisiti di questa esercitazione. Per altre informazioni sulla risoluzione dei problemi, vedere [Monitoraggio e risoluzione dei problemi dei processi di Analisi Azure Data Lake](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
     Una volta completato il processo, verrà visualizzata la schermata seguente:
     
     ![Analisi Data Lake analizzare i log dei siti Web log dei siti Web](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
 
+11. Ripetere i passaggi da 7 a 10 per **Script1.usql**.
+
+>[AZURE.NOTE]Non è possibile leggere o scrivere in una tabella U-SQL che è stata creata o modificata nello stesso script. Ecco perché vengono usati due script per questo esempio.
+
 **Per visualizzare l'output del processo**
 
-1. Da **Esplora server** espandere **Azure**, quindi **Analisi Data Lake**, l'account Analisi Data Lake personale e infine **Account di archiviazione**. Fare clic con il pulsante destro del mouse sull'account Archiviazione Data Lake predefinito e scegliere **Esplora**. 
+1. Da **Esplora server** espandere **Azure**, quindi **Analisi Data Lake**, l'account di Analisi Data Lake personale e infine **Account di archiviazione**. Fare doppio clic sull'account di archiviazione predefinito di Data Lake e quindi fare clic su **Esplora**. 
 2.  Fare doppio clic su **Esempi** per aprire la cartella e quindi su **Output**.
 3.  Fare doppio clic su **UnsuccessfulResponsees.log**.
 4.  È anche possibile fare doppio clic sul file di output nella visualizzazione grafico del processo per passare direttamente al file di output.
@@ -194,4 +202,4 @@ Per vedere altri argomenti relativi allo sviluppo:
 - [Introduzione al linguaggio U-SQL di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 - [Sviluppare operatori U-SQL definiti dall'utente per i processi di Analisi Data Lake](data-lake-analytics-u-sql-user-defined-operators.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

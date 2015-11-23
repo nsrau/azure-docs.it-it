@@ -418,8 +418,6 @@ Per copiare i dati dell'efficacia della campagna di marketing dal BLOB di Azure 
 
 Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagna in un database SQL Server locale][tutorial-onpremises] per informazioni su come creare una pipeline per la copia dei dati dell'efficacia della campagna di marketing in un database SQL Server locale.
 
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md) richiede solo alcuni minuti.
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -528,4 +526,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L'inv
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

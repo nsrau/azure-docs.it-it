@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Novità
@@ -121,4 +121,4 @@ Per altre informazioni sulle attestazioni specifiche generate nei token di Model
 ## Limitazioni della versione di anteprima
 È necessario tenere presenti alcune restrizioni quando si crea un'app con l'anteprima pubblica di Modello app 2.0. Fare riferimento al documento sulle [limitazioni di Modello app 2.0](active-directory-v2-limitations.md) per verificare se una di queste restrizioni si applica a un particolare scenario.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

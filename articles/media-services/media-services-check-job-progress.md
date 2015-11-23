@@ -428,12 +428,13 @@ Il precedente esempio ha prodotto il seguente output. I valori possono variare.
 	job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
 	State: Finished
 	
- 
-##Percorsi di formazione di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+##Percorsi di apprendimento di Media Services
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=Oct15_HO3-->
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

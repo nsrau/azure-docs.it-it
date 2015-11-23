@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Uso del connettore Slack nelle app per la logica | Microsoft Azure App Service"
 	description="Come creare e configurare l'app per le API o il connettore Slack e usarlo in un'app per la logica in Azure App Service"
-	authors="anuragdalmia" 
+	authors="rajeshramabathiran" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Uso del connettore Slack e aggiunta all'app per la logica
 Consente di connettersi ai canali Slack e di inviare messaggi al team. I connettori possono essere usati nelle app per la logica come parte di un "flusso di lavoro" per eseguire diverse attività. Quando si usa il connettore Slack nel flusso di lavoro, è possibile ottenere un'ampia gamma di scenari con altri connettori. Ad esempio, è possibile usare il [connettore Facebook](app-service-logic-connector-facebook.md) nel flusso di lavoro per inviare un messaggio al canale Slack.
@@ -35,7 +35,7 @@ Nessuno | Post Message
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Selezionare **App per le API** e cercare "Slack Connector".
-3. Immettere il nome, il piano di servizio app e altre proprietà: <br/>
+3. Immettere il nome, il piano di servizio app e altre proprietà: 
  ![][1] 
 
 4. Fare clic su **Crea**.
@@ -48,7 +48,7 @@ Dopo aver creato il connettore Slack, è possibile aggiungerlo come azione all'a
 
 1.	Nell'app per la logica aprire **Triggers and Actions**. [Creare una nuova app per la logica](app-service-logic-create-a-logic-app.md)
 
-2.	Slack Connector è elencato nella raccolta a destra: <br/>
+2.	Il connettore Slack è elencato nella raccolta a destra: 
  ![][2]
 
 3.	Selezionare il connettore Slack creato in precedenza per aggiungerlo automaticamente all'app per la logica.
@@ -99,4 +99,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

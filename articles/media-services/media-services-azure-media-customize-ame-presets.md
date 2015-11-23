@@ -505,16 +505,17 @@ Per impedire l'amplificazione del rumore di fondo, effettuare le seguenti operaz
 		// Launch the job. 
 		job.Submit();
 
-##Percorsi di formazione di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+##Percorsi di apprendimento di Media Services
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##Vedere anche
 
 [Schema XML del Codificatore multimediale di Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

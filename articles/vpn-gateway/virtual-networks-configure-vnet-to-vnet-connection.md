@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="11/04/2015"
    ms.author="cherylmc"/>
 
 
@@ -23,15 +23,15 @@
 - [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-In questo articolo si analizza la connessione tra reti virtuali nella modalità di distribuzione classica usando il portale di Azure e PowerShell in combinazione.
+Questo articolo illustrerà la procedura per creare e connettere reti virtuali mediante il modello di distribuzione classica (noto anche come servizio di gestione). Questa procedura utilizzerà una combinazione del portale di Azure (non il portale di anteprima) e dei cmdlet di PowerShell. Se si desidera connettere reti virtuali create mediante il modello di distribuzione di gestione risorse di Azure, vedere la scheda precedente. La procedura è diversa per ogni modello.
 
+È inoltre possibile connettere una rete virtuale creata nel modello di distribuzione classica per una rete virtuale creata mediante il modello di Gestione risorse. Vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 La connessione di una rete virtuale a un'altra rete virtuale (da VNet a Vnet) è molto simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE. Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche diverse. È anche possibile combinare una comunicazione tra reti virtuali con configurazioni multisito. In modo da definire topologie di rete che consentono di combinare più sedi locali connettività con connettività di rete virtuale tra, come illustrato nel diagramma riportato di seguito:
 
 ![Diagramma di connettività tra reti virtuali](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
-
-
->[AZURE.NOTE]Azure dispone attualmente di due modalità di distribuzione: quella classica e la distribuzione Gestione Risorse di Azure. I cmdlet di configurazione e i passaggi sono diversi nelle due modalità di distribuzione. In questo argomento si analizza la connessione di reti virtuali che sono state create nella modalità di distribuzione classica. Se si desidera connettere reti virtuali che sono state create nella modalità di Gestione risorse di Azure, vedere [Configurare una connessione da rete virtuale a rete virtuale utilizzando Gestione risorse di Azure e PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). Se si desidera connettere una rete virtuale creata in modalità classica a una rete virtuale creata in Gestione risorse di Azure, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Perché connettere reti virtuali?
 
@@ -110,7 +110,7 @@ VNet1: Spazio di indirizzi = 10.1.0.0/16; Area = Stati Uniti occidentali
 
 VNet2: Spazio di indirizzi = 10.2.0.0/16; Area = Giappone orientale
 
-1. Accedere al **portale di gestione**.
+1. Accedere al **portale di Azure** (non al portale di anteprima).
 
 2. Nell'angolo inferiore sinistro della schermata fare clic su **New**. Nel riquadro di spostamento, fare clic su **Servizi di rete**, quindi fare clic su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 
@@ -166,7 +166,7 @@ Quando si crea una configurazione da rete virtuale a rete virtuale, è necessari
 
 4. Dopo aver configurato VNet1 come rete locale, tornare indietro e configurare VNet2 utilizzando i valori corrispondano.
 
-5. È ora verrà puntare ogni rete virtuale per l'altro come una rete locale.È ora verrà puntare ogni rete virtuale per l'altro come una rete locale. Nel portale di gestione, passare alla pagina **Configura** per VNet1. In **connettività da sito a sito**, selezionare **connessione alla rete locale**, quindi selezionare **VNET2** come rete locale.
+5. È ora verrà puntare ogni rete virtuale per l'altro come una rete locale.È ora verrà puntare ogni rete virtuale per l'altro come una rete locale. Nel portale di Azure, passare alla pagina **Configura** per VNet1. In **connettività da sito a sito**, selezionare **connessione alla rete locale**, quindi selezionare **VNET2** come rete locale.
 
   ![Connetti alla rete locale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736058.jpg)
 
@@ -218,18 +218,24 @@ Attendere l'inizializzazione delle connessioni. Dopo l'inizializzazione, il gate
 
 ![Stato del gateway - connesso](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)
 
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
 ## Passaggi successivi
 
 
-Se si vuole aggiungere macchine virtuali alla rete virtuale, vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
-
-Se si vuole configurare una connessione di rete virtuale con RRAS, vedere [Configurare una VPN da sito a sito mediante RRAS (Routing and Remote Access Service, servizio Routing e accesso remoto) di Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
+Se si desidera aggiungere macchine virtuali alla rete virtuale, vedere [Come creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md).
 
 Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+
+Per informazioni sull’API REST, vedere [Operazioni sui Gateway di rete virtuale](https://msdn.microsoft.com/library/azure/jj154113.aspx).
+
+Per altre informazioni sui Gateway VPN, vedere [Domande frequenti sul Gateway VPN](vpn-gateway-vpn-faq.md).
+
+Per altre informazioni sulle reti virtuali, vedere la [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md) e le [Domande frequenti sulla rete virtuale](../virtual-network/virtual-networks-faq.md).
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

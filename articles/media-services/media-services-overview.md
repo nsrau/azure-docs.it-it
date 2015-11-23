@@ -210,6 +210,10 @@ Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) forn
 [Indicazioni su modelli e procedure](https://wamsg.codeplex.com/) [Documentazione online](https://msdn.microsoft.com/library/dn735912.aspx) [EBook scaricabile](https://www.microsoft.com/download/details.aspx?id=42629)
 
 
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 ##Contratto di servizio (SLA)
 
 - Per il servizio di codifica di Servizi multimediali, è garantita una disponibilità al 99,9% delle transazioni delle API REST.
@@ -227,4 +231,4 @@ Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) forn
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

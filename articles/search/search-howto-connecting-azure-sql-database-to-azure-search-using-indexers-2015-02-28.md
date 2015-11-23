@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori | Microsoft Azure" 
+	pageTitle="Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori | Microsoft Azure | Servizio di ricerca cloud ospitato" 
 	description="Informazioni su come estrarre i dati dal database SQL di Azure a un indice di Ricerca di Azure tramite gli indicizzatori." 
 	services="search" 
 	documentationCenter="" 
@@ -279,4 +279,4 @@ A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/04/2015"
+   ms.date="11/11/2015"
    ms.author="tomfitz"/>
 
 # Supporto di Gestione risorse per servizi, aree e versioni API
@@ -61,13 +61,16 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 | Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
-| DocumentDB | Sì | [Sì](https://portal.azure.com/#create/Microsoft.DocumentDB) | Sì | [REST DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| Archiviazione | Sì | [Sì](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [Creazione dell'account di archiviazione](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
-| Cache Redis | Sì | [Sì](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Sì | | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| Database SQL | Sì | [Sì](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Sì | [Creare database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
-| Ricerca | Sì | [Sì](https://portal.azure.com/#create/Microsoft.Search) | Sì | [REST Ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| SQL Data Warehouse | Sì | [Sì](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | No | No | - | - | - | | Cache gestita | No | No | - | - | - |
+| DocumentDB | Sì | Sì | Sì | [REST DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
+| Archiviazione | Sì | Sì | | [Creazione dell'account di archiviazione](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
+| Cache Redis | Sì | Sì | Sì | | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
+| Database SQL | Sì | Sì | Sì | [Creare database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| Ricerca | Sì | Sì | Sì | [REST Ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
+| SQL Data Warehouse | Sì | Sì | | | |
+| StorSimple | No | No | - | - | - |
+| Backup | No | No | - | - | - |
+| Site Recovery | No | No | - | - | - |
+| Cache gestita | No | No | - | - | - |
 | Catalogo dati | No | No | - | - | - |
 
 ## Analytics
@@ -133,12 +136,19 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | Operational Insights | Sì | No | Sì | | |
 | Hub IoT | Sì | [Sì](https://portal.azure.com/#create/Microsoft.IotHub) | | | |
 
+## Gestione risorse
+
+| Funzionalità | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| Authorization | Sì | N/D | N/D | [Blocchi di gestione](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[Controllo degli accessi in base al ruolo](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [Blocco di risorsa](resource-manager-template-lock.md)<br />[Assegnazioni di ruoli](resource-manager-template-role.md) |
+| Risorse | Sì | N/D | N/D | [Linked Resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [Collegamenti alle risorse](resource-manager-template-links.md) |
+
 
 ## Aree supportate
 
 Quando si distribuiscono le risorse, in genere è necessario specificare un'area. Gestione risorse è supportato in tutte le aree, ma le risorse distribuite potrebbero non essere supportate in tutte le aree. Inoltre, potrebbero essere presenti limitazioni sulla sottoscrizione che impediscono l'utilizzo di alcune aree che supportano la risorsa. Queste limitazioni possono essere correlate a problemi per il paese di origine o il risultato di un criterio inserito dall'amministratore della sottoscrizione per utilizzare solo determinate aree.
 
-Per un elenco completo di tutte le aree supportate per tutti i servizi di Azure, vedere [Servizi per area](https://azure.microsoft.com/regions/#services); tuttavia, questo elenco può includere aree che non sono supportate dalla sottoscrizione dell’utente. È possibile determinare le aree per un particolare tipo di risorsa supportate dalla sottoscrizione dell’utente eseguendo uno dei seguenti comandi.
+Per un elenco completo di tutte le aree supportate per tutti i servizi di Azure, vedere [Servizi per area](https://azure.microsoft.com/regions/#services); tuttavia, questo elenco può includere aree che non sono supportate dalla sottoscrizione dell'utente. È possibile determinare le aree per un particolare tipo di risorsa supportate dalla sottoscrizione dell’utente eseguendo uno dei seguenti comandi.
 
 ### API REST
 
@@ -232,4 +242,4 @@ Per Azure PowerShell 0.9.8, utilizzare:
 - Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per altre informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/12/2015"
+   ms.date="11/06/2015"
    ms.author="joaoma"/>
 
 # Panoramica di DNS di Azure
@@ -40,4 +40,4 @@ Il servizio si basa su Gestione risorse di Azure. I domini e i record possono es
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

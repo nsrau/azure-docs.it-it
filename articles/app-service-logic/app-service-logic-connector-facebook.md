@@ -3,7 +3,7 @@
    description="Come creare e configurare l'app per le API o il connettore Facebook e usarlo in un'app per la logica in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
+   authors="rajeshramabathiran"
    manager="dwrede"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 
 # Uso del connettore Facebook e aggiunta all'app per la logica
@@ -80,4 +80,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

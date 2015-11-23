@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager"/>
+ tags="azure-resource-manager,hpc-pack"/>
 
 <tags
  ms.service="virtual-machines"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="08/18/2015"
+ ms.date="11/11/2015"
  ms.author="danlep"/>
 
 # Introduzione all'uso di un cluster HPC Pack in Azure per l'esecuzione di carichi di lavoro di Excel e SOA
@@ -43,15 +43,15 @@ Verranno mostrati due metodi per configurare il cluster: nel primo, vengono usat
 
 
 ### Uso di un modello di Guida introduttiva
-Usare un modello di Guida introduttiva di Azure per distribuire con rapidità e facilità un cluster HPC Pack nel portale di anteprima di Azure. Aprendo il modello nel portale, si ottiene un'interfaccia utente semplice in cui è possibile immettere le impostazioni per il cluster. Di seguito sono riportati i passaggi necessari.
+Usare un modello di Guida introduttiva di Azure per distribuire con rapidità e facilità un cluster HPC Pack nel portale di anteprima di Azure. Aprendo il modello nel portale di anteprima, si ottiene un'interfaccia utente semplice in cui è possibile immettere le impostazioni per il cluster. Di seguito sono riportati i passaggi necessari.
 
 1. Visitare la [pagina del modello per la creazione del cluster HPC su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Se lo si desidera, esaminare le informazioni sul modello e il codice sorgente.
 
-2. Fare clic su **Distribuisci in Azure**per avviare una distribuzione con il modello nel portale di anteprima di Azure.
+2. Fare clic su **Distribuisci in Azure** per avviare una distribuzione con il modello nel portale di anteprima di Azure.
 
     ![Modello di distribuzione in Azure][github]
 
-3. Nel portale, attenersi alla procedura seguente per immettere i parametri del modello di cluster HPC.
+3. Nel portale di anteprima attenersi alla procedura seguente per immettere i parametri del modello di cluster HPC.
 
     a. Nella pagina **Modifica modello** fare clic su **Salva**.
 
@@ -355,7 +355,7 @@ A tale scopo, impostare in modo esplicito il flag UseAzureQueue su false in Sess
 
 ### Uso dell'associazione NetTcp
 
-Per usare l'associazione NetTcp, la configurazione è analoga alla connessione a un cluster locale. È necessario aprire alcuni endpoint nella VM del nodo head. Nel portale di gestione di Azure procedere come descritto di seguito.
+Per usare l'associazione NetTcp, la configurazione è analoga alla connessione a un cluster locale. È necessario aprire alcuni endpoint nella VM del nodo head. Eseguire le operazioni seguenti nel portale di Azure.
 
 
 1. Arrestare la VM.
@@ -389,4 +389,4 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

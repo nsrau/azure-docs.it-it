@@ -282,10 +282,10 @@ Verrà visualizzata una schermata simile alla seguente:
 
 [Creare una macchina virtuale Windows con un modello di Gestione risorse di Microsoft Azure e PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Creare una macchina virtuale Windows con PowerShell e Service Manager di Microsoft Azure](virtual-machines-create-windows-powershell-service-manager.md)
+[Creare le macchine virtuali Windows con il modello di distribuzione classica e PowerShell.](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Come installare e configurare Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

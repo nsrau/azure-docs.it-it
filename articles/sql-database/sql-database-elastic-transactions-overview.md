@@ -98,9 +98,30 @@ Le transazioni di database elastico per il database SQL supportano anche il coor
 
 È possibile automatizzare l'installazione e la distribuzione della versione di .NET e delle librerie necessarie per le transazioni di database elastico in Azure, ovvero nel sistema operativo guest del servizio cloud. Per i ruoli di lavoro di Azure, usare le attività di avvio. I concetti e i passaggi sono documentati in [Installare .NET in un ruolo del servizio cloud](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/).
 
+Si noti che il programma di installazione per .NET 4.6.1 richiede più spazio di archiviazione temporaneo durante il processo di bootstrap nei servizi cloud di Azure rispetto al programma di installazione per .NET 4.6. Per garantire una corretta installazione, è necessario aumentare l'archiviazione temporanea per il servizio cloud di Azure nel file ServiceDefinition.csdef nella sezione LocalResources e le impostazioni di ambiente dell'attività di avvio, come illustrato nell'esempio seguente:
+
+	<LocalResources>
+	...
+		<LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+		<LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+	</LocalResources>
+	<Startup>
+		<Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+			<Environment>
+		...
+				<Variable name="TEMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+				</Variable>
+				<Variable name="TMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+				</Variable>
+			</Environment>
+		</Task>
+	</Startup>
+
 ## Monitoraggio dello stato delle transazioni
 
-Per monitorare lo stato e l'avanzamento delle transazioni di database elastico in corso, usare viste a gestione dinamica (DMV) nel database SQL. Tutte le viste a gestione dinamica correlate alle transazioni sono rilevanti per le transazioni distribuite nel database SQL. È possibile trovare l'elenco delle viste a gestione dinamica corrispondente qui: [Funzioni e viste a gestione dinamica relative alle transazioni (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Per monitorare lo stato e l'avanzamento delle transazioni di database elastico in corso, usare viste a gestione dinamica (DMV) nel database SQL. Tutte le viste a gestione dinamica correlate alle transazioni sono rilevanti per le transazioni distribuite nel database SQL. È possibile trovare l'elenco delle viste a gestione dinamica corrispondente in [Funzioni e viste a gestione dinamica relative alle transazioni (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
  
 Queste viste a gestione dinamica sono particolarmente utili:
 
@@ -124,4 +145,4 @@ Se ancora non si usano le funzionalità del database elastico per le applicazion
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

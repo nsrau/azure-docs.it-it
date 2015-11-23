@@ -37,15 +37,15 @@ Per assicurare la continua disponibilità e l'esecuzione efficiente dell'applica
 
 A tale scopo, è possibile usare il portale di Azure o i comandi di Azure PowerShell.
 
-Per usare il portale:
+Per usare il portale di Azure:
 
-1. Accedere al [portale](http://manage.windowsazure.com), se questa operazione non è già stata eseguita.
+1. Accedere al portale di Azure, se questa operazione non è già stata eseguita.
 
 2. Sulla barra dei comandi fare clic su **Nuovo**.
 
 3. Fare clic su **Virtual Machine**, quindi su **From Gallery**.
 
-4. Usare le prime due schermate per selezionare un'immagine, un nome utente e una password e così via. Per informazioni dettagliate, vedere [Creazione di una macchina virtuale che esegue Windows][].
+4. Usare le prime due schermate per selezionare un'immagine, un nome utente e una password e così via. Per informazioni dettagliate, vedere [Creare una macchina virtuale che esegue Windows][].
 
 5. Nella terza schermata è possibile configurare le risorse per le connessioni di rete, l'archiviazione e la disponibilità. Eseguire le operazioni seguenti:
 
@@ -72,9 +72,9 @@ Se si vogliono usare i comandi di Azure PowerShell per creare una macchina virtu
 
 ## <a id="addmachine"></a>Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità.##
 
-Nel portale è possibile aggiungere macchine virtuali esistenti a un set di disponibilità esistente oppure crearne una nuova. (si noti che le macchine virtuali presenti nello stesso set di disponibilità devono appartenere allo stesso servizio cloud). La procedura è quasi la stessa: con Azure PowerShell è possibile aggiungere la macchina virtuale a un set di disponibilità esistente.
+Nel portale di Azure è possibile aggiungere macchine virtuali esistenti a un set di disponibilità esistente oppure crearne una nuova. (si noti che le macchine virtuali presenti nello stesso set di disponibilità devono appartenere allo stesso servizio cloud). La procedura è quasi la stessa: con Azure PowerShell è possibile aggiungere la macchina virtuale a un set di disponibilità esistente.
 
-1. Accedere al [portale](http://manage.windowsazure.com), se questa operazione non è già stata eseguita.
+1. Accedere al portale di Azure, se questa operazione non è già stata eseguita.
 
 2. Nella barra dei comandi fare clic su **Macchine virtuali**.
 
@@ -108,8 +108,8 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 
 [Bilanciamento del carico per i servizi di infrastruttura di Azure]: virtual-machines-load-balance.md
 [Gestione della disponibilità delle macchine virtuali]: virtual-machines-manage-availability.md
-[Creazione di una macchina virtuale che esegue Windows]: virtual-machines-windows-tutorial.md
+[Creare una macchina virtuale che esegue Windows]: virtual-machines-windows-tutorial.md
 [Panoramica di Rete virtuale]: virtual-networks-overview.md
 [Articoli sulle Macchine virtuali nella gestione dei servizi]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

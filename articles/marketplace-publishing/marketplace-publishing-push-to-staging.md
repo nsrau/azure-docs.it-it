@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
@@ -162,4 +162,4 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al **Pass
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

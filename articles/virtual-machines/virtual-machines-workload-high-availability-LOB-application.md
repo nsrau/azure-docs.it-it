@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata
@@ -68,6 +68,29 @@ Questa configurazione di base richiede il set seguente di componenti e servizi d
 - Una rete virtuale cross-premise
 - Due account di archiviazione
 
+Ecco le macchine virtuali e le relative dimensioni predefinite per questa configurazione.
+
+Elemento | Descrizione della macchina virtuale | Immagine della raccolta | Dimensioni predefinite 
+--- | --- | --- | --- 
+1\. | Primo controller di dominio | Windows Server 2012 R2 Datacenter | D1
+2\. | Secondo controller di dominio | Windows Server 2012 R2 Datacenter | D1
+3\. | Server di database primario | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
+4\. | Server di database secondario | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
+5\. | Nodo di maggioranza per il cluster | Windows Server 2012 R2 Datacenter | D1
+6\. | Primo server web | Windows Server 2012 R2 Datacenter | D3
+7\. | Secondo server web | Windows Server 2012 R2 Datacenter | D3
+
+Per calcolare i costi stimati per questa configurazione, vedere il [Calcolatore dei costi di Azure](https://azure.microsoft.com/pricing/calculator/).
+
+1. In **Moduli**, fare clic su **Calcolo**, quindi fare clic su **Macchine virtuali** fino a creare un elenco di sette macchine virtuali.
+2. Per ogni macchina virtuale, selezionare:
+	- L'area desiderata
+	- **Windows** per il tipo
+	- **Standard** per il piano tariffario
+	- La dimensione predefinita nella tabella precedente o la dimensione desiderata per **Dimensioni istanze**
+
+> [AZURE.NOTE]Il calcolatore dei prezzi di Azure non include i costi aggiuntivi per la licenza di SQL Server per le due macchine virtuali che eseguono SQL Server 2014 Enterprise. Per altre informazioni, vedere [Prezzi di Macchine virtuali - SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+
 ### Fasi di distribuzione
 
 Per distribuire questa configurazione, usare il processo seguente:
@@ -106,4 +129,4 @@ Dopo aver completato la configurazione, è possibile espandere facilmente questa
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

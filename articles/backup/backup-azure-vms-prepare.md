@@ -194,4 +194,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Eseguire il backup di macchine virtuali](backup-azure-vms.md)
 - [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

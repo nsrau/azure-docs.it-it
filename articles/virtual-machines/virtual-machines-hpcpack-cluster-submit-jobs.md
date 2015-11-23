@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -156,7 +156,7 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
 
     Verrà visualizzato il gestore dei processi HPC con un elenco dei processi sul nodo head.
 
-**Per usare il portale dei processi basato sul Web nel nodo head**
+**Per usare il portale Web in esecuzione nel nodo head**
 
 1. Avviare un Web browser nel computer client e digitare l'indirizzo seguente: ```
     https://HeadNodeDnsName.cloudapp.net/HpcPortal
@@ -183,4 +183,4 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

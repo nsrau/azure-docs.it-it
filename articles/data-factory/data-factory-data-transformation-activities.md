@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/04/2015" 
 	ms.author="spelluru"/>
 
 # Trasformazione e analisi tramite Data factory di Azure
@@ -32,7 +32,7 @@ Attività di trasformazione | Ambiente di calcolo
 [Stored procedure](data-factory-stored-proc-activity.md) | SQL di Azure | 
 [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) | Azure Data Lake Analytics 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] o Batch di Azure
-    
+   
 
 È necessario creare un servizio collegato per l'ambiente di calcolo e quindi utilizzare il servizio collegato quando si definisce un'attività di trasformazione. Esistono due tipi di ambienti di calcolo supportati da Data factory.
 
@@ -41,7 +41,4 @@ Attività di trasformazione | Ambiente di calcolo
 
 Per informazioni sui servizi collegati di calcolo supportati da Data factory, vedere l'articolo [Servizi collegati di calcolo](data-factory-compute-linked-services.md).
 
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md) richiede solo alcuni minuti.
-
-<!-----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

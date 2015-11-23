@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Che cos'è la Ricerca di Azure?"
+	pageTitle="Che cos'è la Ricerca di Azure? | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Ricerca di Azure è un servizio di ricerca ospitato sul cloud. Altri informazioni su questa panoramica tecnica e sul riepilogo delle funzionalità"
 	services="search"
 	documentationCenter=""
@@ -131,4 +131,4 @@ Visitare [creare un servizio di ricerca di Azure](search-create-service-portal.m
 
 [Come utilizzare la Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) [iniziare a utilizzare Ricerca di Azure .NET](search-get-started-dotnet.md) [Ricerca di Azure: esempi di esercitazioni e demo video](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -27,7 +27,7 @@ Il supporto per AMQP 1.0 è disponibile in Service Bus SDK versione 2.1 o succes
 
 Per impostazione predefinita, la libreria client .NET del bus di servizio comunica con il bus di servizio tramite un protocollo dedicato basato su SOAP. Per usare AMQP 1.0 anziché il protocollo predefinito, è necessaria una configurazione esplicita nella stringa di connessione del bus di servizio, come illustrato nella sezione successiva. A parte questa modifica, il codice dell'applicazione rimane essenzialmente invariato durante l'uso di AMQP 1.0.
 
-Nella versione corrente alcune funzionalità API non sono supportate se si usa AMQP. Queste funzionalità non supportate sono elencate più avanti nella sezione "Funzionalità non supportate, restrizioni e differenze di comportamento". Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si utilizza AMQP.
+Nella versione corrente alcune funzionalità API non sono supportate se si usa AMQP. Queste funzionalità non supportate sono elencate più avanti nella sezione [Funzionalità non supportate, restrizioni e differenze di comportamento](#unsupported-features-restrictions-and-behavioral-differences). Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si utilizza AMQP.
 
 ### Configurazione mediante App.config
 
@@ -41,7 +41,7 @@ Nella versione corrente alcune funzionalità API non sono supportate se si usa A
 	    </appSettings>
 	</configuration>
 
-Il valore dell'impostazione `Microsoft.ServiceBus.ConnectionString` corrisponde alla stringa di connessione del bus di servizio usata per configurare la connessione con il bus di servizio. Il formato è il seguente:
+Il valore dell'impostazione `Microsoft.ServiceBus.ConnectionString` corrisponde alla stringa di connessione del bus di servizio, usata per configurare la connessione con il bus di servizio. Il formato è il seguente:
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
@@ -147,7 +147,7 @@ In particolare, le API seguenti non sono attualmente supportate quando si usa AM
 
 Esistono anche alcune piccole differenze di comportamento dell'API .NET del bus di servizio durante l'uso di AMQP, rispetto al protocollo predefinito:
 
--   La proprietà [OperationTimeout][] verrà ignorata.
+-   La proprietà [OperationTimeout][] viene ignorata.
 
 -   `MessageReceiver.Receive(TimeSpan.Zero)` viene implementato come `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 
@@ -168,6 +168,7 @@ Le API .NET espongono diverse impostazioni per controllare il comportamento del 
 Per altre informazioni, vedere i collegamenti seguenti:
 
 - [Panoramica di AMQP per il bus di servizio]
+- [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]
 - [AMQP nel bus di servizio per Windows Server]
 
   [Come usare le code del bus di servizio]: service-bus-dotnet-how-to-use-queues.md
@@ -199,6 +200,7 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
+[Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

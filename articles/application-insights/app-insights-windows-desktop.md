@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 # Application Insights in app desktop, servizi e ruoli di lavoro di Windows
@@ -25,7 +25,7 @@ Application Insights consente di monitorare un'applicazione distribuita in base 
 
 Tutte le applicazioni Windows, incluse le app desktop, i servizi in background e i ruoli di lavoro, possono usare Application Insights SDK per inviare dati di telemetria ad Application Insights. È anche possibile aggiungere Application Insights SDK a un progetto di tipo libreria di classi.
 
-L'SDK di base fornisce solo un'API: a differenza degli SDK per dispositivi o Web non include moduli che raccolgono dati automaticamente, quindi è necessario scrivere codice per l'invio di dati di telemetria personalizzati. Alcuni degli altri pacchetti, ad esempio l'agente di raccolta del contatore delle prestazioni, funzioneranno anche in un'app desktop.
+È possibile scegliere quali agenti di raccolta dati standard si desidera utilizzare (ad esempio per il monitoraggio dei contatori delle prestazioni o delle chiamate di dipendenza) oppure usare solo l'API della memoria centrale e scrivere i propri dati di telemetria.
 
 
 ## <a name="add"></a> Creare una risorsa Application Insights
@@ -48,13 +48,13 @@ L'SDK di base fornisce solo un'API: a differenza degli SDK per dispositivi o Web
 
     ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti NuGet](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Installare il pacchetto dell'API di base di Application Insights, Microsoft.ApplicationInsights.
+2. Installare il pacchetto Windows Server di Application Insights: Microsoft.ApplicationInsights.WindowsServer
 
-    ![Cercare "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
+    ![Cercare "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
 
     *È possibile usare altri pacchetti?*
 
-    Sì, si possono installare altri pacchetti, ad esempio pacchetti di contatori delle prestazioni o di agenti di raccolta dipendenze se si vogliono usare i relativi moduli. Microsoft.ApplicationInsights.Web include molti di questi pacchetti. Per usare i [pacchetti di agenti di raccolta dati di traccia o di log](app-insights-asp-net-trace-logs.md), iniziare con il pacchetto del server Web.
+    Sì. Se si desidera usare l'API per inviare i propri dati di telemetria, scegliere l'API di base (Microsoft.ApplicationInsights). Il pacchetto di Windows Server include automaticamente l'API di base e in più altri pacchetti, come ad esempio la raccolta dei contatori delle prestazioni e il monitoraggio della dipendenza.
 
     Non usare però Microsoft.ApplicationInsights.Windows, che è destinato alle app di Windows Store.
 
@@ -113,14 +113,14 @@ Ad esempio, in un'applicazione Windows Form, è possibile scrivere:
 
 ```
 
-Usare l'[API di Application Insights][api] per inviare dati di telemetria. Nelle applicazioni Desktop di Windows, non vengono inviati automaticamente i dati di telemetria. In genere è necessario usare:
+Usare l'[API di Application Insights][api] per inviare dati di telemetria. Se si utilizza l'API di base, non viene automaticamente inviata nessuna telemetria. In genere è necessario usare:
 
 * `TrackPageView(pageName)` per il passaggio a form, pagine o schede
 * `TrackEvent(eventName)` per altre azioni utente
 * `TrackMetric(name, value)` in un'attività in background per inviare report periodici della metrica non associata a eventi specifici.
 * `TrackTrace(logEvent)` per la [registrazione diagnostica][diagnostic]
 * `TrackException(exception)` nelle clausole catch
-* `Flush()` per assicurarsi che tutti i dati di telemetria vengano inviati prima della chiusura dell'app. Usare questa chiamata solo se si usa l'API di base Microsoft.ApplicationInsights. Gli SDK per dispositivi e Web implementano automaticamente questo comportamento. Se l'app è in esecuzione in contesti in cui Internet non è sempre disponibile, vedere anche [Canale di persistenza](#persistence-channel).
+* `Flush()` per assicurarsi che tutti i dati di telemetria vengano inviati prima della chiusura dell'app. Usare questa chiamata solo se si usa l'API di base Microsoft.ApplicationInsights. Gli SDK web implementano questo comportamento automaticamente. Se l'app è in esecuzione in contesti in cui Internet non è sempre disponibile, vedere anche [Canale di persistenza](#persistence-channel).
 
 
 #### Inizializzatori di contesto
@@ -299,4 +299,4 @@ Il codice del canale di persistenza è disponibile in [github](https://github.co
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -24,7 +24,7 @@ Come servizio di Azure, l'hub IoT offre velocità elevata usando le ridondanze a
 
 Un approfondimento completo sulle tecnologie di distribuzione nelle soluzioni IoT non rientra nell'ambito di questa sezione, ma ai fini della disponibilità elevata e del ripristino di emergenza viene considerato il modello di distribuzione per il *failover di area*.
 
-In un modello di failover di area, il back-end della soluzione viene eseguito principalmente in una determinata posizione del data center. Vengono tuttavia un hub IoT e un back-end aggiuntivi in un'ulteriore area del data center ai fini del failover, qualora l'hub IoT nel data center primario dovesse subire un'interruzione dell'alimentazione o la connettività di rete dal dispositivo al data center primario dovesse interrompersi. I dispositivi usano un endpoint di servizio secondario quando il gateway primario non è raggiungibile. Con una funzionalità di failover tra aree, la disponibilità della soluzione può essere migliorata al di là della disponibilità elevata di una singola area.
+In un modello di failover di area, il back-end della soluzione viene eseguito principalmente in una determinata posizione del data center. Vengono tuttavia distribuiti un hub IoT e un back-end aggiuntivi in un'ulteriore area del data center ai fini del failover, qualora l'hub IoT nel data center primario dovesse subire un'interruzione dell'alimentazione o la connettività di rete dal dispositivo al data center primario dovesse interrompersi. I dispositivi usano un endpoint di servizio secondario quando il gateway primario non è raggiungibile. Con una funzionalità di failover tra aree, la disponibilità della soluzione può essere migliorata al di là della disponibilità elevata di una singola area.
 
 Ad alto livello, per implementare un modello di failover di area con l'hub IoT, sono necessari gli elementi seguenti.
 
@@ -48,4 +48,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

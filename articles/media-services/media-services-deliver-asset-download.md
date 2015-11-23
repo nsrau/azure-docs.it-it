@@ -73,16 +73,18 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 	}
 
 
-##Percorsi di formazione di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+##Percorsi di apprendimento di Media Services
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
    
 ##Vedere anche 
 
 [Distribuire contenuti in streaming](media-services-deliver-streaming-content.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,8 +1,6 @@
-# Microsoft Azure e Internet delle cose (IoT)
+# Azure e IoT
 
-Una tipica soluzione IoT richiede una comunicazione bidirezionale sicura tra dispositivi, possibilmente nell'ordine dei milioni, e un back-end applicazioni. Esempi di funzionalità del back-end applicazioni possono includere l'elaborazione di eventi da dispositivo a cloud per individuare informazioni utili con l'analisi predittiva e automatizzata.
-
-Microsoft fornisce un set di librerie (che supportano più linguaggi e piattaforme hardware) che è possibile usare per sviluppare applicazioni client da eseguire su un dispositivo IoT. Per implementare l'applicazione back-end IoT, è possibile combinare più servizi di Azure o usare una delle soluzioni preconfigurate disponibili in [IoT Suite di Azure][]. Per capire meglio come Azure abiliti questa infrastruttura IoT, è utile considerare una tipica architettura di soluzione IoT.
+Benvenuti in Microsoft Azure e Internet delle cose (IoT) Questo articolo illustra un'architettura della soluzione IoT tipica che descrive le caratteristiche comuni di una soluzione IoT che può essere distribuita tramite i servizi di Azure. Una soluzione IoT tipica richiede una comunicazione sicura, bidirezionale tra i dispositivi, possibilmente presenti a milioni, e una soluzione back-end che, ad esempio, utilizzi l'analisi predittiva e automatizzati per rivelare informazioni dal flusso di eventi dal dispositivo al cloud.
 
 ## Architettura della soluzione IoT
 
@@ -12,17 +10,32 @@ Il diagramma seguente mostra una tipica architettura di soluzione IoT. Si noti c
 
 ### Connettività dei dispositivi
 
-In un tipico scenario IoT, i dispositivi inviano la telemetria da dispositivo a cloud, ad esempio le letture della temperatura, a un endpoint cloud per l'archiviazione e l'elaborazione. I dispositivi possono anche ricevere e rispondere a comandi da cloud a dispositivo leggendo i messaggi da un endpoint cloud. Ad esempio, un dispositivo potrebbe recuperare un comando che gli indica di modificare la frequenza di campionamento dei dati.
+In un tipico scenario IoT, i dispositivi inviano la telemetria, ad esempio le letture della temperatura, a un endpoint cloud per l'archiviazione e l'elaborazione. I dispositivi possono anche ricevere e rispondere a comandi da cloud a dispositivo leggendo i messaggi da un endpoint cloud. Ad esempio, un dispositivo potrebbe recuperare un comando che gli indica di modificare la frequenza di campionamento dei dati.
 
-Un dispositivo o un'origine dati in una soluzione IoT può essere un semplice sensore connesso alla rete o addirittura un potente dispositivo di elaborazione autonomo. Un dispositivo può avere funzionalità di elaborazione, memoria, larghezza di banda delle comunicazioni e supporto del protocollo di comunicazione limitati.
+Una delle maggiori difficoltà con i progetti IoT è quella di connettere in modo affidabile e sicuro i dispositivi al back-end della soluzione. In genere, i dispositivi IoT presentano caratteristiche diverse da quelle di altri client, ad esempio browser e app per dispositivi mobili. Dispositivi IoT:
 
-Un dispositivo può comunicare direttamente con un endpoint di un gateway cloud con un protocollo di comunicazione, come AMQP o HTTP, oppure con un intermediario, come un gateway campo, che fornisce un servizio come la conversione del protocollo.
+- Sono spesso sistemi incorporati senza operatore umano.
+- Li si può trovare in località remote, dove l'accesso fisico è molto costoso.
+- Possono essere raggiungibili solo tramite il back-end della soluzione.
+- Possono avere risorse di alimentazione e di elaborazione limitate.
+- Possono disporre di una connettività di rete intermittente, lenta o costosa.
+- Potrebbe essere necessario usare protocolli di applicazioni proprietari, personalizzati o specifici del settore.
+- Possono essere create utilizzando un'ampia gamma di piattaforme hardware e software molto comuni.
+
+Oltre ai requisiti precedenti, le soluzioni IoT devono offrire scalabilità, sicurezza e affidabilità. L’implementazione del set di requisiti di connettività con tecnologie tradizionali come i contenitori Web e i broker di messaggistica è un'attività lunga e complessa.
+
+Un dispositivo può comunicare direttamente con un endpoint del gateway cloud, o se il dispositivo non può utilizzare uno dei protocolli di comunicazione supportato dal gateway del cloud, è possibile connettersi tramite un gateway intermedio che esegue la conversione del protocollo.
 
 ### Elaborazione e analisi dei dati
 
-Nel cloud un processore di eventi di flusso riceve i messaggi da dispositivo a cloud su larga scala dai dispositivi e determina come elaborare e archiviare tali messaggi. Una soluzione per i dispositivi connessi consente di inviare a dispositivi specifici i dati da cloud a dispositivo sotto forma di comandi. La registrazione dei dispositivi con la soluzione IoT consente di effettuare il provisioning dei dispositivi e di controllare quali dispositivi possono connettersi all'infrastruttura. Il back-end consente di tenere traccia dello stato dei dispositivi e di monitorarne le attività.
+Nel cloud, un back-end della soluzione IoT:
 
-Le soluzioni IoT possono includere cicli di feedback automatici. Un modulo di Machine Learning, ad esempio, può stabilire dai dati di telemetria da dispositivo a cloud che la temperatura di un dispositivo specifico ha superato i normali livelli operativi e può quindi inviare un comando al dispositivo consentendogli di eseguire un'azione di correzione
+- Riceve i dati di telemetria a livello di scalabilità dai dispositivi e determina come elaborare e archiviare quei dati. 
+- Potrebbe inoltre consentire di inviare comandi dal cloud al dispositivo specifico.
+- Fornisce le capacità di registrazione del dispositivo che consente di effettuare il provisioning dei dispositivi e di controllare quali dispositivi possono connettersi all'infrastruttura.
+- Consente di tenere traccia dello stato dei dispositivi e di monitorarne le attività.
+
+Le soluzioni IoT possono includere cicli di feedback automatici. Un modulo di Machine Learning nel back-end può, ad esempio, stabilire dai dati di telemetria che la temperatura di un dispositivo specifico ha superato i normali livelli operativi e può quindi inviare un comando al dispositivo consentendogli di eseguire un'azione di correzione
 
 ### Presentazione
 
@@ -31,6 +44,6 @@ Molte soluzioni IoT consentono agli utenti di visualizzare e analizzare i dati r
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
-[IoT Suite di Azure]: http://azure.microsoft.com/solutions/iot
+[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

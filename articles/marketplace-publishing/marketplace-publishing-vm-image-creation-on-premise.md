@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-  ms.service="marketplace-publishing"
+  ms.service="marketplace"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
@@ -138,4 +138,4 @@ Con lo [strumento da riga di comando di Linux](../virtual-machines/command-line-
 - [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

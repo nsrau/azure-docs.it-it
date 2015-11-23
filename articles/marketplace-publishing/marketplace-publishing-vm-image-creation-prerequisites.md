@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-  ms.service="marketplace-publishing"
+  ms.service="marketplace"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
@@ -51,4 +51,4 @@ Dopo avere esaminato i prerequisiti e completato le attività necessarie, ora è
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

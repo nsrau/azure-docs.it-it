@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="11/06/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Accesso per account Microsoft e utenti di Azure AD nella stessa app
@@ -57,4 +57,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/12/2015" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -47,9 +47,9 @@ Da questa tabella è possibile trarre le seguenti conclusioni.
 -	Con il clustering di Redis, la velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà 250 KB * 10 = 2,5 milioni di RPS.
 -	La velocità effettiva per dimensioni maggiori di chiave è superiore nel Premium rispetto al livello Standard.
 
-| Pricing tier | Dimensione | Larghezza di banda disponibile (Mbps) | Dimensioni della chiave 1 KB |
+| Pricing tier | Dimensione | Larghezza di banda disponibile | Dimensioni della chiave 1 KB |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Dimensioni della cache livello Standard** | &nbsp; | &nbsp; | **Richieste al secondo (RPS)** |
+| **Dimensioni della cache livello Standard** | &nbsp; | **(Mbps)** | **Richieste al secondo (RPS)** |
 | C0 | 250 MB | 5 | 600 |
 | C1 | 1 GB | 100 | 12200 |
 | C2 | 2,5 GB | 200 | 24000 |
@@ -167,7 +167,7 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 <a name="cache-commands"></a>
 ## Come si eseguono i comandi Redis?
 
-È possibile usare i comandi elencati nella pagina sui [comandi di Redis](http://redis.io/commands#) ad eccezione dei comandi elencati nella pagina sui [comandi di Redis non supportati nella Cache Redis di Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Per eseguire i comandi di Redis sono disponibili diverse opzioni.
+È possibile usare i comandi elencati nella pagina sui [comandi di Redis](http://redis.io/commands#), ad eccezione dei comandi elencati nella pagina sui [comandi di Redis non supportati nella Cache Redis di Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Per eseguire i comandi di Redis sono disponibili diverse opzioni.
 
 -	Se si ha una cache Standard o Premium, è possibile eseguire i comandi di Redis usando la [Console Redis](cache-configure.md#redis-console). Ciò consente di eseguire in modo sicuro i comandi di Redis nel portale di anteprima.
 -	È anche possibile usare gli strumenti da riga di comando di Redis. A questo scopo, eseguire la procedura seguente.
@@ -220,4 +220,4 @@ I clienti di Servizio cache gestita di Azure possono continuare a usare il servi
 ### In-Role Cache
 Se è stato scelto l'hosting indipendente con Cache nel ruolo, è possibile continuare a usare questa soluzione. Poiché Cache nel ruolo è un componente software self-hosted e non un servizio ospitato da Microsoft, non offre un contratto di servizio. Gli utenti di Cache nel ruolo possono scegliere di eseguire la migrazione a Cache Redis di Azure per sfruttare l'ampia gamma di funzionalità e ottenere un contratto di servizio.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

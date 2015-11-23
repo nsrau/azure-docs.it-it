@@ -13,18 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/30/2015"
+   ms.date="11/06/2015"
    ms.author="maroche"/>
 
 # Novità di Catalogo dati di Azure
 
 Gli aggiornamenti su **Catalogo dati di Azure** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includeranno nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio **Catalogo dati di Azure**.
 
+## Novità della versione della settimana del 6 novembre 2015
+
+Nella settimana del 6 novembre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
+
+- Supporto per l’anteprima per le origini dati Teradata. Durante la registrazione delle tabelle e viste Teradata, gli utenti possono scegliere di includere record snapshot con i metadati estratti dall'origine dati.
+- Supporto per "Apri in Excel" per le origini dati di SQL Data Warehouse di Azure.
+- Supporto per la definizione e la modifica di schemi a livello di colonna per gli asset di dati registrati manualmente. Dopo aver creato manualmente un asset di dati utilizzando il portale **Catalogo dati di Azure**, gli utenti possono aggiungere definizioni di colonna nelle proprietà dell'asset di dati.
+- Supporto per query “has” durante la ricerca **Catalogo dati di Azure**, per attivare l'individuazione degli asset di dati registrati che dispongono di metadati specifici. La sintassi delle query di**Catalogo dati di Azure** ora include:
+
+| Sintassi delle query | Scopo |
+|-------------------------|---------|
+| has:previews | Trova gli asset di dati che includono un'anteprima |
+| has:documentation | Trova gli asset di dati per i quali è stata fornita la documentazione |
+| has:tableDataProfiles | Trova gli asset di dati con informazioni sul profilo dei dati a livello di tabella |
+| has:columnsDataProfiles | Trova gli asset di dati con informazioni sul profilo dei dati a livello di colonna |
+
+
 ## Novità della versione della settimana del 30 ottobre 2015
 
 Nella settimana del 30 ottobre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
 
-- Supporto per la crittografia locale delle anteprime e dei profili dati per le origini dati registrate. Catalogo dati di Azure esegue in modo trasparente la crittografia dei record di anteprima e delle origini dei profili dati registrati con il servizio, senza che gli amministratori del catalogo debbano eseguire alcuna operazione di gestione.
+- Supporto per la crittografia locale delle anteprime e dei profili dati per le origini dati registrate. **Catalogo dati di Azure** esegue in modo trasparente la crittografia dei record di anteprima e delle origini dei profili dati registrati con il servizio, senza che gli amministratori del catalogo debbano eseguire alcuna operazione di gestione.
 
 ## Novità della versione della settimana del 23 ottobre 2015
 
@@ -70,16 +87,16 @@ Nella settimana del 25 settembre 2015 sono state aggiunte a **Catalogo dati di A
 Nella settimana del 18 settembre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
 
 - Una nuova funzionalità "introduttiva" per l'individuazione di origini dati nel portale di **Catalogo dati di Azure**. Quando gli utenti accedono alla pagina di "individuazione" del portale di **Catalogo dati di Azure** senza immettere un termine di ricerca, viene visualizzata una panoramica del contenuto del catalogo, inclusi i tag usati più di frequente, nonché gli esperti, i tipi di origini dati e i tipi di oggetti.
-- Supporto per la registrazione e l'individuazione degli oggetti e dei database di Azure SQL Data Warehouse. Per altre informazioni su Azure SQL Data Warehouse, vedere [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+- Supporto per la registrazione e l'individuazione degli oggetti e dei database di Azure SQL Data Warehouse. Per altre informazioni su SQL Data Warehouse di Azure, vedere [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
 - Supporto per la registrazione e l'individuazione di modelli di SQL Server Analysis Services e di server SQL Server Reporting Services come contenitori. Quando si registrano oggetti SSAS e SSRS, **Catalogo dati di Azure** crea una voce per il modello SSAS e il server SSRS, nonché per i report e altri oggetti. I contenitori possono essere individuati e annotati mediante il portale di **Catalogo dati di Azure**. Gli utenti possono inoltre eseguire ricerche e applicare filtri nel contenuto di un modello o di un server oltre a eseguire ricerche e applicare filtri nel contenuto del catalogo.
 
 > [AZURE.NOTE]Gli oggetti SSAS e SSRS che sono stati registrati prima della versione del 18 settembre devono essere registrati di nuovo usando lo strumento di registrazione dell'origine dati prima di aggiungere la voce del modello o del server nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale di **Catalogo dati di Azure**.
 
 ## Novità della versione della settimana dell'11 settembre 2015
 
-Nella settimana dell'11 settembre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
+Nella settimana del 11 settembre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
 
-- Supporto per la registrazione e l'individuazione degli oggetti di SQL Server Analysis Services tramite HTTP/HTTPS. Gli utenti possono ora connettersi ai server SSAS usando un URL (ad esempio https://servername/olap/msmdpump.dll) anziché un nome di server e possono usare l'autenticazione di base e le connessioni anonime oltre all'autenticazione di Windows. Per altre informazioni sulle connessioni HTTP/HTTPS a SSAS, vedere [Configurare l'accesso HTTP ad Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+- Supporto per la registrazione e l'individuazione degli oggetti di SQL Server Analysis Services tramite HTTP/HTTPS. Gli utenti possono ora connettersi ai server SSAS usando un URL (ad esempio https://servername/olap/msmdpump.dll) anziché un nome di server e possono usare l'autenticazione Basic e le connessioni anonime oltre all'autenticazione di Windows. Per altre informazioni sulle connessioni HTTP/HTTPS a SSAS, vedere [Configurare l'accesso HTTP ad Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
 - Supporto per le origini dati Hive in HDInsight. Gli utenti possono ora registrarsi e individuare le tabelle Hive per Apache Hive di Hadoop sulle origini dati HDInsight. Per altre informazioni su Hive in HDInsight, vedere il [centro di documentazione di HDInsight](../hdinsight-use-hive/).
 - Supporto per la registrazione e l'individuazione dei database Oracle e dei cluster HDFS come contenitori. Quando si registrano tabelle e viste Oracle o HDFS, **Catalogo dati di Azure** crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato mediante il portale di **Catalogo dati di Azure**. Gli utenti possono inoltre cercare e filtrare il contenuto di un database o cluster, oltre a cercare e filtrare il contenuto del catalogo.
 
@@ -112,4 +129,4 @@ Nella settimana del 21 agosto 2015 sono state aggiunte a **Catalogo dati di Azur
 - Solo per l'edizione Standard: quando si aggiungono proprietari ad asset di dati, **Catalogo dati di Azure** supporta ora come proprietari sia account utente sia gruppi di sicurezza. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -165,7 +165,7 @@ Se non si conosce il servizio cloud e il nome della macchina virtuale, eseguire 
 
 > [AZURE.NOTE]Le righe di comando che iniziano con $ configurano variabili di PowerShell che verranno usate successivamente nei comandi di PowerShell.
 
-Se la macchina virtuale è stata creata con il portale di gestione di Azure, eseguire anche il comando seguente:
+Se la macchina virtuale è stata creata con il portale di Azure, eseguire il seguente comando aggiuntivo:
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -266,4 +266,4 @@ Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 [Estensioni VM e funzionalità di Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connettersi a una macchina virtuale di Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

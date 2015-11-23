@@ -74,7 +74,7 @@ Si tratta della classe "di primo livello" nella gerarchia dei modelli. Ciò sign
 
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) - Questa classe rappresenta l'elemento PlayRight di una licenza PlayReady. Garantisce all'utente la possibilità di riprodurre il contenuto in base alle restrizioni (zero o maggiori) configurate nella licenza e nell'elemento PlayRight stesso (criterio specifico di riproduzione). Buona parte dei criteri di PlayRight riguardano restrizioni di output che controllano i tipi di output su cui il contenuto può essere riprodotto ed eventuali restrizioni che devono essere applicate quando si usa un determinato output. Se, ad esempio, DigitalVideoOnlyContentRestriction è abilitato, il runtime DRM consentirà la visualizzazione del video solo su output digitali (gli output video analogici non potranno passare il contenuto).
 
->[AZURE.IMPORTANT]Questi tipi di restrizione possono essere molto potenti ma sono anche in grado di influire sull'esperienza dei consumatori. Se le protezioni dell'output sono configurate in modo eccessivamente restrittivo, il contenuto potrebbe risultare non riproducibile in alcuni client. Per altre informazioni, vedere il documento relativo alle regole di conformità di PlayReady.
+>[AZURE.IMPORTANT]Questi tipi di restrizione possono essere molto potenti ma sono anche in grado di influire sull'esperienza dei consumatori. Se le protezioni dell'output sono configurate in modo eccessivamente restrittivo, il contenuto potrebbe risultare non riproducibile in alcuni client. Per altre informazioni, vedere il documento relativo alle [regole di conformità di PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
 Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supporto Silverlight per la protezione dell'output](http://go.microsoft.com/fwlink/?LinkId=617318).
 
@@ -302,11 +302,13 @@ Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supp
 	</xs:schema>
 
 
+
 ##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

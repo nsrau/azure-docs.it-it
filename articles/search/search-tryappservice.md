@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Prova Servizio app di Azure con Ricerca di Azure | Microsoft Azure" 
+   pageTitle="Provare Servizio app di Azure con Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
    description="Prova la Ricerca di Azure, un servizio di ricerca ospitato sul cloud, gratuitamente per un'ora intera utilizzando il modello TryAzureAppService." 
    services="search" 
    documentationCenter="" 
@@ -529,4 +529,4 @@ Nella istantanea video che seguente viene illustrato lo schema utilizzato per cr
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

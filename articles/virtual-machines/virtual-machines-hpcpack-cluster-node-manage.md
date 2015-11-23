@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -178,4 +178,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * Se si desidera avere a disposizione un modo per aumentare o ridurre automaticamente le risorse di elaborazione di Azure in base al carico di lavoro corrente dei processi e delle attività del cluster, vedere [Aumentare e ridurre le risorse di calcolo di Azure in un cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

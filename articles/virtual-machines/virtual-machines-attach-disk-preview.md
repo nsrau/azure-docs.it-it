@@ -31,11 +31,11 @@ In questo articolo viene illustrato come collegare dischi sia nuovi che esistent
 
 ## Trovare la macchina virtuale
 
-1. Accedere al [portale di anteprima](https://portal.azure.com).
+1. Accedere al portale di anteprima di Azure.
 
 2. Nel menu Hub fare clic su **Sfoglia**.
 
-3. Nel pannello di ricerca, scorrere verso il basso e fare clic su **Macchine virtuali**.
+3. Nel pannello di ricerca scorrere verso il basso e fare clic su **Macchine virtuali**.
 
 	![Cercare macchine virtuali](./media/virtual-machines-attach-disk-preview/search-blade-preview-portal.png)
 
@@ -49,31 +49,31 @@ Continuare seguendo le istruzioni riportate per collegare un nuovo disco o un di
 
 ## Opzione 1: Collega un nuovo disco
 
-1.	Nel pannello **Dischi**, fare clic su **Nuovo collegamento**.
+1.	Nel pannello **Dischi** fare clic su **Collega nuovo**.
 
-2.	Esaminare le impostazioni predefinite, aggiornare se necessario, e poi fare clic su **OK**.
+2.	Esaminare le impostazioni predefinite, aggiornare se necessario e quindi fare clic su **OK**.
 
  	![Esaminare le impostazioni del disco](./media/virtual-machines-attach-disk-preview/attach-new.png)
 
-3.	Dopo che Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
+3.	Dopo che Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dati**.
 
 ## Opzione 2: Collegare un disco esistente
 
-1.	Nel pannello **Dischi**, fare clic su **Collega esistente**.
+1.	Nel pannello **Dischi** fare clic su **Collega esistente**.
 
-2.	In **Collegare un disco esistente**, fare clic su **File VHD**.
+2.	In **Collega un disco esistente** fare clic su **File VHD**.
 
 	![Collegare un disco esistente](./media/virtual-machines-attach-disk-preview/attach-existing.png)
 
-3.	In **Account di archiviazione**, selezionare l'account e un contenitore che contiene il file con estensione vhd.
+3.	In **Account di archiviazione** selezionare l'account e un contenitore che contiene il file con estensione vhd.
 
 	![Individuare il percorso di un VHD](./media/virtual-machines-attach-disk-preview/find-storage-container.png)
 
 4.	Selezionare il file con estensione vhd.
 
-5.	In **Collegare un disco esistente**, il file appena selezionato è elencato in **File VHD**. Fare clic su **OK**.
+5.	In **Collega un disco esistente** il file appena selezionato è elencato in **File VHD**. Fare clic su **OK**.
 
-6.	Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
+6.	Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dati**.
 
 ## Passaggi successivi
 
@@ -90,4 +90,4 @@ Dopo aver aggiunto il disco, è necessario prepararlo per l'utilizzo nel sistema
 
 [Informazioni sugli account di archiviazione di Azure]: ../storage-whatis-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

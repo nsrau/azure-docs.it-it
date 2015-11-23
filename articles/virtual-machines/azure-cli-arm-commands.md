@@ -1251,7 +1251,24 @@ Crea una risorsa IP pubblico. La risorsa verrà creata e associata a un nome di 
 	info:    network public-ip create command OK
 
 
-Opzioni dei parametri: -h, --help output usage information -v, --verbose use verbose output --json use json output -g, --resource-group <resource-group> the name of the resource group -n, --name <name> the name of the public ip -l, --location <location> the location -d, --domain-name-label <domain-name-label> the domain name label. This set DNS to <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> the allocation method [Static][Dynamic] -i, --idletimeout <idletimeout> the idle timeout in minutes -f, --reverse-fqdn <reverse-fqdn> the reverse fqdn -t, --tags <tags> the list of tags. Can be multiple. In the format of "name=value". Name is required and value is optional. For example, -t tag1=value1;tag2 -s, --subscription <subscription> the subscription identifier <br>
+Opzioni dei parametri:
+	-h, --help                                   output usage information
+	-v, --verbose                                use verbose output
+	--json                                       use json output
+	-g, --resource-group <resource-group>        the name of the resource group
+	-n, --name <name>                            the name of the public ip
+	-l, --location <location>                    the location
+	-d, --domain-name-label <domain-name-label>  the domain name label.
+	This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
+	-i, --idletimeout <idletimeout>              the idle timeout in minutes
+	-f, --reverse-fqdn <reverse-fqdn>            the reverse fqdn
+	-t, --tags <tags>                            the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	-s, --subscription <subscription>            the subscription identifier
+<br>
 
 	network public-ip set [options] <resource-group> <name>
 Aggiorna le proprietà di una risorsa IP pubblico esistente. Nell'esempio seguente l'impostazione dell'indirizzo IP pubblico è stata modificata da Dynamic a Static.
@@ -1742,4 +1759,4 @@ Opzioni dei parametri:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

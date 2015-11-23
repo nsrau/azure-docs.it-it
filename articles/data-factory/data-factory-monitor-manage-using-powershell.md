@@ -414,8 +414,6 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
 
 Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
 
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md) richiede solo alcuni minuti.
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -437,4 +435,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L’i
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

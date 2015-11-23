@@ -1,6 +1,6 @@
 <properties
-	 pageTitle="Usare il portale di Azure per gestire gli hub IoT | Microsoft Azure"
-	 description="Panoramica delle operazioni di creazione e gestione di hub IoT di Azure tramite il portale di Azure."
+	 pageTitle="Usare il portale di anteprima di Azure per gestire gli hub IoT | Microsoft Azure"
+	 description="Panoramica delle operazioni di creazione e gestione di hub IoT di Azure tramite il portale di anteprima di Azure."
 	 services="iot-hub"
 	 documentationCenter=""
 	 authors="nasing"
@@ -16,11 +16,11 @@
 	 ms.date="10/19/2015"
 	 ms.author="nasing"/>
 
-# Gestire hub IoT tramite il portale di Azure
+# Gestire hub IoT tramite il portale di anteprima di Azure
 
 ## Introduzione
 
-Questo articolo fornisce un'introduzione all'uso dell'hub IoT di Azure tramite il portale di Azure, come trovare hub IoT e come crearli e gestirli.
+Questo articolo fornisce un'introduzione all'uso dell'hub IoT di Azure tramite il portale di anteprima di Azure, come trovare hub IoT e come crearli e gestirli.
 
 ## Dove trovare hub IoT
 
@@ -140,7 +140,7 @@ Il passaggio da un piano elevato (S2) a un piano ridotto (S1) è consentito solo
 Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
 - [Introduzione all'hub IoT (esercitazione)][lnk-get-started]
-- [Che cos'è l'hub IoT Azure?][]
+- [Che cos'è l’hub IoT Azure?][]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -151,6 +151,6 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Che cos'è l'hub IoT Azure?]: iot-hub-what-is-iot-hub.md
+[Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

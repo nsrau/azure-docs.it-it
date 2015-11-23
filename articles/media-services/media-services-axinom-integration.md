@@ -196,15 +196,17 @@ Seme chiave|Deve essere utilizzato per generare la chiave simmetrica con qualsia
 L'URL di acquisizione della licenza Widevine.|È necessario utilizzare la configurazione dei criteri di recapito asset per il flusso DASH (vedere [questa](media-services-axinom-integration.md#content-protection) sezione).
 ID della chiave del contenuto|Deve essere incluso come parte del valore del reclamo del messaggio di attestazione del diritto di token JWT (vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione). 
 
+
 ##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ###Ringraziamenti 
 
 Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Kristjan Jõgi di Axinom, Mingfei Yan, e Amit Rajput.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

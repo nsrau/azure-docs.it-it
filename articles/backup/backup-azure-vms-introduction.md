@@ -74,7 +74,8 @@ Per ogni disco di cui si esegue il backup, il servizio Backup di Azure legge i b
 Nonostante maggior parte del tempo venga impiegata per la lettura e la copia dei dati, altre operazioni che influiscono sul tempo totale necessario per il backup di una macchina virtuale:
 
 - Tempo necessario per l'[installazione o l'aggiornamento dell'estensione per il backup](backup-azure-vms.md#offline-vms)
-- Tempo di attesa nella coda: poiché il servizio di backup elabora i backup di più clienti, l'operazione di backup potrebbe non essere avviata immediatamente. Nei periodi di massimo carico, sia possono estendere al massimo di 8 ore i tempi di attesa a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
+- Tempo dello snapshot: tempo impiegato per attivare uno snapshot. Gli snapshot vengono attivati vicino al momento del backup pianificato.
+- Tempo di attesa nella coda: poiché il servizio di backup elabora i backup di più clienti, la copia dei dati di backup dallo snapshot nell'insieme di credenziali di Backup di Azure potrebbe non essere avviata immediatamente. Nei periodi di massimo carico, sia possono estendere al massimo di 8 ore i tempi di attesa a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
 
 ## Modalità di calcolo delle istanze protette
 Le macchine virtuali di Azure di cui viene eseguito il backup mediante Backup di Azure sono soggette a fatturazione sulla base dei [prezzi di tale servizio](http://azure.microsoft.com/pricing/details/backup/). Il calcolo delle istanze protette si basa sulle dimensioni *effettive* della macchina virtuale, ovvero sul totale di tutti i dati presenti in quest'ultima con esclusione del “disco risorse”. La fatturazione *non* sarà basata sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale, ma sui dati effettivi archiviati nel disco dati. Analogamente, la fattura relativa all'archiviazione dei backup è basata sulla quantità di dati archiviata con Backup di Azure, ovvero sul totale dei dati effettivi presenti in ogni punto di ripristino.
@@ -102,4 +103,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

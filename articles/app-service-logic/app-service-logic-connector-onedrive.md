@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Uso del connettore OneDrive nelle app per la logica | Microsoft Azure App Service"
 	description="Come creare e configurare l'app per le API o il connettore OneDrive e usarlo in un'app per la logica in Azure App Service"
-	authors="anuragdalmia"
+	authors="rajeshramabathiran"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Uso del connettore OneDrive e aggiunta all'app per la logica
 Connettersi a OneDrive per caricare, scaricare ed eliminare i file. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. È possibile aggiungere il connettore OneDrive al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
@@ -97,4 +97,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [definizione dell'API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

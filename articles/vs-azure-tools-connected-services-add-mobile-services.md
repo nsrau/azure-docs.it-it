@@ -3,7 +3,7 @@
    description="Aggiungere servizi mobili tramite la finestra di dialogo Aggiungi servizi connessi di Visual Studio "
    services="visual-studio-online"
    documentationCenter="na"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
    ms.date="08/12/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 # Aggiunta di servizi mobili tramite Servizi connessi di Visual Studio
 
@@ -89,4 +89,4 @@ Domande e assistenza:
 
  - [Documentazione dei servizi mobili di Azure sul sito azure.microsoft.com](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

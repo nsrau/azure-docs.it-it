@@ -18,14 +18,14 @@
 	ms.author="dkshir"/>
 
 
-# Come acquisire una macchina virtuale Linux da usare come modello
+# Come acquisire una macchina virtuale Linux classica come immagine
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image-resource-manager.md).
 
 
-Questo articolo illustra come acquisire una macchina virtuale di Azure che esegue Linux in modo da usarla come modello per creare altre macchine virtuali. Questo modello include il disco del sistema operativo e i dischi dati collegati alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si creano le altre macchine virtuali che usano il modello.
+Questo articolo illustra come acquisire una macchina virtuale Azure classica che esegue Linux come immagine per creare altre macchine virtuali. Questa immagine include il disco del sistema operativo e i dischi dati collegati alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si creano le altre macchine virtuali dall'immagine.
 
-Azure gestisce questo modello come immagine e lo archivia in **Immagini**. che è anche la posizione in cui vengono archiviate le immagini caricate. Per altre informazioni sulle immagini, vedere [Informazioni sulle immagini di macchine virtuali in Azure][].
+Azure archivia l'immagine in**Immagini**, che è anche la posizione in cui vengono archiviate le immagini caricate. Per altre informazioni sulle immagini, vedere [Informazioni sulle immagini di macchine virtuali in Azure][].
 
 ## Prima di iniziare
 
@@ -51,7 +51,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 	- Ripristina il nome host su localhost.localdomain
 	- Elimina anche l'ultimo account utente (ottenuto da /var/lib/waagent) di cui è stato effettuato il provisioning **e i dati associati**.
 
-	>[AZURE.NOTE]Il deprovisioning elimina file e dati nel tentativo di "generalizzare" l'immagine. Eseguire questo comando solo in macchine virtuali che si vogliono acquisire come nuovo modello di immagine. Ciò non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili o che l'immagine sia adatta per la ridistribuzione a terze parti.
+	>[AZURE.NOTE]Il deprovisioning elimina file e dati nel tentativo di "generalizzare" l'immagine. Eseguire questo comando solo in una macchina virtuale che si vuole acquisire come nuovo modello di immagine. Ciò non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili o che l'immagine sia adatta per la ridistribuzione a terze parti.
 
 
 3. Digitare **y** per continuare. È possibile aggiungere il parametro `-force` per evitare questo passaggio di conferma.
@@ -89,7 +89,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 
 ## Passaggi successivi
-L'immagine è pronta per essere usata come modello per la creazione di macchine virtuali. È possibile utilizzare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine appena creata. Per informazioni dettagliate sul comando, vedere [Utilizzo dell'interfaccia della riga di comando con l’API di gestione del servizio](virtual-machines-command-line-tools.md). In alternativa, è possibile utilizzare il [portale di gestione][] per creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionando l'immagine appena creata. Per altri dettagli, vedere [Come creare una macchina virtuale personalizzata][].
+L'immagine è pronta per essere utilizzata per creare macchine virtuali. È possibile utilizzare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine appena creata. Per informazioni dettagliate sul comando, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](virtual-machines-command-line-tools.md). In alternativa, usare il [portale di gestione][] per creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionando l'immagine appena creata. Per altri dettagli, vedere [Come creare una macchina virtuale personalizzata][].
 
 **Vedere anche:** [Guida dell'utente dell'agente Linux di Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -100,4 +100,4 @@ L'immagine è pronta per essere usata come modello per la creazione di macchine 
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Come creare una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

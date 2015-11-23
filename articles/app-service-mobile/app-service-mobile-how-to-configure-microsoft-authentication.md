@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/30/2015"
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione per usare l'account di accesso Microsoft
@@ -71,4 +71,4 @@ Questo argomento descrive come configurare le app per dispositivi mobili di Azur
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portale di gestione di Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

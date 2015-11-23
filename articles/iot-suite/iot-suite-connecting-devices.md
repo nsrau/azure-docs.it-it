@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="11/10/2015"
    ms.author="hegate"/>
 
 
@@ -37,13 +37,22 @@ Note: if you have already provisioned a device on your solution, you can skip th
 ```
 Per connettere il dispositivo alla soluzione preconfigurata, è necessario ottenere dal dashboard le credenziali del dispositivo che verranno usate nell'applicazione client per identificare il dispositivo. Attenersi alla procedura descritta di seguito
 
-1.  Nell'angolo inferiore sinistro del dashboard fare clic su "Aggiungi un dispositivo". ![][1]
+1.  Nell'angolo inferiore sinistro del dashboard fare clic su "Aggiungi un dispositivo".
+
+    ![][1]
+
 2.  In Dispositivo personalizzato fare clic sul pulsante "Aggiungi nuovo".
 
     ![][2]
-3.  Scegliere l'ID dispositivo immettendo un nome, ad esempio realdevice1, e fare clic su Controlla ID per assicurarsi che il nome non sia ancora stato usato. ![][3]
 
-5. Copiare le credenziali fornite (ID dispositivo, nome host dell'hub IoT e chiave dispositivo). Saranno necessarie in seguito nell'applicazione client per connettere il dispositivo alla soluzione. ![][4]
+3.  Scegliere l'ID dispositivo immettendo un nome, ad esempio realdevice1, e fare clic su Controlla ID per assicurarsi che il nome non sia ancora stato usato.
+
+    ![][3]
+
+5. Copiare le credenziali fornite (ID dispositivo, nome host dell'hub IoT e chiave dispositivo). Saranno necessarie in seguito nell'applicazione client per connettere il dispositivo alla soluzione.
+
+    ![][4]
+
 6. Assicurarsi che il dispositivo venga visualizzato correttamente nella sezione dei dispositivi. Lo stato sarà "In sospeso". Questo è lo stato previsto finché non viene stabilita la connessione del dispositivo al cloud.
 
     ![][5]
@@ -65,12 +74,15 @@ Scegliere ora il linguaggio da usare per proseguire con l'esempio. In questa ese
 
 1. Aprire il file **c/serializer/samples/serializer/remote\_monitoring.c** in un editor di testo.
 
-2. Trovare il codice seguente nel file: ```
+2. Trovare il codice seguente nel file:
+
+    ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
+    
 3. Sostituire "[Device Id]" e "[Device Key]" con i dati del dispositivo.
 
 4. Immettere i dati del dispositivo del nome host dell'hub IoT come nome dell'hub IoT e suffisso dell'hub IoT. A questo scopo, è necessario dividere in IoTHub + IoTHubSuffix. Ad esempio: se il nome host dell'hub IoT è "Contoso.azure-devices.net", "Contoso" sarà il nome dell'hub IoT e la parte rimanente sarà il suffisso. L'aspetto dovrebbe risultare simile al seguente:
@@ -86,13 +98,15 @@ Scegliere ora il linguaggio da usare per proseguire con l'esempio. In questa ese
 
 6. Eseguire l'applicazione di esempio **c/serializer/samples/remote\_monitoring/linux/remote\_monitoring**.
 
-Visualizzare il dispositivo registrato e i dati
+#### Visualizzare il dispositivo registrato e i dati
 
-7. Tornare al dashboard della soluzione di monitoraggio remoto. Nell'elenco di dispositivi lo stato del dispositivo dovrebbe essere ora impostato su In esecuzione. ![][18]
+7. Tornare al dashboard della soluzione di monitoraggio remoto. Nell'elenco di dispositivi lo stato del dispositivo dovrebbe essere ora impostato su In esecuzione.
+
+    ![][18]
 
 8. Fare clic sul dashboard per visualizzare i dati. L'esempio è configurato per inviare 50 unità per la temperatura interna, 55 unità per la temperatura esterna e 50 per l'umidità. Si noti che, per impostazione predefinita, il dashboard mostra solo la temperatura e l'umidità.
 
-8. Passare ora alla [sezione](#command) Comandare e controllare per informazioni su come modificare la temperatura sul dispositivo dalla soluzione di monitoraggio remoto.
+8. Passare ora alla sezione [Comandare e controllare](#command) per informazioni su come modificare la temperatura sul dispositivo dalla soluzione di monitoraggio remoto.
 
 
 ### Esecuzione del dispositivo su Windows
@@ -104,12 +118,15 @@ Visualizzare il dispositivo registrato e i dati
 
 2. In Visual Studio, in **Esplora soluzioni** passare alla cartella degli esempi. Nel progetto **remote\_monitoring** aprire il file **remote\_monitoring.c**.
 
-2. Trovare il codice seguente nel file: ```
+2. Trovare il codice seguente nel file:
+
+    ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
+
 3. Sostituire "[Device Id]", "[Device Key]" con i dati del dispositivo.
 
 4. Immettere i dati del dispositivo del nome host dell'hub IoT come nome dell'hub IoT e suffisso dell'hub IoT. A questo scopo, è necessario dividerlo nel modo seguente:
@@ -125,27 +142,26 @@ Visualizzare il dispositivo registrato e i dati
 
 6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **remote\_monitoring**, scegliere **Debug** e quindi fare clic su **Avvia nuova istanza** per compilare ed eseguire l'esempio. La console visualizza i messaggi quando l'applicazione invia all'hub IoT i messaggi dal dispositivo al cloud.
 
-Visualizzare il dispositivo registrato e i dati
+#### Visualizzare il dispositivo registrato e i dati
 
-7. Tornare al dashboard della soluzione di monitoraggio remoto. Nell'elenco di dispositivi lo stato del dispositivo dovrebbe essere ora impostato su In esecuzione. ![][18]
+7. Tornare al dashboard della soluzione di monitoraggio remoto. Nell'elenco di dispositivi lo stato del dispositivo dovrebbe essere ora impostato su In esecuzione.
+
+    ![][18]
 
 8. Fare clic sul dashboard per visualizzare i dati. L'esempio è configurato per inviare 50 unità per la temperatura interna, 55 unità per la temperatura esterna e 50 per l'umidità. Si noti che, per impostazione predefinita, il dashboard mostra solo la temperatura e l'umidità.
 
-8. Passare ora alla [sezione](#command) Comandare e controllare per informazioni su come modificare la temperatura sul dispositivo dalla soluzione di monitoraggio remoto.
-
-
-8. Passare ora alla sezione Comandare e controllare per informazioni su come modificare la temperatura sul dispositivo dalla soluzione di monitoraggio remoto.
+8. Passare ora alla sezione [Comandare e controllare](#command) per informazioni su come modificare la temperatura sul dispositivo dalla soluzione di monitoraggio remoto.
 
 ### Esecuzione del dispositivo su mbed
 
-Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [Freescale FRDM-K64F abilitato per mbed](https://developer.mbed.org/platforms/FRDM-K64F/) all'hub IoT di Azure.
+Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [Freescale FRDM-K64F abilitato per mbed](https://developer.mbed.org/platforms/FRDM-K64F/) all'Hub IoT di Azure.
 
 
-Requisiti
+#### Requisiti
 
 - Requisiti hardware: [Freescale K64F abilitato per mbed](https://developer.mbed.org/platforms/FRDM-K64F/) o simile.
 
-Connettere il dispositivo
+#### Connettere il dispositivo
 
 - Connettere la scheda alla rete con un cavo Ethernet. Questo passaggio è obbligatorio, perché l'esempio dipende dall'accesso a Internet.
 
@@ -153,30 +169,33 @@ Connettere il dispositivo
 
 - Seguire le [istruzioni del manuale di mbed](https://developer.mbed.org/handbook/SerialPC) per configurare la connessione seriale al dispositivo dal computer di sviluppo. Se si usa Windows, installare i driver della porta seriale Windows disponibili [qui](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
 
-Creare il progetto mbed e importare il codice di esempio
+#### Creare il progetto mbed e importare il codice di esempio
 
 - Nel Web browser passare al [sito per sviluppatori](https://developer.mbed.org/) mbed.org. Se non si è iscritti, verrà visualizzata un'opzione per creare un nuovo account (gratuito). In caso contrario, accedere con le credenziali dell'account. Fare quindi clic su **Compiler** nell'angolo superiore destro della pagina. Si dovrebbe passare all'interfaccia di Workspace Management.
 
 - Verificare che la piattaforma hardware usata venga visualizzata nell'angolo superiore destro della finestra oppure fare clic sull'icona nell'angolo destro per selezionare la piattaforma hardware.
 
-- Fare clic su **Import** nel menu principale. Fare quindi clic sul collegamento **Click here** per importare da URL accanto al logo con il mondo di mbed.
+- Fare clic su **Import** nel menu principale. Fare quindi clic sul collegamento **Fare clic qui** per importare dal collegamento URL accanto al logo con il mondo di mbed.
 
-	![][6]
+    ![][6]
 
 - Nella finestra popup immettere il collegamento per il codice di esempio https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/
 
-	![][7]
+    ![][7]
 
 - È possibile osservare che il compilatore mbed, importando questo progetto, ha importato diverse librerie. Alcune sono fornite e gestite dal team IoT di Azure ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [iothub\_http\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_http_transport/), [proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)), altre invece sono librerie di terze parti disponibili nel catalogo delle librerie di mbed.
 
-	![][8]
+    ![][8]
 
-- Aprire remote\_monitoring\\remote\_monitoring.c e trovare il codice seguente nel file: ```
+- Aprire remote\_monitoring\\remote\_monitoring.c e trovare il codice seguente nel file:
+
+    ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
+
 3. Sostituire [Device Id] e [Device Key] con i dati del dispositivo.
 
 4. Immettere i dati del dispositivo del nome host dell'hub IoT come nome dell'hub IoT e suffisso dell'hub IoT. A questo scopo, è necessario dividerlo nel modo seguente:
@@ -189,28 +208,31 @@ Creare il progetto mbed e importare il codice di esempio
     static const char* hubName = "Contoso";
     static const char* hubSuffix = "azure-devices.net";
     ```
+
     ![][9]
 
-Compilare ed eseguire il programma
+#### Compilare ed eseguire il programma
 
-- Fare clic su **Compile** per compilare il programma. È possibile ignorare eventuali avvisi, ma, se la compilazione genera errori, correggerli prima di continuare.
+- Fare clic su **Compilare** per compilare il programma. È possibile ignorare eventuali avvisi, ma, se la compilazione genera errori, correggerli prima di continuare.
 
 - Se la compilazione viene completata correttamente, viene generato un file bin con il nome del progetto. Copiare il file bin sul dispositivo. Salvando il file bin sul dispositivo, la sessione del terminale corrente con il dispositivo viene reimpostata. Quando si riconnette, reimpostare di nuovo il terminale manualmente o avviare un nuovo terminale. In questo modo il dispositivo mbed può essere reimpostato e può avviare l'esecuzione del programma.
 
 - Connettersi al dispositivo con un'applicazione client SSH, ad esempio PuTTY. È possibile determinare la porta seriale usata dal dispositivo controllando Gestione dispositivi di Windows:
 
 
-- In PuTTY fare clic sul tipo di connessione **Serial**. Il dispositivo molto probabilmente si connette a 115200, quindi immettere tale valore nella casella **Speed**. Fare quindi clic su **Open**:
+- In PuTTY fare clic sul tipo di connessione **Serial**. Il dispositivo molto probabilmente si connette a 115200, quindi immettere tale valore nella casella **Velocità**. Fare quindi clic su **Apri**:
 
-	![][11]
+    ![][11]
 
 Inizia l'esecuzione del programma. Potrebbe essere necessario reimpostare la scheda (premere CTRL+INTERR o premere il pulsante reset della scheda) se il programma non si avvia automaticamente quando ci si connette.
 
-Visualizzare il dispositivo registrato e i dati 7. Tornare al dashboard della soluzione di monitoraggio remoto. Nell'elenco di dispositivi lo stato del dispositivo dovrebbe essere ora impostato su In esecuzione. ![][18]
+#### Visualizzare il dispositivo registrato e i dati
+
+7. Tornare al dashboard della soluzione di monitoraggio remoto. Nell'elenco di dispositivi lo stato del dispositivo dovrebbe essere ora impostato su In esecuzione. ![][18]
 
 8. Fare clic sul dashboard per visualizzare i dati. L'esempio è configurato per inviare 50 unità per la temperatura interna, 55 unità per la temperatura esterna e 50 per l'umidità. Si noti che, per impostazione predefinita, il dashboard mostra solo la temperatura e l'umidità.
 
-8. Passare ora alla [sezione](#command) Comandare e controllare per informazioni su come modificare la temperatura sul dispositivo dalla soluzione di monitoraggio remoto.
+8. Passare ora alla sezione [Comandare e controllare](#command) per informazioni su come modificare la temperatura sul dispositivo dalla soluzione di monitoraggio remoto.
 
 
 
@@ -271,7 +293,7 @@ node .
     node simple_sample_remotemonitoring.js
     ```
 
-Visualizzare il dispositivo e i dati in ingresso
+#### Visualizzare il dispositivo e i dati in ingresso
 
 6. Nel portale della soluzione preconfigurata fare clic sulla sezione dei dispositivi per assicurarsi che lo stato del dispositivo sia stato impostato su "In esecuzione" e che sia possibile visualizzare tutti i dati del produttore.
 
@@ -284,14 +306,15 @@ Ora che il dispositivo è connesso e invia dati sulla temperatura generati autom
 
 -  Fare clic sull'ID dispositivo nell'elenco dei dispositivi. La sezione dei dispositivi si trova nel menu a sinistra.
 
-	![][13]
+    ![][13]
 
 - Nel menu a destra, dove vengono mostrati i dettagli dei dispositivi, fare clic su "Invia comando"
 
 
 - Selezionare il comando da eseguire: In questo caso scegliere "Set temperature", perché si vuole modificare la temperatura su cui è impostato il dispositivo. Selezionare il comando e scegliere il valore della temperatura. Fare clic su Invia comando per inviare la nuova temperatura al dispositivo. Nota: è possibile osservare che nella cronologia dei comandi il risultato del comando è "In sospeso". Infatti, per semplicità, questo esempio non ha implementato alcuna logica nel dispositivo per rispondere all'hub IoT. A tale scopo, è possibile estendere la soluzione.
 
-	![][14]
+    ![][14]
+
 - Tornare al dashboard e verificare che i dati aggiornati vengano visualizzati. Dovrebbero essere visualizzate le statistiche aggiornate sulla temperatura e i nuovi dati dovrebbero essere inclusi nella cronologia della telemetria.
 
 
@@ -309,4 +332,4 @@ Ora che il dispositivo è connesso e invia dati sulla temperatura generati autom
 
 Esistono diversi modi per estendere la funzionalità di questo esempio: connettere un vero sensore al dispositivo per inviare dati reali, implementare la funzionalità di comando e controllo e così via. Per altre informazioni in proposito, usare la [guida](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) su come estendere la soluzione di monitoraggio remoto.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

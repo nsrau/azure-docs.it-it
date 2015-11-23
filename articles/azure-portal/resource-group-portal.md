@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/11/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ In precedenza, per gestire una risorsa in Microsoft Azure, ad esempio un server 
 
 In genere, un gruppo di risorse contiene risorse correlate a una specifica applicazione. Può ad esempio contenere un'app Web che ospita il sito Web pubblico dell'organizzazione, un database SQL in cui sono archiviati i dati relazionali usati dal sito e un account di archiviazione per le risorse non relazionali. Ogni risorsa in un gruppo di risorse deve condividere lo stesso ciclo di vita. Per altre informazioni su Gestione risorse, vedere la [panoramica di Gestione risorse](../resource-group-overview.md).
 
-Questo argomento fornisce una panoramica su come usare i gruppi di risorse nel portale di anteprima di Azure.
+Questo argomento fornisce una panoramica su come usare i gruppi di risorse nel portale di anteprima di Azure. Non tutti i servizi attualmente supportano il portale di anteprima o Gestione risorse. Per questi servizi, sarà necessario usare il [portale](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere [Supporto di Gestione risorse per servizi, aree e versioni API](resource-manager-supported-services.md)
 
 ## Creare risorse e un gruppo di risorse
 
@@ -111,7 +111,7 @@ Se si seleziona l'opzione **Filtro**, è possibile filtrare gli elementi da visu
 
 ## Aggiunta di risorse ai gruppi
 
-È possibile aggiungere risorse a un gruppo usando il comando **Aggiungi** nel pannello corrispondente.
+È possibile aggiungere risorse a un gruppo usando il comando **Add** nel pannello corrispondente.
 
 ![aggiungere una risorsa](./media/resource-group-portal/add-resource.png)
 
@@ -125,7 +125,7 @@ Poiché i gruppi di risorse consentono di gestire il ciclo di vita di tutte le r
 
 ## Aggiunta di tag alle risorse
 
-È possibile applicare tag ai gruppi di risorse e alle risorse per organizzare logicamente gli asset. Per informazioni sull'utilizzo dei tag tramite il portale di anteprima, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
+È possibile applicare tag ai gruppi di risorse e alle risorse per organizzare logicamente gli asset. Per informazioni sull'uso dei tag tramite il portale di anteprima, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
 
 ## Distribuzione di un modello personalizzato
 
@@ -154,4 +154,4 @@ Introduzione
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

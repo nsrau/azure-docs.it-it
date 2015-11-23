@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/06/2015" 
 	ms.author="LuisCa"/>
 
 #Documentazione relativa all'API Recommendations di Azure Machine Learning
@@ -1270,14 +1270,39 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
   		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
   		<SessionId>11112222</SessionId>
   		<EventData>
-    	<EventData>
-      	<Name>RemoveShopCart</Name>
-      	<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-    	</EventData>
+		  	<EventData>
+      				<Name>RemoveShopCart</Name>
+      				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+    			</EventData>
   		</EventData>
 		</Event>
 
-- Esempio di evento "Purchase": <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
+- Esempio di evento "Purchase":
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+			<EventData>
+				<Name>Purchase</Name>
+				<PurchaseItems>
+					<PurchaseItem>
+						<ItemId>ABBF8081-C5C0-4F09-9701-E1C7AC78304A</ItemId>
+						<Count>1</Count>
+					</PurchaseItem>
+					<PurchaseItem>
+						<ItemId>21BF8088-B6C0-4509-870C-11C0AC7F304B</ItemId>
+						<Count>3</Count>
+					</PurchaseItem>
+				</PurchaseItems>
+			</EventData>
+		</EventData>
+		</Event>
+		
+		
+		
+
+
 
 - Esempio di invio di due eventi, "Click" e "AddShopCart":
 
@@ -2536,7 +2561,7 @@ Ottiene le raccomandazioni della compilazione attiva di tipo "Fbt" in base a un 
 Codice stato HTTP: 200
 
 
-La risposta include una voce per ogni set di elementi consigliati (un set di elementi che in genere vengono acquistati con l'elemento del valore di inizializzazione/input). Ogni voce dispone dei dati seguenti: - `Feed\entry\content\properties\Id1`: ID elemento consigliato. - `Feed\entry\content\properties\Name1`: nome dell'elemento. - `Feed\entry\content\properties\Id2`: ID 2° elemento consigliato (facoltativo). - `Feed\entry\content\properties\Name2`: nome del 2° elemento (facoltativo). - `Feed\entry\content\properties\Rating`: valutazione della raccomandazione; più elevato è il numero, maggiore è la confidenza. - `Feed\entry\content\properties\Reasoning`: motivo della raccomandazione (ad esempio, spiegazioni per la raccomandazione).
+La risposta include una voce per ogni set di elementi consigliati (un set di elementi che in genere vengono acquistati con l'elemento del valore di inizializzazione/input). Ogni voce dispone dei dati seguenti: - `Feed\entry\content\properties\Id1`: ID elemento consigliato. - `Feed\entry\content\properties\Name1`: nome dell'elemento. - `Feed\entry\content\properties\Id2`: ID 2° elemento consigliato (facoltativo). - `Feed\entry\content\properties\Name2`: nome del 2° elemento (facoltativo). - `Feed\entry\content\properties\Rating`: valutazione della raccomandazione; più elevato è il numero, maggiore è la confidenza. - `Feed\entry\content\properties\Reasoning`: motivo della raccomandazione (ad esempio spiegazioni per la raccomandazione).
 
 La risposta di esempio seguente include tre set di elementi consigliati.
 
@@ -2622,7 +2647,7 @@ Ottenere le raccomandazioni di una compilazione specifica di tipo "Fbt".
 Codice stato HTTP: 200
 
 
-La risposta include una voce per ogni set di elementi consigliati (un set di elementi che in genere vengono acquistati con l'elemento del valore di inizializzazione/input). Ogni voce dispone dei dati seguenti: - `Feed\entry\content\properties\Id1`: ID elemento consigliato. - `Feed\entry\content\properties\Name1`: nome dell'elemento. - `Feed\entry\content\properties\Id2`: ID 2° elemento consigliato (facoltativo). - `Feed\entry\content\properties\Name2`: nome del 2° elemento (facoltativo). - `Feed\entry\content\properties\Rating`: valutazione della raccomandazione; più elevato è il numero, maggiore è la confidenza. - `Feed\entry\content\properties\Reasoning`: motivo della raccomandazione (ad esempio, spiegazioni per la raccomandazione).
+La risposta include una voce per ogni set di elementi consigliati (un set di elementi che in genere vengono acquistati con l'elemento del valore di inizializzazione/input). Ogni voce dispone dei dati seguenti: - `Feed\entry\content\properties\Id1`: ID elemento consigliato. - `Feed\entry\content\properties\Name1`: nome dell'elemento. - `Feed\entry\content\properties\Id2`: ID 2° elemento consigliato (facoltativo). - `Feed\entry\content\properties\Name2`: nome del 2° elemento (facoltativo). - `Feed\entry\content\properties\Rating`: valutazione della raccomandazione; più elevato è il numero, maggiore è la confidenza. - `Feed\entry\content\properties\Reasoning`: motivo della raccomandazione (ad esempio spiegazioni per la raccomandazione).
 
 Vedere un esempio di risposta nella sezione 12.3.
 
@@ -2666,7 +2691,7 @@ Note: 1. Non esiste alcuna raccomandazione utente per la compilazione FBT. 2. Se
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemIds=%27<itemIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
@@ -2728,7 +2753,7 @@ Nota: non esiste alcuna raccomandazione utente per la compilazione FBT.
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27`|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27`|
 
 
 
@@ -2905,4 +2930,4 @@ Codice stato HTTP: 200
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br> Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br> Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br> © 2015 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

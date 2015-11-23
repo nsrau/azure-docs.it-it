@@ -20,7 +20,7 @@
 
 La **libreria client dei database elastici** aiuta a sviluppare facilmente applicazioni partizionate usando centinaia, o anche migliaia, di database SQL di Azure ospitati in Microsoft Azure. Tali progettazioni vengono comunemente usate per le applicazioni SaaS (Software as a Service), in genere architetture single-tenant, dove ogni tenant è dotato di un database. La compilazione e la gestione di un'applicazione è un obiettivo della libreria.
 
-Per installare la libreria, vedere [Database SQL di Microsoft Azure: scalabilità elastica](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). La libreria client fa parte degli strumenti di database elastici che sono specificatamente una [funzionalità di database elastici](sql-database-elastic-scale-introduction.md).
+La libreria client dei database elastici è ora disponibile come software open source in [GitHub](https://github.com/Azure/elastic-db-tools). Per installare la libreria, vedere [Database SQL di Microsoft Azure: scalabilità elastica](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). La libreria client fa parte degli strumenti dei database elastici che sono specificatamente una [funzionalità dei database elastici](sql-database-elastic-scale-introduction.md).
 
 ## Funzionalità client
 
@@ -30,9 +30,9 @@ Per le definizioni dei termini usati in questo argomento, vedere il [Glossario d
 
 ![Funzionalità di scalabilità elastica][1]
 
-1.  **Gestione mappe partizioni**: per gestire una raccolta di partizioni, viene creato un database speciale denominato "gestore mappa partizioni". la gestione delle mappe partizioni è la possibilità per un'applicazione di gestire diversi metadati relativi alle partizioni. Gli sviluppatori possono usare questa funzionalità per registrare i database come partizioni, descrivere i mapping di singole chiavi di partizionamento orizzontale o di intervalli di chiavi per i database, nonché gestire i metadati man mano che il numero e la composizione dei database si evolve, per rispecchiare le modifiche apportate alla capacità. Senza la libreria client dei database elastici, è necessario dedicare molto tempo alla scrittura di codice di gestione durante l'implementazione del partizionamento orizzontale. Per informazioni dettagliate, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
+1.  **Gestione mappe partizioni**: per gestire una raccolta di partizioni, viene creato un database speciale denominato "gestore mappe partizioni". la gestione delle mappe partizioni è la possibilità per un'applicazione di gestire diversi metadati relativi alle partizioni. Gli sviluppatori possono usare questa funzionalità per registrare i database come partizioni, descrivere i mapping di singole chiavi di partizionamento orizzontale o di intervalli di chiavi per i database, nonché gestire i metadati man mano che il numero e la composizione dei database si evolve, per rispecchiare le modifiche apportate alla capacità. Senza la libreria client dei database elastici, è necessario dedicare molto tempo alla scrittura di codice di gestione durante l'implementazione del partizionamento orizzontale. Per informazioni dettagliate, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
-* **Routing dipendente dai dati**: immaginare una richiesta in arrivo nell'applicazione. In base al valore della chiave di partizionamento orizzontale della richiesta, l'applicazione deve stabilire il database corretto che contiene i dati per la chiave e quindi aprire una connessione ad esso per elaborare la richiesta. Il routing dipendente dai dati consente di aprire connessioni con una singola e semplice chiamata alla mappa partizioni dell'applicazione. Il routing dipendente dai dati è un'altra area del codice dell'infrastruttura ora coperta dalle funzionalità della libreria client dei database elastici. Per informazioni dettagliate, vedere [Routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md).
+* **Routing dipendente dai dati**: si immagini una richiesta in arrivo nell'applicazione. In base al valore della chiave di partizionamento orizzontale della richiesta, l'applicazione deve stabilire il database corretto che contiene i dati per la chiave e quindi aprire una connessione ad esso per elaborare la richiesta. Il routing dipendente dai dati consente di aprire connessioni con una singola e semplice chiamata alla mappa partizioni dell'applicazione. Il routing dipendente dai dati è un'altra area del codice dell'infrastruttura ora coperta dalle funzionalità della libreria client dei database elastici. Per informazioni dettagliate, vedere [Routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md).
 
 * **Query su più partizioni**: l'esecuzione di query su più partizioni opera quando una richiesta include più partizioni o tutte le partizioni. Una query su più partizioni esegue lo stesso codice T-SQL in tutte le partizioni o in un set di partizioni. I risultati restituiti dalle partizioni coinvolte vengono uniti in un set di risultati complessivi mediante la semantica di UNION ALL. La funzionalità come viene esposta tramite la libreria client gestisce numerose attività, tra cui gestione delle connessioni, gestione dei thread, gestione degli errori ed elaborazione dei risultati intermedi e consente di eseguire query su centinaia di partizioni. Per informazioni dettagliate, vedere [Esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md).
 
@@ -40,7 +40,7 @@ In generale, i clienti che utilizzano gli strumenti dei database elastici quando
 
 ## Passaggi successivi
 
-Provare l’[app di esempio](sql-database-elastic-scale-get-started.md)che illustra le funzioni client.
+Provare l'[app di esempio](sql-database-elastic-scale-get-started.md)che illustra le funzioni client.
 
 Per installare la libreria, passare a [Libreria client di database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
@@ -55,4 +55,4 @@ Per istruzioni sull'uso dello strumento di suddivisione-unione, vedere [Panorami
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Monitorare l’utilizzo e le statistiche in un servizio Ricerca di Azure | Microsoft Azure" 
+   pageTitle="Monitorare l'utilizzo e le statistiche in un servizio Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
    description="Tenere traccia delle dimensioni di indice e consumo delle risorse per la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
    services="search" 
    documentationCenter="" 
@@ -57,4 +57,4 @@ Visitare [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) p
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

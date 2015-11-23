@@ -126,10 +126,6 @@ Se si usa un cluster su richiesta creato dal servizio Data factory, sarà necess
 
 Nell'esempio precedente otherLinkedServiceName1 e otherLinkedServiceName2 rappresentano servizi collegati le cui definizioni includono credenziali necessarie al cluster HDInsight per l'accesso ad account di archiviazione alternativi.
 
-## Attività di stored procedure - Domande frequenti
-### Quali origini dati sono supportate dall'attività di stored procedure?
-L'attività di stored procedure attualmente supporta solo il database SQL di Azure.
-
 ## Sezioni - Domande frequenti
 
 ### Come si riesegue una sezione?
@@ -181,4 +177,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

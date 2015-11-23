@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Passaggi per la configurazione di un circuito ExpressRoute | Microsoft Azure"
+   pageTitle="Passaggi per la configurazione di un circuito ExpressRoute mediante PowerShell | Microsoft Azure"
    description="Questo articolo illustra i passaggi per la creazione e il provisioning di un circuito ExpressRoute. Questo articolo descrive anche come controllare lo stato, eseguire l'aggiornamento o effettuare l'eliminazione e il deprovisioning di un circuito."
    documentationCenter="na"
    services="expressroute"
@@ -13,25 +13,26 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
+   ms.date="11/05/2015"
    ms.author="cherylmc"/>
 
-# Creare e modificare un circuito ExpressRoute
+# Creare e modificare un circuito ExpressRoute mediante PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-circuit-classic.md)
-[PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
 Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite i cmdlet di PowerShell e il modello di distribuzione classica. I passaggi che seguono descrivono anche come controllare lo stato, eseguire l'aggiornamento o effettuare l'eliminazione e il deprovisioning di un circuito ExpressRoute.
 
->[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione Azure](../azure-classic-rm.md).
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+
 
 ## Prerequisiti di configurazione
 
 - Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare il modulo PowerShell più recente dalla sezione relativa a PowerShell della [pagina Download di Azure](http://azure.microsoft.com/downloads). Seguire le istruzioni fornite nella pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per indicazioni dettagliate su come configurare il computer per l'uso dei moduli di Azure PowerShell. 
 - Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md) e ai [flussi di lavoro](expressroute-workflows.md).
 
-## Creare un circuito ExpressRoute ed eseguirne il provisioning
+## Per creare un circuito ExpressRoute ed eseguirne il provisioning
 
 1. **Importare il modulo PowerShell per ExpressRoute.**
 
@@ -161,7 +162,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 		
 		Status                           : Enabled
 
-	Il *ServiceProviderProvisioningState* fornisce informazioni sullo stato corrente di provisioning sul lato provider del servizio, mentre Status fornisce lo stato sul lato Microsoft. Un circuito ExpressRoute può essere usato solo se è associato allo stato seguente.
+	*ServiceProviderProvisioningState* offre informazioni sullo stato di provisioning corrente sul lato provider del servizio, mentre Status indica lo stato sul lato Microsoft. Un circuito ExpressRoute può essere usato solo se è associato allo stato seguente.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -196,9 +197,9 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 7. **Collegare una rete virtuale a un circuito ExpressRoute.**
 
-	Collegare ora una rete virtuale a un circuito ExpressRoute. Per istruzioni dettagliate, vedere la pagina relativa al [collegamento di circuiti ExpressRoute alle reti virtuali](expressroute-howto-linkvnet-classic.md). Se è necessario creare una rete virtuale per ExpressRoute, vedere la pagina relativa alla [creazione di una rete virtuale per ExpressRoute](expressroute-howto-createvnet-classic.md) per istruzioni.
+	Collegare ora una rete virtuale a un circuito ExpressRoute. Per istruzioni dettagliate, vedere la pagina relativa al [collegamento di circuiti ExpressRoute a reti virtuali](expressroute-howto-linkvnet-classic.md). Se è necessario creare una rete virtuale per ExpressRoute, vedere la pagina relativa alla [creazione di una rete virtuale per ExpressRoute](expressroute-howto-createvnet-classic.md) per istruzioni specifiche.
 
-##  Come ottenere lo stato di un circuito ExpressRoute
+##  Per ottenere lo stato di un circuito ExpressRoute
 
 Si possono recuperare queste informazioni in qualsiasi momento usando il cmdlet *Get-AzureCircuit*. Se si effettua la chiamata senza parametri, verranno elencati tutti i circuiti.
 
@@ -240,7 +241,7 @@ Si possono recuperare queste informazioni in qualsiasi momento usando il cmdlet 
 
 		get-help get-azurededicatedcircuit -detailed 
 
-##  Modifica di un circuito ExpressRoute
+##  Per modificare un circuito ExpressRoute
 
 È possibile modificare determinate proprietà di un circuito ExpressRoute senza conseguenze per la connettività.
 
@@ -249,7 +250,7 @@ A questo punto è possibile eseguire le attività seguenti:
 - Abilitare o disabilitare il componente aggiuntivo ExpressRoute Premium per un circuito ExpressRoute senza tempo di inattività.
 - Aumentare la larghezza di banda del circuito ExpressRoute senza alcun tempo di inattività.
 
-Per altre informazioni su limiti e limitazioni, fare riferimento alla pagina delle [Domande frequenti su ExpressRoute](expressroute-faqs.md).
+Per altre informazioni su limiti e limitazioni, vedere la pagina delle [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
 ### Come abilitare il componente aggiuntivo ExpressRoute Premium
 
@@ -311,7 +312,7 @@ Il circuito verrà ridimensionato sul lato di Microsoft. È necessario contattar
 
 >[AZURE.IMPORTANT]Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda comporterà il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
 
-##  Eliminazione e deprovisioning di un circuito ExpressRoute
+##  Per eliminare un circuito ExpressRoute ed eseguire il deprovisioning
 
 È possibile eliminare un circuito ExpressRoute eseguendo questo comando:
 
@@ -319,7 +320,7 @@ Il circuito verrà ridimensionato sul lato di Microsoft. È necessario contattar
 
 Si noti che è necessario scollegare tutte le reti virtuali da ExpressRoute perché l'operazione abbia esito positivo. Se l'operazione non riesce, controllare se sono presenti reti virtuali collegate al circuito.
 
-Se il provider di servizi del circuito ExpressRoute è con stato di provisioning enabled, lo stato verrà impostato su *disabling*. Collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning e inviato una notifica.
+Se lo stato di provisioning del provider di servizi del circuito ExpressRoute è impostato su enabled, lo stato verrà modificato in *disabling*. Collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning e inviato una notifica.
 
 Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su *not provisioned*) prima dell'esecuzione del cmdlet precedente, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
 
@@ -328,4 +329,4 @@ Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di p
 - [Configurare il routing](expressroute-howto-routing-classic.md)
 - [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

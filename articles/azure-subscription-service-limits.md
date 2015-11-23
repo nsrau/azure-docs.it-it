@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2015"
+	ms.date="11/10/2015"
 	ms.author="jroth"/>
 
 # Sottoscrizione di Azure e limiti dei servizi, quote e vincoli
@@ -264,4 +264,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

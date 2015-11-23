@@ -45,36 +45,26 @@ Creare prima gli oggetti richiesti da PolyBase per la connessione ai dati nell'a
 >
 > I tipi di conto di archiviazione con ridondanza area standard (Standard ZRS) e archiviazione con ridondanza locale premium (LRS Premium) non sono supportati da PolyBase. Se si sta creando un nuovo account di archiviazione di Azure, assicurarsi di selezionare un tipo di account di archiviazione supportato da PolyBase dal livello dei prezzi.
 
+## Passaggio 1: Archiviare le credenziali nel database
+Per accedere all'archiviazione BLOB di Azure, è necessario creare una credenziale con ambito di database che archivia informazioni di autenticazione per l'account di archiviazione Azure. Seguire questi passaggi per archiviare le credenziali con il database.
 
-## Creare la chiave master del database
-Connettersi al database utente nel server per creare una chiave master del database. Questa chiave viene usata per crittografare il segreto della credenziale nel passaggio successivo.
+1. Connettersi al database SQL Data Warehouse.
+2. Utilizzare [CREATE MASTER KEY (Transact-SQL)][] per creare una chiave master del database. Se il database ha già una chiave master che non è necessario crearne un’altra. Questa chiave viene usata per crittografare il segreto delle credenziali nel passaggio successivo.
 
-```
--- Creating master key
-CREATE MASTER KEY;
-```
+    ```
+    -- Create a E master key
+    CREATE MASTER KEY;
+    ```
 
-Argomento di riferimento: [CREATE MASTER KEY (Transact-SQL)][].
+1. Verificare se si dispone già di credenziali del database. A tale scopo, utilizzare la vista del sistema sys.database\_credentials, non sys.credentials che mostra solo le credenziali del server.
 
-## Creare una credenziale con ambito di database
-Per accedere all'archiviazione BLOB di Azure, è necessario creare una credenziale con ambito di database che archivia informazioni di autenticazione per l'account di archiviazione Azure. Connettersi al database del data warehouse e creare una credenziale con ambito di database per ogni account di archiviazione Azure a cui si vuole accedere. Specificare un nome di identità e la chiave dell'account di archiviazione Azure come segreto. Il nome dell'identità non influenza l'autenticazione per Archiviazione di Azure.
+    ``` -- Verificare le credenziali con ambito di database esistenti. SELECT * FROM sys.database\_credential;
 
-Per verificare l'esistenza di una credenziale con ambito database, utilizzare sys.database\_credentials, non sys.credentials che mostra solo le credenziali del server.
+3. Utilizzare [CREATE CREDENTIAL (Transact-SQL)][] per creare credenziali con ambito di database per ogni account di archiviazione di Azure a cui si desidera accedere. In questo esempio, IDENTITY è un nome descrittivo per le credenziali. Il nome dell'identità non influenza l'autenticazione per Archiviazione di Azure. SECRET è la chiave dell'account di archiviazione Azure.
 
-```
--- Check for existing database-scoped credentials.
-SELECT * FROM sys.database_credentials;
+    -- Crea credenziali con ambito di database CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
 
--- Create a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
-WITH IDENTITY = 'joe'
-,    Secret = '<azure_storage_account_key>'
-;
-```
-
-Argomento di riferimento: [CREATE CREDENTIAL (Transact-SQL)][].
-
-Per eliminare un database nell'ambito delle credenziali sufficiente utilizzare la sintassi seguente:
+1. Se è necessario eliminare le credenziali con ambito di database, utilizzare [DROP CREDENTIAL (Transact-SQL)][]\:
 
 ```
 -- Dropping credential
@@ -82,93 +72,90 @@ DROP DATABASE SCOPED CREDENTIAL ASBSecret
 ;
 ```
 
-Argomento di riferimento: [DROP CREDENTIAL (Transact-SQL)][].
+## Passaggio 2: Creare un'origine dati esterna
+L'origine dati esterna è un oggetto di database che archivia il percorso dei dati di archiviazione BLOB di Azure e le informazioni di accesso. Utilizzare [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][] per definire un'origine dati esterna per ogni BLOB di archiviazione di Azure a cui si desidera accedere.
 
-## Creare un'origine dati esterna
-L'origine dati esterna è un oggetto di database che archivia il percorso dei dati di archiviazione BLOB di Azure e le informazioni di accesso. È necessario definire un'origine dati esterna per ogni contenitore di archiviazione di Azure a cui si vuole accedere.
+    ```
+    -- Create an external data source for an Azure storage blob
+    CREATE EXTERNAL DATA SOURCE azure_storage 
+    WITH
+    (
+        TYPE = HADOOP,
+        LOCATION ='wasbs://mycontainer@test.blob.core.windows.net',
+        CREDENTIAL = ASBSecret
+    )
+    ;
+    ```
 
-```
--- Creating external data source (Azure Blob Storage) 
-CREATE EXTERNAL DATA SOURCE azure_storage 
-WITH
-(
-    TYPE = HADOOP
-,   LOCATION ='wasbs://mycontainer@test.blob.core.windows.net'
-,   CREDENTIAL = ASBSecret
-)
-;
-```
+Se è necessario eliminare la tabella esterna, utilizzare [DROP EXTERNAL DATA SOURCE][]:
 
-Argomento di riferimento: [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][].
+    ```
+    -- Drop an external data source
+    DROP EXTERNAL DATA SOURCE azure_storage
+    ;
+    ```
 
-Per eliminare i dati esterni origine la sintassi è:
+## Passaggio 3: Creare un formato di file esterno
+Il formato di file esterno è un oggetto di database che specifica il formato dei dati esterni. PolyBase supporta dati compressi e non compressi nei formati di file con testo delimitato, Hive RCFILE e HIVE ORC.
 
-```
--- Dropping external data source
-DROP EXTERNAL DATA SOURCE azure_storage
-;
-```
-
-Argomento di riferimento: [DROP EXTERNAL DATA SOURCE (Transact-SQL)][].
-
-## Creare un formato di file esterno
-Il formato di file esterno è un oggetto di database che specifica il formato dei dati esterni. In questo esempio i dati sono stati decompressi in un file di testo e i campi sono separati dal carattere barra verticale ('|').
+Utilizzare [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][] per creare il formato di file esterno. In questo esempio si specifica che i dati nel file sono rappresentati da un file di testo decompresso e i campi sono separati dal carattere barra verticale ('|').
 
 ```
--- Creating external file format (delimited text file)
+-- Create an external file format for a text-delimited file.
+-- Data is uncompressed and fields are separated with the
+-- pipe character.
 CREATE EXTERNAL FILE FORMAT text_file_format 
 WITH 
 (   
-    FORMAT_TYPE = DELIMITEDTEXT 
-,	FORMAT_OPTIONS  (
-                        FIELD_TERMINATOR ='|'
-                    ,   USE_TYPE_DEFAULT = TRUE
-                    )
+    FORMAT_TYPE = DELIMITEDTEXT, 
+    FORMAT_OPTIONS  
+    (
+        FIELD_TERMINATOR ='|',
+        USE_TYPE_DEFAULT = TRUE
+    )
 )
 ;
 ```
 
-PolyBase supporta dati compressi e non compressi nei formati di file con testo delimitato, Hive RCFILE e HIVE ORC.
-
-Argomento di riferimento: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
-
-Per eliminare un riferimento esterno il formato di file la sintassi è:
+Se si desidera eliminare un formato di file esterno, utilizzare [DROP EXTERNAL FILE FORMAT].
 
 ```
 -- Dropping external file format
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
-Argomento di riferimento: [DROP EXTERNAL FILE FORMAT (Transact-SQL)][].
 
 ## Creare una tabella esterna
 
-La definizione della tabella esterna è simile alla definizione di una tabella relazionale. La differenza principale è costituita dal percorso e dal formato dei dati. La definizione di tabella esterna viene archiviata nel database SQL Data Warehouse. I dati vengono archiviati nel percorso specificato dall'origine dati.
+La definizione della tabella esterna è simile alla definizione di una tabella relazionale. La differenza principale è costituita dal percorso e dal formato dei dati.
 
-L'opzione LOCATION specifica il percorso dei dati dalla radice dell'origine dati. In questo esempio i dati si trovano in 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'. Tutti i file per la stessa tabella devono trovarsi all'interno della stessa cartella logica nell'archiviazione BLOB di Azure.
+- La definizione di tabella esterna viene archiviata come metadati nel database SQL Data Warehouse. 
+- I dati vengono archiviati nel percorso esterno specificato dall'origine dati.
+
+Utilizzare [CREATE EXTERNAL TABLE (Transact-SQL)][] per definire la tabella esterna.
+
+L'opzione LOCATION specifica il percorso dei dati dalla radice dell'origine dati. In questo esempio i dati si trovano in 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'. Tutti i file per la stessa tabella devono trovarsi all'interno della stessa cartella logica nell'archiviazione BLOB di Azure.
 
 Facoltativamente, è possibile specificare le opzioni di rifiuto (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE) che determinano la modalità di gestione da parte di PolyBase dei record sporchi riceve dall'origine dati esterna.
 
 ```
--- Creating external table pointing to file stored in Azure Storage
+-- Creating an external table for data in Azure blob storage.
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
 (
-     [SensorKey]     int    NOT NULL 
-,    [CustomerKey]   int    NOT NULL 
-,    [GeographyKey]  int        NULL 
-,    [Speed]         float  NOT NULL 
-,    [YearMeasured]  int    NOT NULL
+     [SensorKey]     int    NOT NULL,
+     [CustomerKey]   int    NOT NULL,
+     [GeographyKey]  int        NULL,
+     [Speed]         float  NOT NULL,
+     [YearMeasured]  int    NOT NULL,
 )
 WITH 
 (
-    LOCATION    = '/Demo/'
-,   DATA_SOURCE = azure_storage
-,   FILE_FORMAT = text_file_format      
+    LOCATION    = '/Demo/',
+    DATA_SOURCE = azure_storage,
+    FILE_FORMAT = text_file_format      
 )
 ;
 ```
-
-Argomento di riferimento: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 Gli oggetti appena creati vengono archiviati nel database di SQL Data Warehouse. È possibile visualizzarli in Esplora oggetti di SQL Server Data Tools (SSDT).
 
@@ -370,4 +357,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189450.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

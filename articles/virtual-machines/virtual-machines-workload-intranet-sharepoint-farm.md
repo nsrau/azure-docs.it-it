@@ -86,6 +86,31 @@ Questa configurazione di base richiede il set seguente di componenti e servizi d
 - Un account di archiviazione
 - Una sottoscrizione di Azure
 
+Ecco le macchine virtuali e le relative dimensioni predefinite per questa configurazione.
+
+Elemento | Descrizione della macchina virtuale | Immagine della raccolta | Dimensione predefinita
+--- | --- | --- | ---
+1\. | Primo controller di dominio | Windows Server 2012 R2 Datacenter | A2 (Media)
+2\. | Secondo controller di dominio | Windows Server 2012 R2 Datacenter | A2 (Media)
+3\. | Primo server di database | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4\. | Secondo server di database | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+5\. | Nodo di maggioranza per il cluster | Windows Server 2012 R2 Datacenter | A1 (Piccola)
+6\. | Primo server applicazioni SharePoint | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
+7\. | Secondo server applicazioni SharePoint | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
+8\. | Primo server Web SharePoint | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
+9\. | Due server Web di SharePoint | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
+
+Per calcolare i costi stimati per questa configurazione, vedere il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/).
+
+1. In **Moduli** fare clic su **Calcolo**, quindi fare clic su **Macchine virtuali** fino a creare un elenco di nove macchine virtuali.
+2. Per ogni macchina virtuale selezionare:
+	- L'area desiderata
+	- **Windows** per il tipo
+	- **Standard** per il piano tariffario
+	- La dimensione predefinita nella tabella precedente o la dimensione desiderata per **Dimensioni istanze**
+
+> [AZURE.NOTE]Il calcolatore dei prezzi di Azure non include i costi aggiuntivi per la licenza di SQL Server per le due macchine virtuali che eseguono SQL Server 2014 Enterprise. Per altre informazioni, vedere [Prezzi di Macchine virtuali - SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+
 ### Fasi di distribuzione
 
 Per distribuire questa configurazione, usare il processo seguente:
@@ -128,4 +153,4 @@ Dopo aver eseguito la configurazione, è possibile espandere questa farm di Shar
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

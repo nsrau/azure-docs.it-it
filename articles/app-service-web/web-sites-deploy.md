@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Distribuire un'app Web nel servizio app di Azure"
-	description="Informazioni sui metodi disponibili per la distribuzione di contenuti nelle app Web."
+	pageTitle="Documentazione sulla distribuzione del servizio app di Azure"
+	description="Trovare la documentazione che illustra come distribuire l'app al Servizio app di Azure."
 	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
@@ -13,46 +13,46 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="11/06/2015"
 	ms.author="tdykstra"/>
 
-#Distribuire un'app Web nel servizio app di Azure
+# Documentazione sulla distribuzione del servizio app di Azure
 
 ## Panoramica
 
-Questo argomento fornisce una breve panoramica delle opzioni per la distribuzione di contenuti per [il servizio di app Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+In questo articolo sono elencati i metodi disponibili per la distribuzione di contenuti nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714), compresi i collegamenti ad articoli e blog che contengono informazioni sulle procedure. Poiché vengono pubblicati articoli aggiuntivi, questi ultimi verranno aggiunti all'elenco.
 
 Il miglior modo per distribuire un'app Web consiste nell'impostare un [flusso di lavoro di recapito continuo](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) integrato nel proprio [sistema di controllo del codice sorgente](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). L'automazione rende non solo più efficiente il processo di sviluppo, ma anche più gestibili e affidabili i processi di backup e ripristino.
 
-Per informazioni sulla distribuzione dai sistemi di controllo del codice sorgente ospitato nel cloud, vedere le sezioni seguenti più avanti in questo articolo.
+##### Distribuire da sistemi di controllo del codice sorgente ospitato nel cloud
 
-* [Visual Studio Online](#vso)
+* [Recapito continuo mediante Visual Studio Online](#vso)
 * [Siti Web di repository con Git](#git)
 * [Siti Web di repository con Mercurial](#mercurial)
-* [Dropbox](#dropbox)
+* [Automatizzare la distribuzione da Dropbox](#dropbox)
 
-Per informazioni sulla distribuzione dai sistemi di controllo del codice sorgente locale, vedere le sezioni seguenti più avanti in questo articolo.
+##### Distribuire da sistemi di controllo di origine locale
 
-* [Team Foundation Server (TFS)](#tfs)
+* [Recapito continuo con Team Foundation Server (TFS)](#tfs)
 * [Repository Git o Mercurial locali](#onpremises)
 
-È inoltre possibile automatizzare la distribuzione utilizzando gli strumenti da riga di comando. Per informazioni sulla distribuzione tramite strumenti della linea di comando, vedere le sezioni seguenti più avanti in questo articolo.
+##### Automatizzare la distribuzione mediante gli strumenti da riga di comando.
 
-* [MSBuild](#msbuild)
-* [Strumenti FTP e script](#ftp)
-* [Windows PowerShell](#powershell)
-* [API di gestione .NET](#api)
-* [Interfaccia della riga di comando di Azure](#cli)
-* [Riga di comando di Distribuzione Web](#webdeploy)
+* [Automatizzare la distribuzione con MSBuild](#msbuild)
+* [Copiare i file con strumenti e script FTP](#ftp)
+* [Automatizzare la distribuzione con Windows PowerShell(#powershell)
+* [Automatizzare la distribuzione con API di gestione .NET](#api)
+* [Distribuire dall'interfaccia della riga di comando di Azure](#cli)
+* [Distribuire dalla riga di comando di distribuzione Web](#webdeploy)
  
-In alcuni casi è preferibile distribuire dall'ambiente di sviluppo integrato (IDE). Per informazioni sulla distribuzione da un IDE, vedere le sezioni seguenti più avanti in questo articolo.
+##### Distribuire da un ambiente di sviluppo integrato (IDE)
 
-* [Visual Studio](#vs)
-* [WebMatrix](#webmatrix)
+* [Distribuire direttamente da Visual Studio](#vs)
+* [Distribuire direttamente da WebMatrix](#webmatrix)
 
 Un'altra opzione di distribuzione consiste nell'utilizzare un servizio basato su cloud, ad esempio [Distribuzione Octopus](http://en.wikipedia.org/wiki/Octopus_Deploy). Per altre informazioni, vedere l'articolo relativo alla [distribuzione di applicazioni ASP.NET in Siti Web di Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
-##<a name="vso"></a>Visual Studio Online
+##<a name="vso"></a>Recapito continuo mediante Visual Studio Online
 
 [Visual Studio Online](http://www.visualstudio.com/) (in precedenza Team Foundation Service) è la soluzione Microsoft basata sul cloud per il controllo del codice sorgente e la collaborazione con il team. Il servizio è gratuito per un team composto da un massimo di cinque sviluppatori. È possibile eseguire il recapito continuo a un'app Web del servizio app e il repository può utilizzare sia [Git che TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
@@ -81,7 +81,7 @@ Per informazioni su come eseguire la distribuzione con Mercurial vedere le risor
 * [Pubblicazione dal controllo del codice sorgente ad App Web con Git](web-sites-publish-source-control.md). Benché questa esercitazione contenga informazioni su come pubblicare un repository Git, il processo per i repository Mercurial ospitati in CodePlex o BitBucket è simile.
 * [Forum di Azure per Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
-##<a name="dropbox"></a>Dropbox
+##<a name="dropbox"></a>Automatizzare la distribuzione da Dropbox
 
 [Dropbox](https://www.dropbox.com/) non è un sistema di controllo del codice sorgente, ma se si archivia il proprio codice sorgente in Dropbox è possibile automatizzarne la distribuzione dal proprio account Dropbox.
 
@@ -89,7 +89,7 @@ Per informazioni su come eseguire la distribuzione con Mercurial vedere le risor
 * [Distribuzione di Dropbox ad App Web](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). In questo video viene illustrato il processo di connessione di una cartella di DropBox a un'app Web. Il video dimostra con quale rapidità è possibile rendere operativo un'app Web o gestirla per mezzo di una semplice distribuzione a trascinamento.
 * [Forum di Azure per Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
-##<a name="vs"></a>Visual Studio
+##<a name="vs"></a>Distribuire direttamente da Visual Studio
 
 Per informazioni su come eseguire la distribuzione in App Web da Visual Studio, vedere le risorse seguenti:
 
@@ -100,7 +100,7 @@ Per informazioni su come eseguire la distribuzione in App Web da Visual Studio, 
 * [Distribuzione Web ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie di esercitazioni in 12 parti in cui è trattata una gamma più completa di attività di distribuzione rispetto alle altre risorse in questo elenco. Sono state aggiunte alcune funzionalità di distribuzione di Azure dal momento in cui è stata creata l'esercitazione. Tuttavia, le note aggiunte successivamente descrivono gli elementi mancanti.
 * Articolo relativo alla [distribuzione di un sito Web ASP.NET in Azure con Visual Studio 2012 direttamente da un repository Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). L'articolo contiene informazioni su come distribuire un progetto Web ASP.NET con Visual Studio, utilizzando il plugin Git per eseguire il commit del codice a Git e connettere Azure al repository Git. A partire da Visual Studio 2013, il supporto per Git è integrato; pertanto, non è più necessario installare un plug-in.
 
-##<a name="webmatrix"></a>WebMatrix
+##<a name="webmatrix"></a>Distribuire direttamente da WebMatrix
 
 Per informazioni su come eseguire la distribuzione in App Web da WebMatrix, vedere le risorse seguenti:
 
@@ -112,7 +112,7 @@ Per ulteriori informazioni, vedere le risorse seguenti:
 
 * [Creare un'app Web PHP-MySQL e distribuirla tramite FTP](web-sites-php-mysql-deploy-use-ftp.md).
 
-##<a name="tfs"></a>Team Foundation Server (TFS)
+##<a name="tfs"></a>Recapito continuo con Team Foundation Server (TFS)
 
 Team Foundation Server è la soluzione Microsoft locale per il controllo del codice sorgente e la collaborazione con il team. È possibile configurare TFS per l'esecuzione del recapito continuo a un'app Web.
 
@@ -131,7 +131,7 @@ Per ulteriori informazioni, vedere le risorse seguenti:
 * [Forum di Azure per Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 * Post sulla [distribuzione di DUE siti Web in Azure da un solo repository Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx) nel blog di Scott Hanselman.
 
-##<a name="msbuild"></a>MSBuild
+##<a name="msbuild"></a>Automatizzare la distribuzione con MSBuild
 
 Se si utilizza l'[IDE di Visual Studio](#vs) per lo sviluppo è possibile servirsi di [MSBuild](http://msbuildbook.com/) per automatizzare qualsiasi operazione nell'IDE. È possibile configurare MSBuild in modo da utilizzare [Distribuzione Web](#webdeploy) oppure [FTP/FTPS](#ftp) per copiare i file. Distribuzione Web consente inoltre di automatizzare molte altre attività relative alla distribuzione, ad esempio la distribuzione dei database.
 
@@ -140,7 +140,7 @@ Per ulteriori informazioni sulla distribuzione da riga di comando, vedere le ris
 * [Distribuzione Web ASP.NET con Visual Studio: distribuzione da riga di comando](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). Decima di una serie di esercitazioni sulla distribuzione in Azure con Visual Studio. Contiene informazioni su come utilizzare la riga di comando per eseguire la distribuzione dopo aver configurato i profili di pubblicazione in Visual Studio.
 * [Inside the Microsoft Build Engine: Using MSBuild and Team Foundation Build](http://msbuildbook.com/). Libro paperback che contiene alcuni capitoli su come utilizzare MSBuild per la distribuzione.
 
-##<a name="ftp"></a>Strumenti FTP e script
+##<a name="ftp"></a>Copiare i file con strumenti e script FTP
 
 È possibile distribuire il contenuto per l'applicazione utilizzando [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) per copiare i file. È facile creare credenziali FTP per un'app Web e usarle negli script o nelle applicazioni che funzionino con il protocollo FTP, inclusi i browser come Internet Explorer e le utilità complete e gratuite come [FileZilla](https://filezilla-project.org/). App Web supporta anche il protocollo FTPS, più sicuro.
 
@@ -150,7 +150,7 @@ Per altre informazioni, vedere la risorsa seguente:
 
 * [Utilizzo di script Batch FTP](http://support.microsoft.com/kb/96269).
 
-##<a name="powershell"></a>Windows PowerShell
+##<a name="powershell"></a>Automatizzare la distribuzione con Windows PowerShell
 
 In [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx) è possibile eseguire funzioni di distribuzione MSBuild o FTP. In tal caso, è inoltre possibile utilizzare una raccolta di cmdlet di Windows PowerShell che facilitano la chiamata dell'API di gestione RET di Azure.
 
@@ -162,7 +162,7 @@ Per altre informazioni, vedere le seguenti risorse:
 * Capitolo dell'e-book relativo a come [automatizzare tutto e creare app per cloud reali con Azure](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything), in cui viene illustrato in che modo l'applicazione di esempio illustrata nell'e-book utilizza gli script di Windows PowerShell per creare un ambiente di testing Azure ed eseguirvi la distribuzione. Per ottenere collegamenti a ulteriori documenti su Azure PowerShell vedere la sezione relativa alle [risorse](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources).
 * [Utilizzo degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test](http://msdn.microsoft.com/library/dn642480.aspx). Come usare gli script di distribuzione di Windows PowerShell generati da Visual Studio.
 
-##<a name="api"></a>API di gestione .NET
+##<a name="api"></a>Automatizzare la distribuzione con API di gestione .NET
 
 È possibile scrivere il codice C# per eseguire funzioni MSBuild o FTP per la distribuzione. In tal caso, sarà possibile accedere all'API REST per la gestione per eseguire funzioni di gestione del sito.
 
@@ -170,7 +170,7 @@ Per altre informazioni, vedere la risorsa seguente:
 
 * Post del blog di Scott Hanselman sull'[automazione completa con le librerie di gestione di Azure e .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Contiene una presentazione dell'API di gestione .NET e collegamenti a ulteriore documentazione.
 
-##<a name="cli"></a>Interfaccia della riga di comando di Azure
+##<a name="cli"></a>Distribuire dall'interfaccia della riga di comando di Azure
 
 È possibile usare la riga di comando nei computer Windows, Mac o Linux per eseguire distribuzioni tramite FTP. In tal caso, è anche possibile accedere all'API REST per la gestione di Azure usando l'interfaccia della riga di comando di Azure.
 
@@ -178,7 +178,7 @@ Per altre informazioni, vedere la risorsa seguente:
 
 * [Strumenti da riga di comando di Azure](/downloads/#cmd-line-tools). Pagina del portale su Azure.com per le informazioni sullo strumento da riga di comando.
 
-##<a name="webdeploy"></a>Riga di comando di Distribuzione Web
+##<a name="webdeploy"></a>Distribuzione dalla riga di comando di distribuzione Web
 
 [Distribuzione Web](http://www.iis.net/downloads/microsoft/web-deploy) è il software Microsoft per la distribuzione in IIS che non solo offre funzioni intelligenti di sincronizzazione dei file, ma può anche eseguire o coordinare molte altre attività relative alla distribuzione che non è possibile automatizzare quando si utilizza il trasferimento FTP. Ad esempio, con Distribuzione Web è possibile distribuire un nuovo database oppure gli aggiornamenti al database assieme all'app Web. Distribuzione Web consente inoltre di ridurre al minimo i tempi richiesti per l'aggiornamento di un sito esistente dal momento che è in grado di copiare in maniera intelligente solo i file modificati. Il supporto per Distribuzione Web è incorporato in Microsoft WebMatrix, Visual Studio, Visual Studio Online e Team Foundation Server, ma è inoltre possibile utilizzare Distribuzione Web direttamente dalla riga di comando per automatizzare la distribuzione. I comandi di Distribuzione Web sono molti potenti, ma la curva di apprendimento può rivelarsi ripida.
 
@@ -202,7 +202,7 @@ Per informazioni su altri argomenti relativi alla distribuzione, vedere la relat
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -614,11 +614,11 @@ Specifica una soglia per i dialoghi usati da DPLM per produrre un risultato di s
 
 ###Attributo TruePeakDCBlock
 
-Questo parametro di input specifica se il blocco DC all'interno della misurazione del true-peak è abilitato (True) o disabilitato (False). Per altre informazioni sul blocco DC, fare riferimento a ITU‐R BS.1770‐2. Il valore predefinito è False.
+Questo parametro di input specifica se il blocco DC all'interno della misurazione del true-peak è abilitato (True) o disabilitato (False). Per altre informazioni sul blocco DC, vedere ITU‐R BS.1770‐2. Il valore predefinito è False.
 
 ###Attributo TruePeakEmphasis
 
-Specifica se il filtro di enfasi all'interno della misurazione del true-peak è abilitato (True) o disabilitato (False). Per altre informazioni sul filtro di enfasi, fare riferimento a ITU‐R BS.1770‐2. Il valore predefinito è False.
+Specifica se il filtro di enfasi all'interno della misurazione del true-peak è abilitato (True) o disabilitato (False). Per altre informazioni sul filtro di enfasi, vedere ITU‐R BS.1770‐2. Il valore predefinito è False.
 
 
 ###Risultati DPLM
@@ -648,14 +648,15 @@ Di seguito sono descritti i singoli attributi.
 
 **SamplePeak** - Questo risultato contiene il valore massimo di campionamento assoluto in un canale dall'ultimo ripristino della misurazione. I valori validi sono compresi tra -70 e +10 dBFS.
 
-**TruePeak** - Questo risultato contiene il valore massimo di true‐peak assoluto in un canale dall'ultimo ripristino della misurazione. Per una descrizione del true-peak, fare riferimento a ITU‐R BS.1770‐2. I valori possono essere compresi tra -70 e 12,04 dBTP.
+**TruePeak** - Questo risultato contiene il valore massimo di true‐peak assoluto in un canale dall'ultimo ripristino della misurazione. Per una descrizione del true-peak, vedere ITU‐R BS.1770‐2. I valori possono essere compresi tra -70 e 12,04 dBTP.
  
 
 ##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->
