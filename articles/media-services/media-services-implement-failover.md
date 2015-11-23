@@ -960,4 +960,13 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 
 È ora possibile usare uno strumento di gestione traffico per instradare le richieste tra i due data center e quindi il failover in caso di guasti.
 
-<!---HONumber=Oct15_HO3-->
+
+##Percorsi di apprendimento di Media Services
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

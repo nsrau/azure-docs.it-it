@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="11/11/2015"
 	ms.author="genli"/>
 
 # Come aggiungere o modificare il co-amministratore di Azure, l’amministratore del servizio e l’amministratore dell’account
@@ -39,7 +39,11 @@ L'indirizzo di posta elettronica seguente può essere aggiunto come co-amministr
 * **Account Microsoft** (precedentemente ID Windows Live) </br> è possibile utilizzare un Account Microsoft per accedere a tutti i prodotti e ai servizi cloud di Microsoft destinati all'utente, quali Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone e Xbox LIVE.
 * **Account aziendale**</br> un account aziendale è un account che viene creato in Azure Active Directory. L'indirizzo dell’account aziendale è simile al seguente: utente @<your domain>. onmicrosoft.com
 
-**Nota** * Se si è connessi con un account Microsoft, è possibile aggiungere solo altri account Microsoft come co-amministratore. Si tratta di una questione di sicurezza per impedire agli account non aziendali di scoprire se determinati account (ad esempio janedoe@contoso.com) sono account validi. * Se si è connessi tramite un account aziendale, è possibile aggiungere altri account aziendali nell'organizzazione come co-amministratore. Ad esempio, abby@contoso.com può aggiungere bob@contoso.com come amministratore del servizio o co-amministratore, ma non può aggiungere john@notcontoso.com. Gli che hanno effettuato l’accesso con account aziendali possono continuare ad aggiungere utenti con Account Microsoft come amministratore del servizio o co-amministratore. * Ora che è possibile accedere ad Azure con un account aziendale, ecco le modifiche ai requisiti di account di amministratore del servizio e di co-amministratore:
+**Nota**
+
+ * Se si è connessi con un account Microsoft, è possibile aggiungere solo altri account Microsoft come co-amministratore. Si tratta di una questione di sicurezza per impedire che account non dell'organizzazione scoprano se determinati account, ad esempio janedoe@contoso.com, sono account validi.
+ * Se si è connessi con un account dell'organizzazione, è possibile aggiungere altri account dell'organizzazione nell'organizzazione come coamministratore. Ad esempio abby@contoso.com può aggiungere bob@contoso.com come amministratore del servizio o co-amministratore, ma non può aggiungere john@notcontoso.com. Gli utenti connessi con account aziendali possono continuare ad aggiungere utenti di account Microsoft come amministratori del servizio o coamministratori.
+ * Ora che è possibile accedere ad Azure con un account aziendale, ecco le modifiche ai requisiti di account di amministratore del servizio e di co-amministratore:
 
 | Metodo di accesso| Aggiungere un account Microsoft come co-amministratore o amministratore del servizio? |Aggiungere un account dell'organizzazione nella stessa organizzazione come co-amministratore o amministratore del servizio? |Aggiungere un account dell'organizzazione in un'altra organizzazione come co-amministratore o amministratore del servizio?
 | ------------- | ------------- |---------------|---------------|
@@ -49,14 +53,14 @@ L'indirizzo di posta elettronica seguente può essere aggiunto come co-amministr
 ## Modificare l'amministratore del servizio per una sottoscrizione
 Solo l'amministratore dell'account può modificare l'amministratore del servizio per una sottoscrizione.
 
-1. Accedere al [portale di gestione dell’account](https://account.windowsazure.com/subscriptions) mediante l’amministratore dell’account.
+1. Accedere al [portale di gestione dell'account](https://account.windowsazure.com/subscriptions) mediante l'amministratore dell'account.
 2. Selezionare la sottoscrizione da modificare.
 3. Sul lato destro, fare clic sui dettagli di **Modifica sottoscrizione**. </br> ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 
-4. Nel casella **AMMINISTRATORE DEL SERVIZIO** immettere l'indirizzo di posta elettronica dell'amministratore del nuovo servizio. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
+4. Nel casella **AMMINISTRATORE DEL SERVIZIO** immettere l'indirizzo di posta elettronica del nuovo amministratore del servizio. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-## Modificare l’Amministratore dell’account (trasferire la proprietà dell’account di Azure a un altro account)
+## Modificare l'amministratore dell'account
 
-Per trasferire la proprietà di Azure a un altro account. Vedere [Trasferimento di una sottoscrizione di Azure](../billing-subscription-transfer.md).
+Per trasferire la proprietà dell'account Azure a un altro account, vedere [Trasferimento di una sottoscrizione di Azure](../billing-subscription-transfer.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

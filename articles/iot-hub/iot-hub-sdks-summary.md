@@ -60,7 +60,7 @@ Di seguito è un elenco di collegamenti alla documentazione di riferimento API o
 
 [SDK IoT di Microsoft Azure]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [SDK per dispositivi IoT Azure per C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
-[SDK per dispositivi IoT Azure per .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/readme.md
+[SDK per dispositivi IoT Azure per .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
 [SDK per dispositivi IoT Azure per Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
 [SDK per dispositivi IoT Azure per Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [SDK del servizio IoT Azure SDK per Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/
@@ -73,4 +73,4 @@ Di seguito è un elenco di collegamenti alla documentazione di riferimento API o
 [SDK per dispositivi Microsoft Azure IoT per Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [REST hub IoT]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

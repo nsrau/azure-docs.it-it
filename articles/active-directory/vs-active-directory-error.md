@@ -3,7 +3,7 @@
 	description="La procedura guidata di connessione di Active Directory ha rilevato un tipo di autenticazione incompatibile." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Errore durante il rilevamento dell'autenticazione
 
@@ -97,4 +97,4 @@ Per cambiare il tipo di autenticazione, rimuovere il tipo non compatibile ed ese
 Per altre informazioni, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

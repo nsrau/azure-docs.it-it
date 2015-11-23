@@ -27,13 +27,13 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-tutorial.md).
 
-Questa esercitazione illustra la facilità di creazione di un macchina virtuale di Azure (VM) nel Portale Azure. Si utilizzerà un'immagine di Windows Server come esempio, ma questa è solo una delle molte immagini disponibili in Azure. Si noti che le opzioni dell’immagine dipendono dalla sottoscrizione. Ad esempio, gli abbonati MSDN possono usufruire di immagini desktop.
+Questa esercitazione illustra la facilità di creazione di un macchina virtuale di Azure (VM) nel Portale Azure. Si utilizzerà un'immagine di Windows Server come esempio, ma questa è solo una delle molte immagini disponibili in Azure. Si noti che le opzioni dell’immagine dipendono dalla sottoscrizione. Ad esempio i sottoscrittori MSDN possono usufruire di immagini desktop.
 
 È inoltre possibile creare VM usando le [proprie immagini](virtual-machines-create-upload-vhd-windows-server.md). Per altre informazioni su questo e altri metodi, vedere [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-## Video con la procedura dettagliata
+## Procedura dettagliata video
 
 Di seguito è riportata una procedura dettagliata di questa esercitazione.
 
@@ -43,7 +43,7 @@ Di seguito è riportata una procedura dettagliata di questa esercitazione.
 
 Questa sezione illustra come usare l'opzione **Da Galleria** nel portale di gestione per la creazione di una macchina virtuale. Questa opzione offre un maggior numero di scelte di configurazione rispetto all'opzione **Creazione rapida**. Ad esempio, se si vuole aggiungere una macchina virtuale a una rete virtuale, sarà necessario usare l'opzione **Da raccolta**.
 
-> [AZURE.NOTE]È anche possibile provare il [portale di anteprima di Azure](https://portal.azure.com), più avanzato e personalizzabile, per creare una macchina virtuale, usare le funzionalità migliorate di diagnostica e monitoraggio, usare l'archiviazione Premium e altro ancora. Le opzioni disponibili per la configurazione di una macchina virtuale nei due portali sono sostanzialmente simili ma non identiche. Ad esempio, usare il portale di anteprima per configurare una macchina virtuale con l'archiviazione Premium.
+> [AZURE.NOTE]È anche possibile provare il portale di anteprima di Azure, più avanzato e personalizzabile, per creare una macchina virtuale, usare le funzionalità migliorate di diagnostica e monitoraggio, usare l'archiviazione Premium e altro ancora. Le opzioni disponibili per la configurazione di una macchina virtuale nei due portali sono sostanzialmente simili ma non identiche. Ad esempio usare il portale di anteprima di Azure per configurare una macchina virtuale con l'archiviazione Premium.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
@@ -53,4 +53,4 @@ Questa sezione illustra come usare l'opzione **Da Galleria** nel portale di gest
 
 - Collegare un disco per archiviare i dati. È possibile collegare sia dischi vuoti sia dischi contenenti dati. Per istruzioni, vedere [Collegare un'esercitazione su disco dati](storage-windows-attach-disk.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

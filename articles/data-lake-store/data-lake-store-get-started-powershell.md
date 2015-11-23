@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/06/2015"
    ms.author="nitinme"/>
 
 # Introduzione all'archivio Azure Data Lake mediante Azure PowerShell
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Informazioni su come usare Azure PowerShell per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica di Data Lake](data-lake-store-overview.md).
 
@@ -31,7 +32,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/).
 - **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell 1.0**. Per installarlo, fare clic [qui](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
+- **Azure PowerShell 1.0 o versione successiva**. Per istruzioni, vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md).
 
 ## Creare un account di Azure Data Lake Store
 
@@ -131,6 +132,7 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 
 - [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
 - [Introduzione a Data Lake Store mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Introduzione a Data Lake Store mediante l'interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
 
 
 ## Passaggi successivi
@@ -139,4 +141,4 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 - [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

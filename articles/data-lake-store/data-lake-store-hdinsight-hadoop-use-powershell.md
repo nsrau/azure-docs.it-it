@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/29/2015"
+   ms.date="11/06/2015"
    ms.author="nitinme"/>
 
 # Effettuare il provisioning di un cluster HDInsight con Archivio Data Lake tramite Azure PowerShell
@@ -46,7 +46,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/).
 - **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Archivio Data Lake. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
 - **Windows SDK**. Per installarlo, fare clic [qui](https://dev.windows.com/it-IT/downloads). Usarlo per creare un certificato di sicurezza.
-- **Azure PowerShell 1.0**. Per installarlo, fare clic [qui](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
+- **Azure PowerShell 1.0 o versione successiva**. Per istruzioni, vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md).
  
 
 ## Creare un Archivio Azure Data Lake
@@ -294,4 +294,4 @@ Dopo aver configurato il cluster HDInsight perché funzioni con Archivio Data La
 [makecert]: https://msdn.microsoft.com/it-IT/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/it-IT/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

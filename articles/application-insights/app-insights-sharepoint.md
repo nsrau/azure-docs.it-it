@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Monitorare un sito di SharePoint con Application Insights
@@ -77,21 +77,21 @@ Ridistribuire l'app.
 
 Tornare al pannello dell'applicazione nel [portale di Azure](http://portal.azure.com).
 
-I primi eventi verranno visualizzati in Ricerca diagnostica.
+I primi eventi verranno visualizzati in Ricerca.
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
-Le **analisi di utilizzo** si collegano a grafici di utenti, sessioni e visualizzazioni di pagina:
+Dal pannello Panoramica fare clic su **Analisi di utilizzo** per vedere i grafici di utenti, sessioni e visualizzazioni di pagina:
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Ad esempio, fare clic su Visualizzazioni pagina per visualizzare altri dettagli:
+Fare clic su qualsiasi grafico per vedere maggiori dettagli, ad esempio le visualizzazioni di pagina:
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
-Fare clic su Utenti per visualizzare i dettagli relativi a nuovi utenti e ai relativi percorsi.
+Oppure gli utenti:
 
 
 ![](./media/app-insights-sharepoint/08-users.png)
@@ -108,4 +108,4 @@ Fare clic su Utenti per visualizzare i dettagli relativi a nuovi utenti e ai rel
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

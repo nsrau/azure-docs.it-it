@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione all'Hub eventi"
+	pageTitle="Introduzione all'Hub eventi in Java con Apache Storm | Microsoft Azure"
 	description="Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure inviando gli eventi con Java e ricevendoli in un cluster di Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
-	ms.tgt_pltfrm="java"
-	ms.devlang="java"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
@@ -24,7 +24,7 @@
 
 Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
 
-Per ulteriori informazioni, vedere [Panoramica di Hub eventi].
+Per altre informazioni, vedere [Panoramica di Hub eventi][].
 
 Questa esercitazione illustra come raccogliere i messaggi in un hub eventi usando un'applicazione console in Java e come recuperarli in parallelo usando Apache Storm.
 
@@ -36,13 +36,13 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 ## Creare un hub eventi
 
-1. Accedere al [portale di gestione di Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
+1. Accedere al [portale di Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
 2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, quindi **Hub eventi** e infine **Creazione rapida**.
 
    	![][1]
 
-3. Digitare un nome per l'hub eventi, selezionare la regione desiderata, quindi fare clic su **Crea un nuovo hub eventi**.
+3. Digitare un nome per l'hub eventi, selezionare l'area desiderata, quindi fare clic su **Crea un nuovo hub eventi**.
 
    	![][2]
 
@@ -79,14 +79,14 @@ A questo punto è possibile eseguire le applicazioni.
 
    	![][22]
 
-> [AZURE.NOTE]In questa esercitazione si usa Storm in modalità locale solo per finalità di sviluppo. Per altre informazioni sulle distribuzioni e sui modelli di Storm, vedere [Panoramica di HDinsight Storm] e la documentazione ufficiale su [Apache Storm].
+> [AZURE.NOTE]In questa esercitazione si usa Storm in modalità locale solo per finalità di sviluppo. Per altre informazioni sulle distribuzioni e sui modelli di Storm, vedere [Panoramica di HDinsight Storm][] e la documentazione ufficiale su [Apache Storm][].
 
 ## Passaggi successivi
 
 Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono disponibili le seguenti risorse.
 
 - [Analisi dei dati dei sensori con Storm e HDInsight] è un'esercitazione relativa a uno scenario completo che usa Hub eventi, Storm e HBase per inserire dati dei sensori in un cluster Hadoop.
-- [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight] è un'esercitazione relativa alla scrittura di pipeline di Storm in C#.
+- [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight][] è un'esercitazione relativa alla scrittura di pipeline di Storm in C#.
 
 <!-- Images. -->
 [1]: ./media/event-hubs-java-storm-getstarted/create-event-hub1.png
@@ -100,14 +100,14 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Panoramica di Hub eventi]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Panoramica di Hub eventi]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Panoramica di HDinsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Analisi dei dati dei sensori con Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[Panoramica di HDinsight Storm]: ../hdinsight/hdinsight-storm-overview.md
+[Analisi dei dati dei sensori con Storm e HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

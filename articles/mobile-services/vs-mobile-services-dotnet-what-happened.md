@@ -3,7 +3,7 @@
 	description="Descrive cosa è successo al progetto Visual Studio .NET dopo l'aggiunta di servizi mobili di Azure utilizzando i servizi connessi." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Cosa è successo al progetto Visual Studio -NET dopo l'aggiunta di servizi mobili di Azure utilizzando i servizi connessi?
 
@@ -43,4 +43,4 @@ Se viene creato un servizio mobile .NET nel provider di servizi connessi, verrà
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

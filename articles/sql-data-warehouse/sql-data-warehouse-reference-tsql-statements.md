@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/16/2015"
+   ms.date="11/05/2015"
    ms.author="barbkess"/>
 
 #Argomenti Transact-SQL
@@ -47,8 +47,7 @@
 - [DROP TABLE](https://msdn.microsoft.com/library/ms173790.aspx)
 - [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 - [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
-- R
-- ENAME
+- RENAME
 - [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 - [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
@@ -60,6 +59,7 @@
 
 ## Comandi della console di database
 
+- [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 - [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
 - DBCC SHRINKLOG
 - DBCC PDW\_SHOWEXECUTIONPLAN
@@ -116,16 +116,16 @@
 
 
 ## Passaggi successivi
-Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di riferimento di SQL Data Warehouse][].
+Per altri esempi TSQL, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-reference.md
+[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

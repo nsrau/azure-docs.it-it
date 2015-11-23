@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/09/2015"
 	ms.author="jgao"/>
 
 
@@ -103,7 +103,7 @@ Alcune delle funzionalità principali della piattaforma HDInsight includono:
 La tabella seguente include l'elenco delle versioni di HDInsight attualmente disponibili, le corrispondenti versioni HDP (Hortonworks Data Platform) usate e le date di rilascio. Se note, vengono indicate anche la data di scadenza del supporto e la data in cui le versioni sono deprecate. Tenere presente quanto segue:
 
 * i cluster ad alta disponibilità con due nodi head vengono distribuiti per impostazione predefinita per HDInsight 2.1 e versioni successive. Non sono disponibili per i cluster HDInsight 1.6.
-* Dopo che il supporto per una particolare versione è scaduto, potrebbe non essere disponibile tramite il portale di Azure. Nella tabella seguente sono indicate le versioni disponibili sul portale di Azure. Le versioni cluster continueranno a essere disponibili usando il parametro `Version` nel comando [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) di Windows PowerShell e .NET SDK fino alla data in cui sarà deprecata.
+* Dopo che il supporto per una particolare versione è scaduto, potrebbe non essere disponibile tramite il portale di Azure. Nella tabella seguente sono indicate le versioni disponibili sul portale di Azure. Le versioni cluster continueranno a essere disponibili usando il parametro `Version` nel comando [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) di Windows PowerShell e .NET SDK fino alla data in cui sarà deprecato.
 
 <table border="1"> <tr><th>Versione HDInsight</th><th>Versione HDP</a><th>Disponibilità elevata</th></th><th>Data di rilascio</th><th>Disponibile sul portale di Azure</th><th>Data di scadenza del supporto</th><th>Data in cui è deprecata</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Sì</td><td>18/02/2015</td><td>Sì</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Sì</td><td>24/06/2014</td><td>Sì</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Sì</td><td>11/02/2014</td><td>Sì</td><td>17/09/2014</td><td>30/06/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Sì</td><td>28/10/2013</td><td>No</td><td>12/05/2014</td><td>31/05/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>28/10/2013</td><td>No</td><td>26/04/2014</td><td>31/05/2015</td></tr> </table><br>
 
@@ -160,4 +160,4 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,9 +1,10 @@
 Risorsa|Limite predefinito|Limite massimo
 ---|---|---
-Core per [sottoscrizione](http://msdn.microsoft.com/library/azure/hh531793.aspx)|20<sup>1</sup> per area|10\.000 per area
-[Coamministratori](http://msdn.microsoft.com/library/azure/gg456328.aspx) per sottoscrizione|Senza limiti|Senza limiti
+VM per [sottoscrizione](billing-buy-sign-up-azure-subscription.md)|20<sup>1</sup> per area|10\.000 per area
+[Coamministratori](billing-add-change-azure-subscription-administrator.md) per sottoscrizione|Senza limiti|Senza limiti
 [Account di archiviazione](storage-create-storage-account.md) per sottoscrizione|100|100<sup>2</sup>
 [Gruppi di risorse](resource-group-overview.md) per sottoscrizione|800|800
+[Set di disponibilità](../virtual-machines/virtual-machines-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per sottoscrizione|2000 per area|2000 per area
 Letture API Gestione risorse|15000 all'ora|15000 all'ora
 Scritture API Gestione risorse|1200 all'ora|1200 all'ora
 Dimensioni delle richieste API di gestione delle risorse|4194304 byte|4194304 byte
@@ -16,4 +17,4 @@ Dimensioni delle richieste API di gestione delle risorse|4194304 byte|4194304 by
 
 <sup>3</sup>Queste funzionalità non sono più necessarie con i gruppi di risorse di Azure e Gestione risorse di Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

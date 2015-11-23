@@ -3,7 +3,7 @@
 	description="Informazioni su come iniziare a usare il servizio di archiviazione di coda in un progetto ASP.NET in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio."
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione delle code di Azure e ai servizi relativi a Visual Studio
 
@@ -179,4 +179,4 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Del
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="10/20/2015"
+   ms.date="11/09/2015"
    ms.author="elfish"/>
 
 # Ripristinare un database SQL di Azure a seguito di un errore causato dall'utente
@@ -35,27 +35,24 @@ I database Basic dispongono di 7 giorni di conservazione, i database Standard di
 > [AZURE.NOTE]Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota da [contattare il supporto](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portale di Azure
-Per utilizzare il ripristino temporizzato nel portale di Azure, osservare la seguente procedura o [guardare un video di questa procedura](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore/):
+Per utilizzare il ripristino temporizzato nel portale di Azure, attenersi alla procedura seguente.
 
 1. Accedere al [portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA**, quindi su **Database SQL**.
 3. Individuare e selezionare il database.
 4. Nella parte superiore del pannello del database, selezionare **Ripristina**.
 5. Specificare un nome di database, il momento specifico, quindi fare clic su **Crea**.
-6. Il processo di ripristino del database inizierà e potrà essere monitorato tramite le **NOTIFICHE** sul lato sinistro della schermata.
-
-Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato da utilizzare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
+6. Il processo di ripristino del database inizierà e potrà essere monitorato tramite **NOTIFICHE** sul lato sinistro della schermata.
 
 ###PowerShell
-Utilizzare PowerShell per eseguire a livello di codice un ripristino temporizzato con il cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Per un'analisi dettagliata, [guardare il video di questa procedura](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
+Usare PowerShell per eseguire a livello di codice un ripristino temporizzato con il cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Per un'analisi dettagliata, [guardare il video di questa procedura](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
-> [AZURE.IMPORTANT]Questo articolo contiene comandi per le versioni di Azure PowerShell fino alle versione 1.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**.
+> [AZURE.IMPORTANT]Questo articolo contiene comandi per le versioni di Azure PowerShell fino alla versione 1.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**.
 
 		$Database = Get-AzureSqlDatabase -ServerName "YourServerName" –DatabaseName “YourDatabaseName”
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
 		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
 		 
-Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato da utilizzare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
 
 ###API REST 
 Utilizzare REST per eseguire il ripristino del database a livello di codice.
@@ -66,8 +63,6 @@ Utilizzare REST per eseguire il ripristino del database a livello di codice.
 	
 3.	Monitorare la richiesta di ripristino tramite l'operazione [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato da utilizzare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
-
 ##Ripristino di un database eliminato
 Nel caso in cui venisse eliminato un database, il database SQL di Azure consente di ripristinare il database eliminato al momento dell'eliminazione. Il database SQL di Azure archivia il backup del database eliminato per il periodo di conservazione del database.
 
@@ -76,7 +71,7 @@ Il periodo di conservazione di un database eliminato è determinato dal livello 
 > [AZURE.NOTE]Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota [contattando il supporto](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portale di Azure
-Per ripristinare un database eliminato tramite il portale di Azure, osservare la seguente procedura o [guardare un video di questa procedura](https://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database/):
+Per ripristinare un database eliminato tramite il portale di Azure, attenersi alla procedura seguente.
 
 1. Accedere al [portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA**, quindi su **Server SQL**.
@@ -84,12 +79,10 @@ Per ripristinare un database eliminato tramite il portale di Azure, osservare la
 4. Sotto la voce **Operazioni** nel pannello del server, selezionare **Database eliminati**.
 5. Fare clic sul database eliminato che si desidera ripristinare.
 6. Specificare un nome di database e fare clic su **Crea**.
-7. Il processo di ripristino del database inizierà e potrà essere monitorato tramite le **NOTIFICHE** sul lato sinistro della schermata.
-
-Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato da utilizzare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
+7. Il processo di ripristino del database inizierà e potrà essere monitorato tramite **NOTIFICHE** sul lato sinistro della schermata.
 
 ###PowerShell
-Per ripristinare un database eliminato tramite PowerShell, utilizzare il cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Per un'analisi dettagliata, [guardare un video di questa procedura](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
+Per ripristinare un database eliminato tramite PowerShell, usare il cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Per un'analisi dettagliata, [guardare un video di questa procedura](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
 
 1. Cercare il database eliminato e la relativa data di eliminazione nell'elenco dei database eliminati.
 		
@@ -101,7 +94,6 @@ Per ripristinare un database eliminato tramite PowerShell, utilizzare il cmdlet 
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “NewDatabaseName”
 		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
 		 
-Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato da utilizzare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
 
 ###API REST 
 Utilizzare REST per eseguire il ripristino del database a livello di codice.
@@ -114,7 +106,4 @@ Utilizzare REST per eseguire il ripristino del database a livello di codice.
 	
 4.	Monitorare lo stato del ripristino mediante l'operazione [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato da utilizzare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

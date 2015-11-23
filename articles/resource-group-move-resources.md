@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="11/06/2015" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -30,6 +30,7 @@ Esistono alcune importanti considerazioni da tenere presente durante lo spostame
 2. Il gruppo di risorse di destinazione deve contenere solo le risorse che condividono un ciclo di vita dell'applicazione uguale a quello delle risorse che si desidera spostare.
 3. Se si utilizza Azure PowerShell, assicurarsi di usare la versione più recente. Il comando **Move-AzureResource** viene aggiornato di frequente. Per aggiornare la versione, eseguire l'Installazione guidata piattaforma Web Microsoft e verificare se è disponibile una nuova versione. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 4. L'operazione di spostamento può richiedere alcuni minuti e durante tale intervallo il prompt di PowerShell attenderà il completamento dell'operazione.
+5. Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di destinazione sono bloccati per la durata dell'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi fino al completamento dello spostamento.
 
 ## Servizi supportati
 
@@ -67,7 +68,7 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversa, usare il comando **Move-AzuremRResource**.
+Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversa, usare il comando **Move-AzureRmResource**.
 
 Nel primo esempio viene illustrato come spostare una risorsa in un nuovo gruppo di risorse.
 
@@ -87,18 +88,7 @@ Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione d
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Sostituire **{source-subscription-id}** e **{source-resource-group-name}** con la sottoscrizione o il gruppo di risorse che attualmente contengono le risorse da spostare. Usare **2015-01-01** per {versione-api}.
-
-Nella richiesta includere un oggetto JSON che definisce il gruppo di risorse di destinazione e le risorse che si desidera spostare.
-
-    {
-        "targetResourceGroup": "/subscriptions/{target-subscription-id}/resourceGroups/{target-resource-group-name}", "resources": [
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}"
-        ]
-    }
+Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le risorse da spostare. Per altre informazioni sull'operazione REST di spostamento, vedere [Spostare le risorse](https://msdn.microsoft.com/library/azure/mt218710.aspx).
 
 ## Passaggi successivi
 - [Utilizzo di Azure PowerShell con Gestione risorse](./powershell-azure-resource-manager.md)
@@ -106,4 +96,4 @@ Nella richiesta includere un oggetto JSON che definisce il gruppo di risorse di 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

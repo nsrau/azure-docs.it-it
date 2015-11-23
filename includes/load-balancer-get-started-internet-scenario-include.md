@@ -1,7 +1,9 @@
-## Scenario
+In questo scenario verranno eseguite le seguenti attività:
 
-Lo scenario seguente mostrerà come aggiungere un servizio di bilanciamento del carico per 2 macchine virtuali denominate "web1" e "web2" utilizzando la porta 80 per ricevere il traffico Internet e inviare il traffico di rete con carico bilanciato anche alla porta 80 sui 2 server.
+- Creare un servizio di bilanciamento del carico che riceve il traffico di rete sulla porta 80 e invia il traffico con carico bilanciato alle macchine virtuali "web1" e "web2".
+- Creare regole NAT per l'accesso desktop remoto per le macchine virtuali dietro il servizio di bilanciamento del carico
+- Creare probe di integrità
 
 ![Scenario del bilanciamento del carico](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

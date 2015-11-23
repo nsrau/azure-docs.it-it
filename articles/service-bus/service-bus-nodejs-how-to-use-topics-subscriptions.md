@@ -69,7 +69,7 @@ Il modulo di Azure legge le variabili di ambiente AZURE\_SERVICEBUS\_NAMESPACE e
 
 Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Servizio cloud Node.js con archiviazione][].
 
-Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione][].
+Per un esempio di impostazione delle variabili di ambiente nel portale di Azure per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione][].
 
 ## Creare un argomento
 
@@ -292,7 +292,7 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 ## Eliminare argomenti e sottoscrizioni
 
-Gli argomenti e le sottoscrizioni sono persistenti e devono pertanto essere eliminati in modo esplicito tramite il portale di gestione di Azure o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `MyTopic`:
+Gli argomenti e le sottoscrizioni sono persistenti e devono pertanto essere eliminati in modo esplicito tramite il portale di Azure o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `MyTopic`:
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -327,4 +327,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
   [Applicazione Web Node.js con archiviazione]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

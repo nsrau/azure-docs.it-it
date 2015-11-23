@@ -40,6 +40,20 @@ Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)**, c
 
 * [Come aggiungere una funzione definita dall'utente Hive personalizzata in HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
+
+## Tabelle interne ed esterne di Hive
+
+Vi sono alcune informazioni che è necessario conoscere sulle tabelle Hive interna ed esterna:
+
+- Il comando **CREATE TABLE** crea una tabella interna. Il file di dati deve trovarsi nel contenitore predefinito.
+- Il comando **CREATE TABLE** sposta il file di dati nella cartella /hive/warehouse<TableName>/.
+- Il comando **CREATE EXTERNAL TABLE** crea una tabella esterna. Il file di dati può trovarsi all'esterno del contenitore predefinito.
+- Il comando **CREATE EXTERNAL TABLE** non sposta il file di dati.
+- Il comando **CREATE EXTERNAL TABLE** non consente la creazione di cartelle in LOCATION. È per questo motivo che nell'esercitazione si esegue una copia del file sample.log.
+
+Per altre informazioni, vedere l'[articolo introduttivo alle tabelle Hive interne ed esterne di HDInsight][cindygross-hive-tables].
+
+
 ##<a id="data"></a>Informazioni sui dati di esempio: file log4j di Apache
 
 Questo esempio usa un file di esempio *log4j*, che viene archiviato in **/example/data/sample.log** nel contenitore di archiviazione BLOB. Ogni log all'interno del file è costituito da una riga di campi che contiene un campo `[LOG LEVEL]` per visualizzare il tipo e la gravità. Ad esempio:
@@ -56,7 +70,7 @@ I dati di esempio vengono archiviati nell'archivio BLOB di Azure, usata da HDIns
 
 Poiché l'archivio BLOB di Azure è la risorsa di archiviazione predefinita per HDInsight, è anche possibile accedere al file usando **/example/data/sample.log** in HiveQL.
 
-> [AZURE.NOTE]La sintassi precedente, ****wasb:///**, viene utilizzata per accedere ai file archiviati nel contenitore di archiviazione predefinito per il cluster HDInsight. Se durante il provisioning del cluster sono stati specificati account di archiviazione aggiuntivi e si desidera accedere ai file archiviati in tali account, è possibile accedere ai dati specificando il nome del contenitore e l'indirizzo dell'account di archiviazione, ad esempio ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE]La sintassi precedente, ****wasb:///**, viene usata per accedere ai file archiviati nel contenitore di archiviazione predefinito per il cluster HDInsight. Se durante il provisioning del cluster sono stati specificati account di archiviazione aggiuntivi e si desidera accedere ai file archiviati in tali account, è possibile accedere ai dati specificando il nome del contenitore e l'indirizzo dell'account di archiviazione, ad esempio ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Processo di esempio: Proiettare colonne in dati delimitati
 
@@ -75,7 +89,7 @@ Nell'esempio precedente, le istruzioni HiveQL eseguono le azioni seguenti:
 * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
 * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.
 * **SELECT**: seleziona il numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
-* **INPUT\_\_FILE\_\_NAME come '%.log'** -indica ad Hive che si dovrebbero restituire solo i dati da file che terminano con. log. Questo limita la ricerca al file sample. log che contiene i dati, ed evita la restituzione di dati da altri file di dati di esempio che non corrispondono allo schema che è stato definito.
+* **INPUT\_\_FILE\_\_NAME LIKE '%.log'**: indica ad Hive che si dovrebbero restituire solo i dati da file che terminano con .log. Questo limita la ricerca al file sample. log che contiene i dati, ed evita la restituzione di dati da altri file di dati di esempio che non corrispondono allo schema che è stato definito.
 
 > [AZURE.NOTE]È consigliabile usare tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, e si desidera che le query Hive usino sempre i dati più recenti.
 >
@@ -113,7 +127,7 @@ La [documentazione sulla progettazione di Hive su Tez](https://cwiki.apache.org/
 
 HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella seguente per decidere il metodo più adatto alle proprie esigenze, quindi fare clic sul collegamento per visualizzare una procedura dettagliata.
 
-| **Usare questo** se si desidera... | ...una shell **interattiva** | ...processing **batch** | ...con questo **sistema operativo cluster** | ...da questo **sistema operativo client** |
+| **Usare questo** se si desidera... | ...una shell **interattiva** | ...elaborazione **batch** | ...con questo **sistema operativo cluster** | ...da questo **sistema operativo client** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
 | [Comando beeline (da una sessione SSH)](hdinsight-hadoop-use-hive-beeline.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X o Windows |
 | [Comando hive (da una sessione SSH)](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X o Windows |
@@ -183,4 +197,7 @@ Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i co
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO4-->
+
+[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+
+<!---HONumber=Nov15_HO3-->

@@ -24,6 +24,10 @@ I BLOB possono essere presenti sia in un account di archiviazione associato al p
 
 >[AZURE.NOTE]È sconsigliabile tentare di modificare i contenuti dei contenitori BLOB generati da Servizi multimediali senza usare le API di Servizi multimediali.
 
+##Scaricare un esempio
+
+È possibile ottenere ed eseguire un esempio [qui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+
 ##Prerequisiti
 
 - Due account di Servizi multimediali in una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-create-account.md).
@@ -303,11 +307,12 @@ L'esempio di codice che segue effettua le attività seguenti:
 		}
  
 
-##Percorsi di formazione di Media Services
+##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

@@ -281,12 +281,14 @@ Altro | Errori interni | Contattare il team di supporto. indexer@microsoft.com
 Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazioni, vedere il [post di blog sulla versione 1.2](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
-## Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ## Collegamenti correlati
@@ -299,4 +301,4 @@ Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazion
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

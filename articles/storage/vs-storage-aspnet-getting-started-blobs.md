@@ -3,7 +3,7 @@
 	description="Informazioni su come iniziare a usare il servizio di archiviazione BLOB in un progetto ASP.NET in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio."
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione BLOB di Azure e ai relativi servizi di Visual Studio (ASP.NET)
 
@@ -246,4 +246,4 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve essere prefissato 
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

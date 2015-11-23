@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
+	ms.date="11/03/2015"
 	ms.author="huvalo"/>
 
 # Come usare la gestione dei servizi da Python
 
-In questa guida verrà descritto come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python][download-SDK-Python] supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di gestione][management-portal], ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**. Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
+In questa guida verrà descritto come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](../python-how-to-install.md) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di gestione][management-portal], ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**. Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
+
+> [AZURE.NOTE]L'API di gestione del servizio è stata sostituita con la nuova API di Gestione risorse, attualmente disponibile in una versione di anteprima. Vedere la [documentazione di Gestione risorse di Azure](http://azure-sdk-for-python.readthedocs.org/) per informazioni dettagliate su come usare la nuova API di Gestione risorse da Python.
+
 
 ## <a name="WhatIs"></a>Informazioni sulla gestione dei servizi
 L'API di gestione dei servizi fornisce l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di gestione][management-portal]. Azure SDK per Python consente di gestire i servizi cloud e gli account di archiviazione.
@@ -42,7 +45,7 @@ Per creare il certificato `.cer`, eseguire il comando seguente:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Per altre informazioni sui certificati Azure, vedere [Gestione dei certificati in Azure](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Per altre informazioni sui certificati di Azure, vedere [Panoramica sui certificati per i servizi cloud di Azure](./cloud-services-certs-create.md). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 Dopo avere creato questi file sarà necessario caricare il file `.cer` in Azure selezionando l'opzione "Carica" della scheda "Impostazioni" del [portale di gestione][management-portal]. Sarà inoltre necessario prendere nota del percorso di salvataggio del file `.pem`.
 
@@ -64,7 +67,7 @@ Nell'esempio sopra riportato `sms` è un oggetto **ServiceManagementService**. L
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-Il comando permette di creare il file `.cer` e di installarlo nell'archivio certificati **Personale**. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
+Il comando permette di creare il file `.cer` e di installarlo nell'archivio certificati **Personale**. Per altre informazioni, vedere [Panoramica sui certificati per i servizi cloud di Azure](./cloud-services-certs-create.md).
 
 Dopo avere creato il certificato sarà necessario caricare il file `.cer` in Azure selezionando l'opzione "Carica" della scheda "Impostazioni" del [portale di gestione][management-portal].
 
@@ -167,7 +170,7 @@ Per eliminare una distribuzione, usare il metodo **delete\_deployment**. L'esemp
 
 ## <a name="CreateStorageService"> </a>Procedura: Creare un servizio di archiviazione
 
-Un [servizio di archiviazione] offre l'accesso ai [BLOB][azure-blobs], alle [tabelle][azure-tables] e alle [code][azure-queues] di Azure. Per creare un servizio di archiviazione, è necessario assegnare al servizio un nome di lunghezza compresa tra 3 e 24 caratteri minuscoli e univoco in Azure, nonché una descrizione, un'etichetta fino a 100 caratteri con codifica in Base64 automatica e una località. Nell'esempio seguente viene illustrato come creare un servizio di archiviazione specificando una località.
+Un [servizio di archiviazione](../storage/storage-create-storage-account.md) offre l'accesso ai [BLOB](../storage/storage-python-how-to-use-blob-storage.md), alle [tabelle](../storage/storage-python-how-to-use-table-storage.md) e alle [code](../storage/storage-python-how-to-use-queue-storage.md) di Azure. Per creare un servizio di archiviazione, è necessario assegnare al servizio un nome di lunghezza compresa tra 3 e 24 caratteri minuscoli e univoco in Azure, nonché una descrizione, un'etichetta fino a 100 caratteri con codifica in Base64 automatica e una località. Nell'esempio seguente viene illustrato come creare un servizio di archiviazione specificando una località.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -398,15 +401,15 @@ Per creare infine la macchina virtuale con l'immagine acquisita, usare il metodo
 		role_size='Small',
 		vm_image_name = image_name)
 
-Per altre informazioni su come acquisire una macchina virtuale Linux, vedere [Come acquisire una macchina virtuale Linux.](../virtual-machines-linux-capture-image.md)
+Per altre informazioni su come acquisire una macchina virtuale Linux, vedere [Come acquisire una macchina virtuale Linux.](../virtual-machines/virtual-machines-linux-capture-image.md)
 
-Per altre informazioni su come acquisire una macchina virtuale Windows, vedere [Come acquisire una macchina virtuale Windows.](../virtual-machines-capture-image-windows-server.md)
+Per altre informazioni su come acquisire una macchina virtuale Windows, vedere [Come acquisire una macchina virtuale Windows.](../virtual-machines/virtual-machines-capture-image-windows-server.md)
 
 ## <a name="What's Next"> </a>Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base della gestione dei servizi, è possibile accedere alla [documentazione completa di riferimento all'API per Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/en/documentation/index.html) ed eseguire facilmente le complesse attività di gestione dell'applicazione Python.
+A questo punto, dopo aver appreso le nozioni di base della gestione dei servizi, è possibile accedere alla [documentazione completa di riferimento all'API per Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) ed eseguire facilmente le complesse attività di gestione dell'applicazione Python.
 
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
+Per altre informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
 [What is Service Management]: #WhatIs
 [Concepts]: #Concepts
@@ -430,19 +433,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[download-SDK-Python]: https://www.windowsazure.com/develop/python/common-tasks/install-python/
-[servizio cloud]: http://windowsazure.com/documentation/articles/cloud-services-what-is
-[service package]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
-[Azure PowerShell cmdlets]: https://www.windowsazure.com/develop/php/how-to-guides/powershell-cmdlets/
-[cspack commandline tool]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
-[Deploying an Azure Service]: http://msdn.microsoft.com/library/windowsazure/gg433027.aspx
-[servizio di archiviazione]: https://www.windowsazure.com/manage/services/storage/what-is-a-storage-account/
-[azure-blobs]: https://www.windowsazure.com/develop/python/how-to-guides/blob-service/
-[azure-tables]: https://www.windowsazure.com/develop/python/how-to-guides/table-service/
-[azure-queues]: https://www.windowsazure.com/develop/python/how-to-guides/queue-service/
-[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
-[Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
- 
+[servizio cloud]: https://azure.microsoft.com/it-IT/documentation/services/cloud-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

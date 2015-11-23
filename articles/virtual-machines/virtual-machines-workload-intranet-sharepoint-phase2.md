@@ -33,8 +33,8 @@ Elemento | Nome macchina virtuale | Immagine della raccolta | Dimensione minima
 --- | --- | --- | ---
 1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo controller di dominio, nell'esempio DC1) | Windows Server 2012 R2 Datacenter | A2 (Media)
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo controller di dominio, nell'esempio DC2) | Windows Server 2012 R2 Datacenter | A2 (Media)
-3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo computer SQL Server, nell'esempio SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo computer SQL Server, nell'esempio SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo computer SQL Server, nell'esempio SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo computer SQL Server, nell'esempio SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
 5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (nodo di maggioranza per il cluster, nell'esempio MN1) | Windows Server 2012 R2 Datacenter | A1 (Piccola)
 6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo server applicazioni SharePoint, nell’esempio APP1) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
 7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo server applicazioni SharePoint, nell’esempio APP2) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
@@ -115,7 +115,7 @@ Accedere al primo computer controller di dominio utilizzando le credenziali dell
 5.	Viene visualizzata la finestra di dialogo del browser in cui viene chiesto se si desidera aprire o salvare ComputerName.rdp da manage.windowsazure.com. Fare clic su **Apri**.
 6.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Connetti**.
 7.	Nella finestra di dialogo **Protezione di Windows**, fare clic su **Usa un altro account**.
-8.	In **Nome utente**, digitare il nome della macchina virtuale e il nome utente dell'account amministratore locale creato con la macchina virtuale (un account computer locale). Utilizzare il formato seguente: *NomeComputer*\*NomeAccountAmministratoreLocale*
+8.	In **Nome utente**, digitare il nome della macchina virtuale e il nome utente dell'account amministratore locale creato con la macchina virtuale (un account computer locale). Utilizzare il formato seguente: *NomeComputer**NomeAccountAmministratoreLocale*
 9.	In **Password**, digitare la password per l'account amministratore locale.
 10.	Fare clic su **OK**.
 11.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Sì**. Il desktop della nuova macchina virtuale viene visualizzato in una finestra della sessione Desktop remoto.
@@ -248,4 +248,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

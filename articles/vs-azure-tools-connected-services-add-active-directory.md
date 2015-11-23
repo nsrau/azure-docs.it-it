@@ -3,10 +3,10 @@
    description="Aggiungere un'istanza di Azure Active Directory usando la finestra di dialogo Aggiungi Servizi connessi di Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
-<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea" />
+<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="tarcher" />
 
 # Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio 
 
@@ -72,4 +72,4 @@ Porre domande e ottenere assistenza.
 
  - [Post di blog: Introduzione a Windows Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso dei tag per organizzare le risorse di Azure"
+	pageTitle="Uso dei tag per organizzare le risorse di Azure | Microsoft Azure"
 	description="Mostra come applicare i tag per organizzare le risorse per la fatturazione e la gestione."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/28/2015"
+	ms.date="11/11/2015"
 	ms.author="tomfitz"/>
 
 
@@ -25,8 +25,31 @@ Quando si visualizzano le risorse con un tag specifico, vengono visualizzate le 
 
 Ogni tag aggiunto a una risorsa o a un gruppo di risorse viene aggiunto automaticamente alla tassonomia a livello di sottoscrizione. È anche possibile precompilare tale tassonomia con nomi e valori di tag che si vogliono usare in futuro come risorse provviste di tag.
 
-> [AZURE.NOTE]È possibile applicare dei tag solo alle risorse che supportano le operazioni di gestione delle risorse. Se è stato creata una macchina virtuale, una rete virtuale o una risorsa di archiviazione con il modello di distribuzione classico (ad esempio con il portale di Azure o l'[API di gestione del servizio](../services/api-management/)), non è possibile applicare un tag a tale risorsa. È necessario distribuire nuovamente tali risorse tramite Gestione risorse per supportare l'assegnazione di tag. Tutte le altre risorse supportano l'assegnazione di tag.
+Ciascuna risorsa o gruppo di risorse può avere un massimo di 15 tag. Il nome del tag è limitato a 512 caratteri e il valore del tag è limitato a 256 caratteri.
 
+> [AZURE.NOTE]È possibile applicare dei tag solo alle risorse che supportano le operazioni di gestione delle risorse. Se è stata creata una macchina virtuale, una rete virtuale o una risorsa di archiviazione con il modello di distribuzione classico (ad esempio con il portale di Azure o l'[API di gestione del servizio](../services/api-management/)), non è possibile applicare un tag a tale risorsa. È necessario distribuire nuovamente tali risorse tramite Gestione risorse per supportare l'assegnazione di tag. Tutte le altre risorse supportano l'assegnazione di tag.
+
+## Tag nei modelli
+
+L'aggiunta di un tag alla risorsa durante la distribuzione è molto semplice. È sufficiente aggiungere l'elemento **tags** alla risorsa che si intende distribuire e fornire il nome e il valore del tag. Non è necessario che il nome e il valore del tag esistano già nella sottoscrizione. È possibile specificare fino a 15 tag per ogni risorsa.
+
+L'esempio seguente illustra un account di archiviazione con un tag.
+
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2015-06-15",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "dept": "Finance"
+            },
+            "properties": 
+            {
+                "accountType": "Standard_LRS"
+            }
+        }
+    ]
 
 ## I tag nel portale di anteprima
 
@@ -44,7 +67,8 @@ Per visualizzare la tassonomia dei tag nel portale, usare l'hub Sfoglia per visu
 
 Aggiungere i tag più importanti alla propria schermata iniziale per accedervi velocemente. A questo punto si è pronti per iniziare. Buon divertimento!
 
-![Aggiungere tag alla Schermata iniziale](./media/resource-group-using-tags/pin-tags.png)
+![Aggiungere tag alla Schermata iniziale  
+](./media/resource-group-using-tags/pin-tags.png)
 
 ## Assegnazione di tag tramite PowerShell
 
@@ -140,7 +164,7 @@ Usare il cmdlet **New-AzureRmTag** per aggiungere nuovi tag alla tassonomia. Que
 
 ## Tag con l'API REST
 
-Sia il portale che PowerShell usano l'[API REST di Gestione risorse](http://msdn.microsoft.com/library/azure/dn790568.aspx) dietro le quinte. Se è necessario integrare l'assegnazione di tag in un altro ambiente, è possibile ottenere i tag con un'operazione GET sull'ID di risorsa e aggiornare il set di tag con una chiamata PATCH.
+Sia il portale che PowerShell usano l'[API REST di Gestione risorse](https://msdn.microsoft.com/library/azure/dn848368.aspx) dietro le quinte. Se è necessario integrare l'assegnazione di tag in un altro ambiente, è possibile ottenere i tag con un'operazione GET sull'ID di risorsa e aggiornare il set di tag con una chiamata PATCH.
 
 
 ## Assegnazione di tag e fatturazione
@@ -158,6 +182,6 @@ Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fattu
 - È possibile applicare restrizioni e convenzioni all’interno della sottoscrizione con criteri personalizzati. Il criterio definito potrebbe richiedere che un determinato tag sia impostato per tutte le risorse. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 - Per un'introduzione all'uso di Azure PowerShell per la distribuzione delle risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md).
 - Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](./xplat-cli-azure-resource-manager.md).
-- Per un'introduzione all'uso del portale di anteprima, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](./resource-group-portal.md)  
+- Per un'introduzione all'uso del portale di anteprima, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](./resource-group-portal.md).  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

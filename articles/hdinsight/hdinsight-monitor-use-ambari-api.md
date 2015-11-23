@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
+	ms.date="11/11/2015"
 	ms.author="jgao"/>
 
 # Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari
@@ -130,17 +130,17 @@ La tabella seguente riporta alcune delle chiamate API Ambari di monitoraggio pi√
 Chiamata API di monitoraggio|URI|Descrizione
 ---|---|---
 Get clusters|`/api/v1/clusters`|
-Get cluster info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net`|cluster, servizi, hosts
-Get services|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services`|Services include: hdfs, mapreduce
-Get services info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;`|
-Get service components|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components`|HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker
-Get component info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components/&lt;ComponentName&gt;`|ServiceComponentInfo, componenti host, metriche
-Get hosts|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts`|headnode0, workernode0
-Get host info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;`|
-Get host components|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components`|namenode, resourcemanager
-Get host component info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components/&lt;ComponentName&gt;`|HostRoles, componente, host, metriche
-Get configurations|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations`|Config types: core-site, hdfs-site, mapred-site, hive-site
-Get configuration info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt;`|Config types: core-site, hdfs-site, mapred-site, hive-site
+Get cluster info.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net`|cluster, servizi, hosts
+Get services|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services`|Services include: hdfs, mapreduce
+Get services info.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>`|
+Get service components|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components`|HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker
+Get component info.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>`|ServiceComponentInfo, componenti host, metriche
+Get hosts|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts`|headnode0, workernode0
+Get host info.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>`|
+Get host components|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components`|namenode, resourcemanager
+Get host component info.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components/<ComponentName>`|HostRoles, componente, host, metriche
+Get configurations|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations`|Config types: core-site, hdfs-site, mapred-site, hive-site
+Get configuration info.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>`|Config types: core-site, hdfs-site, mapred-site, hive-site
 
 
 ##Passaggi successivi
@@ -175,4 +175,4 @@ In questa esercitazione si √® appreso come utilizzare le chiamate API Ambari di 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015" 
+	ms.date="11/10/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -49,20 +49,20 @@ Oltre a fornire un utilizzo più efficiente delle risorse e prestazioni prevedib
 
 ## Funzionalità di continuità aziendale per i database in un pool
 
-Attualmente in anteprima, elastici database supportano la maggior parte [funzionalità di continuità aziendale](https://msdn.microsoft.com/library/azure/hh852669.aspx) che sono disponibili per singoli database su server V12.
+Attualmente in anteprima, i database elastici supportano la maggior parte delle [funzionalità di continuità aziendale](sql-database-business-continuity.md) che sono disponibili per i singoli database nei server V12.
 
-### Backup e ripristino dei database ([ripristino temporizzato](https://msdn.microsoft.com/library/azure/hh852669.aspx#BKMK_PITR))
+### Backup e ripristino dei database (ripristino temporizzato)
 
 Il backup dei database in un pool di database elastici viene eseguito automaticamente dal sistema e i criteri di conservazione del backup corrispondono al relativo livello di servizio per singoli database. In particolare, un database elastico in un pool di base può essere ripristinato in qualsiasi punto di ripristino negli ultimi 7 giorni, è possibile ripristinare un database elastico in un pool Standard a qualsiasi punto di ripristino negli ultimi 14 giorni e un database elastico in un pool Premium può essere ripristinato in qualsiasi punto di ripristino negli ultimi 35 giorni. Durante l'anteprima, verranno ripristinati i database in un pool in un nuovo database nello stesso pool. Database eliminati verranno sempre ripristinati come database autonomi all'esterno del pool nel livello di prestazioni più basso per tale livello di servizio. Ad esempio, verrà ripristinato un database in un pool Standard che viene eliminato elastico come database S0. È possibile eseguire operazioni di ripristino dei database tramite il Portale di Azure o a livello di programmazione mediante l'API REST. Il supporto dei cmdlet PowerShell sarà disponibile a breve.
 
-### [Ripristino geografico](https://msdn.microsoft.com/library/azure/hh852669.aspx#BKMK_GEO)
+### Ripristino geografico
 
 Il Ripristino geografico consente di ripristinare un database in un pool a un server in un'area diversa. Durante l'anteprima, per ripristinare un database in un pool su un server diverso, il server di destinazione deve disporre di un pool con lo stesso nome del pool di origine. Se necessario, creare un nuovo pool nel server di destinazione e assegnargli lo stesso nome prima di ripristinare il database. Se non esiste un pool con lo stesso nome nel server di destinazione, l'operazione Ripristino geografica avrà esito negativo. È possibile eseguire operazioni Ripristino geografico mediante il Portale di Azure o l'API REST. Il supporto dei cmdlet PowerShell sarà disponibile a breve.
 
 
-### [Replica geografica](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+### Replica geografica
 
-I database per i quali è già abilitata la replica geografica possono essere spostati all’interno e all’esterno di un pool di database elastici e la replica continuerà a funzionare normalmente. È possibile attivare la replica geografica su un database che si trova già nel pool, se il server di destinazione specificato contiene un pool con lo stesso nome del pool di origine.
+La replica geografica è disponibile per qualsiasi database in un pool di database elastici Standard o Premium. Uno o tutti i database in una relazione di replica geografica possono essere in un pool di database elastici, a condizione che i livelli di servizio siano uguali. È possibile configurare la replica geografica per i pool di database elastici usando il [portale di Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) o [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
 ### Importazione ed esportazione
 
@@ -72,4 +72,4 @@ L’esportazione di un database dall’interno di un pool è supportata. Attualm
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

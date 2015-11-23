@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creazione di pipeline" 
-	description="Informazioni sulle pipeline di Data factory di Azure e su come crearle per spostare e trasformare i dati al fine di produrre informazioni che possano essere usate per una maggiore conoscenza" 
+	description="Informazioni sulle pipeline di Data factory di Azure e su come crearle per spostare e trasformare i dati al fine di produrre informazioni che possano essere utilizzate per una maggiore conoscenza" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -224,18 +224,7 @@ Nella tabella seguente vengono descritte le proprietà all'interno delle definiz
 
 Tag | Descrizione | Obbligatorio
 --- | ----------- | --------
-name | Nome dell'attività o della pipeline. Specificare un nome che rappresenta l'azione che l'attività o la pipeline è configurata per eseguire<br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (_)</li><li>I caratteri seguenti non sono consentiti: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | Sì
-description | Testo che descrive l’uso previsto per l'attività o la pipeline | Sì
-type | Specifica il tipo dell'attività. Vedere gli articoli sulle [attività di sposatmento dei dati](data-factory-data-movement-activities.md) e [di trasformazione dei dati](data-factory-data-transformation-activities.md) per i diversi tipi di attività. | Sì
-input | Le tabelle di input utilizzate dall’attività<p>// una tabella di input<br/>"inputs": [ { "name": "inputtable1" } ],</p><p>// due tabelle di input <br/>"inputs": [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p> | Sì
-outputs | Le tabelle di output utilizzate dall’attività.<p>// una tabella di output<br/>"outputs": [ { "name": “outputtable1” } ],</p><p>//due tabelle di output<br/>"outputs": [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | Sì
-linkedServiceName | Nome del servizio collegato utilizzato dall’attività. <p>Un'attività può richiedere di specificare il servizio collegato che si collega all'ambiente di calcolo richiesto.</p>| Sì per l’attività HDInsight e per l’attività di assegnazione dei punteggi di batch di Azure Machine Learning<p>No per tutte le altre</p>
-typeProperties | Le proprietà della sezione typeProperties dipendono dal tipo di attività. Consultare l'articolo su ogni singola attività per ulteriori informazioni sull’attività | No
-policy | Criteri che influiscono sul comportamento in fase di esecuzione dell'attività. Se vengono omessi, verranno usati i criteri predefiniti. Scorrere di seguito per informazioni dettagliate | No
-start | Data e ora di inizio della pipeline. Devono essere nel [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Le proprietà start ed end insieme specificano il periodo attivo per la pipeline. Le sezioni di output vengono prodotte solo in questo periodo attivo. | No<p>Il periodo attivo per una pipeline può essere impostato anche utilizzando il cmdlet Set-AzureDataFactoryPipelineActivePeriod</p>
-End | Data e ora di fine per la pipeline. Se specificate, devono essere in formato ISO. Ad esempio: 2014-10-14T17:32:41Z <p>Se non specificate, vengono calcolate come "inizio + 48 ore". Per eseguire la pipeline per un tempo illimitato, specificare 9999-09-09 come valore per la proprietà end.</p>| No
-isPaused | Se impostata su true, la pipeline non verrà eseguita. Valore predefinito = false. È possibile utilizzare questa proprietà per abilitare o disabilitare. | No
-scheduler | La proprietà “scheduler” viene utilizzata per definire la pianificazione per l’attività. Le relative proprietà secondarie sono quelle indicate nella [proprietà availability in un set di dati](data-factory-create-datasets.md#Availability). | No |   
+name | Nome dell'attività o della pipeline. Specificare un nome che rappresenta l'azione che l'attività o la pipeline è configurata per eseguire<br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>I caratteri seguenti non sono consentiti: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | Sì description | Testo che descrive l’uso previsto per l'attività o la pipeline | Sì type | Specifica il tipo dell'attività. Vedere gli articoli sulle [attività di sposatmento dei dati](data-factory-data-movement-activities.md) e [di trasformazione dei dati](data-factory-data-transformation-activities.md) per i diversi tipi di attività. | Sì input | Le tabelle di input utilizzate dall’attività<p>// una tabella di input<br/>"inputs": [ { "name": "inputtable1" } ],</p><p>// due tabelle di input <br/>"inputs": [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p> | Sì outputs | Le tabelle di output utilizzate dall’attività.<p>// una tabella di output<br/>"outputs": [ { "name": “outputtable1” } ],</p><p>//due tabelle di output<br/>"outputs": [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | Sì linkedServiceName | Nome del servizio collegato utilizzato dall’attività. <p>Un'attività può richiedere di specificare il servizio collegato che si collega all'ambiente di calcolo richiesto.</p>| Sì per l’attività HDInsight e per l’attività di assegnazione dei punteggi di batch di Azure Machine Learning<p>No per tutte le altre</p>typeProperties | Le proprietà della sezione typeProperties dipendono dal tipo di attività. Consultare l'articolo su ogni singola attività per ulteriori informazioni sull’attività | No policy | Criteri che influiscono sul comportamento in fase di esecuzione dell'attività. Se vengono omessi, verranno usati i criteri predefiniti. Scorrere di seguito per informazioni dettagliate | No start | Data e ora di inizio della pipeline. Devono essere nel [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. <p>Le proprietà start ed end insieme specificano il periodo attivo per la pipeline. Le sezioni di output vengono generate solo in questo periodo attivo.</p> | No<p>Se si specifica un valore per la proprietà end, è necessario specificare il valore per la proprietà start.</p><p>L'ora di inizio e l'ora di fine possono essere entrambe vuote per creare una pipeline, ma entrambe devono avere un valore per impostare un periodo attivo per l'esecuzione della pipeline. Se non si specificano le ore di inizio e fine durante la creazione di una pipeline, è possibile impostare tali valori in un secondo momento mediante il cmdlet Set-AzureDataFactoryPipelineActivePeriod.</p> end | Data-ora di fine per la pipeline. Se specificate, devono essere in formato ISO. Ad esempio: 2014-10-14T17:32:41Z <p>Per eseguire la pipeline per un tempo illimitato, specificare 9999-09-09 come valore della proprietà end.</p>| No <p>Se si specifica un valore per la proprietà start, è necessario specificare il valore per la proprietà end.</p><p>Vedere le note della proprietà **start**.</p> isPaused | Se impostata su true, la pipeline non viene eseguita. Valore predefinito = false. È possibile utilizzare questa proprietà per abilitare o disabilitare. | No scheduler | La proprietà “scheduler” viene utilizzata per definire la pianificazione per l’attività. Le relative proprietà secondarie sono quelle indicate nella [proprietà availability in un set di dati](data-factory-create-datasets.md#Availability). | No | 
 
 ### Tipi di attività
 Data factory di Azure fornisce una vasta gamma di attività di [spostamento dei dati](data-factory-data-movement-activities.md) e [trasformazione dei dati](data-factory-data-transformation-activities.md).
@@ -286,10 +275,10 @@ Data factory di Azure fornisce vari meccanismi per creare e distribuire le pipel
 
 Per altre informazioni su questo cmdlet, vedere il cmdlet [New-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn820227.aspx).
 
-### Uso dell'API REST
+### Utilizzo dell'API REST
 È possibile creare e distribuire la pipeline anche tramite le API REST. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per altre informazioni su questo argomento, vedere [Creare o aggiornare una pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
 
-### Uso di .NET SDK
+### Utilizzo di .NET SDK
 È possibile creare e distribuire la pipeline anche tramite .NET SDK. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per altre informazioni su questo argomento, vedere [Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md).
 
 
@@ -310,8 +299,7 @@ Una volta distribuita una pipeline, è possibile gestire e monitorare le pipelin
 - Informazioni sulla [gestione e il monitoraggio in Data factory di Azure](data-factory-monitor-manage-pipelines.md).
 - [Creare e distribuire la prima pipeline](data-factory-build-your-first-pipeline.md). 
 
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md) richiede solo alcuni minuti.
+
  
 
    
@@ -336,4 +324,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L'inv
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

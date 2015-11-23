@@ -58,7 +58,7 @@ Un hub IoT riceve i dati di telemetria dai dispositivi di raffreddamento in un s
 
 L'hub IoT espone i dati di telemetria ricevuti tramite l'endpoint di un gruppo di consumer.
 
-L'istanza dell'hub IoT in questa soluzione preconfigurata corrisponde all'**applicazione back-end IoT** nell'architettura di una tipica soluzione IoT.
+L'istanza dell'hub IoT in questa soluzione preconfigurata corrisponde al **gateway cloud** nell'architettura di una tipica soluzione IoT.
 
 ### Analisi di flusso di Azure
 
@@ -91,4 +91,4 @@ Esplorare queste risorse per altre informazioni sulle soluzioni preconfigurate I
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Analisi di flusso di Azure]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

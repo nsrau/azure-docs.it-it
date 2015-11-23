@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/16/2015"
+   ms.date="11/06/2015"
    ms.author="mbaldwin"/>
 
 
@@ -46,9 +46,9 @@ Queste esercitazioni sono disponibili per diverse piattaforme e consentono di in
 
 ### Guide introduttive per applicazioni web
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
-|:--:|:--:|:--:|
-|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[JavaScript](active-directory-devquickstarts-angular.md)|[Node.JS](active-directory-devquickstarts-openidconnect-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
+|:--:|:--:|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[JavaScript](active-directory-devquickstarts-angular.md)|[Node.JS](active-directory-devquickstarts-openidconnect-nodejs.md)
 
 ### Guide introduttive per API Web
 
@@ -74,6 +74,7 @@ Questi articoli descrivono come eseguire attività specifiche usando Azure Activ
 - [Anteprima: Come compilare app che consentono agli utenti di accedere sia con un account personale che con un account aziendale o dell'istituto di istruzione](active-directory-appmodel-v2-overview.md)
 - [Anteprima: Come creare applicazioni che permettono ai consumer di iscriversi e accedere](active-directory-b2c-overview.md)
 
+
 ## Riferimento
 
 Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, errori, protocolli e API della libreria di autenticazione e REST.
@@ -90,7 +91,7 @@ Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, e
 
 ### API Graph
 
-- [Informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx): informazioni di riferimento su REST per l'API Graph di Azure Active Directory. [Visualizzare la nuova esperienza interattiva per le informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+- [Informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx): informazioni di riferimento su REST per l'API Graph di Azure Active Directory. [Visualizzare l'esperienza interattiva per le informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 - [Ambiti di autorizzazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): ambiti di autorizzazione OAuth 2.0 usati per controllare l'accesso di un'app ai dati della directory in un tenant.
 
@@ -137,4 +138,4 @@ Queste presentazioni generali sullo sviluppo di app tramite Azure Active Directo
 
 - [Azure Active Directory su Twitter](https://twitter.com/azuread): annunci relativi ad Azure Active Directory in 140 caratteri o meno.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

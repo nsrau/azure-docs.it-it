@@ -247,12 +247,15 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
+
 ##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ##Argomenti correlati
@@ -266,4 +269,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

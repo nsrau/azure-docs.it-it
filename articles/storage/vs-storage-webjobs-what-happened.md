@@ -3,7 +3,7 @@
 	description="Viene descritto cosa succede in un progetto Webjob di Azure dopo la connessione a un account di archiviazione utilizzando i servizi connessi a Visual Studio " 
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Cosa è successo al progetto Webjob (servizio connesso a Visual Studio Archiviazione di Azure)?
 
@@ -41,4 +41,4 @@ Nel file App.config del progetto gli elementi **AzureWebJobsStorage** e **AzureW
 
 Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

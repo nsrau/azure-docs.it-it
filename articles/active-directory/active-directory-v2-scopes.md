@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Ambiti, autorizzazioni e consenso
@@ -116,4 +116,4 @@ Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggior
 
 Per altre informazioni su come ottenere e usare i token di aggiornamento, consultare il [riferimento al protocollo di Modello app 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

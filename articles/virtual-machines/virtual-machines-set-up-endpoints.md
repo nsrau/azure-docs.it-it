@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurare gli endpoint in una macchina virtuale in Azure"
-	description="Informazioni su come configurare gli endpoint nel portale per consentire la comunicazione con una macchina virtuale in Azure."
+	description="Informazioni su come configurare gli endpoint nel portale di Azure per consentire la comunicazione con una macchina virtuale in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -38,7 +38,7 @@ Ogni endpoint dispone di una porta pubblica e di una porta privata.
 - La porta pubblica viene usata dal servizio di bilanciamento del carico di Azure per restare in attesa di traffico in ingresso sulla macchina virtuale da Internet.
 - La porta privata viene usata dalla macchina virtuale per restare in attesa di traffico in ingresso, in genere destinato a un'applicazione o a un servizio in esecuzione nella macchina virtuale.
 
-I valori predefiniti per il protocollo IP e le porte TCP o UDP per i protocolli di rete noti vengono forniti quando si creano endpoint con il portale. Per gli endpoint personalizzati, è necessario specificare il protocollo IP corretto (TCP o UDP) e le porte pubbliche e private. Per distribuire il traffico in ingresso in modo casuale tra più macchine virtuali, è necessario creare un set con carico bilanciato costituito da più endpoint.
+I valori predefiniti per il protocollo IP e le porte TCP o UDP per i protocolli di rete noti vengono forniti quando si creano endpoint con il portale di Azure. Per gli endpoint personalizzati, è necessario specificare il protocollo IP corretto (TCP o UDP) e le porte pubbliche e private. Per distribuire il traffico in ingresso in modo casuale tra più macchine virtuali, è necessario creare un set con carico bilanciato costituito da più endpoint.
 
 Dopo aver creato un endpoint, è possibile usare un elenco di controllo di accesso (ACL) per definire regole che autorizzano o rifiutano il traffico in ingresso alla porta pubblica dell'endpoint in base al relativo indirizzo IP di origine. Tuttavia, se la macchina virtuale è in una rete virtuale di Azure, è consigliabile usare invece i gruppi di sicurezza di rete. Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](virtual-networks-nsg.md).
 
@@ -46,7 +46,7 @@ Dopo aver creato un endpoint, è possibile usare un elenco di controllo di acces
 
 ##Creare un endpoint
 
-1.	Accedere al [portale](http://manage.windowsazure.com/), se questa operazione non è già stata eseguita.
+1.	Accedere al portale di Azure, se questa operazione non è già stata eseguita.
 2.	Fare clic su **Macchine virtuali** e quindi scegliere il nome della macchina virtuale da configurare.
 3.	Fare clic su **Endpoint**. Nella pagina **Endpoint** sono elencati tutti gli endpoint correnti per la macchina virtuale.
 
@@ -64,7 +64,7 @@ Dopo aver creato un endpoint, è possibile usare un elenco di controllo di acces
 9.	Se questo endpoint sarà il primo in un set con carico bilanciato, fare clic su **Crea un set con carico bilanciato**, quindi fare clic sulla freccia a destra. Nella pagina **Configura il set con carico bilanciato** specificare un nome di set con carico bilanciato, un protocollo e una porta probe, l'intervallo probe e il numero di probe inviati. Il bilanciamento del carico di Azure invia probe alle macchine virtuali in un set con carico bilanciato per monitorarne la disponibilità. Il bilanciamento del carico di Azure non inoltra il traffico alle macchine virtuali che non rispondono al probe. Fare clic sulla freccia destra.
 10.	Fare clic sul segno di spunta per creare l'endpoint.
 
-Il nuovo endpoint verrà elencato nella pagina **endpoint**.
+Il nuovo endpoint verrà elencato nella pagina **Endpoint**.
 
 ![Creazione dell'endpoint completata](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
 
@@ -78,7 +78,7 @@ Per definire il set di computer che può inviare il traffico, l'elenco di contro
 
 Se la macchina virtuale si trova in una rete virtuale di Azure, è consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso. Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](virtual-networks-nsg.md).
 
-1.	Accedere al [portale](http://manage.windowsazure.com/), se questa operazione non è già stata eseguita.
+1.	Accedere al portale di Azure, se questa operazione non è già stata eseguita.
 2.	Fare clic su **Macchine virtuali** e quindi scegliere il nome della macchina virtuale da configurare.
 3.	Fare clic su **Endpoint**. Selezionare l'endpoint appropriato nell'elenco.
 
@@ -100,4 +100,4 @@ Per usare un cmdlet di Azure PowerShell per impostare questa funzionalità, vede
 
 [Bilanciamento del carico per i servizi di infrastruttura di Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

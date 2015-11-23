@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors - Diagnostica e monitoraggio delle prestazioni"
-   description="Questo articolo illustra le funzionalità di diagnostica e monitoraggio delle prestazioni disponibili nel runtime di Reliable Actors, inclusi gli eventi e i contatori delle prestazioni emessi dal runtime."
+   pageTitle="Monitoraggio e diagnostica degli attori | Microsoft Azure"
+   description="Questo articolo illustra le funzionalità di diagnostica e monitoraggio delle prestazioni disponibili nel runtime di Reliable Actors dell'infrastruttura di servizi, inclusi gli eventi e i contatori delle prestazioni emessi dal runtime."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="abhisram"/>
 
 # Diagnostica e monitoraggio delle prestazioni per Reliable Actors
 Il runtime di Reliable Actors emette eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contatori delle prestazioni](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) che forniscono informazioni utili per comprendere il funzionamento del runtime e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
 
 ## Eventi EventSource
-Il nome di EventSource per il runtime di Reliable Actors è "Microsoft-ServiceFabric-Actors". Gli eventi provenienti da questa origine vengono visualizzati nella finestra degli [eventi di diagnostica](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando l'applicazione attore viene sottoposta a [debug in Visual Studio](service-fabric-debugging-your-application.md).
+Il nome provider di EventSource per il runtime di Reliable Actors è "Microsoft-ServiceFabric-Actors". Gli eventi provenienti da questa origine vengono visualizzati nella finestra degli [eventi di diagnostica](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando l'applicazione attore viene sottoposta a [debug in Visual Studio](service-fabric-debugging-your-application.md).
 
-Service Fabric consente inoltre di indirizzare questi eventi ad [Application Insights](http://azure.microsoft.com/services/application-insights/). Per altre informazioni, vedere l'articolo relativo alla [configurazione di Application Insights per Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
-
-Altri esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Alcuni esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Parole chiave
 Tutti gli eventi appartenenti a EventSource di Reliable Actors sono associati a una o più parole chiave. Questo consente di filtrare gli eventi che vengono raccolti. I bit delle parole chiave definiti sono i seguenti:
@@ -148,11 +146,11 @@ Il runtime di Reliable Actors emette gli eventi seguenti relativi alle [repliche
 |ReplicaChangeRoleFromPrimary|2|Informazioni|0x1|Il ruolo della replica dell'attore con stato è cambiato e la replica non è più primaria. Ciò significa che gli attori per questa partizione non verranno più creati all'interno della replica. Non verranno recapitate nuove richieste agli attori già creati all'interno della replica. Gli attori verranno distrutti dopo il completamento di qualsiasi richiesta in corso.|
 
 ### Eventi di attivazione e disattivazione degli attori
-Il runtime di The Reliable Actors runtime emits the following events related emette gli eventi seguenti relativi all'[attivazione e disattivazione degli attori](service-fabric-reliable-actors-lifecycle.md).
+Il runtime di Reliable Actors emette gli eventi seguenti relativi all'[attivazione e disattivazione degli attori](service-fabric-reliable-actors-lifecycle.md).
 
 |Nome evento|ID evento|Livello|Parole chiave|Descrizione|
 |---|---|---|---|---|
 |ActorActivated|5|Informazioni|0x1|Un attore è stato attivato.|
 |ActorDeactivated|6|Informazioni|0x1|Un attore è stato disattivato.|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

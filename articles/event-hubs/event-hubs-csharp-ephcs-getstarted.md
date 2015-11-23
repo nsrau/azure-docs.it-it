@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione all'Hub eventi"
+	pageTitle="Introduzione all'Hub eventi in C# | Microsoft Azure"
 	description="Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure con C# e iniziare a usare EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
@@ -34,7 +34,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 ## Creare un hub eventi
 
-1. Accedere al [portale di gestione di Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
+1. Accedere al [portale di Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
 2. Fare clic su **Servizi app**, **Bus di servizio**, **Hub eventi** e infine **Creazione rapida**.
 
@@ -83,10 +83,10 @@ A questo punto è possibile eseguire le applicazioni.
 
 Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
 
-- Un'[applicazione di esempio completa che usa Hub eventi].
-- Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi].
-- Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
-- [Panoramica di Hub eventi]
+- Un'[applicazione di esempio completa che usa Hub eventi][].
+- Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][].
+- Una [soluzione di messaggistica accodata][] che usa le code di Bus di servizio.
+- [Panoramica di Hub eventi][]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub1.png
@@ -100,12 +100,12 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure]: https://manage.windowsazure.com/
 [libreria dell'Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

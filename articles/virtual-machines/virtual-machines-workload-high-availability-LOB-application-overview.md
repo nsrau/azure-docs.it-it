@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Distribuire un'applicazione line-of-business a disponibilità elevata in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 
 Questo argomento fornisce collegamenti alle istruzioni dettagliate per la distribuzione di un'applicazione line-of-business a disponibilità elevata, solo intranet basata sul Web con i gruppi di disponibilità SQL Server AlwaysOn nei servizi di infrastruttura di Azure. L'applicazione è ospitata nei computer seguenti:
 
@@ -69,4 +68,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 1: C
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

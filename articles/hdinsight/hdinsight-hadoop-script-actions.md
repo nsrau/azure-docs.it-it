@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="11/09/2015"
 	ms.author="jgao"/>
 
 # Sviluppare script di Azione script per HDInsight
@@ -200,9 +200,9 @@ Gli script usati per personalizzare un cluster devono essere nell'account di arc
 
 In questo esempio, è necessario assicurarsi che il contenitore 'somecontainer' nell’account di archiviazione 'somestorageaccount' sia accessibile pubblicamente. In caso contrario, lo script genera un'eccezione "Non trovato" ed ha esito negativo.
 
-### Passare i parametri al cmdlet Add-AzureHDInsightScriptAction
+### Passare i parametri al cmdlet Add-AzureRmHDInsightScriptAction
 
-Per passare più parametri al cmdlet Add-AzureHDInsightScriptAction, è necessario formattare il valore di stringa per contenere tutti i parametri per lo script. Ad esempio:
+Per passare più parametri al cmdlet Add-AzureRmHDInsightScriptAction, è necessario formattare il valore di stringa per contenere tutti i parametri per lo script. Ad esempio:
 
 	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
@@ -351,4 +351,4 @@ Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descriv
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

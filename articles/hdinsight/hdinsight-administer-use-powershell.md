@@ -45,11 +45,11 @@ I cluster HDInsight utilizzano un gruppo di risorse di Azure e un contenitore di
 
 **Connettersi ad Azure**
 
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
-		Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
+	Login-AzureRmAccount
+	Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
+	Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
 
-	**Select-AzureRMSubscription** is called in case you have multiple Azure subscriptions.
+**Select-AzureRMSubscription** viene chiamato nel caso in cui si disponga di più sottoscrizioni di Azure.
 	
 **Creare un nuovo gruppo di risorse**
 
@@ -180,30 +180,8 @@ Per modificare le dimensioni del cluster Hadoop mediante Azure PowerShell, esegu
 
 	Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 	
-##Trovare il gruppo di risorse
 
-	$clusterName = "<HDInsight Cluster Name>"
-	
-	$cluster = Get-AzureRmHDInsightCluster  -ClusterName $clusterName
-	$resourceGroupName = $cluster.ResourceGroup
-
-
-##Trovare l'account di archiviazione predefinito
-
-Il seguente script di Powershell dimostra come ottenere il nome dell’account di archiviazione predefinito e la chiave dell’account di archiviazione predefinita per un cluster.
-
-
-	$clusterName = "<HDInsight Cluster Name>"
-	
-	$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-	$resourceGroupName = $cluster.ResourceGroup
-	$defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
-	$defaultBlobContainerName = $cluster.DefaultStorageContainer
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
-	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
-
-
-##Concedere/revocare l'accesso
+##Concedere/Revocare l'accesso
 
 Per i cluster HDInsight sono disponibili i servizi Web HTTP seguenti (tutti con endpoint RESTful):
 
@@ -214,151 +192,82 @@ Per i cluster HDInsight sono disponibili i servizi Web HTTP seguenti (tutti con 
 - Templeton
 
 
-Per impostazione predefinita, a questi servizi è concesso l'accesso. L'accesso può essere revocato/concesso, come illustrato nell'esempio seguente:
+Per impostazione predefinita, a questi servizi è concesso l'accesso. L'accesso può essere revocato/concesso, Per revocare:
 
-	Revoke-AzureHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+	Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+
+Per concedere:
+
+	$clusterName = "<HDInsight Cluster Name>"
+
+	# Credential option 1
+	$hadoopUserName = "admin"
+	$hadoopUserPassword = "Pass@word123"
+	$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
+	$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
+
+	# Credential option 2
+	#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+	
+	Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
 >[AZURE.NOTE]La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
 
 Questa operazione può essere eseguita anche tramite il portale di anteprima di Azure. Vedere [Amministrare HDInsight tramite il portale di anteprima di Azure][hdinsight-admin-portal].
 
+##Aggiornare le credenziali utente HTTP
+
+È la stessa procedura di [Grant/revoke HTTP access](#grant/revoke-access). Se al cluster è stato concesso l'accesso HTTP, è necessario prima revocare. E quindi concedere l'accesso con le nuove credenziali utente HTTP.
 
 
+##Trovare l'account di archiviazione predefinito
 
+Il seguente script di Powershell dimostra come ottenere il nome dell’account di archiviazione predefinito e la chiave dell’account di archiviazione predefinita per un cluster.
 
-##Inviare processi MapReduce
-Con la distribuzione dei cluster HDInsight vengono forniti alcuni esempi di MapReduce. Uno degli esempi è relativo al conteggio della frequenza delle parole nei file di origine.
-
-**Per inviare un processo MapReduce**
-
-Lo script di PowerShell seguente consente di inviare il processo di esempio relativo al conteggio delle parole:
-
-	$clusterName = "<HDInsightClusterName>"
-
-	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-								-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
-								-ClassName "wordcount" `
-								-Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput1"
+	$clusterName = "<HDInsight Cluster Name>"
 	
-	# Submit the job and wait for job completion
-	$cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:" 
-	$wordCountJob = Start-AzureRmHDInsightJob `
-						-ResourceGroupName $resourceGroupName `
-						-ClusterName $clusterName `
-						-HttpCredential $cred `
-						-JobDefinition $wordCountJobDefinition 
+	$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+	$resourceGroupName = $cluster.ResourceGroup
+	$defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
+	$defaultBlobContainerName = $cluster.DefaultStorageContainer
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+
+##Trovare il gruppo di risorse
+
+Nella modalità ARM, ogni cluster HDInsight appartiene a un gruppo di risorse di Azure. Trovare il gruppo di risorse:
+
+	$clusterName = "<HDInsight Cluster Name>"
 	
-	Wait-AzureRmHDInsightJob `
-		-ResourceGroupName $resourceGroupName `
-		-ClusterName $clusterName `
-		-HttpCredential $cred `
-		-JobId $wordCountJob.JobId 
-
-	# Get the job output
-	$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
-	$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
-	$defaultStorageContainer = $cluster.DefaultStorageContainer
-	
-	Get-AzureRmHDInsightJobOutput `
-		-ResourceGroupName $resourceGroupName `
-		-ClusterName $clusterName `
-		-HttpCredential $cred `
-		-DefaultStorageAccountName $defaultStorageAccount `
-		-DefaultStorageAccountKey $defaultStorageAccountKey `
-		-DefaultContainer $defaultStorageContainer  `
-		-JobId $wordCountJob.JobId `
-		-DisplayOutputType StandardError
-		
-Per informazioni sul prefisso **wasb**, vedere [Usare l'archivio BLOB di Azure per HDInsight][hdinsight-storage].
-
-**Per scaricare l'output del processo MapReduce**
-
-Lo script di PowerShell seguente recupera l'output del processo MapReduce dall'ultima routine:
-
-	$storageAccountName = "<StorageAccountName>"
-	$containerName = "<ContainerName>"
-
-	# Create the Storage account context object
-	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-
-	# Download the output to local computer
-	Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
-
-	# Display the output
-	cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
-
-Per altre informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Utilizzo di MapReduce con HDInsight][hdinsight-use-mapreduce].
+	$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+	$resourceGroupName = $cluster.ResourceGroup
 
 
+##Inviare i processi
 
+**Inviare processi MapReduce**
 
+Vedere [esempi di MapReduce di Hadoop in HDInsight basato su Windows](hdinsight-run-samples.md).
 
+**Inviare un processo Hive**
 
+Vedere [Esecuzione di query Hive tramite PowerShell](hdinsight-hadoop-use-hive-powershell.md)
 
+**Inviare processi Pig**
 
+Vedere [Eseguire processi Pig mediante PowerShell](hdinsight-hadoop-use-pig-powershell.md).
 
+**Inviare processi Sqoop**
 
+Vedere [Usare Sqoop con Hadoop in HDInsight](hdinsight-use-sqoop.md).
 
+**Inviare processi Oozie**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##Invio di processi Hive
-La distribuzione di cluster HDInsight include una tabella Hive di esempio denominata *hivesampletable*. È possibile usare il comando HiveQL **SHOW TABLES** per visualizzare l'elenco delle tabelle Hive in un cluster.
-
-**Per inviare un processo Hive**
-
-Lo script seguente invia un processo Hive per visualizzare l'elenco delle tabelle Hive:
-
-	$clusterName = "<HDInsightClusterName>"
-
-	# HiveQL query
-	$querystring = @"
-		SHOW TABLES;
-		SELECT * FROM hivesampletable
-			WHERE Country='United Kingdom'
-			LIMIT 10;
-	"@
-
-	Use-AzureHDInsightCluster -Name $clusterName
-	Invoke-Hive $querystring
-
-Il processo Hive visualizzerà per prime le tabelle Hive create nel cluster e i dati restituiti dalla tabella hivesampletable.
-
-Per altre informazioni sull'uso di Hive, vedere [Uso di Hive con HDInsight][hdinsight-use-hive].
-
+Vedere [Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight](hdinsight-use-oozie.md).
 
 ##Caricare dati nell'archivio BLOB di Azure
 Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
-##Scaricare l'output del processo dall'archivio BLOB di Azure
-Vedere la sezione [Inviare processi MapReduce](#mapreduce) in questo articolo.
 
 ## Vedere anche
 * [Documentazione di riferimento dei cmdlet di HDInsight][hdinsight-powershell-reference]
@@ -393,4 +302,4 @@ Vedere la sezione [Inviare processi MapReduce](#mapreduce) in questo articolo.
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

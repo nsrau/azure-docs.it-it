@@ -285,7 +285,9 @@ In questa sezione si aggiungerà un nuovo controller che espone un modo per cons
 
 3. Aggiungere il codice seguente alla classe **NotificationsController**.
 
-	Questo codice invia un tipo di notifica basato sul parametro `pns` (Platform Notification Service). Il valore `to_tag` viene usato per impostare il tag *username* nel messaggio. Questo tag deve corrispondere a un tag username di una registrazione dell'hub di notifica attiva. Il messaggio di notifica viene estratto dal corpo della richiesta POST.
+	Questo codice invia un tipo di notifica basato sul parametro `pns` (Platform Notification Service). Il valore `to_tag` viene usato per impostare il tag *username* nel messaggio. Questo tag deve corrispondere a un tag username di una registrazione dell'hub di notifica attiva. Il messaggio di notifica viene estratto dal corpo della richiesta POST ed è formattato per il PNS di destinazione.
+
+	A seconda del PNS (Platform Notification Service) usato dai dispositivi supportati per ricevere le notifiche, sono supportate notifiche diverse con formati diversi. Ad esempio nei dispositivi Windows è possibile usare una [notifica di tipo avviso popup con WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) che non è supportata direttamente da un altro PNS. Il back-end deve pertanto formattare la notifica come una notifica supportata per il PNS dei dispositivi che si intende supportare. Usare quindi l'API di invio appropriata per la [classe NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
 
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -362,4 +364,4 @@ In questa sezione si aggiungerà un nuovo controller che espone un modo per cons
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

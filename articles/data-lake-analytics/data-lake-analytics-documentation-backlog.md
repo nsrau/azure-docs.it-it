@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="mwinkle"/>
 
 # Backlog della documentazione di Azure Data Lake Analytics
@@ -24,10 +24,10 @@ Continueremo ad aggiungere nuova documentazione per supportare Azure Data Lake A
 
 Area |Argomento | Priorità | Stato | Assegnato a | Richiesto da 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-U-SQL | Query distribuite | 1 | In corso | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Query distribuite | 1 | In attesa | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Elaborazione JSON | 2 | In sospeso | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 Servizio | Interazione con Curl | 3 |In sospeso |[@mumian](https://github.com/mumian)
-U-SQL | Tabelle partizionate |1 | In sospeso | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Tabelle partizionate |1 | In corso | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Ottimizzazione delle prestazioni | 2 | In sospeso | [@MikeRys](https://github.com/mikerys) | 
 U-SQL | Manuale del programmatore | 2 | In sospeso | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Introduzione a U-SQL in un ambiente T-SQL | 1 | In sospeso | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
@@ -53,4 +53,4 @@ Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backl
 * Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Inviare un messaggio di posta elettronica a [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

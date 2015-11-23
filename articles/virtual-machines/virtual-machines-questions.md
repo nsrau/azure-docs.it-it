@@ -75,7 +75,7 @@ Per le macchine virtuali create in Gestione dei servizi, è possibile utilizzare
 
 Se si verificano problemi relativi a Desktop remoto o SSH, installare e utilizzare l'estensione [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) per risolvere il problema. Per le macchine virtuali Windows, opzioni aggiuntive includono:
 
-- Nel portale di anteprima di Azure, trovare la macchina virtuale, quindi fare clic su **Reimposta accesso remoto** dalla barra dei comandi.
+- Nel portale di anteprima di Azure trovare la macchina virtuale, quindi fare clic su **Reimposta accesso remoto** dalla barra dei comandi.
 - Consulta [Risoluzione dei problemi relativi alle connessioni di Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 - Utilizzare la comunicazione remota di Windows PowerShell per effettuare la connessione alla macchina virtuale o creare endpoint aggiuntivi per la connessone di altre risorse alla macchina virtuale. Per informazioni dettagliate, vedere [Come configurare gli endpoint in una macchina virtuale](virtual-machines-set-up-endpoints.md).
 
@@ -104,7 +104,7 @@ Se si dimentica il nome utente o la password ed è stato installato l'agente VM,
 
 Informazioni aggiuntive:
 
-- Per le immagini Linux, se si utilizza il portale di gestione, viene fornito il nome utente predefinito ‘azureuser’, che tuttavia si può modificare utilizzando ‘Da raccolta’ invece di ‘Creazione rapida’ come metodo di creazione della macchina virtuale. Utilizzando il metodo 'Da raccolta', è inoltre possibile decidere se utilizzare una password, una chiave SSH o entrambe per l'accesso. L'account utente è un utente senza privilegi che dispone di accesso 'sudo' per l'esecuzione di comandi con privilegi. L'account 'root' è disabilitato.
+- Per le immagini Linux, se si usa il portale di Azure, viene fornito il nome utente predefinito 'azureuser', che tuttavia si può modificare usando 'Da raccolta' invece di 'Creazione rapida' come metodo di creazione della macchina virtuale. Utilizzando il metodo 'Da raccolta', è inoltre possibile decidere se utilizzare una password, una chiave SSH o entrambe per l'accesso. L'account utente è un utente senza privilegi che dispone di accesso 'sudo' per l'esecuzione di comandi con privilegi. L'account 'root' è disabilitato.
 - Per le immagini di Windows, è necessario fornire un nome utente e una password quando si crea la VM. L'account viene aggiunto al gruppo Administrators.
 
 ## Azure è in grado di eseguire software antivirus nelle macchine virtuali?
@@ -127,7 +127,7 @@ Azure addebita un costo orario in base alla dimensione della VM e al sistema ope
 
 Viene applicato un addebito quando lo stato della VM è in esecuzione o arrestato, ma non vengono applicati addebiti quando lo stato della VM viene arrestato (deallocato). Per mettere una VM nello stato arrestato (deallocato), effettuare una delle seguenti operazioni:
 
-- Arrestare o eliminare la VM dal portale di gestione.
+- Arrestare o eliminare la VM dal portale di Azure.
 - Utilizzare il cmdlet Stop-AzureVM disponibile nel modulo Azure PowerShell.
 - Utilizzare l’operazione Shutdown Role nel servizio di gestione API REST e specificare il valore StoppedDeallocated per l’elemento PostShutdownAction.
 
@@ -151,4 +151,4 @@ Per garantire la ridondanza, inserire due o più VM configurate in modo analogo 
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

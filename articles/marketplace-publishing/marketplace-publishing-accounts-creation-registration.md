@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -19,12 +19,12 @@
 # Creazione di un account del venditore Microsoft
 In questo articolo viene illustrata la creazione e la registrazione dell’account necessario per diventare un venditore Microsoft approvato per Azure Marketplace.
 
-## 1. Creare un account Microsoft (MSA)
-> [AZURE.WARNING] Per completare il processo di pubblicazione, è necessario creare un account Microsoft. Questo account verrà utilizzato per la registrazione e l’accesso sia al portale di pubblicazione, sia al Dashboard venditori. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. Essi non devono essere specifici per servizi oppure offerte.
+## 1\. Creare un account Microsoft (MSA)
+> [AZURE.WARNING]Per completare il processo di pubblicazione, è necessario creare un account Microsoft. Questo account verrà utilizzato per la registrazione e l’accesso sia al portale di pubblicazione, sia al Dashboard venditori. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. Essi non devono essere specifici per servizi oppure offerte.
 
 L'indirizzo che costituisce il nome utente deve trovarsi nel dominio dell'editore e deve essere controllato dal team IT, ad esempio publishing@yourcompany.com). Pagamenti, informazioni fiscali e report verranno indirizzati a questo account.
 
-  >[AZURE.WARNING] Parole come "Azure", "Microsoft" non sono supportate per la registrazione di account MSA. Evitare di utilizzare queste parole per completare il processo di registrazione e creazione dell’account.
+  >[AZURE.WARNING]Parole come "Azure", "Microsoft" non sono supportate per la registrazione di account MSA. Evitare di utilizzare queste parole per completare il processo di registrazione e creazione dell’account.
 
 1. Creare un elenco di distribuzione (DL) o un gruppo di sicurezza (SG) all'interno del dominio della società.
   - Aggiungere il proprio team di implementazione al DL
@@ -45,9 +45,9 @@ L'indirizzo che costituisce il nome utente deve trovarsi nel dominio dell'editor
 
 6. A questo punto si è pronti per utilizzare il nuovo MSA nel Dashboard venditori.
 
-> [AZURE.IMPORTANT] L’utilizzo del DL consente a più utenti di ricevere tramite posta elettronica notifiche che costituiscono importanti segnalazioni delle informazioni di pagamento e assicura inoltre che la proprietà dell’MSA può essere trasferita e non è vincolata a un singolo utente.
+> [AZURE.IMPORTANT]L’utilizzo del DL consente a più utenti di ricevere tramite posta elettronica notifiche che costituiscono importanti segnalazioni delle informazioni di pagamento e assicura inoltre che la proprietà dell’MSA può essere trasferita e non è vincolata a un singolo utente.
 
-## 2. Creare un account per il Dashboard venditori
+## 2\. Creare un account per il Dashboard venditori
 Il Dashboard venditori Microsoft viene utilizzato per registrare le informazioni della società una sola volta. La persona che effettua la registrazione deve essere un rappresentante della società valido e deve fornire le informazioni personali come metodo per convalidare la propria identità. La persona che esegue la registrazione deve utilizzare un account Microsoft (MSA) condiviso per la società e questo essere utilizzato nel portale di pubblicazione di Azure. Assicurarsi che l'azienda non possieda già un account per il Dashboard venditori prima di tentare di crearne uno. Durante il processo, Microsoft raccoglierà le informazioni sul conto bancario, i dati fiscali e le informazioni sull'indirizzo dell'azienda. Tali informazioni possono generalmente essere ottenute da contatti finanziari o aziendali.
 
 > [AZURE.IMPORTANT]I seguenti componenti del profilo del venditore devono essere completati per l'avanzamento attraverso le diverse fasi della creazione e della distribuzione dell’offerta.
@@ -142,7 +142,7 @@ Se si preferisce aggiornare le informazioni fiscali e bancarie in un secondo mom
 
 > [AZURE.WARNING]Non sarà possibile eseguire il push nella produzione delle offerte commerciali senza completare le informazioni fiscali e del conto bancario nell'account del Dashboard venditori.
 
-## 3. Registrare l'account nel portale di pubblicazione
+## 3\. Registrare l'account nel portale di pubblicazione
 Il portale di pubblicazione di Azure consente di pubblicare e gestire le offerte. Nel portale di pubblicazione sono disponibili informazioni utili che guideranno attraverso il processo di creazione dell’offerta.
 
 > [AZURE.WARNING]Qui è OBBLIGATORIO utilizzare lo stesso account Microsoft della società utilizzato nella registrazione nel Dashboard venditori. È possibile aggiungere altri utenti per l’assistenza una volta creato l'account di editore principale.
@@ -154,16 +154,11 @@ Il portale di pubblicazione di Azure consente di pubblicare e gestire le offerte
 
   >[AZURE.TIP]I criteri di partecipazione sono menzionati [qui](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > In caso di problemi con il completamento della registrazione del venditore, registrare un ticket di supporto come indicato di seguito:
-  1. Contattare il [Supporto tecnico](http://go.microsoft.com/fwlink?LinkId=272975)
-  2. Scegliere la **registrazione nel Dashboard venditori e il proprio account**
-  3. Scegliere **Registrazione per un account sviluppatore**
-  4. Scegliere il **metodo** di contatto
+  > In caso di problemi con il completamento della registrazione del venditore, registrare un ticket di supporto come indicato di seguito: 1. Contattare il [Supporto tecnico](http://go.microsoft.com/fwlink?LinkId=272975) 2. Scegliere la **registrazione nel Dashboard venditori e il proprio account** 3. Scegliere **Registrazione per un account sviluppatore** 4. Scegliere il **metodo** di contatto
 
 ### Paesi di origine della vendita
 
-> [AZURE.WARNING]
-Per vendere i propri servizi in Microsoft Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro. Per un elenco completo, vedere la sezione 1b del documento all’indirizzo [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
+> [AZURE.WARNING]Per vendere i propri servizi in Microsoft Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro. Per un elenco completo, vedere la sezione 1b del documento all’indirizzo [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 
@@ -171,12 +166,7 @@ Per vendere i propri servizi in Microsoft Azure Marketplace, l'entità registrat
 ## Passaggi successivi
 Ora che l'account è stato creato e registrato, fare clic sul tipo di elemento (macchina virtuale, servizio di sviluppatore, servizio dati, modello di soluzione) che si desidera pubblicare in Azure Marketplace. Esaminare uno dei seguenti articoli per scoprire come pubblicare la propria offerta:
 
-|| Immagine di macchina virtuale| Servizio sviluppatore | Servizio dati | Modello per la soluzione |
-|----|-----|-----|-----|-----|
-|**Passaggio2: Creare la propria offerta** |[Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)|
-|| [Prerequisiti tecnici per una VM][link-single-vm-prereq] | Prerequisiti tecnici per un servizio per sviluppatori | Prerequisiti tecnici per un servizio dati | [Prerequisiti tecnici per un modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [Guida alla pubblicazione di un'immagine di VM][link-single-vm] | Guida alla pubblicazione di un servizio per sviluppatori | Guida alla pubblicazione di un servizio dati | [Guida alla pubblicazione di un modello di soluzione](marketplace-publishing-solution-template-creation.md) |
-|| [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] |[ Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging]
+|| Immagine di macchina virtuale| Servizio sviluppatore | Servizio dati | Modello per la soluzione | |----|-----|-----|-----|-----| |**Passaggio2: Creare la propria offerta** |[Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| || [Prerequisiti tecnici per una VM][link-single-vm-prereq] | Prerequisiti tecnici per un servizio per sviluppatori | Prerequisiti tecnici per un servizio dati | [Prerequisiti tecnici per un modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) | || [Guida alla pubblicazione di un'immagine di VM][link-single-vm] | Guida alla pubblicazione di un servizio per sviluppatori | Guida alla pubblicazione di un servizio dati | [Guida alla pubblicazione di un modello di soluzione](marketplace-publishing-solution-template-creation.md) | || [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] |[ Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging]
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -208,4 +198,4 @@ Ora che l'account è stato creato e registrato, fare clic sul tipo di elemento (
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

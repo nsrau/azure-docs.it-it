@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -30,4 +30,4 @@ Il primo comando associa un account di archiviazione predefinito alla sottoscriz
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 - [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

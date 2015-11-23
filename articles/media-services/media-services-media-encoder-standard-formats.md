@@ -106,12 +106,14 @@ MP4 <br/><br/> (multi-bitrate MP4 container inclusi) |H.264 (High, Main e Baseli
 MPEG2-TS |H.264 (High, Main e Baseline Profile)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
 
+
 ##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##Vedere anche
 
@@ -119,4 +121,4 @@ MPEG2-TS |H.264 (High, Main e Baseline Profile)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

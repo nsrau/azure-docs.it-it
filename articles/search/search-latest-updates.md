@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Novità dell’ultimo aggiornamento di Ricerca di Azure | Microsoft Azure" 
+	pageTitle="Novità dell'ultimo aggiornamento di Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
 	description="Note sulla versione per Ricerca di Azure che descrivono gli aggiornamenti più recenti al servizio" 
 	services="search" 
 	documentationCenter="" 
@@ -125,4 +125,4 @@ La versione di anteprima dell'[API REST di gestione](search-management-api-2014-
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

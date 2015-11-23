@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/20/2015"
+  ms.date="11/05/2015"
   ms.author="andrl"/>
 
 # Portale della community
@@ -89,8 +89,6 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Nome evento | Località | Data | Hashtag |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [CloudDevelop 2015](http://www.clouddevelop.org/) | Columbus, OH | 23 ottobre 2015 | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
-| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Seattle, WA | 27-30 ottobre 2015 | [#Summit15](https://twitter.com/hashtag/Summit15) |
 | [Integration User Group](http://www.integrationusergroup.com/) | Webinar | 9 novembre 2015 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Montreal, QC, Canada | 1 dicembre 2015 | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
 
@@ -100,11 +98,14 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Nome evento | Località | Data | Registrazione |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Seattle, WA | 27-30 ottobre 2015 | n/d |
+| [CloudDevelop 2015](http://www.clouddevelop.org/) | Columbus, OH | 23 ottobre 2015 | n/d |
 | [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Sofia, Bulgaria | 10 ottobre 2015 | n/d |
 | [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Porto, Portogallo | 3 ottobre 2015 | n/d |
 | [AzureCon](https://azure.microsoft.com/azurecon/) | Evento virtuale | 29 settembre 2015 | [Azure data and analytics platform](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
-| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | Utrecht, Paesi Bassi | 26 settembre 2015 | n/d |
+| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | Utrecht, Paesi Bassi | 26 settembre 2015 | [Introduzione ad Azure DocumentDB](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/) | San Francisco, CA | 15 settembre 2015 | n/d |
+| [Belarus Azure User Group Meet-Up](https://www.facebook.com/events/786540124800276/) | Minsk, Belarus | 9 settembre 2015 | [Introduzione ai concetti relativi a DocumentDB, livelli di coerenza, strategie di partizionamento orizzontale](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
 | [NoSQL Now!](http://nosql2015.dataversity.net/) | San Jose, CA | 18-20 agosto 2015 | n/d |
 | [@Scale Seattle](http://www.atscaleconference.com/) | Seattle, WA | 17 giugno 2015 | [Schema Agnostic Indexing with Azure DocumentDB](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | Lisbona, Portogallo | 15 giugno 2015 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
@@ -144,7 +145,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | Partner di formazione | Descrizione |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/it-IT/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/it-IT/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Microsoft Virtual Academy offre formazione a cura delle persone che hanno contribuito alla creazione di Azure DocumentDB. |
-| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight è uno dei principali partner Microsoft a offrire formazione su Azure. Un abbonato MSDN può usare i vantaggi di cui dispone per accedere alla formazione su Microsoft Azure. |
+| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight è uno dei principali partner Microsoft a offrire formazione su Azure. Un sottoscrittore MSDN può usare i vantaggi di cui dispone per accedere alla formazione su Microsoft Azure. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>OpsGility offre formazione tecnica approfondita su Microsoft Azure. È possibile scegliere tra sessioni di formazione svolte da docenti in loco e classi remote a cura di autorevoli professionisti del settore della formazione. |
 
 <br/><br/>
@@ -214,4 +215,4 @@ Questi progetti sono attivamente sviluppati dal team di Azure DocumentDB in coll
 | Connettore Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Strumento di migrazione dei dati | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Area download Microsoft](http://www.microsoft.com/it-IT/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

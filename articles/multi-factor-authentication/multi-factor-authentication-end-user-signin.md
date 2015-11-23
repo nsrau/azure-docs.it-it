@@ -17,7 +17,8 @@
 	ms.author="billmath"/>
 
 # Esperienza di accesso con Azure Multi-Factor Authentication
-La documentazione fornita in questa pagina illustra una tipica esperienza di accesso. Per ricevere assistenza sull’accesso, vedere [Problemi di Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+> [AZURE.NOTE]La documentazione fornita in questa pagina illustra una tipica esperienza di accesso. Per ricevere assistenza sull'accesso, vedere [Problemi di Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+
 
 
 ## Come sarà l'esperienza di accesso?
@@ -46,7 +47,7 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 
 ![Risposta](./media/multi-factor-authentication-end-user-signin-phone/phone.png)
 
-- Ora dovrebbe essere stato effettuato l’accesso.</li>
+- Ora dovrebbe essere stato effettuato l'accesso.</li>
 
 ## Accesso con l’app per dispositivi mobili utilizzando la notifica
 
@@ -102,4 +103,4 @@ Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alte
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

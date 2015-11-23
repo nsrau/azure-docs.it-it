@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione all'Hub eventi"
+	pageTitle="Introduzione all'Hub eventi in C# con Apache Storm | Microsoft Azure"
 	description="Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure, inviare gli eventi in C# e riceverli in un cluster di Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/01/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
@@ -89,9 +89,9 @@ A questo punto è possibile eseguire le applicazioni.
 
 Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
 
-- Un'[applicazione di esempio completa che usa Hub eventi].
-- Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi].
-- Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
+- Un'[applicazione di esempio completa che usa Hub eventi][].
+- Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][].
+- Una [soluzione di messaggistica accodata][] che usa le code di Bus di servizio.
 
 <!-- Images. -->
 [1]: ./media/event-hubs-csharp-storm-getstarted/create-event-hub1.png
@@ -108,9 +108,9 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [portale di Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

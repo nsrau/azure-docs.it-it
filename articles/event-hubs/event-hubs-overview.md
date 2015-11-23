@@ -132,7 +132,7 @@ La capacità di velocità effettiva di Hub eventi è controllata dalle unità el
 
 - In uscita: fino a 2 MB al secondo.
 
-L’ingresso è limitato dalla quantità di capacità fornita dal numero di unità elaborate acquistate. L'invio di dati oltre questa quantità causa un'eccezione di "quota superata". Questa quantità è 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo. L’uscita non genera eccezioni di limitazione, ma è limitata alla quantità di trasferimento dei dati fornito dalle unità elaborate acquistate: 2 MB al secondo per ogni unità elaborata. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi in cui è stato creato l'Hub eventi. Per ottenere ulteriori unità elaborate è possibile modificare l'impostazione nella pagina **Spazi dei nomi** della scheda **Scalabilità** nel portale di gestione di Azure. È inoltre possibile modificare questa impostazione utilizzando le API di Azure.
+L’ingresso è limitato dalla quantità di capacità fornita dal numero di unità elaborate acquistate. L'invio di dati oltre questa quantità causa un'eccezione di "quota superata". Questa quantità è 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo. L’uscita non genera eccezioni di limitazione, ma è limitata alla quantità di trasferimento dei dati fornito dalle unità elaborate acquistate: 2 MB al secondo per ogni unità elaborata. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi in cui è stato creato l'Hub eventi. Per ottenere ulteriori unità elaborate, è possibile modificare l'impostazione nella pagina **Spazi dei nomi** della scheda **Scalabilità** nel portale di Azure. È inoltre possibile modificare questa impostazione utilizzando le API di Azure.
 
 Mentre le partizioni sono un concetto di organizzazione di dati, le unità elaborate sono semplicemente un concetto di capacità. Le unità elaborate vengo o fatturate su base oraria e sono pre-acquistate. Una volta acquistate, le unità elaborate vengono fatturate per un minimo di un'ora. Fino a 20 velocità elaborate possono essere acquistate per uno spazio dei nomi del Bus di servizio ed è previsto un limite di account Azure di 20 unità elaborate. Tali unità elaborate sono condivise tra tutti gli Hub eventi in un determinato spazio dei nomi.
 
@@ -167,4 +167,4 @@ Ora che i concetti di Hub eventi sono chiari, è possibile passare agli scenari 
 [soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

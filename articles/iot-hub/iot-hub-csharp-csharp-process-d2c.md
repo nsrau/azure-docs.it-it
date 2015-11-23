@@ -105,7 +105,7 @@ Altre informazioni sull'hub IoT:
 [Archiviazione di Azure]: https://azure.microsoft.com/it-IT/documentation/services/storage/
 [Bus di servizio di Azure]: https://azure.microsoft.com/it-IT/documentation/services/service-bus/
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Inviare messaggi da cloud a dispositivo con l'hub IoT]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
@@ -119,4 +119,4 @@ Altre informazioni sull'hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

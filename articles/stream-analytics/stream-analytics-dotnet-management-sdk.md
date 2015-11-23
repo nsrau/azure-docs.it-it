@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/06/2015" 
+	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -48,7 +48,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 		
 
--	Configurare un'origine di input e una destinazione di output da usare. Per ulteriori istruzioni, vedere [Aggiungere input](stream-analytics-add-inputs.md) per impostare un esempio di input e [Aggiungere output](stream-analytics-add-outputs.md) per impostare un esempio di output.
+-	Configurare un'origine di input e una destinazione di output da usare. Per altre istruzioni, vedere [Aggiungere input](stream-analytics-add-inputs.md) per impostare un esempio di input e [Aggiungere output](stream-analytics-add-outputs.md) per impostare un esempio di output.
 
 
 ## Configurare un progetto
@@ -365,4 +365,4 @@ Sono state fornite le nozioni di base dell'utilizzo di .NET SDK per creare ed es
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

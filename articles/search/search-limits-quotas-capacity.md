@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Limiti dei servizi in Ricerca di Azure | Microsoft Azure"
+	pageTitle="Limiti dei servizi in Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Limiti del servizio utilizzati nella pianificazione della capacità e limiti massimi di richieste e risposte per Ricerca di Azure, un servizio di ricerca ospitato sul cloud."
 	services="search"
 	documentationCenter=""
@@ -133,4 +133,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 - 1000 documenti al massimo restituiti per pagina di risultati della ricerca
 - 100 suggerimenti al massimo restituiti per richiesta di API di suggerimento
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

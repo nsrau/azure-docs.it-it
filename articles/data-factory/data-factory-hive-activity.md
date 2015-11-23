@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Attività Hive
 
-L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md) di Data factory esegue query Hive sul [proprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight o sul cluster HDInsight [su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md), che presenta una panoramica generale della trasformazione dei dati e delle attività di trasformazione supportate.
+L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md) di Data factory esegue query Hive sul [proprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight o sul cluster HDInsight [su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basato su Windows/Linux. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md), che presenta una panoramica generale della trasformazione dei dati e delle attività di trasformazione supportate.
 
 ## Sintassi
 
@@ -214,9 +214,4 @@ Per impostare i parametri per lo script Hive, seguire questa procedura:
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-
-
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-hive-activity.md) richiede solo alcuni minuti.
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

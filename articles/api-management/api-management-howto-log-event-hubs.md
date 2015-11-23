@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/10/2015" 
 	ms.author="sdanie"/>
 
 # Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
 
 Hub di eventi di Azure è un servizio di ingresso dati altamente scalabile che può inserire milioni di eventi al secondo in modo che è possibile elaborare e analizzare enormi quantità di dati generati per i dispositivi connessi e le applicazioni. Gli hub di eventi fungono da "porta principale" per una pipeline di eventi e una volta che i dati vengono raccolti in un hub di eventi, possono essere trasformati e archiviati con qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Gli hub di eventi separano la produzione di un flusso di eventi dal consumo di questi eventi, in modo che i consumer di eventi può accedere agli eventi in base a una pianificazione.
+
+Questo articolo è complementare al video su come [Integrare la Gestione API di Azure con gli Hub di eventi](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) e descrive come registrare gli eventi di gestione API mediante gli hub di eventi di Azure.
 
 ## Creare un Hub di eventi di Azure
 
@@ -38,13 +40,13 @@ Ogni criterio di accesso condiviso consente alle applicazioni di inviare e ricev
 
 ![Stringa di connessione][event-hub-dashboard]
 
-La stringa di connessione **Invio** viene usata durante la registrazione di eventi e la stringa di connessione **Ricezione** viene usata durante il download di eventi dall'hub eventi.
+La stringa di connessione **Invio** viene usata durante la registrazione di eventi e la stringa di connessione **Ricezione** viene usata durante il download di eventi dall'Hub eventi.
 
 ![Stringa di connessione][event-hub-connection-string]
 
 ## Creare un logger di Gestione API
 
-Dopo avere creato un hub eventi, è necessario configurare un [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx) nel servizio Gestione API, in modo che possa registrare eventi nell'hub eventi.
+Dopo avere creato un Hub eventi, è necessario configurare un [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx) nel servizio Gestione API, in modo che possa registrare eventi nell'Hub eventi.
 
 I logger di Gestione API vengono configurati mediante l'[API REST Gestione API](http://aka.ms/smapi). Prima di usare l'API REST per la prima volta, vedere i [prerequisiti](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) e assicurarsi di avere [abilitato l'accesso all'API REST](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
 
@@ -112,6 +114,15 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 	-	[Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 	-	[Ricevere messaggi con EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
 	-	[Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md)
+-	Altre informazioni sull'integrazione di Gestione API e Hub eventi
+	-	[Informazioni di riferimento per l'entità logger](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[Informazioni di riferimento per i criteri log-to-event](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	-	[Monitorare le API con Gestione API di Azure, Hub eventi e Runscope](api-management-log-to-eventhub-sample.md)	
+
+## Guardare un video con la procedura dettagliata
+
+> [AZURE.VIDEO integrate-azure-api-management-with-event-hubs]
+
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -122,4 +133,4 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

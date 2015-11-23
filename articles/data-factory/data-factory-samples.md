@@ -54,9 +54,7 @@ Profilatura dei clienti dei giochi | Contoso è una società di giochi online ch
 ## Esempi in GitHub
 Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-datafactory) include alcuni esempi che permettono di acquisire rapidamente familiarità con il servizio Data factory di Azure (o) modificare gli script e usarlo nella propria applicazione. La cartella Samples\\JSON include frammenti di codice JSON per scenari comuni.
 
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-samples.md) richiede solo alcuni minuti.
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

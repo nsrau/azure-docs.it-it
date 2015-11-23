@@ -77,10 +77,12 @@ Il video del giorno 3 riguarda:
 
 ##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 Per ottenere assistenza o ricevere informazioni per la creazione di flussi di lavoro personalizzati nello strumento per la progettazione di flussi di lavoro, inviare un messaggio di posta elettronica a mepd@microsoft.com.
 
@@ -88,4 +90,4 @@ Per ottenere assistenza o ricevere informazioni per la creazione di flussi di la
 
 [Video di formazione sulla finestra di progettazione del flusso di lavoro del codificatore Premium di Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -2350,4 +2350,4 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

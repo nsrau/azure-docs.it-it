@@ -21,8 +21,9 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
+> [AZURE.NOTE]Il cluster MariaDB Enterprise è ora disponibile in Azure Marketplace. La nuova offerta distribuirà automaticamente un cluster MariaDB Galera su ARM. È consigliabile usare la nuova offerta da https://azure.microsoft.com/it-IT/marketplace/partners/mariadb/cluster-maxscale/
 
-In questa esercitazione verrà creato un cluster multi-master [Galera](http://galeracluster.com/products/) di database [MariaDBs](https://mariadb.org/en/about/), un sostituto pronto all'uso per MySQL, per lavorare in un ambiente a disponibilità elevata in Macchine virtuali di Azure.
+In questa esercitazione verrà creato un cluster multi-master [Galera](http://galeracluster.com/products/) di database [MariaDB](https://mariadb.org/en/about/), un sostituto pronto all'uso per MySQL, per lavorare in un ambiente a disponibilità elevata in Macchine virtuali di Azure.
 
 ## Panoramica dell'architettura
 
@@ -202,7 +203,7 @@ verrà generato un output come `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cent
     - RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
     - Ricaricare il firewall: `firewall-cmd --reload`
 
-9.  Ottimizzare le prestazioni del sistema. Per altre informazioni, fare riferimento a questo articolo sulla [strategia di ottimizzazione delle prestazioni]
+9.  Ottimizzare le prestazioni del sistema. Per altre informazioni, vedere questo articolo sulla [strategia di ottimizzazione delle prestazioni]
 
 	- Modificare di nuovo il file di configurazione di MySQL
 
@@ -373,4 +374,4 @@ Può essere utile consultare gli articoli su [un metodo alternativo per creare u
 [problema noto n. 1268 nell’interfaccia della riga di comando di Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [un metodo alternativo per creare un cluster MySQL su Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

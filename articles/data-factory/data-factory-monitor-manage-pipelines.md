@@ -67,13 +67,64 @@ Facendo doppio clic su **PartitionedProductsUsageTable** nella vista diagramma, 
 
 Le sezioni dei set di dati nella data factory possono avere uno degli stati seguenti:
 
-Stato | Stato secondario | Descrizione
------- | ---------- | -----------
-Waiting | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Retry<br/>Validation<br/>ValidationRetry | In attesa che vengano soddisfatte le condizioni preliminari prima dell'esecuzione. Fare riferimento allo stato secondario per sapere di cosa è in attesa la sezione.
-In-Progress | Starting<br/>Configuring<br/>Allocating Resources<br/>Running<br/>Validating | L'attività attualmente sta eseguendo e generando/convalidando i dati per una sezione specifica.
-Failed | | L'elaborazione della sezione non è riuscita. Fare riferimento al log degli errori per sapere cosa ha causato il problema
-Ready | | L'elaborazione della sezione è riuscita. La sezione è pronta per essere utilizzata.
-Skip | | Non elaborare questa sezione
+<table>
+<tr>
+	<th align="left">State</th><th align="left">Sottostato</th><th align="left">Descrizione</th>
+</tr>
+<tr>
+	<td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è il momento di eseguire la sezione.</td>
+</tr>
+<tr>
+<td>DatasetDependencies</td><td>Le dipendenze upstream non sono pronte.</td>
+</tr>
+<tr>
+<td>ComputeResources</td><td>Le risorse di calcolo non sono disponibili.</td>
+</tr>
+<tr>
+<td>ConcurrencyLimit</td> <td>Tutte le istanze di attività sono occupate nell’esecuzione di altre sezioni.</td>
+</tr>
+<tr>
+<td>ActivityResume</td><td>L’attività è sospesa e non è possibile eseguire le sezioni fino a quando non viene ripresa.</td>
+</tr>
+<tr>
+<td>Retry</td><td>L'esecuzione dell'attività verrà ritentata.</td>
+</tr>
+<tr>
+<td>Convalida</td><td>La convalida non è ancora stata avviata.</td>
+</tr>
+<tr>
+<td>ValidationRetry</td><td>In attesa della riesecuzione della convalida.</td>
+</tr>
+<tr>
+&lt;tr
+<td rowspan="2">InProgress</td><td>Convalida in corso.</td><td>Convalida in esecuzione.</td>
+</tr>
+<td></td>
+<td>La sezione è in corso.</td>
+</tr>
+<tr>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>L'esecuzione ha richiesto più tempo di quello consentito dall'attività.</td>
+</tr>
+<tr>
+<td>Canceled</td><td>Annullato dall'utente.</td>
+</tr>
+<tr>
+<td>Convalida</td><td>Convalida non riuscita.</td>
+</tr>
+<tr>
+<td></td><td>Generazione e/o convalida della sezione non riuscita.</td>
+</tr>
+<td>Ready</td><td></td><td>La sezione è pronta per essere utilizzata.</td>
+</tr>
+<tr>
+<td>Skipped</td><td></td><td>La sezione non viene elaborata.</td>
+</tr>
+<tr>
+<td>Nessuno</td><td></td><td>Una sezione che solitamente esiste con uno stato differente, ma che è stata reimpostata.</td>
+</tr>
+</table>
+
+
 
 Per visualizzare i dettagli di una sezione, fare clic sulla voce di una sezione nel pannello **Sezioni aggiornate di recente**.
 
@@ -87,7 +138,7 @@ Per visualizzare i dettagli di un'esecuzione attività, fare clic sulla voce di 
 
 ![Dettagli esecuzione attività](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Se lo stato della sezione non è **Ready**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**. Ciò è molto utile quando lo stato della sezione è **Waiting** e si desidera conoscere le dipendenze upstream su cui la sezione è in attesa.
+Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**. Ciò è molto utile quando lo stato della sezione è **Waiting** e si desidera conoscere le dipendenze upstream su cui la sezione è in attesa.
 
 ![Sezioni upstream non pronte](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -205,7 +256,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 		Type                	:
 	
 	
-6. 	È possibile eseguire il cmdlet **Save-AzureDataFactoryLog** con il valore ID visualizzato nell'output riportato sopra e scaricare i file di log usando l'opzione **-DownloadLogs** del cmdlet.
+6. 	È possibile eseguire il cmdlet **Save-AzureDataFactoryLog** con il valore ID visualizzato nell'output riportato sopra e scaricare i file di log usando l'opzione **-DownloadLogsoption** del cmdlet.
 
 	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
@@ -471,8 +522,4 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 	Parameters        :
 	Outputs           
 
-
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md) richiede solo alcuni minuti.
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

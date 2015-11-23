@@ -50,7 +50,7 @@ Il plug-in supporta il caricamento e la riproduzione di contenuto Smooth Streami
 
 ## Funzionalità supportate e problemi noti
 
-Per un elenco completo di funzionalità supportate, funzionalità non supportate e problemi noti, fare riferimento a [questo documento](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+Per un elenco completo di funzionalità supportate, funzionalità non supportate e problemi noti, vedere [questo documento](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
 
 
 ## Caricamento del plug-in
@@ -398,17 +398,18 @@ Il plug-in dinamico Smooth Streaming per OSMF è compatibile con [Strobe Media P
 
 Per ulteriori informazioni sullo sviluppo generale per OSMF, consultare la [pagina ufficiale per lo sviluppo di OSMF](http://osmf.org/resources.html).
 
-
 ##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ##Vedere anche
 
 [Plug-in di streaming adattivo Microsoft per aggiornamento OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

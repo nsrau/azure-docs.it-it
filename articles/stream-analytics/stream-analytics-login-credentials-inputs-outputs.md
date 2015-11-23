@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
 #Ruotare le credenziali di input/output
@@ -193,4 +193,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

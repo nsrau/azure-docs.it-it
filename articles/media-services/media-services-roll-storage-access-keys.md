@@ -144,17 +144,19 @@ Dopo 30 minuti è possibile ricreare i localizzatori su richiesta in modo che ac
 
 Utilizzare la stessa procedura, come descritto nel [passaggio 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
 
- 
+
 ##Percorsi di apprendimento di Media Services
 
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornire commenti e suggerimenti
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ###Ringraziamenti 
 
 Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Cenk Dingiloglu, Gada Milano, Seva Titov.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

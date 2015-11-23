@@ -555,11 +555,9 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-sql-connector.md) richiede solo alcuni minuti.
 
 
 
 	 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="09/29/2015"
+	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
 # Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva #
@@ -265,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

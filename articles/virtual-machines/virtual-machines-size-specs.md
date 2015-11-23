@@ -60,6 +60,8 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 
 *   La serie Dv2 e la serie D sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale o requisiti di memoria superiori. Offrono una potente combinazione per molte applicazioni di livello aziendale.
 
+
+
 ## Limiti generali
 
 Questa tabella mostra i limiti applicati (indipendentemente dalle dimensioni di una macchina virtuale) per le macchine virtuali create usando il modello di distribuzione di Gestione servizi.
@@ -76,7 +78,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 >[AZURE.NOTE]La capacità di archiviazione è rappresentata usando 1024 ^ 3 byte come unità di misura per GB. Questa unità di misura è definita talvolta gibibyte o definizione di base 2. Quando si confrontano dimensioni che usano sistemi di base diversi, è necessario ricordare che le dimensioni di base 2 potrebbero risultare più piccole di quelli di base 10 ma per qualsiasi dimensione specifica (ad esempio, 1 GB) un sistema di base 2 fornisce maggiore capacità di un sistema di base 10, perché 1024^3 è superiore a 1000^3.
 
-### Livello Basic
+## Livello Basic
 
 |Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (300 per disco)|
 |---|---|---|---|---|---|---|
@@ -86,7 +88,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 |A3\\Basic\_A3|4|7 GB|1|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 120 GB</p>|8|8x300|
 |A4\\Basic\_A4|8|14 GB|1|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 240 GB</p>|16|16x300|
 
-### Livello Standard: serie A
+## Livello Standard: serie A
 
 |Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|---|
@@ -103,7 +105,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 |A10\\uguale|8|56 GB|2|<p><p>Sistema operativo = 1023 GB</p><p>Temporaneo = 382 GB</p><blockquote><p>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato uso di calcolo</a>.</p></blockquote>|16|16x500|
 |A11\\uguale|16|112 GB|4|<p><p>Sistema operativo = 1023 GB</p><p>Temporaneo = 382 GB</p><blockquote><p>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato uso di calcolo</a>.</p></blockquote>|16|16x500|
 
-### Livello Standard: serie D
+## Livello Standard: serie D
 
 |Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|---|
@@ -116,7 +118,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 |Standard\_D13\\uguale|8|56 GB|8|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 400 GB</p>|16|16x500|
 |Standard\_D14\\uguale|16|112 GB|16|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 800 GB</p>|32|32x500|
 
-### Livello standard: serie Dv2
+## Livello standard: serie Dv2
 
 |Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|---|
@@ -130,7 +132,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 |Standard\_D13\_v2\\same|8|56 GB|8|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 400 GB</p>|16|16x500|
 |Standard\_D14\_v2\\same|16|112 GB|16|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 800 GB</p>|32|32x500|
 
-### Livello Standard: serie DS*
+## Livello Standard: serie DS*
 
 |Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda|
 |---|---|---|---|---|---|---|---|
@@ -145,7 +147,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 **Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage-premium-storage-preview-portal.md).
 
-### Livello Standard: serie G
+## Livello Standard: serie G
 
 |Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|---|
@@ -155,7 +157,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 |Standard\_G4\\uguale|16|224 GB|8|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 3.072 GB</p>|32|32x500|
 |Standard\_G5\\uguale|32|448 GB|16|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 6.144 GB</p>|64|<p>64x500</p>|
 
-### Livello Standard: serie GS
+## Livello Standard: serie GS
 
 |Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda|
 |---|---|---|---|---|---|---|---|
@@ -172,4 +174,4 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/04/2015"
+   ms.date="11/06/2015"
    ms.author="maroche"/>
 
 # Note sulla versione del Catalogo dati di Azure
 
-## Note per la versione del 4 settembre 2015 del Catalogo dati di Azure
 
-### Il profilo dei dati può essere mancante per alcune risorse di dati registrate
+## Note per la versione del 6 novembre 2015 del Catalogo dati di Azure
 
-Quando si registrano le origini dei dati con l'opzione di profiling dei dati selezionata nello strumento di registrazione delle origine dati, le informazioni sul profilo dei dati non possono essere incluse durante la registrazione delle tabelle Oracle e delle visualizzazioni con caratteri multibyte in nomi di colonna.
+### Gli utenti possono incorrere in errori quando si avvia lo strumento di registrazione di origine dei dati
 
-Queste restrizioni sono dovute a un problema noto nella versione del 4 settembre e verranno risolte in un aggiornamento futuro del Catalogo dati di Azure.
+Quando si avvia il **Catalogo dati di Azure** lo strumento per la registrazione dell’origine dei dati dal portale **Catalogo dati di Azure**, gli utenti che hanno già installato una versione precedente dello strumento potrebbero visualizzare questo messaggio: "Impossibile avviare l'applicazione. Contattare il fornitore dell'applicazione".
+
+Gli utenti che riceveranno questo messaggio devono utilizzare il pannello di controllo di Windows per rimuovere l'applicazione "Catalogo dati di Azure" esistente e quindi avviare nuovamente lo strumento dal portale **Catalogo dati di Azure**.
 
 ## Note per la versione del 13 luglio 2015 del Catalogo dati di Azure
 
@@ -43,7 +44,7 @@ Il supporto per le origini dati di SQL Server Reporting Services (SSRS) nella ve
 
 ### Apertura degli asset di dati in Excel
 
-Quando si aprono asset di dati in Microsoft Excel dal portale del Catalogo dati di Azure, potrebbe essere visualizzata per gli utenti una finestra di dialogo **Informazioni sulla sicurezza per Microsoft Excel**. È un comportamento standard e previsto e gli utenti possono selezionare **Abilita** per continuare.
+Quando si aprono asset di dati in Microsoft Excel dal portale del **Catalogo dati di Azure**, potrebbe essere visualizzata per gli utenti una finestra di dialogo **Informazioni sulla sicurezza per Microsoft Excel**. È un comportamento standard e previsto e gli utenti possono selezionare **Abilita** per continuare.
 
 Per altre informazioni, vedere [Attivazione o disattivazione degli avvisi di protezione relativi ai collegamenti a siti Web sospetti e a file scaricati da tali siti](https://support.office.com/it-IT/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
@@ -77,4 +78,4 @@ Per altre informazioni, vedere [Configurare i criteri di autenticazione](https:/
 
 Per individuare il file RegistrationTool.exe.config, avviare lo strumento di registrazione e quindi aprire l'utilità Gestione attività Windows. Nella scheda Dettagli di Gestione attività, fare clic con il pulsante destro del mouse su RegistrationTool.exe e scegliere Apri percorso file dal menu a comparsa.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

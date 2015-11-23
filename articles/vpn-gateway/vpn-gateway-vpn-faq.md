@@ -37,11 +37,11 @@ Le seguenti connessioni cross-premise sono supportate:
 
 - [Point-to-Site](vpn-gateway-point-to-site-create.md): connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol). Questa connessione non richiede un dispositivo VPN.
 
-- [Tra reti virtuali](virtual-networks-configure-vnet-to-vnet-connection.md): connessione analoga alla configurazione Site-to-Site. La connessione tra reti virtuali è una connessione VPN tramite IPsec (IKE v1 e IKE v2). Non richiede un dispositivo VPN.
+- [Tra reti virtuali](virtual-networks-configure-vnet-to-vnet-connection.md) - questo tipo di connessione è analoga alla configurazione Site-to-Site. La connessione tra reti virtuali è una connessione VPN tramite IPsec (IKE v1 e IKE v2). Non richiede un dispositivo VPN.
 
-- [Multisito](vpn-gateway-multi-site.md): variante di una configurazione Site-to-Site che consente di connettere più siti locali a un singolo gateway di rete virtuale.
+- [Multisito](vpn-gateway-multi-site.md) - si tratta di una variante di una configurazione Site-to-Site che consente di connettere più siti locali a un singolo gateway di rete virtuale.
 
-- [ExpressRoute](../expressroute/expressroute-introduction.md): connessione diretta ad Azure dalla rate WAN, non sulla rete Internet pubblica. Per altre informazioni, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md) e [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md).
+- [ExpressRoute](../expressroute/expressroute-introduction.md) - ExpressRoute è una connessione diretta ad Azure dalla rate WAN, non sulla rete Internet pubblica. Per altre informazioni, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md) e [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md).
 
 ### Qual è la differenza tra una connessione Site-to-Site e una Point-to-Site?
 
@@ -83,6 +83,8 @@ Con il gateway dovrebbero funzionare anche altre soluzioni software VPN, purché
 
 ## Connessioni Point-to-Site
 
+Attualmente, le connessioni point-to-site sono disponibili solo per il modello di distribuzione classica (noto anche come Gestione del servizio). Stiamo lavorando a una soluzione point-to-site per il modello di distribuzione di Gestione risorse di Azure. Quando è disponibile, questa pagina verrà aggiornata.
+
 ### Quali sistemi operativi è possibile usare con la connettività Point-to-Site?
 
 Sono supportati i sistemi operativi seguenti:
@@ -97,7 +99,7 @@ Sono supportati i sistemi operativi seguenti:
 
 ### Per la connettività Point-to-Site è possibile usare qualsiasi software VPN client che supporti SSTP?
 
-No. L'assistenza è limitata solo alle versioni dei sistemi operativi Windows elencati in precedenza.
+No. L'assistenza è limitata solo alle versioni dei sistemi operativi Windows elencati in precedenza. Il client Windows 10 è attualmente sottoposto a verifica.
 
 ### Di quanti endpoint client VPN è possibile disporre nella configurazione Point-to-Site?
 
@@ -105,7 +107,7 @@ Sono supportati fino a 128 client VPN da poter connettere contemporaneamente a u
 
 ### È possibile usare la CA radice della PKI interna per la connettività Point-to-Site?
 
-Attualmente sono supportati solo i certificati radice autofirmati.
+Sì. In precedenza, era possibile utilizzare solo certificati radice autofirmati. È ancora possibile caricare 20 certificati radice.
 
 ### È possibile attraversare proxy e firewall con la funzionalità Point-to-Site?
 
@@ -234,7 +236,7 @@ Per il traffico tra diverse reti virtuali di Azure, in Azure viene addebitato un
 
 Sì, questa operazione è supportata. Per altre informazioni, vedere [Configurare connessioni ExpressRoute e VPN da sito a sito coesistenti](../expressroute/expressroute-coexist.md).
 
-## Connettività e macchine virtuali
+## Connettività cross-premise e macchine virtuali
 
 ### Se la macchina virtuale si trova in una rete virtuale e si dispone di una connessione cross-premise, in che modo è possibile connettersi alla macchina virtuale?
 
@@ -246,14 +248,15 @@ Se si dispone di una rete virtuale per cui è configurata la connettività cross
 
 No. Attraverso il gateway della rete virtuale passerà solo il traffico con un IP di destinazione incluso negli intervalli di indirizzi IP di rete locale specificati per la rete virtuale. Il traffico che dispone di un IP di destinazione nella rete virtuale rimarrà all'interno della rete stessa. Il restante traffico verrà inviato alle reti pubbliche tramite il bilanciamento del carico o, se si usa il tunneling forzato, tramite il gateway VPN di Azure. Per la risoluzione dei problemi, è importante assicurarsi che nella rete locale siano elencati tutti gli intervalli da inviare tramite il gateway. Verificare che gli intervalli di indirizzi nella rete locale non si sovrappongano agli intervalli di indirizzi presenti nella rete virtuale. È opportuno anche verificare che il server DNS in uso risolva il nome nell'indirizzo IP appropriato.
 
+
+## Domande frequenti su Rete virtuale
+
+Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande frequenti sulla rete virtuale](../virtual-network/virtual-networks-faq.md).
+
 ## Passaggi successivi
 
-Per dettagli aggiuntivi, vedere altre domande frequenti sulla rete:
-
-- [Domande frequenti su Rete virtuale](../virtual-network/virtual-networks-faq.md)
-
-- [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md)
+È possibile visualizzare ulteriori informazioni sui gateway VPN nella [pagina di documentazione del Gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

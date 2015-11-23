@@ -1,6 +1,6 @@
 <properties
    pageTitle="Rinominare in SQL Data Warehouse | Microsoft Azure"
-   description="Suggerimenti per rinominare oggetti e database in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
+   description="Suggerimenti per la ridenominazione di tabelle in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
@@ -13,53 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/05/2015"
    ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # Rinominare in SQL Data Warehouse
-SQL Server supporta la ridenominazione del database mediante la stored procedure ```sp_renamedb```. SQL Data Warehouse usa la sintassi DDL per ottenere lo stesso obiettivo. Il comando DDL è ```RENAME DATABASE```.
+Mentre il server SQL supporta la ridenominazione del database tramite la procedura di archiviazione ```sp_renamedb```, SQL Data Warehouse usa la sintassi DDL per ottenere lo stesso scopo. Il comando DDL è ```RENAME OBJECT```.
 
-## Rinominare il database
+## Rinominare tabella
 
-Per rinominare un database, eseguire il comando seguente.
-
-```
-RENAME DATABASE AdventureWorks TO Contoso;
-```
-
-È importante ricordare che non è possibile rinominare un oggetto o un database se altri utenti sono connessi o stanno usando tale oggetto o database. Potrebbe essere necessario terminare prima di tutto le sessioni aperte. Per terminare una sessione, è necessario usare il comando [KILL](https://msdn.microsoft.com/library/ms173730.aspx). Usare il comando ```KILL``` con attenzione. Dopo l'esecuzione del comando, le sessioni interessate verranno terminate e verrà eseguito il rollback di eventuale lavoro non sottoposto a commit.
-
-> [AZURE.NOTE]Le sessioni in SQL Data Warehouse sono precedute dal prefisso 'SID'. Quando si richiama il comando KILL, sarà necessario includere tale prefisso e il numero di sessione. Ad esempio, ```KILL 'SID1234'``` permette di terminare la sessione 1234, se si hanno le autorizzazioni necessarie per eseguirlo.
-
-## Terminare le sessioni
-Per rinominare un database, potrebbe essere necessario terminare le sessioni connesse a SQL Data Warehouse. La query seguente genererà un elenco distinto di comandi KILL per cancellare le connessioni, ad eccezione della sessione corrente.
+Attualmente, solo le tabelle possono essere rinominate. La sintassi per rinominare una tabella è:
 
 ```
-SELECT
-    'KILL ''' + session_id + ''''
-FROM
-    sys.dm_pdw_exec_requests r
-WHERE
-    r.session_id <> SESSION_ID()
-    AND EXISTS
-    (
-        SELECT
-            *
-        FROM
-            sys.dm_pdw_lock_waits w
-        WHERE
-            r.session_id = w.session_id
-    )
-GROUP BY
-    session_id;
+RENAME OBJECT Customer TO NewCustomer;
 ```
 
-## Cambio di schemi
-Se si vuole cambiare lo schema a cui appartiene un oggetto, è possibile usare `ALTER SCHEMA`:
+Quando si rinomina una tabella, tutti gli oggetti e le proprietà associati alla tabella vengono aggiornati per fare riferimento al nuovo nome della tabella. Ad esempio, le definizioni della tabella, gli indici, i vincoli e le autorizzazioni vengono aggiornati. Le visualizzazioni non vengono aggiornate.
+
+## Rinominare una tabella esterna
+
+La ridenominazione di una tabella esterna modifica il nome della tabella all'interno di SQL Server PDW. Non influisce sulla posizione dei dati esterni alla tabella.
+
+## Modificare uno schema di tabella
+Se si vuole cambiare lo schema a cui appartiene un oggetto, è possibile usare l’istruzione ALTER SCHEMA:
 
 ```
 ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 ```
+
+## La ridenominazione della tabella richiede un blocco esclusivo sulla tabella
+
+È importante ricordare che non è possibile rinominare una tabella mentre è in uso. Una ridenominazione di una tabella richiede un blocco esclusivo sulla tabella. Se la tabella è in uso, si potrebbe dover terminare la sessione utilizzando la tabella. Per terminare una sessione, è necessario usare il comando [KILL](https://msdn.microsoft.com/library/ms173730.aspx). Prestare attenzione quando si utilizza ```KILL``` nel momento in cui si termina una sessione e verrà eseguito il rollback di eventuale lavoro non sottoposto a commit. Alle sessioni in SQL Data Warehouse viene aggiunto il prefisso 'SID'. È necessario includere questo e il numero della sessione quando si richiama il comando KILL. Ad esempio: ```KILL 'SID1234'```
+
 
 ## Passaggi successivi
 Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
@@ -69,4 +53,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 <!--Article references-->
 [Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

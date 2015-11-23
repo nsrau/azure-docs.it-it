@@ -3,7 +3,7 @@
 	description="Come iniziare a usare Servizi mobili di Azure in un progetto di Visual Studio .NET"
 	services="mobile-services"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Introduzione a Servizi mobili (progetti .NET)
 
@@ -85,4 +85,4 @@ Eliminare una riga nel database. L'elemento di parametro è l'oggetto TodoItem d
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

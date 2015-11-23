@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configurare gateway applicazione per l'offload SSL tramite la distribuzione classica | Microsoft Azure"
-   description="Questo articolo fornisce le istruzioni per configurare l'offload SSL in un gateway applicazione di Azure."
+   pageTitle="Configurare un gateway applicazione per l'offload SSL tramite la distribuzione classica | Microsoft Azure"
+   description="Questo articolo fornisce istruzioni per la creazione di un gateway applicazione con offload SSL tramite il modello di distribuzione classica di Azure."
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
@@ -15,16 +15,20 @@
    ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-# Configurare un gateway applicazione per l'offload SSL tramite la distribuzione classica
- 
+# Configurare un gateway applicazione per l'offload SSL tramite il modello di distribuzione classica 
+
+> [AZURE.SELECTOR]
+-[Azure Classic Powershell](application-gateway-ssl.md)
+-[Azure Resource Manager Powershell](application-gateway-ssl-arm.md)
+
 Gateway applicazione può essere configurato per terminare la sessione SSL nel gateway, evitando così una costosa decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
 
->[AZURE.IMPORTANT]Prima di lavorare con le risorse di Azure, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. È importante comprendere i [modelli e gli strumenti di distribuzione](azure-classic-rm.md) prima di utilizzare una risorsa di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustrerà la creazione di un gateway applicazione tramite Azure Classic. Per usare la versione classica, passare all'articolo [Configurare un gateway applicazione SSL mediante Gestione risorse di Azure](application-gateway-ssl-arm.md).
+>[AZURE.IMPORTANT]Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, Gestione risorse e modello di distribuzione classico. È importante comprendere i [modelli e strumenti di distribuzione](azure-classic-rm.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustrerà la creazione di un gateway applicazione tramite la distribuzione classica di Azure. Per usare la versione Gestione risorse di Azure, passare all'articolo [Configurare un gateway applicazione SSL mediante Gestione risorse di Azure](application-gateway-ssl-arm.md).
 
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina download](http://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina di download](http://azure.microsoft.com/downloads/).
 2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida.
 3. Assicurasi di avere server back-end nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
 
@@ -113,7 +117,7 @@ I valori possibili sono:
 - **Pool di server back-end:** l’elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet VNet o devono essere indirizzi IP/VIP pubblici. 
 - **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 - **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-- **Listener**: ha una porta front-end, un protocollo (Http o Https che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
+- **Listener**: il listener ha una porta front-end, un protocollo (Http o Https che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
 - **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
 
 **Note aggiuntive sulla configurazione:**
@@ -232,4 +236,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

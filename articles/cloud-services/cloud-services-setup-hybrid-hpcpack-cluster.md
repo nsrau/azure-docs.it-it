@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,hpc-pack"/>
 
 <tags
 	ms.service="cloud-services"
@@ -85,7 +86,7 @@ Installare innanzitutto Microsoft HPC Pack in un computer locale che esegue Wind
 	![Fine][install_hpc7]
 
 ## Preparazione della sottoscrizione di Azure
-Usare il [portale di gestione di Azure](https://manage.windowsazure.com) per eseguire le operazioni seguenti con la sottoscrizione di Azure. Queste operazioni sono necessarie per poter successivamente distribuire i nodi di Azure dal nodo head locale.
+Usare il [portale di Azure](https://manage.windowsazure.com) per eseguire le operazioni seguenti con la sottoscrizione di Azure. Queste operazioni sono necessarie per poter successivamente distribuire i nodi di Azure dal nodo head locale.
 
 - Caricamento del certificato di gestione (necessario per le connessioni sicure tra il nodo head e i servizi di Azure)
 
@@ -296,7 +297,7 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 
 	![Nodi non distribuiti][stop_node4]
 
-4. Per verificare che le istanze del ruolo non siano più in esecuzione in Azure, nel [portale classico](https://manage.windowsazure.com) fare clic su **Servizi cloud**, fare clic sul nome del servizio cloud e quindi su **Istanze**. Nessuna istanza verrà distribuita nell'ambiente di produzione.
+4. Per verificare che le istanze del ruolo non siano più in esecuzione in Azure, nel [portale](https://manage.windowsazure.com) fare clic su **Servizi cloud**, fare clic sul nome del servizio cloud e quindi su **Istanze**. Nessuna istanza verrà distribuita nell'ambiente di produzione.
 
 	![Nessuna istanza][view_instances2]
 
@@ -347,4 +348,4 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

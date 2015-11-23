@@ -6,7 +6,7 @@
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-service-management,hpc-pack"/>
 <tags
    ms.service="virtual-machines"
    ms.devlang="NA"
@@ -390,4 +390,4 @@ Il file di configurazione seguente distribuisce un cluster HPC Pack in una fores
 
 * Provare gli strumenti di HPC Pack per avviare, arrestare e rimuovere nodi di calcolo da un cluster. Vedere [Gestire i nodi di calcolo in un cluster HPC Pack in Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

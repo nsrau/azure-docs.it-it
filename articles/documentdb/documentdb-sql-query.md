@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/13/2015" 
-	ms.author="mimig"/>
+	ms.author="arramac"/>
 
 # Query SQL in DocumentDB
 Microsoft Azure DocumentDB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) su documenti JSON gerarchici. DocumentDB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
@@ -390,7 +390,7 @@ L'operatore Ternary (?) può essere molto comodo quando si costruiscono rapidame
 
 Come con altri operatori di query, se le proprietà cui viene fatto riferimento nell'espressione condizionale non sono presenti in alcun documento o se i tipi confrontati sono diversi, tali documenti verranno esclusi dai risultati della query.
 
-L'operatore Coalesce (?) può essere usato per verificare se una proprietà è presente (definita) in un documento. Questo risulta utile per le query su dati semistrutturati o di tipo misto Ad esempio, questa query restituisce il valore "lastName" se è presente oppure il valore "surname" se non è presente.
+L'operatore Coalesce (??) può essere usato per verificare se una proprietà è presente (definita) in un documento. Questo risulta utile per le query su dati semistrutturati o di tipo misto Ad esempio, questa query restituisce il valore "lastName" se è presente oppure il valore "surname" se non è presente.
 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
@@ -1588,7 +1588,7 @@ In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JS
 		family.children[0].grade;
 		family.children[n].grade; //n is an int variable
 
--	Espressioni aritmetiche: includono espressioni aritmetiche comuni su valori numerici e booleani. Per un elenco completo, fare riferimento alle specifiche di SQL.
+-	Espressioni aritmetiche: includono espressioni aritmetiche comuni su valori numerici e booleani. Per un elenco completo, vedere le specifiche di SQL.
 
 		2 * family.children[0].grade;
 		x + y;
@@ -2089,4 +2089,4 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

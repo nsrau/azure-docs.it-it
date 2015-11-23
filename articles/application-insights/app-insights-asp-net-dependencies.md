@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 
@@ -44,7 +44,7 @@ Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seg
 * Java
  * Chiamate a un database tramite un driver[JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), ad esempio MySQL, SQL Server, PostgreSQL o SQLite.
 
-È possibile scrivere chiamate SDK per monitorare altre dipendenze utilizzando [TrackDependency API] (app-insights-api-custom-events-metrics.md#track-dependency.
+È possibile scrivere chiamate SDK per monitorare altre dipendenze usando l'[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 
 ## Configurazione del monitoraggio delle dipendenze
@@ -202,4 +202,4 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

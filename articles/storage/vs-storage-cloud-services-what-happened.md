@@ -3,7 +3,7 @@
 	description="Viene descritto cosa succede in un progetto di servizi di cloud dopo la connessione a un account di archiviazione di Azure utilizzando i servizi connessi a Visual Studio "
     services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Cosa è successo a un progetto di servizi di cloud (servizio connesso a Visual Studio Archiviazione di Azure)?
 
@@ -43,4 +43,4 @@ Sono stati creati elementi con la stringa di connessione e la chiave dell'accoun
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

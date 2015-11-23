@@ -98,4 +98,4 @@ Altre informazioni sull'hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -38,7 +38,7 @@ Per visualizzare un video:
 Questa esercitazione fa parte della [serie][hdinsight-hbase-replication] sulla creazione della replica geografica di HBase.
 
 - Configurare una connessione VPN tra due reti virtuali (questa esercitazione)
-- [Configurare il server DNS tra due reti virtuali di Azure][hdinsight-hbase-geo-replication-DNS]
+- [Configurare il server DNS tra due reti virtuali di Azure][hdinsight-hbase-geo-replication-dns]
 - [Configurare la replica geografica di HBase][hdinsight-hbase-geo-replication]
 
 Il diagramma seguente illustra le due reti virtuali create in questa esercitazione:
@@ -249,7 +249,7 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 
 
 
-[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
+[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 
 
@@ -270,4 +270,4 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

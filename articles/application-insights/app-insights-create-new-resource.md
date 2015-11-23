@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Creare una nuova risorsa di Application Insights
@@ -94,4 +94,4 @@ Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

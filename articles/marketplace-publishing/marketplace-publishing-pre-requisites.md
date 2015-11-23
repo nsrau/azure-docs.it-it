@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-  ms.service="marketplace-publishing"
+  ms.service="marketplace"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
@@ -50,4 +50,4 @@ Di seguito sono riportati i prerequisiti tecnici per ogni tipo di offerta. Fare 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

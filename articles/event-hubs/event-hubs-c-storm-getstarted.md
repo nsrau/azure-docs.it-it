@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione all'Hub eventi"
+	pageTitle="Introduzione all'Hub eventi con C e Apache Storm | Microsoft Azure"
 	description="Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure, inviare gli eventi in C e riceverli in un cluster di Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -44,7 +44,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 	![][1]
 
-3. Digitare un nome per l'hub eventi, selezionare la regione desiderata, quindi fare clic su **Crea un nuovo hub eventi**.
+3. Digitare un nome per l'hub eventi, selezionare l'area desiderata, quindi fare clic su **Crea un nuovo hub eventi**.
 
 	![][2]
 
@@ -111,4 +111,4 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

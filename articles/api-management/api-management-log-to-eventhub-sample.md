@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="10/30/2015"
+    ms.date="11/10/2015"
     ms.author="v-darmi"/>
 
 # Monitorare le API con Gestione API di Azure, Hub eventi e Runscope
@@ -257,4 +257,15 @@ L'immagine animata seguente illustra l'effettuazione di una richiesta a un'API n
 ## Riepilogo
 Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffico HTTP verso e dalle API. Hub eventi di Azure è una soluzione a scalabilità elevata e costi ridotti per l'acquisizione e l'inserimento del traffico in sistemi di elaborazione secondari per operazioni di registrazione e monitoraggio e per altre analisi avanzate. La connessione a sistemi di monitoraggio del traffico di terze parti come Runscope è semplice quanto scrivere qualche dozzina di righe di codice.
 
-<!---HONumber=Nov15_HO2-->
+## Passaggi successivi
+-	Altre informazioni sull'Hub eventi di Azure
+	-	[Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+	-	[Ricevere messaggi con EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+	-	[Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md)
+-	Altre informazioni sull'integrazione di Gestione API e Hub eventi
+	-	[Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure](api-management-howto-log-event-hubs.md)
+	-	[Informazioni di riferimento per l'entità logger](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[Informazioni di riferimento per i criteri log-to-event](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	
+
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="API REST di Ricerca di Azure versione 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="API REST di Ricerca di Azure versione 2015-02-28-Preview | Microsoft Azure | Servizio di ricerca cloud ospitato"
    description="L'API REST di Ricerca di Azure versione 2015-02-28-Preview include funzionalità sperimentali come la sintassi delle query Lucene e le ricerche moreLikeThis."
    services="search"
    documentationCenter="na"
@@ -1742,4 +1742,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

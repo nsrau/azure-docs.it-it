@@ -3,7 +3,7 @@
 	description="Descrive cosa è successo al progetto Azure Cordova dopo l'aggiunta di servizi mobili di Azure utilizzando i servizi relativi a Visual Studio." 
 	services="mobile-services" 
 	documentationCenter="na" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Cosa è successo al progetto Azure Cordova dopo l'aggiunta di servizi mobili di Azure utilizzando i servizi relativi a Visual Studio?
 
@@ -39,4 +39,4 @@ In `services\mobileServices\settings` è stato generato un nuovo file JavaScript
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

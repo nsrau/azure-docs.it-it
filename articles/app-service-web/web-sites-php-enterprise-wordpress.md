@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="08/03/2015"
+	ms.date="11/06/2015"
 	ms.author="tomfitz"/>
 
 #WordPress di livello aziendale nel servizio app di Azure
@@ -28,7 +28,7 @@ Un'installazione di base di WordPress prevede solo due requisiti.
 
     > [AZURE.NOTE]ClearDB offre diverse configurazioni di MySQL, con caratteristiche di prestazioni differenti per ognuna di esse. Per informazioni sulle offerte fornite tramite Azure Store, vedere [Azure Store][cdbnstore] oppure per le offerte fornite direttamente da ClearDB, vedere la pagina dei [prezzi di ClearDB](http://www.cleardb.com/pricing.view).
 
-* **PHP 5.2.4 o versioni successive**: il servizio app di Azure attualmente fornisce le [versioni PHP 5.3, 5.4 e 5.5][phpwebsite].
+* **PHP 5.2.4 o versioni successive**: il servizio app di Azure attualmente fornisce le [versioni PHP 5.4, 5.5 e 5.6][phpwebsite].
 
 	> [AZURE.NOTE]È consigliabile eseguire sempre la versione di PHP più recente per assicurarsi di disporre degli ultimi aggiornamenti per la sicurezza.
 
@@ -53,7 +53,7 @@ La replica e il routing in più database MySQL possono essere eseguiti con il [r
 
 ###Multi-region deployment with media storage and caching
 
-Se il sito accetta caricamenti o ospita file multimediali, usare l'archiviazione BLOB di Azure. Se sono necessarie soluzioni di memorizzazione nella cache, in [Azure Store][rediscache] sono disponibili [Cache Redis](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), [Memcache Cloud](http://azure.microsoft.com/gallery/store/memcachier/memcachier/), [MemCachier](http://azure.microsoft.com/gallery/store/) e altre offerte.
+Se il sito accetta caricamenti o ospita file multimediali, usare l'archiviazione BLOB di Azure. Se sono necessarie soluzioni di memorizzazione nella cache, in [Azure Store][rediscache] sono disponibili [Cache Redis](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), [MemCachier](http://azure.microsoft.com/gallery/store/) e altre offerte.
 
 ![un'app Web di Azure, ospitata in più aree, con l'uso del router CDBR a disponibilità elevata per MySQL, con cache gestita, archiviazione BLOB e rete CDN][performance-diagram]
 
@@ -87,7 +87,7 @@ Le prestazioni nel cloud si ottengono prevalentemente tramite la memorizzazione 
 Per | Opzione
 ------------------------|-----------
 **Identificare le funzionalità delle istanze del servizio app** | [Dettagli dei prezzi, incluse le funzionalità dei livelli del servizio app][websitepricing]
-**Memorizzare risorse nella cache** | [Cache Redis][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/) o una delle altre offerte di memorizzazione nella cache disponibili in [Azure Store](/gallery/store/)
+**Memorizzare risorse nella cache** | [Cache Redis][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) o una delle altre offerte di memorizzazione nella cache disponibili in [Azure Store](/gallery/store/)
 **Scalare l'applicazione** | [Scalare un'app Web nel servizio app di Azure][websitescale] e [Routing ClearDB a disponibilità elevata][cleardbscale]. Se si sceglie di ospitare e gestire un'installazione personalizzata di MySQL, tenere presente [MySQL Cluster CGE][cge] per la scalabilità orizzontale
 
 ####Migrazione
@@ -173,7 +173,7 @@ Se si usano... | Effettuare l'operazione seguente:
 
 		Dopo aver cambiato queste voci, salvare e chiudere il file **wp-config.php**.
 
-	3. Fare riferimento alle informazioni disponibili in [Distribuire un'app Web nel servizio app di Azure][deploy] per abilitare il metodo di distribuzione che si desidera usare, quindi distribuire il backup di WordPress nell'app Web nel servizio app di Azure.
+	3. Vedere le informazioni disponibili in [Distribuire un'app Web nel servizio app di Azure][deploy] per abilitare il metodo di distribuzione che si desidera usare, quindi distribuire il backup di WordPress nell'app Web nel servizio app di Azure.
 
 5. Dopo la distribuzione del sito WordPress, dovrebbe essere possibile accedere al nuovo sito (come app Web di Servizio app di Azure) usando l'URL *.azurewebsite.net.
 
@@ -249,10 +249,10 @@ Per | Opzione
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
 [customdomain]: web-sites-custom-domain-name.md
-[trafficmanager]: /blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/
+[trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
-[rediscache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[rediscache]: https://azure.microsoft.com/documentation/services/redis-cache/
 [managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
 [managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
@@ -279,8 +279,8 @@ Per | Opzione
 [deploy]: web-sites-deploy.md
 [posh]: ../install-configure-powershell.md
 [Azure CLI]: ../xplat-cli-install.md
-[storesendgrid]: /gallery/store/sendgrid/sendgrid-azure/
+[storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

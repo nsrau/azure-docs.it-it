@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come implementare l'esplorazione in base a facet in Ricerca di Azure | Microsoft Azure" 
+	pageTitle="Come implementare l'esplorazione in base a facet in Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
 	description="Aggiungere Esplorazione in base a facet alle applicazioni che si integrano con la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -372,4 +372,4 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

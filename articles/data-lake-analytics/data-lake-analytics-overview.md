@@ -60,7 +60,7 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     
 - U-SQL e sviluppo
     - [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
-    - [Usare le funzioni finestra U-SQL per i processi di Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)
+    - [Usare le funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-use-window-functions.md)
     - [Sviluppare operatori U-SQL definiti dall'utente per i processi di Data Lake Analytics](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
     
 - Gestione
@@ -77,4 +77,4 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     - [Inviare una richiesta di funzionalità](http://aka.ms/adlafeedback)
     - [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

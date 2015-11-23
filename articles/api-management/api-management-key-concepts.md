@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/05/2015" 
 	ms.author="sdanie"/>
 
 #Informazioni su Gestione API
@@ -78,7 +78,7 @@ Per altre informazioni, vedere [Come creare o invitare gli sviluppatori][] e [Co
 
 I criteri sono una potente funzionalità di Gestione API che consentono all'entità di pubblicazione di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare la quantità di chiamate in ingresso da uno sviluppatore, ma sono disponibili numerosi altri criteri.
 
-Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, a meno che i criteri non specifichino diversamente. Alcuni criteri, come [Control flow][] e [Set variable][], sono basati su espressioni di criteri. Per altre informazioni, vedere [Advanced policies][] ed [Espressioni di criteri][] e guardare il video seguente.
+Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) e [set-variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) ed [Espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx) e guardare il video seguente.
 
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
@@ -114,4 +114,4 @@ Il portale per sviluppatori consente agli sviluppatori di visualizzare informazi
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Database SQL - Supporto client di livello inferiore per controllo e maschera dati dinamica | Microsoft Azure" 
-	description="Informazioni sul supporto client di livello inferiore del database SQL per controllo e maschera dati dinamica | Azure" 
+	pageTitle="Supporto dei client di livello inferiore del Database SQL per Controllo | Microsoft Azure" 
+	description="Informazioni sul supporto dei client di livello inferiore del Database SQL per Controllo." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="nadavhelfman"/>
+	ms.date="11/12/2015" 
+	ms.author="nadavhelfman; ronitr"/>
  
-# Database SQL - Supporto client di livello inferiore per controllo e maschera dati dinamica 
+# Database SQL - Supporto dei client di livello inferiore per Controllo
 
 
-[Controllo](sql-database-auditing-get-started.md) e [maschera dati dinamica](sql-database-dynamic-data-masking-get-started.md) funzionano con i client SQL che supportano il reindirizzamento TDS.
+[Controllo](sql-database-auditing-get-started.md) funziona automaticamente con i client SQL che supportano il reindirizzamento TDS.
 
 Qualsiasi client che implementa TDS 7.4 deve supportare anche il reindirizzamento. Rappresentano un'eccezione JDBC 4.0, in cui non è del tutto supportata la funzionalità di reindirizzamento, e Tedious per Node.JS, in cui non è implementato il reindirizzamento.
 
@@ -38,6 +38,4 @@ Un elenco parziale di "client di livello inferiore" include:
 
 **Nota:** la modifica del nome di dominio completo del server citata in precedenza può risultare utile per applicare un criterio di controllo a livello di server SQL senza la necessità di una procedura di configurazione in ogni database (attenuazione temporanea).
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

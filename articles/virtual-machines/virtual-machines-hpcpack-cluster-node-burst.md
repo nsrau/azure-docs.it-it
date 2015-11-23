@@ -1,5 +1,13 @@
-<properties pageTitle="Aggiungere nodi "burst" a un cluster HPC | Microsoft Azure" description="Informazioni su come aggiungere istanze del ruolo di lavoro in esecuzione in un servizio cloud su richiesta come risorse di calcolo in un nodo head di HPC Pack in Azure." services="virtual-machines" documentationCenter="" authors="dlepow" manager="timlt" editor="" tags="azure-service-management"/>
-<tags 
+<properties
+ pageTitle="Aggiungere nodi burst in un cluster HPC Pack | Microsoft Azure"
+ description="Informazioni su come aggiungere istanze del ruolo di lavoro in esecuzione in un servizio cloud su richiesta come risorse di calcolo in un nodo head HPC Pack in Azure."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management,hpc-pack"/>
+<tags
 ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
@@ -61,7 +69,7 @@ Per ulteriori opzioni per configurare il certificato di gestione, vedere gli [sc
 
 
 
-I passaggi per aggiungere e avviare i nodi di Azure in questo scenario sono in genere identici a quelli usati per un nodo head locale. Per altre informazioni, vedere le sezioni seguenti in [passaggi per distribuire i nodi di Azure con Microsoft HPC Pack]((https://technet.microsoft.com/library/gg481758(v=ws.10).aspx):
+I passaggi per aggiungere e avviare i nodi di Azure in questo scenario sono in genere identici a quelli usati per un nodo head locale. Per altre informazioni, vedere le sezioni seguenti in [Procedura per distribuire i nodi di Azure con Microsoft HPC Pack]((https://technet.microsoft.com/library/gg481758(v=ws.10).aspx):
 
 * Creare un modello di nodo di Azure
 
@@ -71,7 +79,7 @@ I passaggi per aggiungere e avviare i nodi di Azure in questo scenario sono in g
 
 Dopo aver aggiunto e avviato i nodi, questi saranno pronti per l'uso per l'esecuzione dei processi del cluster.
 
-Se si verificano problemi durante la distribuzione di nodi di Azure, vedere le informazioni sulla [risoluzione dei problemi delle distribuzioni di nodi di Azure con Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
+Se si verificano problemi durante la distribuzione di nodi di Azure, vedere le informazioni sulla [Risoluzione dei problemi delle distribuzioni di nodi di Azure con Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 ## Passaggi successivi
 
@@ -80,4 +88,4 @@ Se si verificano problemi durante la distribuzione di nodi di Azure, vedere le i
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

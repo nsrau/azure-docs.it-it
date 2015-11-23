@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="11/09/2015" 
 	ms.author="andrela"/>
 
 
@@ -117,4 +117,4 @@ Per allinearlo con il formato Microsoft SQL Server[datetime](http://msdn.microso
     puts row
     end 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

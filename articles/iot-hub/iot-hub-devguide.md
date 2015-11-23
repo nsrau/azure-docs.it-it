@@ -18,7 +18,7 @@
 
 # Guida per gli sviluppatori dell'hub IoT di Azure
 
-L'hub IoT di Azure è un servizio completamente gestito che abilita le comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazione.
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni.
 
 L'hub IoT di Azure offre questi vantaggi:
 
@@ -193,7 +193,7 @@ L'hub IoT usa il set di *autorizzazioni* seguente per concedere l'accesso all'en
 
 Le autorizzazioni vengono concesse nei modi seguenti:
 
-* **Criteri di accesso condivisi a livello di hub**. I *criteri di accesso condiviso* possono concedere qualsiasi combinazione delle autorizzazioni elencate nella sezione precedente. È possibile definire i criteri nel [portale di gestione di Azure][lnk-management-portal] o a livello di codice mediante le [API del provider di risorse dell'hub IoT di Azure][lnk-resource-provider-apis]. Un hub IoT appena creato ha i criteri predefiniti seguenti:
+* **Criteri di accesso condivisi a livello di hub**. I *criteri di accesso condiviso* possono concedere qualsiasi combinazione delle autorizzazioni elencate nella sezione precedente. È possibile definire i criteri nel [portale di anteprima di Azure][lnk-management-portal] o a livello di codice mediante le [API del provider di risorse dell'hub IoT di Azure][lnk-resource-provider-apis]. Un hub IoT appena creato ha i criteri predefiniti seguenti:
 
     - *iothubowner*: criteri con tutte le autorizzazioni
     - *service*: criteri con autorizzazione **ServiceConnect**
@@ -254,7 +254,7 @@ In entrambi i casi il campo della password contiene il token, come illustrato ne
 
 #### Confronto tra SASL PLAIN e CBS
 
-Quando si usa SASL PLAIN, un client che si connette a un hub IoT potrà usare un singolo token per ogni connessione TCP. Quando il token scade, la connessione TCP viene disconnessa dal servizio, attivando una riconnessione. Questo comportamento, anche se non problematico per un componente back-end applicazione, risulta molto dannoso per un'applicazione lato dispositivo, per i motivi seguenti:
+Quando si usa SASL PLAIN, un client che si connette a un hub IoT potrà usare un singolo token per ogni connessione TCP. Quando il token scade, la connessione TCP viene disconnessa dal servizio, attivando una riconnessione. Questo comportamento, anche se non problematico per un componente back-end di applicazione, risulta molto dannoso per un'applicazione lato dispositivo, per i motivi seguenti:
 
 *  I gateway si connettono in genere per conto di molti dispositivi. Quando si usa SASL PLAIN, devono creare una connessione TCP distinta per ogni dispositivo che si connette a un hub IoT. Ciò aumenta in modo considerevole il consumo energetico e delle risorse di rete e incrementa la latenza della connessione di ogni dispositivo.
 * I dispositivi vincolati alle risorse saranno maggiormente interessati dall'aumento dell'uso delle risorse per la riconnessione dopo la scadenza di ogni token.
@@ -339,7 +339,7 @@ Per informazioni dettagliate sull'uso della messaggistica da dispositivo a cloud
 
 #### Traffico non di telemetria
 
-In molti casi i dispositivi non inviano solo punti dati di telemetria al back-end dell'applicazione, ma anche messaggi *interattivi* e richieste che richiedono l'esecuzione e la gestione dal livello della logica di business dell'applicazione, ad esempio avvisi critici che devono attivare un'azione specifica nel back-end o risposte del dispositivo ai comandi.
+In molti casi, i dispositivi non inviano solo punti di dati di telemetria al back-end dell'applicazione, ma anche messaggi *interattivi* e richieste che richiedono l'esecuzione e la gestione dal livello della logica del business dell'applicazione. Ad esempio, gli avvisi critici che devono attivare un'azione specifica nel back-end o le risposte del dispositivo ai comandi.
 
 Per altre informazioni sul modo migliore per elaborare questo tipo di messaggi, vedere la sezione [Elaborazione da dispositivo a cloud][lnk-guidance-d2c-processing] di Indicazioni per l'hub IoT.
 
@@ -352,7 +352,7 @@ Un hub IoT espone le proprietà seguenti per controllare la messaggistica D2C.
 
 Analogamente agli hub eventi, l'hub IoT consente la gestione dei Gruppi di consumer nell'endpoint di ricezione da dispositivo a cloud.
 
-È possibile modificare tutte queste proprietà tramite il [portale di Azure][lnk-management-portal] o a livello di codice mediante [Hub IoT di Azure - API del provider di risorse][lnk-resource-provider-apis].
+È possibile modificare tutte queste proprietà tramite il [portale di anteprima di Azure][lnk-management-portal] o a livello di codice mediante l’[Hub IoT di Azure - API del provider di risorse][lnk-resource-provider-apis].
 
 #### Proprietà anti-spoofing <a id="antispoofing"></a>
 
@@ -418,9 +418,8 @@ Il corpo è una matrice serializzata con JSON dei record, ognuno con le propriet
 
 | Proprietà | Descrizione |
 | -------- | ----------- |
-| EnqueuedTime | Timestamp che indica quando è stato creato il risultato del messaggio. Ad esempio, il dispositivo ha completato l'operazione o il messaggio è scaduto. |
-| CorrelationId | **MessageId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
-| StatusCode | **0** se l'esito è positivo, **1** se il messaggio è scaduto, **2** se il numero massimo di recapiti è stato superato, **3** se il messaggio è stato rifiutato. |
+| EnqueuedTimeUtc | Timestamp che indica quando è stato creato il risultato del messaggio. Ad esempio, il dispositivo ha completato l'operazione o il messaggio è scaduto. |
+| OriginalMessageId | **MessageId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
 | Descrizione | Valori di stringa per i risultati precedenti. |
 | DeviceId | **DeviceId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
 | DeviceGenerationId | **DeviceGenerationId** del dispositivo di destinazione del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
@@ -431,9 +430,8 @@ Il corpo è una matrice serializzata con JSON dei record, ognuno con le propriet
 
     [
         {
-            "CorrelationId": "0987654321",
-            "EnqueuedTime": "2015-07-28T16:24:48.789Z",
-            "StatusCode": "0",
+            "OriginalMessageId": "0987654321",
+            "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
             "Description": "Success",
             "DeviceId": "123",
             "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -459,7 +457,7 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per la messaggistica d
 
 Ogni sottoscrizione di Azure può avere al massimo 10 hub IoT.
 
-Ogni hub IoT viene sottoposto a provisioning con un determinato numero di unità in uno SKU specifico. Per altre informazioni, vedere [Prezzi dell'hub IoT di Azure][lnk-pricing]. Lo SKU e il numero di unità determinano la quota giornaliera massima di messaggi che è possibile inviare e il numero massimo di identità del dispositivo nel registro delle identità. Il numero di dispositivi connessi simultaneamente è limitato dal numero di identità nel registro.
+Ogni hub IoT viene sottoposto a provisioning con un determinato numero di unità in uno SKU specifico (per altre informazioni, vedere [Prezzi dell'hub IoT di Azure][lnk-pricing].) Lo SKU e il numero di unità determinano la quota giornaliera massima di messaggi che è possibile inviare e il numero massimo di identità del dispositivo nel registro delle identità. Il numero di dispositivi connessi simultaneamente è limitato dal numero di identità nel registro.
 
 Questo valore determina anche le limitazioni applicate dall'hub IoT alle operazioni.
 
@@ -493,7 +491,7 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 
 [Hub eventi - Host processore di eventi]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
-[portale di anteprima di Azure]: https://ms.portal.azure.com
+[portale di anteprima di Azure]: https://portal.azure.com
 
 [img-summary]: ./media/iot-hub-devguide/summary.png
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
@@ -534,4 +532,4 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

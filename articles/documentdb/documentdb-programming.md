@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="11/11/2015" 
 	ms.author="andrl"/>
 
 # Programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente
@@ -475,69 +475,9 @@ La funzione UDF può in seguito essere usata in query come quella riportata nell
 ## API della Language-Integrated Query di JavaScript
 Oltre a eseguire una query utilizzando la sintassi SQL del DocumentDB, il SDK sul lato server consente di eseguire query ottimizzate tramite un'interfaccia intuitiva JavaScript senza alcuna conoscenza di SQL. L'API della query JavaScript consente di creare query a livello di programmazione passando funzioni predicate in chiamate di funzione concatenabili, con una sintassi familiare alle librerie JavaScript predefinite e diffuse della matrice ECMAScript5 come lodash. Le query vengono analizzate dal runtime JavaScript per essere eseguite in modo efficiente utilizzando gli indici di DocumentDB.
 
-> [AZURE.NOTE]`__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()`.
-> <br/>
-> In altre parole, è possibile utilizzare `__` o `getContext().getCollection()` per accedere all’API della query JavaScript.
+> [AZURE.NOTE]`__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()`. <br/> In altre parole, è possibile usare `__` o `getContext().getCollection()` per accedere all'API della query JavaScript.
 
-Le funzioni supportate includono:
-<ul>
-<li>
-<b>chain() ... .value([callback] [, options])</b>
-<ul>
-<li>
-Inizia una chiamata concatenata che deve terminare con il valore().
-</li>
-</ul>
-</li>
-<li>
-<b>filter(predicateFunction [, options] [, callback])</b>
-<ul>
-<li>
-Filtra l’input tramite una funzione predicato che restituisce true/false per filtrare i documenti in entrata e in uscita nel set risultante. Tale funzionamento è simile a quello di una clausola WHERE in SQL.
-</li>
-</ul>
-</li>
-<li>
-<b>map(transformationFunction [, options] [, callback])</b>
-<ul>
-<li>
-Consente di applicare una proiezione data una funzione di trasformazione che esegue il mapping di ogni elemento di input a un valore o oggetto JavaScript. Tale funzionamento è simile a quello di una clausola SELECT in SQL.
-</li>
-</ul>
-</li>
-<li>
-<b>pluck([propertyName] [, options] [, callback])</b>
-<ul>
-<li>
-E’ un collegamento per una mappa che estrae il valore di una singola proprietà da ogni elemento di input.
-</li>
-</ul>
-</li>
-<li>
-<b>flatten([isShallow] [, options] [, callback])</b>
-<ul>
-<li>
-Combina e appiattisce matrici da ogni elemento di input in un’unica matrice. Tale funzionamento è simile a quello di SelectMany in LINQ.
-</li>
-</ul>
-</li>
-<li>
-<b>sortBy([predicate] [, options] [, callback])</b>
-<ul>
-<li>
-Produce un nuovo set di documenti ordinando i documenti nel flusso di documenti di input in ordine crescente utilizzando il predicato specificato. Tale funzionamento è simile a quello della clausola ORDER BY in SQL.
-</li>
-</ul>
-</li>
-<li>
-<b>sortByDescending([predicate] [, options] [, callback])</b>
-<ul>
-<li>
-Produce un nuovo set di documenti ordinando i documenti nel flusso di documenti di input in ordine decrescente utilizzando il predicato specificato. Il funzionamento è simile a quello di una clausola ORDER BY x DESC in SQL.
-</li>
-</ul>
-</li>
-</ul>
+Le funzioni supportate includono: <ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li> Inizia una chiamata concatenata che deve terminare con il valore(). </li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li> Filtra l'input tramite una funzione predicato che restituisce true/false per filtrare i documenti in entrata e in uscita nel set risultante. Tale funzionamento è simile a quello di una clausola WHERE in SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li> Consente di applicare una proiezione data una funzione di trasformazione che esegue il mapping di ogni elemento di input a un valore o oggetto JavaScript. Tale funzionamento è simile a quello di una clausola SELECT in SQL. </li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li> È un collegamento per una mappa che estrae il valore di una singola proprietà da ogni elemento di input. </li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li> Combina e appiattisce matrici da ogni elemento di input in un'unica matrice. Tale funzionamento è simile a quello di SelectMany in LINQ. </li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li> Produce un nuovo set di documenti ordinandoli nel flusso di documenti di input in ordine crescente tramite il predicato specificato. Tale funzionamento è simile a quello della clausola ORDER BY in SQL. </li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li> Produce un nuovo set di documenti ordinandoli nel flusso di documenti di input in ordine decrescente tramite il predicato specificato. Il funzionamento è simile a quello di una clausola ORDER BY x DESC in SQL. </li> </ul> </li> </ul>
 
 
 Quando inclusi all'interno delle funzioni predicato e/o selettore, i seguenti costrutti JavaScript vengono automaticamente ottimizzati per l'esecuzione diretta sugli indici DocumentDB:
@@ -614,140 +554,7 @@ Nella tabella seguente vengono presentate varie query SQL e le query JavaScript 
 
 Come le query SQL, le chiavi di proprietà del documento (ad esempio `doc.id`) fanno distinzione tra maiuscole e minuscole.
 
-<br/>
-<table border="1" width="100%">
-<colgroup>
-<col span="1" style="width: 40%;">
-<col span="1" style="width: 40%;">
-<col span="1" style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<th>SQL</th>
-<th>API di query JavaScript</th>
-<th>Dettagli</th>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT *
-FROM docs
-</pre>
-</td>
-<td>
-<pre>
-__.map(function(doc) {
-    return doc;
-});
-</pre>
-</td>
-<td>Restituisce tutti i documenti (impaginati con token di continuità) nello stato in cui sono.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg, docs.actions 
-FROM docs
-</pre>
-</td>
-<td>
-<pre>
-__.map(function(doc) {
-    return {
-        id: doc.id,
-        msg: doc.message,
-        actions: doc.actions
-    };
-});
-</pre>
-</td>
-<td>Proietta id, messaggio (con alias msg) e azione da tutti i documenti.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT * 
-FROM docs 
-WHERE docs.id="X998_Y998"
-</pre>
-</td>
-<td>
-<pre>
-__.filter(function(doc) {
-    return doc.id === "X998_Y998";
-});
-</pre>
-</td>
-<td>Esegue query per i documenti con il predicato: id = "X998_Y998".</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT *
-FROM docs
-WHERE ARRAY_CONTAINS(docs.Tags, 123)
-</pre>
-</td>
-<td>
-<pre>
-__.filter(function(x) {
-    return x.Tags && x.Tags.indexOf(123) > -1;
-});
-</pre>
-</td>
-<td>Esegue query per i documenti che hanno proprietà di tag e tag in una matrice che contiene il valore 123.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg
-FROM docs 
-WHERE docs.id="X998_Y998"
-</pre>
-</td>
-<td>
-<pre>
-__.chain()
-    .filter(function(doc) {
-        return doc.id === "X998_Y998";
-    })
-    .map(function(doc) {
-        return {
-            id: doc.id,
-            msg: doc.message
-        };
-    })
-    .value();
-</pre>
-</td><td>Esegue query per i documenti che hanno predicato, id = "X998_Y998", e proietta id e messaggio (con alias msg).</td> 
-</tr>
-<tr>
-<td>
-<pre>
-SELECT VALUE tag
-FROM docs
-JOIN tag IN docs.Tags
-ORDER BY docs._ts
-</pre>
-</td>
-<td>
-<pre>
-__.chain()
-    .filter(function(doc) {
-        return doc.Tags && Array.isArray(doc.Tags);
-    })
-    .sortBy(function(doc) {
-    	return doc._ts;
-    })
-    .pluck("Tags")
-    .flatten()
-    .value()
-</pre>
-</td>
-<td>Filtra i documenti che hanno una proprietà matrice, tag, ordina i documenti risultanti secondo la proprietà di sistema _ts timestamp, e in seguito proietta e appiattisce la matrice tag.</td>
-</tr>
-</tbody>
-</table>
+<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>API di query JavaScript</th> <th>Dettagli</th> </tr> <tr> <td> <pre> documenti SELECT * FROM </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>Restituisce tutti i documenti (impaginati con token di continuità) nello stato in cui sono.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>Proietta id, messaggio (con alias msg) e azione da tutti i documenti.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>Esegue query per i documenti con il predicato: id = "X998\_Y998".</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Esegue query per i documenti che hanno proprietà di tag e tag in una matrice che contiene il valore 123.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>Esegue query per i documenti che hanno predicato, id = "X998\_Y998", e proietta id e messaggio (con alias msg).</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>Filtra i documenti che hanno una proprietà matrice, tag, e ordina i documenti risultanti secondo la proprietà di sistema \_ts timestamp, e in seguito proietta e appiattisce la matrice tag.</td> </tr> </tbody> </table>
 
 ## Supporto di runtime
 L'[SDK lato server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
@@ -854,8 +661,7 @@ Tutte le operazioni di DocumentDB possono essere eseguite in modalità RESTful. 
 	}
 
 
-La stored procedure viene registrata eseguendo una richiesta POST a fronte dell'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs con il corpo contenente la stored procedure da creare. Trigger e funzioni definite dall'utente possono essere registrati in modo analogo eseguendo una richiesta POST rispettivamente su /triggers e /udfs.
-Questa stored procedure può quindi essere eseguita tramite una richiesta POST sul relativo collegamento alle risorse:
+La stored procedure viene registrata eseguendo una richiesta POST a fronte dell'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs con il corpo contenente la stored procedure da creare. Trigger e funzioni definite dall'utente possono essere registrati in modo analogo eseguendo una richiesta POST rispettivamente su /triggers e /udfs. Questa stored procedure può quindi essere eseguita tramite una richiesta POST sul relativo collegamento alle risorse:
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>
@@ -902,7 +708,7 @@ In questo caso, il pre-trigger da eseguire con la richiesta è specificato nell'
 
 ## Codice di esempio
 
-È possibile trovare altri esempi di codice sul lato server (inclusi [upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [eliminazione bulk](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) e [aggiornamento](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)) nell'[archivio Github](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples).
+È possibile trovare altri esempi di codice sul lato server (inclusi [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [eliminazione bulk](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [aggiornamento](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) nell'[archivio Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Si desidera condividere la stored procedure awesome? Inviare una richiesta di pull!
 
@@ -920,4 +726,4 @@ Quando si dispone di uno o più stored procedure, trigger e funzioni definite da
 -	[Database architettura orientata ai servizi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hosting del Runtime .NET in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

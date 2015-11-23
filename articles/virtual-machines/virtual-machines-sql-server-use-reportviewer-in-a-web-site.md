@@ -93,7 +93,7 @@ ReportViewer deve usare le credenziali appropriate per l'autenticazione con il s
 
 ## Pubblicare l'applicazione Web ASP.NET in Azure
 
-Per istruzioni sulla pubblicazione di un'applicazione Web ASP.NET in Azure, vedere [Procedura: Eseguire la migrazione e la pubblicazione di un'applicazione Web in un servizio cloud di Azure da Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx) e [Introduzione alle app Web e ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
+Per istruzioni sulla pubblicazione di un'applicazione Web ASP.NET in Azure, vedere [Procedura: Eseguire la migrazione e la pubblicazione di un'applicazione Web in un servizio cloud di Azure da Visual Studio](../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introduzione alle app Web e ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
 
 >[AZURE.IMPORTANT]Se il comando Aggiungi progetto di distribuzione di Azure o Aggiungi progetto di servizio cloud Azure non viene visualizzato nel menu di scelta rapida in Esplora soluzioni, potrebbe essere necessario modificare il framework di destinazione per il progetto in .NET Framework 4.
 >
@@ -109,4 +109,4 @@ Per istruzioni sulla pubblicazione di un'applicazione Web ASP.NET in Azure, vede
 
 [Controllo visualizzatore di report del servizio di creazione report e server di report basati sulle macchine virtuali di Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

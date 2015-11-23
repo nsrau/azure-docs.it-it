@@ -62,7 +62,7 @@ Basandoci su dati di telemetria, stimiamo l'affidabilità attuale dell’SQL Dat
 
 ### Disponibilità del servizio
 
-SQL Data Warehouse di Azure può essere soggetto a un massimo di 4 eventi di manutenzione al mese per l'installazione di correzioni critiche. Ogni evento può causare errori di query fino a 2 ore. Il tempo varia in base al numero di DWU allocate al servizio. Ci impegneremo a notificare questi eventi 48 ore in anticipo.
+SQL Data Warehouse di Azure può essere soggetto a un massimo di 4 eventi di manutenzione al mese per l'installazione di correzioni critiche. Ogni evento può causare errori di query fino a 2 ore. Il tempo varia in base al numero di DWU allocate al servizio.
 
 
 ## Passaggi successivi
@@ -78,4 +78,4 @@ SQL Data Warehouse di Azure può essere soggetto a un massimo di 4 eventi di man
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

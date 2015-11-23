@@ -187,9 +187,8 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/jav
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure SDK per Java]: http://azure.microsoft.com/develop/java/
   [Azure Toolkit per Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com/
   [Code, Argomenti e Sottoscrizioni]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Gli oggetti ]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

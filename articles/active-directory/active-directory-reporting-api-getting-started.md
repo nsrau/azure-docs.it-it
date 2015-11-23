@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/17/2015"
-   ms.author="kenhoff;yossib"/>
+   ms.date="11/09/2015"
+   ms.author="kenhoff"/>
 
 
 # Introduzione all'API di creazione report di Azure AD
@@ -168,4 +168,4 @@ Lo script restituisce l'elenco di tutti i report disponibili e restituisce l'out
 - Per informazioni dettagliate sul report di controllo, vedere [Eventi dei report di controllo di Azure AD](active-directory-reporting-audit-events.md)
 - Per informazioni dettagliate sul servizio REST dell'API Graph, vedere [Report ed eventi di Azure AD (anteprima)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

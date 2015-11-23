@@ -5,6 +5,8 @@ DNS di Azure è un servizio di hosting per i domini DNS, che fornisce la risoluz
 
 | Proprietà | Descrizione | Valore di esempio |
 |---|---|---|
+| Zone DNS | Informazioni sulla zona del dominio per ospitare i record DNS di un particolare dominio. | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
+providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | Zone DNS | Informazioni sulla zona del dominio per ospitare i record DNS di un particolare dominio. | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
 
 
@@ -16,7 +18,7 @@ Le zone DNS dispongono di un oggetto figlio denominato set di record. I set di r
 |---|---|---|
 | A | Tipo di record IPv4 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | AAAA | Tipo di record IPv6| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
-| CNAME | tipo di record di nome canonical <sup>1</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
+| CNAME | Tipo di record di nome canonical <sup>1</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
 | MX | Tipo di record di posta elettronica | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
 | NS | tipo di record di nome del server | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
 | SOA | Tipo di record di "Start of Authority" <sup>2</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
@@ -83,8 +85,8 @@ Esempio di zona DNS nel formato Json:
 
 ## Risorse aggiuntive
 
-Leggere la [documentazione dell'API REST per le zone DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx) per ulteriori informazioni.
+Per altre informazioni, leggere la [documentazione dell'API REST per le zone DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx).
 
-Leggere la [documentazione dell'API REST per i set di record DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx) per ulteriori informazioni.
+Per altre informazioni, leggere la [documentazione dell'API REST per i set di record DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

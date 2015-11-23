@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione all'API REST di gestione di Ricerca di Azure | Microsoft Azure" 
+	pageTitle="Introduzione all'API REST di gestione di Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
 	description="Gestire il servizio di Ricerca di Azure ospitato sul cloud mediante un'API REST di gestione" 
 	services="search" 
 	documentationCenter="" 
@@ -204,4 +204,4 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

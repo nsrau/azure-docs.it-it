@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="11/10/2015"
    ms.author="dkshir;memccror"/>
 
 # Come contrassegnare una macchina virtuale in Azure.
@@ -88,7 +88,7 @@ Se la macchina virtuale contiene già dei tag, verranno visualizzati tutti i tag
 
 Se si desidera aggiungere i tag tramite PowerShell, è possibile utilizzare il comando `Set-AzureResource`. Nota: Quando si aggiornano i tag tramite PowerShell, i tag vengono aggiornati nel loro complesso. Se si aggiunge un tag a una risorsa che già dispone di tag, sarà pertanto necessario includere tutti i tag che si desidera inserire nella risorsa. Di seguito è riportato un esempio di come aggiungere ulteriori tag a una risorsa tramite Cmdlets di PowerShell.
 
-Questo primo cmdlet imposta tutti i tag inseriti in *MyWindowsVM* per la variabile *tag*, utilizzando la funzione `Get-AzureResource` e `Tags`.
+Questo primo cmdlet imposta tutti i tag inseriti in *MyWindowsVM* per la variabile *tag*, utilizzando la funzione `Get-AzureResource` e `Tags`. Si noti che il parametro `ApiVersion` è facoltativo. Se non è specificato, viene usata la versione più recente dell'API del provider di risorse.
 
         PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -107,15 +107,15 @@ Il secondo comando consente di visualizzare i tag per la variabile specificata.
         Value		Production
         Name		Environment
 
-Il terzo comando aggiunge un altro tag per la variabile *tag*. Si noti l'utilizzo del **+ =** per aggiungere la nuova coppia chiave/valore per l’elenco *tag*.
+Il terzo comando aggiunge un altro tag alla variabile *tags*. Si noti l'uso di **+=** per aggiungere la nuova coppia chiave/valore all'elenco *tags*.
 
         PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
 
-Il quarto comando imposta tutti i tag definiti nella variabile *tag* per la risorsa specificata. In questo caso, è MyWindowsVM.
+Il quarto comando imposta tutti i tag definiti nella variabile *tags* sulla risorsa specificata. In questo caso, è MyWindowsVM.
 
         PS C:\> Set-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview -Tag $tags
 
-Il quinto comando visualizza tutti i tag sulla risorsa. Come si può vedere, *Percorso* è ora definito come un tag con *Ilmiopercorso* come valore.
+Il quinto comando visualizza tutti i tag sulla risorsa. Come si può vedere, *Location* è ora definito come un tag con *MyLocation* come valore.
 
         PS C:\> (Get-AzureResource -ResourceName "MyWindowsVM" -ResourceGroupName "MyResourceGroup" -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -132,20 +132,20 @@ Il quinto comando visualizza tutti i tag sulla risorsa. Come si può vedere, *Pe
         Value		MyLocation
         Name		Location
 
-Per ulteriori informazioni sui tag tramite PowerShell, consultare le [cmdlet di Azure Resource][].
+Per altre informazioni sull'assegnazione di tag tramite PowerShell, consultare i [cmdlet di Azure per le risorse][].
 
 
 ## Assegnazione di tag con Azure CLI
 
-L’assegnazione di tag è supportata per le risorse che sono già state create tramite la CLI di Azure. Per iniziare, impostare l’[ambiente CLI di Azure][]. Accedere alla sottoscrizione tramite la CLI di Azure e passare alla modalità ARM. È possibile visualizzare tutte le proprietà per una determinata macchina virtuale, compresi i tag, utilizzando questo comando:
+L’assegnazione di tag è supportata per le risorse che sono già state create tramite la CLI di Azure. Per iniziare, impostare l'[ambiente CLI di Azure][]. Accedere alla sottoscrizione tramite la CLI di Azure e passare alla modalità ARM. È possibile visualizzare tutte le proprietà per una determinata macchina virtuale, compresi i tag, utilizzando questo comando:
 
         azure vm show -g MyResourceGroup -n MyVM
 
-A differenza di PowerShell, se si sta aggiungendo tag a una risorsa che già contiene tag, non occorre specificare tutti i tag (vecchi e nuovi) prima di utilizzare il comando `azure vm set`. Questo comando consente invece di aggiungere un tag per la risorsa. Per aggiungere un nuovo tag della VM tramite la CLI di Azure, è possibile utilizzare il comando `azure vm set` insieme al parametro tag **-t**:
+A differenza di PowerShell, se si sta aggiungendo tag a una risorsa che già contiene tag, non occorre specificare tutti i tag (vecchi e nuovi) prima di usare il comando `azure vm set`. Questo comando consente invece di aggiungere un tag per la risorsa. Per aggiungere un nuovo tag della VM tramite la CLI di Azure, è possibile usare il comando `azure vm set` insieme al parametro tag **-t**:
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
-Per rimuovere tutti i tag, è possibile utilizzare il parametro **– T** nel comando `azure vm set`.
+Per rimuovere tutti i tag, è possibile usare il parametro **–T** nel comando `azure vm set`.
 
         azure vm set – g MyResourceGroup –n MyVM -T
 
@@ -155,17 +155,17 @@ Ora che sono stati applicati tag alle risorse tramite PowerShell, la CLI di Azur
 
 ## Visualizzazione dei tag nei dettagli dell'utilizzo
 
-I tag applicati a risorse di calcolo, rete e archiviazione tramite il gestore di risorse di Azure verranno compilati nei dettagli di utilizzo nel portale di fatturazione.
+I tag applicati a risorse di calcolo, rete e archiviazione tramite il gestore di risorse di Azure verranno compilati nei dettagli di utilizzo nel [portale di fatturazione](https://account.windowsazure.com/).
 
-Fare clic su **Scarica dettagli sull'utilizzo** per visualizzare i dettagli di utilizzo nella sottoscrizione.
+Fare clic su **Scarica dettagli dell'utilizzo** per visualizzare i dettagli di utilizzo nella sottoscrizione.
 
 ![Dettagli di utilizzo nel portale di Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
-Selezionare estratto e i dettagli di utilizzo **Version 2**:
+Selezionare l'estratto conto e i dettagli di utilizzo **Versione 2**:
 
 ![Dettagli sull'utilizzo di Version 2 Preview nel portale di Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
-Dai dettagli di utilizzo, è possibile visualizzare tutti i tag nella colonna **tag**:
+Dai dettagli di utilizzo è possibile visualizzare tutti i tag nella colonna **Tag**:
 
 ![Colonna dei tag nel portale di Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
@@ -183,11 +183,11 @@ Analizzando i tag e il loro utilizzo, le organizzazioni saranno in grado di acqu
 
 
 [ambiente PowerShell con Gestione risorse di Azure]: ../powershell-azure-resource-manager.md
-[cmdlet di Azure Resource]: https://msdn.microsoft.com/it-IT/library/azure/dn757692.aspx
+[cmdlet di Azure per le risorse]: https://msdn.microsoft.com/it-IT/library/azure/dn757692.aspx
 [ambiente CLI di Azure]: ./xplat-cli-azure-resource-manager.md
 [Panoramica di Gestione risorse di Microsoft Azure]: ../resource-group-overview.md
 [Utilizzo di tag per organizzare le risorse di Azure]: ../resource-group-using-tags.md
 [Informazioni sulla fatturazione di Azure]: ../billing-understand-your-bill.md
 [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

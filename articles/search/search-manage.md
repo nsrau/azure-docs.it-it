@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestire il servizio di ricerca in Microsoft Azure | Microsoft Azure" 
+	pageTitle="Gestire il servizio di ricerca in Microsoft Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
 	description="Gestire la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -193,4 +193,4 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione alla ricerca di Azure | Microsoft Azure" 
+	pageTitle="Introduzione a Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
 	description="Informazioni sui vantaggi della compilazione di applicazioni di ricerca avanzata con Ricerca di Azure, un servizio di ricerca ospitato sul cloud." 
 	editor="monicar" 
 	manager="mblythe" 
@@ -42,4 +42,4 @@ Questo articolo fornisce una panoramica della tecnologia e delle funzionalità e
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Introduzione a Ricerca di Azure" (in formato PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Introduzione a Ricerca di Azure" (in Microsoft Word)</a> 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

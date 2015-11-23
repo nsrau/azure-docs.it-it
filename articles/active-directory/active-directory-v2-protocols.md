@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Protocolli OAuth 2.0 e OpenID Connect
@@ -475,4 +475,4 @@ Il flusso On-Behalf-Of o la concessione delle credenziali di connessione JWT è 
 
 Questo flusso non è attualmente supportato dall'anteprima di Modello app 2.0. Per vedere come funziona nel servizio Azure AD disponibile a livello generale, vedere [questo esempio di codice di Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

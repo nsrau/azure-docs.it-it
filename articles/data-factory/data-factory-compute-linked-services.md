@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Servizi collegati di calcolo
@@ -49,6 +49,7 @@ Tenere presente i seguenti punti **importanti**sul servizio collegato HDInsight 
 	      "jobsContainer": "adfjobs",
 	      "timeToLive": "00:05:00",
 	      "version": "3.1",
+		  "osType": "linux",
 	      "linkedServiceName": "MyBlobStore"
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
@@ -69,6 +70,7 @@ timetolive | <p>Il tempo di inattività consentito per il cluster HDInsight su r
 version | Versione del cluster HDInsight | No
 linkedServiceName | L'archivio BLOB che il cluster su richiesta deve utilizzare per l'archiviazione e l'elaborazione dei dati. | Sì
 additionalLinkedServiceNames | Specifica account di archiviazione aggiuntivi per il servizio collegato HDInsight in modo che il servizio Data Factory possa registrarli per conto dell'utente. | No
+osType | Tipo di sistema operativo. I valori consentiti sono: windows (impostazione predefinita) e linux | No 
 
 ### Proprietà avanzate
 
@@ -169,9 +171,9 @@ linkedServiceName | Nome del servizio collegato per l'archiviazione di BLOB util
 Vedere i seguenti argomenti se non si ha familiarità con il servizio di Azure Batch:
  
 
-- [Panoramica tecnica di Azure Batch](../batch/batch-technical-overview.md)per una panoramica del servizio Azure Batch.
-- cmdlet [New AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx)per creare un account Azure Batch (o)[Portale di gestione Azure](../batch/batch-technical-overview.md)per creare l'account Azure Batch tramite il portale di gestione di Azure. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare [Utilizzo di Azure PowerShell per gestire l'account di Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
-- cmdlet [New AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx)per creare un pool di Batch di Azure.
+- [Panoramica tecnica di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
+- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) per creare un account Azure Batch (o) [Portale di gestione Azure](../batch/batch-technical-overview.md) per creare l'account Azure Batch tramite il portale di gestione di Azure. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Utilizzo di Azure PowerShell per gestire l'account di Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+- Cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) per creare un pool di Azure Batch.
 
 ### Esempio
 
@@ -188,7 +190,7 @@ Vedere i seguenti argomenti se non si ha familiarità con il servizio di Azure B
 	  }
 	}
 
-Aggiungere "**.<region name**" al nome dell'account di batch per la proprietà **accountName**. Esempio:
+Aggiungere "**.<region name**" al nome dell'account Batch per la proprietà **accountName**. Esempio:
 	
 			"accountName": "mybatchaccount.eastus" 
 
@@ -259,7 +261,7 @@ La tabella seguente fornisce le descrizioni delle proprietà usate nella definiz
 
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
-Tipo | La proprietà tipo deve essere impostata su **AzureDataLakeAnalytics**. | Sì
+Tipo | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Sì
 accountName | Nome dell'account di Azure Data Lake Analytics. | Sì
 dataLakeAnalyticsUri | URI di Azure Data Lake Analytics. | No 
 autorizzazione | Il codice di autorizzazione viene recuperato automaticamente dopo aver fatto clic sul pulsante **Autorizza** nell'editor di Data factory e aver completato l'accesso OAuth. | Sì 
@@ -270,7 +272,7 @@ sessionId | ID di sessione dalla sessione di autorizzazione OAuth. Ogni ID di se
 
 ## Servizio collegato di Azure SQL
 
-Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
+Si crea un servizio collegato di SQL Azure e lo si usa con l'[attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una stored procedure da una pipeline Data Factory. Vedere l'articolo [Connettore di SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
 
   
@@ -281,4 +283,4 @@ Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività d
  
    
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -108,7 +108,7 @@ Questa app Web consente di:
 - Visualizzare la cronologia dei comandi per un dispositivo.
 
 ### Osservare il comportamento della soluzione cloud
-È possibile visualizzare le risorse con provisioning visitando il [portale di gestione di Azure](https://portal.azure.com) e passando al gruppo di risorse con il nome della soluzione specificata.
+È possibile visualizzare le risorse con provisioning visitando il [portale di anteprima di Azure](https://portal.azure.com) e passando al gruppo di risorse con il nome della soluzione specificata.
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 
@@ -144,4 +144,4 @@ Tramite il portale della soluzione è possibile cercare i dispositivi con caratt
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

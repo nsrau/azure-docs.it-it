@@ -80,4 +80,4 @@ Per visualizzare e gestire le chiavi di accesso, fare clic sull'icona a forma di
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

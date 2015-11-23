@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -58,7 +58,7 @@ Di seguito sono indicati i principali passaggi per la creazione di una macchina 
 
     * Per una distribuzione con modello di verifica semplice, è possibile saltare questo passaggio e in seguito alzare di livello la macchina virtuale del nodo head a controller di dominio.
 
-3. Nel portale di gestione di Azure o nel portale di anteprima di Azure, creare una macchina virtuale classica selezionando l'immagine HPC Pack 2012 R2 da Azure Marketplace. (Vedere i passaggi per il portale di gestione [qui](virtual-machines-windows-tutorial-classic-portal.md).)
+3. Nel portale di Azure o nel portale di anteprima di Azure creare una macchina virtuale classica selezionando l'immagine HPC Pack 2012 R2 da Azure Marketplace. (Vedere i passaggi per il portale di Azure [qui](virtual-machines-windows-tutorial-classic-portal.md).)
 
     **Considerazioni**
 
@@ -102,4 +102,4 @@ Di seguito sono indicati i principali passaggi per la creazione di una macchina 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

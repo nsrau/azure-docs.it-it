@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="11/06/2015"
    ms.author="maroche"/>
 
 
@@ -38,7 +38,7 @@ Nell'anteprima corrente il **Catalogo dati di Azure** supporta la registrazione 
 * Report di SQL Server Reporting Services
 * Directory e BLOB di archiviazione di Azure
 * File e directory HDFS
-* Tabelle Hive di HDInsight
+* Tabelle Hive di Apache
 * Tabelle Teradata e visualizzazioni
 
 > [AZURE.NOTE]Il supporto di SQL Server include anche il database SQL di Microsoft Azure e SQL Data Warehouse di Microsoft Azure
@@ -95,4 +95,4 @@ La nuova registrazione di un'origine dati già registrata esegue un'operazione d
 ## Riepilogo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Dopo la registrazione di un'origine dati, questa potrà essere annotata, gestita e individuata tramite il portale del **Catalogo dati di Azure**.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

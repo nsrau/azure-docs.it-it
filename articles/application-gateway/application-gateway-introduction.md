@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/03/2015"
+   ms.date="11/09/2015"
    ms.author="joaoma"/>
 
 # Informazioni sul servizio Gateway applicazione
@@ -52,9 +52,10 @@ Il bilanciamento del carico di livello 7 HTTP è utile per:
 
 Il servizio Gateway applicazione è attualmente disponibile in 3 dimensioni: Small, Medium e Large. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
 
-È possibile creare fino a 10 gateway applicazione per sottoscrizione e ogni gateway applicazione può includere fino a 10 istanze. Il bilanciamento del carico del gateway applicazione come servizio gestito da Azure consente il provisioning di un servizio di bilanciamento del carico di livello 7 dietro il servizio di bilanciamento del carico del software di Azure.
+È possibile creare fino a 50 gateway applicazione per sottoscrizione e ogni gateway applicazione può includere fino a 10 istanze. Il bilanciamento del carico del gateway applicazione come servizio gestito da Azure consente il provisioning di un servizio di bilanciamento del carico di livello 7 dietro il servizio di bilanciamento del carico del software di Azure.
 
 Nella tabella seguente viene illustrata una velocità effettiva media delle prestazioni per ogni istanza del gateway dell’applicazione:
+
 
 | Risposta della pagina di back-end | Piccola | Media | Grande|
 |---|---|---|---|
@@ -62,18 +63,19 @@ Nella tabella seguente viene illustrata una velocità effettiva media delle pres
 |100k | 35 Mbps | 100 Mbps| 200 Mbps |
 
 
->[AZURE.NOTE]I numeri della prestazione dipendono anche dalla risposta HTTP di applicazione web al gateway dell’applicazione.
+>[AZURE.NOTE]Si tratta di indicazioni approssimative per una velocità effettiva del gateway applicazione. La velocità effettiva dipende da vari dettagli ambientali come la dimensione media della pagina, la posizione di istanze di back-end, il tempo di elaborazione del server di una pagina, per citarne alcuni.
 
-
-## Monitoraggio
+## Monitoraggio dell’integrità
  
-Gateway applicazione monitora lo stato di integrità delle istanze di back-end utilizzando porte probe, verificando periodicamente la risposta HTTP dalle sezioni HttpSettings del gateway. Il probe prevede una risposta HTTP con esito positivo nell'intervallo di codici di risposta 200 390 e verifica gli indirizzi IP di back-end ogni 30 secondi per verificare la risposta HTTP.
 
-Quando viene ricevuta una risposta HTTP con esito positivo, l'indirizzo IP è contrassegnato come integro. Se il probe ha esito negativo, l'indirizzo IP viene rimosso da un pool di back-end integro e si interrompe il flusso del traffico nel server. Il probe integro continua ogni 30 secondi per l'istanza web non riuscita finché non torna alla modalità online. Quando l'istanza web risponde correttamente al probe di integrità, viene aggiunta di nuovo al pool di back-end integro e il flusso del traffico in questa istanza riprenderà.
+Il gateway applicazione di Azure monitora l’integrità delle istanze del server back-end ogni 30 secondi. Invia una richiesta di probe dell’integrità di HTTP per ogni istanza nella porta configurata negli elementi *BackendHttpSettings* della configurazione. Il probe di integrità prevede una risposta HTTP con esito positivo, con codice di stato della risposta nell'intervallo che va da 200 a 399.
+
+Quando viene ricevuta una risposta HTTP con esito positivo, il server di back-end è contrassegnato come integro e continua a riceve il traffico dal Gateway applicazione di Azure. Se il probe ha esito negativo, l'istanza di back-end viene rimossa dal pool integro e si interrompe il flusso del traffico nel server. Il probe dell’integrità continua comunque ogni 30 secondi per l'istanza di back-end non riuscita per controllare il suo stato di integrità attuale. Quando l'istanza di back-end risponde correttamente al probe di integrità, viene aggiunta di nuovo come integra al pool di back-end, e il flusso del traffico in questa istanza riprenderà.
 
 ## Configurazione e gestione
 
 È possibile creare e gestire un gateway applicazione usando le API REST e i cmdlet PowerShell.
+
 
 
 ## Passaggi successivi
@@ -82,4 +84,4 @@ Creare un gateway applicazione. Vedere [Creare un gateway applicazione](applicat
 
 Configurare l'offload SSL. Vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

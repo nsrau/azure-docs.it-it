@@ -1,6 +1,6 @@
 ## Elaborazione di messaggi da dispositivo a cloud
 
-In questa sezione si creerà un'app console di Windows che elabora i messaggi da dispositivo a cloud dall'hub IoT. L'hub IOT espone un endpoint compatibile con [Hub eventi][Event Hubs Overview] per leggere i messaggi da dispositivo a cloud. Questa esercitazione usa [EventProcessorHost] per elaborare i messaggi in un'app console. Per altre informazioni su come elaborare i messaggi da Hub eventi, è possibile fare riferimento all'esercitazione [Introduzione all'Hub eventi].
+In questa sezione si creerà un'app console di Windows che elabora i messaggi da dispositivo a cloud dall'hub IoT. L'hub IOT espone un endpoint compatibile con [Hub eventi][Event Hubs Overview] per leggere i messaggi da dispositivo a cloud. Questa esercitazione usa [EventProcessorHost] per elaborare i messaggi in un'app console. Per altre informazioni su come elaborare i messaggi da Hub eventi, è possibile vedere l'esercitazione [Introduzione all'Hub eventi].
 
 La difficoltà maggiore quando si implementa l'Archiviazione affidabile dei messaggi dei punti dati o si inoltrano quelli interattivi è che l'elaborazione degli eventi di Hub eventi si basa sul consumer di messaggi per creare punti di controllo per l'avanzamento. Inoltre, per raggiungere una velocità effettiva elevata, durante la lettura da Hub eventi, i punti di controllo devono essere eseguiti in batch di grandi dimensioni, creando la possibilità di un'elaborazione duplicata per un gran numero di messaggi. In questa esercitazione verrà illustrato come sincronizzare le scritture di archiviazione di Azure e le finestre di deduplicazione del bus di servizio con i punti di controllo dell'host processore di eventi.
 
@@ -19,7 +19,7 @@ Per assicurarsi che nessun messaggio venga inviato di nuovo al di fuori della fi
 ### Effettuare il provisioning di un account di archiviazione di Azure e di una coda del bus di servizio
 Per poter usare [EventProcessorHost], è necessario un account di archiviazione di Azure. È possibile usarne uno esistente o seguire le istruzioni in [Informazioni sull'archiviazione di Azure] per crearne uno nuovo. Prendere nota della stringa di connessione dell'account di archiviazione.
 
-Per abilitare l'elaborazione affidabile dei messaggi interattivi, sarà necessaria anche una coda del bus di servizio. È possibile creare una coda a livello di programmazione con una finestra di deduplicazione di 1 ora, come illustrato in [Come usare le code del bus di servizio][Service Bus Queue], o usare il [portale di gestione di Azure], seguendo questi passaggi:
+Per abilitare l'elaborazione affidabile dei messaggi interattivi, sarà necessaria anche una coda del bus di servizio. È possibile creare una coda a livello di programmazione con una finestra di deduplicazione di 1 ora, come illustrato in [Come usare le code del bus di servizio][Service Bus Queue], o usare il [portale di Azure], seguendo questi passaggi:
 
 1. Fare clic su **NUOVO** in basso a sinistra, quindi su **Servizi app**, su **Bus di servizio**, su **Coda** e infine su **Personalizzata**, selezionare il nome **d2ctutorial**, quindi selezionare una finestra di deduplicazione di 1 ora.
 
@@ -229,7 +229,7 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, sarà necessar
 > [AZURE.NOTE]Per semplicità, questa esercitazione usa una singola istanza di [EventProcessorHost]. Per altre informazioni sull'elaborazione di messaggi da dispositivo a cloud, vedere [Guida alla programmazione di Hub eventi] e l'esercitazione [Elaborare messaggi da dispositivo a cloud].
 
 ## Ricevere messaggi interattivi
-In questa sezione si scriverà un'app console di Windows che riceve messaggi interattivi dalla coda del bus di servizio. Fare riferimento a [creazione di applicazioni a più livelli con il Bus di servizio][] per ulteriori informazioni su come progettare una soluzione che utilizza il Bus di servizio.
+In questa sezione si scriverà un'app console di Windows che riceve messaggi interattivi dalla coda del bus di servizio. Vedere [creazione di applicazioni a più livelli con il Bus di servizio][] per ulteriori informazioni su come progettare una soluzione che utilizza il Bus di servizio.
 
 1. Nella soluzione Visual Studio corrente, creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **ProcessD2cInteractiveMessages**.
 
@@ -301,11 +301,11 @@ In questa sezione si scriverà un'app console di Windows che riceve messaggi int
 
 [Guida alla programmazione di Hub eventi]: ../event-hubs/event-hubs-programming-guide.md
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure]: https://manage.windowsazure.com/
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
@@ -324,4 +324,4 @@ In questa sezione si scriverà un'app console di Windows che riceve messaggi int
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

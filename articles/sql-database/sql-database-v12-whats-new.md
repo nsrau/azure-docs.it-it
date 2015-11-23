@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/11/2015" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,6 @@ Le informazioni più recenti sui limiti delle risorse per il Database SQL sono d
 Uno degli obiettivi principali della versione 12 del database SQL è stato il miglioramento della compatibilità con Microsoft SQL Server 2014. Tra le altre aree, la versione 12 raggiunge la parità con SQL Server nell'importante ambito della programmabilità. Ad esempio:
 
 
-- [Assembly Common Language Runtime (CLR)](http://msdn.microsoft.com/library/ms189524.aspx)
 - [Funzioni finestra](http://msdn.microsoft.com/library/bb934097.aspx) con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
 - [Indici XML](http://msdn.microsoft.com/library/bb934097.aspx) e [indici XML selettivi](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Rilevamento modifiche](http://msdn.microsoft.com/library/bb933875.aspx)
@@ -48,7 +47,7 @@ Uno degli obiettivi principali della versione 12 del database SQL è stato il mi
 - [Ricerca full-text](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
-Per informazioni sul piccolo set di funzionalità non ancora supportate nel database SQL, fare clic [qui](http://msdn.microsoft.com/library/azure/ee336281.aspx).
+Per informazioni sul piccolo set di funzionalità non ancora supportate nel database SQL, fare clic [qui](sql-database-transact-sql-information.md).
 
 
 ## Più prestazioni Premium, nuovi livelli di prestazioni
@@ -59,7 +58,7 @@ Nella versione 12, le unità di prestazioni di database espresse in DTU (Databas
 
 - Supporto per gli [indici columnstore](http://msdn.microsoft.com/library/gg492153.aspx) in memoria.
 - [Partizionamento delle tabelle per riga](http://msdn.microsoft.com/library/ms187802.aspx) con miglioramenti correlati a [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
-- La disponibilità di viste a gestione dinamica [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) consentono di monitorare e ottimizzare le prestazioni.
+- La disponibilità di viste a gestione dinamica [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) consente di monitorare e ottimizzare le prestazioni.
 
 
 ### Prestazioni affidabili
@@ -71,7 +70,7 @@ Se il programma client si connette a SQL Database V12 mentre il client viene ese
 - 14000-14999
 
 
-Fare clic [qui](sql-database-develop-direct-route-ports-adonet-v12.md) per ulteriori informazioni sulle porte per il Database SQL V12. Le porte sono necessarie per il miglioramento delle prestazioni in SQL Database V12.
+Fare clic [qui](sql-database-develop-direct-route-ports-adonet-v12.md) per informazioni dettagliate sulle porte per il database SQL V12. Le porte sono necessarie per il miglioramento delle prestazioni in SQL Database V12.
 
 
 ## Migliore supporto per i fornitori di soluzioni cloud SaaS
@@ -92,12 +91,12 @@ La sicurezza è della massima importanza per chiunque gestisca la propria attivi
 
 - [Sicurezza a livello di riga](http://msdn.microsoft.com/library/dn765131.aspx)
 - [Maschera dati dinamica](sql-database-dynamic-data-masking-get-started.md)
-- [Database indipendenti](http://msdn.microsoft.com/library/azure/ff394108.aspx)
+- [Database indipendenti](http://msdn.microsoft.com/library/ff929188.aspx)
 - [Ruoli applicazione](http://msdn.microsoft.com/library/ms190998.aspx) gestiti con GRANT, DENY, REVOKE
 - [Crittografia dati trasparente](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx)
 - [Connettersi al Database SQL utilizzando l’autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
  - Il Database SQL supporta ora l'autenticazione di Azure Active Directory, un meccanismo di connessione al Database SQL utilizzando le identità in Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft.
-- [Sempre crittografati](https://msdn.microsoft.com/library/mt163865.aspx) (in anteprima) effettua la crittografia trasparente alle applicazioni e consente ai client di crittografare dati riservati all'interno delle applicazioni del client senza condividere le chiavi di crittografia con il Database SQL.
+- [Sempre crittografati](https://msdn.microsoft.com/library/mt163865.aspx) (in anteprima) rende la crittografia trasparente alle applicazioni e consente ai client di crittografare dati riservati all'interno delle applicazioni client senza condividere le chiavi di crittografia con il database SQL.
 
 
 ## Aumento della continuità aziendale quando è necessario il ripristino
@@ -113,7 +112,7 @@ La versione 12 offre obiettivi del punto di ripristino (RPO) e tempi di recupero
 | Replica geografica attiva | • RPO < 5 minuti.<br/>• ERT < 1 ora. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
 
 
-Per altre informazioni, vedere [Continuità aziendale del database SQL](http://msdn.microsoft.com/library/azure/hh852669.aspx).
+Per altre informazioni, vedere [Continuità aziendale del database SQL](sql-database-business-continuity.md).
 
 
 ## Altri motivi per eseguire subito l'aggiornamento
@@ -162,4 +161,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

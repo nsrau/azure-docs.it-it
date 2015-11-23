@@ -68,6 +68,9 @@ La tabella seguente illustra le differenze tra le funzionalità per la continuit
 
 Queste funzionalità consentono di gestire gli scenari elencati in precedenza. Per indicazioni sulla scelta di una funzionalità specifica, vedere [Progettazione per la continuità aziendale](sql-database-business-continuity-design.md).
 
+> [AZURE.NOTE]\: i valori ERT e RPO sono gli obiettivi di progettazione e forniscono solo indicazioni. Non fanno parte del [contratto di servizio per il database SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+
+
 ###Ripristino temporizzato
 
 La funzionalità di ripristino temporizzato è stata progettata per riportare il database a un punto precedente nel tempo. Questa funzionalità si basa sui backup del database, sui backup incrementali e sui backup dei log delle transazioni che il servizio gestisce automaticamente per ogni database utente. È disponibile per tutti i livelli di servizio. È possibile tornare indietro di 7 giorni con il livello Basic, di 14 giorni con il livello Standard e di 35 giorni con il livello Premium. Per informazioni dettagliate su come usare la funzionalità di ripristino temporizzato, vedere [Ripristino da errore umano](sql-database-user-error-recovery.md).
@@ -88,4 +91,4 @@ La funzionalità di replica geografica attiva è disponibile per i database Prem
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

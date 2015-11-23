@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Uso del connettore File nelle app per la logica | Microsoft Azure App Service"
 	description="Come creare e configurare l'app per le API o il connettore File e usarlo in un'app per la logica in Azure App Service"
-	authors="anuragdalmia"
+	authors="rajeshramabathiran"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Uso del connettore File e aggiunta all'app per la logica
 Connettersi a un file system per caricare, scaricare ed eseguire altre operazioni sui file in un computer host. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati. È possibile aggiungere il connettore File al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
@@ -85,4 +85,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [definizione delle API del connettore File]: https://msdn.microsoft.com/library/dn936296.aspx
 [uso di Gestione connessione ibrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

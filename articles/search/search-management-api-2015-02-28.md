@@ -1,4 +1,4 @@
-<properties pageTitle="API REST di gestione di Ricerca di Azure versione 28/02/2015 | Microsoft Azure" description="API REST di gestione di Ricerca di Azure versione 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="API REST di gestione di Ricerca di Azure versione 28/02/2015 | Microsoft Azure | Servizio di ricerca cloud ospitato" description="API REST di gestione di Ricerca di Azure versione 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
@@ -810,6 +810,6 @@ Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 2
 
 ###Contenuto risposta###
 
-Nessuna.
+Nessuno.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

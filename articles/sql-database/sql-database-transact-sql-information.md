@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/02/2015"
+   ms.date="11/09/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Informazioni su Transact-SQL del Database SQL di Azure
@@ -29,17 +29,16 @@ In questo argomento vengono illustrate le funzionalità disponibili con il Datab
 
 La versione 12 di Database SQL supporta alcuni ma non tutti gli argomenti presenti nelle istruzioni di Transact-SQL di SQL Server 2016 corrispondenti. Ad esempio, è disponibile l'istruzione CREA PROCEDURA anche se l'opzione CON CRITTOGRAFIA di CREA PROCEDURA non è disponibile. Vedere gli argomenti collegati relativi alla sintassi per informazioni dettagliate sulle aree supportate di ogni istruzione.
 
-- Assembly CLR:[CREATE ASSEMBLY](https://msdn.microsoft.com/library/ms189524.aspx)
-- Database:[CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
+- Database: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - I DMV sono generalmente disponibili per le funzionalità disponibili
-- Funzioni:[CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
+- Funzioni: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
 - [KILL](https://msdn.microsoft.com/library/ms173730.aspx) 
-- Account di accesso:[CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
-- Stored procedure:[CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)
-- Tabelle:[CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER](https://msdn.microsoft.com/library/ms190273.aspx)
-- Tipi (personalizzato):[CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)
-- Utenti:[CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
-- Visualizzazioni:[CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
+- Account di accesso: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
+- Stored procedure: [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)
+- Tabelle: [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER](https://msdn.microsoft.com/library/ms190273.aspx)
+- Tipi (personalizzato): [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)
+- Utenti: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
+- Visualizzazioni: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
 
 ## Funzionalità non supportate in Database SQL
 
@@ -94,6 +93,6 @@ Per ulteriori informazioni sulla grammatica Transact-SQL, uso ed esempi, vedere[
 
 Il riferimento a Transact-SQL include argomenti relativi a SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 e Database SQL di Microsoft Azure. Nella parte superiore di ogni argomento c’è una sezione che indica quali prodotti supportano l'oggetto dell'argomento. Se un prodotto viene omesso, la funzionalità descritta dall'argomento non è disponibile in tale prodotto. Ad esempio, i gruppi di disponibilità sono stati introdotti in SQL Server 2012. L’argomento**CREA AVAILABILITY GROUP**indica che si applica a**SQL Server (SQL Server 2012 fino alla versione corrente)**poiché non è applicabile a SQL Server 2008, SQL Server 2008 R2 o Database SQL di Microsoft Azure.
 
-In alcuni casi, l'oggetto generale dell’argomento può essere utilizzato in un prodotto, ma non tutti gli argomenti sono supportati. Ad esempio, gli utenti di database indipendente sono stati introdotti in SQL Server 2012. L’istruzione**CREATE USER**può essere utilizzata in qualsiasi prodotto di SQL Server, tuttavia la sintassi **WITH PASSWORD**non può essere utilizzata con le versioni precedenti. In questo caso, ulteriori sezioni **si applica a** vengono inserite nella descrizione dell’argomento appropriato nel corpo dell'argomento.
+In alcuni casi, l'oggetto generale dell’argomento può essere utilizzato in un prodotto, ma non tutti gli argomenti sono supportati. Ad esempio, gli utenti di database indipendente sono stati introdotti in SQL Server 2012. L’istruzione**CREATE USER**può essere utilizzata in qualsiasi prodotto di SQL Server, tuttavia la sintassi **WITH PASSWORD**non può essere utilizzata con le versioni precedenti. In questo caso, ulteriori sezioni **si applica a**vengono inserite nella descrizione dell’argomento appropriato nel corpo dell'argomento.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

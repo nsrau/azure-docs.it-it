@@ -361,11 +361,11 @@ La finestra **Attività del servizio app di Azure** mostra l'avanzamento della d
 
 4. Nel pannello **App per le API** individuare l'app per le API e farvi clic.
 
-5. Nel pannello dell'app per le API fare clic sul valore disponibile in **Host app per le API**.
+5. Nel pannello dell'app per le API fare clic sul valore disponibile in **Host app API**.
  
 	![Pannello App per le API](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
-6. Quando viene visualizzato il pannello **Host app per le API**, scorrere verso il basso fino alla sezione **Rete**, quindi fare clic su **Connessioni ibride**.
+6. Quando viene visualizzato il pannello **Host app API**, scorrere verso il basso fino alla sezione **Rete**, quindi fare clic su **Connessioni ibride**.
 	
 	![Connessioni ibride](./media/app-service-api-hybrid-on-premises-sql-server/api-app-host-blade-hybrid-connections.png)
 	
@@ -397,7 +397,7 @@ Dopo avere completato l'infrastruttura della connessione ibrida, sarà possibile
 <a name="CreateASPNET"></a>
 ## Testare l'app per le API completata in Azure
 
-1. Nel portale di anteprima di Azure tornare al pannello Host app per le API, quindi fare clic sul valore disponibile in **URL**.
+1. Nel portale di anteprima di Azure tornare al pannello Host app API, quindi fare clic sul valore disponibile in **URL**.
 	
 2. Quando viene visualizzata la pagina dell'host dell'app per le API nel browser, aggiungere `/swagger` alla fine dell'URL nella barra degli indirizzi del browser, quindi premere **&lt;INVIO>**.
 	
@@ -430,4 +430,4 @@ Dopo avere completato l'infrastruttura della connessione ibrida, sarà possibile
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

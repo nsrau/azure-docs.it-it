@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors - Modello di progettazione Reti distribuite e grafici"
-   description="Modello di progettazione sull'uso di Service Fabric Actors per modellare un'applicazione come reti distribuite e grafici"
+   pageTitle="Modello Reti distribuite e grafici | Microsoft Azure"
+   description="Modello di progettazione sull'uso di Reliable Actors dell'infrastruttura di servizi per modellare applicazioni come reti distribuite e grafici."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -224,4 +224,4 @@ In questo caso si sfrutta semplicemente la capacità di Reliable Actors di conse
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->
