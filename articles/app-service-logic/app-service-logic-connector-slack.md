@@ -35,7 +35,8 @@ Nessuno | Post Message
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Selezionare **App per le API** e cercare "Slack Connector".
-3. Immettere il nome, il piano di servizio app e altre proprietà: ![][1] 
+3. Immettere il nome, il piano di servizio app e altre proprietà: 
+ ![][1] 
 
 4. Fare clic su **Crea**.
 
@@ -47,15 +48,22 @@ Dopo aver creato il connettore Slack, è possibile aggiungerlo come azione all'a
 
 1.	Nell'app per la logica aprire **Triggers and Actions**. [Creare una nuova app per la logica](app-service-logic-create-a-logic-app.md)
 
-2.	Il connettore Slack è elencato nella raccolta a destra: ![][2]
+2.	Il connettore Slack è elencato nella raccolta a destra: 
+ ![][2]
 
 3.	Selezionare il connettore Slack creato in precedenza per aggiungerlo automaticamente all'app per la logica.
-4.	Selezionare **Authorize**. Accedere all'account Slack. Verso la fine, viene chiesto di concedere al connettore l'autorizzazione per accedere all'account Slack. Selezionare **Authorizify**: ![][3] ![][4] ![][5] ![][6]  
+4.	Selezionare **Authorize**. Accedere all'account Slack. Verso la fine, viene chiesto di concedere al connettore l'autorizzazione per accedere all'account Slack. Selezionare **Authorizify**: 
+![][3] 
+![][4] 
+![][5] 
+![][6]  
 	
-5.	È ora possibile usare il connettore Slack nel flusso. È disponibile l'azione Post Message: ![][7]
+5.	È ora possibile usare il connettore Slack nel flusso. È disponibile l'azione Post Message: 
+![][7]
 
 
-Di seguito viene descritto l'uso dell'azione "Post Message". È possibile usare questa azione per pubblicare un messaggio in qualsiasi canale Slack: ![][8]
+Di seguito viene descritto l'uso dell'azione "Post Message". È possibile usare questa azione per pubblicare un messaggio in qualsiasi canale Slack: 
+![][8]
 
 Configurare le proprietà di input per l'azione "Post Message":
 
@@ -66,7 +74,8 @@ Channel Name | Immettere il canale Slack in cui viene inviato il messaggio Se no
 Advanced Properties | **Bot User name**: nome del bot da usare per questo messaggio. Se non si specifica questo valore, il messaggio viene inviato come "Bot".<p><p>**Icon URL**: URL dell'immagine da usare come icona per il messaggio.<p><p>**Icon Emoji**: emoji da usare come icona per il messaggio. Questa proprietà esegue l'override della proprietà Icon URL.
 
 
-Per il connettore Slack sono disponibili API REST, quindi è possibile usarlo all'esterno di un'app per la logica. Aprire il connettore Slack e selezionare **API definition**: ![][9]
+Per il connettore Slack sono disponibili API REST, quindi è possibile usarlo all'esterno di un'app per la logica. Aprire il connettore Slack e selezionare **API definition**: 
+![][9]
 
 
 ## Altri vantaggi del connettore

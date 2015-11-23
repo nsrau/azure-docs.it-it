@@ -223,7 +223,7 @@ Di seguito sono riportate alcune considerazioni per l'esecuzione di applicazioni
 
 * Per eseguire applicazioni MPI in istanze di Azure, è necessario registrare ogni applicazione MPI con Windows Firewall nelle istanze eseguendo il comando **hpcfwutil**. In questo modo vengono consentite le comunicazioni MPI su una porta assegnata dinamicamente dal firewall.
 
-    >[AZURE.NOTE]Per le distribuzioni di potenziamento in Azure, è inoltre possibile configurare un comando di eccezione del firewall da eseguire automaticamente in tutti i nuovi nodi di Azure aggiunti al cluster. Dopo aver eseguito il comando **hpcfwutil** e verificato il funzionamento dell'applicazione, aggiungere il comando a uno script di avvio per i nodi di Azure. Per altre informazioni, vedere l'articolo che illustra l'[utilizzo di uno script di avvio per i nodi di Azure].https://technet.microsoft.com/library/jj899632(v=ws.10).aspx).
+    >[AZURE.NOTE] Per le distribuzioni di potenziamento in Azure, è inoltre possibile configurare un comando di eccezione del firewall da eseguire automaticamente in tutti i nuovi nodi di Azure aggiunti al cluster. Dopo aver eseguito il comando **hpcfwutil** e verificato il funzionamento dell'applicazione, aggiungere il comando a uno script di avvio per i nodi di Azure. Per altre informazioni, vedere l'articolo che illustra l'[utilizzo di uno script di avvio per i nodi di Azure](https://technet.microsoft.com/library/jj899632(v=ws.10).aspx).
 
 
 
