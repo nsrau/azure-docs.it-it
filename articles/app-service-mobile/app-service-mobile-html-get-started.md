@@ -19,7 +19,9 @@
 
 #Creare un'app HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
+&nbsp;  
+<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
 >[AZURE.IMPORTANT]Questo argomento non è attualmente supportato da App per dispositivi mobili perché la Guida introduttiva per le applicazioni HTML/JavaScript è stata temporaneamente rimossa dal portale di Azure. Si prevede di ripristinarla nel prossimo futuro. Grazie per la pazienza dimostrata durante la fase di completamento dell'anteprima di App per dispositivi mobili.
 
@@ -121,4 +123,4 @@ Sarà quindi necessario distribuire il progetto abilitato per CORS in Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
