@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Aggiungere, disabilitare, abilitare o eliminare gli endpoint
@@ -62,20 +62,17 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 
 >[AZURE.NOTE]Non è possibile eliminare i percorsi esterni o i profili di Gestione traffico come endpoint mediante il portale di Azure. È necessario usare Windows PowerShell. Per altre informazioni, vedere [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
 
-## Risorse aggiuntive
+## Passaggi successivi
 
-[Panoramica di Gestione traffico](traffic-manager-overview.md)
 
-[Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
+[Configurare metodo di routing failover](traffic-manager-configure-failover-routing-method.md)
 
-[Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
+[Configurare il metodo di routing Round Robin](traffic-manager-configure-round-robin-routing-method.md)
 
-[Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
+[Configurare un metodo di routing del traffico delle prestazioni](traffic-manager-configure-performance-routing-method.md)
+
+[Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
 
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-[Servizi cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

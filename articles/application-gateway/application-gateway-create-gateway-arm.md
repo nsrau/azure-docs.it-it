@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 
@@ -22,9 +22,9 @@ Il gateway applicazione è un servizio di bilanciamento del carico di livello 7.
 
 
 > [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
+- [Azure Classic PowerShell steps](application-gateway-create-gateway.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template ](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -418,4 +418,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

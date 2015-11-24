@@ -23,7 +23,7 @@
 
 ## Panoramica
 
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. La libreria client di archiviazione è un SDK che semplifica l'interazione con l'API REST dell'archivio BLOB. Gli scenari descritti in questa guida includono **caricamento**, **elenco**, **download** ed **eliminazione** di BLOB e dovrebbero richiedere circa un'ora per il completamento. Per un video introduttivo, guardare la [panoramica dell'archiviazione di Azure in 5 minuti](https://azure.microsoft.com/it-IT/documentation/videos/azure-storage-5-minute-overview/) oppure è possibile vedere [Introduzione ad Archiviazione di Azure in cinque minuti](https://azure.microsoft.com/it-IT/documentation/articles/storage-getting-started-guide/).
+In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. La libreria client di archiviazione è un SDK che semplifica l'interazione con l'API REST dell'archivio BLOB. Gli scenari descritti in questa guida includono **caricamento**, **elenco**, **download** ed **eliminazione** di BLOB e dovrebbero richiedere circa un'ora per il completamento. Per un video introduttivo, guardare la [panoramica dell'archiviazione di Azure in 5 minuti](https://azure.microsoft.com/it-IT/documentation/videos/azure-storage-5-minute-overview/) oppure leggere la guida [Introduzione ad Archiviazione di Azure in cinque minuti](https://azure.microsoft.com/it-IT/documentation/articles/storage-getting-started-guide/).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -348,7 +348,7 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
 ### Altre guide alle funzionalità
 
 - [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md)
-- [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
+- [Come usare l'archiviazione code da .NET](storage-dotnet-how-to-use-queues.md)
 - [Come usare l'archiviazione file di Azure](storage-dotnet-how-to-use-files.md)
 - [Come usare il database SQL di Azure in applicazioni .NET](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
@@ -366,4 +366,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

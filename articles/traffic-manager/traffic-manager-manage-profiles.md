@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Gestione profili di Gestione traffico di Azure
@@ -73,22 +73,16 @@ Per specificare gli endpoint dei servizi cloud o dei siti Web da monitorare tram
    - Per visualizzare i dettagli di ogni singola modifica, selezionare la riga con la modifica che si vuole visualizzare, quindi fare clic su **Dettagli** nella parte inferiore della pagina. Nella finestra **Dettagli operazione**, è possibile visualizzare la rappresentazione XML dell'oggetto API creato o aggiornato come parte dell'operazione e copiare il codice XML negli Appunti.
 
 
-## Risorse aggiuntive
+## Passaggi successivi
 
-[Gestione traffico di Azure](traffic-manager-overview.md)
+[Aggiungere un endpoint](traffic-manager-endpoints.md)
 
-[Gestione endpoint in Gestione traffico](traffic-manager-endpoints.md)
+[Configurare metodo di routing failover](traffic-manager-configure-failover-routing-method.md)
 
-[Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
+[Configurare il metodo di routing Round Robin](traffic-manager-configure-round-robin-routing-method.md)
 
-[Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
+[Configurare un metodo di routing del traffico delle prestazioni](traffic-manager-configure-performance-routing-method.md)
 
-[Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
+[Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
 
-[Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[Servizi cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

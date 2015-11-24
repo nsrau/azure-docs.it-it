@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="11/18/2015"
 	ms.author="glenga"/>
 
 
 #Creare un'app HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+
+>[AZURE.IMPORTANT]Questo argomento non è attualmente supportato da App per dispositivi mobili perché la Guida introduttiva per le applicazioni HTML/JavaScript è stata temporaneamente rimossa dal portale di Azure. Si prevede di ripristinarla nel prossimo futuro. Grazie per la pazienza dimostrata durante la fase di completamento dell'anteprima di App per dispositivi mobili.
 
 ##Panoramica
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app Web HTML5/JavaScript usando un back-end dell'app per dispositivi mobili di Azure. Verranno creati un nuovo back-end di app per dispositivi mobili e una semplice app Web di tipo *elenco azioni* che archivia dati delle app in Azure.
+Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app Web HTML5/JavaScript. Per altre informazioni, vedere [Informazioni sulle app per dispositivi mobili](app-service-mobile-value-prop.md).
 
 Di seguito è riportata una schermata dell'app completata:
 
@@ -121,4 +121,4 @@ Sarà quindi necessario distribuire il progetto abilitato per CORS in Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

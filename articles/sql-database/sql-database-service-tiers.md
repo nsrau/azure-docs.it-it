@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Livelli di servizio del database SQL"
-	description="Confrontare le prestazioni e le funzionalità di continuità aziendale dei vari livelli di servizio del database SQL di Azure per trovare il giusto compromesso tra costi e funzionalità a fronte di un livello di scalabilità su richiesta senza tempi di inattività."
+	pageTitle="Opzioni e prestazioni del database SQL: livelli di servizio | Microsoft Azure"
+	description="Confrontare le prestazioni e le funzionalità di continuità aziendale dei vari livelli di servizio del database SQL per trovare il giusto compromesso tra costi e funzionalità a sostegno della scalabilità."
+	keywords="opzioni di database,prestazioni del database,eDTU"
 	services="sql-database"
 	documentationCenter=""
 	authors="rothja"
@@ -16,12 +17,12 @@
 	ms.date="11/10/2015"
 	ms.author="jroth"/>
 
-# Livelli di servizio del database SQL
+# Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
  
-## Panoramica
-[Il database SQL di Azure](sql-database-technical-overview.md) fornisce più livelli di servizio per gestire diversi tipi di carichi di lavoro. È possibile scegliere di [creare un database singolo](sql-database-get-started.md) con caratteristiche e prezzi definiti. Oppure è possibile gestire tutti i database [creando un pool di database elastici](sql-database-elastic-pool-portal.md). In entrambi i casi, tra le opzioni incluse vi sono le edizioni **Basic**, **Standard**, e **Premium**. Tuttavia, le caratteristiche di tali livelli variano in base alla creazione di un singolo database o un database all'interno di un pool database elastici. Questo articolo fornisce una panoramica dei livelli di servizio in entrambi i contesti.
 
-## Livelli di servizio
+[Il database SQL di Azure](sql-database-technical-overview.md) fornisce più livelli di servizio per gestire diversi tipi di carichi di lavoro. È possibile [creare un database singolo](sql-database-get-started.md) con caratteristiche e prezzi definiti. Oppure è possibile gestire tutti i database [creando un pool di database elastici](sql-database-elastic-pool-portal.md). In entrambi i casi, tra le opzioni incluse vi sono le edizioni **Basic**, **Standard**, e **Premium**. Le caratteristiche di tali livelli, tuttavia, variano a seconda che si crei un database singolo o un database all'interno di un pool di database elastici. Questo articolo fornisce una panoramica dei livelli di servizio in entrambi i contesti.
+
+## Livelli di servizio e opzioni di database
 I livelli di servizio Basic, Standard e Premium garantiscono un tempo di attività previsto dal contratto di servizio del 99,99% e offrono prestazioni prevedibili, opzioni di continuità aziendale flessibili, funzionalità di sicurezza e fatturazione su base oraria. Nella tabella seguente sono riportati esempi dei livelli ottimali adatti ai carichi di lavoro di diverse applicazioni.
 
 | Livello di servizio | Carichi di lavoro di destinazione |
@@ -32,7 +33,7 @@ I livelli di servizio Basic, Standard e Premium garantiscono un tempo di attivit
 
 >[AZURE.NOTE]Le edizioni Web e Business verranno ritirate dal commercio. Informazioni su come [aggiornare le edizioni Web e Business](sql-database-upgrade-new-service-tiers.md). Leggere la [Domande frequenti sull'interruzione](http://azure.microsoft.com/pricing/details/sql-database/web-business/) se si prevede di continuare a utilizzare le edizioni Web e Business.
 
-### Livelli di servizio per database singoli
+### Livelli di servizio e di prestazioni per database singoli
 Con più livelli di prestazioni all'interno di ciascun livello di servizio per i database singoli, è possibile scegliere il livello che meglio soddisfa le esigenze del carico di lavoro specifico. Se è necessario applicare la scalabilità verso l'alto o verso il basso, è possibile modificare facilmente i livelli del database nel portale di Azure senza tempi di inattività per l'applicazione. Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei livelli di prestazioni di un database](sql-database-scale-up.md).
 
 Le caratteristiche delle prestazioni riportate di seguito si applicano a database creati con [SQL Database V12](sql-database-v12-whats-new.md). In situazioni in cui l'hardware sottostante in Azure ospita più database SQL, il database otterrà comunque un set garantito di risorse e le caratteristiche relative alle prestazioni previste per il singolo database non saranno interessate.
@@ -44,7 +45,7 @@ Per una migliore comprensione delle DTU, vedere la [sezione DTU](#understanding-
 
 >[AZURE.NOTE]Per una spiegazione dettagliata di tutte le altre righe in questa tabella livelli di servizio, vedere [Limiti e capacità a livello di servizio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
-### Livelli di servizio per i pool di database elastici
+### Livelli di servizio e di prestazioni per pool di database elastici in eDTU
 Oltre a creare e a ridimensionare un database singolo, è inoltre possibile gestire più database all'interno di un [pool di database elastici](sql-database-elastic-pool.md). Tutti i database in un pool di database elastici condividono un insieme comune di risorse. Le caratteristiche delle prestazioni sono misurate dalle *unità di transazione del database elastico* (eDTU). Come con i database singoli, sono disponibili pool di database elastici in tre livelli di prestazioni: **Basic**, **Standard** e **Premium**. Per i database elastici questi tre livelli ancora definiscono i limiti delle prestazioni complessive e diverse funzionalità.
 
 I pool di database elastici consentono a tali database di condividere e utilizzare risorse di DTU senza la necessità di assegnare un livello di prestazioni specifico ai database nel pool. Ad esempio, un singolo database in un pool Standard può passare dall’uso di 0 eDTU al valore eDTU massimo per il database (o 100 eDTU definito dal livello di servizio o un numero personalizzato configurato dall’utente). In questo modo sono disponibili più database con diversi carichi di lavoro per un utilizzo efficiente delle risorse eDTU disponibili per l'intero pool.
@@ -59,8 +60,8 @@ Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche
 
 [AZURE.INCLUDE [Descrizione di DTU del database SQL](../../includes/sql-database-understanding-dtus.md)]
 
-## Monitoraggio delle prestazioni
-Il monitoraggio delle prestazioni di un database SQL inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. Questi dati rilevanti sono esposti nei modi seguenti:
+## Monitoraggio delle prestazioni del database
+Il monitoraggio delle prestazioni di un database SQL inizia con il monitoraggio dell'uso delle risorse rispetto al livello di prestazioni scelto per il database. Questi dati rilevanti sono esposti nei modi seguenti:
 
 1.	Portale di gestione di Microsoft Azure
 
@@ -75,7 +76,7 @@ Nel [portale di anteprima di Azure](https://portal.azure.com/), è possibile mon
 
 Dopo aver aggiunto queste metriche, è possibile continuare a visualizzarle nel grafico di **monitoraggio** con ulteriori dettagli sulla finestra della **metrica**. Tutte le quattro metriche mostrano la percentuale media di utilizzo relativa alla **DTU** del database.
 
-![monitoraggio del livello di servizio](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
+![Monitoraggio del livello di servizio delle prestazioni del database.](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
 
 È inoltre possibile configurare gli avvisi sulle metriche delle prestazioni. Scegliere il pulsante **Aggiungi avviso** nella finestra **Metrica**. Seguire la procedura guidata per configurare l'avviso. È possibile scegliere di ricevere un avviso se la metrica supera una determinata soglia o scende al di sotto di una determinata soglia.
 
@@ -95,4 +96,4 @@ Se si è interessati alla gestione di più database come gruppo, considerare i [
 Dopo aver acquisito familiarità con i livelli di database SQL, provare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="11/12/2015"
 	ms.author="tamram"/>
 
 
@@ -47,7 +47,7 @@ Per informazioni sugli obiettivi di capacità e prestazioni dell'account di arch
 
 1. Accedere al [portale di Azure](https://manage.windowsazure.com).
 
-2. Fare clic su **Create New**, quindi su **Storage** e infine su **Quick Create**.
+2. Fare clic su **Nuovo** sulla barra delle applicazioni nella parte inferiore della pagina. Scegliere **Servizi dati** | **Archiviazione** e quindi fare clic su **Creazione rapida**.
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
@@ -59,13 +59,13 @@ Per informazioni sugli obiettivi di capacità e prestazioni dell'account di arch
 
 	Vedere [Endpoint dell'account di archiviazione](#storage-account-endpoints) più avanti per informazioni dettagliate sul modo in cui questo nome verrà usato per indirizzare oggetti in Archiviazione di Azure.
 
-4. In **Località/gruppo di affinità** selezionare una località per l'account di archiviazione vicina all'utente o ai clienti. Se ai dati accederanno anche altri servizi di Azure, ad esempio una macchina virtuale o un servizio cloud di Azure, potrebbe essere opportuno selezionare un gruppo di affinità nell'elenco per raggruppare l'account di archiviazione nello stesso data center con gli altri servizi di Azure usati per migliorare le prestazioni e ridurre i costi.
+4. In **Località/gruppo di affinità** selezionare una località per l'account di archiviazione vicina all'utente o ai clienti. Se i dati di un account di archiviazione saranno accessibili da un altro servizio di Azure, come una macchina virtuale o un servizio cloud di Azure, potrebbe essere necessario selezionare un gruppo di affinità nell'elenco per raggruppare l'account di archiviazione nello stesso data center con altri servizi di Azure usati per migliorare le prestazioni e ridurre i costi.
 
-	Si noti che è necessario selezionare un gruppo di affinità al momento della creazione dell'account di archiviazione. Non è possibile spostare un account esistente in un gruppo di affinità. Per altre informazioni sui gruppi di affinità, vedere [Condivisione del percorso del servizio con un set di affinità](#service-co-location-with-an-affinity-group) più avanti.
+	Si noti che è necessario selezionare un gruppo di affinità al momento della creazione dell'account di archiviazione. Non è possibile spostare un account esistente in un gruppo di affinità. Per altre informazioni sui gruppi di affinità, vedere [Condivisione del percorso del servizio con un gruppo di affinità](#service-co-location-with-an-affinity-group) più avanti.
 
-	>[AZURE.IMPORTANT]Per determinare i percorsi disponibili per la sottoscrizione, è possibile richiamare l’operazione [List Providers](https://msdn.microsoft.com/library/azure/dn790524.aspx). Per elencare i provider da PowerShell, richiamare [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). Da .NET, utilizzare il metodo [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) della classe ProviderOperationsExtensions.
+	>[AZURE.IMPORTANT]Per determinare i percorsi disponibili per la sottoscrizione, è possibile richiamare l'operazione [List Providers](https://msdn.microsoft.com/library/azure/dn790524.aspx). Per elencare i provider da PowerShell, richiamare [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). Da .NET usare il metodo [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) della classe ProviderOperationsExtensions.
 	>
-	>Vedere inoltre [Aree di Azure](https://azure.microsoft.com/it-IT/regions/#services) per ulteriori informazioni su quali servizi sono disponibili in quale area.
+	>Vedere anche [Aree di Azure](https://azure.microsoft.com/it-IT/regions/#services) per altre informazioni su quali servizi sono disponibili in quale area.
 
 
 5. Se si dispone di più sottoscrizioni Azure, viene visualizzato il campo **Subscription**. In **Subscription** immettere la sottoscrizione di Azure con cui si desidera utilizzare l'account di archiviazione.
@@ -103,7 +103,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 Un *gruppo di affinità* è un raggruppamento geografico dei servizi e delle VM di Azure con l'account di archiviazione di Azure. che consente di migliorare le prestazioni del servizio individuando i carichi di lavoro del computer nello stesso data center o in prossimità dei destinatari. Non sono inoltre addebitate spese per l'uscita in caso di accesso ai dati di un account di archiviazione da parte di un altro servizio appartenente allo stesso gruppo di affinità.
 
-> [AZURE.NOTE]Per creare un set di affinità, aprire l'area <b>Impostazioni</b> del portale di Azure, fare clic su <b>Gruppi di affinità</b> e quindi sul pulsante <b>Aggiungi set di affinità</b> o <b>Aggiungi</b>. È anche possibile creare e gestire gruppi di affinità mediante l'API di gestione del servizio Azure. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operazioni sui gruppi di affinità</a>.
+> [AZURE.NOTE]Per creare un set di affinità, aprire l'area <b>Impostazioni</b> del portale di Azure, fare clic su <b>Gruppi di affinità</b> e quindi sul pulsante <b>Aggiungi un gruppo di affinità</b> o <b>Aggiungi</b>. È anche possibile creare e gestire gruppi di affinità mediante l'API di gestione del servizio Azure. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operazioni sui gruppi di affinità</a>.
 
 ## Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione
 
@@ -137,11 +137,11 @@ Nel [portale di Azure](http://manage.windowsazure.com) passare a **Gestisci chia
 
 **Servizi multimediali**: se sono presenti servizi multimediali che dipendono dall'account di archiviazione, è necessario risincronizzare le chiavi di accesso con il servizio multimediale dopo aver rigenerato le chiavi.
 
-**Applicazioni**: se sono presenti applicazioni Web o servizi cloud che usano l'account di archiviazione, se si rigenerano le chiavi le connessioni andranno perse, a meno che non venga eseguito il rollover delle chiavi. Di seguito è riportato il processo:
+**Applicazioni**: se sono presenti applicazioni Web o servizi cloud che usano l'account di archiviazione, le connessioni andranno perse se si rigenerano le chiavi, a meno che non venga eseguito il rollover delle chiavi. Di seguito è riportato il processo:
 
 1. Aggiornare le stringhe di connessione nel codice dell'applicazione in modo che facciano riferimento alla chiave di accesso secondaria dell'account di archiviazione.
 
-2. Rigenerare la chiave di accesso primaria per l'account di archiviazione. Nel dashboard o nella pagina [Configura](http://manage.windowsazure.com) del **portale di Azure** fare clic su **Gestisci chiavi**. Fare clic su **Rigenera** sotto la chiave di accesso primaria e quindi fare clic su **Sì** per confermare che si vuole generare una nuova chiave.
+2. Rigenerare la chiave di accesso primaria per l'account di archiviazione. Nel [portale di Azure](http://manage.windowsazure.com) fare clic su **Gestisci chiavi** nel dashboard o nella pagina **Configura**. Fare clic su **Rigenera** sotto la chiave di accesso primaria e quindi fare clic su **Sì** per confermare che si vuole generare una nuova chiave.
 
 3. Aggiornare le stringhe di connessione nel codice in modo che facciano riferimento alla nuova chiave di accesso primaria.
 
@@ -171,4 +171,4 @@ Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete**
 
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

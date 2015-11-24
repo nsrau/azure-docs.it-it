@@ -70,6 +70,11 @@ Si tratta di implementazioni già illustrate, incluse alcune di terze parti.
 +   [Registrazione semantica](https://github.com/fidmor89/SLAB_AppInsights)&#151;che si integra con il [blocco applicazione per la registrazione semantica](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Test di carico basato su cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
+## Esporta
+
++ [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
++ [Analisi dei flussi](app-insights-export-power-bi.md)
+
 ## <a name="projects"></a> Creare un SDK personalizzato
 
 Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibile crearne uno. A tale scopo, esaminare il codice degli SDK esistenti incluso nel [progetto di Application Insights SDK su GitHub](https://github.com/Microsoft/AppInsights-Home).
@@ -83,4 +88,4 @@ Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibi
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

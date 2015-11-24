@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
-- [Azure Powershell steps](dns-getstarted-create-recordset.md)
+- [PowerShell](dns-getstarted-create-recordset.md)
 
 
 
@@ -122,4 +122,4 @@ Le modifiche sono state completate. È possibile recuperare il set di record dal
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

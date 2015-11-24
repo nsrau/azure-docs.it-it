@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # Introduzione a DNS di Azure utilizzando CLI
@@ -22,7 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+- [PowerShell](dns-getstarted-create-dnszone.md)
 
 
 Il dominio "contoso.com" può contenere una serie di record DNS, ad esempio "mail.contoso.com" (per un server di posta elettronica) e "www.contoso.com" (per un sito Web). Una zona DNS viene usata per ospitare i record DNS per un particolare dominio.
@@ -173,4 +173,4 @@ L'esempio seguente usa DIG per eseguire una query sul dominio contoso.com usando
 
 [Introduzione alla creazione di set di record e di record](dns-getstarted-create-recordset-cli.md)<BR> [Come gestire le zone DNS](dns-operations-dnszones-cli.md)<BR> [Come gestire i record DNS](dns-operations-recordsets-cli.md)<BR> [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)<BR> [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

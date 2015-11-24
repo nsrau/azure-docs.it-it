@@ -104,7 +104,7 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 
 	![Quick Start Icon](./media/site-recovery-vmm-to-azure/ASRE2AVMM_QuickStartIcon.png)
 
-2. Nell'elenco a discesa selezionare **Tra un sito Hyper-V locale e Microsoft Azure**.
+2. Nell'elenco a discesa selezionare **Tra un sito VMM locale e Azure**.
 3. In **Prepare VMM Servers** fare clic sul file **Generate registration key**. Il file di chiave viene generato automaticamente ed è valido per 5 giorni dal momento in cui viene generato. Se non si accede al portale di Azure dal server VMM sarà necessario copiare questo file sul server.
 
 	![Registration key](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RegisterKey.png)
@@ -347,4 +347,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 <LI>In caso di domande, visitare il <a href="http://go.microsoft.com/fwlink/?LinkId=313628">forum relativo ai Servizi di ripristino di Azure</a>.</LI> </UL>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

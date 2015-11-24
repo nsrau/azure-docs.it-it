@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Backup di macchine virtuali di Azure | Microsoft Azure"
-	description="Procedure per eseguire il backup di una macchina virtuale di Azure."
+	description="Individuare, registrare ed eseguire il backup delle macchine virtuali usando queste procedure per il backup di macchine virtuali di Azure."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="backup della macchina virtuale; eseguire il backup di macchina virtuale; backup e ripristino di emergenza"/>
 
 <tags
 	ms.service="backup"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/29/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
-# Eseguire il backup di macchine virtuali di Azure
-Questo articolo include le procedure per eseguire il backup delle macchine virtuali esistenti, per proteggerle in conformità ai criteri di backup e conservazione della società.
+# Backup di una macchina virtuale di Azure
+Questo articolo include le procedure per eseguire il backup delle macchine virtuali esistenti, per proteggerle in conformità ai criteri di backup e ripristino di emergenza della società.
 
 Prima di poter eseguire il backup di una macchina virtuale di Azure, è necessario occuparsi di alcuni aspetti. Se non è già stato fatto, completare i [prerequisiti](backup-azure-vms-prepare.md) per preparare l'ambiente per il backup della VM prima di procedere.
 
@@ -26,7 +27,7 @@ Per informazioni sulla [pianificazione dell'infrastruttura di backup delle VM in
 
 L'esecuzione del backup di macchine virtuali di Azure prevede tre passaggi principali:
 
-![Tre passaggi per eseguire il backup di una macchina virtuale di Azure](./media/backup-azure-vms/3-steps-for-backup.png)
+![Tre passaggi per eseguire il backup di una macchina virtuale IaaS di Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
 >[AZURE.NOTE]Il backup della macchina virtuale è locale. Non è possibile eseguire il backup di macchine virtuali di un'area in un insieme di credenziali per il backup in un'altra area. Di conseguenza, per ogni area di Azure in cui sono presenti macchine virtuali per le quali deve essere eseguito il backup, è necessario creare almeno un insieme di credenziali per il backup in quell'area.
 
@@ -117,8 +118,8 @@ Gli insiemi di credenziali di Backup di Azure creati dopo maggio 2015 includono 
     In questa immagine di esempio:
 
     - **Criteri di conservazione giornaliera**: i backup eseguiti ogni giorno vengono archiviati per 30 giorni.
-    - **Criteri di conservazione settimanale**: i backup eseguiti ogni domenica vengono conservati per 104 settimane
-    - **Criteri di conservazione mensile**: i backup eseguiti l'ultima domenica di ogni mese vengono conservati per 120 mesi
+    - **Criteri di conservazione settimanale**: i backup eseguiti ogni domenica vengono conservati per 104 settimane.
+    - **Criteri di conservazione mensile**: i backup eseguiti l'ultima domenica di ogni mese vengono conservati per 120 mesi.
     - **Criteri di conservazione annuale**: i backup eseguiti la prima domenica di ogni gennaio vengono conservati per 99 anni.
 
     Viene creato un processo per configurare i criteri di protezione e associare ogni macchina virtuale selezionata a questi criteri.
@@ -161,4 +162,4 @@ In caso di problemi durante il backup della macchina virtuale, vedere le informa
 - [Gestire e monitorare il backup delle macchine virtuali di Azure](backup-azure-manage-vms.md)
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

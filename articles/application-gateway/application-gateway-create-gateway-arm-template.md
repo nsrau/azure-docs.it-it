@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 
@@ -22,10 +22,9 @@
 Il gateway applicazione è un servizio di bilanciamento del carico di livello 7. Fornisce servizi di failover e richieste HTTP di routing delle prestazioni tra server diversi, sia che si trovino sul cloud che in locale. Il gateway applicazione offre le funzionalità di distribuzione delle applicazioni seguenti: bilanciamento del carico HTTP, affinità delle sessioni basata sui cookie, offload SSL.
 
 > [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
-
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -60,7 +59,7 @@ In questo scenario verrà creato quanto segue:
 
 È possibile scaricare il modello ARM esistente per la creazione di una rete virtuale e di due subnet da github, apportare le modifiche desiderate e riutilizzarlo. A tale scopo, seguire questa procedura:
 
-1. Accedere a https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip.
+1. Accedere a https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/.
 2. Fare clic su **azuredeploy.json** e quindi su **RAW**.
 3. Salvare il file in una cartella locale nel computer in uso.
 4. Se si ha familiarità con i modelli ARM, procedere al passaggio 7.
@@ -76,8 +75,8 @@ In questo scenario verrà creato quanto segue:
 	| **skuname** | Dimensione dell'istanza SKU |
 	| **capacità** | numero di istanze |
 	| **backendaddress1** | Indirizzo IP del primo server Web |
-	| **backendaddress2** | Indirizzo IP del secondo server Web|
-
+	| **backendaddress2** | Indirizzo IP del secondo server Web |
+	
 
 >[AZURE.IMPORTANT]I modelli ARM conservati in github possono cambiare nel tempo. Assicurarsi di aver controllato il modello prima di utilizzarlo.
 	
@@ -87,37 +86,35 @@ In questo scenario verrà creato quanto segue:
 	- **name**. Nome della risorsa. Si noti l'uso di **[parameters('applicationGatewayName')]** con cui si indica che il nome verrà specificato come input dall'utente o tramite un file di parametri durante la distribuzione.
 	- **properties**. Elenco di proprietà per la risorsa. Questo modello usa la rete virtuale e l'indirizzo IP pubblico durante la creazione del gateway applicazione.
 
-7. Tornare a https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip.
+7. Tornare a https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
 8. Fare clic su **azuredeploy-parameters.json** e quindi su **RAW**.
 9. Salvare il file in una cartella locale nel computer in uso.
 10. Aprire il file appena salvato e modificare i valori per i parametri. Usare i valori riportati di seguito per la distribuzione del gateway applicazione descritto in questo scenario.
 
 		{
-		   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-		   "contentVersion": "1.0.0.0",
-		   "parameters": {
-		     "location": {
-		       "value": "East US"
-		     },
-		     "addressPrefix": {
-		      "value": "10.0.0.0/16"
-    		 },
-		     "subnetPrefix": {
-		      "value": "10.0.0.0/24"
-		     },
-		     "skuName": {
-		       "value": "Standard_Small"
-		     },
-		     "capacity": {
-		       "value": 2
-		    },
-		    "backendIpAddress1": {
-		      "value": "10.0.1.10"
-		    },
-		     "backendIpAddress2": {
-		       "value": "10.0.1.11"
-		     }
-		  }
+		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		{
+    	"location" : {
+        "value" : "West US"
+    	},
+    	"addressPrefix": {
+        "value": "10.0.0.0/16"
+    	},
+    	"subnetPrefix": {
+        "value": "10.0.0.0/24"
+    	},
+    	"skuName": {
+        "value": "Standard_Small"
+    	},
+    	"capacity": {
+        "value": 2
+    	},
+    	"backendIpAddress1": {
+        "value": "10.0.1.10"
+    	},
+    	"backendIpAddress2": {
+        "value": "10.0.1.11"
+    	}
 		}
 
 11. Salvare il file. È possibile testare il modello JSON e un modello di parametro usando strumenti di convalida online di JSON come [JSlint.com](http://www.jslint.com/).
@@ -150,7 +147,7 @@ Output previsto:
 	                 =======  ==========
 	                  *
 
-		ResourceId        : /subscriptions/################################/resourceGroups/AppgatewayRG
+		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 4. Eseguire il cmdlet New-AzureResourceGroupDeployment per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza.
 
@@ -175,7 +172,7 @@ L'output generato dalla riga di comando sarà il seguente:
                    capacity         Int                        2
                    backendIpAddress1  String                     10.0.1.10
                    backendIpAddress2  String                     10.0.1.11
-
+					
 		Outputs           :
 
 
@@ -240,7 +237,7 @@ Un altro uso dei modelli di Gestione risorse di Azure consiste nel fare clic per
 
 
 ### Passaggio 1 
-Il collegamento che indica di [fare clic per distribuire il gateway applicazione](http://azure.microsoft.com/documentation/templates/101-create-applicationgateway-publicip/) reindirizza alla pagina del modello del portale per il gateway applicazione.
+Il collegamento che indica di [fare clic per distribuire il gateway applicazione](https://azure.microsoft.com/it-IT/documentation/templates/101-application-gateway-public-ip/) reindirizza alla pagina del modello del portale per il gateway applicazione.
 
 
 ### Passaggio 2 
@@ -276,4 +273,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

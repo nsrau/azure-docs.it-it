@@ -29,7 +29,7 @@ Se si sceglie di installare Visual Studio, con SQL Data Warehouse è possibile u
 
 Per installare Visual Studio 2015:
 
-1. [Scaricare Visual Studio 2015](https://www.visualstudio.com/downloads) da Visual Studio Online. 
+1. [Scaricare Visual Studio 2015](https://www.visualstudio.com/downloads) da Visual Studio Team Services. 
 2. Per la procedura di installazione, seguire quanto indicato nella guida all'[installazione di Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) su MSDN e scegliere le configurazioni predefinite.
 
 ## Passaggio 2: Scaricare e installare la versione più recente di SQL Server Data Tools (SSDT) 
@@ -49,4 +49,4 @@ Dopo aver installato la versione più recente di SSDT, fare clic su [Connetti](.
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/28/2015" 
+	ms.date="11/18/2015" 
 	ms.author="spelluru"/>
 
 # Introduzione al servizio Data factory di Azure
@@ -57,4 +57,4 @@ I servizi collegati definiscono le informazioni necessarie affinché il servizio
 
 Dopo aver acquisito familiarità con i quattro semplici concetti relativi a set di dati, attività, pipeline e servizi collegati, si è pronti per iniziare. È possibile [compilare la prima pipeline](data-factory-build-your-first-pipeline.md) da zero o distribuire un esempio pronto all'uso seguendo le istruzioni riportate nell'articolo [Data factory di Azure - Esempi](data-factory-samples.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

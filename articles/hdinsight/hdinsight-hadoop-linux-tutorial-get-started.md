@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/16/2015"
    	ms.author="nitinme"/>
 
 # Esercitazione di Hadoop: Introduzione all'uso di Hadoop con Hive in HDInsight in Linux
@@ -23,7 +23,7 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-In questo documento viene fornita un'introduzione rapida all'uso di Azure HDInsight in Linux e viene illustrato come creare un cluster Hadoop basato su Linux, connettersi al cluster tramite SSH (Secure Shell) e quindi eseguire una query Hive sui dati di esempio inclusi nel cluster.
+Questo documento fornisce un'introduzione rapida all'uso di Azure HDInsight in Linux e illustra come creare un cluster Hadoop basato su Linux, connettersi al cluster tramite SSH (Secure Shell) e quindi eseguire una query Hive sui dati di esempio inclusi nel cluster.
 
 > [AZURE.NOTE]Se non si ha esperienza di Hadoop e dell'uso dei Big Data, sono disponibili altre informazioni su [Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084), [MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086), [Hadoop Distributed File System (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087) e [Hive](http://go.microsoft.com/fwlink/?LinkId=510085). Per informazioni sull'abilitazione di Hadoop in Azure tramite HDInsight, vedere [Introduzione a Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
 
@@ -70,9 +70,7 @@ Per creare un nuovo cluster, seguire questa procedura.
 
 	![Fornire le credenziali del cluster](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Fornire le credenziali del cluster")
 
-    > [AZURE.NOTE]Il protocollo SSH viene usato per accedere in modalità remota al cluster HDInsight tramite una riga di comando. Il nome utente e la password specificati qui sono usati per la connessione al cluster tramite SSH. Il nome utente SSH deve essere univoco, in quanto crea un account utente in tutti i nodi del cluster HDInsight. Di seguito sono riportati alcuni nomi di account riservati per l'utilizzo da parte dei servizi nel cluster che non devono essere usati come nome utente SSH:
-    >
-    > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+    > [AZURE.NOTE]Il protocollo SSH viene usato per accedere in modalità remota al cluster HDInsight tramite una riga di comando. Il nome utente e la password specificati qui sono usati per la connessione al cluster tramite SSH.
 
 	Per altre informazioni sull'uso di SSH con HDInsight, vedere i documenti seguenti:
 
@@ -84,13 +82,13 @@ Per creare un nuovo cluster, seguire questa procedura.
 
 	![Pannello di origine dati](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "Fornire la configurazione origine dati")
 
-	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare le seguenti informazioni per comprendere le voci nel pannello **Origine dati**.
+	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare le informazioni seguenti per comprendere le voci disponibili nel pannello **Origine dati**.
 
-	- **Metodo di selezione**: impostare questa proprietà su **Da tutte le sottoscrizioni** per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su **Chiave di accesso** se si desidera immettere un valore nei campi **Nome archiviazione** e **Chiave di accesso** per un account di archiviazione esistente.
+	- **Metodo di selezione**: impostare questa proprietà su **Da tutte le sottoscrizioni** per consentire l'esplorazione degli account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su **Chiave di accesso** se si vuole immettere un valore nei campi **Nome archiviazione** e **Chiave di accesso** per un account di archiviazione esistente.
 
-	- **Selezionare l'account di archiviazione / Crea nuovo**: fare clic su **Selezionare l'account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
+	- **Seleziona account di archiviazione/Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
 
-	- **Scegliere il contenitore predefinito**: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
+	- **Scegliere contenitore predefinito**: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
 
 	- **Percorso**: l'area geografica dove si trova o dove verrà creato l'account di archiviazione.
 
@@ -102,13 +100,13 @@ Per creare un nuovo cluster, seguire questa procedura.
 
 	![Pannello livelli dei prezzi di nodo](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Specificare il numero di nodi del cluster")
     
-    > [AZURE.IMPORTANT]Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14GB di RAM.
+    > [AZURE.IMPORTANT]Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
     >
-    > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+    > Per altre informazioni sulle dimensioni dei nodi e sui costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-	Fare clic su **Seleziona** per salvare la configurazione del prezzo del nodo.
+	Fare clic su **Seleziona** per salvare la configurazione dei prezzi del nodo.
 
-9. Nel pannello**Nuovo cluster HDInsight** assicurarsi che **Aggiungi alla schermata iniziale** sia selezionato, quindi fare clic su **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
+9. Nel pannello **Nuovo cluster HDInsight** assicurarsi che **Aggiungi alla Schermata iniziale** sia selezionato, quindi fare clic su **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
 
 Durante il provisioning|Provisioning completato
 ------------------|---------------------
@@ -128,14 +126,13 @@ Al termine del provisioning, fare clic sul riquadro per il cluster dalla scherma
 
 		ssh <username>@<clustername>-ssh.azurehdinsight.net
 
-	Poiché è stato eseguito il provisioning di un cluster con l'opzione Creazione rapida, il nome utente SSH predefinito è **hdiuser**. Il comando deve pertanto essere:
-
-		ssh hdiuser@myhdinsightcluster-ssh.azurehdinsight.net
+	Sostituire &lt;username> con il nome utente SSH usato durante la creazione del cluster. Sostituire &lt;clustername> con il nome del cluster.
 
 2. Quando richiesto, immettere la password fornita durante il provisioning del cluster. Dopo aver stabilito la connessione, il prompt cambierà come segue:
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
+    > [AZURE.NOTE]La parte `@hn0-clustername` del messaggio di richiesta può essere diversa nel cluster.
 
 ###Per connettersi da un computer Windows
 
@@ -147,9 +144,9 @@ Al termine del provisioning, fare clic sul riquadro per il cluster dalla scherma
 
 3. Per salvare le informazioni di connessione per un uso futuro, immettere un nome per la connessione in **Saved Sessions**, quindi fare clic su **Save**. La connessione verrà aggiunta all'elenco delle sessioni salvate.
 
-4. Fare clic su **Open** per connettersi al cluster. Quando viene richiesto il nome utente, immettere **hdiuser**. Per la password, immettere la password specificata durante il provisioning del cluster. Dopo aver stabilito la connessione, il prompt cambierà come segue:
+4. Fare clic su **Open** per connettersi al cluster. Quando viene richiesto il nome utente, immettere il nome utente SSH usato durante la creazione del cluster. Per la password immettere quella specificata durante il provisioning del cluster. Dopo aver stabilito la connessione, il prompt cambierà come segue:
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
 ##<a name="hivequery"></a>Eseguire una query Hive
 
@@ -179,7 +176,7 @@ Dopo aver stabilito la connessione al cluster tramite SSH, usare i comandi segue
 
 	Viene restituito l'output seguente:
 
-		Query ID = hdiuser_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
+		Query ID = username_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
 		Total jobs = 1
 		Launching Job 1 out of 1
 		Number of reduce tasks not specified. Estimated from input data size: 1
@@ -286,4 +283,4 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->
