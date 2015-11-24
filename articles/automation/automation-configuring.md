@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="11/10/2015"
    ms.author="bwren" />
 
 # Configurazione di Automazione di Azure
@@ -52,6 +52,33 @@ Quando si accede alle risorse di Azure tramite i [cmdlet di Azure](http://msdn.m
 10. Disconnettersi da Azure e ripetere l'accesso con l'account appena creato. Verrà chiesto di cambiare la password dell'utente.
 11. Creare un nuovo [asset credenziali di Automazione di Azure](http://msdn.microsoft.com/library/dn940015.aspx) per l'account utente creato. Il **Tipo di credenziali** deve essere **Credenziali per Windows PowerShell**.
 
+## Creare un account di automazione
+
+Un account di automazione è un contenitore per le risorse di Automazione di Azure. Fornisce un modo per separare gli ambienti o organizzare ulteriormente i flussi di lavoro. Se è già stato creato un account di automazione, è possibile ignorare questo passaggio.
+
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
+
+2. Nel portale di anteprima di Azure fare clic su **Nuovo** > **Gestione** > **Account di automazione**
+
+3. Nel pannello **Aggiungi un nuovo account di automazione** configurare i dettagli dell'account di automazione.
+
+>[AZURE.NOTE]Quando si crea un account di automazione tramite il portale di anteprima di Azure, l'account e tutte le risorse associate non vengono riportati nel portale di gestione classico.
+
+Ecco l'elenco dei parametri da configurare:
+
+|Parametro |Descrizione |
+|:---|:---|
+| Nome | Nome dell'Account di automazione, deve essere un valore univoco. |
+| Gruppo di risorse | I gruppi di risorse semplificano la visualizzazione e la gestione delle risorse di Azure correlate. Nel portale di anteprima di Azure è possibile scegliere un gruppo di risorse esistente o crearne uno nuovo per l'account di automazione, mentre nel portale di gestione di Azure tutti gli account di automazione vengono inseriti in un gruppo di risorse predefinito. |
+| Sottoscrizione | Scegliere una sottoscrizione dall'elenco delle sottoscrizioni disponibili. |
+| Area | L'area indica la posizione in cui verranno archiviate le risorse di automazione incluse nell'account. È possibile scegliere un'area qualsiasi dall'elenco. Questa operazione non influisce sulla funzionalità dell'account, ma consente di eseguire più velocemente i runbook se l'area dell'account è vicina a quella in cui sono archiviate altre risorse di Azure. |
+| Opzioni dell'account | Questa opzione consente di scegliere quali risorse verranno create nel nuovo account di automazione. Se si seleziona **Sì** verrà creato un runbook dell'esercitazione. |
+
+![Creazione di un account](media/automation-configuration/automation-01-create-automation-account.png)
+
+>[AZURE.NOTE]Quando un account di automazione creato con il portale di gestione classico viene [spostato in un gruppo di risorse diverso](../resource-group-move-resources.md) usando il portale di anteprima di Azure, l'account di automazione non sarà più disponibile nel portale di Azure classico, perché in quest'ultimo gli account di Gestione risorse di Azure non sono supportati.
+
+
 
 ## Usare le credenziali in un Runbook
 
@@ -67,4 +94,4 @@ Quando si accede alle risorse di Azure tramite i [cmdlet di Azure](http://msdn.m
 - [Automazione di Azure: Autenticazione in Azure tramite Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

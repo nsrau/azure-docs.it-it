@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azioni per la risoluzione della perdita temporanea della connessione | Microsoft Azure"
-	description="Azioni per evitare, diagnosticare e risolvere gli errori di connessione e altri errori temporanei durante l'interazione con il database SQL di Azure."
+	description="Azioni per risolvere, diagnosticare ed evitare gli errori di connessione e altri errori temporanei durante l'interazione con il database SQL di Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="genemi"/>
 
 
-# Azioni per la risoluzione di errori di connessione e di errori temporanei nel database SQL
+# Risolvere i problemi relativi a errori temporanei e di connessione al database SQL
 
 
-Questo argomento illustra come evitare, diagnosticare e ridurre gli errori di connessione e gli errori temporanei che si verificano nel programma client durante l'interazione con il database SQL di Azure.
+Questo argomento illustra come evitare, risolvere, diagnosticare e ridurre gli errori di connessione e gli errori temporanei che si verificano nel programma client durante l'interazione con il database SQL di Azure.
 
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

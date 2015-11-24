@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/10/2015"
+	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
 
 # Uso della tecnologia in memoria (anteprima) per migliorare le prestazioni delle applicazioni nel database SQL
 
-Seguire questa procedura per ottimizzare le prestazioni transazionali del database SQL [ Premium[ di Azure esistente usando la funzionalità ](sql-database-service-tiers.md)In memoria](sql-database-in-memory.md).
+Seguire questa procedura per ottimizzare le prestazioni transazionali del database SQL [Premium](sql-database-service-tiers.md) di Azure esistente usando le funzionalità [in memoria](sql-database-in-memory.md).
 
 
 ## Passaggio 1: Verificare che il database Premium supporti la funzionalità in memoria
@@ -41,7 +41,7 @@ Esportare il database di produzione in un file bacpac usando:
 
 - La funzionalità [Esporta](sql-database-export.md) nel [portale](https://portal.azure.com/).
 
-- La funzionalità **Esporta l'applicazione livello dati** in [up-to-date SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio).
+- La funzionalità **Esporta l'applicazione livello dati** in una versione [aggiornata di SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio).
  1. In **Esplora oggetti ** espandere il nodo **Database**.
  2. Fare clic con il pulsante destro del mouse sul nodo del database.
  3. Fare clic su **Attività** > **Esporta l'applicazione livello dati**.
@@ -80,7 +80,7 @@ Si supponga che il report indichi che il database include una tabella che può t
 
 Per semplificare il test, perfezionare il database di test come segue:
 
-1. Connettersi al database di test tramite SSMS.
+1. Connettersi al database di test usando SSMS.
 
 2. Per evitare di dover usare l'opzione WITH (SNAPSHOT) nelle query, impostare l'opzione di database come illustrato nell'istruzione T-SQL seguente: ```
 ALTER DATABASE CURRENT
@@ -101,7 +101,7 @@ ALTER DATABASE CURRENT
 
 Per usare questa opzione di migrazione:
 
-1. Connettersi al database di test tramite SSMS.
+1. Connettersi al database di test con SSMS.
 
 2. In **Esplora oggetti** fare clic con il pulsante destro del mouse sulla tabella e quindi fare clic su **Ottimizzazione guidata per la memoria**.
  - Verrà visualizzata l'**Ottimizzazione guidata per la memoria della tabella**.
@@ -154,7 +154,7 @@ Una stored procedure compilata in modo nativo deve avere le opzioni seguenti nel
 - SCHEMABINDING: indica le tabelle in cui la stored procedure non può modificare le definizioni di colonna in alcun modo che abbia effetto sulla stored procedure, a meno che non si rimuova la stored procedure.
 
 
-Un modulo nativo deve usare [blocchi ATOMICI](http://msdn.microsoft.com/library/dn452281.aspx) di grandi dimensioni per la gestione delle transazioni. Non esiste un ruolo per un'istruzione BEGIN TRANSACTION esplicita.
+Un modulo nativo deve usare [blocchi ATOMICI](http://msdn.microsoft.com/library/dn452281.aspx) di grandi dimensioni per la gestione delle transazioni. Non esiste un ruolo per un'istruzione BEGIN TRANSACTION o ROLLBACK TRANSACTION esplicita. Se il codice rileva una violazione di una regola business, è possibile che il blocco atomico venga terminato con un'istruzione [THROW](http://msdn.microsoft.com/library/ee677615.aspx).
 
 
 ### CREATE PROCEDURE tipica per le stored procedure compilate in modo nativo
@@ -184,7 +184,7 @@ CREATE PROCEDURE schemaname.procedurename
 
 ### Come eseguire la migrazione di una stored procedure
 
-Ecco i passaggi della migrazione:
+Passaggi della migrazione:
 
 
 1. Ottenere lo script CREATE PROCEDURE per la stored procedure interpretata regolare.
@@ -233,4 +233,4 @@ Tenere sotto controllo gli effetti sulle prestazioni delle implementazioni in me
 
 - [Ottimizzazione guidata per la memoria](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

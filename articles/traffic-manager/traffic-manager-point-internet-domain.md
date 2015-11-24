@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico di Azure
@@ -29,12 +29,10 @@ Tutto il traffico indirizzato a *www.contoso.com* verrà ora reindirizzato a *co
 
 ## Passaggi successivi
 
-[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
+[Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 
 [Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
 
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
 
-[Gestione traffico di Azure](traffic-manager-overview.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

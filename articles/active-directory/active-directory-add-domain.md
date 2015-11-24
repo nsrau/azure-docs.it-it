@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.date="11/16/2015"
 	ms.author="curtand"/>
 
 # Aggiungere un nome di dominio personalizzato ad Azure AD
@@ -212,4 +212,4 @@ Se si aggiunge il nome di dominio personalizzato al servizio cloud dopo l'aggiun
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Gestire i domini in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

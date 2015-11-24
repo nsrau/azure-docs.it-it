@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Eseguire query sul database SQL con C# | Microsoft Azure"
-	description="Informazioni dettagliate su indirizzi IP, stringhe di connessione, file di configurazione per l'accesso sicuro e versioni gratuite di Visual Studio per consentire al programma C# di connettersi al database SQL di Azure nel cloud, usando ADO.NET."
+	pageTitle="Connettersi al database SQL con una query in C# | Microsoft Azure"
+	description="Scrivere un programma in C# per eseguire query e connettersi al database SQL. Informazioni su indirizzi IP, stringhe di connessione, accesso sicuro e Visual Studio gratuito."
 	services="sql-database"
+	keywords="query in c# al database,query in c#,connettersi al database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
@@ -17,28 +18,28 @@
 	ms.author="genemi"/>
 
 
-# Connettersi al database SQL con C&#x23; ed eseguire query
+# Scrivere un programma in C&#x23; per eseguire query e connettersi a un database SQL
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Informazioni su come scrivere un programma C# che usa ADO.NET per connettersi a un database SQL di Azure nel cloud.
+Informazioni su come scrivere un programma in C# per eseguire query e connettersi a un database SQL di Azure nel cloud.
 
-Questo argomento descrive tutte le procedure necessarie ed è destinato agli utenti che non hanno familiarità con il database SQL di Azure e C#. Gli utenti con conoscenze di Microsoft SQL Server e C# possono ignorare alcune procedure e passare direttamente a quelle specifiche per il database SQL.
+Questo articolo descrive tutte le procedure necessarie ed è destinato agli utenti che non hanno familiarità con il database SQL di Azure, C# e ADO.NET. Gli utenti con conoscenze di Microsoft SQL Server e C# possono ignorare alcune procedure e passare direttamente a quelle specifiche per il database SQL.
 
 
 ## Prerequisiti
 
 
-Per eseguire l'esempio di codice in C#, sono necessari i prerequisiti seguenti:
+Per eseguire l'esempio di codice della query in C#, sono necessari i prerequisiti seguenti:
 
 
-- Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 
-- Un database **AdventureWorksLT** dimostrativo nel servizio Database SQL di Azure.
+- Un database **AdventureWorksLT** dimostrativo nel servizio database SQL di Azure.
  - È possibile [crearne uno](sql-database-get-started.md) in pochi minuti.
 
 
@@ -75,7 +76,7 @@ Per installare Visual Studio, è possibile:
 5. Per praticità, ridurre a icona i pannelli precedenti facendo clic sul controllo corrispondente.
 
 6. Fare clic sul pulsante **Apri in Visual Studio** in alto nel pannello del database. Verrà visualizzato un nuovo pannello per Visual Studio con i collegamenti alle pagine da cui è possibile eseguire l'installazione di Visual Studio.
- 
+
 	![Pulsante Apri in Visual Studio][20-OpenInVisualStudioButton]
 
 7. Fare clic sul collegamento **Community (Gratuito)** o simile. Verrà aggiunta una nuova pagina Web.
@@ -126,7 +127,7 @@ L'esempio in C# usa l'assembly **System.Configuration.dll** di .NET Framework, q
 ## Passaggio 4: Ottenere la stringa di connessione
 
 
-Per copiare la stringa di connessione per il database, usare il [portale di anteprima di Azure](http://portal.azure.com/).
+Per copiare la stringa di connessione necessaria per connettersi al database SQL, usare il [portale di anteprima di Azure](http://portal.azure.com/).
 
 Per prima cosa, è necessario connettere Visual Studio al database **AdventureWorksLT** del database SQL di Azure.
 
@@ -145,10 +146,10 @@ Per prima cosa, è necessario connettere Visual Studio al database **AdventureWo
 ```
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
-	    <startup> 
+	    <startup>
 	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
 	    </startup>
-	
+
 		<connectionStrings>
 			<clear />
 			<add name="ConnectionString4NoUserIDNoPassword"
@@ -172,9 +173,9 @@ Per prima cosa, è necessario connettere Visual Studio al database **AdventureWo
 ## Passaggio 6: Copiare il codice C# di esempio
 
 
-1. In Visual Studio aprire il file **Program.cs** da **Esplora soluzioni**. 
+1. In Visual Studio aprire il file **Program.cs** dal riquadro **Esplora soluzioni**.
 
-	![Incollare il codice del programma C# di esempio][40-VSProgramCsOverlay]
+	![Copiare il codice della query in C# di esempio][40-VSProgramCsOverlay]
 
 2. Sovrascrivere tutto il codice di avvio in Program.cs incollando il codice C# di esempio seguente.
  - Se si vuole un esempio di codice più breve, è possibile assegnare l'intera stringa di connessione come valore letterale alla variabile **SQLConnectionString**. È quindi possibile cancellare i due metodi **GetConnectionStringFromExeConfig** e **GatherPasswordFromConsole**.
@@ -186,7 +187,7 @@ using G = System.Configuration;   // System.Configuration.dll
 using D = System.Data;            // System.Data.dll
 using C = System.Data.SqlClient;  // System.Data.dll
 using T = System.Text;
-	
+
 namespace ConnectAndQuery_Example
 {
 	class Program
@@ -195,7 +196,7 @@ namespace ConnectAndQuery_Example
 		{
 			string connectionString4NoUserIDNoPassword,
 				password, userName, SQLConnectionString;
-	
+
 			// Get most of the connection string from ConnectAndQuery_Example.exe.config
 			// file, in the same directory where ConnectAndQuery_Example.exe resides.
 			connectionString4NoUserIDNoPassword = Program.GetConnectionStringFromExeConfig
@@ -205,17 +206,17 @@ namespace ConnectAndQuery_Example
 			userName = Console.ReadLine();
 			// Get the password from keyboard input.
 			password = Program.GatherPasswordFromConsole();
-	
+
 			SQLConnectionString = "Password=" + password + ';' +
 				"User ID=" + userName + ";" + connectionString4NoUserIDNoPassword;
-	
+
 			// Create an SqlConnection from the provided connection string.
 			using (C.SqlConnection connection = new C.SqlConnection(SQLConnectionString))
 			{
 				// Formulate the command.
 				C.SqlCommand command = new C.SqlCommand();
 				command.Connection = connection;
-	
+
 				// Specify the query to be executed.
 				command.CommandType = D.CommandType.Text;
 				command.CommandText = @"
@@ -224,7 +225,7 @@ namespace ConnectAndQuery_Example
 					";
 				// Open a connection to database.
 				connection.Open();
-	
+
 				// Read data returned for the query.
 				C.SqlDataReader reader = command.ExecuteReader();
 				while (reader.Read())
@@ -237,12 +238,12 @@ namespace ConnectAndQuery_Example
 			Console.ReadKey(true);
 		}
 		//----------------------------------------------------------------------------------
-	
+
 		static string GetConnectionStringFromExeConfig(string connectionStringNameInConfig)
 		{
 			G.ConnectionStringSettings connectionStringSettings =
 				G.ConfigurationManager.ConnectionStrings[connectionStringNameInConfig];
-	
+
 			if (connectionStringSettings == null)
 			{
 				throw new ApplicationException(String.Format
@@ -251,7 +252,7 @@ namespace ConnectAndQuery_Example
 			}
 				return connectionStringSettings.ConnectionString;
 		}
-	
+
 		static string GatherPasswordFromConsole()
 		{
 			T.StringBuilder passwordBuilder = new T.StringBuilder(32);
@@ -294,7 +295,7 @@ namespace ConnectAndQuery_Example
 
 2. Raccoglie il nome utente e la password dalla tastiera e li aggiunge per completare la stringa di connessione.
 
-3. Usa la stringa di connessione e le classi ADO.NET per connettersi al database **AdventureWorksLT** dimostrativo nel database SQL di Azure.
+3. Usare la stringa di connessione e le classi ADO.NET per connettersi al database **AdventureWorksLT** dimostrativo nel database SQL.
 
 4. Esegue un'istruzione **SELECT** di SQL per leggere i dati dalla tabella **SalesLT**.
 
@@ -312,7 +313,7 @@ Tentiamo di mantenere l'esempio per C# il più breve possibile. Tuttavia, abbiam
 ## Passaggio 7: Aggiungere l'intervallo di indirizzi IP consentiti nel firewall del server
 
 
-Il programma C# client non potrà connettersi al database SQL di Azure fino a quando l'indirizzo IP del computer client non viene aggiunto nel firewall del database SQL. Il programma restituirà un messaggio di errore che indica l'indirizzo IP necessario.
+Il programma C# client non potrà connettersi al database SQL fino a quando l'indirizzo IP del computer client non viene aggiunto nel firewall del database SQL. Il programma restituirà un messaggio di errore che indica l'indirizzo IP necessario.
 
 
 Per aggiungere l'indirizzo IP, è possibile usare il [portale di anteprima di Azure](http://portal.azure.com/).
@@ -323,14 +324,14 @@ Per aggiungere l'indirizzo IP, è possibile usare il [portale di anteprima di Az
 
 
 
-Per altre informazioni, vedere <br/> [Procedura: Configurare le impostazioni del firewall nel database SQL di Azure](sql-database-configure-firewall-settings.md).
+Per altre informazioni, vedere <br/> [Procedura: configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md).
 
 
 
 ## Passaggio 8: Eseguire il programma
 
 
-1. Per eseguire il programma in Visual Studio, scegliere **Avvia debug** dal menu **DEBUG**. Verrà visualizzata una finestra della console.
+1. Per eseguire il programma della query in C# in Visual Studio, scegliere **Avvia debug** dal menu **DEBUG**. Verrà visualizzata una finestra della console.
 
 2. Immettere nome utente e password, come richiesto.
  - Alcuni strumenti di connessione richiedono che venga aggiunto il suffisso "@{nome\_server\_utente}", ma per ADO.NET questo suffisso è facoltativo. Non preoccuparsi di digitarlo.
@@ -343,7 +344,7 @@ Per altre informazioni, vedere <br/> [Procedura: Configurare le impostazioni del
 
 - [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-- Se il programma client viene eseguito in una macchina virtuale, leggere le informazioni sulle porte TCP diverse dalla porta 1433 in:<br/>[Porte superiori alla 1433 per ADO.NET 4.5 e database SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Se il programma client viene eseguito in una macchina virtuale di Azure, leggere le informazioni sulle porte TCP diverse dalla porta 1433 in:<br/>[Porte superiori alla 1433 per ADO.NET 4.5 e database SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 
@@ -357,4 +358,4 @@ Per altre informazioni, vedere <br/> [Procedura: Configurare le impostazioni del
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

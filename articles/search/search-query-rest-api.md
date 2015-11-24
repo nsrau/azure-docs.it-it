@@ -14,10 +14,10 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="11/17/2015"
 	ms.author="heidist"/>
 
-#Compilare query in Ricerca di Azure con chiamate REST 
+# Compilare query in Ricerca di Azure con chiamate REST
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
@@ -25,36 +25,46 @@
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-Questo articolo illustra come creare una query su un indice con [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). Parte del contenuto riportato di seguito è estratto dall'articolo [Eseguire ricerche nei documenti (API REST di Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx). Per altro contesto, vedere l'articolo padre.
+Questo articolo illustra come creare una query su un indice usando l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). Parte del contenuto riportato di seguito è estratto dall'articolo [Eseguire ricerche nei documenti (API REST di Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx). Per altro contesto, vedere l'articolo padre.
 
 I prerequisiti per l'importazione includono la disponibilità di un indice esistente in cui sono già caricati i documenti che forniscono dati ricercabili.
 
-Quando si usa l'API REST, le query sono basate su una richiesta HTTP GET. I frammenti di codice sono estratti dall'[esempio di profili di punteggio](search-get-started-scoring-profiles.md).
+Per cercare nell'indice con l'API REST, eseguire una richiesta HTTP GET. I parametri di query saranno definiti nell'URL della richiesta HTTP.
 
-        static JObject ExecuteRequest(string action, string query = "")
-        {
-            // original:  string url = serviceUrl + indexName + "/" + action + "?" + ApiVersion; 
-            string url = serviceUrl + indexName + "/docs?" + action ;
-            if (!String.IsNullOrEmpty(query))
-            {
-                url += query + "&" + ApiVersion;
-            }
+**Richiesta e intestazioni della richiesta**:
 
-            string response = ExecuteGetRequest(url);
-            return JObject.Parse(response);
+Nell'URL è necessario fornire il nome del servizio e il nome dell'indice, oltre alla versione dell'API appropriata. Specificare i parametri query nella stringa di query alla fine dell'URL. Uno dei parametri nella stringa di query deve essere la versione dell'API appropriata. Al momento della pubblicazione di questo documento la versione dell'API corrente è "2015-02-28".
 
-        }
+Come intestazioni della richiesta è necessario definire il tipo di contenuto e fornire la chiave amministratore primaria o secondaria del servizio.
 
-        static string ExecuteGetRequest(string requestUri)
-        {
-            //This will execute a get request and return the response
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("api-key", primaryKey);
-                HttpResponseMessage response = client.GetAsync(requestUri).Result;        // Searches are done over port 80 using Get
-                return response.Content.ReadAsStringAsync().Result;
-            }
+	GET https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
 
-        }
+Ricerca di Azure offre numerose opzioni per creare query estremamente avanzate. Per altre informazioni su tutti i diversi parametri di una stringa di query, visitare [questa pagina](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=Nov15_HO3-->
+**Esempi**:
+
+Di seguito sono riportati alcuni esempi con diverse stringhe di query. Questi esempi usano un indice fittizio denominato "Hotel":
+
+Cercare il termine "quality" nell'intero indice:
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=quality&$orderby=lastRenovationDate desc&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Cercare nell'intero indice:
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Cercare nell'intero indice e ordinare in base a un campo specifico (lastRenovationDate):
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Una richiesta di query riuscita restituirà un codice di stato "200 OK" e i risultati della ricerca saranno riportati in formato JSON nel corpo della risposta. Per altre informazioni, vedere la sezione "Risposta" di [questa pagina](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+
+<!---HONumber=Nov15_HO4-->

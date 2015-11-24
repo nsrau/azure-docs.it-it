@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="11/17/2015"
 	ms.author="heidist"/>
 
 # Creare un indice di Ricerca di Azure con un'API REST
@@ -28,125 +28,41 @@ Questo articolo illustra come creare un indice con l'[API REST di Ricerca di Azu
 
 I prerequisiti per la creazione di un indice includono la disponibilità di una connessione stabilita in precedenza al servizio di ricerca, che in genere si esegue tramite "httpClient".
 
-Un approccio in 3 parti per la creazione di un indice tramite l'API REST include la configurazione di una connessione, l'indicazione di uno schema dell'indice e quindi l'esecuzione di un comando che compila l'indice. I frammenti di codice sono estratti dall'[esempio di profili di punteggio](search-get-started-scoring-profiles.md).
+## Definire lo schema dell'indice
 
-##Definire lo schema dell'indice
+Per creare l'indice con l'API REST, inviare una richiesta POST all'endpoint dell'URL di Ricerca di Azure. La struttura dell'indice sarà definita usando JSON nel corpo della richiesta.
 
-L'API REST accetta le richieste in formato JSON. Per creare lo schema è possibile includere un file di schema autonomo come documento JSON. Di seguito è illustrato un esempio.
+**Richiesta e intestazioni della richiesta**:
 
-Nell'esempio da cui deriva questo frammento il codice JSON seguente vien salvato in un file denominato schema.json.
+Nell'esempio seguente è necessario usare l'endpoint dell'URL del servizio, notando in particolare il nome del servizio e la versione dell'API appropriata. Al momento della pubblicazione di questo documento la versione dell'API corrente è "2015-02-28". Nelle intestazioni della richiesta si dovrà fornire anche la chiave amministratore primaria del servizio ricevuta al momento della [creazione di un servizio](https://msdn.microsoft.com/library/azure/dn798941.aspx/).
+
+	POST https://[servicename].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key]
+
+
+**Corpo della richiesta**:
+
+In questa sezione si identifica il nome dell'indice, "hotels" in questo caso, nonché [nomi, tipi e gli attributi dei campi](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	{
-	    "name": "musicstoreindex",
-	    "fields": [
-	        { "name": "key", "type": "Edm.String", "key": true },
-	        { "name": "albumTitle", "type": "Edm.String"},
-	        { "name": "albumUrl", "type": "Edm.String", "filterable": false },
-	        { "name": "genre", "type": "Edm.String" },
-	        { "name": "genreDescription", "type": "Edm.String", "filterable": false },
-	        { "name": "artistName", "type": "Edm.String"},
-	        { "name": "orderableOnline", "type": "Edm.Boolean" },
-	        { "name": "rating", "type": "Edm.Int32" },
-	        { "name": "tags", "type": "Collection(Edm.String)" },
-	        { "name": "price", "type": "Edm.Double", "filterable": false },
-	        { "name": "margin", "type": "Edm.Int32", "retrievable": false },
-	        { "name": "inventory", "type": "Edm.Int32" },
-	        { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }
-	    ],
-	    "scoringProfiles": [
-	        {
-	            "name": "boostGenre",
-	            "text": {
-	                "weights": {
-	                    "albumTitle": 5,
-	                    "genre": 50,
-	                    "artistName": 5
-	                }
-	            }
-	        },
-	        {
-	            "name": "newAndHighlyRated",
-	            "functions": [
-	                {
-	                    "type": "freshness",
-	                    "fieldName": "lastUpdated",
-	                    "boost": 10,
-	                    "interpolation": "quadratic",
-	                    "freshness": {
-	                        "boostingDuration": "P365D"
-	                    }
-	                },
-	                {
-	                    "type": "magnitude",
-	                    "fieldName": "rating",
-	                    "boost": 10,
-	                    "interpolation": "linear",
-	                    "magnitude": {
-	                        "boostingRangeStart": 1,
-	                        "boostingRangeEnd": 5,
-	                        "constantBoostBeyondRange": false
-	                    }
-	                }
-	            ]
-	        },
-	        {
-	            "name": "boostMargin",
-	            "functions": [
-	
-	                {
-	                    "type": "magnitude",
-	                    "fieldName": "margin",
-	                    "boost": 50,
-	                    "interpolation": "linear",
-	                    "magnitude": {
-	                        "boostingRangeStart": 50,
-	                        "boostingRangeEnd": 100,
-	                        "constantBoostBeyondRange": false
-	                    }
-	                }
-	            ]
-	        }
-	    ]
+		"name": "hotels",  
+		"fields": [
+			{"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
+			{"name": "baseRate", "type": "Edm.Double"},
+			{"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+			{"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer:"fr.lucene"},
+			{"name": "hotelName", "type": "Edm.String"},
+			{"name": "category", "type": "Edm.String"},
+			{"name": "tags", "type": "Collection(Edm.String)"},
+			{"name": "parkingIncluded", "type": "Edm.Boolean"},
+			{"name": "smokingAllowed", "type": "Edm.Boolean"},
+			{"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
+			{"name": "rating", "type": "Edm.Int32"},
+			{"name": "location", "type": "Edm.GeographyPoint"}
+		]
 	}
 
-##Configurare una richiesta HTTP per la connessione e la compilazione dell'indice
+Per una richiesta riuscita, verrà visualizzato il codice di stato "201 Creato". Per altre informazioni sulla creazione di un indice tramite l'API REST, vedere [questa pagina](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-Le API REST formulano la connessione HTTP a ogni richiesta. Ogni richiesta stabilisce sempre l'URL del servizio, la versione dell'API in uso e una chiave amministratore che concede l'autorizzazione per le operazioni di lettura e scrittura nel servizio, definita chiave primaria di seguito perché così è chiamata nel portale.
-
-Il frammento di codice usa valori statici come input, ad esempio un nome per l'indice, come specificato nel file app.config (non illustrato). L'esempio è stato creato in questo modo per semplificare il codice.
-
-        private const string ApiVersion = "api-version=2015-02-28";
-        private static string serviceUrl = ConfigurationManager.AppSettings["serviceUrl"];
-        private static string indexName = ConfigurationManager.AppSettings["indexName"];
-        private static string primaryKey = ConfigurationManager.AppSettings["primaryKey"];
-
-L'esempio seguente include una richiesta HTTP PUT all'URL del servizio, insieme ad `api-version` e al nome dell'indice da creare.
-
-        static bool CreateIndex()
-        {
-            // Create an index using an index name
-            Uri requestUri = new Uri(serviceUrl + indexName + "?" + ApiVersion);
-
-            // Load the json containing the schema from an external file
-            string json = File.ReadAllText("schema.json");
-
-            using (HttpClient client = new HttpClient())
-            {
-                // Create the index
-                client.DefaultRequestHeaders.Add("api-key", primaryKey);
-                HttpResponseMessage response = client.PutAsync(requestUri,        // To create index use PUT
-                    new StringContent(json, Encoding.UTF8, "application/json")).Result;
-
-                if (response.StatusCode == HttpStatusCode.Created)   // For Posts we want to know response had no content
-                {
-                    Console.WriteLine("Index created. \r\n");
-                    return true;
-                }
-
-                Console.WriteLine("Index creation failed: {0} {1} \r\n", (int)response.StatusCode, response.Content.ReadAsStringAsync().Result.ToString());
-                return false;
-
-            }
-        }
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

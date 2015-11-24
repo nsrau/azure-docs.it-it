@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare la prima pipeline con Data factory di Azure"
+	pageTitle="Introduzione a Data factory di Azure"
 	description="Questa esercitazione mostra come creare una pipeline di dati di esempio che trasforma i dati usando Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
@@ -16,19 +16,19 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Creare la prima pipeline con Data factory di Azure
+# Introduzione a Data factory di Azure
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
-Questo articolo include informazioni utili per iniziare a creare la prima pipeline e distribuirla in Data factory di Azure.
+Questo articolo consente di iniziare a compilare la prima Data factory di Azure.
 
 > [AZURE.NOTE]Questo articolo non fornisce una panoramica concettuale del servizio Data factory di Azure. Per una panoramica dettagliata del servizio, vedere l'articolo [Introduzione al servizio Data factory di Azure](data-factory-introduction.md).
 
 ## Panoramica dell'esercitazione
-Questa esercitazione illustra i passaggi necessari per rendere operativa la prima pipeline. Si creeranno le pipeline e si specificheranno tutte le risorse necessarie da zero.
+Questa esercitazione illustra i passaggi necessari per ottenere la prima Data factory con una pipeline. Si creerà una pipeline specificando tutte le risorse necessarie da zero.
 
 Per esplorare rapidamente le diverse funzionalità della data factory, senza crearne una da zero, è possibile usare gli esempi disponibili nel portale di anteprima di Azure. Vedere [Aggiornamento di Azure Data Factory: distribuzione di esempio semplificata](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) per informazioni su come distribuire un esempio basato su un caso di utilizzo con il portale di anteprima di Azure.
 
@@ -172,4 +172,4 @@ Eseguire le operazioni seguenti:
 - Fare clic sul collegamento [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) in alto per eseguire l'esercitazione usando Azure PowerShell.
 - Fare clic sul collegamento [Tramite Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) in alto per eseguire l'esercitazione usando Visual Studio. 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

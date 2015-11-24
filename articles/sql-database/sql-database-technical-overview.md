@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Che cos'è il Database SQL | Microsoft Azure"
-   description="Informazioni sui dettagli tecnici e sulle funzionalità del database SQL di Azure, sul sistema di gestione di database relazionali (RDBMS) di Microsoft e sulla soluzione PaaS nel cloud."
-   services="sql-database"
-   documentationCenter=""
-   authors="shontnew"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="Informazioni sul database SQL Introduzione al database SQL | Microsoft Azure"
+	description="Introduzione al database SQL, con dettagli tecnici e funzionalità relative al sistema di gestione di database relazionali (RDBMS) Microsoft sul cloud."
+	keywords="introduzione a sql,intro a sql,informazioni su database sql,DTU"
+	services="sql-database"
+	documentationCenter=""
+	authors="shontnew"
+	manager="jeffreyg"
+	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -16,11 +17,11 @@
    ms.date="09/30/2015"
    ms.author="shkurhek"/>
 
-# Introduzione al Database SQL
+# Informazioni sul database SQL Introduzione al database SQL, dettagli tecnici e spiegazione delle DTU
 
 Il database SQL è un servizio di database relazionale nel cloud basato sul motore di Microsoft SQL Server leader nel mercato e con funzionalità di importanza strategica. Il database SQL offre prestazioni prevedibili, scalabilità senza tempi di inattività, continuità aziendale e protezione dei dati con esigenze di amministrazione quasi nulle. È possibile concentrarsi sullo sviluppo rapido di app e accelerare i tempi di mercato, piuttosto che gestire le macchine virtuali e l’infrastruttura. Poiché si basa sul motore [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), il Database SQL supporta strumenti del server SQL, librerie e API esistenti, il che rende più facile spostare ed estendere al cloud.
 
-In questo articolo vengono introdotti i concetti di base e le funzionalità di Database SQL correlate a prestazioni, scalabilità e gestibilità, con collegamenti per esplorare i dettagli. Se si è pronti per passare, è possibile [Creare un database SQL](sql-database-get-started.md) o [Creare un pool di database elastici](sql-database-elastic-pool-portal.md) in pochi minuti. Se si desiderano ulteriori approfondimenti, guardare questo video di 30 minuti.
+Questo articolo è un'introduzione dei concetti fondamentali sul database SQL e delle funzionalità correlate a prestazioni, scalabilità e gestibilità, con collegamenti per esplorare i dettagli. Se si è pronti per iniziare, è possibile [Creare il primo database SQL di Azure](sql-database-get-started.md) o [Creare un pool di database elastici](sql-database-elastic-pool-portal.md) in pochi minuti. Se si desiderano ulteriori approfondimenti, guardare questo video di 30 minuti.
 
 
 > [AZURE.VIDEO azurecon-2015-get-started-with-azure-sql-database]
@@ -43,20 +44,21 @@ Ma come è possibile confrontare le prestazioni relative di database e i pool di
 
 ## Mantenere l'applicazione e l’esecuzione dell’azienda
 
-Il settore di Azure che ha una accordo sul livello di disponibilità del servizio del 99,99% [(SLA)](http://azure.microsoft.com/support/legal/sla/), fornito da una rete globale di datacenter gestiti da Microsoft, consente di mantenere l'applicazione in esecuzione 24 ore su 24, 7 giorni su 7. Con ogni database SQL, si sfruttano i vantaggi della protezione dati incorporata, la tolleranza di errore e la protezione dei dati che sarebbe altrimenti necessario progettare, acquistare, compilare e gestire. Anche in questo caso, a seconda delle esigenze dell'azienda, si possono chiedere ulteriori livelli di protezione per garantire che l'app e l'azienda possano ripristinarsi rapidamente in caso di emergenza, di errore o di altri elementi. Con il Database SQL, ogni livello di servizio offre un diverso menu di funzionalità, che è possibile utilizzare per iniziare ed eseguire. È possibile utilizzare un ripristino temporizzato per riportare un database a uno stato precedente, anche per 35 giorni. Inoltre, se nel datacenter che ospita i database si verifica un'interruzione, è possibile eseguire il failover alle repliche del database in un'area diversa. Oppure è possibile utilizzare le repliche per gli aggiornamenti o la rilocazione in aree diverse.
+Il contratto di servizio [(SLA)](http://azure.microsoft.com/support/legal/sla/) di Azure, leader del settore con una disponibilità pari al 99,99%, è basato su una rete globale di data center gestiti da Microsoft e consente di mantenere in esecuzione l'app 24 ore su 24, 7 giorni su 7. Con ogni database SQL, si sfruttano i vantaggi della protezione dati incorporata, la tolleranza di errore e la protezione dei dati che sarebbe altrimenti necessario progettare, acquistare, compilare e gestire. Anche in questo caso, a seconda delle esigenze dell'azienda, si possono chiedere ulteriori livelli di protezione per garantire che l'app e l'azienda possano ripristinarsi rapidamente in caso di emergenza, di errore o di altri elementi. Con il Database SQL, ogni livello di servizio offre un diverso menu di funzionalità, che è possibile utilizzare per iniziare ed eseguire. È possibile utilizzare un ripristino temporizzato per riportare un database a uno stato precedente, anche per 35 giorni. Inoltre, se nel datacenter che ospita i database si verifica un'interruzione, è possibile eseguire il failover alle repliche del database in un'area diversa. Oppure è possibile utilizzare le repliche per gli aggiornamenti o la rilocazione in aree diverse.
 
 ![Replica geografica del Database SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
 
-Vedere [la continuità aziendale](sql-database-business-continuity.md) per informazioni dettagliate sulle funzionalità di continuità aziendale diversa disponibile per diversi livelli di servizio.
+Vedere [Continuità aziendale](sql-database-business-continuity.md) per informazioni dettagliate sulle diverse funzionalità per la continuità aziendale disponibili per i diversi livelli di servizio.
 
 ## Protezione dei dati
-Il server SQL vanta una tradizione di sicurezza dei dati continua che rispetta i Database SQL con le funzionalità che consentono di monitorare l'attività, proteggere i dati e limitare l'accesso. Vedere [Protezione del database SQL](sql-database-security.md) per una rapida panoramica delle opzioni di sicurezza disponibili nel Database SQL. Vedere il [Centro sicurezza per il motore di Database del server SQL e il Database SQL](https://msdn.microsoft.com/library/bb510589) per una visione più completa delle funzionalità di protezione. Visitare il [Centro protezione di Azure](http://azure.microsoft.com/support/trust-center/security/) per informazioni sulla sicurezza della piattaforma Azure.
+Il server SQL vanta una tradizione di sicurezza dei dati continua che rispetta i Database SQL con le funzionalità che consentono di monitorare l'attività, proteggere i dati e limitare l'accesso. Vedere [Protezione del database SQL](sql-database-security.md) per una rapida panoramica delle opzioni di sicurezza disponibili nel Database SQL. Vedere il [Centro di sicurezza per il motore di database di SQL Server e il database SQL di Azure](https://msdn.microsoft.com/library/bb510589) per una visione più completa delle funzionalità di protezione. Visitare il [Centro protezione di Azure](http://azure.microsoft.com/support/trust-center/security/) per informazioni sulla sicurezza della piattaforma Azure.
 
 ## Passaggi successivi
+Dopo avere letto l'introduzione al database SQL e avere ottenuto informazioni sul database SQL, è possibile eseguire i passaggi seguenti:
 
-- Vedere la [pagina dei prezzi](http://azure.microsoft.com/pricing/details/sql-database/) per i prezzi e i calcoli del database singolo e del database elastico.
+- Vedere la [pagina relativa ai prezzi](http://azure.microsoft.com/pricing/details/sql-database/) per informazioni sui prezzi e per calcolare il prezzo di un database singolo e un database elastico.
 
 - Per iniziare, [creare il primo database](sql-database-get-started.md). Poi costruire la prima app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

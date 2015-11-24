@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Sviluppo di un'applicazione Web con ASP.NET MVC usando DocumentDB | Microsoft Azure" 
-	description="Informazioni su come usare DocumentDB con .NET per creare un'applicazione Web per un elenco azioni. È possibile archiviare dati e accedervi da un'applicazione Web MCV ASP.NET ospitata in Siti Web di Azure." 
-	keywords="GitHub, Visual Studio, sviluppo di applicazioni Web, sviluppo di applicazioni, esercitazione sul database, applicazioni MVC, dati JSON, DocumentDB, Azure, Microsoft Azure"
+	pageTitle="Esercitazione su MVC ASP.NET per DocumentDB: sviluppo di un'applicazione Web | Microsoft Azure" 
+	description="Completare l'esercitazione su ASP.NET MVC per creare un'applicazione Web MVC con DocumentDB. Si archivieranno documenti JSON e si accederà ai dati da un'app todo ospitata in siti Web di Azure." 
+	keywords="esercitazione su mvc asp.net, sviluppo di applicazioni web, applicazione web mvc, esercitazione dettagliata su mvc asp net"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/20/2015" 
+	ms.date="11/18/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Sviluppo di applicazioni Web con ASP.NET MVC usando DocumentDB
@@ -26,9 +26,9 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md) 
 
-Per illustrare come sfruttare in modo efficiente Azure DocumentDB per archiviare ed eseguire query su documenti JSON, questo articolo include una procedura dettagliata end-to-end che mostra come creare un'applicazione Web per un elenco azioni usando Azure DocumentDB. Le attività verranno memorizzate come documenti JSON in Azure DocumentDB.
+Per illustrare come sfruttare in modo efficiente Azure DocumentDB per archiviare ed eseguire query su documenti JSON, questo articolo include una procedura dettagliata end-to-end che mostra come creare un'app todo con Azure DocumentDB. Le attività verranno memorizzate come documenti JSON in Azure DocumentDB.
 
-![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione](./media/documentdb-dotnet-application/image1.png)
+![Schermata dell'applicazione Web MVC per un elenco di azioni creata in questa esercitazione - Esercitazione dettagliata su MVC ASP NET](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
 La procedura guidata mostra come usare il servizio DocumentDB fornito da Azure per archiviare i dati e accedervi da un'applicazione Web MCV ASP.NET ospitata in Azure.
 
@@ -63,7 +63,7 @@ A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
    	Verrà visualizzata la finestra di dialogo **Nuovo progetto**.
 2. Nel riquadro **Tipi progetto** espandere **Modelli**, **Visual C#**, **Web** e quindi selezionare **Applicazione Web ASP.NET**.
 
-  	![Schermata della finestra di dialogo Nuovo progetto con il tipo di progetto applicazione Web ASP.NET evidenziato](./media/documentdb-dotnet-application/image10.png)
+  	![Schermata della finestra di dialogo Nuovo progetto con il tipo di progetto applicazione Web ASP.NET evidenziato](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image10.png)
 
 3. Nella casella **Nome** digitare il nome del progetto. Questa esercitazione usa il nome "todo". Se si sceglie di usare un valore diverso da questo, quindi ogni volta che in questa esercitazione viene descritto lo spazio dei nomi todo, è necessario modificare gli esempi di codice forniti per usare il nome assegnato all'applicazione.
 
@@ -71,7 +71,7 @@ A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
 
   	Verrà visualizzata la finestra di dialogo **Nuovo progetto ASP.NET**.
 
-  	![Schermata della finestra di dialogo Nuovo progetto ASP.NET con il modello dell’applicazione MVC evidenziato e la casella Ospita nel cloud selezionata](./media/documentdb-dotnet-application/image11.png)
+  	![Schermata della finestra di dialogo Nuovo progetto ASP.NET con il modello dell’applicazione MVC evidenziato e la casella Ospita nel cloud selezionata](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image11.png)
 
 5. Nel riquadro dei modelli selezionare **MVC**.
 
@@ -91,9 +91,9 @@ A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
 
 	L'esecuzione locale del progetto verrà ignorata perché è già stata mostrata per l'applicazione ASP.NET "Hello World". Si passerà direttamente all'aggiunta di DocumentDB al progetto e alla compilazione dell'applicazione.
 
-## <a name="_Toc395637767"></a>Passaggio 3: Aggiungere DocumentDB al progetto di applicazione Web
+## <a name="_Toc395637767"></a>Passaggio 3: Aggiungere DocumentDB al progetto di applicazione Web MVC
 
-Ora che si dispone della maggior parte del plumbing MVC ASP.NET necessario per questa soluzione, è possibile passare all'aggiunta di Azure DocumentDB all'applicazione Web.
+Ora che è disponibile la maggior parte del plumbing MVC ASP.NET necessario per questa soluzione, è possibile passare all'aggiunta di Azure DocumentDB all'applicazione Web MVC.
 
 1. DocumentDB .NET SDK è distribuito come pacchetto NuGet. Per ottenere il pacchetto NuGet in Visual Studio, usare Gestione pacchetti NuGet in Visual Studio facendo clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e quindi scegliendo **Gestisci pacchetti NuGet**.
 
@@ -255,7 +255,7 @@ In questa sezione viene aggiunto il codice per gestire le operazioni seguenti:
 - [Aggiungere elementi](#_Toc395637771).
 - [Modificare elementi](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>Elenco di elementi incompleti in un'applicazione Web
+### <a name="_Toc395637770"></a>Elenco di elementi incompleti in un'applicazione Web MVC
 
 La prima cosa da fare è aggiungere una classe che contenga tutta la logica per connettersi e usare DocumentDB. Per questa esercitazione verrà inclusa tutta questa logica in una classe di tipo archivio denominata DocumentDBRepository.
 
@@ -615,15 +615,15 @@ Ora che è completa e funziona correttamente con DocumentDB, è possibile distri
 
 2. Ogni impostazione dovrebbe già essere configurata in base alle credenziali e in effetti il sito Web è già stato creato in Azure secondo il valore specificato in **URL di destinazione** ed è sufficiente fare clic su **Pubblica**.
 
-    ![Schermata della finestra di dialogo Pubblica sito Web in Visual Studio](./media/documentdb-dotnet-application/image29.png)
+    ![Schermata della finestra di dialogo Pubblica sito Web in Visual Studio - Esercitazione dettagliata su MVC ASP NET](./media/documentdb-dotnet-application/image29.png)
 
 Dopo alcuni secondi, Visual Studio completerà la pubblicazione dell'applicazione Web e avvierà un browser in cui sarà possibile ammirare il proprio lavoro in esecuzione in Azure.
 
 ##<a name="_Toc395637775"></a>Passaggi successivi
 
-Congratulazioni. È stata creata la prima applicazione MVC ASP.NET con Azure DocumentDB e l'applicazione è stata quindi pubblicata in Siti Web di Azure. Il codice sorgente per l'applicazione completa, insieme alle funzionalità di eliminazione e relative ai dettagli non incluse in questa esercitazione, può essere scaricato o clonato da [GitHub][]. Per aggiungere queste funzionalità all'app, recuperare il codice e aggiungerlo all'app.
+Congratulazioni. È stata creata la prima applicazione Web MVC ASP.NET con Azure DocumentDB che è stata quindi pubblicata in Siti Web di Azure. Il codice sorgente per l'applicazione completa, insieme alle funzionalità di eliminazione e relative ai dettagli non incluse in questa esercitazione, può essere scaricato o clonato da [GitHub][]. Per aggiungere queste funzionalità all'app, recuperare il codice e aggiungerlo all'app.
 
-Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella raccolta [.NET per DocumentDB](http://msdn.microsoft.com/library/azure/dn783362.aspx), in cui è anche possibile aggiungere il proprio contributo su [GitHub][].
+Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella raccolta [.NET per DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx), in cui è anche possibile aggiungere il proprio contributo su [GitHub][].
 
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
@@ -633,4 +633,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
 [operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

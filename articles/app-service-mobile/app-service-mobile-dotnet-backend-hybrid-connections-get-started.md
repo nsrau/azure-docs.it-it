@@ -139,13 +139,11 @@ Infine, è necessario pubblicare il back-end dell'app per dispositivi mobili in 
 
 	Al termine della pubblicazione, il servizio viene riavviato e viene visualizzata la pagina iniziale del back-end.
 
-4. Usando un'app client <!--- either the **Try it now** button on the start page as before or using --> connessa al'app per dispositivi mobili, richiamare alcune operazioni che generano modifiche al database.
-<!--- This try it now is not longer on the page after it is published. 
-	>[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
--->
-4. In SQL Server Management Studio connettersi all'istanza di SQL Server, aprire Esplora oggetti, espandere il database **OnPremisesDB** ed espandere **Tabelle**.
+4. Usando un'app client connessa all'app per dispositivi mobili, richiamare alcune operazioni che generano modifiche al database.
 
-5. Fare clic con il pulsante destro del mouse sulla tabella **hybridService1.TodoItems** e scegliere **Seleziona prime 1000 righe** per visualizzare i risultati.
+5. In SQL Server Management Studio connettersi all'istanza di SQL Server, aprire Esplora oggetti, espandere il database **OnPremisesDB** ed espandere **Tabelle**.
+
+6. Fare clic con il pulsante destro del mouse sulla tabella **hybridService1.TodoItems** e scegliere **Seleziona prime 1000 righe** per visualizzare i risultati.
 
 	Si noti che le modifiche generate nell'app client sono state salvate dal back-end dell'app per dispositivi mobili nel database locale usando la connessione ibrida.
 
@@ -164,4 +162,4 @@ Infine, è necessario pubblicare il back-end dell'app per dispositivi mobili in 
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

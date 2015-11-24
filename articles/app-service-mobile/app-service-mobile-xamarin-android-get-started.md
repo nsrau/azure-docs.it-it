@@ -3,7 +3,7 @@
 	description="Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Xamarin Android."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="ggailey777"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
-	ms.author="normesta" />
+	ms.date="11/17/2015"
+	ms.author="glenga" />
 
 #Creare un'app per Xamarin.Android
 
@@ -24,7 +24,7 @@
  
 ##Panoramica
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin.Android con un back-end dell'app per dispositivi mobili di Azure. Verranno creati un nuovo back-end di app per dispositivi mobili e una semplice app Xamarin.Andorid _Todo list_ che archivia dati delle app in Azure.
+Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app Xamarin.Android. Per altre informazioni, vedere [Informazioni sulle app per dispositivi mobili](app-service-mobile-value-prop.md).
 
 Di seguito è riportata una schermata dell'app completata:
 
@@ -40,38 +40,21 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
  
 * [Visual Studio Community 2013] o versione successiva. Se si installa Visual Studio Community 2013, installare [Xamarin] separatamente. È possibile installare gli strumenti Xamarin quando si installa Visual Studio 2015.
  
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), dove è possibile creare un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-
+>[AZURE.NOTE]Se si vuole iniziare a usare il servizio app di Azure prima di creare un account Azure, passare al sito [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), in cui è possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Scaricare il progetto server
+## Configurare il progetto server
 
-1. Nel PC visitare il [portale di Azure]. Fare clic su **Esplora tutto** > **App per dispositivi mobili**, quindi fare clic sul back-end dell'app per dispositivi mobili appena creato.
-
-2. Nel pannello App per dispositivi mobili fare clic su **Impostazioni** e in **App per dispositivi mobili** fare clic su **Avvio rapido** > **Xamarin.Android**.
- 
-3. In **Scarica ed esegui il progetto server** fare clic su **Scarica**. Estrarre i file compressi del progetto nel PC e aprire la soluzione in Visual Studio.
- 
-## Testare il progetto back-end in locale
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-## Pubblicare il progetto server in Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## Scaricare ed eseguire l'app per Xamarin.Android
 
 1. In **Scarica ed esegui il progetto Xamarin.Android** scegliere il pulsante **Scarica**.
 
   	Verrà scaricato un progetto che contiene un'applicazione client connessa all'app per dispositivi mobili. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
-
-	![][8]
-
-	![][9]
 
 2. Premere **F5** per compilare il progetto e avviare l'app.
 
@@ -96,11 +79,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[portale di Azure]: https://azure.portal.com/
+[Azure Portal]: https://azure.portal.com/
 [Xamarin]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

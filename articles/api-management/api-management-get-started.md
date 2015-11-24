@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/27/2015"
+	ms.date="11/16/2015"
 	ms.author="sdanie"/>
 
 # Gestire la prima API in Gestione API di Azure
@@ -116,7 +116,7 @@ Una volta importata l'API, la pagina di riepilogo dell'API viene visualizzata ne
 
 ![API summary][api-management-imported-api-summary]
 
-La sezione API comprende diverse schede. Nella scheda **Riepilogo** sono visualizzate le informazioni e le metriche di base sull'API. È possibile usare la scheda [Impostazioni](api-management-howto-create-apis.md#configure-api-settings) per visualizzare e modificare la configurazione di un'API. La scheda [Operazioni](api-management-howto-add-operations.md) consente di gestire le operazioni dell'API. La scheda **Sicurezza** consente di configurare l'autenticazione del proxy per il server back-end usando l'autenticazione Basic oppure l'[autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md) e per configurare l'[autorizzazione utente con OAuth 2.0](api-management-howto-oauth2.md). La scheda **Problemi** consente di visualizzare i problemi segnalati dagli sviluppatori che stanno usando le API. La scheda **Prodotti** viene usata per configurare i prodotti contenenti l'API.
+La sezione API comprende diverse schede. Nella scheda **Riepilogo** sono visualizzate le informazioni e le metriche di base sull'API. È possibile usare la scheda [Impostazioni](api-management-howto-create-apis.md#configure-api-settings) per visualizzare e modificare la configurazione di un'API. La scheda [Operazioni](api-management-howto-add-operations.md) consente di gestire le operazioni dell'API. La scheda **Sicurezza** consente di configurare l'autenticazione del gateway per il server back-end usando l'autenticazione di base o l'[autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md) e per configurare l'[autorizzazione utente con OAuth 2.0](api-management-howto-oauth2.md). La scheda **Problemi** consente di visualizzare i problemi segnalati dagli sviluppatori che stanno usando le API. La scheda **Prodotti** viene usata per configurare i prodotti contenenti l'API.
 
 Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio:
 
@@ -243,4 +243,4 @@ La sezione **Analisi** include le quattro schede seguenti:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->
