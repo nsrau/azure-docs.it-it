@@ -153,7 +153,7 @@ class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 
 Lo stato attore viene mantenuto tra le operazioni di garbage collection e failover salvandolo su disco e replicandolo in più nodi del cluster. Ciò significa che, come gli argomenti del metodo e i valori restituiti, il tipo di stato attore deve essere[contratto dati serializzabile](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-> [AZURE.NOTE][Nota] vedere l'articolo contenente le [note di Reliable Actors sulla serializzazione](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) per informazioni dettagliate sulla modalità di definizione delle interfacce e dei tipi di stato degli attori.
+> [AZURE.NOTE] [Nota] vedere l'articolo contenente le [note di Reliable Actors sulla serializzazione](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) per informazioni dettagliate sulla modalità di definizione delle interfacce e dei tipi di stato degli attori.
 
 #### Provider dello stato degli attori
 Il servizio di archiviazione e recupero dello stato viene fornito da un provider di stato, I provider di stato possono essere configurati per singolo attore o per tutti gli attori all'interno di un assembly in base a un attributo specifico del provider di stato. Quando un attore viene attivato, lo stato dell'attore viene caricato in memoria. Quando un metodo dell'attore viene completato, lo stato modificato viene salvato automaticamente dal runtime di Actors mediante la chiamata a un metodo sul provider di stato. Se si verifica un errore durante il salvataggio, il runtime di Actors crea una nuova istanza dell'attore e carica l'ultimo stato coerente dal provider di stato.

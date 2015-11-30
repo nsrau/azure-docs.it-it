@@ -44,8 +44,8 @@ Le funzionalità principali della soluzione sono le seguenti:
 ## Scenari di distribuzione
 | Componente | Può essere distribuito in Azure? | Può essere distribuito in locale? | Archiviazione di destinazione supportata|
 | --- | --- | --- | --- |
-| Agente di Backup di Azure | **Sì** <br><br>L'agente di Backup di Azure può essere distribuito in qualunque VM di Windows Server in esecuzione in Azure. | **Sì** <br><br>L'agente di Backup di Azure può essere distribuito in qualunque computer fisico o VM di Windows Server. | Insieme di credenziali per il backup di Azure |
-| System Center Data Protection Manager (SCDPM) | **Sì** <br><br>Altre informazioni sulla [protezione dei carichi di lavoro in Azure con SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx). | **Sì** <br><br>Altre informazioni sulla [protezione dei carichi di lavoro e delle VM nel data center](https://technet.microsoft.com/it-IT/library/hh758173.aspx). | Disco collegato al computer locale,<br>insieme di credenziali per il backup di Azure,<br>Nastro (solo in locale) |
+| Agente di Backup di Azure | **Sì** <br><br>L'agente di Backup di Azure può essere distribuito in qualunque macchina virtuale Windows Server in esecuzione in Azure. | **Sì** <br><br>L'agente di Backup di Azure può essere distribuito in qualunque computer fisico o macchina virtuale Windows Server. | Insieme di credenziali per il backup di Azure |
+| System Center Data Protection Manager (SCDPM) | **Sì** <br><br>Altre informazioni sulla [protezione dei carichi di lavoro in Azure con SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx). | **Sì** <br><br>Altre informazioni sulla [protezione dei carichi di lavoro e delle macchine virtuali nel data center](https://technet.microsoft.com/it-IT/library/hh758173.aspx). | Disco collegato al computer locale,<br>insieme di credenziali per il backup di Azure,<br>Nastro (solo in locale) |
 | Backup di Azure (estensione VM) | **Sì** <br><br>Specializzato per il [backup di macchine virtuali IaaS di Azure](backup-azure-vms-introduction.md). | **No** <br><br>Usare SCDPM per il backup delle macchine virtuali nel data center. | Insieme di credenziali per il backup di Azure |
 
 
@@ -60,7 +60,8 @@ Le funzionalità principali della soluzione sono le seguenti:
 | Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
 | Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| VM IaaS di Azure (Windows)| - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) | | VM IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
+| Macchine virtuali IaaS di Azure (Windows)| - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
+| Macchine virtuali IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
 
 
 ## Passaggi successivi

@@ -29,11 +29,11 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 <li>Microsoft effettuerà una telefonata.</li>
 
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-phone/call.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-end-user-signin-phone/call.png)</center>
 
 <li>Rispondere al telefono e premere il tasto #.</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-phone/phone.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-end-user-signin-phone/phone.png)</center>
 
 
 <li>Ora dovrebbe essere stato effettuato l’accesso.</li>

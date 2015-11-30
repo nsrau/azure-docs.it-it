@@ -57,8 +57,10 @@ Esistono due modi diversi per scaricare l'SDK di Azure Multi-Factor Authenticati
 2. A sinistra selezionare Active Directory.
 3. Fare doppio clic sull'istanza di Azure AD.
 4. Nella parte superiore fare clic su **Configura**
-5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio** ![Scaricare](./media/multi-factor-authentication-sdk/download2.png)
-6. Nella parte inferiore della schermata della pagina Impostazioni servizio, fare clic su **Vai al portale**.![Scaricare](./media/multi-factor-authentication-sdk/download3.png)
+5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio**
+![Scaricare](./media/multi-factor-authentication-sdk/download2.png)
+6. Nella parte inferiore della schermata della pagina Impostazioni servizio, fare clic su **Vai al portale**.
+![Scaricare](./media/multi-factor-authentication-sdk/download3.png)
 7. Verrà aperta una nuova pagina. A sinistra, nella parte inferiore, fare clic su SDK.
 8. Selezionare la lingua desiderata e fare clic su uno dei collegamenti di download associato.
 9. Salvare il download.

@@ -33,7 +33,7 @@ Quando si crea una macchina virtuale, è possibile personalizzare le impostazion
 **Importante**: il contratto di servizio della piattaforma Azure si applica alle macchine virtuali che eseguono il sistema operativo Linux solo quando una distribuzione approvata viene usata con i dettagli di configurazione specificati in 'Versioni supportate' in [Linux in Azure - Distribuzioni supportate](virtual-machines-../linux-endorsed-distributions.md). Tutte le distribuzioni di Linux disponibili nella raccolta immagini di Azure sono distribuzioni approvate con la configurazione richiesta.
 
 
-## Prerequisiti
+##Prerequisiti##
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
 - **Un certificato di gestione**: l'utente deve avere creato un certificato di gestione per la sottoscrizione per cui si desidera caricare un file VHD e avere esportato il certificato in un file con estensione cer. Per altre informazioni sulla creazione di certificati, vedere [Panoramica dei certificati per Azure](../cloud-services/cloud-services-certs-create.md).

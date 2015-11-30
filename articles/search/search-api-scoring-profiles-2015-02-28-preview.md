@@ -342,7 +342,7 @@ Le interpolazioni permettono di definire il coefficiente angolare in base al qua
 
 Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è:
 
-     [-]P[nD][T[nH][nM][nS]]
+     [-]P\[nD]\[T\[nH]\[nM]\[nS]\]
 
 La tabella seguente fornisce alcuni esempi.
 

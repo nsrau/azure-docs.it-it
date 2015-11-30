@@ -17,7 +17,7 @@
 	ms.date="11/13/2015"
 	ms.author="jroth" />
 
-# Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure
+# Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure.
 
 ## Panoramica
 
