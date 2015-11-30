@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -30,7 +31,7 @@ Anche se l'aggiunta a un dominio tradizionale offre sempre la migliore esperienz
 
 ## Vantaggi dell'adozione di Aggiunta ad Azure AD 
 
- * **Se l'azienda opera prevalentemente nel cloud**: se è stato adottato un modello che prevede la riduzione del footprint in locale a fronte di una maggiore operatività nel cloud, l'aggiunta di Azure AD può risultare estremamente utile. Gli account Azure AD possono essere creati manualmente o tramite la sincronizzazione di Active Directory locale. In entrambi i casi, l'account Azure AD creato può essere usato per accedere a Windows 10. Gli utenti possono aggiungere i propri computer ad Azure AD tramite una procedura di Configurazione guidata o dalla pagina delle Impostazioni e usufruire dell'accesso Single Sign-On per accedere alle proprie risorse cloud, ad esempio Office 365, sia dal browser che dalle applicazioni Office. 
+* **Se l'azienda opera prevalentemente nel cloud**: se è stato adottato un modello che prevede la riduzione del footprint in locale a fronte di una maggiore operatività nel cloud, l'aggiunta di Azure AD può risultare estremamente utile. Gli account Azure AD possono essere creati manualmente o tramite la sincronizzazione di Active Directory locale. In entrambi i casi, l'account Azure AD creato può essere usato per accedere a Windows 10. Gli utenti possono aggiungere i propri computer ad Azure AD tramite una procedura di Configurazione guidata o dalla pagina delle Impostazioni e usufruire dell'accesso Single Sign-On per accedere alle proprie risorse cloud, ad esempio Office 365, sia dal browser che dalle applicazioni Office. 
 * **Istituti di istruzione**: gli istituti di istruzione hanno due tipi di utenti, i docenti e gli studenti. I docenti sono considerati membri dell'organizzazione a più lungo termine, quindi è consigliabile creare e assegnare loro account locali. Gli studenti invece sono membri dell'organizzazione a più breve termine e possono quindi essere gestiti in Azure AD, con un livello di directory esteso nel cloud anziché in locale. Gli studenti possono accedere a Windows usando l'account Azure AD e accedere alle risorse di Office 365 nelle applicazioni Office. 
 * **Negozi**: ecco un altro settore in cui i clienti manifestano l'esigenza di una gestione più facile dei lavoratori stagionali. Anche in questo caso, è possibile creare account locali per i dipendenti a tempo pieno non stagionali che usano computer aggiunti a un dominio. I lavoratori stagionali sono invece membri dell'organizzazione a più breve termine e quindi è preferibile gestirli con licenze utente che possono essere spostate con maggiore facilità. La creazione di questi utenti nel cloud con licenze di Office 365 permette loro di ottenere i vantaggi dell'accesso alle applicazioni di Windows e Office con un account Azure AD usufruendo allo stesso tempo di una maggiore mobilità delle licenze al termine del rapporto di lavoro. 
 * **Altre aziende**: oltre agli scenari specifici descritti sopra, pur avendo creato gli utenti nell'istanza di Active Directory locale, si potrebbe decidere di usare comunque la funzionalità di aggiunta ad Azure AD perché offre un'esperienza di aggiunta e di gestione dei dispositivi semplificata in Azure AD, la registrazione MDM automatica e l'accesso Single Sign-On alle risorse di Azure AD e locali.  
@@ -67,8 +68,12 @@ Aggiunta di Azure AD offre le funzionalità seguenti:
 | Accesso Single Sign-On dal desktop ad app/siti Web/risorse aziendali locali e nel cloud che usano Azure AD per l'autenticazione | Registrazione automatica nella directory aziendale (Azure AD) e registrazione automatica in MDM. (funzionalità di Azure AD Premium) | Offre accesso Single Sign-On tramite l'account aziendale per tutte le app, i siti Web e le risorse |
 | Gli utenti possono aggiungere il proprio account Microsoft personale per accedere ai propri file o immagini senza compromettere i dati aziendali (le impostazioni di roaming continuano a funzionare con l'account aziendale). L'account Microsoft personale consente l'accesso SSO e non gestisce più il roaming delle impostazioni | La reimpostazione delle password self-service durante l'esecuzione di winlogon (possibilità di reimpostare le password dimenticate). Questa funzionalità richiede Azure AD Premium | Fornisce l'accesso alla sezione dello Store dedicata alle app aziendali, in modo che gli utenti possano acquistare e usare app line-of-business sui propri dispositivi personali | |
 
-## Passaggi successivi
-* [Informazioni sugli scenari di utilizzo e considerazioni sulla distribuzione per Aggiunta di Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+## Informazioni aggiuntive
+* [Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Autenticazione delle identità senza password con Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

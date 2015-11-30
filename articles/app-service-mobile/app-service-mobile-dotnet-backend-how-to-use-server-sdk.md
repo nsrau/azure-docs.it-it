@@ -77,11 +77,11 @@ Molti metodi di estensione delle funzionalità sono disponibili tramite pacchett
 
 I pacchetti di estensione basati su NuGet seguenti forniscono diverse funzionalità per dispositivi mobili che l'applicazione può usare. È possibile abilitare le estensioni durante l'inizializzazione usando l'oggetto **MobileAppConfiguration**.
 
-- [Microsoft.Azure.Mobile.Server.Quickstart] Supporta la configurazione di base di App per dispositivi mobili. Viene aggiunta alla configurazione chiamando il metodo di estensione **UseDefaultConfiguration** durante l'inizializzazione. Questa estensione include le estensioni seguenti: pacchetti Notifications, Authentication, Entity, Tables, Crossdomain e Home. È equivalente al progetto server di avvio rapido che è possibile scaricare dal portale di Azure.
+- [Microsoft.Azure.Mobile.Server.Quickstart] Supporta la configurazione di base di app per dispositivi mobili. Viene aggiunta alla configurazione chiamando il metodo di estensione **UseDefaultConfiguration** durante l'inizializzazione. Questa estensione include le estensioni seguenti: pacchetti Notifications, Authentication, Entity, Tables, Crossdomain e Home. È equivalente al progetto server di avvio rapido che è possibile scaricare dal portale di Azure.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) Implementa la pagina predefinita *this mobile app is up and running* per la radice del sito Web. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddMobileAppHomeController**.
 
-- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) include le classi per usare i dati e configura la pipeline dei dati. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddTables**.
+- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) Include le classi per usare i dati e configura la pipeline dei dati. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddTables**.
 
 - [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) Consente a Entity Framework di accedere ai dati nel database SQL. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddTablesWithEntityFramework**.
 
@@ -143,7 +143,7 @@ Per un esempio di un controller di tabella che usa Entity Framework per accedere
 
 È possibile aggiungere l'autenticazione al progetto server estendendo l'oggetto **MobileAppConfiguration** e configurando il middleware OWIN. Quando si installa il pacchetto [Microsoft.Azure.Mobile.Server.Quickstart] e si chiama il metodo di estensione **UseDefaultConfiguration**, è possibile andare al passaggio 3.
 
-1. In Visual Studio, installare il pacchetto [Microsoft.Azure.Mobile.Server.Authentication]. 
+1. In Visual Studio installare il pacchetto [Microsoft.Azure.Mobile.Server.Authentication]. 
 
 2. Nel file di progetto Startup.cs aggiungere la riga di codice seguente all'inizio del metodo **Configuration**:
 
@@ -153,7 +153,7 @@ Per un esempio di un controller di tabella che usa Entity Framework per accedere
 
 3. Aggiungere l'attributo `[Authorize]` a qualsiasi controller o metodo che richiede l'autenticazione. Gli utenti devono ora essere autenticati per accedere a tale endpoint o a tali API specifiche.
 
-Per informazioni su come autenticare i client nel back-end di app per dispositivi mobili, vedere l'articolo relativo all'[aggiunta dell'autenticazione a un'app](app-service-mobile-dotnet-backend-ios-get-started-users.md).
+Per informazioni su come autenticare i client nel back-end di app per dispositivi mobili, vedere l'articolo relativo all'[aggiunta dell'autenticazione a un'app](app-service-mobile-ios-get-started-users.md).
 
 ## Procedura: Aggiungere notifiche push a un progetto server
 
@@ -195,6 +195,29 @@ Per informazioni su come autenticare i client nel back-end di app per dispositiv
 
 A questo punto, è possibile usare il client di Hub di notifica per inviare notifiche push ai dispositivi registrati. Per altre informazioni, vedere l'articolo relativo all'[aggiunta di notifiche push all'app](app-service-mobile-ios-get-started-push.md) Per altre informazioni su tutte le operazioni disponibili con Hub di notifica, vedere [Panoramica dell'Hub di notifica di Azure](../notification-hubs/notification-hubs-overview.md).
 
+## Procedura: Aggiungere tag all'installazione di un dispositivo per eseguire il push dei tag
+
+Dopo aver eseguito il passaggio precedente **Procedura: Definire un controller API personalizzato**, è possibile configurare un'API personalizzata nel back-end che userà Hub di notifica per aggiungere tag all'installazione di un dispositivo specifico. Assicurarsi di passare l'ID installazione memorizzato nella risorsa di archiviazione locale client assieme ai tag che si desidera aggiungere (l'aggiunta è facoltativa perché è anche possibile specificare i tag direttamente nel back-end). Il frammento di codice seguente deve essere aggiunto al controller che userà gli hub di notifica per aggiungere un tag all'ID di installazione di un dispositivo.
+
+Usando il [pacchetto NuGet degli hub di notifica di Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)([riferimento](https://msdn.microsoft.com/library/azure/mt414893.aspx)):
+
+		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+
+		hub.PatchInstallation("my-installation-id", new[]
+		{
+		    new PartialUpdateOperation
+		    {
+		        Operation = UpdateOperationType.Add,
+		        Path = "/tags",
+		        Value = "{my-tag}"
+		    }
+		});
+	
+
+Per eseguire il push di questi tag, usare le [API degli hub di notifica](https://msdn.microsoft.com/library/azure/dn495101.aspx).
+
+È anche possibile organizzare l'API personalizzata in modo da registrare le installazioni dei dispositivi con gli hub di notifica direttamente nel back-end.
+
 ## Procedura: Pubblicare il progetto server
 
 Eseguire la procedura seguente per pubblicare il progetto server in Azure:
@@ -207,4 +230,4 @@ Eseguire la procedura seguente per pubblicare il progetto server in Azure:
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

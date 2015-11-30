@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Test delle impostazioni di Gestione traffico
@@ -57,4 +57,4 @@ Sono disponibili servizi di analisi approfondita e DNS basati su Web gratuiti. A
 [Informazioni sui metodi di routing di Gestione traffico](../about-traffic-manager-balancing-methods.md) [Gestione traffico](../traffic-manager.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

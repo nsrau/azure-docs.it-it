@@ -643,10 +643,10 @@ In Visual Studio dal menu **Compila**, fare clic su **Compila soluzione** o prem
 
 Questa esercitazione ha illustrato come creare un'applicazione client del bus di servizio e un servizio utilizzando le funzionalità di messaggistica negoziata del bus di servizio. Per un'esercitazione simile che utilizza la [messaggistica inoltrata](service-bus-messaging-overview.md/#Relayed-messaging) del bus di servizio, consultare [Esercitazione sulla messaggistica inoltrata del bus di servizio](service-bus-relay-tutorial.md).
 
-Per ulteriori informazioni sul bus di servizio, vedere gli argomenti seguenti:
+Per altre informazioni sul [Bus di servizio](https://azure.microsoft.com/services/service-bus/), vedere gli argomenti seguenti.
 
 - [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Architettura del bus di servizio](service-bus-architecture.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Metodi di routing di Gestione traffico
@@ -123,18 +123,11 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
 ## Passaggi successivi
 
-[Gestione traffico di Azure](traffic-manager-overview.md)
+[Monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
 
-[Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
+[Creare un profilo](traffic-manager-manage-profiles.md)
 
-[Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[Servizi cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
+[Aggiungere un endpoint](traffic-manager-endpoints.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

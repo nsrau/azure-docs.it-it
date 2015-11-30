@@ -759,7 +759,7 @@ Le stored procedure e i trigger di JavaScript vengono create in modalità sandbo
 Le stored procedure, i trigger e le UDF vengono precompilate implicitamente nel formato di codice byte per evitare i costi di compilazione ad ogni chiamata dello script. Questo garantisce la velocità elevata e il footprint ridotto delle chiamate delle stored procedure.
 
 ## Supporto di client SDK
-Oltre al client [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB supporta [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) e gli [SDK Python](http://dl.windowsazure.com/documentDB/pythondocs/). È possibile creare ed eseguire stored procedure, trigger e UDFs usando anche uno qualsiasi di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
+Oltre al client [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB supporta [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) e gli [SDK Python](http://dl.windowsazure.com/documentDB/pythondocs/). È possibile creare ed eseguire stored procedure, trigger e UDFs usando anche uno qualsiasi di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -792,7 +792,7 @@ Oltre al client [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), Docu
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-Questo esempio illustra come usare [.NET SDK](https://msdn.microsoft.com/library/azure/dn783362.aspx) per creare un pre-trigger e quindi un documento con il trigger attivato.
+Questo esempio illustra come usare [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx) per creare un pre-trigger e quindi un documento con il trigger attivato.
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -920,4 +920,4 @@ Quando si dispone di uno o più stored procedure, trigger e funzioni definite da
 -	[Database architettura orientata ai servizi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hosting del Runtime .NET in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

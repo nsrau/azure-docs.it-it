@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 
@@ -44,7 +44,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 &nbsp;&nbsp;7. Aprire il file di codice App.xaml.cs condiviso. Si noti come una chiamata al nuovo metodo **UploadChannel** è stata aggiunta al gestore dell'evento **OnLaunched**. In questo modo verrà effettuato un tentativo di registrazione del dispositivo a ogni avvio dell'app.
 
-&nbsp;&nbsp;8. Ripetere i passaggi precedenti per aggiungere notifiche push al progetto di app di Windows Phone Store, quindi nel file App.xaml.cs condiviso rimuovere la chiamata supplementare a **UploadChannel** e il wrapper condizionale `#if...#endif` restante. Ora entrambi i progetti possono condividere un'unica chiamata a **UploadChannel**.
+&nbsp;&nbsp;8. Ripetere i passaggi precedenti per aggiungere notifiche push al progetto di app di Windows Phone Store, quindi nel file App.xaml.cs condiviso rimuovere la chiamata supplementare a **Client di servizi mobili** **UploadChannel** e il wrapper condizionale `#if...#endif` restante. Ora entrambi i progetti possono condividere un'unica chiamata a **UploadChannel**.
 
 &nbsp;&nbsp;Si noti che è anche possibile semplificare il codice generato unendo le definizioni con wrapping `#if...#endif` [MobileServiceClient] in un'unica definizione senza wrapping usata da entrambe le versioni dell'app.
 
@@ -100,4 +100,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

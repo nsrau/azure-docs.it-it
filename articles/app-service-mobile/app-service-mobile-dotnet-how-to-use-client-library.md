@@ -24,7 +24,7 @@
 
 ##Panoramica 
 
-Questa guida illustra come eseguire scenari comuni usando il client gestito per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con App per dispositivi mobili, si consiglia di completare prima l'esercitazione [Introduzione a App per dispositivi mobili](app-service-mobile-windows-store-dotnet-get-started.md). In questa Guida, l'attenzione è posta sull’SDK gestito sul lato client. Per ulteriori informazioni sull’SDK sul lato client per il back-end .NET, vedere [Utilizzare back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con App per dispositivi mobili, si consiglia di completare prima l'esercitazione [Introduzione a App per dispositivi mobili](app-service-mobile-windows-store-dotnet-get-started.md). In questa Guida, l'attenzione è posta sull’SDK gestito sul lato client. Per ulteriori informazioni sull’SDK sul lato client per il back-end .NET, vedere [Utilizzare back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
 ##<a name="setup"></a>Installazione e prerequisiti
 
@@ -310,6 +310,40 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 >[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 >-->
 
+## Procedura: registrare modelli push per inviare notifiche multipiattaforma
+
+Per registrare i modelli, è sufficiente passare modelli con il metodo **MobileService.GetPush().RegisterAsync()** nell'applicazione client.
+
+        MobileService.GetPush().RegisterAsync(channel.Uri, newTemplates());
+
+I modelli sono di tipo JObject e possono contenere più modelli nel formato JSON seguente:
+
+        public JObject newTemplates()
+        {
+            // single template for Windows Notification Service toast
+            var template = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
+            
+            var templates = new JObject
+            {
+                ["generic-message"] = new JObject
+                {
+                    ["body"] = template,
+                    ["headers"] = new JObject
+                    {
+                        ["X-WNS-Type"] = "wns/toast"
+                    },
+                    ["tags"] = new JArray()
+                },
+                ["more-templates"] = new JObject {...}
+            };
+            return templates;
+        }
+
+Il metodo **RegisterAsync()** accetta inoltre riquadri secondari:
+
+        MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
+
+Per inviare notifiche utilizzando questi modelli registrati, utilizzare le [API di Hub di notifica](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
 ##<a name="optimisticconcurrency"></a>Procedura: Usare la concorrenza ottimistica
 
@@ -705,6 +739,6 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [Fiddler]: http://www.telerik.com/fiddler
 [API personalizzata nei Servizi mobili di Azure - SDK client]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-[DelegatingHandler]: https://msdn.microsoft.com/it-IT/library/system.net.http.delegatinghandler(v=vs.110).aspx
+[DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

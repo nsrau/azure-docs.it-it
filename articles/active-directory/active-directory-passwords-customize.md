@@ -13,15 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Personalizzazione di Gestione delle password in base alle esigenze dell'organizzazione
 Per offrire agli utenti la migliore esperienza possibile, è consigliabile esplorare e provare tutte le opzioni di configurazione disponibili di Gestione delle password. Di fatto, è possibile iniziare l'esplorazione immediatamente passando alla scheda di configurazione dell’**estensione Active Directory** nel [portale di gestione di Azure](https://manage.windowsazure.com). In questo argomento vengono descritte tutte le diverse personalizzazioni di Gestione delle password che è possibile effettuare come amministratore nella scheda **Configura** della directory all'interno del [portale di gestione di Azure](https://manage.windowsazure.com), tra cui:
 
-- [**Personalizzazione dell’aspetto di Gestione delle password**](#password-managment-look-and-feel)
-- [**Personalizzazione del comportamento di Gestione delle password utente**](#password-management-behavior)
-- [**Personalizzazione delle notifiche di Gestione delle password**](#password-management-notifications)
+| Argomento | |
+| --------- | --------- |
+| Come è possibile abilitare o disabilitare la reimpostazione della password? | [Impostazione: Utenti abilitati per la reimpostazione della password](#users-enabled-for-password-reset) |
+| Come è possibile limitare la reimpostazione delle password a un gruppo specifico di utenti? | [Limitare la reimpostazione delle password a determinati utenti](#restrict-access-to-password-reset) |
+| Come è possibile modificare i metodi di autenticazione supportati? | [Impostazione: Metodi di autenticazione disponibili per gli utenti](#authentication-methods-available-to-users) |
+| Come è possibile modificare il numero di metodi di autenticazione necessari? | [Impostazione: Numero di metodi di autenticazione necessari](#number-of-authentication-methods-required) |
+| Come è possibile configurare domande di sicurezza personalizzate? | [Impostazione: Domande di sicurezza personalizzate](#custom-security-questions) |
+| Come è possibile configurare domande di sicurezza localizzate predefinite? | [Impostazione: Domande di sicurezza basate su informazioni note](#knowledge-based-security-questions) |
+| Come è possibile modificare il numero di domande di sicurezza necessarie? | [Impostazione: Numero di domande di sicurezza per la registrazione o la reimpostazione](#number-of-questions-required-to-register) |
+| Come è possibile forzare gli utenti a registrarsi durante la procedura di accesso? | [Implementazione della funzione di reimpostazione della password basata sulla registrazione forzata](#require-users-to-register-when-signing-in) |
+| Come è possibile forzare gli utenti a riconfermare periodicamente la propria registrazione? | [Impostazione: Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione](#number-of-days-before-users-must-confirm-their-contact-data) |
+| Come è possibile personalizzare le modalità con cui un utente può entrare in contatto con un amministratore? | [Impostazione: Personalizza il collegamento "Contattare l'amministratore](#customize-the-contact-your-administrator-link) |
+| Come è possibile consentire agli utenti di sbloccare gli account di Active Directory senza reimpostare una password? | [Impostazione: Consenti agli utenti di sbloccare gli account di Active Directory senza reimpostare una password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Come è possibile abilitare le notifiche di reimpostazione della password per gli utenti? | [Impostazione: Avvisa gli utenti quando vengono reimpostate le password personali](#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| Come è possibile abilitare le notifiche di reimpostazione della password per gli amministratori? | [Impostazione: Avvisa gli altri amministratori quando un amministratore reimposta la password personale](#notify-admins-when-other-admins-reset-their-own-passwords) |
+| Come è possibile personalizzare l'aspetto della funzione di reimpostazione della password? | [Impostazione: Nome, marchio e logo dell'azienda](#password-managment-look-and-feel) |
+
 
 ## Aspetto di Gestione delle password
 Nella tabella seguente viene descritto come ciascun controllo influisce sull'esperienza degli utenti che effettuano la registrazione per la reimpostazione delle password e che reimpostano le proprie password. È possibile configurare queste opzioni nella sezione **Proprietà della directory** della scheda **Configura** della directory all’interno del [portale di gestione di Azure](https://manage.windowsazure.com).
@@ -46,7 +60,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Nome della directory</p>
+                <div id="directory-name">
+                  <p>Nome della directory</p>
+                </div>
               </td>
               <td>
                 <p>Determina il nome dell’organizzazione che utenti o amministratori visualizzano nelle comunicazioni tramite messaggi di posta elettronica relativi alla reimpostazione delle password</p>
@@ -72,7 +88,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Aspetto della pagina di accesso e del pannello di accesso</p>
+                <div id="sign-in-and-access-panel-page-appearance">
+                  <p>Aspetto della pagina di accesso e del pannello di accesso</p>
+                </div>
               </td>
               <td>
                 <p>Determina se gli utenti che visitano la pagina di reimpostazione delle password visualizzano il logo Microsoft o il logo personalizzato. Questo elemento di configurazione consente inoltre di aggiungere informazioni personalizzate alla pagina di accesso e al pannello di accesso.</p>
@@ -134,7 +152,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Utenti abilitati per la reimpostazione delle password</p>
+                <div id="users-enabled-for-password-reset">
+                  <p>Utenti abilitati per la reimpostazione delle password</p>
+                </div>
               </td>
               <td>
                 <p>Determina se la reimpostazione delle password è abilitata per gli utenti in questa directory. </p>
@@ -166,7 +186,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Limitare l'accesso per la reimpostazione delle password</p>
+                <div id="restrict-access-to-password-reset">
+                  <p>Limitare l'accesso per la reimpostazione delle password</p>
+                </div>
               </td>
               <td>
                 <p>Determina se è consentito usare la reimpostazione delle password solo a un determinato gruppo di utenti. (Visibile solo se <strong>Utenti abilitati per la reimpostazione delle password</strong> è impostato su <strong>Sì</strong>).</p>
@@ -194,7 +216,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Gruppo che può eseguire la reimpostazione delle password</p>
+                <div id="group-that-can-perform-password-reset">
+                  <p>Gruppo che può eseguire la reimpostazione delle password</p>
+                </div>
               </td>
               <td>
                 <p>Determina quale gruppo di utenti finali è autorizzato a usare la reimpostazione delle password. </p>
@@ -231,7 +255,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Metodi di autenticazione disponibili per gli utenti</p>
+                <div id="authentication-methods-available-to-users">
+                  <p>Metodi di autenticazione disponibili per gli utenti</p>
+                </div>
               </td>
               <td>
                 <p>Determina le richieste di verifica che un utente è autorizzato a usare per reimpostare la propria password.</p>
@@ -295,7 +321,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Numero di metodi di autenticazione necessari</p>
+                <div id="number-of-authentication-methods-required">
+                  <p>Numero di metodi di autenticazione necessari</p>
+                </div>
               </td>
               <td>
                 <p>Determina il numero minimo di metodi di autenticazione disponibili che un utente deve usare per reimpostare la propria password.</p>
@@ -332,7 +360,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Numero di domande necessarie per la registrazione</p>
+                <div id="number-of-questions-required-to-register">
+                  <p>Numero di domande necessarie per la registrazione</p>
+                </div>
               </td>
               <td>
                 <p>Determina il numero minimo di domande a cui un utente deve rispondere quando effettua la registrazione con l’opzione delle domande di sicurezza.</p>
@@ -361,7 +391,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Numero di domande necessarie per la reimpostazione </p>
+                <div id="number-of-questions-required-to-reset">
+                  <p>Numero di domande necessarie per la reimpostazione </p>
+                </div>
               </td>
               <td>
                 <p>Determina il numero minimo di domande a cui un utente deve rispondere quando reimposta una password.</p>
@@ -393,7 +425,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Le domande di sicurezza si basano sulla conoscenza</p>
+                <div id="knowledge-based-security-questions">
+                  <p>Le domande di sicurezza si basano sulla conoscenza</p>
+                </div>
               </td>
               <td>
                 <p>Definisce le domande di sicurezza pre-definite che gli utenti possono scegliere durante la registrazione per la reimpostazione delle password e durante la reimpostazione delle password.</p>
@@ -442,7 +476,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Domande di sicurezza personalizzate</p>
+                <div id="custom-security-questions">
+                  <p>Domande di sicurezza personalizzate</p>
+                </div>
               </td>
               <td>
                 <p>Definisce le domande di sicurezza che gli utenti possono scegliere durante la registrazione per la reimpostazione delle password e durante la reimpostazione delle password.</p>
@@ -493,13 +529,22 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Richiedere agli utenti di effettuare la registrazione quando accedono al pannello di accesso</p>
+                <div id="require-users-to-register-when-signing-in">
+                  <p>Richiedere agli utenti di registrarsi all'accesso?</p>
+                </div>
                 <p>
                   
                 </p>
               </td>
               <td>
-                <p>Determina se a un utente viene richiesto di registrare i dati di contatto per la reimpostazione delle password la volta successiva che accede al pannello di accesso.</p>
+                <p>Determina se a un utente viene richiesto di registrare i dati di contatto per la reimpostazione delle password la volta successiva che accede.  
+                </p>
+                <p>Questa funzionalità può essere utilizzata in qualsiasi pagina di accesso che utilizza un account aziendale o di un istituto di istruzione. Tali pagine includono tutte le versioni di Office 365, il Portale di gestione di Azure, il Pannello di accesso e tutte le applicazioni federate o sviluppate in modo personalizzato che effettuano l'accesso tramite Azure AD.
+                </p>
+                <p>
+                  
+                </p>
+                <p>La registrazione applicata viene utilizzata solo per gli utenti per i quali è abilitata la reimpostazione della password. Pertanto, se sono state utilizzate la funzionalità "Limitare l'accesso per la reimpostazione delle password" e la reimpostazione della password con ambito per un gruppo specifico di utenti, solo agli utenti di questo gruppo verrà richiesto all'accesso di registrarsi per la reimpostazione della password.</p>
                 <p>
                   
                 </p>
@@ -534,7 +579,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Numero di giorni prima che gli utenti debbano confermare i dati di contatto</p>
+                <div id="number-of-days-before-users-must-confirm-their-contact-data">
+                  <p>Numero di giorni prima che gli utenti debbano confermare i dati di contatto</p>
+                </div>
               </td>
               <td>
                 <p>Quando <strong>Richiedere agli utenti di effettuare la registrazione</strong> è attivato, questa impostazione determina il periodo di tempo che può trascorrere prima che un utente debba riconfermare i dati. </p>
@@ -568,7 +615,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Personalizzare il collegamento Contattare l’amministratore</p>
+                <div id="customize-the-contact-your-administrator-link">
+                  <p>Personalizzare il collegamento Contattare l’amministratore</p>
+                </div>
               </td>
               <td>
                 <p>Controlla se il collegamento Contattare l’amministratore (visualizzato a sinistra) viene visualizzato nel portale di reimpostazione delle password quando si verifica un errore o se un utente attende troppo a lungo che un'operazione punti a un URL o a un indirizzo di posta elettronica personalizzato.</p>
@@ -612,7 +661,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Indirizzo di posta elettronica o URL personalizzato</p>
+                <div id="custom-email-address-or-URL">
+                  <p>Indirizzo di posta elettronica o URL personalizzato</p>
+                </div>
               </td>
               <td>
                 <p>Controlla l'indirizzo di posta elettronica o l'URL a cui punta il collegamento <strong>Contattare l'amministratore</strong>. </p>
@@ -644,14 +695,16 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Writeback delle password in una directory locale</p>
+                <div id="write-back-passwords-to-on-premises-directory">
+                  <p>Writeback della password in una directory locale</p>
+                </div>
               </td>
               <td>
                 <p>Controlla se Writeback password è abilitato per questa directory e, in questo caso, indica lo stato del servizio di writeback locale.</p>
                 <p>
                   
                 </p>
-                <p>Questa funzionalità è utile se si vuole disabilitare temporaneamente il servizio a causa un'interruzione.</p>
+                <p>Questa impostazione è utile se si desidera disabilitare temporaneamente il servizio senza riconfigurare Azure AD Connect.</p>
               </td>
               <td>
                 <p>
@@ -688,6 +741,41 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 </ul>
               </td>
             </tr>
+             <tr>
+              <td>
+                <div id="allow-users-to-unlock-accounts-without-resetting-their-password">
+                  <p>Allow users to unlock accounts without resetting their password</p>
+                </div>
+              </td>
+              <td>
+              
+              <p>Stabilisce se gli utenti che visitano il portale di reimpostazione della password devono avere la possibilità di sbloccare il proprio account di Active Directory locale senza reimpostare la password. Per impostazione predefinita, Azure AD sblocca sempre gli account quando si esegue una reimpostazione della password. Questa impostazione consente di separare le due operazioni.</p>
+              
+              <p>Se impostata su "sì", agli utenti viene offerta la possibilità di scegliere se reimpostare la password e sbloccare l'account o se sbloccare l'account senza reimpostare la password. </p>
+              
+              <p>Se impostata su "no", gli utenti potranno eseguire le operazioni di reimpostazione della password e di sblocco dell'account solo in abbinamento.</p>
+
+              </td>
+              <td>
+                <p>
+                  <strong>Nota:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Per utilizzare questa funzionalità, è necessario installare la versione di agosto 2015 o una versione successiva di Azure AD Connect (v. 1.0.8667.0 o superiore).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Fare clic qui per scaricare la versione più recente di Azure AD Connect</a>.</li>
+                        
+                  <li class="unordered">
+                    <strong>Nota:</strong> per testare questa funzionalità, è necessario abilitare il writeback delle password e utilizzare un account originato in locale (ad esempio un utente federato o con password sincronizzata) e bloccato. Per gli utenti non locali e che non hanno un account bloccato non verrà visualizzata l'opzione di sblocco del proprio account.</li>
+                </ul>
+                <p>
+                  <strong>Portale di reimpostazione delle password:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Dopo che questa opzione è stata abilitata, quando un utente con un account locale bloccato raggiunge il portale di reimpostazione delle password ha la possibilità di sbloccare l'account senza reimpostare la password.<br><br>Si noti che se si utilizza il writeback delle password gli account vengono sbloccati automaticamente quando si reimposta la password. Questa opzione quindi si limita a separare tali operazioni.<br><br>Si tratta di un'opzione particolarmente utile se molte delle chiamate all'helpdesk sono richieste di sblocco di account.</li>
+                </ul>
+              </td>
+            </tr>
           </tbody></table>
 
 ## Notifiche di Gestione delle password
@@ -713,7 +801,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Inviare una notifica agli amministratori quando altri amministratori reimpostano le proprie password</p>
+                <div id="notify-admins-when-other-admins-reset-their-own-passwords">
+                  <p>Inviare una notifica agli amministratori quando altri amministratori reimpostano le proprie password</p>
+                </div>
               </td>
               <td>
                 <p>Determina se a tutti gli amministratori globali viene inviata o meno una notifica tramite un messaggio di posta elettronica all’indirizzo di posta elettronica principale quando un altro amministratore di qualsiasi tipo reimposta la propria password.</p>
@@ -741,7 +831,9 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
             </tr>
             <tr>
               <td>
-                <p>Inviare una notifica a utenti e amministratori quando la loro password è stata reimpostata</p>
+                <div id="notify-users-and-admins-when-their-own-password-has-been-reset">
+                  <p>Inviare una notifica a utenti e amministratori quando la loro password è stata reimpostata</p>
+                </div>
               </td>
               <td>
                 <p>Determina se gli utenti finali o gli amministratori che reimpostano le proprie password ricevono o meno una notifica tramite un messaggio di posta elettronica quando la loro password è stata reimpostata.</p>
@@ -765,17 +857,19 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
 
 <br/> <br/> <br/>
 
-**Risorse aggiuntive**
+## Collegamenti alla documentazione relativa alla reimpostazione della password
+Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
+
+* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
+* [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
+* [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
+* [**Informazioni dettagliate**](active-directory-passwords-get-insights.md): informazioni sulle funzionalità di creazione report integrate
+* [**Domande frequenti**](active-directory-passwords-faq.md): risposte alle domande frequenti
+* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
+* [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
 
 
-* [Informazioni sulla gestione delle password](active-directory-passwords.md)
-* [Funzionamento della gestione delle password](active-directory-passwords-how-it-works.md)
-* [Introduzione a Gestione delle password](active-directory-passwords-getting-started.md)
-* [Procedure consigliate per Gestione delle password](active-directory-passwords-best-practices.md)
-* [Come ottenere informazioni dettagliate con i report di gestione delle password](active-directory-passwords-get-insights.md)
-* [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
-* [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
-* [Altre informazioni](active-directory-passwords-learn-more.md)
-* [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+[001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

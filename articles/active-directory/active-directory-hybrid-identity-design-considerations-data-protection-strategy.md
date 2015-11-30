@@ -67,7 +67,7 @@ Per un'efficace gestione del contenuto, è necessario sapere chi accede a una de
 
 >[AZURE.NOTE]Per altre informazioni sulle funzionalità di registrazione in Azure, vedere l'articolo relativo alla [gestione dei log di controllo e sicurezza di Microsoft Azure](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf). A seconda delle risposte fornite alle domande nella sezione [Determinare i requisiti di gestione del contenuto](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md), sarà possibile stabilire come si vuole che il contenuto venga gestito nella soluzione ibrida di gestione delle identità. Sebbene tutte le opzioni esposte nella tabella 6 possano essere integrate con Azure AD, è importante definire quella più appropriata in base alle esigenze aziendali.
 
-| Opzioni di gestione del contenuto | Vantaggi | Svantaggi |
+| Opzioni di gestione del contenuto | Vantaggi | Svantaggi: |
 |------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Centralizzata locale (server Active Directory Rights Management) | Controllo completo sull'infrastruttura server responsabile della classificazione dei dati <br> Funzionalità incorporata in Windows Server, non sono necessarie licenze o sottoscrizioni aggiuntive <br> Può essere integrata con Azure AD in uno scenario ibrido <br> Supporta le funzionalità di Information Rights Management (IRM) nei Microsoft Online Services, ad esempio Exchange Online e SharePoint Online, nonché Office 365 <br> Supporta i prodotti server Microsoft locali, ad esempio Exchange Server, SharePoint Server e file server che eseguono Windows Server e Infrastruttura di classificazione file. | Manutenzione più elevata (aggiornamenti, configurazioni e potenziali aggiornamenti di versione), poiché il server è di proprietà del reparto IT <br> Richiede un'infrastruttura server locale <br> Non usa le funzionalità di Azure in modo nativo |
 | Centralizzata nel cloud (Azure RMS) | Più facile da gestire rispetto alla soluzione locale <br> Può essere integrata con Servizi di dominio Active Directory in uno scenario ibrido <br> È completamente integrata con Azure AD <br> Non richiede un server locale per la distribuzione del servizio <br> Supporta i prodotti server Microsoft locali, ad esempio Exchange Online, SharePoint Online e file server che eseguono Windows Server e Infrastruttura di classificazione file <br> Il reparto IT ha il controllo completo sulla chiave del tenant grazie alla funzionalità BYOK (Bring Your Own Key). | L'organizzazione deve avere una sottoscrizione cloud che supporta RMS <br> L'organizzazione deve avere una directory di Azure AD per supportare l'autenticazione utente per RMS |
@@ -85,7 +85,7 @@ Azure Active Directory offre l'accesso Single Sign-On a migliaia di applicazioni
 - SAML (Security Assertion Markup Language)
 - OAuth
 - Kerberos
-- Token
+- Tokens
 - Certificati
 
 
@@ -111,14 +111,14 @@ Ogni interazione nel diagramma illustrato nella figura X rappresenta uno scenari
 
 3. Accesso condizionale per le applicazioni di Office 365 con Microsoft Intune: gli amministratori IT possono effettuare il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli Information Worker che usano dispositivi compatibili di accedere ai servizi. Per altre informazioni, vedere [Criteri di accesso condizionale dei dispositivi per i servizi di Office 365](https://azure.microsoft.com/it-IT/documentation/articles/active-directory-conditional-access-device-policies/?rnd=1).
 
-4. Accesso condizionale per app SaaS: [questa funzionalità](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) consente di configurare regole di accesso con autenticazione a più fattori per ogni applicazione e di bloccare l'accesso agli utenti di reti non attendibili. La regola di autenticazione a più fattori può essere applicata a tutti gli utenti assegnati all'applicazione oppure solo agli utenti inclusi in gruppi di sicurezza specificati. Gli utenti possono essere esclusi dal requisito di autenticazione a più fattori se accedono all'applicazione da un indirizzo IP che risiede all'interno della rete dell'organizzazione.
+4. Accesso condizionale per app SaaS: [questa funzionalità](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) consente di configurare regole di accesso con autenticazione a più fattori per ogni applicazione e di bloccare l'accesso agli utenti di reti non attendibili. La regola di autenticazione a più fattori può essere applicata a tutti gli utenti assegnati all'applicazione oppure solo agli utenti inclusi in gruppi di sicurezza specificati. Gli utenti possono essere esclusi dal requisito di autenticazione a più fattori se accedono all'applicazione da un indirizzo IP all'interno della rete dell'organizzazione.
 
 Poiché le opzioni per il controllo di accesso usano un approccio multilivello, il confronto tra tali opzioni non è applicabile per questa attività. Assicurarsi di usare tutte le opzioni disponibili per ogni scenario che richiede di controllare l'accesso alle risorse.
 
 ## Definire le opzioni di risposta agli eventi imprevisti
 Azure AD può supportare il reparto IT nell'identificazione dei potenziali rischi per la sicurezza nell'ambiente monitorando l'attività degli utenti, usando la funzionalità di creazione di report di accesso e utilizzo di Azure AD per ottenere visibilità sull'integrità e sulla sicurezza della directory dell'organizzazione. Con queste informazioni un amministratore della directory può determinare le aree in cui possono risiedere i potenziali rischi per la sicurezza in modo da poterne pianificare adeguatamente l'attenuazione. La [sottoscrizione Azure AD Premium](https://azure.microsoft.com/it-IT/documentation/articles/active-directory-get-started-premium/) include un set di report di sicurezza che consentono al reparto IT di ottenere tali informazioni. I [report di Azure AD](https://azure.microsoft.com/it-IT/documentation/articles/active-directory-view-access-usage-reports/) sono classificati nel modo seguente:
 
-- **Report anomalie**: contiene eventi di accesso individuati come anomali. L'obiettivo è segnalare tali attività per stabilire se un evento è sospetto o meno. 
+- **Report anomalie**: contiene eventi di accesso individuati come anomali. L'obiettivo è rendere gli utenti consapevoli di tale attività e consentire loro di essere in grado di stabilire se un evento è sospetto. 
 - **Report applicazioni integrate**: fornisce informazioni dettagliate sul modo in cui vengono usate le applicazioni cloud nell'organizzazione. Azure Active Directory offre l'integrazione con migliaia di applicazioni cloud. 
 - **Report di errori**: segnalano gli errori che possono verificarsi durante il provisioning di account in applicazioni esterne.
 - **Report specifici dell'utente**: visualizzano i dati del dispositivo/dell'attività di accesso per un utente specifico.
@@ -148,6 +148,6 @@ Poiché le opzioni per le risposte agli eventi imprevisti usano un approccio mul
 
 
 ## Vedere anche
-[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

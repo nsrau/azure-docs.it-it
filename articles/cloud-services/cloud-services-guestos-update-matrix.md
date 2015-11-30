@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="yuemlu"/>
 
 # Rilasci del sistema operativo guest Azure e matrice di compatibilità SDK
@@ -28,6 +28,43 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 
 
 ## Novità e aggiornamenti
+###### **12 novembre 2015**  
+Il 7 agosto 2014 Microsoft ha annunciato che il supporto per .NET Framework 4, 4.5 e 4.5.1 terminerà il 12 gennaio 2016. Per i clienti e gli sviluppatori è consigliabile completare l'aggiornamento locale a .NET Framework 4.5.2 12 entro il 12 gennaio 2016 per continuare a ricevere supporto tecnico e aggiornamenti della sicurezza. Per maggiori dettagli, visitare il sito dedicato ai criteri relativi al ciclo di vita del supporto per Microsoft .NET Framework.
+
+Il 27 ottobre abbiamo annunciato che Azure aggiornerà .NET Framework all'interno della famiglia di sistemi operativi guest Azure (sistema operativo guest) 2. x, 3.x e 4. x a .NET Framework 4.5.2 nella prossima versione del sistema operativo guest di novembre. Da allora, commenti e suggerimenti dei clienti ci hanno consigliato di rimandare l'aggiornamento automatico a una versione del sistema operativo con .NET 4.5.2 e di fornire un'immagine con .NET 4.5.2 per il test di convalida.
+
+Per meglio soddisfare le esigenze dei clienti e garantire un agevole aggiornamento a .NET 4.5.2, Azure aggiornerà .NET Framework nella famiglia di sistemi operativi guest Azure (sistema operativo guest) 2. x, 3.x e 4. x a .NET Framework 4.5.2 nella versione di gennaio 2016 del sistema operativo guest. I servizi cloud che eseguono la famiglia di sistemi operativi guest 2. x, 3.x e 4. x con gli aggiornamenti automatici abilitati verranno aggiornati alla versione del sistema operativo guest di gennaio 2016 con .NET Framework 4.5.2. Nel mese di novembre, la versione di .NET Framework installata nel sistema operativo predefinito non verrà modificata. Per consentire ai clienti di convalidare il servizio cloud con .NET 4.5.2, Azure offre un secondo set di versioni del sistema operativo 201511-02 di novembre con .NET 4.5.2 per la distribuzione manuale.
+
+Nella tabella seguente sono schematizzate le modifiche che verranno applicate.
+ 
+| Famiglia del sistema operativo guest | .NET Framework installato prima della versione 201511-02 del sistema operativo guest | .NET Framework installato con la versione 201511-02 del sistema operativo guest | .NET Framework installato con la versione 201512-01 del sistema operativo guest | .NET Framework installato con la versione 201601-01 o successiva del sistema operativo guest |
+| --------------- | ---------------- | ---------------- | ---------------- | ---------------- |
+| Famiglia di sistemi operativi 2.x basata su Windows Server 2008 R2 | .NET 3.5, .NET 4.0 | .NET 3.5, .NET 4.5.2 | .NET 3.5, .NET 4.0 | .NET 3.5, .NET 4.5.2 |
+| Famiglia di sistemi operativi 3.x basata su Windows Server 2012 | .NET 4.5 | .NET 4.5.2 | .NET 4.5 | .NET 4.5.2 | 
+| Famiglia di sistemi operativi 4.x basata su Windows Server 2012 R2 | .NET 4.5.1 | .NET 4.5.2 | .NET 4.5.1 | .NET 4.5.2 | 
+ 
+Se si utilizza l'aggiornamento manuale del sistema operativo guest, in novembre vi saranno due versioni di questo sistema operativo per tutte le famiglie di sistemi operativi guest.
+
+   • WA-GUEST-OS-4.26\_201511-01, WA-GUEST-OS-3.33\_201511-01, WA-GUEST-OS-2.45\_201511-01 (impostazione predefinita)
+
+   Queste includono MSRC di novembre e i rollup di Windows di ottobre
+
+   • WA-GUEST-OS-4.26\_201511-02, WA-GUEST-OS-3.33\_201511-02, WA-GUEST-OS-2.45\_201511-02
+
+   Queste includono MSRC di novembre, i rollup di Windows di ottobre e .NET Framework aggiornato a .NET 4.5.2
+
+
+
+Prima di eseguire l'aggiornamento, ecco alcune delle opzioni per convalidare il servizio cloud con .NET 4.5.2:
+
+1. 	Distribuire un ruolo del servizio cloud di test alla versione 201511-02 ed eseguire la convalida di compatibilità delle applicazioni. 
+
+2. 	Installare .NET 4.5.2 in un ruolo del servizio cloud di test ed eseguire la convalida di compatibilità delle applicazioni. Visitare [Installare .NET in un ruolo del servizio cloud].
+
+3. 	Eseguire la convalida di compatibilità delle applicazioni su una macchina virtuale autonoma, locale o su una macchina virtuale di Azure con .NET 4.5.2 installato.
+
+
+
 
 ###### **15 ottobre 2015**
 L’implementazione del sistema operativo guest di ottobre è iniziata oggi 15 ottobre 2015 e dovrebbe essere rilasciata il 13 novembre 2015.
@@ -131,6 +168,8 @@ Supporta .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | Prevista: 10 dicembre 2015 | Verrà aggiornata al momento del rilascio della versione 4.28 | Da definire |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-01 | Prevista: 10 dicembre 2015 | Verrà aggiornata al momento del rilascio della versione 4.28 | Da definire |
 | 4\.25 | WA-GUEST-OS-4.25\_201510-01 | 6 novembre 2015 | Verrà aggiornata al momento del rilascio della versione 4.27 | Da definire |
 | 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1 ottobre 2015 | Verrà aggiornata al momento del rilascio della versione 4.26 | Da definire |
 | 4\.23 | WA-GUEST-OS-4.23\_201508-02 | 9 settembre 2015 | 6 dicembre 2015 | Da definire |
@@ -158,6 +197,8 @@ Supporta .NET 4.0, 4.5
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | Prevista: 10 dicembre 2015 | Verrà aggiornata al momento del rilascio della versione 3.35 | Da definire |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-01 | Prevista: 10 dicembre 2015 | Verrà aggiornata al momento del rilascio della versione 3.35 | Da definire |
 | 3\.32 | WA-GUEST-OS-3.32\_201510-01 | 6 novembre 2015 | Verrà aggiornata al momento del rilascio della versione 3.34 | Da definire |
 | 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1 ottobre 2015 | Verrà aggiornata al momento del rilascio della versione 3.33 | Da definire |
 | 3\.30 | WA-GUEST-OS-3.30\_201508-02 | 9 settembre 2015 | 6 dicembre 2015 | Da definire |
@@ -186,6 +227,8 @@ Supporta .NET 3.5, 4.0
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | Prevista: 10 dicembre 2015 | Verrà aggiornata al momento del rilascio della versione 2.47 | Da definire |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-01 | Prevista: 10 dicembre 2015 | Verrà aggiornata al momento del rilascio della versione 2.47 | Da definire |
 | 2\.44 | WA-GUEST-OS-2.44\_201510-01 | 6 novembre 2015 | Verrà aggiornata al momento del rilascio della versione 2.46 | Da definire |
 | 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1 ottobre 2015 | Verrà aggiornata al momento del rilascio della versione 2.45 | Da definire |
 | 2\.42 | WA-GUEST-OS-2.42\_201508-02 | 9 settembre 2015 | 6 dicembre 2015 | Da definire |
@@ -330,7 +373,7 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 | 2\.19 rel3 | WA-GUEST-OS-2.19\_201309-03 | 9 ottobre 2013 | N/D | 14 maggio 2014 |
 | 2\.19 rel1 | WA-GUEST-OS-2.19\_201309-01 | 23 settembre 2013 | N/D | 14 maggio 2014 |
 
-
+[Installare .NET in un ruolo del servizio cloud]: https://azure.microsoft.com/it-IT/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Impostazioni di aggiornamento del sistema operativo guest Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -351,4 +394,4 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

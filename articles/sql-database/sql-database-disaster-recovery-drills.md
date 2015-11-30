@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/15/2015"
+   ms.date="11/16/2015"
    ms.author="mihaelab"/>
 
 #Esercitazione per il ripristino di emergenza
@@ -26,7 +26,7 @@ L'esercitazione per il ripristino di emergenza prevede l'esecuzione delle attivi
 - Ripristino 
 - Convalida dell'integrità dell'applicazione dopo il ripristino
 
-A seconda della modalità di [progettazione per la continuità aziendale](sql-database-business-continuity.md), il flusso di lavoro dell'esercitazione può variare. Di seguito sono descritte le procedure consigliate per eseguire un'esercitazione per il ripristino di emergenza nel contesto del database SQL di Azure.
+A seconda della modalità di [progettazione dell’applicazione per la continuità aziendale](sql-database-business-continuity.md), il flusso di lavoro dell'esercitazione può variare. Di seguito sono descritte le procedure consigliate per eseguire un'esercitazione per il ripristino di emergenza nel contesto del database SQL di Azure.
 
 ##Ripristino geografico
 
@@ -34,51 +34,33 @@ Per evitare il rischio di perdita di dati durante l'esecuzione di un'esercitazio
  
 ####Simulazione dell'interruzione del servizio
 
-- Simulare l'interruzione del servizio eliminando o rinominando il database di origine e causare un errore di connettività dell'applicazione. In questo modo è possibile convalidare il rilevamento dell'interruzione e la generazione degli avvisi e misurare l'obiettivo del tempo di ripristino.
+Per simulare l'interruzione è possibile eliminare o rinominare il database di origine. Ciò causerà un errore di connettività dell'applicazione.
 
 ####Ripristino
 
 - Eseguire il ripristino geografico del database in un server diverso, come descritto [qui](sql-database-disaster-recovery.md). 
-- Modificare la configurazione dell'applicazione per connettersi ai database ripristinati e seguire la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md) per completare il ripristino.
+- Modificare la configurazione dell'applicazione per connettersi ai database ripristinati e seguire la guida [Configurare un database dopo il ripristino](sql-database-disaster-recovery.md) per completare il ripristino.
 
 ####Convalida
 
 - Completare l'esercitazione verificando l'integrità dell'applicazione dopo il ripristino (ad esempio, stringhe di connessione, account di accesso, test di funzionalità di base o altre verifiche correlate alle procedure standard di convalida delle applicazioni).
 
-##Replica geografica standard
+##Replica geografica
 
-Un database protetto mediante la replica geografica standard può avere un solo database secondario non leggibile. L'esercitazione comporterà la terminazione forzata del collegamento e questo punto il database non risulterà più protetto. Esiste inoltre il rischio di una perdita di dati. Si sconsiglia quindi di eseguire test di questo tipo su database di produzione. In alternativa, può essere opportuno creare una copia dell'ambiente di produzione e usarla per verificare il flusso di lavoro di failover dell'applicazione.
+Per un database protetto mediante la replica geografica l’esercitazione comporterà un failover pianificato per il database secondario. Il failover pianificato assicura che i database primario e secondario restino sincronizzati quando si invertono i ruoli. A differenza del failover non pianificato, questa operazione non comporterà la perdita di dati, quindi l’esercitazione può essere realizzata nell'ambiente di produzione.
 
 ####Simulazione dell'interruzione del servizio
 
-- Simulare il carico di lavoro sul database primario. Se il database primario è attivo al momento della terminazione, può verificarsi una perdita di dati, rendendo così più realistica l'esercitazione.
-- Eliminare il database primario o [forzare la terminazione](sql-database-disaster-recovery.md) del collegamento sul lato database secondario.
+Per simulare l'interruzione è possibile disabilitare l'applicazione web o la macchina virtuale connessa al database. Ciò genererà errori di connessione per i client web.
 
 ####Ripristino
 
-- Modificare la configurazione dell'applicazione in modo da impostare la connessione al database secondario precedentemente di sola lettura, che diventerà completamente accessibile e potrà essere usato dall'applicazione come nuovo database primario. 
-- Seguire la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md) per completare il ripristino.
+- Assicurarsi che la configurazione dell'applicazione nell'area DR punti al database secondario precedente, che diventerà un nuovo database primario completamente accessibile. 
+- Eseguire [failover pianificato](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) per rendere il database secondario un nuovo database primario
+- Seguire la guida [Configurare un database dopo il ripristino](sql-database-disaster-recovery.md) per completare il ripristino.
 
 ####Convalida
 
 - Completare l'esercitazione verificando l'integrità dell'applicazione dopo il ripristino (ad esempio, stringhe di connessione, account di accesso, test di funzionalità di base o altre verifiche correlate alle procedure standard di convalida delle applicazioni).
 
-##Replica geografica attiva
-
-L'esercitazione per il ripristino di emergenza verrà effettuata usando un server di destinazione parallelo e creando in tale server un altro set di database secondari di sola lettura. Usare una versione di test del livello applicazione per verificare l'integrità dei dati e dello stato dell'operazione tramite l'esecuzione di test su tale server dopo la terminazione forzata.
-
-####Simulazione dell'interruzione del servizio
-
-- [Creare un nuovo collegamento di replica geografica attiva](sql-database-business-continuity-design.md) dal database primario a un server di test secondario. Se il database primario è attivo al momento della terminazione, può verificarsi una perdita di dati, rendendo così più realistica l'esercitazione.
-- [Forzare la terminazione](sql-database-disaster-recovery.md) del collegamento sul database secondario presente sul server di test.
-
-####Ripristino
-
-- Modificare la configurazione dell'applicazione in modo da impostare la connessione al database secondario precedentemente di sola lettura, che diventerà disponibile per operazioni di scrittura dopo la terminazione.
-- Seguire la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md) per completare il ripristino.
-
-####Convalida
-
-- Completare l'esercitazione verificando l'integrità dell'applicazione dopo il ripristino (ad esempio, stringhe di connessione, account di accesso, test di funzionalità di base o altre verifiche correlate alle procedure standard di convalida delle applicazioni).
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

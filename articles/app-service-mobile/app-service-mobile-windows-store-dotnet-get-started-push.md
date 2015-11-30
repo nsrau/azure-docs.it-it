@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app universale di Windows Runtime 8.1
@@ -79,14 +79,13 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto server, quindi scegliere **Gestisci pacchetti NuGet**, cercare `Microsoft.Azure.NotificationHubs` e infine fare clic su **Installa**. Verrà installata la libreria client dell'Hub di notifica.
 
-3. Nel progetto server aprire **Controller** > **TodoItemController.cs**, quindi aggiungere le istruzioni using seguenti:
+2. Nel progetto server aprire **Controller** > **TodoItemController.cs**, quindi aggiungere le istruzioni using seguenti:
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
-	
 
-2. Nel metodo **PostTodoItem** aggiungere il codice seguente dopo la chiamata a **InsertAsync**:
+3. Nel metodo **PostTodoItem** aggiungere il codice seguente dopo la chiamata a **InsertAsync**:
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -130,32 +129,24 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 
 ##<a id="update-service"></a>Aggiungere notifiche push all'app
 
-1. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione, quindi scegliere **Gestisci pacchetti NuGet**. 
-
-    Verrà visualizzata la finestra di dialogo Gestisci pacchetti NuGet.
-
-2. Cercare l'SDK per client delle app per dispositivi mobili del servizio app e fare clic su **Installa**, selezionare tutti i progetti client nella soluzione e accettare le condizioni per l'uso.
-
-    Verrà scaricato, installato e aggiunto un riferimento in tutti i progetti client per la libreria push per dispositivi mobili di Azure per Windows.
-
-3. Aprire il file di progetto condiviso **App.xaml.cs** e aggiungere le istruzioni `using` seguenti:
+1. Aprire il file di progetto condiviso **App.xaml.cs** e aggiungere le istruzioni `using` seguenti:
 
 		using System.Threading.Tasks;  
         using Windows.Networking.PushNotifications;       
 
-4. Nello stesso file aggiungere la seguente definizione del metodo **InitNotificationsAsync** alla classe **App**:
+2. Nello stesso file aggiungere la seguente definizione del metodo **InitNotificationsAsync** alla classe **App**:
     
         private async Task InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
+            await MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     Questo codice consente di recuperare il valore di ChannelURI per l'app da Servizi notifica Push Windows e quindi di registrarlo con l'app per dispositivi mobili del servizio app.
     
-5. All'inizio del gestore eventi **OnLaunched** nel file **App.xaml.cs** aggiungere il modificatore **async** alla definizione del metodo, quindi aggiungere la chiamata seguente al nuovo metodo **InitNotificationsAsync**, come illustrato di seguito:
+3. All'inizio del gestore eventi **OnLaunched** nel file **App.xaml.cs** aggiungere il modificatore **async** alla definizione del metodo, quindi aggiungere la chiamata seguente al nuovo metodo **InitNotificationsAsync**, come illustrato di seguito:
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -166,17 +157,22 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 
     In tal modo si garantirà che il valore di ChannelURI temporaneo venga registrato ogni volta che l'applicazione viene avviata.
 
-6. In Esplora soluzioni fare doppio clic sul file **Package.appxmanifest** dell'app di Windows Store e in **Notifiche** impostare **Popup supportati** su **Sì**.
+4. In Esplora soluzioni fare doppio clic sul file **Package.appxmanifest** dell'app di Windows Store e in **Notifiche** impostare **Popup supportati** su **Sì**.
 
     Scegliere **Salva tutto** dal menu **File**.
 
-7. Ripetere il passaggio precedente nel progetto di app di Windows Phone Store.
+5. Ripetere il passaggio precedente nel progetto di app di Windows Phone Store.
 
 L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 ##<a id="test"></a>Testare le notifiche push nell'app
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
+
+##<a id="more"></a>Altro
+
+* I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. [Come utilizzare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md) illustra come registrare modelli.
+* I tag consentono di orientarsi a clienti segmentati con notifiche push. [Lavorare con l’SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) illustra come aggiungere tag all’installazione di un dispositivo.
 
 <!-- Anchors. -->
 
@@ -185,4 +181,4 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

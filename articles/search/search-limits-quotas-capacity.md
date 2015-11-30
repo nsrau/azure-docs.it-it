@@ -56,7 +56,7 @@ Numero massimo di campi per ogni indice|1000
 Conteggio massimo di documenti|15 milioni per partizione
 Dimensioni massime di archiviazione|25 GB per partizione
 Partizioni massime|12 per servizio di ricerca
-Repliche massime|6 per servizio di ricerca
+Repliche massime|12 per servizio di ricerca
 Unità massima di ricerca|36 per servizio di ricerca
 Servizi di ricerca massima|12 per ogni sottoscrizione di Azure
 Numero massimo di indicizzatori|50 per servizio di ricerca
@@ -85,6 +85,7 @@ La capacità aggiuntiva viene calcolata come partizioni moltiplicate per le repl
 Nella tabella seguente è riportato un grafico in cui sono elencate le repliche sull'asse verticale e le partizioni sull'asse orizzontale. L'intersezione mostra il numero di unità di ricerca necessarie per supportare ogni combinazione, entro il limite di 36 unità di ricerca per servizio. Ad esempio, per 6 repliche e 2 partizioni, questa configurazione richiederebbe 12 unità di ricerca. Per utilizzare 4 repliche e 2 partizioni, sono necessarie 8 unità di ricerca. Come regola generale, la maggior parte delle applicazioni di ricerca tendono a richiedere più repliche che partizioni.
 
 <table cellspacing="0" border="1">
+<tr><td><b>12 repliche</b></td><td>12 unità di ricerca</td><td>24 unità di ricerca</td><td>36 unità di ricerca</td><td>N/D</td><td>N/D</td><td>N/D</td></tr>
 <tr><td><b>6 repliche</b></td><td>6 unità di ricerca</td><td>12 unità di ricerca</td><td>18 unità di ricerca</td><td>24 unità di ricerca</td><td>36 unità di ricerca</td><td>N/D</td></tr>
 <tr><td><b>5 repliche</b></td><td>5 unità di ricerca</td><td>10 unità di ricerca</td><td>15 unità di ricerca</td><td>20 unità di ricerca</td><td>30 unità di ricerca</td><td>N/D</td></tr>
 <tr><td><b>4 repliche</b></td><td>4 unità di ricerca</td><td>8 unità di ricerca</td><td>12 unità di ricerca</td><td>16 unità di ricerca</td><td>24 unità di ricerca</td><td>N/D </td></tr>
@@ -96,7 +97,7 @@ Nella tabella seguente è riportato un grafico in cui sono elencate le repliche 
 
 Le unità di ricerca, i prezzi e le capacità sono illustrati in dettaglio nel sito web di Azure. Per altre informazioni, vedere [Informazioni sui prezzi](http://azure.microsoft.com/pricing/details/search/).
 
-> [AZURE.NOTE]Il numero di partizioni scelto si deve dividere equamente per 12 (in particolare 1, 2, 3, 4, 6, 12). In questo modo Ricerca di Azure divide preventivamente ogni indice in 12 partizioni in modo che possa essere distribuito tra le partizioni. Ad esempio, se il servizio dispone di tre partizioni e si crea un nuovo indice, ogni partizione conterrà 4 partizioni dell'indice. Come viene suddiviso in partizioni un indice in Ricerca di Azure è un dettaglio di implementazione, soggetto a modifiche nella prossima versione. Sebbene il numero attualmente sia 12, tale numero potrebbe non essere 12 in futuro.
+> [AZURE.NOTE]Il numero di repliche e partizioni si deve dividere equamente per 12 (in particolare 1, 2, 3, 4, 6, 12). In questo modo Ricerca di Azure divide preventivamente ogni indice in 12 partizioni in modo che possa essere distribuito tra le partizioni. Ad esempio, se il servizio dispone di tre partizioni e si crea un nuovo indice, ogni partizione conterrà 4 partizioni dell'indice. Come viene suddiviso in partizioni un indice in Ricerca di Azure è un dettaglio di implementazione, soggetto a modifiche nella prossima versione. Sebbene il numero attualmente sia 12, tale numero potrebbe non essere 12 in futuro.
 
 ## Scegliere una combinazione di partizioni e repliche per la disponibilità elevata
 
@@ -133,4 +134,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 - 1000 documenti al massimo restituiti per pagina di risultati della ricerca
 - 100 suggerimenti al massimo restituiti per richiesta di API di suggerimento
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

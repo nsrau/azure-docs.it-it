@@ -4,53 +4,53 @@
 - [C on mbed](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
 - [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
 
-## Scenario overview
+## Panoramica dello scenario
 
-In this scenario, you will create a device that sends the following telemetry to the remote monitoring [preconfigured solution][lnk-what-are-preconfig-solutions]:
+In questo scenario, si creerà un dispositivo che invia la seguente telemetria per il monitoraggio remoto [soluzione preconfigurata][lnk-what-are-preconfig-solutions]\:
 
-- External temperature
-- Internal temperature
-- Humidity
+- Temperatura esterna
+- Temperatura interna
+- Umidità
 
-For simplicity, the code on the device generates sample values, but we encourage you to extend the sample by connecting real sensors to your device and sending real telemetry.
+Per semplicità, il codice nel dispositivo genera valori di esempio, ma si consiglia di estendere l'esempio connettendo i sensori reali al dispositivo e inviando i dati di telemetria reali.
 
-## Before you start
+## Prima di iniziare
 
-Before you write any code for your device, you should provision your remote monitoring preconfigured solution and then provision a device in that solution.
+Prima di scrivere un codice per il dispositivo, occorre eseguire il provisioning della soluzione preconfigurata di monitoraggio remoto e poi effettuare il provisioning di un dispositivo all'interno di quella soluzione.
 
-### Provision your remote monitoring preconfigured solution
+### Eseguire il provisioning della soluzione preconfigurata per il monitoraggio remoto
 
-The device you create will send data to an instance of the [remote monitoring][lnk-remote-monitoring] preconfigured solution. Visit [Get started with Azure IoT Suite][lnk-getstarted] to create an Azure account and provision IoT Suite. Select **Remote monitoring** when you create your new solution.
+Il dispositivo creato invierà dati a un'istanza della soluzione preconfigurata del [monitoraggio remoto][lnk-remote-monitoring]. Visitare [Introduzione ad Azure IoT Suite][lnk-getstarted] per creare un account di Azure ed eseguire il provisioning di IoT Suite. Selezionare **Monitoraggio remoto** quando si crea la nuova soluzione.
 
-When the remote monitoring solution has been provisioned, click **Launch** to open the solution dashboard.
+Quando è stato eseguito il provisioning della soluzione di monitoraggio remoto, fare clic su **Avviare** per aprire il dashboard della soluzione.
 
 ![][img-dashboard]
 
-### Provision your device in the remote monitoring solution
+### Effettuare il provisioning del dispositivo nella soluzione di monitoraggio remoto
 
-> [AZURE.NOTE] If you have already provisioned a device in your solution, you can skip this step. You will need to know the device credentials when you create the client application.
+> [AZURE.NOTE]Se è già stato eseguito il provisioning di un dispositivo nella soluzione, è possibile saltare questo passaggio. È necessario conoscere le credenziali del dispositivo quando si crea l'applicazione client.
 
-For a device to connect to the preconfigured solution, it must be able to identify itself using valid credentials. You can get the device credentials from the solution dashboard and then include them in your client application. 
+Per connettere un dispositivo alla soluzione preconfigurata, è necessario che esso sia in grado di identificare se stesso mediante delle credenziali valide. È possibile ottenere le credenziali del dispositivo dal dashboard della soluzione e poi includerle nell'applicazione client.
 
-To add a new device to your remote monitoring solution, complete the following steps in the solution dashboard:
+Per aggiungere un nuovo dispositivo alla soluzione di monitoraggio remoto, completare i passaggi seguenti nel dashboard della soluzione:
 
-1.  In the lower left-hand corner of the dashboard, click **Add a device**.
+1.  Nell'angolo inferiore sinistro del dashboard fare clic su **Aggiungi un dispositivo**.
 
     ![][1]
 
-2.  In the **Custom Device** panel, click on **Add new**.
+2.  Nel pannello **Dispositivo personalizzato**, fare clic su **Aggiungi nuovo**.
 
     ![][2]
 
-3.  Choose **Let me define my own Device ID**, enter a Device ID such as **mydevice**, click **Check ID** to verify that name isn't in use, and then click **Create** to provision the device.
+3.  Scegliere **Consentire la definizione della propria ID del dispositivo**, immettere un’ID del dispositivo, ad esempio **mydevice**, fare clic su **ID di controllo** per verificare che tale nome non sia in uso, quindi fare clic su **Crea** per eseguire il provisioning del dispositivo.
 
     ![][3]
 
-5. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key), your client application will need them to connect your device to the remote monitoring solution. Then click **Done**.
+5. Annotare le credenziali del dispositivo (ID del dispositivo, nome host di Hub IoT e chiave del dispositivo), serviranno all'applicazione client per connettere il dispositivo alla soluzione di monitoraggio remoto. Fare quindi clic su **Done**.
 
     ![][4]
 
-6. Make sure your device displays correctly in the devices section. The status is **Pending** until the device establishes a connection to the remote monitoring solution.
+6. Assicurarsi che il dispositivo venga visualizzato correttamente nella sezione dei dispositivi. Lo stato è **in sospeso** fino a quando il dispositivo non stabilirà una connessione a una soluzione di monitoraggio remoto.
 
     ![][5]
 
@@ -64,3 +64,5 @@ To add a new device to your remote monitoring solution, complete the following s
 [lnk-getstarted]: http://www.microsoft.com/server-cloud/internet-of-things/getting-started.aspx
 [lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
+
+<!---HONumber=Nov15_HO4-->

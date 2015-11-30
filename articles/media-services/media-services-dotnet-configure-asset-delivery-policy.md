@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/18/2015"  
+	ms.date="11/12/2015"  
 	ms.author="juliako"/>
 
 #Configurare i criteri di distribuzione degli asset con .NET SDK
@@ -103,29 +103,31 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
 
 Servizi multimediali di Azure consente inoltre di aggiungere la crittografia Widevine. Nell'esempio seguente viene illustrato sia PlayReady che Widevine da aggiungere al criterio di recapito di asset.
 
-	static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
-	{
-	    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-	
-	    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-	        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-	    {
-	        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-	        {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl,"http://testurl"},
-	        
-	    };
-	
-	    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-	            "AssetDeliveryPolicy",
-	        AssetDeliveryPolicyType.DynamicCommonEncryption,
-	        AssetDeliveryProtocol.Dash,
-	        assetDeliveryPolicyConfiguration);
-	
-	   
-	    // Add AssetDelivery Policy to the asset
-	    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-	
-	}
+
+    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+    {
+        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+        Uri widevineURl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+
+        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+            new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+        {
+            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+
+        };
+
+        var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+                "AssetDeliveryPolicy",
+            AssetDeliveryPolicyType.DynamicCommonEncryption,
+            AssetDeliveryProtocol.Dash,
+            assetDeliveryPolicyConfiguration);
+
+
+        // Add AssetDelivery Policy to the asset
+        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+
+    }
 
 >[AZURE.NOTE]Durante la crittografia con Widevine, si sarebbe in grado di recapitare utilizzando DASH. Assicurarsi di specificare il protocollo di recapito asset DASH.
 
@@ -175,7 +177,7 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
     }
 
 
-##<a id="types">Tipi usati durante la definizione di AssetDeliveryPolicy</a>
+##<a id="types"></a>Tipi usati durante la definizione di AssetDeliveryPolicy
 
 ###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
 
@@ -260,17 +262,24 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
         /// <summary>
         /// None.
         /// </summary>
-        None,
+        None = 0,
 
         /// <summary>
         /// Use PlayReady License acquistion protocol
         /// </summary>
-        PlayReadyLicense,
+        PlayReadyLicense = 1,
 
         /// <summary>
         /// Use MPEG Baseline HTTP key protocol.
         /// </summary>
-        BaselineHttp
+        BaselineHttp = 2,
+
+        /// <summary>
+        /// Use Widevine License acquistion protocol
+        ///
+        </summary>
+        Widevine = 3
+
     }
 
 ###<a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
@@ -329,4 +338,4 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

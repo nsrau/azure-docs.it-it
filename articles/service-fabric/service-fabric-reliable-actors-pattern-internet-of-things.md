@@ -1,7 +1,7 @@
 
 <properties
    pageTitle="Reliable Actors per Internet delle cose | Microsoft Azure"
-   description="Reliable Actors dell’infrastruttura di servizi costituisce il componente principale di un sistema che integra il front-end di un sistema di messaggistica, in grado di supportare più protocolli di trasporto, tra cui HTTPS, MQTT o AMQP, e comunica con gli attori che rappresentano i singoli dispositivi."
+   description="Reliable Actors dell’infrastruttura di servizi costituisce il componente principale di un sistema che integra il front-end di un sistema di messaggistica, in grado di supportare più protocolli di trasporto, tra cui HTTPS, MQTT o AMQP."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/14/2015"
    ms.author="vturecek"/>
 
 # Modello di progettazione di Reliable Actors: Internet delle cose
@@ -56,10 +56,10 @@ class ThingState
 	long _deviceGroupId;
 }
 
-public class Thing : Actor<ThingState>, IThing
+public class Thing : StatefulActor<ThingState>, IThing
 {
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._telemetry = new List<ThingTelemetry>();
         State._deviceGroupId = -1; // not activated
@@ -74,7 +74,7 @@ public class Thing : Actor<ThingState>, IThing
             var deviceGroup = ActorProxy.Create<IThingGroup>(State._deviceGroupId);
             return deviceGroup.SendTelemetryAsync(telemetry); // sending telemetry data for aggregation
         }
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task ActivateMe(string region, int version)
@@ -118,10 +118,10 @@ class ThingGroupState
     public List<ThingInfo> _faultyDevices;
 }
 
-public class ThingGroup : Actor<ThingGroupState>, IThingGroup
+public class ThingGroup : StatefulActor<ThingGroupState>, IThingGroup
 {
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._devices = new List<ThingInfo>();
         State._faultsPerRegion = new Dictionary<string, int>();
@@ -133,13 +133,13 @@ public class ThingGroup : Actor<ThingGroupState>, IThingGroup
     public Task RegisterDevice(ThingInfo deviceInfo)
     {
         State._devices.Add(deviceInfo);
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task UnregisterDevice(ThingInfo deviceInfo)
     {
         State._devices.Remove(deviceInfo);
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task SendTelemetryAsync(ThingTelemetry telemetry)
@@ -163,7 +163,7 @@ public class ThingGroup : Actor<ThingGroupState>, IThingGroup
             }
         }
 
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 }
 ```
@@ -217,4 +217,4 @@ Azure Service Fabric Actors si occupa anche della durata degli attori. Da questo
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

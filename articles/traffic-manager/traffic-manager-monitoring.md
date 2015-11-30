@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Informazioni sul monitoraggio di Gestione traffico
@@ -108,15 +108,11 @@ Nella seguente tabella viene descritto il comportamento del monitoraggio di Gest
 
 ## Vedere anche
 
-[Gestione traffico di Azure](traffic-manager-overview.md)
+[Creare un profilo](traffic-manager-manage-profiles.md)
 
-[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
-
-[Servizi cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Aggiungere un endpoint](traffic-manager-endpoints.md)
 
 [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

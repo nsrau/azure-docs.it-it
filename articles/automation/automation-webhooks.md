@@ -17,7 +17,7 @@
 
 # Webhook di Automazione di Azure
 
-Un *webhook* consente di avviare un Runbook specifico in Automazione di Azure tramite una singola richiesta HTTP. In questo modo, servizi esterni come Visual Studio Online, GitHub o applicazioni personalizzate possono avviare i Runbook senza implementare una soluzione completa usando l'API di Automazione di Azure.
+Un *webhook* consente di avviare un Runbook specifico in Automazione di Azure tramite una singola richiesta HTTP. In questo modo, servizi esterni come Visual Studio Team Services, GitHub o applicazioni personalizzate possono avviare i Runbook senza implementare una soluzione completa usando l'API di Automazione di Azure.
 
 ![Webhook](media/automation-webhooks/webhooks-overview.png)
 
@@ -255,4 +255,4 @@ Il seguente runbook di esempio viene attivato quando la regola dell'avviso diven
 - [Visualizzazione dello stato di un processo di Runbook](automation-viewing-the-status-of-a-runbook-job.md)
 - [Uso di Automazione di Azure per eseguire azioni sugli avvisi di Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

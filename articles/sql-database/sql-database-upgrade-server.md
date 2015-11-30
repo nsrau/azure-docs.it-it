@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Aggiornare un server SQL di Azure alla versione V12 con PowerShell" 
-	description="Aggiornare il server SQL di Azure alla versione 12 con PowerShell" 
+	pageTitle="Eseguire l'aggiornamento a database SQL V12 di Azure tramite PowerShell | Microsoft Azure" 
+	description="Viene spiegato come eseguire l'aggiornamento alla V12 del Database SQL di Azure, come eseguire l'aggiornamento di database Web e Business e come aggiornare un server V11 che sta migrando i database direttamente in un pool di database elastici con PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,20 +13,42 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/11/2015" 
 	ms.author="sstein"/>
 
-# Eseguire l'aggiornamento a SQL Database V12 tramite PowerShell
+# Eseguire l'aggiornamento a database SQL V12 di Azure tramite PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-v12-upgrade.md)
-- [PowerShell](sql-database-upgrade-server.md)
+- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-Questo articolo illustra come effettuare l’aggiornamento a SQL Database V12 tramite PowerShell.
+Database SQL V12 è la versione più recente, pertanto, è consigliabile eseguire l'aggiornamento alla versione 12 del Database SQL. Database SQL V12 presenta molti [vantaggi rispetto alla versione precedente](sql-database-v12-whats-new.md) tra cui:
 
-Durante il processo di aggiornamento a SQL Database V12, è inoltre necessario aggiornare i database Web e Business a un nuovo livello di servizio. Le indicazioni riportate di seguito includono l'utilizzo delle raccomandazioni sui piani tariffari e i pool elastici per assistere con [l'aggiornamento dei database Web e Business](sql-database-upgrade-new-service-tiers.md) sul server.
+- Miglioramento della compatibilità con SQL Server.
+- Più prestazioni Premium e nuovi livelli di prestazioni.
+- [Pool di database elastici](sql-database-elastic-pool.md).
+
+In questo articolo vengono fornite istruzioni per l'aggiornamento di database e server di Database SQL V11 esistenti alla V12 di Database SQL.
+
+Durante il processo di aggiornamento alla V12 verranno aggiornati tutti i database Web e Business a un nuovo livello di servizio in modo che sono incluse le istruzioni per l'aggiornamento dei database Web e Business.
+
+Inoltre, la migrazione a un [pool di database elastici](sql-database-elastic-pool.md) può essere più conveniente rispetto all'aggiornamento a livelli di prestazioni singoli (livelli di prezzi) per singoli database. I pool inoltre semplificano la gestione di database perché è sufficiente gestire le impostazioni delle prestazioni per il pool anziché una gestione separata per i livelli di prestazioni dei singoli database. Se si dispone di database in più server è consigliabile spostarli nello stesso server e usufruire del vantaggio di metterli in un pool.
+
+È possibile migrare automaticamente e facilmente i database dai server della V11 direttamente nel pool di database elastici seguendo i passaggi in questo articolo.
+
+Si noti che i database rimarranno online e continueranno a funzionare durante l'operazione di aggiornamento. Al momento della transizione effettiva al nuovo livello di prestazioni, le connessioni al database possono interrompersi temporaneamente per un periodo molto breve che in genere è di circa 90 secondi fino a un massimo di 5 minuti. Se un'applicazione ha una [gestione degli errori temporanei per le interruzioni di connessione](sql-database-connect-central-recommendations.md), è sufficiente impostare la protezione dalle connessioni interrotte alla fine dell'aggiornamento.
+
+L'aggiornamento alla V12 del Database SQL non può essere annullato. Dopo un aggiornamento, il server non può essere ripristinato alla V11.
+
+Dopo l'aggiornamento alla V12, [le indicazioni per i livelli di servizio](sql-database-service-tier-advisor.md) e [le indicazioni per i pool elastici](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier) non saranno immediatamente disponibili fino a quando il servizio non disporrà di tempo per valutare i carichi di lavoro nel nuovo server. La cronologia delle indicazioni del server V11 non è applicabile ai server V12 perciò non viene conservata.
+
+## Preparazione dell'aggiornamento
+
+- **Aggiornare tutti i database Web e Business**: vedere la sezione[aggiornare tutti i database Web e Business](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) o utilizzare [PowerShell per aggiornare database e server](sql-database-upgrade-server-powershell.md).
+- **Rivedere e sospendere la replica geografica**: se il database SQL di Azure è configurato per la replica geografica è necessario documentare la configurazione attuale e [arrestare la replica geografica](sql-database-geo-replication-portal.md#remove-secondary-database). Al termine dell'aggiornamento occorre riconfigurare il database per la replica geografica.
+- **Aprire queste porte se si dispone di client sulle macchine virtuali di Azure**: Se il programma client si connette a Database SQL V12 mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire gli intervalli di porta 11000-11999 e 14000-14999 nella macchina virtuale: Per informazioni dettagliate, vedere [porte per la V12 del Database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 ## Prerequisiti 
@@ -35,22 +57,22 @@ Per eseguire aggiornamento di un server alla versione 12 con PowerShell, è nece
 
 > [AZURE.IMPORTANT]Iniziando con la versione di anteprima di Azure PowerShell 1.0, il cmdlet Switch-AzureMode non è più disponibile e i cmdlet che sono stati nel modulo Azure ResourceManager sono stati rinominati. Gli esempi in questo articolo utilizzano nuove convenzioni di denominazione dell’Anteprima di PowerShell 1.0. Per informazioni dettagliate, vedere [Deprecazione di Switch-AzureMode, in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Per eseguire i cmdlet di PowerShell, è necessario disporre di Azure PowerShell installato e in esecuzione e a causa della rimozione di Switch-AzureMode, scaricare e installare la versione più recente di Azure PowerShell eseguendo l’[installazione guidata della piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. A causa della rimozione di Switch-AzureMode, occorre scaricare e installare la versione più recente di Azure PowerShell eseguendo l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
 ## Configurare le credenziali e selezionare la sottoscrizione
 
 Per eseguire i cmdlet PowerShell nella sottoscrizione di Azure, è necessario innanzitutto stabilire l'accesso al proprio account Azure. Eseguire le operazioni seguenti e verrà visualizzata una schermata di accesso per immettere le credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
 
-	Add-AzureAccount
+	Add-AzureRmAccount
 
 Dopo aver effettuato l’accesso, sullo schermo dovrebbero essere visualizzate informazioni tra cui l’ID utilizzato per l’accesso con le sottoscrizioni Azure per le quali si dispone dell’accesso
 
-Per selezionare la sottoscrizione con cui lavorare, è necessario l’ID sottoscrizione (**-SubscriptionId**) o il nome della sottoscrizione (**-SubscriptionName**). che può essere copiato dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati.
+Per selezionare la sottoscrizione con cui lavorare, è necessario l’ID sottoscrizione (**-SubscriptionId**) o il nome della sottoscrizione (**-SubscriptionName**). È possibile copiarlo dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati.
 
 Eseguire il cmdlet seguente con le informazioni della sottoscrizione per impostare la sottoscrizione corrente:
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 I comandi seguenti verranno eseguiti con la sottoscrizione appena selezionata.
 
@@ -58,7 +80,7 @@ I comandi seguenti verranno eseguiti con la sottoscrizione appena selezionata.
 
 Per ottenere le indicazioni per l'aggiornamento del server eseguire il cmdlet seguente:
 
-    $hint = Get-AzureRMSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
+    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
 
 Per ulteriori informazioni, vedere [indicazioni sui pool di database elastici di Database SQL di Azure](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) e [indicazioni sui livelli di prezzo di Database SQL di Azure](sql-database-service-tier-advisor.md).
 
@@ -68,7 +90,7 @@ Per ulteriori informazioni, vedere [indicazioni sui pool di database elastici di
 
 Per avviare l'aggiornamento del server di eseguire il cmdlet seguente:
 
-    Start-AzureRMSqlServerUpgrade -ResourceGroupName “resourcegroup1” -ServerName “server1” -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureRmSqlServerUpgrade -ResourceGroupName “resourcegroup1” -ServerName “server1” -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 Quando si esegue questo comando, inizia il processo di aggiornamento. È possibile personalizzare l'output dell’indicazione e fornire le indicazioni modificate a questo cmdlet.
@@ -79,7 +101,7 @@ Quando si esegue questo comando, inizia il processo di aggiornamento. È possibi
 
     # Adding the account
     #
-    Add-AzureAccount
+    Add-AzureRmAccount
     
     # Setting the variables
     #
@@ -89,15 +111,15 @@ Quando si esegue questo comando, inizia il processo di aggiornamento. È possibi
     
     # Selecting the right subscription 
     # 
-    Select-AzureSubscription -SubscriptionName $SubscriptionName 
+    Select-AzureRmSubscription -SubscriptionName $SubscriptionName 
     
     # Getting the upgrade recommendations 
     #
-    $hint = Get-AzureRMSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
     
     # Starting the upgrade process 
     #
-    Start-AzureRMSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureRmSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 ## Mapping di aggiornamento personalizzato
@@ -131,17 +153,54 @@ I parametri ElasticPoolCollection e DatabaseCollection sono facoltativi:
      
     # Starting the upgrade
     #
-    Start-AzureRMSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
+    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
 
     
 
+## Monitorare i database dopo l'aggiornamento alla V12 di Database SQL
+
+
+Dopo l’aggiornamento, si consiglia di monitorare il database in maniera attiva per assicurarsi che le applicazioni abbiano la prestazione desiderata e ottimizzare l’utilizzo in base alle esigenze.
+
+Oltre al monitoraggio dei singoli database è possibile monitorare i pool di database elastici [tramite il portale](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) o con [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)
+
+
+**Dati sul consumo delle risorse:** per i database Basic, Standard e Premium i dati sul consumo delle risorse sono disponibili tramite il DMV [sys.dm\_ db\_resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) nel database utente. Questa DMV fornisce informazioni sul consumo delle risorse in tempo reale con una granularità di 15 secondi per l'ora precedente di funzionamento. Il consumo percentuale di DTU per un intervallo viene calcolato come consumo percentuale massimo delle dimensioni di CPU, IO e log. Ecco una query per calcolare il consumo percentuale medio di DTU nell'ultima ora:
+
+    SELECT end_time
+    	 , (SELECT Max(v)
+             FROM (VALUES (avg_cpu_percent)
+                         , (avg_data_io_percent)
+                         , (avg_log_write_percent)
+    	   ) AS value(v)) AS [avg_DTU_percent]
+    FROM sys.dm_db_resource_stats
+    ORDER BY end_time DESC;
+
+Informazioni di monitoraggio aggiuntive:
+
+- [Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](http://msdn.microsoft.com/library/azure/dn369873.aspx).
+- [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database=elastic-pool-guidance.md).
+- [Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica](sql-database-monitoring-with-dmvs.md)
+
+
+
+**Avvisi:** configurare "Avvisi" nel portale di Azure per ricevere una notifica quando il consumo di DTU per un database aggiornato si avvicina a un determinato livello elevato. Nel portale di Azure si possono configurare avvisi di database per diverse metriche delle prestazioni, come DTU, CPU, IO e log. Individuare il database e selezionare **Regole di avviso** nel pannello **Impostazioni**.
+
+Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentuale DTU se il valore medio della percentuale DTU supera il 75% negli ultimi 5 minuti. Fare riferimento a [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) per altre informazioni sulla configurazione di notifiche di avviso.
+
+
+
+## Passaggi successivi
+
+- [Creare un pool di database elastici](sql-database-elastic-pool-portal.md) e aggiungere alcuni o tutti i database nel pool.
+- [Modificare il livello di servizio e il livello delle prestazioni del database](sql-database-scale-up.md).
 
 
 
 ## Informazioni correlate
 
-- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
-- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
-- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
+- [Get-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/14/2015"
 	ms.author="brandwe"/>
 
 
@@ -21,7 +21,9 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD facilita e semplifica l'outsourcing della gestione delle identità delle app Web, fornendo un unico account di accesso e disconnessione solo con poche righe di codice. Nelle app Web Asp.NET, a questo scopo si usa l'implementazione di Microsoft del middleware OWIN gestito dalla community e incluso in .NET Framework 4.5. Qui si userà OWIN per: far accedere l'utente all'app con Azure AD come provider di identità; visualizzare alcune informazioni sull'utente; far disconnettere l'utente dall'app.
+Azure AD facilita e semplifica l'outsourcing della gestione delle identità delle app Web, fornendo un unico account di accesso e disconnessione solo con poche righe di codice. Nelle app Web Java, è possibile eseguire questa operazione utilizzando l’implementazione Microsoft di ADAL4J basato sulla community.
+
+  Qui si userà ADAL4J per: far accedere l'utente all'app con Azure AD come provider di identità; visualizzare alcune informazioni sull'utente; far disconnettere l'utente dall'app.
 
 A questo scopo è necessario:
 
@@ -579,7 +581,7 @@ public class JSONHelper {
 
 ```
 
-3. Successivamente, creare un file denominato `HttpClientHelper.java` che verrà usato per l'analisi dei dati HTTP dall'endpoint AAD. È possibile tagliare e incollare dal codice seguente:
+3. Successivamente, creare un file denominato `HttpClientHelper.java` che verrà usato per l'analisi dei dati HTTP dall'endpoint ADD. È possibile tagliare e incollare dal codice seguente:
 
 ```Java
 
@@ -1742,4 +1744,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

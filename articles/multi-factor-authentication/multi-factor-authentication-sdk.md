@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Compilazione di Multi-Factor Authentication in app personalizzate (SDK)
@@ -193,4 +193,4 @@ Nel seguente codice lato server, la Multi-Factor Authentication è configurata e
 	    }
 	}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

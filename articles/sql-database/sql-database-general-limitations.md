@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/05/2015"
+   ms.date="11/16/2015"
    ms.author="jroth" />
 
 # Limitazioni e linee guida generali per il database SQL di Azure
@@ -59,9 +59,9 @@ I nomi utente e di accesso non possono nemmeno contenere il carattere \\ (l'aute
 
 ## Linee guida aggiuntive
 
-- Oltre alle limitazioni generali illustrate in questo articolo, il database SQL prevede limitazioni e quote di risorse specifiche in base al [livello di servizio](sql-database-service-tiers.md). Per una descrizione dettagliata dei limiti del livello di servizio, vedere [Limiti e funzionalità dei livelli di servizio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+- Oltre alle limitazioni generali illustrate in questo articolo, il database SQL prevede limitazioni e quote di risorse specifiche in base al **livello di servizio**. Per una panoramica dei livelli di servizio, vedere [Livelli di servizio del Database SQL](sql-database-service-tiers.md).
 
-- Per altri limiti del database SQL, vedere [Limiti delle risorse del database SQL di Azure](sql-database-limits.md).
+- Per altri limiti del database SQL, vedere [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md).
 
 - Per le linee guida relative alla sicurezza, vedere [Linee guida e limitazioni per il database SQL di Azure](sql-database-security-guidelines.md).
 
@@ -69,4 +69,4 @@ I nomi utente e di accesso non possono nemmeno contenere il carattere \\ (l'aute
 
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

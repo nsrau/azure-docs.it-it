@@ -4,7 +4,7 @@
  services="traffic-manager, automation" 
  documentationCenter="" 
  authors="eamonoreilly" 
- manager="adinah" 
+ manager="carmonm" 
  editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="na" 
  ms.topic="article" 
- ms.date="08/12/2015" 
+ ms.date="11/12/2015" 
  ms.author="joaoma"/>
 
 
-#Gestione di Gestione traffico di Azure mediante Automazione di Azure
+# Gestione di Gestione traffico di Azure mediante Automazione di Azure
 
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'uso per semplificare la gestione di Gestione traffico di Azure.
 
@@ -42,4 +42,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e d
 * Vedere [Introduzione ad Automazione di Azure](http://go.microsoft.com/fwlink/?LinkId=390560)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

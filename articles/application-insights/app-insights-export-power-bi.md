@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Visualizzare i dati di Application Insights in Power BI" 
-	description="È possibile usare Power BI per monitorare le prestazioni e l'utilizzo dell'applicazione." 
+	pageTitle="Usare analisi di flusso per l’esportazione in Power BI da Application Insights" 
+	description="Viene dimostrato come utilizzare analisi di flusso per elaborare i dati esportati." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
-# Viste di Power BI per i dati di Application Insights
+# Usare analisi di flusso per il feed di Power BI da Application Insights
 
 [Microsoft Power BI](https://powerbi.microsoft.com/) presenta i dati usando numerosi elementi visivi avanzati e permette di recuperare e raggruppare le informazioni da più origini. È possibile eseguire lo streaming dei dati di telemetria relativi alle prestazioni e all'utilizzo delle app Web o dei dispositivi da Application Insights a Power BI.
+
+> [AZURE.NOTE]Il modo più semplice per ottenere dati in Power BI da Application Insights è [utilizzando l’adattatore](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-application-insights/) che è possibile trovare nella raccolta Power BI in Servizi. Ciò che viene descritto in questo articolo è attualmente più versatile, ma è anche una dimostrazione di come utilizzare l’analisi di flusso con Application Insights.
 
 ![Esempio di vista di Power BI per i dati di utilizzo di Application Insights](./media/app-insights-export-power-bi/010.png)
 
@@ -205,7 +207,28 @@ Incollare questa query:
 
 * Questa query entra nella telemetria delle metriche per ottenere l'ora dell'evento e il valore della metrica. I valori delle metriche sono all'interno di una matrice, pertanto si utilizza il modello OUTER APPLY GetElements per estrarre le righe. "myMetric" è il nome della metrica in questo caso. 
 
+#### Query per includere i valori delle proprietà delle dimensioni
 
+```SQL
+
+    WITH flat AS (
+    SELECT
+      MySource.context.data.eventTime as eventTime,
+      InstanceId = MyDimension.ArrayValue.InstanceId.value,
+      BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
+    FROM MySource
+    OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
+    )
+    SELECT
+     eventTime,
+     InstanceId,
+     BusinessUnitId
+    INTO AIOutput
+    FROM flat
+
+```
+
+* Questa query include i valori delle proprietà delle dimensioni senza dipendere da una dimensione specifica in un indice fissato nella matrice di dimensioni.
 
 ## Eseguire il processo
 
@@ -239,4 +262,4 @@ Noam Ben Zeev spiega come esportare i dati in Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Altri esempi e procedure dettagliate](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

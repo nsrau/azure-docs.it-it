@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/07/2015"
+   ms.date="11/16/2015"
    ms.author="jgao"/>
 
 # Creare cluster Hadoop in HDInsight
@@ -55,7 +55,9 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 	Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).	
 - **Sistema operativo**
 
-	È possibile creare cluster HDInsight in uno dei due sistemi operativi seguenti: - **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**: - **HDInsight su Linux (Ubuntu 12.04 LTS per Linux) (Anteprima)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
+	È possibile creare cluster HDInsight in uno dei due sistemi operativi seguenti:
+	- **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**:
+	- **HDInsight su Linux (Ubuntu 12.04 LTS per Linux) (Anteprima)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
 
 
 - **Versione HDInsight**
@@ -86,16 +88,25 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 	![Ruoli dei cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	I cluster HBase per HDInsight vengono distribuiti con tre ruoli: - Server head (2 nodi) - Server area (almeno 1 nodo) - Nodi master/Zookeeper (3 nodi)
+	I cluster HBase per HDInsight vengono distribuiti con tre ruoli:
+	- Server head (2 nodi)
+	- Server area (almeno 1 nodo)
+	- Nodi master/Zookeeper (3 nodi)
 
 	![Ruoli dei cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	I cluster Storm per HDInsight vengono distribuiti con tre ruoli: - Nodi Nimbus (2 nodi) - Server Supervisor (almeno 1 nodo) - Nodi Zookeeper (3 nodi)
+	I cluster Storm per HDInsight vengono distribuiti con tre ruoli:
+	- Nodi Nimbus (2 nodi)
+	- Server Supervisor (almeno 1 nodo)
+	- Nodi Zookeeper (3 nodi)
 
 
 	![Ruoli dei cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	I cluster Spark per HDInsight vengono distribuiti con tre ruoli: - Nodo head (2 nodi) - Nodo di lavoro (almeno 1 nodo) - Nodi Zookeeper (3 nodi) (gratuiti per Zookeeper A1)
+	I cluster Spark per HDInsight vengono distribuiti con tre ruoli:
+	- Nodo head (2 nodi)
+	- Nodo di lavoro (almeno 1 nodo)
+	- Nodi Zookeeper (3 nodi) (gratuiti per Zookeeper A1)
 
 	L'uso di questi nodi viene addebitato ai clienti per la durata del ciclo di vita del cluster. La fatturazione inizia dopo la creazione di un cluster e si interrompe quando il cluster viene eliminato. Non è possibile deallocare o mettere in attesa i cluster. Le dimensioni del cluster influiscono sul prezzo del cluster. Ai fini dell'apprendimento, è consigliabile usare un nodo di dati. Per altre informazioni sui prezzi di HDInsight, vedere [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -147,6 +158,8 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 - **Metastore Hive/Oozie**
 
 	Il metastore contiene metadati Hive e Oozie, tra cui tabelle di Hive, partizioni, schemi e colonne. Consente di conservare i propri metadati Hive e Oozie, in modo che non sia necessario creare di nuovo tabelle di Hive o processi Oozie quando si crea un nuovo cluster. Per impostazione predefinita, Hive usa un database SQL di Azure incorporato per l'archiviazione di queste informazioni. Se il cluster viene eliminato, tuttavia, i metadati non vengono mantenuti nel database incorporato. Ad esempio, è disponibile un cluster creato con un metastore Hive. Sono state create alcune tabelle Hive. Dopo avere eliminato il cluster e ricreato il cluster mediante lo stesso metastore Hive, sarà possibile visualizzare le tabelle Hive create nel cluster originale.
+    
+    > [AZURE.NOTE]La configurazione Metastore non è disponibile per i tipi di cluster HBase.
 
 ## Opzioni di configurazione avanzate
 
@@ -163,7 +176,7 @@ A volte potrebbe essere necessario modificare i file di configurazione. Ecco alc
 - hive-site.xml
 - oozie-site.xml
 
-I cluster non possono conservare le modifiche a causa del re-imaging. Per ulteriori informazioni, vedere [Riavvii delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per l'intero ciclo di vita dei cluster, è possibile usare la personalizzazione dei cluster HDInsight durante il processo di creazione.
+I cluster non possono conservare le modifiche a causa del re-imaging. Per ulteriori informazioni, vedere [Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per l'intero ciclo di vita dei cluster, è possibile usare la personalizzazione dei cluster HDInsight durante il processo di creazione.
 
 L'esempio di script di Azure PowerShell seguente illustra la personalizzazione di una configurazione Hive:
 
@@ -211,7 +224,7 @@ Per altre informazioni, vedere il blog di Azim Uddin relativo alla [personalizza
 
 ### Personalizzare i cluster mediante Azione di script
 
-L'uso di script durante la creazione consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono richiamati tramite **Azione di script**, un'opzione di configurazione che può essere usata dal portale di anteprima, dai cmdlet di Windows PowerShell per HDInsight o da HDInsight .NET SDK. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster.md).
+L'uso di script durante la creazione consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono richiamati tramite **Azione di script**, un'opzione di configurazione che può essere usata dal portale di anteprima, dai cmdlet di Windows PowerShell per HDInsight o da HDInsight .NET SDK. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster.md).
 
 
 ### Usare le reti virtuali di Azure
@@ -250,7 +263,7 @@ Per una spiegazione dei campi, vedere le [opzioni di configurazione di base](#ba
 **Per creare un cluster HDInsight**
 
 1. Accedere al [portale di anteprima di Azure][azure-preview-portal].
-2. Fare clic su **NUOVO**, su **Analisi dei dati**, quindi su **HDInsight**.
+2. Fare clic su **NUOVO**, su **Analisi dei dati** e quindi su **HDInsight**.
 
     ![Creazione di un nuovo cluster nel portale di anteprima di Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Anteprima di Azure")
 
@@ -282,17 +295,18 @@ Per una spiegazione dei campi, vedere le [opzioni di configurazione di base](#ba
 
   * **Configurazione facoltativa**: per selezionare la versione del cluster, nonché configurare altre impostazioni facoltative, ad esempio l'aggiunta a una **Rete virtuale** o la configurazione di un **Metastore esterno** per contenere i dati per Hive e Oozie, usare azioni di script per personalizzare un cluster per l'installazione di componenti personalizzati oppure usare altri account di archiviazione con il cluster.
 
-  		* **HDInsight Version**: Select the version you want to use for the cluster. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-  		* **Virtual Network**: Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network.  
+  		* **Versione HDInsight**: selezionare la versione che si desidera utilizzare per il cluster. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).
+  		* **Rete virtuale**: selezionare una rete virtuale di Azure e la subnet se si desidera posizionare il cluster in una rete virtuale  
 
 			![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-			>[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
+			>[AZURE.NOTE] Il cluster HDInsight basato su Windows può essere inserito solo in una rete virtuale classica.
   
 
   		
 		* **Metastore esterni**: specificare un database SQL di Azure da usare per salvare i metadati Hive e Oozie associati al cluster.
  
+            > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
 
 			![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
@@ -405,29 +419,45 @@ Le procedure seguenti sono necessarie per creare un cluster HDInsight con Azure 
 
 	$subscriptionId = "<Azure Subscription ID>"
 	
-	$newResourceGroupName = "<Azure Resource Group Name>" $location = "<Azure Location>" #, ad esempio, "Stati Uniti orientali 2" $newDefaultStorageAccountName = "<Azure Storage Account Name>" $newClusterName = "<Azure HDInsight Cluster Name>" $clusterSizeInNodes = 1
+	$newResourceGroupName = "<Azure Resource Group Name>"
+	$location = "<Azure Location>" #, ad esempio, "Stati Uniti orientali 2"
+	$newDefaultStorageAccountName = "<Azure Storage Account Name>"
+	$newClusterName = "<Azure HDInsight Cluster Name>"
+	$clusterSizeInNodes = 1
 	
 	###########################################
 	# Accedere ad Azure
-	###########################################Accesso-AzureRmAccount Selezionare-AzureRmSubscription -SubscriptionId $subscriptionId
+	###########################################
+	Accesso-AzureRmAccount
+	Selezionare-AzureRmSubscription -SubscriptionId $subscriptionId
 	
 	###########################################
 	# Creare il gruppo di risorse.
-	########################################### Nuovo-AzureRmResourceGroup -Nome $newRresourceGroupName -Posizione $location
+	###########################################
+	Nuovo-AzureRmResourceGroup -Nome $newRresourceGroupName -Posizione $location
 	
 	###########################################
 	# Preparare l'account di archiviazione e il contenitore predefiniti
-	########################################### Nuovo-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Nome $newDefaultStorageAccountName -Posizione $location
+	###########################################
+	Nuovo-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Nome $newDefaultStorageAccountName -Posizione $location
 	
-	$defaultStorageAccountKey = Ottieni-AzureRmStorageAccountKey -ResourceGroupName $newResourceGroupName -Nome $newDefaultStorageAccountName | %{ $\_.Key1 } $defaultStorageContext = Nuovo-AzureStorageContext -StorageAccountName $newDefaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey New-AzureStorageContainer -Nome $newClusterName -Contesto $defaultStorageContext #use the cluster name as the container name
+	$defaultStorageAccountKey = Ottieni-AzureRmStorageAccountKey -ResourceGroupName $newResourceGroupName -Nome $newDefaultStorageAccountName | %{ $\_.Key1 }
+	$defaultStorageContext = Nuovo-AzureStorageContext -StorageAccountName $newDefaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
+	New-AzureStorageContainer -Nome $newClusterName -Contesto $defaultStorageContext #use the cluster name as the container name
 		
 	###########################################
 	# Creare il cluster
-	########################################### $httpCredential =Ottieni-Credenziali -Messaggio "Enter the HTTP account credential:" Nuovo-AzureRmHDInsightCluster `
-		-ResourceGroupName $newResourceGroupName ` -ClusterName $newClusterName `
-		-Location $location ` -ClusterSizeInNodes $clusterSizeInNodes `
-		-ClusterType Hadoop ` -OSType Windows `
-		-Version "3.2" ` -HttpCredential $httpCredential
+	###########################################
+	$httpCredential =Ottieni-Credenziali -Messaggio "Enter the HTTP account credential:"
+	Nuovo-AzureRmHDInsightCluster `
+		-ResourceGroupName $newResourceGroupName `
+		-ClusterName $newClusterName `
+		-Location $location `
+		-ClusterSizeInNodes $clusterSizeInNodes `
+		-ClusterType Hadoop `
+		-OSType Windows `
+		-Version "3.2" `
+		-HttpCredential $httpCredential
 
 
 
@@ -442,7 +472,7 @@ Le procedure seguenti sono necessarie per creare un cluster HDInsight con Azure 
 		Install-Package Microsoft.Azure.Common.Authentication -pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 
-6. Da Esplora soluzioni fare doppio clic su **Program.cs** per aprirlo, incollare il codice seguente e fornire valori per le variabili:
+6. Da Esplora soluzioni fare doppio clic su **Program.cs** per aprirlo, incollare il codice seguente e indicare i valori per le variabili:
 
 		using System;
 		using System.Security;
@@ -605,7 +635,7 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop con l'ac
 	    },
 	    "sshUserName": {
 	      "type": "string",
-	      "defaultValue": "hdiuser",
+	      "defaultValue": "username",
 	      "metadata": {
 	        "description": "These credentials can be used to remotely access the cluster and the edge node virtual machine."
 	      }
@@ -733,4 +763,4 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop con l'ac
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

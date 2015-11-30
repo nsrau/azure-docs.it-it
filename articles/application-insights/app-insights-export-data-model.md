@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="awills"/>
 
 # Modello di dati di esportazione di Application Insights
@@ -314,7 +314,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 
     string context.application.version      Max: 100
 * 
-    La versione di applicazione dell'applicazione client 
+    La versione di applicazione dell'applicazione client. Non è disponibile se è impostato su Sconosciuto. 
 
     *Esempi*<br/> 2015.5.21.3<br/>NokiaMailBye\_CD\_20150227.4
 
@@ -374,39 +374,12 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     L'id di distribuzione del server 
 
-**deviceId**
-
-    string context.device.id      Max: 100
-* 
-    Un’identificazione univoca del client. Un id generato e deve essere archiviato localmente nel dispositivo e non devono essere informazioni personali, ad esempio l'indirizzo MAC o un id non modificabile simile.   
-
-**deviceModel**
-
-    string context.device.devicemodel      Max: 100
-* 
-    Il devicemodel per il client di hardware per dispositivi mobili 
-
-    *Esempi*<br/> Altri<br/>iPad<br/>Nokia 503s
 
 **deviceName**
 
     string context.device.name      Max: 100
 * 
     Il nome del dispositivo dell'app è in esecuzione 
-
-**deviceType**
-
-    string context.device.type      Max: 100
-* 
-    Il tipo di dispositivo dell'hardware del client 
-
-    *Esempi*<br/> PC<br/>Dispositivo mobile<br/>Tablet
-
-**language**
-
-    string context.device.language      Max: 100
-* 
-    La lingua dell'applicazione nel client. Se non specificato in modo esplicito per l'elemento di telemetria, proviene dall'elaborazione del campo agente utente. 
 
 **locale**
 
@@ -422,17 +395,6 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il nome del computer del server. Per il calcolo virtualizzato, questo elemento di dati è equivalente all'host sottostante. Per il calcolo dedicato, questo è il nome del computer. 
 
-**networkType**
-
-    string context.device.network      Max: 100
-* 
-    Il tipo di rete del client 
-
-**oemName**
-
-    string context.device.oemname      Max: 100
-* 
-    Il nome dell'oem per il client di hardware per dispositivi mobili 
 
 **operatingSystem**
 
@@ -568,7 +530,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Se issynthetic = true, questo elemento di dati rappresenta l'origine dei dati sintetici. 
 
-    *Predefinito:* se Null, nell'agente utente vengono cercate eventuali origini sintetiche note (agenti di ricerca Web e così via) e in base a queste informazioni può essere impostata l'origine.
+    *Predefinito:* se Null, nell'agente utente vengono cercate eventuali origini sintetiche note (agente di ricerca Web ecc.) e in base a queste informazioni può essere impostata l'origine.
 
 **syntheticTransaction**
 
@@ -590,7 +552,8 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 
 **accountAcquisitionDate**
 
-    datetime context.user.accountAcquisitionDate      
+    datetime context.user.accountAcquisitionDate  
+    
 **anonUserId**
 
     string context.user.anonId      Max: 100
@@ -602,9 +565,11 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 **anonymousUserAcquisitionDate**
 
     datetime context.user.anonAcquisitionDate      
+
 **authenticatedUserAcquisitionDate**
 
-    datetime context.user.authAcquisitionDate      
+    datetime context.user.authAcquisitionDate     
+ 
 **authUserId**
 
     string context.user.authId      Max: 100
@@ -841,7 +806,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il contesto del capp in fase di analisi/eccezione 
 
-**exception**:
+**exception:**
 
     string trace.exception      Max: 10240
 * 
@@ -1024,4 +989,4 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * [Esportazione continua](app-insights-export-telemetry.md)
 * [Esempi di codice](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

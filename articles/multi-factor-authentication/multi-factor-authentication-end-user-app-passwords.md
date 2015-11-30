@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 
@@ -129,4 +129,4 @@ Se si usa Multi-Factor Authentication con Azure, è consigliabile creare passwor
 5. Confermare l'eliminazione facendo clic su **Sì**.
 6. Una volta che la password dell’app viene eliminata, è possibile fare clic su **Chiudi**. ![Chiudi](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

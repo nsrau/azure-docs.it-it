@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos" />
 
 # Distribuire lo snap-in di StorSimple Snapshot Manager
@@ -129,7 +129,7 @@ Attenersi alla seguente procedura per la connessione di StorSimple Snapshot Mana
 
     ![Configurare un dispositivo](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png)
 
-3. Nella casella di riepilogo**Dispositivo**, selezionare l'indirizzo IP del dispositivo StorSimple di Microsoft Azure o del dispositivo virtuale. Nella casella di testo **Password**digitare la password di StorSimple Snapshot Manager creata per il dispositivo nel portale di gestione di Microsoft Azure. Fare clic su **OK**.
+3. Nella casella di riepilogo**Dispositivo**, selezionare l'indirizzo IP del dispositivo StorSimple di Microsoft Azure o del dispositivo virtuale. Nella casella di testo **Password**, digitare la password di Gestione snapshot StorSimple creata per il dispositivo nel portale di Azure. Fare clic su **OK**.
 
 4. StorSimple Snapshot Manager esegue la ricerca del dispositivo identificato. Se il dispositivo è disponibile, StorSimple Snapshot Manager aggiunge una connessione. È possibile[verificare la connessione al dispositivo](#to-verify-the-connection)per verificare che la connessione sia stata aggiunta correttamente.
 
@@ -257,4 +257,4 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in[Installare u
 
 - Per ulteriori informazioni sull'utilizzo di gestione Snapshot StorSimple, passare a [utilizzare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/08/2015"
+   ms.date="11/18/2015"
    ms.author="juliako"/>
 
 
@@ -106,4 +106,4 @@ Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di d
 
 [Informazioni sul Supporto e il Ritiro di Azure SDK per .NET e API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -35,7 +35,7 @@ Di seguito è riportato un esempio di un sito Web .COM in esecuzione su App Web 
 
 Azure Marketplace fornisce modelli di noti sistemi di gestione dei contenuti (CMS) di siti Web, ad Orchard, Umbraco, Drupal, e [WordPress]. È possibile creare un'app Web usando il CMS desiderato. In base alle proprie esigenze è possibile scegliere tra diversi back-end di database, tra cui il [database SQL di Azure] e [MySQL].
 
-In App Web del servizio app di Azure è supportata l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node.js o Python. È possibile trasferirle nelle app Web utilizzando gli [FTP] abituali o il proprio sistema di controllo del codice sorgente. App Web supporta la pubblicazione diretta dalle opzioni di controllo del codice sorgente più diffuse, ad esempio [Visual Studio], [Visual Studio Online] e [Git] (locale, GitHub, BitBucket, DropBox, Mercurial e così via).
+In App Web del servizio app di Azure è supportata l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node.js o Python. È possibile trasferirle nelle app Web utilizzando gli [FTP] abituali o il proprio sistema di controllo del codice sorgente. App Web supporta la pubblicazione diretta dalle opzioni di controllo del codice sorgente più diffuse, ad esempio [Visual Studio], [Visual Studio Team Services] e [Git] (locale, GitHub, BitBucket, DropBox, Mercurial e così via).
 
 ## Pubblicare in modo affidabile
 
@@ -102,7 +102,7 @@ Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di ris
 [database SQL di Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [distribuzione in uno slot di gestione temporanea]: web-sites-staged-publishing.md
@@ -137,4 +137,4 @@ Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di ris
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

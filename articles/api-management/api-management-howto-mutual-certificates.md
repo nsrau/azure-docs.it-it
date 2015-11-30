@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati in Gestione API di Azure
@@ -54,7 +54,7 @@ Fare clic su **Carica** per caricare il certificato.
 
 ![Certificato caricato][api-management-certificate-uploaded]
 
-Una volta caricato il certificato, questo viene visualizzato nella scheda **Certificati client**. Se si hanno più certificati, prendere nota dell'oggetto o degli ultimi quattro caratteri dell'identificazione personale, che vengono usati per selezionare il certificato quando si configura un'API per l'uso dei certificati, come illustrato nella sezione [Configurare un'API per l'uso di un certificato reciproco per l'autenticazione proxy][] che segue.
+Una volta caricato il certificato, questo viene visualizzato nella scheda **Certificati client**. Se si hanno più certificati, prendere nota dell'oggetto o degli ultimi quattro caratteri dell'identificazione personale, che vengono usati per selezionare il certificato quando si configura un'API per l'uso dei certificati, come illustrato nella sezione [Configurare un'API per l'uso di un certificato reciproco per l'autenticazione gateway][] che segue.
 
 ## <a name="step1a"> </a>Eliminare un certificato client
 
@@ -70,7 +70,7 @@ Se il certificato è in uso da parte di un'API, verrà visualizzata una schermat
 
 ![Conferma dell'eliminazione][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>Configurare un'API per l'uso di un certificato reciproco per l'autenticazione proxy
+## <a name="step2"> </a>Configurare un'API per l'uso di un certificato reciproco per l'autenticazione gateway
 
 Fare clic su **API** dal menu **Gestione API** sulla sinistra, fare clic sul nome dell'API desiderata, quindi sulla scheda **Sicurezza**.
 
@@ -90,7 +90,7 @@ Fare clic su **Salva** per salvare la modifica di configurazione nell'API.
 
 ![Salvataggio delle modifiche API][api-management-save-api]
 
->Quando un certificato è specificato per l'autenticazione proxy del servizio back-end di un'API, diventa parte dei criteri di quell'API e può essere visualizzato nell'editor dei criteri.
+>Quando un certificato è specificato per l'autenticazione gateway del servizio back-end di un'API, diventa parte dei criteri di quell'API e può essere visualizzato nell'editor dei criteri.
 
 ![Criteri dei certificati][api-management-certificate-policy]
 
@@ -133,7 +133,7 @@ Per altre informazioni, vedere il video seguente:
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configurare un'API per l'uso di un certificato reciproco per l'autenticazione proxy]: #step2
+[Configurare un'API per l'uso di un certificato reciproco per l'autenticazione gateway]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
@@ -141,4 +141,4 @@ Per altre informazioni, vedere il video seguente:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Configurazione di un nuovo dispositivo con Azure AD durante l'installazione
@@ -43,8 +44,11 @@ Per aggiungere un dispositivo ad Azure AD
 > [AZURE.NOTE]L’aggiunta a un dominio di Active Directory locale nella configurazione guidata di Windows non è supportata. Pertanto, se si prevede di aggiungere un computer a un dominio, è necessario selezionare il collegamento "Configurare Windows con un account locale". È quindi possibile aggiungere il dominio da Impostazioni PC come in precedenza.
 
 ## Informazioni aggiuntive
-* [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md)
+* [Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Autenticazione delle identità senza password con Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -17,7 +17,7 @@
 	ms.author="omark"/>
 
 # Informazioni sul servizio app di Azure
-Il servizio app di Azure è l'unico servizio cloud che integra tutto il necessario per creare in modo semplice e rapido app per dispositivi mobili e Web per qualsiasi piattaforma e dispositivo. Creato per gli sviluppatori, il servizio app è una piattaforma interamente gestita con funzionalità avanzate, ad esempio l'integrazione di DevOps, l'integrazione continua con Visual Studio Online e GitHub, il supporto per la gestione temporanea e la produzione e l'applicazione automatica delle patch.
+Il servizio app di Azure è l'unico servizio cloud che integra tutto il necessario per creare in modo semplice e rapido app per dispositivi mobili e Web per qualsiasi piattaforma e dispositivo. Creato per gli sviluppatori, il servizio app è una piattaforma interamente gestita con funzionalità avanzate, ad esempio l'integrazione di DevOps, l'integrazione continua con Visual Studio Team Services e GitHub, il supporto per la gestione temporanea e la produzione e l'applicazione automatica delle patch.
 
 Il servizio app di Azure è un singolo servizio che riunisce tutte le funzionalità esistenti di Siti Web di Azure, Servizi mobili di Azure e Servizi BizTalk di Azure e aggiunge inoltre nuove funzionalità. [Altre informazioni](http://azure.microsoft.com/documentation/services/app-service/) sulla relazione tra il servizio app e tali servizi esistenti.
 
@@ -30,7 +30,7 @@ Incentrato sullo sviluppo rapido di app Web e mobili e sull'automazione dei proc
 
 - **Integrazione semplificata**: è possibile integrare dati tra cloud diversi e automatizzare i processi aziendali nel giro di pochi minuti, grazie a una progettazione visiva semplice e intuitiva. Facile integrazione della logica IT esistente con qualsiasi app mobile o Web tramite API REST standard. È possibile raggiungere un livello avanzato di integrazione delle applicazioni aziendali, realizzare soluzioni B2B mediante EDI, criteri aziendali (motore regole) e molto altro ancora. Il tutto sulla base della piattaforma BizTalk, leader nel settore.
 
-- **Produttività degli sviluppatori senza precedenti**: la soluzione è ottimizzata per DevOps, con supporto per l'integrazione continua per Visual Studio Online e GitHub e consente di concentrarsi sul miglioramento rapido delle app senza doversi preoccupare di tematiche legate all'infrastruttura. Distribuzione degli aggiornamenti delle app con funzionalità predefinite di gestione temporanea, rollback e test nell'ambiente di produzione.
+- **Produttività degli sviluppatori senza precedenti**: la soluzione è ottimizzata per DevOps, con supporto per l'integrazione continua per Visual Studio Team Services e GitHub e consente di concentrarsi sul miglioramento rapido delle app senza doversi preoccupare di tematiche legate all'infrastruttura. Distribuzione degli aggiornamenti delle app con funzionalità predefinite di gestione temporanea, rollback e test nell'ambiente di produzione.
 
 - **Soluzione di livello aziendale**: massima tranquillità, grazie a funzionalità di gestione e sicurezza di livello aziendale. Amministrazione delegata e basata sui ruoli; protezione e gestione sicura dei dati scambiati dalle app per dispositivi mobili; protezione degli asset grazie alla funzionalità di backup e ripristino predefinita. Totale serenità: il servizio app è conforme allo standard PCI. Controllo completo grazie ad ambienti dedicati e alla possibilità di distribuire in cloud sia pubblici che privati. Tutti i vantaggi derivanti da 25 anni di esperienza di Microsoft nel settore e contratto di servizio Microsoft di classe enterprise.
 
@@ -59,4 +59,4 @@ Per l'impostazione del servizio app di Azure è sufficiente selezionare un lingu
 [Creare una nuova app](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito. Non è necessaria alcuna carta di credito. Nessun impegno, nessun grattacapo.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

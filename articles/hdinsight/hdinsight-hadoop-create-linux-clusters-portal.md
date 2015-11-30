@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/16/2015"
    	ms.author="nitinme"/>
 
 
@@ -99,6 +99,8 @@ Il portale di anteprima di Azure è uno strumento di gestione basato sul Web per
     	>[AZURE.NOTE]Il cluster HDInsight basato su Windows può essere inserito solo in una rete virtuale classica.
 
 	* Fare clic su **Metastore esterni** per specificare il database SQL che si desidera utilizzare per salvare i metadati Hive e Oozie associati al cluster.
+    
+        > [AZURE.NOTE]La configurazione Metastore non è disponibile per i tipi di cluster HBase.
 
 		![Pannello metastore personalizzati](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.7.png "Specificare metastore esterni")
 
@@ -116,7 +118,7 @@ Il portale di anteprima di Azure è uno strumento di gestione basato sul Web per
 
 		Fare clic su **Seleziona** fino a quando non verrà visualizzato il pannello **Nuovo cluster HDInsight**.
 
-10. Nel pannello**Nuovo cluster HDInsight** assicurarsi che **Aggiungi a Schermata iniziale** sia selezionato, quindi fare clic su **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
+10. Nel pannello **Nuovo cluster HDInsight** assicurarsi che **Aggiungi alla Schermata iniziale** sia selezionato, quindi fare clic su **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
 
 	| Durante il provisioning | Provisioning completato |
 	| ------------------ | --------------------- |
@@ -138,13 +140,13 @@ Il portale di anteprima di Azure è uno strumento di gestione basato sul Web per
 
 	* **Elimina**: consente di eliminare il cluster HDInsight.
 
-	* **Guide rapide** (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)): Visualizza le informazioni che consentiranno di iniziare a utilizzare HDInsight.
+	* **Guide rapide** (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)): Visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
 
 	* **Utenti** (![icona utenti](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): consente di impostare le autorizzazioni per _Gestione portale_ di questo cluster per altri utenti nella sottoscrizione Azure.
 
 		> [AZURE.IMPORTANT]Questo influisce _solo_ sull'accesso e sulle autorizzazioni per tale cluster nel portale di anteprima di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
 
-	* **Tag** (![icona tag](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__, e utilizzare un valore comune per tutti i servizi associati a un progetto specifico.
+	* **Tag** (![icona tag](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__, e usare un valore comune per tutti i servizi associati a un progetto specifico.
 
 ##Passaggi successivi
 
@@ -167,4 +169,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

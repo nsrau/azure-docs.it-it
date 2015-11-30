@@ -107,7 +107,7 @@ Microsoft usa i dati solo al fine di fornire il servizio all'utente.
 
 #### Quanto sono sicuri i dati? 
 
-I dati vengono archiviati nei server di Microsoft Azure. Per gli account nel portale di Azure, le restrizioni relative all'account sono illustrate nel [documento relativo a sicurezza, privacy e conformità di Azure](http://go.microsoft.com/fwlink/?linkid=392408). Per gli account nel portale di Visual Studio Online, è invece applicabile il documento sulla [protezione dei dati di Visual Studio Online](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf).
+I dati vengono archiviati nei server di Microsoft Azure. Per gli account nel portale di Azure, le restrizioni relative all'account sono illustrate nel [documento relativo a sicurezza, privacy e conformità di Azure](http://go.microsoft.com/fwlink/?linkid=392408). Per gli account nel portale di Visual Studio Team Services, è invece applicabile il documento sulla [protezione dei dati di Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf).
 
 L'accesso ai dati da parte del personale Microsoft è limitato. Il personale Microsoft può accedere ai dati solo previa autorizzazione dell'utente e se deve fornire supporto per l'uso di Application Insights.
 
@@ -250,4 +250,4 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

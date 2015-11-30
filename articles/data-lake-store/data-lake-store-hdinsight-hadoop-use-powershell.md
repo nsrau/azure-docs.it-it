@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Effettuare il provisioning di un cluster HDInsight con Archivio Data Lake tramite Azure PowerShell
@@ -87,7 +87,7 @@ Per creare un Archivio Data Lake, seguire questa procedura.
 
 	L'output di questa operazione deve essere **True**.
 
-4. Caricare alcuni dati di esempio in Azure Data Lake. Questi dati saranno usati più avanti in questo articolo per verificare che siano accessibili da un cluster HDInsight. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Caricare alcuni dati di esempio in Azure Data Lake. Questi dati saranno usati più avanti in questo articolo per verificare che siano accessibili da un cluster HDInsight. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -294,4 +294,4 @@ Dopo aver configurato il cluster HDInsight perché funzioni con Archivio Data La
 [makecert]: https://msdn.microsoft.com/it-IT/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/it-IT/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

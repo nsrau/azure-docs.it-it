@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="10/15/2015"
+   ms.date="11/11/2015"
    ms.author="mcoskun"/>
 
 # Introduzione alle Reliable Collections nei servizi con stato dell’infrastruttura di servizi
@@ -108,6 +108,7 @@ Occorre tenere presente i concetti seguenti:
 
 - Il timeout predefinito di tutte le API delle raccolte Reliable Collections è 4 secondi. La maggior parte degli utenti non deve ignorare questo valore.
 - Il token di annullamento predefinito è `CancellationToken.None` in tutte le API di Reliable Collections.
+- Il parametro di tipo di chiave (TKey) per un dizionario affidabile (ReliableDictionary) deve implementare correttamente GetHashCode e Equals (). Le chiavi non devono essere modificabili.
 - All'interno di una raccolta le enumerazioni sono coerenti con gli snapshot. Le enumerazioni di più raccolte, tuttavia, non sono coerenti tra le diverse raccolte.
 - Per ottenere una disponibilità elevata per le raccolte Reliable Collections, ogni servizio deve avere almeno un set di repliche di destinazione costituito da un minimo di 3 repliche.
 
@@ -118,4 +119,4 @@ Occorre tenere presente i concetti seguenti:
 - [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

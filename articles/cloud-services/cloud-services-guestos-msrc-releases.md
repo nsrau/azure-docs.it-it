@@ -13,12 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/18/2015"
+   ms.date="11/13/2015"
    ms.author="yuemlu"/>
 
 # Sistema operativo guest di Azure 
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## Sistema operativo guest di novembre
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-112 | [3104517] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-114 | [3100213] | Aggiornamento della sicurezza per Windows Journal per l'esecuzione di codice in modalità remota dell’indirizzo | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-115 | [3105864] | Aggiornamento della sicurezza per Microsoft Windows per l'esecuzione di codice in modalità remota dell’indirizzo | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-117 | [3101722] | Aggiornamento della sicurezza per NDIS per l'elevazione dei privilegi dell’indirizzo | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-118 | [3104507] | Aggiornamenti della protezione per .NET Framework per risolvere l'elevazione dei privilegi | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-119 | [3104521] | Aggiornamento della sicurezza per Winsock per l'elevazione dei privilegi dell’indirizzo | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-120 | [3102939] | Aggiornamento della protezione di IPSec per il Denial of Service | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-121 | [3081320] | Aggiornamento della protezione Schannel per lo spoofing degli indirizzi | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-122 | [3105256] | Aggiornamento della protezione per Kerberos per il bypass della funzionalità di sicurezza | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| Advisory Microsoft sulla sicurezza | [3097966] | Certificati digitali divulgati inavvertitamente potrebbero consentire lo spoofing degli indirizzi | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+
 
 ## Sistema operativo guest di ottobre
 
@@ -182,6 +198,16 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [2999802][2999802] | In Windows vengono stampate linee a tinta unita invece che linee tratteggiate | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 
+[3104517]: http://support.microsoft.com/kb/3104517
+[3100213]: http://support.microsoft.com/kb/3100213
+[3105864]: http://support.microsoft.com/kb/3105864
+[3101722]: http://support.microsoft.com/kb/3101722
+[3104507]: http://support.microsoft.com/kb/3104507
+[3104521]: http://support.microsoft.com/kb/3104521
+[3102939]: http://support.microsoft.com/kb/3102939
+[3081320]: http://support.microsoft.com/kb/3081320
+[3105256]: http://support.microsoft.com/kb/3105256
+[3097966]: http://support.microsoft.com/kb/3097966
 
 [3096441]: http://support.microsoft.com/kb/3096441
 [3089659]: http://support.microsoft.com/kb/3089659
@@ -305,4 +331,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

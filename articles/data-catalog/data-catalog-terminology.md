@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/20/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Terminologia del Catalogo dati di Azure
@@ -55,6 +55,12 @@ I metadati descrittivi dell'asset di dati possono includere informazioni su come
 
 L'anteprima nel Catalogo dati di Azure è uno snapshot di 20 record al massimo che possono essere estratti dall'origine dati durante la registrazione e archiviati nel catalogo con i metadati dell’asset di dati. L'anteprima può aiutare gli utenti a individuare un asset di dati per comprenderne meglio lo scopo e la funzione. In altre parole, i dati di esempio possono essere più importanti dei soli nomi di colonna e tipi di dati. Le anteprime sono supportate solo per tabelle e viste e devono essere selezionate in modo esplicito dall'utente durante la registrazione.
 
+## Profilo dei dati
+
+Un profilo dati nel Catalogo dati di Azure è uno snapshot di metadati a livello di tabella e a livello di colonna su un asset di dati registrati che può essere estratto dall'origine dati durante la registrazione e archiviato nel catalogo con i metadati dell’asset di dati. Il profilo dati può aiutare gli utenti a individuare un asset di dati per comprenderne meglio lo scopo e la funzione. Analogamente alle anteprime, i profili dati devono essere selezionati esplicitamente dall'utente durante la registrazione.
+
+> [AZURE.NOTE]L’estrazione di un profilo dati può essere un'operazione costosa per tabelle e viste di grandi dimensioni e potrebbe aumentare significativamente il tempo necessario per registrare un'origine dati.
+
 ## Prospettiva dell'utente
 
 Nel Catalogo dati di Azure, qualsiasi utente può fornire metadati descrittivi per un asset di dati registrato. Ogni utente dispone di una prospettiva diversa sui dati e sul relativo uso. Ad esempio, l'amministratore responsabile di un server può fornire i dettagli delle finestre di backup o del contratto di servizio, un amministratore dei dati può fornire i collegamenti alla documentazione per i processi aziendali supportati dai dati e un analista può fornire una descrizione in termini rilevanti per altri analisti che può essere più significativa per gli utenti che necessitano di individuare e comprendere i dati.
@@ -80,4 +86,4 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 
 - [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md). In questo articolo viene fornita un'esercitazione end-to-end che illustra come usare il Catalogo dati di Azure per l'individuazione dell'origine dati.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/18/2015"
    ms.author="v-sharos" />
 
 # Per gestire il volume, è possibile usare il servizio StorSimple Manager.
@@ -65,21 +65,21 @@ Il [volume è stato creato](storsimple-deployment-walkthrough-u1.md#step-6-creat
 
 3. Fare clic su **Add** nella parte inferiore della pagina. Verrà avviata la procedura guidata Aggiungi volume.
 
-     ![Aggiungi procedura guidata del volume Impostazioni di base](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![Aggiungi procedura guidata del volume Impostazioni di base](./media/storsimple-manage-volumes/AddVolume1.png)
 
 4. Nella procedura guidata Aggiungi un volume, in **Impostazioni di base**, procedere come segue:
 
   1. Digitare un **Nome** per il volume.
   2. Specificare la **Capacità fornita** per il volume in GB o TB. La capacità deve essere compresa tra 1 GB e 64 TB per un dispositivo fisico. La capacità massima che è possibile fornire per un volume su un dispositivo virtuale StorSimple è di 30 TB.
-  3. Nell'elenco a discesa selezionare il **Tipo di utilizzo** per il volume. Scegliere **Volume di archiviazione** se si lavora con dati di archiviazione utilizzati con meno frequenza. Per tutti gli altri casi, selezionare **Volume a livelli**. (I volumi a livelli erano in precedenza denominati volumi principali.)
+  3. Nell'elenco a discesa selezionare il **Tipo di utilizzo** per il volume. Se si usa questo volume per dati di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**. Per tutti gli altri casi, selezionare semplicemente **Volume a livelli**. (I volumi a livelli erano in precedenza denominati volumi principali.)
   5. Fare clic sull'icona freccia ![Icona freccia](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)per passare alla pagina **Impostazioni aggiuntive**.
 
-     ![Aggiungi procedura guidata del volume Impostazioni aggiuntive](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+        ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
    
 5. Nella finestra di dialogo **Impostazioni aggiuntive**, aggiungere un nuovo record di controllo di accesso (ACR):
   
   1. Selezionare un record di controllo di accesso (ACR) dall'elenco a discesa. In alternativa, è possibile aggiungere un nuovo ACR. Gli ACR determinano quali host possono accedere ai volumi creando una corrispondenza tra il nome qualificato ISCSI dell'host e quello elencato nel record.
-  2. In **Backup predefinito per questo volume**, si consiglia di abilitare il backup predefinito selezionando la casella di controllo **Abilita**.
+  2. È consigliabile abilitare un backup predefinito tramite la selezione della casella di controllo **Abilita un criterio di backup predefinito per questo volume**.
    3. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-manage-volumes/HCS_CheckIcon.png) per creare il volume con le impostazioni specificate.
 
 Il volume è pronto per l'utilizzo.
@@ -113,9 +113,10 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
   - Modificare gli ACR, purché il volume sia offline. Se il volume è online, sarà necessario portarlo prima offline. Fare riferimento ai passaggi riportati in [Portare un volume offline](#take-a-volume-offline) prima di modificare gli ACR.
   - Modificare l’elenco di ACR dopo aver portato il volume offiline.
  
-    > [AZURE.NOTE]Non è possibile modificare l’opzione **Abilita backup predefinito** per il volume.
+    > [AZURE.NOTE]Non è possibile modificare l’opzione **Abilita backup predefinito per questo volume** per il volume.
 
-6. Salvare le modifiche scegliendo l'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-manage-volumes/HCS_CheckIcon.png). Il portale mostrerà un messaggio di volume dell’aggiornamento. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
+6. Salvare le modifiche scegliendo l'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-manage-volumes/HCS_CheckIcon.png). Il portale
+7.  di Azure mostrerà un messaggio di volume dell’aggiornamento. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
 
 7. Se si sta espandendo un volume, completare i passaggi seguenti nel computer host Windows:
 
@@ -195,4 +196,4 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

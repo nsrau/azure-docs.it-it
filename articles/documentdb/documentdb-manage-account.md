@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="11/18/2015" 
 	ms.author="anhoh"/>
 
-# Gestire un account DocumentDB usando il portale di anteprima di Azure
+# Come gestire un account DocumentDB
 
 Acquisire familiarità con le chiavi, le impostazioni di coerenza e informazioni su come eliminare un account nel portale di anteprima di Azure.
 
@@ -48,7 +48,7 @@ Se si dispone di applicazioni o servizi cloud che usano l'account DocumentDB e s
 
 1.      Aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla chiave di accesso secondaria dell'account DocumentDB.
 
-2.      Rigenerare la chiave di accesso primaria per l'account DocumentDB. Nel [portale di anteprima di Azure](https://portal.azure.com/) accedere all'account DocumentDB.
+2.       Rigenerare la chiave di accesso primaria per l'account DocumentDB. Nel [portale di anteprima di Azure](https://portal.azure.com/) accedere all'account DocumentDB.
 
 3.      Nel filtro di riepilogo fare clic su **Keys**.
 
@@ -65,9 +65,9 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 
 - La coerenza **assoluta** garantisce che le operazioni di lettura restituiscano sempre il valore scritto per ultimo.
 
-- La coerenza **con obsolescenza associata** garantisce che le letture non siano troppo obsolete. In particolare, garantisce che le letture non siano più di *K* versioni precedenti all'ultima versione scritta.
+- La coerenza **con obsolescenza associata** garantisce che le letture non siano troppo obsolete. In particolare, garantisce che le letture non siano più di K versioni precedenti all'ultima versione scritta.
 
-- La coerenza **di sessione** garantisce letture monotoniche (non si leggeranno mai dati obsoleti, poi nuovi, poi di nuovo obsoleti), scritture monotoniche (le scritture vengono ordinate) e che si leggano le scritture più recenti nell’ambito di ogni singolo punto di vista del client.
+- La coerenza **di sessione** garantisce letture monotoniche (non si leggeranno mai dati obsoleti, poi nuovi, poi di nuovo obsoleti), scritture monotoniche (le scritture vengono ordinate) e che si leggano le scritture più recenti in ogni singolo punto di vista del client.
 
 - La coerenza **finale** garantisce che le operazioni di lettura leggano sempre un subset di scritture valido e che alla fine convergano.
 
@@ -77,26 +77,26 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 
 1.      Nel [portale di anteprima di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
 
-2.      Nella sezione **Configurazione** fare clic su **Coerenza di default**.
+2.      Nella sezione **Configuration** fare clic su **Default Consistency**.
 
-3.      Nel pannello **Coerenza di default** selezionare il livello di coerenza predefinito desiderato per l'account DocumentDB.
+3.      Nel pannello **Coerenza di default** selezionare il livello di coerenza predefinito desiderato per l'account DocumentDB.
 
 ![Sessione coerenza predefinita](./media/documentdb-manage-account/image005.png)
 
 ![Coerenza predefinito limitata](./media/documentdb-manage-account/image006.png)
 
-4.      Fare clic su **Save**.
+4.      Fare clic su **Save**.
 
 5.      L'avanzamento dell'operazione può essere monitorato tramite l'hub delle notifiche del portale di anteprima di Azure.
 
 *Si noti che potrebbero trascorrere diversi minuti prima che una modifica alle impostazioni di coerenza predefinite si propaghi nell'intero account DocumentDB.*
 
 ## <a id="delete"></a> Come eliminare un account di DocumentDB nel portale di anteprima di Azure
-Per rimuovere un account DocumentDB non più in uso dal portale di anteprima di Azure, utilizzare il comando **Elimina** nel pannello dell'**account DocumentDB**.
+Per rimuovere un account DocumentDB non più in uso dal portale di anteprima di Azure, utilizzare il comando **Elimina** nel pannello dell'account **DocumentDB**.
 
 ![Come eliminare un account di DocumentDB nel portale di anteprima di Azure](./media/documentdb-manage-account/image009.png)
 
-1.      Nel [portale di anteprima di Azure](https://portal.azure.com/) accedere all'account DocumentDB che si desidera eliminare. 
+1.      Nel [portale di anteprima di Azure](https://portal.azure.com/) accedere all'account DocumentDB da eliminare. 
 
 2.      Nel pannello dell'**account DocumentDB** fare clic sul comando **Elimina**.
 
@@ -113,4 +113,4 @@ Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure
  
  
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

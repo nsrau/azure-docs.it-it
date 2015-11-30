@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 # Distribuzione e gestione di topologie Apache Storm in HDInsight basato su Linux
@@ -137,7 +137,7 @@ Selezionare uno spout nelle sezioni **Spouts** o **Bolts** per visualizzare le i
 
 L'interfaccia utente di Storm si basa sull'API REST. È pertanto possibile eseguire funzionalità di gestione e monitoraggio simili usando l'API REST. L'API REST consente di creare strumenti personalizzati per la gestione e il monitoraggio di topologie Storm.
 
-Per altre informazioni, vedere l'articolo relativo all'<a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">API REST dell'interfaccia utente di Storm</a>. Le seguenti informazioni sono specifiche per l'uso dell'API REST con Apache Storm in HDInsight.
+Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfaccia utente di Storm](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). Le seguenti informazioni sono specifiche per l'uso dell'API REST con Apache Storm in HDInsight.
 
 > [AZURE.IMPORTANT]L'API REST di Storm non è disponibile pubblicamente su Internet ed è necessario accedervi usando un tunnel SSH al nodo head del cluster HDInsight. Per informazioni sulla creazione e sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -168,4 +168,4 @@ A questo punto, dopo aver appreso come distribuire e monitorare le topologie usa
 
 Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm per Apache Storm in HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

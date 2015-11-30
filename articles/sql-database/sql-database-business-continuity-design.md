@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 #Progettazione per la continuità aziendale
@@ -49,7 +49,7 @@ La funzionalità di replica geografica crea un database di replica (secondario) 
 
 ##Confronto tra replica geografica standard e replica geografica attiva
 
-I database di livello Standard non consentono di usare la replica geografica attiva. Pertanto, se l'applicazione usa database Standard e soddisfa i criteri sopra descritti, dovrebbe abilitare la replica geografica standard. Al contrario, per i database Premium è possibile scegliere una delle due opzioni. La replica geografica standard è stata progettata come soluzione di ripristino di emergenza più semplice e meno costosa, particolarmente adatta ad applicazioni che la usano solo per proteggersi da eventi imprevisti, ad esempio le interruzioni del servizio. Con la replica geografica standard, per il ripristino è possibile usare solo l'area abbinata di ripristino di emergenza e si ha la possibilità di creare più di un database secondario. Quest'ultima funzionalità è fondamentale per lo scenario aggiornamento dell'applicazione. Pertanto, se questo scenario ha un ruolo cruciale per l'applicazione, è consigliabile abilitare la replica geografica attiva. Per altre informazioni, vedere [Aggiornare l'applicazione senza tempo di inattività](sql-database-business-continuity-application-upgrade.md).
+I database di livello Standard non consentono di usare la replica geografica attiva. Pertanto, se l'applicazione usa database Standard e soddisfa i criteri sopra descritti, dovrebbe abilitare la replica geografica standard. Al contrario, per i database Premium è possibile scegliere una delle due opzioni. La replica geografica standard è stata progettata come soluzione di ripristino di emergenza più semplice e meno costosa, particolarmente adatta ad applicazioni che la usano solo per proteggersi da eventi imprevisti, ad esempio le interruzioni del servizio. Con la replica geografica standard, è possibile usare solo l'area abbinata per il ripristino di emergenza e si ha la possibilità di creare solo un database secondario per ciascuno di quelli primari. Un database secondario aggiuntivo potrebbe essere necessario per lo scenario di aggiornamento dell'applicazione. Pertanto, se questo scenario ha un ruolo cruciale per l'applicazione, è consigliabile abilitare la replica geografica attiva. Per altre informazioni, vedere [Aggiornare l'applicazione senza tempo di inattività](sql-database-business-continuity-application-upgrade.md).
 
 > [AZURE.NOTE]La replica geografica attiva supporta inoltre l'accesso in sola lettura al database secondario e fornisce quindi capacità aggiuntiva per i carichi di lavoro di sola lettura.
 
@@ -74,31 +74,28 @@ I database di livello Standard non consentono di usare la replica geografica att
 
 ###PowerShell
 
-Per automatizzare la configurazione della replica geografica, usare il cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) di PowerShell.
+Usare il cmdlet PowerShell [New AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) per creare la configurazione della replica geografica. Questo comando è sincrono e restituisce quando i database primario e secondario sono sincronizzati.
 
-Per creare la replica geografica con un database secondario non leggibile per un database Premium o Standard:
+Per configurare la replica geografica con un database secondario non leggibile per un database Premium o Standard:
 		
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy -OfflineSecondary
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+
 Per creare la replica geografica con un database secondario leggibile per un database Premium:
 
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 		 
-Questo comando è asincrono. Dopo la restituzione, usare il cmdlet [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) per controllare lo stato di questa operazione. Il campo ReplicationState dell'oggetto restituito avrà il valore CATCH\_UP al termine dell'operazione.
-
-		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
-
 
 ###API REST 
 
-Per creare una configurazione di replica geografica a livello di codice, usare l'API [Start Database Copy](https://msdn.microsoft.com/library/azure/dn509576.aspx).
+Usare l’API [Creare Database](https://msdn.microsoft.com/library/mt163685.aspx) con *createMode* impostato su *NonReadableSecondary* o *Secondary* per creare a livello di codice un database secondario di replica geografica.
 
-Questa API è asincrona. Dopo la restituzione, usare l'API [Get Database Copy](https://msdn.microsoft.com/library/azure/dn509570.aspx) per controllare lo stato di questa operazione. Il campo ReplicationState del corpo della risposta avrà il valore CATCH\_UP al termine dell'operazione.
+Questa API è asincrona. Dopo la restituzione, usare l’API [Get Replication Link](https://msdn.microsoft.com/library/mt600778.aspx) per controllare lo stato di questa operazione. Il campo *replicationState* del corpo della risposta avrà il valore CATCHUP al termine dell'operazione.
 
 
 ##Come scegliere la configurazione di failover 
 
 Quando si progetta l'applicazione per la continuità aziendale, è necessario considerare alcune opzioni di configurazione. La scelta dipenderà dalla topologia di distribuzione dell'applicazione e dalle parti dell'applicazione più vulnerabili a un'interruzione del servizio. Per informazioni aggiuntive, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
- 
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

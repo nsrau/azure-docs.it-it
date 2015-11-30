@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 #Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X:
@@ -44,10 +44,6 @@ SSH è un'utilità per accedere ed eseguire in modalità remota i comandi in un 
 ###SSH user name
 
 Un nome utente SSH è il nome utilizzato per autenticarsi con il cluster HDInsight. Quando si specifica un nome utente SSH durante la creazione del cluster, l'utente viene creato in tutti i nodi del cluster. Una volta creato il cluster, è possibile utilizzare questo nome utente per la connessione a nodi head del cluster HDInsight. Dai nodi head, è quindi possibile connettersi ai nodi del singolo lavoratore.
-
-> [AZURE.NOTE]Un nome utente SSH deve essere univoco. Poiché un nome utente SSH crea un account utente sul cluster HDInsight, esso non è in conflitto con gli utenti esistenti creati da HDInsight. Di seguito sono indicati i nomi riservati per l’uso da parte dei servizi in esecuzione nel cluster HDInsight e che non possono essere utilizzati come nome utente SSH:
->
-> root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
 ###Password SSH o chiave pubblica
 
@@ -190,9 +186,9 @@ Usare la procedura seguente per connettersi ai nodi di lavoro per il cluster.
 
     > [AZURE.NOTE]Se è stata usata una password per l'autenticazione della sessione SSH, verrà richiesto di immetterla di nuovo. Se si usa una chiave SSH, la connessione dovrebbe terminare senza alcuna richiesta.
 
-4. Una volta stabilita la sessione, la richiesta del terminale cambierà da `username@headnode` a `username@workernode` per indicare che si è connessi al nodo di lavoro. Tutti i comandi eseguiti a questo punto verranno eseguiti sul nodo del lavoro.
+4. Una volta stabilita la sessione, la richiesta del terminale cambierà da `username@hn0-clustername` a `username@wk0-clustername` per indicare che si è connessi al nodo di lavoro. Tutti i comandi eseguiti a questo punto verranno eseguiti sul nodo del lavoro.
 
-4. Al termine dell'esecuzione di azioni su un nodo di lavoro, usare il comando `exit` per chiudere la sessione per il nodo di lavoro. In questo modo si tornerà alla richiesta `username@headnode`.
+4. Al termine dell'esecuzione di azioni su un nodo di lavoro, usare il comando `exit` per chiudere la sessione per il nodo di lavoro. In questo modo si tornerà alla richiesta `username@hn0-clustername`.
 
 ##Aggiungere altri account
 
@@ -242,4 +238,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Disabilitare o abilitare un endpoint di Gestione traffico
@@ -40,14 +40,8 @@
 
 [Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
 
-[Gestione traffico di Azure](../traffic-manager.md)
+[Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
 
-[Servizi cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
 
-[Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-
-[Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

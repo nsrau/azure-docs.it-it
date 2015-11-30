@@ -23,12 +23,12 @@ Servizi multimediali di Microsoft Azure consente di proteggere i file multimedia
 
 - L'immagine seguente illustra il flusso di lavoro "crittografia comune dinamica PlayReady e/o Widevine DRM". Per informazioni dettagliate, vedere l'articolo relativo all'[uso della crittografia comune dinamica PlayReady e/o Widevine DRM](media-services-protect-with-drm.md).
 
-	![Protezione con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
+![Protezione con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
 
 - L'immagine seguente illustra il flusso di lavoro "crittografia dinamica AES-128". Per informazioni dettagliate, vedere [Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md).
 
-	![Proteggere con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
+![Proteggere con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
 >[AZURE.NOTE]Per poter usare la crittografia dinamica, è prima necessario ottenere almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere in streaming i contenuti crittografati.
 
@@ -80,19 +80,19 @@ Le licenze contengono i diritti e le limitazioni che il runtime di PlayReady DSM
 
 ###Restrizione Token
 
-I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo Open, Token o IP. I criteri con restrizione Token devono essere accompagnati da un token rilasciato da un servizio STS (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati Simple Web Tokens (SWT) e JSON Web Token (JWT). Servizi multimediali non fornisce servizi token di sicurezza. Per il rilascio di token è possibile creare un servizio token di sicurezza personalizzato oppure usare il Servizio di controllo di accesso di Microsoft Azure. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione di chiavi di Servizi multimediali restituirà al client la chiave o la licenza richiesta se il token è valido e le attestazioni del token corrispondono a quelle configurate per la chiave o la licenza.
+I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo Open o Token. I criteri con restrizione Token devono essere accompagnati da un token rilasciato da un servizio STS (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati Simple Web Tokens (SWT) e JSON Web Token (JWT). Servizi multimediali non fornisce servizi token di sicurezza. Per il rilascio di token è possibile creare un servizio token di sicurezza personalizzato oppure usare il Servizio di controllo di accesso di Microsoft Azure. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione di chiavi di Servizi multimediali restituirà al client la chiave o la licenza richiesta se il token è valido e le attestazioni del token corrispondono a quelle configurate per la chiave o la licenza.
 
 Quando si configurano i criteri di restrizione Token, è necessario specificare i parametri primary verification key, issuer e audience. Il parametro primary verification key include la chiave usata per firmare il token. Il parametro issuer è il servizio token di sicurezza che emette il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
 
 ###Widevine
 
-AMS consente inoltre di recapitare contenuti DASH MPEG crittografati con Widevine DRM. PlayReady e Widewine vengono crittografati in base alle specifiche della crittografia comune (CENC). È possibile usare [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partire dalla versione 3.5.1) o l'API REST per configurare AssetDeliveryConfiguration per l'uso di Widevine.
+AMS consente inoltre di recapitare contenuti DASH MPEG crittografati con Widevine DRM. PlayReady e Widewine vengono crittografati in base alle specifiche della crittografia comune (CENC). È possibile utilizzare [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (iniziando con la versione 3.5.1) o l'API REST per configurare l’AssetDeliveryConfiguration per utilizzare Widevine.
 
-Attualmente, Servizi multimediali non fornisce un server licenze Widevine. È possibile usare i partner AMS seguenti per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
+A partire da Servizi Multimediali .NET SDK versione 3.5.2, Servizi multimediali consente di configurare il modello di licenza Widevine e ottenere licenze Widevine. È anche possibile usare i partner AMS seguenti per facilitare la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 ##Scenari comuni
 
-###Proteggere i contenuti nella risorsa di archiviazione e distribuire dinamicamente i flussi multimediali crittografati, usare il servizio di distribuzione di licenze/chiavi AMS  
+###Proteggere i contenuti nella risorsa di archiviazione e distribuire dinamicamente i flussi multimediali crittografati, usare il servizio di distribuzione di licenze/chiavi AMS
 
 1. Inserire un file in formato intermedio di qualità elevata in un asset. Applicare all'asset l'opzione di crittografia di archiviazione.
 2. Configurare gli endpoint di streaming
@@ -137,6 +137,5 @@ Per altre informazioni, vedere l'articolo relativo all'[integrazione del servizi
 [Usare il Servizio di controllo di accesso di Azure per il rilascio di token](http://mingfeiy.com/acs-with-key-services).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
- 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,26 +1,17 @@
 <properties
-	pageTitle="Introduzione al Backup di Azure | Microsoft Azure"
-	description="Questo articolo offre una panoramica del servizio Backup di Azure che consente il backup dei dati in Azure"
+	pageTitle="Che cos'è Azure Backup? | Microsoft Azure"
+	description="Con Azure Backup e i servizi di ripristino è possibile eseguire il backup e il ripristino di dati e applicazioni da server Windows, computer client Windows, server SCDPM o macchine virtuali di Azure."
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor="tysonn"/>
+	editor="tysonn"
+	keywords="backup e ripristino; servizi di ripristino"/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="aashishr"; "trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
-# Introduzione a Backup di Azure
-Questo articolo offre una panoramica di alto livello della soluzione di backup integrata nel cloud di Microsoft che consente ai clienti di eseguire il backup dei dati disponibili in locale o in Azure.
-
-## Informazioni su Backup di Azure
-Backup di Azure è un servizio di Azure con tenant multipli che consente di eseguire il backup dei dati presenti ovunque: in locale o in Azure. Sostituisce la soluzione di backup locale o esterno esistente con una soluzione basata su cloud affidabile, sicura e conveniente. Offre inoltre la flessibilità di proteggere gli asset in esecuzione nel cloud. Backup di Azure si basa su un'infrastruttura di livello mondiale, scalabile, durevole e a disponibilità elevata. Con questa soluzione è possibile eseguire il backup di dati e applicazioni dai server System Center Data Protection Manager (SCDPM), dai server Windows, dai computer client Windows o da macchine virtuali IaaS di Azure. Backup di Azure e SCDPM sono le tecnologie fondamentali di cui si compone la soluzione di backup integrata nel cloud di Microsoft.
+# Informazioni su Backup di Azure
+Backup di Azure è un servizio di Azure con tenant multipli che consente di eseguire il backup e il ripristino dei dati in locale o in Azure. Sostituisce la soluzione di backup locale o esterno esistente con una soluzione di backup nel cloud affidabile, sicura e conveniente. Offre inoltre la flessibilità di proteggere gli asset in esecuzione nel cloud. Backup di Azure si basa su un'infrastruttura di livello mondiale, scalabile, durevole e a disponibilità elevata. Con questa soluzione è possibile eseguire il backup di dati e applicazioni dai server System Center Data Protection Manager (SCDPM), dai server Windows, dai computer client Windows o da macchine virtuali IaaS di Azure. Backup di Azure e SCDPM sono le tecnologie fondamentali di cui si compone la soluzione di backup integrata nel cloud di Microsoft.
 
 > [AZURE.VIDEO what-is-azure-backup]
 
@@ -78,4 +69,4 @@ Le funzionalità principali della soluzione sono le seguenti:
 - Le domande frequenti sul servizio di Backup di Azure sono disponibili [in questa pagina](backup-azure-backup-faq.md).
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # Registrare l'app per l'uso dell'account Microsoft per l'autenticazione
@@ -30,51 +30,39 @@ Le app di Windows Store devono innanzitutto essere registrate in Windows Dev Cen
 
 >[AZURE.NOTE]Per le app per Windows Phone 8, Windows Phone 8.1 Silverlight e non per Windows è possibile saltare questa sezione.
 
-1. Se l'app non è ancora stata registrata, passare alla pagina [Invia un'app] in Windows Store Dev Center, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
-
-   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-submit-win8-app.png)
-
-2. Selezionare l'opzione che consente di **creare una nuova app riservando un nome univoco** e fare clic su **Continua**, quindi digitare il nome dell'app in **Nome app**, fare clic su **Riserva nome dell'app** e quindi su **Salva**.
-
-   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-name.png)
-
-   	Verrà creata una nuova registrazione a Windows Store per l'app.
-
-3. In Visual Studio aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
-
-4. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app di Windows Store, scegliere **Store** e quindi fare clic su **Associa applicazione a Store**.
+1. Se l'app non è ancora stata registrata, passare a [Windows Dev Center](https://dev.windows.com/dashboard/Application/New), accedere con il proprio account Microsoft, digitare un nome per l’app, quindi fare clic su **Riservare un nome dell’app**.
+ 
+3. Aprire il progetto dell’app Windows Visual Studio, poi in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto dell’app di Windows Store, quindi scegliere **Store** > **Associa app allo Store**.
 
   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-store-association.png)
 
-   	Verrà visualizzata la procedura guidata **Associa l'applicazione con Windows Store**.
+5. Nella procedura guidata fare clic su **Accedi** e accedere con il proprio account Microsoft, selezionare il nome dell'app riservato, quindi fare clic su **Avanti** > **Associa**.
 
-5. Nella procedura guidata fare clic su **Accedi** e quindi accedere con il proprio account Microsoft, selezionare il nome dell'app riservato al passaggio 2, quindi fare clic su **Avanti** > **Associa**.
-
-   	Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
-
-6. (Facoltativo) Per un'app di Windows universale, ripetere i passaggi da 4 a 5 per il progetto Windows Phone Store.
+6. (Facoltativo) Per un'app 8.1 di Windows universale, ripetere i passaggi da 4 e 5 per il progetto Windows Phone Store.
 
 6. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi** > **Notifiche push**.
 
 7. Nella pagina **Notifiche push** fare clic su **Sito di servizi Live** in **Servizi notifica Push Windows (WNS) e Servizi mobili di Microsoft Azure**.
 
-Viene visualizzata la pagina dell'account Microsoft per l'app.
+Viene visualizzata la pagina dell'account Microsoft per l'app. Successivamente, si otterranno le credenziali di autenticazione necessari affinché Azure possa utilizzare l'autenticazione di Microsoft con l'app.
 
 ## Configurare la registrazione all'account Microsoft e connettersi a Servizi mobili
 
 Il primo passaggio di questa sezione si applica solo ad app per Windows Phone 8, Windows Phone 8.1 Silverlight e app non di Windows Store. Per tali app è anche possibile ignorare l'ID di sicurezza (SID) del pacchetto, disponibile solo per le app di Windows Store.
 
-1. Per un'app non di Windows Store, passare alla pagina <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Applicazioni personali</a> nel centro per sviluppatori degli account Microsoft, accedere con l'account Microsoft (se richiesto), fare clic su **Crea applicazione**, quindi digitare un **Nome applicazione** e fare clic su **Accetto**.
+1. Per un'app non di Windows Store, passare alla pagina [Applicazioni personali](http://go.microsoft.com/fwlink/p/?LinkId=262039) nel centro per sviluppatori degli account Microsoft, accedere con l'account Microsoft (se richiesto), fare clic su **Crea applicazione**, digitare un **Nome applicazione** poi fare clic su **Accetto**.
 
    	Questo processo riserva il nome dell'app con l'account Microsoft e visualizza la pagina dell'account Microsoft per l'app.
 
-2. Nella pagina dell'account Microsoft per l'app, fare clic su **Impostazioni API**, selezionare **App client desktop o per dispositivi mobili**, impostare l'URL del servizio mobile come **Dominio di destinazione**, specificare un valore di `https://<mobile_service>.azure-mobile.net/` in **URL di reindirizzamento** e quindi fare clic su **Salva**.
+2. Nella pagina dell'account Microsoft per l'app, fare clic su **Impostazioni API**, abilitare **App client desktop o per dispositivi mobili**, impostare l'URL del servizio mobile come **Dominio di destinazione**, poi specificare uno dei seguenti formati di URL in **URL di reindirizzamento** e fare clic su **Salva**:
 
-	 >[AZURE.NOTE]Per un servizio mobile back-end .NET pubblicato in Azure tramite Visual Studio, l'URL di reindirizzamento corrisponde all'URL del servizio mobile con l'aggiunta del percorso _signin-microsoft_, ovvero il servizio mobile come servizio .NET, ad esempio `https://todolist.azure-mobile.net/signin-microsoft`.
+	+ **Back-end .NET**: `https://<mobile_service>.azure-mobile.net/signin-microsoft`
+	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` 
+
+	 >[AZURE.NOTE]Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione avrà esito negativo. Il **dominio radice** deve essere compilato automaticamente. &nbsp;
 
     ![Impostazioni API dell'account Microsoft](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth-2.png)
 
-	Il **dominio radice** deve essere compilato automaticamente.
 
 4. Fare clic su **Impostazioni app** e prendere nota dei valori di **ID client**, **segreto client** e **ID di sicurezza del pacchetto**.
 	
@@ -83,9 +71,7 @@ Il primo passaggio di questa sezione si applica solo ad app per Windows Phone 8,
 	
     > [AZURE.NOTE]Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app. Solo per le registrazioni delle app di Windows Store il campo relativo all'ID di sicurezza del pacchetto risulta compilato.
 
-4. Nel [portale di gestione di Azure] fare clic sulla scheda **Identità** relativa al servizio mobile, immettere l'ID client, il segreto client e l'ID di sicurezza del pacchetto ottenuto dal provider di identità e fare clic su **Salva**.
-
- 	![Scheda Identità di Servizi mobili](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-identity-tab.png)
+4. Nel [portale di gestione di Azure] fare clic sulla scheda **Identità** relativa al servizio mobile, immettere l'ID client, il segreto client e l'ID di sicurezza del pacchetto ottenuto dal provider di identità, poi fare clic su **Salva**.
 	
 	>[AZURE.NOTE]Non è necessario specificare un valore per l'ID di sicurezza del pacchetto per un'app per Windows Phone 8, Windows Phone Store 8.1 Silverlight o non per Windows.
 	
@@ -97,10 +83,10 @@ Il servizio mobile e l'app sono ora configurati per l'uso con l'account Microsof
 
 <!-- URLs. -->
 
-[Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
 [portale di gestione di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

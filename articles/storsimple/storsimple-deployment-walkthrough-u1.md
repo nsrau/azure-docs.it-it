@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="11/17/2015"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale (Aggiornamento 1)
@@ -152,7 +152,7 @@ Un servizio StorSimple Manager può gestire più dispositivi StorSimple. Effettu
 
 Quando il servizio StorSimple Manager è attivo e in esecuzione, è necessario ottenere la chiave di registrazione. Questa chiave viene utilizzata per registrare e connettere il dispositivo StorSimple con il servizio.
 
-Eseguire i passaggi seguenti nel portale di gestione.
+Eseguire i passaggi seguenti nel portale di Azure.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -171,7 +171,7 @@ Per la configurazione minima del dispositivo del dispositivo StorSimple, è nece
 - Abilitare iSCSI in almeno un'interfaccia di rete.
 - Assegnare indirizzi IP fissi a entrambi i controller.
 
-Eseguire i passaggi seguenti nel portale di gestione per completare l'installazione minima del dispositivo.
+Eseguire i passaggi seguenti nel portale di Azure per completare l'installazione minima del dispositivo.
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
@@ -179,13 +179,13 @@ Eseguire i passaggi seguenti nel portale di gestione per completare l'installazi
 
 Un contenitore di volumi dispone di account di archiviazione, larghezza di banda e impostazioni di crittografia per tutti i volumi in esso contenuti. Prima di iniziare il provisioning dei volumi nel dispositivo StorSimple è necessario creare un contenitore di volumi.
 
-Eseguire i passaggi seguenti nel portale di gestione per creare un contenitore di volumi.
+Eseguire i passaggi seguenti nel portale di Azure per creare un contenitore di volumi.
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## Passaggio 6: Creare un volume
 
-Dopo aver creato un contenitore di volumi, è possibile eseguire il provisioning di un volume di archiviazione nel dispositivo StorSimple per i server. Eseguire i passaggi seguenti nel portale di gestione per creare un volume.
+Dopo aver creato un contenitore di volumi, è possibile eseguire il provisioning di un volume di archiviazione nel dispositivo StorSimple per i server. Eseguire i passaggi seguenti nel portale di Azure per creare un volume.
 
 > [AZURE.IMPORTANT]StorSimple di Azure consente di creare solo volumi di thin provisioning. Non è possibile creare volumi con provisioning completo o parziale.
 
@@ -212,7 +212,7 @@ Se si decide di non configurare MPIO, eseguire la procedura seguente per montare
 
 I backup garantiscono la protezione temporizzata dei volumi e migliorano la recuperabilità riducendo al minimo i tempi di ripristino. È possibile eseguire due tipi di backup su un dispositivo StorSimple: snapshot locali e snapshot nel cloud. Ciascuno di questi tipi di backup può essere **Pianificato** o **Manuale**.
 
-Eseguire i passaggi seguenti nel portale di gestione per creare un backup pianificato.
+Eseguire i passaggi seguenti nel portale di Azure per creare un backup pianificato.
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -224,7 +224,7 @@ Si tratta di un passaggio che è necessario eseguire solo se non è stata abilit
 
 Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md) per istruzioni dettagliate.
 
-Eseguire i passaggi seguenti nel portale di gestione, nella pagina del **servizio StorSimple Manager**.
+Eseguire i passaggi seguenti nel portale di Azure, nella pagina del **servizio StorSimple Manager**.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -265,7 +265,7 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 
 ## Creazione di un backup manuale
 
-Eseguire i passaggi seguenti nel portale di gestione per creare un backup manuale su richiesta per un singolo volume nel dispositivo StorSimple.
+Eseguire i passaggi seguenti nel portale di Azure per creare un backup manuale su richiesta per un singolo volume nel dispositivo StorSimple.
 
 [AZURE.INCLUDE [Creazione di un backup manuale](../../includes/storsimple-create-manual-backup.md)]
 
@@ -287,4 +287,4 @@ Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

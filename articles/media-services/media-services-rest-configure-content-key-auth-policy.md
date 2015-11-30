@@ -464,6 +464,7 @@ Aggiungere criteri di autorizzazione alla chiave simmetrica, come mostrato [qui]
         None = 0,
         PlayReadyLicense = 1,
         BaselineHttp = 2,
+        Widevine = 3
     }
 
 
@@ -482,4 +483,4 @@ Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passa
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

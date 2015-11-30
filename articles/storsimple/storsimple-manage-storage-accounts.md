@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos" />
 
 # Utilizzare il servizio StorSimple Manager per gestire l’account di archiviazione
@@ -113,7 +113,7 @@ Quando si crea un account di archiviazione, Microsoft Azure genera due chiavi di
 
 In genere, le applicazioni utilizzano solo una delle chiavi per accedere ai dati. Dopo un determinato periodo di tempo, è possibile impostare alcune applicazioni perché utilizzino la seconda chiave. Dopo avere impostato le applicazioni per la chiave secondaria, è possibile ritirare la prima chiave e quindi generare una nuova chiave. Utilizzando due chiavi in questo modo le applicazioni possono accedere ai dati senza tempi di inattività.
 
-Le chiavi degli account di archiviazione vengono sempre archiviate nel servizio in formato crittografato. Tuttavia, possono essere reimpostate tramite il servizio StorSimple Manager. Il servizio consente di ottenere la chiave primaria e la chiave secondaria per tutti gli account di archiviazione nella stessa sottoscrizione, inclusi gli account creati nel servizio di archiviazione e gli account di archiviazione predefiniti generati in fase di creazione del servizio StorSimple Manager. Il servizio StorSimple Manager otterrà sempre queste chiavi dal portale di gestione e le archivierà in modo crittografato.
+Le chiavi degli account di archiviazione vengono sempre archiviate nel servizio in formato crittografato. Tuttavia, possono essere reimpostate tramite il servizio StorSimple Manager. Il servizio consente di ottenere la chiave primaria e la chiave secondaria per tutti gli account di archiviazione nella stessa sottoscrizione, inclusi gli account creati nel servizio di archiviazione e gli account di archiviazione predefiniti generati in fase di creazione del servizio StorSimple Manager. Il servizio StorSimple Manager otterrà sempre queste chiavi dal portale di Azure e le archivierà in modo crittografato.
 
 ## Flusso di lavoro di rotazione
 
@@ -151,4 +151,4 @@ Per informare il servizio StorSimple Manager della modifica, sarà necessario ac
 - Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

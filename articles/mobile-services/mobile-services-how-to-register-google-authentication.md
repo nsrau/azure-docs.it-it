@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # Registrare le app per l'autenticazione Google con Servizi mobili
@@ -34,10 +34,13 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 6. Nella scheda **Credenziali** fare clic su **Aggiungi credenziali** > **ID client OAuth 2.0**, quindi selezionare **Applicazione Web**.
 
-7. Digitare l'URL del servizio mobile in **Authorized JavaScript Origins**, sostituire l'URL generato in **Authorized Redirect URI** con l'URL del servizio mobile con l'aggiunta del percorso `/login/google`, quindi fare clic su **Create client ID**.
+7. Digitare l'URL del servizio mobile in **Authorized JavaScript Origins**, sostituire l'URL generato in **Authorized Redirect URI** con uno dei seguenti formati di URL, e poi fare clic su **Creare ID client**:
+ 
+	+ **Back-end .NET**: `https://<mobile_service>.azure-mobile.net/signin-google`
+	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/google` 
 
-	>[AZURE.NOTE]Per un servizio mobile back-end .NET pubblicato in Azure tramite Visual Studio, l'URL di reindirizzamento è l'URL del servizio mobile con l'aggiunta del percorso _signin-google_, ovvero il servizio mobile come servizio .NET, ad esempio `https://todolist.azure-mobile.net/signin-google`. &nbsp;
-	
+	 >[AZURE.NOTE]Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione avrà esito negativo.
+
 8. Fare clic sulla schermata successiva e annotare i valori di ID client e Segreto client.
 
     > [AZURE.IMPORTANT]Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
@@ -56,4 +59,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -88,7 +88,7 @@ In questa sezione è illustrata la parte principale dell'esempio di codice Java.
 				"jdbc:sqlserver://your_server.database.windows.net:1433;" 
 				+ "database=your_database;"
 				+ "user=your_user@your_server;"
-				+ "password={your_password};"
+				+ "password=your_password;"
 				+ "encrypt=true;"
 				+ "trustServerCertificate=false;"
 				+ "hostNameInCertificate=*.database.windows.net;"
@@ -230,4 +230,4 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

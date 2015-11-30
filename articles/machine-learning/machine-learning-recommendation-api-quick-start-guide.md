@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/12/2015" 
 	ms.author="luisca"/>
 
 # Guida introduttiva per l'API Recommendations di Machine Learning
@@ -27,7 +27,7 @@ Questo documento descrive come configurare il servizio o l'applicazione per l'us
 Per usare Recommendations di Azure Machine Learning, è necessario eseguire le operazioni seguenti:
 
 * Creare un modello: un modello è un contenitore per dati di utilizzo, dati del catalogo e modello di raccomandazione.
-* Importare i dati del catalogo: questo passaggio è facoltativo. Un catalogo contiene informazioni sui metadati negli elementi. Se non si caricano i dati del catalogo, i servizi della raccomandazione apprenderanno implicitamente informazioni sul catalogo dai dati di utilizzo.
+* Importare dati del catalogo: un catalogo contiene informazioni sui metadati relativi agli elementi. 
 * Importare i dati di utilizzo: i dati di utilizzo possono essere caricati in uno dei due modi seguenti (o entrambi):
 	* Caricando un file contenente i dati di utilizzo.
 	* Inviando eventi di acquisizione dei dati. In genere, si carica un file dei dati di utilizzo per poter creare un modello di raccomandazione iniziale (bootstrap) e usarlo finché il sistema non raccoglie abbastanza dati usando il formato di acquisizione dei dati.
@@ -673,4 +673,4 @@ XML OData
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta. Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

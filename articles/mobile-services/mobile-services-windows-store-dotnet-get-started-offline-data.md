@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="11/06/2015" 
 	ms.author="donnam"/>
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
@@ -38,7 +38,7 @@ Per completare questa esercitazione, è necessario disporre di:
 * Esercitazione [Introduzione a Servizi mobili] completata
 * [Azure Mobile Services SDK 1.3.0 o versione successiva][Mobile Services SDK Nuget]
 * [Azure Mobile Services SQLite Store 1.0.0 o versione successiva][SQLite store nuget]
-* [SQLite per Windows 8.1](www.sqlite.org/downloads)
+* [SQLite per Windows 8.1](http://www.sqlite.org/download.html)
 * Un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28). 
 
 ## <a name="enable-offline-app"></a>Aggiornare l'app per supportare le funzionalità offline
@@ -278,4 +278,4 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

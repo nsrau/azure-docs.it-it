@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/09/2015"
+   ms.date="11/12/2015"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
@@ -22,7 +22,7 @@ Questo argomento descrive tutte le funzioni che è possibile usare in un modello
 
 Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**. Durante la valutazione, la distinzione tra maiuscole e minuscole sarà mantenuta, a meno che non venga modificata espressamente dalla funzione (ad esempio toUpper o toLower). Alcuni tipi di risorse possono avere requisiti per le maiuscole e minuscole indipendentemente dalla modalità di valutazione delle espressioni.
 
-## add
+## aggiungere
 
 **add(operand1, operand2)**
 
@@ -494,6 +494,25 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
         "upperCaseAppName": "[toUpper(parameters('appName'))]"
     }
 
+## Trim
+
+**trim (stringToTrim)**
+
+Rimuove tutti i caratteri di spazi vuoti iniziali e finali dalla stringa specificata.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| stringToTrim | Sì | La stringa da eliminare.
+
+Nell'esempio seguente vengono eliminati i caratteri spazi vuoti dal valore del parametro fornito dall'utente.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "trimAppName": "[trim(parameters('appName'))]"
+    }
+
 
 ## uniqueString
 
@@ -529,6 +548,21 @@ Nell'esempio seguente viene illustrato come creare un nome univoco per un accoun
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+## Uri
+
+**uri (baseUri, relativeUri)**
+
+Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| baseUri | Sì | La stringa URI di base.
+| relativeUri | Sì | La stringa URI relativa da aggiungere alla stringa di URI di base.
+
+Nell'esempio seguente viene illustrato come creare un URI assoluto nel collegamento del modello. Il risultato è ****http://contoso.com/resources/nested/azuredeploy.json**.
+
+    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+
 
 ## variables
 
@@ -544,7 +578,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 ## Passaggi successivi
 - Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md)
-- Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+- Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

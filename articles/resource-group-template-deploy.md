@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="11/13/2015"
    ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
@@ -213,9 +213,15 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
+## Distribuire con Visual Studio
+
+Con Visual Studio, è possibile creare un progetto del gruppo di risorse e distribuirlo in Azure mediante l'interfaccia utente. Selezionare il tipo di risorse da includere nel progetto e le risorse vengono aggiunte automaticamente al modello di Gestione risorse. Il progetto fornisce anche uno script di PowerShell per distribuire il modello.
+
+Per un'introduzione all'utilizzo di Visual Studio con gruppi di risorse, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
 ## Distribuire con il portale di anteprima
 
-Novità Ogni applicazione creata con il [portale di anteprima](https://portal.azure.com/) è supportata da un modello di Gestione risorse di Azure. Creando semplicemente una macchina virtuale, una rete virtuale, un account di archiviazione, un servizio app o database tramite il portale, si sfruttano automaticamente i vantaggi di Gestione risorse di Azure. È sufficiente selezionare l'icona **Nuova** e si sarà sulla strada giusta per distribuire un'applicazione con Gestione risorse di Azure.
+Novità Ogni applicazione creata con il [portale di anteprima](https://portal.azure.com/) è supportata da un modello di Gestione risorse di Azure. Creando semplicemente una macchina virtuale, una rete virtuale, un account di archiviazione, un servizio app o database tramite il portale, si sfruttano automaticamente i vantaggi di Gestione risorse di Azure. È sufficiente selezionare l'icona **Nuovo** e si sarà sulla strada giusta per distribuire un'applicazione con Gestione risorse di Azure.
 
 ![Nuovo](./media/resource-group-template-deploy/new.png)
 
@@ -253,4 +259,4 @@ La dimensione del file di parametro non può essere superiore a 64 KB.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

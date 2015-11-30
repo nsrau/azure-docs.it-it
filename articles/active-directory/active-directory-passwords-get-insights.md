@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Come ottenere informazioni dettagliate con i report di gestione delle password
@@ -153,18 +153,17 @@ Questo utente non è un membro del gruppo di utenti autorizzati alla reimpostazi
 La reimpostazione della password è stata completamente disabilitata per questo tenant. Vedere[qui](http://aka.ms/ssprtroubleshoot)per risolvere il problema. | Failed
 La reimpostazione della password dell'utente è riuscita.|Succeeded
 
-**Risorse aggiuntive**
+## Collegamenti alla documentazione relativa alla reimpostazione della password
+Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-
-* [Informazioni sulla gestione delle password](active-directory-passwords.md)
-* [Funzionamento della gestione delle password](active-directory-passwords-how-it-works.md)
-* [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md)
-* [Personalizzare la gestione delle password](active-directory-passwords-customize.md)
-* [Procedure consigliate per la gestione delle password](active-directory-passwords-best-practices.md)
-* [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
-* [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
-* [Altre informazioni](active-directory-passwords-learn-more.md)
-* [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
+* [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
+* [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
+* [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
+* [**Domande frequenti**](active-directory-passwords-faq.md): risposte alle domande frequenti
+* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
+* [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
 
 
 
@@ -172,4 +171,4 @@ La reimpostazione della password dell'utente è riuscita.|Succeeded
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

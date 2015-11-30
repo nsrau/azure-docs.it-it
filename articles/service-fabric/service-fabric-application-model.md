@@ -31,7 +31,7 @@ Un tipo di applicazione è una categorizzazione di un'applicazione e consiste in
 
 Le classi (o "tipi") di applicazioni e servizi vengono descritte mediante file XML (manifesti delle applicazioni e manifesti dei servizi) che agiscono come modelli in base ai quali possono essere create istanze delle applicazioni. Il codice di istanze di applicazioni diverse verrà eseguito come processo separato anche se ospitato dallo stesso nodo di Service Fabric. Il ciclo di vita di ogni istanza dell'applicazione inoltre può essere gestito, ovvero aggiornato, in modo indipendente. Il diagramma seguente illustra come i tipi di applicazioni siano costituiti da tipi di servizi, che a loro volta sono costituiti da codice, configurazione e pacchetti.
 
-![ApplicationTypes e ServiceTypes di Service Fabric][Image1]
+![Service Fabric ApplicationTypes e ServiceTypes][Image1]
 
 Vengono usati due diversi file manifesto per descrivere le applicazioni e i servizi: il manifesto del servizio e il manifesto dell'applicazione, descritti nei dettagli nelle sezioni seguenti.
 
@@ -135,6 +135,8 @@ Analogamente ai manifesti dei servizi, gli attributi **Version** sono stringhe n
 
 > [AZURE.NOTE]Un manifesto dell'applicazione può contenere più importazioni di manifesti di servizi e servizi predefiniti. È possibile controllare le versioni di ogni manifesto del servizio in modo indipendente.
 
+Per informazioni su come mantenere applicazioni diverse e parametri di servizio per ambienti singoli, vedere [Gestione dei parametri dell'applicazione per più ambienti](service-fabric-manage-multiple-environment-app-configuration.md)
+
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
 
@@ -169,6 +171,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 ~~~
 
 Le cartelle sono denominate in modo da corrispondere agli attributi **Name** di ogni elemento corrispondente. Se ad esempio il manifesto del servizio contenesse due pacchetti di codice denominati **MyCodeA** e **MyCodeB**, dovrebbero esistere due cartelle con gli stessi nomi contenenti i file binari necessari per ogni pacchetto di codice.
+
+### Utilizzo di SetupEntryPoint
+Gli scenari tipici per l'utilizzo di SetupEntryPoint sono quelli in cui è necessario eseguire operazioni prima dell'avvio del servizio o è necessario eseguire un'operazione privilegiata superiore. Alcuni esempi includono - Impostazione e inizializzazione di variabili di ambiente che il file eseguibile del servizio potrebbe utilizzare. Ciò include non solo i file eseguibili scritti con i modelli di programmazione di infrastruttura di servizi ma anche gli EXE che vengono semplicemente utilizzati. Ad esempio se si distribuisce un'applicazione nodejs, allora il npm.exe avrebbe bisogno di variazioni dell’ambiente configurate. -ACL una risorsa come ad esempio un certificato
+
+Di seguito sono indicati i passaggi per assicurarsi che il codice (exe), il file batch o PowerShell siano correttamente inclusi in un progetto di Visual Studio.
+
 
 ### Creazione di un pacchetto mediante Visual Studio
 
@@ -221,15 +229,11 @@ Dopo aver inserito correttamente l'applicazione nel pacchetto e aver superato la
 
 ## Passaggi successivi
 
-[Distribuire e rimuovere applicazioni][10]
-
-<!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.jpg
-[2]: ./media/service-fabric-application-model/vs-package-command.png
-[Image1]: media/service-fabric-application-model/Service1.jpg
-[Image2]: media/service-fabric-application-model/Service2.jpg
+[Distribuire e rimuovere applicazioni][10] [Gestire parametri dell'applicazione per più ambienti][11] [RunAs: eseguire un'applicazione dell’infrastruttura di servizi con autorizzazioni di sicurezza diverse][12] <!--Image references--> [1]: ./media/service-fabric-application-model/application-model.jpg [2]: ./media/service-fabric-application-model/vs-package-command.png [Image1]: media/service-fabric-application-model/Service1.jpg [Image2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
+[11]: service-fabric-manage-multiple-environment-app-configuration.md
+[12]: service-fabric-application-runas-security.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

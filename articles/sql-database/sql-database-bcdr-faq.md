@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 # Domande frequenti sulla continuità aziendale
@@ -48,7 +48,7 @@ Per il ripristino da interruzione del servizio, usare [Get Recoverable Database]
 
 ## 7\. Come si esegue il ripristino in blocco dei database nel server?
 
-Non è disponibile una funzionalità incorporata per il ripristino in blocco. Per eseguire questa attività, è possibile usare lo script per il [ripristino dell'intero server di database SQL di Azure](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
+Non è disponibile una funzionalità incorporata per il ripristino in blocco. Lo script [Database SQL di Azure: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) è un esempio di un modo per eseguire questa operazione.
 
 ## 8\. Qual è la differenza tra replica geografica standard e replica geografica attiva?
 
@@ -58,11 +58,6 @@ Per la replica geografica attiva, tutti i database secondari (fino a un massimo 
 
 ## 9\. Cos'è il ritardo di replica quando si usa la replica geografica standard o quella attiva?
 
-La funzionalità di replica geografica è basata sulla tecnologia di copia continua. Occorre quindi usare le viste a gestione dinamica (DMV) [sys.dm\_continuous\_copy\_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) per ottenere la data e l'ora dell'ultima replica e altre informazioni.
+Usare la visualizzazione a gestione dinamica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) per ottenere l'ultima ora di replica, l'ultimo intervallo di replica e altre informazioni sul collegamento di replica.
 
-
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

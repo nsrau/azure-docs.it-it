@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Reliable Actors: scenario dettagliato per la creazione di un servizio HelloWorld canonico
@@ -58,18 +58,14 @@ Una tipica soluzione Reliable Actors è costituita da 3 progetti:
 
 ```csharp
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.ServiceFabric.Actors;
-
-namespace HelloWorld.Interfaces
+namespace MyActor.Interfaces
 {
-    public interface IHelloWorld : IActor
+    using System.Threading.Tasks;
+    using Microsoft.ServiceFabric.Actors;
+
+    public interface IMyActor : IActor
     {
-        Task<string> SayHello(string greeting);
+        Task<string> HelloWorld();
     }
 }
 
@@ -79,22 +75,18 @@ namespace HelloWorld.Interfaces
 
 ```csharp
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using HelloWorld.Interfaces;
-using Microsoft.ServiceFabric;
-using Microsoft.ServiceFabric.Actors;
-
-namespace HelloWorld
+namespace MyActor
 {
-    public class HelloWorld : Actor, IHelloWorld
+    using System;
+    using System.Threading.Tasks;
+    using Interfaces;
+    using Microsoft.ServiceFabric.Actors;
+
+    internal class MyActor : StatelessActor, IMyActor
     {
-        public Task<string> SayHello(string greeting)
+        public Task<string> HelloWorld()
         {
-            return Task.FromResult("You said: '" + greeting + "', I say: Hello Actors!");
+            throw new NotImplementedException();
         }
     }
 }
@@ -105,26 +97,34 @@ Il progetto Actor Service contiene il codice per creare un servizio di Service F
 
 ```csharp
 
-public class Program
+namespace MyActor
 {
-    public static void Main(string[] args)
-    {
-        try
-        {
-            using (FabricRuntime fabricRuntime = FabricRuntime.Create())
-            {
-                fabricRuntime.RegisterActor(typeof(HelloWorld));
+    using System;
+    using System.Fabric;
+    using System.Threading;
+    using Microsoft.ServiceFabric.Actors;
 
-                Thread.Sleep(Timeout.Infinite);
+    internal static class Program
+    {
+        private static void Main()
+        {
+            try
+            {
+                using (FabricRuntime fabricRuntime = FabricRuntime.Create())
+                {
+                    fabricRuntime.RegisterActor<MyActor>();
+
+                    Thread.Sleep(Timeout.Infinite);  // Prevents this host process from terminating so services keeps running.
+                }
+            }
+            catch (Exception e)
+            {
+                ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
+                throw;
             }
         }
-        catch (Exception e)
-        {
-            ActorEventSource.Current.ActorHostInitializationFailed(e);
-            throw;
-        }
     }
-}  
+}
 
 ```
 
@@ -132,7 +132,7 @@ Se si inizia un nuovo progetto in Visual Studio ed è presente una sola definizi
 
 ```csharp
 
-fabricRuntime.RegisterActor(typeof(MyNewActor));
+fabricRuntime.RegisterActor<MyActor>();
 
 
 ```
@@ -158,4 +158,4 @@ In Service Fabric Tools per Visual Studio è supportato il debug nel computer lo
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # Registrare le app per l'autenticazione Facebook con Servizi mobili
@@ -48,11 +48,14 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 	
     >[AZURE.IMPORTANT]Il segreto dell'app è una credenziale di sicurezza importante. Non condividere questo valore con altri né distribuirlo con l'app. &nbsp;
 
-8. Fare clic sulla scheda **Advanced**, immettere l'URL del servizio mobile con l'aggiunta del percorso _/login/facebook_ in **Valid OAuth redirect URIs**, quindi fare clic su **Save Changes**. &nbsp;
+8. Fare clic sulla scheda **Avanzate**, digitare uno dei seguenti formati di URL in **URI di reindirizzamento OAuth validi**, quindi fare clic su **Salva modifiche**:
+ 
+	+ **Back-end .NET**: `https://<mobile_service>.azure-mobile.net/signin-facebook`
+	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/facebook` 
 
-     >[AZURE.NOTE]Per un servizio mobile back-end .NET pubblicato in Azure tramite Visual Studio, l'URL di reindirizzamento è l'URL del servizio mobile con l'aggiunta del percorso _signin-facebook_, ovvero il servizio mobile come servizio .NET, ad esempio `https://todolist.azure-mobile.net/signin-facebook`.
+	 >[AZURE.NOTE]Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione avrà esito negativo.
+
        
-
 9. Fare clic su **Status & Review** > **Yes** per abilitare l'accesso pubblico generale all'app.
 
 	L'account di Facebook usato per registrare la nuova app, ha la funzione di amministratore dell'app e dispone quindi dell'accesso all'app con privilegi di amministratore. Questo passaggio garantisce l'accesso pubblico in modo che l'app possa effettuare l'autenticazione mediante altri account di Facebook.
@@ -73,4 +76,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Servizi mobili di Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

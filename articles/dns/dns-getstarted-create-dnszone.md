@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # Introduzione a DNS di Azure utilizzando Powershell
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+- [PowerShell](dns-getstarted-create-dnszone.md)
 
 Il dominio "contoso.com" può contenere una serie di record DNS, ad esempio "mail.contoso.com" (per un server di posta elettronica) e "www.contoso.com" (per un sito Web). Una zona DNS viene usata per ospitare i record DNS per un particolare dominio.<BR><BR> Per iniziare a ospitare il dominio è necessario prima di tutto creare una zona DNS. Qualsiasi record DNS creato per un particolare dominio sarà all'interno di una zona DNS per il dominio.<BR><BR> In queste istruzioni viene usato Microsoft Azure PowerShell. Assicurarsi di eseguire l'aggiornamento alla versione più recente di Azure PowerShell per usare i cmdlet di DNS di Azure. Gli stessi passaggi possono essere eseguiti anche usando l'interfaccia della riga di comando, le API REST o l'SDK di Microsoft Azure.<BR><BR>
 
@@ -155,4 +155,4 @@ Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azu
 [Introduzione alla creazione di set di record e di record](dns-getstarted-create-recordset.md)<BR> [Come gestire le zone DNS](dns-operations-dnszones.md)<BR> [Come gestire i record DNS](dns-operations-recordsets.md)<BR> [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)<BR> [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

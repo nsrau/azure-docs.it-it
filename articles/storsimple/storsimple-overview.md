@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/14/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida 
@@ -54,7 +54,7 @@ La soluzione Microsoft Azure StorSimple include i componenti seguenti:
 
 - **Dispositivo Microsoft Azure StorSimple** – Array di archiviazione ibrido locale contenente unità SSD e unità di disco rigido, oltre a controller ridondanti e funzionalità di failover automatico. I controller gestiscono il tiering di archiviazione, inserendo i dati attualmente usati (o hot data) nella risorsa di archiviazione locale (nel dispositivo o nei server locali) e spostando nel cloud i dati usati meno di frequente.
 - **Dispositivo virtuale StorSimple**: noto anche come dispositivo virtuale StorSimple, è una versione software del dispositivo StorSimple che replica l'architettura e la maggior parte delle funzionalità del dispositivo di archiviazione ibrida fisica. Il dispositivo virtuale StorSimple viene eseguito su un singolo nodo in una macchina virtuale di Azure. Il dispositivo virtuale è adatto a essere usato in scenari di test e di piccoli progetti pilota. 
-- **Servizio StorSimple Manager** – un’estensione del portale di gestione di Azure che consente di gestire un dispositivo StorSimple o un dispositivo virtuale StorSimple da una singola interfaccia Web. È possibile usare il servizio StorSimple Manager per creare e gestire servizi, visualizzare e gestire dispositivi, visualizzare avvisi, gestire volumi e visualizzare e gestire criteri di backup e il catalogo di backup.
+- **Servizio StorSimple Manager** – un’estensione del portale di Azure che consente di gestire un dispositivo StorSimple o un dispositivo virtuale StorSimple da una singola interfaccia Web. È possibile usare il servizio StorSimple Manager per creare e gestire servizi, visualizzare e gestire dispositivi, visualizzare avvisi, gestire volumi e visualizzare e gestire criteri di backup e il catalogo di backup.
 - **Windows PowerShell per StorSimple **– Un’interfaccia della riga di comando che può essere usata per gestire il dispositivo StorSimple. Windows PowerShell per StorSimple include funzionalità che permettono di registrare il dispositivo StorSimple, configurare l'interfaccia di rete nel dispositivo, installare determinati tipi di aggiornamento, risolvere i problemi del dispositivo tramite l'accesso alla sessione di supporto e modificare lo stato del dispositivo. È possibile accedere a Windows PowerShell per StorSimple connettendosi alla console seriale o usando la comunicazione remota di Windows PowerShell.
 - **i cmdlet PowerShell di azure StorSimple** – un insieme di cmdlet Windows PowerShell che consente di automatizzare le attività a livello di servizio e la migrazione dalla riga di comando. Per altre informazioni sui cmdlet di Azure PowerShell per StorSimple, visitare la [Documentazione di riferimento relativa ai cmdlet](https://msdn.microsoft.com/library/dn920427.aspx).
 - **Gestione snapshot StorSimple **– Snap-in MMC (Microsoft Management Console) che usa gruppi di volumi e il servizio Copia Shadow del volume di Windows per generare backup coerenti con l'applicazione. È possibile usare Gestione snapshot StorSimple anche per creare pianificazioni di backup e clonare o ripristinare volumi. 
@@ -182,7 +182,7 @@ StorSimple ordina e riorganizza i dati e le assegnazioni delle risorse di archiv
 Il processo di suddivisione in livelli di archiviazione avviene nel modo seguente:
 
 1. Un amministratore di sistema configura un account di archiviazione cloud di Microsoft Azure.
-2. L'amministratore utilizza la console seriale e il servizio StorSimple Manager (in esecuzione nel portale di gestione di Azure) per configurare il dispositivo e il file server, creando volumi e criteri di protezione dei dati. I computer locali (come i file server) utilizzano l'interfaccia iSCSI (Internet Small Computer System Interface) per accedere al dispositivo StorSimple.
+2. L'amministratore utilizza la console seriale e il servizio StorSimple Manager (in esecuzione nel portale di Azure) per configurare il dispositivo e il file server, creando volumi e criteri di protezione dei dati. I computer locali (come i file server) utilizzano l'interfaccia iSCSI (Internet Small Computer System Interface) per accedere al dispositivo StorSimple.
 3. Inizialmente, StorSimple archivia i dati nel livello SSD rapido del dispositivo.
 4. Quando il livello SSD raggiunge il limite di capacità, StorSimple deduplica e comprime i blocchi di dati meno recenti, quindi li sposta nel livello HDD.
 5. Quando il livello HDD raggiunge il limite di capacità, StorSimple esegue la crittografia dei blocchi di dati meno recenti e li invia in modo sicuro all'account di archiviazione di Microsoft Azure tramite HTTPS.
@@ -243,12 +243,12 @@ Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile e
 | obiettivo tempo di ripristino (RTO, Recovery Time Objective) | Intervallo massimo di tempo che deve trascorrere prima che un processo aziendale o un sistema venga completamente ripristinato dopo un'emergenza.| 
 |SAS (Serial Attached SCSI) | Tipo di unità disco rigido.|
 | chiave DEK del servizio | Chiave disponibile per ogni nuovo dispositivo StorSimple che effettua la registrazione con il servizio StorSimple Manager. I dati di configurazione trasferiti tra il servizio StorSimple Manager e il dispositivo vengono crittografati con una chiave pubblica e quindi possono venire decrittografati solo sul dispositivo con una chiave privata. La chiave DEK del servizio consente al servizio di ottenere questa chiave privata per la decrittografia.|
-| chiave di registrazione del servizio | Chiave che aiuta a registrare il dispositivo StorSimple nel servizio StorSimple Manager, in modo che sia disponibile nel portale di gestione per ulteriori azioni di gestione.|
+| chiave di registrazione del servizio | Un chiave che aiuta a registrare il dispositivo StorSimple nel servizio StorSimple Manager, in modo che sia disponibile nel portale di Azure per ulteriori azioni di gestione.|
 | SCSI (Small Computer System Interface) | Set di standard per connettere fisicamente i computer e passare i dati da uno all'altro.|
 | unità SSD | Disco senza componenti mobili, ad esempio un'unità flash.|
 | archiviazione di Azure | Set di credenziali di accesso collegato all'account di archiviazione di un determinato provider di servizi cloud.| 
 | Adattatore StorSimple per SharePoint| Componente di Microsoft Azure StorSimple che estende in modo trasparente l'archiviazione e la protezione dei dati di StorSimple a farm di SharePoint Server.|
-| Servizio StorSimple Manager | Estensione del portale di gestione di Azure che consente di gestire i dispositivi Azure StorSimple locali e virtuali.|
+| Servizio StorSimple Manager | Estensione del portale di Azure che consente di gestire i dispositivi Azure StorSimple locali e virtuali.|
 | Gestione snapshot StorSimple | Snap-in di Microsoft Management Console (MMC) per la gestione di operazioni di backup e ripristino in Microsoft Azure StorSimple.|
 | Esegui backup | Funzionalità che consente all'utente di eseguire un backup interattivo di un volume. È un'alternativa al backup manuale di un volume invece del backup automatizzato con un criterio definito.|
 | thin provisioning | Metodo per ottimizzare l'efficienza con cui lo spazio di archiviazione disponibile viene utilizzato nei sistemi di archiviazione. Nel thin provisioning lo spazio di archiviazione viene allocato tra più utenti in base allo spazio minimo richiesto da ogni utente in un determinato momento. Vedere anche *fat provisioning*.|
@@ -271,4 +271,4 @@ Informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

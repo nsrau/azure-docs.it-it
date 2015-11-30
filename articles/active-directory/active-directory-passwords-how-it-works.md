@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Funzionamento della gestione delle password
@@ -99,18 +99,17 @@ Per altre informazioni su Azure AD Connect, vedere [Introduzione ad Azure AD Con
 
 <br/> <br/> <br/>
 
-**Risorse aggiuntive**
+## Collegamenti alla documentazione relativa alla reimpostazione della password
+Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-
-* [Informazioni sulla gestione delle password](active-directory-passwords.md)
-* [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md)
-* [Personalizzare la gestione delle password](active-directory-passwords-customize.md)
-* [Procedure consigliate per la gestione delle password](active-directory-passwords-best-practices.md)
-* [Come ottenere informazioni dettagliate con i report di gestione delle password](active-directory-passwords-get-insights.md)
-* [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
-* [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
-* [Altre informazioni](active-directory-passwords-learn-more.md)
-* [Gestione delle password in MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
+* [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
+* [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
+* [**Informazioni dettagliate**](active-directory-passwords-get-insights.md): informazioni sulle funzionalità di creazione report integrate
+* [**Domande frequenti**](active-directory-passwords-faq.md): risposte alle domande frequenti
+* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
+* [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
 
 
 
@@ -122,4 +121,4 @@ Per altre informazioni su Azure AD Connect, vedere [Introduzione ad Azure AD Con
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

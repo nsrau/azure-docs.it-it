@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Distribuzione del portale utenti per il server Azure Multi-Factor Authentication
@@ -189,4 +189,4 @@ A questo punto la registrazione automatica è stata completata e l'utente è con
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

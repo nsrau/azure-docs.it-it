@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/17/2015"
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app Windows
@@ -25,10 +25,6 @@
 Questo argomento descrive come autenticare gli utenti di un'app mobile del servizio app dall'applicazione client. In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato dal servizio app. In seguito all'autenticazione e all'autorizzazione da parte dell'app mobile, viene visualizzato il valore dell'ID utente.
 
 Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È necessario completare prima l'esercitazione relativa alla [creazione di un'app per dispositivi mobili].
-
-##<a name="create-gateway"></a>Creare un gateway del servizio app
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare il servizio app
 
@@ -62,4 +58,4 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 [creazione di un'app per dispositivi mobili]: app-service-mobile-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

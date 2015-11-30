@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # Inviare notifiche multipiattaforma a un utente specifico
@@ -108,4 +108,4 @@ Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi del
 [modelli]: https://msdn.microsoft.com/it-IT/library/dn530748.aspx
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

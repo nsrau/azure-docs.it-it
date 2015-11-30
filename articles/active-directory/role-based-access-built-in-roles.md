@@ -27,7 +27,7 @@ Fare clic sul collegamento corrispondente per visualizzare le proprietà **actio
 
 | Nome del ruolo | Descrizione |
 | --------- | ----------- |
-| [Collaboratore servizio Gestione API](#api-management-service-contributor) | È in grado di gestire i componenti di Application Insights |
+| [Collaboratore servizio Gestione API](#api-management-service-contributor) | È in grado di gestire i servizi Gestione API |
 | [Collaboratore componente di Application Insights](#application-insights-component-contributor) | È in grado di gestire i componenti di Application Insights |
 | [Operatore di automazione](#automation-operator) | È in grado di avviare, arrestare, sospendere e riprendere i processi |
 | [Collaboratore BizTalk](#biztalk-contributor) | È in grado di gestire i servizi BizTalk |
@@ -53,7 +53,7 @@ Fare clic sul collegamento corrispondente per visualizzare le proprietà **actio
 | [Amministratore accessi utente](#user-access-administrator) | Consente di gestire l’accesso degli utenti alle risorse di Azure |
 | [Collaboratore macchine virtuali classiche](#classic-virtual-machine-contributor) | È in grado di gestire macchine virtuali classiche, ma non la rete virtuale o gli account di archiviazione a cui sono connesse |
 | [Collaboratore macchine virtuali](#virtual-machine-contributor) | È in grado di gestire macchine virtuali, ma non la rete virtuale o account di archiviazione a cui sono connesse |
-| [Collaboratore reti virtuali classiche](#classic-network-contributor) | È in grado di gestire macchine virtuali, ma non la rete virtuale o account di archiviazione a cui sono connesse |
+| [Collaboratore reti virtuali classiche](#classic-network-contributor) | È in grado di gestire reti virtuali classiche e IP riservati |
 | [Collaboratore piani Web](#web-plan-contributor) | È in grado di gestire piani Web |
 | [Collaboratore siti Web](#website-contributor) | È in grado di gestire siti Web, ma non i piani cui sono connessi |
 
@@ -480,4 +480,4 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 ## Argomenti RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

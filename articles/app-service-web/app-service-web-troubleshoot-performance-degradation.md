@@ -87,7 +87,7 @@ Per altre informazioni sul monitoraggio degli endpoint, vedere anche il video ch
 
 È anche possibile monitorare le prestazioni dell'applicazione sfruttando le _estensioni del sito_.
 
-Ogni app Web del servizio app fornisce un endpoint di gestione estensibile che consente di sfruttare un set avanzato di strumenti distribuiti come estensioni del sito. Questi strumenti includono ad esempio editor del codice sorgente come [Visual Studio Online](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) e strumenti di gestione per risorse connesse come un database MySQL connesso a un'app Web.
+Ogni app Web del servizio app fornisce un endpoint di gestione estensibile che consente di sfruttare un set avanzato di strumenti distribuiti come estensioni del sito. Questi strumenti includono ad esempio editor del codice sorgente come [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) e strumenti di gestione per risorse connesse come un database MySQL connesso a un'app Web.
 
 [Azure Application Insights](/services/application-insights/) e [New Relic](/marketplace/partners/newrelic/newrelic/) sono due delle estensioni disponibili di monitoraggio delle prestazioni. Per utilizzare New Relic, è necessario installare un agente in fase di esecuzione. Per usare Azure Application Insights, è necessario ricompilare il codice con un SDK ed è anche possibile installare un'estensione che consente l'accesso a dati aggiuntivi. SDK consente di scrivere il codice per monitorare l'utilizzo e prestazioni dell'applicazione in modo più dettagliato.
 
@@ -157,7 +157,7 @@ Elementi forniti dalla console Kudu:
 
 Inoltre, nel caso in cui l'applicazione generi eccezioni first-chance, è possibile usare Kudu e l'utilità della riga di comando Procdump dello strumento SysInternals per creare dump della memoria. I dump della memoria sono snapshot del processo e semplificano la risoluzione di problemi più complessi riscontrati nell'app Web.
 
-Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post di blog relativo agli [strumenti online di Siti Web di Azure che è opportuno conoscere](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post di blog relativo agli [strumenti di Azure Websites Team Services che è opportuno conoscere](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 ### 3\. Attenuare il problema
@@ -186,4 +186,4 @@ Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel p
 
 È anche possibile gestire l'app Web usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -55,10 +55,10 @@ Sono disponibili alcuni strumenti.
 - Per vedere se è necessario aumentare o diminuire il livello di un database singolo, vedere [Indicazioni sulle prestazioni per database singoli](sql-database-performance-guidance.md).
 
 ## Con quale frequenza è possibile modificare il livello di servizio o di prestazioni di un database singolo? 
-È possibile modificare il livello di servizio (tra Basic, Standard e Premium) o il livello di prestazioni all'interno di un livello di servizio (ad esempio, da S1 a S2) per un massimo di quattro volte in un periodo di 24 ore.
+Con i database V12 è possibile modificare il livello di servizio (tra Basic, Standard e Premium) o il livello di prestazioni all'interno di un livello di servizio (ad esempio, da S1 a S2) con la frequenza che più si desidera. Per i database con le versioni precedenti, è possibile modificare il livello di prestazioni o di servizio fino a quattro volte in un periodo di 24 ore.
 
 ##Con quale frequenza è possibile modificare le DTU per un pool? 
-Una volta al giorno.
+Numero di volte desiderato.
 
 ## Quanto tempo è necessario per modificare il livello di servizio e il livello di prestazioni di un database singolo o spostare un database da e verso un pool di database elastici? 
 La modifica del livello di servizio di un database e lo spostamento da e verso un pool richiede che il database venga copiato nella piattaforma come operazione in background. A seconda delle dimensioni dei database, possono essere necessari da pochi minuti a diverse ore. In entrambi i casi, i database rimangono in linea e disponibili durante lo spostamento. Per ulteriori informazioni sulla modifica dei singoli database vedere [Modificare il livello di servizio di un database](sql-database-scale-up.md). Per i database elastici, vedere [Riferimento al pool elastico](sql-database-elastic-pool-reference.md#latency-of-elastic-pool-operations)
@@ -74,4 +74,4 @@ L'archiviazione di backup è l'archiviazione associata ai backup automatizzati d
 ## Se si sta passando da un livello Web/Business a nuovi livelli di servizio, cosa è necessario sapere?
 I database SQL di Azure Web e Business sono stati ritirati e sostituiti dai livelli Basic, Standard, Premium ed Elastic. Sono presenti domande frequenti aggiuntive che dovrebbe aiutare in questo periodo di transizione. [Domande frequenti sul ritiro dell'edizione Web e Business](sql-database-web-business-faq.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

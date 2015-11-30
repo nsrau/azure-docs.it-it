@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Altre informazioni su Azure Multi-Factor Authentication
@@ -38,4 +38,4 @@ Di seguito è riportata una raccolta di risorse aggiuntive che consentono di sfr
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

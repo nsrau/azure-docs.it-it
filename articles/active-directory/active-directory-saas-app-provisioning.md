@@ -108,4 +108,4 @@ Per contattare il team di progettazione di Azure AD per richiedere supporto sul 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/17/2015"
    ms.author="jesseb"/>
 
 # Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni dell’infrastruttura di servizi
@@ -34,8 +34,24 @@ Distribuendo un'applicazione, si combinano in un'unica operazione i passaggi seg
 4. Rimozione delle eventuali istanze dell'applicazione in esecuzione
 5. Creazione di una nuova istanza dell'applicazione
 
-In Visual Studio, è possibile distribuire un'applicazione scegliendo Distribuisci soluzione dal menu Compila. Anche premendo **F5** l'applicazione viene distribuita e il debugger viene collegato a tutte le relative istanze.
+In Visual Studio, anche premendo **F5** l'applicazione viene distribuita e il debugger viene collegato a tutte le relative istanze. È possibile utilizzare **Ctrl + F5** per distribuire un'applicazione senza il debug, o pubblicare in un cluster locale o remoto mediante il profilo di pubblicazione. Consultare [Pubblicare un'applicazione in un cluster remoto mediante Visual Studio](service-fabric-publish-app-remote-cluster.md)
 
+### Mantenere i dati tra le esecuzioni dei test
+
+Spesso, si verificano i servizi in locale aggiungendo input di dati di test, modificando alcuni blocchi di codice e quindi nuovamente eseguendo il debug in locale. Gli strumenti dell’infrastruttura di servizi di Visual Studio forniscono una proprietà utile denominata **Conservare i dati all'avvio** per mantenere i dati immessi nella sessione precedente e avere la possibilità di usarli nuovamente.
+
+### Per abilitare la proprietà di conservazione dei dati all’avvio.
+
+1. Dal menu di scelta rapida del progetto dell'applicazione, scegliere **Proprietà** (o scegliere la chiave **F4**).
+1. Nella finestra **Proprietà**, impostare la proprietà **Mantieni i dati all'avvio** su **Sì**.
+
+	![Impostare la proprietà di conservazione dei dati all’avvio][preservedata]
+
+Quando si esegue nuovamente l'applicazione, lo script di distribuzione considera ora la distribuzione come un aggiornamento utilizzando la modalità automatica non monitorata per l'aggiornamento rapido dell'applicazione di una versione più recente con una stringa di dati aggiunta. Il processo di aggiornamento mantiene tutti i dati immessi in una sessione di debug precedente.
+
+![Esempio di una nuova versione dell'applicazione con data aggiunta][preservedate]
+
+I dati vengono conservati sfruttando la funzionalità di aggiornamento della piattaforma di infrastruttura dei servizi. Per altre informazioni sull'aggiornamento di un'applicazione consultare [Aggiornamento dell'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
 ## Aggiunta di un servizio a Service Fabric
 
@@ -53,15 +69,14 @@ Il nuovo servizio verrà aggiunto alla soluzione e al pacchetto applicazione esi
 
 ## Creazione del pacchetto per l'applicazione di Service Fabric
 
-Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario creare un pacchetto applicazione. Tale pacchetto organizza il manifesto dell'applicazione, i manifesti dei servizi e gli altri file necessari in un layout specifico. Visual Studio imposta e gestisce il pacchetto nella cartella del progetto dell'applicazione, nella cartella "pkg". Quando si fa clic su **Pacchetto**, il pacchetto applicazione viene creato o aggiornato. È possibile procedere in questo modo se si intende distribuire l'applicazione usando script di PowerShell personalizzati.
+Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario creare un pacchetto applicazione. Tale pacchetto organizza il manifesto dell'applicazione, i manifesti dei servizi e gli altri file necessari in un layout specifico. Visual Studio imposta e gestisce il pacchetto nella cartella del progetto dell'applicazione, nella cartella "pkg". Facendo clic su **Pacchetto ** dal menu di scelta rapida **Applicazione** il pacchetto di applicazione viene creato o aggiornato. È possibile procedere in questo modo se si intende distribuire l'applicazione usando script di PowerShell personalizzati.
 
 ## Rimozione di un'applicazione
 
-È possibile rimuovere un'applicazione dal cluster locale tramite Esplora server. In questo modo verranno annullati i passaggi di distribuzione descritti in precedenza:
+È possibile annullare il provisioning di un tipo di applicazione dal cluster locale mediante Explorer dell’infrastruttura di servizi. L’explorer cluster è accessibile dall’endpoint Gateway HTTP del cluster (in genere 19080 o 19007), ad esempio http://localhost:19080/Explorer. In questo modo verranno annullati i passaggi di distribuzione descritti in precedenza:
 
 1. Rimuovere le eventuali istanze dell'applicazione in esecuzione.
 2. Annullare la registrazione del tipo di applicazione.
-3. Rimuovere il pacchetto applicazione da Image Store.
 
 ![Rimuovere un'applicazione](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
 
@@ -70,6 +85,7 @@ Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario
 
 - [Modello di applicazione di Service Fabric](service-fabric-application-model.md)
 - [Distribuzione di un'applicazione di Service Fabric](service-fabric-deploy-remove-applications.md)
+- [Gestione dei parametri dell'applicazione per più ambienti](service-fabric-manage-multiple-environment-app-configuration.md)
 - [Debug dell'applicazione di Service Fabric](service-fabric-debugging-your-application.md)
 - [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
@@ -78,5 +94,7 @@ Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
+[preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
+[preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

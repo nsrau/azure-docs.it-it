@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="11/11/2015"
+   ms.date="10/29/2015"
    ms.author="v-sharos"/>
 
 # Sicurezza e protezione dei dati di StorSimple
@@ -167,6 +167,7 @@ Per garantire la sicurezza e l'integrità dei dati spostati nel cloud, StorSimpl
 - Quando si immette la chiave di crittografia per l'archiviazione cloud nel servizio StorSimple Manager, la chiave viene crittografata con la parte pubblica della chiave DEK del servizio e quindi inviata al dispositivo.
 - La chiave di crittografia per l'archiviazione cloud non viene archiviata nel servizio ed è nota solo al dispositivo.
 - Specificare una chiave di crittografia per l'archiviazione cloud è facoltativo. È possibile inviare i dati crittografati nell'host al dispositivo.
+- È consigliabile ruotare la chiave di crittografia di archiviazione cloud trimestralmente. Tuttavia, non verrà richiesta la rotazione delle chiavi.
 
 ### Procedure di sicurezza aggiuntive
 
@@ -258,7 +259,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **D:** Se un utente riesce ad accedere al certificato di crittografia dei dati, i miei dati verranno compromessi?
 
-**R:** Microsoft Azure archivia la chiave di crittografia dei dati del cliente (file con estensione .pfx) in formato crittografato. Dato che il file con estensione pfx è crittografato e il servizio StorSimple non ha la chiave DEK del servizio per decrittografarlo, il semplice accesso al file con estensione pfx non espone alcun dato segreto.
+**R:** Microsoft Azure archivia la chiave di crittografia dei dati del cliente (file con estensione pfx) in formato crittografato. Dato che il file con estensione pfx è crittografato e il servizio StorSimple non ha la chiave DEK del servizio per decrittografarlo, il semplice accesso al file con estensione pfx non espone alcun dato segreto.
 
 **D:** Cosa accade se un ente pubblico chiede i miei dati a Microsoft?
 
@@ -269,4 +270,4 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 [Distribuire il dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

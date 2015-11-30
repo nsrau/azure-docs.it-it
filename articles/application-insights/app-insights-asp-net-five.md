@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/11/2015" 
 	ms.author="awills"/>
 
 # Application Insights per ASP.NET 5
@@ -23,132 +23,35 @@ Application Insights consente di monitorare la disponibilità, le prestazioni e 
 
 È necessaria una sottoscrizione con [Microsoft Azure](http://azure.com). È possibile accedere con un account Microsoft, che in genere si ottiene per Windows, XBox Live o altri servizi cloud Microsoft.
 
-## Creare un progetto ASP.NET 5
 
-...se non lo si è fatto ancora.
+## Introduzione
 
-Usare il modello di progetto ASP.NET 5 standard in Visual Studio 2015.
+Se è stato creato il progetto in Visual Studio 2015, si dovrebbe già disporre di Application Insights. In caso contrario, seguire la [Guida introduttiva](https://github.com/Microsoft/ApplicationInsights-aspnet5/wiki/Getting-Started).
 
+## Utilizzo di Application Insights
 
-## Creare una risorsa Application Insights
+Accedere al [Portale di Microsoft Azure](https://portal.azure.com) e accedere alla risorsa creata per monitorare l'app.
 
-Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights. Selezionare l'opzione ASP.NET.
+In una finestra separata dal browser, usare l'app per un periodo di tempo. Verranno visualizzati dati nei grafici di Application Insights. (Potrebbe essere necessario fare clic su Aggiorna.) Ci sarà solo una piccola quantità di dati al momento dello sviluppo, ma questi grafici si attiveranno davvero quando si pubblicherà l'app e si avranno numerosi utenti.
 
-![Fare clic su Nuovo, Servizi per gli sviluppatori, Application Insights](./media/app-insights-asp-net-five/01-new-asp.png)
+La pagina di panoramica mostra i grafici delle prestazioni alle quali si potrebbe essere interessati: tempo di risposta del server, tempo di caricamento della pagina e conteggi delle richieste non riuscite. Fare clic su qualsiasi grafico per visualizzare altri grafici e dati.
 
-Viene visualizzato un pannello delle [risorse][roles] che è dove vengono visualizzate le prestazioni e i dati di utilizzo relativi all'app. Per visualizzare di nuovo questo pannello al successivo accesso ad Azure, nella schermata Start dovrebbe venire visualizzato un riquadro per l'app. In alternativa, fare clic su Sfoglia per cercarla.
+Le visualizzazioni nel portale rientrano in due categorie principali:
 
-La scelta del tipo di applicazione imposta il contenuto predefinito dei pannelli delle risorse e le proprietà visibili in [Esplora metriche][metrics].
+* [Esplora metriche](app-insights-metrics-explorer.md) mostra grafici e tabelle di metriche e conteggi, quali tempi di risposta, frequenze di errori o metriche create dall'utente con l’[API](app-insights-api-custom-events-metrics.md). Filtrare e segmentare i dati dai valori della proprietà per ottenere una migliore comprensione dell'app e dei relativi utenti.
+* [Esplora ricerca](app-insights-diagnostic-search.md) elenca i singoli eventi, come ad esempio richieste specifiche, eccezioni, tracce di log o eventi creati dall'utente con l’[API](app-insights-api-custom-events-metrics.md). Filtrare e cercare negli eventi, e spostarsi tra gli eventi correlati per analizzare i problemi.
 
-##  Configurare il progetto con la chiave di strumentazione.
+## Avvisi
 
-Copiare la chiave dalla risorsa di Application Insights:
-
-![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-asp-net-five/02-props-asp.png)
-
-Nel progetto ASP.NET 5 incollarla in `config.json`:
-
-    {
-      "ApplicationInsights": {
-        "InstrumentationKey": "11111111-2222-3333-4444-555555555555"
-      }
-    }
-
-In alternativa, se si preferisce la configurazione dinamica, è possibile aggiungere questo codice alla classe di avvio dell'applicazione:
-
-    configuration.AddApplicationInsightsSettings(
-      instrumentationKey: "11111111-2222-3333-4444-555555555555");
+* Impostare i [test di disponibilità](app-insights-monitor-web-app-availability.md) per testare il sito Web continuamente da varie parti del mondo e ottenere messaggi di posta elettronica non appena un test ha esito negativo.
+* Impostare [avvisi di metrica](app-insights-monitor-web-app-availability.md) per sapere se delle metriche quali tempi di risposta o frequenza di eccezioni superano i limiti accettabili.
 
 
-## Aggiunta di Application Insights al progetto
+## Ottenere più dati di telemetria
 
-
-#### Installare il pacchetto NuGet
-
-Trovare il [numero di versione più recente](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases) del pacchetto NuGet.
-
-Aprire `project.json` e modificare la sezione `dependencies`:
-
-    {
-      "dependencies": {
-        // Replace 0.* with a specific version:
-        "Microsoft.ApplicationInsights.AspNet": "0.*",
-
-       // Add these if they aren't already there:
-       "Microsoft.Framework.ConfigurationModel.Interfaces": "1.0.0-beta7",
-       "Microsoft.Framework.ConfigurationModel.Json":  "1.0.0-beta7"
-      }
-    }
-
-#### Analizzare il file di configurazione
-
-In `startup.cs`:
-
-    using Microsoft.ApplicationInsights.AspNet;
-
-    public IConfiguration Configuration { get; set; }
-
-Nel metodo `Startup`:
-
-    public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
-    {
-    	// Setup configuration sources.
-    	var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
-	   		.AddJsonFile("config.json")
-	   		.AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
-    	builder.AddEnvironmentVariables();
-
-    	if (env.IsEnvironment("Development"))
-    	{
-	    	builder.AddApplicationInsightsSettings(developerMode: true);
-    	}
-    
-    	Configuration = builder.build();
-    }
-
-Nel metodo `ConfigurationServices`:
-
-    services.AddApplicationInsightsTelemetry(Configuration);
-
-Nel metodo `Configure`:
-
-    // Add Application Insights monitoring to the request pipeline as a very first middleware.
-    app.UseApplicationInsightsRequestTelemetry();
-
-    // Any other error handling middleware goes here.
-
-    // Add Application Insights exceptions handling to the request pipeline.
-    app.UseApplicationInsightsExceptionTelemetry();
-
-## Aggiungere la strumentazione client JavaScript
-
-Se si dispone di un file \_Layout.cshtml, inserirvi il codice seguente. In caso contrario, inserire il codice in qualsiasi pagina di cui si vuole tenere traccia.
-
-Definire l'inserimento nella parte superiore del file:
-
-    @inject Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration TelemetryConfiguration
-
-Inserire l'helper Html prima del tag `</head>` e prima di qualsiasi altro script. Qualsiasi telemetria JavaScript personalizzata che si vuole segnalare dalla pagina deve essere inserita dopo questo frammento di codice:
-
-    <head> 
-
-      @Html.ApplicationInsightsJavaScript(TelemetryConfiguration) 
-
-      <!-- other scripts -->
-    </head>
-
-## Eseguire l'app
-
-Eseguire il debug dell'applicazione in Visual Studio o pubblicarlo sul server Web.
-
-## Visualizza i dati sull'app
-
-Tornare al [portale di Azure][portal] e passare alla risorsa Application Insights. Se non sono presenti dati nel pannello Panoramica, attendere uno o due minuti e fare clic su Aggiorna.
-
-* [Tenere traccia dell'utilizzo dell'app][usage]
-* [Diagnosticare problemi di prestazioni][detect]
-* [Configurare i test Web per monitorare la disponibilità][availability]
-
+* [Monitoraggio delle dipendenze](app-insights-dependencies.md) per vedere se REST, SQL o altre risorse esterne rallentano l’utente.
+* [Utilizzare l'API](app-insights-api-custom-events-metrics.md) per inviare gli eventi e le metriche per una visualizzazione più dettagliata dell'utilizzo e delle prestazioni dell'app.
+* [Test di disponibilità](app-insights-monitor-web-app-availability.md) controlla costantemente l’app da tutto il mondo. 
 
 
 ## Aprire origine
@@ -175,4 +78,4 @@ Tornare al [portale di Azure][portal] e passare alla risorsa Application Insight
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

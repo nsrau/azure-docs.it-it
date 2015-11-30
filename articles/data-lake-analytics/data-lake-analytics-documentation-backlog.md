@@ -24,7 +24,8 @@ Continueremo ad aggiungere nuova documentazione per supportare Azure Data Lake A
 
 Area |Argomento | Priorità | Stato | Assegnato a | Richiesto da 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-U-SQL | Query distribuite | 1 | In attesa | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Query distribuite | 1 | In attesa | [@edmacauley](https://github.com/edmacauley) |
+U-SQL | Spostamento di dati tra WASB e ADLS | 1 | In sospeso | Da definire | Ye Xing (ml)
 U-SQL | Elaborazione JSON | 2 | In sospeso | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 Servizio | Interazione con Curl | 3 |In sospeso |[@mumian](https://github.com/mumian)
 U-SQL | Tabelle partizionate |1 | In corso | [@edmacauley](https://github.com/edmacauley) | 
@@ -53,4 +54,4 @@ Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backl
 * Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Inviare un messaggio di posta elettronica a [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Disabilitare, abilitare o eliminare un profilo
@@ -46,8 +46,12 @@
 
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
 
-[Gestione traffico di Azure](traffic-manager-overview.md)
+[Configurare metodo di routing failover](traffic-manager-configure-failover-routing-method.md)
 
- 
+[Configurare il metodo di routing Round Robin](traffic-manager-configure-round-robin-routing-method.md)
 
-<!---HONumber=Oct15_HO3-->
+[Configurare un metodo di routing del traffico delle prestazioni](traffic-manager-configure-performance-routing-method.md)
+
+[Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
+
+<!---HONumber=Nov15_HO4-->

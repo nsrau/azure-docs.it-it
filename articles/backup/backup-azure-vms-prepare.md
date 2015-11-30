@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Preparare l'ambiente per il backup di macchine virtuali di Azure
@@ -173,10 +173,7 @@ L'estensione per il backup viene installata se la macchina virtuale è in esecuz
 - Il backup di macchine virtuali basate su Gestione risorse di Azure (IaaS V2) non è supportato.
 - Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
 - Il backup di macchine virtuali con Archiviazione Premium non è supportato.
-- Il backup di macchine virtuali con più IP riservati non è supportato.
 - Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
-- Il backup di macchine virtuali con più schede di rete non è supportato.
-- Il backup di macchine virtuali in una configurazione con carico bilanciato (interna e su Internet) non è supportato.
 - La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. È necessario eliminare prima la macchina virtuale esistente e gli eventuali dischi associati e quindi ripristinare i dati dal backup.
 - L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
 - Il backup di macchine virtuali con il servizio Backup di Azure è supportato in tutte le aree pubbliche. Ecco un [elenco di controllo](http://azure.microsoft.com/regions/#services) delle aree geografiche supportate. Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
@@ -194,4 +191,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Eseguire il backup di macchine virtuali](backup-azure-vms.md)
 - [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # Come creare API in Gestione API di Azure
@@ -55,7 +55,7 @@ Dopo avere configurato i tre valori, fare clic su **Salva**. Una volta creata la
 
 ![Impostazioni API][api-management-api-settings]
 
-Per configurare **Autenticazione proxy** per il servizio Web che implementa l'API, selezionare la scheda **Sicurezza**. L'elenco a discesa **Con credenziali** può essere usato per configurare l'**Autenticazione di base** o l'autenticazione con **Certificati reciproci**. Per usare l'autenticazione di base, è sufficiente immettere le credenziali desiderate. Per informazioni sull'uso dell'autenticazione reciproca dei certificati, vedere [Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati in Gestione API di Azure][].
+Per configurare **Autenticazione gateway** per il servizio Web che implementa l'API, selezionare la scheda **Sicurezza**. L'elenco a discesa **Con credenziali** può essere usato per configurare l'**Autenticazione di base** o l'autenticazione con **Certificati reciproci**. Per usare l'autenticazione di base, è sufficiente immettere le credenziali desiderate. Per informazioni sull'uso dell'autenticazione reciproca dei certificati, vedere [Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati in Gestione API di Azure][].
 
 La scheda **Sicurezza** può essere usata anche per configurare l'**Autorizzazione utente** con OAuth 2.0. Per altre informazioni, vedere [Come autorizzare gli account per sviluppatori usando OAuth 2.0 in Gestione API di Azure][].
 
@@ -96,4 +96,4 @@ Dopo aver creato un'API e configurato le impostazioni, i passaggi successivi con
 [Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati in Gestione API di Azure]: api-management-howto-mutual-certificates.md
 [Come autorizzare gli account per sviluppatori usando OAuth 2.0 in Gestione API di Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

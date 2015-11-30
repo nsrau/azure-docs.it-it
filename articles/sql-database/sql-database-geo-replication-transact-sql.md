@@ -44,53 +44,9 @@ Per configurare la replica geografica, sono necessari gli elementi seguenti:
 - Un account di accesso con il ruolo DBManager nel database primario e con db\_ownership del database locale per il quale verrà eseguita la replica geografica, oltre al ruolo DBManager nei server partner in cui si configurerà la replica geografica.
 - La versione più recente di SQL Server Management Studio: per ottenere la versione più recente di SQL Server Management Studio (SSMS), visitare la pagina di [download di SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Per informazioni sull'uso di SQL Server Management Studio per gestire database e server logici di database SQL di Azure, vedere [Gestione di database SQL di Azure tramite SQL Server Management Studio](sql-database-manage-azure-ssms.md)
 
-
-
-## Connessione a un server logico del database SQL
-
-Per connettersi al database SQL, è necessario conoscere il nome del server in Azure e avere creato una regola del firewall per l'indirizzo IP del client dal quale si stabilisce la connessione con Management Studio. Potrebbe essere necessario accedere al portale per ottenere queste informazioni e completare questa attività.
-
-1.  Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
-
-2.  Nel riquadro sinistro fare clic su **Database SQL**.
-
-3.  Nella home page dei database SQL fare clic su **SERVERS** nella parte superiore della pagina per elencare tutti i server associati alla sottoscrizione. Trovare il nome del server a cui si desidera connettersi e copiarlo negli Appunti.
-
-	Configurare al firewall del database SQL in modo da consentire le connessioni dal computer locale. A tale scopo, aggiungere gli indirizzi IP dei computer locali all'elenco di eccezioni del firewall.
-
-1.  Nella home page dei database SQL fare clic su **SERVERS**, quindi fare clic sul server a cui si desidera connettersi.
-
-2.  Fare clic su **Configure** nella parte superiore della pagina.
-
-3.  Copiare l'indirizzo IP in CURRENT CLIENT IP ADDRESS.
-
-4.  Nell'area **Allowed IP Addresses** della pagina di configurazione, sono presenti tre caselle in cui è possibile specificare un nome di regola e un intervallo di indirizzi IP come valori di inizio e fine. Come nome di regola, è possibile immettere il nome del computer in uso. Come valori di inizio e fine dell'intervallo, incollare gli indirizzi IP del computer in entrambe le caselle, quindi fare clic sulla casella di controllo che viene visualizzata.
-
-	Il nome di regola deve essere univoco. Se il computer in uso è il computer di sviluppo, è possibile immetterne l'indirizzo IP sia nella casella di inizio intervallo IP che in quella di fine. In caso contrario, potrebbe essere necessario immettere un intervallo di indirizzi IP più ampio per ospitare connessioni da altri computer dell'organizzazione.
-
-5. Fare clic su **SAVE** nella parte inferiore della pagina.
-
-    **Nota:** le modifiche alle impostazioni del firewall potrebbero impiegare fino a cinque minuti prima di avere effetto.
-
-	È ora possibile effettuare la connessione al database SQL usando Management Studio.
-
-1.  Nella barra delle applicazioni fare clic su **Start**, scegliere **Tutti i programmi**, **Microsoft SQL Server 2014**, quindi fare clic su **SQL Server Management Studio**.
-
-2.  In **Connetti al server** specificare il nome completo del server come <MyLocalServer>.database.windows.net. In Azure, il nome del server è una stringa autogenerata composta da caratteri alfanumerici.
-
-3.  Selezionare **Autenticazione di SQL Server**.
-
-4.  Nella casella **Accesso** immettere l'account di accesso amministratore di SQL Server specificato nel portale durante la creazione del server.
-
-5.  Nella casella **Password** immettere la password specificata nel portale durante la creazione del server.
-
-8.  Fare clic su **Connetti** per stabilire la connessione.
-
-
-
 ## Aggiungere un database secondario
 
-È possibile usare l'istruzione **ALTER DATABASE** per creare un database secondario in un server partner. Eseguire questa istruzione sul database master del server che contiene il database da replicare. Il database con replica geografica, ovvero il "database primario", avrà lo stesso nome del database che viene replicato e, per impostazione predefinita, lo stesso livello di servizio del database primario. Il database secondario può essere accessibile o non accessibile in lettura e può essere un database singolo o un database elastico. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio del database SQL](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/). Dopo la creazione e il seeding del database secondario, inizierà la replica asincrona dei dati dal database primario. I passaggi seguenti descrivono come configurare la replica geografica tramite Management Studio. Vengono descritti i passaggi per creare database secondari accessibili e non accessibili in lettura con un database singolo o un database elastico.
+È possibile usare l'istruzione **ALTER DATABASE** per creare un database secondario in un server partner. Eseguire questa istruzione sul database master del server che contiene il database da replicare. Il database con replica geografica, ovvero il "database primario", avrà lo stesso nome del database che viene replicato e, per impostazione predefinita, lo stesso livello di servizio del database primario. Il database secondario può essere accessibile o non accessibile in lettura e può essere un database singolo o un database elastico. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/). Dopo la creazione e il seeding del database secondario, inizierà la replica asincrona dei dati dal database primario. I passaggi seguenti descrivono come configurare la replica geografica tramite Management Studio. Vengono descritti i passaggi per creare database secondari accessibili e non accessibili in lettura con un database singolo o un database elastico.
 
 > [AZURE.NOTE]Se il database secondario è disponibile nel server partner specificato, ad esempio perché esiste o è esistita una relazione di replica geografica, il comando non riuscirà.
 
@@ -99,7 +55,10 @@ Per connettersi al database SQL, è necessario conoscere il nome del server in A
 
 Usare la procedura seguente per creare un database secondario non accessibile in lettura come database singolo.
 
-1. In Management Studio connettersi al server logico di database SQL di Azure.
+1. Usare la versione di SQL Server Management Studio 13.0.600.65 o successiva.
+
+ 	 >[AZURE.IMPORTANT]Scaricare la versione [più recente](https://msdn.microsoft.com/library/mt238290.aspx) di SQL Server Management Studio. È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti del portale di Azure.
+
 
 2. Aprire la cartella Database, espandere la cartella **Database di sistema** fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
 
@@ -163,7 +122,7 @@ Usare la procedura seguente per creare un database secondario accessibile in let
 
 ## Rimuovere un database secondario
 
-È possibile usare l'istruzione **ALTER DATABASE** per terminare definitivamente la relazione di replica tra un database secondario e il relativo database primario. L'istruzione viene eseguita sul database master in cui risiede il database primario. Dopo la terminazione della relazione, il database secondario diventa un normale database accessibile in lettura e scrittura. Se la connettività al database secondario viene interrotta, il comando riesce ma il database diventerà di nuovo accessibile in lettura e scrittura al ripristino della connettività. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio del database SQL](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+È possibile usare l'istruzione **ALTER DATABASE** per terminare definitivamente la relazione di replica tra un database secondario e il relativo database primario. L'istruzione viene eseguita sul database master in cui risiede il database primario. Dopo la terminazione della relazione, il database secondario diventa un normale database accessibile in lettura e scrittura. Se la connettività al database secondario viene interrotta, il comando riesce ma il database diventerà di nuovo accessibile in lettura e scrittura al ripristino della connettività. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
 
 Usare la procedura seguente per rimuovere il database secondario con replica geografica da una relazione di replica geografica.
 
@@ -189,7 +148,7 @@ Il comando esegue il flusso di lavoro seguente:
 
 2. Scambia i ruoli dei due database nella relazione di replica geografica.
 
-Questa sequenza assicura che non si verifichino perdite di dati. Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio del database SQL](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Questa sequenza assicura che non si verifichino perdite di dati. Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
 
 
 > [AZURE.NOTE]Se il database primario non è disponibile quando si esegue il comando, questo non riuscirà e verrà visualizzato un messaggio di errore in cui è indicato che il server primario non è disponibile. In rari casi, è possibile che l'operazione non possa essere completata e appaia bloccata. In questo caso l'utente può eseguire il comando di failover forzato e accettare la perdita dei dati.
@@ -235,7 +194,7 @@ Usare la procedura seguente per forzare la rimozione del database secondario con
 
 ## Monitorare la configurazione di replica geografica e l'integrità
 
-Le attività di monitoraggio includono il controllo della configurazione della replica geografica e dell'integrità della replica dei dati. È possibile usare la vista a gestione dinamica (DMV) **sys.dm\_geo\_replication\_links** in un database master per restituire informazioni su tutti i collegamenti di replica esistenti per ogni database nel server logico di database SQL di Azure. Questa vista include una riga per ogni collegamento di replica tra i database primari e secondari. È possibile usare la DMV **sys.dm\_replication\_status** per restituire una riga per ogni database SQL di Azure attualmente interessato da un collegamento di replica. Sono inclusi il database primario e i database secondari. Se esiste più di un collegamento di replica continua per un determinato database primario, questa tabella contiene una riga per ogni relazione. La vista viene creata in tutti i database, incluso il database master logico. Eseguendo query su questa vista in tale database, verrà tuttavia restituito un set vuoto. È possibile usare la DMV **sys.dm\_operation\_status** per visualizzare lo stato di tutte le operazioni di database, incluso lo stato dei collegamenti di replica. Per altre informazioni, vedere [sys.dm\_geo\_replication\_links (database SQL di Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm\_geo\_replication\_link\_status (database SQL di Azure)](https://msdn.microsoft.com/library/mt575504.aspx) e [sys.dm\_operation\_status (database SQL di Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
+Le attività di monitoraggio includono il controllo della configurazione della replica geografica e dell'integrità della replica dei dati. È possibile usare la vista a gestione dinamica (DMV) **sys.dm\_geo\_replication\_links** in un database master per restituire informazioni su tutti i collegamenti di replica esistenti per ogni database nel server logico di database SQL di Azure. Questa vista include una riga per ogni collegamento di replica tra i database primari e secondari. È possibile usare la DMV **sys.dm\_replication\_status** per restituire una riga per ogni database SQL di Azure attualmente interessato da un collegamento di replica. Sono inclusi il database primario e i database secondari. Se esiste più di un collegamento di replica continua per un determinato database primario, questa tabella contiene una riga per ogni relazione. La vista viene creata in tutti i database, incluso il database master logico. Eseguendo query su questa vista in tale database, verrà tuttavia restituito un set vuoto. È possibile usare la DMV **sys.dm\_operation\_status** per visualizzare lo stato di tutte le operazioni di database, incluso lo stato dei collegamenti di replica. Per altre informazioni, vedere [sys.geo\_replication\_links (database SQL di Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm\_geo\_replication\_link\_status (database SQL di Azure)](https://msdn.microsoft.com/library/mt575504.aspx) e [sys.dm\_operation\_status (database SQL di Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
 
 Usare la procedura seguente per monitorare una relazione di replica geografica.
 
@@ -245,18 +204,18 @@ Usare la procedura seguente per monitorare una relazione di replica geografica.
 
 3. Usare l'istruzione seguente per visualizzare tutti i database con collegamenti di replica geografica.
 
-        SELECT database_id,start_date, partner_server, partner_database,  replication_state, is_target_role, is_non_redable_secondary FROM sys.geo_replication_links;
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
 
 4. Fare clic su **Execute** per eseguire la query.
 5. Aprire la cartella Database, espandere la cartella **Database di sistema**, fare clic con il pulsante destro del mouse su **MyDB** e quindi scegliere **Nuova query**.
 6. Usare l'istruzione seguente per visualizzare gli intervalli di replica e l'ultima ora di replica dei database secondari di MyDB.
 
-        SELECT link_guid, partner_server, last_replication, replication_lag_sec FROM sys.dm_ replication_status
+        SELECT link_guid, partner_server, last_replication, replication_lag_sec FROM sys.dm_geo_replication_link_status
 
 7. Fare clic su **Execute** per eseguire la query.
 8. Usare l'istruzione seguente per visualizzare le operazioni di replica geografica più recenti associate al database MyDB.
 
-        SELECT * FROM sys.dm_ operation_status where major_resource_is = 'MyDB'
+        SELECT * FROM sys.dm_operation_status where major_resource_is = 'MyDB'
         ORDER BY start_time DESC
 
 9. Fare clic su **Execute** per eseguire la query.
@@ -274,4 +233,4 @@ Usare la procedura seguente per monitorare una relazione di replica geografica.
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

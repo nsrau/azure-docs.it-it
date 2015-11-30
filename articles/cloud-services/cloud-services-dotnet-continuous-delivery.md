@@ -20,7 +20,7 @@
 
 Nel processo descritto in questo articolo viene illustrato come configurare il recapito continuo per le app cloud di Azure. Questa procedura crea automaticamente e distribuisce pacchetti in Azure dopo ogni archiviazione di codice. Il processo di compilazione del pacchetto descritto in questo articolo è equivalente al comando Pacchetto in Visual Studio, mentre i passaggi per la pubblicazione equivalgono al comando Pubblica, sempre in Visual Studio. L'articolo riguarda i metodi da usare per creare un server di compilazione con istruzioni da riga di comando di MSBuild e script di Windows PowerShell. Viene inoltre illustrato come configurare, facoltativamente, definizioni di Visual Studio Team Foundation Server - Team Build per usare i comandi di MSBuild e gli script di PowerShell. Il processo è personalizzabile per il proprio ambiente di compilazione e per gli ambienti Azure di destinazione.
 
-Per agevolare tali operazioni è inoltre disponibile Visual Studio Online, una versione di TFS ospitata in Azure. Per altre informazioni, vedere [Recapito continuo in Azure mediante Visual Studio Online][].
+Per agevolare tali operazioni è inoltre disponibile Visual Studio Team Services, una versione di TFS ospitata in Azure. Per altre informazioni, vedere [Recapito continuo in Azure mediante Visual Studio Team Services][].
 
 Prima di iniziare, pubblicare l'applicazione da Visual Studio. Questo garantisce che tutte le risorse siano disponibili e inizializzate quando si tenta di automatizzare il processo di pubblicazione.
 
@@ -557,7 +557,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 Per abilitare il debug remoto durante l'uso della distribuzione continua, vedere [Abilitare il debug remoto con la distribuzione continua per la pubblicazione in Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
-  [Recapito continuo in Azure mediante Visual Studio Online]: cloud-services-continuous-delivery-use-vso.md
+  [Recapito continuo in Azure mediante Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md
   [servizio Team Foundation Build]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
@@ -576,4 +576,4 @@ Per abilitare il debug remoto durante l'uso della distribuzione continua, vedere
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

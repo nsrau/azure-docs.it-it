@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/21/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Che cos'è il Catalogo dei dati di Azure?
 
-Il **Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che funge da sistema di registrazione e individuazione per origini dati aziendali. Il **Catalogo dati di Azure** fornisce funzionalità che consentono a qualsiasi utente – dagli analisti ai ricercatori di dati e agli sviluppatori – di registrare, individuare, comprendere e usare le origini dati.
+Il **Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che funge da sistema di registrazione e individuazione per origini dati aziendali. Il **Catalogo dati di Azure** offre funzionalità che consentono a qualsiasi utente - dagli analisti, ai ricercatori di dati e agli sviluppatori - di individuare, comprendere e utilizzare le origini dati, e di contribuire con le proprie conoscenze a compilare e supportare una community e una cultura dei dati.
 
 ## Descrizione del problema - panoramica e motivazione
 
@@ -48,7 +48,9 @@ Il **Catalogo dati di Azure** fornisce un servizio basato su cloud in cui le ori
 
 Una volta registrata un'origine dati, i metadati possono essere arricchiti, dall'utente che ha eseguito la registrazione o da altri utenti nell'organizzazione. Tutti gli utenti possono annotare un'origine dati, fornendo descrizioni, tag o altri metadati, come ad esempio la documentazione e i processi per richiedere l’accesso all’origine dati. Questi metadati descrittivi integrano i metadati strutturali (ad esempio i nomi delle colonne e tipi di dati) registrato dall'origine dati, per semplificare l'individuazione e comprenderne.
 
-Individuazione e informazioni sulle origini dati e il relativo utilizzo è lo scopo principale di registrazione delle origini. Quando gli utenti aziendali devono usare dati per le proprie attività (business intelligence, sviluppo di applicazioni, scienza dei dati o qualsiasi altra attività in cui sono richiesti dati corretti) possono usare il **Catalogo dati di Azure** per trovare rapidamente dati che soddisfino le proprie esigenze, comprenderli e valutare la loro idoneità allo scopo, e usarli aprendo l'origine dati in uno strumento di propria scelta.
+Individuazione e informazioni sulle origini dati e il relativo utilizzo è lo scopo principale di registrazione delle origini. Quando gli utenti aziendali devono usare dati per le proprie attività (business intelligence, sviluppo di applicazioni, scienza dei dati o qualsiasi altra attività in cui sono richiesti dati corretti) possono usare il **Catalogo dati di Azure** per trovare rapidamente dati che soddisfino le proprie esigenze, comprenderli e valutare la loro idoneità allo scopo, e usarli aprendo l'origine dati in uno strumento di propria scelta. Allo stesso tempo, il **Catalogo dei dati di Azure** consente agli utenti di contribuire al catalogo per l'assegnazione di tag, per la documentazione, e per l'annotazione delle origini dei dati che sono già state registrate, e tramite la registrazione di nuovi dati origini che possono essere individuati, compresi e utilizzati dalla community di utenti del catalogo.
+
+![Funzionalità del catalogo dati di Azure](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
 ## Registrare le origini dati
 
@@ -66,6 +68,8 @@ Il processo di registrazione prevede tre passaggi di base:
 - Visualizzazione SQL Server
 - Tabella di Database Oracle
 - Vista di Database Oracle
+- Tabella Teradata
+- Visualizzazione Teradata
 - Dimensione multidimensionali di SQL Server Analysis Services
 - Misura multidimensionale di SQL Server Analysis Services
 - KPI multidimensionali di SQL Server Analysis Services
@@ -73,10 +77,13 @@ Il processo di registrazione prevede tre passaggi di base:
 - Report di SQL Server Reporting Services
 - BLOB di Archiviazione di Azure
 - Directory di archiviazione di Azure
+- File HDFS
+- Directory HDFS
+- Tabella Hive
 
 Ulteriori origini dati e i tipi di asset verranno aggiunti durante l’anteprima del **Catalogo dati di Azure**.
 
-> [AZURE.IMPORTANT]La registrazione di un'origine dati nel**Catalogo dati di Azure**non copia i dati dall'origine dati, a meno che non si selezioni "Includi anteprima" nello strumento di registrazione di origine dati. Registrazione copia i metadati dell'origine dati, non i dati. Esempi di metadati includono i nomi delle tabelle e altri oggetti origine dati, insieme ai tipi di dati e i nomi delle colonne e altri attributi di origine dati. I metadati includono inoltre il percorso di origine dati, in modo che gli utenti che trovano l'origine dati con il **Catalogo dati di Azure** possono connettersi all'origine dati. Se si seleziona "Includi anteprima", lo strumento di registrazione di origine dati copierà nel **Catalogo dati di Azure** un piccolo set di record che verrà visualizzato dagli utenti che individuano l'origine dati nel portale del **Catalogo dati di Azure**.
+> [AZURE.IMPORTANT]La registrazione di un'origine dati nel **Catalogo dati di Azure** non copia i dati dall'origine dati, a meno che non si selezioni "Includi anteprima" nello strumento di registrazione di origine dati. Registrazione copia i metadati dell'origine dati, non i dati. Esempi di metadati includono i nomi delle tabelle e altri oggetti origine dati, insieme ai tipi di dati e i nomi delle colonne e altri attributi di origine dati. I metadati includono inoltre il percorso di origine dati, in modo che gli utenti che trovano l'origine dati con il **Catalogo dati di Azure** possano connettersi all'origine dati. Se si seleziona "Includi anteprima", lo strumento di registrazione di origine dati copierà nel **Catalogo dati di Azure** un piccolo set di record che verrà visualizzato dagli utenti che individuano l'origine dati nel portale del **Catalogo dati di Azure**.
 
 ## Arricchire i metadati dell'origine dati
 
@@ -86,11 +93,11 @@ Dopo aver completato la registrazione, le origini dati possono essere individuat
 -	Le origini dei dati registrati sono più facilmente comprensibile una volta individuati. I metadati forniti dall'utente vengono presentati a qualsiasi utente del **Catalogo dati di Azure** che visualizzi l'origine dati con annotazioni, e forniscono informazioni e contesto aggiuntivi. La maggior parte delle origini dati in genere non includono descrizioni significative o la documentazione e quelli che riguardano spesso i destinatari di sviluppatore tecnici DBA o database. Attraverso l'ampliamento delle origini dati nel **Catalogo dati di Azure** con tag e descrizioni appropriate al gruppo di destinatari, gli utenti garantiscono che chi individua i dati possa comprenderne i dettagli e l'uso previsto.
 -  Ogni origine dati registrata può includere informazioni di accesso richieste, in modo che gli utenti possano facilmente comprendere e seguire processi esistenti per richiedere l'accesso all'origine dati e ai relativi dati.
 
-> [AZURE.NOTE]Ogni utente del **Catalogo dati di Azure** può aggiungere tag e descrizioni per gli asset di dati e i relativi attributi. Il **Catalogo dati di Azure** rileverà il valore e l'origine di ogni annotazione e ne mostrerà l'utente e la data in cui è stata aggiunta. Questo approccio crowdsourcing ai metadati garantisce che tutti gli utenti con un punto di vista sui dati e il relativo utilizzo possono condividere le risorse e i pareri con la community di utenti nel suo complesso.
+> [AZURE.NOTE]Ogni utente del **Catalogo dati di Azure** può aggiungere tag e descrizioni per gli asset di dati e i relativi attributi. Il **Catalogo dati di Azure** rileverà il valore e l'origine di ogni annotazione e mostrerà l'utente che l’ha aggiunta. Questo approccio crowdsourcing ai metadati garantisce che tutti gli utenti con un punto di vista sui dati e il relativo utilizzo possono condividere le risorse e i pareri con la community di utenti nel suo complesso.
 
 ## Esplorare, individuare e comprendere
 
-L'obiettivo della registrazione e dell'arricchimento delle origini dati nel **Catalogo dati di Azure** è permettere che vengano individuati, capiti e usati dagli utenti dell'organizzazione. Il portale del **Catalogo dati di Azure** è lo strumento principale per questo processo.
+L'obiettivo della registrazione e dell'arricchimento delle origini dati nel **Catalogo dati di Azure** è quello di permettere che vengano individuati, capiti e usati dagli utenti dell'organizzazione. Il portale del **Catalogo dati di Azure** è lo strumento principale per questo processo.
 
 Il portale del **Catalogo dati di Azure** fornisce due meccanismi principali per l'individuazione e l'esplorazione dei dati: ricerca e filtro.
 
@@ -122,4 +129,4 @@ L'obiettivo principale dell'individuazione dati è trovare i dati necessari e us
 
 > [AZURE.NOTE]Per l'anteprima del Catalogo dati di Azure, solo Microsoft Excel e il servizio di report di SQL saranno direttamente supportati e disponibili nel menu **Apri in**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,8 +1,8 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 11/16/15-->
 
-#### Per installare l'aggiornamento 1.2 dal portale di gestione di Azure
+#### Per installare l'aggiornamento 1.2 dal portale di Azure
 
-1. Nel portale di gestione, accedere alla pagina **Dispositivi** e selezionare il proprio dispositivo.
+1. Nel portale di Azure, accedere alla pagina **Dispositivi** e selezionare il proprio dispositivo.
  
 2. Andare a **Dispositivi** > **Configura**.
 
@@ -10,6 +10,6 @@
 
 4. Disabilitare l'interfaccia di rete con un gateway assegnato e salvare la configurazione modificata. Si noti che vengono mantenute le impostazioni dell'interfaccia di rete e pertanto quando si riattiva questa interfaccia di rete in un secondo momento, il portale consentirà di ripristinare le impostazioni originali.
 
-7. A questo punto è possibile [utilizzare il portale di gestione per installare l'aggiornamento 1.2](#use-the-management-portal-to-install-update-1). Seguire le istruzioni a partire dal passaggio 3 di questa procedura. Dopo aver installato tutti gli aggiornamenti, è possibile riabilitare l'interfaccia di rete che è stata disabilitata.
+7. A questo punto è possibile [utilizzare il portale di Azure per installare l'aggiornamento 1.2](#install-update-12-via-the-azure-portal). Seguire le istruzioni a partire dal passaggio 3 di questa procedura. Dopo aver installato tutti gli aggiornamenti, è possibile riabilitare l'interfaccia di rete che è stata disabilitata.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -22,7 +22,7 @@ Durante la progettazione di una soluzione di identità ibrida, le aziende hanno 
 
 - Amministrazione
 - Autenticazione
-- Autorizzazione
+- Authorization
 - Controllo
 
 La sezione seguente descrive nel dettaglio gli aspetti relativi all'autenticazione e all'autorizzazione, mentre i concetti inerenti alla gestione e al controllo verranno discussi nell'ambito del ciclo di vita delle identità ibride. Per altre informazioni su queste funzionalità, leggere l'articolo sulle modalità per [determinare le attività di gestione delle identità ibride](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md).
@@ -47,7 +47,7 @@ Il modello adottato da ogni azienda dipenderà dalle rispettive esigenze. È imp
 - L'azienda usa un accesso di tipo Single Sign-On per le app installate in locale o nel cloud?
  - In caso affermativo, l'adozione di un modello di identità ibrida può avere ripercussioni su questo processo?
 
-## Controllo di accesso
+## Controllo dell’accesso
 Sebbene l'autenticazione e l'autorizzazione costituiscano elementi essenziali per consentire l'accesso ai dati aziendali tramite la convalida degli utenti, è altrettanto importante controllare il livello di accesso assegnato agli utenti, nonché il livello di accesso di cui dispongono gli amministratori sulle risorse che devono gestire. Per questo motivo, le soluzioni di identità ibrida devono essere in grado di fornire un accesso granulare alle risorse, funzioni di delega e opzioni di controllo degli accessi in base al ruolo. Assicurarsi che venga fornita una risposta alle domande seguenti relative al controllo di accesso:
 
 - Nell'azienda è presente più di utente con privilegi elevati per la gestione del sistema di identità?
@@ -67,6 +67,6 @@ Sebbene l'autenticazione e l'autorizzazione costituiscano elementi essenziali pe
 [Determinare i requisiti di risposta agli eventi imprevisti](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## Vedere anche
-[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

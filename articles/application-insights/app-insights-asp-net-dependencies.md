@@ -12,19 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # Impostare Application Insights: tenere traccia delle dipendenze
 
-*Application Insights è disponibile in anteprima.*
-
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) consente di monitorare un'applicazione live per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni][detect] e [individuare la modalità di uso dell'app][knowUsers].
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -202,4 +195,4 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

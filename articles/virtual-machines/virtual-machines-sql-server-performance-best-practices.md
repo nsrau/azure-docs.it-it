@@ -14,13 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
- 
 
 ## Panoramica
 
@@ -28,7 +25,9 @@ In questo argomento vengono fornite le procedure consigliate per ottimizzare le 
 
 Durante la creazione di immagini di SQL Server, è possibile utilizzare il [nuovo portale](https://manage.windowsazure.com) per sfruttare i vantaggi delle funzionalità, quali l'utilizzo predefinito di Archiviazione Premium e altre opzioni, ad esempio configurazioni Applicazione automatica delle patch, Backup automatizzato e AlwaysOn.
 
->[AZURE.NOTE]Questo documento offre informazioni su come ottenere le migliori prestazioni per SQL Server in Macchine virtuali di Azure. Se il carico di lavoro è contenuto, potrebbero non essere necessarie tutte le ottimizzazione elencate di seguito. Prendere in considerazione le esigenze di prestazioni e i modelli di carico di lavoro durante la valutazione di queste indicazioni.
+Questo documento offre informazioni su come ottenere le migliori prestazioni per SQL Server in Macchine virtuali di Azure. Se il carico di lavoro è contenuto, potrebbero non essere necessarie tutte le ottimizzazione elencate di seguito. Prendere in considerazione le esigenze di prestazioni e i modelli di carico di lavoro durante la valutazione di queste indicazioni.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Elenco di controllo rapido
 
@@ -38,7 +37,7 @@ Di seguito è riportato un elenco controllo rapido per ottimizzare le prestazion
 |---|---|
 |**Dimensioni macchina virtuale**|[DS3](virtual-machines-size-specs.md#standard-tier-ds-series) o superiore per SQL Enterprise Edition<br/><br/>[DS2](virtual-machines-size-specs.md#standard-tier-ds-series) o superiore per SQL Standard Edition e Web Edition.|
 |**Archiviazione**|Usare l'[archiviazione Premium](../storage/storage-premium-storage-preview-portal.md).<br/><br/>Mantenere l'[account di archiviazione](../storage/storage-create-storage-account.md) e la VM di SQL Server nella stessa area geografica.<br/><br/>Disabilitare l'[archiviazione con ridondanza geografica](../storage/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione.|
-|**Dischi**|Usare un minimo di 2 [dischi P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-ITing-premium-storage) (1 per i file di log, 1 per i file di dati e TempDB).<br/><br/>Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/>Abilitare la lettura della cache sui dischi che ospitano i file di dati e TempDB.<br/><br/>Non abilitare il caching sui dischi che ospitano il file di log.<br/><br/>Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/>Formattare con dimensioni di allocazione documentate.|
+|**Dischi**|Usare un minimo di 2 [dischi P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-ITing-premium-storage) (1 per i file di log, 1 per i file di dati e TempDB).<br/><br/>Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/>Abilitare la lettura della cache sui dischi che ospitano i file di dati e TempDB.<br/><br/>Non abilitare la cache sui dischi che ospitano il file di log.<br/><br/>Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/>Formattare con dimensioni di allocazione documentate.|
 |**I/O**|Abilitare la compressione di pagina di database.<br/><br/>Abilitare l'inizializzazione immediata dei file per i file di dati.<br/><br/>Limitare o disabilitare l'aumento automatico delle dimensioni per il database.<br/><br/>Disabilitare la compattazione automatica per il database.<br/><br/>Spostare tutti i database su dischi dati, inclusi i database di sistema.<br/><br/>Spostare le directory dei file di traccia e dei log degli errori di SQL Server sui dischi dati.<br/><br/>Configurare percorsi predefiniti per il backup e il file di database.<br/><br/>Abilitare le pagine bloccate.<br/><br/>Applicare le correzioni delle prestazioni di SQL Server.|
 |**Elementi specifici delle funzionalità**|Eseguire il backup direttamente nell'archivio BLOB.|
 
@@ -52,7 +51,7 @@ Per le applicazioni sensibili alle prestazioni, è consigliabile usare le dimens
 
 - **SQL Server Standard e Web Edition**: DS2 o superiore
 
-Per informazioni aggiornate sulle dimensioni di macchina virtuale supportate, vedere [Dimensioni per le macchine virtuali](virtual-machines-size-specs.md).
+Per informazioni aggiornate sulle dimensioni della macchina virtuale supportata, vedere [Dimensioni per le macchine virtuali](virtual-machines-size-specs.md).
 
 È inoltre consigliabile creare account di archiviazione di Azure nello stesso data center delle macchine virtuali di SQL Server per ridurre i tempi di trasferimento. Quando si crea un account di archiviazione, disabilitare la replica geografica in quanto l'ordine di scrittura coerente su più dischi non è garantito. In alternativa, si consiglia di configurare una tecnologia di ripristino di emergenza di SQL Server tra due data center di Azure. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
@@ -78,7 +77,7 @@ Archiviare solo TempDB e/o le estensioni del pool di buffer nell'unità **D** qu
 
 - **Criteri di caching**: abilitare la lettura del caching per i dischi dati che ospitano solo file di dati e TempDB. Se non si usa Archiviazione Premium, non abilitare la memorizzazione nella cache per i dischi dati. Per istruzioni sulla configurazione del caching su disco, vedere gli argomenti seguenti: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
-- **Dimensioni unità di allocazione NTFS**: quando si formatta il disco dati, è consigliabile usare una dimensione di unità di allocazione di 64 KB per file di log e dati, nonché per TempDB.
+- **Dimensioni dell’unità di allocazione NTFS**: quando si formatta il disco dati, è consigliabile usare una dimensione di unità di allocazione di 64 KB per file di log e dati, nonché per TempDB.
 
 - **Striping del disco**: è consigliabile attenersi alle linee guida seguenti:
 
@@ -96,13 +95,13 @@ Archiviare solo TempDB e/o le estensioni del pool di buffer nell'unità **D** qu
 
 - È consigliabile comprimere i file di dati durante il trasferimento in entrata e in uscita di Azure.
 
-- È possibile abilitare l'inizializzazione immediata dei file per ridurre il tempo necessario per l'allocazione iniziale dei file. Per sfruttare l'inizializzazione immediata dei file, concedere SE\_MANAGE\_VOLUME\_NAME all'account di servizio SQL Server (MSSQLSERVER) e aggiungerlo ai criteri di sicurezza **Esecuzione attività di manutenzione volume**. Se si usa un'immagine della piattaforma SQL Server per Azure, l'account del servizio predefinito (NT Service\\MSSQLSERVER) non viene aggiunto ai criteri di sicurezza **Esecuzione attività di manutenzione volume**. In altre parole, l'inizializzazione file immediata non è abilitata in un'immagine della piattaforma Server SQL di Azure. Dopo aver aggiunto l'account del servizio SQL Server ai criteri di sicurezza **Esecuzione attività di manutenzione volume**, riavviare il servizio SQL Server. Potrebbero essere presenti indicazioni sulla sicurezza da considerare per l'utilizzo di questa funzionalità. Per altre informazioni, vedere [Inizializzazione di file di database](https://msdn.microsoft.com/library/ms175935.aspx).
+- È possibile abilitare l'inizializzazione immediata dei file per ridurre il tempo necessario per l'allocazione iniziale dei file. Per sfruttare l'inizializzazione immediata dei file, concedere SE\_MANAGE\_VOLUME\_NAME all'account di servizio SQL Server (MSSQLSERVER) e aggiungerlo ai criteri di sicurezza **Esecuzione attività di manutenzione volume**. Se si usa un'immagine della piattaforma SQL Server per Azure, l'account del servizio predefinito (NT Service\\MSSQLSERVER) non viene aggiunto ai criteri di sicurezza **Esecuzione attività di manutenzione volume**. In altre parole, l'inizializzazione file immediata non è abilitata in un'immagine della piattaforma Server SQL di Azure. Dopo aver aggiunto l'account del servizio SQL Server ai criteri di sicurezza **Esecuzione attività di manutenzione volume**, riavviare il servizio SQL Server. Potrebbero essere presenti indicazioni sulla sicurezza da considerare per l'utilizzo di questa funzionalità. Per altre informazioni, vedere [Inizializzazione del file di database](https://msdn.microsoft.com/library/ms175935.aspx).
 
 - L'**aumento automatico delle dimensioni** è considerato una semplice emergenza in caso di crescita imprevista. La crescita dei dati e dei log non viene gestita quotidianamente con l'aumento automatico delle dimensioni. Se si usa questa funzionalità, impostare la precrescita del file mediante l'opzione Dimensioni.
 
 - Verificare che la **compattazione automatica** sia disabilitata per evitare inutili sovraccarichi che possono influire negativamente sulle prestazioni.
 
-- Se si esegue SQL Server 2012, installare l'aggiornamento cumulativo 10 del Service Pack 1. Questo aggiornamento contiene la correzione per le prestazioni ridotte delle operazioni I/O quando si esegue select nell'istruzione di una tabella temporanea in SQL Server 2012. Per altre informazioni, vedere questo [articolo della Knowledge Base](http://support.microsoft.com/kb/2958012).
+- Se si esegue SQL Server 2012, installare l'aggiornamento cumulativo 10 del Service Pack 1. Questo aggiornamento contiene la correzione per le prestazioni ridotte delle operazioni I/O quando si esegue select nell'istruzione di una tabella temporanea in SQL Server 2012. Per altre informazioni, vedere questo [articolo sulla base della knowledge](http://support.microsoft.com/kb/2958012).
 
 - Spostare i database di sistema (ad esempio msdb e TempDB), i backup e le directory predefinite per dati e log di SQL Server su dischi dati senza memorizzazione nella cache per migliorare le prestazioni. Quindi, eseguire le azioni seguenti:
 
@@ -134,4 +133,4 @@ Per le procedure consigliate relative alla sicurezza, vedere [Considerazioni rel
 
 Esaminare altri argomenti relativi alle macchine virtuali di SQL Server in [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

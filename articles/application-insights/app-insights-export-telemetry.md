@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Esportare i dati di telemetria da Application Insights
@@ -21,7 +21,7 @@ Si vogliono effettuare alcune analisi personalizzate sui dati di telemetria? Opp
 
 La funzionalità di esportazione continua è disponibile nel periodo di valutazione gratuito e nei [piani tariffari Standard e Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
-Se si vuole eseguire semplicemente un'[esportazione occasionale](app-insights-metrics-explorer.md#export-to-excel) dei dati visualizzati in un pannello delle metriche o di ricerca, fare clic sul pulsante di esportazione nella parte superiore del pannello.
+Se si vuole eseguire semplicemente un'[esportazione occasionale](app-insights-metrics-explorer.md#export-to-excel) dei dati visualizzati in un pannello delle metriche o di ricerca, fare clic sul pulsante di esportazione nella parte superiore del pannello. Se si desidera visualizzare i dati in Power BI, utilizzare [l’adattatore](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) che *non* utilizza l’esportazione continua.
 
 ## Creare un account di archiviazione
 
@@ -141,22 +141,13 @@ Aprire il pannello Esportazione continua e modificare l'esportazione. Modificare
 
 L'esportazione continua verrà riavviata.
 
-## Esportare in Power BI
+## Esempi di esportazione
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presenta i dati usando numerosi elementi visivi avanzati e permette di recuperare e raggruppare le informazioni da più origini. È possibile eseguire lo streaming dei dati di telemetria relativi alle prestazioni e all'utilizzo delle app da Application Insights a Power BI.
 
-[Flusso da Application Insights a Power BI](app-insights-export-power-bi.md)
-
-![Esempio di vista di Power BI per i dati di utilizzo di Application Insights](./media/app-insights-export-telemetry/210.png)
-
-## Eseguire l'esportazione in SQL
-
-È anche possibile spostare i dati in un database SQL, dove è possibile eseguire analisi più dettagliate.
-
-Gli esempi disponibili illustrano i due metodi alternativi per spostare i dati dall'archivio BLOB a un database:
-
-* [Eseguire l'esportazione in SQL usando un ruolo di lavoro][exportcode]
+* [Esportare in SQL usando un ruolo di lavoro][exportcode]
 * [Eseguire l'esportazione in SQL usando l'analisi di flusso][exportasa]
+* [Esportare in Power BI usando analisi di flusso](app-insights-export-power-bi.md)
+ * Si noti che questo non è il metodo standard per usare Power BI. Esiste [un adattatore](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) che non richiede l'esportazione continua.
 
 
 Su scala più estesa considerare la possibilità di usare cluster [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop nel cloud. HDInsight offre un'ampia gamma di tecnologie per la gestione e l'analisi di big data.
@@ -217,4 +208,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

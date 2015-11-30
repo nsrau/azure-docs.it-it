@@ -164,4 +164,4 @@ L'SDK lato client (JavaScript) partecipa al campionamento insieme all'SDK lato s
 
 >>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

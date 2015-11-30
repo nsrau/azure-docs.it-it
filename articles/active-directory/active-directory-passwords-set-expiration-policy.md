@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="11/16/2015"
 	ms.author="curtand"/>
 
 
@@ -51,10 +51,10 @@ Per utilizzare i cmdlet di Windows PowerShell, è innanzitutto necessario instal
 2.  Eseguire una di queste operazioni:
 
 	- Per impostare la password di un utente in modo che la password scada, eseguire il cmdlet seguente usando il nome principale utente (UPN) o l'ID utente dell'utente: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
-  	
+
 	- Per impostare le password di tutti gli utenti dell'organizzazione in modo che scadano, utilizzare il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
 
-## Impostare una password che non scada
+## Impostare una password senza scadenza
 
 1. Connettersi a Windows PowerShell utilizzando le credenziali aziendali di amministratore.
 
@@ -64,4 +64,4 @@ Per utilizzare i cmdlet di Windows PowerShell, è innanzitutto necessario instal
 
 	- Per impostare le password degli utenti in un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

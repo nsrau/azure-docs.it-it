@@ -85,7 +85,7 @@ Se non sono stati abilitati i backup automatici, è possibile creare un [backup 
 
 Valutare l'opportunità di applicare una [distribuzione a fasi](web-sites-staged-publishing.md). Questa opzione consente di pubblicare aggiornamenti a una distribuzione a fasi che viene eseguita in parallelo alla distribuzione di produzione.
 
-Se si utilizza Visual Studio Online, è possibile configurare la distribuzione continua dal controllo codice sorgente:
+Se si utilizza Visual Studio Team Services, è possibile configurare la distribuzione continua dal controllo codice sorgente:
 
 - [Utilizzo di Controllo della versione di Team Foundation (TFVC)](../cloud-services-continuous-delivery-use-vso.md) 
 - [Utilizzo di Git](../cloud-services-continuous-delivery-use-vso-git.md)
@@ -103,4 +103,4 @@ Se si utilizza Visual Studio Online, è possibile configurare la distribuzione c
 
   
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/11/2015" 
 	ms.author="glenga"/>
 
 
@@ -95,12 +95,12 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
   	Viene creata una nuova istanza di **MobileServiceClient** usata per accedere al servizio mobile.
 
-6. Nel file MainPage.xaml.cs aggiungere le istruzioni `using` seguenti o rimuovere il relativo commento:
+6. Nel file MainPage.cs aggiungere le istruzioni `using` seguenti o rimuovere il relativo commento:
 
        	using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
 
-7. Nello stesso file sostituire la definizione della classe **TodoItem** con il codice seguente:
+7. In questa cartella DataModel, sostituire la definizione della classe **TodoItem** con il codice seguente:
 
         public class TodoItem
         {
@@ -193,4 +193,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 [sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

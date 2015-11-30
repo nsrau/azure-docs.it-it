@@ -16,7 +16,7 @@
 	ms.date="09/28/2015" 
 	ms.author="mimig"/>
 
-# Creare una raccolta DocumentDB usando il portale di anteprima di Azure
+# Creare una raccolta DocumentDB
 
 PPer utilizzare Microsoft Azure DocumentDB, è necessario disporre di un[DocumentDB account](documentdb-create-account.md)[database](documentdb-create-database.md)una raccolta e documenti. In questo argomento viene descritto come creare una raccolta DocumentDB nel portale di anteprima di Microsoft Azure.
 
@@ -65,4 +65,4 @@ A questo punto, dopo aver creato una raccolta, il passaggio successivo consiste 
 
 Quando si hanno documenti in una raccolta, è possibile utilizzare [DocumentDB SQL](documentdb-sql-query.md) e [eseguire query](documentdb-sql-query.md#executing-queries) rispetto ai documenti utilizzando il [Explorer Query](documentdb-query-collections-query-explorer.md) nel portale di anteprima, [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno del [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

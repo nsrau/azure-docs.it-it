@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview) | Microsoft Azure | Servizio di ricerca cloud ospitato"
+	pageTitle="Profili di punteggio (API REST di Ricerca di Azure versione 28/02/2015 Anteprima) | Microsoft Azure | Servizio di ricerca cloud ospitato"
 	description="Ricerca di Azure è un servizio di ricerca ospitato sul cloud che supporta l'ottimizzazione dei risultati in base ai profili di punteggio definiti dall'utente."
 	services="search"
 	documentationCenter=""
@@ -340,7 +340,9 @@ Le interpolazioni permettono di definire il coefficiente angolare in base al qua
 
 `boostingDuration` è un attributo della funzione freshness. Consente di impostare un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Ad esempio, per aumentare la priorità di una linea di prodotti o una marca per un periodo promozionale di 10 giorni, è necessario specificare tale periodo come "P10D" per questi documenti. O per migliorare gli eventi previsti per la settimana successiva specificare "-P7D".
 
-Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è: "P[nD][T[nH][nM][nS]]".
+Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è:
+
+     [-]P\[nD]\[T\[nH]\[nM]\[nS]\]
 
 La tabella seguente fornisce alcuni esempi.
 
@@ -370,4 +372,4 @@ Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

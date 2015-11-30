@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="11/16/2015"
 	ms.author="antonba"/>
 
 # Come configurare connessioni VPN in Gestione API di Azure
 
-Il supporto VPN di Gestione API consente di connettere il proxy di Gestione API a una rete virtuale di Azure. Questo consente ai clienti di Gestione API di connettersi in modo sicuro ai servizi Web back-end locali o altrimenti non accessibili per la rete Internet pubblica.
+Il supporto VPN di Gestione API consente di connettere il gateway di Gestione API a una rete virtuale di Azure. Questo consente ai clienti di Gestione API di connettersi in modo sicuro ai servizi Web back-end locali o altrimenti non accessibili per la rete Internet pubblica.
 
 ## <a name="enable-vpn"> </a>Abilitare connessioni VPN
 
@@ -36,9 +36,9 @@ Selezionare un VPN e una subnet per ogni area. L'elenco di VPN viene popolato in
 
 ![Selezionare una VPN][api-management-setup-vpn-select]
 
-Fare clic su **Salva** nella parte inferiore della schermata. Non sarà possibile eseguire altre operazioni nel servizio Gestione API dal portale di gestione di Azure durante l'aggiornamento. Il proxy del servizio rimarrà disponibile e le chiamate di runtime non dovrebbero essere interessate.
+Fare clic su **Salva** nella parte inferiore della schermata. Non sarà possibile eseguire altre operazioni nel servizio Gestione API dal portale di gestione di Azure durante l'aggiornamento. Il gateway del servizio rimarrà disponibile e le chiamate di runtime non dovrebbero essere interessate.
 
-Si noti che l'indirizzo VIP del proxy cambierà ogni volta che la VPN verrà abilitata o disabilitata.
+Si noti che l'indirizzo VIP del gateway cambierà ogni volta che la VPN verrà abilitata o disabilitata.
 
 ## <a name="connect-vpn"> </a>Connettersi a un servizio Web dietro la VPN
 
@@ -67,4 +67,4 @@ Dopo che il servizio Gestione API è stato connesso alla VPN, l'accesso ai servi
 [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

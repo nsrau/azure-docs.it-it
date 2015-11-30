@@ -1,9 +1,9 @@
 
-Nell'esempio precedente è stato illustrato un accesso standard, che richiede al client di contattare sia il provider di identità sia il servizio mobile ogni volta che l'app viene avviata. Non solo questo metodo è inefficiente, ma si potrebbero riscontrare problemi relativi all'uso qualora molti clienti provassero ad avviare l'app contemporaneamente. Un miglior approccio consiste nel memorizzare nella cache il token di autorizzazione restituito dai Servizi mobili e provare a usare questo prima di usare un accesso basato su provider.
+Nell'esempio precedente è stato illustrato un accesso standard, che richiede al client di contattare sia il provider di identità sia il servizio mobile ogni volta che l'app viene avviata. Oltre a essere inefficiente, questo metodo potrebbe creare problemi di utilizzo qualora molti clienti provassero ad avviare l'app contemporaneamente. Un miglior approccio consiste nel memorizzare nella cache il token di autorizzazione restituito dai Servizi mobili e provare a usare questo prima di usare un accesso basato su provider.
 
 >[AZURE.NOTE]È possibile memorizzare nella cache il token rilasciato dai Servizi mobili indipendentemente dal fatto che si usi l'autenticazione gestita dal client o gestita dal servizio. In questa esercitazione viene usata l'autenticazione gestita dal servizio.
 
-1. Nel file di progetto MainPage.xaml.cs aggiungere le istruzioni **using** seguenti:
+1. Nel file di progetto MainPage.cs aggiungere le istruzioni **using** seguenti:
 
 		using System.Linq;		
 		using Windows.Security.Credentials;
@@ -91,4 +91,4 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 
 	Si noti che al primo avvio viene di nuovo richiesto l'accesso con il provider. Al secondo riavvio, invece, verranno usate le credenziali memorizzate nella cache e l'accesso sarà ignorato.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

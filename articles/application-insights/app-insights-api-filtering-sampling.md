@@ -72,7 +72,7 @@ Per ottenere il campionamento sui dati dalle pagine Web, immettere una riga aggi
 	}); 
 ```
 
-* Impostare una percentuale (10 in questi esempi) uguale a 100/N dove N è un numero intero, ad esempio 50 (=100/2), 33,33 (=100/3), 25 (=100/4), 10 (=100/5). 
+* Impostare una percentuale (10 in questi esempi) uguale a 100/N dove N è un numero intero, ad esempio 50 (=100/2), 33,33 (=100/3), 25 (=100/4) o 10 (=100/10). 
 * Se è presente una grande quantità di dati, è possibile usare frequenze di campionamento molto basse, ad esempio 0,1.
 * Se si imposta il campionamento sia nella pagina Web che nel server, assicurarsi di impostare la stessa percentuale di campionamento in entrambi.
 * I lati client e server coordineranno la selezione degli elementi correlati.
@@ -172,7 +172,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
 
-    TelemetryConfiguration.Active.TelemetryChannel = builder.Build();
+    builder.Build();
 
     ```
 
@@ -409,4 +409,4 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->
