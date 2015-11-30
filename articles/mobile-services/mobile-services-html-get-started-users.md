@@ -35,7 +35,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 3. Nella directory dell'app avviare uno dei file di comando seguenti dalla sottocartella **server**.
 
-	+ **launch-windows** (computer Windows) 
+	+ **.\\start-iisexpress.ps1** (computer Windows) 
 	+ **launch-mac.command** (computer Mac OS X)
 	+ **launch-linux.sh** (computer Linux)
 
@@ -68,7 +68,7 @@ A questo punto, si aggiornerà l'app in modo da consentire l'autenticazione prim
 
 	Sarà quindi possibile accedere a Servizi mobili dalla pagina.
 
-2. Nel file app.js individuare la riga di codice alla fine del file in cui viene chiamata la funzione refreshTodoItems e sostituirla con il codice seguente:
+2. Nel file.js della pagina individuare la riga di codice alla fine del file in cui viene chiamata la funzione refreshTodoItems e sostituirla con il codice seguente:
 	
 		function refreshAuthDisplay() {
 			var isLoggedIn = client.currentUser !== null;
@@ -137,4 +137,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

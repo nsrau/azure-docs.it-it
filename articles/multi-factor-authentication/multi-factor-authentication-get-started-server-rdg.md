@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS
@@ -59,4 +59,4 @@ Il Server Azure Multi-Factor Authentication è configurato come proxy RADIUS tra
 
 ![Autenticazione RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

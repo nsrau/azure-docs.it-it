@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Modello di progettazione di Reliable Actors: Smart Cache
@@ -51,7 +51,7 @@ Si implementa quindi l'interfaccia e, adottando la seconda opzione, si incapsula
 ## Esempio di codice per Smart Cache: attore Classifica
 
 ```
-public class Leaderboard : Actor<LeaderboardCollection>, ILeaderboard
+public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
 {
     // Specialised collection, could be part of the actor
 
@@ -173,7 +173,7 @@ Infine, si implementa l'interfaccia IJobQueue nell'attore. Per maggiore chiarezz
 ## Esempio di codice per Smart Cache: coda di processi
 
 ```
-public class JobQueue : Actor<List<Jobs>>, IJobQueue
+public class JobQueue : StatefulActor<List<Jobs>>, IJobQueue
 {
 
     public override Task OnActivateAsync()
@@ -301,4 +301,4 @@ Il modello Smart Cache offre, essenzialmente, i seguenti vantaggi:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -250,23 +250,23 @@ Questi SDK supportano l'utente nelle attività di creazione, distribuzione e ges
 
 Questi SDK, oltre a supportare gli utenti per la creazione di applicazioni Azure, forniscono librerie client che consentono di creare software che usa tali servizi di Azure. Ad esempio, è possibile creare un'applicazione che legga e scriva i BLOB di Azure oppure creare uno strumento che distribuisca applicazioni Azure tramite l'interfaccia di gestione di Azure.
 
-### Visual Studio Online
+### Visual Studio Team Services
 
-Visual Studio Online è un nome di marketing riferito a numerosi servizi che consentono di sviluppare applicazioni in Azure.
+Visual Studio Team Services è un nome di marketing riferito a numerosi servizi che consentono di sviluppare applicazioni in Azure.
 
 A scanso di equivoco, si tenga presente che Visual Studio Online non fornisce una versione ospitata o basata su Web di Visual Studio. È sempre necessario avere una copia in esecuzione in locale di Visual Studio. Tuttavia, fornisce molti altri strumenti che possono rivelarsi molto utili.
 
 Include un sistema di controllo del codice sorgente ospitato denominato Team Foundation Service, che offre controllo della versione e rilevamento degli elementi di lavoro. Per il controllo della versione è persino possibile usare Git, se si preferisce questa opzione. Inoltre, è possibile variare il sistema di controllo del codice sorgente usato per progetto, nonché creare un numero illimitato di progetti team accessibili da qualsiasi parte del mondo.
 
-Visual Studio Online fornisce un servizio di test del carico. È possibile eseguire test di carico creati in Visual Studio su macchine virtuali nel cloud. Si specifica il numero totale di utenti con i quali si desidera eseguire il test di carico e Visual Studio Online determinerà automaticamente il numero di agenti necessari, avvierà le macchine virtuali richieste ed eseguirà i test di carico. I sottoscrittori di MSDN ricevono migliaia di minuti-utente gratuiti di test di carico ogni mese.
+Visual Studio Team Services fornisce un servizio di test di carico. È possibile eseguire test di carico creati in Visual Studio su macchine virtuali nel cloud. Si specifica il numero totale di utenti con i quali si desidera eseguire il test di carico e Visual Studio Team Services determinerà automaticamente il numero di agenti necessari, avvierà le macchine virtuali richieste ed eseguirà i test di carico. I sottoscrittori di MSDN ricevono migliaia di minuti-utente gratuiti di test di carico ogni mese.
 
-Visual Studio Online offre inoltre il supporto per lo sviluppo Agile con funzionalità quali compilazione di integrazione continua, bacheche kanban e chat del team virtuali.
+Visual Studio Team Services offre inoltre il supporto per lo sviluppo Agile con funzionalità quali compilazione di integrazione continua, bacheche kanban e chat del team virtuali.
 
-**Scenari di Visual Studio Online**
+**Scenari di Visual Studio Team Services**
 
-Visual Studio Online è un'opzione adatta alle aziende che hanno la necessità di collaborare in tutto il mondo ma che non dispongono ancora dell'infrastruttura idonea a tale scopo. È possibile impostare in pochi minuti, scegliere un sistema di controllo del codice sorgente e iniziare a scrivere il codice e compilare il giorno stesso. Gli strumenti del team offrono uno spazio per il coordinamento e la collaborazione e gli strumenti aggiuntivi forniscono le analisi necessarie per testare e mettere a punto l'applicazione rapidamente.
+Visual Studio Team Services è un'opzione adatta alle aziende che hanno la necessità di collaborare in tutto il mondo ma che non dispongono ancora dell'infrastruttura idonea a tale scopo. È possibile impostare in pochi minuti, scegliere un sistema di controllo del codice sorgente e iniziare a scrivere il codice e compilare il giorno stesso. Gli strumenti del team offrono uno spazio per il coordinamento e la collaborazione e gli strumenti aggiuntivi forniscono le analisi necessarie per testare e mettere a punto l'applicazione rapidamente.
 
-Tuttavia, le organizzazioni che hanno già un sistema locale possono testare nuovi progetti su Visual Studio Online per verificarne l'eventuale maggiore efficienza.
+Tuttavia, le organizzazioni che hanno già un sistema locale possono testare nuovi progetti su Visual Studio Team Services per verificarne l'eventuale maggiore efficienza.
 
 ### Application Insights
 
@@ -611,4 +611,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

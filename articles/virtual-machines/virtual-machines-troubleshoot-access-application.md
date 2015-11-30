@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="11/17/2015"
 	ms.author="dkshir"/>
 
 # Risoluzione dei problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure
@@ -100,9 +100,21 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 - Il traffico della richiesta dell’applicazione in uscita dal computer client per la macchina virtuale di Azure.
 - Il traffico di risposta dell’applicazione in ingresso dalla macchina virtuale di Azure.
 
+## Risoluzione dei problemi di connettività dell’Endpoint
+
+Se si verificano problemi durante la connessione a un Endpoint come ad esempio l’Endpoint di Desktop remoto, è possibile provare la seguente procedura di risoluzione dei problemi generali:
+
+- Riavviare la macchina virtuale
+- Ricreare l’endpoint
+- Connettersi da una posizione diversa
+- Ridimensionare la macchina virtuale
+- Ricreare la macchina virtuale
+
+Per ulteriori informazioni, vedere [Risoluzione dei problemi di connettività dell’Endpoint (errori RDP/SSH/HTTP, ecc.)](https://social.msdn.microsoft.com/Forums/azure/it-IT/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
+
 ## Passaggi successivi
 
-Se si sono seguiti i passaggi da 1 a 3 in questo articolo e si desidera ulteriore assistenza per risolvere il problema, è possibile:
+Se si sono seguiti i passaggi indicati in questo articolo e si desidera ulteriore assistenza per risolvere il problema, è possibile:
 
 - Ottenere assistenza dagli esperti di Azure in tutto il mondo. Presentare il problema nei forum MSDN Azure o Stack Overflow. Per altre informazioni vedere [Forum di Microsoft Azure](http://azure.microsoft.com/support/forums/).
 - Archiviare un incidente del supporto tecnico di Azure. Aprire il [sito del supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto** in **Supporto tecnico e alla fatturazione**.
@@ -113,4 +125,4 @@ Se si sono seguiti i passaggi da 1 a 3 in questo articolo e si desidera ulterior
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

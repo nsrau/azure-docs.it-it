@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="10/30/2015"
+   ms.date="11/18/2015"
    ms.author="tomfitz"/>
 
 # Autenticazione di un'entità servizio con Gestione risorse di Azure
@@ -22,7 +22,7 @@ Questo argomento mostra come consentire un'entità servizio (ad esempio un proce
 
 Viene illustrato come eseguire l'autenticazione con un nome utente e password o con un certificato.
 
-È possibile utilizzare Azure PowerShell o CLI Azure per Mac, Linux e Windows. Se Azure PowerShell non è installato, vedere [Come installare e configurare Azure PowerShell](./powershell-install-configure.md). Se non è installato CLI Azure, vedere [Installare e configurare CLI Azure](xplat-cli-install.md).
+È possibile utilizzare Azure PowerShell o CLI Azure per Mac, Linux e Windows. Se Azure PowerShell non è installato, vedere [Come installare e configurare Azure PowerShell](./powershell-install-configure.md). Se non è installato CLI Azure, vedere [Installare e configurare CLI Azure](xplat-cli-install.md). Per informazioni sull'utilizzo del portale per eseguire questa procedura, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](resource-group-create-service-principal-portal.md)
 
 ## Concetti
 1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-directory/active-directory-whatis.md)
@@ -88,7 +88,7 @@ In questa sezione, si eseguiranno i passaggi per creare un’entità servizio pe
 
      Se l'assegnazione di ruolo è stata creata in una sottoscrizione diversa da quella attualmente selezionata, è possibile specificare il parametro **SubscriptoinId** o **SubscriptionName** per recuperare una sottoscrizione diversa.
 
-5. Creare un nuovo oggetto **PSCredential** che contenga le credenziali eseguendo il comando **Get-Credential**.
+5. Per eseguire l'accesso come entità di servizio tramite PowerShell, creare un nuovo oggetto **PSCredential** che contenga le credenziali eseguendo il comando **Get-Credential**.
 
         PS C:\> $creds = Get-Credential
 
@@ -98,10 +98,9 @@ In questa sezione, si eseguiranno i passaggi per creare un’entità servizio pe
 
      Per il nome utente, usare **ApplicationId** o **IdentifierUris** specificato durante la creazione dell'applicazione. Per la password, usare quella specificata durante la creazione dell'account.
 
-6. Usare le credenziali immesse come input per il cmdlet **Add-AzureAccount**, che effettuerà l'accesso dell'entità servizio:
+     Usare le credenziali immesse come input per il cmdlet **Login-AzureRmAccount**, che effettuerà l'accesso dell'entità servizio:
 
         PS C:\> Login-AzureRmAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
-        
         Environment           : AzureCloud
         Account               : {guid}
         Tenant                : {guid}
@@ -110,9 +109,9 @@ In questa sezione, si eseguiranno i passaggi per creare un’entità servizio pe
 
      A questo punto dovrebbe essere stata eseguita l'autenticazione per l'applicazione AAD creata come entità servizio.
 
-7. Per eseguire l'autenticazione da un'applicazione, includere il codice .NET seguente. Dopo il recupero del token, è possibile accedere alle risorse nella sottoscrizione.
+6. Per eseguire l'autenticazione da un'applicazione, includere il codice .NET seguente. Dopo il recupero del token, è possibile accedere alle risorse nella sottoscrizione.
 
-        public static string GetAToken()
+        public static string GetAccessToken()
         {
           var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
           var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
@@ -289,6 +288,20 @@ Iniziare creando un'entità servizio. Per farlo, è necessario creare un'applica
 
     A questo punto dovrebbe essere stata eseguita l'autenticazione per l'applicazione AAD creata come entità servizio.
 
+## Autenticazione dell'entità servizio con certificato - Interfaccia della riga di comando di Azure
+
+In questa sezione si eseguiranno i passaggi per creare un’entità servizio per un'applicazione Azure Active Directory che utilizza un certificato per l'autenticazione. In questo argomento si presuppone che si disponga di un certificato e di [OpenSSL](http://www.openssl.org/) installato.
+
+1. Creare un file **.pem** con:
+
+        openssl.exe pkcs12 -in examplecert.pfx -out examplecert.pem -nodes
+
+2. Aprire il file **.pem** e copiare i dati del certificato.
+
+3. Creare una nuova applicazione AAD eseguendo il comando **azure ad app create** e fornire i dati del certificato che è stato copiato nel passaggio precedente come valore della chiave.
+
+        azure ad app create -n "<your application name>" --home-page "<https://YourApplicationHomePage>" -i "<https://YouApplicationUri>" --key-value <certificate data>
+
 ## Passaggi successivi
   
 - Per una panoramica sul controllo degli accessi in base al ruolo, vedere [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md)  
@@ -299,4 +312,4 @@ Iniziare creando un'entità servizio. Per farlo, è necessario creare un'applica
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

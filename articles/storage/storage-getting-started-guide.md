@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/12/2015" 
 	ms.author="tamram;selcint"/>
 
 # Introduzione a Azure Storage in cinque minuti 
 
-È facile iniziare lo sviluppo sull’archiviazione di Azure, In questa esercitazione viene illustrato come ottenere un'applicazione di archiviazione di Azure backup rapidità e facilità. Verrà illustrata in due scenari per facilmente aumentando di archiviazione Azure:
+## Panoramica
 
-- [Eseguire la prima applicazione di Archiviazione di Azure nell'emulatore di archiviazione di Azure](#run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator)
-- [Eseguire la prima applicazione di Archiviazione di Azure in Archiviazione di Azure nel cloud](#run-your-first-azure-storage-application-against-azure-storage-in-the-cloud)
+Azure SDK include modelli di Avvio rapido per l'utilizzo dell’archiviazione di Azure da Microsoft Visual Studio. È possibile:
+
+È facile iniziare lo sviluppo sull’archiviazione di Azure, In questa esercitazione viene illustrato come ottenere un'applicazione di archiviazione di Azure backup rapidità e facilità. Verrà illustrata in due scenari per facilmente aumentando di archiviazione Azure:
 
 Per ottenere altre informazioni si Archiviazione di Azure prima di approfondire le informazioni sul codice, vedere [Passaggi successivi](#next-steps).
 
@@ -40,7 +41,7 @@ La versione più recente dei file binari di Azure Storage Client Library è disp
 
 Quando si sviluppa un'applicazione che utilizza l'archiviazione di Azure, è possibile eseguire il [emulatore di archiviazione Azure](storage-use-emulator.md). L'emulatore di archiviazione di Microsoft Azure offre un ambiente locale che emula i servizi BLOB, code e tabelle di Azure per scopi di sviluppo. È possibile utilizzare l'emulatore di archiviazione per testare l'applicazione di archiviazione locale, senza creare un account di archiviazione o di sottoscrizione di Azure e senza incorrere in alcun costo.
 
-Proviamo, verrà creata una semplice applicazione di Archiviazione di Azure usando uno dei progetti di esempio di avvio rapido di Azure in Visual Studio. Questa esercitazione si concentra sui progetti di esempio di **archiviazione Blob di Azure**, **archiviazione tabelle di Azure** e **Code di archiviazione di Azure** :
+Proviamo, verrà creata una semplice applicazione di Archiviazione di Azure usando uno dei progetti di esempio di Avvio rapido di Azure in Visual Studio. Questa esercitazione si concentra sui progetti di esempio di **archiviazione Blob di Azure**, **archiviazione tabelle di Azure** e **Code di archiviazione di Azure** :
 
 1. Avviare Visual Studio.
 2. Scegliere **Nuovo progetto** dal menu **File**.
@@ -107,4 +108,4 @@ Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

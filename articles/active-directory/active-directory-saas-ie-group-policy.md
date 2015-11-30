@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/28/2015"
+   ms.date="11/18/2015"
    ms.author="liviodlc"/>
 
 #Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
@@ -128,7 +128,36 @@ Dopo aver eseguito il programma di installazione, è necessario abilitare in mod
 
 L'estensione dovrebbe ora essere abilitata per i computer nell'unità organizzativa selezionata. [Altre informazioni sull'uso di Criteri di gruppo per abilitare o disabilitare i componenti aggiuntivi di Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
-##Passaggio 5: Test della distribuzione
+##Passaggio 5 (facoltativo): disabilitare la richiesta "Memorizza password"
+
+Quando gli utenti accedono a siti Web utilizzando l'estensione del Pannello di accesso, Internet Explorer potrebbe visualizzare la seguente richiesta "Si desidera memorizzare la password?"
+
+![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+
+Se si desidera impedire agli utenti la visualizzazione del messaggio, attenersi alla procedura seguente per impedire al completamento automatico di ricordare le password:
+
+1. Nella finestra **Editor Gestione criteri di gruppo**, passare al percorso elencato di seguito. Si noti che questa impostazione di configurazione è disponibile solo in **Configurazione utente**.
+	- `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
+
+2. Individuare l'impostazione denominata **Attiva Completamento automatico per nomi utente e password nei moduli**.
+
+	> [AZURE.NOTE]Le versioni precedenti di Active Directory possono elencare questa impostazione con il nome **Non consentire al completamento automatico di salvare le password**. La configurazione dell'impostazione differisce da quella descritta in questa esercitazione.
+
+	![Ricordarsi di controllarlo nelle Impostazioni utente.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
+
+3. Fare clic con il pulsante destro sull'impostazione precedente e selezionare **Modifica**.
+
+4. Nella finestra denominata **Attiva Completamento automatico per nomi utente e password nei moduli**, selezionare **Disabilitato**.
+
+	![Selezionare Disabilita](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
+
+5. Fare clic su **OK** per applicare queste modifiche e chiudere la finestra.
+
+Gli utenti non saranno più in grado di archiviare le credenziali o di utilizzare il completamento automatico per accedere alle credenziali archiviate in precedenza. Tuttavia, questo criterio consente agli utenti di continuare a utilizzare il completamento automatico per altri tipi di campi dei moduli, ad esempio i campi di ricerca.
+
+> [AZURE.WARNING]Se questo criterio è abilitato dopo che gli utenti hanno scelto di memorizzare alcune credenziali, questo criterio *non* cancellerà le credenziali che sono già state archiviate.
+
+##Passaggio 6: Test della distribuzione
 
 Per verificare la corretta distribuzione dell'estensione, seguire questa procedura:
 
@@ -148,4 +177,4 @@ Per verificare la corretta distribuzione dell'estensione, seguire questa procedu
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

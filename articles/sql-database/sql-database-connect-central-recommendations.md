@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -30,9 +30,9 @@ Questo argomento è un ottimo strumento per iniziare a utilizzare la connettivit
 
 
 - Le discussioni[Linee guida per la connessione al database SQL di Azure a livello di programmazione](http://msdn.microsoft.com/library/azure/ee336282.aspx) includono:
- - [Porte e firewall](sql-database-configure-firewall-settings.md/)
+ - [Porte e firewall](sql-database-configure-firewall-settings.md)
  - Stringhe di connessione
-- Le discussioni [Gestione delle risorse nel database SQL di Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx) includono:
+- Le discussioni [Gestione delle risorse nel database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338083.aspx) includono:
  - Governance delle risorse
  - Applicazione dei limiti
  - Limitazione
@@ -169,4 +169,4 @@ Vengono forniti vari esempi di codice per i client che eseguono Windows, Linux e
 
 - [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
@@ -93,4 +93,4 @@ Ora che le attestazioni sono configurate, è possibile procedere alla configuraz
 
 La procedura è terminata. A questo punto, gli utenti federati di Office 365 dovrebbero usare solo MFA quando una richiesta proviene dall'esterno della Intranet aziendale.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

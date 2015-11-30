@@ -38,7 +38,7 @@ L’illustrazione precedente è un esempio di soluzione con identità ibrida che
 
 **Presupposti**: Avere esperienza con Windows Server, Servizi di Dominio di Active Directory e Azure Active Directory. In questo documento, si presuppone che il lettore cerchi il modo in cui queste soluzioni possano soddisfare le proprie necessità commerciali nella propria soluzione o in una soluzione integrata.
 
-## Panoramica delle considerazioni sulla progettazione
+## Panoramica delle considerazioni di progettazione
 Questa guida presenta una serie di passaggi e attività che possono essere seguiti per progettare una soluzione con identità ibrida che soddisfi i propri requisiti. Questi passaggi sono presentati in sequenza ordinata: Tuttavia, le considerazioni sulla progettazione presenti nei passaggi successivi possono richiedere il cambiamento di decisioni prese nei passaggi precedenti a causa di scelte di progettazione conflittuali. Nel corso della documentazione è stato fatto il possibile per segnalare all’utente potenziali conflitti di progettazione.
 
 Si otterrà il progetto che soddisfa al meglio i propri requisiti solo dopo aver eseguito l’iterazione nei passaggi tutte le volte necessarie ad incorporare tutte le considerazioni del documento.
@@ -51,4 +51,4 @@ Si otterrà il progetto che soddisfa al meglio i propri requisiti solo dopo aver
 
                                                              
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

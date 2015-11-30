@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Domande frequenti su Azure Multi-Factor Authentication
@@ -125,12 +125,6 @@ Il servizio di Azure Multi-Factor Authentication invia messaggi tramite aggregat
 
 Le Verifiche del messaggio di testo sono inoltre più affidabili in alcuni paesi come gli Stati Uniti e il Canada. Gli utenti che hanno difficoltà nella ricezione dei messaggi di testo in modo affidabile quando utilizzano Azure Multi-Factor Authentication, sono invitati a selezionare in alternativa i metodi dell’app per dispositivi mobili o della telefonata. L’app per dispositivi mobili è ideale poiché le notifiche dell’app per dispositivi mobili possono essere ricevute sia con la connessione del cellulare sia con quella Wi-Fi, e il passcode dell’app per dispositivi mobili viene visualizzato anche quando il dispositivo non dispone di alcun segnale. L'app Azure Authenticator è disponibile per [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
-**Q: è possibile utilizzare token hardware con il server di autenticazione a più fattori di Azure?**
-
-Se si utilizza il Server di autenticazione a più fattori di Azure, i token OATH TOTP di terze parti possono essere importati e utilizzati per l'autenticazione a più fattori. È attualmente supportata l'importazione di token OATH TOTP di terze parti in un formato precedente che Gemalto può produrre per i token e il supporto di importazione di token in formato CSV. Quando si importano i token in formato CSV, il file CSV deve contenere un numero di serie, la chiave privata nel formato Base32 e un intervallo di tempo (in genere 30 secondi).
-
-Pertanto, se i token ActiveIdentity sono token OATH TOTP ed è possibile ottenere il file di chiave privato in un file CSV che può essere importato nel Server di autenticazione a più fattori di Azure, sarà possibile utilizzarli. I token OATH possono essere usati con ADFS, con RADIUS quando il sistema client riesce ad elaborare le risposte di richiesta di accesso e con l'autenticazione basata su form di IIS.
-
 
 ## Errori
 
@@ -151,4 +145,4 @@ Attualmente, la verifica aggiuntiva di sicurezza può essere utilizzata solo con
 
 Una soluzione alternativa consiste nel disporre di un account utente separato per le operazioni correlate all'amministratore e un altro per le operazioni non correlate all’amministratore. In un secondo momento, è possibile collegare le cassette postali tra l'account amministratore e l'account non amministratore in modo da poter accedere ad outlook utilizzando l'account non amministratore. Per altre informazioni, vedere [Consentire ad un amministratore di aprire e visualizzare il contenuto della cassetta postale di un utente] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

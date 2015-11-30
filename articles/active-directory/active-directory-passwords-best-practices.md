@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Distribuzione di Gestione delle password e formazione degli utenti per l’uso
@@ -22,7 +22,7 @@ Dopo aver abilitato la reimpostazione delle password, il passaggio successivo co
 * [**Come rendere gli utenti configurati per Gestione delle password**](#how-to-get-users-configured-for-password-reset)
   * [Cosa rende un account configurato per la reimpostazione delle password](#what-makes-an-account-configured)
   * [Metodi per inserire i dati di autenticazione autonomamente](#ways-to-populate-authentication-data)
-* [**Metodi ottimali per implementare la reimpostazione delle password nell'organizzazione**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
+* [**Metodi ottimali per implementare la reimpostazione delle password nell'organizzazione **](#what-is-the-best-way-to-roll-out-password-reset-for-users)
   * [Implementazione basata sulla posta elettronica ed esempi di comunicazioni tramite posta elettronica](#email-based-rollout)
   * [Creare un portale personalizzato per la gestione delle password per gli utenti](#creating-your-own-password-portal)
   * [Come usare la registrazione applicata per forzare gli utenti a effettuare la registrazione al momento dell’accesso](#using-enforced-registration)
@@ -48,12 +48,14 @@ Perché un utente possa usare la reimpostazione delle password, devono essere so
 Esistono diverse opzioni su come specificare i dati che gli utenti dell'organizzazione useranno per la reimpostazione delle password.
 
 - Modificare gli utenti nel [portale di gestione di Azure](https://manage.windowsazure.com) o nel [portale di amministrazione di Office 365](https://portal.microsoftonline.com)
-- Usare AADSync per sincronizzare le proprietà utente in Azure AD da un dominio di Active Directory locale
-- Usare Windows PowerShell per modificare le proprietà utente
+- Usare Azure AD Sync per sincronizzare le proprietà utente in Azure AD da un dominio di Active Directory locale
+- Usare Windows PowerShell per modificare le proprietà utente [seguendo la procedura di seguito](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 - Consentire agli utenti di registrare i propri dati indirizzandoli al portale di registrazione all'indirizzo [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
-- Richiedere agli utenti di effettuare la registrazione per la reimpostazione delle password quando accedono al pannello di accesso all'indirizzo [http://myapps.microsoft.com](http://myapps.microsoft.com) impostando l’opzione di configurazione **Richiedere agli utenti di effettuare la registrazione SSPR** su **Sì**.
+- Richiedere agli utenti di registrarsi per la reimpostazione quando accedono al proprio account di Azure AD impostando l’opzione di configurazione [**Richiedere agli utenti di registrarsi all'accesso?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) su **Sì**.
 
-Affinché il sistema funzioni, non è necessario che gli utenti effettuino la registrazione per la reimpostazione delle password. Ad esempio, se nella directory locale sono presenti numeri di telefono. è possibile sincronizzarli in Azure AD e tali numeri verranno usati per la reimpostazione delle password automaticamente.
+Affinché il sistema funzioni, non è necessario che gli utenti effettuino la registrazione per la reimpostazione delle password. Ad esempio, se nella directory locale sono presenti numeri di telefono cellulare o di ufficio esistenti, è possibile sincronizzarli in Azure AD e tali numeri verranno usati per la reimpostazione delle password automaticamente.
+
+È inoltre possibile leggere informazioni sull’[utilizzo dei dati per la reimpostazione della password](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) e su [come è possibile popolare i singoli campi di autenticazione con PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 
 ## Metodo ottimale per implementare la reimpostazione delle password per gli utenti
 Di seguito sono riportati i passaggi di implementazione generali per la reimpostazione della password:
@@ -121,24 +123,25 @@ Per informazioni sulle proprietà che è possibile impostare tramite AAD Connect
 
 Per informazioni sull’uso di queste proprietà, vedere [Dati usati per la reimpostazione delle password](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
+Vedere [Come accedere ai dati di reimpostazione della password per gli utenti da PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) per vedere come è possibile leggere e impostare questi dati con PowerShell.
+
 ## Materiale di formazione di esempio
 Microsoft sta attualmente lavorando al materiale di formazione di esempio che è possibile usare per fare in modo che l'organizzazione IT e gli utenti imparino rapidamente a distribuire e usare la reimpostazione delle password. Non rimane che attendere.
 
 
 <br/> <br/> <br/>
 
-**Risorse aggiuntive**
+## Collegamenti alla documentazione relativa alla reimpostazione della password
+Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-
-* [Informazioni sulla gestione delle password](active-directory-passwords.md)
-* [Funzionamento della gestione delle password](active-directory-passwords-how-it-works.md)
-* [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md)
-* [Personalizzare la gestione delle password](active-directory-passwords-customize.md)
-* [Come ottenere informazioni dettagliate con i report di gestione delle password](active-directory-passwords-get-insights.md)
-* [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
-* [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
-* [Altre informazioni](active-directory-passwords-learn-more.md)
-* [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
+* [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
+* [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
+* [**Informazioni dettagliate**](active-directory-passwords-get-insights.md): informazioni sulle funzionalità di creazione report integrate
+* [**Domande frequenti**](active-directory-passwords-faq.md): risposte alle domande frequenti
+* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
+* [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
 
 
 
@@ -150,4 +153,4 @@ Microsoft sta attualmente lavorando al materiale di formazione di esempio che è
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

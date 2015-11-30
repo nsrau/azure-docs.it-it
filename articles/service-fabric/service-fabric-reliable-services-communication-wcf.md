@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Stack di comunicazione basato su WFC fornito dall'API di Reliable Services"
-   description="Questo articolo descrive lo stack di comunicazione basato su WFC fornito dall'API di Reliable Services."
+   pageTitle="Stack di comunicazione WCF di Reliable Services | Microsoft Azure"
+   description="Lo stack di comunicazione WCF incorporato nell'infrastruttura di servizi consente la comunicazione client-servizio di WCF per Reliable Services."
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,24 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/27/2015"
+   ms.date="11/12/2015"
    ms.author="bharatn@microsoft.com"/>
 
 # Stack di comunicazione basato su WCF per Reliable Services
 Reliable Services Framework consente agli autori del servizio di decidere quale stack di comunicazione usare per il servizio. Gli autori del servizio possono collegare lo stack di comunicazione desiderato tramite l'oggetto `ICommunicationListener` restituito dal metodo [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). Il framework offre un'implementazione basata su WCF dello stack di comunicazione per gli autori del servizio che desiderano usare la comunicazione basata su WCF.
 
 ## Listener di comunicazione WCF
-L'implementazione specifica di WCF dell'oggetto `ICommunicationListener` è garantita dalla classe `WcfCommunicationListener`.
+L'implementazione specifica di WCF dell'oggetto `ICommunicationListener` è garantita dalla classe `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener`.
 
 ```csharp
 
-public WcfCommunicationListener(
-    Type communicationInterfaceType,
-    Type communicationImplementationType);
-
-protected override ICommunicationListener CreateCommunicationListener()
-    {
-        WcfCommunicationListener communicationListener = new WcfCommunicationListener(typeof(ICalculator), this)
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    // TODO: If your service needs to handle user requests, return a list of ServiceReplicaListeners here.
+    return new[] { new ServiceReplicaListener(parameters =>
+        new WcfCommunicationListener(typeof(ICalculator), this)
         {
             //
             // The name of the endpoint configured in the ServiceManifest under the Endpoints section
@@ -42,10 +40,9 @@ protected override ICommunicationListener CreateCommunicationListener()
             // Populate the binding information that you want the service to use.
             //
             Binding = this.CreateListenBinding()
-        };
-
-        return communicationListener;
-    }
+        }
+    )};
+}
 
 ```
 
@@ -110,8 +107,11 @@ var calculatorServicePartitionClient = new ServicePartitionClient<WcfCommunicati
 var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
     client => client.Channel.AddAsync(2, 3)).Result;
 
-
 ```
  
+## Passaggi successivi
+* [Chiamata di procedura remota con i Reliable Services remoti](service-fabric-reliable-services-communication-remoting.md)
 
-<!---HONumber=Nov15_HO1-->
+* [Web API con OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+
+<!---HONumber=Nov15_HO4-->

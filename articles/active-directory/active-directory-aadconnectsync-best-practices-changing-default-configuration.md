@@ -40,7 +40,7 @@ L'installazione guidata fornisce una configurazione valida per gli scenari più 
 
 - L'unica modifica supportata per una regola di sincronizzazione predefinita è una modifica per la disabilitazione. Qualsiasi altra modifica potrebbe andare perse durante un aggiornamento.
 - Se è necessario apportare qualsiasi altra modifica a una regola predefinita, effettuarne una copia e disabilitare la regola originale. A tale scopo, avviare e usare l'editor delle regole di sincronizzazione.
-- Esportare le regole di sincronizzazione personalizzate usando l'editor delle regole di sincronizzazione. In questo modo, viene fornito uno script di PowerShell che è possibile usare per ricrearle facilmente nel caso di uno scenario di ripristino di emergenza.
+- Esportare le regole di sincronizzazione personalizzate usando l'Editor regole di sincronizzazione. In questo modo, viene fornito uno script di PowerShell che è possibile usare per ricrearle facilmente nel caso di uno scenario di ripristino di emergenza.
 
 >[AZURE.WARNING]Le regole di sincronizzazione predefinite hanno un'identificazione personale associata. Se si apporta una modifica a queste regole, l'identificazione personale non corrisponderà più e potrebbero verificarsi problemi quando si tenta di applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
 
@@ -83,4 +83,4 @@ Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Conn
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

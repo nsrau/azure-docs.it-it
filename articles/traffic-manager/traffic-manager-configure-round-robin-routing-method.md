@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Configurare il metodo di routing Round Robin
@@ -35,21 +35,21 @@ Un modello comune di metodo di routing del traffico consiste nel fornire un set 
 
 ## Passaggi successivi
 
-[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
+
+[Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md)
+
+[Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
+
+[Configurare metodo di routing failover](traffic-manager-configure-failover-routing-method.md)
+
+[Configurare un metodo di routing del traffico delle prestazioni](traffic-manager-configure-performance-routing-method.md)
+
+[Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
 
 [Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
 
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
 
-[Gestione traffico di Azure](../traffic-manager-overview.md)
-
-[Servizi cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

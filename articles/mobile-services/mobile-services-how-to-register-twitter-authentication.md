@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 #Registrare le app per l'autenticazione Twitter con Servizi mobili
@@ -22,25 +22,26 @@
 
 In questo argomento viene illustrato come registrare le proprie app in modo da poter utilizzare Twitter per l'autenticazione con Servizi mobili di Azure.
 
->[AZURE.NOTE]Questa esercitazione riguarda [Servizi mobili di Azure](http://azure.microsoft.com/services/mobile-services/), una soluzione che consente di creare applicazioni scalabili per dispositivi mobili compatibili con qualsiasi piattaforma. Servizi mobili semplifica attività come la sincronizzazione di dati, l'autenticazione di utenti e l'invio di notifiche push. Questa pagina supporta l'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introduzione all'autenticazione</a> che illustra come consentire agli utenti l'accesso alla propria app. Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introduzione a Servizi mobili</a>.
+>[AZURE.NOTE]Questa esercitazione riguarda [Servizi mobili di Azure](http://azure.microsoft.com/services/mobile-services/), una soluzione che consente di creare applicazioni scalabili per dispositivi mobili compatibili con qualsiasi piattaforma. Servizi mobili semplifica attività come la sincronizzazione di dati, l'autenticazione di utenti e l'invio di notifiche push. Questa pagina supporta l'esercitazione [Aggiungere l'autenticazione all’app](mobile-services-ios-get-started-users.md) che illustra come consentire agli utenti l'accesso all’app. Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione relativa all'[introduzione a Servizi mobili](mobile-services-ios-get-started).
 
 Per completare la procedura descritta in questo argomento, è necessario disporre di un account Twitter con un indirizzo di posta elettronica verificato. Per creare un nuovo account Twitter, visitare il sito Web all'indirizzo <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
-1. Passare al sito Web <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter Developers</a>, accedere con le credenziali dell'account Twitter e fare clic su **Create a new application**.
+1. Passare al sito Web [Twitter Developers](http://go.microsoft.com/fwlink/p/?LinkId=268300), accedere con le credenziali dell'account Twitter e quindi fare clic su **Create New App**.
 
-   	![][1]
+2. Digitare i valori di **Nome**, **Descrizione**, e **Sito Web** per l'app, quindi digitare uno dei seguenti formati URL in **URL Callback**.
+ 
+	+ **Back-end .NET**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
+	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/twitter` 
 
-2. Immettere i valori per l'app in **Name**, **Description** e **Website**, quindi digitare l'URL del servizio mobile con l'aggiunta del percorso _/login/twitter_ in **Callback URL**.
-
-	>[AZURE.NOTE]Per un servizio mobile back-end .NET pubblicato in Azure tramite Visual Studio, l'URL di reindirizzamento corrisponde all'URL del servizio mobile con l'aggiunta del percorso _signin-twitter_. In questo esempio, il servizio mobile sarebbe l'URL di Callback ```https://todolist.azure-mobile.net/signin-twitter```.
+	 >[AZURE.NOTE]Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione non avrà esito positivo. & nbsp;
 
    	![][2]
 
-3.  Nella parte inferiore della pagina, leggere e accettare le condizioni, quindi fare clic su **Create your Twitter application**.
+3.  Nella parte inferiore della pagina, leggere e accettare le condizioni, quindi fare clic su **Creare l’applicazione Twitter**.
 
    	L'app verrà registrata e verranno visualizzati i dettagli dell'applicazione.
 
-6. Fare clic sulla scheda **Keys and Access Tokens** nel dashboard relativo all'applicazione e prendere nota dei valori di **Chiave utente** e **Chiave privata utente**.
+6. Fare clic sulla scheda **Chiavi e token di accesso** nel dashboard relativo all'applicazione e prendere nota dei valori di **Chiave utente** e **Chiave privata utente**.
 
     > [AZURE.NOTE]Il segreto consumer è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app.
 
@@ -62,4 +63,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Introduzione ad Azure Data Lake Store tramite la riga di comando di Azure
@@ -82,7 +82,7 @@ Aprire un prompt dei comandi, una shell o una finestra del terminale ed eseguire
 
 	azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
 
-Ad esempio:
+ad esempio:
 
 	azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
 
@@ -90,11 +90,11 @@ Ad esempio:
 
 È possibile caricare i dati in Data Lake Store direttamente a livello di radice o in una cartella creata all'interno dell'account. I frammenti di codice riportati di seguito illustrano come caricare alcuni dati di esempio nella cartella (**mynewdirectory**) creata nella sezione precedente.
 
-Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository Git per Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Scaricare il file e archiviarlo in una directory locale nel computer, ad esempio C:\\sampledata.
+Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData). Scaricare il file e archiviarlo in una directory locale nel computer, ad esempio C:\\sampledata.
 
 	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
-Ad esempio:
+ad esempio:
 
 	azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
 
@@ -105,7 +105,7 @@ Usare il comando seguente per elencare i file nell'account di Data Lake Store.
 
 	azure datalake store filesystem list <dataLakeStoreAccountName> <path>
 
-Ad esempio:
+ad esempio:
 
 	azure datalake store filesystem list mynewdatalakestore /mynewfolder
 
@@ -131,7 +131,7 @@ L'output di questo comando dovrebbe essere simile al seguente:
 
     	azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
 
-	Ad esempio:
+	ad esempio:
 
 		azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
 
@@ -139,7 +139,7 @@ L'output di questo comando dovrebbe essere simile al seguente:
 
 		azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
 
-	Ad esempio:
+	ad esempio:
 
 		azure datalake store filesystem export mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv "C:\mysampledata\vehicle1_09142014_copy.csv"
 
@@ -147,7 +147,7 @@ L'output di questo comando dovrebbe essere simile al seguente:
 
 		azure datalake store filesystem delete <dataLakeStoreAccountName> <path> 
 
-	Ad esempio:
+	ad esempio:
 
 		azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
 	
@@ -159,18 +159,18 @@ Utilizzare il comando seguente per visualizzare gli ACL in una cartella di Data 
 
 	azure datalake store permissions show <dataLakeStoreName> <path>
 
-Ad esempio:
+ad esempio:
 
 	azure datalake store permissions show mynewdatalakestore /
 
 
-## Eliminare l'account di Azure Data Lake Store
+## Eliminare l'account di Data Lake Store
 
 Usare il comando seguente per eliminare l'account di Data Lake Store.
 
 	azure datalake store account delete <dataLakeStoreAccountName>
 
-Ad esempio:
+ad esempio:
 
 	azure datalake store account delete mynewdatalakestore
 
@@ -192,4 +192,4 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

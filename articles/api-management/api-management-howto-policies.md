@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 
@@ -23,7 +23,7 @@ In Gestione API di Azure i criteri sono una potente funzionalità del sistema ch
 
 Per un elenco completo di istruzioni dei criteri e delle relative impostazioni, vedere [Informazioni di riferimento per i criteri][].
 
-I criteri vengono applicati nel proxy che si trova tra il consumer di API e l'API gestita. Il proxy riceve tutte le richieste e in genere le inoltra invariate all'API sottostante. Tuttavia i criteri possono applicare modifiche sia alla richiesta in ingresso che alla risposta in uscita.
+I criteri vengono applicati nel gateway che si trova tra il consumer di API e l'API gestita. Il gateway riceve tutte le richieste e in genere le inoltra invariate all'API sottostante. Tuttavia i criteri possono applicare modifiche sia alla richiesta in ingresso che alla risposta in uscita.
 
 Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, a meno che i criteri non specifichino diversamente. Alcuni criteri, come [choose][] e [set-variable][], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][] ed [Espressioni di criteri][].
 
@@ -73,7 +73,7 @@ Per limitare le richieste in ingresso e accettare solo quelle da un indirizzo IP
 
 ![Salva][policies-save]
 
-Dopo aver configurato le istruzioni per il criterio, fare clic su Salva per propagare immediatamente le modifiche al proxy di Gestione API.
+Dopo aver configurato le istruzioni per il criterio, fare clic su Salva per propagare immediatamente le modifiche al gateway di Gestione API.
 
 ##<a name="sections"> </a>Informazioni sulla configurazione dei criteri
 
@@ -128,4 +128,4 @@ Vedere il video seguente sulle espressioni di criteri.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

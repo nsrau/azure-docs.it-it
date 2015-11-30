@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/16/2015"
+	ms.date="11/06/2015"
 	ms.author="jroth" />
 
 # Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure
@@ -31,19 +31,20 @@ Questo argomento illustra come configurare un listener per un gruppo di disponib
 
 Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](virtual-machines-sql-server-alwayson-availability-groups-gui.md) ma che non sia stato configurato un listener.
 
-Tenere presente le limitazioni seguenti per il listener del gruppo di disponibilità in Azure con ILB:
+## Linee guida e limitazioni per listener interni
+Tenere presente le linee guida seguenti per il listener del gruppo di disponibilità in Azure con ILB:
 
 - Il listener del gruppo di disponibilità è supportato su Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
 
-- L'applicazione client deve trovarsi in un servizio cloud diverso rispetto a quello che contiene le VM del gruppo di disponibilità. Azure non supporta Direct Server Return con client e server residenti nello stesso servizio cloud.
+- Per ogni servizio cloud è supportato un solo listener del gruppo di disponibilità interno, perché il listener è configurato solo per ILB, e c’è un solo ILB per ogni servizio cloud. Tuttavia, è possibile creare più listener esterni. Per altre informazioni, vedere l'articolo relativo alla [Configurazione di un listener esterno per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
 
-- Per ogni servizio cloud è supportato un solo listener del gruppo di disponibilità, perché il listener è configurato per usare l'indirizzo IP virtuale del servizio cloud o l'indirizzo IP virtuale del servizio di bilanciamento del carico interno. Si noti che questa limitazione è ancora attiva, anche se Azure supporta ora la creazione di più indirizzi IP virtuali in un determinato servizio cloud.
+- Non è supportata la creazione di un listener interno nello stesso servizio cloud in cui è presente anche un listener esterno utilizzando l’indirizzo VIP pubblico del servizio cloud.
 
 ## Determinare l'accessibilità del listener
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Questo articolo illustra la creazione di un listener che usa il **servizio di bilanciamento del carico interno**. Se è necessario un listener pubblico/esterno, vedere la versione di questo articolo che illustra la procedura per la configurazione di un [listener esterno](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
+Questo articolo illustra la creazione di un listener che usa il **Servizio di bilanciamento del carico interno (ILB)**. Se è necessario un listener pubblico/esterno, vedere la versione di questo articolo che illustra la procedura per la configurazione di un [listener esterno](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
 
 ## Creare endpoint VM con bilanciamento del carico con Direct Server Return
 
@@ -114,8 +115,8 @@ Per ILB è necessario creare prima di tutto il servizio di bilanciamento del car
 		
 		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
 		
-		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
-		# cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+		# cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
 1. Dopo aver impostato le variabili, aprire una finestra con privilegi elevati di Windows PowerShell, quindi copiare lo script dall'editor di testo e incollarlo nella sessione di Azure PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato >>, digitare di nuovo ENTER per assicurarsi che l'esecuzione dello script sia stata avviata.
 
@@ -137,4 +138,4 @@ Per ILB è necessario creare prima di tutto il servizio di bilanciamento del car
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

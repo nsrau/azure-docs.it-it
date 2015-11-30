@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="11/18/2015" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -49,7 +49,7 @@ Da questa tabella è possibile trarre le seguenti conclusioni.
 
 | Pricing tier | Dimensione | Larghezza di banda disponibile | Dimensioni della chiave 1 KB |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Dimensioni della cache livello Standard** | &nbsp; | **(Mbps)** | **Richieste al secondo (RPS)** |
+| **Dimensioni della cache livello Standard** | &nbsp; |**Megabit al secondo (Mbps)** | **Richieste al secondo (RPS)** |
 | C0 | 250 MB | 5 | 600 |
 | C1 | 1 GB | 100 | 12200 |
 | C2 | 2,5 GB | 200 | 24000 |
@@ -189,7 +189,7 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 
 La Cache Redis di Microsoft Azure è basata sulla popolare cache Redis open source e offre l'accesso a una cache Redis sicura e dedicata, gestita da Microsoft. Sono disponibili alcuni [client Redis](http://redis.io/clients) per molti linguaggi di programmazione. Ogni client ha un'API specifica che effettua chiamate all'istanza della Cache Redis usando i [comandi Redis](http://redis.io/commands).
 
-Poiché ogni client è diverso, non è disponibile alcun riferimento di classe centralizzato su MSDN. Ogni client offre invece documentazione di riferimento specifica. Oltre alla documentazione di riferimento, nella pagina relativa alla [documentazione sulla Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/) sono disponibili alcune esercitazioni su Azure.com, che illustrano come iniziare a usare la Cache Redis di Azure Redis con linguaggi e client di cache diversi.
+Poiché ogni client è diverso, non è disponibile alcun riferimento di classe centralizzato su MSDN. Ogni client offre invece documentazione di riferimento specifica. Oltre alla documentazione di riferimento, nella pagina relativa alla [documentazione sulla Cache Redis](http://azure.microsoft.com/documentation/services/redis-cache/) sono disponibili alcune esercitazioni su Azure.com, che illustrano come iniziare a usare la Cache Redis di Azure Redis con linguaggi e client di cache diversi.
 
 
 ## Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?
@@ -220,4 +220,4 @@ I clienti di Servizio cache gestita di Azure possono continuare a usare il servi
 ### In-Role Cache
 Se è stato scelto l'hosting indipendente con Cache nel ruolo, è possibile continuare a usare questa soluzione. Poiché Cache nel ruolo è un componente software self-hosted e non un servizio ospitato da Microsoft, non offre un contratto di servizio. Gli utenti di Cache nel ruolo possono scegliere di eseguire la migrazione a Cache Redis di Azure per sfruttare l'ampia gamma di funzionalità e ottenere un contratto di servizio.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

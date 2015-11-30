@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/12/2015" 
 	ms.author="glenga"/>
 
 
@@ -164,4 +164,4 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 [esempio di Servizi mobili offline Todo]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

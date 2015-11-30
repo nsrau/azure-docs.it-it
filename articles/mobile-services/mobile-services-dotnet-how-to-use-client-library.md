@@ -292,17 +292,17 @@ Si noti che questa è una chiamata tipizzata al metodo, che richiede che il tipo
 
 Il client di Servizi mobili consente di registrarsi per le notifiche push con Hub di notifica di Azure. Durante la registrazione, si ottiene un handle fornito dal servizio di notifica push specifico della piattaforma. È quindi possibile specificare questo valore con qualsiasi tag al momento della creazione della registrazione. Il codice seguente registra l'app Windows per le notifiche push mediante il Servizio di notifica Windows (WNS):
 
-		private async void InitNotificationsAsync()
-		{
-		    // Request a push notification channel.
-		    var channel =
-		        await PushNotificationChannelManager
-		            .CreatePushNotificationChannelForApplicationAsync();
+	private async void InitNotificationsAsync()
+	{
+	    // Request a push notification channel.
+	    var channel =
+	        await PushNotificationChannelManager
+	            .CreatePushNotificationChannelForApplicationAsync();
 
-		    // Register for notifications using the new channel and a tag collection.
-			var tags = new List<string>{ "mytag1", "mytag2"};
-		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
-		}
+	    // Register for notifications using the new channel and a tag collection.
+		var tags = new List<string>{ "mytag1", "mytag2"};
+	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+	}
 
 Si noti che in questo esempio due tag sono inclusi con la registrazione. Per altre informazioni sulle app Windows, vedere [Aggiungere notifiche push all'app di Servizi mobili](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)
 
@@ -310,8 +310,20 @@ Le app Xamarin in esecuzione su iOS o Android richiedono codice aggiuntivo per p
 
 >[AZURE.NOTE]Quando è necessario inviare notifiche a specifici utenti registrati, è importante richiedere l'autenticazione prima della registrazione e quindi verificare che l'utente sia autorizzato a registrarsi con un tag specifico. È necessario ad esempio assicurarsi che un utente non si registri con un tag che è l'ID di un altro utente. Per altre informazioni, vedere [Inviare notifiche push agli utenti autenticati](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
+##<a name="pull-notifications"></a>Procedura: usare le notifiche periodiche in un'app Windows
 
-##<a name="optimisticconcurrency"></a>Procedura: Usare la concorrenza ottimistica
+Windows supporta le notifiche periodiche (notifiche pull) per aggiornare i riquadri animati. Con le notifiche periodiche abilitate, Windows accederà periodicamente un endpoint API personalizzato per aggiornare il riquadro dell'app nel menu start. Per usare le notifiche periodiche, è necessario [Definire un'API personalizzata](mobile-services-javascript-backend-define-custom-api.md) che restituisce dati XML in un formato specifico del riquadro. Per altre informazioni, vedere [Notifiche periodiche](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx).
+
+L'esempio seguente consente di attivare le notifiche periodiche per richiedere i dati di modello del riquadro da un endpoint personalizzato *riquadri*:
+
+    TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
+        new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
+        PeriodicUpdateRecurrence.Hour
+    ); 
+
+Selezionare il valore di [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) più adatto alla frequenza di aggiornamento dei dati desiderata.
+
+##<a name="optimisticconcurrency"></a>Procedura: usare la concorrenza ottimistica
 
 In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. Il controllo della concorrenza ottimistica presuppone che per ogni transazione sia possibile eseguire il commit, quindi non procede al blocco delle risorse. Prima di effettuare il commit di una transazione, il controllo della concorrenza ottimistica verifica che i dati non siano stati modificati da un'altra transazione. Se i dati sono stati modificati, verrà eseguito il rollback di tale transazione.
 
@@ -752,4 +764,4 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [API personalizzata nei Servizi mobili di Azure - SDK client]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

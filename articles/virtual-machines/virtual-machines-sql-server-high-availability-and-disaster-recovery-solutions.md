@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Disponibilità elevata e ripristino di emergenza di SQL Server | Microsoft Azure"
-   description="Questa esercitazione sfrutta le risorse create con il modello di distribuzione classica e illustra i vari tipi di strategie HADR per SQL Server in esecuzione nelle macchine virtuali di Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" 
-   tags="azure-service-management"/>
+	pageTitle="Disponibilità elevata e ripristino di emergenza di SQL Server | Microsoft Azure"
+	description="Questa esercitazione sfrutta le risorse create con il modello di distribuzione classica e illustra i vari tipi di strategie HADR per SQL Server in esecuzione nelle macchine virtuali di Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/13/2015"
+	ms.author="jroth" />
 
 # Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure
 
@@ -104,15 +104,20 @@ Per altre informazioni, vedere l'articolo relativo alla [configurazione di grupp
 
 ### Supporto del listener del gruppo di disponibilità
 
-I listener del gruppo di disponibilità sono supportati nelle macchine virtuali di Azure che eseguono Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Questo supporto viene fornito attraverso l'uso di endpoint con carico bilanciato con Direct Server Return (DSR) abilitato nelle macchine virtuali di Azure che costituiscono nodi del gruppo di disponibilità. È necessario eseguire passaggi di configurazione specifici affinché i listener funzionino sia per le applicazioni client eseguite in Azure sia per quelle eseguite in locale.
+I listener del gruppo di disponibilità sono supportati nelle macchine virtuali di Azure che eseguono Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Questo supporto viene fornito attraverso l'uso di endpoint con carico bilanciato abilitato nelle macchine virtuali di Azure che costituiscono nodi del gruppo di disponibilità. È necessario eseguire passaggi di configurazione specifici affinché i listener funzionino sia per le applicazioni client eseguite in Azure sia per quelle eseguite in locale.
 
-I client devono connettersi al listener da un computer che non si trova nello stesso servizio cloud dei nodi del gruppo di disponibilità AlwaysOn. Se il gruppo di disponibilità si estende su più subnet di Azure (ad esempio una distribuzione che attraversa aree di Azure), la stringa di connessione client deve includere "MultisubnetFailover=True". Di conseguenza, vengono eseguiti tentativi di connessione paralleli alle repliche nelle diverse subnet. Per istruzioni sull'impostazione di un listener, vedere l'articolo relativo alla [configurazione di un listener di ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+Sono disponibili due opzioni principali per la configurazione del listener: esterno (pubblico) o interno. Il listener esterno (pubblico) è associato con un indirizzo pubblico Virtuale IP (VIP) che è accessibile tramite internet. Con un listener esterno, è necessario abilitare Direct Server Return, il che significa che è necessario connettersi al listener da un computer che non è presente nello stesso servizio cloud dei nodi del gruppo di disponibilità AlwaysOn. L'altra opzione è un listener interno che usa il servizio di bilanciamento del carico interno (ILB). Un listener interno supporta solo i client all'interno della stessa rete virtuale.
+
+Se il gruppo di disponibilità si estende su più subnet di Azure (ad esempio una distribuzione che attraversa aree di Azure), la stringa di connessione client deve includere "**MultisubnetFailover=True**". Di conseguenza, vengono eseguiti tentativi di connessione paralleli alle repliche nelle diverse subnet. Per istruzioni sull'impostazione di un listener, vedere
+
+- [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Configurare un listener esterno per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
 
 È comunque possibile connettersi separatamente a ogni replica di disponibilità effettuando la connessione direttamente all'istanza del servizio. Inoltre, poiché i gruppi di disponibilità AlwaysOn sono compatibili con le versioni precedenti dei client di mirroring del database, è possibile connettersi alle repliche di disponibilità come partner di mirroring del database purché le repliche siano configurate in modo analogo al mirroring del database:
 
 - Una replica primaria e una replica secondaria
 
-- La replica secondaria è configurata come non leggibile (opzione **Secondario leggibile** impostata su **No**)
+- La replica secondaria è configurata come non leggibile (opzione **Secondaria leggibile** impostata su **No**)
 
 Di seguito è riportata una stringa di connessione client di esempio corrispondente a questa configurazione simile al mirroring del database usando ADO.NET o SQL Server Native Client:
 
@@ -147,4 +152,4 @@ Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtual
 - [Installare una nuova foresta Active Directory in Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Configurare un listener ILB per gruppi di disponibilità AlwaysOn nella macchina virtuale di Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

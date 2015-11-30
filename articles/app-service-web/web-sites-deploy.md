@@ -26,7 +26,7 @@ Il miglior modo per distribuire un'app Web consiste nell'impostare un [flusso di
 
 ##### Distribuire da sistemi di controllo del codice sorgente ospitato nel cloud
 
-* [Recapito continuo mediante Visual Studio Online](#vso)
+* [Recapito continuo mediante Visual Studio Team Services](#vsts)
 * [Siti Web di repository con Git](#git)
 * [Siti Web di repository con Mercurial](#mercurial)
 * [Automatizzare la distribuzione da Dropbox](#dropbox)
@@ -45,21 +45,21 @@ Il miglior modo per distribuire un'app Web consiste nell'impostare un [flusso di
 * [Distribuire dall'interfaccia della riga di comando di Azure](#cli)
 * [Distribuire dalla riga di comando di distribuzione Web](#webdeploy)
  
-##### Distribuire da un ambiente di sviluppo integrato (IDE)
+##### Distribuire da un Integrated Development Environment (IDE)
 
 * [Distribuire direttamente da Visual Studio](#vs)
 * [Distribuire direttamente da WebMatrix](#webmatrix)
 
 Un'altra opzione di distribuzione consiste nell'utilizzare un servizio basato su cloud, ad esempio [Distribuzione Octopus](http://en.wikipedia.org/wiki/Octopus_Deploy). Per altre informazioni, vedere l'articolo relativo alla [distribuzione di applicazioni ASP.NET in Siti Web di Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
-##<a name="vso"></a>Recapito continuo mediante Visual Studio Online
+##<a name="vso"></a>Recapito continuo mediante Visual Studio Team Services
 
-[Visual Studio Online](http://www.visualstudio.com/) (in precedenza Team Foundation Service) è la soluzione Microsoft basata sul cloud per il controllo del codice sorgente e la collaborazione con il team. Il servizio è gratuito per un team composto da un massimo di cinque sviluppatori. È possibile eseguire il recapito continuo a un'app Web del servizio app e il repository può utilizzare sia [Git che TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
+[Visual Studio Team Services](http://www.visualstudio.com/) (in precedenza Team Foundation Service) è la soluzione Microsoft basata sul cloud per il controllo del codice sorgente e la collaborazione con il team. Il servizio è gratuito per un team composto da un massimo di cinque sviluppatori. È possibile eseguire il recapito continuo a un'app Web del servizio app e il repository può utilizzare sia [Git che TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
 Per ulteriori informazioni, vedere le risorse seguenti:
 
-* [Recapito continuo ad Azure tramite Visual Studio Online e TFVC](../cloud-services-continuous-delivery-use-vso.md). Esercitazione guidata che illustra la procedura di configurazione del recapito continui da Visual Studio Online a un'app Web tramite TFVC. TFVC è l'opzione di controllo del codice sorgente, mentre Git è l'opzione di controllo del codice distribuito.
-* [Recapito continuo in Azure mediante Visual Studio Online e Git](../cloud-services-continuous-delivery-use-vso-git.md). Simile all'esercitazione precedente, ma usa Git anziché TFVC.
+* [Recapito continuo in Azure tramite Visual Studio Team Services e TFVC](../cloud-services-continuous-delivery-use-vso.md). Esercitazione guidata che illustra la procedura di configurazione del recapito continui da Visual Studio Team Services a un'app Web tramite TFVC. TFVC è l'opzione di controllo del codice sorgente, mentre Git è l'opzione di controllo del codice distribuito.
+* [Recapito continuo in Azure tramite Visual Studio Team Services e Git](../cloud-services-continuous-delivery-use-vso-git.md). Simile all'esercitazione precedente, ma usa Git anziché TFVC.
 
 ##<a name="git"></a>Siti Web di repository con Git
 
@@ -180,7 +180,7 @@ Per altre informazioni, vedere la risorsa seguente:
 
 ##<a name="webdeploy"></a>Distribuzione dalla riga di comando di distribuzione Web
 
-[Distribuzione Web](http://www.iis.net/downloads/microsoft/web-deploy) è il software Microsoft per la distribuzione in IIS che non solo offre funzioni intelligenti di sincronizzazione dei file, ma può anche eseguire o coordinare molte altre attività relative alla distribuzione che non è possibile automatizzare quando si utilizza il trasferimento FTP. Ad esempio, con Distribuzione Web è possibile distribuire un nuovo database oppure gli aggiornamenti al database assieme all'app Web. Distribuzione Web consente inoltre di ridurre al minimo i tempi richiesti per l'aggiornamento di un sito esistente dal momento che è in grado di copiare in maniera intelligente solo i file modificati. Il supporto per Distribuzione Web è incorporato in Microsoft WebMatrix, Visual Studio, Visual Studio Online e Team Foundation Server, ma è inoltre possibile utilizzare Distribuzione Web direttamente dalla riga di comando per automatizzare la distribuzione. I comandi di Distribuzione Web sono molti potenti, ma la curva di apprendimento può rivelarsi ripida.
+[Distribuzione Web](http://www.iis.net/downloads/microsoft/web-deploy) è il software Microsoft per la distribuzione in IIS che non solo offre funzioni intelligenti di sincronizzazione dei file, ma può anche eseguire o coordinare molte altre attività relative alla distribuzione che non è possibile automatizzare quando si utilizza il trasferimento FTP. Ad esempio, con Distribuzione Web è possibile distribuire un nuovo database oppure gli aggiornamenti al database assieme all'app Web. Distribuzione Web consente inoltre di ridurre al minimo i tempi richiesti per l'aggiornamento di un sito esistente dal momento che è in grado di copiare in maniera intelligente solo i file modificati. Il supporto per Distribuzione Web è incorporato in Microsoft WebMatrix, Visual Studio, Visual Studio Team Services e Team Foundation Server, ma è inoltre possibile utilizzare Distribuzione Web direttamente dalla riga di comando per automatizzare la distribuzione. I comandi di Distribuzione Web sono molti potenti, ma la curva di apprendimento può rivelarsi ripida.
 
 Per altre informazioni, vedere la risorsa seguente:
 
@@ -205,4 +205,4 @@ Per informazioni su altri argomenti relativi alla distribuzione, vedere la relat
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

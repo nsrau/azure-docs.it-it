@@ -14,17 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/05/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Backup e ripristino per SQL Server in Macchine virtuali di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
-
-
 ## Panoramica
 
 Il backup dei dati nei database di SQL Server è una parte importante della strategia di protezione contro la perdita di dati a causa di errori dell'utente o dell’applicazione. Questo vale anche per SQL Server in esecuzione nelle macchine virtuali di Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 Per SQL Server in esecuzione nelle macchine virtuali di Azure, è possibile utilizzare le tecniche di backup nativo e ripristino utilizzando i dischi collegati per la destinazione dei file di backup. Vi è tuttavia un limite nel numero di dischi che è possibile collegare a una macchina virtuale di Azure, a seconda della [dimensione della macchina virtuale](virtual-machines-size-specs.md). È inoltre da prendere in considerazione l'overhead della gestione disco.
 
@@ -42,11 +41,11 @@ I motivi per l'esecuzione dei backup di database e la tecnologia di backup sotto
 
 - Occorre comunque eseguire il backup dei database per garantire una protezione dagli errori dell'utente o per scopi di archiviazione, normativi o amministrativi.
 
-- È possibile eseguire i backup quasi istantanei e i ripristini rapidi utilizzando la funzionalità di backup di snapshot di file di SQL Server in Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2). Per altre informazioni, vedere [Backup di snapshot di file di database in Azure](https://msdn.microsoft.com/library/mt169363.aspx).
+- È possibile eseguire i backup quasi istantanei e i ripristini rapidi utilizzando la funzionalità di backup di snapshot di file di SQL Server in Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3). Per altre informazioni, vedere [Backup di snapshot di file di database in Azure](https://msdn.microsoft.com/library/mt169363.aspx).
 
-## Backup e ripristino in Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2)
+## Backup e ripristino in Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3)
 
-Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2) supporta la funzionalità di [backup e il ripristino con BLOB di Azure](https://msdn.microsoft.com/library/jj919148.aspx) disponibile in SQL Server 2014 e descritta di seguito. Include anche i seguenti miglioramenti:
+Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3) supporta la funzionalità di [backup e ripristino con BLOB di Azure](https://msdn.microsoft.com/library/jj919148.aspx) disponibile in SQL Server 2014 e descritta di seguito. Include anche i seguenti miglioramenti:
 
 - **Striping**: per eseguire il backup nell'archiviazione BLOB di Microsoft Azure, SQL Server 2016 supporta il backup di più BLOB per abilitare il backup dei database di grandi dimensioni, fino a un massimo di 12,8 TB.
 
@@ -93,4 +92,4 @@ Sebbene il backup e il ripristino possano essere utilizzati per la migrazione de
 
 Esaminare altre [risorse per l'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

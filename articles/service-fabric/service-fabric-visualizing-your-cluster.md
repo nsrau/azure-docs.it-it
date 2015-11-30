@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Visualizzazione del cluster con Service Fabric Explorer"
+   pageTitle="Visualizzazione del cluster con Service Fabric Explorer | Microsoft Azure"
    description="Service Fabric Explorer è uno strumento basato su interfaccia grafica per analizzare e gestire applicazioni cloud e nodi in un cluster di Infrastruttura di servizi Microsoft Azure."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,55 +13,73 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/30/2015"
    ms.author="jesseb"/>
 
 # Visualizzazione del cluster con Service Fabric Explorer
 
-Service Fabric Explorer è uno strumento grafico per analizzare e gestire applicazioni cloud e nodi in un cluster di infrastruttura dei servizi Microsoft Azure. Service Fabric Explorer può connettersi ai cluster di sviluppo locale e ai cluster Azure. Per informazioni sui cmdlet PowerShell di Infrastruttura di servizi, vedere i **Passaggi successivi**.
+Service Fabric Explorer è uno strumento basato sul web per analizzare e gestire applicazioni e nodi in un cluster di infrastruttura di servizi. Service Fabric Explorer è ospitato direttamente all'interno del cluster, pertanto è sempre disponibile, indipendentemente da dove il cluster è in esecuzione.
 
-> [AZURE.NOTE]Creazione dei cluster di Infrastruttura di servizi in Azure non è ancora disponibile.
+## Connessione a Service Fabric Explorer
 
-## Introduzione a Service Fabric Explorer
+Se si sono seguite le istruzioni per [preparare l'ambiente di sviluppo](service-fabric-get-started.md), è possibile avviare Service Fabric Explorer nel cluster locale, passando a http://localhost:19080/Explorer.
 
-Verificare l'ambiente di sviluppo locale sia impostato in base alle istruzioni indicate in [Configurare l'ambiente di sviluppo di Infrastruttura di servizi](service-fabric-get-started.md).
+>[AZURE.NOTE]Se si utilizza Internet Explorer(IE) con Service Fabric Explorer per gestire un cluster remoto, è necessario configurare alcune impostazioni di Internet Explorer. Passare a **Strumenti -> Impostazioni visualizzazione compatibilità** e deselezionare **visualizzare siti intranet in visualizzazione compatibilità** affinché tutte le informazioni vengano caricate correttamente.
 
-Eseguire Service Fabric Explorer dal percorso di installazione locale (%Programmi%\\Microsoft SDKs\\Service Fabric\\Tools\\ServiceFabricExplorer\\ServiceFabricExplorer.exe). Lo strumento si connetterà automaticamente a un cluster di sviluppo locale, se presente. Vengono visualizzate informazioni sul cluster, quali:
+## Introduzione al layout di Service Fabric Explorer
 
-- Applicazioni in esecuzione nel cluster
-- Informazioni sui nodi del cluster
-- Eventi di stato da applicazioni e nodi
-- Carico sulle applicazioni del cluster
-- Monitoraggio di stato di aggiornamento dell'applicazione
+È possibile spostarsi all’interno di Service Fabric Explorer utilizzando la struttura ad albero a sinistra. Nella radice dell'albero, il dashboard del cluster fornisce una panoramica del cluster, inclusi un riepilogo dell'applicazione e l'integrità del nodo.
 
-![Rappresentazione visiva del cluster Infrastruttura di servizi e applicazioni distribuite][servicefabricexplorer]
+![Dashboard del cluster di Service Fabric Explorer][sfx-cluster-dashboard]
 
-Una delle visualizzazioni importante è la mappa del cluster, visibile nel dashboard per il cluster (ad esempio, facendo clic su **Onebox/Local cluster**). Nella mappa del cluster è elencato il set di domini di aggiornamento e domini di errore e i nodi mappati ai relativi domini. Per acquisire familiarità con i concetti relativi all'Infrastruttura di servizi, vedere la relativa [Panoramica tecnica](service-fabric-technical-overview.md).
+Il cluster contiene due sotto-alberi: uno per le applicazioni e un altro per i nodi.
 
-![Nella mappa del cluster vengono indicati i domini di aggiornamento e di errore a cui appartiene ogni nodo.][clustermap]
+### Visualizzazione applicazioni e servizi
 
+La visualizzazione delle applicazioni consente di spostarsi tra la gerarchia logica di Infrastruttura di servizi: applicazioni, servizi, partizioni e repliche.
 
-## Visualizzazione applicazioni e servizi
+Nell'esempio seguente, l'applicazione **MyApp** è costituita da due servizi, **MyStatefulService** e **WebSvcService**. Poiché **MyStatefulService** è con stato, include una partizione con una replica primaria e due repliche secondarie. Al contrario, il WebSvcService è senza stato e contiene una singola istanza.
 
-Service Fabric Explorer consente di esplorare le applicazioni in esecuzione nel cluster. Espandere la **visualizzazione dell'applicazione** per visualizzare informazioni dettagliate sulle applicazioni, sui servizi, sulle partizioni e sulle repliche.
+![Visualizzazione delle applicazioni di Service Fabric Explorer][sfx-application-tree]
 
-Nel diagramma seguente viene illustrato che l'applicazione denominata **"fabric:/Stateful1Application"** contiene un servizio senza stato denominato **"fabric:/Stateful1Application/MyFrontEnd"** e un servizio con stato denominato **"fabric:/Stateful1Application/Stateful1"**. Il servizio senza stato dispone di una partizione con una replica in esecuzione nel **Nodo 4**. Il servizio con stato presenta due partizioni, ognuna con 3 repliche, in esecuzione in diversi nodi differenti.
+A ogni livello della struttura ad albero, il riquadro principale mostra informazioni pertinenti all'elemento. Ad esempio, è possibile visualizzare lo stato di integrità e la versione di un determinato servizio.
 
-![Visualizzazione delle applicazioni in esecuzione nel cluster Infrastruttura di servizi][applicationview]
+![Riquadro essentials di Service Fabric Explorer][sfx-service-essentials]
 
-Facendo clic su un'applicazione, un servizio, una partizione o una replica vengono fornite informazioni dettagliate su tale entità. Nel diagramma seguente viene illustrato il dashboard di integrità della replica del servizio per una delle repliche primarie del servizio con stato. Ciò include il relativo ruolo, il nodo su cui è in esecuzione, l'indirizzo su cui è in ascolto, il percorso dei file su disco e gli eventi di stato.
+### Visualizzazione dei nodi del cluster
 
-![Informazioni dettagliate su una replica di Infrastruttura di servizi][replicadetails]
+La visualizzazione dei nodi mostra il layout fisico del cluster. Per un determinato nodo, è possibile controllare quali applicazioni hanno il codice distribuito in tale nodo e più nello specifico, quali le repliche vi sono attualmente in esecuzione.
+
+## Esecuzione di azioni con Service Fabric Explorer
+
+Service Fabric Explorer offre un modo rapido per richiamare le azioni su nodi, applicazioni e servizi all'interno del cluster.
+
+Ad esempio, per eliminare un'istanza dell'applicazione, è sufficiente scegliere l'applicazione dall'albero a sinistra, quindi scegliere Azioni > Elimina applicazione.
+
+![Eliminazione di un'applicazione in Service Fabric Explorer][sfx-delete-application]
+
+Poiché molte azioni sono distruttive, verrà richiesto di confermare la finalità prima del completamento dell'azione.
+
+>[AZURE.NOTE]Ogni azione che può essere eseguita con Service Fabric Explorer può essere eseguita anche tramite PowerShell o un'API REST, consentendo l’automazione.
+
 
 
 ## Connessione a un cluster di Infrastruttura di servizi remoto
 
-Per visualizzare un cluster di Infrastruttura di servizi remoto, fare clic su **Connect** per visualizzare la finestra di dialogo relativa alla **connessione al cluster di Infrastruttura di servizi**. Immettere l'**endpoint dell'Infrastruttura di servizi** relativo al cluster, quindi fare clic su **Connect**. L'endpoint dell'Infrastruttura di servizi in genere è il nome pubblico del servizio cluster in ascolto sulla porta 19000.
+Poiché Service Fabric Explorer è basato sul web e viene eseguito all'interno del cluster, è accessibile da qualsiasi browser, purché si conosca l'endpoint del cluster e si disponga di autorizzazioni sufficienti per accedervi.
 
-![Configurazione di una connessione al cluster Infrastruttura di servizi remoti][connecttocluster]
+### Individuare l'endpoint di Service Fabric Explorer per un Cluster remoto
 
+È possibile individuare l'endpoint del cluster dal portale di Infrastruttura di servizi. Per raggiungere Service Fabric Explorer per un determinato cluster, è sufficiente connettersi a tale endpoint sulla porta 19007:
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+http://&lt;your-cluster-endpoint&gt;:19007
+
+### Connessione a un cluster sicuro
+
+È possibile controllare l'accesso al cluster di Infrastruttura di servizi richiedendo che i client presentino un certificato per connettersi ad esso.
+
+Se si tenta di connettersi a Service Fabric Explorer in un cluster sicuro, il browser richiederà di presentare un certificato per ottenere l'accesso.
+
 ## Passaggi successivi
 
 - [Panoramica di Testabilità](service-fabric-testability-overview.md).
@@ -74,5 +92,9 @@ Per visualizzare un cluster di Infrastruttura di servizi remoto, fare clic su **
 [connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
+[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
+[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
+[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
+[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

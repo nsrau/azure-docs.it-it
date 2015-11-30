@@ -147,6 +147,8 @@ Ogni server di Azure SQL viene avviato con un singolo account amministratore del
 
 	Il processo di modifica dell'amministratore può richiedere alcuni minuti. Il nuovo amministratore sarà quindi visualizzato nella casella **Amministratore di Active Directory**.
 
+> [AZURE.NOTE]Quando si imposta l'amministratore di Windows Azure il nuovo nome dell’amministratore (utente o gruppo) non può essere già presente nel database master come un account di accesso di autenticazione di SQL Server. Se presente, l’impostazione dell’amministratore di Windows Azure avrà esito negativo; eseguire il rollback della creazione e indicare che tale (nome) di amministratore già esiste. Poiché tale accesso di autenticazione del server SQL non è parte di Azure AD, qualsiasi tentativo di connettersi al server mediante l'autenticazione di Azure AD avrà esito negativo.
+
 Per rimuovere un amministratore in seguito, nel pannello **Amministratore di Active Directory** in alto fare clic su **Rimuovi amministratore**.
 
 ### Effettuare il provisioning di un amministratore di Azure AD per Azure SQL Server tramite PowerShell 
@@ -154,7 +156,7 @@ Per rimuovere un amministratore in seguito, nel pannello **Amministratore di Act
 > [AZURE.IMPORTANT]A partire dalla versione di anteprima di Azure PowerShell 1.0, il cmdlet Switch-AzureMode non è più richiesto e i cmdlet che erano nel modulo Azure ResourceManager sono stati rinominati. Gli esempi in questo articolo usano le nuove convenzioni di denominazione della versione di anteprima di PowerShell 1.0. Per informazioni dettagliate, vedere [Deprecazione di Switch-AzureMode, in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-Per eseguire i cmdlet di PowerShell, è necessario disporre di Azure PowerShell installato e in esecuzione e a causa della rimozione di Switch-AzureMode, scaricare e installare la versione più recente di Azure PowerShell eseguendo l'[installazione guidata della piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. A causa della rimozione di Switch-AzureMode, occorre scaricare e installare la versione più recente di Azure PowerShell eseguendo l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 Per effettuare il provisioning di un amministratore di Azure AD, è necessario eseguire i comandi di Azure PowerShell seguenti:
 
@@ -233,7 +235,7 @@ Per verificare che l'amministratore di Azure AD sia configurato correttamente, c
 Usare questo metodo se si è connessi a Windows con le credenziali di Azure Active Directory da un dominio federato.
 
 1. Avviare Management Studio e nella finestra di dialogo **Connetti al motore di database** (o **Connetti al server**) selezionare **Autenticazione integrata di Active Directory** nella casella **Autenticazione**. Non è richiesta una password né può essere immessa, perché per la connessione verranno presentate le credenziali esistenti.
-2. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si vuole connettersi nella casella **Connetti al database**.
+2. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui ci si vuole connettere nella casella **Connetti al database**.
 
 #### Connettersi usando l'autenticazione della password di Active Directory 
 
@@ -244,7 +246,7 @@ Usare questo metodo se si è connessi a Windows con le credenziali di un dominio
 1. Avviare Management Studio e nella finestra di dialogo **Connetti al motore di database** (o **Connetti al server**) selezionare **Autenticazione della password Active Directory** nella casella **Autenticazione**.
 2. Nella casella **Nome utente** digitare il nome utente di Azure Active Directory nel formato ****username@domain.com**. Deve essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
 3. Nella casella **Password** digitare la password utente per l'account Azure Active Directory o l'account di dominio federato.
-4. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si vuole connettersi nella casella **Connetti al database**.
+4. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui ci si vuole connettere nella casella **Connetti al database**.
 
 
 ### Creare un utente di database indipendente di Azure AD in un database utente
@@ -269,7 +271,7 @@ Per creare un utente di database indipendente che rappresenta un gruppo di domin
 
 Per altre informazioni sulla creazione di utenti di database indipendente basati su identità di Azure Active Directory, vedere [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
 
-Quando si crea un database utente, questo riceve l'autorizzazione **CONNECT** e può connettersi al database come membro del ruolo **PUBLIC**. Inizialmente le sole autorizzazioni disponibili per l'utente sono quelle concesse al ruolo **PUBLIC** o quelle concesse a qualsiasi gruppo di Windows di cui è membro. Dopo avere effettuato il provisioning di un utente di database indipendente basato su Azure AD, è possibile concedere all'utente altre autorizzazioni, esattamente come si concede un'autorizzazione a qualsiasi altro tipo di utente. In genere si concedono autorizzazioni ai ruoli del database e si aggiungono gli utenti ai ruoli. Per altre informazioni, vedere l'articolo wiki relativo alle [nozioni di base delle autorizzazioni per il motore di database](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Per altre informazioni sui ruoli speciali del database SQL, vedere [Gestione di database e account di accesso nel database SQL di Azure](sql-database-manage-logins.md). Un utente di dominio federato importato in un dominio gestito deve usare l'identità del dominio gestito.
+Quando si crea un database utente, questo riceve l'autorizzazione **CONNECT** e può connettersi al database come membro del ruolo **PUBLIC**. Inizialmente le sole autorizzazioni disponibili per l'utente sono quelle concesse al ruolo **PUBLIC** o quelle concesse a qualsiasi gruppo di Windows di cui è membro. Dopo avere effettuato il provisioning di un utente di database indipendente basato su Azure AD, è possibile concedere all'utente altre autorizzazioni, esattamente come si concede un'autorizzazione a qualsiasi altro tipo di utente. In genere si concedono autorizzazioni ai ruoli del database e si aggiungono gli utenti ai ruoli. Per altre informazioni, vedere [nozioni di base delle autorizzazioni per il motore di database](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Per altre informazioni sui ruoli speciali del database SQL, vedere [Gestione di database e account di accesso nel database SQL di Azure](sql-database-manage-logins.md). Un utente di dominio federato importato in un dominio gestito deve usare l'identità del dominio gestito.
 
 > [AZURE.NOTE]Gli utenti di Azure AD sono contrassegnati nei metadati del database con il tipo E (EXTERNAL\_USER). I gruppi sono contrassegnati con il tipo X (EXTERNAL\_GROUPS). Per altre informazioni, vedere [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
@@ -325,4 +327,4 @@ Per esempi di codice specifici relativi all'autenticazione di Azure AD, vedere i
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -21,9 +21,9 @@ Questo articolo illustra come spostare i dati di telemetria da [Application Insi
 
 L'esportazione continua sposta i dati di telemetria in Archiviazione di Azure in formato JSON. Gli oggetti JSON verranno analizzati con l'analisi di flusso di Azure e verranno create righe in una tabella di database.
 
-Più in generale, l'esportazione continua consente di eseguire la propria analisi dei dati di telemetria che le app inviano ad Application Insights. È possibile adattare questo esempio di codice per eseguire altre operazioni con i dati di telemetria esportati, ad esempio l'aggregazione dei dati e la relativa pubblicazione nelle applicazioni di visualizzazione PowerBI.
+Più in generale, l'esportazione continua consente di eseguire la propria analisi dei dati di telemetria che le app inviano ad Application Insights. È possibile adattare questo esempio di codice per eseguire altre operazioni con i dati di telemetria esportati, come l’aggregazione dei dati.
 
-Si partirà dal presupposto che si disponga già dell'app che si vuole monitorare.
+Si inizierà dal presupposto che si abbia già l'app che si vuole monitorare.
 
 
 In questo esempio verranno usati i dati relativi alle visualizzazioni pagina, ma gli stessi criteri possono essere estesi facilmente ad altri tipi di dati, ad esempio eccezioni ed eventi personalizzati.
@@ -300,6 +300,7 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 ## Articoli correlati
 
 * [Esportare in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Esportare in PowerBI usando l'analisi di flusso](app-insights-export-power-bi.md)
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](app-insights-export-data-model.md)
 * [Esportazione continua in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -314,4 +315,4 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

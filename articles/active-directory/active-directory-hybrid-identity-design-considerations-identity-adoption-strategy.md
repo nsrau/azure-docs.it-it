@@ -43,11 +43,11 @@ Gli scenari definiti nella figura precedente sono:
 
 La tabella seguente consente di determinare i vantaggi e gli svantaggi di ognuna delle strategie seguenti:
 
-| Strategia | Vantaggi | Svantaggi |
+| Strategia | Vantaggi | Svantaggi: |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Identità cloud** | Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Nessun software da installare in locale, non è previsto hardware aggiuntivo <br> Facile da disabilitare se l'utente lascia la società | Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud <br> Le password per le identità cloud e locale possono essere uguali oppure no |
 | **Identità sincronizzate** | La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br> Più facile da gestire per le organizzazione di piccole, medie o grandi dimensioni <br> Gli utenti possono usufruire dell'accesso Single Sign-On anche solo per alcune risorse <br> Si tratta del metodo preferito da Microsoft per la sincronizzazione <br> Più facile da gestire | Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
-| **Identità federate** | Gli utenti possono usufruire dell'accesso Single Sign-On <br> Se un utente viene licenziato o lascia la società, è possibile disabilitare immediatamente l'account e revocare l'accesso <br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate | Maggior numero di attività di installazione e configurazione <br> Manutenzione più elevata <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per l'installazione del server federativo. È necessario software aggiuntivo se si usa AD FS <br> Richiede attività di configurazione estese per l'accesso Single Sign-On <br> Punto di errore critico in caso di inattività del server federativo, perché gli utenti non potranno eseguire l'autenticazione |
+| **Federato** | Gli utenti possono usufruire dell'accesso Single Sign-On <br> Se un utente viene licenziato o lascia la società, è possibile disabilitare immediatamente l'account e revocare l'accesso <br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate | Maggior numero di attività di installazione e configurazione <br> Manutenzione più elevata <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per l'installazione del server federativo. È necessario software aggiuntivo se si usa AD FS <br> Richiede attività di configurazione estese per l'accesso Single Sign-On <br> Punto di errore critico in caso di inattività del server federativo, perché gli utenti non potranno eseguire l'autenticazione |
 
 ### Esperienza client
 La strategia scelta determinerà l'esperienza di accesso per gli utenti. Le tabelle seguenti forniscono informazioni su ciò che gli utenti dovranno aspettarsi dall'esperienza di accesso. Si noti che non tutti i provider di identità federate supportano l'accesso Single Sign-On in tutti gli scenari.
@@ -137,7 +137,7 @@ Per questo scenario, devono essere vere le affermazioni seguenti:
 - Un dominio DNS può essere registrato solo in una singola directory di Azure AD, in modo che anche i nomi dell'entità utente (UPN) degli utenti nell'istanza locale di AD possano usare spazi dei nomi separati
 - Gli utenti in un'istanza di Azure AD potranno visualizzare solo gli utenti inclusi nella stessa istanza, ma non quelli in altre istanze
 - Solo una delle directory di Azure AD può abilitare la distribuzione ibrida di Exchange con l'istanza locale di Active Directory
-- L'esclusione reciproca si applica anche al writeback. Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale. Funzionalità incluse:
+- L'esclusione reciproca si applica anche al writeback. Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale. Sono inclusi:
  - Writeback dei gruppi con la configurazione predefinita
  - Writeback dei dispositivi
 
@@ -160,26 +160,26 @@ Opzioni di progettazione per l'autenticazione a più fattori:
 
 | Asset da proteggere | Autenticazione a più fattori nel cloud | Autenticazione a più fattori in locale |
 |---------------------------------------------------------------|------------------|----------------|
-| App Microsoft | sì | sì |
-| App SaaS nella Raccolta di app | sì | sì |
-| Le applicazioni IIS pubblicate tramite proxy app per Azure AD | sì | sì |
-| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD | no | sì |
-| Accesso remoto, ad esempio VPN, Gateway Desktop remoto | no | sì |
+| App Microsoft | yes | yes |
+| App SaaS nella Raccolta di app | yes | yes |
+| Le applicazioni IIS pubblicate tramite proxy app per Azure AD | yes | yes |
+| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD | no | yes |
+| Accesso remoto, ad esempio VPN, Gateway Desktop remoto | no | yes |
 
 Anche se è già stata scelta una soluzione per la strategia, è comunque necessario riesaminare la valutazione riportata in precedenza a seconda di dove risiedono gli utenti ed eventualmente cambiare il tipo di soluzione. A questo scopo, usare la tabella seguente:
 
 | Posizione degli utenti | Opzione di progettazione preferita |
 |---------------------------------------------------------------------|-----------------------------------------|
 | Azure Active Directory | Multi-Factor Authentication nel cloud |
-| Azure AD e AD locale usando la federazione con AD FS | Entrambe |
-| Azure AD e Active Directory locale con Azure AD Connect, senza sincronizzazione delle password | Entrambe |
-| Azure AD e Active Directory locale con Azure AD Connect, con sincronizzazione delle password | Entrambe |
+| Azure AD e AD locale usando la federazione con AD FS | Entrambi |
+| Azure AD e Active Directory locale con Azure AD Connect, senza sincronizzazione delle password | Entrambi |
+| Azure AD e Active Directory locale con Azure AD Connect, con sincronizzazione delle password | Entrambi |
 | Active Directory locale | Server Multi-Factor Authentication |
 
 >[AZURE.NOTE]È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste. Per altre informazioni, vedere [Scegliere la soluzione di sicurezza a più fattori più adatta](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure).
 
 ## Provider di Multi-Factor Authentication
-L'autenticazione a più fattori è disponibile per impostazione predefinita per gli amministratori globali che hanno un tenant Azure Active Directory. Tuttavia, se si intende estendere l'autenticazione a più fattori a tutti gli utenti e/o si vuole consentire agli amministratori globali di sfruttare i vantaggi offerti da funzionalità quali il portale di gestione, i messaggi di saluto personalizzati e i report, sarà necessario acquistare e configurare un provider Multi-Factor Authentication.
+La modalità Multi-Factor Authentication è disponibile per impostazione predefinita per gli amministratori globali che dispongono di un tenant Azure Active Directory. Tuttavia, se si intende estendere l'autenticazione a più fattori a tutti gli utenti e/o si vuole consentire agli amministratori globali di sfruttare i vantaggi offerti da funzionalità quali il portale di gestione, i messaggi di saluto personalizzati e i report, sarà necessario acquistare e configurare un provider Multi-Factor Authentication.
 
 >[AZURE.NOTE]È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste.
 
@@ -187,6 +187,6 @@ L'autenticazione a più fattori è disponibile per impostazione predefinita per 
 [Determinare i requisiti di protezione dati](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## Vedere anche
-[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Panoramica delle considerazioni sulla progettazione]((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

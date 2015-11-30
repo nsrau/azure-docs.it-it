@@ -42,4 +42,7 @@ Il monitoraggio frequente di queste risorse consente di ottenere informazioni su
 - [Blog di Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
 - [Blog del team di Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
 
-<!---HONumber=Nov15_HO3-->
+## Vedere anche
+[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
+
+<!---HONumber=Nov15_HO4-->

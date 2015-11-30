@@ -25,6 +25,7 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 - [Problemi noti correnti](#issues)
 - [Cronologia delle versioni dell'API REST](#rest_version_history)
+- [Versione di novembre 2015](#nov_changes_15)
 - [Versione ottobre 2015](#oct_changes_15)
 - [Versione di settembre 2015](#september_changes_15)
 - [Versione di agosto 2015](#august_changes_15)
@@ -75,7 +76,13 @@ Gli oggetti di Servizi multimediali nel modulo SDK non possono essere serializza
 
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
-##<a id="oct_changes_15"></a>Versione ottobre 2015
+##<a id="nov_changes_15"></a>Versione di novembre 2015
+
+Servizi multimediali di Azure offre ora il servizio di distribuzione della licenza Google Widevine nel cloud. Per altri dettagli, consultare [questo annuncio di blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Vedere anche [questa esercitazione](media-services-protect-with-drm.md) e [archivio GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+
+Si noti che i servizi di distribuzione delle licenze Widevine forniti da Servizi multimediali di Azure sono in anteprima. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+
+##<a id="oct_changes_15"></a>Versione di ottobre 2015
 
 Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di gestione di Azure per [creare account di Servizi multimediali](media-services-create-account.md#create-a-media-services-account-using-quick-create) ed eseguire diverse attività descritte [qui](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è tuttavia abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
 
@@ -87,7 +94,7 @@ Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seg
 
 - AMS offre ora la possibilità di proteggere le video on Demand (VOD) e i flussi Live con la tecnologia DRM modulare Widevine. È possibile utilizzare i seguenti partner dei servizi di recapito per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
-	È possibile utilizzare [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (inizia con la versione 3.5.1) o l'API REST per configurare il AssetDeliveryConfiguration per utilizzare Widevine.
+	È possibile utilizzare [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (iniziando con la versione 3.5.1) o l'API REST per configurare l’AssetDeliveryConfiguration per utilizzare Widevine.
 
 - AMS ha aggiunto il supporto per i video Apple ProRes. È ora possibile caricare i file video di origine QuickTime che utilizzano Apple ProRes o altri codec. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
@@ -613,4 +620,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

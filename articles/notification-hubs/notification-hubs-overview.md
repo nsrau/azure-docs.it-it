@@ -28,11 +28,8 @@ Con Hub di notifica che è possibile inviare facilmente notifiche push multipiat
 È possibile utilizzare Hub di notifica per scenari aziendali e di consumo. ad esempio:
 
 - Inviare notifiche relative alle ultime notizie a milioni di utenti con bassa latenza (Hub di notifica alimenta applicazioni Bing preinstallate in tutti i dispositivi Windows e Windows Phone).
-
 - Inviare coupon basati sulla posizione a segmenti di utenti.
-
 - Inviare le notifiche degli eventi a utenti o gruppi per applicazioni di sport, finanza e gioco.
-
 - Notificare agli utenti eventi aziendali, come nuovi messaggi/posta elettronica e clienti potenziali.
 - Inviare password monouso richieste per Multi-Factor Authentication.
 
@@ -69,7 +66,7 @@ A livello generale, tuttavia, i sistemi di notifica tramite piattaforma seguono 
 
 ##Difficoltà associate alle notifiche push
 
-Seppur molto potenti, questi sistemi richiedono un grande impegno da parte degli sviluppatori di app per implementare anche i più comuni scenari di notifica push, come la trasmissione o l'invio di notifiche push a un utente.
+Seppur molto potenti, questi sistemi richiedono un grande impegno da parte degli sviluppatori di app per implementare anche i più comuni scenari di notifica push, come la trasmissione o l'invio di notifiche push a utenti segmentati.
 
 Le notifiche push rappresentano attualmente una delle funzionalità più richieste nei servizi cloud per app mobili. L'infrastruttura richiesta per la gestione delle notifiche push è infatti piuttosto complessa e per lo più indipendente dalla logica di business principale dell'app. Di seguito sono illustrate alcune delle principali difficoltà associate alla creazione di un'infrastruttura push su richiesta:
 
@@ -88,15 +85,10 @@ Eliminano la complessità: non è necessario gestire le problematiche delle noti
 ![][1]
 
 
-
-
-
-
 Gli hub di notifica forniscono un'infrastruttura per notifiche push pronta all'uso in grado di supportare:
 
 - **Piattaforme multiple.**
 	+  Supporto per tutte le principali piattaforme mobili. Gli hub di notifica possono inviare notifiche push ad app di Windows Store, per iOS, per Android e per Windows Phone.
-
 
 	+  Gli hub di notifica forniscono un'interfaccia comune per l'invio di notifiche a tutte le piattaforme supportate. Non sono necessari i protocolli specifici della piattaforma. Il back-end dell'app può inviare notifiche sia nel formato specifico di una piattaforma sia in un formato indipendente dalle piattaforme. L'applicazione comunica solo con gli hub di notifica.
 
@@ -115,7 +107,7 @@ Gli hub di notifica forniscono un'infrastruttura per notifiche push pronta all'u
 
 	- *Segmentazione*: push a segmenti complessi definiti da espressioni tag (ad esempio dispositivi a New York che seguono gli Yankees).
 
-	Quando invia l'handle a un hub di notifica, ogni dispositivo può specificare uno o più _tag_. Per altre informazioni sull'uso di [tag](http://msdn.microsoft.com/library/azure/dn530749.aspx). Non è necessario eliminare o eseguire preventivamente il provisioning dei tag. I tag offrono un modo molto semplice per inviare notifiche a utenti o gruppi di interesse. Poiché possono contenere qualsiasi identificatore specifico dell'app, ad esempio ID utente o di gruppo, i tag eliminano la necessità di usare il back-end dell'app per archiviare e gestire gli handle di dispositivo.
+	Quando invia l'handle a un hub di notifica, ogni dispositivo può specificare uno o più _tag_. Per altre informazioni sull'uso di [tag]. Non è necessario eliminare o eseguire preventivamente il provisioning dei tag. I tag offrono un modo molto semplice per inviare notifiche a utenti o gruppi di interesse. Poiché possono contenere qualsiasi identificatore specifico dell'app, ad esempio ID utente o di gruppo, i tag eliminano la necessità di usare il back-end dell'app per archiviare e gestire gli handle di dispositivo.
 
 - **Personalizzazione**: ogni dispositivo può avere uno o più modelli, per ottenere la localizzazione per dispositivo e la personalizzazione senza influire sul codice di back-end.
 
@@ -124,6 +116,18 @@ Gli hub di notifica forniscono un'infrastruttura per notifiche push pronta all'u
 - **Telemetria avanzata**: disponibile nel portale e a livello di codice.
 
 
+##Integrazione con le app per dispositivi mobili del servizio app
+
+Per favorire un’esperienza lineare e uniforme nei servizi di Azure, [App per dispositivi mobili del servizio app] comprende il supporto incorporato per le notifiche push mediante l’hub di notifica. Le [app per dispositivi mobili del servizio app] offrono una piattaforma di sviluppo di applicazioni mobili estremamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per gli sviluppatori di soluzioni per dispositivi mobili.
+
+Gli sviluppatori di app per dispositivi mobili possono usare gli hub di notifica con il seguente flusso di lavoro:
+
+1. Recuperare la gestione del dispositivo PNS
+2. Registrare il dispositivo e i [modelli](optional) con gli hub di notifica mediante il pratico API Register SDK client delle app per dispositivi mobili.
+    + Si noti che le app per dispositivi mobili consentono di eliminare tutti i tag nelle registrazioni per motivi di sicurezza. Usare le hub di notifica dal back-end direttamente per associare tag ai dispositivi.
+3. Invio di notifiche dal back-end dell'app con hub di notifica
+
+Ecco alcuni vantaggi per gli sviluppatori con questa integrazione:- **SDK Client delle app per dispositivi mobili.** Questi SDK multipiattaforma forniscono API semplici per la registrazione e per comunicare automaticamente con l'hub di notifica collegato all'app per dispositivi mobili. Gli sviluppatori non hanno bisogno di approfondire le credenziali dell’hub di notifica e di lavorare con un servizio aggiuntivo. + Gli SDK usano automaticamente il tag del dispositivo specificato con l'ID utente autenticato delle app per dispositivi mobili per abilitare il push per lo scenario utente. + Gli SDK usano automaticamente l'ID di installazione delle app per dispositivi mobili come GUID per registrarsi con gli hub di notifica, risparmiando agli sviluppatori il problema di mantenere più GUID del servizio. - **Modello di installazione.** le app per dispositivi mobili funzionano con il modello di push più recente degli hub di notifica per rappresentare tutte le proprietà di push associate a un dispositivo in un'installazione JSON che è in linea con i servizi di notifica push e che è facile da usare. - **Flessibilità.** Gli sviluppatori possono sempre scegliere di utilizzare direttamente gli hub di notifica anche con l'integrazione sul posto. - **Esperienza integrata in [portale di Azure].** Il Push come funzionalità è rappresentato visivamente nelle app per dispositivi mobili e gli sviluppatori possono utilizzare facilmente l'hub di notifica associato tramite le App per dispositivi mobili.
 
 
 
@@ -156,5 +160,9 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
+  [App per dispositivi mobili del servizio app]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-mobile-value-prop/
+  [templates]: https://msdn.microsoft.com/it-IT/library/azure/dn530748.aspx
+  [portale di Azure]: https://portal.azure.com
+  [tag]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

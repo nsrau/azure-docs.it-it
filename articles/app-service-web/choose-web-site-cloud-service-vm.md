@@ -161,8 +161,8 @@ Supporto per SSL|X|X|X|Per App Web del servizio app, SSL per i nomi di dominio p
 Integrazione di Visual Studio|X|X|X|
 Debug remoto|X|X|X|
 Distribuzione codice con TFS|X|X|X|
-Isolamento rete con la [rete virtuale di Azure](../services/virtual-network/)|X|X|X|Vedere anche [Integrazione della rete virtuale di Siti Web di Azure](../blog/2014/09/15/azure-websites-virtual-network-integration/)
-Supporto per [Gestione traffico di Azure](../services/traffic-manager/)|X|X|X|
+Isolamento rete con la [rete virtuale di Azure](/services/virtual-network/)|X|X|X|Vedere anche [Integrazione della rete virtuale di Siti Web di Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/)
+Supporto per [Gestione traffico di Azure](/services/traffic-manager/)|X|X|X|
 Monitoraggio integrato degli endpoint|X|X|X|
 Accesso al server tramite Desktop remoto||X|X|
 Installazione di qualsiasi MSI personalizzato||X|X|
@@ -204,4 +204,4 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [archiviazione]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

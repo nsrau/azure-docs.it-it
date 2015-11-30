@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Panoramica di Service Fabric Reliable Actors"
+   pageTitle="Panoramica di Reliable Actors di infrastruttura di servizi | Microsoft Azure"
    description="Introduzione al modello di programmazione di Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
@@ -36,10 +36,10 @@ public interface ICalculatorActor : IActor
 }
 ```
 
-Un tipo di attore può implementare l'interfaccia precedente come segue:
+Un tipo di attore può implementare questa interfaccia nel seguente modo:
 
 ```csharp
-public class CalculatorActor : Actor, ICalculatorActor
+public class CalculatorActor : StatelessActor, ICalculatorActor
 {
     public Task<double> AddAsync(double valueOne, double valueTwo)
     {
@@ -81,9 +81,9 @@ Gli attori Service Fabric sono virtuali, vale a dire che la loro durata non è c
 Per garantire scalabilità e affidabilità elevate, Service Fabric distribuisce attori all'interno del cluster e automaticamente ne esegue la migrazione dai nodi non riusciti a quelli integri come richiesto. La`ActorProxy`classe sul lato client esegue la risoluzione necessaria per individuare l'attore dall'ID[partizione](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)e apre un canale di comunicazione con esso. Il`ActorProxy`ritenta nel caso di errori di comunicazione e di failover. Ciò garantisce che i messaggi vengono recapitati in modo affidabile nonostante la presenza di errori, ma significa anche che è possibile che un'implementazione attore ottenga messaggi duplicati dallo stesso client.
 
 ## Concorrenza
-### Concorrenza basata su turni.
+### Accesso basato su turni
 
-Il runtime di Actors fornisce una concorrenza semplice basata su turni per i metodi degli attori. Ciò significa che, in qualsiasi momento, all'interno del codice dell'attore non può essere attivo più di un thread.
+Il runtime degli attori fornisce un semplice modello basato su turni accedere ai metodi degli attori. Ciò significa che, in qualsiasi momento, all'interno del codice dell'attore non può essere attivo più di un thread.
 
 Un turno consiste nell'esecuzione completa di un metodo di attore in risposta alla richiesta di altri attori o client o nell'esecuzione completa di un callback di [timer/promemoria](service-fabric-reliable-actors-timers-reminders.md). Anche se questi metodi e i callback sono asincroni, il runtime di Actors non ne esegue l'interfoliazione: un turno essere interamente completato prima che venga consentito un nuovo turno. In altre parole, un metodo di attore o un callback di timer/promemoria in esecuzione deve essere interamente completato prima che sia consentita una nuova chiamata a un metodo o a un callback. Un metodo o un callback è considerato completato se è stata restituita l'esecuzione e se l'attività restituita dal metodo o dal callback è stata completata. È opportuno sottolineare che la concorrenza basata su turni viene rispettata anche su metodi, timer e callback diversi.
 
@@ -121,12 +121,12 @@ Il runtime di Actors fornisce queste garanzie di concorrenza nelle situazioni in
 Fabric Actors consente di creare attori con o senza stato.
 
 ### Attori senza stato
-Gli attori senza stato, che derivano dalla``Actor``classe di base, non dispongono di uno stato gestito dal runtime di Actors. Le variabili membro vengono mantenute per tutta la loro durata in memoria come qualsiasi altro tipo .NET. Tuttavia, quando sono sottoposte a garbage collection dopo un periodo di inattività, lo stato viene perso. Analogamente, lo stato può essere perso a causa di failover che si verificano durante gli aggiornamenti, le operazioni di bilanciamento delle risorse o come risultato di errori nel processo attore o del suo nodo di hosting.
+Gli attori senza stato, che derivano dall aclasse di base `StatelessActor`, non dispongono di uno stato gestito dal runtime degli attori. Le variabili membro vengono mantenute per tutta la loro durata in memoria come qualsiasi altro tipo .NET. Tuttavia, quando sono sottoposte a garbage collection dopo un periodo di inattività, lo stato viene perso. Analogamente, lo stato può essere perso a causa di failover che si verificano durante gli aggiornamenti, le operazioni di bilanciamento delle risorse o come risultato di errori nel processo attore o del suo nodo di hosting.
 
 Di seguito è riportato un esempio di un attore senza stato.
 
 ```csharp
-class HelloActor : Actor, IHello
+class HelloActor : StatelessActor, IHello
 {
     public Task<string> SayHello(string greeting)
     {
@@ -136,12 +136,12 @@ class HelloActor : Actor, IHello
 ```
 
 ### Attori con stato
-Gli attori con stato dispongono di informazioni sullo stato che devono essere mantenute anche se si verificano episodi di Garbage Collection e failover. Essi derivano dalla`Actor<TState>`classe base, dove`TState`è il tipo di stato che deve essere mantenuto. Lo stato è accessibile nei metodi degli attori mediante la proprietà `State` sulla classe base .
+Gli attori con stato dispongono di informazioni sullo stato che devono essere mantenute anche se si verificano episodi di Garbage Collection e failover. Essi derivano da `StatefulActor<TState>`, dove`TState`è il tipo di stato che deve essere mantenuto. Lo stato è accessibile nei metodi degli attori mediante la proprietà `State` sulla classe base .
 
 Di seguito è riportato un esempio di un attore con stato che accede alle informazioni sullo stato.
 
 ```csharp
-class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {
@@ -198,4 +198,4 @@ I callback di timer possono essere contrassegnati in modo analogo con l'attribut
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

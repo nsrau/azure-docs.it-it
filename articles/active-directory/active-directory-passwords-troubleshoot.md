@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Come risolvere i problemi relativi alla gestione delle password
@@ -698,6 +698,22 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
                 <li class="unordered">
 										Se sono abilitati filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà.&lt;br>&lt;br></li>
               </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>HR 8023042</p>
+            </td>
+            <td>
+              <p>Il motore di sincronizzazione ha restituito un errore hr = 80230402, messaggio = Tentativo di ottenere un oggetto non riuscito. Sono presenti voci duplicate con lo stesso ancoraggio</p>
+            </td>
+            <td>
+              <p>ADSync</p>
+            </td>
+            <td>
+              <p>Questo evento si verifica quando lo stesso id utente è abilitato in più domini. Ad esempio, se si esegue la sincronizzazione di foreste di Account/Resource e lo stesso id utente è presente e abilitato in ciascuna di esse, questo errore può verificarsi.  </p>
+              <p>Questo errore può verificarsi anche se si utilizza un attributo di ancoraggio non univoco (come alias o UPN) e due utenti condividono lo stesso attributo di ancoraggio.</p>
+              <p>Per risolvere questo problema, assicurarsi di non avere alcun utente duplicato all'interno dei domini e di utilizzare un attributo di ancoraggio univoco per ogni utente.</p>
             </td>
           </tr>
           <tr>
@@ -1462,19 +1478,17 @@ Se anche in questo modo il problema non si risolve, vedere [Risolvere i problemi
 
 <br/> <br/> <br/>
 
-**Risorse aggiuntive**
+## Collegamenti alla documentazione relativa alla reimpostazione della password
+Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-
-* [Informazioni sulla gestione delle password](active-directory-passwords.md)
-* [Funzionamento della gestione delle password](active-directory-passwords-how-it-works.md)
-* [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md)
-* [Personalizzare la gestione delle password](active-directory-passwords-customize.md)
-* [Procedure consigliate per la gestione delle password](active-directory-passwords-best-practices.md)
-* [Come ottenere informazioni dettagliate con i report di gestione delle password](active-directory-passwords-get-insights.md)
-* [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
-* [Altre informazioni](active-directory-passwords-learn-more.md)
-* [Gestione delle password in MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
-
+* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
+* [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
+* [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
+* [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
+* [**Informazioni dettagliate**](active-directory-passwords-get-insights.md): informazioni sulle funzionalità di creazione report integrate
+* [**Domande frequenti**](active-directory-passwords-faq.md): risposte alle domande frequenti
+* [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
 
 
 
@@ -1483,4 +1497,4 @@ Se anche in questo modo il problema non si risolve, vedere [Risolvere i problemi
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

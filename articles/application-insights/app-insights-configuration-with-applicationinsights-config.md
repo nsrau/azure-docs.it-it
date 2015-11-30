@@ -111,7 +111,6 @@ Gli inizializzatori standard sono tutti impostati dal Web o dai pacchetti NuGet 
 
 * `AccountIdTelemetryInitializer` imposta la proprietà AccountId.
 * `AuthenticatedUserIdTelemetryInitializer` imposta la proprietà AuthenticatedUserId come impostata dal SDK di JavaScript.
-* `OperationNameTelemetryInitializer` aggiorna la proprietà contestuale `Operation.Id` di tutti gli elementi di telemetria rilevati durante la gestione di una richiesta con `RequestTelemetry.Id` generato automaticamente.
 * `AzureRoleEnvironmentTelemetryInitializer` aggiorna le proprietà `RoleName` e `RoleInstance` del contesto `Device` per tutti gli elementi di telemetria con le informazioni estratte dall'ambiente di runtime di Azure.
 * `BuildInfoConfigComponentVersionTelemetryInitializer` aggiorna la proprietà `Version` del contesto `Component` per tutti gli elementi di telemetria con il valore estratto dal file `BuildInfo.config` prodotto dalla compilazione MS.
 * `ClientIpHeaderTelemetryInitializer` aggiorna le proprietà `Ip` del contesto `Location` di tutti gli elementi di telemetria in base all'intestazione HTTP `X-Forwarded-For` della richiesta.
@@ -137,9 +136,20 @@ I processori di telemetria possono filtrare e modificare ciascun elemento di tel
 
 E’ possibile [scrivere i propri processori di telemetria](app-insights-api-filtering-sampling.md#filtering).
 
-Esiste un processore standard (da 2.0.1):
+È inoltre disponibile un [processore di telemetria di campionamento ](app-insights-api-filtering-sampling.md#sampling) standard (da 2.0.1):
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor` - [Campionamento](app-insights-api-filtering-sampling.md#sampling) riduce il volume della telemetria permettendo allo stesso tempo di navigare tra elementi di telemetria collegati per la diagnosi.
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
+```
 
 
 
@@ -252,4 +262,4 @@ Per ottenere una nuova chiave, [creare una nuova risorsa nel portale di Applicat
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

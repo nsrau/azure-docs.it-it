@@ -1,5 +1,5 @@
 
-Successivamente, è necessario registrare l'app nel sito di un provider di identità e quindi impostare le credenziali generate dal provider nel back-end dell'app per dispositivi mobili.
+Innanzitutto, è necessario registrare l'app nel sito di un provider di identità e quindi impostare le credenziali generate dal provider nel back-end dell'app per dispositivi mobili.
 
 1. Configurare il provider di identità preferito seguendo le istruzioni specifiche del provider: 
 	
@@ -15,4 +15,4 @@ Successivamente, è necessario registrare l'app nel sito di un provider di ident
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

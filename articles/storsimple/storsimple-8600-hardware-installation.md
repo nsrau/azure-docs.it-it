@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/13/2015"
+   ms.date="11/16/2015"
    ms.author="alkohli" />
 
 # Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
@@ -108,7 +108,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 
 #### Per installare l'enclosure EBOD sulle guide
 
-2. Eseguire questo passaggio solo se non ci sono guide interne installate sul dispositivo. In genere, le guide sono preinstallate. Se non lo sono, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.
+2. Eseguire questo passaggio solo se non ci sono guide interne installate sul dispositivo. In genere, le guide sono preinstallate. In caso contrario, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.
 
     ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
@@ -253,18 +253,18 @@ H,I | Host (ad esempio, file server)
 Quando si effettua il cablaggio del dispositivo, la configurazione minima richiede:
 
 
-- Almeno due interfacce di rete connesse in ogni controller di cui n una per l'accesso al cloud e l’altra per iSCSI. La porta DATA 0 viene abilitata automaticamente e configurata mediante la console seriale del dispositivo. Oltre a DATA 0, è presente anche un'altra porta dati che deve essere configurata mediante il portale di gestione. In questo caso, collegare la porta DATA 0 alla rete LAN principale (rete con accesso a Internet). Le altre porte dati possono essere collegate al segmento SAN/iSCSI LAN (VLAN) della rete, a seconda del ruolo previsto.
+- Almeno due interfacce di rete connesse in ogni controller, di cui una per l'accesso al cloud e l'altra per iSCSI. La porta DATA 0 viene abilitata automaticamente e configurata mediante la console seriale del dispositivo. Oltre a DATA 0, è presente anche un'altra porta dati che deve essere configurata mediante il portale di Azure. In questo caso, collegare la porta DATA 0 alla rete LAN principale (rete con accesso a Internet). Le altre porte dati possono essere collegate al segmento SAN/iSCSI LAN (VLAN) della rete, a seconda del ruolo previsto.
 
-- Le interfacce identiche di ogni controller collegato alla stessa rete per assicurare la disponibilità in seguito a un failover del controller. Se, ad esempio, si decide di collegare le porte DATA 0 e DATA 3 di uno dei controller, è necessario collegare anche le corrispondenti porte DATA 0 e DATA 3 dell'altro controller.
+- Interfacce identiche in ogni controller collegato alla stessa rete, in modo da assicurare la disponibilità in seguito a un failover del controller. Se, ad esempio, si decide di collegare le porte DATA 0 e DATA 3 di uno dei controller, è necessario collegare anche le corrispondenti porte DATA 0 e DATA 3 dell'altro controller.
 	
 Da tenere presente per prestazioni e disponibilità elevate:
 
 
-- Se possibile, configurare una coppia di interfaccia di rete per l'accesso al cloud (1 GbE) e un'altra coppia per iSCSI (10 GbE consigliati) su ogni controller. 
+- Se possibile, configurare in ogni controller una coppia di interfacce di rete per l'accesso al cloud (1 GbE) e un'altra coppia per iSCSI (10 GbE consigliati). 
 
-- Se possibile, collegare le interfacce di rete da ogni controller a due interruttori diversi per assicurare la disponibilità nel caso di malfunzionamento dell'interruttore. Nell’immagine vengono illustrate le due interfacce di rete da 10 GbE, DATI 2 e DATI 3, da ogni controller connesso a due diversi interruttori. Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti di disponibilità elevata per il dispositivo StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+- Se possibile, collegare le interfacce di rete di ogni controller a due interruttori diversi per assicurare la disponibilità in caso di malfunzionamento di un interruttore. L'immagine illustra le due interfacce di rete 10 GbE, DATA 2 e DATA 3, di ogni controller connesso a due diversi interruttori. Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti di disponibilità elevata per il dispositivo StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
 
->[AZURE.NOTE]Se si utilizza SFP + ricetrasmettitore con le interfacce di rete da 10 GbE, utilizzare QSFP fornito-SFP + adattatori. Altre informazioni sull’[Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+>[AZURE.NOTE]Se si usano ricetrasmettitori SFP+ con interfacce di rete 10 GbE, usare le schede QSFP-SFP+ fornite di serie. Altre informazioni sull’[Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Cablaggio della porta seriale
 
@@ -298,4 +298,4 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

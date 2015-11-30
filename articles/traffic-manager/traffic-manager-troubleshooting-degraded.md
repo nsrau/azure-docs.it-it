@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="kwill-MSFT"
-   manager="adinah"
+   manager="carmonm"
    editor="joaoma" />
 
 <tags 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
-Questa pagina descriverà come risolvere i problemi relativi al profilo di Gestione traffico di Azure che mostra uno stato danneggiato e fornirà alcune indicazioni chiave sui probe di Gestione traffico.
 
+Questa pagina descriverà come risolvere i problemi relativi al profilo di Gestione traffico di Azure che mostra uno stato danneggiato e fornirà alcune indicazioni chiave sui probe di Gestione traffico.
 
 Pochi secondi dopo aver configurato un profilo di Gestione traffico che punta ad alcuni dei servizi ospitati cloudapp.net, lo stato risulta Danneggiato.
 
@@ -80,4 +80,4 @@ Se il probe usa il protocollo HTTPS, sarà necessario aggiungere il parametro "-
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

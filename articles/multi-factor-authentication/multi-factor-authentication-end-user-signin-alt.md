@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Effettuare l’accesso utilizzando un metodo alternativo con Azure Multi-Factor Authentication
@@ -33,4 +33,4 @@ Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alte
 
 <li>Scegliere un metodo alternativo ed effettuare l’accesso.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Utilizzare il telefono dell'ufficio come metodo di contatto con Azure Multi-Factor Authentication
@@ -40,4 +40,4 @@ Se si desidera utilizzare il telefono dell'ufficio come metodo di contatto princ
 
 <center>! [Installazione] (. / media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

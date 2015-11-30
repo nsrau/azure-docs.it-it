@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Query SQL in un Database di DocumentDB - Query SQL | Microsoft Azure" 
-	description="Informazioni relative alla modalità con cui DocumentDB supporta le query SQL sui documenti JSON gerarchici per l'indicizzazione automatica. Individua un ambiente di database di query SQL effettivamente senza schema." 
-	keywords="Query di database, query sql, linguaggio di query strutturato, azure documentdb, Microsoft azure"
+	pageTitle="Query SQL in un DocumentDB, un database NoSQL | Microsoft Azure" 
+	description="Informazioni su come utilizzare le istruzioni di query SQL per eseguire query in DocumentDB, un database NoSQL. Come linguaggio di query JSON, le query SQL possono essere utilizzate per le analisi Big Data." 
+	keywords="query SQL, query SQL, sintassi SQL, linguaggio di query json, concetti di database e query SQL"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.date="11/18/2015" 
 	ms.author="arramac"/>
 
 # Query SQL in DocumentDB
-Microsoft Azure DocumentDB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) su documenti JSON gerarchici. DocumentDB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
+Microsoft Azure DocumentDB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) come linguaggio di query JSON. DocumentDB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
 
 Nella progettazione del linguaggio di query per DocumentDB sono stati tenuti in considerazione due obiettivi:
 
--	**Adottare SQL**: invece di inventare un nuovo linguaggio di query, si è preferito adottare il linguaggio SQL. In fondo, SQL è uno dei linguaggi di query più familiari e popolari. Il linguaggio di query SQL di DocumentDB fornisce un modello di programmazione formale per le query complesse sui documenti JSON.
--	**Estendere SQL**: poiché un database di documenti JSON può eseguire JavaScript direttamente nel motore di database, l'obiettivo era usare il modello di programmazione di JavaScript come base per il linguaggio di query SQL. Il linguaggio di query SQL di DocumentDB è radicato nel sistema di tipi, nella valutazione delle espressioni e nella chiamata di funzioni di JavaScript. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso i documenti JSON, i self join e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità. 
+-	Invece di inventare un nuovo linguaggio di query, si è preferito supportare il linguaggio SQL. SQL è uno dei linguaggi di query più familiari e popolari. Il linguaggio di query SQL di DocumentDB fornisce un modello di programmazione formale per le query complesse sui documenti JSON.
+-	Poiché un database di documenti JSON può eseguire JavaScript direttamente nel motore di database, l'obiettivo era di usare il modello di programmazione di JavaScript come base per il linguaggio di query. Il linguaggio di query SQL di DocumentDB è radicato nel sistema di tipi, nella valutazione delle espressioni e nella chiamata di funzioni di JavaScript. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso i documenti JSON, i self join, query spaziali e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità. 
 
 Queste capacità costituiscono la chiave per la riduzione dell'attrito tra l'applicazione e il database e sono di importanza critica per la produttività degli sviluppatori.
 
@@ -31,9 +31,9 @@ Si consiglia di iniziare guardando il video seguente, in cui Aravind Ramachandra
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-Tornare quindi a questo articolo, dove verranno illustrati alcuni semplici documenti JSON e comandi SQL.
+Tornare quindi a questo articolo, dove inizierà un’esercitazione sulle query SQL in cui verranno illustrati alcuni semplici documenti JSON e comandi SQL.
 
-## Guida introduttiva ai comandi Structured Query Language (SQL) in DocumentDB
+## Guida introduttiva ai comandi SQL in DocumentDB
 Per osservare il funzionamento del linguaggio SQL di DocumentDB, si inizierà con alcuni semplici documenti JSON e si procederà eseguendo alcune semplici query su tali documenti. Considerare questi due documenti JSON come se riguardassero due famiglie. Da notare che, con DocumentDB, non è necessario creare alcuno schema o indici secondari in maniera esplicita. È sufficiente inserire i documenti JSON in una raccolta di DocumentDB e successivamente eseguire una query. In questo caso è illustrato un semplice documento JSON relativo alla famiglia Andersen: i genitori, i figli (e i loro animali domestici), l'indirizzo e le informazioni di registrazione. Il documento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate.
 
 **Documento**
@@ -164,7 +164,7 @@ La query successiva restituisce i nomi di elementi figlio specificati nella fami
 
 ## Indicizzazione di DocumentDB
 
-Prima di addentrarsi nel linguaggio SQL di DocumentDB vale la pena esplorare la progettazione dell'indicizzazione di DocumentDB.
+Prima di addentrarsi nella sintassi SQL di DocumentDB vale la pena esplorare la progettazione dell'indicizzazione di DocumentDB.
 
 Lo scopo degli indici di database è gestire le query in varie forme con un consumo di risorse ridotto al minimo (ad esempio CPU, input/output), offrendo al contempo una buona velocità effettiva e basse latenze. Spesso, la scelta dell'indice corretto per l'interrogazione di un database richiede una lunga pianificazione e sperimentazione. Questo approccio costituisce una sfida per i database senza schema, in cui i dati non si conformano a un rigido schema ed evolvono rapidamente.
 
@@ -180,7 +180,7 @@ Di conseguenza, durante la progettazione del sottosistema di indicizzazione di D
 
 -	Per conseguire l'efficienza dei costi, le risorse di archiviazione su disco dell'indice sono vincolate e prevedibili. Ciò è fondamentale perché DocumentDB consente allo sviluppatore di accettare compromessi basati sul costo tra spese relative all'indice e prestazioni delle query.
 
-Per un esempio che illustra come configurare i criteri di indicizzazione per una raccolta, vedere gli esempi relativi a [DocumentDB su MSDN](https://github.com/Azure/azure-documentdb-net). Verrà ora analizzato più dettagliatamente il linguaggio SQL di DocumentDB.
+Per un esempio che illustra come configurare i criteri di indicizzazione per una raccolta, vedere gli esempi relativi a [DocumentDB su MSDN](https://github.com/Azure/azure-documentdb-net). Verrà ora analizzata più dettagliatamente la sintassi SQL di DocumentDB.
 
 
 ## Nozioni di base di una query SQL di DocumentDB
@@ -188,7 +188,8 @@ Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative i
     
     SELECT <select_list> 
     [FROM <from_specification>] 
-    [WHERE <filter_condition>]    
+    [WHERE <filter_condition>]
+    [ORDER BY <sort_specification]    
 
 
 ## Clausola FROM
@@ -280,7 +281,7 @@ La query seguente richiede documenti che contengono una proprietà nome il cui v
 
 Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. Il linguaggio SQL di DocumentDB supporta anche una varietà di espressioni scalari. Quelle di uso più comune sono le espressioni binarie e unarie. Anche i riferimenti di proprietà dell'oggetto JSON sono espressioni valide.
 
-Gli operatori binari seguenti sono attualmente supportati e possono essere usati nelle query, come illustrato negli esempi seguenti: <table> <tr> <td>aritmetica</td> <td>+,-,*,/,%</td> </tr> <tr> <td>Bitwise</td> <td>|, &, ^, <<, >>, >>> (spostamento a destra riempimento zero) </td> </tr> <tr> <td>logiche</td> <td>AND, OR, NOT </td> </tr> <tr> <td>confronto</td> <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td> </tr> <tr> <td>stringa</td> <td>|| (concatenazione)</td> </tr> </table>
+I seguenti operatori binari sono attualmente supportati e possono essere utilizzati nelle query come illustrato negli esempi seguenti: <table> <tr> <td>Arithmetic</td> <td>+,-,*,/,%</td> </tr> <tr> <td>Bitwise</td> <td>|, &, ^, <<, >>, >>> (zero-fill right shift) </td> </tr> <tr> <td>Logical</td> <td>AND, OR, NOT</td> </tr> <tr> <td>Comparison</td> <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td> </tr> <tr> <td>String</td> <td>|| (concatenate)</td> </tr> </table>
 
 Saranno ora prese in esame alcune query che usano gli operatori binari.
 
@@ -312,7 +313,7 @@ Sono supportati anche gli operatori unari +,-, ~ e NOT, che possono essere usati
 Oltre agli operatori binari e unari, sono consentiti anche i riferimenti di proprietà. Ad esempio, `SELECT * FROM Families f WHERE f.isRegistered` restituirebbe i documenti JSON contenenti la proprietà `isRegistered` dove il valore della proprietà è uguale al valore JSON `true`. Qualsiasi altro valore (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` e così via) comporta l'esclusione del documento di origine dai risultati.
 
 ### Operatori di confronto e uguaglianza
-La tabella seguente illustra il risultato dei confronti di uguaglianza nel linguaggio SQL di DocumentDB tra due tipi JSON qualsiasi. <table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>Non definito</strong> </td> <td valign="top"> <strong>Null</strong> </td> <td valign="top"> <strong>Booleano</strong> </td> <td valign="top"> <strong>Numero</strong> </td> <td valign="top"> <strong>Stringa</strong> </td> <td valign="top"> <strong>Oggetto</strong> </td> <td valign="top"> <strong>Matrice</strong> </td> </tr> <tr> <td valign="top"> <strong>Non definito <strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Null<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Booleano<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Numero<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Stringa<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Oggetto<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Matrice<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> </tr> </tbody> </table>
+La tabella seguente illustra il risultato dei confronti di uguaglianza nel linguaggio SQL di DocumentDB tra due tipi JSON qualsiasi. <table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>Undefined</strong> </td> <td valign="top"> <strong>Null</strong> </td> <td valign="top"> <strong>Boolean</strong> </td> <td valign="top"> <strong>Number</strong> </td> <td valign="top"> <strong>String</strong> </td> <td valign="top"> <strong>Object</strong> </td> <td valign="top"> <strong>Array</strong> </td> </tr> <tr> <td valign="top"> <strong>Undefined<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>Null<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>Boolean<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>Number<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>String<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>Object<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>Array<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> </tr> </tbody> </table>
 
 Per gli altri operatori di confronto, ad esempio >, >=, !=, < e <=, si applicano le regole seguenti:
 
@@ -322,7 +323,7 @@ Per gli altri operatori di confronto, ad esempio >, >=, !=, < e <=, si applicano
 Se il risultato dell'espressione scalare nel filtro è Undefined, il documento corrispondente non verrebbe incluso nel risultato, perché Undefined non è logicamente uguale a "true".
 
 ### Parola chiave BETWEEN
-È possibile usare anche la parola chiave BETWEEN per esprimere query su intervalli di valori come in SQL ANSI. BETWEEN può essere usata con qualsiasi tipo primitivo JSON (numeri, stringhe, valori booleani e valori null).
+È possibile usare anche la parola chiave BETWEEN per esprimere query su intervalli di valori come in SQL ANSI. La parola BETWEEN può essere utilizzata con stringhe o numeri.
 
 Ad esempio, questa query restituisce tutti i documenti della famiglia in cui la classe frequentata dal primo figlio sia compresa tra 1 e 5 (inclusi).
 
@@ -705,7 +706,7 @@ La query seguente recupera le famiglie in ordine di data di creazione, archiviat
 	  }
 	]
 	
-## Concetti avanzati relativi ai database di query SQL
+## Concetti avanzati relativi ai database e alle query SQL
 ### Iterazione
 Nel linguaggio SQL di DocumentDB è stato aggiunto un nuovo costrutto tramite la parola chiave **IN** per fornire supporto all'iterazione nelle matrici JSON. L'origine FROM fornisce supporto per l'iterazione. Esaminare l'esempio seguente:
 
@@ -943,7 +944,7 @@ DocumentDB offre un modello di programmazione per l'esecuzione di logica dell'ap
 ###Funzioni definite dall'utente (UDF)
 Oltre ai tipi già specificati in questo articolo, il linguaggio SQL di DocumentDB offre il supporto per le funzioni definite dall'utente (UDF). In particolare, le UDF scalari sono supportate laddove gli sviluppatori possono passare zero o molti argomenti e restituire un unico argomento. Verrà quindi eseguito un controllo per verificare che ciascuno di questi argomenti sia un valore JSON legale.
 
-La grammatica SQL di DocumentDB viene estesa per supportare la logica delle applicazioni personalizzata usando le funzioni definite dall'utente. Le UDF possono essere registrate con DocumentDB ed è quindi possibile fare loro riferimento come parte di una query SQL. In effetti, le UDF sono progettate espressamente per essere richiamate dalle query. Come corollario a questa scelta, le UDF non hanno accesso all'oggetto di contesto a cui possono invece accedere altri tipi di Javascript (stored procedure e trigger). Poiché le query vengono eseguite in sola lettura, è possibile eseguirle sulle repliche primarie o secondarie. Di conseguenza, a differenza di altri tipi di JavaScript, le UDF vengono progettate per l'esecuzione sulle repliche secondarie.
+La sintassi SQL di DocumentDB viene estesa per supportare la logica delle applicazioni personalizzata usando le funzioni definite dall'utente. Le UDF possono essere registrate con DocumentDB ed è quindi possibile fare loro riferimento come parte di una query SQL. In effetti, le UDF sono progettate espressamente per essere richiamate dalle query. Come corollario a questa scelta, le UDF non hanno accesso all'oggetto di contesto a cui possono invece accedere altri tipi di Javascript (stored procedure e trigger). Poiché le query vengono eseguite in sola lettura, è possibile eseguirle sulle repliche primarie o secondarie. Di conseguenza, a differenza di altri tipi di JavaScript, le UDF vengono progettate per l'esecuzione sulle repliche secondarie.
 
 Di seguito è riportato un esempio di come è possibile registrare una UDF nel database di DocumentDB, in maniera specifica in una raccolta di documenti.
 
@@ -960,7 +961,7 @@ Di seguito è riportato un esempio di come è possibile registrare una UDF nel d
 	       collectionSelfLink/* link of the parent collection*/, 
 	       regexMatchUdf).Result;  
                                                                              
-Nell'esempio precedente è stata creata una UDF, denominata `REGEX_MATCH`. Accetta due valori stringa JSON `input` e `pattern` e controlla se il primo corrisponde al modello specificato nella seconda mediante la funzione string.match() di JavaScript.
+Nell'esempio precedente è stata creata una UDF, denominata `REGEX_MATCH`. Accetta due valori stringa JSON `input` e `pattern` ed controlla se il primo corrisponde al modello specificato nella seconda mediante la funzione string.match() di JavaScript.
 
 
 È ora possibile usare questa UDF in una query in una proiezione. Le UDF devono essere qualificate con il prefisso con distinzione tra maiuscole e minuscole "udf." quando chiamate dall'interno delle query.
@@ -1386,8 +1387,6 @@ L'esempio seguente usa ARRAY\_LENGTH per ottenere il numero di figli per ogni fa
       "numberOfChildren": 1
     }]
 
-Viene eseguito il wrapping di funzioni predefinite e della grammatica SQL per DocumentDB. Verrà ora esaminato il funzionamento delle query LINQ e verrà illustrato il modo in cui interagiscono con la grammatica esaminata fino ad ora.
-
 ### Funzioni spaziali
 
 DocumentDB supporta le seguenti funzioni predefinite di Open Geospatial Consortium (OGC) per l'esecuzione di query geospaziali. Per altre informazioni sul supporto geospaziale in DocumentDB, vedere [Uso dei dati geospaziali in Azure DocumentDB](documentdb-geospatial.md).
@@ -1429,11 +1428,11 @@ Le funzioni spaziali possono essere utilizzate per eseguire query di prossimità
       "id": "WakefieldFamily"
     }]
 
-Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per altre informazioni sull'indicizzazione spaziale, vedere la sezione seguente. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire le query spaziali specificando l'intestazione della richiesta `x-ms-documentdb-query-enable-scan` con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l'argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true.
+Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per altre informazioni sull'indicizzazione spaziale, vedere la sezione seguente. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire query spaziali specificando `x-ms-documentdb-query-enable-scan` intestazione della richiesta con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l’argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true.
 
 ST\_WITHIN può essere utilizzato per controllare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente utilizzati per rappresentare limiti come codici postali, confini di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le query "within" verranno servite in modo efficiente tramite l'indice.
 
-Gli argomenti Polygon in ST\_WITHIN possono contenere solo un anello singolo, ad esempio i poligoni non devono contenere aree vuote. Controllare i [limiti DocumentDB](documentdb-limits.md)per il numero massimo di punti consentiti in un poligono per una query ST\_WITHIN.
+Gli argomenti Polygon in ST\_WITHIN possono contenere solo un anello singolo, ad esempio i poligoni non devono contenere aree vuote. Controllare i [limiti di DocumentDB](documentdb-limits.md) per il numero massimo di punti consentiti in un poligono per una query ST\_WITHIN.
 
 **Query**
 
@@ -1450,7 +1449,7 @@ Gli argomenti Polygon in ST\_WITHIN possono contenere solo un anello singolo, ad
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]In modo analogo al funzionamento dei tipi non corrispondenti nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutato come **non definito** e il documento valutato deve essere ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug del tipo spatail non valido.
+>[AZURE.NOTE]Come per il funzionamento di tipi non corrispondenti nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutato **undefined** e il documento valutato verrà ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug del tipo spatail non valido.
 
 ST\_ISVALID e ST\_ISVALIDDETAILED possono essere utilizzati per verificare la validità di un oggetto spaziale. Ad esempio, la seguente query controlla la validità di un punto con un valore di latitudine fuori scala (-132,8). ST\_ISVALID restituisce solo un valore booleano e ST\_ISVALIDDETAILED restituisce il valore booleano e una stringa contenente il motivo per cui è considerato non valido.
 
@@ -1481,7 +1480,7 @@ Queste funzioni possono essere utilizzate anche per convalidare i poligoni. Ad e
       	}
     }]
     
-Viene eseguito il wrapping di funzioni predefinite e della grammatica SQL per DocumentDB. Verrà ora esaminato il funzionamento delle query LINQ e verrà illustrato il modo in cui interagiscono con la grammatica esaminata fino ad ora.
+Viene eseguito il wrapping di funzioni spaziali e della sintassi SQL per DocumentDB. Verrà ora esaminato il funzionamento delle query LINQ e verrà illustrato il modo in cui interagiscono con la sintassi esaminata fino ad ora.
 
 ## Da LINQ a SQL di DocumentDB
 LINQ è un modello di programmazione .NET che esprime il calcolo come query su flussi di oggetti. DocumentDB fornisce una libreria lato client che si interfaccia con LINQ agevolando una conversione tra oggetti JSON e .NET e un mapping da un sottoinsieme di query LINQ alle query di DocumentDB.
@@ -1588,7 +1587,7 @@ In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JS
 		family.children[0].grade;
 		family.children[n].grade; //n is an int variable
 
--	Espressioni aritmetiche: includono espressioni aritmetiche comuni su valori numerici e booleani. Per un elenco completo, vedere le specifiche di SQL.
+-	Espressioni aritmetiche: includono espressioni aritmetiche comuni su valori numerici e booleani. Per un elenco completo, fare riferimento alle specifiche di SQL.
 
 		2 * family.children[0].grade;
 		x + y;
@@ -1808,7 +1807,7 @@ DocumentDB offre un modello di programmazione aperto RESTful su HTTP. È possibi
 
 Il modello di interazione di base con queste risorse usa i verbi HTTP GET, PUT, POST e DELETE con la relativa interpretazione standard. Il verbo POST viene usato per creare una nuova risorsa, per eseguire una stored procedure o per inviare una query di DocumentDB. Le query sono sempre operazioni di sola lettura senza nessun effetto collaterale.
 
-Gli esempi seguenti illustrano il verbo POST per una query di DocumentDB a fronte di una raccolta contenente i due documenti di esempio esaminati finora. La query ha un semplice filtro sulla proprietà nome JSON. Si noti l'uso delle intestazioni `x-ms-documentdb-isquery` e Content-Type `application/query+json` per indicare che l'operazione è una query.
+Gli esempi seguenti illustrano il verbo POST per una query di DocumentDB a fronte di una raccolta contenente i due documenti di esempio esaminati finora. La query ha un semplice filtro sulla proprietà nome JSON. Si noti l'uso delle intestazioni `x-ms-documentdb-isquery` e Tipo-Contenuto `application/query+json` per indicare che l'operazione è una query.
 
 
 **Richiesta**
@@ -2089,4 +2088,4 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

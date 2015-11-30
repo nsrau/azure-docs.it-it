@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Monitorare un account DocumentDB usando il portale di anteprima di Azure 
+# Monitorare un account DocumentDB 
 
 È possibile monitorare gli account DocumentDB nel [portale di anteprima di Microsoft Azure](https://portal.azure.com/). Per ogni account DocumentDB sono disponibili metriche delle prestazioni, quali richieste ed errori del server, e metriche di utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
 
@@ -90,4 +90,4 @@ Sarà possibile considerare questa parte come tutte le altre parti delle metrich
 Per altre informazioni sulla capacità di DocumentDB, vedere [Gestire la capacità di DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

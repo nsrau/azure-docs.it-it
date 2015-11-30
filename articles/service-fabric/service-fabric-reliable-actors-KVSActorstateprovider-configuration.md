@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Panoramica della configurazione di KVSActorStateProvider per Reliable Actors di Service Fabric"
-   description="Informazioni sulla configurazione di attori con stato di tipo KVSActorStateProvider in Service Fabric"
+   pageTitle="Panoramica della configurazione di KVSActorStateProvider per Reliable Actors di Service Fabric | Microsoft Azure"
+   description="Informazioni sulla configurazione di attori con stato di tipo KVSActorStateProvider in infrastruttura di servizi di Azure"
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="10/28/2015"
    ms.author="sumukhs"/>
 
 # Configurazione di KVSActorStateProvider di Reliable Actors
@@ -81,4 +81,4 @@ Le configurazioni dell'archivio vengono usate per configurare l'archivio locale 
 
 BatchAcknowledgementInterval controlla la latenza di replica. Il valore '0' determina la latenza più bassa possibile a scapito della velocità effettiva, in quanto è necessario inviare ed elaborare una maggiore quantità di messaggi di acknowledgement, ciascuno dei quali contenente un numero minore di acknowledgement. Più alto è il valore di BatchAcknowledgementInterval, maggiore sarà la velocità effettiva di replica complessiva, ma con una latenza delle operazioni più elevata. Questo ha un impatto diretto sulla latenza dei commit delle transazioni.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

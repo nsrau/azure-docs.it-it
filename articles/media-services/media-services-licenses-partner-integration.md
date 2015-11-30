@@ -22,15 +22,15 @@
 
 Servizi multimediali di Microsoft Azure consente di distribuire contenuto protetto MPEG-DASH con DRM Widevine, che viene crittografato per la specifica CENC (Common Encryption).
 
->[AZURE.NOTE]Attualmente, Servizi multimediali non fornisce un server licenze Widevine. È possibile utilizzare i seguenti partner AMS per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+A partire da Servizi Multimediali .NET SDK versione 3.5.2, Servizi multimediali consente di configurare il modello di licenza Widevine e ottenere licenze Widevine. È anche possibile usare i partner AMS seguenti per facilitare la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 ##castLabs
 
-È possibile utilizzare [castLabs](http://castlabs.com/company/partners/azure/) per distribuire licenze Widevine. Per ulteriori informazioni, vedere [Uso di castLabs per distribuire licenze DRM a Servizi multimediali di Azure](media-services-castlabs-integration.md)
+È possibile utilizzare [castLabs](http://castlabs.com/company/partners/azure/) per distribuire licenze Widevine. Per altre informazioni, vedere [Uso di castLabs per distribuire licenze DRM a Servizi multimediali di Azure](media-services-castlabs-integration.md)
 
 ##Axinom
 
-È possibile utilizzare [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) per distribuire licenze Widevine. Per ulteriori informazioni, vedere [Uso di Axinom per distribuire licenze DRM a Servizi multimediali di Azure](media-services-axinom-integration.md)
+È possibile utilizzare [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) per distribuire licenze Widevine. Per altre informazioni, vedere [Uso di Axinom per distribuire licenze DRM a Servizi multimediali di Azure](media-services-axinom-integration.md)
 
 
 ##Percorsi di apprendimento di Media Services
@@ -47,4 +47,4 @@ Servizi multimediali di Microsoft Azure consente di distribuire contenuto protet
 
 [Blog di Mingfei](https://azure.microsoft.com/it-IT/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

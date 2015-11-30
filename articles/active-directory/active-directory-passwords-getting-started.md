@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Introduzione alla gestione delle password
@@ -186,7 +186,7 @@ Per poter abilitare e usare il writeback delle password, verificare che vengano 
   
 - È necessario che sia installato lo strumento Azure AD Connect e che l'ambiente Active Directory sia stato preparato per la sincronizzazione con il cloud. Per altre informazioni, vedere [Usare l'infrastruttura di identità locale nel cloud](active-directory-aadconnect.md).
 
-  >[AZURE.NOTE]Prima di testare il writeback delle password, assicurarsi di eseguire un'importazione completa e una sincronizzazione completa sia da AD che da Azure AD.
+  >[AZURE.NOTE]Prima di testare il writeback delle password, assicurarsi di eseguire un'importazione completa e una sincronizzazione completa sia da AD che da Azure AD Connect.
 
 - Se si usa Azure AD Sync o Azure AD Connect, è necessario aprire solo la porta **TCP 443** in uscita (e in alcuni casi la porta **TCP 9350-9354**). Per altre informazioni, vedere [Passaggio 3: Configurare il firewall](#step-3-configure-your-firewall). L'uso di DirSync per questo scenario non è più supportato. Se si usa ancora DirSync, eseguire l'aggiornamento all'ultima versione di Azure AD Connect prima di distribuire il writeback delle password.
 
@@ -279,9 +279,7 @@ Se non si è certi dell'identità dell'account al quale si fa riferimento, aprir
 8.	Nell'elenco a discesa nella parte superiore selezionare **Oggetti Utente discendente**.
 9.	Nella finestra di dialogo **Voci di autorizzazione** visualizzata selezionare la casella per **Reimpostare password**, **Modificare password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet`.
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	Quindi fare clic su **Applica/OK** nelle finestre di dialogo aperte.
 
@@ -305,18 +303,17 @@ Dopo aver abilitato il writeback delle password, è possibile verificarne il fun
 
 <br/> <br/> <br/>
 
-**Risorse aggiuntive**
+## Collegamenti alla documentazione relativa alla reimpostazione della password
+Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-
-* [Informazioni sulla gestione delle password](active-directory-passwords.md)
-* [Funzionamento della gestione delle password](active-directory-passwords-how-it-works.md)
-* [Personalizzare la gestione delle password](active-directory-passwords-customize.md)
-* [Procedure consigliate per la gestione delle password](active-directory-passwords-best-practices.md)
-* [Come ottenere informazioni dettagliate con i report di gestione delle password](active-directory-passwords-get-insights.md)
-* [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
-* [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
-* [Altre informazioni](active-directory-passwords-learn-more.md)
-* [Gestione delle password in MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
+* [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
+* [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
+* [**Informazioni dettagliate**](active-directory-passwords-get-insights.md): informazioni sulle funzionalità di creazione report integrate
+* [**Domande frequenti**](active-directory-passwords-faq.md): risposte alle domande frequenti
+* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
+* [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
 
 
 
@@ -353,4 +350,4 @@ Dopo aver abilitato il writeback delle password, è possibile verificarne il fun
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

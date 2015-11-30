@@ -1,10 +1,11 @@
-<properties 
-    pageTitle="Creare un pool di database elastici di database SQL di Azure con C# | Microsoft Azure" 
-    description="Questo articolo illustra come creare un pool di database elastici SQL di Azure con C# (usando la libreria di database SQL di Azure per .NET)." 
-    services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jeffreyg" 
+<properties
+    pageTitle="Sviluppo di database C#: Pool di database elastici | Microsoft Azure"
+    description="Usare tecniche di sviluppo di database in C# per creare un pool di database elastici per database SQL di Microsoft Azure in modo da poter condividere risorse tra più database."
+    services="sql-database"
+    keywords="database c#,sviluppo sql"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
     editor=""/>
 
 <tags
@@ -12,11 +13,11 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
+    ms.workload="data-management"
     ms.date="11/06/2015"
     ms.author="sstein"/>
 
-# Creare un pool di database elastici con C&#x23;
+# Sviluppo di database in C&#x23;: Creare e configurare un pool di database elastici per database SQL
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-elastic-pool-portal.md)
@@ -24,11 +25,11 @@
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
-Questo articolo illustra come creare un [pool di database elastici](sql-database-elastic-pool.md) da un’applicazione che utilizza C#.
+Questo articolo illustra come creare un [pool di database elastici](sql-database-elastic-pool.md) per database SQL da un'applicazione che usa tecniche di sviluppo di database C#.
 
 > [AZURE.NOTE]I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server.md) in un unico passaggio.
 
-Negli esempi viene utilizzata la [libreria di Database SQL di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). I singoli frammenti di codice sono suddivisi per maggiore chiarezza e un'applicazione console di esempio riunisce tutti i comandi nella sezione nella parte inferiore di questo articolo.
+Negli esempi viene usata la [libreria di database SQL di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). I singoli frammenti di codice sono suddivisi per maggiore chiarezza e un'applicazione console di esempio riunisce tutti i comandi nella sezione nella parte inferiore di questo articolo.
 
 La libreria di database SQL di Azure per .NET include un'API basata su [Gestione risorse di Azure](resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Gestione risorse](https://msdn.microsoft.com/library/azure/mt163571.aspx). La libreria client segue il modello comune per le librerie client basate su Gestione risorse. Gestione risorse richiede gruppi di risorse e l'autenticazione con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
@@ -38,11 +39,11 @@ La libreria di database SQL di Azure per .NET include un'API basata su [Gestione
 
 <br>
 
-Se non si dispone di una sottoscrizione ad Azure, fare clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare a questo articolo. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+Se non si dispone di una sottoscrizione di Azure, fare clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina e quindi tornare a questo articolo. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Installare le librerie richieste
 
-Acquisire le librerie di gestione richieste installando i pacchetti seguenti mediante la [console di gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console):
+Acquisire le librerie di gestione richieste installando i pacchetti seguenti mediante la [console di gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) per lo sviluppo in ambiente SQL:
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -51,9 +52,9 @@ Acquisire le librerie di gestione richieste installando i pacchetti seguenti med
 
 ## Configurare l'autenticazione con Azure Active Directory
 
-È innanzitutto necessario abilitare l'applicazione per accedere all'API REST mediante configurazione dell’autenticazione richiesta.
+Prima di iniziare lo sviluppo di SQL in C#, è necessario completare alcune attività nel portale di Azure. È prima necessario abilitare l'applicazione per accedere all'API REST mediante la configurazione dell'autenticazione richiesta.
 
-Le [API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) per l'autenticazione utilizzano Azure Active Directory anziché i certificati utilizzati dalle precedenti API REST di gestione del servizio Azure.
+Le [API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) per l'autenticazione usano Azure Active Directory anziché i certificati usati dalle precedenti API REST di gestione del servizio Azure.
 
 Per autenticare l'applicazione client in base all'utente corrente è necessario prima registrare l'applicazione nel dominio AAD associato alla sottoscrizione in cui sono state create le risorse di Azure. Se la sottoscrizione ad Azure è stata creata con un account Microsoft anziché un account aziendale o dell'istituto di istruzione si dispone già di un dominio AAD predefinito. La registrazione dell'applicazione può essere eseguita nel [portale di gestione](https://manage.windowsazure.com/).
 
@@ -61,19 +62,19 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
 1. Scorrere il menu a sinistra per individuare il servizio **Active Directory** e aprirlo.
 
-    ![AAD][1]
+    ![Sviluppo di database SQL in C#: configurazione di Active Directory][1]
 
-2. Selezionare la directory per l'autenticazione dell'applicazione e fare clic sul relativo **Nome**.
+2. Selezionare la directory per l'autenticazione dell'applicazione e fare clic sul relativo **nome**.
 
-    ![Directory][4]
+    ![Selezionare una directory.][4]
 
 3. Nella pagina della directory fare clic su **APPLICAZIONI**.
 
-    ![Applicazioni][5]
+    ![Fare clic su Applicazioni.][5]
 
 4. Fare clic su **AGGIUNGI** per creare una nuova applicazione.
 
-    ![Aggiunta di un'applicazione][6]
+    ![Fare clic sul pulsante Aggiungi: Creare un'applicazione C#.][6]
 
 5. Selezionare **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 
@@ -87,7 +88,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
 7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l'**ID CLIENT** (l'ID del client sarà necessario nel codice).
 
-    ![acquisisci ID client][9]
+    ![Acquisire l'ID client][9]
 
 
 1. Nella parte inferiore della pagina fare clic su **Aggiungi applicazione**.
@@ -95,7 +96,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 1. Selezionare **API di gestione del servizio Azure** e quindi completare la procedura guidata.
 2. Con l'API selezionata è ora necessario concedere le autorizzazioni specifiche richieste per accedere a questa API selezionando **Accedi a gestione del servizio Azure (anteprima)**.
 
-    ![autorizzazioni][2]
+    ![Impostare le autorizzazioni][2]
 
 2. Fare clic su **SAVE**.
 
@@ -117,7 +118,7 @@ Il nome di dominio è obbligatorio per il codice. Un modo semplice per identific
 Altre informazioni sull'uso di Azure Active Directory per l'autenticazione sono disponibili in [questo utile post di blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
-### Recuperare il token di accesso per l'utente corrente 
+### Recuperare il token di accesso per l'utente corrente
 
 L'applicazione client deve recuperare il token di accesso all'applicazione per l'utente corrente. Quando un utente esegue per la prima volta il codice gli verrà richiesto di immettere le credenziali utente e il token risultante viene memorizzato nella cache in locale. Alle successive esecuzioni il token viene recuperato dalla cache e all’utente viene chiesto di effettuare l’accesso solo se il token è scaduto.
 
@@ -129,13 +130,13 @@ L'applicazione client deve recuperare il token di accesso all'applicazione per l
     private static AuthenticationResult GetAccessToken()
     {
         AuthenticationContext authContext = new AuthenticationContext
-            ("https://login.windows.net/" /* AAD URI */ 
+            ("https://login.windows.net/" /* AAD URI */
                 + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
 
         AuthenticationResult token = authContext.AcquireToken
-            ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
-                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/, 
-        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
+            ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
+                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/,
+        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
         PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
         return token;
@@ -149,24 +150,24 @@ L'applicazione client deve recuperare il token di accesso all'applicazione per l
 
 ## Creare un gruppo di risorse
 
-Con Gestione risorse, tutte le risorse devono essere create in un gruppo di risorse. Un gruppo di risorse è un contenitore che contiene risorse correlate per un'applicazione. Per creare un pool di database elastici è necessario un server di Database SQL di Azure in un gruppo di risorse esistente. Eseguire il codice seguente per creare il gruppo di risorse:
+Con Gestione risorse, tutte le risorse devono essere create in un gruppo di risorse. Un gruppo di risorse è un contenitore che contiene risorse correlate per un'applicazione. Per creare un pool di database elastici è necessario un server di Database SQL di Azure in un gruppo di risorse esistente. Eseguire il codice C# seguente per creare il gruppo di risorse:
 
 
-    // Create a resource management client 
+    // Create a resource management client
     ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
-    
+
     // Resource group parameters
     ResourceGroup resourceGroupParameters = new ResourceGroup()
     {
         Location = "South Central US"
     };
-    
+
     //Create a resource group
     var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("resourcegroup-name", resourceGroupParameters);
 
 
 
-## Creare un server 
+## Creare un server
 
 I pool di database elastici sono contenuti all'interno di server di Database SQL di Azure perciò il prossimo passaggio è quello di creare un server. Il nome del server deve essere globalmente univoco tra tutti i server SQL Azure, quindi verrà visualizzato un messaggio di errore se il nome del server è già in uso. Vale inoltre la pena notare che il completamento di questo comando potrebbe richiedere alcuni minuti. Per permettere a un'applicazione di connettersi al server è necessario anche creare una regola firewall sul server per aprire l'accesso dall'indirizzo IP del client.
 
@@ -198,7 +199,7 @@ Per impostazione predefinita un server non ha regole di firewall perciò non pu�
 Nell'esempio seguente viene creata una regola firewall che consente di aprire l'accesso al server da qualsiasi indirizzo IP. È consigliabile creare gli account di accesso SQL e le password appropriati per proteggere il database e non basarsi sulle regole del firewall come difesa primaria contro le intrusioni. Per dettagli, vedere [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md).
 
 
-    // Create a firewall rule on the server to allow TDS connection 
+    // Create a firewall rule on the server to allow TDS connection
     FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
     {
         Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -213,7 +214,7 @@ Nell'esempio seguente viene creata una regola firewall che consente di aprire l'
 
 
 
-Per consentire ad altri servizi di Azure di accedere a un server, aggiungere una regola del firewall e impostare StartIpAddress e EndIpAddress su 0.0.0.0. Si noti che ciò consente al traffico di Azure proveniente da *qualsiasi* sottoscrizione ad Azure di accedere al server.
+Per consentire ad altri servizi di Azure di accedere a un server, aggiungere una regola del firewall e impostare StartIpAddress e EndIpAddress su 0.0.0.0. Si noti che ciò consente al traffico di Azure proveniente da *qualsiasi* sottoscrizione di Azure di accedere al server.
 
 
 ## Creare un database
@@ -224,7 +225,7 @@ Nell'esempio seguente viene creato un nuovo database Basic; se un database con l
 
         // Retrieve the server on which the database will be created
         Server currentServer = sqlClient.Servers.Get("resourcegroup-name", "server-name").Server;
- 
+
         // Create a database: configure create or update parameters and properties explicitly
         DatabaseCreateOrUpdateParameters newDatabaseParameters = new DatabaseCreateOrUpdateParameters()
         {
@@ -292,16 +293,16 @@ L'esempio seguente consente di aggiornare le caratteristiche delle prestazioni d
 
 ## Spostare un database esistente in un pool di database elastici
 
-*Dopo aver creato un pool è anche possibile utilizzare Transact-SQL per lo spostamento dei database esistenti da e verso un pool. Per informazioni dettagliate, vedere [Riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Dopo aver creato un pool è anche possibile usare Transact-SQL per lo spostamento dei database esistenti da e verso un pool. Per informazioni dettagliate, vedere il [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Nell'esempio seguente si sposta un database SQL di Azure esistente in un pool:
 
-    
+
     // Update database service objective to add the database to a pool
-    
-    // Retrieve current database properties 
+
+    // Retrieve current database properties
     currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
-    
+
     // Configure create or update parameters with existing property values, override those to be changed.
     DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
     {
@@ -315,22 +316,22 @@ Nell'esempio seguente si sposta un database SQL di Azure esistente in un pool:
             Collation = currentDatabase.Properties.Collation,
         }
     };
-    
+
     // Update the database
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
-    
-    
+
+
 
 
 ## Creare un nuovo database in un pool di database elastici
 
-*Dopo la creazione di un pool è anche possibile utilizzare Transact-SQL per la creazione di nuovi database elastici nel pool. Per informazioni dettagliate, vedere [Riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Dopo la creazione di un pool è anche possibile usare Transact-SQL per la creazione di nuovi database elastici nel pool. Per informazioni dettagliate, vedere il [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Nell'esempio seguente viene creato un nuovo database direttamente in un pool:
 
-    
+
     // Create a new database in the pool
-    
+
     // Create a database: configure create or update parameters and properties explicitly
     DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
     {
@@ -344,7 +345,7 @@ Nell'esempio seguente viene creato un nuovo database direttamente in un pool:
             Collation = "SQL_Latin1_General_CP1_CI_AS"
         }
     };
-    
+
     var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
 
@@ -387,13 +388,13 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
         private static AuthenticationResult GetAccessToken()
         {
             AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */ 
+                ("https://login.windows.net/" /* AAD URI */
                 + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
-                ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/, 
-                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
+                ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
+                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
+                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
                 PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
             return token;
@@ -425,13 +426,13 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
         static void Main(string[] args)
         {
             var token = GetAccessToken();
-            
+
             // Who am I?
             Console.WriteLine("Identity is {0} {1}", token.UserInfo.GivenName, token.UserInfo.FamilyName);
             Console.WriteLine("Token expires on {0}", token.ExpiresOn);
             Console.WriteLine("");
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken));
 
             // Resource group parameters
@@ -469,7 +470,7 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 
             Console.WriteLine("Server {0} create or update completed with status code {1}", serverResult.Server.Name, serverResult.StatusCode);
 
-            // Create a firewall rule on the server to allow TDS connection 
+            // Create a firewall rule on the server to allow TDS connection
 
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
@@ -517,7 +518,7 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 
             // Update a databases service objective to add the database to a pool
 
-            // Update database: retrieve current database properties 
+            // Update database: retrieve current database properties
             currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
 
             // Update database: configure create or update parameters with existing property values, override those to be changed.
@@ -565,6 +566,7 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 
 ## Risorse aggiuntive
 
+
 [Database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
 [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
@@ -583,4 +585,4 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -14,18 +14,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="09/01/2015"
+	ms.date="11/12/2015"
 	ms.author="jroth"/>
 
 # Panoramica di SQL Server in Macchine virtuali di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
-
-
 ## Introduzione
 È possibile ospitare [SQL Server in macchine virtuali Azure](http://azure.microsoft.com/services/virtual-machines/sql-server/) in una vasta gamma di configurazioni, da un singolo server di database a una configurazione con più computer utilizzando i gruppi di disponibilità AlwaysOn e una rete virtuale di Azure.
 
->[AZURE.NOTE]In esecuzione SQL Server in una macchina virtuale di Azure è un'opzione per l'archiviazione dei dati relazionali in Azure. È inoltre possibile usare il servizio Database SQL Azure. Per ulteriori informazioni, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
+>[AZURE.NOTE]In esecuzione SQL Server in una macchina virtuale di Azure è un'opzione per l'archiviazione dei dati relazionali in Azure. È inoltre possibile usare il servizio Database SQL Azure. Per altre informazioni, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 Per creare una macchina virtuale di SQL Server in Azure, è necessario prima ottenere una sottoscrizione della piattaforma Azure. È possibile acquistare una sottoscrizione di Azure in [Opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/). Per una prova gratuita, visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -55,7 +52,7 @@ Per determinare le impostazioni di configurazione migliori della macchina virtua
 
 Oltre all'analisi delle procedure ottimali per le prestazioni, altre attività iniziali includono:
 
-- [Esaminare le procedure consigliate relative alla sicurezza per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-security-considerations.md)
+- [Esaminare le procedure consigliate relative alla sicurezza per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-security-considerations.md)
 - [Configurare la connettività](virtual-machines-sql-server-connectivity.md)
 
 ### Migrare i dati
@@ -151,4 +148,4 @@ Se si crea una macchina virtuale usando un'immagine di SQL Server fornita dalla 
 - [Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Macchine virtuali di Azure](virtual-machines-about.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

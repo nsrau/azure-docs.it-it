@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/23/2015"
+   ms.date="11/16/2015"
    ms.author="alkohli" />
 
 # Distribuire e gestire un dispositivo virtuale StorSimple in Azure
@@ -57,7 +57,7 @@ Quando si utilizza il dispositivo virtuale StorSimple, tenere presenti le seguen
 
 - La sottoscrizione a Microsoft Azure consente di proteggere il dispositivo virtuale. Ciò significa che se l'utente utilizza il dispositivo virtuale in presenza di una sottoscrizione ad Azure compromessa, anche i dati memorizzati nel dispositivo virtuale possono essere vulnerabili.
 
-- La chiave pubblica del certificato utilizzato per crittografare i dati archiviati in Azure StorSimple viene resa disponibile per il portale di gestione di Microsoft Azure; la chiave privata viene conservata nel dispositivo StorSimple. Nel dispositivo virtuale StorSimple le chiavi pubbliche e private vengono archiviate entrambe in Azure.
+- La chiave pubblica del certificato utilizzato per crittografare i dati archiviati in Azure StorSimple viene resa disponibile per il portale Azure di Microsoft; la chiave privata viene conservata nel dispositivo StorSimple. Nel dispositivo virtuale StorSimple le chiavi pubbliche e private vengono archiviate entrambe in Azure.
 
 - Il dispositivo virtuale è ospitato nel data center di Microsoft Azure.
 
@@ -97,7 +97,7 @@ Effettuare i seguenti aggiornamenti del servizio StorSimple di Azure, prima di c
 Prima di iniziare, verificare quanto segue:
 
 
-- L'utente dispone delle credenziali di accesso relative all'account del portale di gestione di Azure.
+- L'utente dispone delle credenziali di accesso relative all'account del portale di Azure.
 
 - L'utente dispone delle credenziali di accesso relative all'account di archiviazione di Azure.
 
@@ -118,7 +118,7 @@ Dopo aver creato una rete virtuale, configurato un servizio StorSimple Manager e
 
 Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito:
 
-1.  Nel portale di gestione, accedere al servizio **StorSimple Manager**.
+1.  Nel portale di Azure, accedere al servizio **StorSimple Manager**.
 
 2. Visitare la pagina **Dispositivi**. Fare clic su **Crea dispositivo virtuale** nella parte inferiore della pagina **Dispositivi**.
 
@@ -292,7 +292,7 @@ Tuttavia, se si desidera connettersi direttamente al dispositivo virtuale da un 
 
 Per creare un endpoint pubblico nel dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito:
 
-1. Accedere al portale di gestione.
+1. Accedere al portale di Azure.
 
 - Fare clic su **Macchine virtuali**, quindi selezionare la macchina virtuale che viene utilizzata come dispositivo virtuale.
 
@@ -374,7 +374,7 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 ### Per arrestare il dispositivo virtuale StorSimple
 
-1. Accedere al portale di gestione.
+1. Accedere al portale di Azure.
 
 2. Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
 
@@ -382,7 +382,7 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 ### Per eliminare il dispositivo virtuale StorSimple
 
-1. Accedere al portale di gestione.
+1. Accedere al portale di Azure.
 
 - Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
 
@@ -392,4 +392,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 Informazioni su come [ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

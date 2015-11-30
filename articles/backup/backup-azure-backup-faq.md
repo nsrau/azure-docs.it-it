@@ -1,16 +1,17 @@
 <properties
    pageTitle="Domande frequenti Backup Azure | Microsoft Azure"
-   description="Domande frequenti sul servizio Backup di Azure"
+   description="Domande frequenti sulla soluzione Azure Backup: agente di backup, backup e conservazione, ripristino, sicurezza e altre domande frequenti sul servizio Azure Backup."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
-   editor=""/>
+   editor=""
+   keywords="soluzione di backup; servizio di backup"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
-# Backup di Azure - Domande frequenti
-Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per altre domande su Backup di Azure, visitare il [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e inviare una domanda. Un membro dalla community fornirà supporto agli utenti per individuare le risposte. Se una domanda viene posta più volte, verrà aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
+# Servizio di backup di Azure - Domande frequenti
+Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per altre domande sulla soluzione Azure Backup, visitare il [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e inviare una domanda. Un membro dalla community fornirà supporto agli utenti per individuare le risposte. Se una domanda viene posta più volte, verrà aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
 
 ## Installazione e configurazione
 **D1. Qual è l'elenco dei sistemi operativi supportati da cui è possibile eseguire il backup in Azure tramite Backup di Azure?** <br/> R1. Il seguente elenco di sistemi operativi è supportato da Azure Backup
@@ -175,4 +176,4 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 Una volta che i backup funzionano correttamente con il nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

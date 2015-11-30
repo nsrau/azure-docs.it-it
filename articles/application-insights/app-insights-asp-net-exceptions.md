@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnosticare errori ed eccezioni nelle app ASP.NET con Application Insights" 
-	description="Configurare l'app per ottenere un'esperienza coinvolgente dal punto di vista della diagnostica acquisendo le eccezioni insieme agli eventi di telemetria per la richiesta." 
+	description="Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria della richiesta." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,10 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
- 
-# Diagnosticare errori ed eccezioni nelle app ASP.NET con Application Insights  
+
+
+# Impostare Application Insights: diagnosticare le eccezioni
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 Monitorando l'applicazione con [Visual Studio Application Insights][start] è possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.
 
@@ -448,4 +452,4 @@ Si noti che tale conteggio è diverso dal conteggio delle "Eccezioni" calcolato 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

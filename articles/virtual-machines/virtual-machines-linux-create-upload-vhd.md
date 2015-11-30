@@ -55,6 +55,7 @@ Azure supporta numerose distribuzioni di Linux (vedere la sezione [Distribuzioni
 
 - **[Distribuzioni basate su CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES e openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 - **[Altro - Distribuzioni non approvate](virtual-machines-linux-create-upload-vhd-generic.md)**
@@ -87,7 +88,7 @@ Utilizzare il metodo di Azure AD per accedere:
 
 	Quando richiesto, digitare nome utente e password.
 
-**OPPURE**, usare invece un file di impostazioni di pubblicazione:
+**OPPURE**, utilizzare invece un file di impostazioni di pubblicazione:
 
 1. Aprire una finestra della riga di comando di Azure
 
@@ -105,7 +106,7 @@ Utilizzare il metodo di Azure AD per accedere:
 
 	Dove `<PathToFile>` è il percorso completo del file .publishsettings.
 
-	Per altre informazioni, leggere [Connettersi ad Azure da Azure CLI](../xplat-cli-connect.md).
+	Per ulteriori informazioni, leggere [connettersi ad Azure da Azure CLI](../xplat-cli-connect.md).
 
 
 ### Se si utilizza Azure PowerShell
@@ -120,7 +121,7 @@ Utilizzare il metodo di Azure AD per accedere:
 
 	Quando richiesto, immettere l'id utente dell'organizzazione e la password.
 
-**O**, in alternativa, utilizzare i file PublishSettings:
+**O**, in alternativa, utilizzare i file di impostazioni di pubblicazione:
 
 1. Aprire una finestra di Azure PowerShell.
 
@@ -170,4 +171,4 @@ Per ulteriori informazioni, vedere [Add-AzureVhd](https://msdn.microsoft.com/lib
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

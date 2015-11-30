@@ -17,7 +17,7 @@
 
 # Come aggiungere utenti a un pool di database elastici
 
-La funzione **processi di database elastici** (anteprima) consente di eseguire uno script Transact-SQL in un gruppo di database, compresa un insieme personalizzato di database, un **pool di database elastici**o un **insieme di partizioni di database elastici **nel database SQL di Azure. Per eseguire lo script, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database in cui si eseguirà il processo. Per altre informazioni, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx) o l'articolo relativo all'[aggiunta di utenti al database SQL di Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+La funzione **processi di database elastici** (anteprima) consente di eseguire uno script Transact-SQL in un gruppo di database, compresa un insieme personalizzato di database, un **pool di database elastici**o un **insieme di partizioni di database elastici **nel database SQL di Azure. Per eseguire lo script, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database in cui si eseguirà il processo. Per altre informazioni, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure](sql-database-manage-logins.md) o l'articolo relativo all'[aggiunta di utenti al database SQL di Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Prerequisiti
 * Installare i [componenti del processo elastico](sql-database-elastic-jobs-service-installation.md). 
@@ -36,7 +36,7 @@ La funzione **processi di database elastici** (anteprima) consente di eseguire u
 
 ## Passaggi successivi
 
-Per creare e gestire i processi, vedere [Creazione e gestione dei processi di database elastici](sql-database-elastic-jobs-create-and-manage.md).
+Per creare e gestire i processi con il portale di Azure, vedere [Creazione e gestione dei processi di database elastici](sql-database-elastic-jobs-create-and-manage.md). Per creare processi con PowerShell, vedere: [Creare e gestire processi di database elastici del database SQL tramite PowerShell (anteprima)](sql-database-elastic-jobs-powershell.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -44,4 +44,4 @@ Per creare e gestire i processi, vedere [Creazione e gestione dei processi di da
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

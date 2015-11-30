@@ -17,11 +17,11 @@
 	ms.date="09/09/2015"
 	ms.author="paulettm"/>
 
-#Domande frequenti su Azure Machine Learning: Fatturazione, funzionalità, limitazioni e supporto
+# Domande frequenti su Azure Machine Learning: Fatturazione, funzionalità, limitazioni e supporto
 
 Questa sezione contiene le domande e le risposte su Azure Machine Learning, un servizio cloud per la modellazione predittiva e l'operatività delle soluzioni con i servizi Web. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
 
-##Domande generali
+## Domande generali
 
 **Cos'è Azure Machine Learning?**
 
@@ -43,7 +43,7 @@ Il servizio API di Machine Learning consente di distribuire i modelli predittivi
 Vedere [Connessione a un servizio Web di Azure Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md) per altre informazioni.
 
 
-##Domande sulla fatturazione
+## Domande sulla fatturazione
 
 **Come funziona la fatturazione di Machine Learning?**
 
@@ -55,18 +55,18 @@ Per informazioni sulla fatturazione e i prezzi, vedere [Machine Learning Prezzi]
 
 ## Domande su Machine Learning Studio
 
-###Creazione di un esperimento
+### Creazione di un esperimento
 **Esiste il controllo della versione o l'integrazione Git per i grafici dell'esperimento?**
 
 No. Tuttavia, quando si esegue un esperimento, la versione del grafico viene mantenuta e non può essere modificata dagli altri utenti.
 
-###Importazione ed esportazione dei dati per Machine Learning
+### Importazione ed esportazione dei dati per Machine Learning
 **Quali origini dati sono supportate da Machine Learning?**
 
 I dati possono essere caricati in Machine Learning Studio in uno dei due modi seguenti: caricando i file locali come set di dati oppure usando un modulo Reader per importare i dati. I file locali possono essere caricati aggiungendo nuovi set di dati in Machine Learning Studio. Vedere [Importare dati di training in Azure Machine Learning Studio](machine-learning-import-data.md) per altre informazioni sui formati di file supportati.
 
 
-####<a id="ModuleLimit"></a>Qual è la grandezza massima dei set di dati per i moduli?
+#### <a id="ModuleLimit"></a>Qual è la grandezza massima dei set di dati per i moduli?
 
 I moduli in Machine Learning Studio supportano set di dati fino a 10 GB di dati numerici ad alta densità per i casi di utilizzo comuni. Se un modulo richiede più input, 10 GB rappresenta il totale di tutte le dimensioni degli input. È anche possibile campionare set di dati di dimensioni maggiori tramite le query di Hive o del database SQL di Azure oppure tramite la pre-elaborazione Learning by Counts prima dell'inserimento.
 
@@ -94,16 +94,14 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 **È possibile leggere i dati da Amazon S3?**
 
 Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure, quindi usare il modulo [Reader][reader] per passarli all'esperimento. <!--
-<!--
 <SEE CLOUD DS PROCESS>
 -->
-
 
 **Esiste una capacità di input dell'immagine predefinita?**
 
 Per informazioni sulla capacità di input dell'immagine, vedere [Image Reader][image-reader].
 
-###Moduli
+### Moduli
 
 **L'algoritmo, l'origine dati, il formato dei dati o l'operazione di trasformazione dei dati cercati non sono presenti in Azure ML Studio. Quali sono le opzioni disponibili?**
 
@@ -119,7 +117,8 @@ Sì, è possibile trasferire un proprio codice R esistente in ML Studio ed esegu
 No, non è supportato. Tuttavia, è possibile usare il codice personalizzato R e Python per definire un modulo.
 
 
-###Elaborazione dei dati
+### Elaborazione dei dati
+
 **Esiste la possibilità di visualizzare i dati (oltre alle visualizzazioni R) in modo interattivo all'interno dell'esperimento?**
 
 Facendo clic sull'output di un modulo è possibile visualizzare i dati e ottenere le statistiche.
@@ -128,7 +127,8 @@ Facendo clic sull'output di un modulo è possibile visualizzare i dati e ottener
 
 Poiché la quantità di dati trasmessi al browser può essere elevata, la dimensione dei dati viene limitata per evitare il rallentamento di ML Studio. È preferibile scaricare i dati/risultati e usare Excel o un altro strumento per visualizzarli per intero.
 
-###Algoritmi
+### Algoritmi
+
 **Quali algoritmi esistenti sono supportati in Machine Learning Studio?**
 
 Machine Learning Studio fornisce algoritmi all'avanguardia, ad esempio gli alberi delle decisioni con boosting scalabili, i sistemi di raccomandazione bayesiani, le reti neurali basate su machine deep learning e le giungle delle decisioni sviluppati da Microsoft Research. Sono inclusi anche i pacchetti open source di Machine Learning scalabili come Vowpal Wabbit. Machine Learning Studio supporta gli algoritmi di Machine Learning per la classificazione multiclasse e binaria, la regressione e il clustering. Vedere l'elenco completo dei [moduli di Machine Learning][machine-learning-modules].
@@ -159,7 +159,8 @@ No.
 
 Attualmente, i nuovi moduli personalizzati possono essere creati solo in R.
 
-###Modulo R
+### Modulo R
+
 **Quali pacchetti R sono disponibili in Machine Learning Studio?**
 
 Attualmente, Machine Learning Studio supporta più di 400 pacchetti R e l'elenco è in costante aumento. Vedere [Estendere l'esperimento con R](machine-learning-extend-your-experiment-with-r.md) per informazioni su come ottenere un elenco di pacchetti R supportati. Se il pacchetto desiderato non compare nell'elenco, specificare il nome del pacchetto nel [forum dei commenti e suggerimenti degli utenti](http://go.microsoft.com/fwlink/?LinkId=404231).
@@ -172,7 +173,7 @@ Sì. Vedere [Creazione di moduli R personalizzati in Azure Machine Learning](mac
 
 No, non esistono ambienti REPL per R in Studio.
 
-###Modulo Python
+### Modulo Python
 
 **È possibile compilare un modulo Python personalizzato?**
 
@@ -183,11 +184,12 @@ Non al momento, ma con il modulo Python standard o un set di moduli è possibile
 È possibile utilizzare i notebook Jupyter in Studio Machine Learning. Per ulteriori informazioni, vedere [Introdurre i notebook Jupyter in Azure ML Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Servizio Web
+
 ###Ripetizione del training dei modelli a livello di codice
 
 **Come si ripete il training dei modelli AzureML a livello di codice?** Usare le API per la ripetizione del training. Il codice di esempio è disponibile [qui](https://azuremlretrain.codeplex.com/).
 
-###Creazione
+### Creazione
 
 **È possibile distribuire il modello in locale o in un'applicazione senza una connessione Internet?** No.
 
@@ -196,7 +198,8 @@ Non al momento, ma con il modulo Python standard o un set di moduli è possibile
 
 Vedere [Limiti relativi alle sottoscrizioni](../azure-subscription-service-limits.md)
 
-###Uso
+### Uso
+
 **Quando si esegue il modello predittivo come servizio di esecuzione batch invece che come servizio richiesta-risposta?**
 
 Il servizio richiesta-risposta (RRS) è un servizio Web a bassa latenza e a scalabilità elevata usato per fornire un'interfaccia ai modelli senza stato creati e distribuiti dall'ambiente dell'esperimento. Il servizio di esecuzione batch (BES) è un servizio per il punteggio asincrono di un batch di record di dati. L'input per BES è simile all'input di dati usato in RRS. La differenza principale è che BES legge un blocco di record da diverse origini, ad esempio il servizio BLOB e il servizio tabelle in Azure, il database SQL di Azure, HDInsight (query hive) e origini HTTP. Per altre informazioni, vedere [Come usare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
@@ -206,7 +209,6 @@ Il servizio richiesta-risposta (RRS) è un servizio Web a bassa latenza e a scal
 L'aggiornamento di un modello predittivo per un servizio già distribuito è semplice. È sufficiente modificare l'esperimento usato per creare e salvare il modello di apprendimento ed eseguirlo di nuovo. Quando è disponibile la nuova versione del modello di apprendimento, ML Studio chiederà all'utente se vuole aggiornare il servizio Web nell'ambiente di gestione temporanea. Dopo aver applicato l'aggiornamento al servizio Web di gestione temporanea, lo stesso aggiornamento diventa disponibile anche per il servizio Web di produzione. Vedere [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md) per dettagli su come aggiornare un servizio Web distribuito.
 
 Inoltre, è possibile utilizzare le API Retraining. Il codice di esempio è disponibile [qui](https://azuremlretrain.codeplex.com/).
-
 
 **Come si monitora il servizio Web distribuito in produzione?**
 
@@ -218,12 +220,11 @@ Per RRS, la risposta del servizio web si trova in genere dove si visualizza il r
 
  ****È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
 
-
-##Scalabilità
+## Scalabilità
 
 **Che cos'è la scalabilità del servizio Web?**
 
-Attualmente, il massimo è 20 richieste simultanee per ogni endpoint, anche se è possibile arrivare a una scalabilità di 10,000 endpoint. Ciò significa 4.800 richieste simultanee, se si usano tutte le risorse (300 processi di lavoro).
+Attualmente, il provisioning dell'endpoint predefinito viene eseguito con 20 richieste RRS simultanee per ogni endpoint. È possibile scalare le richieste simultanee a 200 richieste per ogni endpoint ed è possibile scalare ogni servizio Web a 10.000 endpoint per servizio Web come descritto nell’articolo [Scalabilità degli endpoint dell'API](machine-learning-scaling-endpoints.md). Per BES, ogni endpoint consente l'elaborazione di 40 richieste alla volta e richieste aggiuntive oltre 40 richieste vengono messe in coda. Queste richieste in coda verranno eseguite automaticamente allo svuotamento della coda.
 
 
 **I processi R sono distribuiti in più nodi?**
@@ -261,7 +262,7 @@ Le righe e le colonne sono limitate singolarmente in base alla limitazione .NET 
 
 No.
 
-##Sicurezza e disponibilità
+## Sicurezza e disponibilità
 
 **Chi ha accesso all'endpoint HTTP per il servizio Web distribuito in produzione per impostazione predefinita? Come è possibile limitare l'accesso all'endpoint?**
 
@@ -280,11 +281,11 @@ Se si elimina accidentalmente l'account di archiviazione, l'unico modo per ripri
 Se sono state modificate le chiavi di accesso dell'account di archiviazione, assicurarsi di risincronizzare le chiavi di accesso nell'impostazione dello spazio di lavoro del portale di Azure
 
 
-##Azure Marketplace
+## Azure Marketplace
 
 Vedere [Domande frequenti sulla pubblicazione e sull'utilizzo delle app di Machine Learning in Azure Marketplace](machine-learning-marketplace-faq.md)
 
-##Supporto e training
+## Supporto e training
 
 **Dove si trovano i training per Azure ML?**
 
@@ -309,4 +310,4 @@ Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

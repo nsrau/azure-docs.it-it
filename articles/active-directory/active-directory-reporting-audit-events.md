@@ -19,25 +19,12 @@
 # Eventi del report di controllo di Azure Active Directory
 Il report di controllo di Azure Active Directory consente ai clienti di identificare le azioni con privilegi che si sono verificate nella propria istanza di Azure Active Directory. Le azioni con privilegi includono modifiche di elevazione dei privilegi, ad esempio la creazione dei ruoli o le reimpostazioni delle password, la modifica delle configurazioni dei criteri, ad esempio i criteri delle password o le modifiche alla configurazione della directory, ad esempio le modifiche alle impostazioni di federazione del dominio. Nei report è incluso il record di controllo per il nome dell'evento, l'attore che ha eseguito l'azione, la risorsa di destinazione interessata dalla modifica e la data e l'ora (UTC). I clienti possono recuperare l'elenco degli eventi di controllo per la propria istanza di Azure Active Directory tramite il [portale di gestione di Azure](https://manage.windowsazure.com/), come descritto nell'articolo relativo alla [visualizzazione dei report di utilizzo e di accesso](active-directory-view-access-usage-reports.md).
 
-## Conservazione dei report di controllo
-Gli eventi nel report di controllo di Azure Active Directory vengono conservati per 180 giorni. Per altre informazioni sulla conservazione dei report, vedere la pagina relativa ai [criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md).
-
-Per i clienti interessati alla conservazione gli eventi di controllo per periodi più lunghi, l'API di creazione report consente di eseguire regolarmente il pull degli eventi di controllo in un archivio dati separato. Per i dettagli, vedere la pagina relativa all'[introduzione all'API di creazione report](active-directory-reporting-api-getting-started.md).
-
-## Proprietà incluse in ogni evento di controllo
-
-Proprietà | Descrizione
-------------- | --------------------------------------------------------------
-Data e ora | Data e ora in cui si è verificato l'evento
-Attore | Utente o entità servizio che ha eseguito l'azione
-Azione | Azione eseguita
-Destinazione | Utente o entità servizio su cui è stata eseguita l'azione
 
 ## Elenco degli eventi del report di controllo
 <!--- audit event descriptions should be in the past tense --->
 
 Eventi | Descrizione evento
------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Eventi degli utenti** |
 Aggiunta di un utente | È stato aggiunto un utente alla directory.
 Eliminazione di un utente. | È stato eliminato un utente dalla directory.
@@ -65,6 +52,15 @@ Rimozione voce di delega | Eliminazione di un [OAuth2PermissionGrant](https://ms
 Aggiunta di un membro del ruolo al ruolo | È stato aggiunto un utente a un ruolo della directory.
 Rimozione di un membro ruolo dal ruolo | È stato rimosso un utente da un ruolo della directory.
 Impostazione delle informazioni di contatto della società | Sono state impostate le preferenze di contatto a livello aziendale. Sono inclusi gli indirizzi di posta elettronica per le attività di marketing, oltre alle notifiche tecniche relative ai Microsoft Online Services.
+**Eventi B2B** |
+Inviti batch caricati. | Un amministratore ha caricato un file contenente gli inviti da inviare agli utenti partner.
+Inviti batch elaborati. | È stato elaborato un file contenente gli inviti per gli utenti partner.
+Invitare gli utenti esterni. | Un utente esterno è stato invitato alla directory.
+Riscattare l'invito utente esterno. | Un utente esterno è stato riscattato alla directory.
+Aggiungere utenti esterni al gruppo. | Un utente esterno è stato assegnato all'appartenenza a un gruppo nella directory.
+Assegnare utenti esterni all'applicazione. | A un utente esterno è stato assegnato l'accesso diretto a un'applicazione.
+Creazione del tenant virale. | Un nuovo tenant è stato creato in Azure AD per il riscatto dell’invito.
+Creazione dell'utente virale. | Un utente è stato creato in un tenant esistente in Azure AD dal riscatto dell’invito.
 **Eventi della directory** |
 Aggiunta di un partner alla società | È stato aggiunto un partner alla directory.
 Rimozione di un partner dalla società | È stato rimosso un partner dalla directory.
@@ -89,6 +85,21 @@ Promote tenant to partner
 
 --->
 
+## Conservazione dei report di controllo
+Gli eventi nel report di controllo di Azure Active Directory vengono conservati per 180 giorni. Per altre informazioni sulla conservazione dei report, vedere la pagina relativa ai [criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md).
+
+Per i clienti interessati alla conservazione gli eventi di controllo per periodi più lunghi, l'API di creazione report consente di eseguire regolarmente il pull degli eventi di controllo in un archivio dati separato. Per i dettagli, vedere la pagina relativa all'[introduzione all'API di creazione report](active-directory-reporting-api-getting-started.md).
+
+## Proprietà incluse in ogni evento di controllo
+
+Proprietà | Descrizione
+------------- | --------------------------------------------------------------
+Data e ora | Data e ora in cui si è verificato l'evento
+Attore | Utente o entità servizio che ha eseguito l'azione
+Azione | Azione eseguita
+Destinazione | Utente o entità servizio su cui è stata eseguita l'azione
+
+
 ## Attributi "Aggiornamento utente"
 L'evento di controllo di aggiornamento dell'utente include informazioni aggiuntive sugli attributi utente che sono stati aggiornati. Per ogni attributo, sono inclusi sia il valore precedente che quello nuovo.
 
@@ -108,4 +119,4 @@ TelephoneNumber | Numero di telefono dell'utente.
 
 I record di controllo rappresentano un controllo obbligatorio per molte normative per la conformità. Per i clienti che usano i report di controllo di Azure Active Directory per garantire la conformità alle normative, è consigliabile inviare una copia di questo argomento della guida insieme al report di controllo esportato del cliente per fornire una descrizione delle informazioni contenute nel report. Per altre informazioni sulle normative di conformità attualmente soddisfatte da Azure, suggerire al revisore di visitare la pagina relativa alla [conformità](http://azure.microsoft.com/support/trust-center/compliance/) del Centro protezione Microsoft Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

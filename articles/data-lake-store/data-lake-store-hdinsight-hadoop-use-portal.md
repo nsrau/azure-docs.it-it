@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/29/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Eseguire il provisioning di un cluster HDInsight con Archivio Data Lake tramite il portale di anteprima di Azure
@@ -92,7 +92,7 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Archivio Data L
 	Eseguire le operazioni seguenti nell'account di Archivio Data Lake.
 
 	* [Creare una cartella in Archivio Data Lake](data-lake-store-get-started-portal.md#createfolder).
-	* [Caricare un file in Archivio Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se si stanno cercando alcuni dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dell'[archivio Git per Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	* [Caricare un file in Archivio Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 	Questi file verranno usati più tardi, al momento di eseguire il test dell'account di Archivio Data Lake nel cluster HDInsight.
 
@@ -207,4 +207,4 @@ Per istruzioni su come aggiungere un'entità servizio al file system di Archivio
 [makecert]: https://msdn.microsoft.com/it-IT/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/it-IT/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

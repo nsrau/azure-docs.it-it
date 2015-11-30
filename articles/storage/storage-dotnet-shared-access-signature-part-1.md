@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="tamram"/>
 
 
@@ -144,17 +144,22 @@ La differenza tra le due forme è importante un unico scenario chiave, la revoca
 
 >[AZURE.IMPORTANT]L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account.
 
-## Esempi di firme di accesso condiviso
+## Esempi: creare e usare firme di accesso condiviso
 
 Di seguito sono riportati alcuni esempi di entrambi i tipi di firma di accesso condiviso, dell'account e del servizio.
 
-### Esempio di firma di accesso condiviso dell'account
+Per eseguire questi esempi, sarà necessario scaricare e fare riferimento a questi pacchetti:
+
+- [Azure Storage Client Library for .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versione 6.x o versione successiva (per usare l'account SAS).
+- [Gestione configurazione di Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+
+### Esempio: Account SAS
 
 L'esempio di codice seguente crea una firma di accesso condiviso valida per i servizi BLOB e File e concede al client le autorizzazioni di lettura, scrittura ed elenco per accedere alle API a livello di servizio. Per la firma di accesso condiviso dell'account il protocollo è limitato ad HTTPS, pertanto è necessario creare una richiesta HTTPS.
 
     static string GetAccountSASToken()
     {
-        // To create the account SAS, you need to use your shared key credentials.
+        // To create the account SAS, you need to use your shared key credentials. Modify for your account.
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -218,21 +223,13 @@ Per usare la firma di accesso condiviso dell'account per accedere alle API a liv
         Console.WriteLine(serviceProperties.HourMetrics.Version);
     }
 
-### Esempio di firma di accesso condiviso del servizio
+### Esempio: servizio SAS con criteri di accesso archiviati
 
-L'esempio di codice seguente crea un criterio di accesso archiviato in un contenitore, quindi genera una firma di accesso condiviso del servizio per il contenitore. Questa firma di accesso condiviso può essere quindi concessa ai client per le autorizzazioni di lettura-scrittura sul contenitore.
+L'esempio di codice seguente crea un criterio di accesso archiviato in un contenitore, quindi genera una firma di accesso condiviso del servizio per il contenitore. Questa firma di accesso condiviso può essere quindi concessa ai client per le autorizzazioni di lettura-scrittura sul contenitore. Modificare il codice per usare il proprio nome dell’account:
 
-    // The connection string for the storage account.  Modify for your account.
-    string storageConnectionString =
-       "DefaultEndpointsProtocol=https;" +
-       "AccountName=myaccount;" +
-       "AccountKey=<account-key>";
-    
-    // As an alternative, you can retrieve storage account information from an app.config file. 
-    // This is one way to store and retrieve a connection string if you are 
-    // writing an application that will run locally, rather than in Microsoft Azure.
-    
-    // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
+    // Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
     
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -246,6 +243,9 @@ L'esempio di codice seguente crea un criterio di accesso archiviato in un conten
     
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
+
+    // Clear the container's shared access policies to avoid naming conflicts.
+    blobPermissions.SharedAccessPolicies.Clear();
     
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
@@ -253,24 +253,23 @@ L'esempio di codice seguente crea un criterio di accesso archiviato in un conten
        // To ensure SAS is valid immediately, don’t set the start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-       Permissions = SharedAccessBlobPermissions.Write |
-      SharedAccessBlobPermissions.Read
+       Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
     
     // The public access setting explicitly specifies that 
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
     
-    // Set the permission policy on the container.
+    // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
     
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
 
-Un client in possesso di una firma di accesso condiviso del servizio può usarla dal codice per autenticare una richiesta di lettura o di scrittura in un BLOB nel contenitore. l codice seguente, ad esempio, usa il token di firma di accesso condiviso per creare un nuovo BLOB in blocchi nel contenitore.
+Un client in possesso di una firma di accesso condiviso del servizio può usarla dal codice per autenticare una richiesta di lettura o di scrittura in un BLOB nel contenitore. Il codice seguente, ad esempio, usa il token di firma di accesso condiviso per creare un nuovo BLOB in blocchi nel contenitore. Modificare il codice per usare il proprio nome dell’account:
 
-    Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
+    Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
     
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
@@ -281,7 +280,7 @@ Un client in possesso di una firma di accesso condiviso del servizio può usarla
     // Upload the blob. 
     // If the blob does not yet exist, it will be created. 
     // If the blob does exist, its existing content will be overwritten.
-    using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
+    using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
     	blob.UploadFromStream(fileStream);
     }
@@ -317,11 +316,9 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 - [Come usare Archiviazione file di Azure con Windows](storage-dotnet-how-to-use-files.md)
 - [Gestire l'accesso alle risorse di archiviazione di Azure](storage-manage-access-to-resources.md)
 - [Delega dell'accesso con una firma di accesso condiviso](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -29,7 +29,7 @@ Nel portale di Azure sono disponibili due modi per creare e distribuire un servi
 
 In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica**. Quando si usa questo metodo, il portale di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando Creazione personalizzata.
 
-> [AZURE.NOTE]Se si prevede di pubblicare il servizio cloud da Visual Studio Online (VSO), usare Creazione rapida, quindi configurare la pubblicazione VSO da creazione rapida o dal dashboard. Per ulteriori informazioni, vedere [Recapito continuo in Azure mediante Visual Studio Online][TFSTutorialForCloudService] o la Guida alla pagina **Avvio rapido**.
+> [AZURE.NOTE]Se si prevede di pubblicare il servizio cloud da Visual Studio Team Services (VSTS), usare Creazione rapida, quindi configurare la pubblicazione VSTS da Azure Quickstart o dal dashboard. Per ulteriori informazioni, vedere [Recapito continuo in Azure mediante Visual Studio Team Services][TFSTutorialForCloudService] o la Guida alla pagina **Avvio rapido**.
 
 ## Concetti
 Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre componenti:
@@ -114,4 +114,4 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

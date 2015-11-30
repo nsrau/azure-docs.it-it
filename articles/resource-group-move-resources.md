@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/13/2015" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -58,6 +58,7 @@ I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 
 - Macchine virtuali
 - Reti virtuali
+- Archiviazione
 
 Quando si usano le app Web non è possibile spostare solo un piano di servizio app. Per spostare le app Web, le opzioni disponibili sono:
 
@@ -68,7 +69,7 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversa, usare il comando **Move-AzureRmResource**.
+Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando **Move-AzuremRResource**.
 
 Nel primo esempio viene illustrato come spostare una risorsa in un nuovo gruppo di risorse.
 
@@ -96,4 +97,4 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

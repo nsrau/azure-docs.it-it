@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Altre informazioni sulla gestione delle password
@@ -25,6 +25,7 @@ Se si è già distribuita la funzionalità di gestione delle password o se si è
   - [Modello di sicurezza del writeback della password](#password-writeback-security-model)
 * [**Funzionamento del portale di reimpostazione delle password**](#how-does-the-password-reset-portal-work)
   - [Dati usati per la reimpostazione della password](#what-data-is-used-by-password-reset)
+  - [Come accedere ai dati di reimpostazione della password per gli utenti](#how-to-access-password-reset-data-for-your-users)
 
 ## Panoramica del writeback delle password
 Writeback password è un componente di [Azure Active Directory Connect](active-directory-aadconnect) che può essere abilitato e usato dagli attuali sottoscrittori di Azure Active Directory Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
@@ -72,10 +73,10 @@ La tabella seguente descrive quali scenari sono supportati per le versioni delle
 ### Modello di sicurezza del writeback della password
 Il writeback delle password è un servizio altamente sicuro e affidabile. Per garantire che le informazioni siano protette, viene abilitato un modello di protezione a 4 livelli descritto di seguito.
 
-- **Inoltro del bus di servizio specifico del tenant** - quando si configura il servizio, viene configurato automaticamente Inoltro del bus di servizio specifico del tenant, protetto da una password complessa generata in modo casuale, a cui Microsoft non può mai accedere.
-- **Chiave di crittografia bloccata e crittograficamente complessa per le password** - dopo la creazione di Inoltro del bus di servizio, viene creata una chiave asimmetrica complessa, usata per la crittografia della password durante la trasmissione. Questa chiave si trova solo nell'archivio segreto dell’azienda nel cloud, bloccato in modo sicuro e controllato, come qualsiasi password nella directory.
-- **TLS standard di settore**: quando si verifica nel cloud un'operazione di reimpostazione o modifica della password, la password non crittografata viene crittografata automaticamente con la chiave pubblica dell'utente. Viene quindi inclusa in un messaggio HTTPS inviato tramite un canale crittografato con certificati SSL Microsoft a Inoltro del bus di servizio. Dopo l'arrivo del messaggio arriva nel bus di servizio, l'agente locale si riattiva, si autentica con il bus di servizio usando la password complessa generata in precedenza, preleva il messaggio crittografato, lo decrittografa con la chiave privata generata e quindi tenta di impostare la password tramite l'API SetPassword di Servizi di dominio Active Directory. Questo passaggio consente di applicare i criteri password locali di AD (complessità, validità, cronologia, filtri e cosi via) nel cloud.
-- **Criteri di scadenza del messaggio** - se per qualche motivo il messaggio rimane nel bus di servizio poiché il servizio locale non è disponibile, verrà infine applicato il timeout e il messaggio verrà rimosso dopo alcuni minuti, per assicurare una sicurezza maggiore.
+- **Inoltro del bus di servizio specifico del tenant**: quando si configura il servizio, viene configurato automaticamente Inoltro del bus di servizio specifico del tenant, protetto da una password complessa generata in modo casuale, a cui Microsoft non può mai accedere.
+- **Chiave di crittografia bloccata e crittograficamente complessa per le password**: dopo la creazione di Inoltro del bus di servizio, viene creata una chiave asimmetrica complessa, usata per la crittografia della password durante la trasmissione. Questa chiave si trova solo nell'archivio segreto dell’azienda nel cloud, bloccato in modo sicuro e controllato, come qualsiasi password nella directory.
+- **TLS standard di settore**: quando nel cloud si verifica un'operazione di reimpostazione o modifica della password, la password non crittografata viene crittografata automaticamente con la chiave pubblica dell'utente. Viene quindi inclusa in un messaggio HTTPS inviato tramite un canale crittografato con certificati SSL Microsoft a Inoltro del bus di servizio. Dopo l'arrivo del messaggio arriva nel bus di servizio, l'agente locale si riattiva, si autentica con il bus di servizio usando la password complessa generata in precedenza, preleva il messaggio crittografato, lo decrittografa con la chiave privata generata e quindi tenta di impostare la password tramite l'API SetPassword di Servizi di dominio Active Directory. Questo passaggio consente di applicare i criteri password locali di AD (complessità, validità, cronologia, filtri e così via) nel cloud.
+- **Criteri di scadenza del messaggio**: se per qualche motivo il messaggio rimane nel bus di servizio poiché il servizio locale non è disponibile, verrà infine applicato il timeout e il messaggio verrà rimosso dopo alcuni minuti, per assicurare una sicurezza maggiore.
 
 ## Funzionamento del portale di reimpostazione delle password
 Quando un utente accede al portale di reimpostazione della password, viene avviato un flusso di lavoro per stabilire se l'account utente è valido e se l'utente dispone della licenza per usare la funzionalità e per determinare l'organizzazione a cui l'utente appartiene e la posizione in cui viene gestita la password dell'utente. Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina di reimpostazione della password.
@@ -261,24 +262,121 @@ La seguente tabella indica il punto e la modalità d'uso dei dati durante la rei
           </tr>
         </tbody></table>
 
-<br/> <br/> <br/>
+###Come accedere ai dati di reimpostazione della password per gli utenti
+####Dati configurabili tramite la sincronizzazione
+I campi seguenti possono essere sincronizzati in locale:
 
-**Risorse aggiuntive**
+* Cellulare
+* Telefono ufficio
 
+####Dati impostabili con Azure AD PowerShell
+I campi seguenti sono accessibili con Azure AD PowerShell e l'API Graph:
 
-* [Informazioni sulla gestione delle password](active-directory-passwords.md)
-* [Funzionamento della gestione delle password](active-directory-passwords-how-it-works.md)
-* [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md)
-* [Personalizzare la gestione delle password](active-directory-passwords-customize.md)
-* [Procedure consigliate per la gestione delle password](active-directory-passwords-best-practices.md)
-* [Come ottenere informazioni dettagliate con i report di gestione delle password](active-directory-passwords-get-insights.md)
-* [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
-* [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
-* [Gestione delle password in MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* Indirizzo di posta elettronica alternativo
+* Cellulare
+* Telefono ufficio
+* Telefono per l'autenticazione
+* Indirizzo di posta elettronica per l'autenticazione
+
+####Dati impostabili solo con l'interfaccia utente della registrazione
+I campi seguenti sono accessibili solo tramite l'interfaccia utente della registrazione SSPR (https://aka.ms/ssprsetup):
+
+* Domande di sicurezza e risposte
+
+####Cosa accade quando un utente si registra?
+Quando un utente si registra, i campi seguenti verranno **sempre** impostati nella pagina di registrazione:
+
+* Telefono per l'autenticazione
+* Indirizzo di posta elettronica per l'autenticazione
+* Domande di sicurezza e risposte
+
+Se è stato specificato un valore per **Cellulare** o **Indirizzo di posta elettronica alternativo**, gli utenti possono usare immediatamente queste informazioni per reimpostare le password, anche se hanno effettuato la registrazione per il servizio. Inoltre, gli utenti visualizzano (e possono modificare) tali valori quando si registrano per la prima volta. Tuttavia, dopo aver completato la registrazione, questi valori vengono salvati in modo permanente rispettivamente nei campi **Telefono per l'autenticazione** e **Indirizzo di posta elettronica per l'autenticazione**.
+
+Ciò può risultare utile per sbloccare l'uso di SSPR da parte di un numero elevato di utenti pur consentendo loro di convalidare tali informazioni tramite il processo di registrazione.
+
+####Impostazione dei dati di reimpostazione delle password con PowerShell
+È possibile impostare i valori dei campi seguenti con Azure AD PowerShell.
+
+* Indirizzo di posta elettronica alternativo
+* Cellulare
+* Telefono ufficio
+
+Per iniziare, è prima necessario [scaricare e installare il modulo di Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Al termine dell'installazione è possibile eseguire la procedura seguente per configurare ogni campo.
+
+#####Indirizzo di posta elettronica alternativo
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
+```
+
+#####Cellulare
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
+```
+
+#####Telefono ufficio
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+```
+
+####Lettura dei dati di reimpostazione delle password con PowerShell
+È possibile leggere i valori dei campi seguenti con Azure AD PowerShell.
+
+* Indirizzo di posta elettronica alternativo
+* Cellulare
+* Telefono ufficio
+* Telefono per l'autenticazione
+* Indirizzo di posta elettronica per l'autenticazione
+
+Per iniziare, è prima necessario [scaricare e installare il modulo di Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Al termine dell'installazione è possibile eseguire la procedura seguente per configurare ogni campo.
+
+#####Indirizzo di posta elettronica alternativo
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
+```
+
+#####Cellulare
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
+```
+
+#####Telefono ufficio
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
+```
+
+#####Telefono per l'autenticazione
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
+```
+
+#####Indirizzo di posta elettronica per l'autenticazione
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
+```
+
+## Collegamenti alla documentazione relativa alla reimpostazione della password
+Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relativa alla reimpostazione della password in Azure AD:
+
+* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
+* [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
+* [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
+* [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
+* [**Informazioni dettagliate**](active-directory-passwords-get-insights.md): informazioni sulle funzionalità di creazione report integrate
+* [**Domande frequenti**](active-directory-passwords-faq.md): risposte alle domande frequenti
+* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
 
 
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

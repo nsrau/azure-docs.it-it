@@ -1,33 +1,32 @@
 <properties 
-   pageTitle="Collegamento a una macchina virtuale di SQL Server | Microsoft Azure"
-   description="Questo argomento utilizza le risorse create con il modello di distribuzione classica e descrive come connettersi a SQL Server in esecuzione in una macchina virtuale in Azure. Gli scenari variano a seconda della configurazione di rete e della posizione del client."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"    
-   tags="azure-service-management"/>
+	pageTitle="Collegamento a una macchina virtuale di SQL Server | Microsoft Azure"
+	description="Questo argomento utilizza le risorse create con il modello di distribuzione classica e descrive come connettersi a SQL Server in esecuzione in una macchina virtuale in Azure. Gli scenari variano a seconda della configurazione di rete e della posizione del client."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"    
+	tags="azure-service-management"/>
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/12/2015"
+	ms.author="jroth" />
 
 # Connettersi a una macchina virtuale di SQL Server in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
- 
- 
 ## Panoramica
 
 La configurazione della connettività a SQL Server in esecuzione in una macchina virtuale di Azure non è molto diversa dalla procedura necessaria per un'istanza di SQL Server locale. È comunque necessario seguire la procedura di configurazione che riguarda il firewall, l'autenticazione e gli account di accesso al database.
 
 Esistono tuttavia alcuni aspetti relativi alla connettività di SQL Server che sono specifici per le macchine virtuali di Azure. Questo articolo illustra alcuni [scenari di connettività generali](#connection-scenarios) e quindi descrive la [procedura dettagliata per la configurazione della connettività di SQL Server in una macchina virtuale di Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
->[AZURE.NOTE]Questo articolo è incentrato sulla connettività. Per una procedura dettagliata completa del provisioning e della connettività, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-provision-sql-server.md).
+Questo articolo è incentrato sulla connettività. Per una procedura dettagliata completa del provisioning e della connettività, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-provision-sql-server.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 ## Scenari di connessione
 
@@ -61,7 +60,7 @@ Sebbene in questo modo venga abilitata la connettività per i client tramite Int
 
 ### Connettersi a SQL Server nella stessa rete virtuale
 
-La [rete virtuale](..\virtual-network\virtual-networks-overview.md) supporta scenari aggiuntivi. È possibile connettere le macchine virtuali nella stessa rete virtuale, anche se si trovano in servizi cloud diversi. Con una [VPN da sito a sito](../vpn-gateway/vpn-gateway-site-to-site-create.md) è possibile creare un'architettura ibrida che connette le macchine virtuali con computer e reti locali.
+La [rete virtuale](..\virtual-network\virtual-networks-overview.md) supporta scenari aggiuntivi. È possibile connettere le macchine virtuali nella stessa rete virtuale, anche se si trovano in servizi cloud diversi. Con una [VPN da sito a sito](../vpn-gateway/vpn-gateway-site-to-site-create.md) è possibile creare un'architettura ibrida che connette le macchine virtuali a computer e reti locali.
 
 Le reti virtuali consentono inoltre di aggiungere le macchine virtuali di Azure a un dominio. Si tratta dell'unico modo per usare l'autenticazione di Windows per SQL Server. Gli altri scenari di connessione richiedono l'autenticazione SQL con nomi utente e password.
 
@@ -87,4 +86,4 @@ Se si intende anche usare gruppi di disponibilità AlwaysOn per la disponibilit�
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

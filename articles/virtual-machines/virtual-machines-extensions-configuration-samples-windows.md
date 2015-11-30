@@ -26,9 +26,9 @@
 Questo articolo fornisce una configurazione di esempio per la configurazione di estensioni di macchina virtuale di Azure per macchine virtuali di Windows.
 
 
-Per ulteriori informazioni su queste estensioni fare clic: [Panoramica delle Estensioni di macchina virtuale di Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+Per ulteriori informazioni su queste estensioni, vedere [Panoramica delle Estensioni di macchina virtuale di Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-Per ulteriori informazioni sulla creazione di modelli di estensione fare clic qui [Creazione di modelli di estensione](virtual-machines-extensions-authoring-templates.md)
+Per ulteriori informazioni sulla creazione di modelli di estensione, vedere [Creazione di modelli di estensione](virtual-machines-extensions-authoring-templates.md)
 
 In questo articolo vengono elencati i valori di configurazione previsti per alcune delle estensioni di Windows.
 
@@ -285,12 +285,13 @@ Prima di distribuire l'estensione, controllare la versione più recente dell'est
 
 ### Diagnostica Azure
 
-Fare clic qui per una panoramica di [Estensione diagnostica Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+Per ulteriori informazioni su come configurare la diagnostica, vedere [Estensione della diagnostica di Azure](virtual-machines-extensions-diagnostics-windows-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
-            "typeHandlerVersion": "1.4",
+            "typeHandlerVersion": "1.5",
+			"autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"
@@ -308,4 +309,4 @@ Di seguito è riportato un esempio di un modello di macchina virtuale completo c
 
 [Estensione di script personalizzato in una macchina virtuale Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

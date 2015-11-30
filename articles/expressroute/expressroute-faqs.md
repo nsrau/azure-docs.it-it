@@ -59,7 +59,7 @@ La maggior parte dei servizi di Azure è supportata tramite ExpressRoute.
 	**Non sono supportati i seguenti servizi:**
 
 	- RETE CDN
-	- Test di carico di Visual Studio Online
+	- Test del carico di Visual Studio Team Services
 	- Multi-Factor Authentication
 
 ## Dati e connessioni
@@ -258,4 +258,4 @@ Per altre informazioni sull'elenco di partner e località in cui è supportato E
 Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se ExpressRoute è stato configurato per la rete specifica. Se ci si trova in una località configurata per la connessione ai servizi di Office 365 tramite ExpressRoute, la connessione verrà effettuata tramite ExpressRoute.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

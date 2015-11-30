@@ -143,9 +143,9 @@ Esistono diversi metodi di impostazione della proprietà della versione dell'app
 
     Per consentire a MSBuild di generare i numeri di versione, in AssemblyReference.cs impostare la versione come, ad esempio, `1.0.*`.
 
-## Monitorare i server back-end
+## Monitorare i server back-end e le app desktop
 
-[Usare l'API di base](app-insights-windows-desktop.md)
+[Usare il modulo di Windows Server SDK](app-insights-windows-desktop.md).
 
 
 ## Visualizzare i dati
@@ -185,21 +185,21 @@ Se gli utenti effettuano l'accesso, è possibile impostare l'[ID dell'utente aut
 
 ## Modificare i nomi della proprietà o i valori
 
-Creare un filtro(app-insights-api-filtering-sampling.md#filtering). Consente di modificare o filtrare la telemetria prima che venga inviata dall'app ad Application Insights.
+Creare un [filtro](app-insights-api-filtering-sampling.md#filtering). Consente di modificare o filtrare la telemetria prima che venga inviata dall'app ad Application Insights.
 
 ## Elencare utenti specifici e il relativo uso
 
-Se si desidera [cercare utenti specifici](#search-specific-users), è possibile impostare l'[ID dell'utente autenticato](app-insights-api-custom-events-metrics/#authenticated-users).
+Se si desidera [cercare utenti specifici](#search-specific-users), è possibile impostare l'[ID dell'utente autenticato](app-insights-api-custom-events-metrics.md#authenticated-users).
 
 Se si desidera un elenco di utenti con i dati quali, ad esempio, le pagine visualizzate o la frequenza di accesso, sono disponibili due opzioni:
 
-* [Impostare l'ID dell'utente autenticato](app-insights-api-custom-events-metrics/#authenticated-users), [eseguire l'esportazione in un database](app-insights-code-sample-export-sql-stream-analytics.md) e usare gli strumenti appropriati per analizzare i dati utente.
+* [Impostare l'ID dell'utente autenticato](app-insights-api-custom-events-metrics.md#authenticated-users), [eseguire l'esportazione in un database](app-insights-code-sample-export-sql-stream-analytics.md) e usare gli strumenti appropriati per analizzare i dati utente.
 * Se si dispone solo di un numero limitato di utenti, inviare gli eventi o le metriche personalizzati usando i dati di interesse quali, ad esempio, il valore della metrica o il nome dell'evento, quindi impostando l'ID utente come proprietà. Per analizzare le visualizzazioni di pagina, sostituire la chiamata standard JavaScript trackPageView. Per analizzare i dati di telemetria sul lato server, usare un inizializzatore di telemetria per aggiungere l'ID utente a tutti i dati di telemetria del server. È quindi possibile filtrare e segmentare le metriche e le ricerche in base all'ID utente.
 
 
 ## Ridurre il traffico dall'app ad Application Insights
 
-* In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) disabilitare tutti i moduli non necessari, come gli agenti di raccolta del contatore della prestazione.
+* In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) disabilitare tutti i moduli non necessari, come gli agenti di raccolta del contatore delle prestazioni.
 * Usare [Campionamento e filtri](app-insights-api-filtering-sampling.md) nell’SDK.
 * Se si usa [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcolare l'aggregazione di batch di valori delle metriche prima di inviare il risultato. Un overload di TrackMetric() esegue questa operazione.
 
@@ -231,7 +231,7 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 
 ### Se non vengono visualizzati dati dei contatori delle prestazioni
 
-* **Server IIS** sul proprio computer o in una macchina virtuale. [Installare Status Monitor](app-insights-monitor-performance-live-website-now.md). 
+* **Server IIS** sul proprio computer o in una VM. [Installare Status Monitor](app-insights-monitor-performance-live-website-now.md). 
 * **Sito Web di Azure** - i contatori delle prestazioni non sono ancora supportati. Esistono diverse metriche che è possibile ottenere come una parte standard del Pannello di controllo del sito Web di Azure.
 * **Server Unix** - [Installare collectd](app-insights-java-collectd.md)
 
@@ -240,4 +240,4 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 * Innanzitutto [aggiungere un nuovo grafico](app-insights-metrics-explorer.md) e verificare che il contatore sia incluso nel set di base offerto.
 * In caso contrario, [aggiungere il contatore al set raccolto dal modulo del contatore delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

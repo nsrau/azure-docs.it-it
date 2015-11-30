@@ -1252,6 +1252,7 @@ Crea una risorsa IP pubblico. La risorsa verrà creata e associata a un nome di 
 
 
 Opzioni dei parametri:
+
 	-h, --help                                   output usage information
 	-v, --verbose                                use verbose output
 	--json                                       use json output
@@ -1759,4 +1760,4 @@ Opzioni dei parametri:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

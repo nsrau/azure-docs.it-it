@@ -119,10 +119,13 @@ Il diagramma successivo illustra come avviene l'aggiornamento se si aggiorna un 
 
 Durante un aggiornamento automatico, il controller di infrastruttura di Azure valuta periodicamente l'integrità del servizio cloud per determinare quando è sicuro passare al dominio di aggiornamento successivo. Questa valutazione dell'integrità viene eseguita per ogni singolo ruolo e considera solo le istanze nella versione più recente (ad esempio, le istanze dei domini di aggiornamento già analizzati). Verifica che un numero minimo di istanze del ruolo, per ogni ruolo, abbia raggiunto uno stato finale soddisfacente.
 
+### Timeout dell'avvio dell’istanza del ruolo 
+Il controller di infrastruttura attende 30 minuti affinché ogni istanza del ruolo raggiunga uno stato avviato. Se la durata del timeout scade, il controller di infrastruttura prosegue all'istanza del ruolo successivo.
+
 ## Ripristino dello stato precedente di un aggiornamento
 Azure offre flessibilità nella gestione dei servizi durante un aggiornamento perché consente di avviare altre operazioni su un servizio, dopo che la richiesta di aggiornamento iniziale è stata accettata dal controller di infrastruttura di Azure. Un ripristino dello stato precedente può essere eseguito solo quando una modifica della configurazione o un aggiornamento è nello stato **in corso** durante la distribuzione. Un aggiornamento viene considerato in corso finché almeno un'istanza del servizio non è ancora stata aggiornata alla nuova versione. Per verificare se un ripristino dello stato precedente è consentito, controllare che il valore del flag RollbackAllowed, restituito dalle operazioni [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx), sia impostato su true.
 
-> [AZURE.NOTE]Chiamare ripristino dello stato precedente è utile solo per un aggiornamento **sul posto** perché gli aggiornamenti con scambio di indirizzi VIP comportano la sostituzione di un'intera istanza in esecuzione del servizio con un'altra.
+> [AZURE.NOTE]Chiamare ripristino dello stato precedente è utile solo per un aggiornamento **sul posto** perché gli aggiornamenti con scambio di indirizzo VIP comportano la sostituzione di un'intera istanza in esecuzione del servizio con un'altra.
 
 Il ripristino dello stato precedente di un aggiornamento in corso ha gli effetti seguenti sulla distribuzione:
 
@@ -162,7 +165,7 @@ Due operazioni, [Get Deployment](https://msdn.microsoft.com/library/azure/ee4608
 Per chiamare la versione di questi metodi che restituisce il flag Locked, è necessario impostare l'intestazione della richiesta su "x-ms-version: 2011-10-01" o versione successiva. Per altre informazioni sul controllo delle versioni delle intestazioni, vedere [Controllo delle versioni di gestione del servizio](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
 ## Distribuzione di ruoli nei domini di aggiornamento
-Azure distribuisce in tutti i domini di aggiornamento lo stesso numero di istanze di un ruolo, che è possibile configurare come parte del file di definizione del servizio (.csdef). Il numero massimo di domini di aggiornamento è 20 e quello predefinito è 5. Per altre informazioni su come modificare il file di definizione del servizio, vedere [Schema di definizione del servizio di Azure (file .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
+Azure distribuisce in tutti i domini di aggiornamento lo stesso numero di istanze di un ruolo, che è possibile configurare come parte del file di definizione del servizio (.csdef). Il numero massimo di domini di aggiornamento è 20 e quello predefinito è 5. Per altre informazioni su come modificare il file csdef, vedere [Schema di definizione del servizio di Azure (file .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
 
 Se, ad esempio, il ruolo ha dieci istanze, per impostazione predefinita, ogni dominio di aggiornamento contiene due istanze. Se il ruolo ha 14 istanze, quattro domini di aggiornamento contengono tre istanze e un quinto dominio ne contiene due.
 
@@ -177,4 +180,4 @@ Il diagramma seguente illustra come vengono distribuiti due ruoli contenuti in u
 ## Passaggi successivi
 [Come gestire i servizi cloud](cloud-services-how-to-manage.md)<br> [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md)<br> [Come configurare i servizi cloud](cloud-services-how-to-cofigure.md)<br>
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

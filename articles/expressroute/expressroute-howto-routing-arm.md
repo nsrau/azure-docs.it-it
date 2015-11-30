@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="11/12/2015"
    ms.author="cherylmc"/>
 
 # Creare e modificare il routing per un circuito ExpressRoute mediante la Gestione risorse di Azure e PowerShell
@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
-Questo articolo descrive le procedure per creare e gestire la configurazione di routing per un circuito ExpressRoute usando i cmdlet di PowerShell e il modello di distribuzione di Azure. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute.
+Questo articolo descrive le procedure per creare e gestire la configurazione di routing per un circuito ExpressRoute usando i cmdlet di PowerShell e il modello di distribuzione di Gestione risorse di Azure. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute.
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -40,7 +40,7 @@ Per un circuito ExpressRoute è possibile configurare uno, due o tutti e tre i p
 
 Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed eliminare la configurazione del peering privato di Azure per un circuito ExpressRoute.
 
-### Creare un peering privato di Azure
+### Per creare un peering privato di Azure
 
 1. **Importare il modulo PowerShell per ExpressRoute.**
 	
@@ -127,16 +127,16 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 	>[AZURE.IMPORTANT]Assicurarsi di specificare il numero AS come ASN di peering e non come ASN cliente.
 
-### Ottenere i dettagli relativi al peering privato di Azure
+### Per ottenere i dettagli relativi al peering privato di Azure
 
 Per ottenere i dettagli di configurazione, usare il cmdlet seguente
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt	
+		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt	
 
 
-### Aggiornare la configurazione del peering privato di Azure
+### Per aggiornare la configurazione del peering privato di Azure
 
 Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente. Nell'esempio seguente il valore dell'ID VLAN del circuito viene aggiornato da 100 a 500.
 
@@ -145,7 +145,7 @@ Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente. N
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Eliminare un peering privato di Azure
+### Per eliminare un peering privato di Azure
 
 Per rimuovere la configurazione di peering, eseguire il cmdlet seguente.
 
@@ -160,7 +160,7 @@ Per rimuovere la configurazione di peering, eseguire il cmdlet seguente.
 
 Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed eliminare la configurazione del peering pubblico di Azure per un circuito ExpressRoute.
 
-### Creare un peering pubblico di Azure
+### Per creare un peering pubblico di Azure
 
 1. **Importare il modulo PowerShell per ExpressRoute.**
 	
@@ -247,7 +247,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 	>[AZURE.IMPORTANT]Assicurarsi di specificare il numero AS come ASN di peering e non come ASN cliente.
 
-### Ottenere i dettagli relativi al peering pubblico di Azure
+### Per ottenere i dettagli relativi al peering pubblico di Azure
 
 Per ottenere i dettagli di configurazione, usare il cmdlet seguente
 
@@ -256,7 +256,7 @@ Per ottenere i dettagli di configurazione, usare il cmdlet seguente
 		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
 
 
-### Aggiornare la configurazione del peering pubblico di Azure
+### Per aggiornare la configurazione del peering pubblico di Azure
 
 Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente
 
@@ -266,7 +266,7 @@ Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente
 
 Nell'esempio precedente il valore dell'ID VLAN è stato aggiornato da 200 a 600.
 
-### Eliminare un peering pubblico di Azure
+### Per eliminare un peering pubblico di Azure
 
 Per rimuovere la configurazione di peering, eseguire il cmdlet seguente
 
@@ -277,7 +277,7 @@ Per rimuovere la configurazione di peering, eseguire il cmdlet seguente
 
 Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed eliminare la configurazione del peering Microsoft per un circuito ExpressRoute.
 
-### Creare il peering Microsoft
+### Per creare il peering Microsoft
 
 1. **Importare il modulo PowerShell per ExpressRoute.**
 	
@@ -349,7 +349,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 	- Advertised prefixes: è necessario fornire un elenco di tutti i prefissi che si intende pubblicizzare nella sessione BGP. Sono accettati solo prefissi di indirizzi IP pubblici. Per inviare un set di prefissi, è possibile creare un elenco con valori delimitati da virgole. Questi prefissi devono essere intestati all'utente in un registro RIR o IRR.
 	- Customer ASN: se si annunciano prefissi registrati al numero AS di peering, è possibile specificare il numero AS a cui sono registrati. **Facoltativo**.
 	- Routing Registry Name: è possibile specificare il registro RIR/IRR in cui sono registrati il numero AS e i prefissi.
-	- Un hash MD5, se si sceglie di usarne uno. **Facoltativo**.
+	- Un hash MD5, se si sceglie di usarne uno. **Facoltativo.**
 	
 	Per configurare il peering Microsoft per il circuito, è possibile eseguire il cmdlet seguente
 
@@ -367,7 +367,7 @@ Per ottenere i dettagli di configurazione, usare il cmdlet seguente.
 		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
 
 
-### Aggiornare la configurazione del peering Microsoft
+### Per aggiornare la configurazione del peering Microsoft
 
 Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente.
 
@@ -376,7 +376,7 @@ Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente.
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 		
 
-### Eliminare il peering Microsoft
+### Per eliminare il peering Microsoft
 
 Per rimuovere la configurazione di peering, eseguire il cmdlet seguente.
 
@@ -395,4 +395,4 @@ Nel passaggio successivo, collegare una rete virtuale a un circuito ExpressRoute
 
 -  Per ulteriori informazioni sull’uso delle reti virtuali, vedere [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Risoluzione dei problemi di connessione a una macchina virtuale di Azure tramite SSH | Microsoft Azure"
-	description="Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure che esegue Linux."
+	pageTitle="Risoluzione dei problemi di connessione SSH a una macchina virtuale di Azure | Microsoft Azure"
+	description="Risolvere i problemi e correggere gli errori SSH, ad esempio una connessione SSH non riuscita o rifiutata per una macchina virtuale di Azure che esegue Linux."
+	keywords="connessione SSH rifiutata,errore SSH,SSH Azure,connessione SSH non riuscita"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,30 +20,28 @@
 
 # Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux
 
+Possono essere varie le cause degli errori SSH durante il tentativo di connessione a una macchina virtuale di Azure basata su Linux. Questo articolo consente di individuare tali errori e correggerli.
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-
-
-Possono essere varie le cause degli errori SSH per una macchina virtuale di Azure basata su Linux. Questo articolo consente di individuarle e correggere gli errori.
-
-Questo articolo si applica solo a macchine virtuali di Azure che eseguono Linux. Per la risoluzione dei problemi di connessioni a macchine virtuali di Azure che eseguono Windows, vedere [questo articolo](virtual-machines-troubleshoot-remote-desktop-connections.md).
+Questo articolo si applica solo a macchine virtuali di Azure che eseguono Linux. Per macchine virtuali di Azure che eseguono Windows, vedere [Risolvere i problemi di connessione Desktop remoto a una macchina virtuale di Azure](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
 ## Contattare il supporto tecnico di Azure
 
-Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](http://azure.microsoft.com/support/forums/).
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](http://azure.microsoft.com/support/forums/).
 
-In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Microsoft Azure](http://azure.microsoft.com/support/faq/).
+In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [Supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](http://azure.microsoft.com/support/faq/).
 
 
-## Passaggi di base - modello di distribuzione classica
+## Procedura per correggere gli errori comuni SSH nel modello di distribuzione classica
 
 Per risolvere gli errori di connessione SSH più comuni nelle macchine virtuali create con il modello di distribuzione classica, provare a eseguire questi passaggi:
 
-1. **Reimpostare l'accesso remoto** dal [portale di anteprima di Azure](https://portal.azure.com). Fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > macchina virtuale Windows > **Reimposta accesso remoto**.
+1. **Reimpostare l'accesso remoto** dal [portale di anteprima di Azure](https://portal.azure.com). Fare clic su **Esplora tutto** > **Macchine virtuali (classiche)** > macchina virtuale Windows > **Reimposta accesso remoto**.
 
-	![Reimpostare l'accesso remoto](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
+	![Schermata che mostra la reimpostazione della configurazione SSH](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. **Riavviare** la macchina virtuale. Dal [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali (classiche)** > macchina virtuale Windows > **Riavvia**. Dal [portale di gestione di Azure](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
+2. **Riavviare** la macchina virtuale. Dal [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > macchina virtuale Windows > **Riavvia**. Dal [portale di gestione di Azure](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
 
 3. [**Ridimensionare** la macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -55,11 +54,11 @@ Per risolvere gli errori di connessione SSH più comuni nelle macchine virtuali 
 5. Controllare l'integrità delle risorse della macchina virtuale per qualsiasi problema di piattaforma. Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale Linux > **Controlla integrità**.
 
 
-## Passaggi di base - modello di distribuzione di Gestione risorse
+## Procedura per correggere gli errori comuni SSH nel modello di distribuzione di Gestione risorse
 
 Per risolvere i problemi SSH comuni alle macchine virtuali create con il modello di distribuzione di Gestione risorse, provare a eseguire i passaggi seguenti.
 
-1. **Reimpostare la connessione SSH** alla macchina virtuale Linux nella riga di comando, usando l'interfaccia della riga di comando di Azure o Azure PowerShell. Verificare che l'[agente Linux di Microsoft Azure](virtual-machines-linux-agent-user-guide.md) versione 2.0.5 o successiva sia installato.
+1. **Reimpostare la connessione SSH** alla macchina virtuale Linux nella riga di comando usando l'interfaccia della riga di comando di Azure o Azure PowerShell. Verificare che sia installato l'[agente Linux di Microsoft Azure](virtual-machines-linux-agent-user-guide.md) versione 2.0.5 o successiva.
 
 	**Utilizzare l'interfaccia della riga di comando di Azure**
 
@@ -113,9 +112,9 @@ Per risolvere i problemi SSH comuni alle macchine virtuali create con il modello
 
 2. **Riavviare** la macchina virtuale Linux dal portale. Dal [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali** > macchina virtuale Windows > **Riavvia**.
 
-	![Riavvio di V2](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)
+	![Schermata che mostra il riavvio di una macchina virtuale V2](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)
 
-3. **Reimpostare la password o la chiave SSH** per la macchina virtuale Linux nella riga di comando, usando l'interfaccia della riga di comando di Azure o Azure PowerShell. È anche possibile creare un nuovo nome utente e una password con l'autorità sudo, come illustrato nell'esempio seguente.
+3. **Reimpostare la password o la chiave SSH** per la macchina virtuale Linux nella riga di comando usando l'interfaccia della riga di comando di Azure o Azure PowerShell. È anche possibile creare un nuovo nome utente e una password con l'autorità sudo, come illustrato nell'esempio seguente.
 
 	**Utilizzare l'interfaccia della riga di comando di Azure**
 
@@ -165,11 +164,11 @@ Per risolvere i problemi SSH comuni alle macchine virtuali create con il modello
 
 	Assicurarsi di sostituire i valori di $RGName, $VmName e $Location e le credenziali SSH con i valori specifici della propria installazione.
 
-## Risoluzione dettagliata dei problemi
+## Risoluzione dettagliata dei problemi relativi agli errori SSH
 
 Se il client SSH non riesce ancora a raggiungere il servizio SSH sulla macchina virtuale, questo può essere dovuto a vari motivi. Di seguito sono riportati i componenti coinvolti.
 
-![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot1.png)
+![Diagramma che mostra i componenti del servizio SSH](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot1.png)
 
 Le informazioni nelle sezioni seguenti saranno utili per isolare l'origine dell'errore e individuare le soluzioni.
 
@@ -186,7 +185,7 @@ Nel [portale di gestione di Azure](https://manage.windowsazure.com), per le macc
 
 Nel [portale di anteprima di Azure](https://portal.azure.com):
 
-1. Per una macchina virtuale creata nel modello di distribuzione classica, fare clic su **Sfoglia** > **Macchine virtuali (classico)** > *Nome macchina virtuale*. Per una macchina virtuale basata su Gestione risorse, fare clic su **Sfoglia** > **Macchine virtuali** > *Nome VM*. Nel riquadro di stato relativo alla macchina virtuale deve essere visualizzata l'opzione **In esecuzione**. Scorrere verso il basso per visualizzare le recenti attività di elaborazione e archiviazione e le risorse di rete.
+1. Per una macchina virtuale creata nel modello di distribuzione classica fare clic su **Sfoglia** > **Macchine virtuali (classico)** > *Nome macchina virtuale*. Per una macchina virtuale basata su Gestione risorse fare clic su **Sfoglia** > **Macchine virtuali** > *Nome VM*. Nel riquadro di stato relativo alla macchina virtuale deve essere visualizzata l'opzione **In esecuzione**. Scorrere verso il basso per visualizzare le recenti attività di elaborazione e archiviazione e le risorse di rete.
 2. Fare clic su **Impostazioni** per esaminare gli endpoint, gli indirizzi IP e altre impostazioni. Per identificare gli endpoint nelle macchine virtuali create con Gestione risorse, controllare se è stato definito un [gruppo di sicurezza di rete](../traffic-manager/virtual-networks-nsg.md), se gli sono state applicate le regole e se vi si fa riferimento nella subnet.
 
 Per verificare la connettività di rete, controllare gli endpoint configurati e determinare se è possibile raggiungere la macchina virtuale tramite un altro protocollo, ad esempio HTTP o un altro servizio.
@@ -208,7 +207,7 @@ L'impossibilità per il client SSH nel computer in uso di raggiungere il servizi
 
 Per escludere il computer in uso come origine dell'errore, verificare che sia in grado di stabilire connessioni SSH a un altro computer locale basato su Linux.
 
-![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot2.png)
+![Diagramma che evidenzia i componenti del computer client SSH](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot2.png)
 
 Se ciò non è possibile, effettuare i seguenti controlli nel computer:
 
@@ -230,7 +229,7 @@ Se si usa l'autenticazione del certificato, verificare la presenza delle seguent
 
 Per eliminare il dispositivo periferico dell'organizzazione come origine dell'errore, verificare che un computer connesso direttamente a Internet sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure. Se si accede alla macchina virtuale tramite una connessione ExpressRoute o VPN da sito a sito, passare al paragrafo [Origine 4: Gruppi di sicurezza di rete](#nsg).
 
-![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot3.png)
+![Diagramma che evidenzia il dispositivo periferico dell'organizzazione](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot3.png)
 
 Se non si dispone di un computer connesso direttamente a Internet, è possibile creare facilmente e usare una nuova macchina virtuale di Azure nel suo proprio gruppo di risorse o servizio cloud. Per altre informazioni, vedere [Creare una macchina virtuale con Linux in Azure](virtual-machines-linux-tutorial.md). Dopo aver completato i test, eliminare il gruppo di risorse o la macchina virtuale e il servizio cloud.
 
@@ -246,9 +245,9 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni dei disposi
 
 > [AZURE.NOTE]Questa origine si applica solo alle macchine virtuali create con il modello di distribuzione classica. Per le macchine virtuali create in Gestione risorse, passare a [Origine 4: Gruppi di sicurezza di rete](#nsg).
 
-Per eliminare l'endpoint di servizio cloud e l'elenco di controllo di accesso (ACL) come possibile origine dell'errore, per le macchine virtuali create con il [modello di distribuzione classica](../resource-manager-deployment-model.md), verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure.
+Per eliminare l'endpoint di servizio cloud e l'elenco di controllo di accesso (ACL) come possibile origine dell'errore, per le macchine virtuali create con il [modello di distribuzione classica](../resource-manager-deployment-model.md) verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure.
 
-![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
+![Diagramma che evidenzia l'endpoint del servizio cloud e l'elenco di controllo di accesso](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 
 Se non si dispone di un'altra macchina virtuale nella stessa rete virtuale, è possibile crearne facilmente una nuova. Per altre informazioni, vedere [Creare una macchina virtuale con Linux in Azure](virtual-machines-linux-tutorial.md). Dopo aver completato i test, eliminare la macchina virtuale aggiuntiva.
 
@@ -268,7 +267,7 @@ I gruppi di sicurezza di rete consentono di avere un controllo più granulare de
 
 L'ultima origine di possibili problemi corrisponde alla stessa macchina virtuale di Azure.
 
-![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot5.png)
+![Diagramma che evidenzia la macchina virtuale di Azure basata su Linux](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot5.png)
 
 Se non è stato ancora fatto, seguire le istruzioni illustrate nell'articolo [Come reimpostare una password o SSH per le macchine virtuali Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) nella macchina virtuale.
 
@@ -288,4 +287,4 @@ Per le macchine virtuali nel modello di distribuzione classica, [Come reimpostar
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

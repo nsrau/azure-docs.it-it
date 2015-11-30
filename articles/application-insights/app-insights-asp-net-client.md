@@ -18,13 +18,6 @@
 
 # Impostare Application Insights: pagine web
 
-*Application Insights è disponibile in anteprima.*
-
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) consente di monitorare un'applicazione live per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni][detect] e [individuare la modalità di uso dell'app][knowUsers].
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -68,7 +61,7 @@ Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa
 
 Eseguire l'app Web, usarla un periodo di tempo per generare dati di telemetria e attendere alcuni secondi. È possibile eseguirla premendo **F5** sul computer di sviluppo o pubblicarla e metterla a disposizione degli utenti.
 
-Se si desidera controllare i dati di telemetria che un'app Web sta inviando ad Application Insights, usare gli strumenti di debug del browser (**F12** in molti browser). I dati vengono inviati a dc.services.visualstudio.com.
+Se si vuole controllare i dati di telemetria che un'app Web sta inviando ad Application Insights, usare gli strumenti di debug del browser, **F12** in molti browser. I dati vengono inviati a dc.services.visualstudio.com.
 
 ## Esplorare i dati
 
@@ -200,4 +193,4 @@ Per sapere in che modo gli utenti usano l'app, inserire le chiamate nel codice d
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

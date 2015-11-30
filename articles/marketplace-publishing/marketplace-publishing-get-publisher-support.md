@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Accesso al supporto per gli editori in Azure Marketplace | Microsoft Azure"
-   description="Come accedere e inviare le richieste di supporto per gli editori in Azure Marketplace"
+   pageTitle="Accesso al supporto per gli editori per Azure Marketplace | Microsoft Azure"
+   description="Come accedere e inviare le richieste di supporto per gli editori per Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter="na"
    authors="v-jeana"
@@ -17,55 +17,55 @@
    ms.author="v-jeana; hascipio"/>
 
 
-# Accesso al supporto per gli editori in Azure Marketplace
+# Accesso al supporto per gli editori per Azure Marketplace
 
-Microsoft fornisce supporto per un'ampia gamma di prodotti e servizi. Assicurarsi che la propria richiesta sia inviata al team di supporto più adatto è importante per poter ottenere una risposta pertinente e in modo tempestivo. Considerare gli scenari seguenti, che possono essere utili per indirizzare la propria richiesta al team appropriato.
+Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi. Assicurarsi che la query rilevi il team di supporto corretto è importante per garantire una risposta appropriata e tempestiva. Considerare gli scenari seguenti, che possono essere utili per indirizzare la propria richiesta al team appropriato:
 
-- Se si è un editore in Marketplace e si sta ancora sviluppando la propria macchina virtuale, è necessario contattare i team Microsoft che si occupano dell'integrazione o dell'elaborazione.
+- Se si è un editore in Azure Marketplace e si sta ancora sviluppando la propria VM, è necessario contattare i team Microsoft che si occupano dell'integrazione o del calcolo.
 
-- Se si è un editore in Marketplace e si riceve una domanda da un cliente, indicare al cliente di richiedere supporto tramite i collegamenti di supporto in https://ms.portal.azure.com/
+- Se si è un editore in Marketplace e si riceve una domanda da un cliente, indicare al cliente di richiedere supporto tramite i collegamenti di supporto in https://ms.portal.azure.com/.
 
 - Se si è un editore in Marketplace e si desidera porre una domanda relativa all'app o al servizio, proseguire con la lettura.
 
-## In questo articolo verranno illustrate le attività seguenti:
+In questo articolo verranno illustrate le attività seguenti:
 
-- Effettuare l'accesso con l'account Microsoft
-- Passare alle pagine di supporto per gli editori
-- Selezionare il tipo di problema e la categoria
-- Richiedere supporto
-- Fornire informazioni di contatto
-- Descrivere il problema
+- Effettuare l'accesso all'account Microsoft.
+- Passare alle pagine di supporto per gli editori.
+- Selezionare il tipo di problema e la categoria.
+- Richiedere supporto.
+- Fornire informazioni di contatto.
+- Descrivere il problema.
 
-## 1\. Effettuare l'accesso con l'account Microsoft
+## 1\. Effettuare l'accesso con l'account Microsoft.
 
-Passare a https://publish.windowsazure.com/ e accedere con le credenziali dell'account Microsoft
+Passare a https://publish.windowsazure.com/ e accedere con le credenziali dell'account Microsoft.
 
   ![Schermata di accesso][1]
 
 ## 2\. Passare alle pagine di supporto per gli editori
 
-Nel menu superiore destro selezionare "Ottieni supporto"
+Nel menu superiore destro selezionare **Ottieni supporto**.
 
-  ![Ottenere supporto][2]
+  ![Supporto][2]
 
-## 3\. Selezionare il tipo di problema e la categoria
+## 3\. Selezionare il tipo di problema e la categoria.
 
-![Tipo di problema e categoria][3]
+![Tipo e categoria del problema][3]
 
 I tipi di problemi disponibili sono i seguenti:
 
-  - Gestione dell'account
-  - Report e Insights
-  - Certificazione di un'immagine di macchina virtuale
-  - Gestione dei clienti
-  - Gestione delle offerte
-  - Proventi
-  - Dashboard venditori
-  - Altri
+  - **Gestione dell'account**
+  - **Report e Insights**
+  - **Certificazione di un'immagine di macchina virtuale**
+  - **Gestione dei clienti**
+  - **Gestione delle offerte**
+  - **Proventi**
+  - **Dashboard venditori**
+  - **Altri**
 
 ## 4\. Richiedere supporto
 
-Dopo aver selezionato il tipo di problema e la categoria, fare clic sul pulsante "Avvia richiesta"
+Dopo aver selezionato il tipo di problema e la categoria, fare clic sul pulsante **Avvia richiesta**.
 
 ![Avviare il supporto][4]
 
@@ -79,11 +79,11 @@ Descrivere il problema nel modo più completo possibile e fornire eventuali file
 
 Dopo avere inviato il problema, verrà confermata la ricezione entro 24 ore e saranno assegnate una priorità e una gravità al problema. Il team dedicato di tecnici del supporto tecnico offrirà l'assistenza necessaria per la risoluzione in base ai tempi di risposta del contratto di servizio.
 
-![Conferma][6] + Se è necessario comunicare con Microsoft in relazione al problema, usare il numero di conferma in tutta la corrispondenza + È possibile visualizzare lo stato del problema in qualsiasi momento
+![Conferma][6] + Se è necessario comunicare con Microsoft in relazione al problema, usare il numero di conferma in tutta la corrispondenza. + È possibile visualizzare lo stato del problema in qualsiasi momento.
 
 ## Passaggi successivi
 
-Per informazioni su come risolvere specifici problemi di supporto, visitare: [Risoluzione dei problemi comuni in Azure Marketplace](marketplace-publishing-support-common-issues.md).
+Per informazioni su come risolvere specifici problemi di supporto, vedere [Risoluzione dei problemi comuni in Azure Marketplace](marketplace-publishing-support-common-issues.md).
 
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
 [2]: ./media/marketplace-publishing-get-publisher-support/step2.png
@@ -92,4 +92,4 @@ Per informazioni su come risolvere specifici problemi di supporto, visitare: [Ri
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # Riferimento ai criteri di Gestione API di Azure
@@ -49,7 +49,7 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 	-	[json-to-xml][]\: converte il corpo della richiesta o della risposta da JSON a XML.
 	-	[xml-to-json][]\: converte il corpo della richiesta o della risposta da XML a JSON.
 	-	[find-and-replace][]\: trova una sottostringa di richiesta o risposta e la sostituisce con una sottostringa diversa.
-	-	[redirect-body-urls][]\: riscrive (maschera) i collegamenti nel corpo della risposta e nell'intestazione del percorso, in modo che facciano riferimento al collegamento equivalente tramite il proxy.
+	-	[redirect-body-urls][]\: riscrive (maschera) i collegamenti nel corpo della risposta e nell'intestazione del percorso, in modo che facciano riferimento al collegamento equivalente tramite il gateway.
 	-	[set-backend-service][]\: consente di cambiare il servizio back-end per una richiesta in ingresso.
 	-	[set-body][]\: consente di impostare il corpo del messaggio per richieste in ingresso e in uscita.
 	-	[Imposta intestazione HTTP][]\: assegna un valore a una intestazione di risposta e/o di richiesta esistente oppure aggiunge una nuova intestazione di risposta e/o di richiesta.
@@ -109,4 +109,4 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

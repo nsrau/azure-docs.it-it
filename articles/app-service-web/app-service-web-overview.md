@@ -41,7 +41,7 @@ App Web del servizio app di Azure è una piattaforma completamente gestita che c
 
 - **Raccolta app Web**: è possibile scegliere da un elenco in continua crescita di modelli di applicazione esistenti. È possibile sfruttare le migliori offerte della community di app OSS per installare in un singolo clic pacchetti come Wordpress, Joomla e Drupal. Avviare il proprio processo di sviluppo dell’applicazione nel modo migliore sfruttando framework come .NET MVC, Django e CakePHP.
 - **Scalabilità automatica**: il servizio app Web consente di aumentare o scalare orizzontalmente le app in modo rapido, per gestire qualsiasi carico di lavoro proveniente dalla clientela. Selezionare manualmente il numero e le dimensioni delle macchine virtuali o configurare la scalabilità automatica per adattare i server in base al carico o alla pianificazione.
-- **Integrazione continua**: configurare l'integrazione continua e i flussi di lavoro di distribuzione con VSO, GitHub, TeamCity, Hudson o BitBucket, per compilare, testare e distribuire automaticamente l'app Web dopo ogni archiviazione di codice o test di integrazione eseguito con esito positivo.
+- **Integrazione continua**: configurare l'integrazione continua e i flussi di lavoro di distribuzione con VSTS, GitHub, TeamCity, Hudson o BitBucket, per compilare, testare e distribuire automaticamente l'app Web dopo ogni archiviazione di codice o test di integrazione eseguito con esito positivo.
 - **Slot di distribuzione**: implementare la [distribuzione di gestione temporanea][Slots] e per verificare il codice in un ambiente pre-produzione identico a quello dell'app Web di produzione nel servizio app di Azure. Una volta soddisfatti, rilasciare una nuova versione dell'app con tempo di inattività pari a zero eseguendo un'operazione di scambio. 
 - **Test in produzione**: portare la pre-distribuzione al livello successivo ed eseguire il test A/B per verificare il nuovo codice con una frazione configurabile del proprio traffico live. 
 - **Webjobs**: eseguire qualsiasi programma o script nelle VM del servizio app Web. È possibile eseguire i processi in modo continuo o in base a una pianificazione e ridimensionarli per essere eseguiti in più VM. Usare [WebJobs SDK][Webjobs] di Azure per eseguire l'integrazione con l'archiviazione o con il bus di servizio di Azure.
@@ -65,4 +65,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

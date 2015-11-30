@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="IP riservato"
-   description="Informazioni sugli indirizzi IP riservati, VIP, ILPIP e su come gestirli"
+   pageTitle="IP riservato | Microsoft Azure"
+   description="Informazioni sugli indirizzi IP riservati e su come gestirli"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="11/11/2015"
    ms.author="telmos" />
 
 # Panoramica degli indirizzi IP riservati
@@ -27,7 +27,7 @@ Per impedire che gli indirizzi IP cambino, è possibile riservarli. Gli indirizz
 
 ## Domande frequenti
 1. È possibile usare un indirizzo IP riservato per tutti i servizi di Azure?  
-  - Gli indirizzi IP riservati possono essere usati solo per le macchine virtuali e per i ruoli delle istanze del servizio cloud.
+  - Gli indirizzi IP riservati possono essere usati solo per le macchine virtuali e per i ruoli delle istanze del servizio cloud esposti mediante un indirizzo VIP.
 1. Di quanti indirizzi IP riservati è possibile disporre?  
   - Attualmente tutte le sottoscrizioni di Azure sono autorizzate a usare 20 indirizzi IP riservati. È tuttavia possibile richiedere altri indirizzi IP riservati. Per altre informazioni, vedere la pagina relativa ai [limiti per la sottoscrizione e i servizi](../azure-subscription-service-limits/).
 1. È previsto un addebito per gli indirizzi IP riservati? 
@@ -119,4 +119,4 @@ Lo script seguente crea un nuovo servizio cloud denominato *TestService2* con un
 
 - Controllare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

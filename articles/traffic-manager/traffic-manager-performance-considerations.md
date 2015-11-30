@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 
@@ -87,15 +87,11 @@ Sulla base delle informazioni precedenti, l'unico impatto sulle prestazioni prod
 
 [Informazioni sui metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
 
-[Gestione traffico di Azure](../traffic-manmager-overview.md)
-
-[Servizi cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Verifica delle impostazioni di Gestione traffico](traffic-manager-testing-settings.md)
 
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

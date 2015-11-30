@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da Oracle locale mediante Data factory di Azure 
 
 Questo articolo illustra come usare l'attività di copia della data factory per spostare dati da Oracle a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
+
+## Installazione 
+Per rendere il servizio di Azure Data Factory in grado di connettersi al database Oracle in locale, è necessario installare quanto segue:
+
+- Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Il Gateway di gestione dati è un software che connette le origini dati locali ai servizi cloud in modo sicuro e gestito. Vedere l’articolo [Spostare dati tra cloud e locale](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sui Gateway di Gestione dati. 
+- [Oracle Data Access Components (ODAC) per Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Deve essere installato nel computer host in cui è installato il gateway.
+
 
 ## Esempio: Copiare i dati da Oracle a BLOB di Azure
 
@@ -204,14 +211,14 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
-type | La proprietà type deve essere impostata su: **OnPremisesOracle** | Sì
+type | La proprietà del tipo deve essere impostata su: **OnPremisesOracle** | Sì
 connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà connectionString. | Sì 
 gatewayName | Nome del gateway che verrà usato per connettersi al server Oracle locale | Sì
 
 Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati Oracle locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 ## Proprietà del tipo del set di dati Oracle
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, fare riferimento all'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (Oracle, BLOB di Azure, tabelle di Azure e così via).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, fare riferimento all'articolo [Creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (Oracle, BLOB di Azure, tabelle di Azure e così via).
  
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo OracleTable presenta le proprietà seguenti.
 
@@ -238,7 +245,7 @@ Ad esempio: selezionare * da MyTable <p>Se non specificata, l'istruzione SQL ese
 
 ### Mapping dei tipi per Oracle
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
+Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipo automatico da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -271,7 +278,26 @@ UNSIGNED INTEGER | Number
 VARCHAR2 | String
 XML | String
 
+## Suggerimenti per la risoluzione dei problemi
+
+**** Problema: ** viene visualizzato quanto segue **messaggio di errore**: l’attività di copia ha trovato parametri non validi: 'UnknownParameterName' messaggio dettagliato: Impossibile trovare il Provider di dati Framework .NET richiesto. Potrebbe non essere installato".
+
+**Possibili cause**
+
+1. Non è stato installato il Provider di dati Framework .NET per Oracle.
+2. Il Provider di dati Framework .NET per Oracle è stato installato nel Framework .NET 2.0 e non è disponibile nelle cartelle del Framework.NET 4.0. 
+
+**Risoluzione/Soluzione alternativa**
+
+1. Se non è stato installato il Provider .NET per Oracle, [installarlo](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) e ripetere lo scenario. 
+2. Se viene visualizzato il messaggio di errore anche dopo l'installazione del provider, eseguire le operazioni seguenti: 
+	1. Aprire la configurazione del computer di .NET 2.0 dalla cartella: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
+	2. Cercare il **Provider di dati Oracle per .NET**, si dovrebbe poter trovare una voce simile a quella sottostante in **system.data** -> **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
+2.	Copiare questa voce nel file .config del computer nella seguente cartella v 4.0: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config e modificare la versione a 4.xxx.x.x.
+3.	Installare “<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll” into the global assembly cache (GAC) by running “gacutil /i [percorso del provider]".
+
+
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

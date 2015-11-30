@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Introduzione ad Azure Data Lake Store con .NET SDK
@@ -65,7 +65,7 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 
 7. Aprire **Program.cs** e sostituire il blocco di codice esistente con il codice seguente. Fornire inoltre i valori per i parametri nel frammento di codice.
 
-	Questo codice esegue i processi seguenti: creazione di un archivio Data Lake, creazione di cartelle nell'archivio, caricamento di file, scaricamento di file e infine eliminazione dell'account. Se si sta cercando alcuni dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dell'[archivio Git per Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	Questo codice esegue i processi seguenti: creazione di un archivio Data Lake, creazione di cartelle nell'archivio, caricamento di file, scaricamento di file e infine eliminazione dell'account. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 	
 		using System;
 		using System.Collections.Generic;
@@ -223,4 +223,4 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 - [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

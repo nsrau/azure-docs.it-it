@@ -79,7 +79,7 @@ CREATE LOGIN login1 WITH password='<ProvidePassword>';
 
 #### Utilizzo di nuovi account di accesso
 
-Per connettersi al database SQL di Microsoft Azure usando gli account di accesso creati, è prima necessario concedere a ogni account di accesso le autorizzazioni a livello di database usando il comando ``CREATE USER``. Per altre informazioni, vedere [Concessione di autorizzazioni a livello di database a un account di accesso](https://msdn.microsoft.com/library/ee336235.aspx#DatabasePerms).
+Per connettersi al database SQL di Microsoft Azure usando gli account di accesso creati, è prima necessario concedere a ogni account di accesso le autorizzazioni a livello di database usando il comando ``CREATE USER``. Per altre informazioni, vedere la sezione sottostante **Concessione dell'accesso ai database a un account di accesso**.
 
 Poiché alcuni strumenti implementano il flusso TDS (Tabular Data Stream) in modo diverso, potrebbe essere necessario aggiungere il nome del server di database SQL di Azure all'account di accesso nella stringa di connessione usando la notazione ``<login>@<server>``. In questi casi, separare l'account di accesso e il nome del server di database SQL di Azure con il simbolo ``@``. Ad esempio, se l'account di accesso è stato denominato **login1** e il nome completo del server di database SQL di Azure è **servername.database.windows.net**, il parametro username della stringa di connessione dovrà essere: ****login1@servername**. Questa restrizione crea limitazioni sul testo da scegliere per il nome di accesso. Per altre informazioni, vedere [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
 
@@ -169,4 +169,4 @@ SELECT * FROM sys.databases;
 
 [Linee guida sulla sicurezza e limiti del Database SQL di Azure](sql-database-security-guidelines.md) [Connessione al Database SQL tramite l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

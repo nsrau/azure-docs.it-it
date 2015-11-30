@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="11/18/2015"
    ms.author="tomfitz"/>
 
 # Supporto di Gestione risorse per servizi, aree e versioni API
@@ -32,13 +32,34 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Macchine virtuali | Sì | Sì, molte opzioni | No | [Creare una VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Sì | [Sì (solo classica)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Servizi del ciclo di vita Dynamics | Sì | No | | | |
-| Macchine virtuali (classiche) | Limitato | Sì | Parziale (vedere di seguito) | - | - |
-| App remota | No | - | - | - | - |
-| Infrastruttura di servizi | No | - | - | - | - |
+| Macchine virtuali (classiche) | Limitato | Sì, molte opzioni | Parziale (vedere di seguito) | - | - | | App remota | No | No | - | - | - | | Infrastruttura di servizi | No | No | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
 È possibile spostare le risorse delle macchine virtuali (classiche) nel nuovo gruppo di risorse, ma non in una nuova sottoscrizione.
+
+## Rete
+
+| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| Gateway applicazione | Sì | | | | |
+| DNS | Sì | | | [Creare una zona DNS](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Bilanciamento del carico | Sì | | | [Crea servizio di bilanciamento del carico](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Reti virtuali | Sì | [Sì](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | No | [Creare una rete virtuale](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Gestione traffico | Sì | No | | [Creare un profilo di Gestione traffico](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
+| ExpressRoute | Sì | No | No | [REST di ExpressRoute](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
+
+## Dati e archiviazione
+
+| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| ------- | ------- | ------- | -------------- | -------- | ------ |
+| DocumentDB | Sì | [Sì](https://portal.azure.com/#create/Microsoft.DocumentDB) | Sì | [REST DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
+| Archiviazione | Sì | [Sì](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | No | [Creazione dell'account di archiviazione](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Account di archiviazione](resource-manager-template-storage.md) |
+| Cache Redis | Sì | [Sì](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Sì | | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
+| Database SQL | Sì | [Sì](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Sì | [Creare database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| Ricerca | Sì | [Sì](https://portal.azure.com/#create/Microsoft.Search) | Sì | [REST Ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
+| SQL Data Warehouse | Sì | [Sì](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| StorSimple | No | No | - | - | - | | Cache gestita | No | No | - | - | - |
 
 ## Web e dispositivi mobili
 
@@ -56,23 +77,6 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 - Spostare tutte le risorse da un gruppo di risorse a un gruppo di risorse diverso, se il gruppo di risorse di destinazione non contiene già risorse Microsoft.Web.
 - Spostare le app Web in un gruppo di risorse diverso, ma conservare il piano di servizio app nel gruppo di risorse originale.
 
-
-## Dati e archiviazione
-
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
-| ------- | ------- | ------- | -------------- | -------- | ------ |
-| DocumentDB | Sì | Sì | Sì | [REST DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| Archiviazione | Sì | Sì | | [Creazione dell'account di archiviazione](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
-| Cache Redis | Sì | Sì | Sì | | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| Database SQL | Sì | Sì | Sì | [Creare database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
-| Ricerca | Sì | Sì | Sì | [REST Ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| SQL Data Warehouse | Sì | Sì | | | |
-| StorSimple | No | No | - | - | - |
-| Backup | No | No | - | - | - |
-| Site Recovery | No | No | - | - | - |
-| Cache gestita | No | No | - | - | - |
-| Catalogo dati | No | No | - | - | - |
-
 ## Analytics
 
 | Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
@@ -82,17 +86,6 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | HDInsights | Sì | [Sì](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Data factory | Sì | [Sì](https://portal.azure.com/#create/Microsoft.DataFactory) | Sì | [Creare Data factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
 | Machine Learning | No | No | - | - | - | | Catalogo dati | No | No | - | - | - |
-
-## Rete
-
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
-| ------- | ------- | -------- | -------------- | -------- | ------ |
-| Gateway applicazione | Sì | | | | |
-| DNS | Sì | | | [Creare una zona DNS](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Bilanciamento del carico | Sì | | | [Crea servizio di bilanciamento del carico](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Reti virtuali | Sì | [Sì](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | No | [Creare una rete virtuale](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Gestione traffico | Sì | No | | [Creare un profilo di Gestione traffico](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
-| ExpressRoute | Sì | No | No | [REST di ExpressRoute](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
 ## Supporti multimediali e CDN
 
@@ -114,9 +107,7 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 | Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | No | No | - | - | - |
-| Azure Active Directory B2C | No | No | - | - | - |
-| Multi-Factor Authentication | No | No | - | - | - |
+| Azure Active Directory | No | No | - | - | - | | Azure Active Directory B2C | No | No | - | - | - | | Multi-Factor Authentication | No | No | - | - | - |
 
 ## Servizi per gli sviluppatori 
 
@@ -242,4 +233,4 @@ Per Azure PowerShell 0.9.8, utilizzare:
 - Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per altre informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

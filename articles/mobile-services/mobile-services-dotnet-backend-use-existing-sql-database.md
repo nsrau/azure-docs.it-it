@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/01/2015"
+	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
@@ -147,7 +147,6 @@ Il modello di dati da usare con il servizio mobile potrebbe essere complesso. Po
 
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
-        using System.ComponentModel.DataAnnotations;
         using System;
 
 4. Aggiungere quindi queste proprietà a ogni classe:
@@ -585,7 +584,7 @@ A questo punto è possibile creare i controller per esporre gli oggetti DTO ai c
 
 3. È ora possibile eseguire il servizio. Premere **F5** e usare il client di test incorporato nella pagina della Guida per modificare i dati.
 
-Tenere presente che entrambe le implementazioni del controller usano esclusivamente gli oggetti DTO **MobileCustomer** e **MobileOrder** e non considerano il modello sottostante. Questi oggetti DTO vengono serializzati direttamente in JSON e possono essere usati per scambiare dati con l'SDK del client di Servizi mobili su tutte le piattaforme. Ad esempio, se si compila un'app di Windows Store, il corrispondente tipo lato client sarà simile al seguente. Il tipo sarà analogo su altre piattaforme client.
+Tenere presente che entrambe le implementazioni del controller usano esclusivamente gli oggetti DTO **MobileCustomer** e **MobileOrder** e non considerano il modello sottostante. Questi oggetti DTO vengono serializzati direttamente in JSON e possono essere usati per scambiare dati con l'SDK del client di Servizi mobili su tutte le piattaforme. Ad esempio, compilando un'app di Windows Store, il corrispondente tipo lato client sarà simile al seguente. Il tipo sarà analogo su altre piattaforme client.
 
     using Microsoft.WindowsAzure.MobileServices;
     using System;
@@ -615,4 +614,4 @@ Tenere presente che entrambe le implementazioni del controller usano esclusivame
 
 Come passaggio successivo, sarà possibile compilare l'app client per accedere al servizio.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

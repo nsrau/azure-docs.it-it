@@ -4,36 +4,36 @@
 	description="Procedura per creare regole avanzate per un gruppo inclusi gli operatori delle regole di espressione e i parametri."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="curtand"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/09/2015" 
-	ms.author="femila"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
 
 # Uso di attributi per la creazione di regole avanzate
-Il portale di gestione di Azure offre tutta la flessibilità necessaria per impostare regole avanzate per abilitare le appartenenze dinamiche ai gruppi.
+Il portale di Azure offre la flessibilità necessaria per configurare regole avanzate in Azure Active Directory (Azure AD) per consentire appartenenze dinamiche più complesse ai gruppi di Azure AD.
 
-**Per creare la regola avanzata** Nel portale di gestione di Azure, nella scheda **Configura** del gruppo selezionare il pulsante di opzione **Regola avanzata** e quindi digitare la regola avanzata nella casella di testo disponibile. È possibile creare le regole avanzate usando le informazioni seguenti.
+**Per creare la regola avanzata** Nel portale di Azure, nella scheda **Configura** del gruppo selezionare il pulsante di opzione **Regola avanzata** e quindi digitare la regola avanzata nella casella di testo disponibile. È possibile creare le regole avanzate usando le informazioni seguenti.
 
 ## Creazione del corpo di una regola avanzata
 La regola avanzata che è possibile creare per le appartenenze dinamiche ai gruppi è essenzialmente un'espressione binaria composta da tre parti che genera un risultato di tipo true o false. Di seguito sono elencate le tre parti:
 
 - Parametro sinistro
 - Operatore binario
-- Costante destra 
+- Costante destra
 
 Una regola avanzata completa simile alla seguente: (parametroSinistro operatoreBinario "CostanteDestra"), dove le parentesi di apertura e chiusura sono obbligatorie per racchiudere l'intera espressione binaria, le virgolette doppie sono obbligatorie per la costante a destra e la sintassi del parametro a sinistra è utente.proprietà. Una regola avanzata può includere più espressioni binarie separate dagli operatori logici -and, -or e -not. Di seguito sono riportati alcuni esempi di regola avanzata con il formato corretto:
 
-- (user.department -eq "Vendite") -or (user.department -eq "Marketing") 
-- (user.department -eq "Vendite") -and -not (user.jobTitle -contains "SDE") 
+- (user.department -eq "Vendite") -or (user.department -eq "Marketing")
+- (user.department -eq "Vendite") -and -not (user.jobTitle -contains "SDE")
 
 Per l'elenco completo dei parametri supportati e degli operatori delle regole di espressione, vedere le sezioni riportate di seguito.
 
@@ -152,13 +152,13 @@ Operatori consentiti
 Ora è possibile popolare i membri di un gruppo in base all'attributo di manager di un utente.
 Per configurare un gruppo come gruppo "Manager"
 --------------------------------------------------------------------------------
-1. Nel portale dell'amministratore fare clic sulla scheda **Configura** e quindi selezionare **REGOLA AVANZATA**. 
+1. Nel portale dell'amministratore fare clic sulla scheda **Configura** e quindi selezionare **REGOLA AVANZATA**.
 2. Digitare la regola con la sintassi seguente: Dipendenti diretti per *Dipendenti diretti per {IDutente\_di\_manager}*
-3. Quando si salva questa regola, tutti gli utenti che soddisfano la regola verranno aggiunta come membri del gruppo. Si noti che possono essere necessari alcuni minuti per il popolamento iniziale del gruppo. 
+3. Quando si salva questa regola, tutti gli utenti che soddisfano la regola verranno aggiunta come membri del gruppo. Si noti che possono essere necessari alcuni minuti per il popolamento iniziale del gruppo.
 
 
 ## Informazioni aggiuntive
-Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su Azure Active Directory
+Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Risoluzione dei problemi di appartenenza dinamica per i gruppi](active-directory-accessmanagement-troubleshooting.md)
 
@@ -168,4 +168,4 @@ Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su 
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

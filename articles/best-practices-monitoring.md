@@ -101,7 +101,7 @@ I dati di strumentazione devono essere aggregati e correlati per supportare i se
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-Ciò è utile per i contratti di servizio ([il monitoraggio del contratto di servizio ](#SLA-monitoring) è descritto in dettaglio più avanti nelle Indicazioni). La definizione di _Tempi di inattività_ dipende dal servizio. Ad esempio, Visual Studio Online definisce il tempo di inattività come il periodo durante il quale i tentativi di connessione al servizio da parte di un cliente richiedono più di 120 secondi e tutte le operazioni di base di lettura e scrittura hanno esito negativo dopo aver stabilito la connessione all'interno di tale periodo.
+Ciò è utile per i contratti di servizio ([il monitoraggio del contratto di servizio ](#SLA-monitoring) è descritto in dettaglio più avanti nelle Indicazioni). La definizione di _Tempi di inattività_ dipende dal servizio. Ad esempio, Visual Studio Team Services definisce il tempo di inattività come il periodo durante il quale i tentativi di connessione al servizio da parte di un cliente richiedono più di 120 secondi e tutte le operazioni di base di lettura e scrittura hanno esito negativo dopo aver stabilito la connessione all'interno di tale periodo.
 
 ## Monitoraggio delle prestazioni
 Quando il sistema si trova in più condizioni di stress per l’aumento del volume di utenti e le dimensioni dei set di dati che tali utenti utilizzano aumentano, il guasto di uno o più componenti diventa probabile. Spesso, il guasto di un componente è preceduto da una riduzione delle prestazioni. Se si è in grado di rilevare tale riduzione, è possibile adottare misure proattive per ovviare al problema.
@@ -465,7 +465,7 @@ Per ottimizzare l'utilizzo della larghezza di banda, è possibile scegliere di t
 #### _Eseguire il pull e push dei dati di strumentazione_
 Il sottosistema di raccolta dati di strumentazione può recuperare attivamente dati di strumentazione da vari registri e altre fonti per ogni istanza dell'applicazione (il _modello pull_), o può fungere da ricevitore passivo che attende i dati che devono essere inviati da componenti che costituiscono ogni istanza dell'applicazione (il _modello push_).
 
-Un approccio all'implementazione del modello pull consiste nell'utilizzare gli agenti di monitoraggio in esecuzione in locale con ogni istanza dell'applicazione. Un agente di monitoraggio è un processo separato che recupera periodicamente i dati di telemetria (pull) raccolti nel nodo locale e scrive queste informazioni direttamente nell’archiviazione centralizzata è condiviso da tutte le istanze dell'applicazione. Si tratta del meccanismo implementato da tale funzionalità. Ogni istanza di un ruolo web o di lavoro di Azure può essere configurata per acquisizione diagnostica e altre informazioni di traccia archiviate localmente. L'agente di monitoraggio che viene eseguito insieme a ogni copia de dati specificati nell'archiviazione di Azure. Per ulteriori dettagli su questa procedura, consultare la pagina [Configurazione di diagnostica per servizi Cloud di Azure e macchine virtuali](https://msdn.microsoft.com/library/azure/dn186185.aspx) del sito Web Microsoft. Alcuni elementi, ad esempio log IIS, dump di arresto anomalo del sistema e registrazione di errori personalizzati vengono scritti nell'archiviazione BLOB, mentre i dati dal log Windows Event, ETW events e i contatori delle prestazioni sono registrati nell'archiviazione tabelle. Nella figura 3 viene illustrato questo concetto.
+Un approccio all'implementazione del modello pull consiste nell'utilizzare gli agenti di monitoraggio in esecuzione in locale con ogni istanza dell'applicazione. Un agente di monitoraggio è un processo separato che recupera periodicamente i dati di telemetria (pull) raccolti nel nodo locale e scrive queste informazioni direttamente nell’archiviazione centralizzata è condiviso da tutte le istanze dell'applicazione. Si tratta del meccanismo implementato da tale funzionalità. Ogni istanza di un ruolo web o di lavoro di Azure può essere configurata per acquisizione diagnostica e altre informazioni di traccia archiviate localmente. L'agente di monitoraggio che viene eseguito insieme a ogni copia dei dati specificati nell'archiviazione di Azure. Per ulteriori dettagli su questa procedura, consultare la pagina [Configurazione di diagnostica per servizi Cloud di Azure e macchine virtuali](https://msdn.microsoft.com/library/azure/dn186185.aspx) del sito Web Microsoft. Alcuni elementi, ad esempio log IIS, dump di arresto anomalo del sistema e registrazione di errori personalizzati vengono scritti nell'archiviazione BLOB, mentre i dati dal log Windows Event, ETW events e i contatori delle prestazioni sono registrati nell'archiviazione tabelle. Nella figura 3 viene illustrato questo concetto.
 
 ![](media/best-practices-monitoring/PullModel.png)
 
@@ -601,7 +601,7 @@ In molti casi, i report possono essere generati dai processi batch in base a una
 - Il [Modello di monitoraggio integrità Endpoint](https://msdn.microsoft.com/library/dn589789.aspx) descrive come implementare i controlli funzionali all'interno di un'applicazione cui strumenti esterni possono accedere tramite gli endpoint esposti a intervalli regolari.
 - Il modello [Coda con priorità](https://msdn.microsoft.com/library/dn589794.aspx) mostra come definire le priorità dei messaggi in coda in modo che le richieste urgenti siano ricevute e possano essere elaborate prima dei messaggi meno urgenti.
 
-## Ulteriori informazioni
+## Altre informazioni
 - L'articolo [Monitoraggio, diagnosi e risoluzione dei problemi di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md) del sito Web Microsoft.
 - L'articolo [Azure: nozioni fondamentali di telemetria e risoluzione dei problemi](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) del sito Web Microsoft.
 - La pagina [Raccogliere dati di registrazione utilizzando la diagnostica Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) del sito Web Microsoft.
@@ -612,4 +612,4 @@ In molti casi, i report possono essere generati dai processi batch in base a una
 - La pagina [informazioni sugli avvisi di monitoraggio e notifiche in Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) del sito Web Microsoft.
 - La pagina [Application Insights](app-insights-get-started/) del sito Web Microsoft.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

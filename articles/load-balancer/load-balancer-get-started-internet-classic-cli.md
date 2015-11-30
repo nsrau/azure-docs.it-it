@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -45,25 +45,28 @@ In questa guida viene illustrato come creare un servizio di bilanciamento del ca
 
 ## Creazione dell’endpoint e del set del servizio di bilanciamento del carico 
 
-Lo scenario presuppone che le macchine virtuali "web1" e "web2" sono state create. In questa guida verrà creato un set del servizio di bilanciamento del carico utilizzando la porta 80 come porta pubblica e 80 come porta locale. Una porta probe è inoltre stata configurata sulla porta 80 e il set del servizio di bilanciamento del carico è stato chiamato "lbset"
+Lo scenario presuppone che le macchine virtuali "web1" e "web2" sono state create. In questa guida verrà creato un set del servizio di bilanciamento del carico utilizzando la porta 80 come porta pubblica e la porta 80 come porta locale. Una porta probe è inoltre stata configurata sulla porta 80 e il set del servizio di bilanciamento del carico è stato chiamato "lbset".
 
 
 ### Passaggio 1 
 
-Creare il primo endpoint e il set del servizio di bilanciamento del carico utilizzando `azure network vm endpoint create` per la macchina virtuale "web1"
+Creare il primo endpoint e il set del servizio di bilanciamento del carico utilizzando `azure network vm endpoint create` per la macchina virtuale "web1".
 
-	azure network endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
+	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
 
+Parametri utilizzati:
 
+**-k** - porta della macchina virtuale locale<br> **-o** - protocollo<BR> **-t** - porta sonda<BR> **-b** - nome del servizio di bilanciamento del carico<BR>
+ 
 ## Passaggio 2 
 
 Aggiungere una seconda macchina virtuale "web2" al set del servizio di bilanciamento del carico.
 
-	azure network endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+	azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
 ## Passaggio 3 
 
-Verificare la configurazione del servizio di bilanciamento del carico utilizzando `azure vm show`
+Verificare la configurazione del servizio di bilanciamento del carico utilizzando `azure vm show`.
 
 	azure vm show web1
 
@@ -140,4 +143,4 @@ L'output sarà:
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

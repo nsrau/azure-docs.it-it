@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="11/20/2015"
    ms.author="derrickv"/>
 
 # Introduzione al Catalogo dati di Azure
@@ -38,7 +38,7 @@ In questo esercizio, si installa l'esempio Adventure Works per il motore di data
 
 Il database Adventure Works OLTP supporta scenari di elaborazione delle transazioni online standard per un produttore di biciclette fittizio (Adventure Works Cycles) incluso lo scenario di fabbricazione, vendite e acquisti. Il database Adventure Works DW illustra come compilare un data warehouse.
 
-I database si trovano in http://msftdbprodsamples.codeplex.com/ e possono essere installati seguendo i passaggi in [Come installare i database di esempio Adventure Works 2014].
+I database si trovano in [CodePlex.com](http://msftdbprodsamples.codeplex.com/) e possono essere installati seguendo i passaggi in [Readme per i Database di esempio di Adventure Works 2014](https://msftdbprodsamples.codeplex.com/downloads/get/880669).
 
 In questo esercizio sono stati installati i database di esempio Adventure Works che vengono usati negli esercizi rimanenti. Se si sceglie di ignorare questo esercizio e di usare le origini dati aziendali, è necessario conoscere nomi, tag e altri metadati.
 
@@ -111,7 +111,7 @@ Per questo esempio, si userà una ricerca per parola chiave. La ricerca del **Ca
 
 **Tecniche di query**<table><tr><td><b>Tecnica</b></td><td><b>Uso</b></td><td><b>Esempio</b></td></tr><tr><td>Proprietà ambito</td><td>Restituire solo le origini dati in cui viene confrontato il termine di ricerca nella proprietà specificata</td><td>Nome:prodotto</td></tr><tr><td>Operatori logici</td><td>Allargare o limitare una ricerca usando operazioni booleane, come descritto nella sezione operatori booleani in questa pagina</td><td>Finanza NON aziendali</td></tr><tr><td>Con parentesi di raggruppamento</td><td>Usare le parentesi per parti di gruppo della query per ottenere l'isolamento logico, soprattutto in combinazione con gli operatori booleani</td><td>Nome:prodotto AND (tag:illustrazione O tag:foto)</td></tr><tr><td>Operatori di confronto</td><td>Usare confronti e non uguaglianza per proprietà che dispongono di tipi di dati numerici e date</td><td>DataDiCreazione:&gt; 05/11/14</td></tr></table>
 
-In questo esempio, eseguire una ricerca nel **raggruppamento** degli asset di dati dove nome è prodotto e tags è illustrazione o foto.
+In questo esempio, si esegue una ricerca di **raggruppamento** degli asset di dati in cui il nome equivale al prodotto e i tag equivalgono all’illustrazione o alla foto.
 
 1.	Accedere al portale del **Catalogo dati di Azure**.
 2.	Fare clic su **Individua**.
@@ -181,7 +181,7 @@ In questo esercizio ci si connette alle origini dati individuate tramite il Cata
 
 In questo esercizio si userà il portale del **Catalogo dati di Azure** per rimuovere i dati di anteprima dagli asset di dati registrati ed eliminare gli asset di dati dal catalogo.
 
-> [AZURE.NOTE]Il comportamento predefinito del catalogo consente a tutti gli utenti di registrare qualsiasi origine dati e consente a qualsiasi utente di eliminare qualsiasi asset di dati registrato. Le funzionalità di gestione incluse nell'**edizione Standard del Catalogo dati di Azure** forniscono opzioni aggiuntive per acquisire la proprietà degli asset, limitando gli utenti che possono individuare ed eliminare gli asset.
+> [AZURE.NOTE]Il comportamento predefinito del catalogo consente a tutti gli utenti di registrare qualsiasi origine dati e consente a qualsiasi utente di eliminare qualsiasi asset di dati registrato. Le funzionalità di gestione incluse nell'**Edizione Standard del Catalogo dati di Azure** forniscono opzioni aggiuntive per acquisire la proprietà degli asset, limitando gli utenti che possono individuare ed eliminare gli asset.
 
 Nel **Catalogo dati di Azure** è possibile rimuovere l’anteprima dall'eliminazione di un singolo asset o di più asset.
 
@@ -232,4 +232,4 @@ In questa esercitazione sono state analizzate le funzionalità essenziali dell�
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -18,7 +18,7 @@
 
 
 #Introduzione all'anteprima di sincronizzazione dati di SQL Azure
-In questa esercitazione vengono fornite le nozioni di base della sincronizzazione dati SQL Azure tramite il portale di Azure (anteprima).
+In questa esercitazione vengono fornite le nozioni di base della sincronizzazione dati SQL Azure tramite il portale di gestione di Azure.
 
 Per questa esercitazione è necessario conoscere già in generale SQL Server e il database SQL di Azure. Nell'esercitazione verrà creato un gruppo di sincronizzazione ibrido (istanze del database SQL Server e del database SQL) completamente configurato e impostato per la sincronizzazione in base alla pianificazione specificata.
 
@@ -202,4 +202,4 @@ Per altre informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="masnider;jesseb"/>
 
 # Panoramica di Reliable Services
@@ -52,7 +52,7 @@ Reliable Services in Service Fabric è diverso da eventuali servizi sviluppati i
 ## Ciclo di vita del servizio
 Reliable Services fornisce un ciclo di vita semplice che consente di attivare rapidamente il codice e iniziarne l'uso, sia per i servizi con stato sia per quelli senza stato. Per garantire l'operatività del servizio, è necessario implementare solo uno o due metodi.
 
-+ CreateCommunicationListener: con questo metodo il servizio definisce lo stack di comunicazione da usare. Lo stack di comunicazione, ad esempio [Web API](service-fabric-reliable-services-communication-webapi.md), definisce gli endpoint di ascolto per il servizio, ovvero il modo in cui i client potranno raggiungerlo, nonché il modo in cui i messaggi che vengono visualizzati cessano l'interazione con il resto del codice del servizio.
++ CreateServiceReplicaListeners/CreateServiceInstanceListeners - è qui che il servizio definisce gli stack delle comunicazioni che desidera usare. Lo stack di comunicazione, ad esempio [Web API](service-fabric-reliable-services-communication-webapi.md), definisce gli endpoint di ascolto per il servizio, ovvero il modo in cui i client potranno raggiungerlo, nonché il modo in cui i messaggi che vengono visualizzati cessano l'interazione con il resto del codice del servizio.
 
 + RunAsync - si tratta del luogo in cui il servizio esegue la logica di business. Il token di annullamento fornito indica quando l'operazione deve essere interrotta. Si supponga, ad esempio, di avere un servizio che deve effettuare costantemente il pull dei messaggi all'esterno di un oggetto ReliableQueue per elaborarli. RunAsync è il metodo con cui vengono eseguite tali attività.
 
@@ -60,16 +60,16 @@ I principali eventi del ciclo di vita di un servizio Reliable Service sono i seg
 
 1. Viene costruito l'oggetto Service, ovvero l'oggetto che deriva da StatelessService o StatefulService.
 
-2. Viene chiamato il metodo CreateCommunicationListener, così da consentire al servizio di restituire un listener di comunicazione di sua scelta.
+2. Viene chiamato il metodo CreateServiceReplicaListeners/CreateServiceInstanceListeners, dando al servizio la possibilità di restituire uno o più listener di comunicazione a sua scelta.
   + Si noti che questa operazione è facoltativa anche se la maggior parte dei servizi espone alcuni endpoint direttamente.
 
-3. Una volta creato il listener di comunicazione, esso viene aperto
-  + I listener di comunicazione dispongono di un metodo chiamato Open(), che viene richiamato a questo punto e che restituisce l'indirizzo di attesa per il servizio. Se il servizio Reliable Services usa una delle interfacce ICommunicationListener incorporate, l'operazione viene eseguita automaticamente.
+3. Una volta creati i listener di comunicazione, viene aperto
+  + I listener di comunicazione dispongono di un metodo chiamato OpenAsync(), che viene richiamato a questo punto e che restituisce l'indirizzo di attesa per il servizio. Se il servizio Reliable Services usa una delle interfacce ICommunicationListener incorporate, l'operazione viene eseguita automaticamente.
 
-4. Una volta che il listener di comunicazione è Open (), la chiamata RunAsync() nel servizio principale viene chiamata.
+4. Una volta che il listener di comunicazione è aperto (), viene chiamato il metodo RunAsync() nel servizio principale.
   + Si noti che RunAsync è facoltativo, se il servizio svolge tutto il suo lavoro direttamente solo per rispondere alle chiamate dell'utente, non è necessario implementare RunAsync().
 
-Quando il servizio viene arrestato, ovvero quando viene eliminato o semplicemente spostato da una particolare posizione, l'ordine delle chiamate rimane inalterato: prima viene chiamato Close() sul listener di comunicazione, quindi viene eliminato il token di annullamento che era stato passato a RunAsync().
+Quando il servizio viene arrestato (ovvero quando viene eliminato, aggiornato o semplicemente spostato da una particolare posizione) l'ordine delle chiamate rimane inalterato: prima viene chiamato CloseAsync() sul listener di comunicazione, quindi viene eliminato il token di annullamento che era stato passato a RunAsync().
 
 ## Servizi di esempio
 Per mostrare il funzionamento del modello di programmazione descritto, di seguito sono illustrati due differenti servizi.
@@ -79,7 +79,7 @@ Un servizio senza stato è un servizio al cui interno non viene letteralmente ge
 
 Si prenda come esempio un servizio Calculator non dotato di memoria e che riceve in un'unica soluzione tutti i termini e le operazioni da eseguire.
 
-In questo caso il metodo RunAsync() del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un CommunicationListener, ad esempio [Web API](service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai differenti metodi, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
+In questo caso il metodo RunAsync() del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un CommunicationListener (ad esempio [Web API](service-fabric-reliable-services-communication-webapi.md)) che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai differenti metodi, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
 
 Quando viene effettuata una chiamata da un client, viene richiamato il metodo appropriato. Il servizio Calculator esegue le operazioni sui dati forniti e restituisce il risultato, senza archiviare alcuno stato.
 
@@ -92,11 +92,11 @@ Un servizio con stato è un servizio che, per funzionare in modo corretto, deve 
 
 Oggi la maggior parte dei servizi archivia il proprio stato esternamente, poiché gli archivi esterni assicurano affidabilità, disponibilità, scalabilità e coerenza. In Service Fabric per i servizi con stato non è necessario archiviare lo stato esternamente. Service Fabric si occupa infatti dell'archiviazione sia del codice sia dello stato del servizio.
 
-Si supponga di voler sviluppare un servizio che accetta sia richieste relative a una serie di conversioni da eseguire su un'immagine sia l'immagine che deve essere convertita. A questo scopo, il servizio restituisce un CommunicationListener, ad esempio WebAPI, che apre una porta di comunicazione e consente gli invii tramite un'API come `ConvertImage(Image i, IList<Conversion> conversions)`. In questa API il servizio può accettare le informazioni e archiviare la richiesta in un oggetto ReliableQueue. Può restituire quindi alcuni token al client in modo che questo possa tenere traccia della richiesta, dal momento che quest'ultima potrebbe richiedere un po' di tempo.
+Si supponga di voler sviluppare un servizio che accetta sia richieste relative a una serie di conversioni da eseguire su un'immagine sia l'immagine che deve essere convertita. A questo scopo, il servizio restituisce un listener di comunicazione, ad esempio WebAPI, che apre una porta di comunicazione e consente gli invii tramite un'API come `ConvertImage(Image i, IList<Conversion> conversions)`. In questa API il servizio può accettare le informazioni e archiviare la richiesta in un oggetto ReliableQueue. Può restituire quindi alcuni token al client in modo che questo possa tenere traccia della richiesta, dal momento che quest'ultima potrebbe richiedere un po' di tempo.
 
-In questo servizio il metodo RunAsync potrebbe essere più complesso. All'interno del metodo RunAsync del servizio potrebbe essere presente un ciclo che effettua il pull delle richieste all'esterno dell'oggetto ReliableQueue, esegue le conversioni elencate e archivia i risultati un oggetto ReliableDictionary. In questo modo, quando il client richiede le immagini convertite, il servizio è in grado di fornirle. Per garantire che anche in caso di problemi l'immagine non vada perduta, questo servizio Reliable Services effettua il pull all'esterno della coda, esegue le conversioni e archivia il risultato in una transazione, in modo che il messaggio venga effettivamente rimosso dalla coda e che i risultati vengano archiviati nel dizionario dei risultati solo dopo il completamento delle conversioni. Se uno dei passaggi non viene eseguito completamente, ad esempio si verifica un errore nella macchina in cui è in esecuzione l'istanza della coda, la richiesta rimane in coda in attesa di essere elaborata nuovamente.
+In questo servizio il metodo RunAsync potrebbe essere più complesso: all'interno del metodo RunAsync del servizio potrebbe essere presente un ciclo che effettua il pull delle richieste all'esterno dell'oggetto IReliableQueue, esegue le conversioni elencate e archivia i risultati un oggetto IReliableDictionary. In questo modo, quando il client richiede le immagini convertite, il servizio è in grado di fornirle. Per garantire che anche in caso di problemi l'immagine non vada perduta, questo servizio Reliable Services effettua il pull all'esterno della coda, esegue le conversioni e archivia il risultato in una transazione, in modo che il messaggio venga effettivamente rimosso dalla coda e che i risultati vengano archiviati nel dizionario dei risultati solo dopo il completamento delle conversioni. Se uno dei passaggi non viene eseguito completamente, ad esempio si verifica un errore nella macchina in cui è in esecuzione l'istanza della coda, la richiesta rimane in coda in attesa di essere elaborata nuovamente.
 
-Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale servizio .NET. L'unica differenza consiste nel fatto che le strutture dati usate, gli oggetti ReliableQueue e ReliableDictionary, sono fornite da Service Fabric e offrono di conseguenza elevati livelli di affidabilità, disponibilità e coerenza.
+Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale servizio .NET. L'unica differenza consiste nel fatto che le strutture dati usate (gli oggetti IReliableQueue e IReliableDictionary) sono fornite da Service Fabric e offrono di conseguenza elevati livelli di affidabilità, disponibilità e coerenza.
 
 ## Quando usare le API di Reliable Services
 È consigliabile usare le API di Reliable Services se il servizio dell'applicazione presenta uno o più dei requisiti seguenti:
@@ -130,4 +130,4 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 + [Modello di programmazione Reliable Actors](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

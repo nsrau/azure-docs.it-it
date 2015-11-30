@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Eseguire l'aggiornamento dalla versione precedente di Visual Studio Online di Application Insights" 
+	pageTitle="Eseguire l'aggiornamento dalla versione precedente di Visual Studio Team Services di Application Insights" 
 	description="Aggiornare progetti esistenti"
 	services="application-insights" 
     documentationCenter=""
@@ -15,9 +15,9 @@
 	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
-# Eseguire l'aggiornamento dalla versione precedente di Visual Studio Online di Application Insights
+# Eseguire l'aggiornamento dalla versione precedente di Visual Studio Team Services di Application Insights
 
-Questo documento può interessare solo se si dispone di un progetto che usa ancora la versione precedente di Application Insights, che faceva parte di Visual Studio Online. Quella versione verrà disattivata a tempo debito e pertanto si consiglia di eseguire l'aggiornamento alla nuova versione, che è un servizio all'interno di Microsoft Azure.
+Questo documento può interessare solo se si dispone di un progetto che usa ancora la versione precedente di Application Insights, che faceva parte di Visual Studio Team Services. Quella versione verrà disattivata a tempo debito e pertanto si consiglia di eseguire l'aggiornamento alla nuova versione, che è un servizio all'interno di Microsoft Azure.
 
 ## Come controllare la versione installata?
 
@@ -73,4 +73,4 @@ Esaminare il progetto in Esplora soluzioni di Visual Studio e in Riferimenti sel
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
