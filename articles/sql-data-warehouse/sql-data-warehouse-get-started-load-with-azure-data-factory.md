@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="11/19/2015"
    ms.author="lodipalm"/>
 
 # Caricare i dati con Data factory di Azure
 
 > [AZURE.SELECTOR]
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
  Questa esercitazione illustra come creare una pipeline in Data factory di Azure per lo spostamento di dati dai BLOB di Archiviazione di Azure a SQL Data Warehouse. I passaggi seguenti consentono di eseguire queste operazioni:
@@ -206,4 +206,4 @@ Nella sezione 'Creare e distribuire' fare clic su 'Più comandi' e quindi 'Nuova
 	}
 	
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -30,29 +30,28 @@ Ricerca di Azure è un servizio di ricerca cloud ospitato che fornisce un motore
 
 Un *indice* è un archivio persistente di *documenti* e altri costrutti usati da un servizio di Ricerca di Azure. I documenti sono un'unità di base di dati che supportano la ricerca. Ad esempio, un rivenditore può avere un documento per ogni SKU, un'agenzia di stampa può avere un documento per ogni articolo e un distributore di contenuti multimediali in streaming può avere un documento per ogni video o brano nella propria libreria. Applicando questi concetti ai più familiari elementi di database equivalenti, un *indice* è concettualmente analogo a una *tabella* e i *documenti* equivalgono in linea di massima alle *righe* di una tabella.
 
-L'indice che contiene i documenti è un set di dati flat, in genere un subset di dati creati o acquisiti durante le normali attività aziendali mediante processi computerizzati, come le transazioni di vendita, la pubblicazione di contenuto, l'attività di acquisto che spesso sono archiviate in database relazionali o NoSQL. Un indice ottiene i documenti quando si effettua il push o il pull di un set di dati contenente righe da altre origini dati per l'indice.
-
-Nei limiti delle operazioni di un motore di ricerca, un indice contiene tutti i dati che supportano la ricerca usati per elaborare un indice, eseguire una query o restituire, ad esempio, un elenco di risultati della ricerca, una struttura di esplorazione in base a facet, una pagina di dettagli per singolo documento. In Ricerca di Azure un indice può anche contenere dati che non supportano la ricerca usati internamente in espressioni di filtro o nei profili di assegnazione dei punteggi che forniscono i criteri usati per incrementare il punteggio di classificazione della ricerca.
+L'indice è un set di dati flat, in genere un subset di dati creati o acquisiti durante le normali attività aziendali mediante processi computerizzati, come le transazioni di vendita, la pubblicazione di contenuto, l'attività di acquisto che spesso sono archiviate in database relazionali o NoSQL. Un indice ottiene i documenti quando si effettua il push o il pull di un set di dati contenente righe da altre origini dati per l'indice.
 
 ##Quando creare un indice
 
-Come parte del provisioning di un servizio di ricerca che verrà usato dall'applicazione, sarà necessario creare un indice. La creazione di un indice è un'attività incentrata soprattutto sulla definizione del relativo schema. Consiste come minimo nella definizione dei campi e nell'impostazione degli attributi. Facoltativamente, è possibile estendere un indice per includere i profili di punteggio, i suggerimenti e i valori predefiniti personalizzati.
+Come parte del provisioning di un servizio di ricerca che verrà usato dall'applicazione, sarà necessario creare un indice. Rendere disponibile un indice per le operazioni di ricerca è un'attività in 2 parti. Definire prima di tutto lo schema e inserirlo in Ricerca di Azure. Popolare quindi l'indice con un set di dati definito dall'utente conforme allo schema.
 
-Per creare uno schema che definisce un indice, è possibile usare il portale o scrivere codice che chiama .NET SDK o l'API REST.
-
-Dopo avere definito lo schema e creato l'indice, sarà necessario eseguire un'operazione separata per popolarlo. Per altre informazioni sull'inserimento dei dati dopo la creazione dell'indice, vedere [Importare i dati in Ricerca di Azure](search-what-is-data-import.md).
+Per creare uno schema che definisce un indice, è possibile usare il portale o scrivere codice che chiama .NET SDK o l'API REST. Vedere le schede nella parte superiore di questo argomento. Per altre informazioni sull'inserimento dei dati dopo la creazione dell'indice, vedere [Importare i dati in Ricerca di Azure](search-what-is-data-import.md).
 
 ##Specifica dello schema JSON di un indice
 
+Un indice è un documento JSON che contiene sezioni per campi e attributi, profili di punteggio, suggerimenti, un profilo di punteggio predefinito e opzioni CORS.
+
+ ![][1]
+
 Le sezioni principali di un indice di Ricerca di Azure, come descritto nel formato di interscambio dati (DIF) JSON, sono i seguenti.
 
-|Elemento dello schema|Descrizione|
+|Sezione|Descrizione|
 |--------------|-----------|
-|Raccolta di campi|I campi definiscono un documento. Un set di dati di cui si effettua il push o il pull in un indice deve fornire valori o valori Null per ogni campo, compatibili con il tipo di dati e la lunghezza dei campi espressi nello schema.|
-|[Attributi](#index-attributes)|Proprietà o annotazioni in un campo che specificano il tipo di dati, la lunghezza, il valore e i comportamenti consentiti per il campo specifico. È possibile specificare se ogni singolo campo è ricercabile, recuperabile oppure ordinabile. È anche possibile specificare gli override dell'analizzatore del linguaggio a livello di campo.
-|[Profili di punteggio](https://msdn.microsoft.com/library/azure/dn798928.aspx)|Criteri usati per aumentare la priorità di un risultato della ricerca che include il maggior numero di caratteristiche definite dal profilo. Ad esempio, si supponga che un termine di ricerca corrisponda a un nome di prodotto e alla descrizione di un prodotto. È possibile che si voglia attribuire alle corrispondenze con il nome del prodotto una priorità superiore rispetto alle corrispondenze con la descrizione.|
+|Raccolta di campi|I campi definiscono un documento. Un set di dati di cui si effettua il push o il pull in un indice deve fornire valori o valori Null per ogni campo, compatibili con il tipo di dati e la lunghezza dei campi espressi nello schema. I campi hanno [attributi](#index-attributes), ovvero proprietà o annotazioni usate per contrassegnare un campo per abilitare i comportamenti correlati alla ricerca per tale campo. Ad esempio, è possibile specificare se ogni singolo campo supporta la ricerca, è recuperabile oppure ordinabile. È anche possibile specificare gli override dell'analizzatore del linguaggio a livello di campo.
 |[Componenti per il suggerimento](https://msdn.microsoft.com/library/azure/mt131377.aspx)|Noti anche come completamento automatico o query con completamento automatico, sono definiti come una sezione nell'indice.|
-|[Analizzatori del linguaggio predefiniti]()|Facoltativamente, possono essere specificati a livello di indice ed essere applicati globalmente a tutti i campi.|
+|[Profili di punteggio](https://msdn.microsoft.com/library/azure/dn798928.aspx)|Criteri usati per aumentare la priorità di un risultato della ricerca che include il maggior numero di caratteristiche definite dal profilo. Ad esempio, si supponga che un termine di ricerca corrisponda a un nome di prodotto e alla descrizione di un prodotto. È possibile che si voglia attribuire alle corrispondenze con il nome del prodotto una priorità superiore rispetto alle corrispondenze con la descrizione. È possibile creare più profili.|
+|Profilo di assegnazione dei punteggi|Facoltativamente, è possibile eseguire l'override della logica incorporata che calcola il punteggio di classificazione della ricerca, specificando uno dei profili di punteggio come impostazione predefinita.|
 |Opzioni CORS|Facoltativamente, abilita la condivisione di risorse tra le origini, dove le richieste per una risorsa usata da una pagina Web vengono eseguite oltre limite di un dominio. CORS è sempre disattivata, a meno che non venga appositamente abilitata per l'indice.|
 
 <a name="index-attributes"></a>
@@ -72,9 +71,11 @@ Gli attributi sono impostati nei singoli campi per specificare come viene usato 
 
 ##Uso degli indici in Ricerca di Azure
 
+I dati dall'indice vengono usati per costruire un elenco di risultati della ricerca, una struttura di esplorazione in base a facet o una pagina dei dettagli per singolo documento. In Ricerca di Azure un indice può anche contenere dati che non supportano la ricerca usati internamente in espressioni di filtro o nei profili di assegnazione dei punteggi che forniscono i criteri usati per incrementare il punteggio di classificazione della ricerca.
+
 Tutte le operazioni correlate ai dati eseguite da Ricerca di Azure utilizzano o restituiscono dati da un indice, senza eccezioni. Non è infatti possibile impostare il servizio perché faccia riferimento a origini dati oltre all'indice per restituire dati esterni in una risposta generata dal servizio di ricerca.
 
-Per le applicazioni che accumulano dati ed eseguono operazioni sui dati, ad esempio transazioni di vendita di un'app per il commercio online, un indice di Ricerca di Azure sarà un'origine dati aggiuntiva nella soluzione complessiva. L'indice è un archivio dati dedicato usato solo dal servizio di ricerca. Un'origine dati dedicata con prossimità al servizio di ricerca assicura la coerenza nei risultati della ricerca, riduce la volatilità e il numero di round trip tra l'applicazione e Ricerca di Azure e infine migliora le prestazioni complessive delle operazioni di ricerca, grazie all'assenza di concorrenza per risorse o dati.
+Naturalmente, per le applicazioni che accumulano dati ed eseguono operazioni sui dati, ad esempio transazioni di vendita di un'app per il commercio online, un indice di Ricerca di Azure sarà un'origine dati aggiuntiva nella soluzione complessiva. Anche se può sembrare ridondante avere un'origine dati dedicata solo per la ricerca, la disponibilità di questa risorsa offre vantaggi quali coerenza nei risultati della ricerca, riduzione della volatilità e numero inferiore di round trip tra l'applicazione e Ricerca di Azure, oltre al miglioramento delle prestazioni complessive delle operazioni di ricerca, grazie all'assenza di contesa per risorse o dati.
 
 ##Indicazioni per la definizione di uno schema
 
@@ -102,4 +103,7 @@ Poiché Ricerca di Azure è un servizio di ricerca completamente gestito, l'arch
 
 Se i volumi delle query o i requisiti per l'archiviazione dei dati cambiano nel tempo, è possibile aumentare o ridurre la capacità aggiungendo o spostando repliche e partizioni. Per informazioni dettagliate, vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) o [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md).
 
-<!---HONumber=Nov15_HO4-->
+<!--Image References-->
+[1]: ./media/search-what-is-an-index/search-JSON-indexSchema.png
+
+<!---HONumber=AcomDC_1125_2015-->

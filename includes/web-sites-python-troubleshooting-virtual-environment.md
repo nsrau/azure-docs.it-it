@@ -6,7 +6,7 @@ Sono disponibili alcune opzioni per gestire l'ambiente virtuale in Azure.
 
 ### Opzione 1: Utilizzare il FTP
 
-Con un client FTP connettersi al server per eliminare la cartella env. Tenere presente che alcuni client FTP, come i Web browser, possono essere di sola lettura e non consentire l'eliminazione di cartelle. Per questo motivo, è bene assicurarsi di usare un client FTP con questa funzionalità. Il nome host FTP e l'utente vengono visualizzati nel blade dell'applicazione web nel [portale Azure](https://portal.azure.com).
+Con un client FTP connettersi al server per eliminare la cartella env. Tenere presente che alcuni client FTP, come i Web browser, possono essere di sola lettura e non consentire l'eliminazione di cartelle. Per questo motivo, è bene assicurarsi di usare un client FTP con questa funzionalità. Il nome host FTP e l'utente sono visualizzati nel pannello dell'app Web nel [portale di Azure](https://portal.azure.com).
 
 ### Opzione 2: Attiva/Disattiva runtime
 
@@ -21,4 +21,4 @@ Ecco un'alternativa che sfrutta il fatto che lo script di distribuzione eliminer
 
 Se lo script di distribuzione è stato personalizzato, è possibile modificare il codice in deploy.cmd per forzare l'eliminazione della cartella env.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

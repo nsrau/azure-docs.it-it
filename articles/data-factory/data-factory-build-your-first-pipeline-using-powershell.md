@@ -34,7 +34,7 @@ Questo articolo non fornisce una panoramica concettuale del servizio Data factor
 
 > [AZURE.IMPORTANT]Leggere l'articolo [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) e completare i prerequisiti prima di eseguire questa esercitazione.
 >   
-> Questo articolo non illustra tutti i cmlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
+> Questo articolo non illustra tutti i cmdlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
 >    
 > Se si usa Azure PowerShell 1.0 Preview, sarà necessario usare i cmdlet documentati [qui](https://msdn.microsoft.com/library/dn820234.aspx). Usare ad esempio New-AzureRMDataFactory invece di New-AzureDataFactory.
 
@@ -112,7 +112,6 @@ Si creerà ora un servizio collegato per il cluster HDInsight di Azure su richie
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -125,7 +124,6 @@ Si creerà ora un servizio collegato per il cluster HDInsight di Azure su richie
 	Versione | Specifica che la versione di HDInsight creata è 3.1.
 	ClusterSize | Crea un cluster HDInsight con un nodo.
 	TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
-	JobsContainer | Specifica il nome del contenitore di processo che sarà creato per archiviare i log generati da HDInsight.
 	linkedServiceName | Specifica l'account di archiviazione che sarà usato per archiviare i log generati da HDInsight.
 2. Eseguire il cmdlet **New-AzureDataFactoryLinkedService** per creare il servizio collegato HDInsightOnDemandLinkedService.
 
@@ -203,11 +201,11 @@ In questo passaggio si creerà la prima pipeline.
 
 	Nell'esempio precedente, si crea una pipeline costituita da una singola attività che usa Hive per elaborare i dati in un cluster HDInsight.
 
-	Il file di script Hive, partitionweblogs.hql, è archiviato nell'account di archiviazione di Azure, specificato da scriptLinkedService, denominato StorageLinkedService, e in un contenitore denominato **script**.
+	Il file di script Hive, partitionweblogs.hql, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato StorageLinkedService) e in un contenitore denominato **script**.
 
-	La sezione **extendedProperties** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive, ad esempio ${hiveconf:PartitionedData}.
+	La sezione **defines** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive, ad esempio ${hiveconf:PartitionedData}.
 
-	Le proprietà **start** ed **end** della pipeline ne specificano il periodo attivo.
+	Le proprietà **start** ed **end** della pipeline specificano il periodo attivo della pipeline.
 
 	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sul computer specificato dal servizio collegato, **HDInsightOnDemandLinkedService**.
 2. Eseguire il comando seguente per creare la tabella di Data factory.
@@ -269,9 +267,9 @@ Vedere [Riferimento ai cmdlet di Data factory](https://msdn.microsoft.com/librar
 
 
 ## Passaggi successivi
-In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta di Azure. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure in Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](./data-factory-get-started.md).
+In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta di Azure. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](./data-factory-get-started.md).
 
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

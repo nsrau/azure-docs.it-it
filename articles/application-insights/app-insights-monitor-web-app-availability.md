@@ -17,6 +17,9 @@
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
 
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 Dopo aver distribuito l'applicazione Web, è possibile configurare test web per monitorarne la disponibilità e la velocità di risposta. Application Insights invia richieste Web a intervalli regolari da vari punti distribuiti in tutto il mondo e può inviare avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
 
 ![Esempio di test Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
@@ -49,14 +52,14 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - L'**URL **deve essere visibile dalla rete Internet pubblica. Può includere una stringa di query&#151;pertanto è possibile, ad esempio, esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione verrà effettuata fino a un numero massimo di 10 reindirizzamenti.
-- **Analizza richieste dipendenti**: immagini, script, file di stile e altre risorse della pagina vengono richiesti come parte del test. Il test avrà esito negativo se non è possibile scaricare tutte queste risorse entro la scadenza definita per l'intero test.
+- **Analizza richieste dipendenti**: immagini, script, file di stile e altre risorse della pagina sono richiesti come parte del test. Il test avrà esito negativo se non è possibile scaricare tutte queste risorse entro la scadenza definita per l'intero test.
 - Se la casella **Abilitare tentativi** è selezionata, quando il test non riesce verrà eseguito un nuovo tentativo dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni posizione di test. Questa è un'impostazione consigliata. In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.
-- **Frequenza test**: indica la frequenza di esecuzione dei test da ogni posizione di test. Con una frequenza di 5 minuti e cinque posizioni di test, il sito verrà testato in media ogni minuto.
+- **Frequenza test**: impostare la frequenza di esecuzione dei test da ogni posizione di test. Con una frequenza di 5 minuti e cinque posizioni di test, il sito verrà testato in media ogni minuto.
 - Le **posizioni dei test** sono le ubicazioni da cui i server inviano richieste Web all'URL indicato. Sceglierne più di una, per poter distinguere i problemi del sito Web dai problemi di rete. È possibile selezionare fino a 16 posizioni.
 
 - **Criteri di successo**:
 
-    **Test timeout**: diminuire questo valore per ricevere avvisi in merito alle risposte lente. Il test viene conteggiato come non riuscito se le risposte dal sito non sono state ricevute entro questo periodo. Se è stata selezionata l'opzione **Analizza richieste dipendenti**, tutti gli script, i file di stile, le immagini e altre risorse dipendenti devono essere stati ricevuti entro questo periodo.
+    **Test timeout**: diminuire questo valore per ricevere avvisi sulle risposte lente. Il test viene conteggiato come non riuscito se le risposte dal sito non sono state ricevute entro questo periodo. Se è stata selezionata l'opzione **Analizza richieste dipendenti**, è necessario che tutti gli script, i file di stile, le immagini e altre risorse dipendenti siano stati ricevuti entro questo intervallo.
 
     **Risposta HTTP**: codice di stato restituito che indica un'operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web.
 
@@ -249,4 +252,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

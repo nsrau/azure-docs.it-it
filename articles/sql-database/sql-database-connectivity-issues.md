@@ -31,7 +31,7 @@ Questo argomento illustra come evitare, risolvere, diagnosticare e ridurre gli e
 Un errore temporaneo è un errore la cui causa sottostante si risolverà automaticamente in modo rapido. Una causa occasionale di errori temporanei è costituita dal cambio rapido di risorse hardware da parte del sistema Azure per ottenere un bilanciamento migliore dei diversi carichi di lavoro. Durante questo intervallo di riconfigurazione è possibile che le connessioni al database SQL di Azure vadano perse.
 
 
-Se il programma client usa ADO.NET, l'errore temporaneo verrà segnalato al programma tramite la generazione di un'eccezione **SqlException**. È possibile confrontare la proprietà **Number** con l'elenco di errori temporanei disponibili nella parte iniziale dell'argomento [Messaggi di errore per programmi client del database SQL](sql-database-develop-error-messages).
+Se il programma client usa ADO.NET, l'errore temporaneo verrà segnalato al programma tramite la generazione di un'eccezione **SqlException**. È possibile confrontare la proprietà **Number** con l'elenco di errori temporanei disponibili nella parte iniziale dell'argomento [Messaggi di errore per programmi client del database SQL](sql-database-develop-error-messages.md).
 
 
 ### Confronto tra connessione e comando
@@ -94,7 +94,7 @@ Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di b
 
 Esempi di codice con logica di ripetizione dei tentativi in diversi linguaggi di programmazione sono disponibili in:
 
-- [Esempi di codice di avvio rapido](sql-database-develop-quick-start-client-code-samples.md) 
+- [Esempi di codice di avvio rapido](sql-database-develop-quick-start-client-code-samples.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

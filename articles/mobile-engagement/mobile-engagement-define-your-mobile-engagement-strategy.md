@@ -117,6 +117,9 @@ Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale 
 
 ### Passaggi successivi
 - Per altre informazioni sui concetti di base di Mobile Engagement, vedere [Concetti relativi a Mobile Engagement].
+- Per altre informazioni, vedere [Procedure consigliate](mobile-engagement-getting-started-best-practices.md).
+- Per informazioni sull'implementazione di Mobile Engagement con un'app di gioco di esempio, vedere [uno scenario di app di gioco](mobile-engagement-gaming-scenario.md). 
+- Per informazioni sull'implementazione di Mobile Engagement con un'app multimediale di esempio, vedere [uno scenario di app multimediale](mobile-engagement-media-scenario.md). 
 - Per altre informazioni sull'implementazione, vedere la pagina [Esercitazioni].
 
 <!-- Images. -->
@@ -127,4 +130,4 @@ Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale 
 [Concetti relativi a Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Esercitazioni]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->
