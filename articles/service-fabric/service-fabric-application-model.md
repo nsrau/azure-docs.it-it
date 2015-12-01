@@ -229,11 +229,18 @@ Dopo aver inserito correttamente l'applicazione nel pacchetto e aver superato la
 
 ## Passaggi successivi
 
-[Distribuire e rimuovere applicazioni][10] [Gestire parametri dell'applicazione per più ambienti][11] [RunAs: eseguire un'applicazione dell’infrastruttura di servizi con autorizzazioni di sicurezza diverse][12] <!--Image references--> [1]: ./media/service-fabric-application-model/application-model.jpg [2]: ./media/service-fabric-application-model/vs-package-command.png [Image1]: media/service-fabric-application-model/Service1.jpg [Image2]: media/service-fabric-application-model/Service2.jpg
+[Distribuire e rimuovere applicazioni][10]
+[Gestire parametri dell'applicazione per più ambienti][11]
+[RunAs: eseguire un'applicazione dell’infrastruttura di servizi con autorizzazioni di sicurezza diverse][12]
+<!--Image references-->
+[1]: ./media/service-fabric-application-model/application-model.jpg
+[2]: ./media/service-fabric-application-model/vs-package-command.png
+[Image1]: media/service-fabric-application-model/Service1.jpg
+[Image2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
