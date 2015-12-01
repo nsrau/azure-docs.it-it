@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="10/28/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 # Configurare un gateway applicazione per l'offload SSL tramite Gestione risorse di Azure
@@ -71,32 +71,31 @@ Verificare di passare alla modalità di PowerShell per usare i cmdlet ARM. Altre
 
 ### Passaggio 1
 
-    Switch-AzureMode -Name AzureResourceManager
+		PS C:\> Login-AzureRmAccount
+
+
 
 ### Passaggio 2
 
-Accedere all'account Azure.
+Controllare le sottoscrizioni per l'account
+
+		PS C:\> get-AzureRmSubscription 
+
+Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
+
+### Passaggio 3 
+
+Scegliere quali sottoscrizioni Azure usare. <BR>
 
 
-    Add-AzureAccount
-
-Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
-
-
-### Passaggio 3
-
-Scegliere le sottoscrizioni ad Azure da utilizzare.
-
-    Select-AzureSubscription -SubscriptionName "MySubscription"
-
-Per visualizzare un elenco di sottoscrizioni disponibili, utilizzare il cmdlet "Get-AzureSubscription".
+		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Passaggio 4
 
 Creare un nuovo gruppo di risorse (ignorare questo passaggio se si usa un gruppo di risorse esistente)
 
-    New-AzureResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
 Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
 
@@ -108,12 +107,12 @@ Nell'esempio seguente viene illustrato come creare una rete virtuale utilizzando
 
 ### Passaggio 1	
 	
-	$subnet = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 Assegna l'intervallo di indirizzi 10.0.0.0/24 a una variabile di subnet da usare per creare una rete virtuale.
 
 ### Passaggio 2	
-	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 Crea una rete virtuale denominata "appgwvnet" nel gruppo di risorse "appw-rg" per l'area Stati Uniti occidentali usando il prefisso 10.0.0.0/16 con subnet 10.0.0.0/24
 
@@ -125,7 +124,7 @@ L'oggetto subnet viene assegnato alla variabile $subnet per i passaggi successiv
 	
 ## Creare l'indirizzo IP pubblico per la configurazione front-end
 
-	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
+	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
 Crea una risorsa IP pubblica "publicIP01" nel gruppo di risorse "appw-rg" per l'area Stati Uniti occidentali.
 
@@ -134,74 +133,74 @@ Crea una risorsa IP pubblica "publicIP01" nel gruppo di risorse "appw-rg" per l'
 
 ### Passaggio 1
 
-	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 Questo passaggio crea una configurazione IP del gateway applicazione denominata "gatewayIP01". All'avvio, il gateway applicazione selezionerà un indirizzo IP dalla subnet configurata e indirizza il traffico di rete agli indirizzi IP nel pool IP back-end. Tenere in considerazione che ogni istanza avrà un indirizzo IP.
  
 ### Passaggio 2
 
-	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
 Questo passaggio configura il pool di indirizzi IP di back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Quelli saranno gli indirizzi IP che riceveranno il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP dell'esempio precedente con gli indirizzi IP degli endpoint dell'applicazione Web.
 
 ### Passaggio 3
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
+	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
 Questo passaggio configura le impostazioni del gateway applicazione "poolsetting01" per il traffico di rete con bilanciamento del carico nel pool back-end.
 
 ### Passaggio 4
 
-	$fp = New-AzureApplicationGatewayFrontendPort -Name frontendport01  -Port 443
+	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
 Configura la porta IP front-end denominata "frontendport01", in questo caso, per l'endpoint IP pubblico.
 
 ### Passaggio 5 
 
-	$cert = New-AzureApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password ‘<password>’
+	$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password ‘<password>’
 
 Configura il certificato usato per la connessione SSL. Il certificato deve essere in formato PFX e la password compresa tra 4 e 12 caratteri.
 
 ### Passaggio 6
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
+	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
 Crea la configurazione IP front-end denominata "fipconfig01" e associa l'indirizzo IP pubblico con la configurazione IP front-end.
 
 ### Passaggio 7
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
 Crea il listener denominato "listener01" e associa la porta front-end al certificato e alla configurazione IP front-end.
 
 ### Passaggio 8 
 
-	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+	$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 Crea la regola routing del servizio di bilanciamento del carico denominata "rule01", configurando il comportamento di bilanciamento del carico.
 
 ### Passaggio 9:
 
-	$sku = New-AzureApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 Questo passaggio configura le dimensioni dell'istanza del gateway applicazione.
 
->[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
 
 ## Creare un gateway applicazione usando il metodo New-AzureApplicationGateway
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
+	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
 Questo metodo crea un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio il gateway applicazione è denominato "appgwtest".
 
 
 ## Avviare il gateway applicazione
 
-Dopo la configurazione del gateway, usare il cmdlet `Start-AzureApplicationGateway` per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
+Dopo la configurazione del gateway, usare il cmdlet `Start-AzureRmApplicationGateway` per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
 
 
-**Nota:** il completamento del cmdlet `Start-AzureApplicationGateway` potrebbe richiedere fino a 15-20 minuti.
+**Nota:** il completamento del cmdlet `Start-AzureRmApplicationGateway` potrebbe richiedere fino a 15-20 minuti.
 
 Per l'esempio seguente il gateway applicazione è denominato "appgwtest" e il gruppo di risorse è "app-rg":
 
@@ -210,23 +209,21 @@ Per l'esempio seguente il gateway applicazione è denominato "appgwtest" e il gr
 
 Ottenere l'oggetto gateway applicazione e associarlo a una variabile "$getgw":
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName app-rg
 
 ### Passaggio 2
 	 
-Usare `Start-AzureApplicationGateway` per avviare il gateway applicazione:
+Usare `Start-AzureRmApplicationGateway` per avviare il gateway applicazione:
 
-	 Start-AzureApplicationGateway -ApplicationGateway $getgw  
+	 Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
 	
 
 ## Verificare lo stato del gateway applicazione
 
-Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'operazione *Start-AzureApplicationGateway* è riuscita, lo stato risulterà *In esecuzione* e le voci per l'indirizzo VIP e DnsName saranno valide.
+Usare il cmdlet `Get-AzureRmApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'operazione *Start-AzureApplicationGateway* è riuscita, lo stato risulterà *Operazione riuscita*.
 
-Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto per accettare il traffico destinato a `http://<generated-dns-name>.cloudapp.net`.
-
-	Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	Sku                               : Microsoft.Azure.Commands.Network.Models.PSApplicationGatewaySku
 	GatewayIPConfigurations           : {gatewayip01}
@@ -374,12 +371,11 @@ Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto p
 
 ## Passaggi successivi
 
-
-Per configurare un gateway applicazione da usare con il bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno](application-gateway-ilb.md).
+Per configurare un gateway applicazione per l'uso con ILB, vedere [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -47,7 +47,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ##Creare un nuovo back-end dell'app per dispositivi mobili
 
+Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla procedura seguente.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+È stato eseguito il provisioning di un back-end dell'app per dispositivi mobili di Azure che può essere usato dalle applicazioni client per dispositivi mobili. Successivamente, scaricare un progetto server per un semplice back-end "todo list" e pubblicarlo in Azure.
 
 ## Scaricare il progetto server
 
@@ -61,7 +65,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ##Abilitare CORS nel progetto server
 
-La Condivisione di risorse tra le origini (CORS, Cross-Origin Resource Sharing) permette alle app basate sul Web di indicare i domini le cui richieste sono sicure e devono essere autorizzate dal browser. È necessario aggiungere una voce relativa a CORS per ogni sito Web che accederà al back-end dell'app per dispositivi mobili. Per controllare le impostazioni della Condivisione di risorse tra le origini, usare i comportamenti standard delle API Web di ASP.NET. Per altre informazioni, vedere [Abilitare la condivisione di richieste tra le origini nelle API Web di ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
+La Condivisione di risorse tra le origini (CORS, Cross-Origin Resource Sharing) permette alle app basate sul Web di indicare i domini le cui richieste sono sicure e devono essere autorizzate dal browser. È necessario aggiungere una voce relativa a CORS per ogni sito Web che accederà al back-end dell'app per dispositivi mobili. Per controllare le impostazioni della Condivisione di risorse tra le origini, usare i comportamenti standard delle API Web di ASP.NET. Per altre informazioni, vedere l'articolo relativo all'[abilitazione della condivisione di richieste tra le origini nelle API Web di ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
 
 Per impostazione predefinita, il progetto relativo alla guida introduttiva del client che verrà scaricato dal portale è in esecuzione su localhost sulla porta 8000. Sarà quindi necessario abilitare CORS per `http://localhost:8000` nel progetto server.
 
@@ -123,4 +127,4 @@ Sarà quindi necessario distribuire il progetto abilitato per CORS in Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

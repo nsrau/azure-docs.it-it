@@ -3,7 +3,7 @@
 	description="Informazioni su come creare una semplice applicazione Web Node.js e distribuirla in un servizio cloud di Azure."
 	services="cloud-services"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure
@@ -27,7 +27,7 @@ Questa esercitazione illustra come creare una semplice applicazione Node.js in e
 
 Per altre informazioni su Servizi cloud e sulle differenze rispetto ai servizi Siti Web e Macchine virtuali di Azure, vedere [Confronto tra siti Web, servizi cloud e macchine virtuali](../choose-web-site-cloud-service-vm.md).
 
->[AZURE.TIP]Come creare un semplice sito Web Se si intende creare un semplice sito Web front-end, è possibile <a href="/documentation/articles/web-sites-nodejs-develop-deploy-mac/">usare un’app Web semplificata.</a> È possibile procedere all'aggiornamento a un Servizio cloud con facilità, in base alla crescita dell’app Web e all'insorgere di nuove esigenze.
+>[AZURE.TIP]Come creare un semplice sito Web Se si intende creare un semplice sito Web front-end, è possibile <a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">usare un’app Web semplificata.</a> È possibile procedere all'aggiornamento a un Servizio cloud con facilità, in base alla crescita dell’app Web e all'insorgere di nuove esigenze.
 
 
 Questa esercitazione consente di creare una semplice applicazione Web ospitata in un ruolo Web. Si utilizzerà l'emulatore di calcolo per testare in locale l'applicazione, che verrà quindi distribuita con gli strumenti della riga di comando di PowerShell.
@@ -197,4 +197,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js](/dev
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/06/2015"
+	ms.date="11/23/2015"
 	ms.author="jeffstok" />
 
 
@@ -50,7 +50,7 @@ Per creare un hub eventi:
 	![Criteri di accesso condivisi in cui è possibile creare un nuovo criterio con autorizzazioni di gestione.](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
 
 5.	Fare clic su **Save** nella parte inferiore della pagina.
-6.	Passare al **Dashboard** e fare clic su **Informazioni di connessione** nella parte inferiore della pagina e quindi copiare e salvare le informazioni di connessione.
+6.	Passare al **Dashboard**, fare clic su **Informazioni di connessione** nella parte inferiore della pagina e quindi copiare e salvare le informazioni di connessione.
 
 ## Configurare e avviare l'applicazione di generazione di eventi
 
@@ -84,14 +84,14 @@ Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile imp
 
 ### Eseguire il provisioning di un processo di Analisi di flusso
 
-1.	Nel portale di Azure fare clic su **Nuovo > Servizi dati > Analisi dei flussi > Creazione rapida**.
+1.	Nel portale di Azure fare clic su **Nuovo > Servizi dati > Analisi di flusso > Creazione rapida**.
 2.	Specificare i valori seguenti, quindi fare clic su **Crea processo di Analisi dei flussi**:
 
 	* **Nome processo**: immettere un nome per il processo.
 
 	* **Area**: scegliere l'area in cui si desidera eseguire il processo. È consigliabile inserire il processo e l'hub eventi nella stessa area per garantire prestazioni migliori ed evitare addebiti connessi al trasferimento di dati tra aree diverse.
 
-	* **Account di archiviazione**: scegliere l'account di archiviazione di Azure da usare per archiviare i dati di monitoraggio per tutti i processi di Analisi dei flussi in esecuzione all'interno dell'area scelta. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.
+	* **Account di archiviazione**: scegliere l'account di archiviazione di Azure da usare per archiviare i dati di monitoraggio per tutti i processi di Analisi di flusso in esecuzione all'interno dell'area scelta. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.
 
 3.	Fare clic su **Analisi dei flussi** nel riquadro sinistro per visualizzare un elenco dei processi di Analisi dei flussi.
 
@@ -147,7 +147,7 @@ Se si desidera archiviare ogni evento, è possibile utilizzare una query passthr
 	> Assicurarsi che il nome dell'origine di input corrisponda al nome dell'input specificato precedentemente.
 
 3.	Fare clic su **Test** nell'editor di query.
-4.	Fornire un file di test, che può essere sia un file creato con la procedura precedente sia un file [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Fornire un file di test, che può essere un file creato con la procedura precedente oppure usare un file [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Fare clic sul segno di spunta e vedere i risultati visualizzati sotto la definizione della query.
 
 	![Risultati della definizione della query](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -257,4 +257,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

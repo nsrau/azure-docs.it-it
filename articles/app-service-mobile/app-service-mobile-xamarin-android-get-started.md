@@ -44,7 +44,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
+Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla procedura seguente.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+È stato eseguito il provisioning di un back-end dell'app per dispositivi mobili di Azure che può essere usato dalle applicazioni client per dispositivi mobili. Successivamente, scaricare un progetto server per un semplice back-end "todo list" e pubblicarlo in Azure.
 
 ## Configurare il progetto server
 
@@ -58,7 +62,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 2. Premere **F5** per compilare il progetto e avviare l'app.
 
-3. Nell'app digitare un testo significativo, ad esempio _Completare l'esercitazione_, quindi fare clic sul pulsante **Aggiungi**.
+3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_ quindi fare clic sul pulsante **Add**.
 
 	![][10]
 
@@ -86,4 +90,4 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
  
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

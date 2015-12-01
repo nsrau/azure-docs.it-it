@@ -42,7 +42,7 @@ Iniziare a lavorare con la libreria .NET di Azure Batch tramite la creazione di 
 
 	2. Cercare online **WindowsAzure.Storage** e poi fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le relative dipendenze.
 
-> [AZURE.TIP]Questa esercitazione usa alcuni concetti fondamentali di Batch illustrati in [Nozioni fondamentali di API per Azure Batch](batch-api-basics.md), la cui lettura è consigliata per i nuovi utenti.
+> [AZURE.TIP]Questa esercitazione usa alcuni concetti fondamentali di Batch illustrati in [Cenni preliminari sulla funzionalità Azure Batch](batch-api-basics.md), la cui lettura è consigliata per i nuovi utenti.
 
 ## Passaggio 1: Creare e caricare i file di supporto
 
@@ -495,4 +495,4 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 
 2. Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

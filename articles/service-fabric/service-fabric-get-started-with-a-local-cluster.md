@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/16/2015"
+   ms.date="11/20/2015"
    ms.author="seanmck"/>
 
 # Introduzione alla distribuzione e all'aggiornamento di applicazioni nel cluster locale
@@ -24,41 +24,45 @@ Service Fabric SDK include un ambiente di sviluppo locale completo e consente di
 ## Creare un cluster locale
 Un cluster di infrastruttura di servizi rappresenta un set di risorse hardware in cui è possibile distribuire le applicazioni. In genere un cluster è costituito da un minimo di 5 a diverse migliaia di macchine virtuali, ma Service Fabric SDK include una configurazione cluster che può essere eseguita in una singola macchina virtuale.
 
-> [AZURE.NOTE]Il cluster locale di infrastruttura di servizi non è un emulatore o un simulatore. Esegue lo stesso codice della piattaforma che viene eseguito nei cluster costituiti da più macchine virtuali. La differenza sta nel fatto che esegue i processi della piattaforma normalmente eseguiti su cinque macchine virtuali in una sola.
+È importante comprendere che il cluster locale di Service Fabric non è un emulatore o un simulatore. Esegue lo stesso codice della piattaforma che viene eseguito nei cluster costituiti da più macchine virtuali. La differenza sta nel fatto che esegue i processi della piattaforma normalmente eseguiti su cinque macchine virtuali in una sola.
 
 L'SDK fornisce due modi per configurare un cluster locale: uno script di Windows PowerShell e l'app della barra delle applicazioni Local Cluster Manager. Per questa esercitazione verrà usato lo script di PowerShell.
 
 > [AZURE.NOTE]Se è già stato creato un cluster locale con la distribuzione di un'applicazione da Visual Studio, è possibile ignorare questa sezione.
 
+
 1. Avviare una nuova finestra di PowerShell come amministratore.
+
 2. Eseguire lo script di installazione del cluster dalla cartella dell'SDK:
 
 	```powershell
 	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
 	```
 
-  L'installazione del cluster richiederà qualche istante. Successivamente, verrà visualizzato un output con un aspetto simile al seguente:
+    L'installazione del cluster richiederà qualche istante. Successivamente, verrà visualizzato un output con un aspetto simile al seguente:
 
-  ![Output installazione del cluster][cluster-setup-success]
+    ![Output installazione del cluster][cluster-setup-success]
 
-  A questo punto, è possibile provare a distribuire un'applicazione nel cluster.
+    A questo punto, è possibile provare a distribuire un'applicazione nel cluster.
 
 ## Distribuire un'applicazione
 Service Fabric SDK include un set avanzato di framework e strumenti di sviluppo per la creazione di applicazioni. Per informazioni su come creare applicazioni in Visual Studio, vedere [Creare la prima applicazione in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). In questa esercitazione verrà usata un'applicazione di esempio esistente (denominata WordCount) in modo da concentrarsi sugli aspetti di gestione della piattaforma, ad esempio distribuzione, monitoraggio e aggiornamento.
 
+
 1. Avviare una nuova finestra di PowerShell come amministratore.
+
 2. Importare il modulo PowerShell di Service Fabric SDK.
 
     ```powershell
     Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
     ```
 
-3. Creare una directory per archiviare l'applicazione che verrà scaricata e distribuita, ad esempio c:\\Service Fabric.
+3. Creare una directory per archiviare l'applicazione che verrà scaricata e distribuita, ad esempio c:\\ServiceFabric.
 
-  ```powershell
-  mkdir c:\ServiceFabric\
-  cd c:\ServiceFabric\
-  ```
+    ```powershell
+    mkdir c:\ServiceFabric\
+    cd c:\ServiceFabric\
+    ```
 
 4. Scaricare l'applicazione WordCount da [qui](http://aka.ms/servicefabric-wordcountapp) e salvarla nel percorso appena creato.
 
@@ -74,50 +78,50 @@ Service Fabric SDK include un set avanzato di framework e strumenti di sviluppo 
   Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
     ```
 
-  Se l'operazione viene eseguita correttamente, verrà visualizzato un output simile al seguente:
+    Se l'operazione viene eseguita correttamente, verrà visualizzato un output simile al seguente:
 
-  ![Distribuzione di un'applicazione nel cluster locale][deploy-app-to-local-cluster]
+    ![Distribuzione di un'applicazione nel cluster locale][deploy-app-to-local-cluster]
 
 7. Per visualizzare l'applicazione in funzione, avviare il browser e passare a [http://localhost:8081/wordcount/index](http://localhost:8081/wordcount/index). Dovrebbe essere visualizzata una schermata analoga alla seguente:
 
-  ![Interfaccia utente dell'applicazione distribuita][deployed-app-UI]
+    ![Interfaccia utente dell'applicazione distribuita][deployed-app-ui]
 
-  L'applicazione WordCount è molto semplice. Include il codice JavaScript lato client per generare "parole" da cinque caratteri casuali, che quindi vengono inoltrate all'applicazione tramite un'API Web ASP.NET. Un servizio con stato tiene traccia del numero di parole conteggiate, partizionate in base al primo carattere della parola. L'applicazione distribuita contiene quattro partizioni, quindi le parole che iniziano con le lettere dalla A alla G vengono archiviate nella prima partizione, quelle che iniziano con le lettere dalla H alla N nella seconda partizione e così via.
+    L'applicazione WordCount è molto semplice. Include il codice JavaScript lato client per generare "parole" da cinque caratteri casuali, che quindi vengono inoltrate all'applicazione tramite un'API Web ASP.NET. Un servizio con stato tiene traccia del numero di parole conteggiate, partizionate in base al primo carattere della parola. L'applicazione distribuita contiene quattro partizioni, quindi le parole che iniziano con le lettere dalla A alla G vengono archiviate nella prima partizione, quelle che iniziano con le lettere dalla H alla N nella seconda partizione e così via.
 
 ## Visualizzare i dettagli e lo stato dell'applicazione
 Dopo aver distribuito l'applicazione, si osserveranno alcuni dettagli dell'app in PowerShell.
 
 1. Eseguire una query per individuare tutte le applicazioni nel cluster:
 
-  ```powershell
-  Get-ServiceFabricApplication
-  ```
+    ```powershell
+    Get-ServiceFabricApplication
+    ```
 
-  Partendo dal presupposto che è stata distribuita solo l'app WordCount, verrà visualizzato un output simile al seguente:
+    Partendo dal presupposto che è stata distribuita solo l'app WordCount, verrà visualizzato un output simile al seguente:
 
-  ![Query per individuare tutte le applicazioni distribuite in PowerShell][ps-getsfapp]
+    ![Query per individuare tutte le applicazioni distribuite in PowerShell][ps-getsfapp]
 
 2. Passare al livello successivo eseguendo una query per individuare il set di servizi inclusi nell'app WordCount.
 
-  ```powershell
-  Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
-  ```
+    ```powershell
+    Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
+    ```
 
-  ![Elenco dei servizi per l'applicazione in PowerShell][ps-getsfsvc]
+    ![Elenco dei servizi per l'applicazione in PowerShell][ps-getsfsvc]
 
-  Si noti che l'applicazione è costituita da due servizi, il front-end Web e il servizio con stato che gestisce le parole.
+    Si noti che l'applicazione è costituita da due servizi, il front-end Web e il servizio con stato che gestisce le parole.
 
 3. Infine, si osservi l'elenco di partizioni per il servizio WordCount:
 
-  ![Visualizzazione delle partizioni del servizio in PowerShell][ps-getsfpartitions]
+    ![Visualizzazione delle partizioni del servizio in PowerShell][ps-getsfpartitions]
 
-  Il set di comandi appena usati, come tutti i comandi di PowerShell per l'infrastruttura di servizi, sono disponibili per tutti i cluster a cui ci si connette, locali o remoti.
+    Il set di comandi appena usati, come tutti i comandi di PowerShell per l'infrastruttura di servizi, sono disponibili per tutti i cluster a cui ci si connette, locali o remoti.
 
-  Per un'interazione più visiva con il cluster, è possibile usare lo strumento basato sul Web Service Fabric Explorer, digitando l'indirizzo [http://localhost:19080/Explorer](http://localhost:19080/Explorer) nella barra degli indirizzi del browser.
+    Per un'interazione più visiva con il cluster, è possibile usare lo strumento basato sul Web Service Fabric Explorer digitando [http://localhost:19080/Explorer](http://localhost:19080/Explorer) nella barra degli indirizzi del browser.
 
-  ![Visualizzazione dei dettagli dell'applicazione in Service Fabric Explorer][sfx-service-overview]
+    ![Visualizzazione dei dettagli dell'applicazione in Service Fabric Explorer][sfx-service-overview]
 
-  >[AZURE.NOTE]Per altre informazioni su Service Fabric Explorer, vedere [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+    > [AZURE.NOTE]Per altre informazioni su Service Fabric Explorer, vedere [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 ## Aggiornare un'applicazione
 Con l'infrastruttura di servizi è possibile eseguire aggiornamenti senza tempi di inattività, grazie al monitoraggio dell'integrità dell'applicazione durante il rollout nel cluster. Ora verrà eseguito un semplice aggiornamento dell'applicazione WordCount.
@@ -128,46 +132,46 @@ La nuova versione dell'applicazione conterà solo le parole che iniziano con una
 
 2. Tornare alla finestra di PowerShell e usare il comando di aggiornamento dell'SDK per registrare la nuova versione nel cluster e iniziare ad aggiornare fabric:/WordCount.
 
-  ```powershell
-  Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" @{"UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
-  ```
+    ```powershell
+    Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
+    ```
 
-  Quando inizia l'aggiornamento, in PowerShell verrà visualizzato un output simile al seguente.
+    Quando inizia l'aggiornamento, in PowerShell verrà visualizzato un output simile al seguente.
 
-  ![Stato dell'aggiornamento in PowerShell][ps-appupgradeprogress]
+    ![Stato dell'aggiornamento in PowerShell][ps-appupgradeprogress]
 
 3. Sarà più facile monitorare lo stato dell'aggiornamento da Service Fabric Explorer. Avviare una finestra del browser e passare all'indirizzo [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Fare clic su **Applications** nell'albero a sinistra e scegliere **Upgrades in Progress**.
 
-  ![Stato dell'aggiornamento in Service Fabric Explorer][sfx-upgradeprogress]
+    ![Stato dell'aggiornamento in Service Fabric Explorer][sfx-upgradeprogress]
 
-  Si noti che l'indicatore di Upgrade Progress rappresenta lo stato dell'aggiornamento all'interno dei domini di aggiornamento del cluster. Durante l'operazione di aggiornamento in ogni dominio, vengono eseguiti controlli di integrità per garantire che il comportamento dell'applicazione risulti corretto prima di continuare.
+    Si noti che l'indicatore di Upgrade Progress rappresenta lo stato dell'aggiornamento all'interno dei domini di aggiornamento del cluster. Durante l'operazione di aggiornamento in ogni dominio, vengono eseguiti controlli di integrità per garantire che il comportamento dell'applicazione risulti corretto prima di continuare.
 
 4. Se si esegue di nuovo la query precedente per il set di servizi inclusi nell'applicazione fabric:/WordCount, si noterà che la versione di WordCountService è cambiata, mentre la versione di WordCountWebService è rimasta uguale:
 
-  ```powershell
-  Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
-  ```
+    ```powershell
+    Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
+    ```
 
-  ![Query per individuare i servizi dell'applicazione dopo l'aggiornamento][ps-getsfsvc-postupgrade]
+    ![Query per individuare i servizi dell'applicazione dopo l'aggiornamento][ps-getsfsvc-postupgrade]
 
-  Questo illustra il modo in cui l'infrastruttura di servizi gestisce gli aggiornamenti dell'applicazione, con un impatto solo sul set di servizi (o sul codice o i pacchetti di configurazione all'interno di tali servizi) modificati, per accelerare il processo di aggiornamento e aumentarne l'affidabilità.
+    Questo illustra il modo in cui l'infrastruttura di servizi gestisce gli aggiornamenti dell'applicazione, con un impatto solo sul set di servizi (o sul codice o i pacchetti di configurazione all'interno di tali servizi) modificati, per accelerare il processo di aggiornamento e aumentarne l'affidabilità.
 
 5. Infine, tornare di nuovo alla finestra del browser per osservare il comportamento della nuova versione dell'applicazione. Come previsto, il conteggio aumenta più lentamente e la prima partizione mostra un volume maggiore di quello delle altre.
 
-  ![Visualizzazione della nuova versione dell'applicazione nel browser][deployed-app-UI-v2]
+    ![Visualizzazione della nuova versione dell'applicazione nel browser][deployed-app-ui-v2]
 
 ## Passaggi successivi
 - Dopo aver distribuito e aggiornato alcune applicazioni precompilate, è possibile [provare a creare un'applicazione personalizzata in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
-- Tutte le azioni eseguite nel cluster locale nel corso di questa esercitazione, possono anche essere eseguite in un [cluster di Azure](service-fabric-cluster-creation-via-portal.md).
-- L'aggiornamento effettuato in questa esercitazione è molto semplice. Per altre informazioni sulla potenza e sulla flessibilità degli aggiornamenti dell'infrastruttura di servizi, vedere la [documentazione relativa all'aggiornamento](service-fabric-application-upgrade.md).
+- Tutte le azioni eseguite nel cluster locale nel corso di questa esercitazione possono anche essere eseguite in un [cluster di Azure](service-fabric-cluster-creation-via-portal.md).
+- L'aggiornamento effettuato in questa esercitazione è molto semplice. Per altre informazioni sulle potenzialità e sulla flessibilità degli aggiornamenti di Service Fabric, vedere la [documentazione relativa all'aggiornamento](service-fabric-application-upgrade.md).
 
 <!-- Images -->
 
 [cluster-setup-success]: ./media/service-fabric-get-started-with-a-local-cluster/LocalClusterSetup.png
 [extracted-app-package]: ./media/service-fabric-get-started-with-a-local-cluster/ExtractedAppPackage.png
 [deploy-app-to-local-cluster]: ./media/service-fabric-get-started-with-a-local-cluster/DeployAppToLocalCluster.png
-[deployed-app-ui]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI.png
-[deployed-app-ui2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI2.png
+[deployed-app-ui]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-v1.png
+[deployed-app-ui-v2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-PostUpgrade.png
 [sfx-app-instance]: ./media/service-fabric-get-started-with-a-local-cluster/SfxAppInstance.png
 [sfx-two-app-instances-different-partitions]: ./media/service-fabric-get-started-with-a-local-cluster/SfxTwoAppInstances-DifferentPartitionCount.png
 [ps-getsfapp]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFApp.png
@@ -175,8 +179,7 @@ La nuova versione dell'applicazione conterà solo le parole che iniziano con una
 [ps-getsfpartitions]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFPartitions.png
 [ps-appupgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/PS-AppUpgradeProgress.png
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
-[deployed-app-ui-v2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/19/2015"
    ms.author="lodipalm;barbkess"/>
 
-# Creare un database di SQL Data Warehouse usando il portale di anteprima di Azure#
+# Creare un SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-data-warehouse-get-started-provision.md)
@@ -46,6 +46,7 @@ In questa esercitazione si apprenderà come:
 
 
 ## Passaggio 2: Configurare e creare un server
+
 Nel database SQL e in SQL Data Warehouse ogni database viene assegnato a un server e ogni server viene assegnato a una posizione geografica. Il server è definito server SQL logico.
 
 > [AZURE.NOTE]<a name="note"></a>Un server SQL logico:
@@ -75,6 +76,7 @@ Nel database SQL e in SQL Data Warehouse ogni database viene assegnato a un serv
     ![Configurare il nuovo server](./media/sql-data-warehouse-get-started-provision/configure-server.png)
 
 ## Passaggio 3: Configurare e creare un database
+
 Ora che il server SQL logico è stato selezionato, è possibile completare la creazione del database.
  
 2. Nel pannello **SQL Data Warehouse** compilare i campi restanti. 
@@ -103,6 +105,7 @@ Ora che il server SQL logico è stato selezionato, è possibile completare la cr
 
 
 ## Passaggio 4: Configurare l'accesso al server attraverso il firewall per l'IP client
+
 Per connettersi al server dall'indirizzo IP corrente, aggiungere l'indirizzo IP client alle regole del firewall. Questo passaggio mostra come procedere.
 
 1. Fare clic su **Sfoglia** > **SQL Server** > Scegliere il server > **Impostazioni** > **Firewall**.
@@ -123,9 +126,8 @@ Per connettersi al server dall'indirizzo IP corrente, aggiungere l'indirizzo IP 
 
 Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop al database di Azure SQL Data Warehouse appena creato.
 
-
 ## Passaggi successivi
 
 Dopo aver creato un database di esempio per SQL Data Warehouse, fare clic su [Connetti](./sql-data-warehouse-get-started-connect.md) per connettersi al database.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

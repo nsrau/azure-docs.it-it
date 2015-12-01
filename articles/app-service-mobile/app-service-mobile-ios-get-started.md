@@ -24,9 +24,7 @@
 
 ## Panoramica
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per dispositivi mobili iOS mediante un back-end per app per dispositivi mobili di Azure. Verranno creati un nuovo back-end di app per dispositivi mobili e una semplice app iOS di tipo _elenco azioni_ che archivia dati delle app in Azure.
-
-Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni iOS relative all'uso della funzionalità di Azure App Service relativa alle app per dispositivi mobili.
+Questa esercitazione illustra come usare un servizio back-end basato sul cloud ([App per dispositivi mobili di Azure](app-service-mobile-value-prop.md)) in un'app per dispositivi mobili iOS. Viene creato un nuovo back-end di app per dispositivi mobili e illustrato come usare una semplice app iOS di tipo _elenco azioni_ che archivia dati delle app in Azure.
 
 ## Prerequisiti
 
@@ -42,7 +40,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
+Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla procedura seguente.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+È stato eseguito il provisioning di un back-end dell'app per dispositivi mobili di Azure che può essere usato dalle applicazioni client per dispositivi mobili. Successivamente, scaricare un progetto server per un semplice back-end "todo list" e pubblicarlo in Azure.
 
 ## Scaricare il progetto server
 
@@ -50,11 +52,10 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 2. Nel pannello App per dispositivi mobili fare clic su **Impostazioni** e in **App per dispositivi mobili** fare clic su **Avvio rapido** > **iOS (Objective-C)**. Se si preferisce Swift, fare clic su **Avvio rapido** > **iOS (Swift)**.
 
-3. In **Scarica ed esegui il progetto server** fare clic su **Scarica**. Estrarre i file compressi del progetto nel PC e aprire la soluzione in Visual Studio.
+## Configurare il progetto server
 
-## Pubblicare il progetto server in Azure
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ## Scaricare ed eseguire l'app iOS
 
@@ -68,4 +69,4 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

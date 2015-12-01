@@ -40,7 +40,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ##Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
+Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla procedura seguente.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+È stato eseguito il provisioning di un back-end dell'app per dispositivi mobili di Azure che può essere usato dalle applicazioni client per dispositivi mobili. Successivamente, scaricare un progetto server per un semplice back-end "todo list" e pubblicarlo in Azure.
 
 ## Configurare il progetto server
 
@@ -56,7 +60,7 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 
 4. Con l'app di Windows Store come progetto di avvio, premere il tasto F5 per ricompilare il progetto e avviare l'app di Windows Store.
 
-5. Nell'app digitare un testo significativo, ad esempio *Completare l'esercitazione* nella casella di testo **Insert a TodoItem**, quindi fare clic su **Save**.
+5. Nell'app digitare un testo significativo, ad esempio *Complete the tutorial* nella casella di testo **Insert a TodoItem**, quindi fare clic su **Save**.
 
 	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
@@ -81,4 +85,4 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Panoramica tecnica di Azure Batch | Microsoft Azure"
+	pageTitle="Nozioni di base sul servizio Azure Batch | Microsoft Azure"
 	description="Informazioni su concetti, flussi di lavoro e scenari del servizio Azure Batch per carichi di lavoro HPC e paralleli su larga scala"
 	services="batch"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/19/2015"
 	ms.author="danlep"/>
 
+# Nozioni di base su Azure Batch
 
-# Panoramica tecnica di Azure Batch per carichi di lavoro paralleli e HPC su larga scala
 Azure Batch semplifica l'esecuzione di applicazioni parallele e HPC (High Performance Computing) su larga scala e in modo efficiente nel cloud. È un servizio di piattaforma che pianifica l'esecuzione del lavoro caratterizzato da un utilizzo intensivo di calcolo su una raccolta gestita di macchine virtuali (nodi di calcolo) e può ridimensionare le risorse di calcolo per soddisfare le esigenze del processo. Con il servizio Batch si definiscono a livello di codice le risorse di calcolo di Azure e i processi batch su larga scala eseguiti su richiesta o in base a una pianificazione, senza dover configurare e gestire manualmente un cluster HPC, singole macchine virtuali, reti virtuali o un'utilità di pianificazione di processi.
 
 ## Casi d'uso
@@ -48,7 +48,7 @@ Per un confronto tra Batch e altre soluzioni HPC in Azure, vedere [Batch e soluz
 
 Sviluppare con le API Batch per creare e gestire pool di nodi di calcolo e per pianificare i processi e le attività eseguite su di essi. Scrivere applicazioni client o front-end per l'esecuzione di processi e attività su richiesta, in base a una pianificazione o come parte di un flusso di lavoro più esteso gestito tramite strumenti come [Data factory di Azure](https://azure.microsoft.com/documentation/services/data-factory/).
 
-Per altre informazioni su Batch, vedere [Nozioni di base delle API per Azure Batch](batch-api-basics.md).
+Per altre informazioni su Batch, vedere [Cenni preliminari sulla funzionalità Azure Batch](batch-api-basics.md).
 
 ### Account necessari
 
@@ -103,4 +103,4 @@ La figura 2 mostra un flusso di lavoro che usa un'applicazione client .NET per B
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

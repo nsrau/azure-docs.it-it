@@ -102,7 +102,6 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -115,7 +114,6 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 	Versione | Specifica che la versione di HDInsight creata è 3.1. 
 	ClusterSize | Crea un cluster HDInsight con un nodo. 
 	TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
-	JobsContainer | Specifica il nome del contenitore di processo che sarà creato per archiviare i log generati da HDInsight.
 	linkedServiceName | Specifica l'account di archiviazione che sarà usato per archiviare i log generati da HDInsight.
 3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato. 
 4. Verificare che nella visualizzazione albero a sinistra siano presenti sia StorageLinkedService che HDInsightOnDemandLinkedService.
@@ -204,11 +202,11 @@ In questo passaggio si creerà la prima pipeline.
 	
 	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **StorageLinkedService**) e in un contenitore denominato **script**.
 
-	La sezione **extendedProperties** consente di specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive (ad esempio, ${hiveconf:PartitionedData}).
+	La sezione **defines** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive, ad esempio, ${hiveconf:PartitionedData}.
 
 	Le proprietà **start** ed **end** della pipeline specificano il periodo attivo della pipeline.
 
-	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo indicata dal servizio collegato, **HDInsightOnDemandLinkedService**.
+	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata dal servizio collegato, **HDInsightOnDemandLinkedService**.
 3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline.
 4. Verificare che la pipeline sia visibile nella visualizzazione albero.
 
@@ -226,13 +224,13 @@ In questo passaggio si creerà la prima pipeline.
 9. Al termine dell'elaborazione lo stato della sezione sarà **Pronto**. La creazione di un cluster HDInsight su richiesta di solito richiede tempo. 
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. Quando lo stato sella sezione è **Ready**, cercare i dati di output nella cartella **partitioneddata** del contenitore **data** nell'archivio BLOB.  
+10. Quando lo stato sella sezione è **Pronto**, cercare i dati di output nella cartella **partitioneddata** del contenitore **data** nell'archivio BLOB.  
  
 
  
 
 ## Passaggi successivi
-In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati da un BLOB di Azure ad Azure SQL](./data-factory-get-started.md).
+In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

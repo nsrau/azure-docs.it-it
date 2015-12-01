@@ -1,7 +1,3 @@
-
-
-Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla procedura seguente.
-
 1. Accedere al [portale di Azure].
 
 2. Nella parte superiore sinistra della finestra fare clic su **+NUOVO** > **Web e dispositivi mobili** > **App per dispositivi mobili** e quindi specificare un nome per il back-end dell'app per dispositivi mobili.
@@ -30,9 +26,8 @@ Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla pro
 
 	La creazione del database può richiedere alcuni minuti. Usare l'area **Notifiche** per monitorare l'avanzamento della distribuzione. Per continuare occorre attendere il completamento corretto della distribuzione del database.
 
-È stato eseguito il provisioning di un back-end dell'app per dispositivi mobili di Azure che può essere usato dalle applicazioni client per dispositivi mobili. Successivamente, scaricare un progetto server per un semplice back-end "todo list" e pubblicarlo in Azure.
 
 <!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

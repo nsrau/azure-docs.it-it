@@ -102,7 +102,6 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 	Versione | Specifica che la versione di HDInsight creata è 3.1. 
 	ClusterSize | Crea un cluster HDInsight con un nodo. 
 	TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
-	JobsContainer | Specifica il nome del contenitore di processo che sarà creato per archiviare i log generati da HDInsight.
 	linkedServiceName | Specifica l'account di archiviazione che sarà usato per archiviare i log generati da HDInsight.
 
 4. Salvare il file **HDInsightOnDemandLinkedService1.json**.
@@ -112,7 +111,7 @@ Si creerà ora il set di dati di output per rappresentare i dati archiviati nell
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Aggiungi** e fare clic su **Nuovo elemento**. 
 2. Selezionare **BLOB di Azure** nell'elenco e quindi fare clic su **Aggiungi**. 
-3. Sostituire il codice **JSON** nell'editor con quanto segue: nel frammento di codice JSON si crea un set di dati denominato **AzureBlobOutput** e si specifica la struttura dei dati che verranno generati dallo script Hive. Si specifica anche che i risultati vengono archiviati nel contenitore BLOB denominato **data** e nella cartella denominata **partitioneddata**. La sezione **availability** specifica che il set di dati di output viene generato su base mensile.
+3. Sostituire il codice **JSON** nell'editor con quanto segue. Nel frammento di codice JSON si crea un set di dati denominato **AzureBlobOutput** e si specifica la struttura dei dati che verranno generati dallo script Hive. Si specifica anche che i risultati vengono archiviati nel contenitore BLOB denominato **data** e nella cartella denominata **partitioneddata**. La sezione **availability** specifica che il set di dati di output viene generato su base mensile.
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -181,7 +180,7 @@ In questo passaggio si creerà la prima pipeline.
 	
 	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **AzureStorageLinkedService1**) e in un contenitore denominato **script**.
 
-	La sezione **extendedProperties** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive (ad esempio, ${hiveconf:PartitionedData}).
+	La sezione **defines** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive, ad esempio, ${hiveconf:PartitionedData}.
 
 	Le proprietà **start** ed **end** della pipeline specificano il periodo attivo della pipeline.
 
@@ -191,29 +190,29 @@ In questo passaggio si creerà la prima pipeline.
 ### Aggiungere partitionweblogs.hql come dipendenza 
 
 1. Fare clic con il pulsante destro del mouse su **Dipendenze** nella finestra **Esplora soluzioni**, scegliere **Aggiungi** e quindi fare clic su **Elemento esistente**.  
-2. Individuare **C:\\ADFGettingStarted**, selezionare il file **partitionweblogs.hql** e quindi fare clic su **Aggiungi**. 
+2. Passare a **C:\\ADFGettingStarted**, selezionare il file **partitionweblogs.hql** e quindi fare clic su **Aggiungi**. 
 
 Quando si pubblica la soluzione nel passaggio successivo, il file HQL è caricato nel contenitore di script nell'archiviazione BLOB.
 
 ### Pubblicare/Distribuire le entità della data factory
 
 18. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Pubblica**. 
-19. Se viene visualizzata la finestra di dialogo **Accedi al tuo account Microsoft**, immettere le credenziali per l'account che dispone di una sottoscrizione di Azure e fare clic su **Accedi**.
+19. Se viene visualizzato **Accedere al proprio account Microsoft**, nella finestra di dialogo immettere le credenziali per l'account associato alla sottoscrizione di Azure e fare clic su **Accedi**.
 20. Verrà visualizzata la finestra di dialogo seguente:
 
 	![Finestra di dialogo Pubblica](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
 21. Nella pagina Configura data factory, procedere come segue:
-	1. Selezionare l'opzione **Crea nuova data factory**.
+	1. Selezionare l'opzione**Crea nuova data factory**.
 	2. Immettere **FirstPipelineUsingVS** nel campo **Nome**. 
 	
-		> [AZURE.IMPORTANT]È necessario specificare un nome univoco globale per la Data factory di Azure. Se viene visualizzato l’errore **Il nome di Data Factory “FirstPipelineUsingVS” non è disponibile** al momento della pubblicazione, modificare il nome (ad esempio, nomeutenteFirstPipelineUsingVS). Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
+		> [AZURE.IMPORTANT]È necessario specificare un nome univoco globale per la Data factory di Azure. Se viene visualizzato l'errore **Il nome "FirstPipelineUsingVS" per la data factory non è disponibile** al momento della pubblicazione, modificare il nome (ad esempio, nomeutenteFirstPipelineUsingVS). Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
 		> 
 		> Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 	3. Selezionare la sottoscrizione adatta per il campo **Sottoscrizione**. 
 	4. Selezionare il **gruppo di risorse** per la data factory da creare. 
-	5. Selezionare l’**area** per la data factory. 
-	6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. (Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato.) 
+	5. Selezionare l'**area** per la data factory. 
+	6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato. 
 23. Nella pagina **Pubblica elementi**, assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo**.     
 24. Rivedere il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
 25. Nella pagina **Stato della distribuzione**, è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
@@ -221,11 +220,11 @@ Quando si pubblica la soluzione nel passaggio successivo, il file HQL è caricat
 
 ## Usare Esplora Server per esaminare le entità della data factory
 
-1. In **Visual Studio** fare clic su **Visualizza** nel menu e fare clic su **Esplora server**.
+1. In **Visual Studio** fare clic su **Visualizza** nel menu e quindi fare clic su **Esplora server**.
 2. Nella finestra Esplora server espandere **Azure** e **Data factory**. Se viene visualizzata la finestra **Accedi a Visual Studio**, immettere l'**account** associato alla sottoscrizione di Azure e fare clic su **Continua**. Immettere la **password** e fare clic su **Accedi**. Visual Studio cerca di ottenere le informazioni su tutte le data factory di Azure nella sottoscrizione. Lo stato di questa operazione verrà visualizzato nella finestra **Elenco attività data factory**.
 
 	![Esplora server](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
-3. È possibile fare clic con il pulsante destro del mouse su una data factory e scegliere l'opzione per **Esportare la data factory in un nuovo progetto** per creare un progetto di Visual Studio basato su una data factory esistente.
+3. È possibile fare clic con il pulsante destro del mouse su una data factory e scegliere l'opzione **Esporta data factory in un nuovo progetto** per creare un progetto di Visual Studio basato su una data factory esistente.
 
 	![Data factory di Azure](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
 
@@ -233,15 +232,15 @@ Quando si pubblica la soluzione nel passaggio successivo, il file HQL è caricat
 
 Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguire le operazioni seguenti:
 
-1. Fare clic su**Strumenti**nel menu e selezionare**Estensioni e aggiornamenti**.
-2. Selezionare **Aggiornamenti** nel riquadro sinistro e quindi selezionare **Visual Studio Gallery**.
-3. Selezionare **Strumenti di Data Factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
+1. Fare clic su **Strumenti** nel menu e selezionare **Estensioni e aggiornamenti**.
+2. Selezionare **Aggiornamenti** nel riquadro di sinistra e quindi selezionare **Visual Studio Gallery**.
+3. Selezionare **Strumenti di Data factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
 
 Vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipelines.md) per istruzioni su come usare il portale di anteprima di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione.
  
 
 ## Passaggi successivi
-In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati da un BLOB di Azure ad Azure SQL](data-factory-get-started.md).
+In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->
