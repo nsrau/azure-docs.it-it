@@ -57,6 +57,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
   [Azure Management Portal]: http://manage.windowsazure.com
   [portale di gestione di Azure]: http://manage.windowsazure.com
+  [portale di Azure]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
