@@ -96,7 +96,6 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 <td>ValidationRetry</td><td>In attesa della riesecuzione della convalida.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Convalida in corso.</td><td>Convalida in esecuzione.</td>
 </tr>
 <td></td>
@@ -498,7 +497,9 @@ Questo comportamento è diverso da quello degli eventi in cui verrà inviata una
  
 Sostituire subscriptionId resourceGroupName e dataFactoryName dell'esempio precedente con i valori appropriati.
 
-*metricName* supporta al momento 2 valori: - FailedRuns - SuccessfulRuns
+*metricName* supporta al momento 2 valori:
+- FailedRuns
+- SuccessfulRuns
 
 **Distribuzione dell'avviso:**
 
