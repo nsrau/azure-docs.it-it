@@ -58,7 +58,9 @@ Per accedere all'archiviazione BLOB di Azure, è necessario creare una credenzia
 
 1. Verificare se si dispone già di credenziali del database. A tale scopo, utilizzare la vista del sistema sys.database\_credentials, non sys.credentials che mostra solo le credenziali del server.
 
-    ``` -- Verificare le credenziali con ambito di database esistenti. SELECT * FROM sys.database\_credential;
+    ```
+    -- Verificare le credenziali con ambito di database esistenti.
+    SELECT * FROM sys.database\_credential;
 
 3. Utilizzare [CREATE CREDENTIAL (Transact-SQL)][] per creare credenziali con ambito di database per ogni account di archiviazione di Azure a cui si desidera accedere. In questo esempio, IDENTITY è un nome descrittivo per le credenziali. Il nome dell'identità non influenza l'autenticazione per Archiviazione di Azure. SECRET è la chiave dell'account di archiviazione Azure.
 
