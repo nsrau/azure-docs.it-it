@@ -88,11 +88,25 @@ Aggiungere a questo punto il file MySetup.bat al progetto di Visual Studio per t
 
 ![CopyToOutput di Visual Studio per il file batch SetupEntryPoint][Image1]
 
-Aprire il file MySetup.bat e aggiungere il comando seguente. ~~~ REM Set a system environment variable. This requires administrator privilege setx -m TestVariable "MyValue" echo System TestVariable set to > test.txt echo %TestVariable% >> test.txt
+Aprire il file MySetup.bat e aggiungere il comando seguente.
+~~~
+REM Set a system environment variable. This requires administrator privilege
+setx -m TestVariable "MyValue"
+echo System TestVariable set to > test.txt
+echo %TestVariable% >> test.txt
 
-REM To delete this system variable us REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f ~~~
+REM To delete this system variable us
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+~~~
 
-Successivamente compilare e distribuire la soluzione a un cluster di sviluppo locale. Una volta avviato il servizio, come visualizzato in Esplora infrastruttura di servizi, si noterà che il file MySetup.bat è stato completato in due modi. Aprire un prompt dei comandi di PowerShell e digitare ~~~ [Environment]::GetEnvironmentVariable("TestVariable","Machine") ~~~ Like this ~~~ PS C:\\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue ~~~
+Successivamente compilare e distribuire la soluzione a un cluster di sviluppo locale. Una volta avviato il servizio, come visualizzato in Esplora infrastruttura di servizi, si noterà che il file MySetup.bat è stato completato in due modi. Aprire un prompt dei comandi di PowerShell e digitare
+~~~
+ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+~~~
+Like this
+~~~
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+~~~
 
 Si noti il nome del nodo in cui il servizio è stato distribuito e avviato in Esplora infrastruttura di servizi, ad esempio Node 1, e passare alla cartella di lavoro dell'istanza dell'applicazione per trovare il file out.txt con il valore di **TestVariable**. Se ad esempio il servizio è stato distribuito in Node 2, è possibile passare a questo percorso per MyApplicationType.
 
@@ -103,9 +117,16 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  Avvio dei comandi di PowerShell da SetupEntryPoint
 Per eseguire PowerShell dal punto **SetupEntryPoint**, è possibile eseguire PowerShell.exe in un file batch che punta a un file di PowerShell. Aggiungere innanzitutto un file di PowerShell al progetto del servizio, ad esempio MySetup.ps1. Ricordarsi di impostare la proprietà *Copy if newer* in modo che il file venga incluso anche nel pacchetto del servizio. L'esempio seguente illustra un file batch di esempio per avviare un file di PowerShell denominato MySetup.ps1 che imposta una variabile di ambiente di sistema denominata *TestVariable*.
 
-File MySetup.bat per l'avvio del file di PowerShell. ~~~ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1" ~~~
+File MySetup.bat per l'avvio del file di PowerShell.
+~~~
+powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
+~~~
 
-Nel file di PowerShell aggiungere il comando seguente per impostare una variabile di ambiente di sistema ~~~ [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine") [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt ~~~
+Nel file di PowerShell aggiungere il comando seguente per impostare una variabile di ambiente di sistema
+~~~
+[Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
+[Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
+~~~
 
 ## Applicazione di criteri RunAs ai servizi 
 Nei passaggi precedenti è stato illustrato come applicare i criteri RunAs a SetupEntryPoint. A questo punto, è possibile analizzare la modalità per creare entità diverse che possono essere applicate come criteri del servizio.
