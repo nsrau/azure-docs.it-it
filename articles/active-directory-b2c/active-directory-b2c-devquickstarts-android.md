@@ -1,4 +1,11 @@
-<properties pageTitle="Anteprima Azure AD B2C: chiamata di un’API Web da un’applicazione | Microsoft Azure" descrizione="Questo articolo illustra come creare un’app Android "To-Do List" che chiama un’API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app Android che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."servizi ="directory-active-b2c"documentationCenter = autori"android"="brandwe"manager ="msmbaldwin"editor =" "/ >
+<properties
+	pageTitle="Anteprima Azure AD B2C: chiamata di un’API Web da un’applicazione | Microsoft Azure"
+	description="Questo articolo illustra come creare un’app Android "To-Do List" che chiama un’API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app Android che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti.""
+	services="active-directory-b2c"
+	documentationCenter="android"
+	authors="brandwe"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -891,9 +898,19 @@ Scrivere prima `getTask`:
  
  **Nello stesso file** denominato `ToDoActivity.java`
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+```
+    private void initAppTables() {
+        try {
+            ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
+            listViewToDo.setAdapter(mAdapter);
 
- ```
+        } catch (Exception e) {
+            createAndShowDialog(new Exception(
+                    "There was an error creating the Mobile Service. Verify the URL"), "Error");
+        }
+    }
+
+```
 
 
 Si noti che il token di accesso viene aggiunto alla richiesta nel codice seguente:
@@ -976,12 +993,15 @@ ADAL crittografa i token e li archivia in SharedPreferences per impostazione pre
 
 #### Cookie di sessione in Webview
 
-Webview per Android non cancella i cookie di sessione dopo la chiusura dell'app. È possibile gestire questo aspetto con il codice di esempio seguente: ```
+Webview per Android non cancella i cookie di sessione dopo la chiusura dell'app. È possibile gestire questo aspetto con il codice di esempio seguente:
+```
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+```
+
+Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->
