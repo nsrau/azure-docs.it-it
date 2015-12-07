@@ -136,7 +136,7 @@ Il comando **azure group log show** può restituire una notevole quantità di in
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
           mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
           "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
       },
@@ -259,7 +259,7 @@ Per l'interfaccia della riga di comando di Azure, è possibile usare **azure loc
     }
 
 ### API REST
-        
+
 Per l'API REST, vedere [Ottenere informazioni su un provider di risorse](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
 ## Creazione di nomi univoci per le risorse
@@ -313,10 +313,9 @@ Per essere precisi per i core, ad esempio, è possibile controllare le aree per 
         }
 
 
-
 ## Verifica della registrazione del provider di risorse
 
-Le risorse vengono gestite dai provider di risorse ed è possibile abilitare un account o una sottoscrizione per usare un provider specifico. Se è abilitato l'uso di un provider, è anche necessario registrarlo. La maggior parte dei provider, ma non tutti, vengono registrati automaticamente dal portale di Azure o dall'interfaccia della riga di comando che si sta usando.
+Le risorse vengono gestite dai provider di risorse ed è possibile abilitare un account o una sottoscrizione per usare un provider specifico. Se è abilitato l'uso di un provider, è anche necessario registrarlo. La maggior parte dei provider, ma non tutti, vengono registrati automaticamente dal portale di anteprima di Azure o dall'interfaccia della riga di comando che si sta usando.
 
 ### PowerShell
 
@@ -435,4 +434,4 @@ Per informazioni su come creare i modelli, leggere [Creazione di modelli di Gest
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

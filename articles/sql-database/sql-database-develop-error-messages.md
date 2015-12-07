@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="11/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -80,7 +80,7 @@ Gli errori temporanei richiedono che il programma client esegua la *logica di ri
 |49919|16|Il processo non può creare o aggiornare la richiesta. Troppe operazioni di creazione o aggiornamento in corso per "%ld" della sottoscrizione.<br/><br/>Il servizio è occupato nell'esecuzione di più richieste di creazione o aggiornamento per la sottoscrizione o il server. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) per le operazioni in sospeso. Attendere che le richieste di creazione o aggiornamento in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
 |49920|16|Impossibile elaborare una richiesta. Troppe operazioni di creazione o aggiornamento in corso per "%ld" della sottoscrizione.<br/><br/>Il servizio è occupato nell'esecuzione di più richieste per la presente sottoscrizione. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) per lo stato delle operazioni. Attendere che le richieste in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
 
-**Nota:** è possibile che anche gli errori della federazione 10053 e 10054 debbano essere inclusi nella logica di ripetizione.
+**Nota:** è possibile che anche gli errori 10053 e 10054 debbano essere inclusi nella logica di ripetizione.
 
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
@@ -145,47 +145,6 @@ Per altre informazioni sulla governance delle risorse e gli errori correlati, ve
 
 - [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md).
 
-
-<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
-
-## Errori della federazione
-
-
-Nella tabella seguente vengono illustrati gli errori che è possibile riscontrare durante l'uso delle federazioni.
-
-
-> [AZURE.IMPORTANT]L'implementazione corrente delle federazioni verrà ritirata con i livelli di servizio Web e Business. La versione 12 del database SQL di Azure non supporta i livelli di servizio Web e Business.
-> 
-> La funzionalità Scalabilità elastica è progettata per creare applicazioni di partizionamento orizzontale con uno sforzo minimo.
-> 
-> Per altre informazioni sulla scalabilità elastica, vedere gli [argomenti relativi alla scalabilità elastica del database SQL di Azure](sql-database-elastic-scale-documentation-map.md). Valutare la possibilità di distribuire soluzioni di partizionamento orizzontale personalizzato per l’ottimizzazione di scalabilità, flessibilità e prestazioni. Per altre informazioni sul partizionamento orizzontale personalizzato, vedere [Panoramica sulle funzionalità di database elastico](sql-database-elastic-scale-introduction.md).
-
-
-|Numero di errore|Gravità|Descrizione|Mitigazione|
-|---:|---:|:---|:---|
-|266|16|L'istruzione <statement> non è consentita nelle transazioni a istruzioni multiple|Controllare che `@@trancount` sia 0 nella connessione prima di eseguire l'istruzione.|
-|2072|16|Il database '%.&#x2a;ls' non esiste|Controllare `sys.databases` per verificare lo stato del database prima di eseguire `USE FEDERATION`.|
-|2209|16|%s Errore di sintassi in prossimità di ‘%ls’|`FEDERATED ON` può essere usato solo quando si creano tabelle nei membri di federazione.|
-|2714|16|Nel database esiste già un oggetto con il nome '%.&#x2a;ls'|Il nome federativo esiste già.|
-|10054, 10053|20|Si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. Una connessione stabilita è stata interrotta dal software nel computer host|Implementare la logica di ripetizione tentativi nell'applicazione.|
-|40530|15|<statement> deve essere l'unica istruzione nel batch|Verificare che nel batch non siano presenti altre istruzioni|
-|40604|16|Impossibile elaborare `CREATE DATABASE` perché supererebbe la quota del server|Espandere la quota conteggio database del server|
-|45000|16|Operazione <statement> non riuscita. Il nome federazione specificato <federation_name> non è valido|Federation\_name non è conforme alle regole del nome di federazione o non è un identificatore valido|
-|45001|16|Operazione <statement> non riuscita. Il nome federazione specificato non esiste|Il nome federazione non esiste|
-|45002|16|Operazione <statement> non riuscita. Il nome chiave di federazione specificato <distribution_name> non è valido|Chiave di federazione inesistente o non valida|
-|45004|16|Operazione <statement> non riuscita. Il valore specificato non è valido per la chiave di federazione <distribution_name> e la federazione <federation_name>|`USE FEDERATION`: usare un valore limite incluso nel dominio del tipo di dati della chiave di federazione o che non è NULL.<br/><br/>`ALTER FEDERATION SPLIT`: usare un valore valido nel dominio della chiave di federazione che non sia un punto di divisione esistente<br/><br/>`ALTER FEDERATION DROP`: usare un valore valido nel dominio della chiave di federazione che sia un punto di divisione esistente.|
-|45005|16|Impossibile eseguire <statement> mentre un'altra operazione di federazione è in corso sulla federazione <federation_name> e sul membro con ID <member_id>|Attendere il completamento dell'operazione simultanea.|
-|45006|16|Operazioni <statement> non riuscite. Le relazioni di chiave esterna nelle tabelle di riferimento che fanno riferimento alle tabelle federate non sono consentite nei membri della federazione|Non supportato.|
-|45007|16|Operazione <statement> non riuscita. Le relazioni di chiave esterna tra le tabelle di federazione devono includere le colonne chiave di federazione.|Non supportato|
-|45008|16|Operazione <statement> non riuscita. Il tipo di dati della chiave di federazione non corrisponde al tipo di dati della colonna|Non supportato.|
-|45009|16|Operazione <statement> non riuscita. L’operazione non è supportata nelle connessioni di filtro|Non supportato.|
-|45010|16|Operazione <statement> non riuscita. Impossibile aggiornare la chiave federativa|Non supportato.|
-|45011|16|Operazione <statement> non riuscita. Impossibile aggiornare lo schema della chiave di federazione|Non supportato.|
-|45012|16|Il valore specificato per la chiave di federazione non è valido|Il valore deve essere compreso nell'intervallo indirizzato dalla connessione.<br/><br/>Se viene filtrato, il valore specificato della chiave di federazione.<br/><br/>Se non viene filtrato, l'intervallo usato dal membro di federazione.|
-|45013|16|Il SID già esiste per un nome utente diverso|Il SID per un utente in un membro di federazione viene copiato dal SID dello stesso account utente nella radice di federazione. In determinate condizioni, è possibile che il SID sia già in uso.|
-|45014|16|%ls non è supportato in %ls|Operazione non supportata.|
-|45022|16|Operazione <statement> non riuscita. Il valore di limite specificato esiste già per la chiave di federazione <distribution_name> e la federazione <federation_name>|Specificare un valore che è già un valore limite.|
-|45023|16|Operazione <statement> non riuscita. Il valore di limite specificato non esiste per la chiave di federazione <distribution_name> e la federazione <federation_name>|Specificare un valore che non è già un valore limite.|
 
 
 <a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
@@ -268,4 +227,4 @@ Nella tabella seguente sono elencati tutti gli errori generali che non rientrano
 - [Limitazioni e linee guida generali per il database SQL di Azure](sql-database-general-limitations.md)
 - [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

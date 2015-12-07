@@ -5,8 +5,9 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+	editor="tysonn"
+	tags="azure-resource-manager"/>
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -251,7 +252,7 @@ Quando si effettua la distribuzione, tenere presente che è necessario creare un
 
 Durante e dopo la distribuzione, è possibile controllare tutte le richieste effettuate durante il provisioning, compresi gli errori che si sono verificati.
 
-A tale scopo, visitare il [portale di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
+A tale scopo, visitare il [portale di anteprima di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
 
 - Fare clic su "Sfoglia" nella barra di spostamento a sinistra, scorrere verso il basso e fare clic su "Gruppi di risorse".
 - Dopo aver fatto clic sul gruppo di risorse appena creato, viene visualizzato il pannello "Gruppo di risorse".
@@ -461,7 +462,7 @@ I Dischi collegati sono formattati nell’ambito delle attività di preparazione
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh fa parte della cartella shared\_scripts\\ubuntu all'interno del repository github azure-quickstart-tempates e contiene funzioni molto utili per il montaggio, la formattazione e lo striping dei dischi. che possono essere utilizzate in tutti i modelli del repository.
+vm-disk-utils-0.1.sh fa parte della cartella shared_scripts\ubuntu all'interno del repository github azure-quickstart-tempates e contiene funzioni molto utili per il montaggio, la formattazione e lo striping dei dischi. che possono essere utilizzate in tutti i modelli del repository.
 
 Un altro frammento interessante da esplorare è quello correlato alle estensioni delle macchine virtuali CustomScriptForLinux. Queste vengono installate come tipo di risorsa separato, con una dipendenza in ogni nodo del cluster (e l'istanza OpsCenter). Le estensioni si avvalgono dello stesso meccanismo di ciclo delle risorse descritto per le macchine virtuali:
 
@@ -503,4 +504,4 @@ Questo approccio suggerisce che è:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

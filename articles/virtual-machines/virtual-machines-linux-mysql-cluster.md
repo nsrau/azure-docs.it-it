@@ -153,7 +153,7 @@ Occorre anche abilitare le connessioni di rete per MySQL se si vuole eseguire qu
 
 ### Creazione del set con bilanciamento del carico di MySQL
 
-Ora si tornerà al portale di Azure e si passerà alla macchina virtuale `hadb01` e quindi agli endpoint. Verrà creato un nuovo endpoint, si sceglierà MySQL (TCP 3306) dall'elenco a discesa e si selezionerà la casella *.* L'endpoint con bilanciamento del carico verrà denominato `lb-mysql`. La maggior parte delle opzioni non verrà modificata, ad eccezione del tempo, che verrà ridotto a 5 secondi (impostazione minima)
+Ora si tornerà al portale e si passerà alla macchina virtuale `hadb01` e quindi agli endpoint. Verrà creato un nuovo endpoint, si sceglierà MySQL (TCP 3306) dall'elenco a discesa e si selezionerà la casella *.* L'endpoint con bilanciamento del carico verrà denominato `lb-mysql`. La maggior parte delle opzioni non verrà modificata, ad eccezione del tempo, che verrà ridotto a 5 secondi (impostazione minima)
 
 Dopo la creazione dell'endpoint si passa a `hadb02`, Endpoint, e si crea un nuovo endpoint, ma si sceglie `lb-mysql` e si seleziona MySQL dal menu a discesa. È anche possibile usare CLI di Azure per questo passaggio.
 
@@ -340,4 +340,4 @@ Si applicano le limitazioni seguenti:
 - È necessaria l'ottimizzazione di MySQL per assicurare che la scrittura venga effettuata con la velocità corretta e che le cache siano scaricate nel disco il più frequentemente possibile per ridurre al minimo le perdite di memoria
 - Le prestazioni delle operazioni di scrittura dipenderanno dall'interconnessione delle macchine virtuali nel commutatore virtuale, in quanto questo è il meccanismo usato da DRBD per replicare il dispositivo
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

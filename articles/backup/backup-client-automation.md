@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
@@ -181,8 +181,6 @@ Il criterio di conservazione definisce il periodo di conservazione dei punti di 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
-
-> [AZURE.NOTE]Attualmente, i cmdlet di PowerShell non supportano l'impostazione di criteri di conservazione a lungo termine. Per impostare criteri di conservazione a lungo termine, usare la console dell'interfaccia utente di Backup di Azure.
 
 Il criterio di conservazione deve essere associato al criterio principale usando il cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
@@ -595,4 +593,4 @@ Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 - [Introduzione a Backup di Azure](backup-configure-vault.md)
 - [Backup di server Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

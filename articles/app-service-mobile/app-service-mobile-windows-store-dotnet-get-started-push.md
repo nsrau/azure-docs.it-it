@@ -45,33 +45,13 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Per potere inviare notifiche push alle app di Windows da Azure, è prima di tutto necessario inviare l'app a Windows Store. Sarà quindi possibile configurare il progetto server per l'integrazione con il servizio di notifica Windows.
 
-1. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto app di Windows Store, quindi scegliere **Store** > **Associa applicazione a Store**. 
+[AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
-    ![Associa l’app con Windows Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-win8-app.png)
-    
-2. Nella procedura guidata fare clic su **Avanti**, accedere con l'account Microsoft, immettere un nome per l'app in **Riserva un nuovo nome dell’app** e quindi fare clic su **Riserva**.
-
-3. Dopo la creazione della registrazione dell'app, selezionare il nuovo nome dell'app, fare clic su **Avanti** e quindi su **Associa**. Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
-
-7. Ripetere i passaggi 1 e 3 per il progetto app di Windows Phone Store usando la stessa registrazione creata in precedenza per l'app di Windows Store.
-
-7. Passare a [Windows Dev Center](https://dev.windows.com/it-IT/overview), accedere con l'account Microsoft, fare clic sulla nuova registrazione di app in **App personali**, quindi espandere **Servizi** > **Notifiche push**.
-
-8. Nella pagina **Notifiche push** fare clic su **Sito di servizi Live** in **Servizi mobili di Microsoft Azure**.
-
-9. Nella scheda **Impostazioni app** annotare i valori di **Chiave privata client** e **SID di pacchetto**.
-
-    ![Impostazione dell’app nel centro per sviluppatori](./media/app-service-mobile-windows-store-dotnet-get-started-push/mobile-services-win8-app-push-auth.png)
-
-    > [AZURE.IMPORTANT]Il segreto client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri utenti né distribuirli con l'app.
 
 ##Configurare il servizio per app per dispositivi mobili per l'invio di richieste push
 
-1. Accedere al [portale di Azure], selezionare **Sfoglia** > **App per dispositivi mobili** > app > **Servizi notifica Push**.
+[AZURE.INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-2. In **Servizio di notifica Windows** immettere la **Chiave di sicurezza** (chiave privata client) e il **SID di pacchetto** ottenuti dal sito di servizi Live, quindi fare clic su **Salva**.
-
-Il back-end dell'app per dispositivi mobili è ora configurato per l'uso del Servizio di notifica Windows.
 
 ##<a id="update-service"></a>Aggiornare il server per l'invio di notifiche push
 
@@ -177,8 +157,8 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 <!-- Anchors. -->
 
 <!-- URLs. -->
-[portale di Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015--->

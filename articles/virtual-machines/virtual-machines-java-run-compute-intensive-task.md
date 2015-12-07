@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/19/2015"
 	ms.author="robmcm"/>
 
 # Come eseguire un'attività a elevato utilizzo di calcolo in Java in una macchina virtuale
@@ -48,7 +48,7 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
 
 ## Per creare una macchina virtuale
 
-1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
+1. Accedere al [Portale di Azure](https://manage.windowsazure.com).
 2. Fare clic su **New**, quindi **Compute**, su **Virtual machine** e infine su **From Gallery**.
 3. Nella finestra di dialogo **Seleziona immagine macchina virtuale** selezionare **JDK 7 Windows Server 2012**. Si noti che è disponibile anche **JDK 6 Windows Server 2012** nel caso in cui siano presenti applicazioni non ancora predisposte per l'esecuzione in JDK 7.
 4. Fare clic su **Next**.
@@ -71,7 +71,7 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
 
 ## Per accedere in remoto alla macchina virtuale
 
-1. Accedere al [portale di gestione](https://manage.windowsazure.com).
+1. Accedere al [portale di Azure](https://manage.windowsazure.com).
 2. Fare clic su **Virtual machines**.
 3. Fare clic sul nome della macchina virtuale a cui si desidera accedere.
 4. Fare clic su **Connect**.
@@ -85,13 +85,13 @@ Per iniziare a utilizzare le code del bus di servizio in Azure, è innanzitutto 
 
 Per creare uno spazio dei nomi del servizio:
 
-1.  Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
-2.  Nel riquadro di spostamento in basso a sinistra nel portale di gestione fare clic su **Service Bus, Access Control & Caching**.
-3.  Nel riquadro in alto a sinistra nel portale di gestione fare clic sul nodo **Bus di servizio** e quindi sul pulsante **Nuovo**. ![Schermata nodo bus di servizio][svc_bus_node]
+1.  Accedere al [portale di Azure](https://manage.windowsazure.com).
+2.  Nel riquadro di spostamento in basso a sinistra nel portale di Azure fare clic su **Bus di servizio, controllo di accesso e memorizzazione nella cache**.
+3.  Nel riquadro in alto a sinistra nel portale di Azure fare clic sul nodo **Bus di servizio** e quindi sul pulsante **Nuovo**. ![Schermata nodo bus di servizio][svc_bus_node]
 4.  Nella finestra di dialogo **Crea un nuovo spazio dei nomi servizio** immettere uno spazio dei nomi servizio in **Spazio dei nomi** e quindi, per assicurarsi che sia univoco, fare clic sul pulsante **Verifica disponibilità**.![Schermata Create a New Namespace][create_namespace]
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato e fare clic sul pulsante **Create Namespace**.  
 
-    Lo spazio dei nomi creato verrà quindi visualizzato nel portale di gestione e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active**.
+    Lo spazio dei nomi creato verrà quindi visualizzato nel portale di Azure e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active**.
 
 ## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
@@ -520,4 +520,4 @@ Per uscire dalle applicazioni risolutore e client e terminare prima del normale 
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

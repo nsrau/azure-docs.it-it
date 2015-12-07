@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 # Come modificare le impostazioni del timeout di inattività TCP per il bilanciamento del carico
@@ -166,4 +166,4 @@ Aggiornare la configurazione di specificati endpoint di input con carico bilanci
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

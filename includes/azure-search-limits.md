@@ -11,5 +11,7 @@ Servizi di ricerca massima|12 per ogni sottoscrizione di Azure
 Numero massimo di indicizzatori|10 per servizio di ricerca
 Numero massimo di origini dati|10 per servizio di ricerca
 Numero massimo di documenti che può essere indicizzato in una chiamata a un indicizzatore|Senza limiti
+Numero massimo di profili di punteggio per ogni indice|16
+Numero massimo di funzioni per ogni profilo|8
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

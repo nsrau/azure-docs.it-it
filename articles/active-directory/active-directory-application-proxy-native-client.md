@@ -3,8 +3,8 @@
 	description="Illustra come abilitare la comunicazione tra le app client native e il connettore del proxy di applicazione di Azure AD per consentire l'accesso remoto sicuro alle app locali."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="steven.powell"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/02/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Come abilitare le app client native per l'interazione con le applicazioni proxy
 Il proxy di applicazione di Azure Active Directory è ampiamente usato per pubblicare applicazioni browser come SharePoint, Outlook Web Access e applicazioni line-of-business personalizzate. Può inoltre essere usato per pubblicare le applicazioni back-end HTTP utilizzate tramite client nativi. A tale scopo, è necessario il supporto di token di Azure AD inviati in intestazioni HTTP Authorize standard.
@@ -23,7 +23,7 @@ Il proxy di applicazione di Azure Active Directory è ampiamente usato per pubbl
 ![](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
 
-Il metodo consigliato per la pubblicazione di tali applicazioni è l'uso della libreria di autenticazione di Azure AD che si occupa di tutte le questioni correlate all'autenticazione e supporta molti ambienti client diversi. Il proxy di applicazione si integra con lo scenario [Da applicazione nativa ad API Web](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/#native-application-to-web-api). A tale scopo, seguire questa procedura:
+Il metodo consigliato per la pubblicazione di tali applicazioni è l'uso della libreria di autenticazione di Azure AD che si occupa di tutte le questioni correlate all'autenticazione e supporta molti ambienti client diversi. Il proxy di applicazione si integra con [lo scenario Da applicazione nativa ad API Web](active-directory-authentication-scenarios.md#native-application-to-web-api). A tale scopo, seguire questa procedura:
 
 1. Pubblicare il proxy di applicazione come qualsiasi altra applicazione, assegnare gli utenti e concedere loro licenze di base o premium. Per altre informazioni, vedere [Pubblicare applicazioni mediante il proxy di applicazione](active-directory-application-proxy-publish.md).
 2. Configurare l'applicazione nativa come indicato di seguito:
@@ -32,7 +32,7 @@ Il metodo consigliato per la pubblicazione di tali applicazioni è l'uso della l
   5. Nel menu in alto fare clic su Applicazioni. Se alla directory non è stata aggiunta alcuna applicazione, la pagina mostrerà solo il collegamento Aggiungi app. Fare clic sul collegamento o, in alternativa, fare clic sul pulsante Aggiungi sulla barra dei comandi.
   4. Nella pagina **Come procedere** fare clic sul collegamento **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
   5. Nella pagina **Informazioni sull'applicazione** specificare un nome per l'applicazione e scegliere **Applicazione client nativa** che rappresenta un'applicazione installata in un dispositivo, ad esempio un telefono o un computer. Al termine, fare clic sulla freccia nell'angolo inferiore destro della pagina.
-  6. Nella pagina **Proprietà dell'app** specificare l'**URI di reindirizzamento** per l'applicazione client nativa, quindi fare clic sulla casella di controllo nell'angolo inferiore destro della pagina. </br>L'applicazione viene aggiunta e si viene quindi reindirizzati alla pagina Avvio rapido dell'applicazione. 
+  6. Nella pagina **Proprietà dell'app** specificare l'**URI di reindirizzamento** per l'applicazione client nativa, quindi fare clic sulla casella di controllo nell'angolo inferiore destro della pagina. </br>L'applicazione viene aggiunta e si viene quindi reindirizzati alla pagina Avvio rapido dell'applicazione.
 8. Abilitare l'applicazione nativa da esporre ad altre applicazioni nella directory:
   9. Scegliere **Applicazioni** dal menu in alto, selezionare la nuova applicazione nativa e quindi fare clic su **Configura**.
   10. Scorrere verso il basso fino alla sezione **autorizzazioni per altre applicazioni**. Fare clic sul pulsante **Aggiungi applicazione** e selezionare l'applicazione proxy a cui si desidera concedere l'accesso dell'applicazione nativa e fare clic sul segno di spunta nell'angolo inferiore destro. Nel menu a discesa **Autorizzazioni delegate** selezionare la nuova autorizzazione. </br>
@@ -41,11 +41,11 @@ Il metodo consigliato per la pubblicazione di tali applicazioni è l'uso della l
 
 		// Acquire Access Token from AAD for Proxy Application
 		AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
-		AuthenticationResult result = authContext.AcquireToken("< Frontend Url of Proxy App >", 
-                                                        "< Client Id of the Native app>", 
-                                                        new Uri("< Redirect Uri of the Native App>"), 
+		AuthenticationResult result = authContext.AcquireToken("< Frontend Url of Proxy App >",
+                                                        "< Client Id of the Native app>",
+                                                        new Uri("< Redirect Uri of the Native App>"),
                                                         PromptBehavior.Never);
-		
+
 		//Use the Access Token to access the Proxy Application
 		HttpClient httpClient = new HttpClient();
 		httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
@@ -59,7 +59,7 @@ Le variabili devono essere sostituite come segue:
 - **ID client** dell'app nativa che può trovarsi nella pagina **Configura** dell'applicazione nativa.
 - **URI di reindirizzamento** dell'app nativa che può trovarsi nella pagina **Configura** dell'applicazione nativa.
 
-![](./media/active-directory-application-proxy-native-client/new_native_app.png) </br> </br>Per altre informazioni sul flusso dell'applicazione nativa, vedere [Da applicazione nativa ad API Web](https://azure.microsoft.com/it-IT/documentation/articles/active-directory-authentication-scenarios/#native-application-to-web-api).
+![](./media/active-directory-application-proxy-native-client/new_native_app.png) </br> </br>Per altre informazioni sul flusso dell'applicazione nativa, vedere [Da applicazione nativa ad API Web](active-directory-authentication-scenarios.md#native-application-to-web-api).
 
 
 
@@ -85,4 +85,4 @@ Si può fare molto di più con il proxy dell'applicazione:
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

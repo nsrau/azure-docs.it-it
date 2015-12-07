@@ -14,7 +14,7 @@
 	ms.date="06/22/2015"
 	ms.author="bbenz" />
 
-	
+
 #Configurazione di Oracle GoldenGate per Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
@@ -95,7 +95,7 @@ Per le versioni successive di Oracle Database e Oracle GoldenGate potrebbero ess
 ##1\. Installare il database nei siti A e B
 In questa sezione viene illustrato come eseguire i prerequisiti del database nei siti A e B. È necessario eseguire tutti i passaggi di questa sezione in entrambi i siti: sito A e il sito B.
 
-Innanzitutto, connettersi con desktop remoto ai siti A e B tramite il portale di gestione. Aprire un prompt dei comandi di Windows e creare una home directory per i file di installazione di Oracle GoldenGate:
+Innanzitutto, connettersi con desktop remoto ai siti A e B tramite il portale di Azure. Aprire un prompt dei comandi di Windows e creare una home directory per i file di installazione di Oracle GoldenGate:
 
 	mkdir C:\OracleGG
 
@@ -285,7 +285,7 @@ Avviare il processo Manager:
 
 ###Creare i processi Extract e Data Pump nel sito A
 
-È necessario creare i processi Extract e Data Pump nel sito A e nel sito B. Connettersi con desktop remoto ai siti A e B tramite il portale di gestione. Aprire la finestra dell'interprete dei comandi GGSCI. Eseguire i comandi seguenti nel sito A:
+È necessario creare i processi Extract e Data Pump nel sito A e nel sito B. Connettersi con desktop remoto ai siti A e B tramite il portale di Azure. Aprire la finestra dell'interprete dei comandi GGSCI. Eseguire i comandi seguenti nel sito A:
 
 	GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
 	EXTRACT added.
@@ -602,4 +602,4 @@ Connettersi con desktop remoto al sito A e controllare se la replica ha avuto lu
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

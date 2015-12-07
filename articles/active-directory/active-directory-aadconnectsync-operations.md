@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="11/24/2015"
    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni
@@ -44,15 +44,15 @@ Per applicare questo metodo, seguire questa procedura:
 
 **Preparare**
 
-1. Installare AD Azure Connect, selezionare **Modalità di gestione temporanea** e deselezionare **Avvia sincronizzazione** nell'ultima pagina dell'installazione guidata. In questo modo si potrà eseguire manualmente il motore di sincronizzazione.
+1. Installare AD Azure Connect, selezionare **Modalità di gestione temporanea** e deselezionare **Avvia sincronizzazione** nell'ultima pagina dell'installazione guidata. In questo modo si potrà eseguire manualmente il motore di sincronizzazione. ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. Disconnettersi e accedere, quindi dal menu Start selezionare **Servizio di sincronizzazione**.
 
 **Importare e sincronizzare**
 
 1. Selezionare **Connettori** e quindi selezionare il primo connettore con il tipo **Servizi di dominio Active Directory**. Fare clic su **Esegui**, selezionare **Importazione completa** e fare clic su **OK**. Eseguire questa operazione per tutti i connettori di questo tipo.
-2. Selezionare il connettore con il tipo **Azure Active Directory** (Microsoft). Fare clic su **Esegui**, selezionare **Importazione completa** e fare clic su **OK**.
+2. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)**. Fare clic su **Esegui**, selezionare **Importazione completa** e fare clic su **OK**.
 4. Assicurarsi che Connettori sia ancora selezionata e per ogni connettore con il tipo **Servizi di dominio Active Directory** fare clic su **Esegui**, selezionare **Sincronizzazione differenziale** e fare clic su **OK**.
-5. Selezionare il connettore con il tipo **Azure Active Directory** (Microsoft). Fare clic su **Esegui**, selezionare **Sincronizzazione differenziale** e quindi fare clic su OK.
+5. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)**. Fare clic su **Esegui**, selezionare **Sincronizzazione differenziale** e quindi fare clic su OK.
 
 È stata eseguita l'esportazione delle modifiche in modalità di gestione temporanea in Azure AD e in AD locale (se si usa una distribuzione ibrida di Exchange). I passaggi successivi consentiranno di ispezionare quali sono gli elementi che stanno per essere modificati prima di avviare effettivamente l'esportazione nelle directory.
 
@@ -76,7 +76,7 @@ Se si tratta di un attributo multivalore, non tutte le modifiche sono visualizza
 **Cambiare il server attivo**
 
 1. Disattivare il server attualmente attivo (DirSync/FIM/Azure AD Sync), in modo che non esegua l'esportazione in Azure AD oppure impostarlo in modalità di gestione temporanea (Azure AD Connect).
-2. Eseguire l'installazione guidata nel server in "modalità di gestione temporanea" e disabilitare questa modalità.
+2. Eseguire l'installazione guidata nel server in **modalità di gestione temporanea** e disabilitare **questa modalità**.![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## Ripristino di emergenza
 Come parte della progettazione dell'implementazione si pianificheranno le operazioni da eseguire nel caso di un'emergenza che causa la perdita del server di sincronizzazione. Ci sono diversi modelli da usare e quale si sceglierà dipende da diversi fattori, ad esempio:
@@ -110,8 +110,8 @@ Un metodo comune e supportato consiste nell'eseguire il motore di sincronizzazio
 Se non si usa SQL Server Express, fornito con Azure AD Connect, è necessario prendere in considerazione anche la disponibilità elevata per SQL Server. La sola soluzione a disponibilità elevata è il clustering SQL. Le soluzioni non supportate includono il mirroring e AlwaysOn.
 
 ## Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

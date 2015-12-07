@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati in Gestione API di Azure" 
-	description="Informazioni su come proteggere i servizi back-end tramite l'autenticazione reciproca dei certificati in Gestione API di Azure." 
+	pageTitle="Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure" 
+	description="Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/23/2015" 
 	ms.author="sdanie"/>
 
-# Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati in Gestione API di Azure
+# Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
 
-Gestione API offre la possibilità di proteggere l'accesso al servizio back-end di un'API usando i certificati reciproci. Questa guida illustra come gestire i certificati nel portale di pubblicazione delle API e come configurare un'API per l'uso di un certificato per accedere al servizio back-end.
+Gestione API offre la possibilità di proteggere l'accesso al servizio back-end di un'API usando i certificati client. Questa guida illustra come gestire i certificati nel portale di pubblicazione delle API e come configurare un'API per l'uso di un certificato per accedere al servizio back-end.
 
 Per informazioni sulla gestione dei certificati con l'API REST di Gestione API, vedere [Entità certificato dell'API REST di Gestione API di Azure][].
 
 ## <a name="prerequisites"> </a>Prerequisiti
 
-In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione reciproca dei certificati per accedere al servizio back-end di un'API. Prima di eseguire le procedure di questo argomento, è necessario aver configurato il servizio back-end per l'autenticazione reciproca dei certificati e avere l'accesso al certificato e alla relativa password per il caricamento nel portale di pubblicazione di Gestione API.
+In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione con certificati client per accedere al servizio back-end di un'API. Prima di eseguire le procedure di questo argomento, è necessario aver configurato il servizio back-end per l'autenticazione con certificati client e avere l'accesso al certificato e alla relativa password per il caricamento nel portale di pubblicazione di Gestione API.
 
 ## <a name="step1"> </a>Caricare un certificato client
 
@@ -54,7 +54,7 @@ Fare clic su **Carica** per caricare il certificato.
 
 ![Certificato caricato][api-management-certificate-uploaded]
 
-Una volta caricato il certificato, questo viene visualizzato nella scheda **Certificati client**. Se si hanno più certificati, prendere nota dell'oggetto o degli ultimi quattro caratteri dell'identificazione personale, che vengono usati per selezionare il certificato quando si configura un'API per l'uso dei certificati, come illustrato nella sezione [Configurare un'API per l'uso di un certificato reciproco per l'autenticazione gateway][] che segue.
+Una volta caricato il certificato, questo viene visualizzato nella scheda **Certificati client**. Se si hanno più certificati, prendere nota dell'oggetto o degli ultimi quattro caratteri dell'identificazione personale, che vengono usati per selezionare il certificato quando si configura un'API per l'uso dei certificati, come illustrato nella sezione [Configurare un'API per l'uso di un certificato client per l'autenticazione gateway][] che segue.
 
 ## <a name="step1a"> </a>Eliminare un certificato client
 
@@ -70,15 +70,15 @@ Se il certificato è in uso da parte di un'API, verrà visualizzata una schermat
 
 ![Conferma dell'eliminazione][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>Configurare un'API per l'uso di un certificato reciproco per l'autenticazione gateway
+## <a name="step2"> </a>Configurare un'API per l'uso di un certificato client per l'autenticazione gateway
 
 Fare clic su **API** dal menu **Gestione API** sulla sinistra, fare clic sul nome dell'API desiderata, quindi sulla scheda **Sicurezza**.
 
 ![Sicurezza API][api-management-api-security]
 
-Selezionare **Mutual certificates** dall'elenco a discesa **With credentials**.
+Selezionare **Certificati client** dall'elenco a discesa **Con credenziali**.
 
-![Certificati reciproci][api-management-mutual-certificates]
+![Certificati client][api-management-mutual-certificates]
 
 Selezionare il certificato desiderato dall'elenco a discesa **Certificato client**. Se esistono diversi certificati, fare riferimento all'oggetto o agli ultimi quattro caratteri dell'identificazione personale, come spiegato nella sezione precedente, per determinare il certificato corretto.
 
@@ -96,7 +96,7 @@ Fare clic su **Salva** per salvare la modifica di configurazione nell'API.
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere il video seguente:
+Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad esempio autenticazione HTTP di base o segreto condiviso, vedere il video seguente.
 
 > [AZURE.VIDEO last-mile-security]
 
@@ -133,7 +133,7 @@ Per altre informazioni, vedere il video seguente:
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configurare un'API per l'uso di un certificato reciproco per l'autenticazione gateway]: #step2
+[Configurare un'API per l'uso di un certificato client per l'autenticazione gateway]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
@@ -141,4 +141,4 @@ Per altre informazioni, vedere il video seguente:
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

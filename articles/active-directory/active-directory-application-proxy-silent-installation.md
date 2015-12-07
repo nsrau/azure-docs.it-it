@@ -3,8 +3,8 @@
 	description="Viene illustrato come eseguire un'installazione invisibile all'utente del connettore del proxy di applicazione di Azure AD per consentire l'accesso remoto alle applicazioni locali."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="steven.powell"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Come eseguire un'installazione invisibile all'utente del connettore del proxy di applicazione di Azure AD
 
@@ -46,21 +46,21 @@ Questa operazione viene eseguita utilizzando uno dei metodi seguenti.
 
 1. Creare l'oggetto credenziali di Windows PowerShell, eseguendo il comando seguente, dove "username" e "password" devono essere sostituiti con il nome utente e la password per la directory:
 
-        $User = "<username>" 
-        $PlainPassword = '<password>' 
-        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force 
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword 
-    
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+
 2. Passare a **Connettore del Proxy dell’app C:\\Program Files\\Microsoft AAD** ed eseguire lo script di PowerShell utilizzando le credenziali oggetto che sono state create: dove $cred è il nome delle credenziali PowerShell oggetto che sono state create:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred 
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
 
 ### Registrare il connettore con un token creato offline
 
 1. Creare un token offline con la classe AuthenticationContext, utilizzando i valori nel frammento di codice:
 
-        
+
         using System;
         using System.Diagnostics;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -133,7 +133,7 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 
 
-### Ulteriori informazioni sul proxy dell’applicazione
+### Altre informazioni sul proxy dell'applicazione
 - [Dare un'occhiata alla nostra Guida in linea](active-directory-application-proxy-enable.md)
 - [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
@@ -142,4 +142,4 @@ Si può fare molto di più con il proxy dell'applicazione:
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

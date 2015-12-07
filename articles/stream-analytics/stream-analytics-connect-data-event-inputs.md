@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare input di analisi di flusso | Microsoft Azure" 
+	pageTitle="Connettere input di Analisi di flusso | Microsoft Azure" 
 	description="Informazioni su come effettuare la connessione e configurare le origini di input per le soluzioni di analisi di flusso."
 	documentationCenter=""
 	services="stream-analytics"
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Creare input di analisi di flusso
+# Connettere le origini di input di Analisi di flusso
 
 ## Informazioni sugli input di analisi di flusso
 ---
@@ -151,4 +151,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

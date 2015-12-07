@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="11/23/2015"
    ms.author="tedway; neerajkh"/>
 
 # Guida per più aree geografiche
 
-Attualmente, tutti gli asset di Machine Learning di Azure sono ospitate nella regione Stati Uniti centro meridionali (SCUS) di Azure. In questo articolo viene descritto come creare un'area di lavoro e pubblicare un servizio web in altre aree geografiche di Azure.
+In questo articolo viene descritto come creare un'area di lavoro e pubblicare un servizio web in altre aree geografiche di Azure.
 
 ## Creare un'area di lavoro
 
@@ -57,4 +57,4 @@ Aggiungere una domanda sul [forum di Azure Machine Learning](https://social.msdn
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

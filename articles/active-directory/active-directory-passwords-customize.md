@@ -31,10 +31,10 @@ Per offrire agli utenti la migliore esperienza possibile, è consigliabile esplo
 | Come è possibile forzare gli utenti a registrarsi durante la procedura di accesso? | [Implementazione della funzione di reimpostazione della password basata sulla registrazione forzata](#require-users-to-register-when-signing-in) |
 | Come è possibile forzare gli utenti a riconfermare periodicamente la propria registrazione? | [Impostazione: Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione](#number-of-days-before-users-must-confirm-their-contact-data) |
 | Come è possibile personalizzare le modalità con cui un utente può entrare in contatto con un amministratore? | [Impostazione: Personalizza il collegamento "Contattare l'amministratore](#customize-the-contact-your-administrator-link) |
-| Come è possibile consentire agli utenti di sbloccare gli account di Active Directory senza reimpostare una password? | [Impostazione: Consenti agli utenti di sbloccare gli account di Active Directory senza reimpostare una password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Come è possibile consentire agli utenti di sbloccare account di Active Directory senza reimpostare una password? | [Impostazione: Consenti agli utenti di sbloccare gli account di Active Directory senza reimpostare una password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | Come è possibile abilitare le notifiche di reimpostazione della password per gli utenti? | [Impostazione: Avvisa gli utenti quando vengono reimpostate le password personali](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | Come è possibile abilitare le notifiche di reimpostazione della password per gli amministratori? | [Impostazione: Avvisa gli altri amministratori quando un amministratore reimposta la password personale](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Come è possibile personalizzare l'aspetto della funzione di reimpostazione della password? | [Impostazione: Nome, marchio e logo dell'azienda](#password-managment-look-and-feel) |
+| Come è possibile personalizzare la veste grafica della funzione di reimpostazione della password? | [Impostazione: Nome, marchio e logo dell'azienda](#password-managment-look-and-feel) |
 
 
 ## Aspetto di Gestione delle password
@@ -860,7 +860,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
 ## Collegamenti alla documentazione relativa alla reimpostazione della password
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password.md): informazioni su come reimpostare o modificare la password personale come utente del sistema
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
@@ -872,4 +872,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

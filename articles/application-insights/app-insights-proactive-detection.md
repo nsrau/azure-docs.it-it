@@ -3,7 +3,7 @@
 	description="Application Insights esegue un'analisi approfondita dei dati di telemetria dell'app e segnalare potenziali problemi." 
 	services="application-insights" 
     documentationCenter="windows"
-	authors="antonfr" 
+	authors="antonfrMSFT" 
 	manager="douge"/>
 
 <tags 
@@ -25,6 +25,8 @@ Application Insights esegue un'analisi approfondita dei dati di telemetria dell'
 ## Che cos'è il rilevamento proattivo?
 
 Il rilevamento proattivo usa algoritmi di Machine Learning e data mining per rilevare modelli anomali che influiscono sulle prestazioni dell'applicazione. Il rilevamento proattivo analizza automaticamente i dati di telemetria delle prestazioni raccolti da Application Insights. Invia un messaggio di posta elettronica relativo a eventuali prestazioni anomale riscontrate nell'applicazione. Non è necessario impostare regole di soglia. Le notifiche di rilevamento proattivo vengono integrate dalle funzionalità di analisi di Application Insights in modo da consentire una rapida valutazione e diagnosi dei problemi.
+
+Il rilevamento proattivo è disponibile in anteprima e non è ancora disponibile per tutti gli utenti di Application Insights. Se si desidera provarlo, contattare AppInsightsML@microsoft.com per configurarlo.
 
 ## Informazioni sugli avvisi proattivi
 
@@ -107,10 +109,8 @@ Sul Web sono disponibili molti suggerimenti per migliorare le risposte del serve
 * *È necessario sottoscrivere questo servizio per ricevere le notifiche?*
  * No. L'apposito bot analizza periodicamente i dati di tutti gli utenti di Application Insights e invia le notifiche se vengono rilevati problemi.
 * *È possibile annullare la sottoscrizione oppure ottenere le notifiche inviate ai colleghi?*
- * Fare clic sul collegamento nell'avviso o nel messaggio di posta elettronica. Aprire le impostazioni delle anomalie.
+ * Fare clic sul collegamento di annullamento della sottoscrizione nell'avviso o nel messaggio di posta elettronica. 
  
-    ![](./media/app-insights-proactive-detection/01.png)
-
     Attualmente vengono inviate agli utenti che hanno [accesso in scrittura alla risorsa Application Insights](app-insights-resources-roles-access-control.md).
 * *Non voglio ricevere un numero elevato di messaggi.*
  * Ogni giorno viene ricevuto al massimo un messaggio senza alcuna ripetizione dello stesso messaggio.
@@ -128,4 +128,4 @@ Sul Web sono disponibili molti suggerimenti per migliorare le risposte del serve
 * [Esplora ricerche](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

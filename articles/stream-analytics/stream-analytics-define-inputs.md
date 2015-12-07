@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015"
+	ms.date="11/23/2015"
 	ms.author="jeffstok"/>
 
-# Informazioni sugli input di analisi di flusso
+# Informazioni sulle connessioni di input di Analisi di flusso
 
 Gli input di analisi di flusso di Azure vengono definiti come connessione a un'origine dati. L'analisi di flusso si integra perfettamente con le origini di Azure Hub eventi, hub IoT e archivio BLOB all'interno e all'esterno della sottoscrizione di Azure in cui viene eseguito il processo. Quando i dati vengono inseriti a tale origine dati, vengono usati dal processo di analisi di flusso ed elaborati in tempo reale. Gli input si dividono in due tipi distinti: input del flusso dei dati e input dei dati di riferimento.
 
@@ -201,4 +201,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

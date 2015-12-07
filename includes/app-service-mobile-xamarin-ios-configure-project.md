@@ -1,4 +1,4 @@
-###In Xamarin Studio
+####Configurazione del progetto iOS in Xamarin Studio
 
 1. In Xamarin Studio aprire **Info.plist** e aggiornare il valore in **Bundle Identifier** con l'ID creato in precedenza.
 
@@ -16,7 +16,7 @@
 
     Per effetto di questa operazione, il progetto userà il nuovo profilo per la firma del codice. Per la documentazione ufficiale, vedere la pagina relativa al [provisioning del dispositivo Xamarin].
 
-### In Visual Studio
+####Configurazione del progetto iOS in Visual Studio
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Proprietà**.
 
@@ -38,4 +38,4 @@
 
 [provisioning del dispositivo Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

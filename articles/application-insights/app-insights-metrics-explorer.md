@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Esaminare le metriche in Application Insights
@@ -68,6 +68,8 @@ Le granularità disponibili dipendono dall'intervallo di tempo selezionato. Le g
 
 Fare clic su qualsiasi grafico nel pannello Panoramica per visualizzare un set più dettagliato di griglie e grafici correlati. È possibile modificare questi grafici e griglie per concentrarsi sui dettagli a cui si è interessati.
 
+Oppure è possibile fare clic sul pulsante Esplora metriche nell'intestazione del pannello Panoramica.
+
 Ad esempio, fare clic sul grafico Richieste non riuscite dell'app Web:
 
 ![Nel pannello Panoramica fare clic su un grafico](./media/app-insights-metrics-explorer/14-trix.png)
@@ -81,9 +83,9 @@ Ogni punto dati del grafico è una funzione di aggregazione dei valori di dati r
 
 Le metriche possono essere aggregate in modi diversi:
 
- * **Somma** somma i valori dei punti dati ricevuti tramite l'intervallo di campionamento o il periodo del grafico.
+ * **Somma** esegue la somma dei valori dei punti dati ricevuti tramite l'intervallo di campionamento o il periodo del grafico.
  * **Media** divide la somma del numero di punti dati ricevuti tramite l'intervallo.
- * **Unica** i conteggi vengono utilizzati per contare gli utenti e gli account. Per tutto l'intervallo di campionamento, o per il periodo del grafico, la figura mostra il numero di utenti visualizzato in quel momento.
+ * **Unica** i conteggi vengono usati per contare gli utenti e gli account. Per tutto l'intervallo di campionamento, o per il periodo del grafico, la figura mostra il numero di utenti visualizzato in quel momento.
 
 
 È possibile modificare il metodo di aggregazione:
@@ -212,4 +214,4 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

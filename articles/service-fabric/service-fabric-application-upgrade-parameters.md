@@ -68,13 +68,15 @@ Questo articolo descrive i diversi parametri che si applicano durante l'aggiorna
 ## Passaggi successivi
 
 
-[Esercitazione sull'aggiornamento](service-fabric-application-upgrade-tutorial.md)
+[Aggiornamento di un'applicazione di Infrastruttura di servizi mediante Visual Studio](service-fabric-application-upgrade.md)
 
-[Argomenti avanzati](service-fabric-application-upgrade-advanced.md)
+[Aggiornamento di un'applicazione di Infrastruttura di servizi mediante PowerShell](service-fabric-application-upgrade-powershell.md)
+
+[Aggiornamento manuale e aggiornamento con un pacchetto Diff](service-fabric-application-upgrade-advanced.md)
 
 [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
 
 [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

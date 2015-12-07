@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Utilizzo dell'interfaccia della riga di comando di Azure con Gestione risorse | Microsoft Azure"
 	description="Informazioni sull'uso dell'interfaccia della riga di comando per Mac, Linux e Windows per gestire le risorse di Azure mediante l'interfaccia della riga di comando nella modalità Gestione risorse di Azure."
-	services="virtual-machines,mobile-services,cloud-services"
+	services="virtual-machines,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="danlep"/>
 
 # Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure
@@ -45,16 +45,16 @@ I requisiti di impostazione per l'uso della modalità Gestione risorse con l'int
 
 - Un account Azure ([per ottenere una versione di valutazione gratuita, fare clic qui](http://azure.microsoft.com/pricing/free-trial/))
 - [Installazione dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
-- [Configurazione dell'interfaccia della riga di comando di Azure](../xplat-cli-connect.md) per l'uso di un'identità di Azure Active Directory o di un'entità servizio
+
 
 Dopo aver ottenuto un account e aver installato l'interfaccia della riga di comando di Azure, è necessario eseguire queste operazioni:
 
-- Passare alla modalità Gestione risorse digitando `azure config mode arm`.
-- Accedere all'account Azure digitando `azure login` e usando la propria identità aziendale o dell'istituto di istruzione in risposta ai messaggi di richiesta.
+- [configurare la CLI di Azure](../xplat-cli-connect.md) per utilizzare un account aziendale o dell'istituto di istruzione o un'identità dell'account Microsoft 
+- Passare alla modalità Gestione risorse digitando `azure config mode arm`
 
 
-## azure account - Gestione delle informazioni relative all'account e le impostazioni di pubblicazione
-Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strumento per connettersi all'account dell'utente. Tali informazioni possono essere ottenute dal portale di Azure in un file di impostazioni di pubblicazione come illustrato di seguito. È possibile importare il file di impostazioni di pubblicazione come impostazione di configurazione locale persistente che lo strumento userà per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
+## azure account - Gestione delle informazioni relative all'account
+Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strumento per connettersi all'account dell'utente.
 
 **Elencare le sottoscrizioni importate**
 
@@ -1760,4 +1760,4 @@ Opzioni dei parametri:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

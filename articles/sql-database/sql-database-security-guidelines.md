@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/20/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Linee guida e limitazioni per la sicurezza per il database SQL di Azure
@@ -109,4 +109,6 @@ Considerare i seguenti punti per rendere le applicazioni del Database SQL di Azu
 
 [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md)
 
-<!---HONumber=Nov15_HO3-->
+[Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
+
+<!---HONumber=AcomDC_1125_2015-->

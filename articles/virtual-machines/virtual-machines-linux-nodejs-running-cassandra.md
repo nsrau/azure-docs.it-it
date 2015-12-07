@@ -1,12 +1,4 @@
-<properties 
-	pageTitle="eseguire Cassandra con Linux in Azure | Microsoft Azure" 
-	description="Come eseguire un cluster Cassandra su Linux in macchine virtuali di Azure da un'applicazione Node. js" 
-	services="virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""
-	azure-service-management"/>
+<properties pageTitle="Run Cassandra with Linux on Azure | Microsoft Azure" description="How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app" services="virtual-machines" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor="" azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -14,8 +6,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/20/2015" 
+	ms.author="robmcm"/>
 
 
 # Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
@@ -119,7 +111,7 @@ Durante la distribuzione vengono usate le seguenti versioni software:
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Mcrosoft Azure Portal](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Microsoft Azure](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
 </table>
 
 Poiché il download di JRE richiede di accettare manualmente la licenza Oracle, per semplificare la distribuzione, scaricare tutto il software necessario nel desktop per caricarlo in seguito nell'immagine modello di Ubuntu che verrà creata come precursore della distribuzione cluster.
@@ -132,7 +124,7 @@ In questo passaggio del processo verrà creata l'immagine di Ubuntu con i prereq
 In fase di provisioning Azure richiede una chiave pubblica X509 con codifica PEM o DER. Generare una coppia di chiavi pubbliche/private seguendo le istruzioni contenute in Come usare SSH con Linux in Azure. Se si prevede di usare putty.exe come client SSH in Windows o Linux, è necessario convertire la chiave privata RSA con codifica PEM nel formato PPK mediante puttygen.exe. Le istruzioni relative a questa operazione sono disponibili nella pagina Web precedente.
 
 ####PASSAGGIO 2: Creare una macchina virtuale modello Ubuntu
-Per creare il modello di macchina virtuale, accedere al portale di azure.microsoft.com e utilizzare la seguente sequenza: fare clic su NUOVO, CALCOLO, MACCHINA VIRTUALE, DA RACCOLTA, UBUNTU, Ubuntu Server 14.04 LTS e quindi fare clic sulla freccia a destra. Per un'esercitazione che descrive come creare una macchina virtuale Linux, vedere Creazione di una macchina virtuale che esegue Linux.
+Per creare il modello di macchina virtuale, accedere al portale di Azure e usare la sequenza seguente: fare clic su NUOVO, CALCOLO, MACCHINA VIRTUALE, DA RACCOLTA, UBUNTU, Ubuntu Server 14.04 LTS e quindi fare clic sulla freccia a destra. Per un'esercitazione che descrive come creare una macchina virtuale Linux, vedere Creazione di una macchina virtuale che esegue Linux.
 
 Immettere le informazioni seguenti nella schermata n. 1 "Configurazione macchina virtuale":
 
@@ -301,7 +293,7 @@ Assicurarsi che la macchina virtuale sia evidenziata e fare clic sul collegament
 Dopo alcuni secondi l'immagine dovrebbe essere disponibile nella sezione IMMAGINI PERSONALI della raccolta immagini. La macchina virtuale di origine verrà automaticamente eliminata una volta acquisita l'immagine.
 
 ##Processo di distribuzione in un'area singola
-**Passaggio 1: Creare la rete virtuale** Accedere al portale di gestione e creare una rete virtuale con gli attributi elencati nella tabella. Per i passaggi dettagliati del processo, vedere [Configurare una rete virtuale solo cloud nel portale di gestione](../virtual-network/virtual-networks-create-vnet.md).
+**Passaggio 1: Creare la rete virtuale** Accedere al portale di Azure e creare una rete virtuale con gli attributi elencati nella tabella. Per i singoli passaggi del processo, vedere [Creare una rete virtuale usando il portale di anteprima di Azure](../virtual-network/virtual-networks-create-vnet.md).
 
 <table>
 <tr><th>Nome attributo macchina virtuale</th><th>Valore</th><th>Osservazioni</th></tr>
@@ -348,7 +340,7 @@ Per creare l'elenco precedente di macchine virtuali, è necessario eseguire il p
 3.	Aggiungere al servizio cloud un dispositivo di bilanciamento del carico interno e collegarlo alla subnet "dati"
 4.	Per ogni macchina virtuale creata in precedenza, aggiungere un endpoint con carico bilanciato per il traffico Thrift con un set con carico bilanciato connesso al dispositivo di bilanciamento del carico creato in precedenza
 
-Il processo precedente può essere eseguito con il portale di gestione di Azure. Usare un computer Windows (usare una macchina virtuale in Azure se non si ha accesso a un computer Windows) e usare il seguente script PowerShell per il provisioning automatico di tutte le 8 macchine virtuali.
+Il processo precedente può essere eseguito dal portale di Azure. Usare un computer Windows (ricorrere a una macchina virtuale in Azure se non si ha accesso a un computer Windows) e applicare il seguente script PowerShell per il provisioning automatico di tutte le 8 macchine virtuali.
 
 **List1: script PowerShell per il provisioning delle macchine virtuali**
 		
@@ -467,7 +459,7 @@ Si noti che il keyspace creato nel passaggio 4 usa SimpleStrategy con replicatio
 Verrà sfruttata la distribuzione in un'area singola completata e si ripeterà lo stesso processo per l'installazione della seconda area. La differenza principale tra la distribuzione in un'area singola e in più aree è la configurazione del tunnel VPN per la comunicazione tra le aree. Si inizierà con l'installazione di rete, il provisioning delle macchine virtuali e la configurazione di Cassandra.
 
 ###Passaggio 1: Creare la rete virtuale nella seconda area
-Accedere al portale di gestione e creare una rete virtuale con gli attributi elencati nella tabella. Per i passaggi dettagliati del processo, vedere [Configurare una rete virtuale solo cloud nel portale di gestione](../virtual-network/virtual-networks-create-vnet.md).
+Accedere al portale di Azure e creare una rete virtuale con gli attributi elencati nella tabella. Per i singoli passaggi del processo, vedere [Creare una rete virtuale usando il portale di anteprima di Azure](../virtual-network/virtual-networks-create-vnet.md).
 
 <table>
 <tr><th>Nome attributo    </th><th>Valore	</th><th>Osservazioni</th></tr>
@@ -496,7 +488,7 @@ Creare due reti locali con i dettagli seguenti:
 
 
 ###Passaggio 3: Eseguire il mapping della rete "locale" alle rispettive reti virtuali
-Nel portale di gestione dei servizi selezionare ogni rete virtuale, fare clic su "Configura", selezionare "Connetti alla rete locale" e selezionare le reti locali con i seguenti dettagli:
+Nel portale di Azure selezionare ogni rete virtuale, fare clic su "Configura", scegliere "Connetti alla rete locale" e selezionare le reti locali con i dettagli seguenti:
 
 
 | Rete virtuale | Rete locale |
@@ -520,7 +512,7 @@ Modificare entrambe le reti locali per poter sostituire l'indirizzo IP gateway s
 Utilizzare lo script di Powershell seguente per aggiornare la chiave IPSec di ciascun gateway VPN [utilizzare la chiave SAKE per entrambi i gateway]: Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
 ###Passaggio 6: Stabilire la connessione tra reti virtuali
-Nel portale di gestione servizi di Azure usare il menu "DASHBOARD" di entrambe le reti virtuali per stabilire la connessione da gateway a gateway. Usare le voci del menu "CONNETTI" nella barra degli strumenti in basso. Dopo alcuni minuti nel dashboard apparirà la visualizzazione grafica dei dettagli della connessione.
+Nel portale di Azure usare il menu "DASHBOARD" di entrambe le reti virtuali per stabilire la connessione da gateway a gateway. Usare le voci del menu "CONNETTI" nella barra degli strumenti in basso. Dopo alcuni minuti nel dashboard apparirà la visualizzazione grafica dei dettagli della connessione.
 
 ###Passaggio 7: Creare le macchine virtuali nell'area n. 2 
 Creare l'immagine Ubuntu descritta nella distribuzione nell'area n. 1 seguendo gli stessi passaggi o copiare il file VHD dell'immagine nell'account di archiviazione di Azure dell'area n. 2 e creare l'immagine. Usare questa immagine e creare il seguente elenco di macchine virtuali in un nuovo servizio cloud hk-c-svc-east-us:
@@ -700,4 +692,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
 
 #  Campionamento in Application Insights
@@ -20,47 +20,67 @@
 *Application Insights è disponibile in anteprima.*
 
 
-Il campionamento è un'opzione di Application Insights che consente di raccogliere e archiviare un set ridotto di telemetria mantenendo però un'analisi statisticamente corretta dei dati dell'applicazione. Di solito viene usato per ridurre il traffico ed evitare [limitazioni](app-insights-pricing.md#data-rate). I dati vengono filtrati in modo che gli elementi correlati vengano consentiti e sia quindi possibile condurre indagini diagnostiche con un set di dati ridotto. Il lato client e server coordinano automaticamente l'operazione di filtro degli elementi correlati. Quando i conteggi delle metriche vengono presentati nel portale, vengono nuovamente normalizzati tenendo in considerazione il campionamento, per ridurre al minimo gli effetti sulle statistiche.
+Il campionamento è una funzionalità di Application Insights che consente di raccogliere e archiviare un set ridotto di telemetria mantenendo però un'analisi statisticamente corretta dei dati dell'applicazione. Riduce il traffico e consente di evitare la [limitazione della larghezza di banda della rete](app-insights-pricing.md#data-rate). I dati vengono filtrati in modo che gli elementi correlati vengano consentiti e sia quindi possibile spostarsi tra gli elementi quando si conducono indagini diagnostiche. Quando i conteggi delle metriche vengono presentati nel portale, vengono nuovamente normalizzati tenendo in considerazione il campionamento, per ridurre al minimo gli effetti sulle statistiche.
 
+Il campionamento adattivo è abilitato per impostazione predefinita in Application Insights SDK per ASP.NET, versione 2.0.0-beta3 o successiva. Il campionamento attualmente è disponibile nella versione beta e in futuro potrebbe essere soggetto a modifiche.
 
-Il campionamento attualmente è disponibile nella versione beta e in futuro potrebbe essere soggetto a modifiche.
+Esistono due moduli di campionamento alternativi:
 
-## Configurazione del campionamento per l'applicazione
+* Il campionamento adattivo regola automaticamente la percentuale di campionamento per raggiungere un volume specifico di richieste. Attualmente disponibile solo per la telemetria lato server di ASP.NET.  
+* È disponibile anche il campionamento a frequenza fissa. Specificare la percentuale di campionamento. Disponibile per il codice dell'app Web ASP.NET e per le pagine Web JavaScript. Il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
 
-Il campionamento attualmente è disponibile per ASP.NET SDK o per [qualsiasi pagina Web](#other-web-pages).
+## Abilitazione del campionamento adattivo
 
-### Server ASP.NET
+**Aggiornare i pacchetti del progetto NuGet** all'ultima versione *preliminare* di Application Insights: fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web.
 
-1. Aggiornare i pacchetti NuGet del progetto all'ultima versione *preliminare* di Application Insights. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web. 
+In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) è possibile regolare diversi parametri nel nodo `AdaptiveSamplingTelemetryProcessor`. Le cifre indicate sono i valori predefiniti:
 
-2. Aggiungere questo frammento ad [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+* `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
 
-```XML
+    Frequenza di destinazione che l'algoritmo adattivo deve raggiungere **su un singolo host server**. Se l'app Web viene eseguita su più host, sarà opportuno ridurre questo valore per non superare la frequenza di destinazione del traffico nel portale di Application Insights.
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+* `<EvaluationInterval>00:00:15</EvaluationInterval>`
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    Intervallo in base al quale la frequenza corrente della telemetria viene rivalutata. La valutazione viene eseguita come media mobile. Potrebbe essere necessario ridurre questo intervallo se la telemetria è responsabile di burst improvvisi.
 
-```
+* `<SamplingPercentageDecreaseTimeout>00:02:00</SamplingPercentageDecreaseTimeout>`
 
-> [AZURE.NOTE]Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. Il campionamento attualmente non supporta altri valori.
+    Quando il valore della percentuale di campionamento cambia, periodo di tempo dopo il quale è consentito ridurre nuovamente la percentuale di campionamento per acquisire meno dati.
+
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+
+    Quando il valore della percentuale di campionamento cambia, periodo di tempo dopo il quale è consentito aumentare nuovamente la percentuale di campionamento per acquisire più dati.
+
+* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+
+    Quando la percentuale di campionamento varia, valore minimo che è consentito impostare.
+
+* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+
+    Quando la percentuale di campionamento varia, valore massimo che è consentito impostare.
+
+* `<MovingAverageRatio>0.25</MovingAverageRatio>`
+
+    Nel calcolo della media mobile, peso assegnato al valore più recente. Usare un valore uguale o inferiore a 1. I valori più bassi rendono l'algoritmo meno reattivo alle modifiche improvvise.
+
+* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+
+    Valore assegnato quando l'app è appena stata avviata. Non ridurlo durante il debug.
 
 <a name="other-web-pages"></a>
-### Pagine Web con JavaScript
+## Campionamento per pagine Web con JavaScript
 
-È possibile configurare le pagine Web per il campionamento da qualsiasi server. Per i server ASP.NET, configurare sia il lato client che il lato server.
+È possibile configurare le pagine Web per il campionamento a frequenza fissa da qualsiasi server.
 
-Quando si [configurano le pagine Web per Application Insights](app-insights-javascript.md), modificare il frammento ottenuto dal portale di Application Insights. In ASP.NET è possibile trovarlo in \_Layout.cshtml. Inserire una riga simile a `samplingPercentage: 10,` prima della chiave di strumentazione:
+Quando si [configurano le pagine Web per Application Insights](app-insights-javascript.md), modificare il frammento ottenuto dal portale di Application Insights. Nelle app ASP.NET il frammento viene in genere salvato in \_Layout.cshtml. Inserire una riga simile a `samplingPercentage: 10,` prima della chiave di strumentazione:
 
     <script>
 	var appInsights= ... 
 	}({ 
 
+
+    // Value must be 100/N where N is an integer.
+    // Valid examples: 50, 25, 20, 10, 5, 1, 0.1, ...
 	samplingPercentage: 10, 
 
 	instrumentationKey:...
@@ -70,15 +90,52 @@ Quando si [configurano le pagine Web per Application Insights](app-insights-java
 	appInsights.trackPageView(); 
 	</script> 
 
-Assicurarsi di specificare in JavaScript la stessa percentuale di campionamento del lato server.
+Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. Il campionamento attualmente non supporta altri valori.
 
-[Altre informazioni sull'API](app-insights-api-custom-events-metrics.md)
+Se si abilita il campionamento a frequenza fissa nel server, i client e il server si sincronizzeranno in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
+
+
+## Abilitazione del campionamento a frequenza fissa nel server
+
+1. **Aggiornare i pacchetti NuGet del progetto** all'ultima versione *preliminare* di Application Insights. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web. 
+
+2. **Disabilitare il campionamento adattivo**: in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) rimuovere o impostare come commento il nodo `AdaptiveSamplingTelemetryProcessor`.
+
+    ```xml
+
+    <TelemetryProcessors>
+    <!-- Disabled adaptive sampling:
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    -->
+    
+
+    ```
+
+2. **Abilitare il modulo di campionamento a frequenza fissa**. Aggiungere questo frammento ad [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+
+    ```XML
+
+    <TelemetryProcessors>
+     <Add  Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+      <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+      <SamplingPercentage>10</SamplingPercentage>
+      </Add>
+    </TelemetryProcessors>
+
+    ```
+
+> [AZURE.NOTE]Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. Il campionamento attualmente non supporta altri valori.
+
 
 
 ### In alternativa: impostare campionamento nel codice server
 
 
-Invece di impostare il parametro di campionamento nel file .config, è possibile utilizzare il codice. In questo modo è possibile attivare o disattivare il campionamento.
+Invece di impostare il parametro di campionamento nel file .config, è possibile utilizzare il codice.
 
 *C#*
 
@@ -86,26 +143,42 @@ Invece di impostare il parametro di campionamento nel file .config, è possibile
 
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
 
-    // It's recommended to set SamplingPercentage in the .config file instead.
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.UseSampling(10.0); // percentage
 
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
 
 ```
 
+[Informazioni sui processori di telemetria](app-insights-api-filtering-sampling/#filtering).
 
 ## Quando usare il campionamento?
+
+Il campionamento adattivo viene automaticamente abilitato se si usa ASP.NET SDK versione 2.0.0-beta3 o successiva.
 
 Per la maggior parte delle applicazioni di piccole e medie dimensioni, il campionamento non è necessario. Le informazioni di diagnostica più utili e le statistiche più accurate si ottengono raccogliendo dati su tutte le attività utente.
 
  
-I motivi principali per usare il campionamento sono i seguenti:
-
+I vantaggi principali del campionamento sono:
 
 * Il servizio Application Insights rimuove ("limita") i punti dati quando l'app invia una frequenza di telemetria molto elevata in un breve intervallo di tempo. 
-* Non si vuole superare la [quota](app-insights-pricing.md) di punti dati per il proprio piano tariffario. 
+* Non superare la [quota](app-insights-pricing.md) di punti dati per il proprio piano tariffario. 
 * Ridurre il traffico di rete dalla raccolta di telemetria. 
+
+### Campionamento fisso o adattivo?
+
+Usare il campionamento a frequenza fissa se:
+
+* È necessario il campionamento sincronizzato tra client e server, in modo che, quando si esaminano gli eventi in [Cerca](app-insights-diagnostic-search.md), sia possibile spostarsi tra gli eventi correlati nel client e nel server, ad esempio visualizzazioni pagina e richieste http.
+* Se è certi della percentuale di campionamento appropriata per l'app. Deve essere abbastanza elevata da ottenere metriche accurate, ma al di sotto della frequenza che fa superare la quota di prezzo e le soglie di limitazione. 
+* Non si deve eseguire il debug dell'app. Quando si preme F5 e si provano alcune pagine dell'app, sarà preferibile visualizzare tutta la telemetria.
+
+In caso contrario, è consigliabile il campionamento adattivo.
 
 ## Come funziona il campionamento?
 
@@ -120,6 +193,10 @@ Quando la telemetria viene ripresentata all'utente, il servizio Application Insi
 La precisione dell'approssimazione dipende in gran parte dalla percentuale di campionamento configurata. La precisione è anche maggiore per le applicazioni che gestiscono un volume elevato di richieste generalmente simili da una grande quantità di utenti. Per le applicazioni che non gestiscono un carico di lavoro significativo, invece, il campionamento non è necessario perché queste applicazioni in genere riescono a inviare tutta la telemetria senza superare la quota e senza causare perdite di dati dovute alla limitazione.
 
 Si noti che Application Insights non campiona i tipi di telemetria relativi a metrica e sessioni, perché la riduzione della precisione per questi tipi non è consigliabile.
+
+### Campionamento adattivo
+
+Il campionamento adattivo aggiunge un componente che monitora la frequenza corrente di trasmissione dall'SDK e regola la percentuale di campionamento per cercare di rimanere entro la frequenza massima di destinazione. La rettifica viene ricalcolata a intervalli regolari e si basa su una media mobile della frequenza di trasmissione in uscita.
 
 ## Campionamento e JavaScript SDK
 
@@ -140,11 +217,15 @@ L'SDK lato client (JavaScript) partecipa al campionamento insieme all'SDK lato s
 
 *La percentuale di campionamento può variare nel tempo?*
 
- * Nell'implementazione attuale di solito non si modifica la percentuale di campionamento dopo averla configurata all'avvio dell'applicazione. Anche avendo il controllo sul runtime della percentuale di campionamento, non è possibile determinare quale sarà la percentuale di campionamento ottimale che raccoglierà "solo la quantità corretta di volume di dati" prima che la logica di limitazione abbia effetto o venga raggiunta la quota del volume di dati. Le versioni future di Application Insights SDK includeranno il campionamento adattivo che aumenterà o ridurrà immediatamente la percentuale di campionamento, in base al volume attualmente osservato della telemetria e degli altri fattori. 
+ * Sì, il campionamento adattivo modifica gradualmente la percentuale di campionamento, in base al volume attualmente osservato della telemetria.
 
-*Come stabilire quale sarà la percentuale di campionamento ideale per l'app?*
+*È possibile conoscere la frequenza di campionamento usata dal campionamento adattivo?*
 
-* Per ora è necessario usare l'intuito. Analizzare l'utilizzo della telemetria corrente in AI, osservare le eliminazioni di dati correlate alla limitazione e stimare il volume della telemetria raccolta. Questi tre input, insieme al piano tariffario selezionato, suggeriranno di quanto ridurre il volume della telemetria raccolta. Tuttavia, una variazione nel modello del volume della telemetria potrebbe invalidare la percentuale di campionamento ottimale configurata (ad esempio, un aumento del numero degli utenti). Una volta implementato, il campionamento adattivo imposterà automaticamente la percentuale di campionamento sul livello ottimale, in base al volume della telemetria osservato.
+ * Non nella versione corrente.
+
+*Se si usa il campionamento a frequenza fissa, come stabilire quale sarà la percentuale di campionamento ideale per l'app?*
+
+* Per ora è necessario usare l'intuito. Analizzare l'utilizzo della telemetria corrente in AI, osservare le eliminazioni di dati correlate alla limitazione e stimare il volume della telemetria raccolta. Questi tre input, insieme al piano tariffario selezionato, suggeriranno di quanto ridurre il volume della telemetria raccolta. Tuttavia, una variazione nel modello del volume della telemetria potrebbe invalidare la percentuale di campionamento ottimale configurata (ad esempio, un aumento del numero degli utenti).
 
 *Cosa accade se si configura una percentuale di campionamento troppo bassa?*
 
@@ -156,12 +237,10 @@ L'SDK lato client (JavaScript) partecipa al campionamento insieme all'SDK lato s
 
 *Su quali piattaforme è possibile usare il campionamento?*
 
-* Il campionamento attualmente è disponibile per tutte le pagine Web e per i lati client e server delle applicazioni Web .NET.
+* Il campionamento adattivo è attualmente disponibile per il lato server delle app Web ASP.NET (ospitate in Azure o sul proprio server). Il campionamento a frequenza fissa è disponibile per tutte le pagine Web e per i lati client e server delle applicazioni Web .NET.
 
-*È possibile usare il campionamento con le app per dispositivo (app di Windows Phone, iOS, Android o desktop)?*
+*Esistono alcuni eventi rari che si vuole visualizzare sempre. Come è possibile passarli al modulo di campionamento?*
 
-* No, il campionamento per le applicazioni per dispositivo al momento non è supportato. 
+ * Creare un'istanza separata di TelemetryClient con una diversa TelemetryConfiguration. Usarla per inviare gli eventi rari.
 
->>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

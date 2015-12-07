@@ -73,11 +73,11 @@ Nel portale di Azure, gli utenti possono inoltre caricare un'immagine in cui è 
 
 **Figura 2: Panoramica della procedura di caricamento di un’immagine**
 
-## Distribuzione di SharePoint 2010 in Azure 
+## Distribuzione di SharePoint 2010 in Azure
 
 È possibile distribuire SharePoint 2010 in Azure utilizzando il modello di distribuzione classica attenendosi alla procedura seguente:
 
-1. Accedere al [Portale di gestione di Azure](http://manage.windowsazure.com/) con l'account della sottoscrizione di Azure. Se non si dispone di un account Azure, [iscriversi per una versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+1. Accedere al [Portale di Azure](http://manage.windowsazure.com/) con l'account della sottoscrizione di Azure. Se non si dispone di un account Azure, [iscriversi per una versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 2. Per creare una macchina virtuale con sistema operativo di base, nel portale di Azure, fare clic su **Nuovo > Calcolo > Macchina virtuale > Da raccolta**.
 3. Verrà visualizzata la finestra di dialogo **Scegli un'immagine**. Fare clic sull'immagine della piattaforma **Windows Server 2008 R2 SP1** e quindi sulla freccia a destra.
 4. Verrà visualizzata la finestra di dialogo **Virtual machine configuration**. Specificare le informazioni seguenti:
@@ -225,7 +225,7 @@ Per scalare orizzontalmente un ambiente di business intelligence in Azure, esegu
 1. Provisioning:
 	- Eseguire il provisioning di una connessione VPN tra l'ambiente locale e Azure tramite Rete virtuale di Azure. Per altre informazioni, vedere [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
 	- Usare quindi il portale di Azure per eseguire il provisioning di una nuova macchina virtuale da un'immagine della raccolta. È possibile caricare le immagini dei carichi di lavoro BI di SharePoint Server o SQL Server nella raccolta immagini. In seguito, qualsiasi utente autorizzato potrà selezionare queste macchine virtuali di componenti di BI per creare l'ambiente con scalabilità orizzontale.
-2. Installare: 
+2. Installare:
 	- se l'organizzazione non dispone di immagini predefinite di componenti di BI di SharePoint Server o SQL Server, installare SharePoint Server e SQL Server nelle macchine virtuali usando una connessione Desktop remoto.
 	- Per altre informazioni sull'installazione di SharePoint, vedere [Installare SharePoint Server 2010 tramite Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) o [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
 	- Per altre informazioni sull'installazione di SQL Server, vedere [Installare SQL Server tramite SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
@@ -288,4 +288,4 @@ Per una corretta distribuzione di SharePoint Server in Macchine virtuali di Azur
 
 [Test di SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # Supporto di Gestione risorse per servizi, aree e versioni API
@@ -30,7 +30,7 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | Macchine virtuali | Sì | Sì, molte opzioni | No | [Creare una VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| Batch | Sì | [Sì (solo classica)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
+| Batch | Sì | [Sì (solo classica)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Sì | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Servizi del ciclo di vita Dynamics | Sì | No | | | |
 | Macchine virtuali (classiche) | Limitato | Sì | Parziale (vedere di seguito) | - | - |
 | App remota | No | - | - | - | - |
@@ -70,8 +70,8 @@ Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuit
 | Gestione API | Sì | No | Sì | [Create API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
 | App per le API | Sì | [Sì](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [01/03/2015-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
 | App Web | Sì | [Sì](https://portal.azure.com/#create/Microsoft.WebSite) | Sì, con limitazioni (vedere di seguito) | | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
-| Hub di notifica | Sì | [Sì](https://portal.azure.com/#create/Microsoft.NotificationHub) | | [Creare un hub di notifica:](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [01/04/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
-| App per la logica | Sì | [Sì](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | | | |
+| Hub di notifica | Sì | [Sì](https://portal.azure.com/#create/Microsoft.NotificationHub) | Sì | [Creare un hub di notifica:](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [01/04/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
+| App per la logica | Sì | [Sì](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | Sì | | |
 | Mobile Engagement | Sì | No | Sì | | |
 
 Quando si usano le app Web non è possibile spostare solo un piano di servizio app. Per spostare le app Web, le opzioni disponibili sono:
@@ -85,10 +85,9 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Hub eventi | Sì | No | | [Creare l'hub eventi](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
 | Analisi dei flussi | Sì | [Sì](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
-| HDInsights | Sì | [Sì](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
+| HDInsights | Sì | [Sì](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sì | | |
 | Data factory | Sì | [Sì](https://portal.azure.com/#create/Microsoft.DataFactory) | Sì | [Creare Data factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Machine Learning | No | No | - | - | - |
-| Catalogo dati | No | No | - | - | - |
+| Machine Learning | No | No | - | - | - | | Catalogo dati | No | No | - | - | - |
 
 ## Supporti multimediali e CDN
 
@@ -118,7 +117,7 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 | Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | Sì | [Sì](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | | | [01/04/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Application Insights | Sì | [Sì](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | No | | [01/04/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing Mappe | Sì | [Sì](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
 | Account di Visual Studio | Sì | | | | [26/02/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
@@ -126,7 +125,7 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 | Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| Automazione | Sì | [Sì](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | | | |
+| Automazione | Sì | [Sì](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | Sì | | |
 | Insieme di credenziali di chiave | Sì | No | Sì | [REST insieme di credenziali di chiave](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
 | Utilità di pianificazione | Sì | No | | | [01/08/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | Sì | No | Sì | | |
@@ -238,4 +237,4 @@ Per Azure PowerShell 0.9.8, utilizzare:
 - Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per altre informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

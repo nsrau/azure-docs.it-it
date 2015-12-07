@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Configurazione di un nuovo dispositivo con Azure AD durante l'installazione
@@ -44,7 +44,7 @@ Per aggiungere un dispositivo ad Azure AD
 11.	Al termine dell’operazione, se si è un utente gestito, Windows concluderà la procedura di installazione e porterà l'utente al desktop tramite l’accesso automatico.
 12.	Se si è un utente federato, si accederà alla schermata di accesso di Windows e sarà necessario immettere le proprie credenziali per l’accesso.
 
-> [AZURE.NOTE]L’aggiunta a un dominio di Active Directory locale nella configurazione guidata di Windows non è supportata. Pertanto, se si prevede di aggiungere un computer a un dominio, è necessario selezionare il collegamento "Configurare Windows con un account locale". È quindi possibile aggiungere il dominio da Impostazioni PC come in precedenza.
+> [AZURE.NOTE]L’aggiunta a un dominio di Active Directory locale nella configurazione guidata di Windows non è supportata. Pertanto, se si prevede di aggiungere un PC a un dominio, è necessario selezionare il collegamento "Configurare Windows con un account locale". È quindi possibile aggiungere il dominio da Impostazioni PC come in precedenza.
 
 ## Informazioni aggiuntive
 * [Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro](active-directory-azureadjoin-windows10-devices-overview.md)
@@ -54,4 +54,4 @@ Per aggiungere un dispositivo ad Azure AD
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

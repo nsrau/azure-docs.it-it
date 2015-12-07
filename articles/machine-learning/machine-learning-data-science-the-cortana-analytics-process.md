@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/23/2015" 
 	ms.author="bradsev;gopitk" />
 
 
@@ -27,7 +27,7 @@ Ecco i passaggi disponibili in **Cortana Analytics Process**:
 
 Il processo è **iterativo**: la comprensione di elementi nuovi ed esistenti o perfezionati nel modello si evolve e richiede la rielaborazione di passaggi completati in precedenza nella sequenza. I processi esistenti per lo sviluppo organizzativo e la pianificazione del progetto possono essere **facilmente adattati** per l'uso con la sequenza di passaggi definita da CAP.
 
-I passaggi del processo sono rappresentati graficamente e collegati nel [percorso di apprendimento CAP](https://azure.microsoft.com/it-IT/documentation/learning-paths/cortana-analytics-process/), nonché descritti di seguito.
+I passaggi del processo sono rappresentati graficamente e collegati nel [percorso di apprendimento CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/), nonché descritti di seguito.
 
 ## Passaggi preliminari 
 
@@ -83,7 +83,7 @@ Quando si ottiene un set di modelli con prestazioni ottimali, è possibile **ren
 
 ## Riepilogo e passaggi successivi
 
-[Cortana Analytics Process](https://azure.microsoft.com/it-IT/documentation/learning-paths/cortana-analytics-process/) viene modellato come sequenza di passaggi iterati che **offrono indicazioni** sulle attività necessarie per usare l'analisi avanzata al fine di sviluppare un'applicazione intelligente. Ogni passaggio fornisce anche i dettagli su come usare diverse tecnologie Microsoft per completare l'attività descritta.
+[Cortana Analytics Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) viene modellato come sequenza di passaggi iterati che **offrono indicazioni** sulle attività necessarie per usare l'analisi avanzata al fine di sviluppare un'applicazione intelligente. Ogni passaggio fornisce anche i dettagli su come usare diverse tecnologie Microsoft per completare l'attività descritta.
 
 Anche se CAP non indica tipi specifici di elementi di **documentazione**, è consigliabile documentare i risultati dell'esplorazione dei dati, della modellazione e della convalida e quindi salvare il codice pertinente in modo che sia possibile iterare l'analisi quando necessario. Ciò consente anche il riutilizzo delle operazioni di analisi quando si lavora su altre applicazioni che includono dati e attività di previsioni simili.
 
@@ -91,4 +91,4 @@ Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

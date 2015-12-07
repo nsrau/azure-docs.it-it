@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/18/2015"
+	ms.author="huvalo"/>
 
 
 # Bottle e archiviazione tabelle di Azure con Python Tools 2.2 per Visual Studio 
@@ -67,9 +67,9 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
 
 Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito
 
-1.  Accedere al [Portale di Azure].
+1.  Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Archiviazione**. Assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Account di archiviazione**. Fare clic sul pulsante **Crea** quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
 
@@ -102,6 +102,8 @@ In questa sezione verrà configurata l'applicazione per usare l'account di archi
 1.  Il codice che implementa il repository di archiviazione tabelle di Azure si trova in **models/azuretablestorage.py**. Per altre informazioni su come usare il servizio tabelle da Python, vedere la [documentazione].
 
 1.  Eseguire l'applicazione con `F5`. I sondaggi creati con **Create Sample Polls** e i dati inviati mediante voto verranno serializzati nell'archiviazione tabelle di Azure.
+
+	> [AZURE.NOTE]L'ambiente virtuale Python 2.7 può causare un'interruzione di eccezioni in Visual Studio. Premere `F5` per continuare il caricamento del progetto web.
 
 1.  Passare alla pagina **About** per verificare che l'applicazione usi il repository di **archiviazione tabelle di Azure**.
 
@@ -197,7 +199,7 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Come usare il servizio di archiviazione tabelle di Python]: ../storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Portale di Azure]: https://portal.azure.com
+[portale di Azure]: https://portal.azure.com
 [Azure SDK per .NET]: http://azure.microsoft.com/downloads/
 [Python Tools per Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
@@ -215,4 +217,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

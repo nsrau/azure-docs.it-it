@@ -3,9 +3,9 @@
 	description="Imparare a utilizzare un'applicazione web nel servizio di applicazione Azure con io.js." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="felixrieseberg" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson" />
+	ms.date="11/20/2015"
+	ms.author="robmcm" />
 
 # Come utilizzare io.js con Azure applicazione servizio Web App
 
@@ -27,9 +27,9 @@ Benché su [Siti Web di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) si
 
 Durante la distribuzione di un'applicazione Node.js, Siti Web di Azure esegue una serie di piccoli comandi per garantire che l'ambiente sia configurato correttamente. Usando uno script di distribuzione, questo processo può essere personalizzato in modo da includere il download e la configurazione di io.js.
 
-Lo [script di distribuzione io.js] è disponibile su GitHub. Per abilitare io.js nel proprio sito Web, è sufficiente copiare **.deployment**, **deploy.cmd** e **IISNode.yml** nella radice della cartella dell'applicazione e distribuirli in Siti Web di Azure.
+Lo [script di distribuzione io.js](https://github.com/felixrieseberg/iojs-azure) è disponibile su GitHub. Per abilitare io.js nel proprio sito Web, è sufficiente copiare **.deployment**, **deploy.cmd** e **IISNode.yml** nella radice della cartella dell'applicazione e distribuirli in Siti Web di Azure.
 
-Il primo file, **.deployment**, indica a Siti Web di Azure di eseguire **deploy.cmd** durante la distribuzione. Questo script esegue tutti i passaggi abituali per un applicazione Node.js, ma Scarica anche la versione più recente di io.js. Infine, **IISNode.yml** configura Siti Web di Azure in modo da usare il file binario io.js appena scaricato anziché un file binario Node.js preinstallato.
+Il primo file, **.deployment**, indica a Siti Web di Azure di eseguire **deploy.cmd** durante la distribuzione. Questo script esegue tutti i passaggi abituali per un applicazione Node.js, ma scarica anche la versione più recente di io.js. Infine, **IISNode.yml** configura App Web in modo da usare il file binario io.js appena scaricato anziché un file binario Node.js preinstallato.
 
 > [AZURE.NOTE]Per aggiornare il file binario io.js usato, eseguire nuovamente la distribuzione dell'applicazione; lo script scaricherà una nuova versione di io.js ogni volta che l'applicazione viene distribuita.
 
@@ -58,7 +58,7 @@ In questo articolo si è appreso come usare io.js con Siti Web di Azure, usando 
 [io.js]: https://iojs.org
 [distribuzione io.js]: https://iojs.org/dist/
 [ io.js; consultare io.js su GitHub]: https://github.com/iojs/io.js
-[script di distribuzione io.js]: https://github.com/felixrieseberg/iojs-azure
+[io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

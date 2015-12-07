@@ -16,7 +16,7 @@
 	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-#Integrazione di Engagement SDK per app universali di Windows
+# Integrazione di Engagement SDK per app universali di Windows
 
 > [AZURE.SELECTOR] 
 - [Universal Windows](mobile-engagement-windows-store-integrate-engagement.md) 
@@ -28,22 +28,40 @@ Questa procedura descrive il modo più semplice per attivare le funzioni di anal
 
 I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necessari per calcolare tutte le statistiche relative a utenti, sessioni, attività, arresti anomali del sistema e dati tecnici. La segnalazione dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve essere eseguita manualmente mediante l'API di Engagement (vedere [Come usare l'API di Engagement in un'app universale di Windows](mobile-engagement-windows-store-use-engagement-api.md)) poiché queste statistiche dipendono dall'applicazione.
 
-##Versioni supportate
+## Versioni supportate
 
-Mobile Engagement SDK per app universali di Windows può essere integrato solo nelle applicazioni di runtime per:
+Mobile Engagement SDK per app universali di Windows può essere integrato solo nelle applicazioni Windows Runtime e UWP (Universal Windows Platform) per:
 
 -   Windows 8
 -   Windows 8.1
 -   Windows Phone 8.1
+-   Windows 10 (versioni per desktop e portatili)
 
-> [AZURE.NOTE]Se si usa Windows Phone 8.1 Silverlight come piattaforma di destinazione, fare riferimento alla [procedura per l'integrazione in Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
+> [AZURE.NOTE]Se si usa Windows Phone Silverlight come piattaforma di destinazione, fare riferimento alla [procedura per l'integrazione di Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
 
+## Installare Mobile Engagement SDK per app universali
 
-##Installare Mobile Engagement SDK per app universali
+### Tutte le piattaforme
 
-Mobile Engagement SDK per app universali di Windows è disponibile come pacchetto NuGet denominato *MicrosoftAzure.MobileEngagement*. È possibile installarlo da Gestione pacchetti NuGet di Visual Studio.
+Mobile Engagement SDK per app di Windows universali è disponibile come pacchetto NuGet denominato *MicrosoftAzure.MobileEngagement*. È possibile installarlo da Gestione pacchetti NuGet di Visual Studio.
 
-##Aggiungere le funzionalità
+### Windows 8.x e Windows Phone 8.1
+
+NuGet distribuisce automaticamente le risorse SDK nella cartella `Resources` nella radice del progetto dell'applicazione.
+
+### Applicazioni UWP di Windows 10
+
+NuGet non esegue ancora la distribuzione automatica di risorse SDK in applicazioni UWP. Fino a quando la funzione di distribuzione delle risorse non verrà reintrodotta in NuGet, sarà necessario eseguire questa operazione manualmente:
+
+1.  Aprire Esplora file.
+2.  Passare al percorso seguente (**x.x.x** è la versione di Mobile Engagement che si sta installando): *%USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\**x.x.x**\\content\\win81*
+3.  Trascinare la cartella **Risorse** da Esplora file alla radice del progetto in Visual Studio.
+4.  In Visual Studio selezionare il progetto e attivare l'icona **Mostra tutti i file** nella parte superiore di **Esplora soluzioni**.
+5.  Alcuni file non sono inclusi nel progetto. Per importarli tutti contemporaneamente, fare clic con il pulsante destro del mouse su **Risorse** e scegliere **Escludi dal progetto**, quindi fare nuovamente clic con il pulsante destro del mouse su **Risorse** e scegliere **Includi nel progetto** per includere l'intera cartella. Tutti i file della cartella **Risorse** sono ora inclusi nel progetto.
+
+Il pacchetto di Engagement estratto è disponibile anche in *$(Solutiondir)\\Packages* o in base a quanto definito nel file *NuGet.config*.
+
+## Aggiungere le funzionalità
 
 Engagement SDK richiede alcune funzionalità di Windows SDK per funzionare correttamente.
 
@@ -51,7 +69,7 @@ Aprire il file `Package.appxmanifest` e assicurarsi che le seguenti funzionalit�
 
 -   `Internet (Client)`
 
-##Inizializzare Engagement SDK
+## Inizializzare Engagement SDK
 
 ### Configurazione di Engagement
 
@@ -66,20 +84,13 @@ Se si desidera specificarla in fase di esecuzione, è possibile chiamare il meto
           /* Engagement configuration. */
           EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 
-        #if WINDOWS_PHONE_APP
-          /* Connection string for my Windows Phone App. */
-          engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        #else
           /* Connection string for my Windows Store App. */
           engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        #endif
 
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
 La stringa di connessione per l'applicazione viene visualizzata nel portale di Azure.
-
-> [AZURE.WARNING]Non è necessario usare il simbolo di compilazione condizionale `WINDOWS_PHONE_APP` per definire una diversa configurazione nelle app autonome di Windows Runtime poiché la piattaforma è una sola.
 
 ### Inizializzazione di Engagement
 
@@ -91,31 +102,34 @@ Modificare il file `App.xaml.cs`:
 
 		using Microsoft.Azure.Engagement;
 
--   Inserire `EngagementAgent.Instance.Init` nel metodo `OnLaunched`:
+-   Definire un metodo per condividere l'inizializzazione di Engagement una sola volta per tutte le chiamate:
 
-		protected override void OnLaunched(LaunchActivatedEventArgs args)
-		{
-		  EngagementAgent.Instance.Init(args);
+        private void InitEngagement(IActivatedEventArgs e)
+        {
+          EngagementAgent.Instance.Init(e);
 		
 		  // or
 		
-		  EngagementAgent.Instance.Init(args, engagementConfiguration);
+		  EngagementAgent.Instance.Init(e, engagementConfiguration);
+        }
+        
+-   Chiamare `InitEngagement` nel metodo `OnLaunched`:
+
+		protected override void OnLaunched(LaunchActivatedEventArgs e)
+		{
+          InitEngagement(e);
 		}
 
--   Quando l'applicazione viene avviata usando uno schema personalizzato, un'altra applicazione o la riga di comando, viene chiamato il metodo `OnActivated`. Inoltre, è necessario avviare l'agente di Engagement quando viene attivata l'applicazione. A tale scopo, eseguire l'override del metodo `OnActivated`:
+-   Quando l'applicazione viene avviata usando uno schema personalizzato, un'altra applicazione o la riga di comando, viene chiamato il metodo `OnActivated`. È inoltre necessario avviare l'SDK di Engagement quando viene attivata l'applicazione. A tale scopo, eseguire l'override del metodo `OnActivated`:
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
-		  EngagementAgent.Instance.Init(args);
-		
-		  // or
-		
-		  EngagementAgent.Instance.Init(args, engagementConfiguration);
+          InitEngagement(args);
 		}
 
 > [AZURE.IMPORTANT]È altamente sconsigliata l'aggiunta dell'inizializzazione di Engagement in un altro punto dell'applicazione.
 
-##Segnalazione di base
+## Segnalazione di base
 
 ### Metodo consigliato: eseguire l'overload delle classi `Page`
 
@@ -220,13 +234,13 @@ Se non si può o non si vuole eseguire l'overload delle classi `Page`, in altern
 
 > [AZURE.IMPORTANT]Assicurarsi che la sessione venga terminata correttamente.
 > 
-> Windows Universal SDK chiama automaticamente il metodo `EndActivity` quando l'applicazione viene chiusa. È quindi **ALTAMENTE** consigliabile chiamare il metodo `StartActivity` ogni volta che l'attività dell'utente subisce modifiche e non chiamare **MAI** il metodo `EndActivity`, che segnala al server di Engagement che l'utente ha chiuso l'applicazione e influirà su tutti i log delle applicazioni.
+> L'SDK per app di Windows universali chiama automaticamente il metodo `EndActivity` quando l'applicazione viene chiusa. È quindi **ALTAMENTE** consigliabile chiamare il metodo `StartActivity` ogni volta che l'attività dell'utente subisce modifiche e non chiamare **MAI** il metodo `EndActivity`, che segnala al server di Engagement che l'utente ha chiuso l'applicazione e influisce così su tutti i log delle applicazioni.
 
-##Segnalazione avanzata
+## Segnalazione avanzata
 
 Facoltativamente, è possibile segnalare eventi specifici dell'applicazione, errori e processi. A tale scopo, usare gli altri metodi disponibili nella classe `EngagementAgent`. L'API di Engagement consente di usare tutte le funzionalità avanzate di Engagement.
 
-Per altre informazioni, vedere [Come usare l'API di Engagement in un'app universale di Windows](../mobile-engagement-windows-store-use-engagement-api/).
+Per altre informazioni, vedere [Come usare l'API di Engagement in un'app di Windows universale](../mobile-engagement-windows-store-use-engagement-api/).
 
 ##Configurazione avanzata
 
@@ -271,4 +285,4 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

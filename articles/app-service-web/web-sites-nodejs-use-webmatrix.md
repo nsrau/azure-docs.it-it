@@ -3,9 +3,9 @@
 	description="Un'esercitazione in cui viene illustrato come utilizzare WebMatrix per sviluppare un'applicazione Node. js e distribuirla in Azure applicazione servizio Web Apps." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix
 
-Questa esercitazione illustra come utilizzare WebMatrix per sviluppare un Node nodejs.org e come distribuirla in App Web di [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) WebMatrix è uno strumento di sviluppo Web gratuito di Microsoft che include tutto quanto necessario per lo sviluppo di siti Web o app Web. In WebMatrix sono incluse numerose funzionalità che semplificano l'utilizzo di Node.js, ad esempio completamento del codice, modelli precompilati e supporto dell'editor per Jade, LESS e CoffeScript. Ulteriori informazioni su [WebMatrix per Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
+Questa esercitazione illustra come utilizzare WebMatrix per sviluppare un Node nodejs.org e come distribuirla in App Web di [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) WebMatrix è uno strumento di sviluppo Web gratuito di Microsoft che include tutto quanto necessario per lo sviluppo di siti Web o app Web. In WebMatrix sono incluse numerose funzionalità che semplificano l'utilizzo di Node.js, ad esempio completamento del codice, modelli precompilati e supporto dell'editor per Jade, LESS e CoffeScript. Altre informazioni su [WebMatrix](https://www.microsoft.com/web/webmatrix/).
 
 Dopo avere completato questa guida, si disporrà di un sito Web Node.js in esecuzione in Azure.
  
@@ -85,7 +85,7 @@ Modificare e ripubblicare l'applicazione è facile. Ora, si procederà all'aggiu
 
 	![Visualizzazione del file index.jage in WebMatrix][webmatrix-modify-index]
 
-2. Sostituire la seconda riga con la riga seguente:
+2. Sostituire la riga del paragrafo con la riga seguente:
 
 		p Welcome to #{title} with WebMatrix on Azure!
 
@@ -126,4 +126,4 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

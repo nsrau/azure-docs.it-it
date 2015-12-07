@@ -44,6 +44,8 @@ Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È ino
 
 ### Cartella /overlay
 
+- `EngagementBaseOverlay.cs` : Il codice di base utilizzato dalle sovrapposizioni `Announcement` e `Notification`.
+
 - `EngagementOverlayAnnouncement.xaml`: progettazione XAML di `Announcement`.
 
 - `EngagementOverlayAnnouncement.xaml.cs`: codice collegato di `EngagementOverlayAnnouncement.xaml`.
@@ -55,4 +57,4 @@ Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È ino
 - `EngagementPageOverlay.cs`: codice di visualizzazione annunci e notifiche di `Overlay`.
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

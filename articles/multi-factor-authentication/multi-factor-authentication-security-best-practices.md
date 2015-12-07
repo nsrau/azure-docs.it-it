@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Procedure consigliate sulla sicurezza per usare Azure Multi-Factor Authentication con account Azure AD
@@ -121,4 +121,4 @@ Anche se questo articolo evidenzia alcune procedure consigliate per Azure MFA, s
 - [Esperienza di installazione per Azure multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md)
 - [Domande frequenti su Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

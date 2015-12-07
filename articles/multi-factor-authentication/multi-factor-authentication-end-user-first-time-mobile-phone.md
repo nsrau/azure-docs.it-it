@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Utilizzare il telefono cellulare come metodo di contatto con Azure Multi-Factor Authentication
@@ -39,4 +39,4 @@ Se si desidera utilizzare il telefono cellulare come metodo di contatto principa
 
 <center>![Installazione](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/20/2015"
 	ms.author="larryfr"/>
 
 # Personalizzare cluster HDInsight mediante Azione di script (Linux)
@@ -60,7 +60,7 @@ Nome | Script
 
 2. In __Configurazione facoltativa__ fare clic su **aggiungi azione di script** nel pannello **Azioni di script** per specificare i dettagli relativi all'azione di script, come illustrato di seguito:
 
-	![Usare l'azione di script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "Usare l'azione di script per personalizzare un cluster")
+	![Usare l'azione di script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
 
 	| Proprietà | Valore |
 	| -------- | ----- |
@@ -80,12 +80,12 @@ In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per c
 ### Prima di iniziare
 
 * Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
-* Per istruzioni su come creare modelli ARM, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
-* Se Azure PowerShell non è stato usato in precedenza con Gestione risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager).
+* Per istruzioni su come creare modelli ARM, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+* Se Azure PowerShell non è stato usato in precedenza con Gestione risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
 
 ### Creare cluster mediante l'azione di script
 
-1. Copiare il modello seguente in un percorso di questo computer. Questo modello installa R nel nodo head e nei nodi di lavoro del cluster. È anche possibile verificare se il modello JSON è valido. Incollare il modello di contenuto in [JSONLint](http://jsonlint.com/), uno strumento di convalida JSON disponibile online.
+1. Copiare il modello seguente in un percorso di questo computer. Questo modello installa R nel nodo head e nei nodi di lavoro del cluster. È anche possibile verificare se il modello JSON è valido. Incollare il contenuto del modello in [JSONLint](http://jsonlint.com/), uno strumento di convalida JSON disponibile online.
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -253,7 +253,7 @@ In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per c
 
 		Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE]È possibile usare `Get-AzureRmSubscription` per ottenere un elenco di tutte le sottoscrizioni associate all'account, con il relativo ID di sottoscrizione.
+    > [AZURE.NOTE]È possibile usare `Get-AzureRmSubscription` per ottenere un elenco di tutte le sottoscrizioni associate all'account, con il relativo ID sottoscrizione.
 
 5. Se non è presente un gruppo di risorse, crearne uno nuovo. Specificare il nome del gruppo di risorse e il percorso per la soluzione. Viene restituito un riepilogo del nuovo gruppo di risorse.
 
@@ -270,7 +270,7 @@ In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per c
 		ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
 
-6. Per creare una nuova distribuzione per il gruppo di risorsa, eseguire il comando **New-AzureResourceGroupDeployment** e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse e il percorso o l'URL del modello creato. Passare anche gli eventuali altri parametri richiesti dal modello. In questo caso, l'azione di script per installare R nel cluster non richiede parametri.
+6. Per creare una nuova distribuzione per il gruppo di risorse, eseguire il comando **New-AzureResourceGroupDeployment** e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse e il percorso o l'URL del modello creato. Passare anche gli eventuali altri parametri richiesti dal modello. In questo caso, l'azione di script per installare R nel cluster non richiede parametri.
 
 
 		New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
@@ -329,15 +329,31 @@ Eseguire la procedura seguente:
 	| --------- | ---------- |
 	| Config | Oggetto di configurazione a cui vengono aggiunte le informazioni dell'azione di script. |
 	| Nome | Nome dell'azione di script. |
-	| Tipo di nodo | Specifica il nodo su cui viene eseguito lo script di personalizzazione. I valori validi sono **HeadNode** (per l'installazione nel nodo head) o **WorkerNode** (per l'installazione in tutti i nodi dati) o **ZookeeperNode** (per l'installazione nel nodo zookeeper). |
+	| Tipo di nodo | Specifica il nodo su cui viene eseguito lo script di personalizzazione. I valori validi sono **HeadNode** (per l'installazione nel nodo head), **WorkerNode** (per l'installazione in tutti i nodi dati) o **ZookeeperNode** (per l'installazione nel nodo zookeeper). |
 	| Parametri | Parametri richiesti dallo script. |
 	| Uri | Specifica l'URI per lo script eseguito. |
 
+4. Impostare l'utente amministratore/HTTPS per il cluster:
+
+        $httpCreds = get-credential
+        
+    Quando richiesto, immettere "admin" come nome e specificare una password.
+
+5. Impostare le credenziali SSH:
+
+        $sshCreds = get-credential
+    
+    Quando richiesto, immettere il nome utente e la password SSH. Se si desidera proteggere l'account SSH con un certificato anziché una password, usare una password vuota e impostare `$sshPublicKey` sul contenuto della chiave pubblica del certificato che si desidera usare. ad esempio:
+    
+        $sshPublicKey = Get-Content .\path\to\public.key -Raw
+    
 4. Al termine, creare il cluster:
         
-        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes
+        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
+    
+    Se si usa una chiave pubblica per proteggere l'account SSH, è necessario anche specificare `-SshPublicKey $sshPublicKey` come parametro.
 
-Quando richiesto, immettere le credenziali per il cluster. La creazione del cluster può richiedere alcuni minuti.
+La creazione del cluster può richiedere alcuni minuti.
 
 ## Usare Azione di script da HDInsight .NET SDK
 
@@ -350,7 +366,7 @@ HDInsight .NET SDK fornisce librerie client che semplificano l'uso di HDInsight 
 
 
 1. Creare un'applicazione console C# in Visual Studio.
-2. Eseguire i comandi seguenti dalla **console di Gestione pacchetti** di Nuget:
+2. Eseguire i comandi seguenti dalla **console di Gestione pacchetti** di NuGet:
 
 		Install-Package Microsoft.Azure.Common.Authentication -pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
@@ -380,7 +396,7 @@ HDInsight .NET SDK fornisce librerie client che semplificano l'uso di HDInsight 
         private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
         private const string NewClusterVersion = "3.2";
         private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-        private const OSType NewClusterOSType = OSType.Windows;
+        private const OSType NewClusterOSType = OSType.Linux;
 
         private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
         private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
@@ -515,7 +531,7 @@ Se la creazione del cluster non è riuscita a causa di un errore nell'azione di 
 
 ## Supporto per software open source usato nei cluster HDInsight
 
-Il servizio Microsoft Azure HDInsight è una piattaforma flessibile che permette di creare applicazioni Big Data nel cloud usando un ecosistema di tecnologie open source basate su Hadoop. Microsoft Azure fornisce un livello di supporto generale per le tecnologie open source, come illustrato nella sezione relativa all'**ambito del supporto** del [sito Web Domande frequenti sul supporto tecnico di Azure](http://azure.microsoft.com/support/faq/). Il servizio HDInsight fornisce un livello di supporto aggiuntivo per alcuni componenti, come illustrato di seguito.
+Il servizio Microsoft Azure HDInsight è una piattaforma flessibile che permette di creare applicazioni Big Data nel cloud usando un ecosistema di tecnologie open source basate su Hadoop. Microsoft Azure fornisce un livello di supporto generale per le tecnologie open source, come illustrato nella sezione relativa all'**ambito del supporto** del [sito Web Domande frequenti sul supporto di Azure](http://azure.microsoft.com/support/faq/). Il servizio HDInsight fornisce un livello di supporto aggiuntivo per alcuni componenti, come illustrato di seguito.
 
 Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
@@ -549,4 +565,4 @@ Per informazioni ed esempi sulla creazione e l'uso di script per personalizzare 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

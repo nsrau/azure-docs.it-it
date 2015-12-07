@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 # Come creare NSG utilizzando un modello
@@ -96,11 +96,13 @@ Il modello di esempio disponibile nel repository pubblico usa un file di paramet
 
 Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla procedura seguente.
 
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
-3. Per creare un gruppo di risorse usando il modello, eseguire il cmdlet **New-AzureRMResourceGroup**.
+3. Per creare un gruppo di risorse usando il modello, eseguire il cmdlet **New-AzureRmResourceGroup**.
 
-		New-AzureRMResourceGroup -Name TestRG -Location uswest `
+		New-AzureRmResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
 
@@ -145,7 +147,7 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure, seguire la procedura di seguito.
 
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
-2. Eseguire il comando **azure config mode** per passare alla modalità di gestione delle risorse, come illustrato di seguito.
+2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
 		azure config mode arm
 
@@ -153,7 +155,7 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 
 		info:    New mode is arm
 
-4. Eseguire il cmdlet **azure group deployment create** per distribuire la nuova rete virtuale utilizzando il modello e il parametro file scaricato e modificato in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
+4. Eseguire il cmdlet **azure group deployment create** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
@@ -174,9 +176,9 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 		data:    
 		info:    group create command OK
 
-	- **-n (o --nome)**. Nome del gruppo di risorse da creare.
-	- **-l (o --location)**. L'area di Azure in cui verrà creato il gruppo di risorse.
-	- **-f (o --template-file)**. Percorso del file di modello ARM.
-	- **-e (o --parameters-file)**. Percorso del file di parametri ARM.
+	- **-n (or --name)**. Nome del gruppo di risorse da creare.
+	- **-l (or --location)**. L'area di Azure in cui verrà creato il gruppo di risorse.
+	- **-f (or --template-file)**. Percorso del file di modello ARM.
+	- **-e (or --parameters-file)**. Percorso del file di parametri ARM.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Uso di Ricerca diagnostica in Application Insights
@@ -36,6 +36,9 @@ Ad esempio, se l'applicazione è un servizio Web, il pannello Panoramica mostra 
 Il corpo principale della Ricerca diagnostica è un elenco di elementi di telemetria: richieste del server, visualizzazioni pagina, eventi personalizzati che sono stati codificati e così via. Nella parte superiore dell'elenco è disponibile un grafico di riepilogo che mostra il numero di eventi nel tempo.
 
 Gli eventi vengono in genere visualizzati nella ricerca diagnostica prima che vengano visualizzati nell’esploratore di metriche. Anche se il pannello viene automaticamente aggiornato a intervalli, è possibile fare clic su Aggiorna se in attesa di un determinato evento.
+
+
+> [AZURE.NOTE]Se l’app genera molti dati di telemetria (e si utilizza l’SDK ASP.NET versione 2.0.0-beta3 o successive), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, in modo da rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
 
 
 ## Controllare i singoli elementi
@@ -136,7 +139,7 @@ Nuovo ritardo|o r|nuovo<br/>ritardo<br/>n* AND r*
 
 Query di esempio | Effetto 
 ---|---
-lento|Individuazione di tutti gli eventi nell'intervallo di dati i cui campi includono il termine "lento".
+lento|Individuazione di tutti gli eventi nell'intervallo di date i cui campi includono il termine "lento".
 database??|Trova la corrispondenza con database01, databaseAB,...<br/>Il punto interrogativo (?) non è consentito all'inizio di un termine di ricerca.
 database*|Trova la corrispondenza con database, database01, databaseNNNN<br/>L'asterisco (*) non è consentito all'inizio di un termine di ricerca.
 mela AND banana|Individuazione di eventi che contengono entrambi i termini. Usare "AND" in lettere maiuscole, non "and".
@@ -182,7 +185,7 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 
 ## <a name="add"></a>Passaggi successivi
 
-* [Inviare log e dati di telemetria personalizzati ad Application Insights][trace].
+* [Inviare log e dati di telemetria personalizzati ad Application Insights.][trace]
 * [Configurare i test di disponibilità e velocità di risposta][availability]
 * [Risoluzione dei problemi][qna]
 
@@ -200,4 +203,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

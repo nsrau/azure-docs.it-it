@@ -78,6 +78,9 @@ Per visualizzare questi eventi, aprire [Cerca][diagnostic], quindi Filtro e infi
 
 ![Eseguire il drill-through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
+
+> [AZURE.NOTE]Se l’app genera molti dati di telemetria, il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Gli eventi che fanno parte della stessa operazione verranno selezionati o deselezionati come gruppo, in modo da rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento.](app-insights-sampling.md)
+
 ### Come visualizzare i dati POST di una richiesta
 
 I dettagli della richiesta non includono i dati inviati all'app in una chiamata POST. Per poter ottenere questi dati:
@@ -452,4 +455,4 @@ Si noti che tale conteggio è diverso dal conteggio delle "Eccezioni" calcolato 
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

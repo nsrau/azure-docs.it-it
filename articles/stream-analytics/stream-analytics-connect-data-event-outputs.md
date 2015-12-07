@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare output di analisi di flusso | Microsoft Azure" 
+	pageTitle="Connettere output di Analisi di flusso | Microsoft Azure" 
 	description="Informazioni su come effettuare la connessione e configurare le destinazioni di output per le soluzioni di analisi di flusso." 
 	documentationCenter="" 
 	services="stream-analytics"
@@ -16,7 +16,7 @@
 	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
-# Creare output di analisi di flusso
+# Connettere le destinazioni di output di Analisi di flusso
 
 ## Informazioni sugli output di analisi di flusso ##
 ---
@@ -262,7 +262,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 - [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 
@@ -306,4 +306,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic37]: ./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png
 [graphic38]: ./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

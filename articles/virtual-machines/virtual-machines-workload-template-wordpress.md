@@ -1,6 +1,6 @@
 <properties
 	pageTitle="WordPress su Ubuntu con il modello ARM | Microsoft Azure"
-	description="Distribuire facilmente un singolo server WordPress in Ubuntu utilizzando un modello di gestione delle risorse e il portale di anteprima di Azure, Azure PowerShell o Azure CLI."
+	description="Distribuire facilmente un singolo server WordPress in Ubuntu utilizzando un modello di gestione delle risorse e il portale di anteprima di Azure, Azure PowerShell o l’interfaccia della riga di comando di Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -25,11 +25,11 @@ Utilizzare le istruzioni riportate in questo articolo per distribuire un dominio
 
 ![](./media/virtual-machines-workload-template-wordpress/one-server-wordpress.png)
 
-È possibile eseguire il modello con il portale di anteprima di Azure, Azure PowerShell o con l'interfaccia della riga di comando di Azure.
+È possibile eseguire il modello con il portale di anteprima di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## Portale di anteprima di Azure
 
-Per distribuire il carico di lavoro usando un modello di gestione risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
+Per distribuire il carico di lavoro usando un modello di gestione delle risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
 
@@ -106,4 +106,4 @@ Al termine, si disporrà di un nuovo server WordPress in Ubuntu nel gruppo di ri
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

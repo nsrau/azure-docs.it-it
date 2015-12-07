@@ -25,7 +25,7 @@ Se:
 - Si vuole spostare la sottoscrizione di Azure da una directory a un'altra.
 - Azure e Office 365 sono in tenant diversi e si vogliono consolidare.
 
-Ora è possibile eseguire facilmente queste operazioni nel Centro account di Microsoft Azure per le sottoscrizioni MSDN o con pagamento in base al consumo. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, ora è possibile modificare l'amministratore dell'account in qualsiasi sottoscrizione MSDN o con pagamento in base al consumo di cui si è proprietari, indipendentemente dal paese in cui si opera.
+Ora è possibile eseguire facilmente queste operazioni nel Centro account di Microsoft Azure per le sottoscrizioni con pagamento in base al consumo, MSDN, Action Pack o BizSpark. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, ora è possibile modificare l'amministratore dell'account in qualsiasi sottoscrizione con pagamento in base al consumo, MSDN, Action Pack o BizSpark di cui si è proprietari, indipendentemente dal paese in cui si opera.
 
 ## Come trasferire una sottoscrizione di Azure
 
@@ -71,7 +71,7 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
     L'elenco non è completo. Il destinatario dovrà prendere in considerazione l'aggiornamento degli eventuali segreti associati al servizio se deve limitare l'accesso alle proprie risorse. La maggior parte delle risorse può essere aggiornata come segue:
 
-    1.   Accedere al portale di Azure: [**https://portal.azure.com*](https://portal.azure.com)
+    1.   Accedere al portale di Azure: [*https://portal.azure.com*](https://portal.azure.com)
 
     2.    Fare clic su Esplora tutto -&gt; Tutte le risorse
 
@@ -111,4 +111,4 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 4. Aggiornare gli avvisi di fatturazione per questa sottoscrizione, nel [Centro Account Azure](https://account.windowsazure.com/Subscriptions) [Ulteriori informazioni](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se si lavora con un partner, è consigliabile aggiornare l'ID partner alla sottoscrizione. È possibile farlo nel [Centro Account di Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

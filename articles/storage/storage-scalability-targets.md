@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/27/2015"
+   ms.date="11/17/2015"
    ms.author="tamram" />
 
 # Obiettivi di scalabilità e prestazioni per Archiviazione di Azure
+
+## Panoramica
 
 In questo argomento vengono descritti gli obiettivi di scalabilità e prestazioni per Archiviazione di Microsoft Azure. Per un riepilogo degli altri limiti di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
@@ -29,15 +31,26 @@ In questo argomento vengono descritti gli obiettivi di scalabilità e prestazion
 
 Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, è possibile compilare l'applicazione in modo che sia possibile usare più account di archiviazione e partizionare i dati tra gli account. Vedere i [dettagli sui prezzi di Archiviazione](http://azure.microsoft.com/pricing/details/storage/) per informazioni sui prezzi in base al volume.
 
-## Obiettivi di scalabilità per account di archiviazione standard
+
+## Obiettivi di scalabilità per BLOB, code, tabelle e file
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## Obiettivi di scalabilità per gli account di Archiviazione Premium
+## Obiettivi di scalabilità per i dischi della macchina virtuale 
 
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../../includes/azure-storage-limits-premium-storage.md)]
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-## Limiti relativi al servizio di archiviazione - Gestione risorse di Azure
+Vedere [Dimensioni della macchina virtuale](../virtual-machines/virtual-machines-size-specs.md) per altri dettagli.
+
+### Account di archiviazione standard
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
+
+### Account di archiviazione premium
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
+
+## Obiettivi di scalabilità per Gestione risorse di Azure
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -72,8 +85,4 @@ Le partizioni influiscono sul bilanciamento del carico e sulla scalabilità per 
 - [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](storage-performance-checklist.md)
 - [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

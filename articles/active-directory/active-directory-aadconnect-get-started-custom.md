@@ -98,7 +98,7 @@ Attributo personale|Questa opzione consente di selezionare un attributo personal
 
 - **UserPrincipalName**: l’attributo userPrincipalName è l’attributo che gli utenti utilizzeranno quando effettuano l’accesso ad Azure AD e Office 365. I domini utilizzati, noti anche come suffisso UPN, devono essere verificati in Azure AD prima che gli utenti vengano sincronizzati. Si consiglia di mantenere l'attributo userPrincipalName predefinito. Se questo attributo è non instradabile e non può essere verificato, è possibile selezionare un altro attributo, ad esempio posta elettronica, come attributo che contiene l'ID di accesso. Questo attributo è noto come **ID alternativo**. Il valore dell'attributo ID alternativo deve essere conforme allo standard RFC822. È possibile usare un ID alternativo sia con una soluzione di accesso Single Sign-On tramite password che Single Sign-On federativo.
 
->[AZURE.WARNING]L'uso di un ID alternativo non è compatibile con tutti i carichi di lavoro di Office 365. Per altre informazioni, vedere [Configurazione dell'ID di accesso alternativo](https://technet.microsoft.com/library/dn659436.aspx.).
+>[AZURE.WARNING]L'uso di un ID alternativo non è compatibile con tutti i carichi di lavoro di Office 365. Per altre informazioni, vedere [Configurazione dell'ID di accesso alternativo](https://technet.microsoft.com/library/dn659436.aspx).
 
 
 
@@ -246,4 +246,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

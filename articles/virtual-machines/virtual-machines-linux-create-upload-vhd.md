@@ -33,7 +33,7 @@ Quando si crea una macchina virtuale, è possibile personalizzare le impostazion
 **Importante**: il contratto di servizio della piattaforma Azure si applica alle macchine virtuali che eseguono il sistema operativo Linux solo quando una distribuzione approvata viene usata con i dettagli di configurazione specificati in 'Versioni supportate' in [Linux in Azure - Distribuzioni supportate](virtual-machines-../linux-endorsed-distributions.md). Tutte le distribuzioni di Linux disponibili nella raccolta immagini di Azure sono distribuzioni approvate con la configurazione richiesta.
 
 
-##Prerequisiti##
+## Prerequisiti
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
 - **Un certificato di gestione**: l'utente deve avere creato un certificato di gestione per la sottoscrizione per cui si desidera caricare un file VHD e avere esportato il certificato in un file con estensione cer. Per altre informazioni sulla creazione di certificati, vedere [Panoramica dei certificati per Azure](../cloud-services/cloud-services-certs-create.md).
@@ -156,7 +156,7 @@ Utilizzare l’interfaccia della riga di comando di Azure per caricare l'immagin
 
 È necessario per caricare un account di archiviazione in cui caricare il file VHD. È possibile sceglierne uno esistente o crearne uno nuovo. Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../storage-create-storage-account.md)
 
-È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archiviazione BLOB. Negli esempi di comandi seguenti, **BlobStorageURL** è l'URL per l'account di archiviazione che si intende utilizzare e **YourImagesFolder** è il contenitore all'interno dell'archiviazione BLOB in cui si desidera archiviare le immagini. **VHDName** è l'etichetta che identifica il disco rigido virtuale visualizzata nel [portale di gestione](http://manage.windowsazure.com). **PathToVHDFile** è il percorso completo e il nome del file VHD.
+È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archiviazione BLOB. Negli esempi di comandi seguenti, **BlobStorageURL** è l'URL per l'account di archiviazione che si intende utilizzare e **YourImagesFolder** è il contenitore all'interno dell'archiviazione BLOB in cui si desidera archiviare le immagini. **VHDName** è l'etichetta che identifica il disco rigido virtuale visualizzata nel [portale di Azure](http://manage.windowsazure.com). **PathToVHDFile** è il percorso completo e il nome del file VHD.
 
 Nella finestra di Azure PowerShell utilizzata nel passaggio precedente, digitare:
 
@@ -171,4 +171,4 @@ Per ulteriori informazioni, vedere [Add-AzureVhd](https://msdn.microsoft.com/lib
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

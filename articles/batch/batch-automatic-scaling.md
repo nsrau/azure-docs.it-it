@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="08/26/2015"
-	ms.author="davidmu"/>
+	ms.date="11/18/2015"
+	ms.author="davidmu;marsma"/>
 
 # Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch
 
-Il ridimensionamento automatico dei nodi di calcolo in un pool di Azure Batch è una regolazione dinamica della potenza di elaborazione usata dall'applicazione. Tale semplicità di regolazione consente di risparmiare tempo e denaro. Per altre informazioni sui nodi di calcolo e i pool, vedere [Panoramica tecnica di Azure Batch](batch-technical-overview.md).
+Il ridimensionamento automatico dei nodi di calcolo in un pool di Azure Batch è una regolazione dinamica della potenza di elaborazione usata dall'applicazione. Tale semplicità di regolazione consente di risparmiare tempo e denaro. Per altre informazioni sui nodi di calcolo e i pool, vedere [Nozioni di base su Azure Batch](batch-technical-overview.md).
 
 Il ridimensionamento automatico viene applicato quando è abilitato per un pool e al pool è associata una formula. La formula viene usata per determinare il numero di nodi di calcolo necessari per elaborare l'applicazione. Agisce sui campioni raccolti periodicamente e il numero dei nodi di calcolo disponibili nel pool viene regolato ogni 15 minuti in base alla formula associata.
 
@@ -334,17 +334,17 @@ Queste **funzioni** predefinite sono disponibili per definire una formula di rid
   </tr>
 </table>
 
-Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco delimitato da virgole è qualsiasi combinazione di *double* e *doubleVec*. Ad esempio:
+Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco delimitato da virgole è qualsiasi combinazione di *double* e *doubleVec*. ad esempio:
 
-	doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?
+`doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-Il valore *doubleVecList* viene convertito in un singolo valore *doubleVec* prima della valutazione. Ad esempio, se v = [1,2,3], la chiamata di avg(v) equivale alla chiamata di avg(1,2,3) e la chiamata di avg(v, 7) equivale alla chiamata di avg(1,2,3,7).
+Il valore *doubleVecList* viene convertito in un singolo valore *doubleVec* prima della valutazione. Ad esempio, se `v = [1,2,3]`, la chiamata di `avg(v)` equivale alla chiamata di `avg(1,2,3)` e la chiamata di `avg(v, 7)` equivale alla chiamata di `avg(1,2,3,7)`.
 
 ### Ottenere i dati dei campioni
 
 Le variabili definite dal sistema descritte in precedenza sono oggetti che forniscono metodi per accedere ai dati associati. Ad esempio, l'espressione seguente mostra una richiesta per recuperare gli ultimi 5 minuti di utilizzo della CPU:
 
-	$CPUPercent.GetSample(TimeInterval_Minute*5)
+`$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
 Questi metodi possono essere usati per ottenere i dati campione.
 
@@ -359,15 +359,17 @@ Questi metodi possono essere usati per ottenere i dati campione.
   </tr>
   <tr>
     <td>GetSample()</td>
-    <td><p>Restituisce un vettore dei campioni di dati. Ad esempio:</p>
+    <td><p>Restituisce un vettore dei campioni di dati.
+	<p>Un campione rappresenta 30 secondi di dati di metrica. In altre parole i campioni vengono raccolti ogni 30 secondi ma, come indicato di seguito, si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. Di conseguenza, i campioni per un determinato periodo di tempo potrebbero non essere tutti disponibili per la valutazione da parte di una formula.
         <ul>
-          <li><p><b>doubleVec GetSample(double count)</b>: specifica il numero di campioni richiesti dai campioni più recenti.</p>
-				  <p>Un campione rappresenta 5 secondi di dati di metrica. GetSample(1) restituisce l'ultimo campione disponibile, ma per le metriche come $CPUPercent non è consigliabile usarlo perché non è possibile sapere quando è stato raccolto il campione. Potrebbe essere recente o a causa di problemi di sistema, potrebbe essere molto meno recente. È preferibile usare un intervallo di tempo, come illustrato di seguito.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>: specifica un intervallo di tempo per la raccolta di dati campione e facoltativamente specifica la percentuale di campioni che deve essere compresa nell'intervallo richiesto.</p>
-          <p>$CPUPercent.GetSample(TimeInterval\_Minute*10) dovrebbe restituire 200 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi dieci minuti. Se l'ultimo minuto di cronologia non è ancora presente, vengono restituiti solo 180 campioni.</p>
-					<p>$CPUPercent.GetSample(TimeInterval\_Minute*10, 80) ha esisto positivo e $CPUPercent.GetSample(TimeInterval_Minute*10,95) ha esito negativo.</p></li>
+          <li><p><b>doubleVec GetSample(double count)</b>: specifica il numero di campioni da ottenere tra quelli più recenti.</p>
+				  <p>GetSample (1) restituisce l'ultimo campione disponibile. Per le metriche come $CPUPercent, tuttavia, non deve essere usato perché non è possibile sapere <em>quando</em> è stato raccolto il campione: potrebbe essere recente o risultare molto meno recente a causa di problemi di sistema. In questi casi è preferibile usare un intervallo di tempo, come illustrato di seguito.</p></li>
+          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>: specifica un intervallo di tempo per la raccolta di dati campione e facoltativamente specifica la percentuale di campioni che deve essere disponibile nell'intervallo di tempo richiesto.</p>
+          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> restituisce 20 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi dieci minuti. Se l'ultimo minuto di cronologia non è disponibile, tuttavia, vengono restituiti solo 18 esempi. In tal caso:<br/>
+		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> non riesce perché è disponibile solo il 90% dei campioni;<br/>
+		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> ha esito positivo.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>: specifica un intervallo di tempo per la raccolta di dati con un'ora di inizio e un'ora di fine.</p></li></ul>
-		  <p>Si noti che si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui questo è disponibile per una formula. È necessario tenere conto di questo aspetto quando si usa il metodo GetSample (vedere GetSamplePercent di seguito).</td>
+		  <p>Come indicato in precedenza, si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. Quando si usa il metodo <em>GetSample</em> descritto di seguito, è necessario tenere conto di ciò. Vedere <em>GetSamplePercent</em> di seguito.</td>
   </tr>
   <tr>
     <td>GetSamplePeriod()</td>
@@ -463,7 +465,7 @@ Per abilitare il ridimensionamento automatico durante la creazione di un pool, u
 
 > [AZURE.NOTE]Se si imposta il ridimensionamento automatico quando il pool viene creato con le risorse sopra indicate, il parametro *targetDedicated* per il pool non viene usato (e non deve essere usato). Si noti anche che per ridimensionare manualmente un pool abilitato per il ridimensionamento automatico, ad esempio con [BatchClient.PoolOperations.ResizePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.resizepool.aspx), è prima necessario disabilitare il ridimensionamento automatico nel pool e quindi ridimensionarlo.
 
-Il frammento di codice seguente illustra la creazione di un oggetto [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) abilitato per il ridimensionamento automatico usando la libreria [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) la cui formula imposta il numero di destinazione dei nodi su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. Nel frammento di codice "myBatchClient" è un'istanza correttamente inizializzata di [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx):
+Il frammento di codice seguente illustra la creazione di un oggetto [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) abilitato per il ridimensionamento automatico usando la libreria [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) la cui formula imposta il numero di destinazione dei nodi su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. Nel frammento di codice, "myBatchClient" è un'istanza correttamente inizializzata di [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx):
 
 		CloudPool pool myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
 		pool.AutoScaleEnabled = true;
@@ -475,11 +477,11 @@ Il frammento di codice seguente illustra la creazione di un oggetto [CloudPool](
 Se è già stato configurato un pool con un numero specificato di nodi di calcolo usando il parametro *targetDedicated*, è possibile aggiornare il pool esistente in un secondo momento per il ridimensionamento automatico. Questa operazione può essere eseguita in uno dei modi seguenti:
 
 - [BatchClient.PoolOperations.EnableAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.enableautoscale.aspx): questo metodo .NET richiede l'ID di un pool esistente e la formula di ridimensionamento automatico da applicare al pool.
-- [Abilitare il ridimensionamento automatico in un pool](https://msdn.microsoft.com/library/azure/dn820173.aspx): questa richiesta dell'API REST richiede il nome del pool esistente nell'URI e la formula di ridimensionamento automatico nel corpo della richiesta.
+- [Abilitare il ridimensionamento automatico in un pool](https://msdn.microsoft.com/library/azure/dn820173.aspx): questa richiesta dell'API REST richiede l'ID del pool esistente nell'URI e la formula di ridimensionamento automatico nel corpo della richiesta.
 
 > [AZURE.NOTE]Se è stato specificato un valore per il parametro *targetDedicated* durante la creazione del pool, questo verrà ignorato quando viene valutata la formula di ridimensionamento automatico.
 
-Questo frammento di codice illustra come abilitare il ridimensionamento automatico in un pool esistente tramite la libreria [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx). Si noti che per l'abilitazione e l'aggiornamento della formula in un pool esistente viene usato lo stesso metodo. Di conseguenza, se il ridimensionamento automatico è già stato abilitato, questa tecnica *aggiornerà* la formula nel pool specificato. Questo frammento di codice presume che "myBatchClient" sia un'istanza inizializzata correttamente di [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx) e che "mypool" sia l'ID di un oggetto [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) esistente.
+Questo frammento di codice illustra come abilitare il ridimensionamento automatico in un pool esistente con la libreria [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx). Si noti che per l'abilitazione e l'aggiornamento della formula in un pool esistente viene usato lo stesso metodo. Di conseguenza, se il ridimensionamento automatico è già stato abilitato, questa tecnica *aggiornerà* la formula nel pool specificato. Questo frammento di codice presume che "myBatchClient" sia un'istanza inizializzata correttamente di [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx) e che "mypool" sia l'ID di un oggetto [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) esistente.
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week
@@ -599,17 +601,43 @@ In questo esempio le dimensioni del pool vengono regolate in base al numero di a
 		// Keep the nodes active until the tasks finish
 		$NodeDeallocationOption = taskcompletion;
 
+### Esempio 4
+
+Questo esempio illustra una formula di ridimensionamento automatico che imposta la dimensione del pool su un certo numero di nodi per un periodo di tempo iniziale, quindi modifica la dimensione del pool in base al numero di attività attive e in esecuzione dopo il periodo di tempo iniziale.
+
+```
+string now = DateTime.UtcNow.ToString("r");
+string formula = string.Format(@"
+
+	$TargetDedicated = {1};
+	lifespan         = time() - time(""{0}"");
+	span             = TimeInterval_Minute * 60;
+	startup          = TimeInterval_Minute * 10;
+	ratio            = 50;
+
+	$TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+	", now, 4);
+```
+
+La formula nel frammento di codice precedente ha le caratteristiche seguenti:
+
+- Imposta la dimensione iniziale del pool su 4 nodi
+- Non modifica la dimensione del pool nei primi 10 minuti del ciclo di vita del pool
+- Dopo 10 minuti, ottiene il valore massimo del numero di attività attive e in esecuzione negli ultimi 60 minuti
+  - Se entrambi i valori sono 0 (nessuna attività attiva o in esecuzione negli ultimi 60 minuti), la dimensione del pool viene impostata su 0
+  - Se uno dei valori è maggiore di zero, non viene apportata alcuna modifica
+
 ## Passaggi successivi
 
 1. Potrebbe essere necessario accedere al nodo di calcolo per poter valutare completamente l'efficienza dell'applicazione. Per sfruttare i vantaggi dell'accesso remoto, è necessario aggiungere un account utente al nodo di calcolo a cui si vuole accedere e recuperare un file RDP per tale nodo.
     - Aggiungere l'account utente in uno dei modi seguenti:
         * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx): questo cmdlet di PowerShell accetta il nome del pool, il nome del nodo di calcolo, il nome dell'account e la password come parametri.
         * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx): questo metodo .NET crea un'istanza della classe [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx) in cui è possibile impostare il nome dell'account e la password per il nodo di calcolo, quindi viene chiamato il metodo [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx) sull'istanza per creare l'utente in quel nodo.
-        * [Aggiungere un account utente a un nodo](https://msdn.microsoft.com/library/dn820137.aspx): il nome del pool del nodo di calcolo vengono specificati nell'URI e il nome dell'account e la password vengono inviati al nodo nel corpo della richiesta di questa API REST.
+        * [Aggiungere un account utente a un nodo](https://msdn.microsoft.com/library/dn820137.aspx): il nome del pool del nodo di calcolo vengono specificati nell'URI e il nome dell'account e la password vengono inviati al nodo nel corpo di questa richiesta dell'API REST.
     - Recuperare il file RDP:
         * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx): questo metodo .NET richiede l'ID del pool, l'ID del nodo e il nome del file RDP da creare.
         * [Recuperare un file RDP (Remote Desktop Protocol) da un nodo](https://msdn.microsoft.com/library/dn820120.aspx): questa richiesta dell'API REST richiede il nome del pool e il nome del nodo di calcolo. La risposta include il contenuto del file RDP.
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): questo cmdlet di PowerShell recupera il file RDP dal nodo di calcolo specificato e lo salva nel percorso di file specificato oppure in un flusso.
-2.	Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di tipo elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere il problema.
+2.	Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

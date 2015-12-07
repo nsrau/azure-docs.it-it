@@ -48,7 +48,7 @@ Per usare Azure AD per autenticare le richieste a Gestione risorse di Azure, è 
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Annotare l'identificatore dell’applicazione che viene restituito dopo che l'applicazione viene creata perché sarà necessario per il passaggio successivo. L'identificatore dell'applicazione è disponibile anche nel campo ID client dell'applicazione nella sezione Active Directory del portale.
+	>[AZURE.NOTE]Annotare l'identificatore dell’applicazione che viene restituito dopo che l'applicazione viene creata perché sarà necessario per il passaggio successivo. L'identificatore dell'applicazione è disponibile anche nel campo ID client dell'applicazione nella sezione Active Directory del portale di anteprima di Azure.
 
 3. Sostituire {application-id} con l'identificatore appena registrato, quindi creare l'entità servizio per l'applicazione:
 
@@ -384,4 +384,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

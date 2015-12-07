@@ -18,7 +18,8 @@
 
 # Come usare il client gestito per App per dispositivi mobili di Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-libbra](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-libbra](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -255,7 +256,12 @@ Nel codice seguente viene illustrato come aggiornare con nuove informazioni un'i
 
 	await todoTable.UpdateAsync(todoItem);
 
-Per inserire dati non tipizzati è possibile sfruttare Json.NET come segue: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+Per inserire dati non tipizzati è possibile sfruttare Json.NET come segue:
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Hello World");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 Si noti che quando si effettua un aggiornamento, è necessario specificare un ID. Questo è il modo in cui il back-end identifica l'istanza da aggiornare. È possibile ottenere l'ID dal risultato della chiamata `InsertAsync`. Quando si tenta di aggiornare un elemento senza fornire il valore "Id", un `ArgumentException` viene generato.
 
@@ -307,7 +313,7 @@ Si noti che in questo esempio due tag sono inclusi con la registrazione. Per alt
 <!--- Remove until Xamarin.Android push is supported.
 Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
->[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
+>[AZURE.NOTE] Quando è necessario inviare notifiche a specifici utenti registrati, è importante richiedere l'autenticazione prima della registrazione e quindi verificare che l'utente sia autorizzato a registrarsi con un tag specifico. È necessario ad esempio assicurarsi che un utente non si registri con un tag che è l'ID di un altro utente. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 >-->
 
 ## Procedura: registrare modelli push per inviare notifiche multipiattaforma
@@ -343,13 +349,15 @@ Il metodo **RegisterAsync()** accetta inoltre riquadri secondari:
 
         MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
 
+Si noti che tutti i tag verranno eliminati immediatamente per la sicurezza. Per aggiungere tag all’istallazione o modelli all’interno di istallazioni, vedere [Lavorare con l’SDK del server back-end .NET per App per dispositivi mobili di Azure].
+
 Per inviare notifiche utilizzando questi modelli registrati, utilizzare le [API di Hub di notifica](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
 ##<a name="optimisticconcurrency"></a>Procedura: Usare la concorrenza ottimistica
 
 In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. Il *controllo della concorrenza ottimistica* presuppone che per ogni transazione sia possibile eseguire il commit, quindi non procede al blocco delle risorse. Prima di effettuare il commit di una transazione, il controllo della concorrenza ottimistica verifica che i dati non siano stati modificati da un'altra transazione. Se i dati sono stati modificati, verrà eseguito il rollback di tale transazione.
 
-App per dispositivi mobili supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, usando la colonna di proprietà di sistema `__version` definita per ogni tabella nel back-end di App per dispositivi mobili. Ogni volta che un record viene aggiornato, App per dispositivi mobili imposta la proprietà `__version` per quel record su un nuovo valore. Durante ogni richiesta di aggiornamento, la proprietà `__version` del record inclusa nella richiesta viene confrontata con la stessa proprietà relativa al record sul server. Se la versione passata con la richiesta non corrisponde a quella del back-end, la libreria client genera un'eccezione `MobileServicePreconditionFailedException<T>`. Il tipo incluso nell'eccezione corrisponde al record del back-end e contiene la versione del record presente sul server. L'applicazione può quindi usare questa informazione per decidere se eseguire nuovamente la richiesta di aggiornamento con il valore `__version` corretto dal back-end per effettuare il commit delle modifiche.
+App per dispositivi mobili supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, usando la colonna di proprietà di sistema `__version` definita per ogni tabella nel back-end di App per dispositivi mobili. Ogni volta che un record viene aggiornato, App per dispositivi mobili imposta la proprietà `__version` per quel record su un nuovo valore. Durante ogni richiesta di aggiornamento, la proprietà `__version` del record inclusa nella richiesta viene confrontata con la stessa proprietà relativa al record sul server. Se la versione passata con la richiesta non corrisponde a quella del back-end, la libreria client genera una `MobileServicePreconditionFailedException<T>`. Il tipo incluso nell'eccezione corrisponde al record del back-end e contiene la versione del record presente sul server. L'applicazione può quindi usare questa informazione per decidere se eseguire nuovamente la richiesta di aggiornamento con il valore `__version` corretto dal back-end per effettuare il commit delle modifiche.
 
 Per abilitare la concorrenza ottimistica, l'applicazione definisce una colonna sulla classe di tabella per la proprietà di sistema `__version`. La definizione seguente ne è un esempio.
 
@@ -722,6 +730,7 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 
 <!-- URLs. -->
 [Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
+[Lavorare con l’SDK del server back-end .NET per App per dispositivi mobili di Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [LoginAsync method]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
@@ -741,4 +750,4 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

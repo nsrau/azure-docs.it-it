@@ -3,9 +3,9 @@
 	description="Esercitazione che illustra l'uso di socket.io in un'applicazione Web node.js ospitata in Azure."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
 
 # Creare un'applicazione di chat Node.js con Socket.IO nel servizio app di Azure
 
-Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client usando WebSocket. Supporta inoltre il fallback in altri tipi di trasporto (ad esempio il polling prolungato) che funzionano con browser precedenti. In questa esercitazione verrà illustrato l'hosting di un'applicazione di chat basata su Socket.IO come sito Web di Azure e verrà indicato come applicare la [scalabilità](#scale-out) alle app utilizzando [Cache Redis di Azure](http://azure.microsoft.com/documentation/services/cache). Per altre informazioni su Socket.IO, vedere [http://socket.io/][socketio].
+Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client usando WebSocket. Supporta inoltre il fallback in altri tipi di trasporto (ad esempio il polling prolungato) che funzionano con browser precedenti. In questa esercitazione verrà illustrato l'hosting di un'applicazione di chat basata su Socket.IO come sito Web di Azure e verrà indicato come applicare la [scalabilità](#scale-out) alle app utilizzando [Cache Redis di Azure](/documentation/services/cache). Per altre informazioni su Socket.IO, vedere [http://socket.io/][socketio].
 
 > [AZURE.NOTE]Le procedure descritte in questa attività si applicano ad [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). Per Servizi cloud, vedere <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Creare un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure</a>.
 
@@ -33,7 +33,7 @@ Per questo progetto, verrà utilizzato l'esempio di chat dell'[archivio GitHub S
 1.  Scaricare una [versione archiviata ZIP o GZ][release] del progetto Socket.IO (per questo documento è stata usata la versione 1.3.5)
 
 
-3.  Estrarre l'archivio e copiare la directory **examples\\chat** in una nuova posizione. Ad esempio, **\\node\\chat**.
+3.  Estrarre l'archivio e copiare la directory **examples\\\chat** in una nuova posizione. Ad esempio, **\\node\\chat**.
 
 ## Modificare app.js e installare i moduli
 
@@ -57,7 +57,7 @@ Per questo progetto, verrà utilizzato l'esempio di chat dell'[archivio GitHub S
 		  "socket.io": "1.3.5"
 		}
 
-4. Dalla riga di comando passare alla directory **\\node\\chat** e utilizzare npm per installare i moduli necessari per questa applicazione:
+4. Dalla riga di comando passare alla directory **\\\node\\\chat** e utilizzare npm per installare i moduli necessari per questa applicazione:
 
         npm install
 
@@ -119,7 +119,7 @@ Le applicazioni Socket.IO possono essere scalate usando un __adattatore__ per di
 
 ###Creare una cache Redis
 
-Eseguire la procedura descritta in [Creare una cache in Cache Redis di Azure](https://azure.microsoft.com/it-IT/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) per creare una nuova cache.
+Eseguire la procedura descritta in [Creare una cache in Cache Redis di Azure](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) per creare una nuova cache.
 
 > [AZURE.NOTE]Salvare il __Nome host__ e la __Chiave primaria__ per la cache in quanto saranno necessari nei passaggi successivi.
 
@@ -285,4 +285,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

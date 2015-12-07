@@ -2,11 +2,11 @@
 
 Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla procedura seguente.
 
-1. Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione preferita.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
-3. Se necessario, eseguire il cmdlet **New-AzureRMResourceGroup** per creare un nuovo gruppo di risorse. Il comando seguente consente di creare un gruppo di risorse denominato *TestRG* nell'area di Azure *Stati Uniti centrali*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
+3. Se necessario, eseguire il cmdlet **New-AzureRmResourceGroup** per creare un nuovo gruppo di risorse. Il comando seguente consente di creare un gruppo di risorse denominato *TestRG* nell'area di Azure *Stati Uniti centrali*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
 
-		New-AzureRMResourceGroup -Name TestRG -Location centralus
+		New-AzureRmResourceGroup -Name TestRG -Location centralus
 		
 	Di seguito è riportato l'output previsto per il comando precedente:
 
@@ -20,9 +20,9 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		                    *
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-4. Eseguire il cmdlet **New-AzureRMResourceGroupDeployment** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza.
+4. Eseguire il cmdlet **New-AzureRmResourceGroupDeployment** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza.
 
-		New-AzureRMResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
+		New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 			
 	Di seguito è riportato l'output previsto per il comando precedente:
@@ -46,10 +46,10 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		
 		Outputs           :
 
-5. Eseguire il comando **Get-AzureRMVirtualNetwork** per visualizzare le proprietà della nuova rete virtuale, come illustrato di seguito.
+5. Eseguire il comando **Get-AzureRmVirtualNetwork** per visualizzare le proprietà della nuova rete virtuale, come illustrato di seguito.
 
 
-		Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
 	Di seguito è riportato l'output previsto per il comando precedente:
 		
@@ -92,4 +92,4 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		                      }
 		                    ]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

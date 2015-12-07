@@ -62,8 +62,10 @@ I database SQL di Azure Basic, Standard e Premium vengono fatturati su base orar
 
 [Database SQL di Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
+[Prezzi Web e Business](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
+
 [Livelli di servizio](sql-database-service-tiers.md)
 
 [Aggiornare le edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

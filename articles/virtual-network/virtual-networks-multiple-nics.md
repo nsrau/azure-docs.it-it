@@ -64,7 +64,7 @@ Attualmente, la funzionalità Multi-NIC presenta i requisiti e i vincoli seguent
 |D11|2|
 |D12|4|
 |D13|8|
-|D14|16|
+|D14|8|
 |DS1|1|
 |DS2|2|
 |DS3|4|
@@ -81,12 +81,12 @@ Attualmente, la funzionalità Multi-NIC presenta i requisiti e i vincoli seguent
 |D11\_v2|2|
 |D12\_v2|4|
 |D13\_v2|8|
-|D14\_v2|16|
+|D14\_v2|8|
 |G1|1|
 |G2|2|
 |G3|4|
 |G4|8|
-|G5|16|
+|G5|8|
 |Tutte le altre dimensioni|1|
 
 ## Gruppi di sicurezza di rete (NGS)
@@ -265,4 +265,4 @@ Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento pre
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione di Gestione risorse](virtual-network-deploy-multinic-arm-template).
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione classica](virtual-network-deploy-multinic-classic-ps).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

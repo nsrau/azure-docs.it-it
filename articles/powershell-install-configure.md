@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/24/2015"
 	ms.author="coreyp"/>
 
 # Come installare e configurare Azure PowerShell#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Interfaccia della riga di comando di Azure">Interfaccia della riga di comando di Azure</a></div>
-
-> [AZURE.NOTE]**Anteprima di Azure PowerShell 1.0** è ora disponibile nella [PowerShell Gallery](http://www.powershellgallery.com/). Esistono molte modifiche in questa anteprima e si desidera utilizzarla per raccogliere commenti e suggerimenti, che verranno incorporati in Azure PowerShell 1.0. **Questa anteprima non viene utilizzata per applicazioni di importanza strategica**. Se si eseguono tali applicazioni, continuare a utilizzare Azure PowerShell 0.9.8. Se si desidera utilizzare Anteprima 1.0 , è possibile disinstallarla in qualsiasi momento e tornare a 0.9.8. Per istruzioni complete sull'installazione, vedere questo [post di blog](https://azure.microsoft.com/it-IT/blog/azps-1-0-pre/).
 
 È possibile usare Windows PowerShell per eseguire numerose attività in Azure, sia in modo interattivo al prompt dei comandi che in modo automatico tramite script. Azure PowerShell è un modulo che offre i cmdlet per gestire Azure tramite Windows PowerShell. È possibile utilizzare i cmdlet per creare, testare, distribuire e gestire soluzioni e servizi offerti tramite la piattaforma Azure. Nella maggior parte dei casi è possibile usarli per eseguire le stesse attività eseguibili tramite il portale di gestione di Azure. È ad esempio possibile creare e configurare servizi cloud, macchine virtuali, reti virtuali e app Web.
 
@@ -43,7 +41,7 @@ Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione 
 
 > [AZURE.NOTE]Se si desidera solo scaricare il programma di installazione di PowerShell, visitare https://github.com/Azure/azure-powershell/releases. In questo repository è anche disponibile il codice per i cmdlet di PowerShell
 
-Per ulteriori informazioni sugli strumenti da riga di comando disponibili per Azure, vedere la sezione relativa agli [strumenti da riga di comando](http://go.microsoft.com/fwlink/?LinkId=320796).
+Per altre informazioni sugli strumenti da riga di comando disponibili per Azure, vedere la sezione relativa agli [strumenti da riga di comando](http://go.microsoft.com/fwlink/?LinkId=320796).
 
 Con il modulo viene installata anche una console personalizzata per Azure PowerShell. È possibile eseguire i cmdlet dalla console standard di Windows PowerShell o da quella di Azure PowerShell.
 
@@ -65,7 +63,7 @@ Per scegliere facilmente il metodo di autenticazione più adatto alle proprie es
 - Azure AD è il metodo di autenticazione consigliato in quanto semplifica la gestione dell'accesso a una sottoscrizione. Con l'aggiornamento della versione 0.8.6, rende possibile lo scenario di automazione con l'autenticazione di Azure AD anche se viene usato un account aziendale o dell'istituto di istruzione e può essere usato anche con l'API di Gestione risorse di Azure.
 - Quando si utilizza il metodo basato sul certificato, le informazioni della sottoscrizione rimangono disponibili finché la sottoscrizione e il certificato sono validi. Con questo metodo, tuttavia, diventa più difficile gestire l'accesso a una sottoscrizione condivisa, ad esempio quando più persone sono autorizzate ad accedere all'account. Inoltre, l'API di Gestione risorse di Azure non accetta l'autenticazione del certificato.
 
-Per ulteriori informazioni su autenticazione e gestione delle sottoscrizioni in Azure, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](http://go.microsoft.com/fwlink/?LinkId=324796).
+Per altre informazioni su autenticazione e gestione delle sottoscrizioni in Azure, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](http://go.microsoft.com/fwlink/?LinkId=324796).
 
 ### Usare il metodo basato su Azure AD
 
@@ -90,13 +88,13 @@ Per ulteriori informazioni su autenticazione e gestione delle sottoscrizioni in 
 	>
 	> 1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com) e fare clic su **Active Directory**.
 	>
-	> 2. Se non esiste alcuna directory, selezionare **Create your directory** e specificare le informazioni richieste.
+	> 2. Se non esiste alcuna directory, selezionare **Crea nuova directory** e specificare le informazioni richieste.
 	>
 	> 3. Selezionare la directory e aggiungere un nuovo utente. Il nuovo utente può accedere usando un account aziendale o dell'istituto di istruzione.
 	>
 	>     Durante la creazione dell'utente, verranno forniti un indirizzo di posta elettronica e una password provvisoria. Salvare queste informazioni perché verranno utilizzate in un altro passaggio.
 	>
-	> 4. Nel portale di gestione selezionare **Settings** e quindi **Administrators**. Selezionare **Add** e aggiungere il nuovo utente come co-amministratore. In questo modo l'account aziendale o dell'istituto di istruzione può gestire la sottoscrizione di Azure.
+	> 4. Nel portale di gestione selezionare **Impostazioni** e quindi **Amministratori**. Selezionare **Aggiungi** e aggiungere il nuovo utente come co-amministratore. In questo modo l'account aziendale o dell'istituto di istruzione può gestire la sottoscrizione di Azure.
 	>
 	> 5. Infine, disconnettersi dal portale di Azure e ripetere l'accesso con il nuovo account aziendale o dell'istituto di istruzione. La prima volta che si accede con questo account verrà richiesto di cambiare la password.
 	>
@@ -113,7 +111,7 @@ Il modulo Azure include cmdlet che consentono di scaricare e importare il certif
 
 - Il cmdlet **Import-AzurePublishSettingsFile** consente invece di importare il file .publishsettings che verrà utilizzato dal modulo. Tale file include un certificato di gestione con le credenziali di sicurezza.
 
-> [AZURE.IMPORTANT]Dopo aver importato le impostazioni, è consigliabile eliminare il profilo di pubblicazione scaricato tramite <b>Get-AzurePublishSettingsFile</b>. Il certificato di gestione include le credenziali di sicurezza, pertanto è consigliabile impedirne l'accesso a utenti non autorizzati. Ulteriori informazioni sulle sottoscrizioni sono disponibili nel [portale di gestione di Azure](http://manage.windowsazure.com/) o nel [Portale per i clienti dei Microsoft Online Services](http://go.microsoft.com/fwlink/p/?LinkId=324875).
+> [AZURE.IMPORTANT]Dopo aver importato le impostazioni, è consigliabile eliminare il profilo di pubblicazione scaricato tramite <b>Get-AzurePublishSettingsFile</b>. Il certificato di gestione include le credenziali di sicurezza, pertanto è consigliabile impedirne l'accesso a utenti non autorizzati. Altre informazioni sulle sottoscrizioni sono disponibili nel [portale di gestione di Azure](http://manage.windowsazure.com/) o nel [Portale per i clienti dei Microsoft Online Services](http://go.microsoft.com/fwlink/p/?LinkId=324875).
 
 1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com) utilizzando le credenziali del proprio account Azure.
 
@@ -190,7 +188,7 @@ Dopo aver installato il modulo e aver configurato il computer per la connessione
 Queste risorse consentono di ottenere informazioni per cmdlet specifici:
 
 
--   Dall'interno della console è possibile utilizzare la Guida incorporata. Per accedere a tale Guida, utilizzare il cmdlet **Get-Help**. Nella tabella seguente vengono forniti alcuni esempi di comandi che è possibile usare per accedere alla Guida. Per visualizzare ulteriori informazioni dall'interno della console, digitare **help**.
+-   Dall'interno della console è possibile utilizzare la Guida incorporata. Per accedere a tale Guida, utilizzare il cmdlet **Get-Help**. Nella tabella seguente vengono forniti alcuni esempi di comandi che è possibile usare per accedere alla Guida. Per visualizzare altre informazioni dall'interno della console, digitare **help**.
 
     <table border="1" cellspacing="4" cellpadding="4">
 <tbody>
@@ -232,7 +230,7 @@ Queste risorse consentono di ottenere informazioni per cmdlet specifici:
 
 
 
-- Informazioni di riferimento sui cmdlet nei moduli Azure PowerShell sono inoltre disponibili nella raccolta della documentazione di Azure. Per informazioni, vedere [Riferimento ai cmdlet di Azure](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
+- Informazioni di riferimento sui cmdlet nei moduli Azure PowerShell sono inoltre disponibili nella raccolta della documentazione di Azure. Per informazioni, vedere [Informazioni di riferimento sui cmdlet di Azure](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
 
 Per le informazioni messe a disposizione dalla community, visitare i seguenti forum:
 
@@ -250,7 +248,7 @@ Di seguito sono elencate alcune risorse disponibili che è possibile usare per i
 
 - Per informazioni sulla riga di comando e l'ambiente di scripting di Windows PowerShell, visitare lo [Script Center di TechNet](http://go.microsoft.com/fwlink/p/?LinkId=320211).
 
-- Per informazioni su come installare, imparare a utilizzare, utilizzare e personalizzare Windows PowerShell, vedere l'articolo sull'[uso degli script con Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=320210).
+- Per informazioni su come installare, imparare a usare, usare e personalizzare Windows PowerShell, vedere l'articolo sull'[uso degli script con Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=320210).
 
 - Per informazioni sugli script e su come eseguirli in Windows PowerShell, vedere l'articolo sull'[esecuzione di script](http://go.microsoft.com/fwlink/p/?LinkId=320627). In questo articolo vengono fornite informazioni di base su come creare script e configurare il computer per eseguirli.
 
@@ -262,4 +260,4 @@ Di seguito sono elencate alcune risorse disponibili che è possibile usare per i
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

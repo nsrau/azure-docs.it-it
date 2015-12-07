@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 # Configurare il bilanciamento del carico per SQL AlwaysOn
@@ -53,7 +53,7 @@ Passaggio 2.
 
 Nell'esempio precedente, si dispone di 2 macchine virtuali denominate "sqlsvc1" e "sqlsvc2" in esecuzione nel servizio cloud "Sqlsvc". Dopo la creazione di ILB con l'opzione "DirectServerReturn", verranno aggiunti gli endpoint con carico bilanciato all’ILB per consentire a SQL di configurare i listener per i gruppi di disponibilità.
 
-È possibile trovare ulteriori dettagli creando un SQL Alwayson in [Esercitazione: gruppi di disponibilità AlwaysOn in Azure](https://msdn.microsoft.com/library/dn249504.aspx) o [utilizzando la raccolta del portale](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+È possibile trovare ulteriori dettagli creando un SQL AlwaysOn in [Esercitazione: gruppi di disponibilità AlwaysOn in Azure](https://msdn.microsoft.com/library/dn249504.aspx) o [utilizzando la raccolta del portale](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 
 ## Vedere anche
@@ -67,4 +67,4 @@ Nell'esempio precedente, si dispone di 2 macchine virtuali denominate "sqlsvc1" 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

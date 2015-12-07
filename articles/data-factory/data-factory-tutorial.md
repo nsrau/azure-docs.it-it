@@ -238,7 +238,6 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
 1. Fare clic su **Nuovo calcolo** sulla barra dei comandi, quindi selezionare **Cluster HDInsight su richiesta** dal menu.
 2. Nello script JSON procedere come segue: 
 	1. Per la proprietà **clusterSize**, specificare le dimensioni del cluster HDInsight.
-	2. Per la proprietà **jobsContainer**, specificare il nome del contenitore predefinito in cui verranno archiviati i log del cluster. Ai fini di questa esercitazione, specificare **adfjobscontainer**.
 	3. Per la proprietà **timeToLive** specificare il tempo di inattività consentito per il cliente prima dell'eliminazione. 
 	4. Per la proprietà **version**, specificare la versione di HDInsight da utilizzare. Se si esclude questa proprietà, verrà usata la versione più recente.  
 	5. Per **linkedServiceName** specificare l'oggetto **HDInsightStorageLinkedService** creato nell'esercitazione introduttiva. 
@@ -248,7 +247,6 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
 				    "properties": {
 		    	    "type": "HDInsightOnDemandLinkedService",
 		    	    "clusterSize": "4",
-		    	    "jobsContainer": "adfjobscontainer",
 		    	    "timeToLive": "00:05:00",
 		    	    "version": "3.1",
 		    	    "linkedServiceName": "HDInsightStorageLinkedService"
@@ -347,7 +345,7 @@ In questo passaggio si creeranno le pipeline seguenti:
 	Fare clic su **Data factory** sulla barra di navigazione nell'angolo superiore sinistro per tornare alla vista Diagramma con tutte le pipeline.
 
 
-**Congratulazioni**. Sono stati creati Data factory di Azure, i servizi collegati, le pipeline, le tabelle ed è stato avviato il flusso di lavoro.
+**Congratulazioni.** Sono stati creati Data factory di Azure, i servizi collegati, le pipeline, le tabelle ed è stato avviato il flusso di lavoro.
 
 
 ## <a name="MainStep6"></a> Passaggio 6: monitorare le pipeline e le sezioni di dati 
@@ -394,7 +392,7 @@ In questo passaggio si creeranno le pipeline seguenti:
 
 	![Pannello SEZIONE DATI RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Se si è verificato un errore, viene visualizzato lo stato **Operazione non riuscita**. È anche possibile che entrambe le sezioni abbiano lo stato **Pronto** o **ConvalidaInSospeso**, a seconda della velocità di elaborazione delle sezioni.
+	Se si è verificato un errore, viene visualizzato lo stato **Operazione non riuscita**. È anche possibile che entrambe le sezioni abbiano lo stato **Pronto** o **PendingValidation**, a seconda della velocità di elaborazione delle sezioni.
 
 	Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**.
  
@@ -409,7 +407,7 @@ In questo passaggio si creeranno le pipeline seguenti:
 	
 Quando tutta la pipeline ha completato l'esecuzione, è possibile visualizzare i risultati in **MarketingCampaignEffectivenessTable** nel database SQL di Azure **MarketingCampaigns**.
 
-**Congratulazioni**. Ora è possibile monitorare e risolvere i problemi dei flussi di lavoro. In questa esercitazione si è appreso come usare Data factory di Azure per elaborare i dati e ottenere l'analisi.
+**Congratulazioni.** Ora è possibile monitorare e risolvere i problemi dei flussi di lavoro. In questa esercitazione si è appreso come usare Data factory di Azure per elaborare i dati e ottenere l'analisi.
 
 ## Estendere l'esercitazione all'uso dei dati locali
 Nell'ultimo passaggio dello scenario di elaborazione dei log dalla procedura dettagliata in questo articolo, l'output dell'efficacia della campagna di marketing è stato copiato in un database SQL di Azure. È anche possibile spostare questi dati in SQL Server locale per l'analisi nell'organizzazione.
@@ -526,4 +524,4 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

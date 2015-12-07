@@ -3,7 +3,7 @@
 	description="Viene descritto come configurare l'accesso condizionale per le applicazioni pubblicate per l'accesso in remoto tramite Proxy dell’applicazione AD Azure."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
+	authors="kgremban"
 	manager="StevenPo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/12/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Utilizzo di access condizionale
 > [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
@@ -31,9 +31,9 @@ Quando un utente accede a un'applicazione federata che utilizza OAuth 2.0, OpenI
 
 ## Prerequisiti per l'accesso condizionale
 
-- Sottoscrizione di Azure Active Directory Premium 
-- Un tenant di Azure Active Directory federato o gestito 
-- I tenant federata richiedono che l'autenticazione a più fattori (MFA) sia attivata 
+- Sottoscrizione di Azure Active Directory Premium
+- Un tenant di Azure Active Directory federato o gestito
+- I tenant federata richiedono che l'autenticazione a più fattori (MFA) sia attivata
 
 ![](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
@@ -42,7 +42,7 @@ Quando un utente accede a un'applicazione federata che utilizza OAuth 2.0, OpenI
 2. Passare ad Active Directory e selezionare la directory in cui si desidera abilitare il proxy dell'applicazione.
 3. Fare clic su **Applicazioni** e scorrere verso il basso fino alla sezione **Regole di accesso**. La sezione regole di accesso vengono visualizzate solo per le applicazioni pubblicate con il Proxy dell'applicazione che utilizza l'autenticazione federata.
 4. Attivare la regola selezionando **Abilitare le regole di accesso** su **On**.
-5. Specificare gli utenti e i gruppi a cui verranno applicate le regole. Utilizzare il tasto **Aggiungi gruppo** per selezionare uno o più gruppi a cui verrà applicata la regola di accesso. Questa finestra di dialogo può essere utilizzata anche per rimuovere i gruppi selezionati. Quando si selezionano le regole da applicare ai gruppi, le regole di accesso possono essere imposte solo agli utenti che appartengono a uno dei gruppi di sicurezza specificati. <br> Per escludere in modo esplicito i gruppi di protezione dalla regola, controllare **Tranne** e specificare uno o più gruppi. Gli utenti che sono membri di un gruppo nell'elenco Tranne non dovranno eseguire l'autenticazione a più fattori. <br>Se un utente è stato configurato utilizzando la funzionalità di autenticazione a più fattori per utente, questa impostazione avrà la precedenza sulle regole dell’autenticazione a più fattori dell’applicazione. Ciò significa che a un utente che è stato configurato per l'autenticazione a più fattori per utente verrà richiesto di eseguire l'autenticazione a più fattori, anche se è stato esentato dalle regole di autenticazione a più fattori dell'applicazione. [Ulteriori informazioni sulle impostazioni dell’autenticazione a più fattori per utente](../multi-factor-authentication/multi-factor-authentication.md). 
+5. Specificare gli utenti e i gruppi a cui verranno applicate le regole. Utilizzare il tasto **Aggiungi gruppo** per selezionare uno o più gruppi a cui verrà applicata la regola di accesso. Questa finestra di dialogo può essere utilizzata anche per rimuovere i gruppi selezionati. Quando si selezionano le regole da applicare ai gruppi, le regole di accesso possono essere imposte solo agli utenti che appartengono a uno dei gruppi di sicurezza specificati. <br> Per escludere in modo esplicito i gruppi di protezione dalla regola, controllare **Tranne** e specificare uno o più gruppi. Gli utenti che sono membri di un gruppo nell'elenco Tranne non dovranno eseguire l'autenticazione a più fattori. <br>Se un utente è stato configurato utilizzando la funzionalità di autenticazione a più fattori per utente, questa impostazione avrà la precedenza sulle regole dell’autenticazione a più fattori dell’applicazione. Ciò significa che a un utente che è stato configurato per l'autenticazione a più fattori per utente verrà richiesto di eseguire l'autenticazione a più fattori, anche se è stato esentato dalle regole di autenticazione a più fattori dell'applicazione. [Ulteriori informazioni sulle impostazioni dell’autenticazione a più fattori per utente](../multi-factor-authentication/multi-factor-authentication.md).
 6. Selezionare la regola di accesso che si desidera impostare:
 	- **Richiedere la Multi-Factor Authentication**: agli utenti a cui si applicano le regole di accesso verrà richiesta l'autenticazione a più fattori prima di accedere all'applicazione a cui viene applicata la regola.
 	- **Richiedere la Multi-Factor Authentication quando non si è al lavoro**: gli utenti che tentano di accedere all'applicazione da un indirizzo IP attendibile non dovranno eseguire l'autenticazione a più fattori. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina Impostazioni di autenticazione a più fattori.
@@ -50,7 +50,7 @@ Quando un utente accede a un'applicazione federata che utilizza OAuth 2.0, OpenI
 
 
 ## Configurazione di autenticazione a più fattori per servizi di federazione
-Per tenant federati, l’autenticazione a più fattori (MFA) potrebbe eseguita da Azure Active Directory o dal server ADFS locale. Per impostazione predefinita, verrà eseguita l'autenticazione a più fattori in qualsiasi pagina ospitata da Azure Active Directory. Per configurare l'autenticazione a più fattori in locale, eseguire Windows PowerShell e utilizzare la proprietà – SupportsMFA per impostare il modulo di Azure AD. Nell'esempio seguente viene illustrato come abilitare la MFA in locale utilizzando il [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) del tenant contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` Oltre a impostare questo flag, l'istanza di tenant federato ADFS deve essere configurata per eseguire l'autenticazione a più fattori. Seguire le istruzioni per la [Distribuzione di Microsoft Azure Multi-Factor Authentication in locale](..multi-factor-authentication-get-started-server.md).
+Per tenant federati, l’autenticazione a più fattori (MFA) potrebbe eseguita da Azure Active Directory o dal server ADFS locale. Per impostazione predefinita, verrà eseguita l'autenticazione a più fattori in qualsiasi pagina ospitata da Azure Active Directory. Per configurare l'autenticazione a più fattori in locale, eseguire Windows PowerShell e utilizzare la proprietà – SupportsMFA per impostare il modulo di Azure AD. Nell'esempio seguente viene illustrato come abilitare la MFA in locale utilizzando il [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) del tenant contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` Oltre a impostare questo flag, l'istanza di tenant federato ADFS deve essere configurata per eseguire l'autenticazione a più fattori. Seguire le istruzioni per la [Distribuzione di Microsoft Azure Multi-Factor Authentication in locale](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 ## Vedere anche
 Si può fare molto di più con il proxy dell'applicazione:
 
@@ -70,4 +70,4 @@ Si può fare molto di più con il proxy dell'applicazione:
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

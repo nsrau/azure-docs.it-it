@@ -216,13 +216,15 @@ Il tempo di aggiornamento di un dominio di aggiornamento è limitato da *Upgrade
 
 ## Passaggi successivi
 
-[Esercitazione sull'aggiornamento](service-fabric-application-upgrade-tutorial.md)
+[Aggiornamento di un'applicazione di Infrastruttura di servizi mediante Visual Studio](service-fabric-application-upgrade.md)
+
+[Aggiornamento di un'applicazione di Infrastruttura di servizi mediante PowerShell](service-fabric-application-upgrade-powershell.md)
 
 [Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md)
 
-[Argomenti avanzati](service-fabric-application-upgrade-advanced.md)
+[Aggiornamento manuale e aggiornamento con un pacchetto Diff](service-fabric-application-upgrade-advanced.md)
 
 [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

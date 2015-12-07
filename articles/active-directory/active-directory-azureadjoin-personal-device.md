@@ -1,3 +1,5 @@
+
+
 <properties 
 	pageTitle="Aggiunta di un dispositivo personale all'organizzazione| Microsoft Azure" 
 	description="Un argomento che illustra come gli utenti possono registrare i computer Windows 10 personali nella rete aziendale, fornisce passaggi di distribuzione per uno scenario BYOD." 
@@ -7,14 +9,13 @@
 	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Aggiunta di un dispositivo personale all'organizzazione
@@ -39,4 +40,4 @@ Per aggiungere un dispositivo Windows 10 personale all'organizzazione
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

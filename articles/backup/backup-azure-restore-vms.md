@@ -101,8 +101,36 @@ Il problema si verifica perché la modalità DSRM non è presente in Azure. Per 
 
 Altre informazioni sul [problema del rollback di un numero di sequenza di aggiornamento](https://technet.microsoft.com/library/dd363553) e sulle strategie consigliate per risolverlo.
 
+## Ripristino delle macchine virtuali con configurazioni di rete speciali
+Backup di Azure supporta il backup per le configurazioni di rete speciali seguenti delle macchine virtuali.
+
+- Macchine virtuali nel servizio di bilanciamento del carico (interno ed esterno)
+- Macchine virtuali con più indirizzi IP riservati
+- Macchine virtuali con più NIC
+
+Queste configurazioni rendono necessarie le considerazioni seguenti durante il ripristino.
+
+>[AZURE.TIP]Usare il flusso di ripristino basato su PowerShell per ricreare la configurazione di rete speciale delle macchine virtuali dopo il ripristino.
+
+### Ripristino dall'interfaccia utente:
+Durante il ripristino dall'interfaccia utente, **scegliere sempre un nuovo servizio cloud**. Poiché il portale accetta solo parametri obbligatori durante il flusso di ripristino, tenere presente che le macchine virtuali ripristinate tramite l'interfaccia utente perderanno la configurazione di rete speciale di cui dispongono. In altre parole, le macchine virtuali ripristinate saranno macchine virtuali normali senza la configurazione del bilanciamento del carico o di più NIC o di più indirizzi IP riservati.
+
+### Ripristino da PowerShell:
+PowerShell offre la possibilità di ripristinare solo i dischi della macchina virtuale da un backup, senza creare la macchina virtuale. Questa soluzione è utile durante il ripristino di macchine virtuali che richiedono le configurazioni di rete speciali descritte in precedenza.
+
+Per poter ricreare completamente i dischi della macchina virtuale dopo il ripristino, seguire questa procedura:
+
+1. Ripristinare i dischi dall'insieme di credenziali di backup tramite [PowerShell per il Backup di Azure](https://azure.microsoft.com/en-in/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm)
+
+2. Creare la configurazione della macchina virtuale necessaria per il bilanciamento del carico/per più NIC/per più indirizzi IP riservati tramite i cmdlet di PowerShell e usarla per creare la macchina virtuale con la configurazione desiderata.
+	- Creare una macchina virtuale nel servizio cloud con [bilanciamento del carico interno](https://azure.microsoft.com/it-IT/documentation/articles/load-balancer-internal-getstarted/)
+	- Creare una macchina virtuale connessa al [servizio di bilanciamento del carico con connessione Internet](https://azure.microsoft.com/it-IT/documentation/articles/load-balancer-internet-getstarted)
+	- Creare una macchina virtuale con [più NIC](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-multiple-nics)
+	- Creare una macchina virtuale con [più indirizzi IP riservati](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-reserved-public-ip/)
+  
+
 ## Passaggi successivi
 - [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

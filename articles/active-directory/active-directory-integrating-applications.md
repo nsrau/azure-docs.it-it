@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="11/24/2015"
    ms.author="mbaldwin" />
 
 # Integrazione di applicazioni con Azure Active Directory
@@ -349,6 +349,6 @@ Un amministratore della società che vuole rimuovere l'accesso di un'app alla di
 
 - Informazioni sul [manifesto dell'applicazione in Azure Active Directory](active-directory-application-manifest.md)
 
-- Vedere la [Guida per gli sviluppatori di Active Directory](active-directory-developer's guide.md)
+- Visitare la[Guida per gli sviluppatori di Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

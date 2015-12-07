@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni| Microsoft Azure" 
-	description="Illustra come gli utenti possono partecipare ad Azure AD tramite il menu Impostazioni in Windows 10." 
+	description="Illustra come gli utenti possono partecipare ad Azure AD tramite il menu Impostazioni." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni
@@ -40,11 +40,12 @@ Per aggiungere Azure AD nel menu impostazioni
 
 
 ## Informazioni aggiuntive
-* [Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 * [Autenticazione delle identità senza password con Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

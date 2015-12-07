@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="11/21/2015" 
 	ms.author="awills"/>
 
 # Rilevare e diagnosticare gli arresti anomali nelle app Windows Store e Phone con Application Insights
@@ -102,4 +102,4 @@ Se si esegue la compilazione nella configurazione di rilascio, gli eventi vengon
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

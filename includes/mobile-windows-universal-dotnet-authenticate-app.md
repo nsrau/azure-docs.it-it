@@ -1,5 +1,5 @@
 
-1. Open the shared project file MainPage.cs and add the following code snippet to the MainPage class:
+1. Aprire il file di progetto condiviso MainPage.cs e aggiungere il frammento di codice seguente alla classe MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -32,13 +32,13 @@
             return success;
         }
 
-    This code authenticates the user with a Facebook login. If you are using an identity provider other than Facebook, change the value of **MobileServiceAuthenticationProvider** above to the value for your provider.
+    L'utente viene autenticato nel codice tramite un account di accesso di Facebook. Se si usa un provider di identità diverso da Facebook, sostituire il valore di **MobileServiceAuthenticationProvider** con il nome del provider.
 
-3. Comment-out or delete the call to the **RefreshTodoItems** method in the existing **OnNavigatedTo** method override.
+3. Impostare come commento o eliminare la chiamata al metodo **RefreshTodoItems** nell'override del metodo **OnNavigatedTo** esistente.
 
-	This prevents the data from being loaded before the user is authenticated. Next, you will add a **Sign in** button to the app that triggers authentication.
+	Ciò impedisce il caricamento dei dati prima dell'autenticazione dell'utente. A questo punto aggiungere un pulsante di **accesso** all'app che attiva l'autenticazione.
 
-4. Add the following code snippet to the MainPage class:
+4. Aggiungere il seguente frammento di codice alla classe MainPage:
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -52,17 +52,17 @@
             }
         }
 		
-5. In the Windows Store app project, open the MainPage.xaml project file and add the following **Button** element just before the element that defines the **Save** button:
+5. Nel progetto dell'app di Windows Store, aprire il file di progetto MainPage.xaml e aggiungere il seguente elemento **Button** giusto prima dell'elemento che definisce il pulsante **Save**:
 
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. In the Windows Phone Store app project, add the following **Button** element in the **ContentPanel**, after the **TextBox** element:
+6. Nel progetto di app Windows Phone Store, aggiungere l'elemento **Button** seguente in **ContentPanel** dopo l'elemento **TextBox**:
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
         	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
-8. Open the shared App.xaml.cs project file and add the following code:
+8. Aprire il file di progetto App.xaml.cs e aggiungere il codice seguente:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -79,12 +79,14 @@
             base.OnActivated(args);
         }
 
-	If the **OnActivated** method already exists, just add the `#if...#endif` code block.
+	Se il metodo **OnActivated** è già presente, aggiungere solamente il blocco di codice `#if...#endif`.
 
-9. Press the F5 key to run the Windows Store app, click the **Sign in** button, and sign into the app with your chosen identity provider. 
+9. Premere il tasto F5 per eseguire l'app di Windows Store, fare clic sul pulsante **Sign in** e accedere all'app con il provider di identità desiderato.
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query your backend and make updates to data.
+   	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query nell'app mobile e aggiornare i dati.
 
-10. Right-click the Windows Phone Store app project, click **Set as StartUp Project**, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.  
+10. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.
 
  
+
+<!---HONumber=AcomDC_1125_2015-->

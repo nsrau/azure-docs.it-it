@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/19/2015"
 	ms.author="brandwe"/>
 
 # Accedere e disconnettersi dalle app Web con Azure AD
@@ -40,7 +40,7 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
-## 1. Registrare un'app
+## 1\. Registrare un'app
 - Accedere al portale di gestione di Azure.
 - Nel pannello di navigazione a sinistra fare clic su **Active Directory**.
 - Selezionare il tenant in cui si desidera registrare l'applicazione.
@@ -51,7 +51,7 @@ Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
     - L'**URI ID app** è un identificatore univoco dell'applicazione. Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio `https://contoso.onmicrosoft.com/my-first-aad-app`.
 - Dopo avere completato la registrazione, AAD assegnerà all'app un identificatore client univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla scheda Configura.
 
-## 2. Aggiungere prerequisiti alla directory
+## 2\. Aggiungere prerequisiti alla directory
 
 Dalla riga di comando passare alla directory della cartella radice, se non è già stato fatto, ed eseguire i comandi seguenti:
 
@@ -70,7 +70,7 @@ Dalla riga di comando passare alla directory della cartella radice, se non è gi
 
 Verranno installate le librerie da cui dipende passport-azure-ad.
 
-## 3. Configurare l'app per l'uso della strategia passport-node-js
+## 3\. Configurare l'app per l'uso della strategia passport-node-js
 In questo caso, verrà configurato il middleware Express per l'uso del protocollo di autenticazione OpenID Connect. Passport verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
 -	Per iniziare, aprire il file `config.js` nella radice del progetto e immettere i valori di configurazione dell'app nella sezione `exports.creds`.
@@ -307,7 +307,7 @@ app.listen(3000);
 ```
 
 
-## 5. Creare le viste e le route in Express per visualizzare l'utente nel sito Web
+## 5\. Creare le viste e le route in Express per visualizzare l'utente nel sito Web
 
 Il file `app.js` è così completato. Ora è sufficiente aggiungere le route e le viste che mostrano le informazioni ottenute dall'utente e gestire le route `/logout` e `/login` create.
 
@@ -348,7 +348,6 @@ Queste semplici route passeranno la richiesta alle viste, incluso l'utente se pr
 	<a href="/account">Account Info</a></br>
 	<a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - Creare la vista `/views/account.ejs` nella directory radice per visualizzare informazioni aggiuntive inserite da `passport-azuread` nella richiesta dell'utente.
@@ -368,7 +367,6 @@ Queste semplici route passeranno la richiesta alle viste, incluso l'utente se pr
 <p></p>
 <a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - Infine, aggiungere un layout per modificarne l'aspetto. Creare la vista '/views/layout.ejs' nella directory radice.
@@ -400,12 +398,12 @@ Queste semplici route passeranno la richiesta alle viste, incluso l'utente se pr
 
 Infine compilare ed eseguire l'app.
 
-Eseguire `node app.js` e passare a `http://localhost:3000`.
+Eseguire `node app.js` e passare a `http://localhost:3000`
 
 
 Accedere con un account Microsoft personale, aziendale o dell'istituto di istruzione e osservare come l'identità dell'utente è indicata nell'elenco /account. È ora disponibile un'app Web protetta usando protocolli standard del settore in grado di autenticare gli utenti con account personali, aziendali e dell'istituto di istruzione.
 
-Come riferimento, l'esempio completato (senza i valori di configurazione) [è disponibile in un file con estensione zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
+Come riferimento, l'esempio completato (senza i valori di configurazione) [ è disponibile in un file con estensione zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -416,4 +414,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/16/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -44,6 +44,8 @@ Le password vengono sincronizzate con una frequenza maggiore rispetto alla fines
 La prima volta che si abilita la funzionalità di sincronizzazione password, viene eseguita una sincronizzazione iniziale delle password di tutti gli utenti interni all'ambito tra l'istanza locale di Active Directory e Azure Active Directory. Non è possibile definire esplicitamente il set di utenti le cui password verranno sincronizzate con il cloud. Successivamente, quando un utente locale cambia la password, la funzionalità di sincronizzazione password rileva e sincronizza la password modificata, nella maggior parte dei casi in pochi minuti. La funzionalità effettua inoltre automaticamente nuovi tentativi di sincronizzazione in caso di sincronizzazioni non riuscite. Se si verifica un errore durante un tentativo di sincronizzazione di una password, l'errore viene registrato nel visualizzatore eventi.
 
 La sincronizzazione di una password non incide in alcun modo sugli utenti attualmente connessi. Se anche un utente connesso a un servizio cloud cambia la relativa password locale, la sessione del servizio cloud prosegue senza interruzioni. Tuttavia, non appena il servizio cloud richiede all'utente di ripetere l'autenticazione, è necessario specificare la nuova password. A questo punto, l'utente deve immettere la nuova password, ossia la password recentemente sincronizzata da Active Directory locale al cloud.
+
+> [AZURE.NOTE]La sincronizzazione delle password è supportata solo per l'utente del tipo di oggetto in Active Directory. Non è supportata per il tipo di oggetto iNetOrgPerson.
 
 ### Funzionamento della sincronizzazione password con Servizi di dominio Azure AD
 
@@ -108,7 +110,7 @@ Se il server è stato bloccato in base a FIPS (Federal Information Processing St
 
 Il nodo di configurazione/runtime si trova alla fine del file di configurazione.
 
-Per informazioni sulla sicurezza e su FIPS, vedere il post di blog relativo alla [conformità di FIPS, della crittografia e della sincronizzazione password di AAD](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)
+Per informazioni sulla sicurezza e su FIPS, vedere il post di blog relativo alla [conformità di FIPS, della crittografia e della sincronizzazione password di ADD](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)
 
 ## Gestione della sincronizzazione password
 
@@ -129,9 +131,11 @@ La colonna dello stato può contenere i valori seguenti che indicano il problema
 | Stato | Descrizione |
 | ---- | ----- |
 | Esito positivo | La password è stata sincronizzata. |
-| SourceConnectorNotPresent | Nessun oggetto trovato nello spazio connettore di Active Directory locale |
+| FilteredByTarget | La password è impostata su **Richiedi modifica della password all'accesso successivo**. La password non è stata sincronizzata. |
 | NoTargetConnection | Nessun oggetto in metaverse o nello spazio connettore di Azure AD |
-| TargetNotExportedToDirectory | L'oggetto nello spazio connettore di Azure AD non è stato ancora esportato |
+| SourceConnectorNotPresent | Nessun oggetto trovato nello spazio connettore di Active Directory locale. |
+| TargetNotExportedToDirectory | L'oggetto nello spazio connettore di Azure AD non è stato ancora esportato. |
+| MigratedCheckDetailsForMoreInfo | La voce di log è stata creata prima della compilazione 1.0.9125.0 e viene visualizzata nello stato precedente. |
 
 
 ### Attivare una sincronizzazione completa di tutte le password
@@ -157,4 +161,4 @@ Non è obbligatorio forzare una sincronizzazione completa di tutte le password, 
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

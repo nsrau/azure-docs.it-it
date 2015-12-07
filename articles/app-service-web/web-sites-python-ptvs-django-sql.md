@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
+	ms.date="11/13/2015"
 	ms.author="huguesv"/>
 
 
@@ -139,7 +139,7 @@ Modificare la definizione di `DATABASES` per usare i valori precedenti.
 
 1.  In Esplora soluzioni, in **Python Environments** fare clic con il pulsante destro del mouse sull'ambiente virtuale e scegliere **Install Python Package**.
 
-1.  Installare il pacchetto `pyodbc` usando **easy\_install**.
+1.  Installare il pacchetto `pyodbc` usando **pip**.
 
   	![Finestra di dialogo per l'installazione del pacchetto](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
@@ -220,4 +220,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Documentazione di Django]: https://www.djangoproject.com/
 [Database SQL]: /documentation/services/sql-database/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

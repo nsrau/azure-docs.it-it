@@ -71,7 +71,7 @@ In questo caso di utilizzo viene illustrato come utilizzare un archivio non pred
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Aggiungere l'estensione Script personalizzato dal portale
+### Aggiungere l'estensione Script personalizzato dal portale di anteprima di Azure
 
 Selezionare la macchina virtuale nel <a href="https://portal.azure.com/ " target="_blank">portale di anteprima di Azure</a> e aggiungere l'estensione specificando il file script da eseguire.
 
@@ -91,4 +91,4 @@ Per informazioni sull'uso dell'estensione Script personalizzato con i modelli, f
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

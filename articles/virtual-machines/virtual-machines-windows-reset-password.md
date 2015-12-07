@@ -57,7 +57,7 @@ Se non si conosce il nome del servizio cloud e della macchina virtuale, eseguire
 
 Se il comando **write-host** restituisce **True**, l'agente di macchine virtuali è installato. Se restituisce **False**, nel post di blog di Azure relativo all'[agente di macchine virtuali ed estensioni, parte 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) sono disponibili istruzioni e un collegamento per il download.
 
-Se la macchina virtuale è stata creata con il portale di Azure, eseguire il seguente comando aggiuntivo.
+Se la macchina virtuale è stata creata con il portale, eseguire il seguente comando aggiuntivo.
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -114,4 +114,4 @@ Se non è possibile eseguire il pacchetto di diagnostica Azure IaaS (Windows) o 
 
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

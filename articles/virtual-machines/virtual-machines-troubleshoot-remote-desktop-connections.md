@@ -34,7 +34,7 @@ Nella prima sezione 'Passaggi di base' vengono elencati i passaggi per risolvere
 
 Questi passaggi di base aiutano a risolvere la maggior parte dei problemi comuni di connessione nelle macchine virtuali create con il modello di distribuzione classica: Dopo l'esecuzione di ciascun passaggio tentare la riconnessione alla macchina virtuale.
 
-- Reimpostare il servizio Desktop remoto dal [portale di Azure](https://portal.azure.com) per risolvere i problemi di avvio con il server RDP.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale Windows > **Reimposta accesso remoto**.
+- Reimpostare il servizio Desktop remoto dal [portale di anteprima di Azure](https://portal.azure.com) per risolvere i problemi di avvio con il server RDP.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale Windows > **Reimposta accesso remoto**.
 
     ![Schermata che mostra la reimpostazione della configurazione RDP](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -89,7 +89,7 @@ Di seguito sono descritti gli errori più comuni che è possibile riscontrare du
 
 Causa: il periodo di prova di 120 giorni delle licenza per il ruolo Server Desktop remoto è scaduto ed è necessario installare le licenze.
 
-Per risolvere il problema, salvare una copia locale del file RDP dal portale di Azure ed eseguire questo comando nel prompt dei comandi di Windows PowerShell per avviare la connessione.
+Per risolvere il problema, salvare una copia locale del file RDP dal portale ed eseguire questo comando nel prompt dei comandi di Windows PowerShell per avviare la connessione.
 
 		mstsc <File name>.RDP /admin
 
@@ -107,7 +107,7 @@ Causa: il client Desktop remoto del computer non è stato in grado di risolvere 
 Possibili soluzioni:
 
 - Se si usa una rete Intranet aziendale, assicurarsi che il computer abbia accesso al server proxy e sia in grado di inviare a quest'ultimo traffico HTTPS.
-- Se si usa un file RDP archiviato localmente, provare a usare il file generato dal portale di Azure. Ciò consente di usare il nome DNS corretto per la macchina virtuale o il servizio cloud e la porta dell'endpoint della macchina virtuale. Di seguito viene riportato un esempio di file RDP generato dal portale di Azure:
+- Se si usa un file RDP archiviato localmente, provare a usare il file generato dal portale. Ciò consente di usare il nome DNS corretto per la macchina virtuale o il servizio cloud e la porta dell'endpoint della macchina virtuale. Di seguito viene riportato un esempio di file RDP generato dal portale:
 
 		full address:s:tailspin-azdatatier.cloudapp.net:55919
 		prompt for credentials:i:1
@@ -169,4 +169,4 @@ Se nessuno di questi errori si è verificato ed è ancora impossibile connetters
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

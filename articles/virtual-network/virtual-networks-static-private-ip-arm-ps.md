@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 # Come impostare un indirizzo IP statico privato in PowerShell
@@ -43,26 +43,26 @@ Per creare una macchina virtuale denominata *DNS01* nella subnet *FrontEnd* di u
 
 3. Recuperare la rete virtuale e la subnet che si desidera creare nella macchina virtuale.
 
-	    $vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet	
+	    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet	
 	    $subnet = $vnet.Subnets[0].Id
 
 4. Se necessario, creare un indirizzo IP pubblico per accedere alla macchina virtuale da Internet.
 
-		$pip = New-AzurePublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+		$pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 
 5. Creare una scheda di rete utilizzando l'indirizzo IP privato statico da assegnare alla macchina virtuale. Assicurarsi che l'indirizzo IP venga dall'intervallo di subnet che si aggiunge alla macchina virtuale. Questo è il passaggio principale di questo articolo, in cui si imposta l’IP privato che deve essere statico.
 
-		$nic = New-AzureNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 192.168.1.101
+		$nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 192.168.1.101
 
 6. Creare la macchina virtuale utilizzando la scheda di rete creata in precedenza.
 
-		$vm = New-AzureVMConfig -VMName DNS01 -VMSize "Standard_A1"
-		$vm = Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName DNS01  -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-		$vm = Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-		$vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
+		$vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
+		$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName DNS01  -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+		$vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+		$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 		$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
-		$vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-		New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm 
+		$vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
+		New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
 
 	Output previsto:
 
@@ -79,7 +79,7 @@ Per creare una macchina virtuale denominata *DNS01* nella subnet *FrontEnd* di u
 ## Come recuperare le informazioni relative all'indirizzo IP privato statico per una macchina virtuale
 Per visualizzare le informazioni relative all'indirizzo IP privato statico per la macchina virtuale creata con lo script precedente, eseguire il comando PowerShell seguente e osservare i valori per *PrivateIpAddress* e *PrivateIpAllocationMethod*:
 
-	Get-AzureNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+	Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 
 Output previsto:
 
@@ -129,9 +129,9 @@ Output previsto:
 ## Come rimuovere un indirizzo IP statico privato da una macchina virtuale
 Per rimuovere l'indirizzo IP privato statico aggiunto alla macchina virtuale nello script precedente, eseguire il comando PowerShell seguente:
 	
-	$nic=Get-AzureNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+	$nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 	$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Dynamic"
-	Set-AzureNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 Output previsto:
 
@@ -181,10 +181,10 @@ Output previsto:
 ## Come aggiungere un indirizzo IP statico privato a una macchina virtuale esistente
 Per aggiungere un indirizzo IP privato statico alla macchina virtuale creata usando lo script precedente, eseguire il comando seguente:
 
-	$nic=Get-AzureNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+	$nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 	$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 	$nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
-	Set-AzureNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## Passaggi successivi
 
@@ -192,4 +192,4 @@ Per aggiungere un indirizzo IP privato statico alla macchina virtuale creata usa
 - Informazioni su indirizzi [IP pubblici a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

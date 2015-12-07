@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Impostare gli avvisi in Application Insights
@@ -215,6 +215,11 @@ remoteDependencyFailed| [Dipendenza](app-insights-configuration-with-application
 richiesta,<br/>requestFailed|[Richiesta server](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
+## Vedere anche
+
+
+* [Creare risorse Application Insights e test web da modelli](app-insights-powershell.md)
+
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
@@ -225,4 +230,4 @@ richiesta,<br/>requestFailed|[Richiesta server](app-insights-configuration-with-
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

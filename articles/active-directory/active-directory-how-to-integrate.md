@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/24/2015"
+   ms.date="11/17/2015"
    ms.author="mbaldwin"/>
 
 # Integrazione con Azure Active Directory
@@ -28,7 +28,7 @@ Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi. Fare ri
 
 ### Supportare Azure AD per l'accesso all'applicazione
 
-**Ridurre i problemi di accesso e i costi di supporto.** Grazie all'uso di Azure AD per l'accesso, gli utenti non avranno un nome utente e una password in più da ricordare. Gli sviluppatori avranno invece una password in meno da archiviare e proteggere. Anche il solo fatto di non dover gestire la reimpostazione delle password dimenticate costituisce un risparmio significativo. Azure AD offre la tecnologia di accesso per alcune delle applicazioni cloud più diffuse al mondo, tra cui Office 365 e Microsoft Azure. Con oltre 430 milioni di utenti di circa 5 milioni di organizzazioni, la probabilità che un utente abbia già eseguito l'accesso ad Azure AD è molto elevata. Altre informazioni sull'[aggiunta del supporto per l'accesso ad Azure AD](active-directory-authentication-scenarios.md).
+**Ridurre i problemi di accesso e i costi di supporto.** Grazie all'uso di Azure AD per l'accesso, gli utenti non avranno un nome utente e una password in più da ricordare. Gli sviluppatori avranno invece una password in meno da archiviare e proteggere. Anche il solo fatto di non dover gestire la reimpostazione delle password dimenticate costituisce un risparmio significativo. Azure AD offre la tecnologia di accesso per alcune delle applicazioni cloud più diffuse al mondo, tra cui Office 365 e Microsoft Azure. Con centinaia di milioni di utenti da milioni di organizzazioni, la probabilità che un utente abbia già eseguito l'accesso ad Azure AD è molto elevata. Altre informazioni sull'[aggiunta del supporto per l'accesso ad Azure AD](active-directory-authentication-scenarios.md).
 
 **Semplificare l'iscrizione all'applicazione.** Durante l'iscrizione all'applicazione, Azure AD può inviare le informazioni essenziali relative a un utente per precompilare il modulo di iscrizione o eliminarle completamente. Gli utenti possono effettuare l'iscrizione all'applicazione usando l'account Azure AD tramite un'esperienza di consenso nota simile a quelle dei social media e delle applicazioni per dispositivi mobili. Qualsiasi utente può iscriversi e accedere a un'applicazione integrata con Azure AD senza richiedere l'intervento del reparto IT. Altre informazioni sulla[registrazione dell'applicazione per l'accesso con l'account Azure AD](../mobile-services-how-to-register-active-directory-authentication.md).
 
@@ -90,4 +90,4 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 [Accesso degli utenti tramite Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

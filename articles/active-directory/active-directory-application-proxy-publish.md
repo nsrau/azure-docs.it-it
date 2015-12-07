@@ -3,8 +3,8 @@
 	description="Viene descritto come pubblicare applicazioni locali utilizzando il proxy dell’applicazione di Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="StevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 # Pubblicare applicazioni mediante il proxy di applicazione AD Azure
@@ -97,4 +97,4 @@ Si può fare molto di più con il proxy dell'applicazione:
 
 * [Informazioni sulla delega vincolata Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

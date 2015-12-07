@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="11/24/2015"
    ms.author="mfussell"/>
 
 # RunAs: Esecuzione di un'applicazione dell'infrastruttura di servizi con varie autorizzazioni di sicurezza
@@ -86,9 +86,10 @@ Successivamente, configurare nella sezione **ServiceManifestImport** un criterio
 
 Aggiungere a questo punto il file MySetup.bat al progetto di Visual Studio per testare i privilegi di amministratore. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di servizio e aggiungere un nuovo file denominato MySetup.bat. Successivamente è necessario assicurarsi che questo file sia incluso nel pacchetto del servizio, poiché non è incluso per impostazione predefinita. Per assicurarsi che il file MySetup.bat sia incluso nel pacchetto, selezionare il file, fare clic con il pulsante destro del mouse per visualizzare il menu di scelta rapida, scegliere Proprietà e nella finestra di dialogo Proprietà verificare che l'opzione **Copia nella directory di output** sia impostata su **Copia se più recente**, come illustrato nella schermata seguente.
 
-![CopyToOutput di Visual Studio per il file batch SetupEntryPoint][Image1]
+![CopyToOutput di Visual Studio per il file batch SetupEntryPoint][image1]
 
-Aprire il file MySetup.bat e aggiungere il comando seguente.
+Aprire il file MySetup.bat e aggiungere i comandi seguenti.
+
 ~~~
 REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
@@ -108,18 +109,19 @@ Like this
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
 ~~~
 
-Si noti il nome del nodo in cui il servizio è stato distribuito e avviato in Esplora infrastruttura di servizi, ad esempio Node 1, e passare alla cartella di lavoro dell'istanza dell'applicazione per trovare il file out.txt con il valore di **TestVariable**. Se ad esempio il servizio è stato distribuito in Node 2, è possibile passare a questo percorso per MyApplicationType.
+Prendere nota del nome del nodo in cui il servizio è stato distribuito e avviato in Service Fabric Explorer, ad esempio Node 1, e passare alla cartella di lavoro dell'istanza dell'applicazione per trovare il file out.txt con il valore di **TestVariable**. Se ad esempio il servizio è stato distribuito in Node 2, è possibile passare a questo percorso per MyApplicationType.
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
 ##  Avvio dei comandi di PowerShell da SetupEntryPoint
-Per eseguire PowerShell dal punto **SetupEntryPoint**, è possibile eseguire PowerShell.exe in un file batch che punta a un file di PowerShell. Aggiungere innanzitutto un file di PowerShell al progetto del servizio, ad esempio MySetup.ps1. Ricordarsi di impostare la proprietà *Copy if newer* in modo che il file venga incluso anche nel pacchetto del servizio. L'esempio seguente illustra un file batch di esempio per avviare un file di PowerShell denominato MySetup.ps1 che imposta una variabile di ambiente di sistema denominata *TestVariable*.
+Per eseguire PowerShell dal punto **SetupEntryPoint**, è possibile eseguire PowerShell.exe in un file batch che punta a un file di PowerShell. Aggiungere innanzitutto un file di PowerShell al progetto del servizio, ad esempio MySetup.ps1. Ricordarsi di impostare la proprietà *Copia se più recente* in modo che il file venga incluso anche nel pacchetto del servizio. L'esempio seguente illustra un file batch di esempio per avviare un file di PowerShell denominato MySetup.ps1, che imposta una variabile di ambiente di sistema denominata *TestVariable*.
 
-File MySetup.bat per l'avvio del file di PowerShell.
+MySetup. bat per avviare il file di PowerShell.
+
 ~~~
-powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
+powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
 Nel file di PowerShell aggiungere il comando seguente per impostare una variabile di ambiente di sistema
@@ -128,7 +130,7 @@ Nel file di PowerShell aggiungere il comando seguente per impostare una variabil
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ~~~
 
-## Applicazione di criteri RunAs ai servizi 
+## Applicazione di criteri RunAs ai servizi
 Nei passaggi precedenti è stato illustrato come applicare i criteri RunAs a SetupEntryPoint. A questo punto, è possibile analizzare la modalità per creare entità diverse che possono essere applicate come criteri del servizio.
 
 ### Creare gruppi di utenti locali
@@ -168,7 +170,7 @@ I gruppi di utenti possono essere definiti e creati dove è possibile aggiungere
   </Users>
 </Principals>
 ~~~
- 
+
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -179,19 +181,19 @@ I gruppi di utenti possono essere definiti e creati dove è possibile aggiungere
 -->
 
 ## Assegnazione di criteri ai pacchetti di codice del servizio
-La sezione **RunAsPolicy** per **ServiceManifestImport** specifica l'account della sezione Principals che deve essere usato per eseguire un pacchetto di codice e associa i pacchetti di codice del manifesto del servizio agli account utente nella sezione Principals. È possibile specificare questa opzione per i punti di ingresso principale o di configurazione o specificare Tutti per applicarla a entrambi. L'esempio seguente illustra l'applicazione di diversi criteri.
+La sezione **RunAsPolicy** per **ServiceManifestImport** specifica l'account della sezione Principals da usare per eseguire un pacchetto di codice e associa i pacchetti di codice del manifesto del servizio agli account utente nella sezione Principals. È possibile specificare questa opzione per i punti di ingresso principale o di configurazione o specificare Tutti per applicarla a entrambi. L'esempio seguente illustra l'applicazione di diversi criteri.
 
 ~~~
 <Policies>
-<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
 Se **EntryPointType** non è specificato, il valore predefinito è impostato su EntryPointType="Main". Specificare l'elemento **SetupEntryPoint** è particolarmente utile quando si desidera eseguire determinate operazioni di configurazione con privilegi elevati con un account di sistema, mentre il codice del servizio effettivo può essere eseguito con un account con privilegi inferiori.
 
 ### Applicazione di un criterio predefinito a tutti i pacchetti di codice del servizio
-La sezione **DefaultRunAsPolicy** consente di specificare un account utente predefinito per tutti i pacchetti di codice per i quali non sono definiti **RunAsPolicy** specifici. Se la maggior parte dei pacchetti di codice specificati nei manifesti del servizio usati da un'applicazione devono essere eseguiti con lo stesso utente RunAs, l'applicazione può definire solo un criterio RunAs predefinito con tale account utente anziché specificare **RunAsPolicy** per ogni pacchetto di codice. L'esempio seguente specifica, ad esempio, che se per un pacchetto di codice **RunAsPolicy** non è specificato, il pacchetto di codice deve essere eseguito con l'account MyDefaultAccount specificato nella sezione Principals.
+La sezione **DefaultRunAsPolicy** consente di specificare un account utente predefinito per tutti i pacchetti di codice per i quali non sono definiti **RunAsPolicy** specifici. Se la maggior parte dei pacchetti di codice specificati nei manifesti del servizio usati da un'applicazione deve essere eseguita con lo stesso utente RunAs, l'applicazione può definire solo un criterio RunAs predefinito con tale account utente anziché specificare **RunAsPolicy** per ogni pacchetto di codice. L'esempio seguente specifica, ad esempio, che se per un pacchetto di codice **RunAsPolicy** non è specificato, il pacchetto di codice deve essere eseguito con l'account MyDefaultAccount specificato nella sezione Principals.
 
 ~~~
 <Policies>
@@ -200,7 +202,7 @@ La sezione **DefaultRunAsPolicy** consente di specificare un account utente pred
 ~~~
 
 ## Assegnazione di SecurityAccessPolicy per gli endpoint HTTP e HTTPS
-Se si applica un criterio RunAs a un servizio e il manifesto del servizio dichiara le risorse dell'endpoint con il protocollo HTTP, è necessario specificare **SecurityAccessPolicy** per garantire che le porte allocate a tali endpoint siano correttamente inserite nell'elenco di controllo di accesso per l'account utente RunAs con cui viene eseguito il servizio. In caso contrario, http.sys non avrà accesso al servizio e le chiamate del client avranno esito negativo. L'esempio seguente applica l'account Customer3 all'endpoint denominato *ServiceEndpointName* e assegna diritti di accesso completi.
+Se si applica un criterio RunAs a un servizio e il manifesto del servizio dichiara le risorse dell'endpoint con il protocollo HTTP, è necessario specificare **SecurityAccessPolicy** per garantire che le porte allocate a tali endpoint siano correttamente inserite nell'elenco di controllo di accesso per l'account utente RunAs con cui viene eseguito il servizio. In caso contrario, http.sys non avrà accesso al servizio e le chiamate del client avranno esito negativo. L'esempio seguente applica l'account Customer3 all'endpoint denominato *ServiceEndpointName* e assegna ad esso diritti di accesso completi.
 
 ~~~
 <Policies>
@@ -210,7 +212,7 @@ Se si applica un criterio RunAs a un servizio e il manifesto del servizio dichia
 </Policies>
 ~~~
 
-Per gli endpoint HTTPS è necessario inoltre indicare il nome del certificato da restituire al client con **EndpointBindingPolicy** con il certificato definito in una sezione di certificati nel manifesto dell'applicazione.
+Per gli endpoint HTTPS è necessario inoltre indicare il nome del certificato da restituire al client con **EndpointBindingPolicy**, insieme al certificato definito in una sezione di certificati nel manifesto dell'applicazione.
 
 ~~~
 <Policies>
@@ -265,7 +267,9 @@ Il manifesto dell'applicazione seguente illustra molte delle impostazioni descri
                <Group NameRef="LocalAdminGroup" />
             </MemberOf>
          </User>
+         <!--Customer1 below create a local account that this service runs under -->
          <User Name="Customer1" />
+         <User Name="MyDefaultAccount" AccountType="NetworkService" />
       </Users>
    </Principals>
    <Policies>
@@ -285,6 +289,6 @@ Il manifesto dell'applicazione seguente illustra molte delle impostazioni descri
 * [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md)
 * [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md)
 
-[Image1]: media/service-fabric-application-runas-security/copy-to-output.png
+[image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

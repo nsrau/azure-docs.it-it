@@ -26,6 +26,7 @@ Area |Argomento | Priorità | Stato | Assegnato a | Richiesto da
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
 U-SQL | Query distribuite | 1 | In attesa | [@edmacauley](https://github.com/edmacauley) |
 U-SQL | Spostamento di dati tra WASB e ADLS | 1 | In sospeso | Da definire | Ye Xing (ml)
+U-SQL | Guida al test delle unità per il modello UDO | 1 | In sospeso | Da definire | [@ddobric](https://github.com/ddobric) 
 U-SQL | Elaborazione JSON | 2 | In sospeso | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 Servizio | Interazione con Curl | 3 |In sospeso |[@mumian](https://github.com/mumian)
 U-SQL | Tabelle partizionate |1 | In corso | [@edmacauley](https://github.com/edmacauley) | 
@@ -45,7 +46,7 @@ Strumenti | Uso di strumenti di diagnostica | 1 | In sospeso | [@mumian](https:/
 
 Area |Argomento | location
 ------------- | ------------- | -------------- 
-Servizio | Coordinamento della distribuzione di Data Lake Analytics con altri servizi di Azure mediante i modelli ARM | [Località](https://azure.microsoft.com/it-IT/documentation/articles/data-lake-analytics-manage-use-powershell/)
+Servizio | Coordinamento della distribuzione di Data Lake Analytics con altri servizi di Azure mediante i modelli ARM | [Località](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
 
 ## Come fornire commenti e suggerimenti per il backlog
 Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backlog:
@@ -54,4 +55,4 @@ Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backl
 * Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Inviare un messaggio di posta elettronica a [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

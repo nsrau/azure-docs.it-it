@@ -1,20 +1,20 @@
-**Virtual machine disks: per account limits**
+**Dischi di macchina virtuale: per i limiti dell'account**
 
-Resource|Default Limit
+Risorsa|Limite predefinito
 ---|---
-Total disk capacity per account|35 TB
-Total snapshot capacity per account|10 TB
-Max bandwidth per account (ingress + egress<sup>1</sup>)|<=50 Gbps
+Capacità totale dischi per account|35 TB
+Capacità totale snapshot per account|10 TB
+Larghezza di banda massima per account (ingresso + uscita<sup>1</sup>)|<=50 Gbps
 
-<sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
+<sup>1</sup>Si intendono in *ingresso* tutti i dati (richieste) inviati a un account di archiviazione. Si intendono in *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
 
-**Virtual machine disks: per disk limits**
+**Dischi di macchina virtuale: per i limiti di disco**
 
-Premium Storage Disk Type | P10 | P20 | P30
+Tipo di disco di Archiviazione Premium | P10 | P20 | P30
 ---|---|---|---
-Disk size | 128 GiB | 512 GiB | 1024 GiB (1 TB)
-Max IOPS per disk | 500 | 2300 | 5000
-Max throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second
-Max number of highly utilized disks | 62 | 41 | 31
+Dimensioni disco | 128 GiB | 512 GiB | 1024 GiB (1 TB)
+Operazioni IOPS al secondo max per disco | 500 | 2300 | 5000
+Velocità effettiva massima per disco | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo
+Numero massimo di dischi a elevato utilizzo | 62 | 41 | 31
 
-
+<!---HONumber=AcomDC_1125_2015-->

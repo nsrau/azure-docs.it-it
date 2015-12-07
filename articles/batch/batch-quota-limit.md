@@ -89,10 +89,10 @@ Si verrà contatti dal supporto di Azure. Il completamento della richiesta può 
 
 * [Creare e gestire un account Azure Batch](batch-account-create-portal.md)
 
-* [Nozioni di base delle API per Azure Batch](batch-api-basics.md)
+* [Cenni preliminari sulla funzionalità Azure Batch](batch-api-basics.md)
 
 * [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md)
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

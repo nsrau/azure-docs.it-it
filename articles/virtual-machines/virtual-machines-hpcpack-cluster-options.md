@@ -74,11 +74,10 @@ ms.service="virtual-machines"
 * [Inviare processi a un cluster HPC Pack in Azure](virtual-machines-hpcpack-cluster-submit-jobs.md)
 
 
-
 ## Aggiungere nodi di ruolo di lavoro a un cluster HPC Pack
 
 
-* [Potenziare Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+* [Potenziare le istanze del ruolo di lavoro di Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [Esercitazione: Configurare un cluster ibrido con HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
@@ -86,11 +85,16 @@ ms.service="virtual-machines"
 
 * [Aumentare e ridurre le risorse di calcolo di Azure in un cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
+## Integrazione con Azure Batch 
+
+* [Potenziare Azure Batch con HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## Creare cluster RDMA per carichi di lavoro MPI
 
 * [Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-hpcpack-cluster-rdma.md)
 
+* [Esercitazione: Eseguire OpenFOAM con Microsoft HPC Pack in un cluster Linux RDMA in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

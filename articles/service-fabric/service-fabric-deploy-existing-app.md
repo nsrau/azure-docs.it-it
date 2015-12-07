@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Distribuire un'applicazione esistente nell'infrastruttura di servizi di Azure | Microsoft Azure"
+   pageTitle="Distribuire un'applicazione personalizzata in Service Fabric di Azure | Microsoft Azure"
    description="Procedura dettagliata su come creare un pacchetto di un'applicazione esistente in modo che possa essere distribuito in un cluster di infrastruttura di servizi di Azure"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
-# Distribuire un'applicazione esistente nell'infrastruttura di servizi
+# Distribuire un'applicazione personalizzata in Service Fabric
 
 Nell'infrastruttura di servizi è possibile eseguire qualsiasi tipo di applicazione esistente, ad esempio Node.js, Java o applicazioni native. L'infrastruttura di servizi considera tali applicazioni come servizi senza stato e li inserisce nei nodi di un cluster in base alla disponibilità e ad altre metriche. Questo articolo descrive come creare il pacchetto di un'applicazione esistente e come distribuirla in un cluster dell'infrastruttura di servizi.
 
-## Vantaggi dell'esecuzione di un'applicazione esistente nell'infrastruttura di servizi
+## Vantaggi dell'esecuzione di un'applicazione personalizzata in Service Fabric
 
 L'esecuzione dell'applicazione nel cluster dell'infrastruttura di servizi presenta i vantaggi seguenti:
 
@@ -70,7 +70,6 @@ Prima di esaminare i dettagli della distribuzione di un'applicazione esistente, 
 
   Il manifesto del servizio descrive i componenti di un servizio. Include dati, come ad esempio nome e tipo di servizio (informazioni che l'infrastruttura di servizi usa per gestire il servizio), il relativo codice, componenti di dati e di configurazione più alcuni parametri aggiuntivi usati per configurare il servizio una volta distribuito. Non esamineremo tutti i diversi parametri disponibili nel manifesto del servizio, ma esamineremo la sotto-categoria necessaria ad eseguire un'applicazione esistente in Service Fabric
 
-Per informazioni dettagliate sul formato di creazione del pacchetto dell'infrastruttura di servizi, vedere [questo articolo](service-fabric-develop-your-service-index.md).
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -118,8 +117,8 @@ Per distribuire un'applicazione utilizzando, ad esempio, i powershell cmdlet, l'
 La radice contiene il file ApplicationManifest.xml che definisce l'applicazione. Una sottodirectory per ogni servizio incluso nell'applicazione viene usata per contenere tutti gli elementi necessari per il servizio: il ServiceManifest.xml e in genere 3 directory:
 
 - *code*: contiene il codice del servizio
-- *config*: contiene un file settings.xml (e altri file, se necessario) a cui il servizio può accedere in fase di esecuzione per recuperare le impostazioni di configurazione specifiche.
-- *data*: un'altra directory per archiviare dati locali aggiuntivi che potrebbero essere richiesti dal servizio. Nota: i dati devono essere usati per archiviare solo i dati ephymeral, l'infrastruttura di servizi non copia/replica le modifiche alla directory dei dati se il servizio deve essere trasferito, ad esempio, durante il failover.
+- *config*: contiene un file settings.xml (e altri file, se necessario) a cui il servizio può accedere in fase di esecuzione per recuperare specifiche impostazioni di configurazione.
+- *data*: un'altra directory per archiviare dati locali aggiuntivi che potrebbero essere necessari al servizio. Nota: i dati devono essere usati per archiviare solo i dati ephymeral, l'infrastruttura di servizi non copia/replica le modifiche alla directory dei dati se il servizio deve essere trasferito, ad esempio, durante il failover.
 
 Nota: non occorre creare le directory `config` e `data` se non sono necessarie.
 
@@ -132,7 +131,7 @@ Il processo di creazione di un pacchetto di un'applicazione esistente si basa su
 - aggiornare il file manifesto del servizio
 - aggiornare il manifesto dell'applicazione
 
->[AZURE.NOTE]Viene fornito uno strumento di creazione di pacchetti che consente di creare automaticamente ApplicationPackage. Lo strumento è attualmente in anteprima. Per altre informazioni, vedere [qui](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE]Viene fornito uno strumento di creazione di pacchetti che consente di creare automaticamente ApplicationPackage. Lo strumento è attualmente in anteprima. È possibile scaricarlo [qui](http://aka.ms/servicefabricpacktool).
 
 ### Creare la struttura di directory del pacchetto
 È possibile iniziare creando la struttura di directory come descritto in precedenza.
@@ -199,7 +198,7 @@ Il CodePackage specifica il percorso (e versione) del codice del servizio.
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-L'elemento `Name` viene usato per specificare il nome della directory nel pacchetto dell'applicazione che contiene il codice del servizio. `CodePackage` include anche l'attributo `version` che può essere usato per specificare la versione del codice e potenzialmente per aggiornare il codice del servizio mediante l'infrastruttura ALM dell'infrastruttura di servizi.
+L'elemento `Name` consente di specificare il nome della directory nel pacchetto dell'applicazione che contiene il codice del servizio. `CodePackage` include anche l'attributo `version`, che consente di specificare la versione del codice e potenzialmente per aggiornare il codice del servizio mediante l'infrastruttura ALM di Service Fabric.
 ### SetupEntryPoint
 
 ```xml
@@ -209,7 +208,7 @@ L'elemento `Name` viene usato per specificare il nome della directory nel pacche
    </ExeHost>
 </SetupEntryPoint>
 ```
-L'elemento SetupEntryPoint consente di specificare un file eseguibile o un file batch da eseguire prima dell'avvio del codice del servizio. È un elemento facoltativo perciò non è necessario includerlo se non esiste alcuna inizializzazione/installazione richiesta. L'elemento SetupEntryPoint viene eseguito ogni volta che il servizio viene riavviato. Esiste solo un SetupEntrypoint, quindi gli script di installazione/configurazione devono essere raggruppati in un singoli file batch se l'installazione/configurazione dell'applicazione richiede più script. Analogamente all'elemento EntryPoint, l'elemento SetupEntryPoint può eseguire qualsiasi tipo di file, ovvero file eseguibili, file batch e cmdlet di PowerShell. Nell'esempio precedente l'elemento SetupEntryPoint è basato su un file batch launchConfig.cmd, che si trova nella sottodirectory `scripts` della directory Codice, presupponendo che l'elemento WorkingDirectory sia impostato su Codice.
+L'elemento SetupEntryPoint consente di specificare un file eseguibile o un file batch da eseguire prima dell'avvio del codice del servizio. È un elemento facoltativo perciò non è necessario includerlo se non esiste alcuna inizializzazione/installazione richiesta. L'elemento SetupEntryPoint viene eseguito ogni volta che il servizio viene riavviato. Esiste solo un SetupEntrypoint, quindi gli script di installazione/configurazione devono essere raggruppati in un singoli file batch se l'installazione/configurazione dell'applicazione richiede più script. Analogamente all'elemento EntryPoint, l'elemento SetupEntryPoint può eseguire qualsiasi tipo di file, ovvero file eseguibili, file batch e cmdlet di PowerShell. Nell'esempio precedente, l'elemento SetupEntryPoint è basato su un file batch launchConfig.cmd, che si trova nella sottodirectory `scripts` della directory Codice, presupponendo che l'elemento WorkingDirectory sia impostato su Codice.
 
 ### Entrypoint
 
@@ -223,14 +222,14 @@ L'elemento SetupEntryPoint consente di specificare un file eseguibile o un file 
 </EntryPoint>
 ```
 
-L'elemento `Entrypoint` nel manifesto del servizio viene usato per specificare la modalità di avvio del servizio. L'elemento `ExeHost` specifica il file eseguibile e i relativi argomenti da usare per avviare il servizio.
+L'elemento `Entrypoint` nel manifesto del servizio consente di specificare la modalità di avvio del servizio. L'elemento `ExeHost` specifica il file eseguibile e i relativi argomenti da usare per avviare il servizio.
 
 - `Program`: specifica il nome del file eseguibile da eseguire per avviare il servizio.
 - `Arguments`: specifica gli argomenti da passare al file eseguibile. Può essere un elenco di parametri con argomenti.
 - `WorkingFolder`: specifica la directory di lavoro per il processo che sta per essere avviato. È possibile specificare due valori:
 	- `CodeBase`: la directory di lavoro dovrà essere impostata sulla directory Codice nel pacchetto dell'applicazione (directory `Code` nella struttura riportata di seguito)
 	- `CodePackage`: la directory di lavoro verrà impostata sulla radice del pacchetto dell'applicazione (`MyServicePkg`)
-- L'elemento `WorkingDirectory` è utile per impostare la directory di lavoro corretta in modo che i percorsi relativi possano essere usati dagli script di applicazione o da quelli di inizializzazione.
+- L'elemento `WorkingDirectory` è utile per impostare la directory di lavoro corretta, in modo che i percorsi relativi possano essere usati dagli script di applicazione o da quelli di inizializzazione.
 
 ### Endpoint
 
@@ -257,7 +256,7 @@ Dopo aver configurato il file `servicemanifest.xml`, sarà necessario apportare 
 
 ### ServiceManifestImport
 
-Nell'elemento `ServiceManifestImport` è possibile specificare uno o più servizi da includere nell'app. Per fare riferimento ai servizi viene usato l'elemento `ServiceManifestName` che specifica il nome della directory che include il file `ServiceManifest.xml`.
+Nell'elemento `ServiceManifestImport` è possibile specificare uno o più servizi da includere nell'app. Per fare riferimento ai servizi viene usato l'elemento `ServiceManifestName`, che specifica il nome della directory in cui è presente il file `ServiceManifest.xml`.
 
 ```xml
 <ServiceManifestImport>
@@ -279,7 +278,7 @@ Per un'applicazione esistente è molto utile poter visualizzare i registri di co
 </EntryPoint>
 ```
 
-* L'elemento `ConsoleRedirection` può essere usato per reindirizzare l'output della console, di tipo stdout e stderr, a una directory di lavoro, in modo da verificare che non siano presenti errori durante l'installazione o l'esecuzione dell'applicazione nel cluster dell'infrastruttura di servizi.
+* L'elemento `ConsoleRedirection` può essere usato per reindirizzare l'output della console, di tipo stdout o stderr, a una directory di lavoro, in modo da verificare che non siano presenti errori durante l'installazione o l'esecuzione dell'applicazione nel cluster di Service Fabric.
 
 	* L'elemento `FileRetentionCount` determina il numero di file salvati nella directory di lavoro. Un valore, ad esempio, 5 indica che i file di log per le 5 esecuzioni precedenti vengono archiviati nella directory di lavoro.
 	* L'elemento `FileMaxSizeInKb` specifica le dimensioni massime dei file di log.
@@ -306,9 +305,9 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ```
 Un servizio dell'infrastruttura di servizi può essere distribuito in varie 'configurazioni', ad esempio può essere distribuito come istanza singola o come istanze multiple o può essere distribuito in modo tale che esista un'istanza del servizio in ogni nodo del cluster dell'infrastruttura di servizi.
 
-Il parametro `InstanceCount` del cmdlet `New-ServiceFabricService` consente di specificare il numero di istanze del servizio da avviare nel cluster di infrastruttura di servizi. È possibile impostare il valore `InstanceCount` in base al tipo di applicazione da distribuire. I due scenari più comuni sono: * `InstanCount = "1"`: in questo caso solo un'istanza del servizio verrà distribuita nel cluster. L'utilità di pianificazione dell'infrastruttura di servizi determina il nodo in cui il servizio dovrà essere distribuito.
+Il parametro `InstanceCount` del cmdlet `New-ServiceFabricService` consente di specificare il numero di istanze del servizio da avviare nel cluster di Service Fabric. È possibile impostare il valore `InstanceCount` in base al tipo di applicazione da distribuire. I due scenari più comuni sono: * `InstanCount = "1"`. In questo caso solo un'istanza del servizio verrà distribuita nel cluster. L'utilità di pianificazione dell'infrastruttura di servizi determina il nodo in cui il servizio dovrà essere distribuito.
 
-* `InstanceCount ="-1"`: in questo caso solo un'istanza del servizio verrà distribuita in ogni nodo del cluster dell'infrastruttura di servizi. Il risultato finale sarà quello di avere una (e solo una) istanza del servizio per ogni nodo del cluster. Si tratta di una configurazione utile per applicazioni front-end (ad esempio: un endpoint REST) poiché le applicazioni client dovranno semplicemente “connettersi” a qualsiasi nodo del cluster per poter utilizzare l'endpoint. Questa configurazione può essere inoltre usata quando, ad esempio, tutti i nodi del cluster dell'infrastruttura di servizi sono connessi a un servizio di bilanciamento del carico in modo che il traffico del client possa essere distribuito nel servizio in esecuzione su tutti i nodi del cluster.
+* `InstanceCount ="-1"`: in questo caso solo un'istanza del servizio verrà distribuita in ogni nodo del cluster di Service Fabric. Il risultato finale sarà quello di avere una (e solo una) istanza del servizio per ogni nodo del cluster. Si tratta di una configurazione utile per applicazioni front-end (ad esempio: un endpoint REST) poiché le applicazioni client dovranno semplicemente “connettersi” a qualsiasi nodo del cluster per poter utilizzare l'endpoint. Questa configurazione può essere inoltre usata quando, ad esempio, tutti i nodi del cluster dell'infrastruttura di servizi sono connessi a un servizio di bilanciamento del carico in modo che il traffico del client possa essere distribuito nel servizio in esecuzione su tutti i nodi del cluster.
 
 ### Verificare l'applicazione in esecuzione
 
@@ -328,8 +327,8 @@ Se si passa alla directory tramite Esplora server è possibile trovare la direct
 ## Passaggi successivi
 In questo articolo si è appreso come creare il pacchetto di un'applicazione esistente e come distribuirla all'infrastruttura di servizi. Come passaggio successivo è possibile consultare altri articoli con contenuti aggiuntivi su questo argomento.
 
-- Esempio per la creazione del pacchetto e la distribuzione di un'applicazione esistente in [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication), inclusa la versione preliminare dello strumento per la creazione dei pacchetti
-- Esempio per la creazione dei pacchetti di più applicazioni su [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)
-- Come iniziare a [creare la prima applicazione dell'infrastruttura di servizi usando Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+- Esempio per la creazione del pacchetto e la distribuzione di un'applicazione personalizzata in [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluso un collegamento alla versione preliminare dello strumento per la creazione dei pacchetti.
+- Informazioni su come [distribuire più applicazioni personalizzate](service-fabric-deploy-multiple-apps.md).
+- Come iniziare a [creare la prima applicazione di Service Fabric usando Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

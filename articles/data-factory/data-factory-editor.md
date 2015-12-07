@@ -62,7 +62,6 @@ Ci sono quattro pulsanti sulla barra degli strumenti che è possibile usare per 
 2. Verrà visualizzato il modello JSON per la creazione di un servizio collegato di calcolo nel canvas dell'editor a destra. Eseguire le operazioni seguenti:
 	1. Per **Cluster HDInsight su richiesta**, specificare i valori per le proprietà seguenti: 
 		1. Per la proprietà **clusterSize**, specificare le dimensioni del cluster HDInsight che il servizio Dati factory dovrà creare in fase di esecuzione. 
-		2. Per la proprietà **jobsContainer**, specificare il nome del contenitore BLOB predefinito dove archiviare i log del cluster.
 		3. Per la proprietà **timeToLive**, specificare il tempo di inattività consentito prima che venga eliminato il cluster HDInsight. Ad esempio, 00:05:00 indica che il cluster deve essere eliminato dopo 5 minuti di inattività.
 		4. Per la proprietà **version**, specificare la versione di HDInsight per il cluster (impostazione predefinita: versione 3.1).
 		5. Per la proprietà **linkedServiceName**, specificare il servizio collegato di archiviazione di Azure da associare al cluster HDInsight. 
@@ -221,4 +220,4 @@ Per istruzioni dettagliate per creare una data factory di Azure usando l'editor 
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

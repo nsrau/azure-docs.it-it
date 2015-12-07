@@ -1,4 +1,4 @@
-<properties pageTitle="Configurazione del tunneling forzato per i gateway VPN| Microsoft Azure" description="Se si dispone di una rete virtuale con un gateway VPN cross-premise, è possibile reindirizzare o "forzare" tutto il traffico associato a Internet verso la posizione locale. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
+<properties pageTitle="Configurare il tunneling forzato per i gateway VPN tramite PowerShell | Microsoft Azure" description="Se si dispone di una rete virtuale con un gateway VPN cross-premise, è possibile reindirizzare o "forzare" tutto il traffico associato a Internet al sistema locale. Questo articolo si applica ai gateway VPN creati utilizzando il modello di distribuzione classica " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-resource-manager"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -10,9 +10,9 @@
 
 # È possibile configurare il tunneling forzato?
 
-Questo articolo è applicabile alle reti virtuali e ai gateway VPN creati usando il modello di distribuzione classica. Quando le istruzioni sono disponibili per la configurazione di reti virtuali e di gateway VPN di tunneling forzato creati utilizzando il modello di gestione risorse, si aggiungerà un collegamento nella parte superiore della pagina.
+Questo articolo è applicabile alle reti virtuali e ai gateway VPN creati usando il modello di distribuzione classica. Se si desidera configurare il tunneling forzato per le reti virtuali e i gateway VPN creati utilizzando il modello di distribuzione di gestione risorse, vedere [configurare il tunneling forzato tramite PowerShell e Gestione risorse di Azure](vpn-gateway-forced-tunneling-rm.md).
 
->[AZURE.NOTE]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione Azure](../azure-classic-rm.md).
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## Informazioni sul tunneling forzato
 
@@ -94,7 +94,7 @@ Nell'esempio, la rete virtuale multi-livello "MultiTier-VNet", dispone di 3 subn
 
 - Una rete virtuale configurata.
 
-- La versione più recente dei cmdlet PowerShell di Azure che utilizzano il programma di installazione di Web Platform. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina di download](http://azure.microsoft.com/downloads/).
+- La versione più recente dei cmdlet PowerShell di Azure che utilizzano il programma di installazione di Web Platform. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina Download](http://azure.microsoft.com/downloads/).
 
 ## È possibile configurare il tunneling forzato?
 
@@ -153,11 +153,4 @@ Di seguito sono riportasti alcuni altri cmdlet PowerShell che possono risultare 
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-## Passaggi successivi
-
-
-Per altre informazioni sulle Route definite dall’utente, vedere [Route definite dall’utente e inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
-
-Per informazioni sulla protezione del traffico di rete, vedere [Cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md). Si noti che non si deve mai applicare un gruppo di sicurezza di rete a una subnet del gateway della rete virtuale di Azure.
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

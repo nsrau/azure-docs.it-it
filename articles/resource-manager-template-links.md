@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/31/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # Collegamenti alle risorse - schema del modello
@@ -54,7 +54,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 | Name | Tipo | Obbligatorio | Valori consentiti | Descrizione |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| tagetId | string | Sì | | Identificatore della risorsa di destinazione a cui collegarsi. |
+| targetId | stringa | Sì | | Identificatore della risorsa di destinazione a cui collegarsi. |
 | di HDInsight | string | No | 512 caratteri | Descrizione del blocco. |
 
 
@@ -129,4 +129,4 @@ Nell'esempio seguente viene applicato un blocco di sola lettura a un'app web.
 
 - Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

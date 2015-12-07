@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/25/2015"
+	ms.date="11/23/2015"
 	ms.author="tedway;garye" />
 
 # Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning
@@ -73,4 +73,4 @@ Se si salva la cartella di lavoro, verranno salvate anche le chiavi API per i se
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

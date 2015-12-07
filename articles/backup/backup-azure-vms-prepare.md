@@ -181,6 +181,10 @@ L'estensione per il backup viene installata se la macchina virtuale è in esecuz
   - **Linux**: l'elenco delle distribuzioni approvate da Azure è disponibile [qui](../virtual-machines-linux-endorsed-distributions.md). È possibile usare altre distribuzioni personali di Linux a condizione che l'agente VM sia disponibile nella macchina virtuale.
   - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
 - Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Altre informazioni sul [ripristino di un controller di dominio con più controller di dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms)
+- Il ripristino delle macchine virtuali che presentano le seguenti configurazioni di rete speciali è supportato solo tramite PowerShell. Le macchine virtuali create utilizzando il flusso di lavoro di ripristino nell'interfaccia utente non potranno avere queste configurazioni di rete al termine dell'operazione di ripristino. Per ulteriori informazioni, vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations). 
+	- Macchine virtuali con configurazione del servizio di bilanciamento del carico (interno ed esterno)
+	- Macchine virtuali con più indirizzi IP riservati
+	- Macchine virtuali con più schede di rete
 
 ## Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
@@ -191,4 +195,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Eseguire il backup di macchine virtuali](backup-azure-vms.md)
 - [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

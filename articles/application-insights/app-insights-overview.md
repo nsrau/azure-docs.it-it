@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Informazioni su Azure Application Insights
@@ -21,7 +21,7 @@ Application Insights è un servizio di analisi dei dati estendibile che consente
 
 ![Creare grafici relativi alle statistiche sulle attività degli utenti o eseguire il drill-down in eventi specifici.](./media/app-insights-overview/00-sample.png)
 
-Può essere usato con app Web e autonome su una vasta gamma di piattaforme, ovvero .NET o J2EE, con hosting in locale o sul cloud oppure con app per dispositivi in Windows, iOS, Android, OSX e altre piattaforme.
+Può essere usato con app Web e autonome su una vasta gamma di piattaforme, ovvero .NET o J2EE, con hosting in locale o sul cloud.
 
 Application Insights è destinato ai team di sviluppo. Consente di eseguire le operazioni seguenti:
 
@@ -32,7 +32,7 @@ Application Insights è destinato ai team di sviluppo. Consente di eseguire le o
  *  Avvisa sulle modifiche delle prestazioni o sugli arresti anomali.
  *  Metriche per diagnosticare problemi di prestazioni, ad esempio tempi di risposta, utilizzo della CPU, traccia delle dipendenze.
  *  Test di disponibilità per le app Web.
- *  Arresto anomalo del sistema, report e avvisi di eccezioni
+ *  Report di eccezioni ed avvisi.
  *  Ricerca di log di diagnostica avanzate (incluse le tracce del log dal framework di registrazione preferito).
 
 L'SDK per ogni piattaforma include una vasta gamma di moduli predefiniti per il monitoraggio immediato dell'app. È anche possibile codificare la telemetria personalizzata per ottenere analisi più dettagliate e specifiche.
@@ -53,13 +53,10 @@ Sono disponibili SDK per una gamma crescente di piattaforme. Attualmente l'elenc
  * [Servizi cloud di Azure](app-insights-cloudservices.md)
  * [Server J2EE][java]
  * [Pagine Web][client]\: HTML+JavaScript
- * [Windows Phone, Windows Store, app di Windows 10 universali e integrazione diretta con il portale per sviluppatori di Windows 10][windows]
- * [Desktop di Windows][desktop]
- * [iOS][ios]
- * [Android][android]
+ * [App server e desktop Windows][desktop]
  * [Altre piattaforme][platforms]\: Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
-Application Insights può ottenere dati di telemetria anche dalle app Web ASP.NET esistenti su IIS, senza ricompilarle.
+Application Insights può ottenere dati di telemetria anche dalle app Web ASP.NET esistenti senza ricompilarle.
 
 Se l'app include componenti client, server e di altro tipo, sarà possibile instrumentarli tutti. I dati verranno integrati nel portale di Application Insights, in modo che, ad esempio, sia possibile correlare eventi a livello client con eventi a livello server.
 
@@ -89,7 +86,7 @@ L'impatto sulle prestazioni è molto ridotto. Le chiamate di rilevamento non son
 
 1. È necessaria una sottoscrizione a [Microsoft Azure](http://azure.com). È possibile crearla gratuitamente e quindi scegliere il [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) gratuito di Application Insights.
 
-2. Accedere al [portale di Azure](http://portal.azure.com).
+2. Accedere al [portale di Azure](http://portal.azure.com)
 3. Creare una risorsa di Application Insights. In questa risorsa verranno visualizzati i dati dell'app.
 
     ![Aggiungi, Servizi per gli sviluppatori, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -154,4 +151,4 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

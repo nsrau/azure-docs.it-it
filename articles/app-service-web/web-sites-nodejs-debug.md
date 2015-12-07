@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/18/2015"
 	ms.author="tarcher"/>
 
 # Come eseguire il debug di un'app Web Node.js nel servizio app di Azure
@@ -63,7 +63,7 @@ Se nell'ambiente di sviluppo sono installati gli strumenti da riga di comando di
 
 	npm install azure-cli -g
 
-Dopo l'installazione, è possibile accedere agli strumenti tramite il comando 'azure'. È prima necessario configurare gli strumenti da riga di comando per l'uso della sottoscrizione di Azure. Per informazioni su come eseguire questa attività, vedere la sezione **Come scaricare e importare impostazioni di pubblicazione** dell'articolo [Come usare gli strumenti da riga di comando di Azure].
+Dopo l'installazione, è possibile accedere agli strumenti tramite il comando 'azure'. È prima necessario configurare gli strumenti da riga di comando per l'uso della sottoscrizione di Azure. Per informazioni su come eseguire questa attività, vedere la sezione **Come scaricare e importare impostazioni di pubblicazione** dell'articolo [Come utilizzare gli strumenti da riga di comando](../xplat-cli-connect).
 
 ###FTP
 
@@ -73,7 +73,7 @@ Per accedere alle informazioni diagnostiche tramite FTP, visitare il [portale di
 
 L'URL FTP restituito nel dashboard si riferisce alla directory **LogFiles**, che conterrà le seguenti sottodirectory:
 
-* [Metodo di distribuzione]: se si utilizza un metodo di distribuzione, ad esempio Git, verrà creata una directory con lo stesso nome, che conterrà le informazioni correlate alle distribuzioni.
+* [Metodo di distribuzione](web-sites-deploy): se si utilizza un metodo di distribuzione, ad esempio Git, verrà creata una directory con lo stesso nome, che conterrà le informazioni correlate alle distribuzioni.
 
 * nodejs: contiene le informazioni di stdout e stderr acquisite da tutte le istanze dell'applicazione, quando loggingEnabled è impostato su true.
 
@@ -89,7 +89,7 @@ Nella directory corrente verrà scaricato un file **diagnostics.zip**. Questo ar
 
 * LogFiles
 
-	* [Metodo di distribuzione]: se si utilizza un metodo di distribuzione, ad esempio Git, verrà creata una directory con lo stesso nome, che conterrà le informazioni correlate alle distribuzioni.
+	* [Metodo di distribuzione](web-sites-deploy): se si utilizza un metodo di distribuzione, ad esempio Git, verrà creata una directory con lo stesso nome, che conterrà le informazioni correlate alle distribuzioni.
 
 	* nodejs: contiene le informazioni di stdout e stderr acquisite da tutte le istanze dell'applicazione, quando loggingEnabled è impostato su true.
 
@@ -106,7 +106,7 @@ Verrà restituito un flusso di eventi log che vengono aggiornati non appena si v
 
 In questo articolo è stato illustrato come abilitare e accedere alle informazioni di diagnostica in Azure. Queste informazioni sono utili per comprendere problemi che si verificano nell'applicazione, tuttavia è possibile che indichino un problema relativo a un modulo in uso oppure che segnalino che la versione di Node.js utilizzata in Siti Web di Azure è diversa da quella dell'ambiente di distribuzione.
 
-Per informazioni sull'uso di moduli in Azure, vedere [Uso di moduli Node.js con applicazioni Azure].
+Per informazioni sull'uso di moduli in Azure, vedere [Uso di moduli Node.js con applicazioni Azure](../nodejs-use-node-modules-azure-apps).
 
 Per informazioni sulla specifica di una versione di Node.js per l'applicazione, vedere [Specifica di una versione di Node.js in un'applicazione Azure].
 
@@ -121,10 +121,10 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [IISNode]: https://github.com/tjanczuk/iisnode
 [file Readme di IISNode]: https://github.com/tjanczuk/iisnode#readme
 [How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
-[Uso di moduli Node.js con applicazioni Azure]: ../nodejs-use-node-modules-azure-apps.md
+[Using Node.js Modules with Azure Applications]: ../nodejs-use-node-modules-azure-apps.md
 [Specifica di una versione di Node.js in un'applicazione Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

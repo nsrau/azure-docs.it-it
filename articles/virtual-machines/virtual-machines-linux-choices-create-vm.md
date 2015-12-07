@@ -27,9 +27,9 @@ Modelli di Gestione risorse di Azure sono stati introdotti recentemente per cons
 
 ## Opzioni dello strumento
 
-### Interfaccia utente grafica: il portale di Azure o il portale di anteprima
+### Interfaccia utente grafica: il portale di Azure o il portale di anteprima di Azure
 
-L'interfaccia utente grafica del portale di Azure è un modo semplice per provare a usare una macchina virtuale, soprattutto se si ha poca esperienza con Azure. Utilizzare il [portale di Azure](http://manage.windowsazure.com) oppure il [portale di anteprima di Azure](http://portal.azure.com) per creare la macchina virtuale. Per istruzioni generali, vedere [Creare una macchina virtuale personalizzata][] e selezionare un'immagine Linux dalla **Raccolta**. Si noti che il [portale di Azure](http://manage.windowsazure.com) crea macchine virtuali solo mediante il modello di distribuzione classica.
+L'interfaccia utente grafica del portale è un modo semplice per provare a usare una macchina virtuale, soprattutto se si ha poca esperienza con Azure. Utilizzare il [portale di Azure](http://manage.windowsazure.com) oppure il [portale di anteprima di Azure](http://portal.azure.com) per creare la macchina virtuale. Per istruzioni generali, vedere [Creare una macchina virtuale personalizzata][] e selezionare un'immagine Linux dalla **Raccolta**. Si noti che il [portale di Azure](http://manage.windowsazure.com) crea macchine virtuali solo mediante il modello di distribuzione classica.
 
 ### Shell dei comandi: interfaccia della riga di comando di Azure o Azure PowerShell
 
@@ -103,4 +103,4 @@ Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acqui
 [Creare una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
 [Creare una macchina virtuale personalizzata]: virtual-machines-create-custom.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

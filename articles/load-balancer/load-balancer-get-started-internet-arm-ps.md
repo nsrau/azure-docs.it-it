@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma" />
 
 # Introduzione su come creare un servizio di bilanciamento del carico per Internet in Gestione risorse con PowerShell.
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet tramite il modello di distribuzione classica](load-balancer-get-started-internet-classic-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -54,43 +54,32 @@ Assicurarsi di disporre della versione di produzione più recente del modulo Azu
 
 ### Passaggio 1
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
-2. Al prompt di Azure PowerShell eseguire il cmdlet **Switch-AzureMode** per passare alla modalità Gestione risorse, come illustrato di seguito.
-
-		Switch-AzureMode AzureResourceManager
-	
-	Output previsto:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-
->[AZURE.WARNING]Il cmdlet Switch-AzureMode verrà presto dichiarato obsoleto. Di conseguenza, tutti i cmdlet di Gestione risorse verranno rinominati.
+		PS C:\> Login-AzureRmAccount
 
 
 
 ### Passaggio 2
 
-Accedere all'account Azure.
+Controllare le sottoscrizioni per l'account
+
+		PS C:\> get-AzureRmSubscription 
+
+Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
+
+### Passaggio 3 
+
+Scegliere quali sottoscrizioni Azure usare. <BR>
 
 
-    PS C:\> Add-AzureAccount
-
-Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
+		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
-### Passaggio 3
+### Passaggio 4
 
-Scegliere le sottoscrizioni ad Azure da utilizzare.
+Creare un nuovo gruppo di risorse (ignorare questo passaggio se si usa un gruppo di risorse esistente)
 
-    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
+    PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
-Per visualizzare un elenco di sottoscrizioni disponibili, utilizzare il cmdlet "Get-AzureSubscription".
-
-## Creare un gruppo di risorse
-
-Creare un nuovo gruppo di risorse denominato *NRP-RG* nella posizione di Azure *Stati Uniti occidentali*.
-
-    PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
 ## Creare una rete virtuale e un indirizzo IP pubblico per il pool di indirizzi IP front-end
 
@@ -98,69 +87,68 @@ Creare un nuovo gruppo di risorse denominato *NRP-RG* nella posizione di Azure *
 
 Creare una subnet e una rete virtuale
 
-	$backendSubnet = New-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
-	New-AzurevirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
+	$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
+	New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
 ### Passaggio 2
 
 Creare un indirizzo IP pubblico (PIP) denominato *PublicIP* che dovrà essere usato da un pool di indirizzi IP front-end con nome DNS *loadbalancernrp.westus.cloudapp.azure.com*. Il comando seguente usa il tipo di allocazione statica.
 
-	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
+	$publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT]Il servizio di bilanciamento del carico userà l'etichetta di dominio dell'indirizzo IP pubblico come nome di dominio completo. Questa è una differenza rispetto al modello di distribuzione classica, che usa il servizio cloud come nome di dominio completo del servizio di bilanciamento del carico. In questo esempio il nome di dominio completo sarà *loadbalancernrp.westus.cloudapp.azure.com*.
+>[AZURE.IMPORTANT]Il servizio di bilanciamento del carico userà l'etichetta di dominio dell'indirizzo IP pubblico come prefisso per il nome di dominio completo. Questa è una differenza rispetto al modello di distribuzione classica, che usa il servizio cloud come nome di dominio completo del servizio di bilanciamento del carico. In questo esempio il nome di dominio completo sarà *loadbalancernrp.westus.cloudapp.azure.com*.
 
 ## Creare un pool di indirizzi IP front-end e un pool di indirizzi back-end
 
 ### Passaggio 1 
 
-Creare un pool IP front-end denominato *LB-Frontend* che usa l'IP pubblico *PublicIp*.
+Creare un pool IP front-end denominato *LB-Frontend* che usa il PIP *PublicIp*.
 
-	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
+	$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
 
 ### Passaggio 2 
 
 Creare un pool di indirizzi back-end denominato *LB-backend*.
 
-	$beaddresspool= New-AzureLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
+	$beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 
 ## Creare regole di bilanciamento del carico, regole NAT, un probe e un servizio di bilanciamento del carico
 
 Questo esempio crea gli elementi seguenti:
 
-- Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 3441 alla porta 3389<sup>1</sup>.
+- Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 3441 alla porta 3389
 - Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 3442 alla porta 3389.
 - Regola del servizio di bilanciamento del carico per il bilanciamento di tutto il traffico in ingresso sulla porta 80 verso la porta 80 negli indirizzi nel pool back-end.
 - Regola probe per il controllo dello stato di integrità in una pagina denominata *HealthProbe.aspx*.
 - Servizio di bilanciamento del carico che usa tutti gli oggetti precedenti.
 
 
-<sup>1</sup> le regole NAT vengono associate a un’istanza di macchina virtuale specifica dietro al servizio di bilanciamento del carico. Il traffico di rete in ingresso sulla porta 3341 sarà inviato ad una macchina virtuale specifica sulla porta 3389 associata alla regola NAT nell’esempio seguente. E’ necessario scegliere un protocollo per la regola NAT, UDP o TCP. Entrambi i protocolli non possono essere assegnati alla stessa porta.
 
 ### Passaggio 1
 
 Creare le regole NAT.
 
-	$inboundNATRule1= New-AzureLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
+	$inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
 
-	$inboundNATRule2= New-AzureLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
+	$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
 ### Passaggio 2
 
 Creare una regola del servizio di bilanciamento del carico.
 
-	$lbrule = New-AzureLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+	$lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 
 ### Passaggio 3
 
 Creare un probe di integrità.
 
-	$healthProbe = New-AzureLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 ### Passaggio 4
 
 Creare il servizio di bilanciamento del carico usando gli oggetti creati in precedenza.
 
-	$NRPLB = New-AzureLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe 
+	$NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe 
 
 ## Creare NIC
 
@@ -170,20 +158,20 @@ Creare il servizio di bilanciamento del carico usando gli oggetti creati in prec
 
 Recuperare la rete virtuale e la subnet in cui devono essere create le NIC.
 
-	$vnet = Get-AzureVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
-	$backendSubnet = Get-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 
+	$vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
+	$backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 
 
 ### Passaggio 2
 
 Creare una NIC denominata *lb-nic1-be* e associarla alla prima regola NAT, quindi al primo (e unico) pool di indirizzi back-end.
 	
-	$backendnic1= New-AzureNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
+	$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 
 ### Passaggio 3
 
 Creare una NIC denominata *lb-nic2-be* e associarla alla seconda regola NAT, quindi al primo (e unico) pool di indirizzi back-end.
 
-	$backendnic2= New-AzureNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+	$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 
 ### Passaggio 4
 
@@ -240,7 +228,7 @@ Output previsto:
 
 ### Passaggio 5
 
-Usare il cmdlet `Add-AzureVMNetworkInterface` per assegnare le schede NIC a macchine virtuali diverse.
+Usare il cmdlet `Add-AzureRmVMNetworkInterface` per assegnare le schede NIC a macchine virtuali diverse.
 
 È possibile trovare istruzioni per creare una macchina virtuale e assegnare una NIC in [Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), usando l'opzione 5 nell'esempio.
 
@@ -251,26 +239,26 @@ Usare il cmdlet `Add-AzureVMNetworkInterface` per assegnare le schede NIC a macc
 
 Utilizzare il bilanciamento del carico dall'esempio precedente, assegnare l'oggetto bilanciamento del carico alla variabile $slb utilizzando Get-AzureLoadBalancer
 
-	$slb=get-azureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+	$slb=get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 ### Passaggio 2
 
 Nell'esempio seguente, si aggiungerà una nuova regola NAT in ingresso mediante la porta 81 nel front-end e la porta 8181 per il pool di back-end a un bilanciamento del carico esistente
 
-	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+	$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 
 
 ### Passaggio 3
 
 Salvare la nuova configurazione utilizzando Set AzureLoadBalancer
 
-	$slb | Set-AzureLoadBalancer
+	$slb | Set-AzureRmLoadBalancer
 
 ## Rimuovere un bilanciamento del carico
 
 Utilizzare il comando Remove-AzureLoadBalancer per eliminare un bilanciamento del carico creato in precedenza denominato "NRP-LB" in un gruppo di risorse denominato "NRP-RG"
 
-	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 >[AZURE.NOTE]È possibile utilizzare l’opzione facoltativa - Forzare per evitare la richiesta di eliminazione.
 
@@ -282,4 +270,4 @@ Utilizzare il comando Remove-AzureLoadBalancer per eliminare un bilanciamento de
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

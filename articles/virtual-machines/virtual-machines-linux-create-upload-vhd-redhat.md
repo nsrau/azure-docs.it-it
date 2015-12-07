@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creare e caricare un VHD di Red Hat Enterprise Linux per l'utilizzo in Azure" 
-	description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo Linux RedHat." 
+	description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure contenente un sistema operativo Linux RedHat." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="SuperScottz" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/23/2015" 
 	ms.author="mingzhan"/>
 
 
 # Preparare una macchina virtuale basata su RedHat per Azure
-In questo articolo verrà descritto come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo in Azure. Le versioni di RHEL trattate in questo articolo sono 6.6, 6.7, 7.0 e 7.1 e gli hypervisor per la preparazione trattati in questo articolo sono Hyper-V, KVM e VMWare.
+In questo articolo verrà descritto come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo in Azure. Le versioni di RHEL trattate in questo articolo sono 6.7 e 7.1 e gli hypervisor per la preparazione trattati in questo articolo sono Hyper-V, KVM e VMWare.
 
 
 
@@ -40,7 +40,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 - Quando si utilizza qemu-img per convertire immagini del disco in formato VHD, si noti che c’è un errore noto nelle versioni qemu-img >=2.2.1 che causa un VHD formattato in maniera impropria. Il problema verrà risolto in una versione futura di qemu-img. Al momento è consigliabile utilizzare la versione 2.2.0 o inferiore di qemu-img.
 
 
-###RHEL 6.6/6.7
+###RHEL 6.7
 
 1.	Nella console di gestione di Hyper-V selezionare la macchina virtuale.
 
@@ -134,7 +134,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
 16.	Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1. Nella console di gestione di Hyper-V selezionare la macchina virtuale.
 
@@ -155,7 +155,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
         PEERDNS=yes
         IPV6INIT=no
 
-5.	Assicurarsi che il servizio di rete venga eseguito all'avvio attivando il seguente comando:
+5.	Assicurarsi che il servizio di rete venga eseguito all'avvio eseguendo il comando seguente:
 
         # sudo chkconfig network on
 
@@ -178,7 +178,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config`per includere la seguente riga:
+9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config`per includere la riga seguente:
 
         ClientAliveInterval 180
 
@@ -214,9 +214,9 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
 
 ##Preparare un'immagine da KVM 
-###RHEL 6.6/6.7
+###RHEL 6.7
 
-1.	Scaricare l'immagine KVM di RHEL 6.6/6.7 dal sito web di Red Hat.
+1.	Scaricare l'immagine KVM di RHEL 6.7 dal sito Web di Red Hat.
 
 2.	Impostare una password radice
 
@@ -256,7 +256,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
         # mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
         # mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
 
-7.	Assicurarsi che il servizio di rete venga eseguito all'avvio attivando il seguente comando:
+7.	Assicurarsi che il servizio di rete venga eseguito all'avvio eseguendo il comando seguente:
 
         # chkconfig network on
 
@@ -325,26 +325,19 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
 18.	Convertire l'immagine qcow2 in formato vhd: prima convertire l'immagine in formato non elaborato:
          
-         # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
-    Verificare che le dimensioni dell'immagine non elaborata siano allineate con 1MB, in caso contrario arrotondare la dimensione per l'allineamento con 1MB:
+         # qemu-img convert -f qcow2 –O raw rhel-6.7.qcow2 rhel-6.7.raw
+    Verificare che le dimensioni dell'immagine non elaborata siano allineate a 1MB; in caso contrario arrotondare la dimensione per l'allineamento a 1MB: # MB=$((1024*1024)) # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \\ gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}') # rounded\_size=$((($size/$MB + 1)*$MB))
 
-         # MB=$((1024*1024))
-         # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
-                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-         # rounded_size=$((($size/$MB + 1)*$MB))
-
-         # qemu-img resize rhel-6.6.raw $rounded_size
+         # qemu-img resize rhel-6.7.raw $rounded_size
 
     Convertire il disco non elaborato alla dimensione fissa del disco rigido virtuale:
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
-
- 
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.0/7.1
+###RHEL 7.1
 
-1.	Scaricare l'immagine KVM di RHEL 7.0 dal sito web di Red Hat.
+1.	Scaricare l'immagine KVM di RHEL 7.1 dal sito Web di Red Hat.
 
 2.	Impostare una password radice
 
@@ -363,7 +356,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
     Modificare il secondo campo utente radice "!!" con la password crittografata
 
-3.	Creare una macchina virtuale in KVM dall'immagine qcow2, impostare il tipo di disco su **qcow2**, impostare il modello di dispositivo di interfaccia di rete virtuale su **virtio**. Quindi avviare la macchina virtuale e accedere come root.
+3.	Creare una macchina virtuale in KVM dall'immagine qcow2, impostare il tipo di disco su **qcow2** e impostare il modello del dispositivo di interfaccia di rete virtuale su **virtio**. Quindi avviare la macchina virtuale e accedere come root.
 
 4.	Creare un file denominato **network** nella directory `/etc/sysconfig/` contenente il testo seguente:
 
@@ -421,7 +414,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
         systemctl restart sshd	
 
-12.	Il pacchetto WALinuxAgent `WALinuxAgent-<version>` è stato inserito nell’archivio Fedora EPEL 6. Abilitare l’archivio epel eseguendo il comando seguente:
+12.	Il pacchetto WALinuxAgent `WALinuxAgent-<version>` è stato inserito nell'archivio Fedora EPEL 6. Abilitare l’archivio epel eseguendo il comando seguente:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -434,7 +427,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
         # systemctl enable waagent.service
 
-14.	Non creare l'area di swap sul disco del sistema operativo. L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti `/etc/waagent.conf` in modo appropriato:
+14.	Non creare l'area di swap sul disco del sistema operativo. L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure, come illustrato nel passaggio precedente, modificare i parametri seguenti in `/etc/waagent.conf` in modo appropriato:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -458,20 +451,20 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
     Convertire innanzitutto l'immagine in formato non elaborato:
 
-         # qemu-img convert -f qcow2 –O raw rhel-7.0.qcow2 rhel-7.0.raw
+         # qemu-img convert -f qcow2 –O raw rhel-7.1.qcow2 rhel-7.1.raw
 
     Verificare che le dimensioni dell'immagine non elaborata siano allineate con 1MB, in caso contrario arrotondare la dimensione per l'allineamento con 1MB:
 
          # MB=$((1024*1024))
-         # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+         # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
                   gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
          # rounded_size=$((($size/$MB + 1)*$MB))
 
-         # qemu-img resize rhel-7.0.raw $rounded_size
+         # qemu-img resize rhel-7.1.raw $rounded_size
 
     Convertire il disco non elaborato alla dimensione fissa del disco rigido virtuale:
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##Preparare un'immagine da VMWare
@@ -484,7 +477,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 - Quando si crea il disco rigido virtuale, selezionare **Archivia disco virtuale come singolo file**.
 
-###RHEL 6.6/6.7
+###RHEL 6.7
 1.	Disinstallare NetworkManager attivando il seguente comando:
 
          # sudo rpm -e --nodeps NetworkManager
@@ -520,7 +513,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	Il pacchetto WALinuxAgent `WALinuxAgent-<version>` è stato inserito nell’archivio Fedora EPEL 6. Abilitare l’archivio epel eseguendo il comando seguente::
+7.	Il pacchetto WALinuxAgent `WALinuxAgent-<version>` è stato inserito nell'archivio Fedora EPEL 6. Abilitare l’archivio epel eseguendo il comando seguente::
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -538,7 +531,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
     L'avvio grafico e l'avvio silenzioso non sono utili in un ambiente cloud se tutti i log devono essere inviati alla porta seriale. L'opzione crashkernel può essere configurata, ma si tenga presente che questo parametro ridurrà la quantità di memoria disponibile nella VM di almeno 128 MB, il che potrebbe causare problemi con le VM di dimensioni inferiori.
 
-9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config`per includere la seguente riga:
+9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config` in modo da includere la riga seguente:
 
         ClientAliveInterval 180
 
@@ -549,7 +542,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 11.	Non creare l'area di swap sul disco del sistema operativo:
     
-    L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti `/etc/waagent.conf` in modo appropriato:
+    L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure, come illustrato nel passaggio precedente, modificare i parametri seguenti in `/etc/waagent.conf` in modo appropriato:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -571,23 +564,21 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
     Convertire innanzitutto l'immagine in formato non elaborato:
 
-        # qemu-img convert -f vmdk –O raw rhel-6.6.vmdk rhel-6.6.raw
+        # qemu-img convert -f vmdk –O raw rhel-6.7.vmdk rhel-6.7.raw
 
     Verificare che le dimensioni dell'immagine non elaborata siano allineate con 1MB, in caso contrario arrotondare la dimensione per l'allineamento con 1MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
         # rounded_size=$((($size/$MB + 1)*$MB))
-
-        # qemu-img resize rhel-6.6.raw $rounded_size
+        # qemu-img resize rhel-6.7.raw $rounded_size
 
     Convertire il disco non elaborato alla dimensione fissa del disco rigido virtuale:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1.	Creare nella directory /etc/sysconfig/ un file denominato **network** contenente il testo seguente:
 
@@ -630,7 +621,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 7.	Aggiungere moduli Hyper-V in initramfs:
 
-    Modificare `/etc/dracut.conf`, e aggiungere il contenuto:
+    Modificare `/etc/dracut.conf` e aggiungere il contenuto seguente:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
@@ -638,7 +629,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
         # dracut –f -v
 
-8.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config`per includere la seguente riga:
+8.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config` in modo da includere la riga seguente:
 
         ClientAliveInterval 180
 
@@ -653,7 +644,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service
 
-11.	Non creare l'area di swap sul disco del sistema operativo. L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti `/etc/waagent.conf` in modo appropriato:
+11.	Non creare l'area di swap sul disco del sistema operativo. L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure, come illustrato nel passaggio precedente, modificare i parametri seguenti in `/etc/waagent.conf` in modo appropriato:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -675,24 +666,23 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
     Convertire innanzitutto l'immagine in formato non elaborato:
 
-        # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
+        # qemu-img convert -f vmdk –O raw rhel-7.1.vmdk rhel-7.1.raw
 
     Verificare che le dimensioni dell'immagine non elaborata siano allineate con 1MB, in caso contrario arrotondare la dimensione per l'allineamento con 1MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
         # rounded_size=$((($size/$MB + 1)*$MB))
-
-        # qemu-img resize rhel-7.0.raw $rounded_size
+        # qemu-img resize rhel-7.1.raw $rounded_size
 
     Convertire il disco non elaborato alla dimensione fissa del disco rigido virtuale:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##Preparazione da un'immagine ISO utilizzando automaticamente il file automaticamente
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1.	Creare il file kickstart con il contenuto seguente e salvare il file. Per informazioni dettagliate sull'installazione di kickstart, consultare la [Guida all'installazione di Kickstart](https://access.redhat.com/documentation/it-IT/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
@@ -808,44 +798,36 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 2.	Posizionare il file kickstart in una posizione raggiungibile dal sistema di installazione.
  
-3.	Creare una nuova macchina virtuale nella console di gestione Hyper-V. Nella pagina **Connessione disco rigido virtuale** selezionare **Collega un disco rigido virtuale in un secondo momento**, e completare la creazione guidata della macchina virtuale.
+3.	Creare una nuova macchina virtuale nella console di gestione Hyper-V. Nella pagina **Connessione disco rigido virtuale** selezionare **Collega un disco rigido virtuale in un secondo momento** e completare la creazione guidata della macchina virtuale.
 
 4.	Aprire le impostazioni della macchina virtuale:
 
-    a. Collegare un nuovo disco rigido virtuale alla macchina virtuale, assicurarsi di selezionare **formato VHD** e **a dimensione fissa**.
+    a. Collegare un nuovo disco rigido virtuale alla macchina virtuale, assicurarsi di selezionare **Formato VHD** e **Dimensione fissa**.
     
     b. Collegare l'ISO di installazione all'unità DVD.
 
     c. Impostare BIOS per l'avvio da CD.
 
-5.	Avviare la macchina virtuale, quando viene visualizzata la Guida all'installazione, premere **Scheda** per configurare le opzioni di avvio.
+5.	Avviare la macchina virtuale e, quando viene visualizzata la Guida all'installazione, premere **Scheda** per configurare le opzioni di avvio.
 
-6.	Inserire `inst.ks=<the location of the Kickstart file>` alla fine di opzioni di avvio e premere **Invio**.
+6.	Inserire `inst.ks=<the location of the Kickstart file>` alla fine delle opzioni di avvio e premere **Invio**.
 
 7.	Attendere il completamento dell'installazione. Una volta terminata la macchina virtuale verrà automaticamente arrestata. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-##Problemi noti:
-Esistono 2 problemi noti quando si utilizza RHEL 6.6, 7.0 e 7.1 in Hyper-V e Azure.
+##Problemi noti
+Esistono problemi noti quando si usa RHEL 7.1 in Hyper-V e Azure.
 
-###Problema 1: Timeout del provisioning
-Questo problema può verificarsi durante l'avvio con RHEL in Hyper-V e Azure. E’ più comune con RHEL 6.6.
+###Problema: Blocco del disco I/O 
 
-Frequenza di ripetizione:
-
-Il problema è intermittente. In genere si riproduce in macchine virtuali di dimensioni inferiori con una CPU virtuale singola e più spesso sui server più occupati.
-
-
-###Problema 2: Blocco del disco I/O 
-
-Questo problema può verificarsi durante attività del disco di archiviazione frequenti con RHEL 6.6, 7.0 e 7.1 in Hyper-V e Azure.
+Questo problema può verificarsi durante frequenti attività di I/O del disco di archiviazione con RHEL 7.1 in Hyper-V e Azure.
 
 Frequenza di ripetizione:
 
-Il problema è intermittente tuttavia si verifica più frequentemente durante le operazioni frequenti del disco I/O frequenti in Hyper-V e Azure.
+Sebbene sia un problema intermittente, si verifica più spesso durante frequenti operazioni di I/O del disco in Hyper-V e Azure.
 
     
-[AZURE.NOTE]Questi 2 problemi noti sono già risolti da Red Hat. Per installare gli aggiornamenti rapidi associati, è possibile eseguire il comando seguente:
+[AZURE.NOTE]Questo problema noto è già stato risolto da Red Hat. Per installare gli aggiornamenti rapidi associati, eseguire il comando seguente:
 
     # sudo yum update
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

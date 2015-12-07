@@ -33,11 +33,11 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
 
-2. Aggiornare i tre campi seguenti per la nuova app e quindi fare clic su **Continue**:
+2. Aggiornare i tre campi seguenti per la nuova app e quindi fare clic su **Continua**:
 
 	* **Name**: digitare un nome descrittivo per l'app nel campo **Name** della sezione **App ID Description**.
 	
-	* **Bundle Identifier**: in **Explicit App ID** immettere un valore in **Bundle Identifier** nel formato `<Organization Identifier>.<Product Name>`, come indicato nella [App Distribution Guide](http://go.microsoft.com/fwlink/?LinkId=613485). *Organization Identifier* e *Product Name* devono corrispondere all'identificatore di organizzazione e al nome del prodotto che verranno usati quando si crea il progetto XCode. Nella schermata seguente *NotificationHubs* viene usato come identificatore di organizzazione e *GetStarted* viene usato come nome del prodotto. Verificare che corrispondano ai valori che si useranno nel progetto XCode, in modo da usare il profilo di pubblicazione corretto con XCode.
+	* **Bundle Identifier**: in **Explicit App ID** immettere un valore in **Bundle Identifier** nel formato `<Organization Identifier>.<Product Name>`, come indicato nella [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). *Organization Identifier* e *Product Name* devono corrispondere all'identificatore di organizzazione e al nome del prodotto che verranno usati quando si crea il progetto XCode. Nella schermata seguente *NotificationHubs* viene usato come identificatore di organizzazione e *GetStarted* viene usato come nome del prodotto. Verificare che corrispondano ai valori che si useranno nel progetto XCode, in modo da usare il profilo di pubblicazione corretto con XCode.
 	
 	* **Push Notifications**: selezionare l'opzione **Push Notifications** nella sezione **App Services**.
 
@@ -135,4 +135,4 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

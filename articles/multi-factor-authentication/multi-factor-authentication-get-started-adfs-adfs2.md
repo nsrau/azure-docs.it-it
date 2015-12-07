@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 # Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con AD FS 2.0
 
@@ -93,4 +93,4 @@ Il provider di identità attendibili consente agli utenti di ignorare Azure mult
 
 <center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
