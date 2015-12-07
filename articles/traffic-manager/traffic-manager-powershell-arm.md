@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 
@@ -34,7 +34,7 @@ In Gestione risorse di Azure, ogni profilo di Gestione traffico è rappresentato
 
 ## Confronto con l'API di gestione del servizio Gestione traffico di Azure
 
-Se Gestione risorse di Azure viene utilizzato per configurare i profili di Gestione traffico, offre la stessa gamma di funzionalità di Gestione traffico previste dall'API di gestione del servizio (non di Gestione risorse di Azure). Tuttavia, fanno eccezione i limiti di anteprima riportati di seguito.
+L'uso di ARM per configurare i profili di Gestione traffico fornisce l'accesso allo stesso insieme di funzionalità di Gestione traffico offerte dall'API di gestione del servizio Azure, ad eccezione delle limitazioni della versione di anteprima elencate di seguito.
 
 Sebbene le funzionalità siano identiche, alcune tecnologie hanno subito delle modifiche:
 
@@ -47,82 +47,79 @@ Sebbene le funzionalità siano identiche, alcune tecnologie hanno subito delle m
 ## Limiti di anteprima
 Il supporto di Gestione risorse di Azure per Gestione traffico rappresenta un servizio di anteprima, attualmente caratterizzato da qualche limitazione:
 
-- I profili di Gestione traffico creati utilizzando le API di gestione del servizio (non Gestione risorse), gli strumenti e il portale esistenti non sono disponibili in Gestione risorse e viceversa. La migrazione dei profili dalle API non appartenenti a Gestione risorse di Azure a quelle di Gestione risorse di Azure non è supportata al momento.
+- I profili di Gestione traffico creati mediante l'API di gestione del servizio Azure esistente (non ARM), gli strumenti e il portale "classico" non sono disponibili tramite ARM e viceversa. La migrazione dei profili dalle API di gestione del servizio alle API ARM non è attualmente supportata. È solo possibile eliminare e ricreare il profilo.
 
-- 	L'API REST non supporta l'applicazione di patch ai profili di Gestione traffico. Per aggiornare una proprietà del profilo, è necessario VISUALIZZARE il profilo e IMMETTERE il profilo modificato.
-- 	Sono supportati soltanto gli endpoint "esterni". È ancora possibile ricorrere a tali endpoint quando si utilizza Gestione traffico con i servizi basati su Azure. In questo caso, gli endpoint vengono addebitati alla stessa tariffa dell'endpoint interno. L'utilizzo degli endpoint esterni comporta soltanto la loro mancata rimozione o disattivazione automatica nel caso in cui venga eliminato o disattivato il servizio Azure sottostante. Al contrario, gli endpoint vanno eliminati o disattivati manualmente.
--	Gestione traffico di Azure non è ancora disponibile nel portale di Azure, ma soltanto in quello classico.
+- Gli endpoint "annidati" di Gestione traffico non sono attualmente supportati nell'API ARM.
+
+- Gestione traffico di Azure non è ancora disponibile nel portale di "anteprima" di Azure, è disponibile solo nel portale "classico".
 
 ## Configurazione di Azure PowerShell
 
 Nelle presenti istruzioni viene utilizzato Microsoft Azure PowerShell, che può essere configurato seguendo la procedura riportata di seguito.
 
-Gli utenti che non utilizzano PowerShell possono eseguire la medesima procedura utilizzando interfacce differenti.
+Per gli utenti non PowerShell o non Windows, è possibile eseguire operazioni analoghe tramite l'interfaccia della riga di comando di Azure.
 
 ### Passaggio 1
 Installare la versione più recente di Azure PowerShell, accedendo alle pagine di download di Azure.
-### Passaggio 2
-Modificare la modalità di PowerShell affinché utilizzi i cmdlet di Gestione risorse di Azure. Altre informazioni sono disponibili in Uso di Windows PowerShell con Gestione risorse.
 
-	PS C:\> Switch-AzureMode -Name AzureResourceManager
-### Passaggio 3
+### Passaggio 2
 Accedere all'account Azure.
 
-	PS C:\> Add-AzureAccount
+	PS C:\> Login-AzureRmAccopunt
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
-### Passaggio 4
+### Passaggio 3
 Scegliere le sottoscrizioni ad Azure da utilizzare.
 
-	PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
+	PS C:\> Select-AzureRmContext -SubscriptionName "MySubscription"
 
-Per visualizzare un elenco di sottoscrizioni disponibili, utilizzare il cmdlet "Get-AzureSubscription".
+Per visualizzare l'elenco delle sottoscrizioni disponibili, usare il cmdlet 'Get-AzureRmSubscription'.
+
+### Passaggio 4
+
+Il servizio Gestione traffico di Azure viene gestito dal provider di risorse Microsoft.Network. Tale provider deve essere registrato nella sottoscrizione ad Azure prima di utilizzare Gestione traffico tramite Gestione risorse di Azure. Si tratta di un'operazione una tantum per ogni sottoscrizione.
+
+	PS C:\> Register-AzureRmResourceProvider –ProviderNamespace Microsoft.Network
 
 ### Passaggio 5
-
- Il servizio Gestione traffico di Azure viene gestito dal provider di risorse Microsoft.Network. Tale provider deve essere registrato nella sottoscrizione ad Azure prima di utilizzare Gestione traffico tramite Gestione risorse di Azure. Si tratta di un'operazione una tantum per ogni sottoscrizione.
-
-	PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
-
-### Passaggio 6
 Creare un nuovo gruppo di risorse. Ignorare questo passaggio se si usa un gruppo di risorse esistente.
 
-	PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -Location "West US"
 
 Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dal momento che tutte le risorse di Gestione traffico sono globali (non locali), la scelta del percorso relativo al gruppo di risorse non ha alcun impatto sul servizio Gestione traffico di Azure.
 
 ## Creazione di un profilo di Gestione traffico
 
-Per creare un profilo di gestione traffico, utilizzare il cmdlet New-AzureTrafficManagerProfile:
+Per creare un profilo di Gestione traffico, usare il cmdlet New-AzureRmTrafficManagerProfile:
 
-	PS C:\> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
 I parametri sono i seguenti:
 
 - Name: il nome della risorsa Gestione risorse di Azure per il profilo di Gestione traffico I profili dello stesso gruppo di risorse devono disporre di nomi univoci. Tale nome è diverso rispetto a quello DNS utilizzato per le query DNS.
 
--	ResourceGroupName: il nome del gruppo risorse di Gestione risorse di Azure che include la risorsa del profilo.
+- ResourceGroupName: il nome del gruppo risorse di Gestione risorse di Azure che include la risorsa del profilo.
 
--	TrafficRoutingMethod: indica il metodo di routing del traffico utilizzato per determinare quale endpoint viene restituito in risposta alle query DNS in entrata. I valori possibili sono "Performance", "Weighted" e "Priority".
+- TrafficRoutingMethod: indica il metodo di routing del traffico utilizzato per determinare quale endpoint viene restituito in risposta alle query DNS in entrata. I valori possibili sono "Performance", "Weighted" e "Priority".
 
--	RelativeDnsName: indica il nome DNS fornito dal profilo Gestione traffico. Questo valore viene combinato con il nome del dominio DNS utilizzato da Gestione traffico di Azure per formare il nome di dominio completo del profilo. Ad esempio, il valore "contoso" fornirà al profilo Gestione traffico il nome di dominio completo "contoso.trafficmanager.net".
+- RelativeDnsName: indica il nome DNS fornito dal profilo Gestione traffico. Questo valore viene combinato con il nome del dominio DNS utilizzato da Gestione traffico di Azure per formare il nome di dominio completo del profilo. Ad esempio, il valore 'contoso' consentirà di ottenere un profilo di Gestione traffico con nome completo 'contoso.trafficmanager.net'.
 
--	TTL: consente di specificare la durata DNS in secondi. In questo modo, i resolver locali e i client DNS sono informati sulla durata della memorizzazione nella cache delle risposte DNS fornite dal profilo Gestione traffico.
+- TTL: consente di specificare la durata DNS in secondi. In questo modo, i resolver locali e i client DNS sono informati sulla durata della memorizzazione nella cache delle risposte DNS fornite dal profilo Gestione traffico.
 
--	MonitorProtocol: indica il protocollo da utilizzare per monitorare lo stato di integrità dell'endpoint. I valori possibili sono "HTTP" e "HTTPS".
+- MonitorProtocol: indica il protocollo da utilizzare per monitorare lo stato di integrità dell'endpoint. I valori possibili sono "HTTP" e "HTTPS".
 
--	MonitorPort: indica la porta TCP utilizzata per monitorare l'integrità dell'endpoint.
+- MonitorPort: indica la porta TCP utilizzata per monitorare l'integrità dell'endpoint.
 
--	MonitorPath: indica il percorso relativo al nome di dominio dell'endpoint utilizzato per verificare l'integrità dell'endpoint.
+- MonitorPath: indica il percorso relativo al nome di dominio dell'endpoint utilizzato per verificare l'integrità dell'endpoint.
 
-Il cmdlet consente di creare un profilo in Gestione traffico di Azure e restituisce un oggetto di profilo corrispondente. A questo punto, il profilo non include più endpoint. Per ulteriori dettagli su come aggiungere endpoint a un profilo Gestione traffico, vedere [Aggiornamento di un profilo Gestione traffico](#update-a-traffic-manager-profile).
+Il cmdlet consente di creare un profilo in Gestione traffico di Azure e restituisce un oggetto di profilo corrispondente. A questo punto il profilo non contiene alcun endpoint. Per informazioni su come aggiungere endpoint a un profilo di Gestione traffico, vedere [Aggiunta di endpoint di Gestione traffico](#adding-traffic-manager-endpoints).
 
 ## Visualizzazione di un profilo di Gestione traffico
 
-Per recuperare un oggetto profilo di Gestione traffico esistente, utilizzare il cmdlet Get-AzureTrafficManagerProfle:
+Per recuperare un oggetto profilo di Gestione traffico, usare il cmdlet Get-AzureRmTrafficManagerProfle:
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
 
 Questo cmdlet restituisce un oggetto profilo di Gestione traffico.
 
@@ -130,67 +127,126 @@ Questo cmdlet restituisce un oggetto profilo di Gestione traffico.
 
 La modifica dei profili di Gestione traffico, ad esempio, per aggiungere/rimuovere endpoint o per modificare le impostazioni del profilo, viene eseguita in 3 passaggi:
 
-1.	Recuperare il profilo utilizzando Get-AzureTrafficManagerProfile oppure il profilo restituito da New-AzureTrafficManagerProfile.
+1.	Recuperare il profilo mediante Get-AzureRmTrafficManagerProfile oppure usare il profilo restituito da New-AzureRmTrafficManagerProfile.
 
-2.	Modificare il profilo, aggiungendo o rimuovendo gli endpoint, modificando i parametri dell'endpoint o del profilo. Queste modifiche si eseguono offline; pertanto, soltanto l'oggetto locale che rappresenta il profilo viene modificato.
+2.	Modificare il profilo, aggiungendo o rimuovendo gli endpoint, modificando i parametri dell'endpoint o del profilo. Queste modifiche sono operazioni offline. Viene modificato solo l'oggetto locale che rappresenta il profilo.
 
-3.	Confermare le modifiche utilizzando il cmdlet Set-AzureTrafficManagerProfile. In questo modo, si sostituisce il profilo esistente in Gestione traffico di Azure con quello fornito.
+3.	Eseguire il commit delle modifiche mediante il cmdlet Set-AzureRmTrafficManagerProfile. In questo modo, si sostituisce il profilo esistente in Gestione traffico di Azure con quello fornito.
 
-L'esempio seguente chiarisce ulteriormente quanto riportato in precedenza:
+È possibile modificare tutte le proprietà del profilo, ad eccezione del valore RelativeDnsName del profilo, che non può essere modificato dopo la creazione. Per modificare questo valore, eliminare e ricreare il profilo.
 
-### Aggiunta degli endpoint a un profilo
-
-È possibile aggiungere endpoint a un profilo di Gestione traffico utilizzando il cmdlet "Add-AzureTrafficManagerEndpointConfig":
-
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
-	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
-
-I parametri per Add-AzureTrafficManagerEndpointConfig sono i seguenti:
-
-- EndpointName: il nome dell'endpoint. Gli endpoint presenti nello stesso profilo devono avere nomi differenti. Il parametro viene utilizzato per fare riferimento all'endpoint durante le operazioni di gestione del servizio, ma non è il nome DNS dell'endpoint.
-
--	TrafficManagerProfile: l'oggetto profilo di Gestione traffico a cui verrà aggiunto l'endpoint.
-
--	Type: il tipo di endpoint di Gestione traffico. Attualmente, è supportato soltanto il tipo "ExternalEndpoint" tramite l'API di Gestione risorse di Azure (vedere [Limiti di anteprima](#preview-limitations)).
-
--	Target: nome del dominio DNS completo per l'endpoint. Gestione traffico restituisce questo valore nelle risposte DNS per indirizzare il traffico all'endpoint.
-
--	EndpointStatus: indica lo stato dell'endpoint. Se l'endpoint è abilitato, ne viene verificato lo stato di integrità e viene incluso nel metodo di routing del traffico. I valori possibili sono "Enabled" o "Disabled".
-
--	Weight: indica il peso assegnato all'endpoint. Viene utilizzato soltanto se il profilo Gestione traffico viene configurato affinché utilizzi il metodo di routing del traffico "Weighted". I valori possibili variano da 1 a 1000.
-
--	Priority: indica la priorità dell'endpoint quando si utilizza il metodo di routing traffico "Priority". La priorità deve essere compreso nell'intervallo 1-1000. I valori più bassi rappresentano un livello di priorità maggiore.
-
--	EndpointLocation: indica il percorso dell'endpoint esterno da utilizzare con il metodo di routing traffico "Performance". Per visualizzare un elenco di possibili percorsi, vedere Get-AzureLocation.
-
-I parametri Status, Weight e Priority dell'endpoint sono opzionali. Se si omettono, vengono bloccati e si applicano le impostazioni predefinite sul lato server.
-
-### Eliminazione di endpoint da un profilo
-
-Per eliminare un endpoint da un profilo, utilizzare "Remove-AzureTrafficmanagerEndpointConfig", specificando il nome dell'endpoint da eliminare:
-
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
-	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
-
-La sequenza delle operazioni da eseguire per aggiungere o eliminare gli endpoint può essere "inoltrata tramite pipe", consentendo all'oggetto di passare tramite il pipe invece che come parametro. Ad esempio:
-
-	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
-
-### Modificare le impostazioni del profilo o dell'endpoint
-
-I parametri del profilo e dell'endpoint possono essere modificati offline e le modifiche possono essere confermate utilizzando Set-AzureTrafficManagerProfile. Fa eccezione soltanto il RelativeDnsName del profilo, che non può essere modificato dopo aver creato il profilo. Per modificare tale valore, eliminare e creare di nuovo il profilo. Ad esempio, per modificare il profilo TTL e lo stato del primo endpoint:
+Ad esempio, per modificare il valore TTL del profilo:
 
 	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
 	PS C:\> $profile.Ttl = 300
-	PS C:\> $profile.Endpoints[0].EndpointStatus = "Disabled"
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
-### Eliminare un profilo di Gestione traffico
-Per eliminare un profilo di Gestione traffico, utilizzare il cmdlet Remove-AzureTrafficManagerProfile, specificando il nome del profilo e del gruppo di risorse:
+## Aggiungere endpoint di Gestione traffico [](#adding-traffic-manager-endpoints)
+Sono disponibili tre tipi di endpoint di Gestione traffico: 1. Endpoint di Azure: rappresentano i servizi ospitati in Azure. 2. Endpoint esterni: rappresentano i servizi ospitati all'esterno di Azure. 3. Endpoint annidati: usati per costruire gerarchie annidate di profili di Gestione traffico, per abilitare configurazioni avanzate dell'indirizzamento del traffico per applicazioni più complesse. Non sono ancora supportati tramite l'API ARM.
 
-	PS C:\> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
+In tutti e tre i casi è possibile aggiungere gli endpoint in due modi: 1. Mediante un processo in tre passaggi simile a quello descritto in [Aggiornare un profilo di Gestione traffico](#update-traffic-manager-profile): recupero dell'oggetto profilo mediante Get-AzureRmTrafficManagerProfile, aggiornamento dell'oggetto offline per aggiungere un endpoint mediante Add-AzureRmTrafficManagerEndpointConfig e caricamento delle modifiche in Gestione traffico di Azure mediante Set-AzureRmTrafficManagerProfile. Il vantaggio di questo metodo consiste nel fatto che è possibile apportare alcune modifiche agli endpoint in un singolo aggiornamento. 2. Mediante il cmdlet New-AzureRmTrafficManagerEndpoint. Questo metodo aggiunge un endpoint a un profilo di Gestione traffico esistente in una singola operazione.
+
+### Aggiunta di endpoint di Azure
+Gli endpoint di Azure fanno riferimento ad altri servizi ospitati in Azure. Sono attualmente supportati tre tipi di endpoint di Azure: 1. App Web di Azure 2. Servizi cloud "classici" (che possono includere un servizio PaaS o macchine virtuali IaaS) 3. Risorse di tipo Microsoft.Network/publicIpAddress ARM (che possono essere associate a un servizio di bilanciamento del carico o a una NIC di macchina virtuale). Si noti che è necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in Gestione traffico.
+
+In ogni caso: - Il servizio viene specificato mediante il parametro 'targetResourceId' di Add-AzureRmTrafficManagerEndpointConfig o New-AzureRmTrafficManagerEndpoint. - I valori 'Target' e 'EndpointLocation' non devono essere specificati, perché sono impliciti nel valore TargetResourceId specificato in precedenza. - Il valore per 'Weight' è facoltativo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Weighted'. In caso contrario, vengono ignorati. Se specificato, questo valore deve essere incluso nell'intervallo 1...1000. Il valore predefinito è '1'. - Il valore 'Priority' è facoltativo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Priority'. In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000. I valori più bassi corrispondono a una priorità maggiore. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da 1, 2, 3 e così via nell'ordine in cui vengono forniti gli endpoint.
+
+#### Esempio 1: Aggiunta di endpoint di app Web mediante Add-AzureRmTrafficManagerEndpointConfig
+In questo esempio viene creato un nuovo profilo di Gestione traffico e vengono aggiunti due endpoint di app Web mediante il cmdlet Add-AzureRmTrafficManagerEndpointConfig. Viene quindi eseguito il commit del profilo aggiornato in Gestione traffico di Azure mediante Set-AzureRmTrafficManagerProfile.
+
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $webapp1 = Get-AzureRMWebApp -Name webapp1
+	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName webapp1ep –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled
+	PS C:\> $webapp2 = Get-AzureRMWebApp -Name webapp2
+	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName webapp2ep –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled
+	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile  
+
+#### Esempio 2: Aggiunta di un endpoint di servizio cloud "classico" mediante New-AzureRmTrafficManagerEndpoint
+In questo esempio viene aggiunto un endpoint di servizio cloud "classico" a un profilo di Gestione traffico. Si noti che in questo caso si sceglie di specificare il profilo mediante il nome del profilo e il nome del gruppo di risorse, invece di passare un oggetto profilo. Sono supportati entrambi gli approcci.
+
+	PS C:\> $cloudService = Get-AzureRmResource -ResourceName MyCloudService -ResourceType "Microsoft.ClassicCompute/domainNames" -ResourceGroupName MyCloudService
+	PS C:\> New-AzureRmTrafficManagerEndpoint –Name MyCloudServiceEndpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type AzureEndpoints -TargetResourceId $cloudService.Id –EndpointStatus Enabled
+
+#### Esempio 3: Aggiunta di un endpoint publicIpAddress mediante New-AzureRmTrafficManagerEndpoint
+In questo esempio viene aggiunta una risorsa indirizzo IP pubblico ARM al profilo di Gestione traffico. L'indirizzo IP pubblico deve avere un nome DNS configurato e può essere associato alla NIC di una VM o a un servizio di bilanciamento del carico.
+
+	PS C:\> $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+	PS C:\> New-AzureRmTrafficManagerEndpoint –Name MyIpEndpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type AzureEndpoints -TargetResourceId $ip.Id –EndpointStatus Enabled
+
+### Aggiunta di endpoint esterni
+Gestione traffico usa endpoint esterni per indirizzare il traffico ai servizi ospitati all'esterno di Azure. Analogamente agli endpoint di Azure, gli endpoint esterni possono essere aggiunti mediante Add-AzureRmTrafficManagerEndpointConfig seguito da Set-AzureRmTrafficManagerProfile o New-AzureRMTrafficManagerEndpoint.
+
+Quando si specificano endpoint esterni: - Il nome di dominio dell'endpoint deve essere specificato mediante il parametro 'Target'. - Il valore 'EndpointLocation' è obbligatorio se si usa il metodo di indirizzamento del traffico 'Performance'. In caso contrario, è facoltativo. Il valore deve essere un [nome di area di Azure valido](http://azure.microsoft.com/regions/). - I valori 'Weight' e 'Priority' sono facoltativi, analogamente agli endpoint di Azure.
+
+#### Esempio 1: Aggiunta di endpoint esterni mediante Add-AzureRmTrafficManagerEndpointConfig e Set-AzureRmTrafficManagerProfile
+In questo esempio viene creato un nuovo profilo di Gestione traffico, vengono aggiunti due endpoint esterni e viene eseguito il commit delle modifiche.
+
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName eu-endpoint –TrafficManagerProfile $profile –Type ExternalEndpoints -Target app-eu.contoso.com –EndpointStatus Enabled
+	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName us-endpoint –TrafficManagerProfile $profile –Type ExternalEndpoints -Target app-us.contoso.com –EndpointStatus Enabled
+	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile  
+
+#### Esempio 2: Aggiunta di endpoint esterni mediante New-AzureRmTrafficManagerEndpoint
+In questo esempio viene aggiunto un endpoint esterno a un profilo esistente, specificato mediante il nome del profilo e il nome del gruppo di risorse.
+
+	PS C:\> New-AzureRmTrafficManagerEndpoint –Name eu-endpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type ExternalEndpoints -Target app-eu.contoso.com –EndpointStatus Enabled
+
+## Aggiornare un endpoint di Gestione traffico
+È possibile aggiornare un endpoint di Gestione traffico esistente in due modi: 1. Ottenere il profilo di Gestione traffico mediante Get-AzureRmTrafficManagerProfile, aggiornare le proprietà dell'endpoint nel profilo ed eseguire il commit delle modifiche mediante Set-AzureRmTrafficManagerProfile. Il vantaggio di questo metodo consiste nella possibilità di aggiornare più endpoint in una singola operazione. 2. Ottenere l'endpoint di Gestione traffico mediante Get-AzureRmTrafficManagerEndpoint, aggiornare le proprietà dell'endpoint ed eseguire il commit delle modifiche mediante Set-AzureRmTrafficManagerEndpoint. Questo metodo è più semplice, perché non richiede l'indicizzazione nella matrice Endpoints nel profilo.
+
+#### Esempio 1: Aggiornamento degli endpoint mediante Get-AzureRmTrafficManagerProfile e Set-AzureRmTrafficManagerProfile
+In questo esempio viene modificata la priorità di due endpoint in un profilo esistente.
+
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg
+	PS C:\> $profile.Endpoints[0].Priority = 2
+	PS C:\> $profile.Endpoints[1].Priority = 1
+	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
+
+#### Esempio 2: Aggiornamento di un endpoint mediante Get-AzureRmTrafficManagerEndpoint e Set-AzureRmTrafficManagerEndpoint
+In questo esempio verrà modificato il peso di un singolo endpoint in un profilo esistente.
+
+	PS C:\> $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName myrg -Type ExternalEndpoints
+	PS C:\> $endpoint.Weight = 20
+	PS C:\> Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
+
+## Abilitazione e disabilitazione di endpoint e profili
+Gestione traffico consente l'abilitazione e la disabilitazione dei singoli endpoint, oltre a consentire l'abilitazione e la disabilitazione di interi profili. Queste modifiche possono essere apportate ottenendo/aggiornando/impostando l'endpoint o le risorse del profilo. Per semplificare queste operazioni comuni, le modifiche sono supportate anche tramite cmdlet dedicati.
+
+#### Esempio 1: Abilitazione e disabilitazione di un profilo di Gestione traffico
+Per abilitare un profilo di Gestione traffico, usare Enable-AzureRmTrafficManagerProfile. Il profilo può essere specificato mediante un oggetto profilo, passato tramite la pipeline o mediante il parametro '-TrafficManagerProfile', oppure specificando direttamente il nome del profilo e il nome del gruppo di risorse, come illustrato nell'esempio.
+
+	PS C:\> Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+
+Analogamente, per disabilitare un profilo di Gestione traffico:
+
+	PS C:\> Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+
+Il cmdlet Disable-AzureRmTrafficManagerProfile richiederà una conferma. È possibile eliminare la richiesta di conferma mediante il parametro '-Force'.
+
+#### Esempio 2: Abilitazione e disabilitazione di un endpoint di Gestione traffico
+Per abilitare un endpoint di Gestione traffico, usare Enable-AzureRmTrafficManagerEndpoint. L'endpoint può essere specificato mediante un oggetto TrafficManagerEndpoint, passato tramite la pipeline o mediante il parametro '-TrafficManagerEndpoint', oppure specificando direttamente il nome dell'endpoint, il tipo dell'endpoint, il nome del profilo e il nome del gruppo di risorse:
+
+	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
+
+Analogamente, per disabilitare un profilo di Gestione traffico:
+
+ 	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup -Force
+
+Analogamente a Disable-AzureRmTrafficManagerProfile, il cmdlet Disable-AzureRmTrafficManagerEndpoint include una richiesta di conferma, che può essere eliminata mediante il parametro '-Force'.
+
+## Eliminare un endpoint di Gestione traffico
+Un modo per eliminare un endpoint di Gestione traffico consiste nel recuperare l'oggetto profilo mediante Get-AzureRmTrafficManagerProfile, aggiornare l'elenco di endpoint nell'oggetto profilo locale ed eseguire il commit delle modifiche mediante Set-AzureRmTrafficManagerProfile. Questo metodo consente di eseguire il commit di più modifiche agli endpoint contemporaneamente.
+
+Un altro modo per rimuovere i singoli endpoint consiste nell'usare il cmdlet Remove-AzureRmTrafficManagerEndpoint:
+
+	PS C:\> Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
+	
+Questo cmdlet richiederà una conferma, a meno che non si usi il parametro '-Force' per eliminare la richiesta di conferma.
+
+## Eliminare un profilo di Gestione traffico
+Per eliminare un profilo di Gestione traffico, usare il cmdlet Remove-AzureRmTrafficManagerProfile, specificando il nome del profilo e il nome del gruppo di risorse:
+
+	PS C:\> Remove-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
 
 Il cmdlet richiede una conferma. L'opzione facoltativa "-Force" può essere usata per eliminare questa richiesta. Inoltre, il profilo da eliminare può essere specificato utilizzando un oggetto di profilo:
 
@@ -201,7 +257,6 @@ Questa sequenza può anche essere inoltrata tramite pipe:
 
 	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
-
 ## Passaggi successivi
 
 [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
@@ -209,4 +264,4 @@ Questa sequenza può anche essere inoltrata tramite pipe:
 [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

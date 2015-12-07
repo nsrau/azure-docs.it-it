@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory | Microsoft Azure"
 	description="Guida dettagliata per abilitare l'accesso condizionale alle applicazioni locali tramite Active Directory Federation Services (AD FS) in Windows Server 2012 R2."
@@ -14,8 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
+
 
 # Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory
 
@@ -46,7 +46,7 @@ Prerequisiti dello scenario
 * Microsoft Azure Active Directory Connect (Azure AD Connect) su server proxy applicazione Web di Windows Server 2012 R2. [Scaricare Azure AD Connect da questa pagina](http://www.microsoft.com/it-IT/download/details.aspx?id=47594).
 * Dominio verificato. 
 
-Problemi noti di questa versione
+Problemi noti in questa versione
 -------------------------------------------------------------------------------
 * I criteri di accesso condizionale basati su dispositivo richiedono la funzionalità di writeback degli oggetti dispositivo in Active Directory da Azure Active Directory. L'esecuzione del writeback degli oggetti dispositivo in Active Directory può richiedere fino a 3 ore.
 * I dispositivi iOS 7 richiedono sempre di selezionare un certificato durante l'autenticazione dei certificati client. 
@@ -75,8 +75,7 @@ Seguire questo elenco di controllo per abilitare e configurare il servizio Regis
 | Abilitare Registrazione dispositivo nel tenant di Azure Active Directory per consentire l'aggiunta dei dispositivi all'area di lavoro. Per impostazione predefinita, l'autenticazione a più fattori non è abilitata per il servizio. L'autenticazione a più fattori è tuttavia consigliata quando si registra un dispositivo. Prima di abilitare l'autenticazione a più fattori in ADRS, assicurarsi che AD FS sia configurato per un provider di autenticazione a più fattori. | [Abilitare Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
 | I dispositivi individueranno il servizio Registrazione dispositivo di Azure Active Directory cercando record DNS noti. È necessario configurare il DNS della società in modo che i dispositivi possano trovare il servizio Registrazione dispositivo di Azure Active Directory. | [Configurare l'individuazione di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md). |
 
-##Parte 2: Distribuire e configurare Active Directory Federation Services con Windows Server 2012 R2 e configurare una relazione federativa con Azure Active Directory
-
+##Parte 2: Distribuire e configurare Active Directory Federation Services con Windows Server 2012 R2 e configurare una relazione federativa con Azure AD
 
 | Attività | Riferimento |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
@@ -205,14 +204,14 @@ Nei passaggi seguenti viene mostrato come implementare questo scenario.
 2. Trovare l'applicazione a cui si applicherà questa nuova regola di accesso. Fare clic con il pulsante destro del mouse sull'applicazione e scegliere Modifica regole attestazione.
 3. Selezionare la scheda **Regole di autorizzazione rilascio** e quindi selezionare **Aggiungi regola**.
 4. Nell'elenco a discesa **Modello di regola attestazione** selezionare **Consentire o negare l'accesso agli utenti in base a un'attestazione in ingresso**. Selezionare **Avanti**.
-5. Nel campo Nome regola attestazione digitare **Consenti accesso dai dispositivi registrati**.
+5. Nel campo Nome regola attestazione digitare **Consenti accesso dai dispositivi registrati**
 6. Nell'elenco a discesa Tipo di attestazione in ingresso selezionare **È un utente registrato**.
 7. Nel campo Valore attestazione in ingresso digitare: **true**
 8. Selezionare il pulsante di opzione **Consenti accesso agli utenti con questa attestazione in ingresso**.
 9. Selezionare **Fine** e quindi **Applica**.
 10. Rimuovere le eventuali regole più permissive di quella appena creata. Ad esempio, rimuovere la regola predefinita **Consenti accesso a tutti gli utenti**.
 
-L'applicazione ora è configurata per consentire l'accesso solo quando l'utente opera da un dispositivo registrato e aggiunto all'area di lavoro. Per criteri di accesso più avanzati, vedere [Gestire i rischi con il controllo di accesso a più fattori](https://technet.microsoft.com/it-IT/library/dn280949.aspx).
+L'applicazione ora è configurata per consentire l'accesso solo quando l'utente opera da un dispositivo registrato e aggiunto all'area di lavoro. Per criteri di accesso più avanzati, vedere [Gestire i rischi con il controllo di accesso a più fattori](https://technet.microsoft.com/library/dn280949.aspx).
 
 A questo punto è necessario configurare un messaggio di errore personalizzato per l'applicazione. Tale messaggio indicherà agli utenti che devono aggiungere il dispositivo all'area di lavoro prima di poter accedere all'applicazione.. È possibile creare un messaggio personalizzato di accesso all'applicazione negato usando codice HTML personalizzato e Windows PowerShell.
 
@@ -238,4 +237,4 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 ![Schermata di un errore visualizzato quando gli utenti non hanno registrato il dispositivo con Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1
@@ -52,4 +52,9 @@ Il registro eventi del computer Windows 8.1 visualizza i messaggi correlati alla
 
 L'oggetto Criteri di gruppo abilita nel sistema un'attività pianificata che viene eseguita nel contesto dell'utente e attivata al momento dell'accesso dell'utente. Una volta completato l'accesso, l'attività registrerà automaticamente l'utente e il dispositivo in Azure AD. L'attività pianificata è disponibile nei dispositivi Windows 8.1 nella libreria dell'Utilità di pianificazione in **Microsoft** > **Windows** > **Aggiunta all'area di lavoro**. L'attività verrà eseguita e registrerà tutti gli utenti di Active Directory che accedono al computer.
 
-<!---HONumber=Oct15_HO3-->
+## Argomenti aggiuntivi
+- [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+- [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md)
+- [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
+
+<!---HONumber=AcomDC_1125_2015-->

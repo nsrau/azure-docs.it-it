@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Analogie e differenze tra le code di Azure e le code del bus di servizio"
+   pageTitle="Analogie e differenze tra le code di Azure e le code del bus di servizio | Microsoft Azure"
    description="Analizza i punti in comune e le differenze tra i due tipi di code offerti da Azure."
    services="service-bus"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/11/2015"
+   ms.date="11/18/2015"
    ms.author="sethm" />
 
 # Analogie e differenze tra le code di Azure e le code del bus di servizio
@@ -25,7 +25,7 @@ Microsoft Azure supporta due tipi di meccanismi di code: **code di Azure** e **c
 
 Le **code di Azure**, che fanno parte dell'infrastruttura di [archiviazione di Azure](http://azure.microsoft.com/services/storage/), offrono un'interfaccia per operazioni di ricezione/inserimento/visualizzazione basata su REST, che fornisce messaggistica affidabile e persistente in e tra i servizi.
 
-Le **code del bus di servizio** fanno parte di un'infrastruttura di [messaggistica di Azure](http://azure.microsoft.com/services/messaging/) più ampia che supporta l'accodamento, oltre a modelli di pubblicazione, sottoscrizione, comunicazione remota del servizio Web e integrazione. Per altre informazioni su code, argomenti, sottoscrizioni e inoltri del bus di servizio, vedere [Panoramica dei modelli di messaggistica del bus di servizio](https://msdn.microsoft.com/library/hh410103.aspx).
+Le **code del bus di servizio** fanno parte di un'infrastruttura di [messaggistica di Azure](http://azure.microsoft.com/services/service-bus/) più ampia che supporta l'accodamento, oltre a modelli di pubblicazione, sottoscrizione, comunicazione remota del servizio Web e integrazione. Per altre informazioni su code, argomenti, sottoscrizioni e inoltri del bus di servizio, vedere [Panoramica dei modelli di messaggistica del bus di servizio](service-bus-messaging-overview.md).
 
 Anche se entrambe le tecnologie di accodamento sono disponibili contemporaneamente, le code di Azure sono state introdotte prima, come meccanismo dedicato di archiviazione delle code creato nei servizi di archiviazione di Azure. Le code del bus di servizio vengono create nell'infrastruttura di "messaggistica negoziata" più ampia progettata per integrare applicazioni e componenti delle applicazioni in grado di estendere più protocolli di comunicazione, contratti dati, domini trusted e/o ambienti di rete.
 
@@ -55,7 +55,7 @@ In qualità di architetto o sviluppatore di soluzioni, **considerare l'uso delle
 
 - La soluzione deve essere in grado di eseguire il rilevamento duplicato automatico.
 
-- Si vuole che l'applicazione elabori i messaggi come flussi paralleli a esecuzione prolungata (i messaggi sono associati a un flusso mediante la proprietà [SessionId](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx)). In questo modello ogni nodo dell'applicazione che utilizza il servizio entra in competizione con gli altri nodi per l'acquisizione dei flussi anziché dei messaggi. Quando un flusso viene assegnato a un nodo basato sul servizio, tale nodo può esaminare lo stato del flusso dell'applicazione mediante transazioni.
+- Si vuole che l'applicazione elabori i messaggi come flussi paralleli a esecuzione prolungata (i messaggi sono associati a un flusso mediante la proprietà [SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx)). In questo modello ogni nodo dell'applicazione che utilizza il servizio entra in competizione con gli altri nodi per l'acquisizione dei flussi anziché dei messaggi. Quando un flusso viene assegnato a un nodo basato sul servizio, tale nodo può esaminare lo stato del flusso dell'applicazione mediante transazioni.
 
 - Per la soluzione sono necessari atomicità e comportamento transazionale in caso di invio o ricezione di più messaggi da una coda.
 
@@ -67,7 +67,7 @@ In qualità di architetto o sviluppatore di soluzioni, **considerare l'uso delle
 
 - Le dimensioni della coda non supereranno gli 80 GB.
 
-- Si vuole usare il broker di messaggistica basato su standard AMQP 1.0. Per altre informazioni su AMQP, vedere [Panoramica del protocollo AMQP per il bus di servizio](https://msdn.microsoft.com/library/jj841072.aspx).
+- Si vuole usare il broker di messaggistica basato su standard AMQP 1.0. Per altre informazioni su AMQP, vedere [Panoramica del protocollo AMQP per il bus di servizio](service-bus-amqp-overview.md).
 
 - È possibile prevedere un'eventuale migrazione dalla comunicazione punto a punto basata sulla coda a un modello di scambio dei messaggi mediante il quale viene garantita un'integrazione continua di destinatari aggiuntivi (sottoscrittori), mediante ognuno dei quali vengono ricevute copie separate di alcuni o di tutti i messaggi inviati alla coda. Quest'ultima viene definita funzionalità di pubblicazione/sottoscrizione a livello nativo fornita dal bus di servizio.
 
@@ -91,11 +91,11 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 |Garanzia di recapito|**At-Least-Once**|**At-Least-Once**<br/><br/>**At-Most-Once**|
 |Supporto delle transazioni|**No**|**Sì**<br/><br/>(tramite l'uso di transazioni locali)|
 |Comportamento di ricezione|**Senza blocco**<br/><br/>(completamento immediato in caso di assenza di nuovi messaggi)|**Blocco con/senza timeout**<br/><br/>(disponibilità di polling prolungato o ["tecnica Comet"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Senza blocco**<br/><br/>(solo tramite l'uso dell'API gestita .NET)|
-|API di tipo push|**No**|**Sì**<br/><br/>API .NET di [OnMessage](https://msdn.microsoft.com/library/jj908682.aspx) e [sessioni OnMessage](https://msdn.microsoft.com/library/dn790528.aspx).|
+|API di tipo push|**No**|**Sì**<br/><br/>sessioni API .NET di [OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) e **OnMessage**.|
 |Modalità di ricezione|**Visualizzazione e lease**|**Visualizzazione e blocco**<br/><br/>**Ricezione ed eliminazione**|
 |Modalità di accesso esclusivo|**Basato sul lease**|**Basato sul blocco**|
-|Durata lease/blocco|**30 secondi (impostazione predefinita)**<br/><br/>**7 giorni (durata massima)** (È possibile rinnovare o rilasciare un lease di un messaggio usando l'API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx)).|**60 secondi (impostazione predefinita)**<br/><br/>È possibile rinnovare un blocco su un messaggio usando l'API [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).|
-|Precisione lease/blocco|**A livello di messaggio**<br/><br/>(ogni messaggio può avere un valore di timeout diverso. Durante l'elaborazione del messaggio, è possibile aggiornare tale valore nel modo necessario usando l'API [UpdateMessage](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx)).|**A livello di coda**<br/><br/>(ogni coda ha una precisione di blocco applicata a tutti i relativi messaggi, tuttavia è possibile rinnovare il blocco usando l'API [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx)).|
+|Durata lease/blocco|**30 secondi (impostazione predefinita)**<br/><br/>**7 giorni (durata massima)** (È possibile rinnovare o rilasciare un lease di un messaggio usando l'API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx)).|**60 secondi (impostazione predefinita)**<br/><br/>È possibile rinnovare un blocco su un messaggio usando l'API [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).|
+|Precisione lease/blocco|**A livello di messaggio**<br/><br/>(ogni messaggio può avere un valore di timeout diverso. Durante l'elaborazione del messaggio, è possibile aggiornare tale valore nel modo necessario usando l'API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx)).|**A livello di coda**<br/><br/>(ogni coda ha una precisione di blocco applicata a tutti i relativi messaggi, tuttavia è possibile rinnovare il blocco usando l'API [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx)).|
 |Ricezione in batch|**Sì**<br/><br/>(specifica esplicita del numero di messaggi durante il recupero di questi ultimi, fino a un massimo di 32 messaggi).|**Sì**<br/><br/>(abilitazione implicita di una proprietà di prelettura o esplicita tramite l'uso di transazioni).|
 |Invio in batch|**No**|**Sì**<br/><br/>(tramite l'uso di transazioni o invio in batch sul lato client).|
 
@@ -119,7 +119,7 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 
 - Le code di Azure forniscono lease con possibilità di estensione per i messaggi. In questo modo i processi di lavoro possono gestire lease brevi nei messaggi. Pertanto, se un processo di lavoro viene arrestato in modo anomalo, il messaggio può essere elaborato di nuovo rapidamente da un altro processo di lavoro. Inoltre, tramite un processo di lavoro è possibile estendere il lease in un messaggio se l'elaborazione di quest'ultimo richiede più tempo del lease corrente.
 
-- Le code di Azure offrono un timeout di visibilità che può essere impostato durante l'inserimento o la rimozione dalla coda di un messaggio. È inoltre possibile aggiornare un messaggio con valori di lease diversi in fase di esecuzione, nonché aggiornare valori diversi nei messaggi presenti nella stessa coda. I timeout dei blocchi del bus di servizio vengono definiti nei metadati della coda. È tuttavia possibile rinnovare il blocco chiamando il metodo [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).
+- Le code di Azure offrono un timeout di visibilità che può essere impostato durante l'inserimento o la rimozione dalla coda di un messaggio. È inoltre possibile aggiornare un messaggio con valori di lease diversi in fase di esecuzione, nonché aggiornare valori diversi nei messaggi presenti nella stessa coda. I timeout dei blocchi del bus di servizio vengono definiti nei metadati della coda. È tuttavia possibile rinnovare il blocco chiamando il metodo [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).
 
 - Il timeout massimo per un'operazione di ricezione del blocco nelle code del bus di servizio è di 24 giorni. I timeout basati su REST, tuttavia, hanno un valore massimo di 55 secondi.
 
@@ -141,8 +141,8 @@ Questa sezione confronta le funzionalità avanzate fornite dalle code di Azure e
 |Supporto messaggi non elaborabili|**Sì**|**Sì**|
 |Aggiornamento sul posto|**Sì**|**Sì**|
 |Log delle transazioni sul lato server|**Sì**|**No**|
-|Metriche di archiviazione|**Sì**<br/><br/>**Metrica al minuto**: fornisce metriche in tempo reale relative a disponibilità, TPS, numero di chiamate API, numero di errori e molto altro (aggregate per minuto e segnalate entro pochi minuti rispetto agli eventi in fase di produzione). Per altre informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione](https://msdn.microsoft.com/library/hh343258.aspx).|**Sì**<br/><br/>(query in blocco chiamando [GetQueues](https://msdn.microsoft.com/library/hh293128.aspx))|
-|Gestione dello stato|**No**|**Sì**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx)|
+|Metriche di archiviazione|**Sì**<br/><br/>**Metrica al minuto**: fornisce metriche in tempo reale relative a disponibilità, TPS, numero di chiamate API, numero di errori e molto altro (aggregate per minuto e segnalate entro pochi minuti rispetto agli eventi in fase di produzione). Per altre informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343258.aspx).|**Sì**<br/><br/>(query in blocco chiamando [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
+|Gestione dello stato|**No**|**Sì**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx)|
 |Inoltro automatico dei messaggi|**No**|**Sì**|
 |Funzione di eliminazione della coda|**Sì**|**No**|
 |Gruppi di messaggi|**No**|**Sì**<br/><br/>(tramite l'uso di sessioni di messaggistica)|
@@ -159,7 +159,7 @@ Questa sezione confronta le funzionalità avanzate fornite dalle code di Azure e
 
 - La funzionalità di inoltro automatico consente a migliaia di code di inoltrare automaticamente i propri messaggi a una singola coda dalla quale l'applicazione ricevente preleva il messaggio. Questo meccanismo consente di ottenere un valore elevato di sicurezza, di controllare il flusso e di isolare le aree di archiviazione tra i server di pubblicazione dei messaggi.
 
-- Le code di Azure offrono supporto per l'aggiornamento del contenuto del messaggio. Questa funzionalità consente di rendere permanenti le informazioni sullo stato e gli aggiornamenti sull'avanzamento incrementale all'interno del messaggio, in modo che sia possibile elaborare quest'ultimo dall'ultimo checkpoint noto anziché dall'inizio. Con le code del bus di servizio è possibile abilitare lo stesso scenario mediante sessioni di messaggistica Le sessioni consentono di salvare e recuperare lo stato di elaborazione dell'applicazione usando [SetState](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.setstate.aspx) e [GetState](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.getstate.aspx).
+- Le code di Azure offrono supporto per l'aggiornamento del contenuto del messaggio. Questa funzionalità consente di rendere permanenti le informazioni sullo stato e gli aggiornamenti sull'avanzamento incrementale all'interno del messaggio, in modo che sia possibile elaborare quest'ultimo dall'ultimo checkpoint noto anziché dall'inizio. Con le code del bus di servizio è possibile abilitare lo stesso scenario mediante sessioni di messaggistica Le sessioni consentono di salvare e recuperare lo stato di elaborazione dell'applicazione usando [SetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx) e [GetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx).
 
 - Il mancato recapito dei messaggi, funzionalità supportata solo dalle code del bus di servizio, può essere utile per isolare i messaggi che non possono essere elaborati correttamente dall'applicazione ricevente o quando i messaggi non possono essere recapitati a causa di una proprietà di durata (TTL) scaduta. Tramite il valore TTL viene specificata la durata del messaggio nella coda. Con il bus di servizio, il messaggio verrà spostato in una coda speciale denominata $DeadLetterQueue allo scadere del periodo TTL.
 
@@ -167,9 +167,9 @@ Questa sezione confronta le funzionalità avanzate fornite dalle code di Azure e
 
 - Le code di Azure consentono di ottenere un log dettagliato di tutte le transazioni eseguite nella coda, nonché le metriche di aggregazione. Queste opzioni sono entrambe utili per eseguire il debug e comprendere la modalità d'uso delle code di Azure da parte dell'applicazione. Inoltre, sono utili per l'ottimizzazione delle prestazioni dell'applicazione e per la riduzione dei costi d'uso delle code.
 
-- Il concetto di "sessione di messaggistica" supportato dal bus di servizio consente di associare a uno specifico destinatario i messaggi appartenenti a un determinato gruppo logico. Il destinatario crea a sua volta un'affinità di tipo sessione tra i messaggi e i relativi destinatari. È possibile abilitare questa funzionalità avanzata nel bus di servizio impostando la proprietà [SessionID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) in un messaggio. I destinatari possono quindi restare in ascolto su un ID di sessione specifico e ricevere messaggi in cui viene condiviso l'identificatore di sessione specificato.
+- Il concetto di "sessione di messaggistica" supportato dal bus di servizio consente di associare a uno specifico destinatario i messaggi appartenenti a un determinato gruppo logico. Il destinatario crea a sua volta un'affinità di tipo sessione tra i messaggi e i relativi destinatari. È possibile abilitare questa funzionalità avanzata nel bus di servizio impostando la proprietà [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) in un messaggio. I destinatari possono quindi restare in ascolto su un ID di sessione specifico e ricevere messaggi in cui viene condiviso l'identificatore di sessione specificato.
 
-- La funzionalità di rilevamento di duplicazione supportata dalle code del bus di servizio rimuove automaticamente i messaggi duplicati inviati a una coda o a un argomento, in base al valore della proprietà [MessageID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
+- La funzionalità di rilevamento di duplicazione supportata dalle code del bus di servizio rimuove automaticamente i messaggi duplicati inviati a una coda o a un argomento, in base al valore della proprietà [MessageID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
 
 ## Capacità e quote
 
@@ -177,7 +177,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 |Criteri di confronto|Code di Azure|Code del bus di servizio|
 |---|---|---|
-|Dimensioni massime della coda|**200 TB**<br/><br/>(limitate alla capacità di un singolo account di archiviazione)|**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](https://msdn.microsoft.com/library/dn520246.aspx). Vedere la sezione "Informazioni aggiuntive").|
+|Dimensioni massime della coda|**200 TB**<br/><br/>(limitate alla capacità di un singolo account di archiviazione)|**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive").|
 |Dimensioni massime del messaggio|**64 KB**<br/><br/>(48 KB quando si usa la codifica **Base64**)<br/><br/>Grazie alla combinazione di code e BLOB, Azure supporta messaggi di grandi dimensioni consentendo di accodare fino a 200 GB per un singolo elemento.|**256 KB**<br/><br/>(inclusi sia l'intestazione sia il corpo, dimensioni massime dell'intestazione: 64 KB)|
 |Durata TTL massima del messaggio|**7 giorni**|**Illimitato**|
 |Numero massimo di code|**Illimitato**|**10.000**<br/><br/>(per spazio dei nomi del servizio, può essere aumentato)|
@@ -185,7 +185,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 ### Informazioni aggiuntive
 
-- Bus di servizio impone l'applicazione dei limiti di dimensione della coda. Le dimensioni massime della coda vengono specificate al momento della creazione della coda stessa e possono avere un valore compreso tra 1 e 80 GB. Se viene raggiunto il valore delle dimensioni della coda impostato al momento della creazione, i successivi messaggi in arrivo verranno rifiutati e il codice chiamante riceverà un'eccezione. Per altre informazioni sulle quote nel bus di servizio, vedere [Quote del bus di servizio](https://msdn.microsoft.com/library/ee732538.aspx).
+- Bus di servizio impone l'applicazione dei limiti di dimensione della coda. Le dimensioni massime della coda vengono specificate al momento della creazione della coda stessa e possono avere un valore compreso tra 1 e 80 GB. Se viene raggiunto il valore delle dimensioni della coda impostato al momento della creazione, i successivi messaggi in arrivo verranno rifiutati e il codice chiamante riceverà un'eccezione. Per altre informazioni sulle quote nel bus di servizio, vedere [Quote del bus di servizio](service-bus-quotas.md).
 
 - È possibile creare code del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato (ovvero l'impostazione predefinita), il bus di servizio crea 16 partizioni per ciascun GB specificato. Di conseguenza, se si crea una coda di 5 GB di dimensioni, con 16 partizioni la dimensione massima della coda diventa (5 * 16) = 80 GB. È possibile visualizzare le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel portale di Azure.
 
@@ -222,7 +222,7 @@ Questa sezione confronta le funzionalità di gestione fornite dalle code di Azur
 
 - Le API gestite .NET di messaggistica negoziata del bus di servizio usano le connessioni TCP full-duplex per ottenere migliori livelli di prestazioni rispetto a REST su HTTP e supportano il protocollo standard AMQP 1.0.
 
-- I nomi delle code di Azure possono avere una lunghezza compresa tra 3 e 63 caratteri e contenere lettere minuscole, numeri e trattini. Per altre informazioni, vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/dd179349.aspx).
+- I nomi delle code di Azure possono avere una lunghezza compresa tra 3 e 63 caratteri e contenere lettere minuscole, numeri e trattini. Per altre informazioni, vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - I nomi delle code del bus di servizio possono avere una lunghezza massima di 260 caratteri e presentano regole di denominazione meno restrittive. I nomi delle code del bus di servizio possono contenere lettere, numeri, punti (.), trattini (-) e caratteri di sottolineatura (\_).
 
@@ -246,9 +246,9 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 - Sia tramite le code di Azure sia tramite quelle del bus di servizio viene applicato il comportamento di limitazione rifiutando richieste a una coda limitata. Tuttavia, le richieste limitate non vengono considerate come fatturabili da entrambi i tipi di code.
 
-- I benchmark relativi alle code del bus di servizio hanno dimostrato che una singola coda può raggiungere una velocità effettiva massima di 2000 messaggi al secondo, per messaggi di dimensioni pari a circa 1 KB. Per ottenere una velocità effettiva più elevata, usare più code. Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio, vedere [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](https://msdn.microsoft.com/library/hh528527.aspx).
+- I benchmark relativi alle code del bus di servizio hanno dimostrato che una singola coda può raggiungere una velocità effettiva massima di 2000 messaggi al secondo, per messaggi di dimensioni pari a circa 1 KB. Per ottenere una velocità effettiva più elevata, usare più code. Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio, vedere [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](service-bus-performance-improvements.md).
 
-- Quando viene raggiunta la velocità effettiva massima per una coda del bus di servizio, viene restituita al client della coda una risposta [ServerBusyException](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.serverbusyexception.aspx) (se si usa l'API di messaggistica negoziata .NET) o HTTP 503 (se si usa l'API basata su REST) a indicare che la coda è limitata.
+- Quando viene raggiunta la velocità effettiva massima per una coda del bus di servizio, viene restituita al client della coda una risposta [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (se si usa l'API di messaggistica negoziata .NET) o HTTP 503 (se si usa l'API basata su REST) a indicare che la coda è limitata.
 
 ## Autenticazione e autorizzazione
 
@@ -264,7 +264,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 
 - Ogni richiesta a entrambe le tecnologie di accodamento deve essere autenticata. Le code pubbliche con accesso anonimo non sono supportate. L'uso della firma di accesso condiviso consente di ovviare a questo inconveniente mediante la pubblicazione di una firma di accesso condiviso di sola scrittura, di sola lettura o anche di accesso completo.
 
-- Lo schema di autenticazione fornito dalle code di Azure prevede l'uso di una chiave simmetrica, ovvero un codice HMAC (Hash Message Authentication Code) calcolato dall'algoritmo SHA-256 e codificato come stringa **Base64**. Per altre informazioni sul relativo protocollo, vedere [Autenticazione dell'accesso all'account di archiviazione](https://msdn.microsoft.com/library/hh225339.aspx). Le code del bus di servizio supportano un modello simile mediante l'uso di chiavi simmetriche. Per altre informazioni, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://msdn.microsoft.com/library/dn170477.aspx).
+- Lo schema di autenticazione fornito dalle code di Azure prevede l'uso di una chiave simmetrica, ovvero un codice HMAC (Hash Message Authentication Code) calcolato dall'algoritmo SHA-256 e codificato come stringa **Base64**. Per altre informazioni sul relativo protocollo, vedere [Autenticazione dell'accesso all'account di archiviazione](https://msdn.microsoft.com/library/azure/dd179428.aspx). Le code del bus di servizio supportano un modello simile mediante l'uso di chiavi simmetriche. Per altre informazioni, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-shared-access-signature-authentication.md).
 
 ## Costi
 
@@ -301,8 +301,8 @@ Poiché offrono numerose funzionalità avanzate quali sessioni, transazioni rile
 Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di Azure e di quelle del bus di servizio.
 
 - [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
-- [Come usare l'archiviazione di accodamento](../storage-dotnet-how-to-use-queues.md)
-- [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](https://msdn.microsoft.com/library/hh528527.aspx)
+- [Come usare l'archiviazione di accodamento](../storage/storage-dotnet-how-to-use-queues.md)
+- [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](service-bus-performance-improvements.md)
 - [Introduzione alle code e agli argomenti del bus di servizio di Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [Guida per gli sviluppatori del bus di servizio](http://www.cloudcasts.net/devguide/)
 - ["Analisi dettagliata delle tabelle e delle code di Azure"](http://www.microsoftpdc.com/2009/SVC09)
@@ -311,4 +311,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 - [Informazioni sulla fatturazione di Archiviazione di Azure – Larghezza di banda, transazioni e capacità](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

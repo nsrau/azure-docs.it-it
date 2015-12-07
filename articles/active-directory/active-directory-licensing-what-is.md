@@ -1,20 +1,21 @@
 <properties
-   pageTitle="Che cosa sono le licenze di Microsoft Azure Active Directory? | Microsoft Azure"
-   description="Descrizione delle licenze di Microsoft Azure AD, del funzionamento, di come iniziare a utilizzarlo e delle procedure consigliate, tra cui Office 365, Microsoft Intune e le edizioni di base e Premium di Azure Active Directory"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Che cosa sono le licenze di Microsoft Azure Active Directory? | Microsoft Azure"
+    description="Descrizione delle licenze di Microsoft Azure AD, del funzionamento, di come iniziare a utilizzarlo e delle procedure consigliate, tra cui Office 365, Microsoft Intune e le edizioni di base e Premium di Azure Active Directory"
+    services="active-directory"
+	keywords="Licenze di Azure AD"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="11/20/2015"
+    ms.author="curtand"/>
 
 # Che cosa sono le licenze di Microsoft Azure Active Directory?
 
@@ -131,4 +132,4 @@ A questo punto si è pronti per configurare e utilizzare alcune delle funzionali
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Acquisto diretto di licenze di Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

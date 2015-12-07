@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/31/2015" 
+	ms.date="11/19/2015" 
 	ms.author="robmcm"/>
 
 # Applicazione locale con archiviazione BLOB
@@ -358,7 +358,7 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - [API REST di Archiviazione di Azure][]
 - [Blog del team di Archiviazione di Azure][]
 
-  [Download di Azure SDK per Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Come creare un account di archiviazione]: storage-create-storage-account.md#create-a-storage-account
   [Come gestire gli account di archiviazione]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Come utilizzare il servizio di archiviazione BLOB da Java]: storage-java-how-to-use-blob-storage.md
@@ -367,4 +367,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
   [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

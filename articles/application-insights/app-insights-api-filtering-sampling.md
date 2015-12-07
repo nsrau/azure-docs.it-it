@@ -24,13 +24,15 @@
 Queste funzionalità attualmente sono disponibili per ASP.NET SDK.
 
 * Il [campionamento](#sampling) riduce il volume della telemetria senza effetti sulle statistiche. Tiene insieme i punti dati correlati per poter passare da uno all'altro quando si diagnostica un problema. Nel portale i conteggi totali vengono moltiplicati per compensare il campionamento.
-* L'[applicazione di filtri](#filtering) consente di selezionare o di modificare la telemetria nell'SDK prima che venga inviata al server. È possibile, ad esempio, ridurre il volume della telemetria escludendo le richieste dei robot. Questo approccio alla riduzione del traffico è più semplice del campionamento. Offre un controllo maggiore su ciò che viene trasmesso, ma occorre tenere presente che avrà effetto sulle statistiche, ad esempio se si filtrano tutte le richieste riuscite.
+ * Il campionamento a frequenza fissa consente di determinare la percentuale di eventi trasmessi.
+ * Il campionamento adattivo (il valore predefinito per ASP.NET SDK da 2.0.0 Beta 3) regola automaticamente la frequenza di campionamento in base al volume della telemetria. È possibile impostare un volume di destinazione.
+* I [filtri](#filtering) consentono di selezionare o di modificare la telemetria nell'SDK prima che venga inviata al server. È possibile, ad esempio, ridurre il volume della telemetria escludendo le richieste dei robot. Questo approccio alla riduzione del traffico è più semplice del campionamento. Offre un controllo maggiore su ciò che viene trasmesso, ma occorre tenere presente che avrà effetto sulle statistiche, ad esempio se si filtrano tutte le richieste riuscite.
 * [Aggiunta di proprietà](#add-properties) a qualsiasi telemetria inviata dall'app, inclusa la telemetria dai moduli standard. È possibile, ad esempio, aggiungere valori calcolati oppure i numeri di versione in base a cui filtrare i dati nel portale.
-* L'[API SDK](app-insights-api-custom-events-metrics.md) viene usata per inviare metriche ed eventi personalizzati.
+* [L'API SDK](app-insights-api-custom-events-metrics.md) viene usata per inviare metriche ed eventi personalizzati.
 
 Prima di iniziare:
 
-* Installare [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md) nell'app. Installare manualmente i pacchetti NuGet e selezionare l'ultima versione *preliminare*.
+* Installare [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md) nell'app. Installare manualmente i pacchetti NuGet e selezionare la versione *preliminare* più recente.
 * Provare l'[API Application Insights](app-insights-api-custom-events-metrics.md). 
 
 
@@ -38,27 +40,22 @@ Prima di iniziare:
 
 *Questa funzionalità è nella versione beta.*
 
-Modo consigliato per ridurre il traffico mantenendo accurate le statistiche. Il filtro seleziona gli elementi correlati per poter passare da uno all'altro nella diagnosi. I conteggi eventi vengono modificati in Esplora metriche per compensare gli elementi filtrati.
+Il [campionamento](app-insights-sampling.md) è il modo consigliato per ridurre il traffico mantenendo accurate le statistiche. Il filtro seleziona gli elementi correlati per poter passare da uno all'altro nella diagnosi. I conteggi eventi vengono modificati in Esplora metriche per compensare gli elementi filtrati.
 
-1. Aggiornare i pacchetti NuGet del progetto all'ultima versione *preliminare* di Application Insights. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web. 
+* È consigliabile usare il campionamento adattivo. Regola automaticamente la percentuale di campionamento per raggiungere un volume specifico di richieste. Attualmente disponibile solo per la telemetria lato server di ASP.NET.  
+* È disponibile anche il campionamento a frequenza fissa. Specificare la percentuale di campionamento. Disponibile per il codice dell'app Web ASP.NET e per le pagine Web JavaScript. Il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
 
-2. Aggiungere questo frammento ad [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+### Per abilitare il campionamento
 
-```XML
+**Aggiornare i pacchetti del progetto NuGet** alla versione *preliminare* più recente di Application Insights: fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web.
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) è possibile regolare la frequenza massima della telemetria che l'algoritmo adattivo deve raggiungere:
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10, 1 (=100/100), 0.1 (=100/1000) ... -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
 
-```
+### Campionamento lato client
 
-
-Per ottenere il campionamento sui dati dalle pagine Web, immettere una riga aggiuntiva nel [frammento di Application Insights](app-insights-javascript.md) inserito (in genere una pagina master, ad esempio \_Layout.cshtml):
+Per ottenere il campionamento a frequenza fissa sui dati dalle pagine Web, immettere una riga aggiuntiva nel [frammento di Application Insights](app-insights-javascript.md) inserito (in genere una pagina master, ad esempio \_Layout.cshtml):
 
 *JavaScript*
 
@@ -72,10 +69,8 @@ Per ottenere il campionamento sui dati dalle pagine Web, immettere una riga aggi
 	}); 
 ```
 
-* Impostare una percentuale (10 in questi esempi) uguale a 100/N dove N è un numero intero, ad esempio 50 (=100/2), 33,33 (=100/3), 25 (=100/4) o 10 (=100/10). 
-* Se è presente una grande quantità di dati, è possibile usare frequenze di campionamento molto basse, ad esempio 0,1.
-* Se si imposta il campionamento sia nella pagina Web che nel server, assicurarsi di impostare la stessa percentuale di campionamento in entrambi.
-* I lati client e server coordineranno la selezione degli elementi correlati.
+* Impostare una percentuale (10 in questo esempio) uguale a 100/N dove N è un numero intero, ad esempio 50 (=100/2), 33,33 (=100/3), 25 (=100/4) o 10 (=100/10). 
+* Se si abilita il [campionamento a frequenza fissa](app-insights-sampling.md) sul lato server, il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
 
 [Altre informazioni sul campionamento](app-insights-sampling.md).
 
@@ -91,7 +86,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 
 ### Creare un processore di telemetria
 
-1. Aggiornamento di Application Insights SDK alla versione più recente (2.0.0-beta2 o versione successiva). Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni di Visual Studio e scegliere Gestisci pacchetti NuGet. In gestione pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web.
+1. Aggiornamento di Application Insights SDK alla versione più recente (2.0.0 Beta 2 o versione successiva). Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni di Visual Studio e scegliere Gestisci pacchetti NuGet. In gestione pacchetti NuGet selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web.
 
 1. Per creare un filtro, implementare ITelemetryProcessor, un altro punto di estendibilità come il modulo di telemetria, l'inizializzatore di telemetria e il canale di telemetria.
 
@@ -162,9 +157,9 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 > [AZURE.WARNING]Prestare attenzione a fare corrispondere il nome del tipo e i nomi delle proprietà nel file. config ai nomi di classe e di proprietà nel codice. Se il file. config fa riferimento a un tipo inesistente o una proprietà, l’SDK potrebbe automaticamente non riuscire a inviare nessuna telemetria.
 
  
-**In alternativa,** è possibile inizializzare il filtro nel codice. In una classe di inizializzazione adatta, ad esempio AppStart in Global.asax.cs, inserire il processore nella catena:
+**In alternativa**, è possibile inizializzare il filtro nel codice. In una classe di inizializzazione adatta, ad esempio AppStart in Global.asax.cs, inserire il processore nella catena:
 
-    ```C#
+```C#
 
     var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -174,7 +169,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 
     builder.Build();
 
-    ```
+```
 
 Gli elementi TelemetryClient creati dopo questo punto useranno i processori dell'utente.
 
@@ -409,4 +404,4 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

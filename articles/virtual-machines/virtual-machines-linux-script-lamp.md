@@ -24,7 +24,7 @@
 
 L'estensione CustomScript di Microsoft Azure per Linux fornisce un modo per personalizzare le macchine virtuali (VM) tramite l'esecuzione di codice arbitrario scritto in un linguaggio supportato dalla macchina virtuale (ad esempio, Python e Bash). In tal modo è possibile automatizzare la distribuzione di applicazioni a più computer in un modo molto flessibile.
 
-È possibile distribuire l'estensione CustomScript tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure (CLI di Azure).
+È possibile distribuire l'estensione CustomScript tramite il portale di Azure, Windows PowerShell o l'interfaccia della riga di comando di Azure (CLI di Azure).
 
 In questo articolo utilizzeremo la CLI di Azure per distribuire una semplice applicazione LAMP a una macchina virtuale di Ubuntu creata utilizzando il modello di distribuzione classica.
 
@@ -110,4 +110,4 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Scrivere Query| Microsoft Azure" 
-	description="Segmento di percorso di apprendimento della scrittura delle query."
+	description="Scrivere query in Analisi di flusso | segmento del percorso di apprendimento."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Scrivere query
+# Come scrivere query in Analisi di flusso
 
 La logica di elaborazione del flusso in analisi di flusso di Azure viene implementato come una "query in esecuzione" definita prima che un processo venga avviato ed eseguita sui dati nel momento in cui raggiunge il processo. La trasformazione dei dati è espressa in un linguaggio di query di tipo SQL, che è sostanzialmente un sottoinsieme di T-SQL con alcune estensioni di linguaggio aggiunte come [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) utilizzato per esprimere la semantica temporale.
 
@@ -70,4 +70,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

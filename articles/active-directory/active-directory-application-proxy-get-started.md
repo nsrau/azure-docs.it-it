@@ -3,8 +3,8 @@
 	description="Viene illustrato come utilizzare il proxy dell’applicazione di Azure AD per fornire l'accesso remoto sicuro alle applicazioni locali."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="msStevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/09/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Come fornire l'accesso remoto sicuro alle applicazioni locali
 
@@ -52,7 +52,7 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 
 
-### Ulteriori informazioni sul proxy dell’applicazione
+### Altre informazioni sul proxy dell'applicazione
 - [Dare un'occhiata alla nostra Guida in linea](active-directory-application-proxy-enable.md)
 - [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
@@ -61,4 +61,4 @@ Si può fare molto di più con il proxy dell'applicazione:
 * [Iscriversi ad Azure come organizzazione](../sign-up-organization.md)
 * [Identità di Azure](../fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

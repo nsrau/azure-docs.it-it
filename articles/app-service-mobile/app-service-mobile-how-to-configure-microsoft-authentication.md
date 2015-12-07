@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # Come configurare l’applicazione del servizio app per usare l'account di accesso Microsoft
@@ -25,8 +25,7 @@
 Questo argomento descrive come configurare il servizio app di Azure per usare l'account Microsoft come provider di autenticazione.
 
 
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]Questo argomento illustra le modalità di utilizzo della funzione di autenticazione/autorizzazione del servizio app che, nella maggior parte delle applicazioni, sostituisce il gateway del servizio app. Le differenze di cui tener conto quando si usa il gateway sono indicate nelle note nell’argomento.
 
 
 ## <a name="register"> </a>Registrare l'applicazione con l'account Microsoft
@@ -37,7 +36,7 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 
 4. Fare clic su **Crea applicazione**, quindi digitare un nome in **Nome applicazione** e fare clic su **Accetto**.
 
-5. Fare clic su **API Settings**. Selezionare **Yes** per **Mobile or desktop client app**. Nel campo **URL di reindirizzamento** immettere l'**URL di reindirizzamento** dell’applicazione e fare clic su **Salva**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso _/.auth/login/microsoftaccount/callback_. ad esempio `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Assicurarsi che sia in uso lo schema HTTPS.
+5. Fare clic su **API Settings**. Selezionare **Yes** per **Mobile or desktop client app**. Nel campo **Redirect URL** immettere l'**URL di reindirizzamento** dell’applicazione e fare clic su **Save**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso _/.auth/login/microsoftaccount/callback_. ad esempio `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Assicurarsi che sia in uso lo schema HTTPS.
 
 	![][0]
 
@@ -53,9 +52,7 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 
 ## <a name="secrets"> </a>Aggiungere le informazioni dell'account Microsoft all'applicazione
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Microsoft Account**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gateway nel portale. Selezionare **Settings**, **Identity**, e quindi **Microsoft Account**. Incollare i valori ottenuti nel passaggio precedente e fare clic su **Save**.
 
 
 7. Nel [Portale di gestione di Azure] passare all'applicazione desiderata. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
@@ -66,7 +63,9 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 
     ![][1]
 	
-11. Per impostazione predefinita, il servizio app consente l'accesso ma non pone limiti per quanto riguarda il contenuto e le interfacce API accessibili nel sito. Questo è compito del codice dell'app. Se si desidera proteggere interamente il sito mediante la funzionalità di accesso dell’account Microsoft, modificare l'elenco a discesa **Azione da intraprendere se la richiesta non è autenticata** in modo da poter utilizzare l'opzione **Account Microsoft**. Ciò richiede che tutte le richieste siano autenticate. Le richieste non autenticate verranno reindirizzate per l'accesso con l’account Microsoft.
+	Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
+
+17. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati dall’account Microsoft, impostare il parametro **Azione da eseguire quando la richiesta non è autenticata** su **Account Microsoft**. Per poter utilizzare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate all’account Microsoft per l'autenticazione.
 
 11. Fare clic su **Save**.
 
@@ -91,4 +90,4 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portale di gestione di Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

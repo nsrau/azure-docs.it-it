@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="cephalin"/>
 
 # Connettersi a un'istanza di SQL Server locale da un'app Web di Azure App Service mediante Connessioni ibride
@@ -139,7 +139,7 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 <a name="CreateHC"></a>
 ## C. Creare una connessione ibrida e un servizio BizTalk ##
 
-1. Tornare al portale, scorrere verso il basso nel pannello dell'applicazione Web e fare clic su **Stato della funzionalità di rete** > **Configurare gli endpoint della connessione ibrida**.
+1. Nel portale, passare alle impostazioni e fare clic su **Rete** > **Configurare gli endpoint di connessione ibrida**.
 
 	![Hybrid connections][CreateHCHCIcon]
 
@@ -363,4 +363,4 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

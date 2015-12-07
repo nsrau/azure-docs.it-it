@@ -31,7 +31,9 @@ Azure Active Directory è una piattaforma IDMaaS (Identity Management As A Servi
 
 1. [API Graph di Azure Active Directory](active-directory-graph-api.md): illustra come usare l'API Graph di Azure Active Directory per accedere a livello di codice ad Azure Active Directory tramite gli endpoint dell'API REST.
 
-1. [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md): illustra come autenticare gli utenti in modo semplice per ottenere i token di accesso con le librerie di autenticazione di Azure.
+    > [AZURE.IMPORTANT]L'API Graph di Azure AD è disponibile anche tramite [Microsoft Graph](https://graph.microsoft.io/), un'API unificata composta da API di altri servizi Microsoft, quali Outlook, OneDrive, OneNote, Planner e Office Graph, accessibile tramite un singolo endpoint e con un unico token di accesso.
+
+1. [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md): illustra come autenticare facilmente gli utenti per ottenere i token di accesso mediante le librerie di autenticazione di Azure.
 
 
 ## Introduzione
@@ -91,9 +93,9 @@ Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, e
 
 ### API Graph
 
-- [Informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx): informazioni di riferimento su REST per l'API Graph di Azure Active Directory. [Visualizzare l'esperienza interattiva per le informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+- [Informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx): informazioni di riferimento su REST per l'API Graph di Azure Active Directory. [Visualizzare la nuova esperienza interattiva per le informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Ambiti di autorizzazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): ambiti di autorizzazione OAuth 2.0 usati per controllare l'accesso di un'app ai dati della directory in un tenant.
+- [Ambiti di autorizzazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): ambiti di autorizzazione di OAuth 2.0 usati per controllare l'accesso di un'app ai dati della directory in un tenant.
 
 
 ### Protocolli di autenticazione
@@ -138,4 +140,4 @@ Queste presentazioni generali sullo sviluppo di app tramite Azure Active Directo
 
 - [Azure Active Directory su Twitter](https://twitter.com/azuread): annunci relativi ad Azure Active Directory in 140 caratteri o meno.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

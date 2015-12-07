@@ -70,9 +70,9 @@ In questa sezione esamineremo alcune delle più importanti differenze concettual
 
 È possibile iniziare a utilizzare i modelli di Microsoft Azure sfruttando i vari strumenti disponibili per lo sviluppo e distribuzione per la piattaforma.
 
-### Portale di Azure
+### Portale di anteprima di Azure
 
-Il portale di Microsoft Azure continuerà a offrire la possibilità di distribuire macchine virtuali e macchine virtuali di anteprima contemporaneamente. Il portale di Microsoft Azure consentirà inoltre le distribuzioni del modello personalizzato.
+Il portale di anteprima di Azure continuerà ad avere la possibilità di distribuire macchine virtuali con il modello di distribuzione classico e macchine virtuali con il modello di distribuzione di Gestione risorse contemporaneamente. Il portale di anteprima di Azure consentirà inoltre le distribuzioni del modello personalizzato.
 
 ### Azure PowerShell
 
@@ -116,4 +116,4 @@ La funzionalità non è supportata al momento. Non è possibile connettere le re
 
 E’ possibile trovare un set completo di modelli iniziali in[modelli di Guida rapida di gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

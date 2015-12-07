@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/12/2015"
+   ms.date="11/17/2015"
    ms.author="bharatn@microsoft.com"/>
 
 # Stack di comunicazione basato su WCF per Reliable Services
-Reliable Services Framework consente agli autori del servizio di decidere quale stack di comunicazione usare per il servizio. Gli autori del servizio possono collegare lo stack di comunicazione desiderato tramite l'oggetto `ICommunicationListener` restituito dal metodo [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). Il framework offre un'implementazione basata su WCF dello stack di comunicazione per gli autori del servizio che desiderano usare la comunicazione basata su WCF.
+Reliable Services Framework consente agli autori del servizio di decidere quale stack di comunicazione usare per il servizio. Possono eseguire il plug-in dello stack di comunicazione scelto tramite il `ICommunicationListener` restituito dai metodi [CreateServiceReplicaListeners o CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md). Il framework offre un'implementazione basata su WCF dello stack di comunicazione per gli autori del servizio che desiderano usare la comunicazione basata su WCF.
 
 ## Listener di comunicazione WCF
 L'implementazione specifica di WCF dell'oggetto `ICommunicationListener` è garantita dalla classe `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener`.
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## Scrittura di client per stack di comunicazione WCF
-Per consentire ai client di scrittura di comunicare con i servizi tramite WCF, il framework fornisce l'oggetto `WcfClientCommunicationFactory`, ovvero l'implementazione specifica di WCF di [`ClientCommunicationFactoryBase`](../service-fabric-reliable-service-communication.md).
+Per consentire ai client di scrittura di comunicare con i servizi tramite WCF, il framework fornisce l'oggetto `WcfClientCommunicationFactory`, ovvero l'implementazione specifica di WCF di [`ClientCommunicationFactoryBase`](service-fabric-reliable-service-communication.md).
 
 ```csharp
 
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 
 * [Web API con OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

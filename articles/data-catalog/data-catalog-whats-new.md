@@ -24,9 +24,9 @@ Gli aggiornamenti su **Catalogo dati di Azure** vengono rilasciati a intervalli 
 
 Nella settimana del 20 novembre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
 
-- La possibilità di visualizzare e copiare le stringhe di connessione dall'interno del portale **Catalogo dati di Azure** per le origini dati di SQL Server (inclusi i Database SQL di Azure). Gli utenti possono fare clic sul collegamento "Visualizza stringhe di connessione" nelle informazioni di connessione per una tabella di SQL Server, vista o database, per visualizzare le stringhe di connessione ADO.NET, ODBC, OLEDB e JDBC utilizzate per la connessione all'origine dati.
+- La possibilità di visualizzare e copiare le stringhe di connessione dall'interno del portale **Catalogo dati di Azure** per le origini dati di SQL Server (inclusi i Database SQL di Azure) e Oracle. Gli utenti possono fare clic sul collegamento "Visualizza stringhe di connessione" nelle informazioni di connessione per una tabella di SQL Server o Oracle, vista o database, per visualizzare le stringhe di connessione utilizzate per la connessione all'origine dati. Le stringhe di connessione ADO.NET, ODBC, OLEDB e JDBC sono disponibili per le origini dati di SQL Server. Le stringhe di connessione ODBC e OLEDB vengono fornite per le origini dati di Oracle.
 - Supporto per includere i profili dati durante la registrazione delle tabelle Teradata e visualizzazioni.
-- Supporto per "Apri in Power BI Desktop" per SQL Server (inclusi i database SQL di Azure e SQL Data Warehouse di Azure) e origini dati di SQL Server Analysis Services.
+- Supporto per "Apri in Power BI Desktop" per le origini di SQL Server (inclusi i database SQL di Azure e SQL Data Warehouse di Azure), SQL Server Analysis Services. Archiviazione di Azure e HDFS.  
 
 > [AZURE.NOTE]"Apri in Power BI Desktop" richiede che sia installata una versione corrente dell'applicazione Desktop di Power BI. Se si verificano problemi o errori utilizzando questa caratteristica, assicurarsi di avere la versione più recente di Power BI Desktop da [PowerBI.com](https://powerbi.com).
 
@@ -147,4 +147,4 @@ Nella settimana del 21 agosto 2015 sono state aggiunte a **Catalogo dati di Azur
 - Solo per l'edizione Standard: quando si aggiungono proprietari ad asset di dati, **Catalogo dati di Azure** supporta ora come proprietari sia account utente sia gruppi di sicurezza. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

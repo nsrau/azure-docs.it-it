@@ -36,7 +36,7 @@ La procedura seguente fa riferimento alle informazioni in queste tabelle come gu
 
 ## Creare una nuova rete virtuale di Azure cross-premise con le impostazioni delle tabelle di configurazione
 
-1. Accedere al [portale di Azure](https://manage.windowsazure.com/).
+1. Accedere al [portale di Azure].
 2. Dalla barra delle applicazioni, fare clic su **Nuovo > Servizi di rete > Rete virtuale > Creazione personalizzata**.
 3. Nella pagina **Dettagli della rete virtuale**:
 	- In **Nome**, digitare il nome per l’elemento 1 nella tabella V.
@@ -69,4 +69,4 @@ La procedura seguente fa riferimento alle informazioni in queste tabelle come gu
 
 [Configurare una connessione cross-premise Site-to-Site a una rete virtuale di Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

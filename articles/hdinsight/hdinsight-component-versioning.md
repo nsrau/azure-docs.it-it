@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="11/19/2015"
 	ms.author="jgao"/>
 
 
 #Novità delle versioni cluster di Hadoop incluse in HDInsight
 
 ##Versioni di HDInsight e componenti di Hadoop
-Azure HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite in qualsiasi momento. Ogni versione scelta crea una versione specifica della distribuzione HDP (Hortonworks Data Platform) e un set di componenti contenuti in tale distribuzione. Le versioni del componente associate alle versioni del cluster HDInsight sono elencate nella tabella seguente. Notare che la versione cluster predefinita usata da Azure HDInsight è attualmente la 3.1 e, a partire dal 07/11/2014, è basata su HDP 2.1.7.
+Azure HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite in qualsiasi momento. Ogni versione scelta crea una versione specifica della distribuzione HDP (Hortonworks Data Platform) e un set di componenti contenuti in tale distribuzione. Le versioni del componente associate alle versioni del cluster HDInsight sono elencate nella tabella seguente. Notare che la versione cluster predefinita usata da Azure HDInsight è attualmente la 3.2 e, a partire dal 19/11/2015, è basata su HDP 2.2.
 
 
 Componente|HDInsight versione 3.2|HDInsight versione 3.1 (predefinita)|HDInsight versione 3.0|HDInsight versione 2.1
@@ -162,4 +162,4 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

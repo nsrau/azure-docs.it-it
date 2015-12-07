@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio
@@ -52,4 +52,12 @@ Aprire quindi un prompt dei comandi nel computer Windows 7 ed eseguire il comand
 
 Nel registro eventi del computer Windows 7 verranno visualizzati i messaggi relativi all'aggiunta all'area di lavoro. Saranno disponibili i messaggi per gli eventi relativi all'aggiunta all'area di lavoro riusciti e non. Il registro eventi si trova nel Visualizzatore eventi in Registri applicazioni e servizi > Microsoft > Aggiunta all'area di lavoro.
 
-<!---HONumber=Nov15_HO1-->
+## Argomenti aggiuntivi
+
+- [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+- [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md)
+- [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+ 
+
+<!---HONumber=AcomDC_1125_2015-->

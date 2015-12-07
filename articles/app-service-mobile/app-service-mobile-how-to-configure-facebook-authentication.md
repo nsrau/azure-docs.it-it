@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione del servizio App per usare l'account di accesso di Facebook
@@ -26,9 +26,7 @@ Questo argomento descrive come configurare Servizio app di Azure per usare Faceb
 
 Per completare la procedura descritta in questo argomento, è necessario disporre di un account Facebook con un indirizzo di posta elettronica verificato e un numero di cellulare. Per creare un nuovo account di Facebook, visitare il sito [facebook.com].
 
-
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]Questo argomento illustra le modalità di utilizzo della funzione di autenticazione/autorizzazione del servizio app che, nella maggior parte delle applicazioni, sostituisce il gateway del servizio app. Le differenze di cui tener conto quando si usa il gateway sono indicate nelle note nell’argomento.
 
 
 ## <a name="register"> </a>Registrare l'applicazione con Facebook
@@ -55,9 +53,9 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
     ![][0]
 
-10. Se non viene visualizzata una sezione "Website" in basso, fare clic su **Add Platform** e selezionare **Website**. Digitare l'**URL** dell'app per dispositivi mobili in **URL sito** e quindi fare clic su **Salva modifiche**.
+10. Se non viene visualizzata una sezione "Website" in basso, fare clic su **Add Platform** e selezionare **Website**. Digitare l'**URL** dell'app per dispositivi mobili in **Site URL** e quindi fare clic su **Save Changes**.
 
-11. Fare clic sulla scheda **Avanzate** e aggiungere l’**URI di reindirizzamento** dell’applicazione a **URI di reindirizzamento OAuth validi**. Fare clic su **Save Changes**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso _/.auth/login/facebook/callback_. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assicurarsi che sia in uso lo schema HTTPS.
+11. Fare clic sulla scheda **Advanced** e aggiungere il proprio **URI di reindirizzamento** a **Valid OAuth redirect URIs**. Fare clic su **Save Changes**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso _/.auth/login/facebook/callback_. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assicurarsi che sia in uso lo schema HTTPS.
 
 
 	> [AZURE.NOTE]Se si utilizza il gateway del servizio app anziché la funzionalità Autenticazione/Autorizzazione, l'URL di reindirizzamento utilizza l'URL del gateway URL con il percorso _/signin-facebook_.
@@ -68,9 +66,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 ## <a name="secrets"> </a>Aggiungere le informazioni di Facebook all'applicazione
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gateway nel portale. Selezionare **Settings**, **Identity**, e quindi **Facebook**. Incollare i valori ottenuti nel passaggio precedente e fare clic su **Save**.
 
 
 13. Nel [Portale di gestione di Azure] passare all'applicazione desiderata. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
@@ -81,10 +77,11 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
     ![][1]
 	
-16. Per impostazione predefinita, il servizio app consente l'accesso ma non pone limiti per quanto riguarda il contenuto e le interfacce API accessibili nel sito. Questo è compito del codice dell'app. Se si desidera proteggere interamente il sito mediante la funzionalità di accesso di Facebook, modificare l'elenco a discesa **Azione da intraprendere se la richiesta non è autenticata** in modo da poter utilizzare l'opzione **Facebook**. Ciò richiede che tutte le richieste siano autenticate. Le richieste non autenticate verranno reindirizzate per l'accesso con Facebook.
+	Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
+
+17. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati da Facebook, impostare il parametro **Azione da eseguire quando la richiesta non è autenticata** su **Facebook**. Per poter utilizzare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate a Facebook per l'autenticazione.
 
 17. Fare clic su **Save**.
-
 
 È ora possibile usare un account di Facebook per l'autenticazione nell'app.
 
@@ -102,4 +99,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Get started with authentication]: /it-IT/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portale di gestione di Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -27,7 +27,6 @@ In questo documento viene illustrato come esplorare i dati in quattro ambienti d
 - **Contenitore BLOB di azure** i dati vengono esplorati mediante il pacchetto Python di [Pandas](http://pandas.pydata.org/).
 - **Dati del server SQL** i dati vengono esplorati mediante SQL e utilizzando un linguaggio di programmazione come Python.
 - **Tabella hive** i dati vengono esplorati mediante le query Hive.
-- Azure Machine Learning Studio 
-- **Azure Machine Learning (AML) Studio** i dati vengono esplorati mediante i moduli AML.
+- I dati **Azure Machine Learning (AML) Studio** vengono esplorati mediante i moduli AML.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

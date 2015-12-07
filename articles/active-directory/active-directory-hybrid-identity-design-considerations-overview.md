@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/10/2015"
+	ms.date="11/24/2015"
 	ms.author="yuridio"/>
 
 # Considerazioni di progettazione dell'identità ibrida di Azure Active Directory
@@ -49,6 +49,10 @@ Si otterrà il progetto che soddisfa al meglio i propri requisiti solo dopo aver
 | Pianificare il potenziamento della sicurezza dei dati attraverso soluzioni d’identità avanzate | [Determinazione dei requisiti di protezione dati](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)<br>[Determinazione dei requisiti di gestione dei contenuti](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)<br>[Determinazione dei requisiti di controllo di accesso](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br>[Determinazione dei requisiti di incident response](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)<br>[Definizione della strategia di protezione dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | Pianificare il ciclo di vita dell’identità ibrida | [Determinazione delle attività di gestione delle identità ibride](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)<br>[Gestione della sincronizzazione](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)<br>[Determinazione della strategia di adozione per la gestione delle identità ibride](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |     
 
+
+##Scaricare questa guida
+È possibile scaricare una versione pdf della Guida alle considerazioni sulla progettazione di identità ibride di [raccolta Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288).
+
                                                              
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

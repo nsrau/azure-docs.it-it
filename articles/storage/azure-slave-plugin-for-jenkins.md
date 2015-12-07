@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/19/2015"
     ms.author="v-dedomi"/>
 
 # Come usare il plug-in slave di Azure con una soluzione di integrazione continua Jenkins
@@ -204,4 +204,4 @@ In questa sezione si creerà un'attività di Jenkins che verrà eseguita in un n
 
 Jenkins creerà quindi un nodo slave usando il modello creato nella sezione precedente ed eseguirà lo script specificato nell'istruzione di compilazione di questa attività.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/23/2015"
    ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
 
 # Panoramica delle prestazioni e della scalabilità
@@ -77,4 +77,4 @@ Per alcune indicazioni sulla creazione della soluzione SQL Data Warehouse, veder
 
 <!--Other web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

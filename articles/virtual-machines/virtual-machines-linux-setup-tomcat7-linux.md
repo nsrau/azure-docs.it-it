@@ -58,7 +58,7 @@ Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 6.	Fare clic su **Save private key** e salvarla in un file denominato privateKey.ppk.
 
 ###Passaggio 2: creare l'immagine nel portale di anteprima di Azure.
-Nel [portale di anteprima di Azurel](https://portal.azure.com/) fare clic su **Nuovo** nella barra delle applicazioni per creare un'immagine, scegliendo l'immagine Linux in base alle esigenze. Il seguente esempio usa l'immagine Ubuntu 14.04. ![][3]
+Nel [portale di anteprima di Azure](https://portal.azure.com/) fare clic su **Nuovo** nella barra delle applicazioni per creare un'immagine, scegliendo l'immagine Linux in base alle esigenze. Il seguente esempio usa l'immagine Ubuntu 14.04. ![][3]
 
 In **Nome host** specificare il nome per l'URL che verrà usato dall'utente e dai client Internet per accedere a questa macchina virtuale. Definire l'ultima parte del nome DNS, ad esempio tomcatdemo, e Azure genererà l'URL come tomcatdemo.cloudapp.net.
 
@@ -306,4 +306,4 @@ Dopo la connessione, si dovrebbe visualizzare una schermata simile alla seguente
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

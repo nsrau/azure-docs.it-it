@@ -22,7 +22,7 @@ Dopo aver abilitato la reimpostazione delle password, il passaggio successivo co
 * [**Come rendere gli utenti configurati per Gestione delle password**](#how-to-get-users-configured-for-password-reset)
   * [Cosa rende un account configurato per la reimpostazione delle password](#what-makes-an-account-configured)
   * [Metodi per inserire i dati di autenticazione autonomamente](#ways-to-populate-authentication-data)
-* [**Metodi ottimali per implementare la reimpostazione delle password nell'organizzazione**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
+* [**Metodi ottimali per implementare la reimpostazione delle password nell'organizzazione **](#what-is-the-best-way-to-roll-out-password-reset-for-users)
   * [Implementazione basata sulla posta elettronica ed esempi di comunicazioni tramite posta elettronica](#email-based-rollout)
   * [Creare un portale personalizzato per la gestione delle password per gli utenti](#creating-your-own-password-portal)
   * [Come usare la registrazione applicata per forzare gli utenti a effettuare la registrazione al momento dell’accesso](#using-enforced-registration)
@@ -134,7 +134,7 @@ Microsoft sta attualmente lavorando al materiale di formazione di esempio che è
 ## Collegamenti alla documentazione relativa alla reimpostazione della password
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password.md): informazioni su come reimpostare o modificare la password personale come utente del sistema
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
@@ -153,4 +153,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

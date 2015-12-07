@@ -23,7 +23,8 @@
 - [PowerShell](dns-operations-dnszones.md)
 
 Questa guida descrive come gestire per la zona DNS. E consentirà di comprendere la sequenza delle operazioni da eseguire per amministrare la zona DNS.
-
+ 
+ 
 ## Creare una nuova zona DNS
 
 Per creare una nuova zona DNS per ospitare il dominio, utilizzare il `azure network dns zone create`:
@@ -76,4 +77,4 @@ Questa operazione ha un'opzione "-q" facoltativa, che elimina la richiesta di co
 
 [Automatizzare le operazioni usando .NET SDK](dns-sdk.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

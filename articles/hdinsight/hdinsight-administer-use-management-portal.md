@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/24/2015"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite il portale di anteprima di Azure
@@ -94,8 +94,8 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 	
 	- Per personalizzare il menu, fare clic con il pulsante destro del mouse su un punto qualsiasi del menu e quindi scegliere **Personalizza**.
 	- **Impostazioni** e **Tutte le impostazioni**: visualizzano il pannello**Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
-	- **Dashboard**, **Dashboard del cluster** e **URL**: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web.
-	- **Desktop remoto**: connettersi al cluster con RDP.
+	- **Dashboard**, **Dashboard del cluster** e **URL: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web.
+- **Desktop remoto**: connettersi al cluster con RDP.
 	- **Ridimensiona cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
 	- **Elimina**: elimina il cluster.
 	- **Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
@@ -157,7 +157,7 @@ Vedere anche [Sospendere/Arrestare i cluster](#pauseshut-down-clusters).
 ##Ridimensionare i cluster
 La funzionalità di scalabilità del cluster consente di modificare il numero di nodi del ruolo di lavoro usati da un cluster in esecuzione in Azure HDInsight senza dover ricreare il cluster.
 
->[AZURE.NOTE]Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà. Vedere [Acquisire familiarità con l'interfaccia del portale cluster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE]Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà. Vedere [Elencare e visualizzare i cluster](hdinsight-adminster-use-management-portal/#list-and-show-clusters).
 
 Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogni tipo di cluster supportato da HDInsight:
 
@@ -266,7 +266,7 @@ Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibi
 
 ##Trovare l'account di archiviazione predefinito
 
-Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di archiviazione predefinito e le chiavi per un cluster vengono visualizzati in **Impostazioni**/**Proprietà**/**Chiavi di archiviazione di Azure**. Vedere [Elencare e visualizzare i cluster](list-and-show-clusters).
+Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di archiviazione predefinito e le chiavi per un cluster vengono visualizzati in **Impostazioni**/**Proprietà**/**Chiavi di archiviazione di Azure**. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
 
 	
 ##Trovare il gruppo di risorse 
@@ -276,7 +276,7 @@ In modalità ARM ogni cluster HDInsight viene creato con un gruppo di risorse di
 - Colonna **Gruppo di risorse** dell'elenco di cluster.
 - Riquadro **Informazioni di base** del cluster.  
 
-Vedere [Elencare e visualizzare i cluster](list-and-show-clusters).
+Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
    
 ##Aprire la console query HDInsight
 
@@ -338,7 +338,7 @@ Per monitorare il cluster, esplorare il file system e controllare i log, fare cl
 
 ##Aprire l'interfaccia utente di Yarn
 
-Per usare l'interfaccia utente di Yarn, fare clic su **Interfaccia utente Hadoop** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
+Per usare l'interfaccia utente di Yarn, fare clic su **Interfaccia utente di Yarn** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
 
 ##Connettersi a cluster con RDP
 
@@ -399,4 +399,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

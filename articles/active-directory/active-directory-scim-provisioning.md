@@ -92,8 +92,13 @@ Il servizio funziona nel modo seguente:
 
 Per semplificare il processo, viene fornito un set di [esempi di codice](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) che creano un endpoint di servizio Web SCIM e illustrano il provisioning automatico. Un esempio è relativo a un provider che gestisce un file con righe di valori delimitati da virgole che rappresentano utenti e gruppi. L'altro esempio è relativo a un provider che agisce sul servizio Amazon Web Services Identity e Access Management.
 
+**Prerequisiti**
 
-**Prerequisiti** * Visual Studio 2013 o versione successiva * [Azure SDK per .NET](https://azure.microsoft.com/it-IT/downloads/) * Computer Windows che supporta ASP.NET Framework 4.5 da usare come endpoint SCIM. Questo computer deve essere accessibile dal cloud * [Una sottoscrizione di Azure con una versione di prova o concessa in licenza di Azure AD Premium](https://azure.microsoft.com/it-IT/services/active-directory/) * L'esempio relativo ad Amazon AWS richiede librerie di [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Per informazioni aggiuntive, vedere il file README incluso nell'esempio.
+* Visual Studio 2013 o versione successiva
+* [Azure SDK per .NET](https://azure.microsoft.com/it-IT/downloads/)
+* Computer Windows che supporta ASP.NET Framework 4.5 da usare come endpoint SCIM. Questo computer deve essere accessibile dal cloud.
+* [Una sottoscrizione di Azure con una versione di prova o concessa in licenza di Azure AD Premium](https://azure.microsoft.com/it-IT/services/active-directory/)
+* L'esempio relativo ad Amazon AWS richiede librerie di [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Per informazioni aggiuntive, vedere il file README incluso nell'esempio.
 
 ###Introduzione
 
@@ -114,7 +119,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 
     FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
 
-8.	In Windows, in **Impostazioni di Windows > Rete e Internet**, selezionare **Windows Firewall > Impostazioni avanzate**, quindi creare una **Nuova regola connessioni in entrata** che consente l'accesso in ingresso alla porta 9000.
+8.	In Windows, in **Impostazioni di Windows > Rete e Internet**, selezionare **Windows Firewall > Impostazioni avanzate** e quindi creare una **Nuova regola connessioni in entrata** che consente l'accesso in ingresso alla porta 9000.
 9.	Se il computer Windows si trova dietro un router, sarà necessario configurare il router in modo che esegua NAT (Network Access Translation) tra la rispettiva porta 9000 esposta a Internet e la porta 9000 nel computer Windows. Questo è necessario per consentire ad Azure AD di accedere a questo endpoint sul cloud.
 
 
@@ -122,7 +127,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 
 1.	In un Web browser avviare il portale di gestione di Azure all'indirizzo https://manage.windowsazure.com.
 2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni ** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
-3.	Selezionare la scheda **Personalizzata** a sinistra, immettere un nome quale "App di test SCIM", quindi fare clic sull'icona del segno di spunta per creare un oggetto app. Si noti che l'oggetto applicazione creato deve rappresentare l'app di destinazione in cui verrà effettuato il provisioning e per cui verrà implementato l'accesso Single Sign-On, non solo l'endpoint SCIM.
+3.	Selezionare la scheda **Personalizzata** a sinistra, immettere un nome quale "App di test SCIM" e quindi fare clic sull'icona del segno di spunta per creare un oggetto app. Si noti che l'oggetto applicazione creato deve rappresentare l'app di destinazione in cui verrà effettuato il provisioning e per cui verrà implementato l'accesso Single Sign-On, non solo l'endpoint SCIM.
 
 ![][2]
 
@@ -327,9 +332,9 @@ Gli sviluppatori che usano le librerie Common Language Infrastructure fornite da
 
 Azure Active Directory può effettuare il provisioning di due tipi di risorse nei servizi Web SCIM, ovvero utenti e gruppi.
 
-Le risorse utente sono identificate dall'identificatore dello schema, urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, incluso in questa specifica del protocollo: http://tools.ietf.org/html/draft-ietf-scim-core-schema. Il mapping predefinito degli attributi degli utenti in Azure Active Directory agli attributi delle risorse urn:ietf:params:scim:schemas:extension:enterprise:2.0:User è disponibile nella tabella 1 seguente.
+Le risorse utente sono rilevate dall'identificatore dello schema, urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, incluso in questa specifica del protocollo: http://tools.ietf.org/html/draft-ietf-scim-core-schema. Il mapping predefinito degli attributi degli utenti in Azure Active Directory agli attributi delle risorse urn:ietf:params:scim:schemas:extension:enterprise:2.0:User è disponibile nella tabella 1 seguente.
 
-Le risorse gruppo sono identificate dall'identificatore dello schema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group. La tabella 2 seguente illustra il mapping predefinito degli attributi di gruppi in Azure Active Directory agli attributi delle risorse http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.
+Le risorse gruppo sono rilevate dall'identificatore dello schema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group. La tabella 2 seguente illustra il mapping predefinito degli attributi di gruppi in Azure Active Directory agli attributi delle risorse http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.
 
 ###Tabella 1: mapping predefinito degli attributi utente
 
@@ -370,7 +375,7 @@ Le risorse gruppo sono identificate dall'identificatore dello schema, http://sch
 
 La figura seguente illustra i messaggi che Azure Active Directory invierà al servizio SCIM per gestire il ciclo di vita di un utente in un altro archivio identità. Il diagramma illustra anche il modo in cui un servizio SCIM implementato mediante le librerie Common Language Infrastructure fornite da Microsoft per la creazione di questi servizi convertirà queste richieste in chiamate ai metodi di un provider.
 
-![][4] Figura: Sequenza di provisioning e deprovisioning utenti
+![][4] *Figura: Sequenza di provisioning e deprovisioning utenti*
 
 **1:** Azure Active Directory eseguirà query nel servizio per individuare un utente con valore dell'attributo externalId corrispondente al valore dell'attributo mailNickname di un utente in Azure Active Directory. La query verrà espressa come richiesta HTTP (Hypertext Transfer Protocol) analoga a questa, dove jyoung è un esempio di mailNickname di un utente in Azure Active Directory:
 
@@ -433,7 +438,7 @@ Nel caso dell'esempio precedente di una query per un utente con un determinato v
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-**2:** Se la risposta a una query per il servizio per la ricerca di un utente con valore dell'attributo externalId corrispondente al valore dell'attributo mailNickname di un utente in Azure Active Directory non restituisce alcun utente, Azure Active Directory richiederà che il servizio effettui il provisioning di un utente corrispondente a quello in Azure Active Directory. Ecco un esempio di questa richiesta:
+**2:** Se la risposta a una query inviata al servizio per la ricerca di un utente con valore dell'attributo externalId corrispondente al valore dell'attributo mailNickname di un utente in Azure Active Directory non restituisce alcun utente, Azure Active Directory richiederà che il servizio effettui il provisioning di un utente corrispondente a quello in Azure Active Directory. Ecco un esempio di questa richiesta:
 
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -677,7 +682,7 @@ La figura seguente illustra i messaggi che Azure Active Directory invierà al se
 * Le richieste per il recupero di gruppi stipuleranno che l'attributo members deve essere escluso da qualsiasi risorsa fornita in risposta alla richiesta.  
 * Le richieste per determinare se un attributo reference ha un determinato valore saranno richieste relative all'attributo members.  
 
-![][5] Figura: Sequenza di provisioning e deprovisioning utenti
+![][5] *Figura: Sequenza di provisioning e deprovisioning gruppi*
 
 	
 <!--Image references-->
@@ -687,4 +692,4 @@ La figura seguente illustra i messaggi che Azure Active Directory invierà al se
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

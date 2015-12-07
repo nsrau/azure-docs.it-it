@@ -3,7 +3,7 @@
    description="Procedura dettagliata sulla creazione di pacchetti di più applicazioni da distribuire in un cluster dell'infrastruttura di servizi di Azure"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager=""
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 
-# Distribuire più applicazioni esistenti
+# Distribuire più applicazioni personalizzate
 
 Questo articolo illustra come creare pacchetti di più applicazioni e distribuirle nell'infrastruttura di servizi usando la versione di anteprima dello strumento per la creazione dei pacchetti dell'infrastruttura di servizi, disponibile all'indirizzo http://aka.ms/servicefabricpacktool.
 
@@ -65,7 +65,7 @@ Di seguito è riportata una descrizione dei parametri in uso:
 - **/appname**: definisce il nome dell'applicazione esistente. È importante comprendere che questo nome equivale al nome del servizio nel manifesto e non al nome dell'applicazione dell'infrastruttura di servizi.
 - **/exe**: definisce il file eseguibile che dovrebbe essere avviato dall'infrastruttura di servizi, in questo caso `node.exe`.
 - **/ma**: definisce l'argomento usato per avviare il file eseguibile. Poiché Node.js non è installato, è necessario che l'infrastruttura di servizi avvii il server Web Node.js eseguendo `node.exe bin/www`. `/ma:'bin/www'` indica allo strumento di creazione di pacchetti di usare `bin/ma` come argomento per node.exe.
-- **/AppType**: definisce il nome del tipo di applicazione dell'infrastruttura di servizi.
+- **/AppType**: definisce il nome del tipo di applicazione dell'infrastruttura di servizi. Se non
 
 Se si passa alla directory specificata nel parametro /target, si noterà che lo strumento ha creato un pacchetto dell'infrastruttura di servizi pienamente funzionante, come illustrato di seguito:
 
@@ -194,8 +194,8 @@ Dopo aver pubblicato l'applicazione nel cluster locale, è possibile accedere al
 
 In questa esercitazione si è appreso come distribuire facilmente due applicazioni esistenti come un'applicazione dell'infrastruttura di servizi e come distribuirle nell'infrastruttura di servizi in modo da sfruttare i vantaggi di alcune delle funzionalità dell'infrastruttura di servizi come la disponibilità elevata e l'integrazione con il sistema di integrità.
 
-Per altre informazioni, vedere gli argomenti seguenti:
+## Passaggi successivi
 
-[Formato della creazione dei pacchetti dell'infrastruttura di servizi ](service-fabric-deploy-existing-app.md)
+Informazioni su come [creare manualmente un pacchetto di una singola applicazione](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

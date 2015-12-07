@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Creare una macchina virtuale Oracle Database con il portale di Azure | Microsoft Azure" 
-	description="Informazioni su come creare una macchina virtuale con un database Oracle all'interno usando il modello di distribuzione classica e il portale di anteprima di Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
+<properties
+	pageTitle="Creare una macchina virtuale Oracle Database con il portale di Azure | Microsoft Azure"
+	description="Informazioni su come creare una macchina virtuale con un database Oracle all'interno usando il modello di distribuzione classica e il portale di anteprima di Azure."
+	services="virtual-machines"
+	authors="bbenz"
 	documentationCenter=""
 	tags="azure-service-management"/>
-	
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="Windows" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="Windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
 	ms.author="bbenz" />
-	
+
 #Creare una macchina virtuale Oracle Database in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
@@ -24,7 +24,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 ##Per creare una macchina virtuale Oracle Database in Azure
 
-1.	Accedere al [Portale di Azure](https://ms.portal.azure.com/).
+1.	Accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/).
 
 2.	Fare clic su **Marketplace**, su **Calcolo** e quindi digitare **Oracle** nella casella di ricerca.
 
@@ -57,7 +57,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 ##Creazione del database utilizzando la macchina virtuale Oracle Database in Azure
 
-1.	Accedere al [Portale di Azure](https://ms.portal.azure.com/).
+1.	Accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/).
 
 2.	Fare clic su **Macchine virtuali**.
 
@@ -149,7 +149,7 @@ Per autorizzare l’accesso in remoto del database (ad esempio, da un computer c
 
 ### Creazione di un endpoint pubblico per la porta 1521
 
-1.	Accedere al [Portale di Azure](https://ms.portal.azure.com/).
+1.	Accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/).
 
 2.	Fare clic su **Sfoglia**.
 
@@ -200,4 +200,4 @@ Dopo aver configurato la macchina virtuale e creato il database, vedere gli argo
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

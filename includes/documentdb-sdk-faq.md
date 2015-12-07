@@ -1,23 +1,25 @@
-**1. How will customers be notified of the retiring SDK?**
+**1. In che modo i clienti verranno avvisati circa l'SDK in fase di ritiro?**
 
-Microsoft will provide 12 month advance notification to the end of support of the retiring SDK in order to facilitate a smooth transition to a supported SDK. Further, customers will be notified through various communication channels – Azure Management Portal, Developer Center, blog post, and direct communication to assigned service administrators.
+Microsoft invierà una notifica anticipata 12 mesi prima fine del supporto dell'SDK in fase di ritiro per agevolare la transizione a un SDK supportato. I clienti verranno anche informati tramite vari canali di comunicazione, ad esempio il portale di gestione di Azure, il centro sviluppatori e comunicazioni dirette indirizzate agli amministratori dei servizi indicati.
 
-**2. Can customers author applications using a "to-be" retired DocumentDB SDK during the 12 month period?** 
+**2. I clienti potranno creare applicazioni usando la versione di DocumentDB SDK "in fase di ritiro" durante il periodo di 12 mesi?**
 
-Yes, customers will have full access to author, deploy and modify applications using the "to-be" retired DocumentDB SDK during the 12 month grace period. During the 12 month grace period, customers are advised to migrate to a newer supported version of DocumentDB SDK as appropriate.
+Sì, durante il periodo di tolleranza di 12 mesi ai clienti sarà garantito l'accesso completo per creare, distribuire e modificare applicazioni tramite la versione di DocumentDB SDK "in fase di ritiro". Durante il periodo di tolleranza di 12 mesi, i clienti sono invitati a eseguire la migrazione a una versione supportata più recente di DocumentDB SDK.
 
-**3. Can customers author and modify applications using a retired DocumentDB SDK after the 12 month notification period?**
+**3. I clienti potranno creare e modificare applicazioni usando una versione di DocumentDB SDK ritirata dopo il periodo di notifica di 12 mesi?**
 
-After the 12 month notification period, the SDK will be retired. Any access to DocumentDB by an applications using a retired SDK will not be permitted by the DocumentDB platform. Further, Microsoft will not provide customer support on the retired SDK.
+Dopo il periodo di notifica di 12 mesi, l'SDK verrà ritirato. La piattaforma DocumentDB non consentirà alcun tentativo di accesso a DocumentDB da applicazioni che usano una versione di SDK ritirata. Inoltre, Microsoft non fornirà più il supporto tecnico per la versione di SDK ritirata.
 
-**4. What happens to Customer’s running applications that are using unsupported DocumentDB SDK version?**
+**4. Cosa accade alle applicazioni in esecuzione del cliente che usano una versione non supportata di DocumentDB SDK?**
 
-Any attempts made to connect to the DocumentDB service with a retired SDK version will be rejected. 
+Qualsiasi tentativo di connessione al servizio DocumentDB con una versione di SDK ritirata verrà rifiutato.
 
-**5. Will new features and functionality be applied to all non-retired SDKs**
+**5. Le nuove funzioni e funzionalità verranno applicate anche a tutti gli SDK non ritirati?**
 
-New features and functionality will only be added to new versions. If you are using an old, non-retired, version of the SDK your requests to DocumentDB will still function as previous but you will not have access to any new capabilities.  
+Le nuove funzioni e funzionalità verranno aggiunte solo alle nuove versioni. Se si usa una versione di SDK precedente non ritirata, le richieste inviate a DocumentDB continueranno a funzionare come in precedenza ma non sarà possibile accedere alle nuove funzionalità.
 
-**6. What should I do if I cannot update my application before a cut-off date**
+**6. Come si deve procedere se non è possibile aggiornare l'applicazione prima della data del ritiro?**
 
-We recommend that you upgrade to the latest SDK as early as possible. Once an SDK has been tagged for retirement you will have 12 months to update your application. If, for whatever reason, you cannot complete your application update within this timeframe then please contact the [DocumentDB Team](mailto:askdocdb@microsoft.com) and request their assistance before the cutoff date.
+Si consiglia di effettuare l'aggiornamento alla versione di SDK più recente quanto prima. Una volta che un SDK è stato contrassegnato per il ritiro, l'utente ha a disposizione 12 mesi per aggiornare l'applicazione. Se, per qualunque motivo, non è possibile completare l'aggiornamento dell'applicazione entro questo periodo di tempo, contattare il [team di DocumentDB](mailto:askdocdb@microsoft.com) e richiedere assistenza fornita prima della data prevista per il ritiro.
+
+<!---HONumber=AcomDC_1125_2015-->

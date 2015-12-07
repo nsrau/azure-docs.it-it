@@ -1,6 +1,6 @@
 <properties
    pageTitle="Backup e ripristino di Reliable Services | Microsoft Azure"
-   description="Documentazione concettuale per il backup e ripristino di Reliable Services dell'infrastruttura di servizi"
+   description="Documentazione concettuale per il backup e ripristino di Reliable Services di Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -18,20 +18,22 @@
 
 # Backup e ripristino di Reliable Services
 
-L'infrastruttura di servizi è una piattaforma a disponibilità elevata e replica lo stato in più nodi per mantenere questa disponibilità elevata. Anche in caso di errore di un nodo nel cluster, il servizio rimarrà quindi comunque disponibile. Anche se questa ridondanza predefinita fornita dalla piattaforma può essere sufficiente per alcune situazioni, in determinati casi è preferibile che il servizio esegua il backup dei dati in un archivio esterno.
+Service Fabric è una piattaforma a disponibilità elevata e replica lo stato in più nodi per mantenere questa disponibilità elevata. Anche in caso di errore di un nodo nel cluster, il servizio rimarrà quindi comunque disponibile. Anche se questa ridondanza predefinita fornita dalla piattaforma può essere sufficiente per alcune situazioni, in determinati casi è preferibile che il servizio esegua il backup dei dati in un archivio esterno.
 
 Ad esempio, è possibile che un servizio voglia eseguire il backup dei dati negli scenari seguenti:
 
-* In caso di perdita permanente di un intero cluster di infrastruttura di servizi o di tutti i nodi in esecuzione in una partizione specifica, ad esempio tutti i nodi nel cluster. È possibile che questo problema si verifichi, ad esempio, se non si esegue la replica geografica e l'intero cluster si trova in un data center che diventa inattivo.
-* Errori amministrativi che provocano l'eliminazione o il danneggiamento accidentale dello stato. È possibile che questo problema si verifichi quando un amministratore con privilegi sufficienti elimina accidentalmente il servizio.
-* Bug nel servizio che provocano il danneggiamento dei dati. È possibile che questo problema si verifichi ad esempio in caso di un aggiornamento del servizio che scrive dati errati in una raccolta. Sarà quindi necessario ripristinare uno stato precedente per il servizio e per i dati.
+* In caso di perdita permanente di un intero Service Fabric Cluster o di tutti i nodi in esecuzione in una partizione specifica. È possibile che questo problema si verifichi, ad esempio, se non si esegue la replica geografica e l'intero cluster si trova in un data center che diventa inattivo.
+
+* Errori amministrativi che provocano l'eliminazione o il danneggiamento accidentale dello stato. Ad esempio, questo problema può verificarsi se un amministratore con privilegi sufficienti elimina accidentalmente il servizio.
+
+* Bug nel servizio che provocano il danneggiamento dei dati. Ad esempio, questo problema può verificarsi quando un aggiornamento del codice di servizio inizia a scrivere dati non corretti in una raccolta affidabile. In tal caso, potrebbe essere necessario ripristinare uno stato precedente sia per il codice che per i dati.
+
 * Elaborazione dati offline. Potrebbe essere utile effettuare l'elaborazione offline dei dati per business intelligence in modo separato rispetto alla generazione di dati da parte del servizio.
 
 La funzionalità Backup/Ripristino consente ai servizi basati sull'API Reliable Services di creare e ripristinare i backup. Le API di backup fornite dalla piattaforma consentono l'esecuzione dei backup dello stato di una partizione senza bloccare le operazioni di lettura o scrittura. Le API di ripristino consentono il ripristino dello stato di una partizione da un backup specificato.
 
 
-
-### Come eseguire il backup
+## Come eseguire il backup
 
 L'autore del servizio ha il controllo completo in merito al momento di esecuzione dei backup e alla posizione di archiviazione dei backup.
 
@@ -60,11 +62,11 @@ Nell'esempio precedente **ExternalBackupStore** corrisponde alla classe di esemp
 
 >[AZURE.NOTE]In un determinato momento può esistere solo una chiamata **BackupAsync** per ogni esecuzione di replica. Più chiamate **BackupAsync** contemporanee provocheranno l'eccezione **FabricBackupInProgressException** che richiede di limitare a una le esecuzioni dei backup.[AZURE.NOTE]In caso di failover di una replica durante l'esecuzione di un backup, è possibile che il backup non venga completato. Al termine del failover, il servizio dovrà quindi riavviare il backup richiamando **BackupAsync** in base alla necessità.
 
-### Come ripristinare i dati
+## Come ripristinare i dati
 
 È possibile applicare la classificazione seguente agli scenari di ripristino in cui il servizio in esecuzione deve ripristinare i dati dall'archivio di backup:
 
-1. La partizione del servizio ha perso dati. Ad esempio, il disco per due su tre repliche per una partizione, inclusa la replica primaria, viene danneggiato/cancellato. I dati della nuova replica primaria devono essere ripristinati.
+1. La partizione del servizio ha perso dati. Ad esempio, il disco per due su tre repliche per una partizione, inclusa la replica primaria, viene danneggiato/cancellato. La nuova replica primaria potrebbe dover ripristinare i dati da un backup.
 
 2. L'intero servizio è andato perso. Ad esempio, un amministratore rimuove l'intero servizio ed è quindi necessario ripristinare il servizio e i dati.
 
@@ -72,11 +74,11 @@ Nell'esempio precedente **ExternalBackupStore** corrisponde alla classe di esemp
 
 Anche se sono possibili molti approcci, gli esempi seguenti sono basati sull'uso di RestoreAsync per il ripristino dagli scenari precedenti.
 
-#### Perdita di dati della partizione
+## Perdita di dati della partizione
 
 In questo caso, il runtime rileva automaticamente la perdita dei dati e richiama l'API **OnDataLossAsync**.
 
-L'autore del servizio deve eseguire questa procedura per il ripristino: - Eseguire l'override di **IReliableStateManager** per restituire un nuovo valore ReliableStateManager e fornire una funzione di callback da chiamare in caso di evento di perdita di dati. - Individuare il backup più recente nella posizione esterna che include i backup del servizio. - Scaricare il backup più recente e decomprimerlo nella cartella di backup, se è compresso. - Chiamare **IReliableStateManager.RestoreAsync** specificando il percorso della cartella di backup. - Restituire true se il ripristino ha esito positivo.
+L'autore del servizio deve eseguire questa procedura per il recupero: - Eseguire l'override di **IReliableStateManager** per restituire un nuovo valore ReliableStateManager e fornire una funzione di callback da chiamare in caso di evento di perdita di dati. - Trovare il backup più recente nella posizione esterna che include i backup del servizio. - Se lo stato del backup più recente è dietro la replica primaria, restituire false. In questo modo la nuova replica primaria non viene sovrascritta con dati meno recenti. - Scaricare il backup più recente e decomprimerlo nella cartella di backup, se è compresso. - Chiamare **IReliableStateManager.RestoreAsync** specificando il percorso della cartella di backup. - Restituire true se il ripristino ha esito positivo.
 
 L'esempio seguente illustra un'implementazione del metodo **OnDataLossAsync** insieme all'override di **IReliableStateManager**.
 
@@ -99,20 +101,20 @@ L'esempio seguente illustra un'implementazione del metodo **OnDataLossAsync** in
 
 >[AZURE.NOTE]Il valore RestorePolicy è Safe per impostazione predefinita. L'API RestoreAsync avrà quindi esito negativo con ArgumentException se rileva che una cartella di backup include uno stato precedente o uguale allo stato contenuto nella replica. È possibile usare RestorePolicy.Force per ignorare questo controllo di protezione.
 
-#### Servizio eliminato o perso
+## Servizio eliminato o perso
 
-Se un servizio viene rimosso, per ripristinare i dati sarà prima di tutto necessario ricreare il servizio. È importante creare il servizio con la stessa configurazione, ad esempio con lo stesso schema di partizionamento, in modo che sia possibile ripristinare i dati senza problemi. Quando il servizio è attivo, è necessario richiamare l'API per il ripristino dei dati (**OnDataLossAsync** precedente) su ogni partizione del servizio. Un modo per ottenere questo risultato consiste nell'usare **FabricClient.ServiceManager.InvokeDataLossAsync** su ogni partizione. Per altre informazioni su **InvokeDataLossAsync**, vedere il capitolo relativo alla testabilità.
+Se un servizio viene rimosso, per ripristinare i dati sarà prima di tutto necessario ricreare il servizio. È importante creare il servizio con la stessa configurazione, ad esempio con lo stesso schema di partizionamento, in modo che sia possibile ripristinare i dati senza problemi. Quando il servizio è attivo, è necessario richiamare l'API per il ripristino dei dati (**OnDataLossAsync** precedente) su ogni partizione del servizio. Un modo per ottenere questo risultato consiste nell'usare **FabricClient.ServiceManager.InvokeDataLossAsync** su ogni partizione.
 
 A partire da questo punto, l'implementazione è uguale a quella dello scenario precedente. Ogni partizione deve ripristinare il backup rilevante più recente dall'archivio esterno. Occorre prestare attenzione al fatto che l'ID della partizione potrebbe ora essere diverso, perché il runtime crea dinamicamente gli ID delle partizioni. Il servizio deve quindi archiviare le informazioni appropriate sulla partizione e il nome del servizio per identificare il backup più recente corretto da ripristinare da ogni partizione.
 
 
-#### Replica di dati danneggiati dell'applicazione
+## Replica di dati danneggiati dell'applicazione
 
-Se dopo l'aggiornamento l'applicazione presenta un bug, ciò potrebbe provocare il danneggiamento dei dati. È ad esempio possibile che l'aggiornamento di un'applicazione inizi ad aggiornare ogni record relativo a numeri di telefono in un dizionario affidabile specificando un prefisso non valido. In questo caso, i numeri di telefono non validi verranno replicati, perché l'infrastruttura di servizi non conosce la natura dei dati archiviati.
+Se l'aggiornamento dell'applicazione appena distribuito presenta un bug, ciò potrebbe provocare il danneggiamento dei dati. È ad esempio possibile che l'aggiornamento di un'applicazione inizi ad aggiornare ogni record relativo a numeri di telefono in un dizionario affidabile specificando un prefisso non valido. In questo caso, i numeri di telefono non validi verranno replicati, perché Service Fabric non conosce la natura dei dati archiviati.
 
 Dopo avere rilevato un bug così grave da provocare il danneggiamento dei dati, è prima di tutto necessario bloccare il servizio a livello di applicazione e, se possibile, eseguire l'aggiornamento alla versione del codice dell'applicazione che non include il bug. Anche dopo la correzione del codice del servizio è tuttavia possibile che i dati siano ancora danneggiati e che sia necessario ripristinarli. In questi casi potrebbe non essere sufficiente ripristinare il backup più recente, perché è possibile che anche i backup più recenti siano danneggiati. È quindi necessario individuare il backup più recente eseguito prima del danneggiamento dei dati.
 
-Uno dei modi per ottenere questo risultato consiste nel distribuire un nuovo cluster di infrastruttura di servizi e ripristinare i backup delle partizioni interessate, con la stessa procedura dello scenario "Servizio eliminato" precedente. Dopo l'individuazione del backup più recente prima del danneggiamento dei dati, è possibile spostare/eliminare tutti i backup successivi della partizione. Quando **OnDataLossAsync** viene chiamato sulla partizione nel cluster di produzione, il backup più recente individuato nell'archivio esterno verrà selezionato dal processo precedente.
+Se non si sa con esattezza quali siano i backup danneggiati e quali quelli integri, è possibile distribuire un nuovo Service Fabric Cluster e ripristinare i backup delle partizioni interessate con la stessa procedura dello scenario "Servizio eliminato" precedente. Per ogni partizione, avviare il ripristino dei backup dal più recente al meno recente. Dopo aver trovato un backup non danneggiato, spostare o eliminare tutti i backup della partizione più recenti di quel backup. Ripetere questo processo per ogni partizione. Quando **OnDataLossAsync** viene chiamato sulla partizione nel cluster di produzione, il backup più recente trovato nell'archivio esterno verrà selezionato dal processo precedente.
 
 È ora possibile usare la procedura illustrata in "Servizio eliminato" per ripristinare lo stato del backup del servizio sul valore precedente al danneggiamento da parte del codice con bug.
 
@@ -125,15 +127,15 @@ Uno dei modi per ottenere questo risultato consiste nel distribuire un nuovo clu
 ## Approfondimento: altri dettagli sul backup e ripristino
 
 ### Backup
+Reliable State Manager consente di creare backup coerenti senza bloccare alcuna operazione di lettura o scrittura. A questo scopo, utilizza un checkpoint e un meccanismo di persistenza dei log. Reliable State Manager accetta checkpoint fuzzy (semplici) in determinati punti per ridurre la pressione sul log transazionale e migliorare i tempi di ripristino. Quando viene chiamato IReliableStateManager.**BackupAsync**, Reliable State Manager indica a tutti gli oggetti Reliable di copiare i file di checkpoint più recenti in una cartella di backup locale. Reliable State Manager copia quindi tutti i record del log a partire dal "puntatore iniziale" fino all'ultimo record del log nella cartella di backup. Poiché tutti i record del log, fino all'ultimo, sono inclusi nel backup e Reliable State Manager conserva i log write-ahead, Reliable State Manager assicura che tutte le transazioni di cui viene eseguito il commit (CommitAsync restituito correttamente) siano incluse nel backup.
 
-Reliable State Manager consente di creare backup coerenti senza bloccare alcuna operazione di lettura e scrittura necessaria al servizio. A questo scopo, utilizza un checkpoint e un meccanismo di persistenza dei log. Reliable State Manager accetta checkpoint fuzzy (semplici) in determinati punti per ridurre la pressione sul log transazionale e migliorare i tempi di ripristino. Quando viene chiamato IReliableStateManager.**BackupAsync**, Reliable State Manager indica a tutti gli oggetti Reliable di copiare i file di checkpoint più recenti in una cartella di backup locale. Reliable State Manager copia quindi tutti i record del log a partire dal "puntatore iniziale" fino all'ultimo record del log nella cartella di backup. Poiché tutti i record del log, fino all'ultimo, sono inclusi nel backup e Reliable State Manager conserva i log write-ahead, Reliable State Manager assicura che tutte le transazioni di cui viene eseguito il commit (CommitAsync restituito correttamente) siano incluse nel backup.
-
-È possibile che eventuali transazioni sottoposte a commit dopo la chiamata di **BackupAsync** siano o non siano incluse nel backup. Dopo il popolamento della cartella di backup locale da parte della piattaforma, ovvero dopo un backup locale completato dal runtime, verrà richiamato il callback del backup del servizio. Il callback è responsabile dello spostamento della cartella di backup in una posizione esterna, ad esempio nell'Archiviazione di Azure.
+Eventuali transazioni sottoposte a commit dopo la chiamata di **BackupAsync** potrebbero essere o meno incluse nel backup. Dopo il popolamento della cartella di backup locale da parte della piattaforma, ovvero dopo un backup locale completato dal runtime, verrà richiamato il callback del backup del servizio. Il callback è responsabile dello spostamento della cartella di backup in una posizione esterna, ad esempio nell'Archiviazione di Azure.
 
 ### Ripristino
 
-Reliable State Manager consente di eseguire il ripristino da un backup mediante l'API IReliableStateManager.RestoreAsync. Il metodo RestoreAsync può essere chiamato solo all'interno del metodo OnDataLossAsync. Il valore booleano restituito da OnDataLossAsync indica se il servizio ha ripristinato il rispettivo stato da un'origine esterna. Se OnDataLossAsync restituisce true, l'infrastruttura di servizi ricompilerà tutte le altre repliche sulla base di questa replica primaria. Le repliche che ricevono OnDataLossAsync effettueranno prima di tutto la transizione al ruolo Primary, ma non otterranno lo stato di lettura o lo stato di scrittura. Per i responsabili dell'implementazione di StatefulService, quindi, RunAsync verrà chiamato solo dopo il completamento corretto di OnDataLossAsync. L'API continuerà a essere chiamata fino al completamento corretto dell'API da parte di un servizio, tramite la restituzione di true o false, e il completamento della riconfigurazione rilevante.
+Reliable State Manager consente di eseguire il ripristino da un backup mediante l'API IReliableStateManager.RestoreAsync. Il metodo RestoreAsync può essere chiamato solo all'interno del metodo **OnDataLossAsync**. Il valore booleano restituito da **OnDataLossAsync** indica se il servizio ha ripristinato il rispettivo stato da un'origine esterna. Se **OnDataLossAsync** restituisce true, Service Fabric ricompila tutte le altre repliche sulla base di questa replica primaria. Service Fabric fa in modo che le repliche che devono ricevere **OnDataLossAsync** eseguano prima la transizione al ruolo primario, senza che venga concesso lo stato di lettura o scrittura. Per i responsabili dell'implementazione di StatefulService, quindi, RunAsync verrà chiamato solo dopo il completamento corretto di **OnDataLossAsync**. **OnDataLossAsync** viene quindi richiamato sulla nuova replica primaria. Fino a quando un servizio non completa correttamente l'API, restituendo true o false, e non viene completata la relativa riconfigurazione, l'API continuerà a essere chiamata singolarmente.
+
 
 RestoreAsync rilascia prima di tutto ogni stato esistente nella replica primaria su cui è stato chiamato. Reliable State Manager crea successivamente tutti gli oggetti Reliable esistenti nella cartella di backup. Viene quindi indicato agli oggetti Reliable di eseguire il ripristino dai rispettivi checkpoint nella cartella di backup. Reliable State Manager ripristina quindi il proprio stato dai record dei log nella cartella di backup ed esegue il ripristino. Come parte del processo di ripristino, le operazioni a partire dal "punto iniziale" con record di log di commit nella cartella di backup vengono riprodotte negli oggetti Reliable. Questo passaggio assicura che lo stato ripristinato sia coerente.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

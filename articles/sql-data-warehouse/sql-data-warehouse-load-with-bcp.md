@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/03/2015"
+   ms.date="11/19/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 
@@ -196,4 +196,4 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

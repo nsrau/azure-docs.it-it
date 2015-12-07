@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure"
-	description="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."
-	services="active-directory-b2c"
-	documentationCenter="ios"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+<properties pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure" descrizione="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti." servizi ="active-directory-b2c" documentationCenter=”ios” autori="brandwe" manager="msmbaldwin" editor =""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -38,7 +31,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 
 - Includere un'**app Web/API Web** nell'applicazione
 - Specificare `http://localhost:3000/auth/openid/return` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
-- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
+- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesta a breve.
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -87,14 +80,13 @@ Affinché l'applicazione attività iOS comunichi con Azure AD B2C, è necessario
 	<key>authority</key>
 	<string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
 	<key>clientId</key>
-	<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+	<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	<key>scopes</key>
 	<array>
-		<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+		<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	</array>
 	<key>additionalScopes</key>
 	<array>
-		<string></string>
 	</array>
 	<key>redirectUri</key>
 	<string>urn:ietf:wg:oauth:2.0:oob</string>
@@ -240,9 +232,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
         [self readApplicationSettings];
     }
     
-    NSDictionary* params = [self convertPolicyToDictionary:policy];
-    
-    [self getClaimsWithPolicyClearingCache:NO policy:policy params:params parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
+    [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
         
         if (userInfo == nil)
         {
@@ -263,48 +253,14 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 Si noterà che il metodo è piuttosto semplice. Esso accetta come input l'oggetto `samplesPolicyData` appena creato, l'elemento ViewController parent e quindi un callback. Il callback è interessante e sarà trattato in maniera dettagliata.
 
 1. Si noterà che `completionBlock` ha ADProfileInfo come tipo che verrà restituito con un oggetto `userInfo`. ADProfileInfo è il tipo che contiene tutte le risposte dal server, in particolare le attestazioni. 
-
 2. Si noterà `readApplicationSettings`, che legge i dati forniti in `settings.plist`.
-3. Si noterà il metodo `convertPolicyToDictionary:policy`, che accetta il criterio e lo formatta come URL da inviare al server. Questo metodo di supporto verrà trattato successivamente.
-4. È presente infine un metodo `getClaimsWithPolicyClearingCache` piuttosto esteso. Questo riguarda la chiamata effettiva a ADAL per iOS che è necessario scrivere, ma la si scriverà in un secondo momento.
+3. È presente infine un metodo `getClaimsWithPolicyClearingCache` piuttosto esteso. Questo riguarda la chiamata effettiva a ADAL per iOS che è necessario scrivere, ma la si scriverà in un secondo momento.
 
-
-Successivamente, verrà scritto il metodo `convertPolicyToDictionary` sottostante nel codice appena scritto:
-
-```
-// Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
-
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-    
-    if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
-    }
-    
-    return dictionary;
-}
-
-+(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-
-    
-    if (policy.policyID){
-        [dictionary setValue:policy.policyID forKey:@"p"];
-    }
-    
-    return dictionary;
-}
-
-```
-Questo codice piuttosto semplice aggiunge semplicemente una p al criterio in modo che l'aspetto della query sia ?p=<policy>.
-
-Di seguito verrà scritto il metodo `getClaimsWithPolicyClearingCache` esteso. Tale metodo è sufficientemente grande da meritare una sezione apposita.
+Si scriverà ora il metodo `getClaimsWithPolicyClearingCache` esteso. Tale metodo è sufficientemente grande da meritare una sezione apposita.
 
 #### Creare la chiamata in ADAL per iOS
 
-Se è stato scaricato lo scheletro da GitHub, si noterà che ne esistono diversi in grado di agevolare l'applicazione di esempio. Gli scheletri seguono tutti il modello `get(Claims|Token)With<verb>ClearningCache`. Con l’utilizzo delle convenzioni Objetive C, esso appare molto simile all’inglese. Ad esempio "ottenere un Token con i parametri aggiuntivi forniti e cancellare la cache", Che è `getTokenWithExtraParamsClearingCache()`. Piuttosto semplice.
+Se è stato scaricato lo scheletro da GitHub, si noterà che ne esistono diversi in grado di agevolare l'applicazione di esempio. Gli scheletri seguono tutti il modello `get(Claims|Token)With<verb>ClearningCache`. Con l’utilizzo delle convenzioni Objetive C, esso appare molto simile all’inglese. Ad esempio "ottenere un Token con i parametri aggiuntivi forniti e cancellare la cache", che è `getTokenWithExtraParamsClearingCache()`. Piuttosto semplice.
 
 Si scriverà "ottenere Attestazioni e un token con i criteri forniti e non cancellare la cache" o `getClaimsWithPolicyClearingCache`. ADAL restituisce sempre un token, pertanto non è necessario specificare "Attestazioni e token" nel metodo. Poiché a volte è necessario soltanto il token senza il sovraccarico dell'analisi delle attestazioni, viene fornito un metodo senza attestazioni denominato `getTokenWithPolicyClearingCache` nello scheletro.
 
@@ -356,7 +312,7 @@ Tale codice è riportato di seguito:
 
 ```
 
-La prima parte del codice dovrebbe essere familiare. Caricare le impostazioni fornite in `Settings.plist` e assegnare il tutto a `data`. Viene quindi impostato una classe `ADAuthenticationError` che accetti qualsiasi errore proveniente da ADAL per iOS. È anche possibile creare un oggetto `authContext` che è l'impostazione della chiamata ad ADAL, che viene passata ad *authority* per avviare i processi. Viene inoltre fornito ad `authContext` un riferimento al controller padre in modo che sia possibile ritornare a esso. È anche possibile convertire `redirectURI`, una stringa di `settings.plist`, nel tipo NSURL previsto da ADAL. È necessario infine impostare un oggetto `correlationId`, che è semplicemente un UUID in grado di seguire la chiamata dal client al server e viceversa. Questo è utile per il debug.
+La prima parte del codice dovrebbe essere familiare. Caricare le impostazioni fornite in `Settings.plist` e assegnare il tutto a `data`. Viene quindi impostata una classe `ADAuthenticationError` che accetti qualsiasi errore proveniente da ADAL per iOS. È anche possibile creare un oggetto `authContext`, ossia l'impostazione della chiamata ad ADAL, che viene passata ad *authority* per avviare i processi. Viene inoltre fornito a `authContext` un riferimento al controller padre in modo che sia possibile ritornare a esso. È anche possibile convertire `redirectURI`, una stringa di `settings.plist`, nel tipo NSURL previsto da ADAL. È necessario infine impostare un oggetto `correlationId`, che è semplicemente un UUID in grado di seguire la chiamata dal client al server e viceversa. Questo è utile per il debug.
 
 Ora, passare alla chiamata effettiva a ADAL, dove la chiamata è diversa rispetto agli utilizzi precedenti di ADAL per iOS:
 
@@ -375,9 +331,9 @@ Ora, passare alla chiamata effettiva a ADAL, dove la chiamata è diversa rispett
 
 Si noterà che la chiamata è piuttosto semplice.
 
-**scopes**: ambiti che vengono passati al server e che si desidera richiedere al server per l'accesso dell'utente. Per l'anteprima B2C viene passato il parametro client\_id. Verrà tuttavia modificato per leggere gli ambiti in futuro. Questo documento verrà quindi aggiornato. **addtionalScopes**: ambiti aggiuntivi che è possibile usare per l'applicazione. Verranno usati in futuro. **clientId**: ID dell'applicazione ottenuto dal portale **redirectURI**: reindirizzamento in cui si prevede che il token venga rispedito. **identifier**: modalità di identificazione dell'utente, in modo da controllare se è disponibile un token utilizzabile nella cache invece di dover sempre richiedere al server un altro token. Si noterà che questa operazione viene eseguita in un tipo denominato `ADUserIdentifier` e che è possibile specificare l'ID che si desidera usare. È consigliabile usare il nome utente. **promptBehavior**: deprecato, deve essere AD\_PROMPT\_ALWAYS. **extraQueryParameters**: qualsiasi parametro aggiuntivo che si desidera passare al server nel formato codificato dell'URL. **policy**: criterio che viene richiamato. La parte più importante di questa procedura dettagliata.
+**scopes**: ambiti che vengono passati al server e che si desidera richiedere al server per l'accesso dell'utente. Per l'anteprima B2C viene passato il parametro client\_id. Verrà tuttavia modificato per leggere gli ambiti in futuro. Questo documento verrà quindi aggiornato. **addtionalScopes**: ambiti aggiuntivi che è possibile usare per l'applicazione. Verranno usati in futuro. **clientId**: ID dell'applicazione ottenuto dal portale. **redirectURI**: reindirizzamento in cui si prevede che il token venga rispedito. **identifier**: modalità di identificazione dell'utente, in modo da controllare se è disponibile un token utilizzabile nella cache invece di dover sempre richiedere al server un altro token. Si noterà che questa operazione viene eseguita in un tipo denominato `ADUserIdentifier` e che è possibile specificare l'ID che si desidera usare. È consigliabile usare il nome utente. **promptBehavior**: deprecato, deve essere AD\_PROMPT\_ALWAYS. **extraQueryParameters**: qualsiasi parametro aggiuntivo che si desidera passare al server nel formato codificato dell'URL. **policy**: criterio che viene richiamato. La parte più importante di questa procedura dettagliata.
 
-Si noti che in completionBlock viene passato l'elemento `ADAuthenticationResult`, che dispone del token e delle informazioni sul profilo (se la chiamata ha avuto esito positivo)
+Osservare come in completionBlock venga passato l'elemento `ADAuthenticationResult`, che dispone del token e delle informazioni sul profilo (se la chiamata ha avuto esito positivo)
 
 Utilizzando il codice sopra, è possibile acquisire un token per il criterio fornito. Utilizzare questo token per chiamare l'API.
 
@@ -402,7 +358,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 
 `getTasksList` fornisce una matrice che rappresenta le attività nel server. `addTask` e `deleteTask` eseguono l'azione successiva e restituiscono TRUE o FALSE in caso di esito positivo.
 
-Scrivere prima `getTaskList`:
+Si scriverà prima `getTaskList`:
 
 ```
 
@@ -464,7 +420,7 @@ Scrivere prima `getTaskList`:
 
 ```
 
-Non rientra nell'ambito di questa procedura dettagliata illustrare il codice attività, ma è interessante notare un metodo `craftRequest` accetta l'URL dell'attività. Questo metodo viene utilizzato per creare la richiesta, con il token di accesso pervenuto, per il server. Il metodo viene riportato di seguito:
+Non rientra nell'ambito di questa procedura dettagliata illustrare il codice attività, ma è interessante notare che un metodo `craftRequest` accetta l'URL dell'attività. Questo metodo viene utilizzato per creare la richiesta, con il token di accesso pervenuto, per il server. Il metodo viene riportato di seguito:
 
 Aggiungere il codice seguente al file 'samplesWebAPIConnector.m':
 
@@ -495,9 +451,9 @@ Aggiungere il codice seguente al file 'samplesWebAPIConnector.m':
 }
 ```
 
-Come è possibile osservare, esso accetta un URI Web, vi aggiunge il token con l'intestazione `Bearer` in HTTP e lo restituisce quindi all'utente. Chiamare l'API `getTokenClearingCache`. Questa operazione può sembrare strana inizialmente, ma la chiamata viene usata semplicemente per ottenere un token dalla cache e assicurarsi che sia ancora valido (le chiamate getToken * eseguono questa operazione interrogando ADAL). Utilizzare il codice in ogni chiamata. Si torni ora alla creazione dei metodi Attività aggiuntivi.
+Come è possibile osservare, il codice accetta un URI Web, vi aggiunge il token con l'intestazione `Bearer` in HTTP e lo restituisce quindi all'utente. Chiamare l'API `getTokenClearingCache`. Questa operazione può sembrare strana inizialmente, ma la chiamata viene usata semplicemente per ottenere un token dalla cache e assicurarsi che sia ancora valido (le chiamate getToken* eseguono questa operazione interrogando ADAL). Utilizzare il codice in ogni chiamata. Si torni ora alla creazione dei metodi Attività aggiuntivi.
 
-Verrà scritto `addTask`:
+Si scriverà ora `addTask`:
 
 ```
 +(void) addTask:(samplesTaskItem*)task
@@ -552,7 +508,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 }
 ```
 
-Questo codice segue lo stesso modello, ma introduce un ultimo metodo da implementare, ovvero `convertTaskToDictionary`. Questo metodo accetta la matrice e la rende un oggetto dizionario che viene modificato più facilmente nei parametri di query che devono essere passati al server. Questo codice è molto semplice:
+Questo codice segue lo stesso modello, ma introduce un ultimo metodo da implementare, ovvero `convertTaskToDictionary`. Questo metodo accetta la matrice e la rende un oggetto dizionario che viene modificato più facilmente nei parametri di query da passare al server. Questo codice è molto semplice:
 
 ```
 // Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
@@ -570,7 +526,7 @@ Questo codice segue lo stesso modello, ma introduce un ultimo metodo da implemen
 
 ```
 
-Verrà scritto infine `deleteTask`:
+Si scriverà infine `deleteTask`:
 
 ```
 +(void) deleteTask:(samplesTaskItem*)task
@@ -659,4 +615,4 @@ Come riferimento, l'esempio completato [è disponibile qui in un file con estens
 
 [Personalizzazione dell’UX del’App B2C>>]()
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

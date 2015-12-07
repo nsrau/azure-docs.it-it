@@ -204,7 +204,7 @@ La funzione dei parametri è facilmente comprensibile. Sostituire le variabili d
 
 > [AZURE.NOTE]Nella riga di comando sono state automatizzate anche le regole di filtro per la rete degli endpoint mediante il parametro –tcp-endpoints. Sono state aperte le porte 80 e 3389 per fornire l'accesso per la pagina Web e la sessione RDP.
 
-Una volta eseguito il comando, passare al portale di Azure, dove il computer inizia già a eseguire il provisioning.
+Una volta eseguito il comando, passare al portale di anteprima di Azure, dove il computer inizia già a eseguire il provisioning.
 
 ![][13]
 
@@ -239,4 +239,4 @@ Si spera che questa guida sia stata utile. Ora è possibile avviare l'infrastrut
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

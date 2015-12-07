@@ -1,6 +1,6 @@
-<properties pageTitle="Uso di moduli Node.js" description="Informazioni su come usare i moduli Node.js con Siti Web e Servizi cloud di Azure." services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="Uso di moduli Node.js" description="Informazioni su come usare i moduli Node.js con Siti Web e Servizi cloud di Azure." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/20/2015" ms.author="robmcm"/>
 
 
 
@@ -78,4 +78,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/deve
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [script di distribuzione di un sito Web personalizzato con Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 # Distribuire più macchine virtuali della scheda di interfaccia di rete tramite un modello
@@ -34,7 +34,7 @@ Poiché in questo momento non è possibile disporre di macchine virtuali con una
 Prima di distribuire i server back-end, è necessario distribuire il gruppo di risorse principale con tutte le risorse necessarie per questo scenario. Per distribuire tali risorse, seguire questa procedura.
 
 1. Passare alla [pagina del modello](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Nella pagina del modello, a destra del **gruppo di risorse padre**, fare clic su **Distribuisci in Azure**.
+2. Nella pagina del modello, a destra del **gruppo di risorse padre**, fare clic su **Deploy to Azure**.
 3. Se necessario, modificare i valori dei parametri, quindi seguire i passaggi nel portale di anteprima di Azure per distribuire il gruppo di risorse.
 
 > [AZURE.IMPORTANT]Assicurarsi che i nomi degli account di archiviazione siano univoci. In Azure non sono infatti ammessi nomi di account di archiviazione duplicati.
@@ -223,20 +223,11 @@ La figura seguente illustra i contenuti del nuovo gruppo di risorse, dopo la dis
 
 Per distribuire il modello scaricato tramite PowerShell, seguire questa procedura.
 
-1. Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
-2. Eseguire il cmdlet **Switch-AzureMode** per passare alla modalità Gestione risorse, come illustrato di seguito.
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-		Switch-AzureMode AzureResourceManager
+3. Per creare un gruppo di risorse usando il modello, eseguire il cmdlet **New-AzureRmResourceGroup**.
 
-	Di seguito è riportato l'output previsto per il comando precedente:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]Il cmdlet Switch-AzureMode verrà presto dichiarato obsoleto. Di conseguenza, tutti i cmdlet di Gestione risorse verranno rinominati.
-
-3. Per creare un gruppo di risorse usando il modello, eseguire il cmdlet **New-AzureResourceGroup**.
-
-		New-AzureResourceGroup -Name IaaSStory-Backend -Location uswest `
+		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'	
 
@@ -280,7 +271,7 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 
 3. Aprire il [file del parametro](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), selezionare i relativi contenuti e salvarlo in un file nel computer. In questo esempio il file dei parametri è stato salvato in *parameters.json*.
 
-4. Eseguire il cmdlet **azure group deployment create** per distribuire la nuova rete virtuale usando il modello e i file dei parametri scaricati e modificati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
+4. Eseguire il cmdlet **azure group deployment create** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 
 		azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 
@@ -301,4 +292,4 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 		data:
 		info:    group create command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

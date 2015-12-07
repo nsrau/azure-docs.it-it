@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/18/2015"
+	ms.author="huvalo"/>
 
 
 
@@ -70,9 +70,9 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
 
 Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito
 
-1.  Accedere al [portale di Azure].
+1.  Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Archiviazione**. Assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Account di archiviazione**. Fare clic su **Crea** quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->Quando l'account di archiviazione viene creato, nel pulsante **Notifiche** lampeggia in verde il testo **OPERAZIONE RIUSCITA** e il pannello dell'account di archiviazione si apre per visualizzare che appartiene al nuovo gruppo di risorse creato.
 
@@ -101,6 +101,8 @@ In questa sezione verrà configurata l'applicazione per usare l'account di archi
 1.  Il codice che implementa il repository di archiviazione tabelle di Azure si trova in **models/azuretablestorage.py**. Per altre informazioni su come usare il servizio tabelle da Python, vedere la [documentazione].
 
 1.  Eseguire l'applicazione con `F5`. I sondaggi creati con **Create Sample Polls** e i dati inviati mediante voto verranno serializzati nell'archiviazione tabelle di Azure.
+
+	> [AZURE.NOTE]L'ambiente virtuale Python 2.7 può causare un'interruzione di eccezioni in Visual Studio. Premere `F5` per continuare il caricamento del progetto web.
 
 1.  Passare alla pagina **About** per verificare che l'applicazione usi il repository di **archiviazione tabelle di Azure**.
 
@@ -147,7 +149,7 @@ L'SDK .NET di Azure offre un modo semplice di distribuire l'app Web nel servizio
 
 In questa sezione verranno configurate le variabili dell'istanza di App Web.
 
-1.  Nel [portale di Azure] aprire il pannello dell'app Web facendo clic su **Sfoglia** > **App Web** > nome dell'app Web.
+1.  Nel [portale di Azure](https://portal.azure.com) aprire il pannello dell'app Web facendo clic su **Sfoglia** > **App Web** > nome dell'app Web.
 
 1.  Nel pannello dell'app Web fare clic su **Tutte le impostazioni** e quindi su **Impostazioni applicazione**.
 
@@ -210,4 +212,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

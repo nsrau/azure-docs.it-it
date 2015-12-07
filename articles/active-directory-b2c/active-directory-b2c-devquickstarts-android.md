@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Anteprima Azure AD B2C: chiamata di un’API Web da un’applicazione | Microsoft Azure"
-	description="Questo articolo illustra come creare un’app Android "To-Do List" che chiama un’API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app Android che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."
-	services="active-directory-b2c"
-	documentationCenter="android"
-	authors="brandwe"
-	manager="msmbaldwin"
-	editor=""/>
+<properties pageTitle="Anteprima Azure AD B2C: chiamata di un’API Web da un’applicazione | Microsoft Azure" descrizione="Questo articolo illustra come creare un’app Android "To-Do List" che chiama un’API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app Android che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."servizi ="directory-active-b2c"documentationCenter = autori"android"="brandwe"manager ="msmbaldwin"editor =" "/ >
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +6,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/19/2015"
 	ms.author="brandwe"/>
 
 # Anteprima di Azure AD B2C: Chiamata di un'API Web da un'applicazione Android
@@ -47,7 +40,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 
 - Includere un'**app Web/API Web** nell'applicazione
 - Immettere `urn:ietf:wg:oauth:2.0:oob` come **URL di risposta**: si tratta dell'URL predefinito per questo esempio di codice.
-- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
+- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesta a breve.
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -120,9 +113,9 @@ repositories {
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile('com.microsoft.aad:adal:2.0-alpha') {
+    compile('com.microsoft.aad:adal:2.0.1-alpha') {
         exclude group: 'com.android.support'
-    } // Recent version is 2.0-alpha
+    } // Recent version is 2.0.1-alpha
 }
 ```
 
@@ -134,7 +127,7 @@ Se si usa il plug-in m2e in Eclipse, è possibile specificare la dipendenza nel 
 <dependency>
     <groupId>com.microsoft.aad</groupId>
     <artifactId>adal</artifactId>
-    <version>2.0-alpha</version>
+    <version>2.0.1-alpha</version>
     <type>aar</type>
 </dependency>
 ```
@@ -991,4 +984,4 @@ CookieSyncManager.getInstance().sync();
 ``` Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

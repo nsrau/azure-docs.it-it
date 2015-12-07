@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/24/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -383,13 +383,34 @@ Si tratta di un set di attributi che può essere usato se non si usa la director
 | mailNickName| X| X| X| |
 | member| | | X| |
 | objectSID| X| | | Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory.|
-| proxyAddresses| X| X| x| |
+| proxyAddresses| X| X| X| |
 | pwdLastSet| X| | | Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Usata sia dal servizio di sincronizzazione delle password che dalla federazione.|
 | sn| X| X| | |
 | sourceAnchor| X| X| X| Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD.|
 | usageLocation| X| | | Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze.|
 | userPrincipalName| X| | | Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail].|
 
+## Windows 10
+I computer (dispositivi) appartenenti a un dominio Windows 10 sincronizzeranno alcuni attributi in Azure AD. Per altre informazioni sugli scenari, vedere [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md). Questi attributi si sincronizzeranno sempre e Windows 10 non appare come app che è possibile deselezionare. Un computer appartenente a un dominio Windows 10 viene identificato se l’attributo userCertificate è popolato.
+
+| Nome attributo| Dispositivo| Commento |
+| --- | :-: | --- |
+| accountEnabled| X| |
+| deviceTrustType| X| Valore hardcoded per i computer di dominio. |
+| displayName | X| |
+| ms-DS-CreatorSID | X| Chiamato anche registeredOwnerReference.|
+| objectGUID | X| Chiamato anche deviceID.|
+| objectSID | X| Chiamato anche omPremisesSecurityIdentifier.|
+| operatingSystem | X| Chiamato anche deviceOSType.|
+| operatingSystemVersion | X| Anche chiamato deviceOSVersion.|
+| userCertificate | X| |
+
+Questi attributi per l'utente sono un’aggiunta alle altre App selezionate.
+
+| Nome attributo| Utente| Commento |
+| --- | :-: | --- |
+| domainFQDN| X| Anche chiamato dnsDomainName. Esempio: contoso.com.|
+| domainNetBios| X| Anche chiamato netBiosName. Ad esempio, CONTOSO.|
 
 ## Writeback della distribuzione ibrida Exchange
 Se si sceglie di abilitare la distribuzione ibrida di Exchange, per questi attributi viene effettuato il writeback da Azure AD ad Active Directory locale. A seconda della versione di Exchange in uso, potrebbe essere sincronizzato un numero minore di attributi.
@@ -410,8 +431,8 @@ Se si sceglie di abilitare la distribuzione ibrida di Exchange, per questi attri
 
 
 ## Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -24,7 +24,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 ##Per creare una macchina virtuale Oracle WebLogic Server 12c e Oracle Database 12c in Azure
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
+1. Effettuare l’accesso al [portale di anteprima di Azure](https://ms.portal.azure.com/).
 
 2.	Fare clic su **Marketplace**, su **Calcolo**, quindi digitare **Oracle** nella casella di ricerca.
 
@@ -71,4 +71,4 @@ Seguire le istruzioni in [Creazione di una macchina virtuale Oracle WebLogic Ser
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

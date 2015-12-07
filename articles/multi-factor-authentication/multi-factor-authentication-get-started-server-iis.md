@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Autenticazione IIS
@@ -76,4 +76,4 @@ Il provider di identità attendibili consente agli utenti di ignorare Azure mult
 3. Quando viene visualizzata la finestra di dialogo Aggiungi provider di identità attendibili, selezionare il singolo indirizzo IP, l'intervallo IP o il pulsante di opzione Subnet.
 4. Immettere l'indirizzo IP, l'intervallo di indirizzi IP o la subnet da inserire nell'elenco. Se si immette una subnet, selezionare mask appropriata e fare clic sul pulsante OK. L'elenco whitelist è stato aggiunto.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

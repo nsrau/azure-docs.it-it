@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creare un processo | Microsoft Azure" 
-	description="Segmento del percorso di apprendimento relativo alla creazione del processo."
+	description="Creare un processo per Analisi di flusso | segmento del percorso di apprendimento."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Creare un processo
+# Creare un processo di Analisi di flusso.
 
 La risorsa di livello principale nell’analisi di flusso di Azure è il processo di analisi del flusso. È costituito da una o più origini dati di input, una query che esprime la trasformazione dei dati e uno o più destinazioni di output in cui vengono scritti i risultati.
 
@@ -60,4 +60,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

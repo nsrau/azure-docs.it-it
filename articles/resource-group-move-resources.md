@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="11/19/2015" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -28,7 +28,7 @@ Esistono alcune importanti considerazioni da tenere presente durante lo spostame
 
 1. Non è possibile modificare il percorso della risorsa. Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse. Il nuovo gruppo di risorse può avere un percorso diverso, ma ciò non modifica la posizione della risorsa.
 2. Il gruppo di risorse di destinazione deve contenere solo le risorse che condividono un ciclo di vita dell'applicazione uguale a quello delle risorse che si desidera spostare.
-3. Se si utilizza Azure PowerShell, assicurarsi di usare la versione più recente. Il comando **Move-AzureResource** viene aggiornato di frequente. Per aggiornare la versione, eseguire l'Installazione guidata piattaforma Web Microsoft e verificare se è disponibile una nuova versione. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+3. Se si utilizza Azure PowerShell, assicurarsi di usare la versione più recente. Il comando **Move-AzureRmResource** viene aggiornato di frequente. Per aggiornare la versione, eseguire l'Installazione guidata piattaforma Web Microsoft e verificare se è disponibile una nuova versione. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 4. L'operazione di spostamento può richiedere alcuni minuti e durante tale intervallo il prompt di PowerShell attenderà il completamento dell'operazione.
 5. Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di destinazione sono bloccati per la durata dell'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi fino al completamento dello spostamento.
 
@@ -39,15 +39,20 @@ Attualmente non tutti i servizi supportano lo spostamento di risorse.
 Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di risorse e in una sottoscrizione nuovi:
 
 - Gestione API
-- Azure DocumentDB
-- Ricerca di Azure
-- App Web di Azure (si applicano alcune [limitazioni](app-service-web/app-service-move-resources.md))
-- Data Factory
+- Automazione
+- Batch
+- Data factory
+- DocumentDB
+- Cluster HDInsight
 - Insieme di credenziali di chiave
+- App per la logica
 - Mobile Engagement
+- Hub di notifica
 - Operational Insights
 - Cache Redis
+- Ricerca
 - Database SQL
+- App Web (si applicano alcune [limitazioni](app-service-web/app-service-move-resources.md))
 
 I servizi che supportano lo spostamento di un nuovo gruppo di risorse, ma non una nuova sottoscrizione sono:
 
@@ -69,16 +74,17 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando **Move-AzuremRResource**.
+Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando **Move-AzureRmResource**.
 
 Nel primo esempio viene illustrato come spostare una risorsa in un nuovo gruppo di risorse.
 
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:\> $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
 
 Nel secondo esempio viene illustrato come spostare più risorse in un nuovo gruppo di risorse.
 
-    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
+    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
     PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per il parametro **DestinationSubscriptionId**.
@@ -97,4 +103,4 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

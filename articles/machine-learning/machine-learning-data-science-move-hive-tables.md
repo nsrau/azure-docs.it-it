@@ -128,23 +128,9 @@ Gli utenti possono usare la Console di query (editor Hive) inserendo l'URL del m
 
 nome cluster *https://&#60;Hadoop>.azurehdinsight.net/Home/HiveEditor*
 
-in un Web browser. Si noti che verrà richiesto di immettere le credenziali del cluster Hadoop per l'accesso. In alternativa, [Inviare processi Hive tramite PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+in un Web browser. Si noti che verrà richiesto di immettere le credenziali del cluster Hadoop per l'accesso.
 
-
-## Come inviare una query Hive (precedente)
-
-Questo documento descrive le differenti modalità di invio delle query Hive ai cluster Hadoop gestiti dal servizio HDInsight in Azure (introduzione precedente - integrazione da definire).
-
-
-Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop. Per effettuare questa operazione, accedere al nodo head del cluster Hadoop, aprire la console della riga di comando e inviare le query Hive da tale posizione. Per istruzioni su come eseguire questa operazione, vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di analisi scientifica dei dati cloud](machine-learning-data-science-process-hive-tables.md).
-
-Gli utenti possono anche usare la Console Query (Editor Hive) immettendo l'URL
-
-nome cluster https://&#60;Hadoop>.azurehdinsight.net/Home/HiveEditor
-
-in un Web browser. Si noti che verrà richiesto di immettere le credenziali del cluster Hadoop per l’accesso, pertanto è necessario disporre di queste credenziali.
-
-In alternativa, [Inviare processi Hive tramite PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+In alternativa, [Eseguire query Hive tramite PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
 
 ## <a name="create-tables"></a>Creare il database e le tabelle Hive
@@ -189,7 +175,7 @@ Di seguito è presentata la query Hive che carica i dati in una tabella Hive.
 
 Se i dati sono di grandi dimensioni, il partizionamento della tabella è utile per le query che devono solo eseguire l'analisi di alcune partizioni della tabella. Ad esempio, è ragionevole partizionare i dati di log di un sito Web per date.
 
-Oltre al partizionamento delle tabelle Hive, è inoltre utile archiviare i dati Hive in formato ORC. Per altre informazioni sulla formattazione OCR, vedere l’<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">uso dei file ORC per migliorare le prestazioni quando Hive legge, scrive ed elabora dati</a>.
+Oltre al partizionamento delle tabelle Hive, è inoltre utile archiviare i dati Hive in formato ORC. Per altre informazioni sulla formattazione ORC, vedere l’<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">uso dei file ORC per migliorare le prestazioni quando Hive legge, scrive ed elabora dati</a>.
 
 ### Tabella partizionata
 Di seguito è presentata la query Hive che crea una tabella partizionata e vi carica i dati.
@@ -264,4 +250,4 @@ Al termine della procedura, si disporrà di una tabella con i dati nel formato O
 
 Nella parte finale del documento, vengono descritti i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

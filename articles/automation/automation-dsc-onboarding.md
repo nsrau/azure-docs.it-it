@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="10/28/2015"
+   ms.date="11/23/2015"
    ms.author="coreyp"/>
 
 # Caricamento di computer per la gestione con Automation DSC per Azure
@@ -36,7 +36,7 @@ Le sezioni seguenti illustrano come caricare ogni tipo di computer in Automation
 Con Automation DSC per Azure è possibile caricare facilmente macchine virtuali di Azure (classica) per la gestione della configurazione tramite il portale di Azure o PowerShell. Dietro le quinte, e senza che l'amministratore debba connettersi in remoto alla VM, l'estensione DSC (Desired State Configuration) per le VM di Azure regista la VM con Automation DSC per Azure. Poiché l'estensione DSC per le VM di Azure viene eseguita in modalità asincrona, nella sezione seguente [**Risoluzione dei problemi di caricamento delle macchine virtuali di Azure**](#troubleshooting-azure-virtual-machine-onboarding) è disponibile la procedura per tenere traccia dell'avanzamento o risolverne i problemi.
 
 
-### Macchine virtuali di Azure
+### Portale di Azure
 
 Nel [portale di anteprima di Azure](http://portal.azure.com/) fare clic su **Esplora** -> **Macchine virtuali (classica)**. Selezionare la macchina virtuale Windows da caricare. Nel pannello del dashboard della macchina virtuale fare clic su **Tutte le impostazioni** -> **Estensioni** -> **Aggiungi** -> **Automation DSC per Azure** -> **Crea**. Immettere i [valori di Gestione configurazione locale per PowerShell DSC](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) necessari per il proprio caso d'uso, la chiave e l'URL di registrazione dell'account di automazione e facoltativamente una configurazione del nodo da assegnare alla VM.
 
@@ -102,7 +102,7 @@ Per trovare l'URL e la chiave di registrazione dell'account di automazione in cu
      -ExtensionName DSC `
      -Version 2.6 `
      -PublicConfiguration $PublicConfiguration `
-     -PrivateConfiguration $PrivateConfiguration
+     -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
 
     $VM | Update-AzureVM
@@ -132,9 +132,9 @@ Le macchine virtuali di Azure possono essere distribuite e caricate in Automatio
 
 ### PowerShell
 
-Il cmdlet [Register-AzureAutomationDscNode](https://msdn.microsoft.com/library/mt244097.aspx?f=255&MSPPError=-2147217396) può essere usato per caricare macchine virtuali nel portale di anteprima di Azure tramite PowerShell.
+Il cmdlet [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) può essere usato per caricare macchine virtuali nel portale di anteprima di Azure tramite PowerShell.
 
-### Computer fisici/macchine virtuali Windows locali o in un cloud diverso da Azure
+## Computer fisici/macchine virtuali Windows locali o in un cloud diverso da Azure
 
 I computer Windows locali e le macchine virtuali Windows in cloud non di Azure, ad esempio Amazon Web Services, possono essere caricati in Automation DSC per Azure con pochi e semplici passaggi, a condizione che abbiano l'accesso in uscita a Internet:
 
@@ -158,7 +158,7 @@ I computer Windows locali e le macchine virtuali Windows in cloud non di Azure, 
 
 8. Tramite il portale di Azure o i cmdlet verificare che ora i computer da caricare siano visualizzati come nodi DSC registrati nell'account di Automazione di Azure.
 
-### Computer fisici/macchine virtuali Linux locali, in Azure o in un cloud diverso da Azure
+## Computer fisici/macchine virtuali Linux locali, in Azure o in un cloud diverso da Azure
 
 I computer Linux locali, i computer Linux in Azure, e le macchine virtuali Linux in cloud non di Azure possono essere caricati in Automation DSC per Azure con pochi e semplici passaggi, a condizione che abbiano l'accesso in uscita a Internet:
 
@@ -236,4 +236,4 @@ Dopo la registrazione, ogni nodo negozia automaticamente un certificato univoco 
 * [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Prezzi di Automation DSC per Azure](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

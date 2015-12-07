@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Autenticazione delle identità senza password con Microsoft Passport
@@ -29,6 +29,7 @@ La chiave privata viene resa disponibile solo tramite un "movimento utente", com
 La chiave pubblica viene registrata con Azure Active Directory e Windows Server Active Directory (per la configurazione locale). I provider di identità (IDP) convalidano l'utente abbinando la chiave pubblica a quella privata e fornendo le informazioni di accesso tramite OTP (One Time Password), Phonefactor o un diverso meccanismo di notifica.
 
 ## Vantaggi dell'adozione di Microsoft Passport
+
 L'abilitazione di Microsoft Passport consente alle aziende di proteggere ulteriormente le proprie risorse in quanto possono:
 
 * Impostare Microsoft Passport specificando come opzione preferita quella hardware. In tal modo le chiavi verranno generate in TPM 1.2 o TPM 2.0 se disponibile e tramite software se TPM non è disponibile. 
@@ -52,7 +53,7 @@ Il diagramma precedente illustra l'utilizzo della coppia di chiavi privata/pubbl
 
 1. L'utente dimostra la propria identità usando diversi metodi integrati (movimenti, smart card fisiche, autenticazione a più fattori) e invia queste informazioni al provider di identità (IDP), ad esempio Azure Active Directory o Active Directory.
 
-2.  Il dispositivo crea quindi le chiavi, attesta la chiave, prende la parte pubblica della chiave, vi allega le istruzioni sulla postazione, effettua l'accesso e la invia all’IdP in modo che venga registrata.
+2. Il dispositivo crea quindi le chiavi, attesta la chiave, prende la parte pubblica della chiave, vi allega le istruzioni sulla postazione, effettua l'accesso e la invia all’IDP in modo che venga registrata.
 
 3. Non appena la parte pubblica della chiave viene registrata nel provider di identità, richiede al dispositivo di autenticarsi eseguendo l'accesso con la parte privata della chiave. Il provider di identità esegue la convalida e rilascia quindi il token di autenticazione che consente all'utente di accedere a risorse protette.
 
@@ -71,13 +72,13 @@ A livello dell'utente
 
 Per istruzioni dettagliate sulla distribuzione, vedere [Abilitare Microsoft Passport per lavorare all'interno dell'organizzazione](active-directory-azureadjoin-passport-deployment.md).
 
+
 ## Informazioni aggiuntive
 
 * [Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Abilitare Microsoft Passport for Work nell'organizzazione](active-directory-azureadjoin-passport-deployment.md)
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

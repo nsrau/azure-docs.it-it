@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Effettuare l’accesso utilizzando un metodo alternativo con Azure Multi-Factor Authentication
@@ -29,8 +29,8 @@ Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alte
 <li>Selezionare Utilizza un'opzione di verifica diversa. Verrà offerta una scelta di opzioni differenti. Il numero visualizzato dipenderà da quante opzioni sono state impostate.</li>
 
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-signin-alt/alt.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-alt/alt.png)</center>
 
 <li>Scegliere un metodo alternativo ed effettuare l’accesso.</li>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

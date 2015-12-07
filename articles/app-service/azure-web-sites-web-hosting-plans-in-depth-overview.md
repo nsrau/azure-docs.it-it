@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Panoramica approfondita dei piani di Azure App Service" 
 	description="Informazioni sui piani di servizio app per Azure App Service e sui vantaggi offerti all'esperienza di gestione." 
+	keywords="servizio app, servizio app di azure, scala, scalabile, piano di servizio app, costo del servizio app"
 	services="app-service" 
 	documentationCenter="" 
 	authors="btardif" 
@@ -56,7 +57,7 @@ A tale scopo, nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=5297
   
  ![][createASP]
 
-Per creare un nuovo piano del servizio app, fare clic su **+ Crea nuovo**, digitare il nome del **piano del servizio app** e selezionare un **Percorso** appropriato. Fare clic su **Piano tariffario** e selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare più opzioni sui prezzi, ad esempio **Free** e **Shared**. Dopo aver scelto il piano tariffario, fare clic sul pulsante **Seleziona**.
+Per creare un nuovo piano del servizio app, fare clic su **+ Crea nuovo**, digitare il nome del **piano del servizio app** e selezionare un **Percorso** appropriato. Fare clic su **Piano tariffario** e selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare più opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**. Dopo aver scelto il piano tariffario, fare clic sul pulsante **Seleziona**.
  
 ## Spostare un'app in un piano di servizio app diverso
 
@@ -100,4 +101,4 @@ I piani di servizio app rappresentano un set di funzionalità e capacità che è
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

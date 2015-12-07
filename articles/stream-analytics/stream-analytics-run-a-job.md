@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Eseguire un processo | Microsoft Azure" 
-	description="Segmento del percorso di apprendimento relativo all’esecuzione del processo."
+	description="Eseguire un processo di Analisi di flusso | segmento del percorso di apprendimento."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Eseguire un processo
+# Procedura: eseguire un processo di Analisi di flusso
 
 Dopo che sono stati specificati un processo di input, una query e un output, è possibile avviare il processo dell’analisi di flusso.
 
@@ -53,4 +53,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,10 +1,10 @@
 
-1. In the MainPage.xaml.cs project file, add the following **using** statements:
+1. Nel file di progetto MainPage.xaml.cs aggiungere le istruzioni **using** seguenti:
 
 		using System.Linq;		
 		using Windows.Security.Credentials;
 
-2. Replace the **AuthenticateAsync** method with the following code:
+2. Sostituire il metodo **AuthenticateAsync** con il codice seguente:
 
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -71,10 +71,12 @@
             return success;
         }
 
-	In this version of **AuthenticateAsync**, the app tries to use credentials stored in the **PasswordVault** to access the service. A regular sign-in is also performed when there is no stored credential.
+	In questa versione di **AuthenticateAsync** l'app tenta di usare le credenziali archiviate in **PasswordVault** per accedere al servizio mobile. Un accesso normale viene eseguito anche quando non sono disponibili credenziali archiviate.
 
-	>[AZURE.NOTE]A cached token may be expired, and token expiration can also occur after authentication when the app is in use. To learn how to determine if a token is expired, see [Check for expired authentication tokens](http://aka.ms/jww5vp). For a solution to handling authorization errors related to expiring tokens, see the post [Caching and handling expired tokens in Azure Mobile Services managed SDK]( hive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+	>[AZURE.NOTE]Un token memorizzato nella cache potrebbe essere scaduto, ma la scadenza del token può avvenire anche dopo l'autenticazione mentre l'app è in uso. Per informazioni su come determinare se un token è scaduto, vedere [Cercare i token di autenticazione scaduti](http://aka.ms/jww5vp). Per una soluzione relativa alla gestione degli errori di autorizzazione relativi ai token scaduti, vedere il post sulla [memorizzazione nella cache e la gestione dei token scaduti nell'SDK per il codice gestito di Servizi mobili di Azure ](hive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx).
 
-3. Restart the app twice.
+3. Riavviare l'app due volte.
 
-	Notice that on the first start-up, sign-in with the provider is again required. However, on the second restart the cached credentials are used and sign-in is bypassed. 
+	Si noti che al primo avvio viene di nuovo richiesto l'accesso con il provider. Al secondo riavvio, invece, verranno usate le credenziali memorizzate nella cache e l'accesso sarà ignorato.
+
+<!---HONumber=AcomDC_1125_2015-->

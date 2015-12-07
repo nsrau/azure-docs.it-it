@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Configurazione di Azure Multi-Factor Authentication
@@ -365,4 +365,4 @@ Per garantire la sicurezza degli account utente, è necessario ripristinare Mult
 <li>Nella pagina Impostazioni servizio, in Gestisci impostazioni del dispositivo utente, selezionare o deselezionare **Consenti agli utenti di sospendere Multi-Factor Authentication memorizzando i relativi dispositivi**.</li>
 ![Sospensione dei dispositivi](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Impostare il numero di giorni per cui si desidera consentire la sospensione. Il valore predefinito è 14 giorni.</li> <li>Fare clic su Salva.</li> <li>Fare clic su Chiudi.</li>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

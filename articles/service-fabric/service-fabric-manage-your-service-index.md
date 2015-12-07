@@ -33,11 +33,12 @@ I seguenti argomenti illustrano il modello di applicazione di Service Fabric e c
 ## Aggiornare un'applicazione
 Per informazioni su come aggiornare un'applicazione, leggere gli articoli seguenti:
 
-- [Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md)
-- [Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md)
-- [Argomenti avanzati](service-fabric-application-upgrade-advanced.md)
-- [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
+- [Aggiornamento di un'applicazione di Infrastruttura di servizi mediante Visual Studio](service-fabric-application-upgrade.md)
+- [Aggiornamento di un'applicazione di Infrastruttura di servizi mediante PowerShell](service-fabric-application-upgrade-powershell.md)
 - [Procedura dettagliata di aggiornamento dell'applicazione](service-fabric-application-upgrade-tutorial.md)
+- [Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md)
+- [Aggiornamento manuale e aggiornamento con un pacchetto Diff](service-fabric-application-upgrade-advanced.md)
+- [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
 - [Aggiornamento di un'applicazione di Service Fabric - Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md)
 
 ## Scalare e partizionare i servizi dell'applicazione
@@ -49,4 +50,4 @@ Gli articoli seguenti illustrano la scalabilità e il partizionamento:
 ## Gestire un cluster
 - [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

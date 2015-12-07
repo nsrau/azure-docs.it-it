@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Abilitare Microsoft Passport for Work nell'organizzazione.
@@ -39,8 +39,8 @@ Per distribuire certificati utente in base alle chiavi di Microsoft Passport, è
 5.	Passare a **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Passport for Work**.
 6.	Fare doppio clic su **Abilita Passport for Work** e quindi selezionare **Modifica**.
 7.	Selezionare il pulsante di opzione **Abilitato** e fare clic su **Applica**. Fare clic su **OK**.
-8.	È ora possibile collegare l'oggetto Criteri di gruppo a una posizione di propria scelta. Per abilitare questo oggetto per tutti i dispositivi Windows 10 aziendali appartenenti al dominio, collegarlo al dominio. ad esempio:
- - Una specifica unità organizzativa (OU) in AD in cui verranno posizionati i computer appartenenti al dominio di Windows 10.
+8.	È ora possibile collegare l'oggetto Criteri di gruppo a una posizione di propria scelta. Per abilitare questo oggetto per tutti i dispositivi Windows 10 aziendali aggiunti al dominio, collegarlo al dominio. ad esempio:
+ - Una specifica unità organizzativa (OU) in AD in cui verranno posizionati i computer aggiunti al dominio di Windows 10.
  - Uno specifico gruppo di sicurezza contenente i computer appartenenti al dominio di Windows 10 che verranno registrati automaticamente con Azure AD.
 
 ## Configurare Microsoft Passport for Work mediante la distribuzione di PowerShell tramite Gestione configurazione 
@@ -115,4 +115,4 @@ Dove ScopeId\_73F3BB5E-5EDC-4928-87BD-4E75EB4BBC34/ConfigurationPolicy\_db89c51e
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 
@@ -62,11 +62,11 @@ Nell’ambito della distribuzione di Azure Site Recovery verranno installati Pro
 - È necessario eseguire le versioni più recenti di Provider e agente.
 - Tutti i server Hyper-V di un insieme devono essere della stessa versione.
 - Il Provider dovrà potersi connettere ad Azure Site Recovery tramite Internet. È possibile scegliere di eseguire questa operazione senza un proxy, utilizzando le impostazioni proxy configurate nel server VMM oppure utilizzando le impostazioni proxy personalizzate configurate durante l'installazione del Provider. Per utilizzare un server proxy esistente, verificare che gli URL per la connessione ad Azure siano consentiti attraverso il firewall:
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com
-	- *.blob.core.windows.net
-	- *.store.core.windows.net
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
  
 - Per utilizzare un proxy personalizzato, configurare il server proxy prima di installare il Provider. Durante l'installazione del Provider, è necessario specificare l'indirizzo e la porta del server proxy e le credenziali che possono essere utilizzate per l'accesso. Si noti che il proxy basato su HTTPS non è supportato.
 
@@ -145,11 +145,11 @@ Installare provider e agente. Se si desidera eseguire l’installazione in un cl
 	- Se il proxy predefinito sul server Hyper-V richiede l'autenticazione, selezionare l’opzione per l’uso di un server proxy personalizzato. Digitare i dettagli del proxy predefinito e specificare le credenziali.
 	- Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider.
 	- Gli URL seguenti dovranno essere accessibili dall'host Hyper-V
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 
 	- Consentire gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
 
@@ -166,31 +166,32 @@ Installare provider e agente. Se si desidera eseguire l’installazione in un cl
 
 	![Server registration](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider7.png)
 
-	> [AZURE.NOTE]Il provider di Azure Site Recovery può essere installato anche usando la riga di comando seguente. In questo modo il provider viene installato in un Server CORE per Windows Server 2012 R2.
-	>
-	>1. Scaricare il file di installazione del provider e il codice di registrazione in una cartella, ad esempio C:\\ASR.
-	>2. Estrarre il programma di installazione del provider eseguendo i comandi seguenti dal prompt dei comandi con privilegi di **amministratore**.
-	>
-	    	C:\Windows\System32> CD C:\ASR
-	    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-	>4. Installare il provider eseguendo il comando seguente.
-	>
-			C:\ASR> setupdr.exe /i
-	>5. Registrare il provider eseguendo il comando seguente.
-	>
-	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
-	    	C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>
+>[AZURE.NOTE]Il provider di Azure Site Recovery può essere installato anche usando la riga di comando seguente. In questo modo il provider viene installato in un Server CORE per Windows Server 2012 R2.
+
+1. Scaricare il file di installazione del provider e il codice di registrazione in una cartella, ad esempio C:\\ASR.
+1. Estrarre il programma di installazione del provider eseguendo i comandi seguenti dal prompt dei comandi con privilegi di **amministratore**.
+
+    	C:\Windows\System32> CD C:\ASR
+    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+1. Installare il provider eseguendo il comando seguente.
+
+		C:\ASR> setupdr.exe /i
+1. Registrare il provider eseguendo il comando seguente.
+
+    	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
 
 
-	>----------
-          
-	>####Elenco dei parametri di installazione dalla riga di comando####
-	>- **/Credentials**: parametro obbligatorio che specifica la posizione in cui si trova il file della chiave di registrazione.  
-	> - **/FriendlyName**: parametro obbligatorio per il nome del server host Hyper-V che viene visualizzato nel portale di Azure Site Recovery.
-	> - **/proxyAddress**: parametro facoltativo che specifica l'indirizzo del server proxy.
-	> - **/proxyport**: parametro facoltativo che specifica la porta del server proxy.
-	> - **/proxyUsername**: parametro facoltativo che specifica il nome utente proxy (se il proxy richiede l'autenticazione).
-	> - **/proxyPassword**: parametro facoltativo che specifica la password per l'autenticazione nel server proxy (se il proxy richiede l'autenticazione).
+
+#### Elenco dei parametri di installazione dalla riga di comando
+
+ - **/Credentials**: parametro obbligatorio che specifica la posizione in cui si trova il file della chiave di registrazione  
+ - **/FriendlyName**: parametro obbligatorio per il nome del server host Hyper-V che viene visualizzato nel portale di Azure Site Recovery.
+ - **/EncryptionEnabled**: parametro facoltativo da usare solo nello scenario da VMM ad Azure se è necessario che la crittografia delle macchine virtuali sia inattiva in Azure. Assicurarsi che il nome del file specificato abbia l'estensione **pfx**.
+ - **/proxyAddress**: parametro facoltativo che specifica l'indirizzo del server proxy.
+ - **/proxyport**: parametro facoltativo che specifica la porta del server proxy.
+ - **/proxyUsername**: parametro facoltativo che specifica il nome utente proxy (se il proxy richiede l'autenticazione).
+ - **/proxyPassword**: parametro facoltativo che specifica la password per l'autenticazione nel server proxy (se il proxy richiede l'autenticazione).  
 
 >[AZURE.TIP]È possibile configurare ogni singolo host Hyper-V per utilizzare diverse impostazioni di larghezza di banda della rete per replicare le macchine virtuali in Azure. Per ulteriori informazioni, vedere [Come gestire le impostazioni locali per l'utilizzo della larghezza di banda della rete di protezione di Azure](https://support.microsoft.com/it-IT/kb/3056159)
 
@@ -239,15 +240,10 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
 	- Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione dati** > *nome\_gruppodiprotezione* > **Macchine virtuali** *nome\_macchina\_virtuale* > **Configura**:
 
-		- **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione.
-			- Large (A3) e A6: 2
-			- Extralarge (A4) e A7:
-			- A9: 2
-			- D3: 2
-			- D4: 4
-			- D13: 4
+		- **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede di rete supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-size-specs.md#size-tables). 
+		
 
-			Quando si modifica la dimensione di una macchina virtuale e si salvano le impostazioni, alla successiva apertura della pagina **Configura** verranno visualizzate le schede di rete. Il numero di schede per una macchina virtuale verrà determinato come segue:
+			Quando si modifica la dimensione di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della pagina **Configura**. Il numero di schede di rete delle macchine virtuali di destinazione corrisponde minimo al numero di schede di rete nella macchina virtuale di origine e al numero massimo di schede di rete supportate dalla dimensione della macchina virtuale selezionata. Questo concetto è illustrato di seguito:
 
 
 			- Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per la macchina di destinazione, la destinazione avrà lo stesso numero di schede dell’origine.
@@ -258,6 +254,9 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 		- **Indirizzo IP di destinazione**: se la scheda di rete della macchina virtuale di origine è configurata per utilizzare un indirizzo IP statico, è possibile specificare l'indirizzo IP per la macchina virtuale di destinazione per assicurarsi che la macchina abbia lo stesso indirizzo IP dopo il failover. Se non si specifica un indirizzo IP, al momento del failover verrà assegnato un qualsiasi indirizzo disponibile. Se si specifica un indirizzo in uso, il failover avrà esito negativo.
 
 		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
+
+>[AZURE.NOTE]Le macchine virtuali Linux che usano l'indirizzo IP statico non sono supportate.
+
 
 ## Passaggio 7: Creare un piano di ripristino
 
@@ -270,7 +269,7 @@ Per testare la distribuzione è possibile eseguire un failover di test per una s
 - Failover di test senza una rete di Azure: questo tipo di failover di test verifica che la macchina virtuale sia rilevata correttamente in Azure. La macchina virtuale non sarà connessa ad alcuna rete di Azure dopo il failover.
 - Failover di test con una rete di Azure: questo tipo di failover verifica che l'intero ambiente di replica venga rilevato come previsto e che le macchine virtuali di cui viene eseguito il failover siano connesse alla rete di Azure di destinazione specificata. Per la gestione della subnet, nel failover di test la subnet della macchina virtuale di test verrà rilevata in base alla subnet della macchina virtuale di replica. Questo comportamento è diverso dalla replica normale quando la subnet della macchina virtuale di replica si basa sulla subnet della macchina virtuale di origine.
 
-Per eseguire un failover di test per una macchina virtuale abilitata per la protezione in Azure senza specificare una rete di Azure di destinazione, non occorre preparare l'ambiente. Per eseguire un failover di test con una rete di Azure di destinazione, è necessario creare una nuova rete di Azure isolata dalla rete di Azure di produzione, ovvero il comportamento predefinito quando si crea una nuova rete in Azure. Altre informazioni dettagliate su come [eseguire un failover di test](site-recovery-failover.md#run-a-test-failover).
+Per eseguire un failover di test per una macchina virtuale abilitata per la protezione in Azure senza specificare una rete di Azure di destinazione, non occorre preparare l'ambiente. Per eseguire un failover di test con una rete di Azure di destinazione, è necessario creare una nuova rete di Azure isolata dalla rete di Azure di produzione, ovvero il comportamento predefinito quando si crea una nuova rete in Azure. Per altre informazioni dettagliate su come eseguire questa operazione, vedere [Eseguire un failover di test](site-recovery-failover.md#run-a-test-failover).
 
 
 Sarà anche necessario configurare l'infrastruttura per il corretto funzionamento della macchina virtuale replicata. Ad esempio, una macchina virtuale con DNS e Controller di dominio può essere replicata in Azure utilizzando Azure Site Recovery e può essere creata nella rete di test utilizzando Failover di test. Per altri dettagli, vedere la sezione [Considerazioni sul failover di test per Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
@@ -305,4 +304,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -372,11 +372,11 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>Per impedire agli utenti di provare a reimpostare le password troppe volte in un breve intervallo di tempo, viene applicato un meccanismo di limitazione automatico. Il meccanismo viene applicato quando:</p>
               <ol class="ordered">
                 <li>
-										L'utente tenta di convalidare un numero di telefono 5 volte in un'ora.<br\><br\></li>
+										L'utente tenta di convalidare un numero di telefono 5 volte in un'ora.&lt;br>&lt;br></li>
                 <li>
-										L'utente tenta di usare il controllo per le domande di sicurezza 5 volte in un'ora.<br\><br\></li>
+										L'utente tenta di usare il controllo per le domande di sicurezza 5 volte in un'ora.&lt;br>&lt;br></li>
                 <li>
-										L'utente tenta di reimpostare una password per lo stesso account utente 5 volte in un'ora.<br\><br\></li>
+										L'utente tenta di reimpostare una password per lo stesso account utente 5 volte in un'ora.&lt;br>&lt;br></li>
               </ol>
               <p>Per correggere l'errore, chiedere all'utente di attendere 24 ore dopo l'ultimo tentativo, dopodiché sarà in grado di reimpostare la password.</p>
             </td>
@@ -468,11 +468,11 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>Questo errore si verifica nei due casi seguenti:</p>
               <ul>
                 <li class="unordered">
-										È stata specificata una password non corretta per l'account amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect.<br\><br\></li>
+										È stata specificata una password non corretta per l'account amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										È stato eseguito un tentativo di usare un utente federato per l'account amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect.<br\><br\></li>
+										È stato eseguito un tentativo di usare un utente federato per l'account amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect.&lt;br>&lt;br></li>
               </ul>
               <p>Per correggere l'errore, accertarsi di non usare un account federato per l'amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect e che la password specificata sia corretta.</p>
             </td>
@@ -499,11 +499,11 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>Accertarsi che il firewall consenta le connessioni in uscita per:</p>
               <ul>
                 <li class="unordered">
-										Tutto il traffico su TCP 443 (HTTPS)<br\><br\></li>
+										Tutto il traffico su TCP 443 (HTTPS)&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Le connessioni in uscita <br\><br\></li>
+										Le connessioni in uscita &lt;br>&lt;br></li>
               </ul>
               <p>
                 
@@ -557,11 +557,11 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>C'è un bug noto nella versione rilasciata di Azure AD Connect che si manifesta nella situazione seguente:</p>
               <ol class="ordered">
                 <li>
-										Si configura Azure AD Connect per il tenant abc.com (dominio verificato) usando le credenziali. Di conseguenza, viene creato il connettore AAD denominato "abc.com - AAD".<br\><br\></li>
+										Si configura Azure AD Connect per il tenant abc.com (dominio verificato) usando le credenziali. Di conseguenza, viene creato il connettore AAD denominato "abc.com - AAD".&lt;br>&lt;br></li>
                 <li>
-										Si modificano quindi le credenziali di AAD per il connettore, tramite l'interfaccia utente di sincronizzazione precedente (si noti che si tratta dello stesso tenant, ma di un nome di dominio diverso). <br\><br\></li>
+										Si modificano quindi le credenziali di AAD per il connettore, tramite l'interfaccia utente di sincronizzazione precedente (si noti che si tratta dello stesso tenant, ma di un nome di dominio diverso). &lt;br>&lt;br></li>
                 <li>
-										A questo punto si tenta di abilitare/disabilitare il writeback della password. La procedura guidata costruirà il nome del connettore, "abc.onmicrosoft.com - AAD", usando le credenziali e lo passerà al cmdlet per il writeback della password. L'operazione non riuscirà perché non esiste un connettore creato con questo nome.<br\><br\></li>
+										A questo punto si tenta di abilitare/disabilitare il writeback della password. La procedura guidata costruirà il nome del connettore, "abc.onmicrosoft.com - AAD", usando le credenziali e lo passerà al cmdlet per il writeback della password. L'operazione non riuscirà perché non esiste un connettore creato con questo nome.&lt;br>&lt;br></li>
               </ol>
               <p>Tale problema è stato risolto nelle build più recenti. Se si dispone di una build precedente, l'unica soluzione alternativa consiste nell'usare il cmdlet di PowerShell per abilitare/disabilitare la funzionalità. Per altre informazioni su come eseguire questa operazione, vedere il passaggio 2, relativo a come abilitare il writeback della password nel computer di sincronizzazione della directory e configurare le regole del firewall, in <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">Come abilitare/disabilitare il writeback della password</a></p>
             </td>
@@ -684,19 +684,19 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>Questo evento si verifica quando il servizio di writeback della password tenta di impostare una password nella directory locale che non soddisfa i requisiti di validità, cronologia, complessità o filtro del dominio.</p>
               <ul>
                 <li class="unordered">
-										Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0.<br\><br\></li>
+										Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se sono abilitati requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime N volte, dove N è l'impostazione della cronologia delle password. Se si seleziona una password che è stata usata nelle ultime N volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia su 0.<br\><br\></li>
+										Se sono abilitati requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime N volte, dove N è l'impostazione della cronologia delle password. Se si seleziona una password che è stata usata nelle ultime N volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia su 0.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se sono abilitati requisiti di complessità della password, verranno applicati tutti quando l'utente tenta di modificare o reimpostare la password.<br\><br\></li>
+										Se sono abilitati requisiti di complessità della password, verranno applicati tutti quando l'utente tenta di modificare o reimpostare la password.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se sono abilitati filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà.<br\><br\></li>
+										Se sono abilitati filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà.&lt;br>&lt;br></li>
               </ul>
             </td>
           </tr>
@@ -758,15 +758,15 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>Questo evento indica che un utente ha selezionato una password che è pervenuta correttamente all'ambiente locale, ma quando si è tentato di impostare la password nell'ambiente AD locale si è verificato un errore. Questo problema può verificarsi per diversi motivi:</p>
               <ul>
                 <li class="unordered">
-										La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare una password completamente nuova.<br\><br\></li>
+										La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare una password completamente nuova.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password nell'account utente in questione.<br\><br\></li>
+										L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password nell'account utente in questione.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.<br\><br\></li>
+										L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.&lt;br>&lt;br></li>
               </ul>
               <p>Per altre informazioni su altre situazioni che possono causare questo errore, vedere <a href="#troubleshoot-password-writeback">Risolvere i problemi relativi al writeback della password</a>.</p>
             </td>
@@ -841,15 +841,15 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>Questo evento indica che un utente ha selezionato una password che è pervenuta correttamente all'ambiente locale, ma quando si è tentato di impostare la password nell'ambiente AD locale si è verificato un errore. Questo problema può verificarsi per diversi motivi:</p>
               <ul>
                 <li class="unordered">
-										La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare una password completamente nuova.<br\><br\></li>
+										La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare una password completamente nuova.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password nell'account utente in questione.<br\><br\></li>
+										L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password nell'account utente in questione.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.<br\><br\></li>
+										L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.&lt;br>&lt;br></li>
               </ul>
               <p>Per altre informazioni su altre situazioni che possono causare questo errore, vedere <a href="#troubleshoot-password-writeback">Risolvere i problemi relativi al writeback della password</a>.</p>
             </td>
@@ -896,15 +896,15 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>L'amministratore ha selezionato una password per conto di un utente, che è pervenuta correttamente all'ambiente locale, ma quando si è tentato di impostare la password nell'ambiente AD locale si è verificato un errore. Questo problema può verificarsi per diversi motivi:</p>
               <ul>
                 <li class="unordered">
-										La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare una password completamente nuova.<br\><br\></li>
+										La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare una password completamente nuova.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password nell'account utente in questione.<br\><br\></li>
+										L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password nell'account utente in questione.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.<br\><br\></li>
+										L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.&lt;br>&lt;br></li>
               </ul>
               <p>Per altre informazioni su altre situazioni che possono causare questo errore, vedere <a href="#troubleshoot-password-writeback">Risolvere i problemi relativi al writeback della password</a>.</p>
             </td>
@@ -1343,19 +1343,19 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>Questo evento si verifica quando il servizio di writeback della password tenta di impostare una password nella directory locale che non soddisfa i requisiti di validità, cronologia, complessità o filtro del dominio.</p>
               <ul>
                 <li class="unordered">
-										Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0.<br\><br\></li>
+										Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se sono abilitati requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime N volte, dove N è l'impostazione della cronologia delle password. Se si seleziona una password che è stata usata nelle ultime N volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia su 0.<br\><br\></li>
+										Se sono abilitati requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime N volte, dove N è l'impostazione della cronologia delle password. Se si seleziona una password che è stata usata nelle ultime N volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia su 0.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se sono abilitati requisiti di complessità della password, verranno applicati tutti quando l'utente tenta di modificare o reimpostare la password.<br\><br\></li>
+										Se sono abilitati requisiti di complessità della password, verranno applicati tutti quando l'utente tenta di modificare o reimpostare la password.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se sono abilitati filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà.<br\><br\></li>
+										Se sono abilitati filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà.&lt;br>&lt;br></li>
               </ul>
             </td>
           </tr>
@@ -1481,7 +1481,7 @@ Se anche in questo modo il problema non si risolve, vedere [Risolvere i problemi
 ## Collegamenti alla documentazione relativa alla reimpostazione della password
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password): informazioni su come reimpostare o modificare la password personale come utente del sistema
+* [**Reimpostare la password personale**](active-directory-passwords-update-your-own-password.md): informazioni su come reimpostare o modificare la password personale come utente del sistema
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
@@ -1497,4 +1497,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

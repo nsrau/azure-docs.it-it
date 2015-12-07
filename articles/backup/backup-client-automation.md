@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
@@ -74,16 +74,7 @@ Le opzioni disponibili includono:
 
 | Opzione | Dettagli | Default |
 | ---- | ----- | ----- |
-| /q | Installazione non interattiva | - |
-| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\Program Files\Agente di Servizi di ripristino di Microsoft Azure |
-| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\Program Files\Agente di Servizi di ripristino di Microsoft Azure\Area di lavoro |
-| /m | Accetta Microsoft Update | - |
-| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - |
-| /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - |
-| /ph | Indirizzo host proxy | - |
-| /po | Numero porta host proxy | - |
-| /pu | Nome utente host proxy | - |
-| /pw | Password proxy | - |
+| /q | Installazione non interattiva | - | | /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agent | | /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agente\\Scratch | | /m | Accetta Microsoft Update | - | | /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - | | /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | | /ph | Indirizzo host proxy | - | | /po | Numero porta host proxy | - | | /pu | Nome utente host proxy | - | | /pw | Password proxy | - |
 
 
 ### Registrazione del servizio Backup di Azure
@@ -181,8 +172,6 @@ Il criterio di conservazione definisce il periodo di conservazione dei punti di 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
-
-> [AZURE.NOTE]Attualmente, i cmdlet di PowerShell non supportano l'impostazione di criteri di conservazione a lungo termine. Per impostare criteri di conservazione a lungo termine, usare la console dell'interfaccia utente di Backup di Azure.
 
 Il criterio di conservazione deve essere associato al criterio principale usando il cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
@@ -595,4 +584,4 @@ Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 - [Introduzione a Backup di Azure](backup-configure-vault.md)
 - [Backup di server Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

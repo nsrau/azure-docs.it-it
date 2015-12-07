@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Integrazione di directory tra il server Azure MFA e Active Directory
@@ -137,4 +137,4 @@ I pulsanti Sposta su e Sposta giù consentono all'amministratore di modificare l
 
 ![Server Multi-Factor Authentication](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

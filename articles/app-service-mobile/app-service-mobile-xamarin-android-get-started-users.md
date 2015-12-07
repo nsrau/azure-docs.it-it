@@ -18,9 +18,7 @@
 
 # Aggiungere l'autenticazione all'app per Xamarin.Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Questo argomento descrive come autenticare gli utenti di un'app per dispositivi mobili dall'applicazione client. In questa esercitazione si aggiungerà l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato dal servizio App per dispositivi mobili di Azure. Una volta completate l'autenticazione e l'autorizzazione nell'app per dispositivi mobili, verrà visualizzato il valore dell'ID utente.
 
@@ -34,49 +32,68 @@ Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È anch
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="4">
-<li><p>In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un emulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).</p>
-   
-   	<p>L'eccezione non gestita viene generata perché l'app prova ad accedere al back-end dell'app per dispositivi mobili come utente non autenticato. La tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
-</ol>
+In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un emulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato). L'eccezione non gestita viene generata perché l'app prova ad accedere al back-end dell'app per dispositivi mobili come utente non autenticato. La tabella *TodoItem* richiede ora l'autenticazione.
 
 Si aggiornerà quindi l'app client per richiedere le risorse dal back-end dell'app per dispositivi mobili con un utente autenticato.
 
 ##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
-1. Aggiungere la proprietà seguente alla classe **TodoActivity**:
+L'applicazione viene aggiornata per richiedere agli utenti di toccare il pulsante **Accedi** ed eseguire l'autenticazione prima della visualizzazione dei dati.
 
-			private MobileServiceUser user;
+1. Aggiungere il codice seguente alla classe **TodoActivity**:
 
-2. Aggiungere il metodo seguente alla classe **TodoActivity**:
-
-	        private async Task Authenticate()
-	        {
+	    // Define a authenticated user.
+	    private MobileServiceUser user;
+	    private async Task<bool> Authenticate()
+	    {
+	            var success = false;
 	            try
 	            {
-	                user = await client.LoginAsync(this, MobileServiceAuthenticationProvider.Facebook);
-	                CreateAndShowDialog(string.Format("you are now logged in - {0}", user.UserId), "Logged in!");
+	                // Sign in with Facebook login using a server-managed flow.
+	                user = await client.LoginAsync(this,
+	                    MobileServiceAuthenticationProvider.Facebook);
+	                CreateAndShowDialog(string.Format("you are now logged in - {0}",
+	                    user.UserId), "Logged in!");
+	
+	                success = true;
 	            }
 	            catch (Exception ex)
 	            {
 	                CreateAndShowDialog(ex, "Authentication failed");
 	            }
-	        }
+	            return success;
+	    }
 
-    Viene così creato un nuovo metodo per autenticare l'utente. Nell'esempio di codice precedente, l'utente viene autenticato tramite un account di accesso di Facebook. Viene usata una finestra di dialogo per visualizzare l'ID utente una volta completata l'autenticazione.
+        [Java.Interop.Export()]
+        public async void LoginUser(View view)
+        {
+            // Load data only after authentication succeeds.
+            if (await Authenticate())
+            {
+                //Hide the button after authentication succeeds. 
+                FindViewById<Button>(Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
+
+                // Load the data.
+                OnRefreshItemsSelected();
+            }
+        }
+
+    Verrà creato un nuovo metodo per autenticare un utente e un gestore del metodo per un nuovo pulsante**Accedi**. Nell'esempio di codice precedente, l'utente viene autenticato tramite un account di accesso di Facebook. Viene usata una finestra di dialogo per visualizzare l'ID utente una volta completata l'autenticazione.
 
     > [AZURE.NOTE]Se si usa un provider di identità diverso da Facebook, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
-3. Nel metodo **OnCreate** aggiungere la riga di codice seguente dopo il codice che crea l'istanza dell'oggetto `MobileServiceClient`.
+3. Nel metodo **OnCreate**, eliminare o impostare come commento la riga di codice seguente:
 
-		// Create the Mobile Service Client instance, using the provided
-		// Mobile Service URL, Gateway URL and key
-		client = new MobileServiceClient (applicationURL, gatewayURL, applicationKey);
-		
-		await Authenticate(); // Added for authentication
+		OnRefreshItemsSelected ();
 
-	Questa chiamata avvia il processo di autenticazione e ne attende il completamento in modalità asincrona.
+4. Nel file Activity\_To\_Do.axml aggiungere la definizione del pulsante*LoginUser* prima del pulsante esistente *AddItem*:
 
+      	<Button
+            android:id="@+id/buttonLoginUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="LoginUser"
+            android:text="@string/login_button_text" />
 
 4. In Visual Studio o Xamarin Studio eseguire il progetto client in un dispositivo o un emulatore ed eseguire l'accesso tramite il provider di identità scelto.
 
@@ -84,12 +101,8 @@ Si aggiornerà quindi l'app client per richiedere le risorse dal back-end dell'a
 
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-
 [Creare un'app per Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
-
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

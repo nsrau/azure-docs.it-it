@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Nozioni di base delle API per Azure Batch | Microsoft Azure"
-	description="Informazioni sui concetti di base del servizio Batch e le relative API dal punto di vista dello sviluppatore."
+	pageTitle="Cenni preliminari sulla funzionalità Azure Batch | Microsoft Azure"
+	description="Informazioni sulle funzionalità del servizio Batch e le relative API dal punto di vista dello sviluppatore."
 	services="batch"
 	documentationCenter=".net"
 	authors="yidingzhou"
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="10/15/2015"
+	ms.date="11/19/2015"
 	ms.author="yidingz;v-marsma"/>
 
-# Nozioni di base delle API per Azure Batch
+# Cenni preliminari sulle funzionalità di Azure Batch
 
 Questo articolo fornisce una panoramica di base delle principali funzionalità delle API del servizio Azure Batch. Per lo sviluppo di una soluzione di calcolo distribuita con l'API [Batch REST][batch_rest_api] o [.NET Batch][batch_net_api], si useranno molte delle entità e delle funzionalità descritte di seguito.
 
-> [AZURE.TIP]Per una panoramica tecnica di Batch di livello superiore, vedere [Panoramica tecnica di Azure Batch](batch-technical-overview.md).
+> [AZURE.TIP]Per una panoramica tecnica di Batch di livello superiore, vedere [Nozioni di base di Azure Batch](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Flusso di lavoro del servizio Batch
 
@@ -354,4 +354,4 @@ A ogni nodo di un pool viene assegnato un ID univoco e il nodo in cui viene eseg
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

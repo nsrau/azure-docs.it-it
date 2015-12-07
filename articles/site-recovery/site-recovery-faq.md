@@ -78,11 +78,11 @@ Questa funzione non è supportata. Inviare commenti e suggerimenti tramite il [f
 ## Supporto della versione
 
 ### Quali versioni di cluster e host di Windows Server sono supportate?
-Windows Server 2012 e Windows Server 2012 R2 possono essere utilizzati quando si sceglie Replica Hyper-V per abilitare la replica e la protezione tra siti Hyper-V.
+Windows Server 2012 e Windows Server 2012 R2 possono essere utilizzati quando si sceglie Replica Hyper-V per abilitare la replica e la protezione tra due siti Hyper-V locali. Windows Server 2012 R2 è necessario quando si desidera configurare la replica da un Server Hyper-v ad Azure.
 
 
-### Quali versioni di sistemi operativi guest Hyper-V sono supportate?
-L'elenco più recente dei sistemi operativi guest supportati è disponibile nell'argomento [Informazioni sulle macchine virtuali e sui sistemi operativi guest](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+### Quali versioni di sistemi operativi guest sono supportate?
+Per la protezione da locale a locale l’elenco più recente dei sistemi operativi guest supportati è disponibile nell'argomento [Informazioni sulle macchine virtuali e sui sistemi operativi guest](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). Per Hyper-v in scenari di Azure, Azure Site Recovery supporta tutti i sistemi operativi guest supportati da Azure. Per VMware in scenario di Azure vedere [questo articolo](site-recovery-vmware-to-azure.md#before-you-start)
 
 ### È possibile configurare la protezione della macchina virtuale quando Hyper-V viene eseguito in un sistema operativo client?
 
@@ -148,12 +148,6 @@ Non sono necessarie impostazioni specifiche. I componenti del provider nel serve
 ### Il server Hyper-V deve essere un membro del dominio?
 
 Nessun server deve trovarsi in un dominio.
-
-### Quali versioni di cluster e host di Windows Server sono supportate?
-Windows Server 2012 e Windows Server 2012 R2 possono essere usati quando si implementano ASR e la replica Hyper-V tra i siti Hyper-V e Azure.
-
-### Quali versioni di sistemi operativi guest sono supportate?
-L'elenco più recente dei sistemi operativi guest supportati è disponibile nell'articolo [Informazioni sulle macchine virtuali e sui sistemi operativi guest](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
 ## Distribuire tra due data center VMM
 
@@ -256,4 +250,4 @@ Per avviare la distribuzione  
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

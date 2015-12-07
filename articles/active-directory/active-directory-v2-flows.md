@@ -95,25 +95,27 @@ Un'API Web può ricevere token di accesso da tutti i tipi di app, tra cui app de
 
 ![Immagine di corsie di API Web di app Web](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-Per altre informazioni su codici di autorizzazione, token di aggiornamento e procedure dettagliate di recupero dei token di accesso, consultare il [protocollo OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+Per altre informazioni su codici di autorizzazione, token di aggiornamento e procedure dettagliate di recupero dei token di accesso, consultare il [protocollo OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
 Per informazioni su come proteggere un'API Web con Modello app 2.0 e i token di accesso di OAuth 2.0, consultare gli esempi di codice dell'API Web nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started).
 
 
 ## App per dispositivi mobili e native
-Le app installate in un dispositivo, ad esempio app desktop e per dispositivi mobili, devono spesso accedere a servizi back-end o ad API Web che archiviano i dati ed eseguono diverse funzioni per conto dell'utente. Queste app possono aggiungere accesso e autorizzazioni ai servizi back-end mediante Modello app 2.0 e il [flusso del codice di autorizzazione OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+Le app installate in un dispositivo, ad esempio app desktop e per dispositivi mobili, devono spesso accedere a servizi back-end o ad API Web che archiviano i dati ed eseguono diverse funzioni per conto dell'utente. Queste app possono aggiungere accesso e autorizzazioni ai servizi back-end mediante Modello app 2.0 e il [flusso del codice di autorizzazione OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
 In questo flusso, un'app riceve un codice di autorizzazione dall'endpoint 2.0 all'accesso dell'utente. Il codice rappresenta l'autorizzazione dell'app a chiamare i servizi back-end per conto dell'utente che ha eseguito l'accesso. L'app può quindi scambiare il codice di autorizzazione in background con un token di accesso di OAuth 2.0 e un token di aggiornamento. L'app può usare il token di accesso per l'autenticazione all'API Web nelle richieste HTTP e il token di aggiornamento per ottenere ulteriori token di accesso quando i precedenti scadono.
 
 ![Immagine di corsie di app native](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
+## App a pagina singola (JavaScript)
+Molte app moderne dispongono di un front-end dell'app a pagina singola scritto principalmente in JavaScript e spesso tramite framework di app a pagina singola, ad esempio AngularJS, Ember.js, Durandal e così via. Il modello app di Azure AD 2.0 supporta queste applicazioni tramite il [flusso implicito di OAuth 2.0](active-directory-v2-protocols-implicit.md).
+
+In questo flusso, l'app riceve i token direttamente dalla versione 2.0 dell’endpoint di autorizzazione, senza eseguire scambi tra server di back-end e server. In questo modo tutta la logica di autenticazione e gestione della sessione avviene interamente nel client javascript, senza eseguire reindirizzamenti a pagina aggiuntive.
+
+Per visualizzare questo scenario, provare uno degli esempi di codice di applicazione a pagina singola nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started).
+
 ## Limitazioni correnti della versione di anteprima
 Questi tipi di app non sono attualmente supportati dall'anteprima di Modello app 2.0, ma lo saranno per la fase di disponibilità generale. Ulteriori limitazioni e restrizioni per l'anteprima pubblica di Modello app 2.0 sono descritte nell'articolo relativo alle [limitazioni dell'anteprima 2.0](active-directory-v2-limitations.md).
-
-### App a pagina singola (JavaScript)
-Molte app moderne dispongono di un front-end dell'app a pagina singola scritto principalmente in JavaScript e spesso tramite framework di app a pagina singola, ad esempio AngularJS, Ember.js, Durandal e così via. Il servizio Azure AD disponibile a livello generale supporta queste app mediante il [flusso implicito di OAuth 2.0](active-directory-v2-protocols.md#oauth2-implicit-flow). Questo flusso non è tuttavia ancora disponibile in Modello app 2.0. Sarà disponibile a breve.
-
-Se si desidera che un'app a pagina singola usi Modello app 2.0, è possibile implementare l'autenticazione usando il [flusso app del server Web](#web-apps) descritto in precedenza. Questo, tuttavia, non è l'approccio consigliato e la documentazione per questo scenario è limitata. Se si desidera avere un'idea dello scenario dell'app a pagina singola, consultare l'[esempio di codice dell'app a pagina singola di Azure AD disponibile a livello generale](active-directory-devquickstarts-angular.md).
 
 ### App daemon e sul lato server
 Anche le app che contengono processi a esecuzione prolungata o che funzionano senza la presenza di un utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Tali app possono autenticarsi e ottenere i token usando l'identità dell'app, anziché un'identità delegata dell'utente, mediante il [flusso delle credenziali client di OAuth 2.0](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).
@@ -125,4 +127,4 @@ Molte architetture includono un'API Web che deve chiamare un'altra API Web downs
 
 Questo scenario dell'API Web concatenata può essere supportato tramite la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come [flusso On-Behalf-Of](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Tuttavia, il flusso On-Behalf-Of non è attualmente implementato nell'anteprima di Modello app 2.0. Per verificare il funzionamento di questo flusso nel servizio Azure AD disponibile a livello generale, consultare l'[esempio di codice On-Behalf-Of su GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

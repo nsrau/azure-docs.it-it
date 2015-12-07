@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory | Microsoft Azure" 
-	description="Questo argomento descrive la funzionalità Aggiunta di Azure AD." 
+	description="Fornisce una panoramica dettagliata di come i dispositivi Windows 10 possono utilizzare l’Aggiunta ad Azure AD per registrarsi in Azure Active Directory." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory.
@@ -68,6 +68,7 @@ Aggiunta di Azure AD offre le funzionalità seguenti:
 | Accesso Single Sign-On dal desktop ad app/siti Web/risorse aziendali locali e nel cloud che usano Azure AD per l'autenticazione | Registrazione automatica nella directory aziendale (Azure AD) e registrazione automatica in MDM. (funzionalità di Azure AD Premium) | Offre accesso Single Sign-On tramite l'account aziendale per tutte le app, i siti Web e le risorse |
 | Gli utenti possono aggiungere il proprio account Microsoft personale per accedere ai propri file o immagini senza compromettere i dati aziendali (le impostazioni di roaming continuano a funzionare con l'account aziendale). L'account Microsoft personale consente l'accesso SSO e non gestisce più il roaming delle impostazioni | La reimpostazione delle password self-service durante l'esecuzione di winlogon (possibilità di reimpostare le password dimenticate). Questa funzionalità richiede Azure AD Premium | Fornisce l'accesso alla sezione dello Store dedicata alle app aziendali, in modo che gli utenti possano acquistare e usare app line-of-business sui propri dispositivi personali | |
 
+
 ## Informazioni aggiuntive
 * [Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
@@ -76,4 +77,4 @@ Aggiunta di Azure AD offre le funzionalità seguenti:
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

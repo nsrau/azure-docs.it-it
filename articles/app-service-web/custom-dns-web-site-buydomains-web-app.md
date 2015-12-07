@@ -4,7 +4,7 @@
 	description="Informazioni su come acquistare un nome di dominio personalizzato con un'app Web in Servizio app di Azure."
 	services="app-service\web"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Acquistare e configurare un nome di dominio personalizzato in Servizio app di Azure
 
@@ -93,9 +93,9 @@ Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app W
 
 > [AZURE.NOTE]È possibile annullare l'acquisto entro 5 giorni per ottenere il rimborso completo. Dopo 5 giorni non sarà possibile annullare l'acquisto e verrà invece visualizzata un'opzione per l'eliminazione del dominio. Se eliminato, il dominio viene rilasciato dalla sottoscrizione senza rimborso e tornerà nuovamente disponibile.
 
-	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+Al termine della configurazione, il nome di dominio personalizzato sarà elencato nella sezione **Associazioni nome host** dell'app Web.
 
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

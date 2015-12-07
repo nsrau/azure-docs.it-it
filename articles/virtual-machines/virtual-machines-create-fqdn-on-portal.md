@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creare un nome di dominio completo per una macchina virtuale nel portale di Azure | Microsoft Azure"
+   pageTitle="Creare un nome di dominio completo (FQDN) per una macchina virtuale nel portale di anteprima di Azure | Microsoft Azure"
    description="Informazioni su come creare un nome di dominio completo o FQDN per un Gestore risorse basato su macchina virtuale nel portale di anteprima di Azure."
    services="virtual-machines"
    documentationCenter=""
@@ -54,4 +54,4 @@ L'articolo presuppone che sia già stata effettuata la connessione alla sottoscr
 
     È ora possibile connettersi in remoto alla macchina virtuale utilizzando questo nome DNS. Ad esempio, utilizzare `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`, quando ci si connette a una macchina virtuale Linux che ha il nome di dominio completo di `testdnslabel.eastus.cloudapp.azure.com` e il nome utente di `adminuser`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

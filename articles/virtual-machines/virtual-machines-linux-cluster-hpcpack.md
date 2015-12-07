@@ -286,14 +286,14 @@ Lo strumento **clusrun** di HPC Pack può essere usato per eseguire comandi su n
 * Creare uno script shell che visualizza tutti i numeri da 1 e 10 per un secondo in ogni nodo del cluster, eseguirlo e visualizzare immediatamente l'output dei nodi.
 
     ```
-    > clusrun /interleaved echo "for i in {1..10}; do echo \"\$i\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 >[AZURE.NOTE]Potrebbe essere necessario usare determinati caratteri di escape nei comandi **clusrun**. Come illustrato in questo esempio, usare ^ in una finestra di comando per eseguire l'escape del simbolo ">".
 
 ## Passaggi successivi
 
-* Provare a eseguire un carico di lavoro Linux nel cluster. Per un esempio, vedere [Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
+* Provare a eseguire un carico di lavoro Linux nel cluster. Per un esempio, vedere [eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure](virtual-machines-linux-cluster-hpcpack-namd.md) o [eseguire OpenFOAM con Microsoft HPC Pack in un cluster Linux RDMA in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
 
 * Provare a scalare il cluster in un maggior numero di nodi oppure a distribuire nodi di calcolo di dimensione [A8 o A9](virtual-machines-a8-a9-a10-a11-specs.md) per eseguire carichi di lavoro MPI.
 
@@ -313,4 +313,4 @@ Lo strumento **clusrun** di HPC Pack può essere usato per eseguire comandi su n
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

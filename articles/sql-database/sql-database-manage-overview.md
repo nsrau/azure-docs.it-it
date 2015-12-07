@@ -25,23 +25,23 @@ In questo argomento vengono analizzati e confrontati strumenti e opzioni per la 
 ## Portale di Azure
 
 
-Il [Portale di Azure](http://portal.azure.com) è un portale di gestione basato su Web dove è possibile creare, aggiornare ed eliminare i database SQL di Azure e i server logici e monitorare le risorse del database. Si tratta dello strumento ideale se si sta appena iniziando a utilizzare Azure, se si gestisce un numero ridotto di database, o se è necessario operare rapidamente.
+Il [Portale di Azure](http://portal.azure.com) è un portale di gestione basato su Web dove è possibile creare, aggiornare ed eliminare i database e i server logici e monitorare le attività del database. Si tratta dello strumento ideale se si sta appena iniziando a utilizzare Azure, se si gestisce un numero ridotto di database, o se è necessario operare rapidamente.
 
 Per informazioni più dettagliate sull’utilizzo del portale, vedere [Gestione di database SQL tramite il portale di Azure](sql-database-manage-portal.md).
 
 ## SQL Server Management Studio e SQL Server Data Tools in Visual Studio
 
 
-SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) in Visual Studio sono gli strumenti client che vengono eseguiti nel computer e consentono di connettersi, gestire e sviluppare il database nel cloud. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), provino a utilizzare SSDT in Visual Studio. Se è necessario disporre di funzionalità avanzate di SQL che non sono già presenti in SSDT, ad esempio la gestione di database SQL Server in ambienti ibridi, utilizzare SSMS.
+SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) in Visual Studio sono gli strumenti client che vengono eseguiti nel computer e consentono di connettersi, gestire e sviluppare il database nel cloud. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), [provino a usare SSDT in Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Se è necessario disporre di funzionalità avanzate di SQL che non sono già presenti in SSDT, ad esempio la gestione di database SQL Server in ambienti ibridi, utilizzare SSMS.
 
-Per ulteriori informazioni sulla gestione di database SQL di Azure con SSMS e SSDT, vedere [Gestire database SQL tramite SSMS](sql-database-manage-azure-ssms.md)
+Per ulteriori informazioni sulla gestione di database SQL di Azure con SSMS, vedere [Gestire database SQL tramite SSMS](sql-database-manage-azure-ssms.md)
 
 
 ## Strumenti da riga di comando
 
-È possibile utilizzare strumenti da riga di comando come PowerShell per gestire database SQL di Azure e automatizzare le distribuzioni di risorse Azure. Microsoft consiglia questo strumento per la gestione di un numero elevato di database SQL di Azure e la distribuzione delle modifiche delle risorse in un ambiente di produzione.
+È possibile utilizzare strumenti da riga di comando come PowerShell per gestire database e pool di database elastici e automatizzare le distribuzioni di risorse Azure. Microsoft consiglia questo strumento per la gestione di un numero elevato di database e automatizzare la distribuzione delle modifiche delle risorse in un ambiente di produzione.
 
-Per ulteriori informazioni sulla gestione dei database SQL di Azure con gli strumenti da riga di comando [fare clic qui](sql-database-command-line-tools.md)
+Per ulteriori informazioni sulla gestione dei database SQL di Azure con gli strumenti da riga di comando vedere[Gestione di Database SQL con PowerShell](sql-database-command-line-tools.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

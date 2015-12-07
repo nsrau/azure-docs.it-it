@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 
 # Creazione di app Web con Bottle in Azure
@@ -56,7 +56,7 @@ Per Git, è consigliabile [Git per Windows] o [GitHub per Windows]. Se si utiliz
 Il primo passaggio per la creazione di un'app consiste nella creazione dell'app Web tramite il [portale di anteprima di Azure](https://portal.azure.com).
 
 1. Accedere al portale di anteprima di Azure e scegliere il pulsante **NUOVO** nell'angolo inferiore sinistro. 
-2. Fare clic su **Web + Mobile** > **Azure Marketplace** > **App Web**.
+2. Fare clic su **Web e dispositivi mobili**.
 3. Nella casella di ricerca digitare "python".
 4. Nei risultati della ricerca selezionare **Bottle** e quindi fare clic su **Crea**.
 5. Configurare la nuova app Bottle, ad esempio creando un nuovo piano di servizio app e un nuovo gruppo di risorse correlato. Fare quindi clic su **Crea**.
@@ -158,7 +158,7 @@ Premere F5 per avviare il debug. Il Web browser si aprirà automaticamente sulla
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-È possibile impostare punti di interruzione nelle origini, utilizzare le finestre Espressioni di controllo e così via. Vedere la [documentazione di Python Tools per Visual Studio] per ulteriori informazioni sulle varie funzionalità.
+È possibile impostare punti di interruzione nelle origini, utilizzare le finestre Espressioni di controllo e così via. Per altre informazioni sulle varie funzionalità, vedere la [documentazione di Python Tools per Visual Studio].
 
 ### Apportare modifiche
 
@@ -297,6 +297,7 @@ Per Python 2.7:
 Per Python 3.4:
 
     python -m venv env
+o pyvenv env
 
 Installare tutti i pacchetti esterni richiesti dall'applicazione. È possibile utilizzare il file requirements.txt nella radice del repository per installare i pacchetti nell'ambiente virtuale:
 
@@ -397,4 +398,4 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 [Documentazione di Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

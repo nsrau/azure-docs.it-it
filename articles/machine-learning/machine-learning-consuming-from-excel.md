@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2015"
+	ms.date="11/23/2015"
 	ms.author="tedway"/>
 
 
@@ -71,4 +71,4 @@ Una chiamata RRS viene effettuata nei due casi seguenti:
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

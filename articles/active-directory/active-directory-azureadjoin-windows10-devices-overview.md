@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro | Microsoft Azure" 
-	description="Viene fornita una panoramica della distribuzione di dispositivi Windows 10 per le aziende, confrontare le diverse modalità con cui può essere eseguito il provisioning di un dispositivo e questo può essere utilizzato in un'organizzazione." 
+	description="Viene fornita una panoramica della distribuzione di dispositivi Windows 10 per le aziende, confrontando le diverse modalità con cui può essere eseguito il provisioning di un dispositivo e come questo può essere utilizzato in un'organizzazione." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro
@@ -34,4 +34,4 @@ I seguenti argomenti forniscono informazioni sulle diverse funzionalità con i d
 | Distribuzione | [Scenari di utilizzo e considerazioni sulla distribuzione di Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Connessione di dispositivi associati al dominio ad Azure AD per esperienze con Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Abilitare Microsoft Passport per lavorare nell'organizzazione](active-directory-azureadjoin-passport-deployment.md)<br><br> |
 | Attività dell'utente | [Configurazione di un nuovo dispositivo Windows 10 con Azure AD durante l'installazione](active-directory-azureadjoin-user-frx.md) <br><br> [Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni](active-directory-azureadjoin-user-upgrade.md) <br><br> [Associare un dispositivo Windows 10 personale all'organizzazione](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

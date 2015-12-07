@@ -26,25 +26,9 @@ Visual Studio Application Insights offre due livelli di monitoraggio dell’util
 
 ## Configurazione
 
-I dati di utilizzo di un'applicazione web vengono forniti dal browser del client.
+Aprire una risorsa Application Insights nel [portale di Azure](https://portal.azure.com), fare clic sul grafico dei caricamenti di pagina del Browser vuoto e seguire le istruzioni di installazione.
 
-#### Configurare una risorsa Application Insights 
-
-Una risorsa Application Insights è un'area in Microsoft Azure in cui vengono analizzati e visualizzati i dati di telemetria dell'app. Una risorsa potrebbe essere stata già configurata per visualizzare i dati del lato server dell'app in [ASP.NET][greenbrown] o [J2EE][java]. In caso contrario, è possibile eseguire questa operazione ora.
-
-In genere è consigliabile visualizzare i dati di utilizzo del client web nella stessa risorsa dei dati del server. In questo modo, è possibile correlare facilmente diagnostica e metrica dalle due estremità. Pertanto, se si dispone già di una risorsa, andare al passaggio successivo.
-
-#### Inserire il codice nelle pagine web
-
-Nella risorsa nel [portale di Azure][portal], aprire Avvio rapido per ottenere il frammento di codice per monitorare le pagine web.
-
-![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
-
-Inserire il codice \_Layout.cshtml in una pagina master, ad esempio (in .NET), o in un file di inclusione per assicurarsi che il codice sia incluso in tutte le pagine.
-
-Il frammento di codice include la chiave di strumentazione (iKey) che identifica la risorsa. Per inviare dati a una risorsa diversa, ad esempio durante i test, è sufficiente sostituire la iKey.
-
-Pubblicare le pagine web o usarle in modalità debug, per generare alcuni dati di telemetria.
+[Altre informazioni](app-insights-javascript.md)
 
 
 ## Verifica della popolarità dell'applicazione
@@ -112,7 +96,7 @@ Tuttavia, quando si analizzano intervalli di tempo più brevi, ad esempio il liv
 
 Ciascuna sessione utente è associata a un id utente univoco.
 
-Per impostazione predefinita, l'utente viene identificato inserendo un cookie. Un utente che usa più browser o dispositivi viene conteggiato più di una volta. Vedere [utenti autenticati](#authenticated-users).
+Per impostazione predefinita, l'utente viene identificato inserendo un cookie. Un utente che usa più browser o dispositivi viene conteggiato più di una volta. Vedere [utenti autenticati](#authenticated-users)
 
 
 La metrica **conteggio utenti** in un determinato intervallo viene definita come il numero di utenti univoci con attività registrate durante questo intervallo. Di conseguenza, quando si imposta un intervallo di tempo, gli utenti con sessioni lunghe potrebbero essere conteggiati più volte e il livello di dettaglio essere inferiore a un'ora o circa.
@@ -132,7 +116,7 @@ Se l'app raggruppa gli utenti in account, è inoltre possibile passare un identi
 
       appInsights.setAuthenticatedUserContext(userId, accountId);
 
-Gli ID utente e account non devono contenere spazi o caratteri `,;=|`.
+Gli ID utente e account non devono contenere spazi o caratteri `,;=|`
 
 
 In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un grafico di **utenti autenticati ** e **account**.
@@ -391,4 +375,4 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

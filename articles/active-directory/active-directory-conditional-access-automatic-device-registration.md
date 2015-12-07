@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio
@@ -34,7 +34,7 @@ Distribuire AD FS e connettersi ad Azure Active Directory con Azure Active Direc
 4. Nella scheda **Regole di trasformazione rilascio** selezionare **Aggiungi regola**.
 5. Nella casella di riepilogo a discesa **Modello di regola attestazione** selezionare **Inviare attestazioni mediante una regola personalizzata**. Selezionare **Avanti**.
 6. Digitare *Regola attestazioni Metodo di autenticazione* nella casella di testo **Nome regola attestazione**.
-7. Digitare la regola attestazioni seguente nella casella di testo **Regola attestazioni** ****
+7. Digitare la regola attestazioni seguente nella casella di testo **Regola attestazioni**:
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
@@ -43,7 +43,7 @@ Distribuire AD FS e connettersi ad Azure Active Directory con Azure Active Direc
 
 Configurare un riferimento aggiuntivo alla classe di autenticazione del trust della relying party di Azure Active Directory
 -----------------------------------------------------------------------------------------------------
-9. Nel server federativo aprire una finestra di comando di Windows PowerShell e digitare:
+Nel server federativo aprire una finestra di comando di Windows PowerShell e digitare:
 
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
@@ -52,21 +52,32 @@ Dove <RPObjectName> è il nome dell'oggetto relying party per l'oggetto trust de
 
 Criteri di autenticazione globali di AD FS
 -----------------------------------------------------------------------------
-1. Configurare i criteri di autenticazione globali di AD FS per consentire l'autenticazione integrata di Windows per la rete Intranet (impostazione predefinita).
+Configurare i criteri di autenticazione globali di AD FS per consentire l'autenticazione integrata di Windows per la rete Intranet (impostazione predefinita).
 
 
 Configurazione di Internet Explorer
 ------------------------------------------------------------------------------
-1. Configurare le impostazioni seguenti in Internet Explorer sui dispositivi Windows per l'area di protezione Intranet locale:
-    * Non richiedere la selezione del certificato client quando esiste solo un certificato: **Attiva**
-    * Consenti esecuzione script: **Attiva**
-    * Accesso automatico solo nell'area Intranet: **selezionata**
+Configurare le impostazioni seguenti in Internet Explorer sui dispositivi Windows per l'area di protezione Intranet locale:
+
+- Non richiedere la selezione del certificato client quando esiste solo un certificato: **Attiva**
+- Consenti esecuzione script: **Attiva**
+- Accesso automatico solo nell'area Intranet: **Selezionata**
 
 Queste sono le impostazioni predefinite per l'area di protezione Intranet locale di Internet Explorer. È possibile visualizzare o gestire queste impostazioni in Internet Explorer passando a **Opzioni Internet** > **Sicurezza** > Intranet locale > Livello personalizzato. È anche possibile configurare queste impostazioni con Criteri di gruppo di Active Directory.
 
 Connettività di rete
 -------------------------------------------------------------
 I dispositivi Windows aggiunti a un dominio devono essere connessi ad AD FS e a un controller di dominio di Active Directory per eseguire automaticamente la registrazione con Azure AD. In genere, ciò significa che il computer deve essere connesso alla rete aziendale. Può essere una connessione cablata, una connessione Wi-Fi, DirectAccess o VPN.
+
+## Configurare l'individuazione di Registrazione dispositivo di Azure Active Directory
+I dispositivi client Windows 7 e Windows 8.1 individueranno il server di registrazione dispositivo combinando il nome dell'account utente con il nome di un server di registrazione dispositivo noto. È necessario creare un record DNS CNAME che punti al record A associato al servizio Registrazione dispositivo di Azure Active Directory. Il record CNAME deve usare il prefisso noto **enterpriseregistration** seguito dal suffisso UPN usato per gli account utente nell'organizzazione. Se l'organizzazione usa più suffissi UPN, è necessario creare più record CNAME nel DNS.
+
+Ad esempio, se nell'organizzazione si usano due suffissi UPN denominati @contoso.com e @region.contoso.com, si creeranno i record DNS seguenti.
+
+| Voce | Tipo | Indirizzo |
+|-------------------------------------------|-------|------------------------------------|
+| enterpriseregistration.contoso.com | CNAME | enterpriseregistration.windows.net |
+| enterpriseregistration.region.contoso.com | CNAME | enterpriseregistration.windows.net |
 
 ##Configurare la registrazione automatica per i dispositivi Windows 7 e Windows 8.1 aggiunti a un dominio
 
@@ -83,6 +94,12 @@ La registrazione del dispositivo con Azure AD offre un'ampia gamma di funzionali
 
 Le aziende che usano dispositivi mobili e tradizionali o che usano Office365, Azure AD o altri servizi Microsoft devono registrare i dispositivi in Azure AD con il servizio Registrazione dispositivo di Azure AD. Se l'azienda non usa né dispositivi mobili né servizi Microsoft come Office365, Azure AD o Intune e ospita invece solo applicazioni locali, è possibile scegliere di registrare i dispositivi in Active Directory tramite AD FS.
 
-Altre informazioni sulla distribuzione della registrazione dei dispositivi con AD FS, fare clic [qui](https://technet.microsoft.com/it-IT/library/dn486831.aspx).
+Per altre informazioni sulla distribuzione della registrazione dei dispositivi con AD FS, fare clic [qui](https://technet.microsoft.com/library/dn486831.aspx).
 
-<!---HONumber=Oct15_HO3-->
+## Argomenti aggiuntivi
+
+- [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+- [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
+- [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+<!---HONumber=AcomDC_1125_2015-->

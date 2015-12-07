@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="11/24/2015" 
 	ms.author="jaymathe"/>
 
 
@@ -74,4 +74,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

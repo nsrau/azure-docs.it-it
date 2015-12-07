@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/10/2015"
+	ms.date="11/19/2015"
 	ms.author="tdykstra"/>
 
 # Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure
@@ -153,11 +153,11 @@ Distribuzione codice con distribuzione Web|X||X|Servizi cloud supporta l'uso del
 Supporto WebMatrix|X||X|
 Accesso a servizi quali bus di servizio, archiviazione, database SQL|X|X|X|
 Hosting del livello Web o dei servizi Web di un'architettura multilivello|X|X|X|
-Hosting del livello intermedio di un'architettura multilivello|X|X|X|App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. L'anteprima [API apps](../app-service-api/app-service-api-apps-why-best-platform/) fornisce anche altre funzionalità per l'hosting di servizi REST.
+Hosting del livello intermedio di un'architettura multilivello|X|X|X|App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. L'anteprima [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md) fornisce anche altre funzionalità per l'hosting di servizi REST.
 Supporto integrato di MySQL distribuito come servizio|X|X|X|Servizi cloud può integrare MySQL distribuito come servizio tramite le offerte di ClearDB, ma non come parte del flusso di lavoro del portale di gestione.
 Supporto per ASP.NET, ASP classico, Node.js, PHP, Python|X|X|X|
 Scalabilità orizzontale a più istanze senza ridistribuzione|X|X|X|Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra le macchine e creare un gruppo di affinità per impedire i riavvii simultanei di tutte le istanze a causa degli errori di manutenzione o hardware.
-Supporto per SSL|X|X|X|Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](../app-service-web/web-sites-configure-ssl-certificate/).
+Supporto per SSL|X|X|X|Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
 Integrazione di Visual Studio|X|X|X|
 Debug remoto|X|X|X|
 Distribuzione codice con TFS|X|X|X|
@@ -204,4 +204,4 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [archiviazione]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

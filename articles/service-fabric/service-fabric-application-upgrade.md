@@ -58,7 +58,7 @@ Il diagramma di flusso seguente illustra il processo di aggiornamento di un'appl
 
 [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md)
 
-[Argomenti avanzati](service-fabric-application-upgrade-advanced.md)
+[Aggiornamento manuale e aggiornamento con pacchetti Diff](service-fabric-application-upgrade-advanced.md)
 
 [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -67,4 +67,4 @@ Il diagramma di flusso seguente illustra il processo di aggiornamento di un'appl
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

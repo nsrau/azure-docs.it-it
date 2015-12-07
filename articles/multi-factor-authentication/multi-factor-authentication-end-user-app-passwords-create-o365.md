@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Creare o eliminare password per le app nel portale di Office 365 per Azure Multi-Factor Authentication
@@ -68,4 +68,4 @@ Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare ed
 <li>Verrà visualizzata una finestra popup in cui viene richiesto di confermare l'eliminazione.</li>
 <li>Fare clic su **Sì**.</li>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

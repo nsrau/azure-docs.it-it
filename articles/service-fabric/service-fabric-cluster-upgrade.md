@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="11/23/2015"
    ms.author="chackdan"/>
 
 # Aggiornamento di un cluster dell'infrastruttura di servizi
@@ -74,15 +74,17 @@ Per aprire una nuova porta in tutte le macchine virtuali in un tipo di nodo, è 
 
 1. **Aggiungere un nuovo probe al servizio di bilanciamento del carico appropriato**
 
- Se il cluster è stato distribuito tramite il portale, il bilanciamento del carico verrà denominato "loadBalancer-0", "loadBalancer-1" e così via, uno per ogni tipo di nodo. Poiché i nomi del servizio di bilanciamento del carico sono univoci solo nell'ambito di un gruppo di risorse, è consigliabile cercarli in un determinato gruppo di risorse.
+    Se il cluster è stato distribuito tramite il portale, il bilanciamento del carico verrà denominato "loadBalancer-0", "loadBalancer-1" e così via, uno per ogni tipo di nodo. Poiché i nomi del servizio di bilanciamento del carico sono univoci solo nell'ambito di un gruppo di risorse, è consigliabile cercarli in un determinato gruppo di risorse.
 
- ![AddingProbes][addingProbes]
+    ![AddingProbes][AddingProbes]
+
 
 2. **Aggiungere una nuova regola al servizio di bilanciamento del carico appropriato**
 
-  Se il servizio di bilanciamento del carico è lo stesso, aggiungere una nuova regola usando il probe creato nel passaggio precedente.
+    Se il servizio di bilanciamento del carico è lo stesso, aggiungere una nuova regola usando il probe creato nel passaggio precedente.
 
-  ![AddingLBRules][AddingLBRules]
+    ![AddingLBRules][AddingLBRules]
+
 
 ### Proprietà di posizionamento
 
@@ -111,4 +113,4 @@ Se è necessario aggiornare l'immagine del sistema operativo in uso, eseguire qu
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

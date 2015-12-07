@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Informazioni sul servizio app di Azure" 
 	description="Perché il servizio app di Azure è la piattaforma migliore per lo sviluppo di app Web e mobili." 
+	keywords="servizio App, servizio app di azure, servizio app di costo, scalabilità, scalabile, distribuzione app, distribuzione app di azure"
 	services="app-service" 
 	documentationCenter="" 
 	authors="omarkmsft" 
@@ -43,7 +44,7 @@ Il servizio app consente di creare i tipi di app seguenti in una singola esperie
 
 - [**Web Apps**](../app-service-web-overview): creazione e distribuzione rapida di app Web di importanza strategica scalabili in base alle esigenze aziendali.
 - [**App per dispositivi mobili**](../app-service-mobile-value-prop-preview): coinvolgimento di dipendenti, partner e clienti con qualsiasi dispositivo e in qualsiasi momento.
-- [**API Apps**](../app-service-api-apps-why-best-platform) - Crea e usa facilmente API cloud
+- [**App per le API**](../app-service-api-apps-why-best-platform) - Crea e usa facilmente API cloud.
 - [**App per la logica**](../app-service-logic-what-are-logic-apps): automazione dell'accesso e dell'uso dei dati nei cloud senza necessità di scrivere codice.
 
 In qualità di singolo servizio integrato, il servizio app semplifica la combinazione dei tipi di app descritti sopra in un'unica soluzione e consente la facile creazione di app indirizzate ai client (sia Web che mobili) usando lo stesso back-end e ottenendo l'integrazione con sistemi locali nonché con servizi diffusi come Office 365 e salesforce.com.
@@ -59,4 +60,4 @@ Per l'impostazione del servizio app di Azure è sufficiente selezionare un lingu
 [Creare una nuova app](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito. Non è necessaria alcuna carta di credito. Nessun impegno, nessun grattacapo.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

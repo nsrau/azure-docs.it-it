@@ -60,7 +60,7 @@ Dopo aver apportato le modifiche, il manifesto dovrebbe essere simile al seguent
 ```
 
 
-Compilare ora il progetto selezionando il progetto **ActorService**, facendo clic con il pulsante destro del mouse e scegliendo Compila in Visual Studio. Se si sceglie Ricompila tutto, potrebbe essere necessario aggiornare le versioni anche per il progetto **VisualObjects.WebService** e **VisualObjects.Common" nei file *ServiceManifest.xml* e *ApplicationManifest.xml* poiché il codice verrebbe modificato. È ora possibile inserire l'applicazione aggiornata nel pacchetto facendo clic con il pulsante destro del mouse sul progetto *VisualObjectsApplication*, scegliendo il menu Infrastruttura di servizi e quindi il comando Pacchetto. In questo modo verrà creato un pacchetto applicazione che può essere distribuito. L'applicazione aggiornata è ora pronta per essere distribuita.
+Compilare ora il progetto selezionando il progetto **ActorService**, facendo clic con il pulsante destro del mouse e scegliendo Compila in Visual Studio. Se si sceglie Ricompila tutto, potrebbe essere necessario aggiornare le versioni anche per gli altri progetti e in *ServiceManifest.xml* e *ApplicationManifest.xml*, poiché il codice verrebbe modificato. È ora possibile inserire l'applicazione aggiornata nel pacchetto facendo clic con il pulsante destro del mouse su*VisualObjectsApplication*, scegliendo il menu Infrastruttura di servizi e quindi il comando Pacchetto. In questo modo verrà creato un pacchetto applicazione che può essere distribuito. L'applicazione aggiornata è ora pronta per essere distribuita.
 
 
 ## Passaggio 3: Scegliere i criteri di integrità e i parametri di aggiornamento
@@ -125,4 +125,4 @@ Informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'a
 
 Risolvere problemi comuni negli aggiornamenti dell'applicazione facendo riferimento ai passaggi elencati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione ](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

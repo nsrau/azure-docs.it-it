@@ -5,8 +5,9 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+	editor="tysonn"
+	tags="azure-resource-manager"/>
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -49,7 +50,7 @@ Attenersi alla seguente procedura per creare un cluster Apache Cassandra, basato
 
 ### Passaggio 1-a: Scaricare i file di modello tramite PowerShell
 
-Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\Azure\Templates\DataStax).
+Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\\Azure\\Templates\\DataStax).
 
 Sostituire il nome della cartella della cartella locale ed eseguire questi comandi:
 
@@ -89,8 +90,7 @@ Clonare il repository dell'intero modello utilizzando un client git di propria s
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Una volta completata l’operazione, cercare la cartella datastax-enterprise nella directory C:\Azure\Templates.
-<!--Wrapping name of folder in bold typeface is not corp style  -->
+Una volta completata l’operazione, cercare la cartella datastax-enterprise nella directory C:\\Azure\\Templates.<!--Wrapping name of folder in bold typeface is not corp style  -->
 ### Passaggio 2: (facoltativo) Comprendere i parametri del modello
 
 Quando si distribuiscono soluzioni non semplici come un cluster Apache Cassandra basato su DataStax, è necessario specificare un set di parametri di configurazione per gestire un gran numero di impostazioni necessarie. Dichiarando i parametri nella definizione del modello, è possibile specificare i valori durante la distribuzione tramite un file esterno o nella riga di comando.
@@ -251,7 +251,7 @@ Quando si effettua la distribuzione, tenere presente che è necessario creare un
 
 Durante e dopo la distribuzione, è possibile controllare tutte le richieste effettuate durante il provisioning, compresi gli errori che si sono verificati.
 
-A tale scopo, visitare il [portale di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
+A tale scopo, visitare il [portale di anteprima di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
 
 - Fare clic su "Sfoglia" nella barra di spostamento a sinistra, scorrere verso il basso e fare clic su "Gruppi di risorse".
 - Dopo aver fatto clic sul gruppo di risorse appena creato, viene visualizzato il pannello "Gruppo di risorse".
@@ -278,9 +278,7 @@ Passare il nome di questo gruppo di risorse, il percorso del file di modello JSO
 
 ## Panoramica della struttura del modello Datastax Enterprise e dell’organizzazione dei file
 
-Per progettare un modello di Gestione risorse efficace e riutilizzabile, è necessaria un’ulteriore valutazione per organizzare la serie di attività complesse e correlate necessarie durante la distribuzione di una soluzione complessa come DataStax Enterprise. Sfruttando le funzionalità di **collegamento dei modelli** e **ciclo delle risorse** ARM, oltre all'esecuzione di script tramite le estensioni correlate, è possibile implementare un approccio modulare che in teoria può essere riutilizzato con qualsiasi distribuzione complessa basata sui modelli.
-<!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. -->
-In questo diagramma sono illustrate le relazioni tra tutti i file scaricati da GitHub per questa distribuzione:
+Per progettare un modello di Gestione risorse efficace e riutilizzabile, è necessaria un’ulteriore valutazione per organizzare la serie di attività complesse e correlate necessarie durante la distribuzione di una soluzione complessa come DataStax Enterprise. Sfruttando le funzionalità di **collegamento dei modelli** e **ciclo delle risorse** ARM, oltre all'esecuzione di script tramite le estensioni correlate, è possibile implementare un approccio modulare che in teoria può essere riutilizzato con qualsiasi distribuzione complessa basata sui modelli. <!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. -->In questo diagramma sono illustrate le relazioni tra tutti i file scaricati da GitHub per questa distribuzione:
 
 ![datastax-enterprise-files](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
@@ -385,12 +383,7 @@ La sezione "risorse" rappresenta la posizione in cui si svolgono la maggior part
 
 Da questo primo esempio è chiaro come il file azuredeploy.json in questo scenario sia stato organizzato come meccanismo di orchestrazione, che richiama un determinato numero di altri file di modello, ciascuno responsabile di parte delle attività di distribuzione necessarie.
 
-In particolare, i seguenti modelli collegati verranno utilizzati per la distribuzione:
-<!-- In list format, using bold typeface in the following manner is ok -->
--	**shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Esempi sono account di archiviazione utilizzati per archiviare i dischi del sistema operativo della macchina virtuale e le reti virtuali.
--	**opscenter resources.json**: consente di distribuire una macchina virtuale OpsCenter e tutte le relative risorse, inclusi un'interfaccia di rete e un indirizzo IP pubblico.
--	**opscenter-install-resources.json**: consente di distribuire l'estensione macchine virtuali OpsCenter (script personalizzato per Linux) che richiamerà il file di script bash specifico (opscenter.sh) necessario per configurare il servizio OpsCenter all'interno di tale macchina virtuale.
--	**ephemeral-nodes-resources.json**: consente di distribuire tutti i nodi del cluster delle macchine virtuali e le risorse connesse (ad esempio, schede di rete e indirizzi IP privati.). Questo modello consentirà inoltre di distribuire le estensioni della macchina virtuale (gli script personalizzati per Linux) e di richiamare uno script bash (dsenode.sh) per installare fisicamente parti del server Cassandra Apache su ciascun nodo.
+In particolare, i seguenti modelli collegati verranno utilizzati per la distribuzione:<!-- In list format, using bold typeface in the following manner is ok -->-**shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Esempi sono account di archiviazione utilizzati per archiviare i dischi del sistema operativo della macchina virtuale e le reti virtuali. -**opscenter resources.json**: consente di distribuire una macchina virtuale OpsCenter e tutte le relative risorse, inclusi un'interfaccia di rete e un indirizzo IP pubblico. -**opscenter-install-resources.json**: consente di distribuire l'estensione macchine virtuali OpsCenter (script personalizzato per Linux) che richiamerà il file di script bash specifico (opscenter.sh) necessario per configurare il servizio OpsCenter all'interno di tale macchina virtuale. -**ephemeral-nodes-resources.json**: consente di distribuire tutti i nodi del cluster delle macchine virtuali e le risorse connesse (ad esempio, schede di rete e indirizzi IP privati.). Questo modello consentirà inoltre di distribuire le estensioni della macchina virtuale (gli script personalizzati per Linux) e di richiamare uno script bash (dsenode.sh) per installare fisicamente parti del server Cassandra Apache su ciascun nodo.
 
 Esaminiamo questo ultimo modello, poiché è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come Resource Looping (ciclo delle risorse).
 
@@ -503,4 +496,4 @@ Questo approccio suggerisce che è:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

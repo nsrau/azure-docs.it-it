@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Creare un servizio di bilanciamento del carico Internet in Gestione risorse con un modello | Microsoft Azure"
-   description="Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse con un modello."
+   description="Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse con un modello ARM."
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
-# Creare un servizio di bilanciamento del carico Internet mediante l’utilizzo di un modello.
+# Introduzione alla creazione del servizio di bilanciamento del carico Internet tramite un modello ARM
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. Se si sta cercando il modello di distribuzione classica di Azure, passare a [Introduzione alla creazione del servizio di bilanciamento del carico Internet tramite la distribuzione classica](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet tramite il modello di distribuzione classica](load-balancer-get-started-internet-classic-portal.md)
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -67,8 +67,8 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 		info:    New mode is arm
 
 3. Dal browser passare a ****https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.parameters.json**, copiare il contenuto del file JSON e incollarlo in un nuovo file nel computer. Per questo scenario, copiare i valori seguenti in un file denominato **c:\\lb\\azuredeploy.parameters.json**.
-4. Eseguire il cmdlet **azure group deployment create** per distribuire il nuovo sevizio di bilanciamento del carico usando i file di modello e dei parametri scaricati e modificati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
+4. Eseguire il cmdlet **azure group deployment create** per distribuire il nuovo servizio di bilanciamento del carico usando i file di modello e dei parametri scaricati e modificati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

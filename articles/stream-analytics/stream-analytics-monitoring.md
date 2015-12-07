@@ -14,12 +14,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 # Informazioni sul monitoraggio dei processi di Analisi di flusso
 
-## Pagina Monitoraggio
+## La pagina Monitoraggio
 
 Il portale di gestione di Azure e il portale di anteprima di Azure evidenziano entrambi metriche delle prestazioni chiave che possono essere utilizzate per monitorare e risolvere i problemi del processo.
 
@@ -104,4 +104,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

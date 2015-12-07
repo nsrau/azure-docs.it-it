@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Come configurare un firewall del database SQL di Azure
@@ -133,7 +133,9 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
 [Procedura: configurare le impostazioni del firewall del database (Database SQL di Azure)](sql-database-configure-firewall-settings.md)
 
+[Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
+
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

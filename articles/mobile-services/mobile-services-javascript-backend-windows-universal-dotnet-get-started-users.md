@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="11/22/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app universale della piattaforma UWP 8.1
@@ -38,13 +38,17 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ##<a name="add-authentication"></a> Aggiungere l'autenticazione all'app
 
-[AZURE.INCLUDE [mobile-services-windows-universal-dotnet-authenticate-app](../../includes/mobile-services-windows-universal-dotnet-authenticate-app.md)]
+[AZURE.INCLUDE [mobile-windows-universal-dotnet-authenticate-app](../../includes/mobile-windows-universal-dotnet-authenticate-app.md)]
 
 A questo punto, qualsiasi utente autenticato dal provider di identità attendibile può accedere alla tabella *TodoItem*. Per proteggere meglio i dati specifici dell'utente, è necessario implementare anche l'autorizzazione. A tale scopo si ottiene l'ID di un determinato utente, che può quindi essere usato per definire il livello di accesso che l'utente deve avere per una specifica risorsa.
 
 ##<a name="tokens"></a>Archiviare i token di autorizzazione sul client
 
-[AZURE.INCLUDE [mobile-services-windows-store-dotnet-authenticate-app-with-token](../../includes/mobile-services-windows-store-dotnet-authenticate-app-with-token.md)]
+Nell'esempio precedente è stato illustrato un accesso standard, che richiede al client di contattare sia il provider di identità sia il servizio mobile ogni volta che l'app viene avviata. Oltre a essere inefficiente, questo metodo potrebbe creare problemi di utilizzo qualora molti clienti provassero ad avviare l'app contemporaneamente. Un miglior approccio consiste nel memorizzare nella cache il token di autorizzazione restituito dai Servizi mobili e provare a usare questo prima di usare un accesso basato su provider.
+
+>[AZURE.NOTE]È possibile memorizzare nella cache il token rilasciato dai Servizi mobili indipendentemente dal fatto che si usi l'autenticazione gestita dal client o gestita dal servizio. In questa esercitazione viene usata l'autenticazione gestita dal servizio.
+
+[AZURE.INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -80,4 +84,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

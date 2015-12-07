@@ -165,14 +165,14 @@ Verrà chiesto di fornire le credenziali di un account amministratore di dominio
 
 A questo punto, è necessario aggiornare i server DNS per la rete virtuale in modo che Azure assegni alle macchine virtuali gli indirizzi IP dei due nuovi controller di dominio da usare come server DNS. In questa procedura vengono usati i valori della Tabella V (per le impostazioni di rete virtuale) e della Tabella M (per le macchine virtuali).
 
-1.	Nel riquadro sinistro del [portale di anteprima di Azure](https://portal.azure.com/) fare clic su **Sfoglia tutto > Reti virtuali**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
+1.	Nel riquadro sinistro del portale di anteprima di Azure fare clic su **Sfoglia tutto > Reti virtuali**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
 2.	Nel riquadro della rete virtuale fare clic su **Tutte le impostazioni**.
 3.	Nel riquadro **Impostazioni** fare clic su **Server DNS**.
 4.	Nel riquadro **Server DNS** digitare quanto segue:
 	- Per **Server DNS primario**: Tabella V - Elemento 6 - Colonna Valore
 	- Per **Server DNS secondario **: Tabella V - Elemento 7 - Colonna Valore
 5.	Nel riquadro sinistro del portale di anteprima di Azure fare clic su **Sfoglia tutto > Macchine virtuali**.
-6.	Nel riquadro **Macchine virtuali** fare clic sul nome del primo controller di dominio (Tabella M - Elemento 1 - Colonna Nome macchina virtuale).
+6.	Nel **riquadro Macchine virtuali** fare clic sul nome del primo controller di dominio (Tabella M - Elemento 1 - Colonna Nome macchina virtuale).
 7.	Nel riquadro per la macchina virtuale fare clic su **Riavvia**.
 8.	Dopo aver avviato il primo controller di dominio, fare clic sul nome del secondo controller di dominio nel riquadro **Macchine virtuali** (Tabella M - Elemento 2 - Colonna Nome macchina virtuale).
 9.	Nel riquadro per la macchina virtuale fare clic su **Riavvia**. Attendere finché non viene avviato il secondo controller di dominio.
@@ -210,4 +210,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

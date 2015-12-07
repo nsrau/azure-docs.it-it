@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure" 
-	description="Viene descritto come è possibile impostare gli avvisi di fatturazione di Azure per evitare sorprese fatturazione." 
-	services="" 
-	documentationCenter="" 
-	authors="vikdesai" 
-	manager="msmbaldwin" 
+<properties
+	pageTitle="Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure | Microsoft Azure"
+	description="Viene descritto come è possibile impostare gli avvisi di fatturazione di Azure per evitare sorprese fatturazione."
+	services=""
+	documentationCenter=""
+	authors="vikdesai"
+	manager="msmbaldwin"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/01/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015" 
 	ms.author="vikdesai"/>
 
 # Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure
@@ -46,4 +46,4 @@ Dopo aver impostato gli avvisi, nel centro account viene visualizzato un elenco 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

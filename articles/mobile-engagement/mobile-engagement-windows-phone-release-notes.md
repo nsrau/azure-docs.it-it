@@ -18,6 +18,12 @@
 
 #Note sulla versione dell'SDK per Windows Phone Silverlight
 
+##3\.1.0 (20/11/2015)
+Parte del pacchetto Nuget *MicrosoftAzure.MobileEngagement***v3.2.0**
+
+-   Arresto anomalo fisso durante la richiesta di id del dispositivo subito dopo l'inizializzazione.
+-   La console registra miglioramenti.
+
 ##3\.0.0 (03/04/2015)
 
 -   L'icona di notifica predefinita è stata aggiornata.
@@ -31,4 +37,4 @@
 -   Sono stati introdotti miglioramenti per la sicurezza.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

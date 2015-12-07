@@ -36,7 +36,7 @@ L'obiettivo della configurazione predefinita è il seguente:
 
 ## Editor delle regole di sincronizzazione
 
-La configurazione può essere visualizzata e modificata usando l'editor delle regole di sincronizzazione (SRE, Synchronization Rules Editor). Nel menu Start è disponibile un collegamento.
+La configurazione può essere visualizzata e modificata usando l'editor delle regole di sincronizzazione (SRE, Synchronization Rules Editor). Nel menu Start è disponibile un apposito collegamento.
 
 ![Editor regole di sincronizzazione](./media/active-directory-aadconnectsync-understanding-default-configuration/sre.png)
 
@@ -64,13 +64,13 @@ La prima sezione fornisce informazioni di base, ad esempio il nome e una descriz
 
 ![Modifica regole di sincronizzazione in ingresso](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruledescription.png)
 
-Sono inoltre disponibili informazioni sul sistema connesso a cui la regola è correlata, sul tipo di oggetto presente nel sistema connesso a cui si applica la regola e sul tipo di oggetto del metaverse. Il tipo di oggetto del metaverse è sempre una persona, indipendentemente dal fatto che il tipo di oggetto di origine sia un utente, iNetOrgPerson o un contatto. Il tipo di oggetto del metaverse deve rimanere invariato, pertanto, viene creato come tipo generico. Il tipo di collegamento può essere impostato su Join, StickyJoin o Provision. Questa impostazione interagisce con la sezione relativa alle regole di unione e verrà discussa più avanti.
+Sono inoltre disponibili informazioni sul sistema connesso a cui la regola è correlata, sul tipo di oggetto presente nel sistema connesso a cui si applica la regola e sul tipo di oggetto del metaverse. Il tipo di oggetto del metaverse è sempre una persona, indipendentemente dal fatto che il tipo di oggetto di origine sia un utente, iNetOrgPerson o un contatto. Il tipo di oggetto del metaverse deve rimanere invariato, pertanto, viene creato come tipo generico. Il tipo di collegamento può essere impostato su Join, StickyJoin o Provision. Questa impostazione interagisce con la sezione Regole di unione e verrà discussa più avanti.
 
 Si può anche vedere che questa regola di sincronizzazione viene usata per la sincronizzazione della password. Se un utente rientra nell'ambito di questa regola di sincronizzazione, la password verrà sincronizzata da locale al cloud, presupponendo che la funzionalità di sincronizzazione della password sia stata abilitata.
 
 ### Filtro per la definizione dell'ambito
 
-Questa sezione viene usata per configurare i tempi di applicazione di una regola di sincronizzazione. Dal momento che il nome della regola di sincronizzazione in esame indica che deve essere applicata solo per utenti abilitati, l'ambito viene configurato in modo che l'attributo AD **userAccountControl** non abbia il bit 2 impostato. Quando in AD viene trovato un utente, viene applicata questa regola di sincronizzazione se l'attributo **userAccountControl** è impostato sul valore decimale 512 (utente normale abilitato), mentre non viene applicata se l'utente trovato ha l'attributo **userAccountControl** impostato su 514 (utente normale disabilitato).
+La sezione Filtro per la definizione dell'ambito viene usata per configurare i tempi di applicazione di una regola di sincronizzazione. Dal momento che il nome della regola di sincronizzazione in esame indica che deve essere applicata solo per utenti abilitati, l'ambito viene configurato in modo che l'attributo AD **userAccountControl** non abbia il bit 2 impostato. Quando in AD viene trovato un utente, viene applicata questa regola di sincronizzazione se l'attributo **userAccountControl** è impostato sul valore decimale 512 (utente normale abilitato), mentre non viene applicata se l'utente trovato ha l'attributo **userAccountControl** impostato su 514 (utente normale disabilitato).
 
 ![Modifica regole di sincronizzazione in ingresso](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulescopingfilter.png)
 
@@ -150,4 +150,4 @@ Le informazioni fornite fino a questo punto dovrebbero essere sufficienti per co
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

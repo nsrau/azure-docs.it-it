@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="11/22/2015"
 	ms.author="wesmc"/>
 
 # Abilitare la sincronizzazione offline per l'app di Windows
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Panoramica
 
@@ -36,7 +34,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 * Visual Studio 2013 in esecuzione su Windows 8.1.
 * Completamento dell'esercitazione [Creare un'app Windows][create a windows app].
-* [SQLite Store di Servizi mobili di Azure versione 2.0.0-beta][sqlite store nuget]
+* [SQLite Store di Servizi mobili di Azure versione 2.0.0-beta2][sqlite store nuget]
 * [SQLite per Windows 8.1](http://www.sqlite.org/downloads)
 
 ## Aggiornare l'app client per supportare le funzionalità offline
@@ -184,24 +182,21 @@ In questa sezione si modificherà l'app client per simulare uno scenario offline
 
 1. Modificare il file App.xaml.cs nel progetto condiviso. Impostare come commento l'inizializzazione di **MobileServiceClient** e aggiungere le righe seguenti, che usano un URL dell'app per dispositivi mobili non valido:
 
-         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://your-service.azurewebsites.fail",
-            "https://your-gateway.azurewebsites.fail",
-            ""
-        );
+         public static MobileServiceClient MobileService = 
+				new MobileServiceClient("https://your-service.azurewebsites.fail");
+
+	Se l'app usa anche una procedura di autenticazione, non sarà possibile eseguire l'accesso. È inoltre possibile illustrare il funzionamento offline disabilitando sul dispositivo le reti Wi-Fi e cellulare o impostando la modalità aereo.
 
 2. Premere **F5** per compilare ed eseguire l'app. Si noti l'errore di sincronizzazione al momento dell'aggiornamento quando l'app viene avviata.
-3. Immettere nuovi elementi todo e fare clic su **Salva** per ciascuno di essi. L'operazione push non riesce per ogni elemento con un oggetto `PushResult.Status=CancelledByNetworkError`. I nuovi elementi todo sono presenti solo nell'archivio locale fino a quando non è possibile effettuarne il push al back-end di App per dispositivi mobili. 
+3. Immettere nuovi elementi todo e fare clic su **Salva** per ciascuno di essi. L'operazione push ha esito negativo per ogni elemento con un oggetto `PushResult.Status=CancelledByNetworkError`. I nuovi elementi todo sono presenti solo nell'archivio locale fino a quando non è possibile effettuarne il push al back-end di App per dispositivi mobili. 
  
 	Sarebbe possibile eliminare la finestra di dialogo dell'eccezione per `PushResult.Status=CancelledByNetworkError` e l'app client si comporterebbe come se fosse connessa al back-end dell'app per dispositivi mobili, supportando senza problemi tutte le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete).
 
 4. Chiudere l'app e riavviarla per verificare che i nuovi elementi creati siano salvati in modo permanente nell'archivio locale.
 
-5. (Facoltativo) Usare Visual Studio per visualizzare la tabella di database SQL di Azure per verificare che i dati nel database back-end non siano cambiati.
+5. (Facoltativo) In Visual Studio aprire **Esplora server**. Passare al database in **Azure**->**Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**. È ora possibile passare alla tabella di database SQL e al relativo contenuto. Verificare che i dati nel database back-end non siano stati modificati.
 
-   In Visual Studio aprire **Esplora server**. Passare al database in **Azure**->**Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**. È ora possibile passare alla tabella di database SQL e al relativo contenuto.
-
-6. (Facoltativo) Usare uno strumento REST come Fiddler o Postman per eseguire una query sul back-end mobile, usando una query GET nel formato `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
+6. (Facoltativo) Usare uno strumento REST come Fiddler o Postman per eseguire una query sul back-end mobile, ricorrendo a una query GET in formato `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
 ## <a name="update-online-app"></a>Aggiornare l'app per la riconnessione al back-end dell'app per dispositivi mobili
 
@@ -209,13 +204,13 @@ In questa sezione verrà effettuata la riconnessione dell'app al back-end dell'a
 
 1. Aprire il file App.xaml.cs nel progetto condiviso. Rimuovere il commento dalla precedente inizializzazione di `MobileServiceClient` per usare L'URL dell'app per dispositivi mobili e l'URL del gateway corretti.
 
-2. Premere **F5** per ricompilare ed eseguire l'app. L'app sincronizza le modifiche locali con il back-end dell'app per dispositivi mobili di Azure usando operazioni push e pull non appena il gestore eventi `OnNavigatedTo` viene eseguito.
+2. Premere **F5** per ricompilare ed eseguire l'app. L'app sincronizza le modifiche locali con il back-end dell'app per dispositivi mobili di Azure usando operazioni push e pull non appena viene eseguito il gestore eventi `OnNavigatedTo`.
 
 3. (Facoltativo) Visualizzare i dati aggiornati usando Esplora oggetti di SQL Server o uno strumento REST come Fiddler. Si noti che i dati sono stati sincronizzati tra il database back-end dell'app per dispositivi mobili di Azure e l'archivio locale.
 
 4. Nell'app fare clic sulla casella di controllo accanto ad alcuni elementi da completare nell'archivio locale.
 
-  `UpdateCheckedTodoItem` chiama `SyncAsync` per sincronizzare ogni elemento con il back-end dell'app per dispositivi mobili. `SyncAsync` chiama operazioni sia push sia pull. Si noti tuttavia che **ogni volta che si esegue un'operazione pull in una tabella in cui il client ha apportato modifiche, viene sempre eseguita prima un'operazione push automatica nel contesto di sincronizzazione del client**. Lo scopo è quello di assicurare che tutte le tabelle nell'archivio locale e le relazioni restino coerenti. In questo caso, quindi, sarebbe stato possibile rimuovere la chiamata a `PushAsync`, perché viene eseguita automaticamente quando si esegue un'operazione pull. Qualora non si sia consapevoli di questo comportamento, si potrebbe interpretare come un'operazione push non prevista. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
+  `UpdateCheckedTodoItem` chiama `SyncAsync` per sincronizzare ogni elemento completo con il back-end dell'app per dispositivi mobili. `SyncAsync` chiama operazioni sia push sia pull. È importante osservare, tuttavia, come **ogni volta che si esegue un'operazione pull in una tabella in cui il client ha apportato modifiche, viene sempre eseguita prima un'operazione push automatica nel contesto di sincronizzazione del client**. Lo scopo è quello di assicurare che tutte le tabelle nell'archivio locale e le relazioni restino coerenti. In questo caso, quindi, sarebbe stato possibile rimuovere la chiamata a `PushAsync`, poiché viene effettuata automaticamente ogni volta che si esegue un'operazione pull. Qualora non si sia consapevoli di questo comportamento, si potrebbe interpretare come un'operazione push non prevista. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 
 ##Riepilogo
@@ -281,4 +276,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

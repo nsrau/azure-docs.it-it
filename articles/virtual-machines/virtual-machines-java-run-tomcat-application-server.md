@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/19/2015"
 	ms.author="robmcm"/>
 
 # Come eseguire un server di applicazione di Java in una macchina virtuale creata con il modello di distribuzione classica.
@@ -63,7 +63,7 @@ Ai fini di questa esercitazione, verrà installato un server applicazioni Apache
 
 ## Per accedere in remoto alla macchina virtuale
 
-1. Accedere al [portale di gestione](https://manage.windowsazure.com).
+1. Accedere al [portale di Azure](https://manage.windowsazure.com).
 2. Fare clic su **Virtual machines**.
 3. Fare clic sul nome della macchina virtuale a cui si desidera accedere.
 4. Dopo aver avviato la macchina virtuale, è possibile eseguire le connessioni tramite un menu a comparsa nella parte inferiore della pagina.
@@ -89,7 +89,7 @@ Tomcat dovrebbe risultare in esecuzione se si apre la pagina <http://localhost:8
 Per vedere Tomcat in esecuzione da macchine esterne, è necessario creare un endpoint e aprire una porta.
 
 ## Per creare un endpoint per la macchina virtuale
-1. Accedere al [portale di gestione](https://manage.windowsazure.com).
+1. Accedere al [portale di Azure](https://manage.windowsazure.com).
 2. Fare clic su **Virtual machines**.
 3. Fare clic sul nome della macchina virtuale che esegue il server applicazioni Java.
 4. Fare clic su **Endpoints**.
@@ -146,4 +146,4 @@ Scoprire di più su altri servizi, come Archiviazione, Bus di servizio e Databas
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

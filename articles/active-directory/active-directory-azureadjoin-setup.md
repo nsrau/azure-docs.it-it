@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Configurazione di Aggiunta ad Azure AD nell'organizzazione
@@ -27,7 +27,7 @@ Le istruzioni dettagliate per sincronizzare gli utenti locali con Azure AD sono 
 Per creare e gestire manualmente gli utenti in Azure AD, vedere [Gestire gli utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## Configurare la registrazione dei dispositivi 
-1. Accedere al portale di Azure come Amministratore.
+1. Accedere al Portale di Azure come amministratore.
 2. Nel riquadro sinistro selezionare Active Directory.
 3. Selezionare la propria directory nella scheda **Directory**.
 4. Selezionare la scheda **Configura**.
@@ -48,11 +48,10 @@ Di seguito sono descritti i tre scenari per abilitare gli utenti a configurare A
 - Gli utenti aggiungono gli account aziendali a Windows in un dispositivo personale 
 
 ## Informazioni aggiuntive
-
 * [Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

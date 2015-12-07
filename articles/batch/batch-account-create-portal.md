@@ -76,7 +76,7 @@ Per visualizzare e gestire le chiavi di accesso, fare clic sull'icona a forma di
 
 ## Passaggi successivi
 
-* Per altre informazioni su Batch, vedere [Nozioni di base delle API per Azure Batch](batch-api-basics.md).
+* Per altre informazioni su Batch, vedere [Cenni preliminari sulla funzionalità Azure Batch](batch-api-basics.md).
 
 * Introduzione allo sviluppo della prima applicazione con la [libreria client .NET per Batch](batch-dotnet-get-started.md).
 
@@ -84,4 +84,4 @@ Per visualizzare e gestire le chiavi di accesso, fare clic sull'icona a forma di
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

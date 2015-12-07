@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure Preview Portal](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure preview portal](virtual-machines-linux-tutorial-portal-rm.md)
 
 <br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica.
 
@@ -130,4 +130,4 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

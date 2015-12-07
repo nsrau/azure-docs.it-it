@@ -41,7 +41,7 @@ Per risolvere gli errori di connessione SSH più comuni nelle macchine virtuali 
 
 	![Schermata che mostra la reimpostazione della configurazione SSH](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. **Riavviare** la macchina virtuale. Dal [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > macchina virtuale Windows > **Riavvia**. Dal [portale di gestione di Azure](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
+2. **Riavviare** la macchina virtuale. Dal [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > macchina virtuale Windows > **Riavvia**. Dal [portale di Azure](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
 
 3. [**Ridimensionare** la macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -174,9 +174,9 @@ Le informazioni nelle sezioni seguenti saranno utili per isolare l'origine dell'
 
 ### Passaggi prima della risoluzione dei problemi
 
-Prima di tutto controllare lo stato della macchina virtuale nel portale di Azure.
+Prima di tutto controllare lo stato della macchina virtuale nel portale.
 
-Nel [portale di gestione di Azure](https://manage.windowsazure.com), per le macchine virtuali nel modello di distribuzione classica:
+Nel [portale di Azure](https://manage.windowsazure.com), per le macchine virtuali nel modello di distribuzione classica:
 
 1. Fare clic su **Macchine virtuali** > *Nome macchina virtuale*.
 2. Fare clic sul **dashboard** della macchina virtuale per controllarne lo stato.
@@ -287,4 +287,4 @@ Per le macchine virtuali nel modello di distribuzione classica, [Come reimpostar
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

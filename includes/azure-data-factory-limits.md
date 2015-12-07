@@ -20,7 +20,7 @@ Numero di tentativi delle esecuzioni di attività pipeline | 1000 | MaxInt (32 b
 
 **Risorsa** | **Limite inferiore predefinito** | **Limite minimo**
 -------- | ------------------- | -------------
-Intervallo di pianificazione | 15 minuti | 5 minuti
+Intervallo di pianificazione | 15 minuti | 15 minuti
 Intervallo tra tentativi | 1 secondo | 1 secondo
 Valore di timeout del tentativo | 1 secondo | 1 secondo
 
@@ -29,4 +29,4 @@ Valore di timeout del tentativo | 1 secondo | 1 secondo
 
 Gestione risorse di Azure presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di[limiti API di gestione risorse di Azure](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

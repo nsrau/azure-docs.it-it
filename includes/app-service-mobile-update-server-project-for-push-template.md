@@ -1,14 +1,14 @@
 
-1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs library for sending notifications from your backend.
+1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto server, quindi scegliere **Gestisci pacchetti NuGet**, cercare `Microsoft.Azure.NotificationHubs` e infine fare clic su **Installa**. Consente di installare la libreria di hub di notifica per l'invio di notifiche dal back-end.
 
-3. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statements:
+3. Nel progetto server aprire **Controller** > **TodoItemController.cs**, quindi aggiungere le istruzioni using seguenti:
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
 	
 
-2. In the **PostTodoItem** method, add the following code after the call to **InsertAsync**:  
+2. Nel metodo **PostTodoItem** aggiungere il codice seguente dopo la chiamata a **InsertAsync**:
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -44,4 +44,6 @@
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    This code tells the notification hub to send a a template notification to all template registrations that contain "messageParam". The string will be inserted in the place of messageParam across each PNS that has a registration using "messageParam". This allows you to send the notification to APNS, GCM, WNS, or any other PNS.
+    Questo codice comunica a hub di notifica di inviare una notifica modello a tutte le registrazioni di modello che contengono "messageParam". La stringa verrà inserita al posto di messageParam in ogni PNS che ha una registrazione che utilizza "messageParam". Ciò consente di inviare la notifica a APNS, GCM, WNS o a qualsiasi altro PNS.
+
+<!---HONumber=AcomDC_1125_2015-->

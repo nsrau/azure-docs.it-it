@@ -18,6 +18,14 @@
 
 #Note sulla versione di Windows Universal Apps SDK
 
+##3\.2.0 (20/11/2015)
+
+-   Aggiunta del supporto per le applicazioni di Windows 10 Universal Windows Platform.
+-   Aggiunte funzionalità di condivisione del canale di push per risolvere i conflitti di canale (ora compatibili con hub di notifica di Azure).
+-   Arresto anomalo fisso durante la richiesta di id del dispositivo subito dopo l'inizializzazione.
+-   La console registra miglioramenti.
+-   Arresto anomalo durante l'analisi di alcune eccezioni non gestite.
+
 ##3\.1.0 (21/05/2015)
 
 -   L'ID del dispositivo di Mobile Engagement è ora basato su un GUID generato in fase di installazione
@@ -41,4 +49,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

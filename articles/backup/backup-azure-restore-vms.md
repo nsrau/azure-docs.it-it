@@ -49,9 +49,9 @@
   - Specificare il nome della macchina virtuale: in un determinato servizio cloud il nome della macchina virtuale deve essere univoco. Se si prevede di sostituire una macchina virtuale esistente con lo stesso nome, eliminare prima la macchina virtuale esistente e i relativi dischi dati, quindi ripristinare i dati da Backup di Azure.
   - Selezionare un servizio cloud per la macchina virtuale: questa operazione è necessaria per la creazione di una macchina virtuale. È possibile scegliere di usare un servizio cloud esistente o di crearne uno nuovo.
 
-        Qualunque nome di servizio cloud selezionato deve essere univoco a livello globale. In genere, il nome del servizio cloud viene associato a un URL pubblico nel formato [serviziocloud].cloudapp.net. Azure non consente di creare un nuovo servizio cloud se il nome è già stato usato. Se si sceglie di creare un nuovo servizio cloud, a questo viene assegnato lo stesso nome della macchina virtuale. In tal caso, il nome della macchina virtuale deve essere sufficientemente univoco da poter essere applicato al servizio cloud associato.
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        Vengono visualizzati soltanto servizi cloud e reti virtuali che non sono associati a gruppi di affinità nei dettagli dell'istanza di ripristino. [Altre informazioni](https://msdn.microsoft.com/it-it/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. Selezionare un account di archiviazione per la macchina virtuale: questa operazione è necessaria per la creazione di una macchina virtuale. È possibile selezionare uno degli account di archiviazione esistenti nella stessa area geografica dell'insieme di credenziali di Backup di Azure. Gli account di archiviazione con ridondanza della zona o con archiviazione di tipo Premium non sono supportati.
 
@@ -101,8 +101,36 @@ Il problema si verifica perché la modalità DSRM non è presente in Azure. Per 
 
 Altre informazioni sul [problema del rollback di un numero di sequenza di aggiornamento](https://technet.microsoft.com/library/dd363553) e sulle strategie consigliate per risolverlo.
 
+## Ripristino delle macchine virtuali con configurazioni di rete speciali
+Backup di Azure supporta il backup per le configurazioni di rete speciali seguenti delle macchine virtuali.
+
+- Macchine virtuali nel servizio di bilanciamento del carico (interno ed esterno)
+- Macchine virtuali con più indirizzi IP riservati
+- Macchine virtuali con più NIC
+
+Queste configurazioni rendono necessarie le considerazioni seguenti durante il ripristino.
+
+>[AZURE.TIP]Usare il flusso di ripristino basato su PowerShell per ricreare la configurazione di rete speciale delle macchine virtuali dopo il ripristino.
+
+### Ripristino dall'interfaccia utente:
+Durante il ripristino dall'interfaccia utente, **scegliere sempre un nuovo servizio cloud**. Poiché il portale accetta solo parametri obbligatori durante il flusso di ripristino, tenere presente che le macchine virtuali ripristinate tramite l'interfaccia utente perderanno la configurazione di rete speciale di cui dispongono. In altre parole, le macchine virtuali ripristinate saranno macchine virtuali normali senza la configurazione del bilanciamento del carico o di più NIC o di più indirizzi IP riservati.
+
+### Ripristino da PowerShell:
+PowerShell offre la possibilità di ripristinare solo i dischi della macchina virtuale da un backup, senza creare la macchina virtuale. Questa soluzione è utile durante il ripristino di macchine virtuali che richiedono le configurazioni di rete speciali descritte in precedenza.
+
+Per poter ricreare completamente i dischi della macchina virtuale dopo il ripristino, seguire questa procedura:
+
+1. Ripristinare i dischi dall'insieme di credenziali di backup tramite [PowerShell per il Backup di Azure](https://azure.microsoft.com/en-in/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm)
+
+2. Creare la configurazione della macchina virtuale necessaria per il bilanciamento del carico/per più NIC/per più indirizzi IP riservati tramite i cmdlet di PowerShell e usarla per creare la macchina virtuale con la configurazione desiderata.
+	- Creare una macchina virtuale nel servizio cloud con [bilanciamento del carico interno](https://azure.microsoft.com/it-IT/documentation/articles/load-balancer-internal-getstarted/)
+	- Creare una macchina virtuale connessa al [servizio di bilanciamento del carico con connessione Internet](https://azure.microsoft.com/it-IT/documentation/articles/load-balancer-internet-getstarted)
+	- Creare una macchina virtuale con [più NIC](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-multiple-nics)
+	- Creare una macchina virtuale con [più indirizzi IP riservati](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-reserved-public-ip/)
+  
+
 ## Passaggi successivi
 - [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

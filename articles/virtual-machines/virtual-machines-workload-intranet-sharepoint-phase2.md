@@ -111,11 +111,11 @@ Accedere al primo computer controller di dominio utilizzando le credenziali dell
 1.	Nel riquadro sinistro del portale di Azure, fare clic su **Macchine virtuali**.
 2.	Per connettersi a una macchina virtuale, fare clic su **Esecuzione** nella colonna **Stato** accanto al relativo nome.
 3.	In fondo alla pagina, nella barra dei comandi, fare clic su **Connetti**.
-4.	Nel portale viene indicato che il file .rdp viene recuperato. Fare clic su **OK**.
+4.	Nel portale di Azure viene indicato che il file .rdp viene recuperato. Fare clic su **OK**.
 5.	Viene visualizzata la finestra di dialogo del browser in cui viene chiesto se si desidera aprire o salvare ComputerName.rdp da manage.windowsazure.com. Fare clic su **Apri**.
 6.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Connetti**.
 7.	Nella finestra di dialogo **Protezione di Windows**, fare clic su **Usa un altro account**.
-8.	In **Nome utente**, digitare il nome della macchina virtuale e il nome utente dell'account amministratore locale creato con la macchina virtuale (un account computer locale). Utilizzare il formato seguente: *NomeComputer**NomeAccountAmministratoreLocale*
+8.	In **Nome utente**, digitare il nome della macchina virtuale e il nome utente dell'account amministratore locale creato con la macchina virtuale (un account computer locale). Utilizzare il formato seguente: *NomeComputer*\*NomeAccountAmministratoreLocale*
 9.	In **Password**, digitare la password per l'account amministratore locale.
 10.	Fare clic su **OK**.
 11.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Sì**. Il desktop della nuova macchina virtuale viene visualizzato in una finestra della sessione Desktop remoto.
@@ -248,4 +248,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

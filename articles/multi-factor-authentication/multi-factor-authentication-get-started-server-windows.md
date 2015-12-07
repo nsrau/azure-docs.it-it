@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # L'autenticazione di Windows e Azure il Server Multi-Factor Authentication
@@ -49,4 +49,4 @@ La sezione autenticazione di Windows consente all'amministratore di abilitare e 
 10. Selezionare Subnet se si desidera specificare un intervallo di indirizzi IP utilizzando la notazione di subnet. Immettere l’IP iniziale della subnet e scegliere la mask appropriata dall'elenco a discesa. 
 11. Fare clic sul pulsante OK.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

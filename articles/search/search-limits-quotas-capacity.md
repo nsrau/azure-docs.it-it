@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/19/2015"
 	ms.author="heidist"/>
 
 # Limiti dei servizi in Ricerca di Azure
@@ -40,6 +40,8 @@ Numero massimo di indicizzatori|3
 Numero massimo di origini dati indicizzatore|3
 Numero massimo di documenti indicizzati per ogni chiamata indicizzatore|10\.000
 Tempo di esecuzione dell’indicizzatore massimo|3 minuti
+Numero massimo di profili di punteggio per ogni indice|16
+Numero massimo di funzioni per ogni profilo|8
 
 Si noti che non sono presenti quote o limiti massimi associati alle query. Il valore di query al secondo (QPS) è variabile a seconda della larghezza di banda disponibile e della concorrenza per le risorse di sistema. Le risorse di calcolo e di archiviazione di Azure che supportano il servizio condiviso vengono condivise da più sottoscrittori, pertanto il valore di QPS per la soluzione varia a seconda di come i numerosi altri carichi di lavoro sono in esecuzione nello stesso momento.
 
@@ -62,6 +64,8 @@ Servizi di ricerca massima|12 per ogni sottoscrizione di Azure
 Numero massimo di indicizzatori|50 per servizio di ricerca
 Numero massimo di origini dati indicizzatore|50 per servizio di ricerca
 Numero massimo di documenti indicizzati per ogni chiamata indicizzatore|Senza limiti
+Numero massimo di profili di punteggio per ogni indice|16
+Numero massimo di funzioni per ogni profilo|8
 
 La capacità di Ricerca di Azure può essere acquistata in incrementi denominati unità di ricerca. Il livello di prezzo standard consente fino a 36 unità di ricerca per servizio di ricerca. Questo limite sostituisce i singoli limiti di partizioni e repliche. Ad esempio, non è possibile scalare il servizio verso l'alto fino a 12 partizioni e 6 repliche poiché tale operazione richiederebbe 72 unità di ricerca (12 x 6), superando il limite di 36 unità di ricerca per servizio.
 
@@ -134,4 +138,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 - 1000 documenti al massimo restituiti per pagina di risultati della ricerca
 - 100 suggerimenti al massimo restituiti per richiesta di API di suggerimento
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

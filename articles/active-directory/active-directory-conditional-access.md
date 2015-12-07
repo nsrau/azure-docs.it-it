@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 
@@ -44,4 +44,4 @@ Gli argomenti seguenti descrivono ognuno dei diversi meccanismi disponibili per 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

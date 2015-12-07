@@ -41,7 +41,7 @@ Nella raccolta di macchine virtuali di Microsoft Azure sono disponibili numerose
 
 ![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) Lo script PowerShell seguente restituisce l'elenco di immagini di Azure contenenti "SQL Server" in ImageName:
 
-	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Microsoft Azure Management Portal
+	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure portal.
 	
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
@@ -425,10 +425,10 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Utilizzo di Power BI in un ambiente ibrido](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [Inviare commenti e suggerimenti e le informazioni di contatto tramite Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
+>[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### Contenuti della community
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

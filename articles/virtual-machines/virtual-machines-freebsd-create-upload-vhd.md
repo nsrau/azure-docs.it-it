@@ -104,9 +104,9 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 ## Passaggio 2: creare un account di archiviazione in Microsoft Azure ##
 
-È necessario disporre di un account di archiviazione di Azure per caricare un file .vhd da usare in Azure per la creazione di una macchina virtuale. Per creare un account di archiviazione, è possibile usare il portale di gestione di Azure.
+È necessario disporre di un account di archiviazione di Azure per caricare un file .vhd da usare in Azure per la creazione di una macchina virtuale. Per creare un account di archiviazione, è possibile usare il portale di Azure.
 
-1. Accedere al portale di gestione di Azure.
+1. Accedere al portale di Azure.
 
 2. Sulla barra dei comandi fare clic su **Nuovo**.
 
@@ -181,7 +181,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 ## Passaggio 4: caricare il file VHD ##
 
-È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archiviazione BLOB. Negli esempi di comandi seguenti, **BlobStorageURL** è l'URL per l'account di archiviazione creato nel passaggio 2 e **YourImagesFolder** è il contenitore all'interno dell'archiviazione BLOB in cui si desidera archiviare le immagini. **VHDName** è l'etichetta che identifica il disco rigido virtuale visualizzata nel portale di gestione. **PathToVHDFile** è il percorso completo e il nome del file VHD.
+È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archiviazione BLOB. Negli esempi di comandi seguenti, **BlobStorageURL** è l'URL per l'account di archiviazione creato nel passaggio 2 e **YourImagesFolder** è il contenitore all'interno dell'archiviazione BLOB in cui si desidera archiviare le immagini. **VHDName** è l'etichetta che identifica il disco rigido virtuale visualizzata nel portale di Azure. **PathToVHDFile** è il percorso completo e il nome del file VHD.
 
 
 1. Nella finestra di Azure PowerShell usata nel passaggio precedente, digitare:
@@ -197,7 +197,7 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 
     **Importante**: per ora usare Linux come tipo di sistema operativo in quanto la versione corrente di Azure PowerShell accetta solo il parametro “Linux” o “Windows”.
 
-2. Una volta completati i passaggi precedenti, quando si seleziona la scheda **Immagini** nel portale di gestione di Azure, la nuova immagine risulta inclusa nell'elenco.
+2. Una volta completati i passaggi precedenti, quando si seleziona la scheda **Immagini** nel portale di Azure, la nuova immagine risulta inclusa nell'elenco.
 
     ![aggiunta di un'immagine](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
 
@@ -209,4 +209,4 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 
 	![immagine di FreeBSD in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

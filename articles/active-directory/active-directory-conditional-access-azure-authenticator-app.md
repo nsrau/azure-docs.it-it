@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Azure Authenticator per Android
@@ -112,4 +112,4 @@ Su un dispositivo Samsung Android, prima di disinstallare l'app Azure Authentica
 
 Se viene visualizzato l'errore relativo all'**archivio delle chiavi**, la schermata di blocco potrebbe non essere configurata con un PIN. Per risolvere il problema, disinstallare l'applicazione Azure Authenticator, configurare un PIN per la schermata di blocco e reinstallare l'app.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

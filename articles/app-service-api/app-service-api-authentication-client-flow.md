@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Chiamare un'app per le API da un client autenticato" 
 	description="Informazioni su come chiamare un'app per le API di Azure da un client di app Web autenticato da Azure Active Directory." 
+	keywords="servizio app, servizio app di azure, autenticazione, autenticazione di azure, api, autenticazione api"
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
@@ -40,7 +41,7 @@ Il codice aggiunto all'app Web implementerà un processo denominato autenticazio
 
 ![](./media/app-service-api-authentication-client-flow/clientflow.png)
 
-Se non si ha familiarità con il ruolo del gateway dell'app per le API nell'autenticazione delle app per le API, vedere [Autenticazione per le app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
+Se non si ha familiarità con il ruolo del gateway dell'app per le API nell'autenticazione delle app per le API, vedere [Autenticazione per le app per API e dispositivi mobili nel servizio app di Azure](../app-service/app-service-authentication-overview.md).
 
 ## Prerequisiti
 
@@ -54,7 +55,7 @@ L'esercitazione presuppone che si sia in grado di usare progetti Web in Visual S
  
 	* Per creare un progetto, seguire le istruzioni disponibili in [Creare un'app per le API](app-service-dotnet-create-api-app.md).
 
-	* Per scaricare un progetto, vedere nel [repository ContactsList di GitHub](https://github.com/tdykstra/ContactsList).
+	* Per scaricare un progetto, accedere al [repository ContactsList di GitHub](https://github.com/tdykstra/ContactsList).
 
 	È ora disponibile un progetto API Web che restituisce dati di contatto.
 
@@ -64,13 +65,13 @@ L'esercitazione presuppone che si sia in grado di usare progetti Web in Visual S
 
 	Seguire le istruzioni disponibili in [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
 
-	Nel [portale di anteprima di Azure] il pannello **Definizione dell'API** per l'app per le API mostra ora i metodi Get e Post del progetto API Web distribuito.
+	Nel [portale di anteprima di Azure] il pannello **Definizione dell'API** relativo all'app per le API mostra ora i metodi Get e Post del progetto API Web distribuito.
 
 	![](./media/app-service-api-authentication-client-flow/apiappinportal.png)
 
 4. Proteggere l'app per le API usando Azure Active Directory (AAD) come provider di identità.
  
-	Seguire le istruzioni per AAD disponibili in [Proteggere un'app per le API](app-service-api-dotnet-add-authentication.md). Non è necessario seguire le istruzioni della sezione **Usare Postman per inviare una richiesta Post** dell'esercitazione.
+	Seguire le istruzioni relative ad Azure AD disponibili in [Proteggere un'app per le API](app-service-api-dotnet-add-authentication.md). Non è necessario seguire le istruzioni della sezione **Usare Postman per inviare una richiesta Post** dell'esercitazione.
 
 	Al termine, il pannello **Azure Active Directory** dell'app per le API nel [portale di anteprima di Azure] includerà l'ID del client dell'applicazione AAD e il tenant di AAD.
 
@@ -90,7 +91,7 @@ Questa pagina verrà modificata successivamente mediante l'aggiunta di una sezio
 
 1. Scaricare il progetto Web dal [repository WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/)
  
-2. Seguire le istruzioni per **Come eseguire l'esempio** nel [file Leggimi](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md), con le eccezioni seguenti:
+2. Seguire le istruzioni relative a **Come eseguire l'esempio** nel [file Leggimi](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md), con le eccezioni seguenti:
  
 	* È possibile usare Visual Studio 2015, anche se il file Leggimi richiede l'uso di Visual Studio 2013. 
 
@@ -106,7 +107,7 @@ L'uso dello stesso URI ID app creato per l'app per le API consente di usare lo s
 
 In questa sezione si aggiunge codice generato automaticamente per un'interfaccia tipizzata per la chiamata dell'app per le API.
 
-8.	In **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sul progetto WebApp-GroupClaims-DotNet, quindi scegliere **Aggiungi > Client app per le API di Azure**.
+8.	In **Esplora soluzioni** di Visual Studio fare clic con il pulsante destro del mouse sul progetto WebApp-GroupClaims-DotNet e quindi scegliere **Aggiungi > Client app per le API di Azure**.
 
 9.	Nella finestra di dialogo **Aggiungi client app per le API di Microsoft Azure** selezionare l'app per le API protetta con AAD.
 
@@ -116,7 +117,7 @@ In questa sezione si aggiunge codice generato automaticamente per un'interfaccia
  
 ## Aggiungere codice per scambiare il token di AAD con un token Zumo
 
-1.	In HomeController.cs aggiungere istruzioni `using` per l’SDK del servizio app e il serializzatore JSON.
+1.	In HomeController.cs aggiungere istruzioni `using` per l'SDK del servizio app e il serializzatore JSON.
 
 		using Microsoft.Azure.AppService;
 		using Newtonsoft.Json.Linq;
@@ -154,14 +155,14 @@ In questa sezione si aggiunge codice generato automaticamente per un'interfaccia
 
 	In questo codice `ConfigHelper.Authority` si risolve in "https://login.microsoftonline.com/{tenant}", ad esempio: "https://login.microsoftonline.com/contoso.onmicrosoft.com".
 
-2.	Aggiungere codice immediatamente prima dell'istruzione `return View()` alla fine del metodo `About` per chiamare l'app per le API. Nel passaggio successivo verrà aggiunto codice alla visualizzazione `About` per mostrare i dati restituiti.
+2.	Aggiungere il codice immediatamente prima dell'istruzione `return View()` alla fine del metodo `About` per chiamare l'app per le API. Nel passaggio successivo il codice verrà aggiunto alla visualizzazione `About` per mostrare i dati restituiti.
 
 		var appServiceClient = await GetAppServiceClient();
 		var client = appServiceClient.CreateContactsList();
 		var contacts = client.Contacts.Get();
 		ViewData["contacts"] = contacts;
 
-3. In *Views/Home/About.cshtml* aggiungere codice immediatamente dopo l'intestazione `h2` per visualizzare le informazioni di contatto.
+3. In *Views/Home/About.cshtml* aggiungere il codice immediatamente dopo l'intestazione `h2` per visualizzare le informazioni di contatto.
 
 		<h3>Contacts</h3>
 		<table class="table table-striped table-bordered table-condensed table-hover">
@@ -181,7 +182,7 @@ In questa sezione si aggiunge codice generato automaticamente per un'interfaccia
 		</table>
 
 
-3. Nel file Web.config dell'applicazione aggiungere il reindirizzamento di binding dopo il tag `<assemblyBinding>` di apertura.
+3. Nel file Web.config dell'applicazione aggiungere il reindirizzamento di binding seguente dopo il tag `<assemblyBinding>` di apertura.
 
 		<dependentAssembly>
 		  <assemblyIdentity name="System.Net.Http.Primitives" publicKeyToken="b03f5f7f11d50a3a" culture="neutral"/>
@@ -196,7 +197,7 @@ In questa sezione si aggiunge codice generato automaticamente per un'interfaccia
 
 	![](./media/app-service-api-authentication-client-flow/homepage.png)
 
-6. Fare clic su **Accedi**, quindi immettere le credenziali di un utente nel dominio di AAD usato per questa applicazione.
+6. Fare clic su **Accedi** e quindi immettere le credenziali di un utente nel dominio di AAD usato per questa applicazione.
 
 	![](./media/app-service-api-authentication-client-flow/signedin.png)
 
@@ -222,9 +223,9 @@ Si ringrazia Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav))
 
 ## Passaggi successivi
 
-È stato illustrato come eseguire l'autenticazione del flusso client per le app per le API del servizio app. Per informazioni su altri modi per gestire l'autenticazione nelle app per le API, vedere [Autenticazione per le app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
+È stato illustrato come eseguire l'autenticazione del flusso client per le app per le API del servizio app. Per informazioni su altri modi per gestire l'autenticazione nelle app per le API, vedere [Autenticazione per le app per le API e dispositivi mobili](../app-service/app-service-authentication-overview.md).
 
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di anteprima di Azure]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

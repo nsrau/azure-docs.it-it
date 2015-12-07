@@ -625,4 +625,4 @@ Se non è stato abilitato il flashback nel database primario originale, è consi
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

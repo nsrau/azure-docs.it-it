@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse Portale| Microsoft Azure" 
-	description="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse Portale" 
+	pageTitle="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse | Microsoft Azure" 
+	description="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse" 
 	services="sql-data-warehouse" 
 	documentationCenter="" 
 	authors="twounder" 
-	manager="" 
+	manager="barbkess" 
 	editor=""/>
 
 <tags 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="11/20/2015" 
 	ms.author="twounder"/>
  
-# Introduzione a Transparent Data Encryption (TDE)
+# Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 La funzionalità Transparent Data Encryption (TDE) di SQL Data Warehouse di Azure consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei database, dei backup associati e dei file di log delle transazioni inattivi, senza dover apportare modifiche all'applicazione.
 
-TDE esegue la crittografa dell'archiviazione di un intero database usando una chiave simmetrica detta "chiave di crittografia del database". Nel database SQL la chiave di crittografia del database è protetta da un certificato server incorporato. Il certificato server incorporato è univoco per ogni server di database SQL. Microsoft ruota automaticamente questi certificati almeno ogni 90 giorni. Per una descrizione generale della funzionalità TDE, vedere [Transparent Data Encryption (TDE)].
+TDE esegue la crittografia dell'archiviazione di un intero database usando una chiave simmetrica detta "chiave di crittografia del database". Nel database SQL la chiave di crittografia del database è protetta da un certificato server incorporato. Il certificato server incorporato è univoco per ogni server di database SQL. Microsoft ruota automaticamente questi certificati almeno ogni 90 giorni. Per una descrizione generale della funzionalità TDE, vedere [Transparent Data Encryption (TDE)].
 
 ##Abilitazione della crittografia
 
@@ -49,7 +49,7 @@ Per disabilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguent
 
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/it-IT/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
@@ -61,4 +61,4 @@ Per disabilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguent
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
