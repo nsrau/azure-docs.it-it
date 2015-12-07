@@ -16,7 +16,7 @@
 	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
-  Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app universale di Windows
+  # Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app universale di Windows
 
   L'esercitazione introduttiva per app universali di Windows non è ancora disponibile... Riprovare più tardi e cercare gli aggiornamenti da @AzureAD su Twitter.
 
