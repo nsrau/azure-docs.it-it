@@ -24,7 +24,7 @@ Se si desidera utilizzare il telefono cellulare come metodo di contatto principa
 <ol>
 <li>Selezionare il Telefono per l'autenticazione dall'elenco a discesa</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-first-time-mobile-phone/phone.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-end-user-first-time-mobile-phone/phone.png)</center>
 
 
 <li>Specificare il paese dall'elenco a discesa e immettere il numero di telefono cellulare.</li>
@@ -37,6 +37,6 @@ Se si desidera utilizzare il telefono cellulare come metodo di contatto principa
 
 
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
 
 <!---HONumber=AcomDC_1125_2015-->

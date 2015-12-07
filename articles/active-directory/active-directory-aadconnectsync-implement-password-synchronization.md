@@ -91,7 +91,8 @@ Se l'utente cambia di nuovo la password locale, la nuova password verrà sincron
 
 Se si usano le impostazioni rapide quando si installa Azure AD Connect, la sincronizzazione password viene abilitata per impostazione predefinita.
 
-Se si usano le impostazioni personalizzate quando si installa Azure AD Connect, la sincronizzazione password viene abilitata nella pagina di accesso dell'utente. ![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
+Se si usano le impostazioni personalizzate quando si installa Azure AD Connect, la sincronizzazione password viene abilitata nella pagina di accesso dell'utente.
+![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
 
 Se si sceglie di usare **la federazione tramite ADFS**, è possibile abilitare la sincronizzazione password come backup in caso di errore dell'infrastruttura di ADFS. È inoltre possibile abilitarla se si prevede di usare Servizi di dominio Azure AD.
 

@@ -97,14 +97,16 @@ echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
 
 REM To delete this system variable us
-REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
 ~~~
 
-Successivamente compilare e distribuire la soluzione a un cluster di sviluppo locale. Una volta avviato il servizio, come visualizzato in Esplora infrastruttura di servizi, si noterà che il file MySetup.bat è stato completato in due modi. Avviare un prompt dei comandi di PowerShell e digitare
-
+Successivamente compilare e distribuire la soluzione a un cluster di sviluppo locale. Una volta avviato il servizio, come visualizzato in Esplora infrastruttura di servizi, si noterà che il file MySetup.bat è stato completato in due modi. Aprire un prompt dei comandi di PowerShell e digitare
 ~~~
-PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-MyValue
+ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+~~~
+Like this
+~~~
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
 ~~~
 
 Prendere nota del nome del nodo in cui il servizio è stato distribuito e avviato in Service Fabric Explorer, ad esempio Node 1, e passare alla cartella di lavoro dell'istanza dell'applicazione per trovare il file out.txt con il valore di **TestVariable**. Se ad esempio il servizio è stato distribuito in Node 2, è possibile passare a questo percorso per MyApplicationType.
@@ -122,12 +124,11 @@ MySetup. bat per avviare il file di PowerShell.
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
-Nel file di PowerShell aggiungere quanto segue per impostare una variabile di ambiente di sistema.
-
-```
+Nel file di PowerShell aggiungere il comando seguente per impostare una variabile di ambiente di sistema
+~~~
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
-```
+~~~
 
 ## Applicazione di criteri RunAs ai servizi
 Nei passaggi precedenti è stato illustrato come applicare i criteri RunAs a SetupEntryPoint. A questo punto, è possibile analizzare la modalità per creare entità diverse che possono essere applicate come criteri del servizio.
