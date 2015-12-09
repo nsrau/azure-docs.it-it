@@ -40,7 +40,7 @@ Passaggio 2: Creare un gateway di routing dinamico.
 
 ### Crea rete virtuale
 
-1. Accedere al **portale di Azure** (non al portale di anteprima).
+1. Accedere al **portale di Azure classico** (non al portale di Azure).
 1. Nell'angolo inferiore sinistro della schermata fare clic su **Nuovo**. Nel riquadro di spostamento, fare clic su **Servizi di rete**, quindi fare clic su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 1. Nella pagina **Virtual Network Details** immettere le informazioni seguenti e quindi fare clic sulla freccia Next in basso a destra.
 	- **Nome**: assegnare un nome alla rete virtuale. Ad esempio "VNetEast". Questo sarà il nome che è possibile fare riferimento quando si distribuiscono macchine virtuali e istanze PaaS in questa rete virtuale.
@@ -57,13 +57,13 @@ Passaggio 2: Creare un gateway di routing dinamico.
  - **Spazio degli indirizzi**: aggiungere l'intervallo di indirizzi IP interno che si desidera utilizzare per la rete virtuale, inclusi IP iniziale e conteggio. È importante selezionare un intervallo che non si sovrapponga con gli intervalli usati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
  - **Aggiungi subnet**: non sono necessarie altre subnet, ma è possibile creare una subnet separata per le macchine virtuali che avranno DIP statici. In alternativa, è possibile collocare le macchine virtuali in una subnet separata dalle istanze del ruolo.
  - **Aggiungi subnet gateway**: la subnet del gateway è necessaria per una VPN point-to-site. Fare clic per aggiungere la subnet del gateway. Verrà usata solo per il gateway della rete virtuale.
-1. Al termine della creazione della rete virtuale, nella pagina delle reti del portale di Azure in **Stato** verrà visualizzata l'indicazione **Creato**. Dopo avere creato la rete virtuale, è possibile creare il gateway di routing dinamico.
+1. Al termine della creazione della rete virtuale, nella pagina delle reti del portale di Azure classico in **Stato** verrà visualizzata l'indicazione **Creato**. Dopo avere creato la rete virtuale, è possibile creare il gateway di routing dinamico.
 
 ### Creare un gateway di routing dinamico
 
 Il tipo di gateway deve essere configurato come dinamico. I gateway con routing statico non interagiscono con questa funzionalità.
 
-1. Nella pagina **Reti** del portale di Azure fare clic sulla rete virtuale appena creata e quindi passare alla pagina **Dashboard**.
+1. Nella pagina **Reti** del portale di Azure classico fare clic sulla rete virtuale appena creata e quindi passare alla pagina **Dashboard**.
 1. Fare clic su **Crea Gateway** nella parte inferiore della pagina **Dashboard**. Verrà visualizzato un messaggio viene chiesto **si desidera creare un gateway per rete virtuale "rete personale"**. Fare clic su **Sì** per iniziare a creare il gateway. La creazione del gateway può richiedere circa 15 minuti.
 
 ## Sezione 2: Generare e caricare i certificati
@@ -88,19 +88,19 @@ Se non si usa una soluzione aziendale per la creazione di certificati, è necess
 
 1. Una modalità per creare un certificato X.509 consiste nell'utilizzare lo strumento di creazione certificati (makecert.exe). Per usare makecert, scaricare e installare [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), disponibile gratuitamente.
 2. Individuare la cartella Strumenti di Visual Studio e avviare il prompt dei comandi come Amministratore.
-3. Il comando nell'esempio seguente crea e installa un certificato radice nell'archivio certificati personali del computer e crea anche un file con estensione *cer* corrispondente da caricare in seguito nel portale di Azure.
+3. Il comando nell'esempio seguente crea e installa un certificato radice nell'archivio certificati personali del computer e crea anche un file con estensione *CER* corrispondente da caricare in seguito nel portale di Azure classico.
 4. Passare alla directory in cui si vuole inserire il file con estensione cer ed eseguire il comando seguente, dove *RootCertificateName* è il nome che si vuole usare per il certificato. Se si esegue l'esempio riportato di seguito senza modifiche, il risultato sarà un certificato radice e il file *RootCertificateName.cer* corrispondente.
 
 >[AZURE.NOTE]Poiché è stato creato un certificato radice da cui verranno generati i certificati client, è possibile esportarlo, insieme alla relativa chiave privata e salvarlo in una posizione sicura dove può essere recuperato.
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
-### Caricare il file CER del certificato radice nel portale di Azure
+### Caricare il file CER del certificato radice nel portale di Azure classico
 
 È necessario caricare in Azure il file con estensione cer corrispondente per ogni certificato radice. Si possono caricare fino a 20 certificati.
 
-1. Quando si è generato un certificato radice autofirmato nella procedura precedente, è stato creato anche un file *cer*. Tale file a questo punto verrà caricato nel portale di Azure. Si noti che il file con estensione CER non contiene la chiave privata del certificato radice. È possibile caricare fino a 20 certificati radice.
-1. Nella pagina **Certificati** per la rete virtuale nel portale di Azure fare clic su **Carica certificato radice**.
+1. Quando si è generato un certificato radice autofirmato nella procedura precedente, è stato creato anche un file *cer*. Tale file a questo punto verrà caricato nel portale di Azure classico. Si noti che il file con estensione CER non contiene la chiave privata del certificato radice. È possibile caricare fino a 20 certificati radice.
+1. Nella pagina **Certificati** per la rete virtuale nel portale di Azure classico fare clic su **Carica certificato radice**.
 1. Nel **Carica certificato** pagina, cercare il certificato radice con estensione cer e quindi fare clic sul segno di spunta.
 
 ### Generazione di un certificato client
@@ -137,7 +137,7 @@ Passaggio 3: Verificare la connessione.
 
 ### Creare il pacchetto di configurazione del client VPN
 
-1. Nella pagina **Dashboard** per la rete virtuale nel portale di Azure passare al menu di riepilogo rapido nell'angolo destro e fare clic sul pacchetto VPN relativo al client da connettere alla rete virtuale.
+1. Nella pagina **Dashboard** per la rete virtuale nel portale di Azure classico passare al menu di riepilogo rapido nell'angolo destro e fare clic sul pacchetto VPN relativo al client da connettere alla rete virtuale.
 2. 
 Sono supportati i sistemi operativi client seguenti:
  - Windows 7 (a 32 e 64 bit)
@@ -152,7 +152,7 @@ Sono supportati i sistemi operativi client seguenti:
  - Per i client a 32 bit selezionare **Scarica pacchetto VPN client a 32 bit**.
  - Per i client a 64 bit, selezionare **Scarica pacchetto VPN client a 64 bit**.
 1. Per la creazione del pacchetto client saranno necessari alcuni minuti. Una volta completato il pacchetto, sarà possibile scaricare il file. Il file *.exe* scaricato può essere archiviato nel computer locale in modo sicuro.
-1. Dopo avere generato e scaricare il pacchetto client VPN dal portale di Azure, è possibile installare il pacchetto client sul computer client da cui si desidera connettersi alla rete virtuale. Se si prevede di installare il pacchetto client VPN in più computer client, assicurarsi che ognuno abbia anche un certificato client installato. Nel pacchetto client VPN sono contenute le informazioni per configurare il software client VPN incorporato in Windows. Tramite il pacchetto non viene installato del software aggiuntivo.
+1. Dopo avere generato e scaricato il pacchetto client VPN dal portale di Azure classico, è possibile installare il pacchetto client sul computer client da cui si vuole connettersi alla rete virtuale. Se si prevede di installare il pacchetto client VPN in più computer client, assicurarsi che ognuno abbia anche un certificato client installato. Nel pacchetto client VPN sono contenute le informazioni per configurare il software client VPN incorporato in Windows. Tramite il pacchetto non viene installato del software aggiuntivo.
 
 ### Installazione del pacchetto di configurazione VPN nel client e avvio della connessione
 
@@ -193,4 +193,4 @@ Se si vuole configurare una connessione VPN da sito a sito, vedere [Configurare 
 
 Per altre informazioni sulle reti virtuali, vedere la pagina [Documentazione sulle reti virtuali](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

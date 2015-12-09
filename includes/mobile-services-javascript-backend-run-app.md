@@ -13,10 +13,10 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	Si noti che i dati salvati dal passaggio precedente saranno caricati dal servizio mobile dopo l'avvio dell'app.
  
-4. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItems**.
+4. Tornare al [portale di Azure classico](https://manage.windowsazure.com/), fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
    	In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

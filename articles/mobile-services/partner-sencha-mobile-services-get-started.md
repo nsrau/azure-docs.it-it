@@ -18,13 +18,18 @@
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili e Sencha Touch
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Panoramica
 
-Questa esercitazione illustra come sfruttare Servizi mobili di Azure nell'applicazione Sencha Touch. Sencha Touch verrà utilizzato per creare una semplice app *To Do List* che utilizza un servizio mobile definito tramite il portale di gestione. Questa esercitazione è destinata a sviluppatori di applicazioni Web di livello da intermedio ad avanzato già esperti di JavaScript e conoscono il framework di Sencha Touch.
+Questa esercitazione illustra come sfruttare Servizi mobili di Azure nell'applicazione Sencha Touch. Sencha Touch verrà usato per creare una semplice app *To Do List* che usa un servizio mobile definito tramite il portale di Azure classico. Questa esercitazione è destinata a sviluppatori di applicazioni Web di livello da intermedio ad avanzato già esperti di JavaScript e conoscono il framework di Sencha Touch.
 
 Se si preferisce guardare un video, il clip esegue gli stessi passaggi dell'esercitazione. Nel video Arthur Kay spiega come creare un'applicazione Sencha Touch utilizzando un back-end di Servizi mobili di Azure.
 
@@ -50,9 +55,9 @@ Di seguito è riportata una schermata dell'app completata:
 
 ##Creazione di una tabella TodoItems
 
-Dopo avere creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova tabella di database da utilizzare nel servizio mobile.
+Dopo avere creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di Azure classico per creare una nuova tabella di database da usare nel servizio mobile.
 
-1. Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1. Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 2. Nella scheda Quickstart fare clic su **HTML** in **Choose platform** ed espandere **Create a new HTML app**.
 
@@ -64,10 +69,10 @@ Dopo avere creato il servizio mobile, è possibile seguire una facile guida intr
 
 3. Fare clic su **Create TodoItems table** per creare una tabella in cui archiviare i dati dell'app.
 
-	> [AZURE.NOTE]NON scaricare l'app HTML dal portale di gestione. Verrà invece creata manualmente un'applicazione Sencha Touch nella sezione seguente.
+	> [AZURE.NOTE]NON scaricare l'app HTML dal portale di Azure classico. Verrà invece creata manualmente un'applicazione Sencha Touch nella sezione seguente.
 
 
-1. Prendere nota della **chiave dell'app** e dell'**URL dell'app** nel portale di gestione perché verranno utilizzati in altre sezioni di questa esercitazione.
+1. Prendere nota della **chiave dell'app** e dell'**URL dell'app** nel portale di Azure classico perché verranno utilizzati in altre sezioni di questa esercitazione.
 
     ![Chiave dell'app](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
 
@@ -101,7 +106,7 @@ Per aggiungere manualmente le estensioni di Azure all'applicazione, utilizzare l
 
         $ cd /path/to/application
 	    $ mv /download-location/azure.zip .
-    	$ unzip azure.zip  
+    	$ unzip azure.zip
 
     Verrà creata una directory **azure** contenente i file di origine, gli esempi e la documentazione dell'intero pacchetto. I file di origine sono disponibili nella directory **azure/src**.
 
@@ -664,9 +669,9 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
   2. In Sencha Cmd eseguire i comandi seguenti:
 
-    * *sencha app refresh* : indica a Sencha Cmd di individuare tutte le dipendenze dell'app e scaricare gli eventuali pacchetti necessari (ad esempio [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
+    * *sencha app refresh*: indica a Sencha Cmd di individuare tutte le dipendenze dell'app e scaricare gli eventuali pacchetti necessari (ad esempio [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
 
-    * *sencha web start* : verrà avviato un server Web locale per testare l'applicazione.
+    * *sencha web start*: verrà avviato un server Web locale per testare l'applicazione.
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
@@ -678,7 +683,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
     Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem.
 
-  5. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella TodoItems.
+  5. Tornare al [portale di Azure classico], fare clic sulla scheda **Dati** e quindi sulla tabella TodoItems.
 
     ![Tabella TodoItems](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
@@ -693,9 +698,9 @@ Dopo aver completato la Guida introduttiva, è possibile eseguire altre importan
 
 Sono inoltre disponibili ulteriori informazioni su Sencha Touch Extensions for Azure:
 
-  * Procedura dettagliata [dell'app di esempio](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters)
-  * Per assistenza, consultare i [Forum di Sencha](http://www.sencha.com/forum)
-  * Consultare la [Documentazione di Sencha](http://docs.sencha.com/)
+  * Procedura dettagliata[ dell'app di esempio](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters)
+  * Forum di Sencha[](http://www.sencha.com/forum)
+  * Documentazione di Sencha[](http://docs.sencha.com/)
   * Utilizzo di Sencha con Servizi mobili di Azure: [(Video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
 
 
@@ -717,4 +722,6 @@ Per ulteriori informazioni introduttive su Sencha Touch, vedere l'insieme comple
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Nov15_HO3-->
+[portale di Azure classico]: https://manage.windowsazure.com/
+
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="06/19/2015"
+	ms.date="12/03/2015"
 	ms.author="mahender"/>
 
 # Connettere un'app mobile ad API SaaS
@@ -32,7 +32,7 @@ Per completare questa esercitazione, è necessario disporre di:
 ## <a name="configure-permissions"></a>Configurare l'applicazione per l'accesso delegato a SharePoint
 Per impostazione predefinita, il token ricevuto da AAD dispone di autorizzazioni limitate. Per poter accedere a una risorsa di terze parti o a un'applicazione SaaS come SharePoint Online, è necessario consentirlo in modo esplicito.
 
-1. Nella sezione **Active Directory** del [portale di gestione di Azure] selezionare il tenant usato. Passare all'applicazione Web creata per il servizio mobile.
+1. Nella sezione **Active Directory** del [portale di Azure classico] selezionare il tenant usato. Passare all'applicazione Web creata per il servizio mobile.
 
 2. Nella scheda **Configura** scorrere nella pagina fino alla sezione delle autorizzazioni per altre applicazioni. Selezionare **Office 365 SharePoint Online** e concedere l'autorizzazione delegata per **modificare o eliminare i file degli utenti**. Fare quindi clic su **Salva**.
 
@@ -42,13 +42,13 @@ A questo punto si è configurato Azure AD per il rilascio di un token di accesso
 
 ## <a name="store-credentials"></a>Aggiungere le informazioni di SharePoint all'app per dispositivi mobili
 
-Per poter effettuare una chiamata a SharePoint, è necessario specificare gli endpoint con cui l'app mobile deve comunicare. È inoltre necessario poter provare l'identità del servizio app. usando una coppia ID e segreto client. L'ID client del servizio app è già stato ottenuto e archiviato durante la configurazione dell'accesso ad AAD. Dal momento che queste credenziali sono riservate, è consigliabile non archiviarle come testo non crittografato nel codice. Questi valori verranno invece configurati come impostazioni applicazione del codice dell'app mobile.
+Per poter effettuare una chiamata a SharePoint, è necessario specificare gli endpoint con cui l'app mobile deve comunicare. È inoltre necessario poter provare l'identità del servizio app. usando una coppia ID e segreto client. L'ID client del servizio app è già stato ottenuto e archiviato durante la configurazione dell'accesso ad AAD. Dal momento che queste credenziali sono riservate, è consigliabile non archiviarle come testo non crittografato nel codice. Questi valori verranno invece configurati come impostazioni di applicazione per il back-end dell'app per dispositivi mobili.
 
 1. Tornare alla scheda delle applicazioni AAD del tenant e selezionare l'applicazione Web per il servizio app.
 
 2. In Configura scorrere fino a Chiavi. Si otterrà un segreto client generando una nuova chiave. Notare che una volta creata una chiave e chiusa la pagina, non è possibile ottenerla di nuovo dal portale. In seguito alla creazione è quindi necessario copiare e salvare questo valore in un luogo sicuro. Selezionare una durata per la chiave, quindi fare clic su salva e copiare il valore risultante.
 
-3. Nella sezione relativa al codice dell'app mobile del portale di gestione passare alla scheda Configura e scorrere verso il basso fino a Impostazioni app. In questa finestra è possibile fornire una coppia chiave-valore per facilitare il riferimento alle credenziali necessarie.
+3. Nel back-end dell'app per dispositivi mobili all'interno del [portale di Azure](https://portal.azure.com/) fare clic su **Tutte le impostazioni** > **Impostazioni applicazione** e scorrere verso il basso fino a **Impostazioni app**. In questa finestra è possibile fornire una coppia chiave-valore per facilitare il riferimento alle credenziali necessarie.
 
 * Impostare SP\_Authority come endpoint dell'autorità del tenant AAD. Questo valore deve essere identico a quello usato per l'app client ed è espresso nel formato `https://login.windows.net/contoso.onmicrosoft.com`
 
@@ -183,9 +183,9 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 
 <!-- URLs. -->
 
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/it-IT/sharepoint/
 [Single Sign-On di Azure Active Directory Authentication Library]: app-service-mobile-ios-aad-sso.md
 [estensione del servizio app back-end .NET per app per dispositivi mobili]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

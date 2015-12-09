@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creare una rete virtuale con una connessione VPN da sito a sito nel portale di Azure | Microsoft Azure"
+   pageTitle="Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico | Microsoft Azure"
    description="Creare una rete virtuale con una connessione VPN Site-to-Site per configurazioni cross-premise e ibride tramite il modello di distribuzione classico."
    services="vpn-gateway"
    documentationCenter=""
@@ -17,10 +17,10 @@
    ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
-# Creare una rete virtuale con una connessione VPN da sito a sito nel portale di Azure
+# Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico
 
 > [AZURE.SELECTOR]
-- [Azure portal](vpn-gateway-site-to-site-create.md)
+- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 In questo argomento verrà illustrata la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale. Questo articolo si applica al modello di distribuzione classica.
@@ -43,7 +43,7 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 
 ## Creare la rete virtuale
 
-1. Accedere al **Portale di Azure**.
+1. Accedere al **portale di Azure classico**.
 
 2. Nell'angolo inferiore sinistro della schermata fare clic su **Nuovo**. Nel riquadro di spostamento, fare clic su **Servizi di rete**, quindi fare clic su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 
@@ -84,13 +84,13 @@ Immettere le seguenti informazioni, quindi fare clic sul segno di spunta in bass
 - **Aggiungi subnet**: includono indirizzo IP iniziale e conteggio indirizzi. Non sono necessarie altre subnet, ma è possibile crearne una separata per le macchine virtuali che avranno DIP statici. Oppure è possibile decidere di collocare le macchine virtuali in una subnet separata dalle istanze di altri ruoli.
 - **Aggiungi subnet gateway**: fare clic per aggiungere la subnet del gateway. La subnet gateway viene usata solo per il gateway di rete virtuale ed è obbligatoria per la configurazione.
 
-Fare clic sul segno di spunta nella parte inferiore della pagina per avviare la creazione della rete virtuale. Al termine della creazione della rete virtuale, in **Stato** verrà visualizzato **Creato** nella pagina **Reti** del portale di Azure. Dopo aver creato la rete virtuale, è quindi possibile configurare il gateway di rete virtuale.
+Fare clic sul segno di spunta nella parte inferiore della pagina per iniziare a creare la rete virtuale. Al termine della creazione della rete virtuale, in **Stato** verrà visualizzato **Creato** nella pagina **Reti** del portale di Azure classico. Dopo aver creato la rete virtuale, è quindi possibile configurare il gateway di rete virtuale.
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## Configurare il gateway di rete virtuale
 
-Configurare quindi il gateway di rete virtuale per creare una connessione da sito a sito sicura. Vedere [Configurare un gateway di rete virtuale nel portale di Azure](vpn-gateway-configure-vpn-gateway-mp.md).
+Configurare quindi il gateway di rete virtuale per creare una connessione da sito a sito sicura. Vedere [Configurare un gateway di rete virtuale nel portale di Azure classico](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Passaggi successivi
 
@@ -102,4 +102,4 @@ Se si vuole configurare una connessione VPN da punto a sito, vedere [Configurare
 
 Se si vuole configurare una connessione tra la rete virtuale classica e una rete virtuale creata usando la modalità Gestione risorse di Azure, vedere [Connessione di reti virtuali classiche a reti virtuali di Gestione risorse di Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

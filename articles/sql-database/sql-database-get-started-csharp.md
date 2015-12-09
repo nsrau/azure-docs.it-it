@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="09/01/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # Prova del database SQL: usare C&#x23; per creare un database SQL con la libreria di database SQL per .NET 
@@ -22,7 +22,7 @@
 **Database singolo**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -63,7 +63,7 @@ Per impostare un database SQL con C#, acquisire le librerie di gestione richiest
 
 Le [API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) usano Azure Active Directory per l'autenticazione.
 
-Per autenticare l'applicazione client in base all'utente corrente è necessario prima registrare l'applicazione nel dominio AAD associato alla sottoscrizione in cui sono state create le risorse di Azure. Se la sottoscrizione ad Azure è stata creata con un account Microsoft anziché un account aziendale o dell'istituto di istruzione si dispone già di un dominio AAD predefinito. La registrazione dell'applicazione può essere eseguita nel [portale di Azure](https://manage.windowsazure.com/).
+Per autenticare l'applicazione client in base all'utente corrente è necessario prima registrare l'applicazione nel dominio AAD associato alla sottoscrizione in cui sono state create le risorse di Azure. Se la sottoscrizione ad Azure è stata creata con un account Microsoft anziché un account aziendale o dell'istituto di istruzione si dispone già di un dominio AAD predefinito. La registrazione dell'applicazione può essere eseguita nel [portale di Azure classico](https://manage.windowsazure.com/).
 
 Per creare una nuova applicazione e registrarla nell’active directory corrente procedere come descritto di seguito:
 
@@ -113,7 +113,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
 Il nome di dominio è obbligatorio per il codice. Un modo semplice per identificare il nome di dominio corretto è:
 
-1. Passare al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare il mouse sul proprio nome nell'angolo superiore destro e osservare il dominio visualizzato nella finestra popup.
 
     ![Identificare il nome di dominio.][3]
@@ -436,4 +436,4 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -131,7 +131,7 @@ Per eseguire l'applicazione nel cloud, eseguire i passaggi seguenti:
 
 Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 
-1. Accedere al [Portale di Azure](http://manage.windowsazure.com) dal browser.
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com) dal browser.
 
 2. Fare clic su **Nuovo > Calcolo > Servizio cloud > Creazione rapida**.
 
@@ -141,7 +141,7 @@ Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 
 5. Scegliere l'area geografica in cui si vuole distribuire l'applicazione.
 
-	Questo campo specifica in quale datacenter viene ospitato il servizio cloud. Per un'applicazione di produzione, scegliere l'area più vicina ai clienti. Per questa esercitazione, scegliere l'area geografica più vicina alla propria ubicazione.
+	Questo campo specifica in quale data center viene ospitato il servizio cloud. Per un'applicazione di produzione, scegliere l'area più vicina ai clienti. Per questa esercitazione, scegliere l'area geografica più vicina alla propria ubicazione.
 
 6. Fare clic su **Create Cloud Service**.
 
@@ -153,7 +153,7 @@ Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 
 Quando l'app è in esecuzione nel cloud, userà un database basato sul cloud.
 
-1. Nel [Portale di Azure](http://manage.windowsazure.com) fare clic su **Nuovo > Servizi dati > Database SQL > Creazione rapida**.
+1. Nel [portale di Azure classico](http://manage.windowsazure.com) fare clic su **Nuovo > Servizi dati > Database SQL > Creazione rapida**.
 
 1. Nella casella **Nome database** immettere *contosoads*.
 
@@ -189,7 +189,7 @@ Un account di archiviazione di Azure offre risorse per l'archiviazione di dati d
 
 In un'applicazione effettiva si creano in genere account separati per i dati dell'applicazione rispetto ai dati di registrazione e account separati per i dati di test rispetto ai dati di produzione. In questa esercitazione sarà usato un solo account.
 
-1. Nel [Portale di Azure](http://manage.windowsazure.com) fare clic su **Nuovo > Servizi dati > Archiviazione > Creazione rapida**.
+1. Nel [portale di Azure classico](http://manage.windowsazure.com) fare clic su **Nuovo > Servizi dati > Archiviazione > Creazione rapida**.
 
 4. Nella casella **URL** immettere un prefisso URL.
 
@@ -228,7 +228,7 @@ Sarà necessario usare una [trasformazione Web.config](http://www.asp.net/mvc/tu
 
 	Lasciare aperto il file per la modifica.
 
-2. Nel [Portale di Azure](http://manage.windowsazure.com) fare clic su **Database SQL** nel riquadro sinistro, selezionare il database creato per l'esercitazione, quindi fare clic sulla scheda **Dashboard** e infine su **Mostra stringhe di connessione**.
+2. Nel [portale di Azure classico](http://manage.windowsazure.com) fare clic su **Database SQL** nel riquadro sinistro, selezionare il database creato per l'esercitazione, quindi fare clic sulla scheda **Dashboard** e infine su **Mostra stringhe di connessione**.
 
 	![Visualizzazione delle stringhe di connessione](./media/cloud-services-dotnet-get-started/showcs.png)
 
@@ -236,7 +236,7 @@ Sarà necessario usare una [trasformazione Web.config](http://www.asp.net/mvc/tu
 
 	![Stringhe di connessione](./media/cloud-services-dotnet-get-started/connstrings.png)
 
-4. Nel file di trasformazione *Web.Release.config* eliminare `{connectionstring}` e incollare al suo posto la stringa di connessione ADO.NET dal portale di Azure.
+4. Nel file di trasformazione *Web.Release.config* eliminare `{connectionstring}` e incollare al suo posto la stringa di connessione ADO.NET dal portale di Azure classico.
 
 5. Nella stringa di connessione incollata nel file di trasformazione *Web.Release.config* sostituire `{your_password_here}` con la password creata per il nuovo database SQL.
 
@@ -345,7 +345,7 @@ L'impostazione `<Instances>` specifica il numero di macchine virtuali in cui Azu
 
 9. È ora possibile testare l'applicazione creando, visualizzando e modificando alcune inserzioni, esattamente come durante l'esecuzione locale dell'applicazione.
 
->[AZURE.NOTE]Al termine dei test, eliminare o arrestare il servizio cloud. Anche se non lo si usa, il servizio cloud accumulerà addebiti, poiché le risorse delle macchine virtuali sono riservate per il servizio. Se lo si lascia in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel [Portale di Azure](http://manage.windowsazure.com) passare alla scheda **Dashboard** per il servizio cloud, quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. Se si vuole semplicemente impedire ad altri utenti di accedere al sito, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
+>[AZURE.NOTE]Al termine dei test, eliminare o arrestare il servizio cloud. Anche se non lo si usa, il servizio cloud accumulerà addebiti, poiché le risorse delle macchine virtuali sono riservate per il servizio. Se lo si lascia in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel [portale di Azure classico](http://manage.windowsazure.com) passare alla scheda **Dashboard** per il servizio cloud, quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. Se si vuole semplicemente impedire ad altri utenti di accedere al sito, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
 
 ## Creazione di un'applicazione completamente nuova
 
@@ -813,4 +813,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
 * [Archiviazione di Azure](/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

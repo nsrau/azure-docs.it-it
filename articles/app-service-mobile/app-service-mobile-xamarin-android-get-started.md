@@ -40,7 +40,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
  
 * [Visual Studio Community 2013] o versione successiva. Se si installa Visual Studio Community 2013, installare [Xamarin] separatamente. È possibile installare gli strumenti Xamarin quando si installa Visual Studio 2015.
  
->[AZURE.NOTE]Se si vuole iniziare a usare il servizio app di Azure prima di creare un account Azure, passare al sito [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), in cui è possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Se si desidera iniziare a usare il servizio app di Azure prima di creare un account Azure, passare al sito [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile), in cui è possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
@@ -90,4 +90,4 @@ Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla pro
  
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015--->

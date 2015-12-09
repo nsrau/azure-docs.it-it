@@ -113,7 +113,7 @@ In questo passaggio definire una stringa di connessione per il database locale e
 
 Successivamente, è necessario aggiungere un'impostazione dell'app per la nuova stringa di connessione in modo da poter essere usata da Azure.
 
-1. Nel codice back-end dell'app Web per l'app per dispositivi mobili all'interno del [portale di Azure] fare clic su **Tutte le impostazioni**, quindi su **Impostazioni applicazione**.
+1. Nel codice back-end dell'app Web per l'app per dispositivi mobili all'interno del [portale di Azure] fare clic su **Tutte le impostazioni** e quindi su **Impostazioni applicazione**.
 
 3. Nel pannello **Impostazioni app Web** scorrere fino a **Stringhe di connessione** e aggiungere una nuova stringa di connessione di **SQL Server** denominata `OnPremisesDBConnection` con un valore simile a `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
 
@@ -159,7 +159,7 @@ Infine, è necessario pubblicare il back-end dell'app per dispositivi mobili in 
 
 <!-- Links -->
 [portale di Azure]: https://portal.azure.com/
-[Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
+[Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

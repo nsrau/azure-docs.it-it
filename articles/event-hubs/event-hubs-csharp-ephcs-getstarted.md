@@ -24,7 +24,7 @@
 
 Hub eventi è un servizio che consente di elaborare grandi quantità di dati eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e di raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui l’Internet delle cose (IoT).
 
-Questa esercitazione illustra come usare il portale di Azure per creare un Hub di eventi. Illustra inoltre come inserire messaggi in Hub eventi usando un'applicazione console scritta in C# e come recuperarli in parallelo usando la [libreria dell'Host processore di eventi] in C#.
+Questa esercitazione illustra come usare il portale di Azure classico per creare un hub eventi. Illustra inoltre come inserire messaggi in Hub eventi usando un'applicazione console scritta in C# e come recuperarli in parallelo usando la [libreria dell'Host processore di eventi] in C#.
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
@@ -34,7 +34,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 ## Creare un hub eventi
 
-1. Accedere al [portale di Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
+1. Accedere al [portale di Azure classico][] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
 2. Fare clic su **Servizi app**, **Bus di servizio**, **Hub eventi** e infine **Creazione rapida**.
 
@@ -100,7 +100,7 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[portale di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [libreria dell'Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -108,4 +108,4 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

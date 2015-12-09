@@ -1,7 +1,7 @@
 <properties
    pageTitle="Esercitazione di Hadoop: Introduzione a Hadoop in Windows | Microsoft Azure"
    description="Introduzione a Hadoop in HDInsight Informazioni su come eseguire il provisioning di cluster Hadoop in Windows, eseguire una query Hive sui dati e analizzare l'output in Excel."
-   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
+   keywords="esercitazione di Hadoop,Hadoop in Windows,cluster di Hadoop,informazioni su Hadoop,query Hive"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="11/29/2015"
    ms.author="nitinme"/>
 
 
@@ -71,10 +71,10 @@ Questa esercitazione usa solo il BLOB e l'account di archiviazione predefiniti.
 
 **Per creare un account di archiviazione di Azure**
 
-1. Accedere al [portale di Azure][azure-management-portal].
+1. Accedere al [portale di Azure classico][azure-management-portal].
 2. Fare clic su **NUOVO** nell'angolo in basso a sinistra e quindi immettere i valori come illustrato nell'immagine.
 
-	![Portale di Azure dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione.][image-hdi-storageaccount-quickcreate]
+	![Portale di Azure classico dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione.][image-hdi-storageaccount-quickcreate]
 
 >[AZURE.NOTE]Assicurarsi quindi di creare l'account di archiviazione in una località supportata dal cluster, ovvero: **Asia orientale**, **Asia sudorientale**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti orientali**, **Stati Uniti occidentali**, **Stati Uniti centro-settentrionali**, **Stati Uniti centro-meridionali**.
 
@@ -82,14 +82,14 @@ Selezionare il nuovo account di archiviazione dall'elenco e fare clic su **GESTI
 
 ##<a name="provision"></a>Provisioning di un cluster Hadoop
 
-Quando si esegue il provisioning di un cluster, si esegue il provisioning delle risorse di calcolo di Azure che includono Hadoop e le applicazioni correlate. In questa sezione si effettua il provisioning di un cluster HDInsight versione 3.1, basato su Hadoop versione 2.4. È anche possibile creare cluster Hadoop per altre versioni usando il portale di Azure, i cmdlet PowerShell HDInsight oppure HDInsight .NET SDK. Per istruzioni, vedere [Provisioning di cluster HDInsight con opzioni personalizzate][hdinsight-provision]. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
+Quando si esegue il provisioning di un cluster, si esegue il provisioning delle risorse di calcolo di Azure che includono Hadoop e le applicazioni correlate. In questa sezione si effettua il provisioning di un cluster HDInsight versione 3.1, basato su Hadoop versione 2.4. È anche possibile creare cluster Hadoop per altre versioni usando il portale di Azure classico, i cmdlet PowerShell HDInsight oppure HDInsight .NET SDK. Per istruzioni, vedere [Provisioning di cluster HDInsight con opzioni personalizzate][hdinsight-provision]. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
 
 **Per eseguire il provisioning di un cluster Hadoop**
 
-1. Accedere al [portale di Azure][azure-management-portal].
+1. Accedere al [portale di Azure classico][azure-management-portal].
 
 2. Fare clic su **NUOVO** nell'angolo in basso a sinistra e quindi immettere i valori come illustrato nell'immagine.
 
@@ -127,7 +127,7 @@ Quando si esegue il provisioning di un cluster, si esegue il provisioning delle 
 
 Un cluster HDInsight il cui provisioning è stato effettuato correttamente fornisce una console di query che include una raccolta introduttiva per l'esecuzione di esempi direttamente dal portale. Gli esempi possono essere usati per apprendere come lavorare con HDInsight seguendo le procedure dettagliare di alcuni scenari di base. Gli esempi forniscono tutti i componenti necessari, come i dati per l'analisi e le query da eseguire sui dati. Per altre informazioni sugli esempi della raccolta introduttiva, vedere [Informazioni su Hadoop in HDInsight tramite la raccolta di introduzione HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md).
 
-**Per eseguire l'esempio**, dal portale di Azure fare clic sul nome del cluster in cui si vuole eseguire l'esempio e quindi su **Console query** nella parte inferiore della pagina. Nella pagina Web visualizzata fare clic sulla scheda **Guida introduttiva** e quindi nella categoria **Esempi** fare clic sull'esempio da eseguire. Seguire le istruzioni nella pagina Web per completare l'esempio. La tabella seguente elenca alcuni esempi e fornisce informazioni aggiuntive sulla funzione di ogni esempio.
+**Per eseguire l'esempio**, dal portale di Azure classico fare clic sul nome del cluster in cui si vuole eseguire l'esempio e quindi su **Console query** nella parte inferiore della pagina. Nella pagina Web visualizzata fare clic sulla scheda **Guida introduttiva** e quindi nella categoria **Esempi** fare clic sull'esempio da eseguire. Seguire le istruzioni nella pagina Web per completare l'esempio. La tabella seguente elenca alcuni esempi e fornisce informazioni aggiuntive sulla funzione di ogni esempio.
 
 Esempio | Funzione
 ------ | ---------------
@@ -144,7 +144,7 @@ Dopo il provisioning di un cluster HDInsight, il passaggio successivo consiste n
 
 **Per eseguire un processo Hive dal dashboard del cluster**
 
-1. Accedere al [portale di Azure][azure-management-portal].
+1. Accedere al [portale di Azure classico][azure-management-portal].
 2. Fare clic su **HDINSIGHT** nel riquadro sinistro. Verrà visualizzato un elenco di cluster, incluso quello appena creato nella sezione precedente.
 3. Fare clic sul nome del cluster che si vuole usare per eseguire il processo Hive e quindi fare clic su **CONSOLE QUERY** nella parte inferiore della pagina.
 4. Verrà aperta una pagina Web in una scheda diversa del browser. Immettere l'account utente e la password per Hadoop. Il nome utente predefinito è **admin**. La password corrisponde a quella immessa durante il provisioning del cluster. L'aspetto del dashboard è simile al seguente:
@@ -280,4 +280,4 @@ In questa esercitazione di Hadoop si è appreso come effettuare il provisioning 
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

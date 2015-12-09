@@ -18,6 +18,11 @@
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -44,11 +49,11 @@ Per completare questa esercitazione è necessario disporre di XCode e [Xamarin S
 
 ## Creare una nuova app per Xamarin.iOS
 
-Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
+Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di Azure classico per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
 
 In questa sezione si creerà una nuova app per Xamarin.iOS connessa al servizio mobile.
 
-1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1.  Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 2. Nella scheda Quickstart fare clic su **Xamarin.iOS** in **Choose platform** ed espandere **Create a new Xamarin.iOS app**.
 
@@ -86,7 +91,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	> [AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file TodoService.cs C#.
 
-4. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItems**.
+4. Tornare al [portale di Azure classico], fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
 
 	![][11]
 
@@ -104,8 +109,8 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 * [Introduzione alle notifiche push] Informazioni sull'invio di una notifica push di base all'app.
 
-* [Come utilizzare il client componente Xamarin per Servizi mobili di Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Informazioni su come eseguire una query nel servizio mobile, utilizzare i dati e accedere alle API personalizzate.
-  
+* [Come usare il componente client Xamarin per Servizi mobili di Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Informazioni su come eseguire una query nel servizio mobile, usare i dati e accedere alle API personalizzate.
+
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -134,6 +139,6 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

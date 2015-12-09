@@ -20,7 +20,7 @@
 # Reimpostare un gateway VPN di Azure mediante PowerShell
 
 
-Questo articolo illustra in modo dettagliato la reimpostazione del gateway VPN di Azure mediante i cmdlet di PowerShell. Queste istruzioni si applicano al modello di distribuzione classica. Non è ancora disponibile un cmdlet o un'API REST per la reimpostazione di un gateway VPN per reti virtuali create usando il modello di distribuzione di Gestione risorse. Queste operazioni vengono eseguite nel processo. È possibile stabilire se il gateway VPN è stato creato usando il modello di distribuzione classico visualizzando la rete virtuale nel portale di anteprima. Le reti virtuali create usando il modello di distribuzione classico vengono visualizzate nella sezione Rete virtuale (classico) del portale di anteprima.
+Questo articolo illustra in modo dettagliato la reimpostazione del gateway VPN di Azure mediante i cmdlet di PowerShell. Queste istruzioni si applicano al modello di distribuzione classica. Non è ancora disponibile un cmdlet o un'API REST per la reimpostazione di un gateway VPN per reti virtuali create usando il modello di distribuzione di Gestione risorse. Queste operazioni vengono eseguite nel processo. È possibile stabilire se il gateway VPN è stato creato usando il modello di distribuzione classico visualizzando la rete virtuale nel portale di Azure. Le reti virtuali create usando il modello di distribuzione classico vengono visualizzate nella sezione Rete virtuale (classico) del portale di Azure.
 
 La reimpostazione del gateway VPN di Azure è utile se si perde la connettività VPN cross-premise in uno o più tunnel VPN da sito a sito. In questa situazione tutti i dispositivi VPN funzionano correttamente, ma non sono in grado di stabilire tunnel IPsec con i gateway VPN di Azure. Quando si usa il cmdlet *Reset-AzureVNetGateway*, il gateway verrà riavviato e quindi le configurazioni cross-premise verranno riapplicate al gateway. Il gateway manterrà l'indirizzo IP pubblico già disponibile. Non sarà quindi necessario aggiornare la configurazione del router VPN con un nuovo indirizzo IP pubblico per il gateway VPN di Azure.
 
@@ -52,11 +52,11 @@ L'esempio seguente reimposterà il gateway VPN di Azure per la rete virtuale den
 
 Se la connessione non viene ripristinata dopo il primo riavvio, emettere di nuovo lo stesso comando per riavviare la seconda istanza della VM, ovvero il nuovo gateway attivo. Se vengono richiesti due riavvii uno dopo l'altro, il periodo necessario per il riavvio di entrambe le istanze della VM (attiva e di standby) sarà leggermente più lungo. Si verificherà quindi un intervallo più lungo nella connettività VPN, dai 2 ai 4 minuti, in attesa del completamento dei riavvii.
 
-Dopo due riavvii, se si verificano ancora problemi di connettività cross-premise, aprire un ticket di supporto dal portale di Azure per contattare il supporto tecnico di Microsoft Azure.
+Dopo due riavvii, se si verificano ancora problemi di connettività tra più sedi locali, aprire un ticket di supporto dal portale di Azure classico per contattare il supporto tecnico di Microsoft Azure.
 
 
 ## Passaggi successivi
 	
 Per altre informazioni su questo cmdlet, vedere [Riferimenti PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

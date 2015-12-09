@@ -135,21 +135,22 @@ Aprire le seguenti porte per il traffico in uscita nel firewall del server:
 
 Vedere [questa sezione sulla risoluzione dei problemi](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+> [AZURE.NOTE]Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
 
 
 ## 5\. Aggiungere i contatori delle prestazioni IIS e del rilevamento delle dipendenze
 
 L'SDK necessita di alcune configurazioni per ottenere l'accesso a determinati dati. In particolare, questo passaggio aggiuntivo sarà necessario per misurare automaticamente le chiamate dall'app ai database, alle API REST e ad altri componenti esterni. Queste metriche relative alle dipendenze possono essere estremamente utili per semplificare la diagnosi dei problemi di prestazioni.
 
-Se si esegue sul server IIS, questo passaggio consentirà inoltre ai contatori delle prestazioni del sistema di essere visualizzati nell’[Esplora metriche](app-insights-metrics-explorer.md).
+Se l'esecuzione avviene sul server IIS, questo passaggio consente la visualizzazione dei contatori delle prestazioni del sistema in [Esplora metriche](app-insights-metrics-explorer.md).
 
 #### Se l'app è in esecuzione nel server IIS
 
-Accedere al server con diritti di amministratore, quindi installare [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+Accedere al server con diritti di amministratore e installare [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
 Potrebbe essere necessario [aprire porte in uscita aggiuntive nel firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
-Questo passaggio consente inoltre il [report dei contatori delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters) come il CPU,la memoria, l’occupazione della rete.
+Questo passaggio consente inoltre il [report dei contatori delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters) ad esempio l'occupazione di CPU, memoria e rete.
 
 #### Se l'app è un'app Web di Azure
 
@@ -160,7 +161,7 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 #### è un progetto di Servizi cloud di Azure
 
-[Aggiungere gli script ai ruoli web e di lavoro](app-insights-cloudservices.md)
+[Aggiungere gli script ai ruoli Web e di lavoro](app-insights-cloudservices.md).
 
 
 
@@ -189,7 +190,7 @@ Assicurarsi che `buildinfo.config` sia generato dal processo di MSBuild. Nel fil
     </PropertyGroup> 
 ```
 
-Quando dispone delle informazioni di compilazione, il modulo Web Application Insights aggiunge automaticamente la **versione dell'applicazione** come una proprietà per ogni elemento dei dati di telemetria. Questo consente di filtrare in base alla versione quando si eseguono [ricerche diagnostiche][diagnostic] o quando si [esplorano le metriche][metrics].
+Quando dispone delle informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà ad ogni elemento dei dati di telemetria. Questo consente di filtrare in base alla versione quando si eseguono [ricerche diagnostiche][diagnostic] o quando si [esplorano le metriche][metrics].
 
 Si noti tuttavia che il numero di versione di build viene generato solo da Build MS, non dallo sviluppatore di build in Visual Studio.
 
@@ -205,7 +206,7 @@ Per ottenere una visione completa a 360 gradi dell'applicazione, è necessario e
 
 All'inizio di questo articolo è stato affermato che sarebbe stato illustrato il metodo manuale per creare una risorsa di Application Insights e quindi installare l'SDK. È importante comprendere le due parti di tale procedura. Ma per le applicazioni ASP.NET (e molti altri) esiste un modo automatico anche più rapido.
 
-Saranno necessari [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 aggiornamento 3 o versione successiva) e un account in [Microsoft Azure](http://azure.com).
+Sono necessari [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 aggiornamento 3 o versione successiva) e un account in [Microsoft Azure](http://azure.com).
 
 #### Se è un nuovo progetto...
 
@@ -268,4 +269,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

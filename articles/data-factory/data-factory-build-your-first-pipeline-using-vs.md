@@ -87,7 +87,7 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "AzureStorageLinkedService1"
@@ -99,7 +99,7 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 	
 	Proprietà | Descrizione
 	-------- | -----------
-	Versione | Specifica che la versione di HDInsight creata è 3.1. 
+	Versione | Specifica che la versione di HDInsight creata è 3.2. 
 	ClusterSize | Crea un cluster HDInsight con un nodo. 
 	TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
 	linkedServiceName | Specifica l'account di archiviazione che sarà usato per archiviare i log generati da HDInsight.
@@ -236,11 +236,11 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 2. Selezionare **Aggiornamenti** nel riquadro di sinistra e quindi selezionare **Visual Studio Gallery**.
 3. Selezionare **Strumenti di Data factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
 
-Vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipelines.md) per istruzioni su come usare il portale di anteprima di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione.
+Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipelines.md).
  
 
 ## Passaggi successivi
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

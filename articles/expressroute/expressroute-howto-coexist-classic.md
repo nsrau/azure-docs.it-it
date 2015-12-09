@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configurare connessioni ExpressRoute e VPN da sito a sito coesistenti | Microsoft Azure"
-   description="Questa esercitazione illustra come configurare ExpressRoute e una connessione VPN da sito a sito ai fini della coesistenza."
+   description="Questo articolo illustra come configurare connessioni ExpressRoute e VPN da sito a sito ai fini della coesistenza."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/02/2015"
    ms.author="cherylmc"/>
 
 # Configurare connessioni ExpressRoute e VPN da sito a sito per la coesistenza per una rete virtuale
@@ -29,7 +29,8 @@ Per eseguire le istruzioni riportate di seguito devono essere presenti circuiti 
 
 - **Il routing di transito non è supportato:** tramite Azure non è possibile attivare il routing tra la rete locale connessa tramite la VPN da sito a sito e la rete locale connessa tramite ExpressRoute.
 - **Le connessioni da punto a sito non sono supportate:** non è possibile abilitare connessioni VPN da punto a sito alla stessa rete virtuale connessa a ExpressRoute. Non possono coesistere connessioni VPN da punto a sito ed ExpressRoute per la stessa rete virtuale.
-- **Solo gateway standard o ad alte prestazioni:** è necessario usare un gateway standard o ad alte prestazioni sia per il gatewat ExpressRoute che per il gateway VPN da sito a sito. Per informazioni sugli SKU del gateway, vedere [SKU del gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- **Non è possibile abilitare il tunneling forzato sul gateway VPN da sito a sito:** è possibile solo "forzare" tutto il traffico associato a Internet alla rete locale tramite ExpressRoute. 
+- **Solo gateway standard o ad alte prestazioni:** è necessario usare un gateway standard o ad alte prestazioni sia per il gateway ExpressRoute che per il gateway VPN da sito a sito. Per informazioni sugli SKU del gateway, vedere [SKU del gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - **Requisito di route statica:** se la rete locale è connessa sia a ExpressRoute che a una VPN da sito a sito, per il routing della connessione VPN da sito a sito alla rete Internet pubblica è necessario che nella rete locale sia configurata una route statica.
 - **Il gateway ExpressRoute deve essere configurato per primo:** è necessario creare il gateway ExpressRoute prima di aggiungere il gateway VPN da sito a sito.
 
@@ -68,7 +69,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
 
 1. Verificare che sia disponibile l'ultima versione dei cmdlet PowerShell. È possibile scaricare e installare i cmdlet di PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download](http://azure.microsoft.com/downloads/).
 
-2. Creare uno schema per la rete virtuale. Per altre informazioni sull'uso del file di configurazione di rete, vedere la sezione relativa alla [configurazione di una rete virtuale tramite un file di configurazione di rete](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+2. Creare uno schema per la rete virtuale. Per altre informazioni sull'uso del file di configurazione di rete, vedere la sezione relativa alla [configurazione di una rete virtuale tramite un file di configurazione di rete](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 	Quando si crea lo schema, assicurarsi di usare i valori seguenti:
 
@@ -141,7 +142,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
 
 7. Creare un'entità gateway VPN del sito locale. Questo comando non configura il gateway VPN locale. Consente invece di fornire le impostazioni del gateway locale, ad esempio l'indirizzo IP pubblico e lo spazio indirizzi locale, in modo che il gateway VPN di Azure possa connettersi.
 
-	> [AZURE.IMPORTANT]Il sito locale per la connessione VPN da sito a sito non è definito nel file netcfg. È invece necessario usare questo cmdlet per specificare i parametri del sito locale. Non è possibile definirlo tramite il portale di gestione o il file netcfg.
+	> [AZURE.IMPORTANT]Il sito locale per la connessione VPN da sito a sito non è definito nel file netcfg. È invece necessario usare questo cmdlet per specificare i parametri del sito locale. Non è possibile definirlo tramite il portale di Azure classico o il file netcfg.
 
 	Usare l'esempio seguente, sostituendo i valori con quelli personalizzati.
 
@@ -163,7 +164,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
 		OperationStatus      : Succeeded
 
 
-8. Configurare il dispositivo VPN locale per la connessione al nuovo gateway. Quando si configura il dispositivo VPN, usare le informazioni recuperate nel passaggio 6. Per altre informazioni sulla configurazione del dispositivo VPN, vedere la pagina relativa alla [configurazione del dispositivo VPN](http://go.microsoft.com/fwlink/p/?linkid=615099).
+8. Configurare il dispositivo VPN locale per la connessione al nuovo gateway. Quando si configura il dispositivo VPN, usare le informazioni recuperate nel passaggio 6. Per altre informazioni sulla configurazione del dispositivo VPN, vedere l'articolo relativo alla [configurazione del dispositivo VPN](http://go.microsoft.com/fwlink/p/?linkid=615099).
 
 9. Collegare il gateway VPN da sito a sito in Azure al gateway locale.
 
@@ -178,7 +179,7 @@ Se si dispone di una rete virtuale esistente, connessa tramite una connessione E
 
 **Prima di iniziare la configurazione:** verificare che nella rete virtuale siano rimasti indirizzi IP sufficienti per aumentare le dimensioni della subnet del gateway.
 
-1. Scaricare la versione più recente dei cmdlet di PowerShell. È possibile installare i cmdlet PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download](http://azure.microsoft.com/downloads/).
+1. Scaricare la versione più recente dei cmdlet di PowerShell. È possibile scaricare e installare i cmdlet di PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download](http://azure.microsoft.com/downloads/).
 
 2. Eliminare il gateway VPN da sito a sito esistente. Usare il cmdlet seguente, sostituendo i valori con quelli personalizzati.
 
@@ -188,7 +189,7 @@ Se si dispone di una rete virtuale esistente, connessa tramite una connessione E
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
 
-3. Modificare lo schema del file di configurazione di rete in modo che la subnet del gateway sia /27 o un prefisso più breve (ad esempio /26 o /25). Vedere l'esempio seguente. Per altre informazioni sull'uso del file di configurazione di rete, vedere la sezione relativa alla [configurazione di una rete virtuale tramite un file di configurazione di rete](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Modificare lo schema del file di configurazione di rete in modo che la subnet del gateway sia /27 o un prefisso più breve (ad esempio /26 o /25). Vedere l'esempio seguente. Per altre informazioni sull'uso del file di configurazione di rete, vedere la sezione relativa alla [configurazione di una rete virtuale tramite un file di configurazione di rete](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
@@ -210,4 +211,4 @@ Se si dispone di una rete virtuale esistente, connessa tramite una connessione E
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

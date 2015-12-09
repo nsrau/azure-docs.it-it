@@ -40,11 +40,11 @@ Per completare correttamente questa esercitazione di Apache Storm, è necessario
 
 Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log e le topologie inviate al cluster. Per creare un account di Archiviazione di Azure da usare con il cluster, seguire questa procedura:
 
-1. Accedere al [portale di anteprima di Azure][preview-portal].
+1. Accedere al [portale di Azure][preview-portal].
 
 2. Selezionare **NUOVO**, selezionare __Analisi di dati__, quindi selezionare __HDInsight__
 
-	![Creazione di un nuovo cluster nel portale di anteprima di Azure](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
+	![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
 
 3. Immettere un valore in __Nome cluster__ e quindi selezionare __Storm__ per il __Tipo di cluster__. Un segno di spunta verde verrà visualizzato accanto a __Nome cluster__, se disponibile.
 
@@ -52,7 +52,7 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 
 	Selezionare __Ubuntu__ per creare un cluster HDInsight basato su Linux.
 	
-4. Se sono disponibili più sottoscrizioni, selezionare la voce __Sottoscrizione__ per selezionare la sottoscrizione di Azure che verrà usata per il cluster.
+4. Se sono disponibili più sottoscrizioni, selezionare la voce __Sottoscrizione__ per specificare la sottoscrizione di Azure da usare per il cluster.
 
 5. Selezionare __Gruppo di risorse__ per visualizzare un elenco di gruppi di risorse esistenti e quindi selezionare quello in cui creare il cluster. In alternativa, è possibile selezionare __Crea nuovo__ e quindi immettere il nome del nuovo gruppo di risorse. Verrà visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
 
@@ -72,13 +72,13 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 
 	![Pannello di origine dati](./media/hdinsight-apache-storm-tutorial-get-started-linux/datasource.png)
 	
-	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare quanto segue per comprendere le voci nel pannello __Origine dati__.
+	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare le informazioni seguenti per comprendere le voci nel pannello __Origine dati__.
 	
 	- __Metodo di selezione__: impostare questa proprietà su __Da tutte le sottoscrizioni__ per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su __Chiave di accesso__ se si vuole specificare il __Nome archiviazione__ e la __Chiave di accesso__ di un account di archiviazione esistente.
 	
 	- __Crea nuovo__: usare questa opzione per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
 	
-	- __Scegliere il contenitore predefinito__: usare questa opzione per specificare il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
+	- __Scegliere il contenitore predefinito__: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
 	
 	- __Località__: l'area geografica in cui si trova o in cui verrà creato l'account di archiviazione.
 	
@@ -233,4 +233,4 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

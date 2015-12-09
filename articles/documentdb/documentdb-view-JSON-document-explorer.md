@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Visualizzare, modificare, creare e caricare documenti JSON tramite Esplora documenti di DocumentDB | Microsoft Azure"
-	description="Informazioni su Esplora documenti di DocumentDB, uno strumento del portale di anteprima di Azure per visualizzare, modificare, creare e caricare documenti JSON con DocumentDB."
+	description="Informazioni su Esplora documenti di DocumentDB, uno strumento del portale di Azure per visualizzare, modificare, creare e caricare documenti JSON con DocumentDB."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -18,7 +18,7 @@
 
 # Visualizzare, modificare, creare e caricare documenti JSON tramite Esplora documenti di DocumentDB #
 
-Questo articolo fornisce una panoramica di Esplora documenti di [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), uno strumento del portale di anteprima di Azure che consente di visualizzare, modificare, creare e caricare documenti JSON con DocumentDB.
+Questo articolo offre una panoramica di Esplora documenti di [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), uno strumento del portale di Azure che consente di visualizzare, modificare, creare e caricare documenti JSON con DocumentDB.
 
 Dopo aver completato questa esercitazione, si potrà rispondere alle domande seguenti:
 
@@ -145,4 +145,4 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

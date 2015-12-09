@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="11/29/2015"
    	ms.author="nitinme"/>
 
 # Esercitazione di Hadoop: Introduzione all'uso di Hadoop con Hive in HDInsight in Linux
@@ -51,16 +51,16 @@ Quando si esegue il provisioning di un cluster, vengono create le risorse di cal
 
 Per creare un nuovo cluster, seguire questa procedura.
 
-1. Accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/).
+1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
 2. Fare clic su **NUOVO**, su **Analisi dei dati** e quindi su **HDInsight**.
 
-    ![Creazione di un nuovo cluster nel portale di anteprima di Azure](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di anteprima di Azure")
+    ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Azure")
 
 3. Immettere un valore in **Nome cluster**, selezionare **Hadoop** per **Tipo di cluster** e dall'elenco a discesa **Sistema operativo cluster** selezionare **Ubuntu**. Un segno di spunta verde verrà visualizzato accanto al nome del cluster, se disponibile.
 
 	![Immettere il nome del cluster e il tipo](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.2.png "Immettere il nome del cluster e il tipo")
 
-4. Se si dispone di più di una sottoscrizione, fare clic sulla voce **Sottoscrizione** per selezionare la sottoscrizione di Azure che verrà usata per il cluster.
+4. Se sono disponibili più sottoscrizioni, selezionare la voce **Sottoscrizione** per specificare la sottoscrizione di Azure da usare per il cluster.
 
 5. Fare clic su **Gruppo di risorse** per visualizzare un elenco di gruppi di risorse esistenti e quindi selezionare quello in cui creare il cluster. In alternativa, è possibile fare clic su **Crea nuovo** e quindi immettere il nome del nuovo gruppo di risorse. Verrà visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
 
@@ -82,13 +82,13 @@ Per creare un nuovo cluster, seguire questa procedura.
 
 	![Pannello di origine dati](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "Fornire la configurazione origine dati")
 
-	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare le informazioni seguenti per comprendere le voci disponibili nel pannello **Origine dati**.
+	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare le informazioni seguenti per comprendere le voci nel pannello **Origine dati**.
 
 	- **Metodo di selezione**: impostare questa proprietà su **Da tutte le sottoscrizioni** per consentire l'esplorazione degli account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su **Chiave di accesso** se si vuole immettere un valore nei campi **Nome archiviazione** e **Chiave di accesso** per un account di archiviazione esistente.
 
 	- **Seleziona account di archiviazione/Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
 
-	- **Scegliere contenitore predefinito**: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
+	- **Scegliere il contenitore predefinito**: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
 
 	- **Percorso**: l'area geografica dove si trova o dove verrà creato l'account di archiviazione.
 
@@ -230,7 +230,7 @@ Dopo aver stabilito la connessione al cluster tramite SSH, usare i comandi segue
 
 ## <a name="nextsteps"></a>Passaggi successivi
 
-In questo documento, si è appreso come creare un cluster HDInsight basato su Linux tramite il portale di anteprima di Azure, connettersi al cluster tramite SSH e come eseguire query Hive di base.
+In questo documento, si è appreso come creare un cluster HDInsight basato su Linux tramite il portale di Azure, connettersi al cluster tramite SSH ed eseguire query Hive di base.
 
 Per altre informazioni sull'analisi dei dati con HDInsight, vedere gli articoli seguenti:
 
@@ -283,4 +283,4 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

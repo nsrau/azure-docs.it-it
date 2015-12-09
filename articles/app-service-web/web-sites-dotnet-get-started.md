@@ -40,7 +40,7 @@ Si apprenderà come:
 * Come configurare Visual Studio per creare una nuova app Web del servizio app durante la creazione di un progetto Web ASP.NET MVC 5.
 * Distribuire un progetto Web in un'app Web del servizio app usando Visual Studio.
 * Come usare **Esplora server** di Visual Studio per aprire file remoti e avviare una sessione di debug remota. 
-* Usare il [portale di Azure](/overview/preview-portal/) per monitorare e gestire l'app Web.
+* Usare il [portale di Azure](/overview/preview-portal/) per monitorare e gestire la propria app Web.
 
 > [AZURE.NOTE]Questa esercitazione illustra come usare ASP.NET con il servizio app di Azure, non spiega come sviluppare un'applicazione Web ASP.NET. Per un'introduzione ad ASP.NET MVC 5, vedere l'[introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) nel sito Web dedicato ad [ASP.NET](http://asp.net/). Per i collegamenti ad altri articoli che approfondiscono i concetti relativi all'uso del servizio app di Azure, vedere la sezione [Passaggi successivi](#next-steps).
 > 
@@ -51,7 +51,7 @@ Si apprenderà come:
 Per completare l'esercitazione, è necessario un account Azure. È possibile:
 
 * [Aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
-* [Attivare i vantaggi dell'abbonamento MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con l'abbonamento MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+* [Attivare i vantaggi della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). La sottoscrizione Visual Studio consente di accumulare crediti mensili che è possibile usare per i servizi di Azure a pagamento.
 
 Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -243,7 +243,7 @@ Il [portale di Azure](/services/management-portal/) è un'interfaccia Web che co
 
 	![Pannello dell'app Web](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
-	A questo punto il traffico dell'app Web è poco rilevante ed è quindi possibile che il grafico non visualizzi nulla. Se si passa all'applicazione, si aggiorna la pagina alcune volte; pertanto si aggiorna la pagina del portale e vengono visualizzate alcune statistiche.
+	A questo punto il traffico dell'app Web è poco rilevante ed è quindi possibile che il grafico non visualizzi nulla. Se si passa all'applicazione, aggiornare la pagina alcune volte e quindi aggiornare la pagina del portale, verranno visualizzate alcune statistiche.
 
 3. Fare clic su **Impostazioni** per visualizzare altre opzioni di configurazione per l'app Web.
 
@@ -300,6 +300,5 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 ## Modifiche apportate
 * Per informazioni su cosa è cambiato nel passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

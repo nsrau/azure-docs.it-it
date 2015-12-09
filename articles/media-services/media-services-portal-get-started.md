@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure | Microsoft Azure"
-	description="Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti video on demand (VoD) con Servizi multimediali di Azure tramite il portale di Azure."
+	pageTitle="Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure classico | Microsoft Azure"
+	description="Questa esercitazione illustra il processo di implementazione di un'applicazione per la distribuzione di contenuti video on demand (VoD) con Servizi multimediali di Azure tramite il portale di Azure classico."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -17,13 +17,13 @@
 	ms.author="juliako"/>
 
 
-# Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure
+# Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure classico
 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
-Questa esercitazione illustra il processo di implementazione di un'app di distribuzione di contenuti video on demand (VoD) di base usando il portale di Azure.
+Questa esercitazione illustra il processo di implementazione di un'app per la distribuzione di contenuti video on demand (VoD) di base usando il portale di Azure classico.
 
 > [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
 
@@ -39,7 +39,7 @@ Questa esercitazione include le attività seguenti:
 
 ## Creare un account di Servizi multimediali di Azure
 
-1. Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Nuovo**, quindi su **Servizi multimediali** e infine su **Creazione rapida**.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Nuovo**, quindi su **Servizio multimediale** e infine su **Creazione rapida**.
 
 	![Creazione rapida di Servizi multimediali](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
@@ -79,7 +79,7 @@ Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in
 
 Per modificare il numero di unità riservate di streaming, effettuare le seguenti operazioni:
 
-1. Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
 
 2. Selezionare la pagina ENDPOINT DI STREAMING. Quindi, fare clic sull'endpoint di streaming che si desidera modificare.
 
@@ -98,8 +98,8 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 ## Caricare contenuti
 
 
-1. Nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Servizi multimediali** e quindi sul nome dell'account di Servizi multimediali.
-2. Selezionare la pagina CONTENUTO.
+1. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Servizi multimediali** e quindi sul nome dell'account di Servizi multimediali.
+2. Selezionare la pagina CONTENT.
 3. Fare clic sul pulsante **Upload** nella pagina o nella parte inferiore del portale.
 4. Nella finestra di dialogo **Carica contenuto** selezionare il file di asset desiderato. Fare clic sul file e quindi su **Apri** oppure premere INVIO.
 
@@ -137,7 +137,7 @@ Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservat
 
 ### Codificare
 
-Questa sezione descrive la procedura per la codifica di contenuti con Azure Media Encoder tramite il portale di Azure.
+Questa sezione descrive la procedura per la codifica di contenuti con Azure Media Encoder tramite il portale di Azure classico.
 
 1.  Selezionare il file da codificare. Se la codifica è supportata per questo tipo di file, il pulsante **ELABORA** viene abilitato nella parte inferiore della pagina CONTENUTO.
 4. Nella finestra di dialogo **Elabora** scegliere il processore ** Azure Media Encoder **.
@@ -172,7 +172,7 @@ Questa sezione descrive la procedura per la codifica di contenuti con Azure Medi
 
 Per poter fornire all'utente un URL da usare per scaricare o trasmettere in streaming i contenuti distribuiti, è prima necessario "pubblicare" la risorsa creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali.
 
-Se per pubblicare gli asset si usa il portale di Azure, i localizzatori vengono creati automaticamente e viene fornito un URL basato su OnDemand (se l'asset contiene un file con estensione ism) o un URL di firma di accesso condiviso.
+Se per pubblicare gli asset si usa il portale di Azure classico, i localizzatori vengono creati automaticamente e viene fornito un URL basato su OnDemand (se l'asset contiene un file con estensione ism) o un URL di firma di accesso condiviso.
 
 Un URL di firma di accesso condiviso ha il formato seguente.
 
@@ -209,7 +209,7 @@ Per pubblicare un asset tramite il portale, seguire questa procedura:
 
 ## Riprodurre contenuti dal portale
 
-Il portale di Azure fornisce un lettore di contenuti che può essere usato per testare il proprio video.
+Il portale di Azure classico fornisce un lettore di contenuti che può essere usato per testare il proprio video.
 
 Fare clic sul video desiderato e quindi sul pulsante **Riproduci** nella parte inferiore del portale.
 
@@ -244,7 +244,7 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 
 <!-- Images -->
@@ -260,4 +260,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

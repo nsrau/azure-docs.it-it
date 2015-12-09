@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/17/2015"
+	ms.date="11/30/2015"
 	ms.author="genemi"/>
 
 
@@ -134,17 +134,53 @@ Per semplificare le operazioni, il programma potrebbe riconoscere un parametro d
 ## Connessione: stringa di connessione
 
 
-La stringa di connessione necessaria per la connessione al database SQL di Azure è leggermente diversa dalla stringa usata per la connessione a Microsoft SQL Server. È possibile copiare la stringa di connessione per il database dal [portale di anteprima di Azure](http://portal.azure.com/).
+La stringa di connessione necessaria per la connessione al database SQL di Azure è leggermente diversa dalla stringa usata per la connessione a Microsoft SQL Server. È possibile copiare la stringa di connessione per il database dal [portale di Azure](http://portal.azure.com/).
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 
 
-#### 30 secondi per il timeout della connessione
+### Parametri di SqlConnection di .NET per nuovi tentativi di connessione
 
 
-La connessione tramite Internet è meno affidabile rispetto a una connessione tramite rete privata. È quindi consigliabile impostare il parametro **Timeout connessione** nella stringa di connessione su **30** secondi, invece di 15 secondi.
+Se il programma client si connette al database SQL di Azure usando la classe di .NET Framework **System.Data.SqlClient.SqlConnection**, è necessario usare .NET 4.5.1 o versioni successive per poterne sfruttare la funzionalità di ripetizione dei tentativi di connessione. Per conoscere i dettagli della funzionalità, vedere [qui](http://go.microsoft.com/fwlink/?linkid=393996).
+
+
+<!--
+2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
+-->
+
+
+Quando si crea la [stringa di connessione](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) per l'oggetto **SqlConnection**, è necessario coordinare i valori tra i parametri seguenti:
+
+- ConnectRetryCount &nbsp;&nbsp;*(Il valore predefinito è 0. L'intervallo consentito è tra 0 e 255.)*
+- ConnectRetryInterval &nbsp;&nbsp;*(Il valore predefinito è 1 secondo. L'intervallo consentito è tra 1 e 60.)*
+- Timeout di connessione &nbsp;&nbsp;*(Il valore predefinito è 15 secondi. L'intervallo consentito è tra 0 e 2147483647)*
+
+
+In particolare, i valori scelti devono rendere vera l'eguaglianza seguente:
+
+- Timeout di connessione = ConnectRetryCount * ConnectionRetryInterval
+
+Ad esempio, se il numero = 3 e l'intervallo = 10 secondi, un timeout di soli 29 secondi non garantirebbe al sistema il tempo sufficiente per il terzo tentativo e il tentativo di connessione finale: 29 < 3 * 10.
+
+
+#### Confronto tra connessione e comando
+
+
+I parametri **ConnectRetryCount** e **ConnectRetryInterval** consentono all'oggetto **SqlConnection** di ripetere tentativi di connessione senza interferire con il programma, ad esempio per restituire il controllo al programma. I tentativi possono verificarsi nelle situazioni seguenti:
+
+- Chiamata al metodo mySqlConnection.Open
+- Chiamata al metodo mySqlConnection.Execute
+
+È importante sottolineare che, se si verifica un errore temporaneo durante l'esecuzione della *query*, l'oggetto **SqlConnection** non ripete tentativi di connessione e certamente non ritenta l'esecuzione della query. Prima di inviare la query per l'esecuzione, tuttavia, **SqlConnection** controlla rapidamente la connessione e, se rileva un problema, ritenta l'operazione di connessione. Se il tentativo ha esito positivo, la query viene inviata per l'esecuzione.
+
+
+#### Opportunità di combinare ConnectRetryCount con la logica di ripetizione dei tentativi nell'applicazione
+
+Si supponga che l'applicazione disponga di una logica di ripetizione dei tentativi particolarmente avanzata, in cui l'operazione di connessione può essere ritentata fino a 4 volte. Se si aggiunge **ConnectRetryInterval** e **ConnectRetryCount** = 3 alla stringa di connessione, il numero dei tentativi aumenterà a 4 * 3 = 12 tentativi. Un numero così elevato di tentativi potrebbe non essere consigliabile.
+
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
@@ -152,7 +188,7 @@ La connessione tramite Internet è meno affidabile rispetto a una connessione tr
 ## Connessione: indirizzo IP
 
 
-È necessario configurare il server di database SQL in modo che accetti le comunicazioni dall'indirizzo IP del computer che ospita il programma client. Per eseguire questa operazione, modificare le impostazioni del firewall tramite il [portale di anteprima di Azure](http://portal.azure.com/).
+È necessario configurare il server di database SQL in modo che accetti le comunicazioni dall'indirizzo IP del computer che ospita il programma client. Per eseguire questa operazione, modificare le impostazioni del firewall tramite il [portale di Azure](http://portal.azure.com/).
 
 
 Se si dimentica di configurare l'indirizzo IP, il programma restituirà un messaggio di errore che indica l'indirizzo IP necessario.
@@ -161,7 +197,7 @@ Se si dimentica di configurare l'indirizzo IP, il programma restituirà un messa
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md).
+Per altre informazioni, vedere [Procedura: configurare le impostazioni del firewall su Database SQL mediante il portale di Azure](sql-database-configure-firewall-settings.md).
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -184,7 +220,7 @@ Ad esempio, se il programma client è ospitato in un computer Windows, Windows F
 7. &gt; Nuova regola
 
 
-Se il programma client è ospitato in una macchina virtuale (VM) di Azure, vedere <br/>[Porte superiori a 1433 per ADO.NET 4.5 e database SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Se il programma client è ospitato in una macchina virtuale (VM) di Azure, vedere <br/>[Porte superiori a 1433 per ADO.NET 4.5, e database SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 Per informazioni generali sulla configurazione di porte e indirizzi IP, vedere [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
@@ -478,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

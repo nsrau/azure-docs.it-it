@@ -38,7 +38,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un computer Mac in cui siano stati installati [Xcode] v7.0 o versione successiva e [Xamarin Studio]. Se si prevede di compilare l'app in un computer Windows usando Visual Studio, sarà comunque necessario accedere a un computer Mac in rete per eseguire questa operazione.
  
->[AZURE.NOTE]Se si vuole iniziare a usare il servizio app di Azure prima di creare un account Azure, passare al sito [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), in cui è possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Se si desidera iniziare a usare il servizio app di Azure prima di creare un account Azure, passare al sito [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile), in cui è possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
@@ -84,7 +84,7 @@ Si può ora continuare con la procedura.
 
 	![][8]
 
-###(Facoltativo) Eseguire il progetto iOS
+##(Facoltativo) Eseguire il progetto iOS
 
 Questa sezione illustra l'esecuzione del progetto Xamarin iOS per dispositivi iOS. Se non si usano dispositivi iOS, è possibile ignorare questa sezione.
 
@@ -107,7 +107,7 @@ Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mob
 
 > [AZURE.NOTE]Il codice che accede al back-end dell'app per dispositivi mobili è disponibile nel file TodoItemManager.cs C# del progetto di libreria di classi portabile della soluzione.
 
-###(Facoltativo) Eseguire il progetto Android
+##(Facoltativo) Eseguire il progetto Android
 
 Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi Android. Se non si usano dispositivi Android, è possibile ignorare questa sezione.
 
@@ -131,7 +131,7 @@ Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mob
 > [AZURE.NOTE]Il codice che accede al back-end dell'app per dispositivi mobili è disponibile nel file TodoItemManager.cs C# del progetto di libreria di classi portabile della soluzione.
 
 
-###(Facoltativo) Eseguire il progetto Windows
+##(Facoltativo) Eseguire il progetto Windows
 
 
 Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi Windows. Se non si usano dispositivi Windows, è possibile ignorare questa sezione.
@@ -179,4 +179,4 @@ Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mob
 [installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015--->

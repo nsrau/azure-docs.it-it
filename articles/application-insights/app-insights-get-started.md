@@ -35,7 +35,7 @@ Con Application Insights all'app viene aggiunto un SDK che invia dati di telemet
 
 Risultato desiderato | Operazione da eseguire | Risultato finale
 ---|---|---
- <a href="app-insights-start-monitoring-app-health-usage.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-start-monitoring-app-health-usage.md">Aggiungere Application Insights SDK al progetto Web</a> <br/> ![get](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-start-monitoring-app-health-usage.md">![Monitoraggio delle prestazioni e dell'utilizzo](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
+ <a href="app-insights-asp-net.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-asp-net.md">Aggiungere Application Insights SDK al progetto Web</a> <br/> ![get](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-asp-net.md">![Monitoraggio delle prestazioni e dell'utilizzo](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
 <a href="app-insights-monitor-performance-live-website-now.md">![Sito ASP.NET già attivo](./media/app-insights-get-started/appinsights-gs-i-04-red2.png)</a><br/><a href="app-insights-monitor-performance-live-website-now.md">![Monitoraggio delle prestazioni e delle dipendenze](./media/app-insights-get-started/appinsights-gs-i-03-red.png)</a>|<a href="app-insights-monitor-performance-live-website-now.md">Installare Status Monitor nel server IIS</a> <br/> ![get](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-performance-live-website-now.md">![Monitoraggio delle dipendenze ASP.NET](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
 <a href="insights-perf-analytics.md">![Macchina virtuale o app Web di Azure](./media/app-insights-get-started/appinsights-gs-i-10-azure.png)</a>|<a href="insights-perf-analytics.md">Abilitare Insights nella macchina virtuale o nell'app Web di Azure</a> <br/> ![get](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="insights-perf-analytics.md">![Monitoraggio delle prestazioni e delle dipendenze](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
 <a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Aggiungere l'SDK al progetto Java</a><br/>![get](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![Monitoraggio delle prestazioni e dell'utilizzo](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
@@ -74,4 +74,4 @@ Risultato desiderato | Operazione da eseguire | Risultato finale
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

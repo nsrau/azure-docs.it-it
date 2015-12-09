@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Aggiungere il proprio nome di dominio a Azure AD| Microsoft Azure"
-	description="Argomento che illustra come aggiungere un nome di dominio personalizzato ad Azure AD e fornisce informazioni correlate."
+	pageTitle="Aggiungere un nome di dominio personalizzato ad Azure Active Directory | Microsoft Azure"
+	description="Questo argomento illustra come aggiungere un nome di dominio personalizzato e informazioni correlate ad Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/16/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# Aggiungere un nome di dominio personalizzato ad Azure AD
+# Aggiungere un nome di dominio personalizzato ad Azure Active Directory
 
-Quando si esegue l'iscrizione per un servizio cloud Microsoft, viene emesso un nome di dominio nel formato seguente: contoso.onmicrosoft.com. È possibile continuare a usare tale nome di dominio iniziale oppure è possibile aggiungere il proprio nome di dominio personalizzato al servizio cloud. Questo argomento illustra come aggiungere un nome di dominio personalizzato e fornisce informazioni correlate.
+Quando si esegue l'iscrizione per un servizio cloud Microsoft, viene emesso un nome di dominio nel formato seguente: contoso.onmicrosoft.com. È possibile continuare a usare tale nome di dominio iniziale oppure è possibile aggiungere il proprio nome di dominio personalizzato al servizio cloud. Questo argomento illustra come aggiungere un nome di dominio personalizzato e informazioni correlate ad Azure Active Directory (Azure AD).
 
 Per gli utenti di Office 365 possono risultare utili questi argomenti correlati:
 
@@ -38,9 +38,9 @@ Dopo aver scelto il nome da usare con il servizio cloud al momento dell'iscrizio
 
 Se l'organizzazione dispone già di un nome di dominio personalizzato, l'amministratore può aggiungerlo alla directory di Azure AD in modo che venga usato con tutti i Microsoft Online Services sottoscritti. Dopo aver aggiunto il nome di dominio ad Azure AD, è possibile iniziare ad associarlo ai diversi servizi cloud.
 
-È possibile aggiungere fino a 900 nomi di dominio al tenant di Azure AD usando uno degli strumenti seguenti:
+È possibile aggiungere fino a 900 nomi di dominio alla directory di Azure AD usando uno degli strumenti seguenti:
 
-- Portale di gestione di Azure, portale di Office 365 o portale di Microsoft Intune.
+- Portale di Azure classico, portale di Office 365 o portale di Microsoft Intune.
 - Modulo di Azure Active Directory per Windows PowerShell. Per altre informazioni sui cmdlet che è possibile usare a questo scopo, vedere [Gestire i domini in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx).
 
 È necessario avere già registrato un nome di dominio e disporre delle credenziali di accesso necessarie per il registrar (ad esempio, GoDaddy o Register.com).
@@ -51,13 +51,13 @@ Se si prevede di usare la funzionalità Single Sign-On con il servizio cloud, è
 
 > [AZURE.NOTE]Se si usa Office 365, dopo avere configurato il dominio, è possibile iniziare a creare indirizzi di posta elettronica, account di Lync Online e gruppi di distribuzione che usano il nome di dominio personalizzato. È anche possibile usare il nome di dominio per un sito Web pubblico ospitato in SharePoint Online.
 
-- [Aggiungere e verificare un dominio tramite il portale di gestione di Azure](#add-and-verify-a-domain-using-the-azure-management-portal)
+- [Aggiungere e verificare un dominio tramite il portale di Azure classico](#add-and-verify-a-domain-using-the-azure-management-portal)
 - [Modificare i record DNS per i servizi cloud](#edit-dns-records-for-your-cloud-services)
 - [Verificare un dominio presso qualsiasi registrar](#verify-a-domain-at-any-domain-name-registrar)
 
-### Aggiungere e verificare un dominio tramite il portale di gestione di Azure
+### Aggiungere e verificare un dominio tramite il portale di Azure classico
 
-1. Nel portale fare clic su **Active Directory** e quindi sul nome della directory dell'organizzazione. È possibile eseguire una delle procedure seguenti:
+1. Nel portale di Azure classico fare clic su **Active Directory** e quindi sul nome della directory dell'organizzazione. È possibile eseguire una di queste operazioni:
     1. Nella pagina della directory predefinita fare clic su **Aggiungi dominio** nella sezione **Migliorare l'esperienza di accesso degli utenti**.
 2. Fare clic su **Domini** e quindi sul pulsante **Aggiungi dominio personalizzato** o **Aggiungi**.
 2. Nella pagina **Aggiungi dominio** digitare il nome di dominio che si vuole aggiungere ed eseguire una delle operazioni seguenti:
@@ -79,7 +79,7 @@ Dopo aver aggiunto e verificato il nome di dominio personalizzato, il passaggio 
 
 Se è stata appena completata la procedura guidata **Aggiungi un dominio**, fare clic su **Configura record DNS**. In caso contrario, attenersi alla procedura seguente.
 
-1. Nel riquadro sinistro del portale fare clic su **Domini**.
+1. Nel riquadro sinistro del portale di Azure classico fare clic su **Domini**.
 2. A seconda del portale in uso, fare clic sul nome di dominio che si vuole configurare e quindi su **Impostazioni DNS** o su **Visualizza impostazioni DNS**. La pagina **Impostazioni DNS** elenca i record DNS per il servizio cloud.
 
     Se si vuole configurare un servizio non visualizzato nella scheda Impostazioni DNS, verificare i servizi di dominio selezionati per assicurarsi di aver scelto tale servizio per il nome di dominio. Per modificare le impostazioni, ad esempio per aggiungere Lync Online, vedere Specificare i servizi da usare con il dominio.
@@ -110,9 +110,9 @@ Se si usa Microsoft Intune o il portale degli account di Azure:
 
 4. Dalla tabella, copiare o registrare le informazioni in **Indirizzo di destinazione o puntamento**.
 
-Se si usa il portale di gestione:
+Se si usa il portale di Azure classico:
 
-1. Nel portale fare clic su **Active Directory**, quindi sul nome della directory e infine su **Domini**.
+1. Nel portale di Azure classico fare clic su **Active Directory**, sul nome della directory dell'organizzazione e quindi su **Domini**.
 2. Nell'elenco di nomi di dominio nella pagina **Domini** fare clic sul dominio che si vuole verificare e quindi su **Verifica**.
 2. Nell'elenco a discesa **Tipo di record** della pagina **Verifica** scegliere **Record TXT** o **Record MX**.
 3. Copiare o registrare le informazioni.
@@ -143,7 +143,7 @@ Dopo avere creato il record TXT o il record MX ed essersi disconnessi dal sito W
 
 Dopo che il record creato per il dominio è stato propagato correttamente nel sistema DNS, eseguire le operazioni seguenti per completare la verifica del dominio con Azure AD.
 
-1. Nel portale fare clic su **Domini**.
+1. Nel portale di Azure classico in Azure Active Directory fare clic su **Domini**.
 2. Nell'elenco **Domini** trovare innanzitutto il dominio che si sta verificando e quindi, in base al portale in uso, fare clic su **Fare clic per verificare il dominio** o su **Verifica**.
 3. Seguire le istruzioni fornite per completare il processo di verifica.
     - Se la verifica del dominio ha esito positivo, si riceverà una notifica che indica che il dominio è stato aggiunto all'account.
@@ -157,7 +157,7 @@ Dopo aver verificato il dominio, è possibile configurarlo per l'uso con i propr
 
 Dopo avere aggiunto il nome di dominio ad Azure AD, è possibile modificare il nome di dominio che deve essere visualizzato come predefinito quando si crea un nuovo account utente. A questo scopo, attenersi alla procedura seguente.
 
-1. Nella pagina del portale, nell'angolo superiore sinistro, fare clic sul nome dell'organizzazione.
+1. Nel portale di Azure classico, nell'angolo superiore sinistro, fare clic sul nome dell'organizzazione.
 2. Fare clic su **Modifica**.
 3. Scegliere un nuovo nome di dominio predefinito, ad esempio il nome di dominio personalizzato aggiunto.
 
@@ -173,7 +173,7 @@ Prima di rimuovere un nome di dominio, è consigliabile leggere le informazioni 
 
 Per rimuovere un nome di dominio:
 
-1. Nel riquadro sinistro della pagina del portale fare clic su **Domini**.
+1. Nel riquadro sinistro del portale di Azure classico in Azure AD fare clic su **Domini**.
 2. Nella pagina **Domini** selezionare il nome di dominio che si vuole rimuovere e quindi fare clic su **Rimuovi dominio**.
 3. Nella pagina **Rimuovi dominio** fare clic su **Sì**.
 
@@ -197,7 +197,7 @@ Inoltre, le informazioni relative alle impostazioni devono essere immesse corret
 
 ### Non è possibile verificare il nome di dominio. Come è possibile capire qual è il problema?
 
-Un metodo per individuare i problemi consiste nell'usare la procedura guidata di risoluzione dei problemi dei domini. Per avviare la procedura guidata, eseguire le operazioni seguenti: nella pagina di amministrazione del portale di servizi cloud fare clic su **Domini** e quindi fare doppio clic sul nome di dominio che si vuole verificare. In **Risoluzione dei problemi** fare quindi clic su **Risolvi problemi di dominio**.
+Un metodo per individuare i problemi consiste nell'usare la procedura guidata di risoluzione dei problemi dei domini. Per avviare la procedura guidata, eseguire le operazioni seguenti: nella pagina di amministrazione del portale di Azure classico fare clic su **Domini** e quindi fare doppio clic sul nome di dominio che si vuole verificare. In **Risoluzione dei problemi** fare quindi clic su **Risolvi problemi di dominio**.
 
 La procedura guidata di risoluzione dei problemi richiede informazioni sul punto del processo di verifica in cui ci si trova e quindi fornisce indicazioni utili per completare la verifica.
 
@@ -212,4 +212,4 @@ Se si aggiunge il nome di dominio personalizzato al servizio cloud dopo l'aggiun
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Gestire i domini in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

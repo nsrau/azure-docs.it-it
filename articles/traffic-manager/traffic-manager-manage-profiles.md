@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/18/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Gestione profili di Gestione traffico di Azure
@@ -85,4 +85,4 @@ Per specificare gli endpoint dei servizi cloud o dei siti Web da monitorare tram
 
 [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

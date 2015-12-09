@@ -20,6 +20,10 @@
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -67,7 +71,7 @@ Dopo aver creato il servizio mobile scaricare il progetto di servizio mobile per
 
 In questa sezione si creerà una nuova app per Android connessa al servizio mobile.
 
-1. Nel [portale di gestione] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
+1. Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 2. Nella scheda Quickstart fare clic su **Android** in **Choose platform** ed espandere **Create a new Android app**.
 
@@ -124,6 +128,6 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-[portale di gestione]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

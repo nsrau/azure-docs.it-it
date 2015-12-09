@@ -41,7 +41,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
  
 * Se si prevede di compilare l'app in un computer basato su Windows con Visual Studio, è comunque necessario accedere a un computer Mac in rete che esegue l'host di compilazione Xamarin.iOS per compilare e distribuire effettivamente l'app. Per altre informazioni, vedere la pagina relativa all'[installazione di Xamarin.iOS in Windows](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/)
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Se si desidera iniziare a usare il servizio app di Azure prima di creare un account Azure, passare alla pagina [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
@@ -121,4 +121,4 @@ Se è stata scelta una configurazione back-end .NET, facoltativamente è possibi
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015--->

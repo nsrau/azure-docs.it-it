@@ -27,4 +27,4 @@
 
 Per guardare un video che illustra come creare un nuovo volume StorSimple Manager, fare clic [qui](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,13 +18,18 @@
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 >[AZURE.TIP]Se non si ha familiarità con lo sviluppo per dispositivi mobili tramite Microsoft Azure, [iniziare da App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md) invece che da Servizi mobili di Azure. Con App per dispositivi mobili si avranno [vantaggi aggiuntivi](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin iOS mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile che verrà creato usa i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript] di questo argomento.
 
->[AZURE.NOTE]Questo argomento descrive come creare un nuovo progetto di servizio mobile usando il portale di gestione di Azure. Visual Studio 2013 Update 2 consente di aggiungere un nuovo progetto di servizio mobile a una soluzione Visual Studio esistente. Per altre informazioni, vedere [Guida rapida: Aggiungere un servizio mobile (back-end .NET)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
+>[AZURE.NOTE]Questo argomento descrive come creare un nuovo progetto di servizio mobile usando il portale di Azure classico. Visual Studio 2013 Update 2 consente di aggiungere un nuovo progetto di servizio mobile a una soluzione Visual Studio esistente. Per altre informazioni, vedere [Guida rapida: Aggiungere un servizio mobile (back-end .NET)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
 
 Di seguito è riportata una schermata dell'app completata:
 
@@ -41,11 +46,11 @@ Il completamento di questa esercitazione è un prerequisito per tutte le altre e
 
 ## Creare una nuova app per Xamarin iOS
 
-Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
+Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di Azure classico per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
 
 In questa sezione si scaricherà una nuova app per Xamarin iOS e un progetto di servizio per il servizio mobile.
 
-1. Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1. Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 2. Nella scheda Quickstart fare clic su **Xamarin** in **Scegli piattaforma **ed espandere **Crea una nuova app Xamarin**.
 
@@ -129,7 +134,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
-[Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [versione per back-end JavaScript]: mobile-services-ios-get-started.md
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
@@ -138,4 +143,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

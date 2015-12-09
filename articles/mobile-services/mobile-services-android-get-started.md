@@ -18,6 +18,10 @@
 
 # Introduzione a Servizi mobili per Android (back-end JavaScript)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
@@ -34,7 +38,7 @@ Di seguito è riportata una schermata dell'app completata:
 
 ## Prerequisiti
 
-Per completare questa esercitazione, è necessario avere [Android Developer Tools](https://developer.android.com/sdk/index.html) che include l'IDE (Integrated Development Environment) di Android Studio e la piattaforma Android più recente. È necessario Android 4.2 o versione successiva.
+Per completare questa esercitazione, è necessario disporre di [Android Developer Tools](https://developer.android.com/sdk/index.html), che include l'ambiente di sviluppo integrato Android Studio e la piattaforma Android più recente. È necessario Android 4.2 o versione successiva.
 
 Il progetto di guida introduttiva scaricato contiene l'SDK di Servizi mobili di Azure per Android.
 
@@ -47,11 +51,11 @@ Il progetto di guida introduttiva scaricato contiene l'SDK di Servizi mobili di 
 
 ## Creazione di una nuova app per Android
 
-Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
+Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di Azure classico per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
 
 In questa sezione si creerà una nuova app per Android connessa al servizio mobile.
 
-1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1.  Nel portale di Azure classico fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 2. Nella scheda Quickstart fare clic su **Android** in **Choose platform** ed espandere **Create a new Android app**.
 
@@ -66,7 +70,7 @@ In questa sezione si creerà una nuova app per Android connessa al servizio mobi
 4. Fare clic su **Create TodoItem table** per creare una tabella in cui archiviare i dati dell'app.
 
 
-5. A questo punto, scaricare l'app usando il pulsante **Scarica**.
+5. Scaricare ora l'app usando il pulsante **Scarica**.
 
 ## Esecuzione dell'app per Android
 
@@ -93,6 +97,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Introduzione alle notifiche push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Management Portal]: https://manage.windowsazure.com/
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

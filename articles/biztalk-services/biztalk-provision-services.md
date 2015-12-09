@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/26/2015"
+	ms.date="12/01/2015"
 	ms.author="mandia"/>
 
 
@@ -237,4 +237,4 @@ Dopo la creazione del servizio BizTalk, è possibile acquisire familiarità con 
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

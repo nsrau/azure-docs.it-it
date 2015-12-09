@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/23/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app di Windows Store
@@ -37,7 +37,7 @@ Il codice completo per questa esercitazione è disponibile su GitHub [qui](https
 
 Per completare questa esercitazione, è necessario disporre di:
 
-+ Microsoft Visual Studio Express 2013 per Windows con Update 2<br/>Per creare un progetto di app universale è necessaria questa versione di Visual Studio. Se si desidera solo creare un'app di Windows Store, è necessario Visual Studio Express 2012 per Windows 8.
++ Microsoft Visual Studio Express 2013 per Windows con Update 2 o versione successiva<br/>Per creare un progetto di app universale è necessaria questa versione di Visual Studio. Se si desidera solo creare un'app di Windows Store, è necessario Visual Studio Express 2012 per Windows 8.
 
 + Account di Windows Store attivo
 
@@ -283,4 +283,4 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [panoramica delle notifiche]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

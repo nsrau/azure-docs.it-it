@@ -40,11 +40,11 @@ Il seguente video mostra come eseguire l'esempio relativo all'analisi delle tend
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-E’ possibile accedere al dashboard dall’indirizzo http://<YourHDInsightClusterName>.azurehdinsight.net/ o dal portale di anteprima di Azure.
+È possibile accedere al dashboard dall'indirizzo http://<YourHDInsightClusterName>.azurehdinsight.net/ o dal portale di Azure.
 
 **Per eseguire un esempio dalla raccolta di introduzione**
 
-1. Accedere al [portale di anteprima di Azure][azure.portal].
+1. Accedere al [portale di Azure][azure.portal].
 2. Fare clic su **Esplora** dal menu a sinistra, fare clic su **Cluster HDInsight** e poi sul nome del cluster.
 3. Fare clic su **Dashboard** nel menu principale.
 4. Immettere il nome utente e password per l'utente HTTP (denominato anche utente del cluster).
@@ -68,4 +68,4 @@ Di seguito sono indicati altri modi e strumenti per imparare a usare HDInsight:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

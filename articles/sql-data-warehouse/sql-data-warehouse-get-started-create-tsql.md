@@ -20,7 +20,7 @@
 #Creare SQL Data Warehouse con TSQL 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-TSQL.md)
 - [PowerShell](sql-data-warehouse-get-started-create-powershell.md)
 
@@ -28,7 +28,7 @@ Questo articolo illustrerà come creare un'istanza di SQL Data Warehouse usando 
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
 - Visual Studio. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-- Un server SQL versione 12. Per creare SQL Data Warehouse, sarà necessario un server SQL versione 12. Se non è disponibile un server SQL 12, è consigliabile crearlo nel portale di anteprima per poter creare l'istanza di SQL Data Warehouse in un nuovo server.
+- Un server SQL versione 12. Per creare SQL Data Warehouse, sarà necessario un server SQL versione 12. Se non è disponibile un server SQL 12, è consigliabile crearlo nel portale per poter creare l'istanza di SQL Data Warehouse in un nuovo server.
 
 Questo articolo non illustra come eseguire correttamente la configurazione e la connessione con Visual Studio. Per una descrizione completa di queste operazioni, vedere la documentazione relativa a [connessione e query][]. Per iniziare, sarà necessario aprire Esplora oggetti di SQL Server in Visual Studio e connettersi al server che si userà per creare l'istanza di SQL Data Warehouse. A questo punto sarà possibile creare un'istanza di SQL Data Warehouse eseguendo il comando seguente con il database master:
 
@@ -76,4 +76,4 @@ Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati d
 [caricare dati di esempio]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [pagina dei prezzi]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

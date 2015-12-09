@@ -20,7 +20,7 @@
 # Creare un database di SQL Data Warehouse usando Transact-SQL (TSQL)
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -32,7 +32,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
 - Visual Studio. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-- Un server SQL logico versione 12. Per creare SQL Data Warehouse, sarà necessario un server SQL versione 12. Se non si dispone di un server SQL logico versione 12, vedere l'[esercitazione sul portale di anteprima di Azure][] per crearne uno.
+- Un server SQL logico versione 12. Per creare SQL Data Warehouse, sarà necessario un server SQL versione 12. Se non si dispone di un server SQL logico versione 12, vedere l'[esercitazione sul portale di Azure][] per crearne uno.
 
 ## Creare un database con Visual Studio
 
@@ -53,7 +53,7 @@ SERVICE\_OBJECTIVE indicherà il numero di DWU iniziali dell'istanza e accetter�
 ## Passaggi successivi
 Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati di esempio][] o vedere come eseguire le attività di [sviluppo][], [caricamento][] o [migrazione][].
 
-[esercitazione sul portale di anteprima di Azure]: ./sql-data-warehouse-get-started-provision.md
+[esercitazione sul portale di Azure]: ./sql-data-warehouse-get-started-provision.md
 [connessione e query]: ./sql-data-warehouse-get-started-connect.md
 [migrazione]: ./sql-data-warehouse-overview-migrate.md
 [sviluppo]: ./sql-data-warehouse-overview-develop.md
@@ -61,4 +61,4 @@ Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati d
 [caricare dati di esempio]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [pagina dei prezzi]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

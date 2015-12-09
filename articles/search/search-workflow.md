@@ -42,7 +42,7 @@ Sono disponibili due livelli di prezzo per la selezione. Si consiglia di utilizz
 
 Dopo aver creato il servizio, è possibile creare un indice, iniziando con la definizione dello schema.
 
-Il modo più rapido e semplice per creare un indice è tramite il portale di Azure. Ciascun documento deve avere almeno una chiave univoca e un campo contenente dati disponibili per la ricerca. Per iniziare, vedere la pagina [Creare un indice nel portale](search-create-index-portal.md).
+Il modo più rapido e semplice per creare un indice è tramite il portale di Azure classico. Ciascun documento deve avere almeno una chiave univoca e un campo contenente dati disponibili per la ricerca. Per iniziare, vedere la pagina [Creare un indice nel portale](search-create-index-portal.md).
 
 > [AZURE.NOTE]Contenuto di un indice di Ricerca di Azure
 >
@@ -62,7 +62,7 @@ I dati caricati in un indice devono essere conformi allo schema definito nel pas
 
 Esistono diversi modi per caricare i documenti ed attualmente tutti richiedono un'API. Per la maggior parte dei prototipi, questo passaggio potrebbe risultare il più lungo a causa di un requisito di codifica. Le opzioni sono descritte più avanti in questo articolo.
 
-> [AZURE.NOTE]Si tenga presente che il servizio condiviso è limitato a 10.000 documenti per ogni indice. Assicurarsi di ridurre il set di dati in modo da restare entro i limiti. Per ulteriori informazioni, vedere [Limitazioni e vincoli](search-limits-quotas-capacity.md).
+> [AZURE.NOTE]Si tenga presente che il servizio condiviso è limitato a 10.000 documenti per ogni indice. Assicurarsi di ridurre il set di dati in modo da restare entro i limiti. Per altre informazioni, vedere [Limitazioni e vincoli](search-limits-quotas-capacity.md).
 
 #### Come caricare i dati in un indice
 
@@ -180,7 +180,7 @@ Per utilizzare dati esterni, è necessario definire un campo in un indice in cui
 
 Una delle caratteristiche più interessanti di Ricerca di Azure è costituita dalla semplicità con cui è possibile ridurre o aumentare le risorse in risposta alla domanda. Sebbene questa funzionalità non elimini la necessità di pianificazione della capacità, effettivamente riduce al minimo la maggior parte dei rischi. Non ci si deve impegnare con hardware aggiuntivo o hardware errato, per l'esecuzione dei carichi di lavoro di ricerca.
 
-Come ultimo passaggio, esaminare i livelli di risorse esistenti per le repliche e le partizioni e stabilire se sono necessarie modifiche. È il modo più semplice per regolare la capacità nel [portale di Azure](https://ms.portal.azure.com/).
+Come ultimo passaggio, esaminare i livelli di risorse esistenti per le repliche e le partizioni e stabilire se sono necessarie modifiche. È il modo più semplice per regolare la capacità nel [portale di Azure classico](https://ms.portal.azure.com/).
 
 Si tenga presente che solo il livello di prezzo standard può essere aumentato o diminuito. Inoltre, a seconda del grado di regolazione, la distribuzione dei cluster aggiuntivi per il servizio può richiedere da alcuni minuti a diverse ore.
 
@@ -190,4 +190,4 @@ Si tenga presente che solo il livello di prezzo standard può essere aumentato o
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

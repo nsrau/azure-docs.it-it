@@ -22,7 +22,7 @@ Informazioni su come compilare un'applicazione di ricerca NodeJS personalizzata 
 
 Sono stati utilizzati [NodeJS](https://nodejs.org) e NPM, [Sublime Text 3](http://www.sublimetext.com/3) e Windows PowerShell in Windows 8.1 per sviluppare e testare il codice.
 
-Per eseguire questo esempio, è necessario un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com).
+Per eseguire questo esempio, è necessario un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure classico](https://portal.azure.com).
 
 > [AZURE.TIP]Scaricare il codice sorgente per questa esercitazione in [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
 
@@ -36,7 +36,7 @@ In questa applicazione, il programma **DataIndexer** compila e carica l'indice u
 
 ## Creare il servizio
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure classico](https://portal.azure.com).
 
 2. Nell'indice, fare clic su **Nuovo** > **Dati e archiviazione** > **Ricerca**.
 
@@ -147,4 +147,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

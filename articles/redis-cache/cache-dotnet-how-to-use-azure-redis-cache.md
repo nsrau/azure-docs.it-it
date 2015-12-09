@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/10/2015" 
+	ms.date="11/30/2015" 
 	ms.author="sdanie"/>
 
 # Come usare Cache Redis di Azure
@@ -30,7 +30,7 @@ Cache Redis di Microsoft Azure è disponibile nei seguenti livelli:
 
 -	**Basic**: singolo nodo, Più dimensioni fino a 53 GB.
 -	**Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del 99,9%.
--	**Premium**: attualmente in anteprima. Due nodi primario/Replica che ha fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB (contattare Microsoft per ulteriori informazioni). Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Nessun contratto di servizio durante il periodo di anteprima.
+-	**Premium**: principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB (contattare Microsoft per ulteriori informazioni). Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Per altre informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache][].
 
@@ -84,7 +84,7 @@ Fare clic su **Cache Redis** per visualizzare le cache.
 
 Una cache creata con Cache Redis di Azure è accessibile da qualsiasi applicazione Azure. Le applicazioni .NET sviluppate in Visual Studio possono utilizzare il client di cache **StackExchange.Redis** , che può essere configurato con un pacchetto NuGet che semplifica la configurazione delle applicazioni client della cache.
 
->[AZURE.NOTE]Per ulteriori informazioni, vedere la pagina di Github [StackExchange.Redis][] e la documentazione del client della cache [StackExchange.Redis][].
+>[AZURE.NOTE]Per altre informazioni, vedere la pagina di GitHub [StackExchange.Redis][] e la documentazione del client della cache [StackExchange.Redis][].
 
 Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet StackExchange.Redis, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 
@@ -330,4 +330,4 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 
 [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

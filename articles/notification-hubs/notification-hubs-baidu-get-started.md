@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="11/03/2015"
+	ms.date="11/25/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica tramite Baidu
@@ -187,11 +187,11 @@ Verrà visualizzato il messaggio **保存成功！** (**Salvataggio completato!*
 
     ![][26]
 
-5. Scaricare e decomprimere [Mobile Services Android SDK], aprire la cartella **notificationhubs**, copiare il file **notification-hubs-x.y.jar** nella cartella **libs** del progetto Eclipse e aggiornare la cartella *libs*.
+5. Scaricare il file notification-hubs-0.4.jar dalla scheda **File** di [Notification-Hubs-Android-SDK in Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Aggiungere il file alla cartella **libs** del progetto Eclipse e quindi aggiornare la cartella *libs*.
 
 6. Scaricare e decomprimere [Baidu Push Android SDK], aprire la cartella **libs** e copiare il file JAR **pushservice-x.y.z** e le cartelle **armeabi** e **mips** nella cartella **libs** dell'applicazione Android.
 
-7. Aprire il file **AndroidManifest.xml** del progetto Android e aggiungere le autorizzazioni richieste da Baidu SDK.
+7. Aprire il file **AndroidManifest.xml** del progetto Android e aggiungere le autorizzazioni necessarie per Baidu SDK.
 
 	    <uses-permission android:name="android.permission.INTERNET" />
 	    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -206,11 +206,11 @@ Verrà visualizzato il messaggio **保存成功！** (**Salvataggio completato!*
 	    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
 	    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
-8. Aggiungere la proprietà **android:name** all'elemento **application** in **AndroidManifest.xml** sostituendo *yourprojectname*, ad esempio, con **com.example.BaiduTest**. Assicurarsi che il nome del progetto corrisponda a quello configurato nella console di Baidu.
+8. Aggiungere la proprietà **android:name** all'elemento **application** in **AndroidManifest.xml** sostituendo *yourprojectname* (ad esempio, **com.example.BaiduTest**). Assicurarsi che il nome del progetto corrisponda a quello configurato nella console di Baidu.
 
 		<application android:name="yourprojectname.DemoApplication"
 
-9. Aggiungere la configurazione seguente all'interno dell'elemento dell'applicazione dopo l'elemento di attività **.MainActivity**, sostituendo *yourprojectname*, ad esempio, con **com.example.BaiduTest**:
+9. Aggiungere la configurazione seguente all'interno dell'elemento dell'applicazione dopo l'elemento di attività **.MainActivity**, sostituendo *yourprojectname* (ad esempio, **com.example.BaiduTest**):
 
 		<receiver android:name="yourprojectname.MyPushMessageReceiver">
 		    <intent-filter>
@@ -277,7 +277,7 @@ Verrà visualizzato il messaggio **保存成功！** (**Salvataggio completato!*
 		    }
 		}
 
-12. Aggiungere un'altra nuova classe denominata **MyPushMessageReceiver.java** e aggiungere alla classe il codice seguente. Questa è la classe che gestisce le notifiche push ricevute dal server push di Baidu.
+12. Aggiungere un'altra nuova classe denominata **MyPushMessageReceiver.java** e aggiungervi il codice seguente. Questa è la classe che gestisce le notifiche push ricevute dal server push di Baidu.
 
 		import java.util.List;
 		import android.content.Context;
@@ -411,7 +411,7 @@ In questa esercitazione verrà usata un'app semplice e verrà illustrato solo il
 
 * **Microsoft Azure Notification Hubs .NET SDK**: in Gestione pacchetti NuGet per Visual Studio eseguire [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-* **Node.js**: [Come usare Hub di notifica da Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
+* **Node.js**: [come usare Hub di notifica da Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
 * **Servizi mobili di Azure**: per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure integrato con Hub di notifica, vedere "Introduzione alle notifiche push in Servizi mobili" ([Back-end .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [Back-end JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
 
@@ -425,11 +425,11 @@ In questa sezione verrà illustrato come inviare notifiche con un'app console .N
 
 	![][30]
 
-2. Nella finestra Console di Gestione pacchetti impostare **Progetto predefinito** sul nuovo progetto di applicazione console, quindi eseguire il comando seguente nella finestra della console:
+2. Nella finestra Console di Gestione pacchetti impostare **Progetto predefinito** sul nuovo progetto di applicazione console e quindi eseguire il comando seguente nella finestra della console:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	Verrà aggiunto un riferimento ad Azure Notification Hubs SDK tramite il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto Microsoft.Azure.Notification Hubs NuGet</a>.
+	Verrà aggiunto un riferimento ad Azure Notification Hubs SDK tramite il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto NuGet Microsoft.Azure.NotificationHubs</a>.
 
 	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -446,7 +446,7 @@ In questa sezione verrà illustrato come inviare notifiche con un'app console .N
 			var result = await hub.SendBaiduNativeNotificationAsync(message);
 		}
 
-5. Aggiungere quindi le righe seguenti nel metodo **Main**:
+5. Aggiungere le righe seguenti nel metodo **Main**:
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -503,4 +503,4 @@ Per inviare una notifica di prova, è possibile usare la scheda Debug del portal
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di Baidu]: http://www.baidu.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

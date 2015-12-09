@@ -2,7 +2,7 @@
 
 Per creare un nuovo servizio mobile, attenersi alla procedura seguente.
 
-1.	Accedere al [portale di gestione]. Nella parte inferiore del pannello di navigazione fare clic su **+NUOVO**. Espandere **Compute** e **Mobile Service**, quindi fare clic su **Create**.
+1.	Accedere al [portale di Azure classico](https://manage.windowsazure.com/). Nella parte inferiore del pannello di navigazione fare clic su **+NUOVO**. Espandere **Compute** e **Mobile Service**, quindi fare clic su **Create**.
 
 	![](./media/mobile-services-create-new-service/mobile-create.png)
 
@@ -18,11 +18,6 @@ Per creare un nuovo servizio mobile, attenersi alla procedura seguente.
 
 3.	In **Nome** digitare il nome del nuovo database, quindi immettere il **Nome di accesso**, che corrisponde al nome di accesso dell'amministratore per il nuovo server di database SQL. Immettere e confermare la password e quindi fare clic sul segno di spunta per completare il processo. ![](./media/mobile-services-create-new-service/mobile-create-page2.png)
 
-A questo punto è stato creato un nuovo servizio mobile che può essere utilizzato dalle app per dispositivi mobili.
+A questo punto è stato creato un nuovo servizio mobile che può essere usato dalle app per dispositivi mobili.
 
-
-
-<!-- URLs. -->
-[portale di gestione]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -28,7 +28,7 @@ Per compilare e testare questo esempio è stato utilizzato il seguente software:
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-Per eseguire questo esempio, è necessario disporre di un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di gestione di Azure](https://portal.azure.com).
+Per eseguire questo esempio, è necessario un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure classico](https://portal.azure.com).
 
 > [AZURE.TIP]Scaricare il codice sorgente per questa esercitazione da [Azure Search Java demo](http://go.microsoft.com/fwlink/p/?LinkId=530197) su GitHub.
 
@@ -55,7 +55,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 
 ## Creare il servizio
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure classico](https://portal.azure.com).
 
 2. Nell'indice, fare clic su **Nuovo** > **Dati e archiviazione** > **Ricerca**.
 
@@ -97,7 +97,7 @@ Dopo aver creato il servizio, è possibile tornare al portale per ottenere l'URL
 
 ## Scaricare i file di esempio
 
-1. Andare a [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197) su Github.
+1. Passare a [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197) su GitHub.
 
 2. Fare clic su **Scarica ZIP**, salvare il file con estensione zip su disco e quindi estrarre tutti i file in esso contenuti. È consigliabile estrarre i file nell'area di lavoro Java per trovare più facilmente il progetto in un secondo momento.
 
@@ -123,7 +123,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 1. In **Project Explorer**, fare doppio clic su **config.properties** per modificare le impostazioni di configurazione contenenti il nome del server e la chiave dell'api.
 
-2. Fare riferimento ai passaggi descritti in precedenza in questo articolo, in cui sono forniti l'URL del servizio e la chiave api nel [portale Azure](https://portal.azure.com), per ottenere i valori da immettere in **config.properties**.
+2. Fare riferimento ai passaggi descritti in precedenza in questo articolo, in cui sono forniti l'URL del servizio e la chiave api nel [portale di Azure classico](https://portal.azure.com), per ottenere i valori da immettere in **config.properties**.
 
 3. In **config.properties**, sostituire "Api Key" con la chiave dell’api appropriata per il servizio. Successivamente, il nome del servizio (il primo componente dell'URL http://servicename.search.windows.net) sostituisce "service name" nello stesso file.
 
@@ -231,4 +231,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

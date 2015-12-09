@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale
@@ -72,7 +72,7 @@ Il seguente elenco di controllo per la configurazione della distribuzione descri
 | **Configurare e registrare il dispositivo** | Impostazioni di rete Data 0 | Indirizzo IP Data 0:</br>Subnet mask:</br>Gateway:</br>server DNS primario:</br>server NTP primario:</br>IP server proxy Web/FQDN (facoltativo):</br>porta proxy Web:| |
 | | Password amministratore del dispositivo | La password deve avere una lunghezza compresa tra gli 8 e i 15 caratteri e deve contenere minuscole, maiuscole, numeri e caratteri speciali. | |
 | | Password di Gestione snapshot StorSimple | La password deve avere una lunghezza compresa tra i 14 e i 15 caratteri e deve contenere caratteri minuscoli, maiuscoli, numerici e speciali.| |
-| | Chiave di registrazione del servizio | Questa chiave viene generata dal portale di Azure. | |
+| | Chiave di registrazione del servizio | Questa chiave viene generata dal portale di Azure classico. | |
 | | Chiave DEK del servizio | Questa chiave viene creata quando il dispositivo è registrato con il servizio di gestione tramite Windows PowerShell per StorSimple. Copiare questo codice e salvarlo in un luogo sicuro.| |
 | | | | |
 | **Completare la configurazione minima del dispositivo** | Nome descrittivo del dispositivo | Si tratta di un nome descrittivo per il dispositivo. | |
@@ -164,13 +164,14 @@ Effettuare i passaggi seguenti per creare una nuova istanza del servizio StorSim
 
 > [AZURE.IMPORTANT]Se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio, sarà necessario creare almeno un account di archiviazione dopo avere creato un servizio. Tale account di archiviazione verrà utilizzato in fase di creazione di un contenitore di volumi.
 >
-> Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate. Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2:-get-the-service-registration-key).
+> Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate.
+> Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2:-get-the-service-registration-key).
 
 ## Passaggio 2: Ottenere la chiave di registrazione del servizio
 
 Quando il servizio StorSimple Manager è attivo e in esecuzione, è necessario ottenere la chiave di registrazione. Questa chiave viene utilizzata per registrare e connettere il dispositivo StorSimple con il servizio.
 
-Eseguire i passaggi seguenti nel portale di Azure.
+Eseguire i passaggi seguenti nel portale di Azure classico.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -191,7 +192,7 @@ Per la configurazione minima del dispositivo del dispositivo StorSimple, è nece
 - Abilitare iSCSI in almeno un'interfaccia di rete.
 - Assegnare indirizzi IP fissi a entrambi i controller.
 
-Eseguire i passaggi seguenti nel portale di Azure per completare l'installazione minima del dispositivo.
+Eseguire i passaggi seguenti nel portale di Azure classico per completare l'installazione minima del dispositivo.
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup.md)]
 
@@ -202,13 +203,13 @@ Una volta completata la configurazione del dispositivo, è necessario analizzare
 
 Un contenitore di volumi dispone di account di archiviazione, larghezza di banda e impostazioni di crittografia per tutti i volumi in esso contenuti. Prima di iniziare il provisioning dei volumi nel dispositivo StorSimple è necessario creare un contenitore di volumi.
 
-Eseguire i passaggi seguenti nel portale di Azure per creare un contenitore di volumi.
+Eseguire i passaggi seguenti nel portale di Azure classico per creare un contenitore di volumi.
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## Passaggio 6: Creare un volume
 
-Dopo aver creato un contenitore di volumi, è possibile eseguire il provisioning di un volume di archiviazione nel dispositivo StorSimple per i server. Eseguire i passaggi seguenti nel portale di Azure per creare un volume.
+Dopo aver creato un contenitore di volumi, è possibile eseguire il provisioning di un volume di archiviazione nel dispositivo StorSimple per i server. Eseguire i passaggi seguenti nel portale di Azure classico per creare un volume.
 
 > [AZURE.IMPORTANT]StorSimple di Azure consente di creare solo volumi di thin provisioning. Non è possibile creare volumi con provisioning completo o parziale..
 
@@ -230,7 +231,7 @@ Se si decide di non configurare MPIO, eseguire la procedura seguente per montare
 
 I backup garantiscono la protezione temporizzata dei volumi e migliorano la recuperabilità riducendo al minimo i tempi di ripristino. È possibile eseguire due tipi di backup su un dispositivo StorSimple: snapshot locali e snapshot nel cloud. Ciascuno di questi tipi di backup può essere **Pianificato** o **Manuale**.
 
-Eseguire i passaggi seguenti nel portale di Azure per creare un backup pianificato.
+Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup pianificato.
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -242,7 +243,7 @@ Si tratta di un passaggio che è necessario eseguire solo se non è stata abilit
 
 Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md) per istruzioni dettagliate.
 
-Eseguire i passaggi seguenti nel portale di Azure, nella pagina del **servizio StorSimple Manager**.
+Eseguire i passaggi seguenti nel portale di Azure classico, nella pagina del **servizio StorSimple Manager**.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
@@ -279,7 +280,7 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 
 ## Creazione di un backup manuale
 
-Eseguire i passaggi seguenti nel portale di Azure per creare un backup manuale su richiesta per un singolo volume nel dispositivo StorSimple.
+Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup manuale su richiesta per un singolo volume nel dispositivo StorSimple.
 
 [AZURE.INCLUDE [Creazione di un backup manuale](../../includes/storsimple-create-manual-backup.md)]
 
@@ -290,4 +291,4 @@ Eseguire i passaggi seguenti nel portale di Azure per creare un backup manuale s
 
 - Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

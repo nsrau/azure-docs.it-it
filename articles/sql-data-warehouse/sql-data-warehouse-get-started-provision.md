@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare un database SQL Data Warehouse nel portale di anteprima di Azure | Microsoft Azure"
-	description="Informazioni su come creare un database di SQL Data Warehouse nel portale di anteprima di Azure"
+	pageTitle="Creare un database SQL Data Warehouse nel portale di Azure | Microsoft Azure"
+	description="Informazioni su come creare un database SQL Data Warehouse nel portale di Azure"
 	services="sql-data-warehouse"
 	documentationCenter="NA"
 	authors="barbkess"
@@ -19,11 +19,11 @@
 # Creare un SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-Questa esercitazione mostra come creare un database SQL Data Warehouse di Azure in pochi minuti usando il portale di anteprima di Azure.
+Questa esercitazione mostra come creare un database SQL Data Warehouse di Azure in pochi minuti usando il portale di Azure.
 
 In questa esercitazione si apprenderà come:
 
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 
 ## Passaggio 1: Eseguire l'accesso e iniziare
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Fare clic su **Nuovo** > **Dati e archiviazione** > **SQL Data Warehouse**.
 
@@ -99,7 +99,7 @@ Ora che il server SQL logico è stato selezionato, è possibile completare la cr
 
 1. Fare clic su **Crea** per creare il database di SQL Data Warehouse.
 
-1. Dopo alcuni minuti il database sarà pronto. Al termine, dovrebbe essere visualizzato di nuovo il [portale di anteprima di Azure](https://portal.azure.com). Notare che il nuovo database di SQL Data Warehouse è stato aggiunto al dashboard.
+1. Dopo alcuni minuti il database sarà pronto. Al termine, dovrebbe essere visualizzato di nuovo il [portale di Azure](https://portal.azure.com). Notare che il nuovo database di SQL Data Warehouse è stato aggiunto al dashboard.
 
     ![Visualizzazione del portale](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -130,4 +130,4 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver creato un database di esempio per SQL Data Warehouse, fare clic su [Connetti](./sql-data-warehouse-get-started-connect.md) per connettersi al database.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

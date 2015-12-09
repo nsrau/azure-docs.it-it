@@ -19,10 +19,8 @@
 
 5. Fare clic su **Informazioni di connessione** per visualizzare le impostazioni di connessione da inserire nell'integrazione dell'SDK nell'app per dispositivi mobili.
 
-   	![](./media/mobile-engagement-create-app-in-portal/app-main-page-select-connection-info.png)
-
-6. Copiare la **stringa di connessione**, che è necessaria per identificare l'app nel codice dell'applicazione e connettersi a Mobile Engagement dall'app.
+6. Copiare la **stringa di connessione**, necessaria per identificare l'app nel codice dell'applicazione e connettersi a Mobile Engagement dall'app.
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

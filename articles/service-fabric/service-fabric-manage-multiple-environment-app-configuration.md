@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/25/2015"
    ms.author="seanmck"/>
 
 # Gestione dei parametri dell'applicazione per più ambienti
@@ -55,11 +55,12 @@ L'attributo DefaultValue specifica il valore da usare in assenza di un parametro
 
 >[AZURE.NOTE]Non tutti i parametri di istanza del servizio sono idonei alla configurazione specifica per il singolo ambiente. Nell'esempio precedente i valori LowKey e HighKey per lo schema di partizionamento del servizio vengono definiti in modo esplicito per tutte le istanze del servizio, perché l'intervallo di partizione è una funzione del dominio di dati, non dell'ambiente.
 
+
 ### Impostazioni della configurazione del servizio specifica per il singolo ambiente
 
 Il [modello applicativo di infrastruttura di servizi](service-fabric-application-model.md) consente ai servizi di includere pacchetti di configurazione che contengono coppie di chiave-valore personalizzate, che possono essere lette in fase di esecuzione. È anche possibile differenziare i valori di queste impostazioni in base all'ambiente, specificando un valore `ConfigOverride` nel manifesto dell'applicazione.
 
-Si supponga che il manifesto del servizio per il servizio `Stateful1` includa l'impostazione seguente:
+Si supponga che il file Config\\Settings.xml per il servizio `Stateful1` includa l'impostazione seguente:
 
 
     <Section Name="MyConfigSection">
@@ -81,6 +82,7 @@ Per eseguire l'override di questo valore per una coppia specifica di applicazion
 Questo parametro può essere configurato mediante l'ambiente, come illustrato in precedenza, mediante la dichiarazione nella sezione Parameters del manifesto dell'applicazione e mediante la definizione di valori specifici per il singolo ambiente nel file di parametri dell'applicazione.
 
 >[AZURE.NOTE]Nel caso delle impostazioni di configurazione del servizio, è possibile impostare il valore di una chiave in tre posizioni, ovvero nel pacchetto di configurazione del servizio, nel manifesto dell'applicazione e nel file di parametri dell'applicazione. L'infrastruttura di servizi effettuerà sempre la scelta prima di tutto dal file di parametri dell'applicazione, quindi dal manifesto dell'applicazione e infine dal pacchetto di configurazione.
+
 
 ### File di parametri dell'applicazione
 
@@ -127,4 +129,4 @@ Per altre informazioni su alcuni concetti fondamentali illustrati in questo argo
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/09/2015"
+	ms.date="12/01/2015"
 	ms.author="jeffreyg"/>
 
 # Esercitazione sul database SQL: creare un database SQL in pochi minuti usando dati di esempio e il portale di Azure
@@ -27,7 +27,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Questa esercitazione sul database SQL mostra come creare il primo database SQL in pochi minuti usando dati di esempio nel portale di anteprima di Azure. Si apprenderà come:
+Questa esercitazione sul database SQL mostra come creare il primo database SQL in pochi minuti usando dati di esempio nel portale di Azure. Si apprenderà come:
 
 - Creare un server per ospitare il nuovo database e quindi configurare una regola firewall per il server.
 - Creare un database SQL da un esempio di AdventureWorks che contiene dati con cui è possibile sperimentare.
@@ -37,7 +37,7 @@ Per iniziare, sono necessari un account e una sottoscrizione di Azure. Nel caso 
 > [AZURE.NOTE]Questa esercitazione sul database SQL descrive come configurare un database con il servizio di gestione di database relazionali di Microsoft nel cloud, il database SQL di Azure. È anche possibile eseguire SQL Server in una macchina virtuale di Azure Per un veloce confronto, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](data-management-azure-sql-database-and-sql-server-iaas.md). Per iniziare a usare una macchina virtuale, vedere [Effettuare il provisioning di una macchina virtuale SQL Server](virtual-machines-provision-sql-server.md).
 
 ## Passaggio 1: Eseguire l'accesso e avviare la configurazione del database SQL
-1. Accedere al [portale di anteprima di Azure](http://portal.azure.com/).
+1. Accedere al [portale di Azure](http://portal.azure.com/).
 2. Fare clic su **Nuovo** > **Dati + Archiviazione** > **Database SQL**.
 
 	![Esercitazione sul database SQL: creare un nuovo database SQL.](./media/sql-database-get-started/create-db.png)
@@ -117,4 +117,4 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 - Per spostare i database SQL Server locali in Azure, vedere l'articolo relativo alla [migrazione di un database al database SQL di Azure](sql-database-cloud-migrate.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
 
     > [AZURE.NOTE]Nel corso di questa esercitazione verranno creati una nuova istanza e un nuovo server di database SQL. È possibile riutilizzare questo nuovo database e amministrarlo allo stesso modo di qualsiasi altra istanza di database SQL. Se nella stessa posizione del nuovo back-end dell'app per dispositivi mobili è già presente un database, è possibile scegliere **Usare un database esistente** e quindi selezionare questo database. Non è consigliabile usare un database in una posizione diversa, a causa dei costi aggiuntivi di larghezza di banda e di latenze più elevate. Sono disponibili altre opzioni di archiviazione dei dati.
 
-6. Nel pannello **Impostazioni** per il nuovo back-end dell'app per dispositivi mobili scorrere verso il basso fino alla voce relativa ai dispositivi mobili, quindi fare clic su **Attività iniziali** > piattaforma app client > **Connetti al database**.
+6. Nel pannello **Impostazioni** relativo al nuovo back-end dell'app per dispositivi mobili, fare clic su **Avvio rapido** > piattaforma dell'app client > **Connetti al database**.
 
 	![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
 
@@ -30,4 +30,4 @@
 <!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

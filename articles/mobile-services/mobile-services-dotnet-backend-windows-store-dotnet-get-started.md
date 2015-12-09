@@ -12,22 +12,27 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 >[AZURE.TIP]Se non si ha familiarità con lo sviluppo per dispositivi mobili tramite Microsoft Azure, [iniziare da App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) invece che da Servizi mobili di Azure. Con App per dispositivi mobili si avranno [vantaggi aggiuntivi](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
- 
+
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app di Windows universale mediante Servizi mobili di Azure. Le soluzioni per app universali di Windows includono progetti di app per Windows Store 8.1 e Windows Phone Store 8.1 e un progetto condiviso comune. Per altre informazioni, vedere [Creare app Windows universali per Windows e Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
 In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile che verrà creato usa i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la versione per back-end JavaScript di questo argomento.
 
->[AZURE.NOTE]Questo argomento descrive come creare un nuovo progetto di servizio mobile e un'app universale di Windows usando il portale di gestione di Azure. Visual Studio 2013 Update 3 consente di aggiungere un nuovo progetto di servizio mobile a una soluzione Visual Studio esistente. Per altre informazioni, vedere [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
+>[AZURE.NOTE]Questo argomento descrive come creare un nuovo progetto di servizio mobile e un'app universale di Windows usando il portale di Azure classico. Visual Studio 2013 Update 3 consente di aggiungere un nuovo progetto di servizio mobile a una soluzione Visual Studio esistente. Per altre informazioni, vedere [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
 >Per aggiungere un servizio mobile a un progetto di app di Windows Phone 8.0 o Windows Phone Silverlight 8.1, vedere [Aggiungere Servizi mobili a un'app di Windows Phone esistente](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
@@ -44,11 +49,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## Creare una nuova app di Windows universale
 
-Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
+Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di Azure classico per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
 
 In questa sezione si creerà una nuova app Windows universale connessa al servizio mobile.
 
-1. Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1. Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 2. Nella scheda Quickstart fare clic su **Windows** in **Choose platform** ed espandere **Create a new Windows Store app**.
 
@@ -96,7 +101,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 * [Aggiungere Servizi mobili a un'app esistente][Get started with data] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
 
-* [Introduzione alla sincronizzazione dei dati offline] <br/>Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
+* [Uso della sincronizzazione dei dati offline] <br/>Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
 * [Aggiungere l'autenticazione all'app di Servizi mobili][Get started with authentication] <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
@@ -118,14 +123,13 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
 [Visual Studio 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Get started with data]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md
 [Get started with data]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
-[Introduzione alla sincronizzazione dei dati offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Uso della sincronizzazione dei dati offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Get started with authentication]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
-[Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
- 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

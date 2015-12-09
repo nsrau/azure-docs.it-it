@@ -28,4 +28,4 @@ Usare [Application Insights SDK per iOS](https://github.com/Microsoft/Applicatio
 * [Introduzione ad Application Insights per iOS](https://github.com/Microsoft/ApplicationInsights-iOS).
 * [Introduzione a HockeyApp per Android](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

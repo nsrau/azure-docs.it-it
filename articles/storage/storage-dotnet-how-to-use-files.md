@@ -23,13 +23,13 @@
 
 L'archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. Il servizio di archiviazione file è ora disponibile a livello generale e supporta entrambi i protocolli SMB 2.1 ed SMB 3.0.
 
-È possibile creare condivisioni file di Azure nel portale di anteprima di Azure, con i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. E poiché le condivisioni file sono condivisioni SMB, è possibile accedervi tramite le note API del file system standard.
+È possibile creare condivisioni file di Azure tramite il [portale di Azure](portal.azure.com), con i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. E poiché le condivisioni file sono condivisioni SMB, è possibile accedervi tramite le note API del file system standard.
 
 Le applicazioni in esecuzione in Azure possono montare condivisioni file dalle macchine virtuali di Azure. Con l'ultima versione di Archiviazione file, è anche possibile montare una condivisione file da un'applicazione locale che supporta SMB 3.0.
 
 Il servizio Archiviazione file è basato sulla stessa tecnologia dei servizi BLOB, tabelle e di accodamento e può quindi sfruttare le funzionalità di disponibilità, durabilità, scalabilità e ridondanza geografica integrate nella piattaforma di archiviazione di Azure.
 
-Per informazioni sull'uso di Archiviazione file con Linux, vedere [Come usare Archiviazione file di Azure Linux](storage-how-to-use-files-linux.md).
+Per informazioni sull'uso di Archiviazione file con Linux, vedere [Come usare l'archiviazione file di Azure con Linux](storage-how-to-use-files-linux.md).
 
 Per informazioni sugli obiettivi di scalabilità per Archiviazione file, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
 
@@ -58,9 +58,9 @@ In questa guida introduttiva vengono illustrate le nozioni di base sull'uso dell
 
 Il servizio Archiviazione file è ora supportato per tutti gli account di archiviazione, quindi è possibile usare un account di archiviazione esistente o crearne uno nuovo. Per informazioni su come creare un nuovo account di archiviazione, vedere [Come creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
 
-## Usare il portale di anteprima di Azure per gestire una condivisione file
+## Usare il portale di Azure per gestire una condivisione file
 
-Il [portale di anteprima di Azure](https://ms.portal.azure.com/) offre ai clienti un'interfaccia utente per gestire il servizio di archiviazione file. Nel portale di anteprima è possibile:
+Il [portale di Azure](portal.azure.com) offre ai clienti un'interfaccia utente per gestire il servizio di archiviazione file. Nel portale di anteprima è possibile:
 
 - Caricare i file nella condivisione file e scaricarli
 - Monitorare l'utilizzo effettivo di ogni condivisione file
@@ -81,7 +81,7 @@ Aprire una finestra di Azure PowerShell facendo clic su **Start** e digitando **
 
 ### Creare un contesto per l'account e la chiave di archiviazione
 
-A questo punto, creare il contesto dell'account di archiviazione. Il contesto incapsula il nome e la chiave dell'account di archiviazione. Per informazioni sulla copia della chiave dell’account dal portale di Azure, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+A questo punto, creare il contesto dell'account di archiviazione. Il contesto incapsula il nome e la chiave dell'account di archiviazione. Per istruzioni sulla copia della chiave dell'account dal [portale di Azure](portal.azure.com), vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 Sostituire `storage-account-name` e `storage-account-key` con il nome e la chiave dell'account di archiviazione nell'esempio seguente.
 
@@ -198,7 +198,7 @@ Per montare la condivisione file da un client locale, è prima necessario seguir
 
 ## Sviluppare con Archiviazione file
 
-Per usare Archiviazione file a livello di codice, è possibile usare le librerie client di archiviazione per .NET e Java o l'API REST di Archiviazione di Azure. L'esempio in questa sezione illustra come usare una condivisione file con la [libreria client di archiviazione di Azure per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) da una semplice applicazione console in esecuzione sul desktop.
+Per usare Archiviazione file a livello di codice, è possibile usare le librerie client di archiviazione per .NET e Java o l'API REST di Archiviazione di Azure. L'esempio in questa sezione illustra come usare una condivisione file con la [Libreria Client di archiviazione di Azure per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) da una semplice applicazione console in esecuzione sul desktop.
 
 ### Creare l'applicazione console e ottenere l'assembly
 
@@ -469,7 +469,7 @@ Nell'esempio seguente viene creato un file che viene copiato in un BLOB nello st
 
 Analisi di flusso di Azure ora supporta le metriche per Archiviazione file. Grazie ai dati di metrica, è possibile monitorare le richieste e diagnosticare i problemi.
 
-È possibile abilitare le metriche per Archiviazione file dal portale di Azure. È anche possibile abilitare le metriche a livello ci codice chiamando l'operazione Set File Service Properties tramite l'API REST o una delle soluzioni analoghe disponibili nella libreria client di archiviazione.
+È possibile abilitare le metriche per Archiviazione file dal [portale di Azure](portal.azure.com). È anche possibile abilitare le metriche a livello ci codice chiamando l'operazione Set File Service Properties tramite l'API REST o una delle soluzioni analoghe disponibili nella libreria client di archiviazione.
 
 ## Domande frequenti su Archiviazione file
 
@@ -550,4 +550,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

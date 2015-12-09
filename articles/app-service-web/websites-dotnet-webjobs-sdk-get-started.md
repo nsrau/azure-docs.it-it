@@ -291,7 +291,7 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 ### Configurare l'app Web per l'uso del database SQL e dell'account di archiviazione di Azure.
 
-Come procedura consigliata per la sicurezza, [evitare di inserire informazioni sensibili, come le stringhe di connessione, in file archiviati repository di codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). è possibile impostare i valori delle stringhe di connessione e di altre impostazioni nell'ambiente di Azure. Le API di configurazione di ASP.NET rilevano automaticamente questi valori quando l'app viene eseguita in Azure. È possibile impostare questi valori in Azure con **Esplora Server**, il portale, Windows PowerShell o l'interfaccia della riga di comando multipiattaforma. Per altre informazioni, vedere il blog sul [funzionamento delle stringhe di applicazione e di connessione](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+Come procedura consigliata per la sicurezza, [evitare di inserire informazioni sensibili, come le stringhe di connessione, in file archiviati repository di codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). è possibile impostare i valori delle stringhe di connessione e di altre impostazioni nell'ambiente di Azure. Le API di configurazione di ASP.NET rilevano automaticamente questi valori quando l'app viene eseguita in Azure. È possibile impostare questi valori in Azure con **Esplora server**, il portale di Azure, Windows PowerShell o l'interfaccia della riga di comando multipiattaforma. Per altre informazioni, vedere il blog sul [funzionamento delle stringhe di applicazione e di connessione](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 In questa sezione si userà **Esplora server** per impostare i valori delle stringhe di connessione in Azure.
 
@@ -327,11 +327,11 @@ In questa sezione si userà **Esplora server** per impostare i valori delle stri
 
 11.	Aggiornare la pagina dopo alcuni secondi e l'anteprima verrà visualizzata.
 
-	Se l'anteprima non viene visualizzata, potrebbe essere necessario attendere circa un minuto per il completamento del riavvio del processo Web. Se dopo alcuni minuti l'anteprima non viene visualizzata quando si aggiorna la pagina, è possibile che il processo Web non sia stato avviato automaticamente. In questo caso, passare alla scheda Processi Web nella pagina del [portale di Azure](https://manage.windowsazure.com) per l'app Web, quindi fare clic su **Avvia**.
+	Se l'anteprima non viene visualizzata, potrebbe essere necessario attendere circa un minuto per il completamento del riavvio del processo Web. Se dopo alcuni minuti l'anteprima non viene visualizzata quando si aggiorna la pagina, è possibile che il processo Web non sia stato avviato automaticamente. In questo caso, passare alla scheda Processi Web nella pagina del [portale classico](https://manage.windowsazure.com) per l'app Web e quindi fare clic su **Avvia**.
 
 ### Visualizzare il dashboard di WebJobs SDK
 
-1. Nel [portale di Azure](https://manage.windowsazure.com) selezionare l'app Web.
+1. Nel [portale classico](https://manage.windowsazure.com) selezionare l'app Web.
 
 2. Fare clic sulla scheda **Processi Web**.
 
@@ -349,7 +349,7 @@ In questa sezione si userà **Esplora server** per impostare i valori delle stri
 
 	Facendo clic sul pulsante **Riproduci funzione** di questa pagina, il framework WebJobs SDK chiama nuovamente la funzione ed è possibile modificare i dati passati prima alla funzione.
 
->[AZURE.NOTE]Al termine del test eliminare l'app Web e l'istanza di database SQL. L'app Web è gratuita, ma l'istanza di database SQL e l'account di archiviazione causano un incremento delle spese (minime date le dimensioni ridotte). In più, se si lascia l'app Web in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel portale di Azure passare alla scheda **Dashboard** per l'app Web e quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. È quindi possibile selezionare una casella di controllo per eliminare contemporaneamente l'istanza del database SQL. Se si vuole semplicemente impedire ad altri utenti di accedere all'app Web, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti per il database SQL e l'account di archiviazione. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
+>[AZURE.NOTE]Al termine del test eliminare l'app Web e l'istanza di database SQL. L'app Web è gratuita, ma l'istanza di database SQL e l'account di archiviazione causano un incremento delle spese (minime date le dimensioni ridotte). In più, se si lascia l'app Web in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel portale classico passare alla scheda **Dashboard** per l'app Web e quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. È quindi possibile selezionare una casella di controllo per eliminare contemporaneamente l'istanza del database SQL. Se si vuole semplicemente impedire ad altri utenti di accedere all'app Web, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti per il database SQL e l'account di archiviazione. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
 
 ## <a id="create"></a>Creare un'applicazione completamente nuova
 
@@ -803,7 +803,7 @@ Per assicurarsi che i processi Web siano sempre in esecuzione e che siano in ese
 
 ### Uso di WebJobs SDK al di fuori dei processi Web
 
-Un programma che usa WebJobs SDK non deve essere eseguito in Azure in un processo Web. Può essere eseguito in locale e anche in altri ambienti, ad esempio un ruolo di lavoro dei servizi cloud o un servizio di Windows. Tuttavia, è possibile accedere al dashboard di WebJobs SDK solo da un'app Web di Azure. Per usare il dashboard, è necessario connettere l'app Web all'account di archiviazione in uso, impostando la stringa di connessione AzureWebJobsDashboard nella scheda **Configura** del portale di Azure. Sarà quindi possibile andare al dashboard tramite il seguente URL:
+Un programma che usa WebJobs SDK non deve essere eseguito in Azure in un processo Web. Può essere eseguito in locale e anche in altri ambienti, ad esempio un ruolo di lavoro dei servizi cloud o un servizio di Windows. Tuttavia, è possibile accedere al dashboard di WebJobs SDK solo da un'app Web di Azure. Per usare il dashboard è necessario connettere l'app Web all'account di archiviazione in uso, impostando la stringa di connessione AzureWebJobsDashboard nella scheda **Configura** del portale classico. Sarà quindi possibile andare al dashboard tramite il seguente URL:
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -813,4 +813,4 @@ Per altre informazioni, vedere [Accesso a un dashboard per lo sviluppo locale co
 
 Per altre informazioni, vedere [Risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

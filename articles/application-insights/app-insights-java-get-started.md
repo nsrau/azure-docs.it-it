@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Introduzione ad Application Insights in un progetto Web Java
@@ -267,7 +267,7 @@ A questo punto è possibile pubblicare l'applicazione nel server, permettere agl
 
 Vengono raccolte automaticamente le eccezioni non gestite:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![Scorrere verso il basso e fare clic sul riquadro Errori](./media/app-insights-java-get-started/21-exceptions.png)
 
 Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
 
@@ -364,11 +364,13 @@ Ora che è stato installato SDK, è possibile usare l'API per inviare i propri d
 
 ## Test Web di disponibilità
 
-Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. Per eseguire la configurazione, selezionare il grafico del test Web vuoto nel pannello Panoramica e fornire l'URL pubblico.
+Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. [Per eseguire l'impostazione][availability], scorrere verso il basso e fare clic su Disponibilità.
+
+![Scorrere verso il basso, fare clic su Disponibilità, quindi su Aggiungi test Web](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché notifiche di posta elettronica.
 
-![Esempio di test Web](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+![Esempio di test Web](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Altre informazioni sui test Web di disponibilità.][availability]
 
@@ -383,7 +385,7 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
+Per altre informazioni, vedere il [Centro per sviluppatori Java](/develop/java/).
 
 <!--Link references-->
 
@@ -396,4 +398,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/jav
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

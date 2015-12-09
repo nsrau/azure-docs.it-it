@@ -1,11 +1,11 @@
-<!--author=alkohli last changed: 11/16/15-->
+<!--author=alkohli last changed: 12/1/15-->
 
 
 #### Per creare un nuovo servizio
 
-1. Usare le credenziali dell'account Microsoft per accedere al portale di Azure all'URL seguente: [http://azure.microsoft.com/](http://azure.microsoft.com/).
+1. Usare le credenziali dell'account Microsoft per accedere al portale di Azure classico all'URL seguente: [http://azure.microsoft.com/](http://azure.microsoft.com/).
 
-2. Nel portale di Azure fare clic su **Nuovo** > **Servizi dati** > **StorSimple Manager** > **Creazione rapida**.
+2. Nel portale di Azure classico fare clic su **Nuovo** > **Servizi dati** > **StorSimple Manager** > **Creazione rapida**.
 
 3. Nel modulo visualizzato, procedere come segue:
   1. Fornire un **Nome** univoco per il servizio. Si tratta di un nome descrittivo che può essere utilizzato per identificare il servizio. Il nome può contenere da 2 a 50 caratteri che possono essere lettere, numeri e trattini. Il nome deve iniziare e terminare con una lettera o un numero.
@@ -28,4 +28,4 @@
 
 Per guardare un video che illustra come creare un nuovo servizio StorSimple Manager, fare clic [qui](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

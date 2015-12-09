@@ -36,7 +36,7 @@ Questa procedura dettagliata mostra come connettersi ed eseguire query su un dat
 
 Per connettersi al database, è necessario il nome completo del server (****nomeserver**.database.windows.net*) che contiene il database a cui ci si vuole connettere.
 
-1. Passare al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare al database a cui si desidera connettersi.
 3. Trovare il nome completo del server, che verrà usato nei passaggi successivi:
 
@@ -83,4 +83,4 @@ Ora che è possibile connettersi ed eseguire query, provare a [connettersi con P
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->
