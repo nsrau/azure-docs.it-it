@@ -87,13 +87,13 @@ Prima di iniziare a sviluppare l'applicazione di Azure, è necessario ottenere g
 
 Il passaggio successivo consiste nel creare uno spazio dei nomi del servizio e nell'ottenere una chiave di firma di accesso condiviso. Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il bus di servizio. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi del servizio. La combinazione di spazio dei nomi e chiave di firma di accesso condiviso fornisce le credenziali che consentono al bus di servizio di autenticare l'accesso a un'applicazione.
 
-### Configurare lo spazio dei nomi tramite il portale di Azure
+### Configurare lo spazio dei nomi tramite il portale di Azure classico
 
-1.  Accedere al [Portale di Azure][].
+1.  Accedere al [portale di Azure classico][].
 
-2.  Nel pannello di navigazione sinistro del portale di Azure fare clic su **Bus di servizio**.
+2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
 
-3.  Nel riquadro inferiore del portale di Azure fare clic su **Crea**.
+3.  Nel riquadro inferiore del portale fare clic su **Crea**.
 
     ![][6]
 
@@ -269,7 +269,7 @@ Aggiungere quindi il codice per l'invio di elementi a una coda. Creare prima di 
 
 2.  Assegnare alla classe il nome QueueConnector.cs. Fare clic su **Aggiungi** per creare la classe.
 
-3.  Aggiungere ora codice che incapsula le informazioni di connessione e inizializza la connessione a una coda del bus di servizio. In QueueConnector.cs aggiungere il codice seguente e immettere i valori per **Namespace** (lo spazio dei nomi del servizio) e **yourKey**, ovvero la chiave di firma di accesso condiviso ottenuta in precedenza dal [portale di Azure][Azure portal].
+3.  Aggiungere ora codice che incapsula le informazioni di connessione e inizializza la connessione a una coda del bus di servizio. In QueueConnector.cs aggiungere il codice seguente e immettere i valori per **Namespace** (lo spazio dei nomi del servizio) e **yourKey**, ovvero la chiave di firma di accesso condiviso ottenuta in precedenza dal [portale di Azure classico][].
 
         using System;
         using System.Collections.Generic;
@@ -286,7 +286,7 @@ Aggiungere quindi il codice per l'invio di elementi a una coda. Creare prima di 
                 // on every request.
                 public static QueueClient OrdersQueueClient;
 
-                // Obtain these values from the Azure portal.
+                // Obtain these values from the portal.
                 public const string Namespace = "your service bus namespace";
 
                 // The name of your queue.
@@ -511,8 +511,7 @@ Per informazioni su come distribuire il front-end in un sito Web di Azure, veder
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [Azure portal]: http://manage.windowsazure.com
-  [Portale di Azure]: http://manage.windowsazure.com
+  [portale di Azure classico]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -546,4 +545,4 @@ Per informazioni su come distribuire il front-end in un sito Web di Azure, veder
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

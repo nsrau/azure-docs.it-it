@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="11/30/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app per iOS
@@ -37,7 +37,7 @@ Il codice completo per questa esercitazione è disponibile su GitHub [qui](https
 
 Per completare questa esercitazione, è necessario disporre di:
 
-+ [Mobile Services SDK per iOS]
++ [Mobile Services iOS SDK versione 1.2.4]
 + [Xcode 7][Install Xcode]
 + Dispositivo con iOS 8 o versione successiva
 + Iscrizione a iOS Developer Program
@@ -486,8 +486,9 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 
 <!-- URLs. -->
+[Mobile Services iOS SDK]: http://aka.ms/kymw2g
+[Mobile Services iOS SDK versione 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Mobile Services SDK per iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -499,11 +500,9 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Introduzione alle notifiche push in Servizi mobili]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Usare Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-send-breaking-news.md
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

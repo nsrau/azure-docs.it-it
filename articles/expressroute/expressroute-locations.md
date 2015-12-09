@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/02/2015"
    ms.author="cherylmc" />
 
 # Partner e località di peering per ExpressRoute
@@ -43,8 +43,8 @@ Nella tabella seguente vengono fornite informazioni su aree e confini geopolitic
 
 |**Area geopolitica**|**Aree di Azure**|**Località per ExpressRoute**|
 |---|---|---|---|
-|**Cloud del governo degli Stati Uniti**|Governo degli Stati Uniti|Iowa, Virginia|Ashburn, Chicago|
-|**Cloud per la Cina**|Cina|Pechino, Shanghai|
+|**Cloud del governo degli Stati Uniti**|Stati Uniti - Iowa, Virginia|Iowa, Virginia|Chicago, Washington DC|
+|**Cloud per la Cina**|Cina meridionale, Cina orientale|Pechino, Shanghai|
 
 
 La connettività tra diverse aree geopolitiche non è supportata nello standard SKU EspressRoute. È necessario attivare il componente aggiuntivo premium ExpressRoute per supportare la connettività globale. La connettività per ambienti cloud nazionale non è supportata. È possibile utilizzare il provider di connettività in caso di necessità.
@@ -60,16 +60,16 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[AT & T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Supportato | Amsterdam, Dallas, Londra, Silicon Valley, Singapore, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Tokyo, Washington DC |
 |**China Telecom Global** | Imminente | Non supportato | Hong Kong |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Non supportato | Amsterdam, Londra |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Supportato | Amsterdam, Londra |
 | **Comcast** | Supportato | Supportato | Silicon Valley, Washington DC |
-| **CoreSite** | Supportato | Non supportato | Los Angeles | 
+| **CoreSite** | Supportato | Supportato | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, Osaka, San Paolo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Supportato | Non supportato | Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Supportato | Supportato | Amsterdam+, Londra, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supportato | Supportato | Amsterdam, Londra |
 | **Interxion** | Supportato | Supportato | Amsterdam |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Non supportato | Amsterdam, Chicago, Dallas, Londra, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Supportato | Non supportato | Melbourne, Sydney |
+| **Megaport** | Supportato | Supportato | Melbourne, Sydney |
 | **MTN** | Supportato | Non supportato | Londra |
 | **NEXTDC** | Supportato | Supportato | Melbourne, Sydney+ |
 | **NTT Communications** | Supportato | Non supportato | Londra+, Tokyo |
@@ -137,4 +137,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

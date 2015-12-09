@@ -50,7 +50,7 @@ Il completamento di questa esercitazione richiede gli elementi seguenti:
 
 In questa sezione si creerà una nuova app PhoneGap connessa al servizio mobile.
 
-1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1.  Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 2. Nella scheda Quickstart fare clic su **PhoneGap** in **Choose platform** ed espandere **Create a new PhoneGap app**.
 
@@ -111,7 +111,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	> [AZURE.IMPORTANT]Le modifiche a questo progetto di piattaforma verranno sovrascritte se il progetto principale viene ricompilato con gli strumenti PhoneGap. Apportare invece le modifiche nella directory www radice del progetto, come illustrato di seguito.
 
-4. Di nuovo nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
+4. Tornare al [portale di Azure classico], fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -153,11 +153,11 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 ## Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
-* **[Aggiungere l'autenticazione all'app]**Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.  
+* **[Aggiungere l'autenticazione all'app]** Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.  
 
-* **[Aggiungere notifiche push all'app](https://msdn.microsoft.com/magazine/dn879353.aspx)**Informazioni sulla registrazione e l'invio di notifiche push all'app.
+* **[Aggiungere notifiche push all'app](https://msdn.microsoft.com/magazine/dn879353.aspx)** Informazioni sulla registrazione e l'invio di notifiche push all'app.
 
-* **[Riferimento concettuale a HTML/JavaScript Servizi mobili](mobile-services-html-how-to-use-client-library.md)** Informazioni su come utilizzare la libreria client JavaScript per accedere ai dati, chiamare le API personalizzate ed eseguire l'autenticazione.
+* **[Come usare un client HTML/JavaScript per Servizi mobili di Azure](mobile-services-html-how-to-use-client-library.md)** Informazioni su come usare la libreria client JavaScript per accedere ai dati, chiamare API personalizzate ed eseguire l'autenticazione.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -171,9 +171,9 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 <!-- URLs. -->
 [Aggiungere l'autenticazione all'app]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -54,7 +54,7 @@ In entrambi i casi è possibile recuperare la stringa di connessione usando il m
 
 ### Configurare la stringa di connessione per l'uso con Servizi cloud
 
-Il meccanismo di configurazione dei servizi è univoco per i progetti di Servizi cloud di Azure e consente di modificare dinamicamente le impostazioni di configurazione dal portale di gestione di Azure senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (.csdef), come illustrato nell'esempio successivo.
+Il meccanismo di configurazione dei servizi è univoco per i progetti di Servizi cloud di Azure e consente di modificare dinamicamente le impostazioni di configurazione dal [portale di Azure classico][] senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (.csdef), come illustrato di seguito.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -82,11 +82,11 @@ Specificare quindi i valori nel file di configurazione (.cscfg) del servizio, co
 </ServiceConfiguration>
 ```
 
-Usare i valori relativi alla chiave e al nome della chiave di firma di accesso condiviso recuperati dal portale di gestione come descritto nella sezione precedente.
+Usare i valori relativi alla chiave e al nome della chiave di firma di accesso condiviso recuperati dal portale di Azure classico come descritto nella sezione precedente.
 
 ### Configurare la stringa di connessione durante l'uso di Siti Web o Macchine virtuali di Azure
 
-Quando si usa Siti Web o Macchine virtuali, è consigliabile usare il sistema di configurazione .NET, ad esempio il file **Web.config**. Per archiviare la stringa di connessione, usare l'elemento `<appSettings>`.
+Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile usare il sistema di configurazione .NET, ad esempio il file **Web.config**. Per archiviare la stringa di connessione, usare l'elemento `<appSettings>`.
 
 ```
 <configuration>
@@ -97,7 +97,7 @@ Quando si usa Siti Web o Macchine virtuali, è consigliabile usare il sistema di
 </configuration>
 ```
 
-Usare i valori relativi alla chiave e al nome della firma di accesso condiviso recuperati dal portale di gestione come descritto nella sezione precedente.
+Usare i valori relativi alla chiave e al nome della firma di accesso condiviso recuperati dal portale di Azure classico come descritto nella sezione precedente.
 
 ## Creare una coda
 
@@ -166,7 +166,7 @@ Client.Send(new BrokeredMessage());
 
 I messaggi inviati e ricevuti dalla coda del bus di servizio sono istanze della classe [BrokeredMessage][]. [Gli oggetti ][]BrokeredMessage[ includono un insieme di proprietà standard, ad esempio ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)Label[ e ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)TimeToLive, un dizionario utilizzato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Un'applicazione può impostare il corpo del messaggio passando un oggetto serializzabile al costruttore dell'oggetto [BrokeredMessage][] e l'elemento **DataContractSerializer** appropriato viene quindi usato per serializzare l'oggetto. In alternativa, è possibile fornire un oggetto **System.IO.Stream**.
 
-L'esempio seguente illustra come inviare cinque messaggi di prova all'oggetto `TestQueue` [QueueClient][] ottenuto nell'esempio di codice precedente.
+L'esempio seguente illustra come inviare cinque messaggi di prova all'oggetto [QueueClient][] di `TestQueue` ottenuto nell'esempio di codice precedente.
 
 ```
 for (int i=0; i<5; i++)
@@ -183,7 +183,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Le code del bus di servizio supportano [messaggi di dimensioni massime pari a 256 KB](service-bus-quotas.md), in cui la dimensione massima dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non può superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Se il partizionamento è abilitato, il limite superiore è più elevato. Per altre informazioni, vedere [Partizionamento delle entità di messaggistica](service-bus-partitioning.md).
+Le code del bus di servizio supportano [messaggi di dimensioni massime pari a 256 KB](service-bus-quotas.md), in cui la dimensione massima dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non può superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Se il partizionamento è abilitato, il limite superiore è più elevato. Per altre informazioni, vedere [Entità di messaggistica partizionate](service-bus-partitioning.md).
 
 ## Come ricevere messaggi da una coda
 
@@ -242,16 +242,16 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio, 
 
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, usare i collegamenti seguenti per altre informazioni.
 
--   Consultare le informazioni sulle entità di messaggistica del bus di servizio in [Code, argomenti e sottoscrizioni][].
+-   Consultare le informazioni sulle entità di messaggistica del bus di servizio in [Code, argomenti e sottoscrizioni del bus di servizio][].
 -   Per creare un'applicazione funzionante che invia e riceve messaggi verso e da una coda del bus di servizio, vedere [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET][].
--   Scaricare esempi del bus di servizio da [esempi di Azure][] o vedere la [panoramica degli esempi del bus di servizio][].
+-   Scaricare esempi del bus di servizio dalla pagina degli [esempi di Azure][] o vedere la [Panoramica degli esempi per il bus di servizio][].
 
-  [Azure portal]: http://manage.windowsazure.com
+  [portale di Azure classico]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
+  [Code, argomenti e sottoscrizioni del bus di servizio]: service-bus-queues-topics-subscriptions.md
   [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET]: service-bus-brokered-tutorial-dotnet.md
   [esempi di Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [panoramica degli esempi del bus di servizio]: service-bus-samples.md
+  [Panoramica degli esempi per il bus di servizio]: service-bus-samples.md
   [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
   [CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager
   [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
@@ -260,4 +260,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

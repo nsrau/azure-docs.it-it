@@ -35,9 +35,9 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## Creazione di una nuova app di Windows Store
 
-Dopo avere creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app JavaScript di Windows Store 8.1 che permetta la connessione al servizio mobile.
+Dopo avere creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di Azure classico per creare una nuova app JavaScript di Windows Store 8.1 che permetta la connessione al servizio mobile.
 
-1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1.  Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 
 2. Nella scheda Quickstart fare clic su **Windows** in **Choose platform** ed espandere **Create a new Windows Store app**.
@@ -64,14 +64,14 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 4. (Facoltativo) Eseguire nuovamente l'app e notare se i dati salvati nel passaggio precedente vengano caricati dal servizio mobile dopo l'avvio dell'applicazione.
  
-4. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItems**.
+4. Tornare al [portale di Azure classico], fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
    	In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
 
 >[AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file default.js.
 
 ## Passaggi successivi
-Ora che è stata completata la Guida introduttiva, acquisire familiarità con il [client di servizi mobili per HTML/JavaScript](mobile-services-html-how-to-use-client-library.md).
+Ora che è stata completata la Guida introduttiva, è possibile acquisire familiarità con il [client di Servizi Mobili per HTML/JavaScript](mobile-services-html-how-to-use-client-library.md).
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -87,6 +87,6 @@ Ora che è stata completata la Guida introduttiva, acquisire familiarità con il
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Visual Studio 2013 Express per Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

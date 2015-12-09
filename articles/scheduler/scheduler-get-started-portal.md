@@ -19,7 +19,7 @@
 
 ## Configurare l'Utilità di pianificazione tramite il portale di Azure per creare processi in modo facile e veloce
 
-Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata l’Utilità di pianificazione di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/).
+Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata l’Utilità di pianificazione di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, fare riferimento alla pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Introduzione
 
@@ -261,4 +261,4 @@ Infine, per tutti i tipi di azione, è possibile modificare la pianificazione st
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare un'app web WordPress nel servizio App Azure | Microsoft Azure"
-	description="Informazioni su come creare una nuova app Web di Azure per un blog WordPress mediante il portale di anteprima di Azure."
+	description="Informazioni su come creare una nuova app Web di Azure per un blog WordPress mediante il portale di Azure."
 	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
@@ -30,15 +30,15 @@ Si apprenderà come:
 * Come creare un'app Web basata sul modello nel servizio app di Azure.
 * Come configurare le impostazioni del servizio app di Azure per la nuova app Web e il database MySQL.
 
-Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le app Web sono basate su una vasta gamma di framework noti, ad esempio [PHP](/develop/nodejs/) in questo esempio WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) e [Python](/develop/python/), per citarne alcuni. Per creare un'app Web da Azure Marketplace, l'unico software necessario è il browser usato per il [portale di anteprima di Azure](https://portal.azure.com/).
+Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le app Web sono basate su una vasta gamma di framework noti, ad esempio [PHP](/develop/nodejs/) in questo esempio WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) e [Python](/develop/python/), per citarne alcuni. Per creare un'app Web da Azure Marketplace, l'unico software necessario è il browser usato per il [portale di Azure](https://portal.azure.com/).
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](/it-IT/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-IT/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-IT/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Selezionare WordPress ed eseguire la configurazione per il servizio app di Azure
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
+1. Accedere al [Portale di Azure](https://portal.azure.com/).
 
 2. Fare clic su **New**.
 	
@@ -60,7 +60,7 @@ Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiam
 
 5. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
 
-	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](../resource-group-portal.md).
+	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../resource-group-portal.md).
 
 5. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
 
@@ -88,7 +88,7 @@ Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiam
 
 ## Avviare e gestire l'app Web WordPress
 	
-7. Al termine della creazione dell'app Web, nel portale passare al gruppo di risorse in cui è stata creata l'applicazione. L'app Web e il database saranno visualizzati nel gruppo.
+7. Al termine della creazione dell'app Web, nel portale di Azure passare al gruppo di risorse in cui è stata creata l'applicazione. L'app Web e il database saranno visualizzati nel gruppo.
 
 	La risorsa aggiuntiva con l'icona a forma di lampadina è [Application Insights](/services/application-insights/), che fornisce servizi di monitoraggio per l'app Web.
 
@@ -118,10 +118,9 @@ Per altre informazioni su come utilizzare le app Web del servizio app, vedere i 
 
 ## Modifiche apportate
 * Per indicazioni sul passaggio dai Siti Web al servizio app, vedere [Servizio app di Azure e i servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Per indicazioni sul passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

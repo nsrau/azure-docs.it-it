@@ -14,18 +14,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/16/2015"
+	ms.date="12/02/2015"
 	ms.author="jgao"/>
 
 
 
-# Esercitazione di HBase: Introduzione all'uso di Apache HBase con Hadoop in HDInsight.
+# Esercitazione di HBase: Introduzione all'uso di Apache HBase con Hadoop in HDInsight (Linux)
 
-Informazioni su come eseguire il provisioning di un cluster HBase in HDInsight, creare tabelle HBase su cui eseguire query usando Hive. Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase][hdinsight-hbase-overview].
+[AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-> [AZURE.NOTE]Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sui cluster basati su Windows, vedere "Introduzione all'uso di Apache HBase con Hadoop in HDInsight (Windows)".
 
-##Prerequisiti
+Informazioni su come creare un cluster HBase in HDInsight, creare tabelle HBase ed eseguire query usando Hive. Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase][hdinsight-hbase-overview].
+
+> [AZURE.NOTE]Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sui cluster basati su Windows, vedere [Esercitazione di HBase: Introduzione all'uso di Apache HBase con Hadoop in HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
+
+###Prerequisiti
 
 Prima di iniziare questa esercitazione di HBase, è necessario disporre di quanto segue:
 
@@ -33,33 +36,36 @@ Prima di iniziare questa esercitazione di HBase, è necessario disporre di quant
 - PuTTY e PuTTYGen per client basati su Windows. Queste utilità sono disponibili nella pagina [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - [curl](http://curl.haxx.se/download.html).
 
-## Effettuare il provisioning di un cluster HBase
+## Creare un cluster HBase
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**Per effettuare il provisioning di un cluster HBase usando il portale di anteprima di Azure**
+**Per creare un cluster HBase tramite il portale di anteprima di Azure**
 
 
 1. Accedere al [portale di anteprima di Azure][azure-portal].
-2. Fare clic su **Nuovo** nell'angolo in alto a sinistra e quindi fare clic su **Dati e analisi**, **HDInsight**.
-3. Immettere i valori seguenti
+2. Fare clic su **Nuovo** nell'angolo in alto a sinistra e quindi su **Dati e analisi**, **HDInsight**.
+3. Immettere i valori seguenti:
 
-	- **Nome cluster**: immettere un nome per identificare questo cluster.
+
+	- **Nome del cluster**: immettere un nome per identificare questo cluster.
 	- **Tipo di cluster**: selezionare **HBase**.
-	- **Sistema operativo cluster**: selezionare **Ubuntu**.
-	- **Versione**: selezionare la versione del cluster da usare. Per altre informazioni sugli elementi inclusi nelle diverse versioni di HDInsight, vedere [Versioni cluster di HDInsight](hdinsight-component-versioning.md).
-    - **Sottoscrizione**: se si hanno più sottoscrizioni di Azure, selezionare quella da usare per questo cluster.
-	- **Gruppo di risorse**: aggiungere o selezionare un gruppo di risorse di Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
-	- **Credenziali** Immettere una password per l'utente del servizio Web HTTP. Il nome utente predefinito è **admin**. È anche necessario immettere un valore nel campo **Nome utente SSH** e un valore nel campo **PASSWORD** o **CHIAVE PUBBLICA**, che verranno usati per autenticare l'utente SSH. Si consiglia di utilizzare una chiave pubblica. Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
+	- **Sistema operativo cluster**: selezionare **Linux**. Per la creazione di cluster HBase basati su Windows, vedere [Esercitazione di HBase: Introduzione all'uso di Apache HBase con Hadoop in HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
+	- **Versione**: selezionare una versione di HBase.
+	- **Sottoscrizione**: selezionare la sottoscrizione di Azure usata per creare il cluster.
+	- **Gruppo di risorse**: creare un nuovo gruppo di risorse di Azure o selezionarne uno esistente. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md)
+	- **Credenziali**. Immettere una password per l'utente del servizio Web HTTP. Il nome utente predefinito è **admin**. È anche necessario immettere un valore nel campo **Nome utente SSH** e un valore in **PASSWORD** o **CHIAVE PUBBLICA**, che verranno usati per autenticare l'utente SSH. Si consiglia di utilizzare una chiave pubblica. Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
 
 		- [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md) Fare clic su **Seleziona** per salvare le modifiche.
-	- **Origine dati**: selezionare un account di archiviazione di Azure esistente oppure crearne uno nuovo da usare come file system predefinito per il cluster. La posizione dell'account di archiviazione determina la posizione del cluster. Il cluster HDInsight e l'account di archiviazione corrispondente devono trovarsi nello stesso data center. Il nome predefinito visualizzato nel campo **Contenitore predefinito** è il nome del cluster.  
-	- **Piani tariffari per il nodo:** selezionare il numero di server di area per il cluster HBase.
+	- **Origine dati**: creare un nuovo account di archiviazione di Azure o selezionarne uno esistente da usare come file system predefinito per il cluster. La posizione dell'account di archiviazione determina la posizione del cluster. Il cluster e l'account di archiviazione predefinito devono trovarsi nello stesso data center.
+	- **Piani tariffari per il nodo**: selezionare il numero di server di area per il cluster HBase
 
-		> [AZURE.WARNING]Per garantire disponibilità elevata dei servizi di HBase, è necessario effettuare il provisioning di un cluster contenente almeno **tre** nodi. Questo assicura che, se un nodo viene disattivato, le aree dati HBase siano disponibili in altri nodi.
+		> [AZURE.WARNING]Per garantire disponibilità elevata dei servizi di HBase, è necessario creare un cluster contenente almeno **tre** nodi. Questo assicura che, se un nodo viene disattivato, le aree dati HBase siano disponibili in altri nodi.
 
-	- **Configurazione facoltativa**: selezionare la versione del cluster, configurare la rete virtuale di Azure, configurare le azioni di script e aggiungere altri account di archiviazione.
+		> Se si è in fase di apprendimento di HBase, scegliere sempre 1 per la dimensione del cluster ed eliminare il cluster dopo ogni uso per ridurre il costo.
+
+	- **Configurazione facoltativa**: configurare la rete virtuale di Azure, configurare le azioni di script e aggiungere altri account di archiviazione.
 
 4. Fare clic su **Crea**.
 
@@ -80,7 +86,7 @@ Ciò può essere più utile dopo avere completato la procedura successiva.
 
 **Per usare la shell HBase**
 
->[AZURE.NOTE]La procedura illustrata di seguito fa riferimento a un computer Windows. Per istruzioni relative alla connessione a un cluster HDInsight basato su Linux da Linux, Unix oppure OS X, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X (anteprima)](hdinsight-hadoop-linux-use-ssh-unix.md) 1. Aprire **PuTTY**. Vedere i prerequisiti elencati all'inizio dell'articolo. 2. Se è stata specificata una chiave SSH quando è stato creato l'account utente durante il processo di provisioning, è necessario effettuare il passaggio seguente per selezionare la chiave privata da usare durante l'autenticazione nel cluster:
+>[AZURE.NOTE]La procedura illustrata di seguito fa riferimento a un computer Windows. Per istruzioni relative alla connessione a un cluster HDInsight basato su Linux da Linux, Unix oppure OS X, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X (anteprima)](hdinsight-hadoop-linux-use-ssh-unix.md) 1. Aprire **PuTTY**. Vedere i prerequisiti elencati all'inizio dell'articolo. 2. Se è stata specificata una chiave SSH durante il processo di creazione dell'account utente, è necessario eseguire il passaggio seguente per selezionare la chiave privata da usare durante l'autenticazione nel cluster:
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -225,7 +231,7 @@ SSH può essere usato anche per effettuare il tunneling di richieste locali, ad 
 **Per stabilire una sessione di tunneling SSH**
 
 1. Aprire **PuTTY**.  
-2. Se è stata specificata una chiave SSH quando è stato creato l'account utente durante il processo di provisioning, è necessario effettuare il passaggio seguente per selezionare la chiave privata da usare durante l'autenticazione nel cluster:
+2. Se è stata specificata una chiave SSH durante il processo di creazione dell'account utente, è necessario eseguire il passaggio seguente per selezionare la chiave privata da usare durante l'autenticazione nel cluster:
 
 	In **Category** espandere **Connection**, **SSH** e selezionare **Auth**. Infine, fare clic su **Browse** e selezionare il file ppk che contiene la chiave privata.
 
@@ -256,13 +262,13 @@ SSH può essere usato anche per effettuare il tunneling di richieste locali, ad 
 1. Aprire Firefox.
 2. Fare clic sul pulsante **Apri menu**.
 3. Fare clic su **Opzioni**.
-4. Fare clic su **Avanzate**, su **Rete** e quindi su **Impostazioni**.
+4. Fare clic su **Avanzate**, **Rete** e quindi **Impostazioni**.
 5. Selezionare **Configurazione manuale dei proxy**.
 6. Immettere i valori seguenti:
 
 	- **Host SOCKS**: localhost
 	- **Porta**: usare la stessa porta configurata nel tunneling SSH di Putty. Ad esempio, 9876.
-	- **SOCKS v5**: (selezionato)
+	- **SOCKS 5**: (selezionato)
 	- **DNS remoto**: (selezionato)
 7. Fare clic su **OK** per salvare le modifiche.
 8. Passare a http://<TheFQDN of a ZooKeeper>:60010/master-status
@@ -272,7 +278,7 @@ In un cluster a disponibilità elevata verrà invece visualizzato un collegament
 
 
 ## Passaggi successivi
-In questa esercitazione di HBase per HDInsight si è appreso come effettuare il provisioning di un cluster HBase e come creare tabelle e visualizzare i dati delle tabelle dalla shell HBase. Si è inoltre appreso come usare una query Hive sui dati nelle tabelle HBase e come usare le API REST C# di HBase per creare una tabella HBase e recuperare i dati dalla tabella.
+In questa esercitazione di HBase per HDInsight si è appreso come creare tabelle e un cluster HBase e come visualizzare i dati delle tabelle dalla shell HBase. Si è inoltre appreso come usare una query Hive sui dati nelle tabelle HBase e come usare le API REST C# di HBase per creare una tabella HBase e recuperare i dati dalla tabella.
 
 Per ulteriori informazioni, vedere:
 
@@ -306,4 +312,4 @@ Per ulteriori informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

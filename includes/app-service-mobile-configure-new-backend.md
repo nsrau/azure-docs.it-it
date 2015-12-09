@@ -11,4 +11,4 @@
 	 
 Il back-end dell'app per dispositivi mobili è ora pronto per l'uso con l'app client.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -31,7 +31,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	> [AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file ToDoActivity.java.
 
-8. Nel portale di gestione fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
+8. Nel portale di Azure classico fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
 
    	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
 
@@ -39,4 +39,4 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -39,11 +39,11 @@ Per iniziare a usare il servizio Inoltro del bus di servizio in Azure, è innanz
 
 Per creare uno spazio dei nomi del servizio:
 
-1.  Accedere al [portale di Azure][].
+1.  Accedere al [portale di Azure classico][].
 
-2.  Nel pannello di navigazione sinistro del portale di Azure fare clic su **Bus di servizio**.
+2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
 
-3.  Nel pannello inferiore del portale di Azure fare clic su **Crea**.
+3.  Nel riquadro inferiore del portale fare clic su **Crea**.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -59,7 +59,7 @@ Per creare uno spazio dei nomi del servizio:
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	Lo spazio dei nomi creato verrà quindi visualizzato nel portale di Azure e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active**.
+	Lo spazio dei nomi creato verrà quindi visualizzato nel portale e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active**.
 
 ## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
@@ -273,9 +273,9 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di inoltro del
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [portale di Azure]: http://manage.windowsazure.com
+  [portale di Azure classico]: http://manage.windowsazure.com
   [Autenticazione della firma di accesso condiviso con il bus di servizio]: service-bus-shared-access-signature-authentication.md
   [esempi di Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [panoramica degli esempi del bus di servizio]: service-bus-samples.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

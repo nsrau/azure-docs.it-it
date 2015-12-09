@@ -135,4 +135,4 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

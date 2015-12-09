@@ -92,7 +92,7 @@ Le considerazioni sulle funzionalità in memoria in fase di anteprima sono dispo
 
 ## A. Installare l'esempio di OLTP in memoria
 
-È possibile creare il database AdventureWorksLT [V12] di esempio con pochi clic nel [portale di anteprima di Azure](http://portal.azure.com/). I passaggi descritti in questa sezione illustrano come migliorare il database AdventureWorksLT con:
+È possibile creare il database AdventureWorksLT [V12] di esempio con pochi clic nel [portale di Azure](http://portal.azure.com/). I passaggi descritti in questa sezione illustrano come migliorare il database AdventureWorksLT con:
 
 - Tabelle in memoria.
 - Una stored procedure compilata in modo nativo.
@@ -100,7 +100,7 @@ Le considerazioni sulle funzionalità in memoria in fase di anteprima sono dispo
 
 #### Procedura di installazione
 
-1. Nel [portale di anteprima di Azure](http://portal.azure.com/) creare un database Premium in un server versione 12. Impostare **Origine** sul database AdventureWorksLT [V12] di esempio.
+1. Nel [portale di Azure](http://portal.azure.com/) creare un database Premium in un server versione 12. Impostare **Origine** sul database AdventureWorksLT [V12] di esempio.
  - Per istruzioni dettagliate, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md).
 
 2. Connettersi al database con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -525,4 +525,4 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 
 - [Monitoraggio dell'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integrazione delle identità locali con Azure Active Directory | Microsoft Azure"
+	pageTitle="Azure AD Connect: Integrazione delle identità locali con Azure Active Directory | Microsoft Azure"
 	description="Articolo relativo ad Azure AD Connect che ne descrive le funzionalità e spiega perché è consigliabile usarlo."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/04/2015"
+	ms.date="12/02/2015"
 	ms.author="andkjell;billmath"/>
 
 # Integrazione delle identità locali con Azure Active Directory
@@ -48,6 +48,7 @@ Il download per Azure AD Connect è disponibile nell'[Area download Microsoft](h
 
 | Soluzione | Scenario |
 | ----- | ----- |
+| Prima di iniziare | <li>[Azure AD Connect: Hardware e prerequisiti](active-directory-aadconnect-prerequisites.md)</li> |
 | [Impostazioni rapide](active-directory-aadconnect-get-started-express.md) | <li>Scelta consigliata e opzione predefinita se è presente una singola foresta Active Directory.</li> <li>Accesso utente con la stessa password tramite la sincronizzazione delle password.</li>
 | [Impostazioni personalizzate](active-directory-aadconnect-get-started-custom.md) | <li>Da usare quando sono presenti più foreste. Supporta numerose [topologie](active-directory-aadconnect-topologies.md) locali.</li> <li>Personalizzazione dell'opzione di accesso, ad esempio tramite AD FS per la federazione o un provider di identità di terze parti.</li> <li>Personalizzazione delle funzionalità di sincronizzazione, ad esempio filtro e writeback.</li>
 | [Aggiornamento da DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Se è presente un server DirSync esistente già in esecuzione.</li>
@@ -60,11 +61,10 @@ Il download per Azure AD Connect è disponibile nell'[Area download Microsoft](h
 
 | Argomento | |
 | --------- | --------- |
-| Hardware e prerequisiti | [Azure AD Connect: Hardware e prerequisiti](active-directory-aadconnect-prerequisites.md) |
 | Scaricare Azure AD Connect | [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Eseguire l'installazione con le Impostazioni rapide | [Installazione rapida di Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Eseguire l'installazione mediante le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
-| Aggiornamento da DirSync | [Aggiornamento dallo strumento Azure AD Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
+| Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
 | Dopo l'installazione | [Verificare l'installazione e assegnare le licenze ](active-directory-aadconnect-whats-next.md) |
 
 ### Altre informazioni su come installare Azure AD Connect
@@ -77,6 +77,7 @@ Preparazione per la gestione delle attività [operative](active-directory-aadcon
 | Concetti relativi alla progettazione | [Concetti relativi alla progettazione per Azure AD Connect](active-directory-aadconnect-design-concepts.md) |
 | Account usati per l'installazione | [Altre informazioni sulle credenziali e le autorizzazioni di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md) |
 | Pianificazione per la gestione delle attività operative | [Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni](active-directory-aadconnectsync-operations.md) |
+| Opzioni di accesso utente | [Opzioni di accesso utente di Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 
 ## Configurare le funzionalità
 Azure AD Connect include numerose funzionalità che è possibile abilitare o che sono abilitate per impostazione predefinita. Alcune funzionalità potrebbero talvolta richiedere attività di configurazione aggiuntive in scenari e topologie specifici.
@@ -106,9 +107,9 @@ Il servizio di sincronizzazione Azure AD Connect viene fornito con una configura
 
 Se è la prima volta che si usa una topologia di sincronizzazione, è consigliabile vedere le nozioni di base e i termini usati nella sezione relativa ai [concetti tecnici](active-directory-aadconnectsync-technical-concepts.md). Azure AD Connect è l'evoluzione di MIIS2003, ILM2007 e FIM2010. Anche se alcuni elementi sono identici, sono state introdotte numerose modifiche.
 
-La [configurazione predefinita](active-directory-aadconnectsync-understanding-default-configuration.md) presuppone che possano essere presenti più foreste. In queste topologie un oggetto utente può essere rappresentato come un contatto in un'altra foresta. L'utente può anche avere una cassetta postale collegata in un'altra foresta di risorse. Il comportamento della configurazione predefinita è descritto [utenti e contatti](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+La [configurazione predefinita](active-directory-aadconnectsync-understanding-default-configuration.md) presuppone che possano essere presenti più foreste. In queste topologie un oggetto utente può essere rappresentato come un contatto in un'altra foresta. L'utente può anche avere una cassetta postale collegata in un'altra foresta di risorse. Il comportamento della configurazione predefinita è descritto in [utenti e contatti](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
-Il modello di configurazione sincronizzato è chiamato [provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md). I flussi di attributi avanzati usano [funzioni](active-directory-aadconnectsync-functions-reference.md) per esprimere le trasformazioni degli attributi. È possibile visualizzare ed esaminare l'intera configurazione con gli strumenti disponibili in Azure AD Connect. Per apportare modifiche alla configurazione, assicurarsi di seguire le [procedure consigliate](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) per semplificare l'adozione delle nuove versioni quando vengono rese disponibili.
+Il modello di configurazione sincronizzato è chiamato [provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md). I flussi di attributi avanzati usano [funzioni](active-directory-aadconnectsync-functions-reference.md) per esprimere le trasformazioni degli attributi. È possibile visualizzare ed esaminare l'intera configurazione con gli strumenti disponibili in Azure AD Connect. Per apportare modifiche alla configurazione, verificare di seguire le [procedure consigliate](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) per semplificare l'adozione delle nuove versioni quando vengono rese disponibili.
 
 ### Personalizzare il servizio di sincronizzazione Azure AD Connect - Passaggi successivi
 
@@ -139,4 +140,4 @@ Presentazione Ignite 2015 su come estendere le directory locali nel cloud.
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

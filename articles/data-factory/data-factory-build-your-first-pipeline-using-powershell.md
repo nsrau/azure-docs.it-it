@@ -43,9 +43,9 @@ Questo articolo non fornisce una panoramica concettuale del servizio Data factor
 In questo passaggio è possibile usare Azure PowerShell per creare una data factory di Azure denominata ADFTutorialDataFactoryPSH.
 
 1. Aprire Azure PowerShell ed eseguire i comandi seguenti. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
-	- Eseguire **Add-AzureAccount** e immettere il nome utente e la password usati per accedere al portale di anteprima di Azure.  
+	- Eseguire **Add-AzureAccount** e immettere il nome utente e la password usati per accedere al portale di Azure.  
 	- Eseguire **Get-AzureSubscription** per visualizzare tutte le sottoscrizioni per l'account.
-	- Eseguire **Select-AzureSubscription** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di anteprima di Azure.
+	- Eseguire **Select-AzureSubscription** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di Azure.
 2. Passare alla modalità AzureResourceManager perché i cmdlet di Data factory di Azure sono disponibili in questa modalità.
 
 		Switch-AzureMode AzureResourceManager
@@ -109,7 +109,7 @@ Si creerà ora un servizio collegato per il cluster HDInsight di Azure su richie
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
@@ -121,7 +121,7 @@ Si creerà ora un servizio collegato per il cluster HDInsight di Azure su richie
 
 	Proprietà | Descrizione
 	-------- | -----------
-	Versione | Specifica che la versione di HDInsight creata è 3.1.
+	Versione | Specifica che la versione di HDInsight creata è 3.2.
 	ClusterSize | Crea un cluster HDInsight con un nodo.
 	TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
 	linkedServiceName | Specifica l'account di archiviazione che sarà usato per archiviare i log generati da HDInsight.
@@ -272,4 +272,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

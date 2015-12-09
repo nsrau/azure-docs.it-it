@@ -46,7 +46,7 @@ Per eseguire l'esempio di codice della query in C#, sono necessari i prerequisit
 - Visual Studio 2013 Update 4 o versioni successive. Ora Microsoft fornisce Visual Studio Community *gratuitamente*.
  - [Download di Visual Studio Community](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Altre opzioni per la versione gratuita di Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - In alternativa, andare direttamente al [passaggio](#InstallVSForFree) corrispondente più avanti in questo argomento che descrive come installare Visual Studio dal [portale di anteprima di Azure](http://portal.azure.com/).
+ - In alternativa, andare direttamente al [passaggio](#InstallVSForFree) corrispondente più avanti in questo argomento, che descrive come installare Visual Studio dal [portale di Azure](http://portal.azure.com/).
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ Per eseguire l'esempio di codice della query in C#, sono necessari i prerequisit
 Per installare Visual Studio, è possibile:
 
 - Installare Visual Studio Community gratuitamente passando alle pagine Web dedicate a Visual Studio in cui sono disponibili download gratuiti o altre opzioni.
-- Accedere al [portale di anteprima di Azure](http://portal.azure.com/) e passare direttamente alla pagina Web per il download, seguendo la procedura descritta di seguito.
+- Accedere al [portale di Azure](http://portal.azure.com/) e passare direttamente alla pagina Web per il download, seguendo la procedura descritta di seguito.
 
 
-### Visual Studio tramite il portale di anteprima di Azure
+### Visual Studio tramite il portale di Azure
 
 
-1. Accedere al [portale di anteprima di Azure](http://portal.azure.com/), http://portal.azure.com/.
+1. Accedere al [portale di Azure](http://portal.azure.com/), http://portal.azure.com/.
 
 2. Fare clic su **ESPLORA* TUTTO** > **database SQL**. Verrà visualizzato un pannello in cui viene eseguita la ricerca dei database.
 
@@ -127,7 +127,7 @@ L'esempio in C# usa l'assembly **System.Configuration.dll** di .NET Framework, q
 ## Passaggio 4: Ottenere la stringa di connessione
 
 
-Per copiare la stringa di connessione necessaria per connettersi al database SQL, usare il [portale di anteprima di Azure](http://portal.azure.com/).
+Per copiare la stringa di connessione necessaria per connettersi al database SQL, usare il [portale di Azure](http://portal.azure.com/).
 
 Per prima cosa, è necessario connettere Visual Studio al database **AdventureWorksLT** del database SQL di Azure.
 
@@ -316,7 +316,7 @@ Tentiamo di mantenere l'esempio per C# il più breve possibile. Tuttavia, abbiam
 Il programma C# client non potrà connettersi al database SQL fino a quando l'indirizzo IP del computer client non viene aggiunto nel firewall del database SQL. Il programma restituirà un messaggio di errore che indica l'indirizzo IP necessario.
 
 
-Per aggiungere l'indirizzo IP, è possibile usare il [portale di anteprima di Azure](http://portal.azure.com/).
+Per aggiungere l'indirizzo IP, è possibile usare il [portale di Azure](http://portal.azure.com/).
 
 
 
@@ -358,4 +358,4 @@ Per altre informazioni, vedere <br/> [Procedura: configurare le impostazioni del
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

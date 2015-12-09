@@ -20,7 +20,7 @@
 
 Informazioni su come compilare un'applicazione di ricerca .NET personalizzata in Visual Studio 2013 o versione successiva che usa Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, per l'esperienza di ricerca. Nell'esercitazione viene usato [.NET SDK di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) per compilare le classi per gli oggetti e le operazioni usate nell'esercizio, nonché l'API REST del servizio Ricerca di Azure.
 
-Per eseguire questo esempio, è necessario un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com).
+Per eseguire questo esempio, è necessario un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure classico](https://portal.azure.com).
 
 > [AZURE.TIP]Scaricare il codice sorgente per questa esercitazione dalla pagina [Esempi .NET Ricerca di Azure](http://go.microsoft.com/fwlink/p/?LinkId=530196). Informazioni su come impostare le connessioni e inviare le richieste sono disponibili in [Come utilizzare la ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md).
 
@@ -34,7 +34,7 @@ In questa applicazione, il programma **DataIndexer** compila e carica l'indice u
 
 ## Creare il servizio Ricerca di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure classico](https://portal.azure.com).
 
 2. Nell'indice, fare clic su **Nuovo** > **Dati e archiviazione** > **Ricerca**.
 
@@ -794,4 +794,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

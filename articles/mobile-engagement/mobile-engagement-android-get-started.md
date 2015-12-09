@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="12/02/2015"
 	ms.author="piyushjo" />
 
 # Introduzione a Azure Mobile Engagement per app Android
@@ -56,7 +56,7 @@ Si creerà un'app di base con Android Studio per illustrare l'integrazione.
     ![][2]
 
 3. Selezionare il fattore di forma di destinazione e il livello di API e quindi fare clic su **Next**.
-	
+
 	>[AZURE.NOTE]Mobile Engagement richiede almeno un livello API 10 (Android 2.3.3).
 
     ![][3]
@@ -102,7 +102,7 @@ Scaricare e integrare la libreria SDK
 		import com.microsoft.azure.engagement.EngagementAgent;
 		import com.microsoft.azure.engagement.EngagementConfiguration;
 
-3. Tornare al portale di Azure nella pagina **Informazioni di connessione** dell'app e copiare la **stringa di connessione**.
+3. Tornare al portale di Azure classico, nella pagina **Informazioni di connessione** dell'app, e copiare la **stringa di connessione**.
 
 	  ![][9]
 
@@ -224,7 +224,7 @@ Per le app reali, è possibile usare un'icona adatta alle notifiche in base alle
 
 >[AZURE.TIP]Per assicurarsi di usare la risoluzione corretta per l'icona, vedere [questi esempi](https://www.google.com/design/icons). Scorrere verso il basso fino alla sezione **Notification**, fare clic su un'icona e quindi su `PNGS` per scaricare il set di icone di tipo drawable. È possibile scegliere le cartelle drawable da usare con una risoluzione specifica per ogni versione dell'icona.
 
-##Creare un progetto Google Cloud Messaging con chiave API 
+##Creare un progetto Google Cloud Messaging con chiave API
 
 [AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
@@ -263,16 +263,16 @@ Per consentire a Mobile Engagement di inviare notifiche push per conto dell'uten
 
 1. Passare al portale di Mobile Engagement
 
-	Dal portale di Azure verificare che l'app usata per questo progetto sia aperta e fare clic sul pulsante **Attiva** nella parte inferiore della schermata.
+	Nel portale di Azure classico verificare che l'app usata per questo progetto sia aperta e fare clic sul pulsante **Attiva** nella parte inferiore della schermata.
 
 	![][15]
 
 2. Fare quindi clic sulla sezione **Impostazioni** -> **Push nativo** per immettere la chiave GCM:
-	  
+
 	![][16]
 
 3. Fare clic sull'icona **Modifica** vicino a **Chiave API** nella sezione delle impostazioni **GCM**, come illustrato di seguito:
-	  
+
 	![][17]
 
 4. Nella finestra a comparsa incollare la chiave del server GCM ottenuta prima e quindi fare clic su **OK**.
@@ -284,13 +284,13 @@ Per consentire a Mobile Engagement di inviare notifiche push per conto dell'uten
 A questo punto si crea una campagna di notifica push semplice che invia una notifica push all'app.
 
 1. Passare alla scheda **REACH** nel portale di Mobile Engagement.
-	 
+
 2. Fare clic su **Nuovo annuncio** per creare una campagna di notifica push.
-	 
+
 	![][20]
 
 3. Impostare il primo campo della campagna seguendo questa procedura:
-	 
+
 	![][21]
 
 	a. Assegnare un nome alla campagna.
@@ -310,12 +310,12 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
 5. L'impostazione della campagna più semplice possibile è stata completata. Ora scorrere nuovamente verso il basso e fare clic sul pulsante **Crea** per salvare la campagna.
 
 6. Come ultimo passaggio, fare clic su **Attiva** per attivare la campagna e inviare le notifiche push.
-    
+
 	![][24]
 
 <!-- URLs. -->
-[Mobile Engagement SDK per Android]: http://go.microsoft.com/?linkid=9863935
-[Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[Mobile Engagement SDK per Android]: https://aka.ms/vq9mfn
+[Mobile Engagement Android SDK documentation]: https://aka.ms/tujlkm
 [Come integrare Engagement in Android]: https://azure.microsoft.com/it-IT/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
 
 <!-- Images. -->
@@ -339,4 +339,4 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

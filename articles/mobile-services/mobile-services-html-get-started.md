@@ -57,11 +57,11 @@ Per completare l'esercitazione è necessario quanto segue:
 
 ## Crea nuova app HTML
 
-Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
+Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di Azure classico per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
 
 In questa sezione si creerà una nuova app HTML connessa al servizio mobile.
 
-1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1.  Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 
 2. Nella scheda Quickstart fare clic su **Windows** in **Choose platform** ed espandere **Create a new HTML app**.
@@ -108,7 +108,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
 	> [AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file page.js.
 
-4. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItems**.
+4. Tornare al [portale di Azure classico], fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
    	![][11]
 
@@ -121,7 +121,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 * **[Aggiungere l'autenticazione all'app]** Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* **[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]** Ulteriori informazioni su come utilizzare Servizi mobili con HTML/JavaScript
+* **[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]** Altre informazioni su come utilizzare Servizi mobili con HTML/JavaScript
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -147,11 +147,11 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 <!-- URLs. -->
 [Aggiungere l'autenticazione all'app]: mobile-services-html-get-started-users.md
 
-[Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Installazione guidata piattaforma Web Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [versione più recente di Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

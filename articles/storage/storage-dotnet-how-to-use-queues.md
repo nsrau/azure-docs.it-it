@@ -244,8 +244,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 - Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio di accodamento:
     - [Informazioni di riferimento sulla libreria client di archiviazione per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
-- Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso ai dati in Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
-- Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Introduzione ad Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/).
+- Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/).
 - Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
     - Per archiviare dati strutturati, usare [Archiviazione tabelle](storage-dotnet-how-to-use-tables.md). 
     - Per archiviare dati non strutturati, usare [Archiviazione BLOB](storage-dotnet-how-to-use-blobs.md).
@@ -255,7 +254,6 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
@@ -263,4 +261,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

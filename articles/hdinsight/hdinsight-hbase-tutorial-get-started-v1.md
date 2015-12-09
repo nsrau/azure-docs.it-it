@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Esercitazione di HBase: Introduzione a HBase in Hadoop | Microsoft Azure"
 	description="Seguire questa esercitazione di HBase per iniziare a usare Apache HBase con Hadoop in HDInsight. Creare tabelle dalla shell HBase e sottoporle a query tramite Hive."
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+	keywords="Apache hbase, hbase, shell di hbase, esercitazione hbase"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="12/02/2015"
 	ms.author="jgao"/>
 
 
 
 # Esercitazione di HBase: Introduzione all'uso di Apache HBase con Hadoop in HDInsight.
 
-Informazioni su come eseguire il provisioning di un cluster HBase in HDInsight, creare tabelle HBase su cui eseguire query usando Hive. Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase][hdinsight-hbase-overview].
+Informazioni su come creare un cluster HBase in HDInsight, creare tabelle HBase ed eseguire query usando Hive. Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase][hdinsight-hbase-overview].
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
@@ -43,11 +43,11 @@ Prima di iniziare questa esercitazione di HBase, è necessario disporre di quant
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Una workstation** con Visual Studio 2013: per le istruzioni, vedere [Installazione di Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
-## Effettuare il provisioning di un cluster HBase
+## Creare un cluster HBase
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**Per effettuare il provisioning di un cluster HBase usando il portale di Azure**
+**Per creare un cluster HBase tramite il portale di Azure**
 
 
 1. Accedere al [portale di Azure][azure-management-portal].
@@ -56,13 +56,13 @@ Prima di iniziare questa esercitazione di HBase, è necessario disporre di quant
 	>[AZURE.NOTE]È possibile usare anche l'opzione **Creazione personalizzata**.
 3. Immettere **Nome cluster**, **Dimensione dl cluster**, Password utente HTTP e **Account di archiviazione**.
 
-	![Provisioning di cluster HBase in HDInsight][img-hdinsight-hbase-cluster-quick-create]
+	![Creare cluster HBase in HDInsight][img-hdinsight-hbase-cluster-quick-create]
 
 	Il NOME UTENTE HTTP predefinito è admin. Per personalizzare il nome, usare l'opzione CREAZIONE PERSONALIZZATA.
 
-	Un account di archiviazione di Azure è necessario per usare il processo di provisioning predefinito di HBase. Per crearne uno, vedere [Creare un account di archiviazione di Azure][azure-create-storageaccount]. L'opzione Creazione personalizzata offre la possibilità di creare un account di archiviazione con il processo di provisioning del cluster.
+	Un account di archiviazione di Azure è necessario per usare il processo di creazione predefinito di HBase. Per crearne uno, vedere [Creare un account di archiviazione di Azure][azure-create-storageaccount]. L'opzione Creazione personalizzata offre la possibilità di creare un account di archiviazione con il processo di creazione del cluster.
 
-	> [AZURE.WARNING]Per garantire disponibilità elevata dei servizi di HBase, è necessario effettuare il provisioning di un cluster contenente almeno **tre** nodi. Questo assicura che, se un nodo viene disattivato, le aree dati HBase siano disponibili in altri nodi.
+	> [AZURE.WARNING]Per garantire disponibilità elevata dei servizi di HBase, è necessario creare un cluster contenente almeno **tre** nodi. Questo assicura che, se un nodo viene disattivato, le aree dati HBase siano disponibili in altri nodi.
 
 	> Se si è in fase di apprendimento di HBase, scegliere sempre 1 per la dimensione del cluster ed eliminare il cluster dopo ogni uso per ridurre il costo.
 
@@ -179,7 +179,7 @@ In un cluster a disponibilità elevata verrà invece visualizzato un collegament
 2. Fare clic su **HDINSIGHT** nel riquadro sinistro. Verrà visualizzato un elenco di cluster, incluso quello creato precedentemente in questa esercitazione.
 3. Fare clic sul nome del cluster in cui eseguire il processo Hive.
 4. Fare clic su **CONSOLE QUERY** nella parte inferiore della pagina per aprire il dashboard del cluster. Verrà aperta una pagina Web in una scheda diversa del browser.
-5. Immettere l'account utente e la password per Hadoop. Il nome utente predefinito è **admin** e la password corrisponde a quella immessa durante il processo di provisioning. Si apre una nuova scheda del browser.
+5. Immettere l'account utente e la password per Hadoop. Il nome utente predefinito è **admin** e la password corrisponde a quella immessa durante il processo di creazione. Si apre una nuova scheda del browser.
 6. Fare clic su **Editor Hive** nella parte superiore della pagina. L'editor Hive ha un aspetto simile a questo:
 
 	![Dashboard cluster di HDInsight][img-hdinsight-hbase-hive-editor]
@@ -329,12 +329,12 @@ In un cluster a disponibilità elevata verrà invece visualizzato un collegament
 
 
 ## Passaggi successivi
-In questa esercitazione di HBase per HDInsight si è appreso come effettuare il provisioning di un cluster HBase e come creare tabelle e visualizzare i dati delle tabelle dalla shell HBase. Si è inoltre appreso come usare una query Hive sui dati nelle tabelle HBase e come usare le API REST C# di HBase per creare una tabella HBase e recuperare i dati dalla tabella.
+In questa esercitazione di HBase per HDInsight si è appreso come creare tabelle e un cluster HBase e come visualizzare i dati delle tabelle dalla shell HBase. Si è inoltre appreso come usare una query Hive sui dati nelle tabelle HBase e come usare le API REST C# di HBase per creare una tabella HBase e recuperare i dati dalla tabella.
 
 Per ulteriori informazioni, vedere:
 
 - [Panoramica di HDInsight HBase][hdinsight-hbase-overview]\: HBase è un database NoSQL open source Apache basato su Hadoop che fornisce un accesso casuale e coerenza assoluta a grandi quantità di dati non strutturati e semistrutturati.
-- [Provisioning di cluster HBase in Rete virtuale di Azure][hdinsight-hbase-provision-vnet]\: con l'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti alle stessa rete virtuale delle applicazioni in modo che queste ultime possano comunicare direttamente con HBase.
+- [Creazione di cluster HBase in Rete virtuale di Azure][hdinsight-hbase-provision-vnet]\: con l'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti alle stessa rete virtuale delle applicazioni in modo che queste ultime possano comunicare direttamente con HBase.
 - [Configurare la replica HBase in HDInsight](hdinsight-hbase-geo-replication.md): informazioni su come configurare la replica HBase in due data center di Azure.
 - [Analisi dei sentimenti Twitter con HBase in HDInsight][hbase-twitter-sentiment]\: informazioni su come eseguire [l'analisi dei sentimenti](http://en.wikipedia.org/wiki/Sentiment_analysis) dei Big Data in tempo reale usando HBase in un cluster Hadoop in HDInsight.
 
@@ -365,4 +365,4 @@ Per ulteriori informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

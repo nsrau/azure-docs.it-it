@@ -30,7 +30,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
 
 ## Creare un'app Web
 
-1. Nel [portale di anteprima Azure](https://portal.azure.com/) fare clic su **Nuovo > Web e dispositivi mobili > App Web**. 
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuovo > Web e dispositivi mobili > App Web**. 
 
 	![][1]
 
@@ -118,4 +118,4 @@ Dopo aver creato l'app Web e il piano di servizio app, è consigliabile aumentar
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

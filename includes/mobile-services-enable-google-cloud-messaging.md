@@ -1,37 +1,24 @@
->[AZURE.NOTE]Per completare questa procedura, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
+1. Passare a [Google Cloud Console](https://console.developers.google.com/project) ed eseguire l'accesso con le credenziali dell'account Google. 
+ 
+2. Fare clic su **Crea progetto**, digitare un nome di progetto e quindi fare clic su **Crea**. Se necessario, eseguire la verifica SMS, quindi fare nuovamente clic su **Crea**.
 
-1. Passare a [Google Cloud Console](https://console.developers.google.com/project), eseguire l'accesso con le credenziali dell'account Google e quindi fare clic su **Create Project**.
+   	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
+	 Digitare il nome desiderato in **Nome progetto** e fare clic su **Crea progetto**.
 
-	>[AZURE.NOTE]Se si dispone già di un progetto esistente, dopo l'accesso viene visualizzata la pagina <strong>Projects</strong>. Per creare un nuovo progetto dalla pagina Dashboard, espandere <strong>API Project</strong>, fare clic su <strong>Create</strong> in <strong>Other projects</strong> e quindi immettere un nome di progetto e fare clic su <strong>Create project</strong>.
+3. Prendere nota del numero di progetto nella sezione **Projects**. Sarà necessario impostare questo valore come variabile *PROJECT\_ID* nel client.
 
-2. Immettere un nome di progetto, accettare le condizioni per l'utilizzo del servizio, quindi fare clic su **Create**. Se necessario, eseguire la verifica SMS, quindi fare nuovamente clic su **Create**.
+4. Nel dashboard del progetto fare clic su **Usa API Google** > **Cloud Messaging for Android** e, nella pagina successiva, fare clic su **Abilita API**.
 
-3. Prendere nota del numero di progetto nella sezione **Projects**.
+5. Nello strumento di gestione delle API fare clic su **Credenziali** > **Aggiungi credenziali** > **Chiave API**.
 
-	Più avanti nell'esercitazione si imposterà questo valore come variabile PROJECT\_ID nel client.
+   	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
 
-4. Nella colonna di sinistra espandere **APIs & auth**, fare clic su **APIs**, quindi scorrere verso il basso e fare clic su **Cloud Messaging for Android**. Nella pagina successiva fare clic su **Enable API** e accettare le condizioni per l'uso del servizio.
-
-	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
-
-5. Fare clic su **Credentials**, quindi su **Add Credential**->**API Key**
-
-
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
-
-6. In **Create a new key** fare clic su **Server key**. Nella finestra successiva fare clic su **Create**.
-
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key5.png)
-
-
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key6.png)
+6. In **Crea una nuova chiave** fare clic su **Chiave server**, digitare un nome per la chiave e quindi fare clic su **Crea**.
 
 7. Prendere nota del valore di **API KEY**.
 
-
 	Questo valore della chiave dell'API verrà usato successivamente per abilitare Azure per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

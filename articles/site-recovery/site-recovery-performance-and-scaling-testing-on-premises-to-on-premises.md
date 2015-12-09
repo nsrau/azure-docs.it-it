@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Azure Site Recovery: Test di prestazioni e scalabilità: Da locale a locale"
-	description="In questo articolo viene illustrato il test dell'impatto sulle prestazioni della replica utilizzando Azure Site Recovery in una distribuzione da locale a locale."
-	services="site-recovery"
+	pageTitle="Azure Site Recovery: test di prestazioni e risultati di scalabilità per la replica Hyper-V da locale a locale"
+	description="Questo articolo fornisce informazioni sul test di prestazioni eseguito durante un processo di replica da locale a locale usando Azure Site Recovery."
+	services="site-recovery" 
 	documentationCenter=""
-	authors="csilauraa"
+	authors="rayne-wiselman"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -13,24 +13,25 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
-	ms.author="lauraa"/>
+	ms.date="12/01/2015"
+	ms.author="raynew"/>
 
-# Test di prestazioni e scalabilità: da locale a locale
+# Azure Site Recovery: test di prestazioni e risultati di scalabilità per la replica Hyper-V da locale a locale
 
-Microsoft Azure Site Recovery orchestra e gestisce la replica del centro dati primario in una seconda posizione in modo che i dati vengano sottoposti a backup e recuperati in caso di interruzioni pianificate e non pianificate. È possibile eseguire il backup di cloud privati locali situati in System Center Virtual Machine Manager (VMM) in un'altra posizione locale o in Archiviazione di Microsoft Azure. Per eseguire la replica, VMM utilizza Replica Hyper-V, un meccanismo di replica incorporato in Hyper-V in Windows Server 2012 e Windows Server 2012 R2. Tale meccanismo fornisce la replica asincrona delle macchine virtuali Hyper-V tra due server di hosting. È possibile replicare qualsiasi carico di lavoro del server che possa essere virtualizzato in Hyper-V. La replica funziona su qualsiasi comune rete basata su IP. Replica Hyper-V funziona con server autonomi, cluster di failover o una combinazione di entrambi.
+Microsoft Azure Site Recovery consente di coordinare e gestire la replica di macchine virtuali e server fisici in Azure o in un data center secondario. Questo articolo illustra i risultati del test di prestazioni eseguito durante la replica di macchine virtuali Hyper-V tra due data center locali.
 
-In questo argomento viene illustrato il test dell'impatto sulle prestazioni della replica utilizzando Azure Site Recovery in una distribuzione da locale a locale. Vengono fornite informazioni dettagliate sui parametri e le impostazioni di configurazione utilizzate nel test, viene illustrato il passaggio di distribuzione del test e vengono forniti risultati di test dettagliati.
 
-## Obiettivi di test
 
-L'obiettivo è esaminare come Azure Site Recovery viene eseguito durante la replica nello stato stazionario. La replica dello stato stazionario si verifica quando le macchine virtuali hanno completato la replica iniziale e sincronizzano le modifiche differenziali. È importante misurare le prestazioni usando lo stato stazionario perché è lo stato in cui resta la maggior parte delle macchine virtuali a meno che non si verifichino interruzioni impreviste.
+## Panoramica
 
-## Esecuzione della distribuzione di test
+L'obiettivo del test è analizzare le prestazioni di Azure Site Recovery durante la replica in uno stato stazionario. La replica dello stato stazionario si verifica quando le macchine virtuali hanno completato la replica iniziale e sincronizzano le modifiche differenziali. È importante misurare le prestazioni usando lo stato stazionario perché è lo stato in cui resta la maggior parte delle macchine virtuali a meno che non si verifichino interruzioni impreviste.
 
-La distribuzione di test è costituita da due siti locali con un server VMM in ognuno. Entrambi i server VMM sono registrati in un insieme di credenziali di Site Recovery di Azure. Questa distribuzione di test è tipica di una distribuzione sede centrale/filiale, con la sede centrale che funge da sito primario e la filiale che funge da sito secondario o di ripristino.
 
-### Passaggi della distribuzione di test
+La distribuzione di test è costituita da due siti locali con un server VMM in ciascuno di essi. Questa distribuzione di test è tipica di una distribuzione sede centrale/filiale, con la sede centrale che funge da sito primario e la filiale che funge da sito secondario o di ripristino.
+
+### Passaggi eseguiti
+
+Passaggi necessari per il superamento del test:
 
 1. Creare macchine virtuali utilizzando modelli VMM.
 
@@ -104,9 +105,9 @@ Il grafico seguente mostra la velocità effettiva della macchine virtuali con ca
 
 ### Conclusioni
 
-I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Replica, si adatta bene con un sovraccarico minimo per un cluster di grandi dimensioni. Azure Site Recovery consente di eseguire in modo semplice distribuzione, replica, gestione e monitoraggio. Replica Hyper-V fornisce l'infrastruttura necessaria per la corretta scalabilità della replica. Per la pianificazione di una distribuzione ottimale, è consigliabile scaricare [Hyper-V Replica Capacity Planner](https://www.microsoft.com/it-IT/download/details.aspx?id=39057).
+I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Replica, si adatta bene con un sovraccarico minimo per un cluster di grandi dimensioni. Azure Site Recovery consente di eseguire in modo semplice distribuzione, replica, gestione e monitoraggio. Replica Hyper-V fornisce l'infrastruttura necessaria per la corretta scalabilità della replica. Per la pianificazione di una distribuzione ottimale, è consigliabile scaricare [Hyper-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057).
 
-## Ambiente di distribuzione di test
+## Ambiente di test nel dettaglio
 
 ### Sito primario
 
@@ -194,24 +195,13 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 
 |Metrica|Contatore|
 |---|---|
-|CPU|\\Processore (\_Totale) \\ % tempo del processore|
-|Memoria disponibile|\\MByte della memoria disponibile|
-|IOPS|\\DiscoFisico (\_Totale)\\Trasferimentisudisco/sec|
-| Lettura VM (IOPS) operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Lettura operazioni/Sec|
-| Scrittura VM (IOPS)operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Operazioni di scrittura/S|
-| Produttività di lettura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>) \\Byte di lettura/sec|
-| produttività di scrittura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>)\\Byte di scrittura/sec|
+|CPU|\\Processore(\_Totale)\\% tempo del processore| |Memoria disponibile|\\Memoria\\MByte disponibili| |IOPS|\\DiscoFisico(\_Totale)\\Trasferimenti su disco/sec| | Operazioni lettura MV (IOPS)/sec|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Operazioni lettura/sec| |Operazioni scrittura MV (IOPS)/sec|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Operazioni scrittura/S| |Produttività lettura MV|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Byte lettura/sec| |Produttività scrittura MV|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Byte scrittura/sec|
 
 
 ## Passaggi successivi
 
-Per avviare la distribuzione  
-
-- [Configurare la protezione tra un sito VMM locale e Azure](site-recovery-vmm-to-azure.md)
-- [Configurare la protezione tra un sito Hyper-V locale e Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Configurare la protezione tra due siti VMM locali](site-recovery-vmm-to-vmm.md)
-- [Configurare la protezione tra due siti VMM locali con SAN](site-recovery-vmm-san.md)
-- [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm.md)
+
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

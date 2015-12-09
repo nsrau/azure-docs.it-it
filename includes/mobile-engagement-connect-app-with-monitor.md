@@ -1,12 +1,10 @@
-Questa sezione descrive come assicurarsi che l'app si connetta al back-end di Mobile Engagement usando la funzionalità di monitoraggio in tempo reale di Mobile Engagement.
+Questa sezione descrive come connettere l'app al back-end di Mobile Engagement usando la funzionalità di monitoraggio in tempo reale di Mobile Engagement.
 
-1. Passare al portale di Mobile Engagement. Verificare che l'app usata per questo progetto sia attiva e fare clic sul pulsante **Engage** nella parte inferiore della schermata:
+1. Nell'account **Azure Mobile Engagement**, accertarsi di selezionare l'app che si desidera monitorare e gestire nel portale di **Mobile Engagement**. Accedere al portale di Mobile Engagement facendo clic sul pulsante **Engagement** nella parte inferiore. 
 
 	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 
-2. Viene visualizzato il portale Mobile Engagement. Fare clic sulla scheda **Monitoraggio**.
-	 
-	![](./media/mobile-engagement-connect-app-with-monitor/click-monitor-tab.png)
+2. Viene visualizzato il portale Mobile Engagement. Se non è selezionata la scheda Monitoraggio, fare clic su **Monitoraggio**.
 
 3. Verranno visualizzati, in tempo reale, tutti i dispositivi in cui l'app verrà avviata.
 	 
@@ -14,4 +12,4 @@ Questa sezione descrive come assicurarsi che l'app si connetta al back-end di Mo
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

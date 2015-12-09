@@ -59,7 +59,7 @@ Quando i dati si trovano in un'unica posizione, è possibile spostarli nella dat
 
 ## Uso di Data factory di Azure
 
-Dopo avere configurato tutti gli elementi, è possibile iniziare a configurare la pipeline passando all'istanza di Data factory di Azure nel portale di anteprima di Azure. Per eseguire questa operazione, passare al [portale di Azure](portal.azure.com) e selezionare la data factory dal menu a sinistra.
+Dopo aver configurato tutti gli elementi, è possibile iniziare a configurare la pipeline passando all'istanza di Data factory di Azure nel portale di Azure. Per eseguire questa operazione, passare al [portale di Azure classico](portal.azure.com) e selezionare la data factory dal menu a sinistra.
 
 Sarà quindi necessario eseguire tre passaggi per configurare la pipeline di Data factory di Azure per il trasferimento dei dati al data warehouse, ovvero collegamento dei servizi, definizione dei set di dati e creazione della pipeline.
 
@@ -206,4 +206,4 @@ Nella sezione 'Creare e distribuire' fare clic su 'Più comandi' e quindi 'Nuova
 	}
 	
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -39,11 +39,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## Creare una nuova app di Windows universale
 
-Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app di Windows universale o per modificare un progetto app esistente per Windows Store o Windows Phone per connettersi al servizio mobile.
+Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di Azure classico per creare una nuova app Windows universale o per modificare un progetto app esistente per Windows Store o Windows Phone per connettersi al servizio mobile.
 
 In questa sezione si creerà una nuova app Windows universale connessa al servizio mobile.
 
-1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1.  Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 
 2. Nella scheda Quickstart fare clic su **Windows** in **Choose platform** ed espandere **Create a new Windows Store app**.
@@ -69,13 +69,13 @@ In questa sezione si creerà una nuova app Windows universale connessa al serviz
 ## Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
-* [Introduzione alla sincronizzazione dei dati offline] Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
+* [Uso della sincronizzazione dei dati offline] Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
 * [Aggiungere l'autenticazione all'app di Servizi mobili][Get started with authentication] Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
 * [Aggiungere notifiche push all'app][Get started with push notifications] Informazioni sull'invio di una notifica push di base all'app.
 
-* [Come utilizzare la libreria client .NET](mobile-services-windows-dotnet-how-to-use-client-library.md) Informazioni su come eseguire una query nel servizio mobile, utilizzare i dati e accedere alle API personalizzate.
+* [Come utilizzare la libreria client .NET](mobile-services-windows-dotnet-how-to-use-client-library.md) Informazioni su come eseguire una query nel servizio mobile, usare i dati e accedere alle API personalizzate.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -90,12 +90,12 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 
 <!-- URLs. -->
-[Introduzione alla sincronizzazione dei dati offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Uso della sincronizzazione dei dati offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Get started with authentication]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Visual Studio 2013 Express per Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

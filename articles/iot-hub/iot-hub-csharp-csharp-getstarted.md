@@ -22,7 +22,7 @@
 
 L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. Una delle maggiori difficoltà con i progetti IoT è quella di connettere in modo affidabile e sicuro i dispositivi al back-end applicazioni. Per semplificare questo scenario, l'hub IoT di Azure offre messaggistica da dispositivo a cloud e da cloud a dispositivo affidabile su scala elevatissima, consente comunicazioni sicure con credenziali di sicurezza e controllo di accesso per ogni dispositivo e include librerie di dispositivi per i linguaggi e le piattaforme più comuni.
 
-Questa esercitazione illustra come usare il portale di anteprima di Azure per creare un hub IoT. Mostra anche come creare un'identità del dispositivo nell'hub IoT, creare un dispositivo simulato che invia messaggi dal dispositivo al cloud e riceve questi messaggi dal back-end cloud.
+Questa esercitazione illustra non solo come usare il portale di Azure per creare un hub IoT, Mostra anche come creare un'identità del dispositivo nell'hub IoT, creare un dispositivo simulato che invia messaggi dal dispositivo al cloud e riceve questi messaggi dal back-end cloud.
 
 Al termine di questa esercitazione si avranno tre applicazioni console Windows:
 
@@ -40,7 +40,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 ## Creare un hub IoT
 
-1. Accedere al [portale di anteprima di Azure].
+1. Accedere al [portale di Azure].
 
 2. Nell'indice fare clic su **Nuovo**, quindi su **Internet delle cose** e infine su **Hub IoT**.
 
@@ -115,11 +115,10 @@ Altre informazioni sull'hub IoT:
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
-[portale di anteprima di Azure]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 
 [Inviare messaggi da cloud a dispositivo con l'hub IoT]: iot-hub-csharp-csharp-c2d.md
 [Elaborare messaggi da dispositivo a cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Elaborare i messaggi da dispositivo a cloud]: iot-hub-csharp-csharp-process-d2c.md
 [Caricamento di file da dispositivi]: iot-hub-csharp-csharp-file-upload.md
 
 [Panoramica dell'hub IoT]: iot-hub-what-is-iot-hub.md
@@ -130,4 +129,4 @@ Altre informazioni sull'hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

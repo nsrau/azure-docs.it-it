@@ -37,7 +37,7 @@ Dopo aver distribuito il sito WordPress scalabile e aver eseguito il provisionin
 
 ## Abilitare lo shim Memcache per app Web
 
-Per configurare lo shim Memcache, è necessario creare tre impostazioni di app. Questa operazione può essere eseguita usando un'ampia gamma di metodi, inclusi il [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), il [portale precedente][3], i [cmdlet PowerShell di Azure][5] o l'[interfaccia della riga di comando di Azure][5]. Ai fini di questo post, per configurare le impostazioni dell'app verrà usato il [portale di Azure][4]. I seguenti valori possono essere recuperati dal pannello **Impostazioni** dell'istanza di Cache Redis.
+Per configurare lo shim Memcache, è necessario creare tre impostazioni di app. Questa operazione può essere eseguita usando un'ampia gamma di metodi, tra cui il [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), il [portale classico][3], i [cmdlet di Azure PowerShell][5] o l'[interfaccia della riga di comando di Azure][5]. Ai fini di questo post, per configurare le impostazioni dell'app verrà usato il [portale di Azure][4]. I seguenti valori possono essere recuperati dal pannello **Impostazioni** dell'istanza di Cache Redis.
 
 ![Pannello Impostazioni di Cache Redis di Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -180,7 +180,6 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [0]: http://bit.ly/1F0m3tw
@@ -198,4 +197,4 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

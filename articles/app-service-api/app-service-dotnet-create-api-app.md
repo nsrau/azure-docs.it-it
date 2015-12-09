@@ -18,11 +18,7 @@
 
 # Creare un'app per le API ASP.NET nel servizio app di Azure
 
-> [AZURE.SELECTOR]
-- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
-- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
-- [Node.js](app-service-api-nodejs-api-app.md)
-- [Java](app-service-api-java-api-app.md)
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Panoramica
 
@@ -52,7 +48,7 @@ L'app per le API è ora pronta per essere distribuita e a questo scopo è possib
 
 Per informazioni su come usare codice client generato automaticamente per chiamare le app per le API, vedere [Usare un'app per le API da un client .NET](app-service-api-dotnet-consume.md).
 
-Per informazioni su come personalizzare i metadati Swagger generati automaticamente per un'app per le API, vedere [Personalizzare le definizioni delle API generate da Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
+Per informazioni su come personalizzare i metadati di Swagger generati automaticamente per un'app per le API, vedere [Personalizzare le definizioni delle API generate da Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
 
 Per informazioni su come creare, eliminare e configurare le app per le API nel portale di anteprima di Azure, vedere [Gestire le app per le API](app-service-api-manage-in-portal.md).
 
@@ -60,4 +56,4 @@ Per informazioni su come autenticare gli utenti delle app per le API, vedere [Au
 
 Per informazioni sulle funzionalità delle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

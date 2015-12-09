@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/16/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Distribuire e gestire un dispositivo virtuale StorSimple in Azure
@@ -55,7 +55,7 @@ Quando si utilizza il dispositivo virtuale StorSimple, tenere presenti le seguen
 
 - La sottoscrizione a Microsoft Azure consente di proteggere il dispositivo virtuale. Ciò significa che se l'utente utilizza il dispositivo virtuale in presenza di una sottoscrizione ad Azure compromessa, anche i dati memorizzati nel dispositivo virtuale possono essere vulnerabili.
 
-- La chiave pubblica del certificato utilizzato per crittografare i dati archiviati in Azure StorSimple viene resa disponibile per il portale Azure; la chiave privata viene conservata nel dispositivo StorSimple. Nel dispositivo virtuale StorSimple le chiavi pubbliche e private vengono archiviate entrambe in Azure.
+- La chiave pubblica del certificato usato per crittografare i dati archiviati in Azure StorSimple viene resa disponibile per il portale di Azure classico e la chiave privata viene conservata nel dispositivo StorSimple. Nel dispositivo virtuale StorSimple le chiavi pubbliche e private vengono archiviate entrambe in Azure.
 
 - Il dispositivo virtuale è ospitato nel data center di Microsoft Azure.
 
@@ -94,7 +94,7 @@ Effettuare i seguenti aggiornamenti del servizio StorSimple di Azure, prima di c
 
 Prima di iniziare, verificare quanto segue:
 
-- L'utente dispone delle credenziali di accesso relative all'account del portale di Azure.
+- L'utente dispone delle credenziali di accesso relative all'account del portale di Azure classico.
 
 - L'utente dispone delle credenziali di accesso relative all'account di archiviazione di Azure.
 
@@ -115,7 +115,7 @@ Dopo aver creato una rete virtuale, configurato un servizio StorSimple Manager e
 
 Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito:
 
-1.  Nel portale di Azure, accedere al servizio **StorSimple Manager**.
+1.  Nel portale di Azure classico accedere al servizio **StorSimple Manager**.
 
 2. Visitare la pagina **Dispositivi**.
 
@@ -283,9 +283,9 @@ E’ necessario eseguire le procedure descritte in [Connessione in remoto al dis
 
 Tuttavia, se si desidera connettersi direttamente al dispositivo virtuale da un altro computer non compreso nella rete virtuale oppure nell'ambiente di Microsoft Azure, è necessario creare endpoint aggiuntivi, come descritto nella procedura seguente.
 
-Per creare un endpoint pubblico nel dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito:
+Per creare un endpoint pubblico nel dispositivo virtuale StorSimple, seguire questa procedura:
 
-1. Accedere al portale di Azure.
+1. Accedere al portale di Microsoft Azure classico.
 
 - Fare clic su **Macchine virtuali**, quindi selezionare la macchina virtuale che viene utilizzata come dispositivo virtuale.
 
@@ -369,7 +369,7 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 ### Per arrestare il dispositivo virtuale StorSimple
 
-1. Accedere al portale di Azure.
+1. Accedere al portale di Microsoft Azure classico.
 
 2. Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
 
@@ -377,7 +377,7 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 ### Per eliminare il dispositivo virtuale StorSimple
 
-1. Accedere al portale di Azure.
+1. Accedere al portale di Microsoft Azure classico.
 
 - Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
 
@@ -388,4 +388,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 Per amministrare il dispositivo virtuale, fare riferimento a un elenco dettagliato dei flussi di lavoro in [Amministrare il dispositivo StorSimple utilizzando il servizio di gestione di StorSimple](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -61,7 +61,7 @@ Nelle sezioni seguenti sono disponibili informazioni su SQL Server nel cloud pub
 
 Il **database SQL di Microsoft Azure (Database SQL di Azure)** è un database relazionale distribuito come servizio ospitato sul cloud di Azure, che rientra nella categorie di settore *SaaS (Software-as-a-Service)* e *PaaS (Platform-as-a-Service)*. Il database SQL di Azure si basa su hardware e software standardizzati appartenenti, ospitati e mantenuti da Microsoft. Con il database SQL è possibile eseguire operazioni di sviluppo direttamente nel servizio con le funzioni e le funzionalità predefinite. Il database SQL prevede un pagamento in base al consumo con la possibilità di aumentare o diminuire il numero di istanze per una maggiore efficienza.
 
-**SQL Server in una macchina virtuale di Azure (VM)** rientra nella categoria di settore *IaaS (Infrastructure-as-a-Service)* e consente di eseguire SQL Server all'interno di una macchina virtuale nel cloud. Analogamente al database SQL di Azure, si basa su hardware standardizzato appartenente, ospitato e mantenuto da Microsoft. Quando si usa SQL Server in una macchina virtuale, è possibile usare la propria licenza SQL Server in Azure oppure usare una delle immagini preconfigurate di SQL Server nel portale di Azure.
+**SQL Server in una macchina virtuale di Azure (VM)** rientra nella categoria di settore *IaaS (Infrastructure-as-a-Service)* e consente di eseguire SQL Server all'interno di una macchina virtuale nel cloud. Analogamente al database SQL di Azure, si basa su hardware standardizzato appartenente, ospitato e mantenuto da Microsoft. Quando si usa SQL Server in una macchina virtuale, è possibile usare la propria licenza SQL Server in Azure oppure usare una delle immagini preconfigurate di SQL Server nel portale di Azure classico.
 
 In generale, queste due opzioni SQL sono ottimizzate per scopi diversi:
 
@@ -236,7 +236,7 @@ Questo articolo del gruppo Microsoft Cloud and Enterprise Content Services è st
 
 Grazie a tutti per la collaborazione!
 
-## <a name="resources"></a>Risorse aggiuntive
+##<a name="resources"></a>Risorse aggiuntive
 
 <table cellspacing="0" border="1">
 <tr>
@@ -263,4 +263,4 @@ Grazie a tutti per la collaborazione!
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

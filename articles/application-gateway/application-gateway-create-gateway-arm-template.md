@@ -30,7 +30,7 @@ Il gateway applicazione è un servizio di bilanciamento del carico di livello 7.
 
 Verrà illustrato come scaricare e modificare un modello di Gestione risorse di Azure esistente da GitHub e distribuire il modello da GitHub, PowerShell e dall'interfaccia della riga di comando di Azure.
 
-Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure direttamente da GitHub, senza alcuna modifica, andare al passaggio per distribuire un modello da github.
+Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure direttamente da GitHub, senza alcuna modifica, andare al passaggio per distribuire un modello da GitHub.
 
 
 >[AZURE.IMPORTANT]Prima di lavorare con le risorse di Azure, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. È importante conoscere i [modelli e gli strumenti di distribuzione](azure-classic-rm.md) prima di usare le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustrerà la creazione di un gateway applicazione tramite Gestione risorse di Azure. Per usare la versione classica, passare all'articolo relativo alla [creazione di una distribuzione classica del gateway applicazione tramite PowerShell](application-gateway-create-gateway.md).
@@ -57,7 +57,7 @@ In questo scenario verrà creato quanto segue:
 
 ## Scaricare e comprendere il modello ARM
 
-È possibile scaricare il modello ARM esistente per la creazione di una rete virtuale e di due subnet da github, apportare le modifiche desiderate e riutilizzarlo. A tale scopo, seguire questa procedura:
+È possibile scaricare il modello ARM esistente per la creazione di una rete virtuale e di due subnet da GitHub, apportare le modifiche desiderate e riutilizzarlo. A tale scopo, seguire questa procedura:
 
 1. Accedere a https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/.
 2. Fare clic su **azuredeploy.json** e quindi su **RAW**.
@@ -78,7 +78,7 @@ In questo scenario verrà creato quanto segue:
 	| **backendaddress2** | Indirizzo IP del secondo server Web |
 	
 
->[AZURE.IMPORTANT]I modelli ARM conservati in github possono cambiare nel tempo. Assicurarsi di aver controllato il modello prima di utilizzarlo.
+>[AZURE.IMPORTANT]I modelli ARM conservati in GitHub possono cambiare nel tempo. Assicurarsi di aver controllato il modello prima di utilizzarlo.
 	
 6. Controllare il contenuto in **resources** e prendere nota di quanto segue:
 
@@ -237,7 +237,7 @@ Un altro uso dei modelli di Gestione risorse di Azure consiste nel fare clic per
 
 
 ### Passaggio 1 
-Il collegamento che indica di [fare clic per distribuire il gateway applicazione](https://azure.microsoft.com/it-IT/documentation/templates/101-application-gateway-public-ip/) reindirizza alla pagina del modello del portale per il gateway applicazione.
+Il collegamento che indica di [fare clic per distribuire il gateway applicazione](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) reindirizza alla pagina del modello del portale per il gateway applicazione.
 
 
 ### Passaggio 2 
@@ -273,4 +273,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

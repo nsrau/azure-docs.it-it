@@ -21,7 +21,7 @@
 | Riferimento rapido |
 | --------------- |
 | [Linguaggio di definizione delle app per la logica](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Documentazione del connettore delle app per la logica](https://azure.microsoft.com/it-IT/documentation/articles/app-service-logic-connectors-list/) |
+| [Documentazione del connettore delle app per la logica](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurelogicapps) |
 
 Questo argomento illustra come iniziare in pochi minuti a usare le [app per la logica del servizio app](app-service-logic-what-are-logic-apps.md). Verrà illustrato un flusso di lavoro che consente di inviare un set di tweet a cui si è interessati a una cartella Dropbox.
@@ -188,4 +188,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

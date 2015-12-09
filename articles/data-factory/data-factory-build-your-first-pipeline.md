@@ -30,7 +30,7 @@ Questo articolo consente di iniziare a compilare la prima Data factory di Azure.
 ## Panoramica dell'esercitazione
 Questa esercitazione illustra i passaggi necessari per ottenere la prima Data factory con una pipeline. Si creerà una pipeline specificando tutte le risorse necessarie da zero.
 
-Per esplorare rapidamente le diverse funzionalità della data factory, senza crearne una da zero, è possibile usare gli esempi disponibili nel portale di anteprima di Azure. Vedere [Aggiornamento di Azure Data Factory: distribuzione di esempio semplificata](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) per informazioni su come distribuire un esempio basato su un caso di utilizzo con il portale di anteprima di Azure.
+Per esplorare rapidamente le diverse funzionalità della data factory, senza crearne una da zero, è possibile usare gli esempi disponibili nel portale di Azure. Vedere l'articolo di aggiornamento relativo alla [distribuzione di esempio semplificata di Data factory di Azure](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) per informazioni su come distribuire un esempio basato su un caso d'uso con il portale di Azure.
 
 ## Prerequisiti
 Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
@@ -168,8 +168,8 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 
 Eseguire le operazioni seguenti:
 
-- Fare clic sul collegamento [Tramite l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md) in alto per eseguire l'esercitazione usando l'Editor di Data factory, incluso nel portale di Azure.
+- Fare clic sul collegamento [Tramite l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md) in alto per eseguire l'esercitazione usando l'editor di Data factory, incluso nel portale di Azure classico.
 - Fare clic sul collegamento [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) in alto per eseguire l'esercitazione usando Azure PowerShell.
 - Fare clic sul collegamento [Tramite Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) in alto per eseguire l'esercitazione usando Visual Studio. 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

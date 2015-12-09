@@ -30,7 +30,7 @@ Questa esercitazione si basa sulla serie di esercitazioni relative alle app per 
 
 ## Rendere l'app per le API pubblicamente accessibile
 
-Nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) selezionare l'app per le API. Fare clic sul pulsante **Impostazioni** nella barra dei comandi. Nel pannello **Impostazioni applicazione** modificare **Livello di accesso** su **Pubblico (anonimo)**.
+Nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) selezionare l'app per le API. Fare clic sul pulsante **Impostazioni** nella barra dei comandi. Nel pannello **Impostazioni applicazione** modificare **Livello di accesso** su **Pubblico (anonimo)**.
 
 ![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
@@ -91,7 +91,6 @@ Seguire le istruzioni fornite in [Come distribuire un'app Web di Azure](web-site
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

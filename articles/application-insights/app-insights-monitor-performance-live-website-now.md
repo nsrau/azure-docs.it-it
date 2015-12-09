@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="11/25/2015"
 	ms.author="awills"/>
 
 
@@ -94,7 +94,7 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 ### è un progetto di Servizi cloud di Azure
 
-[Aggiungere gli script ai ruoli web e di lavoro](app-insights-cloudservices.md)
+[Aggiungere gli script ai ruoli Web e di lavoro](app-insights-cloudservices.md)
 
 
 ## Visualizzare i dati di telemetria relativi alle prestazioni
@@ -120,7 +120,7 @@ Per segmentare il grafico in base alle chiamate a diverse dipendenze, selezionar
 
 È inoltre possibile filtrare il grafico per esaminare un bucket specifico di dipendenza, tipo o prestazione. Fare clic su filtri.
 
-#### Contatori delle prestazioni
+## Contatori delle prestazioni
 
 (Non per le app web di Azure.) Fare clic su Server nel pannello della panoramica per visualizzare i grafici dei contatori delle prestazioni del server, come l'utilizzo di memoria e di occupazione della CPU.
 
@@ -128,11 +128,15 @@ Aggiungere un nuovo grafico, o fare clic su qualsiasi grafico per modificare que
 
 È inoltre possibile [modificare il set di contatori delle prestazioni segnalati da SDK](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3).
 
-#### Eccezioni
+## Eccezioni
 
 ![Fare clic nel grafico di eccezioni del server](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
 
 È possibile eseguire il drill down di eccezioni specifiche (degli ultimi sette giorni) e ottenere le analisi dello stack e i dati di contesto.
+
+## Campionamento
+
+Se l'applicazione invia una grande quantità di dati ed è in uso Application Insights SDK per ASP.NET 2.0.0 Beta3 o versioni successive, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
 
 
 ## Risoluzione dei problemi
@@ -194,7 +198,7 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
 ## <a name="next"></a>Passaggi successivi
 
-* <1>Creare test Web</1> per assicurarsi che il sito rimanga attivo.
+* [Creare test Web][availability] per assicurarsi che il sito rimanga attivo.
 * [Cercare eventi e log][diagnostic] per facilitare la diagnosi dei problemi.
 * [Aggiungere dati di telemetria del client Web][usage] per visualizzare le eccezioni dal codice della pagina Web e consentire di inserire le chiamate di traccia.
 * [Aggiungere Application Insights SDK al codice del servizio Web][greenbrown] per poter inserire chiamate di traccia e log nel codice del server.
@@ -211,9 +215,9 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

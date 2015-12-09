@@ -36,7 +36,7 @@ I ruoli AAD controllano la capacità di provisioning delle soluzioni preconfigur
 
 Per altre informazioni sui ruoli di amministratore in AAD, vedere [Assegnazione dei ruoli di amministratore in Azure AD][lnk-aad-admin]. Questo articolo è tuttavia incentrato principalmente sui ruoli **Amministratore globale** e **Utente/membro di dominio** usati nelle soluzioni preconfigurate.
 
-**Amministratore globale:** in un tenant di AAD possono essere presenti molti amministratori globali. Quando si crea un tenant di AAD, si è per impostazione predefinita l'amministratore globale del tenant. L'amministratore globale può eseguire il provisioning di una soluzione preconfigurata e gli viene assegnato un ruolo **AMMINISTRATORE** per l'applicazione all'interno di tenant di AAD. Tuttavia, se un altro utente nello stesso tenant di AAD crea un'applicazione, il ruolo predefinito concesso all'amministratore globale è **SOLA LETTURA IMPLICITO**. Gli amministratori globali possono assegnare ruoli per le applicazioni tramite il [portale di gestione di Azure][lnk-classic-portal].
+**Amministratore globale:** in un tenant di AAD possono essere presenti molti amministratori globali. Quando si crea un tenant di AAD, si è per impostazione predefinita l'amministratore globale del tenant. L'amministratore globale può eseguire il provisioning di una soluzione preconfigurata e gli viene assegnato un ruolo **AMMINISTRATORE** per l'applicazione all'interno di tenant di AAD. Tuttavia, se un altro utente nello stesso tenant di AAD crea un'applicazione, il ruolo predefinito concesso all'amministratore globale è **SOLA LETTURA IMPLICITO**. Gli amministratori globali possono assegnare ruoli per le applicazioni tramite il [portale di Azure classico][lnk-classic-portal].
 
 **Utente/membro di dominio:** per ogni tenant di AAD possono essere presenti molti utenti o membri del dominio. Un utente di dominio può effettuare il provisioning di una soluzione preconfigurata tramite il sito [azureiotsuite.com][lnk-azureiotsuite]. Il ruolo predefinito concesso per l'applicazione di cui effettuano il provisioning è **AMMINISTRATORE**. Possono creare un'applicazione usando lo script build.cmd nel repository [azure-iot-solution][lnk-github-repo], ma il ruolo predefinito concesso è **SOLA LETTURA IMPLICITO**, perché non hanno l'autorizzazione per assegnare i ruoli. Se un altro utente nel tenant di AAD crea un'applicazione, gli verrà assegnato il ruolo **SOLA LETTURA IMPLICITO** per impostazione predefinita per l'applicazione. Non hanno la possibilità di assegnare ruoli per le applicazioni, quindi non possono aggiungere utenti o ruoli per gli utenti per un'applicazione anche se ne hanno effettuato il provisioning.
 
@@ -69,7 +69,7 @@ Nell'applicazione sono presenti due ruoli definiti e un ruolo implicito creati q
 
 Per modificare i ruoli per un utente, è necessario essere un amministratore globale di AAD:
 
-1. Accedere al [portale di gestione di Azure][lnk-classic-portal].
+1. Passare al [portale di Azure classico][lnk-classic-portal].
 
 2. Selezionare **Active Directory**
 
@@ -91,7 +91,7 @@ Per modificare i ruoli per un utente, è necessario essere un amministratore glo
 
 ### Un amministratore del servizio vuole modificare il mapping della directory tra la sottoscrizione e un tenant di AAD specifico. Come deve procedere?
 
-1. Accedere al [portale di gestione di Azure][lnk-classic-portal], fare clic su **Impostazioni** nell'elenco dei servizi sul lato sinistro.
+1. Accedere al [portale di Azure classico][lnk-classic-portal], fare clic su **Impostazioni** nell'elenco dei servizi sul lato sinistro.
 
 2. Selezionare la sottoscrizione per cui si vuole modificare il mapping della directory.
 
@@ -145,4 +145,4 @@ Se si è certi di che avere una sottoscrizione di Azure, convalidare il mapping 
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->
