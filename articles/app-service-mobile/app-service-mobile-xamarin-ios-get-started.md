@@ -19,7 +19,9 @@
 
 #Creare un'app per Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
@@ -119,4 +121,4 @@ Se è stata scelta una configurazione back-end .NET, facoltativamente è possibi
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->
