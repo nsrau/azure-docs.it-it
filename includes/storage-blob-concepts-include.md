@@ -22,9 +22,9 @@ Il servizio BLOB è composto dai componenti seguenti:
 
 -   **BLOB:** file di qualsiasi tipo e dimensione. Archiviazione di Azure offre tre tipi di BLOB: i BLOB in blocchi, i BLOB di pagine e i BLOB di accodamento.
     
-	I *BLOB in blocchi*sono ideali per l'archiviazione di file di testo o file binari, ad esempio i documenti e i file multimediali. I *BLOB di accodamento*sono simili ai BLOB in blocchi in quanto sono costituiti da blocchi, ma sono ottimizzati per le operazioni di accodamento, in modo che siano utili per gli scenari di registrazione. Un singolo BLOB in blocchi o BLOB di accodamento può contenere fino a 50.000 blocchi da al massimo 4 MB ciascuno, per una dimensione totale leggermente superiore a 195 GB (4 MB X 50.000).
+	I *BLOB in blocchi* sono ideali per l'archiviazione di file di testo o file binari, ad esempio i documenti e i file multimediali. I *BLOB di accodamento* sono simili ai BLOB in blocchi in quanto sono costituiti da blocchi, ma sono ottimizzati per le operazioni di accodamento, in modo che siano utili per gli scenari di registrazione. Un singolo BLOB in blocchi o BLOB di accodamento può contenere fino a 50.000 blocchi da al massimo 4 MB ciascuno, per una dimensione totale leggermente superiore a 195 GB (4 MB X 50.000).
     
-	I *BLOB di pagine *possono avere un dimensione di al massimo 1 TB e sono più efficienti per operazioni di lettura/scrittura frequenti. Le Macchine virtuali di Azure utilizzano i BLOB di pagine come dischi del sistema operativo e dati.
+	I *BLOB di pagine* possono avere un dimensione di al massimo 1 TB e sono più efficienti per operazioni di lettura/scrittura frequenti. Le Macchine virtuali di Azure utilizzano i BLOB di pagine come dischi del sistema operativo e dati.
 
 	Per ulteriori informazioni sui BLOB, vedere [Informazioni su BLOB in blocchi, BLOB di pagine e BLOB di accodamento](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
@@ -69,4 +69,4 @@ Il servizio BLOB si basa su uno schema di archiviazione semplice. È possibile c
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

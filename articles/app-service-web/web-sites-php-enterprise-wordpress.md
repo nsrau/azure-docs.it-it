@@ -51,7 +51,7 @@ All'interno di ogni area, il sito WordPress viene ancora scalato tra più istanz
 
 La replica e il routing in più database MySQL possono essere eseguiti con il [router CDBR a disponibilità elevata][cleardbscale] di ClearDB, illustrato a sinistra, oppure con [MySQL Cluster CGE][cge].
 
-###Multi-region deployment with media storage and caching
+###Distribuzione in più aree con memorizzazione nella cache e archiviazione di contenuti multimediali
 
 Se il sito accetta caricamenti o ospita file multimediali, usare l'archiviazione BLOB di Azure. Se sono necessarie soluzioni di memorizzazione nella cache, in [Azure Store][rediscache] sono disponibili [Cache Redis](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), [MemCachier](http://azure.microsoft.com/gallery/store/) e altre offerte.
 

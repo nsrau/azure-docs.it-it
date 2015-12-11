@@ -23,7 +23,7 @@
 
 ## Panoramica
 
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. La libreria client di archiviazione è un SDK che semplifica l'interazione con l'API REST dell'archivio BLOB. Gli scenari descritti in questa guida includono **caricamento**, **elenco**, **download** ed **eliminazione** di BLOB e dovrebbero richiedere circa un'ora per il completamento. Per un video introduttivo, guardare la [panoramica dell'archiviazione di Azure in 5 minuti](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/) oppure leggere la guida [Introduzione ad Archiviazione di Azure in cinque minuti](storage-getting-started-guide.md).
+In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. La libreria client di archiviazione è un SDK che semplifica l'interazione con l'API REST dell'archivio BLOB. Gli scenari descritti in questa guida includono **caricamento**, **elenco**, **download** ed **eliminazione** di BLOB e dovrebbero richiedere circa un'ora per il completamento. Per un video introduttivo, guardare la [panoramica dell'archiviazione di Azure in 5 minuti](https://azure.microsoft.com/it-IT/documentation/videos/azure-storage-5-minute-overview/) oppure leggere la guida [Introduzione ad Archiviazione di Azure in cinque minuti](https://azure.microsoft.com/it-IT/documentation/articles/storage-getting-started-guide/).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -359,6 +359,7 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
+  [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
