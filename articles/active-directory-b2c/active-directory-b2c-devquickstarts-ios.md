@@ -1,4 +1,11 @@
-<properties pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure" descrizione="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti." servizi ="active-directory-b2c" documentationCenter=”ios” autori="brandwe" manager="msmbaldwin" editor =""/>
+<properties
+	pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure"
+	descrizione="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."
+	servizi ="active-directory-b2c"
+	documentationCenter=”ios”
+	autori="brandwe"
+	manager="msmbaldwin"
+	editor =""/>
 
 <tags
 	ms.service="active-directory-b2c"
