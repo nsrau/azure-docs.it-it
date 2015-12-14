@@ -18,21 +18,24 @@
 
 # Supporto di Gestione risorse per servizi, aree e versioni API
 
-Gestione risorse di Azure fornisce un nuovo modo per distribuire e gestire i servizi che costituiscono le applicazioni. La maggior parte, ma non tutti i servizi, supportano Gestione risorse e alcuni servizi supportano Gestione risorse solo parzialmente. Microsoft abiliterà Gestione risorse per ogni servizio importante per le soluzioni future, ma fino a quando il supporto sarà coerente, è necessario conoscere lo stato corrente di ogni servizio. In questo argomento è fornito un elenco di provider di risorse supportati per Gestione risorse di Azure.
+Gestione risorse di Azure fornisce un nuovo modo per distribuire e gestire i servizi che costituiscono le applicazioni.
+La maggior parte, ma non tutti i servizi, supportano Gestione risorse e alcuni servizi supportano Gestione risorse solo parzialmente. Microsoft abiliterà Gestione risorse per ogni servizio importante per le soluzioni future, ma fino a quando il supporto sarà coerente, è necessario conoscere lo stato corrente di ogni servizio. In questo argomento è fornito un elenco di provider di risorse supportati per Gestione risorse di Azure.
 
 Durante la distribuzione delle risorse, è anche necessario conoscere quali aree supportano tali risorse e quali versioni dell'API sono disponibili per tali risorse. La sezione [Aree supportate](#supported-regions) illustra come trovare le aree adatte alla propria sottoscrizione e alle proprie risorse. La sezione [Versioni API supportate](#supported-api-versions) illustra come determinare quali versioni dell'API è possibile usare.
 
-Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzione e la gestione tramite Gestione risorse e quali no. La colonna denominata **Sposta risorse** indica se le risorse di questo tipo possono essere spostate sia in un nuovo gruppo di risorse che in una nuova sottoscrizione. La colonna denominata **Portale** indica se è possibile creare il servizio tramite il [Portale di Azure](https://portal.azure.com).
+Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzione e la gestione tramite Gestione risorse e quali no. La colonna denominata **Sposta risorse** indica se le risorse di questo tipo possono essere spostate sia in un nuovo gruppo di risorse che in una nuova sottoscrizione. La colonna denominata **Portale di anteprima** indica se è possibile creare il servizio tramite il portale di anteprima.
 
 
 ## Calcolo
 
-| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | Macchine virtuali | Sì | Sì, molte opzioni | No | [Creare una VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Sì | [Sì (solo classica)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Sì | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Servizi del ciclo di vita Dynamics | Sì | No | | | |
-| Macchine virtuali (classiche) | Limitato | Sì, molte opzioni | Parziale (vedere di seguito) | - | - | | App remota | No | No | - | - | - | | Infrastruttura di servizi | No | No | - | - | - |
+| Macchine virtuali (classiche) | Limitato | Sì | Parziale (vedere di seguito) | - | - |
+| App remota | No | - | - | - | - |
+| Infrastruttura di servizi | No | - | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
@@ -59,7 +62,8 @@ Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuit
 | Database SQL | Sì | [Sì](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Sì | [Creare database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Ricerca | Sì | [Sì](https://portal.azure.com/#create/Microsoft.Search) | Sì | [REST Ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Sì | [Sì](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | No | No | - | - | - | | Cache gestita | No | No | - | - | - |
+| StorSimple | No | No | - | - | - |
+| Cache gestita | No | No | - | - | - |
 
 ## Web e dispositivi mobili
 
@@ -85,7 +89,8 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | Analisi dei flussi | Sì | [Sì](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Sì | [Sì](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sì | | |
 | Data factory | Sì | [Sì](https://portal.azure.com/#create/Microsoft.DataFactory) | Sì | [Creare Data factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Machine Learning | No | No | - | - | - | | Catalogo dati | No | No | - | - | - |
+| Machine Learning | No | No | - | - | - |
+| Catalogo dati | No | No | - | - | - |
 
 ## Supporti multimediali e CDN
 
@@ -101,13 +106,16 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Servizi BizTalk | Sì | No | | | [01/04/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Bus di servizio | Sì | No | | [REST bus di servizio](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Backup | No | No | - | - | - | | Ripristino sito | No | No | - | - | - |
+| Backup | No | No | - | - | - |
+| Ripristino sito | No | No | - | - | - |
 
 ## Gestione dell'identità e dell'accesso 
 
 | Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | No | No | - | - | - | | Azure Active Directory B2C | No | No | - | - | - | | Multi-Factor Authentication | No | No | - | - | - |
+| Azure Active Directory | No | No | - | - | - |
+| Azure Active Directory B2C | No | No | - | - | - |
+| Multi-Factor Authentication | No | No | - | - | - |
 
 ## Servizi per gli sviluppatori 
 

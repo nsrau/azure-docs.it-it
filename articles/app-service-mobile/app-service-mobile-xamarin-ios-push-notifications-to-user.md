@@ -18,7 +18,9 @@
 
 # Inviare notifiche multipiattaforma a un utente specifico
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Questo argomento descrive come inviare notifiche a tutti i dispositivi registrati di un utente specifico dal proprio back-end mobile. Sono stati introdotti i [modelli], che offrono alle applicazioni client la libertà di specificare i formati di payload e segnaposto di variabili al momento della registrazione. Quando viene inviata una notifica del modello da un server, l'hub di notifica indirizza tutte le piattaforme con questi segnaposto, abilitando le notifiche multipiattaforma.
 
@@ -102,4 +104,4 @@ Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi del
 [Introduzione alle notifiche push]: app-service-mobile-xamarin-ios-get-started-push.md
 [modelli]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

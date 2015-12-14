@@ -20,9 +20,13 @@
 
 Con Modello app 2.0 è possibile aggiungere rapidamente l'autenticazione alle app Web con supporto per account Microsoft personali, aziendali e dell'istituto di istruzione. Nelle app Web ASP.NET, a questo scopo si usa il middleware OWIN di Microsoft incluso in .NET Framework 4.5.
 
-  >[AZURE.NOTE]Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+  >[AZURE.NOTE]
+    Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
- Qui si userà OWIN per: - Fare accedere l'utente all'app usando Azure AD e Modello app 2.0 - Visualizzare alcune informazioni sull'utente - Disconnettere l'utente dall'app.
+ Qui si userà OWIN per:
+-	Fare accedere l'utente all'app usando Azure AD e Modello app 2.0
+-	Visualizzare alcune informazioni sull'utente
+-	Disconnettere l'utente dall'app.
 
 A questo scopo è necessario:
 
@@ -48,8 +52,8 @@ Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com)
 In questo caso, verrà configurato il middleware OWIN per l'uso del protocollo di autenticazione OpenID Connect. OWIN verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
 -	Per iniziare, aprire il file `web.config` nella radice del progetto e immettere i valori di configurazione dell'app nella sezione `<appSettings>`.
-    -	`ida:ClientId` rappresenta l'**ID applicazione** assegnato all'app nel portale di registrazione.
-    -	`ida:RedirectUri` rappresenta l'**URI di reindirizzamento** immesso nel portale.
+    -	`ida:ClientId`rappresenta l'**ID applicazione** assegnato all'app nel portale di registrazione.
+    -	`ida:RedirectUri`rappresenta l'**URI di reindirizzamento** immesso nel portale.
 
 -	Successivamente, aggiungere il middleware NuGet al progetto usando la console di Gestione pacchetti.
 
@@ -114,7 +118,11 @@ Your app is now properly configured to communicate with the v2.0 endpoint using 
 - You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
 
 ```C#
-[Authorize] public ActionResult About() { ... ```
+[Authorize]
+public ActionResult About()
+{
+  ...
+```
 
 -	È possibile usare OWIN anche per inviare le richieste di autenticazione direttamente dal codice. Aprire `Controllers\AccountController.cs`. Nelle azioni SignIn() e SignOut() inoltrare rispettivamente le richieste di verifica e di disconnessione di OpenID Connect.
 
@@ -201,6 +209,8 @@ Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [Proteggere un'API Web con Modello app 2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Per altre risorse consultare:
+- [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
+- [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 <!---HONumber=AcomDC_1203_2015-->

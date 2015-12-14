@@ -45,7 +45,7 @@ La prima volta che si abilita la funzionalità di sincronizzazione password, vie
 
 La sincronizzazione di una password non incide in alcun modo sugli utenti attualmente connessi. Se anche un utente connesso a un servizio cloud cambia la relativa password locale, la sessione del servizio cloud prosegue senza interruzioni. Tuttavia, non appena il servizio cloud richiede all'utente di ripetere l'autenticazione, è necessario specificare la nuova password. A questo punto, l'utente deve immettere la nuova password, ossia la password recentemente sincronizzata da Active Directory locale al cloud.
 
-> [AZURE.NOTE]La sincronizzazione delle password è supportata solo per l'utente del tipo di oggetto in Active Directory. Non è supportata per il tipo di oggetto iNetOrgPerson.
+> [AZURE.NOTE] La sincronizzazione delle password è supportata solo per l'utente del tipo di oggetto in Active Directory. Non è supportata per il tipo di oggetto iNetOrgPerson.
 
 ### Funzionamento della sincronizzazione password con Servizi di dominio Azure AD
 
@@ -91,7 +91,8 @@ Se l'utente cambia di nuovo la password locale, la nuova password verrà sincron
 
 Se si usano le impostazioni rapide quando si installa Azure AD Connect, la sincronizzazione password viene abilitata per impostazione predefinita.
 
-Se si usano le impostazioni personalizzate quando si installa Azure AD Connect, la sincronizzazione password viene abilitata nella pagina di accesso dell'utente. ![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
+Se si usano le impostazioni personalizzate quando si installa Azure AD Connect, la sincronizzazione password viene abilitata nella pagina di accesso dell'utente.
+![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
 
 Se si sceglie di usare **la federazione tramite ADFS**, è possibile abilitare la sincronizzazione password come backup in caso di errore dell'infrastruttura di ADFS. È inoltre possibile abilitarla se si prevede di usare Servizi di dominio Azure AD.
 

@@ -48,7 +48,9 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 -	Un [account Microsoft Azure](/account/) attivo
 -	Visual Studio 2015 con [Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio i siti Web. È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE] Per completare l’esercitazione è necessario un account Azure:
+> + è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo aver esaurito i crediti, è possibile mantenere l’account per usare i servizi di Azure gratuiti, ad esempio le app Web di [Servizio app](http://go.microsoft.com/fwlink/?LinkId=529714).
+> + È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/): ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 <a name="deploy"></a>
 ## Distribuire un servizio cloud ##

@@ -75,7 +75,11 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	Nel **blade di connessione ibrida crea**: - per **nome**, fornisce un nome per la connessione - per **Hostname**, immettere il nome del computer locale che ospita la risorsa. - per **porta**, immettere il numero di porta che la risorsa locale utilizza (1433 per un'istanza predefinita di SQL Server).-fare clic su **servizio parlare Biz**
+	Nel **blade di connessione ibrida crea**:
+	- per **nome**, fornisce un nome per la connessione
+	- per **Hostname**, immettere il nome del computer locale che ospita la risorsa.
+	- per **porta**, immettere il numero di porta che la risorsa locale utilizza (1433 per un'istanza predefinita di SQL Server).
+	- fare clic su **servizio parlare Biz**
 
 
 4. Viene visualizzato il pannello **Crea servizio BizTalk**. Immettere un nome per il servizio BizTalk, quindi fare clic su **OK**.

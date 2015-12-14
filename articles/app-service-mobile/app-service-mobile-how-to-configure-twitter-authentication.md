@@ -47,7 +47,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 5. Selezionare la scheda **Keys and Access Tokens**. Prendere nota dei valori di **Consumer Key (API Key)** e **Consumer secret (API Secret)**.
 
-    > [AZURE.NOTE]Il segreto consumer è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app.
+    > [AZURE.NOTE] Il segreto consumer è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app.
 
 
 ## <a name="secrets"> </a>Aggiungere informazioni di Twitter all'applicazione
