@@ -271,7 +271,7 @@ Se si desidera specificarla in fase di esecuzione, è possibile chiamare il meto
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-La stringa di connessione per l'applicazione viene visualizzata nel portale di gestione di Azure.
+La stringa di connessione per l'applicazione viene visualizzata nel portale di Azure classico.
 
 ### Modifica del nome di elementi
 
@@ -289,4 +289,4 @@ Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

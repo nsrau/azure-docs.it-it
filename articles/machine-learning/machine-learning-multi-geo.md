@@ -23,7 +23,7 @@ In questo articolo viene descritto come creare un'area di lavoro e pubblicare un
 
 ## Creare un'area di lavoro
 
-1. Accedere al portale di gestione di Azure.
+1. Accedere al portale di Microsoft Azure classico.
 
 2.  Fare clic su **+ NUOVO** > **SERVIZI DATI** > **MACHINE LEARNING** > **CREAZIONE RAPIDA**. In **INDIRIZZO** selezionare un'altra area, ad esempio **Asia sudorientale**. ![Guida per più aree geografiche immagine 1][1]
 3. Selezionare l'area di lavoro, quindi fare clic su **Accedi a ML Studio**. ![Guida per più aree geografiche immagine 2][2]
@@ -57,4 +57,4 @@ Aggiungere una domanda sul [forum di Azure Machine Learning](https://social.msdn
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

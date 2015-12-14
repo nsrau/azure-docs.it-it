@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Gestione di conflitti di scrittura con concorrenza ottimistica (Windows Store) | Microsoft Azure" 
-	description="Informazioni su come gestire conflitti di scrittura del database sia nel server che nell'applicazione per Windows Store." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Gestione di conflitti di scrittura con concorrenza ottimistica (Windows Store) | Microsoft Azure"
+	description="Informazioni su come gestire conflitti di scrittura del database sia nel server che nell'applicazione per Windows Store."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 # Gestione di conflitti di scrittura nel database
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 
 
@@ -32,10 +37,10 @@ Nel corso dell'esercitazione si aggiungeranno all'app di guida introduttiva funz
 Per completare questa esercitazione, è necessario disporre di:
 
 + Microsoft Visual Studio 2013 o versione successiva.
-+ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili]. 
++ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili].
 + [Account Azure]
 + Pacchetto NuGet per Servizi mobili di Azure 1.1.0 o versione successiva. Per ottenere l'ultima versione, eseguire la procedura seguente:
-	1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, quindi scegliere **Gestisci pacchetti Nuget**. 
+	1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, quindi scegliere **Gestisci pacchetti Nuget**.
 
 		![][19]
 
@@ -44,7 +49,7 @@ Per completare questa esercitazione, è necessario disporre di:
 		![][20]
 
 
- 
+
 
 ##Aggiornamento dell'applicazione per consentire gli aggiornamenti
 
@@ -85,7 +90,7 @@ In questa sezione l'interfaccia utente di TodoList verrà aggiornata in modo da 
 
         private async Task UpdateToDoItem(TodoItem item)
         {
-            Exception exception = null;			
+            Exception exception = null;
             try
             {
                 //update at the remote table
@@ -94,7 +99,7 @@ In questa sezione l'interfaccia utente di TodoList verrà aggiornata in modo da 
             catch (Exception ex)
             {
                 exception = ex;
-            }			
+            }
             if (exception != null)
             {
                 await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
@@ -111,18 +116,18 @@ In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemen
 
 		public class TodoItem
 		{
-			public string Id { get; set; }			
+			public string Id { get; set; }
 			[JsonProperty(PropertyName = "text")]
-			public string Text { get; set; }			
+			public string Text { get; set; }
 			[JsonProperty(PropertyName = "complete")]
-			public bool Complete { get; set; }			
+			public bool Complete { get; set; }
 			[JsonProperty(PropertyName = "__version")]
 			public string Version { set; get; }
 		}
 
 	> [AZURE.NOTE]Le applicazioni che utilizzano tabelle non tipizzate attivano la concorrenza ottimistica impostando il flag Version per SystemProperties della tabella, come mostrato di seguito.
 	>
-	>````` 
+	>`````
 	//Enable optimistic concurrency by retrieving __version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
@@ -132,7 +137,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
         private async Task UpdateToDoItem(TodoItem item)
         {
-            Exception exception = null;			
+            Exception exception = null;
             try
             {
                 //update at the remote table
@@ -145,7 +150,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
             catch (Exception ex)
             {
                 exception = ex;
-            }			
+            }
             if (exception != null)
             {
                 if (exception is MobileServicePreconditionFailedException)
@@ -168,27 +173,27 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
         {
             //Ask user to choose the resolution between versions
-            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n", 
-                                                        serverItem.Text, localItem.Text), 
+            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n",
+                                                        serverItem.Text, localItem.Text),
                                                         "CONFLICT DETECTED - Select a resolution:");
             UICommand localBtn = new UICommand("Commit Local Text");
             UICommand ServerBtn = new UICommand("Leave Server Text");
             msgDialog.Commands.Add(localBtn);
-            msgDialog.Commands.Add(ServerBtn);			
+            msgDialog.Commands.Add(ServerBtn);
             localBtn.Invoked = async (IUICommand command) =>
             {
-                // To resolve the conflict, update the version of the 
+                // To resolve the conflict, update the version of the
                 // item being committed. Otherwise, you will keep
                 // catching a MobileServicePreConditionFailedException.
-                localItem.Version = serverItem.Version;				
-                // Updating recursively here just in case another 
+                localItem.Version = serverItem.Version;
+                // Updating recursively here just in case another
                 // change happened while the user was making a decision
                 await UpdateToDoItem(localItem);
-            };			
+            };
             ServerBtn.Invoked = async (IUICommand command) =>
             {
 				RefreshTodoItems();
-            };			
+            };
             await msgDialog.ShowAsync();
         }
 
@@ -218,7 +223,7 @@ In questa sezione verrà creato il pacchetto di un'app di Windows Store per inst
 5. Copiare nel secondo computer la cartella del pacchetto, "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test". In tale computer aprire la cartella del pacchetto e fare clic con il pulsante destro del mouse sullo script di PowerShell **Add-AppDevPackage.ps1**, quindi scegliere **Esegui con PowerShell** come illustrato di seguito. Attenersi alle istruzioni visualizzate per installare l'app.
 
 	![][12]
-  
+
 5. Eseguire l'istanza 1 dell'app in Visual Studio facendo clic su **Debug**->**Avvia debug**. Nella schermata Start del secondo computer fare clic sulla freccia in giù per visualizzare le app in base al nome. Fare quindi clic sull'app **todolist** per eseguire l'istanza 2 dell'app.
 
 	Istanza 1 dell'app ![][2]
@@ -227,7 +232,7 @@ In questa sezione verrà creato il pacchetto di un'app di Windows Store per inst
 
 
 6. Nell'istanza 1 dell'app aggiornare il testo dell'ultimo elemento in **Test Write 1** e quindi fare clic su un'altra casella di testo in modo che il gestore dell'evento `LostFocus` aggiorni il database. Nella schermata seguente viene visualizzato un esempio.
-	
+
 	Istanza 1 dell'app ![][3]
 
 	Istanza 2 dell'app ![][2]
@@ -255,7 +260,7 @@ In questa sezione verrà creato il pacchetto di un'app di Windows Store per inst
 
 Di seguito è riportata la procedura per aggiungere e testare lo script di aggiornamento del server.
 
-1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app. 
+1. Accedere al [portale di Azure classico], fare clic su **Servizi mobili** e quindi sull'app.
 
    	![][7]
 
@@ -269,8 +274,8 @@ Di seguito è riportata la procedura per aggiungere e testare lo script di aggio
 
 4. Sostituire lo script esistente con la funzione seguente e quindi fare clic su **Salva**.
 
-		function update(item, user, request) { 
-			request.execute({ 
+		function update(item, user, request) {
+			request.execute({
 				conflict: function (serverRecord) {
 					// Only committing changes if the item is not completed.
 					if (serverRecord.complete === false) {
@@ -282,8 +287,8 @@ Di seguito è riportata la procedura per aggiungere e testare lo script di aggio
 						request.respond(statusCodes.FORBIDDEN, 'The item is already completed.');
 					}
 				}
-			}); 
-		}   
+			});
+		}
 5. Eseguire l'app **todolist** in entrambi i computer. Modificare la proprietà `text` per l'ultimo TodoItem nell'istanza 2. Fare quindi clic su un'altra casella di testo in modo che il gestore dell'evento `LostFocus` aggiorni il database.
 
 	Istanza 1 dell'app ![][4]
@@ -321,7 +326,7 @@ In questa esercitazione sono state illustrate le procedure per abilitare la gest
 * [Aggiungere l'autenticazione all'app] <br/>Informazioni sull'autenticazione degli utenti dell'app.
 
 * [Aggiungere notifiche push all'app] <br/>Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
- 
+
 
 
 <!-- Images. -->
@@ -358,12 +363,10 @@ In questa esercitazione sono state illustrate le procedure per abilitare la gest
 [Aggiungere l'autenticazione all'app]: /develop/mobile/tutorials/get-started-with-users-dotnet
 [Aggiungere notifiche push all'app]: /develop/mobile/tutorials/get-started-with-push-dotnet
 
-[portale di gestione di Azure]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [proprietà di sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come gestire un servizio cloud (portale di anteprima) | Microsoft Azure" 
-	description="Informazioni su come gestire i servizi cloud nel portale di anteprima di Azure. Questi esempi utilizzano il portale di anteprima di Azure." 
+	pageTitle="Come gestire un servizio cloud | Microsoft Azure" 
+	description="Informazioni su come gestire i servizi cloud nel portale di Azure. Questi esempi utilizzano il portale di Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -20,17 +20,17 @@
 # Come gestire i servizi cloud
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-manage.md)
-- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
+- [Azure portal](cloud-services-how-to-manage-portal.md)
 
-Nell'area **Servizi cloud** del portale di anteprima di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una distribuzione di gestione temporanea in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e scalare le risorse insieme, nonché eliminare un servizio cloud o una distribuzione.
+Nell'area **Servizi cloud** del portale di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una distribuzione di gestione temporanea in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e scalare le risorse insieme, nonché eliminare un servizio cloud o una distribuzione.
 
 
 ## Procedura: Aggiornare un ruolo o una distribuzione del servizio cloud
 
 Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, utilizzare **Aggiorna** nel blade del servizio cloud. È possibile aggiornare un singolo ruolo o tutti i ruoli. Sarà necessario caricare un nuovo pacchetto del servizio e un nuovo file di configurazione del servizio.
 
-1. Nel [portale di anteprima di Azure][] selezionare il servizio cloud che si desidera aggiornare. Viene aperto il blade dell’istanza del servizio cloud.
+1. Nel [portale di Azure][], selezionare il servizio cloud che si desidera aggiornare. Viene aperto il blade dell’istanza del servizio cloud.
 
 2. Nel blade, scegliere il pulsante **Aggiorna**.
 
@@ -60,7 +60,7 @@ Utilizzare **Swap** per convertire una distribuzione di gestione temporanea di u
 
 È possibile scambiare le distribuzioni dalla pagina **Cloud Services** o dal dashboard.
 
-1. Nel [portale di anteprima di Azure][] selezionare il servizio cloud che si desidera aggiornare. Viene aperto il blade dell’istanza del servizio cloud.
+1. Nel [portale di Azure][], selezionare il servizio cloud che si desidera aggiornare. Viene aperto il blade dell’istanza del servizio cloud.
 
 2. Nel blade, scegliere il pulsante **Scambia**.
 
@@ -78,7 +78,7 @@ Utilizzare **Swap** per convertire una distribuzione di gestione temporanea di u
 
 ## Procedura: Collegare una risorsa a un servizio cloud
 
-Il portale di anteprima di Azure non collega tra loro le risorse come nel portale di Azure attuale. Pertanto, è necessario distribuire risorse aggiuntive allo stesso gruppo di risorse utilizzato dal servizio cloud.
+Il portale di Azure non collega tra loro le risorse come nel portale di Azure classico. Pertanto, è necessario distribuire risorse aggiuntive allo stesso gruppo di risorse utilizzato dal servizio cloud.
 
 ## Procedura: Eliminare le distribuzioni e un servizio cloud
 
@@ -88,7 +88,7 @@ Per ridurre i costi di calcolo, è possibile eliminare la distribuzione di gesti
 
 Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura seguente.
 
-1. Nel [portale di anteprima di Azure][] selezionare il servizio cloud che si desidera eliminare. Viene aperto il blade dell’istanza del servizio cloud.
+1. Nel [portale di Azure][], selezionare il servizio cloud che si desidera eliminare. Viene aperto il blade dell’istanza del servizio cloud.
 
 2. Nel blade, scegliere il pulsante **Elimina**.
 
@@ -102,10 +102,9 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 
 5. Per eliminare il servizio cloud fare clic su **Delete cloud service**. Quindi, alla richiesta di conferma fare clic su **Yes**.
 
-> [AZURE.NOTE]
-> Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle di metriche, vedere [questo articolo](cloud-services-how-to-monitor.md):
+> [AZURE.NOTE]Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle di metriche, vedere [questo articolo](cloud-services-how-to-monitor.md):
 
-[portale di anteprima di Azure]: https://portal.azure.com
+[portale di Azure]: https://portal.azure.com
 
 ## Passaggi successivi
 
@@ -114,4 +113,4 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,11 +22,11 @@ Azure Data Lake Store può essere usato in combinazione con altri servizi di Azu
 
 ## Uso di Data Lake Store con Azure HDInsight
 
-È possibile eseguire il provisioning di un cluster [Azure HDInsight](https://azure.microsoft.com/it-IT/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) che usa Data Lake Store come archivio conforme a HDFS. Per questa versione, per i cluster Hadoop e Storm in Windows e Linux è possibile usare Data Lake Store solo come un'ulteriore risorsa di archiviazione. Tali cluster continuano a usare l'archiviazione di Azure (WASB) come risorsa di archiviazione predefinita. Tuttavia, per i cluster HBase in Windows e Linux è possibile usare Data Lake Store come risorsa di archiviazione predefinita o come risorsa di archiviazione aggiuntiva oppure in entrambe le modalità.
+È possibile eseguire il provisioning di un cluster [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) che usa Data Lake Store come archivio conforme a HDFS. Per questa versione, per i cluster Hadoop e Storm in Windows e Linux è possibile usare Data Lake Store solo come un'ulteriore risorsa di archiviazione. Tali cluster continuano a usare l'archiviazione di Azure (WASB) come risorsa di archiviazione predefinita. Tuttavia, per i cluster HBase in Windows e Linux è possibile usare Data Lake Store come risorsa di archiviazione predefinita o come risorsa di archiviazione aggiuntiva oppure in entrambe le modalità.
 
 Per istruzioni su come eseguire il provisioning di un cluster HDInsight con Data Lake Store, vedere:
 
-* [Eseguire il provisioning di un cluster HDInsight con Data Lake Store mediante il portale di anteprima di Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Effettuare il provisioning di un cluster HDInsight con Archivio Data Lake tramite il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Eseguire il provisioning di un cluster HDInsight con Data Lake Store mediante Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
@@ -39,7 +39,7 @@ Per istruzioni su come usare Data Lake Analytics con Data Lake Store, vedere [In
 
 ## Uso di Data Lake Store con Data factory di Azure
 
-È possibile usare [Data factory di Azure](https://azure.microsoft.com/it-IT/services/data-factory/) per inserire dati da tabelle di Azure, database SQL di Azure, data warehouse SQL di Azure, BLOB di archiviazione di Azure e database locali. Essendo un elemento di primo piano nell'ecosistema Azure, Data factory di Azure può essere usato per gestire l'inserimento di dati da queste origini nel servizio Data Lake Store di Azure.
+È possibile usare [Data factory di Azure](https://azure.microsoft.com/services/data-factory/) per inserire dati da tabelle di Azure, database SQL di Azure, data warehouse SQL di Azure, BLOB di archiviazione di Azure e database locali. Essendo un elemento di primo piano nell'ecosistema Azure, Data factory di Azure può essere usato per gestire l'inserimento di dati da queste origini nel servizio Data Lake Store di Azure.
 
 Per istruzioni su come usare Data factory di Azure con Data Lake Store, vedere [Spostare dati da e verso Data Lake Store mediante Data factory](data-factory/data-factory-azure-datalake-connector.md).
 
@@ -50,4 +50,4 @@ Per istruzioni su come usare Data factory di Azure con Data Lake Store, vedere [
 - [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
 - [Introduzione a Data Lake Store mediante PowerShell](data-lake-store-get-started-powershell.md)  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

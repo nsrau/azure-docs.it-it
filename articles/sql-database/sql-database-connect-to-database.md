@@ -30,7 +30,7 @@ Utilizzare i seguenti passaggi per installare e interrogare il database SQL tram
 
 Per connettersi al database è necessario il nome completo del server (**** servername**.database.windows.net*) che contiene il database a cui si desidera connettersi.
 
-1. Passare al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare al database a cui si desidera connettersi.
 3. Individuare il nome completo del server:
 
@@ -95,4 +95,4 @@ Per creare o gestire i database è possibile usare istruzioni Transact-SQL. Per 
 [6]: ./media/sql-database-connect-to-database/server-name.png
 [7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

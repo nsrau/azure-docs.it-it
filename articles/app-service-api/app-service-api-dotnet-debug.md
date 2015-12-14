@@ -18,6 +18,8 @@
 
 # Eseguire il debug di un'app per le API del servizio app di Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Panoramica
 
 In questa esercitazione si esegue il debug di codice dell'API Web ASP.NET configurato per l'esecuzione in un'[app per le API](app-service-api-apps-why-best-platform.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Si esegue il debug del codice mentre è in esecuzione in locale e durante l'esecuzione in modalità remota in Azure.
@@ -30,7 +32,7 @@ Per abilitare il debug remoto, è necessario distribuire una build di debug in A
 
 1. In **Esplora soluzioni** di Visual Studio fare clic con il pulsante destro del mouse sul progetto distribuito nell'[esercitazione precedente](app-service-dotnet-deploy-api-app.md) e scegliere **Pubblica**.
 
-2. Nella finestra di dialogo **Pubblica sito Web** selezionare la scheda **Impostazioni** e quindi selezionare **Debug** come configurazione della build.
+2. Nella finestra di dialogo **Pubblica sul Web** selezionare la scheda **Impostazioni** e quindi selezionare **Debug** come configurazione della build.
 
 4. Fare clic su **Pubblica**.
 
@@ -98,7 +100,7 @@ A volte può essere opportuno eseguire il debug dell'app per le API localmente, 
 
 1. In Visual Studio aprire il file *web.config* del progetto dell'app per le API.
 
-9. Da **Impostazioni app** aggiungere le chiavi e i valori seguenti alla sezione *appSettings* del file **web.config**.
+9. Da **Impostazioni app**, aggiungere le chiavi e i valori seguenti alla sezione *appSettings* del file **web.config**.
 	- **EMA\_MicroserviceId**
 	- **EMA\_Secret**
 	- **EMA\_RuntimeUrl**
@@ -136,4 +138,4 @@ In questa esercitazione si è visto come eseguire il debug di app per le API.
 
 Per altre informazioni sulla risoluzione dei problemi, vedere [Risolvere i problemi di un'app Web nel servizio app di Azure tramite Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Le app per le API sono app Web con funzionalità aggiuntive per l'hosting di servizi Web. È quindi possibile usare gli stessi strumenti per il debug e la risoluzione dei problemi delle app per le API usati per le app Web.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

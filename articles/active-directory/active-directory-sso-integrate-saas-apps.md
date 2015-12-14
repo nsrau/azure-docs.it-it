@@ -1,8 +1,8 @@
 <properties
     pageTitle="Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS | Microsoft Azure"
-    description="Abilitare l'autenticazione Single Sign-On e la gestione dell’accesso centralizzata per il provisioning degli utenti delle app SaaS in Azure Active Directory. Cenni preliminari sull'integrazione di Azure AD alle App SaaS."
+    description="Abilitare l'autenticazione Single Sign-On e la gestione dell’accesso centralizzata per il provisioning degli utenti delle app SaaS in Azure Active Directory. Cenni preliminari sull'integrazione di Azure Active Directory alle App SaaS."
     services="active-directory"
-	keywords="Integrare Azure AD con app SaaS"
+	  keywords="Integrare Azure AD con app SaaS"
     documentationCenter=""
     authors="curtand"
     manager="stevenpo"
@@ -14,14 +14,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="11/20/2015"
+      ms.date="12/01/2015"
       ms.author="curtand"/>
 
 # Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS  
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
-Per iniziare a configurare Single Sign-On per un'applicazione che si desidera introdurre nella propria organizzazione, sarà necessario usare una directory esistente in Azure Active Directory. È possibile usare una directory di Azure AD ottenuta tramite Microsoft Azure, Office 365 o Windows Intune. Se si dispone di due o più directory di questo tipo, vedere [Amministrare la directory di Azure AD](active-directory-administer.md) per determinare quale usare.
+Per iniziare a configurare Single Sign-On per un'applicazione che si desidera introdurre nella propria organizzazione, sarà necessario usare una directory esistente in Azure Active Directory (Azure AD). È possibile usare una directory di Azure AD ottenuta tramite Microsoft Azure, Office 365 o Windows Intune. Se si dispone di due o più directory di questo tipo, vedere [Amministrare la directory di Azure AD](active-directory-administer.md) per determinare quale usare.
 
 ## Autenticazione
 
@@ -41,7 +41,7 @@ Azure AD fornisce diverse soluzioni personalizzabili per distribuire le applicaz
 
 ## Considerazioni aggiuntive per le applicazioni già in uso.
 
-L'impostazione di Single Sign-On per un'applicazione in uso nell'organizzazione è un processo diverso rispetto alla creazione di nuovi account per una nuova applicazione. Esistono un paio di passaggi preliminari tra cui il mapping di identità utente nell'applicazione alle identità di Azure Active Directory (AD) e le informazioni sull'esperienza utente durante l'accesso a un'applicazione dopo la relativa integrazione.
+L'impostazione di Single Sign-On per un'applicazione in uso nell'organizzazione è un processo diverso rispetto alla creazione di nuovi account per una nuova applicazione. Esistono un paio di passaggi preliminari tra cui il mapping di identità utente nell'applicazione alle identità di Azure AD e le informazioni sull'esperienza utente durante l'accesso a un'applicazione dopo la relativa integrazione.
 
 > [AZURE.NOTE]Per configurare SSO per un'applicazione esistente, è necessario disporre dei diritti di amministratore globale sia per Azure AD sia per l'applicazione SaaS.
 
@@ -62,10 +62,10 @@ Vedere anche la sezione relativa all'*eliminazione dell'autorizzazione utente* n
 ## Passaggi successivi
 
 
-Per le applicazioni SaaS disponibili nella raccolta delle applicazioni, Azure Active Directory offre varie [esercitazioni pratiche su come integrare applicazioni SaaS](active-directory-saas-tutorial-list.md).
+Per le applicazioni SaaS disponibili nella raccolta delle app, Azure AD offre varie [esercitazioni pratiche su come integrare delle app SaaS](active-directory-saas-tutorial-list.md).
 
-Se l'applicazione non è presente nella raccolta, è possibile [aggiungerla alla raccolta delle applicazioni di Azure Active Directory come applicazione personalizzata](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+Se l'app non è presente nella raccolta, è possibile [aggiungerla alla raccolta delle app di Azure AD come applicazione personalizzata](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

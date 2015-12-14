@@ -13,32 +13,31 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sdanie"/>
 
 # Come configurare la persistenza dei dati per una Cache Redis di Azure Premium
 
-Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluso il nuovo livello Premium attualmente in anteprima.
+Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluso il nuovo livello Premium.
 
 Il livello Premium di Cache Redis di Azure include il supporto di clustering, persistenza e rete virtuale. In questo articolo viene descritto come configurare la persistenza in un'istanza Premium di Cache Redis di Azure.
 
 Per informazioni su altre funzionalità della cache Premium, vedere [Come configurare il clustering Redis per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md) e [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
 
->[AZURE.NOTE]Il livello Premium di Cache Redis di Azure è attualmente disponibile in anteprima. Durante il periodo di anteprima non è possibile usare la persistenza in combinazione con il clustering o le reti virtuali.
-
 ## Che cos'è la persistenza dei dati?
 La persistenza di Redis consente di rendere persistenti i dati archiviati in Redis. È inoltre possibile creare snapshot ed eseguire il backup dei dati, per consentirne il caricamento in caso di errore hardware. Si tratta di un enorme vantaggio rispetto al livello Basic o Standard in cui tutti i dati vengono archiviati in memoria ed esiste il rischio di potenziali perdite di dati in caso di errore quando i nodi della cache sono inattivi.
 
-Cache Redis di Azure offre la persistenza di Redis tramite l'archiviazione dei dati in un account di archiviazione di Azure. Per l'anteprima pubblica è supportato il [modello RDB](http://redis.io/topics/persistence) e sarà presto supportato il modello [AOF (Append Only File)](http://redis.io/topics/persistence).
+Cache Redis di Azure offre la persistenza di Redis tramite il [modello RDB](http://redis.io/topics/persistence) in cui i dati vengono archiviati in un account di archiviazione di Azure. Quando si configura la persistenza, Cache Redis di Azure archivia uno snapshot della cache Redis in un formato binario Redis su disco in base a una frequenza di backup configurabile. Se si verifica un evento catastrofico che disabilita sia la cache primaria che quella di replica, la cache viene ricostruita usando lo snapshot più recente.
 
-## Persistenza dei dati
-Quando si configura la persistenza, Cache Redis di Azure archivia uno snapshot della cache Redis in un formato binario Redis su disco in base a una frequenza di backup configurabile. Se si verifica un evento catastrofico che disabilita sia la cache primaria che quella di replica, la cache viene ricostruita usando lo snapshot più recente.
+La persistenza può essere configurata dal pannello **Nuova Cache Redis** durante la creazione della cache e nel pannello **Impostazioni** per le cache premium esistenti.
 
-La persistenza viene configurata nel pannello **Nuova cache Redis** durante la creazione della cache. Per creare una cache, accedere al [portale di anteprima di Azure](https://portal.azure.com) e fare clic su **Nuovo**->**Dati + Archiviazione**>**Cache Redis**.
+## Creare una cache premium
+
+Per creare una cache e configurare la persistenza, accedere al [portale di anteprima di Azure](https://portal.azure.com) e fare clic su **Nuovo**->**Dati + Archiviazione**>**Cache Redis**.
 
 ![Creare una Cache Redis][redis-cache-new-cache-menu]
 
-Per configurare la persistenza, selezionare innanzitutto una delle cache **Premium** nel pannello **Scegliere il livello di prezzo**.
+Per configurare la persistenza, selezionare innanzitutto una delle cache **Premium** nel pannello **Scegliere il piano tariffario**.
 
 ![Scegliere il livello di prezzo][redis-cache-premium-pricing-tier]
 
@@ -46,19 +45,29 @@ Dopo aver selezionato un piano tariffario Premium, fare clic su **Persistenza Re
 
 ![Persistenza di Redis][redis-cache-persistence]
 
-Fare clic su **Abilitato** per abilitare il backup RDB (database di Redis).
+Nei passaggi nella sezione seguente viene descritto come configurare la persistenza di Redis per la nuova cache premium. Una volta configurata la persistenza di Redis, fare clic su **Crea** per creare la nuova cache premium con persistenza di Redis.
 
-Selezionare la frequenza nell'elenco a discesa **Frequenza backup**. Le opzioni disponibili includono **60 minuti**, **6 ore**, **12 ore**, e **24 ore**. Il conto alla rovescia per l'intervallo inizia dopo il corretto completamento dell'operazione di backup precedente e al termine viene avviato un nuovo backup.
+## Configurare la persistenza di Redis
 
-Fare clic su **Account di archiviazione** per selezionare l'account di archiviazione da usare. Il campo **Chiave di archiviazione** viene compilato automaticamente, ma in caso di rigenerazione della chiave per l'account di archiviazione è possibile aggiornarla in questa posizione. È consigliato un account di **Archiviazione Premium** perché questo tipo di archiviazione offre una velocità effettiva maggiore.
+La persistenza di Redis viene configurata nel pannello **Persistenza dei dati di Redis**. Per le nuove cache, questo pannello è accessibile durante il processo di creazione della cache, come descritto nella sezione precedente. Per le cache esistenti, il pannello **Persistenza dei dati di Redis** è accessibile mediante il pannello **Impostazioni** per la cache.
 
->[AZURE.NOTE]AOF non è disponibile durante il periodo di anteprima del livello Premium, ma il team di Cache sta lavorando all'aggiunta di questa funzionalità. Per altre informazioni sui modelli RDB e AOF e i relativi vantaggi, vedere [Persistenza di Redis](http://redis.io/topics/persistence).
+![Impostazioni di Redis][redis-cache-settings]
+
+Per abilitare la persistenza Redis, fare clic su **Abilitata** per consentire il backup RDB (database Redis). Per disabilitare la persistenza di Redis in una cache premium abilitata in precedenza, fare clic su **Disabilita**.
+
+Per configurare l'intervallo di backup, selezionare una **Frequenza di Backup** dall'elenco a discesa. Le opzioni disponibili includono **15 minuti**, **30 minuti**, **60 minuti**, **6 ore**, **12 ore** e **24 ore**. Il conto alla rovescia per l'intervallo inizia dopo il corretto completamento dell'operazione di backup precedente e al termine viene avviato un nuovo backup.
+
+Fare clic su **Account di archiviazione** per selezionare l'account di archiviazione da utilizzare e scegliere la **Chiave primaria** o la **Chiave secondaria** da utilizzare dall’elenco a discesa **Chiave di archiviazione**. È necessario scegliere un account di archiviazione nella stessa area della cache ed è consigliato un account **Archiviazione Premium**, poiché archiviazione premium ha una velocità effettiva maggiore.
+
+>[AZURE.IMPORTANT]Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario scegliere nuovamente la chiave desiderata dall’elenco a discesa **Chiave di archiviazione**.
 
 ![Persistenza di Redis][redis-cache-persistence-selected]
 
 Fare clic su **OK** per salvare la configurazione della persistenza.
 
-Dopo aver creata la cache, il primo backup viene avviato una volta trascorso l'intervallo di frequenza di backup.
+Una volta trascorso l'intervallo di frequenza di backup, viene avviato il backup successivo (o il primo backup per le nuove cache).
+
+
 
 ## Domande frequenti sulla persistenza
 
@@ -66,11 +75,11 @@ Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul
 
 ## È possibile abilitare la persistenza per una cache creata in precedenza?
 
-Durante il periodo di anteprima è possibile esclusivamente abilitare e configurare la persistenza durante il processo di creazione di una cache Premium. Durante l'anteprima pubblica il passaggio dai livelli Basic/Standard a Premium non è supportato, ma sarà presto disponibile.
+Sì, la persistenza di Redis può essere configurata sia al momento della creazione della cache che nelle cache premium esistenti.
 
 ## È possibile modificare la frequenza di backup dopo aver creato la cache?
 
-Durante il periodo di anteprima è possibile configurare la persistenza solo durante il processo di creazione della cache. Per modificare la configurazione della persistenza, eliminare la cache e crearne una nuova con la configurazione desiderata per la persistenza. Si tratta di una limitazione dell'anteprima e il supporto di questa operazione sarà presto disponibile.
+Sì, è possibile modificare la frequenza di backup nel pannello **Persistenza dei dati di Redis**. Per istruzioni, vedere [Configurare la persistenza di Redis](#configure-redis-persistence).
 
 ## Perché trascorrono più di 60 minuti tra i backup se è stata impostata una frequenza di backup di 60 minuti?
 
@@ -96,4 +105,6 @@ Informazioni su come utilizzare altre funzionalità di cache premium.
 
 [redis-cache-persistence-selected]: ./media/cache-how-to-premium-persistence/redis-cache-persistence-selected.png
 
-<!---HONumber=Oct15_HO3-->
+[redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
+
+<!---HONumber=AcomDC_1203_2015-->

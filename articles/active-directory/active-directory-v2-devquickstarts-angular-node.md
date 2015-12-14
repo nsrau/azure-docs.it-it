@@ -237,4 +237,4 @@ Per altre informazioni sull'anteprima di Modello app 2.0, tornare alla [guida pe
 - [Azure AD in Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentazione di Azure AD su [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

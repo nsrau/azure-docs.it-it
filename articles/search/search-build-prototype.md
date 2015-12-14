@@ -44,7 +44,7 @@ Per caricare i file di dati e dello schema utilizzando il codice nell'applicazio
 
 ## Testare la soluzione prototipo nel sistema
 
-1. [Creare un servizio di Ricerca di Azure nel Portale di Azure](search-create-service-portal.md).
+1. [Creare un servizio di Ricerca di Azure nel portale di Azure classico](search-create-service-portal.md).
 
     È possibile aggiungere una versione condivisa (gratuita) del servizio per qualsiasi sottoscrizione Azure esistente. Il servizio condiviso viene spesso utilizzato per prototipi. Tenere presente che il servizio condiviso fornisce 50 MB di dati o 10.000 documenti in totale, rispettivamente. Inoltre, i documenti e dati possano essere distribuiti in un massimo di 3 indici.
 
@@ -133,4 +133,4 @@ Per ulteriori informazioni, visitare:
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

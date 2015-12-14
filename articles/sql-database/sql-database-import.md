@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -23,10 +23,10 @@
 **Database singolo**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-import.md)
+- [Azure portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-In questo articolo vengono fornite istruzioni per la creazione di un nuovo database SQL Azure da un file BACPAC utilizzando il [portale di anteprima di Azure](https://portal.azure.com).
+In questo articolo vengono fornite istruzioni per la creazione di un nuovo database SQL Azure da un file BACPAC utilizzando il [portale di Azure](https://portal.azure.com).
 
 Un BACPAC è un file con estensione bacpac che contiene lo schema del database e dati. Per ulteriori informazioni, vedere il pacchetto di Backup (con estensione bacpac) in [Applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx).
 
@@ -47,7 +47,7 @@ Per importare un database SQL da un file bacpac è necessario quanto segue:
 
 Aprire il pannello di SQL Server per il database che si desidera importare:
 
-1.	Passare al [portale di anteprima di Azure](https://portal.azure.com).
+1.	Accedere al [portale di Azure](https://portal.azure.com).
 2.	Fare clic su **ESPLORA TUTTO**.
 3.	Fare clic su **SQL Server**.
 2.	Fare clic sul server in cui ripristinare il database.
@@ -110,4 +110,4 @@ Facendo clic su **Crea** si invia una richiesta di importazione del database al 
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

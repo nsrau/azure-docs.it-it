@@ -38,7 +38,7 @@ Nel corso del tempo è necessario ripetere il training dei modelli predittivi ne
   
 Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi, cioè l'esperimento predittivo esposto come servizio Web, con il nuovo modello sottoposto a training. A questo scopo, seguire questa procedura:
 
-1. Aggiungere un endpoint non predefinito al servizio Web di assegnazione dei punteggi. L'endpoint predefinito del servizio Web non può esser aggiornato, quindi sarà necessario creare un nuovo endpoint non predefinito tramite il portale di gestione di Azure. Per informazioni concettuali e passaggi procedurali, vedere l'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md).
+1. Aggiungere un endpoint non predefinito al servizio Web di assegnazione dei punteggi. L'endpoint predefinito del servizio Web non può esser aggiornato, quindi sarà necessario creare un nuovo endpoint non predefinito tramite il portale di Azure classico. Per informazioni concettuali e passaggi procedurali, vedere l'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md).
 2. Aggiornare i servizi collegati di Azure ML per l'assegnazione dei punteggi esistenti perché usino l'endpoint non predefinito. È consigliabile iniziare con il nuovo endpoint per usare il servizio Web aggiornato.
 3. Usare **Attività della risorsa di aggiornamento di Azure ML** per aggiornare il servizio Web con il nuovo modello sottoposto a training.  
 
@@ -361,10 +361,10 @@ Nel corso del tempo è necessario ripetere il training dei modelli predittivi ne
 
 La tabella seguente descrive i servizi Web usati in questo esempio. Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](../machine-learning/machine-learning-retrain-models-programmatically.md).
 
-| Tipo di servizio Web | descrizione 
+| Tipo di servizio Web | description 
 | :------------------ | :---------- 
 | **Training del servizio Web** | Riceve i dati di training e genera i modelli con training. L'output della ripetizione del training è un file con estensione ilearner in un archivio BLOB di Azure. L'**endpoint predefinito** viene creato automaticamente quando si pubblica l'esperimento di training come servizio Web. È possibile creare più endpoint, ma l'esempio usa solo quello predefinito. |
-| **Servizio Web di assegnazione dei punteggi** | Riceve esempi di dati senza etichetta ed esegue stime. L'output della stima può avere diversi formati, ad esempio un file con estensione csv o righe in un database SQL di Azure, a seconda della configurazione dell'esperimento. L'endpoint predefinito viene creato automaticamente quando si pubblica l'esperimento predittivo come servizio Web. Sarà necessario creare il secondo **endpoint aggiornabile e non predefinito** tramite il [portale di Azure](https://manage.windowsazure.com). È possibile creare più endpoint, ma questo esempio usa solo quello aggiornabile non predefinito. Per la procedura, vedere l'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md).       
+| **Servizio Web di assegnazione dei punteggi** | Riceve esempi di dati senza etichetta ed esegue stime. L'output della stima può avere diversi formati, ad esempio un file con estensione csv o righe in un database SQL di Azure, a seconda della configurazione dell'esperimento. L'endpoint predefinito viene creato automaticamente quando si pubblica l'esperimento predittivo come servizio Web. Sarà necessario creare il secondo **endpoint aggiornabile e non predefinito** tramite il [portale di Azure classico](https://manage.windowsazure.com). È possibile creare più endpoint, ma questo esempio usa solo quello aggiornabile non predefinito. Per la procedura, vedere l'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md).       
  
 L'immagine seguente illustra la relazione tra gli endpoint di training e di assegnazione dei punteggi in Azure ML.
 
@@ -623,4 +623,4 @@ Se si vuole continuare a usare l'attività AzureMLBatchScoring, vedere l'articol
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

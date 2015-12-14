@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/21/2015"
+   ms.date="11/30/2015"
    ms.author="mfussell"/>
 
 # Scenari di applicazione dell’infrastruttura di servizi
@@ -55,9 +55,11 @@ Per iniziare a creare servizi senza e con stato, usare i modelli di programmazio
 
 Vedere anche gli argomenti seguenti:
 
+[Informazioni sui microservizi](service-fabric-overview-microservices.md)
+
 [Definizione e gestione dello stato di un servizio](service-fabric-concepts-state.md)
 
-[Disponibilità dei servizi](service-fabric-concepts-availability-services.md)
+[Disponibilità dei servizi](service-fabric-availability-services.md)
 
 [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
 
@@ -68,4 +70,4 @@ Vedere anche gli argomenti seguenti:
  
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

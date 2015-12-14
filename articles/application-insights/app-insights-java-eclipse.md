@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Introduzione ad Application Insights con Java in Eclipse
@@ -99,7 +99,7 @@ Inserire il frammento di codice nella parte iniziale dei file HTML.
 
 #### Visualizzare i dati lato client
 
-Aprire le pagine Web aggiornate e usarle. Attendere uno o due minuti, quindi tornare ad Application Insights e aggiornare il pannello Utilizzo.
+Aprire le pagine Web aggiornate e usarle. Attendere uno o due minuti, quindi tornare ad Application Insights e aprire il pannello Utilizzo. (Nel pannello Panoramica scorrere verso il basso e fare clic su Utilizzo.)
 
 Le metriche di visualizzazioni pagine, utenti e sessioni verranno visualizzate nel pannello Utilizzo:
 
@@ -129,7 +129,7 @@ A questo punto è possibile pubblicare l'applicazione nel server, permettere agl
 
 Vengono raccolte automaticamente le eccezioni non gestite:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![](./media/app-insights-java-eclipse/21-exceptions.png)
 
 Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
 
@@ -144,10 +144,10 @@ Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
 
 ## Contatori delle prestazioni
 
-Fare clic sul riquadro **Server** e verrà visualizzato un intervallo di contatori delle prestazioni.
+Nel Pannello panoramica, scorrere verso il basso e fare clic sul riquadro **Server**. Verrà visualizzato un intervallo di contatori delle prestazioni.
 
 
-![](./media/app-insights-java-get-started/11-perf-counters.png)
+![Scorrere verso il basso fare clic sul riquadro Server](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### Personalizzare la raccolta del contatore delle prestazioni
 
@@ -198,7 +198,7 @@ Ogni [contatore delle prestazioni Windows](https://msdn.microsoft.com/library/wi
 
 I contatori delle prestazioni sono visibili come metriche personalizzate in [Esplora metriche][metrics].
 
-![](./media/app-insights-java-get-started/12-custom-perfs.png)
+![](./media/app-insights-java-eclipse/12-custom-perfs.png)
 
 
 ### Contatori delle prestazioni Unix
@@ -207,7 +207,9 @@ I contatori delle prestazioni sono visibili come metriche personalizzate in [Esp
 
 ## Test Web di disponibilità
 
-Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. Per eseguire la configurazione, selezionare il grafico del test Web vuoto nel pannello Panoramica e fornire l'URL pubblico.
+Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. [Per eseguire l'impostazione][availability], scorrere verso il basso e fare clic su Disponibilità.
+
+![Scorrere verso il basso, fare clic su Disponibilità, quindi su Aggiungi test Web](./media/app-insights-java-eclipse/31-config-web-test.png)
 
 Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché notifiche di posta elettronica.
 
@@ -258,4 +260,4 @@ Inserire alcune righe di codice nell'applicazione Web Java per scoprire come vie
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

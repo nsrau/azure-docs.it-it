@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Effettuare la registrazione per l'autenticazione Google | Microsoft Azure" 
-	description="Informazioni su come registrare le proprie app in modo da poter usare Google per l'autenticazione con Servizi mobili di Azure." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Effettuare la registrazione per l'autenticazione Google | Microsoft Azure"
+	description="Informazioni su come registrare le proprie app in modo da poter usare Google per l'autenticazione con Servizi mobili di Azure."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/15/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/15/2015"
 	ms.author="glenga"/>
 
 # Registrare le app per l'autenticazione Google con Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
 
@@ -35,9 +40,9 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 6. Nella scheda **Credenziali** fare clic su **Aggiungi credenziali** > **ID client OAuth 2.0**, quindi selezionare **Applicazione Web**.
 
 7. Digitare l'URL del servizio mobile in **Authorized JavaScript Origins**, sostituire l'URL generato in **Authorized Redirect URI** con uno dei seguenti formati di URL, e poi fare clic su **Creare ID client**:
- 
+
 	+ **Back-end .NET**: `https://<mobile_service>.azure-mobile.net/signin-google`
-	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/google` 
+	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/google`
 
 	 >[AZURE.NOTE]Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione avrà esito negativo.
 
@@ -56,7 +61,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-[Azure Management Portal]: https://manage.windowsazure.com/
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

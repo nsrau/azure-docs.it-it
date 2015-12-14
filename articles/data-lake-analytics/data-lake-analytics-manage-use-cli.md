@@ -26,7 +26,7 @@ Informazioni su come gestire gli account, le origini dati, gli utenti e i proces
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/).
+- Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Interfaccia della riga di comando di Azure**. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md).
 	- Scaricare e installare gli [Strumenti di Azure CLI](https://github.com/MicrosoftBigData/AzureDataLake/releases) **pre-release** per completare questa demo.
 - **Autenticazione**, utilizzando il comando seguente:
@@ -210,8 +210,8 @@ Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono
 ##Vedere anche 
 
 - [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Introduzione a Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md)
-- [Gestire Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-use-portal.md)
-- [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
+- [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-use-portal.md)
+- [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

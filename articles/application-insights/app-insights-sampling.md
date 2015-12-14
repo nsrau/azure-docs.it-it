@@ -67,6 +67,58 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     Valore assegnato quando l'app è appena stata avviata. Non ridurlo durante il debug.
 
+### Alternativa: configurare il campionamento adattivo nel codice
+
+Invece di regolare il campionamento nel file .config, è possibile utilizzare il codice. Ciò consente di specificare una funzione di callback che viene richiamata ogni volta che si valuta nuovamente la frequenza di campionamento. È possibile utilizzarlo, ad esempio, per scoprire quale frequenza di campionamento si sta utilizzando.
+
+Rimuovere il nodo `AdaptiveSamplingTelemetryProcessor` dal file .config.
+
+
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
+
+    var adaptiveSamplingSettings = new SamplingPercentageEstimatorSettings();
+
+    // Optional: here you can adjust the settings from their defaults.
+
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    
+    builder.UseAdaptiveSampling(
+         adaptiveSamplingSettings,
+
+        // Callback on rate re-evaluation:
+        (double afterSamplingTelemetryItemRatePerSecond,
+         double currentSamplingPercentage,
+         double newSamplingPercentage,
+         bool isSamplingPercentageChanged,
+         SamplingPercentageEstimatorSettings s
+        ) =>
+        {
+          if (isSamplingPercentageChanged)
+          {
+             // Report the sampling rate.
+             telemetryClient.TrackMetric("samplingPercentage", newSamplingPercentage);
+          }
+      });
+
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
+
+```
+
+([Informazioni sui processori di telemetria](app-insights-api-filtering-sampling.md#filtering).)
+
+
 <a name="other-web-pages"></a>
 ## Campionamento per pagine Web con JavaScript
 
@@ -113,7 +165,7 @@ Se si abilita il campionamento a frequenza fissa nel server, i client e il serve
 
     ```
 
-2. **Abilitare il modulo di campionamento a frequenza fissa**. Aggiungere questo frammento ad [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+2. **Abilitare il modulo di campionamento a frequenza fissa.** Aggiungere questo frammento ad [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
     ```XML
 
@@ -132,7 +184,7 @@ Se si abilita il campionamento a frequenza fissa nel server, i client e il serve
 
 
 
-### In alternativa: impostare campionamento nel codice server
+### Alternativa: abilitare il campionamento a frequenza fissa nel codice del server
 
 
 Invece di impostare il parametro di campionamento nel file .config, è possibile utilizzare il codice.
@@ -155,7 +207,7 @@ Invece di impostare il parametro di campionamento nel file .config, è possibile
 
 ```
 
-[Informazioni sui processori di telemetria](app-insights-api-filtering-sampling/#filtering).
+([Informazioni sui processori di telemetria](app-insights-api-filtering-sampling.md#filtering).)
 
 ## Quando usare il campionamento?
 
@@ -221,11 +273,13 @@ L'SDK lato client (JavaScript) partecipa al campionamento insieme all'SDK lato s
 
 *È possibile conoscere la frequenza di campionamento usata dal campionamento adattivo?*
 
- * Non nella versione corrente.
+ * Sì - utilizzare il metodo del codice di configurazione del campionamento adattivo, e sarà possibile fornire un callback che ottiene la frequenza di campionamento.
 
 *Se si usa il campionamento a frequenza fissa, come stabilire quale sarà la percentuale di campionamento ideale per l'app?*
 
-* Per ora è necessario usare l'intuito. Analizzare l'utilizzo della telemetria corrente in AI, osservare le eliminazioni di dati correlate alla limitazione e stimare il volume della telemetria raccolta. Questi tre input, insieme al piano tariffario selezionato, suggeriranno di quanto ridurre il volume della telemetria raccolta. Tuttavia, una variazione nel modello del volume della telemetria potrebbe invalidare la percentuale di campionamento ottimale configurata (ad esempio, un aumento del numero degli utenti).
+* Una modalità è quella di iniziare con il campionamento adattivo, scoprire quale frequenza è impostata (vedere la domanda precedente) e quindi cambiarla a campionamento a frequenza fissa usando quella frequenza. 
+
+    In caso contrario, è necessario usare l'intuito. Analizzare l'utilizzo della telemetria corrente in AI, osservare le possibili limitazioni in corso e stimare il volume della telemetria raccolta. Questi tre input, insieme al piano tariffario selezionato, suggeriranno di quanto ridurre il volume della telemetria raccolta. Tuttavia, un aumento nel numero degli utenti o qualsiasi altra migrazione nel volume di telemetria potrebbe invalidare la stima.
 
 *Cosa accade se si configura una percentuale di campionamento troppo bassa?*
 
@@ -241,6 +295,6 @@ L'SDK lato client (JavaScript) partecipa al campionamento insieme all'SDK lato s
 
 *Esistono alcuni eventi rari che si vuole visualizzare sempre. Come è possibile passarli al modulo di campionamento?*
 
- * Creare un'istanza separata di TelemetryClient con una diversa TelemetryConfiguration. Usarla per inviare gli eventi rari.
+ * Inizializzare un'istanza separata di TelemetryClient con una nuova TelemetryConfiguration (non con quello predefinito attivo). Usarla per inviare gli eventi rari.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

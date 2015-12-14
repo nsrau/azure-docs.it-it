@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Collegare un disco dati | Microsoft Azure"
-	description="Come collegare un disco dati nuovo o esistente a una macchina virtuale nel portale di anteprima di Azure tramite il modello di distribuzione di gestione delle risorse."
+	description="Come collegare un disco dati nuovo o esistente a una macchina virtuale nel portale di Azure tramite il modello di distribuzione di gestione delle risorse."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,11 +17,11 @@
 	ms.date="09/14/2015"
 	ms.author="cynthn"/>
 
-# Come collegare un disco dati nel portale di anteprima di Azure
+# Come collegare un disco dati nel portale di Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](storage-windows-attach-disk.md).
 
-In questo articolo viene illustrato come collegare dischi sia nuovi che esistenti a una macchina virtuale tramite il portale di anteprima di Azure. Prima di procedere, rivedere i suggerimenti seguenti:
+In questo articolo viene illustrato come collegare dischi sia nuovi che esistenti a una macchina virtuale tramite il portale di Azure. Prima di procedere, rivedere i suggerimenti seguenti:
 
 - La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-size-specs.md).
 - Per utilizzare l'archiviazione Premium, è necessario utilizzare una macchina virtuale della serie DS o serie GS. È possibile utilizzare dischi dagli account di archiviazione sia Premium che Standard con queste macchine virtuali. L’archiviazione Premium è disponibile solo in determinate aree geografiche. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage-preview-portal.md).
@@ -31,7 +31,7 @@ In questo articolo viene illustrato come collegare dischi sia nuovi che esistent
 
 ## Trovare la macchina virtuale
 
-1. Accedere al portale di anteprima di Azure.
+1. Accedere al portale di Azure.
 
 2. Nel menu Hub fare clic su **Sfoglia**.
 
@@ -90,4 +90,4 @@ Dopo aver aggiunto il disco, è necessario prepararlo per l'utilizzo nel sistema
 
 [Informazioni sugli account di archiviazione di Azure]: ../storage-whatis-account/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # Come configurare il clustering Redis per una Cache Redis di Azure Premium
-Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluso il nuovo livello Premium attualmente in anteprima.
+Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluso il nuovo livello Premium.
 
 Il livello Premium di Cache Redis di Azure include il supporto di clustering, persistenza e rete virtuale. In questo articolo viene descritto come configurare il clustering in un'istanza Premium di Cache Redis di Azure.
 
 Per informazioni su altre funzionalità della cache Premium, vedere [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md) e [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
-
->[AZURE.NOTE]Il livello Premium di Cache Redis di Azure è attualmente disponibile in anteprima.
 
 ## Che cos'è un cluster Redis?
 Cache Redis di Azure offre funzionalità di clustering Redis come nell'[implementazione in Redis](http://redis.io/topics/cluster-tutorial). Con un cluster Redis si ottengono i vantaggi seguenti.
@@ -42,7 +40,7 @@ Le funzionalità di clustering vengono configurate nel pannello **Nuova cache Re
 
 ![Creare una Cache Redis][redis-cache-new-cache-menu]
 
-Per configurare il clustering, selezionare innanzitutto una delle cache **Premium** nel pannello **Scegliere il livello di prezzo**.
+Per configurare il clustering, selezionare innanzitutto una delle cache **Premium** nel pannello **Scegliere il piano tariffario**.
 
 ![Scegliere il livello di prezzo][redis-cache-premium-pricing-tier]
 
@@ -58,6 +56,28 @@ Ogni partizione è una coppia di cache primaria/di replica gestita da Azure e la
 
 Una volta creata la cache è possibile connettersi alla cache e usarla come una cache non in cluster e Redis distribuirà i dati tra le partizioni della cache. Se la diagnostica è [abilitata](cache-how-to-monitor.md#enable-cache-diagnostics), le metriche vengono acquisite separatamente per ogni partizione e possono essere [visualizzate](cache-how-to-monitor.md) nel pannello della Cache Redis.
 
+>[AZURE.IMPORTANT]Durante la connessione a Cache Redis di Azure con il clustering abilitato utilizzando Stackexchange.Redis, è possibile riscontrare un problema e ricevere eccezioni `MOVE`. Ciò si verifica perché utilizza un intervallo breve per la raccolta di informazioni sui nodi del cluster della cache da parte del client della cache Stackexchange.Redis. Queste eccezioni possono verificarsi se si connettono alla cache per la prima volta e si effettuano immediatamente chiamate alla cache prima che il client abbia completato la raccolta di queste informazioni. Il modo più semplice per risolvere il problema nell'applicazione è la connessione alla cache e quindi l’attesa di un secondo prima di effettuare chiamate alla cache. È possibile eseguire questa operazione mediante l'aggiunta di un `Thread.Sleep(1000)` come illustrato nell'esempio di codice seguente. Si noti che il `Thread.Sleep(1000)` si verifica solo durante la connessione iniziale alla cache. Per ulteriori informazioni, vedere [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Una soluzione per questo problema è in fase di sviluppo e tutti gli aggiornamenti verranno pubblicati qui.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+        // Connect to the Redis cache for the first time
+	    var connection =  ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+
+		// Wait for 1 second
+		Thread.Sleep(1000);
+
+		// Return the connected ConnectionMultiplexer
+		return connection;
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
+
 ## Domande frequenti sul clustering
 
 Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul clustering di Cache Redis di Azure.
@@ -68,7 +88,7 @@ Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul
 -	Se si usa [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), sarà necessario usare la versione 1.0.481 o successiva. Connettersi alla cache usando gli stessi [endpoint, porte e chiavi](cache-configure.md#properties) usati per la connessione a una cache senza clustering abilitato. L'unica differenza consiste nel fatto che tutte le operazioni di lettura e scrittura devono essere eseguite nel database 0.
 	-	Altri client possono avere requisiti diversi. Vedere [Tutti i client Redis supportano il clustering?](#do-all-redis-clients-support-clustering).
 -	Se l'applicazione usa più operazioni chiave raggruppate in un singolo comando, tutte le chiavi devono trovarsi nella stessa partizione. Per ottenere questo risultato, vedere [Come vengono distribuite le chiavi in un cluster?](#how-are-keys-distributed-in-a-cluster).
--	Se si usa il provider di stato della sessione ASP.NET Redis, sarà necessario usare la versione 2.0.0 o successiva. Vedere [È possibile usare il clustering con il provider di stato della sessione ASP.NET Redis e il provider di cache di output?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers).
+-	Se si usa il provider di stato della sessione ASP.NET Redis, sarà necessario usare la versione 2.0.0 o successiva. Vedere [È possibile usare il clustering con il provider di stato della sessione ASP.NET Redis e il provider di caching di output?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers).
 
 ## Come vengono distribuite le chiavi in un cluster?
 
@@ -111,7 +131,7 @@ Per ssl, sostituire `1300N` con `1500N`.
 
 ## È possibile configurare il clustering per una cache creata in precedenza?
 
-Durante il periodo di anteprima è solo possibile abilitare e configurare il clustering durante la creazione di una cache.
+In questo momento è possibile solo abilitare e configurare il clustering durante la creazione di una cache.
 
 ## È possibile configurare il clustering per una cache Basic o Standard?
 
@@ -146,4 +166,4 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -17,26 +17,35 @@
    ms.author="sumukhs"/>
 
 # Configurazione di Reliable Services con stato
-È possibile modificare la configurazione predefinita di Reliable Services con stato cambiando il file "settings.xml" generato nella directory radice del pacchetto di Visual Studio all'interno della cartella "Config" per ogni servizio dell'applicazione.
+La configurazione predefinita con lo stato affidabile del servizio può essere modificata tramite il pacchetto di configurazione (Config) o nell'implementazione del servizio (codice).
 
-Il runtime di Service Fabric cerca i nomi di sezione predefiniti nel file "settings.xml" e utilizza i valori di configurazione durante la creazione dei componenti di runtime sottostanti.
++ **Config**: la configurazione tramite il pacchetto config viene realizzata modificando il file "Settings.xml" generato nella radice del pacchetto Visual Studio nella cartella "Config" per ogni servizio dell’applicazione.
++ **Codice**: la configurazione tramite il codice viene realizzata ignorando StatefulService.CreateReliableStateManager e creando un ReliableStateManager utilizzando un oggetto ReliableStateManagerConfiguration con il set di opzioni appropriato.
 
-> [AZURE.NOTE]**NON** eliminare/modificare i nomi di sezione delle configurazioni seguenti nel file "settings.xml" generato nella soluzione Visual Studio.
+Per impostazione predefinita, il runtime di Service Fabric cerca i nomi di sezione predefiniti nel file "Settings.xml" e utilizza i valori di configurazione durante la creazione dei componenti di runtime sottostanti.
+
+> [AZURE.NOTE]**NON** eliminare i nomi di sezione delle configurazioni seguenti nel file "Settings.xml" generato nella soluzione Visual Studio, a meno che si preveda di configurare il servizio tramite codice. La ridenominazione del pacchetto di configurazione o dei nomi di sezione richiede una modifica del codice quando si configura ReliableStateManager.
+
 
 ## Configurazione della sicurezza del replicatore
 Le configurazioni della sicurezza del replicatore consentono di proteggere il canale di comunicazione usato durante la replica. Questo significa che i servizi non saranno in grado di vedere l'uno il traffico di replica dell'altro, garantendo la sicurezza dei dati a disponibilità elevata. Per impostazione predefinita, una sezione di configurazione della sicurezza vuota non abilita la sicurezza della replica.
 
-### Nome della sezione
+### Nome della sezione predefinito
 ReplicatorSecurityConfig
+
+> [AZURE.NOTE]Per modificare questo nome di sezione, sostituire il parametro replicatorSecuritySectionName del costruttore ReliableStateManagerConfiguration durante la creazione di ReliableStateManager per questo servizio.
+
 
 ## Configurazione del replicatore
 Le configurazioni del replicatore vengono usate per configurare il replicatore responsabile di garantire l'elevata affidabilità dello stato di Reliable Services con stato replicando e rendendo permanente tale stato in locale. La configurazione predefinita viene generata dal modello di Visual Studio e dovrebbe essere sufficiente. Questa sezione descrive le configurazioni aggiuntive che sono disponibili per ottimizzare il replicatore.
 
-### Nome della sezione
+### Nome della sezione predefinito
 ReplicatorConfig
 
-### Nomi delle configurazioni
+> [AZURE.NOTE]Per modificare questo nome di sezione, sostituire il parametro replicatorSettingsSectionName del costruttore ReliableStateManagerConfiguration durante la creazione di ReliableStateManager per questo servizio.
 
+
+### Nomi delle configurazioni
 |Nome|Unità|Valore predefinito|Osservazioni|
 |----|----|-------------|-------|
 |BatchAcknowledgementInterval|Secondi|0,05|Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica.|
@@ -50,8 +59,22 @@ ReplicatorConfig
 |SharedLogId|guid|""|Specifica un GUID da usare per l'identificazione del file di log condiviso usato con la replica in oggetto. In genere i servizi non dovrebbero usare questa impostazione. Tuttavia, se è stato specificato SharedLogId, è necessario specificare anche SharedLogPath.|
 |SharedLogPath|Nome di percorso completo|""|Specifica il percorso completo in cui verrà creato il file di log condiviso per la replica in oggetto. In genere i servizi non dovrebbero usare questa impostazione. Tuttavia, se è stato specificato SharedLogPath, è necessario specificare anche SharedLogId.|
 
-## File di configurazione di esempio
 
+## Configurazione di esempio tramite codice
+```csharp
+protected override IReliableStateManager CreateReliableStateManager()
+{
+    return new ReliableStateManager(
+        new ReliableStateManagerConfiguration(
+            new ReliableStateManagerReplicatorSettings
+            {
+                RetryInterval = TimeSpan.FromSeconds(3)
+            }));
+}
+```
+
+
+## File di configurazione di esempio
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -72,6 +95,7 @@ ReplicatorConfig
 </Settings>
 ```
 
+
 ## Osservazioni
 BatchAcknowledgementInterval controlla la latenza di replica. Il valore '0' determina la latenza più bassa possibile a scapito della velocità effettiva, in quanto è necessario inviare ed elaborare una maggiore quantità di messaggi di acknowledgement, ciascuno dei quali contenente un numero minore di acknowledgement. Più alto è il valore di BatchAcknowledgementInterval, maggiore sarà la velocità effettiva di replica complessiva, ma con una latenza delle operazioni più elevata. Questo ha un impatto diretto sulla latenza dei commit delle transazioni.
 
@@ -83,4 +107,4 @@ L'impostazione MaxRecordSizeInKB definisce la dimensione massima di un record ch
 
 Le impostazioni SharedLogId e SharedLogPath vengono sempre usate insieme e consentono a un servizio di usare un log condiviso separato dal log condiviso predefinito per il nodo. Per ottenere migliori prestazioni, il maggior numero di servizi possibile dovrebbe specificare lo stesso log condiviso. I file di log condivisi devono essere memorizzati su dischi riservati esclusivamente a questo tipo di file, in modo da ridurre le situazioni di contesa della testina. Si prevede che l'impostazione dovrà essere modificata solo in casi rari.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

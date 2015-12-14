@@ -33,7 +33,7 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
 	![Aprire il prompt dei comandi.][1]
 
 2.  Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invio**; ripetere l'azione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
-3.  Il [portale di anteprima di Azure](https://portal.azure.com) deve visualizzare tre nuovi database nel server v12:
+3.  Nel [portale di Azure](https://portal.azure.com) dovrebbero essere visualizzati tre nuovi database nel server v12:
 
 	![Conferma di Visual Studio][2]
 
@@ -43,7 +43,7 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
 
 ## Creare un database di query elastico
 
-1. Aprire il [Portale di anteprima di Azure](https://portal.azure.com) ed effettuare l’accesso.
+1. Aprire il [portale di Azure](https://portal.azure.com) ed effettuare l’accesso.
 2. Creare un nuovo database SQL Azure nello stesso server del programma di installazione del partizionamento. Denominare il database "ElasticDBQuery". Per un livello di prezzo, è necessario selezionare una delle offerte premium. La query del Database elastico è attualmente disponibile solo nel livello premium.
 
 	![Portale di Azure e il livello di prezzo][3]
@@ -142,4 +142,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://az
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -23,9 +23,9 @@ Servizi multimediali di Azure supporta molti formati di streaming noti, ad esemp
 
 >[AZURE.NOTE]Per riprodurre contenuti organizzati in pacchetti dinamici o con crittografia dinamica, assicurarsi di disporre di almeno un'unità di streaming per l'endpoint di streaming da cui si prevede di inviare il contenuto. Per informazioni sul ridimensionamento delle unità di streaming, vedere la sezione relativa al [ridimensionamento di unità di streaming](media-services-manage-origins.md#scale_streaming_endpoints)
 
-###Lettore di contenuti di Servizi multimediali del portale di gestione di Azure
+###Lettore di contenuti di Servizi multimediali del portale di Azure classico
 
-Il **portale di gestione di Azure** fornisce un lettore di contenuti che può essere usato per testare il proprio video.
+Il **portale di Azure classico** fornisce un lettore di contenuti che può essere usato per testare il proprio video.
 
 Fare clic sul video desiderato (assicurarsi che sia stato [pubblicato](media-services-manage-content.md#publish)) e fare clic sul pulsante **Play** nella parte inferiore del portale.
  
@@ -93,4 +93,4 @@ Per informazioni su come sviluppare i propri lettori, vedere [Sviluppo di lettor
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

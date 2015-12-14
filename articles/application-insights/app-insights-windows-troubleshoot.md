@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="11/24/2015" 
 	ms.author="awills"/>
  
 # Risoluzione dei problemi e domande e risposte per Application Insights per dispositivi Windows
@@ -25,7 +25,7 @@ Domande o problemi con [Visual Studio Application Insights in Windows][windows]?
 
 *Dopo avere aggiunto Application Insights correttamente ed avere eseguito l'app, nel portale non vengono visualizzati dati.*
 
-* Attendere un minuto, quindi fare clic su Aggiorna. Al momento, l'aggiornamento non avviene automaticamente.
+* Attendere un minuto, quindi fare clic su Aggiorna.
 * Verificare di disporre di una chiave di strumentazione definita nel file ApplicationInsights.config e che la chiave corrisponda a quella disponibile nel portale di Application Insights. Per visualizzare la chiave, fare clic su Informazioni di base nel pannello della panoramica.
 * Assicurarsi che l'applicazione [richieda l'accesso di rete in uscita](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx).
 * È presente un firewall tra l'emulatore o il dispositivo di test e il portale di Application Insights? Potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com e f5.services.visualstudio.com.
@@ -40,7 +40,11 @@ Domande o problemi con [Visual Studio Application Insights in Windows][windows]?
 
 ## Come si aggiunge Application Insights a un'app universale?
 
-Aggiungere manualmente i pacchetti NuGet a ogni progetto per dispositivo nella soluzione. Vedere [Introduzione - App universali][universal].
+Se si crea una nuova soluzione in Visual Studio 2015, è sufficiente selezionare l'opzione Aggiungi Application Insights nella finestra di dialogo Nuovo progetto. I dati di telemetria da tutti i tipi di applicazione di destinazione verranno inviati alla stessa risorsa di Application Insights.
+
+Se si crea già la soluzione di app universale, fare doppio clic su ogni progetto principale e selezionare **Aggiungere Application Insights**.
+
+
 
 ## Disabilitazione della telemetria
 
@@ -120,4 +124,4 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

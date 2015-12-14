@@ -201,7 +201,7 @@ La [libreria di runtime di Azure](https://msdn.microsoft.com/library/azure/dn511
 ## ServicePackage.cspkg
 Per distribuire un'applicazione come servizio cloud in Azure, è necessario prima creare un pacchetto dell'applicazione nel formato appropriato. È possibile usare lo strumento da riga di comando **CSPack** (installato con [Azure SDK](http://azure.microsoft.com/downloads/)) per creare il file del pacchetto come alternativa a Visual Studio.
 
-**CSPack** usa il contenuto del file di definizione del servizio e del file di configurazione del servizio per definire il contenuto del pacchetto. Tramite **CSPack** viene generato un file del pacchetto dell'applicazione (con estensione cspkg) che è possibile caricare in Azure usando il [portale di gestione di Azure](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). Per impostazione predefinita, il pacchetto viene denominato `[ServiceDefinitionFileName].cspkg`, ma è possibile specificare un nome diverso usando l'opzione `/out` di **CSPack**.
+**CSPack** usa il contenuto del file di definizione del servizio e del file di configurazione del servizio per definire il contenuto del pacchetto. Tramite **CSPack** viene generato un file del pacchetto dell'applicazione (con estensione cspkg) che è possibile caricare in Azure usando il [portale di Azure classico](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). Per impostazione predefinita, il pacchetto viene denominato `[ServiceDefinitionFileName].cspkg`, ma è possibile specificare un nome diverso usando l'opzione `/out` di **CSPack**.
 
 ###### Percorso dello strumento CSPack (in Windows)
 | Versione SDK | Path |
@@ -270,4 +270,4 @@ Si sta usando Visual Studio e si vuole...
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

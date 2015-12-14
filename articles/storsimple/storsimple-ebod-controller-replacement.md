@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Sostituzione di un controller EBOD nel dispositivo StorSimple
@@ -38,7 +38,7 @@ Prima di sostituire il modulo controller EBOD guasto nel dispositivo StorSimple,
 
 #### Per rimuovere un modulo EBOD:
 
-1. Aprile il portale di gestione.
+1. Aprire il portale di Azure classico.
 
 2. Passare a **Dispositivi** > **Manutenzione** > **Stato hardware**, quindi verificare che lo stato del LED per il modulo controller EBOD sia verde e che il LED per il modulo controller EBOD guasto sia rosso.
 
@@ -107,4 +107,4 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

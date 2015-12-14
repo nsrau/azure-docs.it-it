@@ -32,7 +32,7 @@ Queste funzionalità attualmente sono disponibili per ASP.NET SDK.
 
 Prima di iniziare:
 
-* Installare [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md) nell'app. Installare manualmente i pacchetti NuGet e selezionare la versione *preliminare* più recente.
+* Installare nell'app [Application Insights SDK](app-insights-asp-net.md), Installare manualmente i pacchetti NuGet e selezionare la versione *preliminare* più recente.
 * Provare l'[API Application Insights](app-insights-api-custom-events-metrics.md). 
 
 
@@ -43,11 +43,11 @@ Prima di iniziare:
 Il [campionamento](app-insights-sampling.md) è il modo consigliato per ridurre il traffico mantenendo accurate le statistiche. Il filtro seleziona gli elementi correlati per poter passare da uno all'altro nella diagnosi. I conteggi eventi vengono modificati in Esplora metriche per compensare gli elementi filtrati.
 
 * È consigliabile usare il campionamento adattivo. Regola automaticamente la percentuale di campionamento per raggiungere un volume specifico di richieste. Attualmente disponibile solo per la telemetria lato server di ASP.NET.  
-* È disponibile anche il campionamento a frequenza fissa. Specificare la percentuale di campionamento. Disponibile per il codice dell'app Web ASP.NET e per le pagine Web JavaScript. Il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
+* Il [Campionamento a frequenza fissa](app-insights-sampling.md) è inoltre disponibile. Specificare la percentuale di campionamento. Disponibile per il codice dell'app Web ASP.NET e per le pagine Web JavaScript. Il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
 
 ### Per abilitare il campionamento
 
-**Aggiornare i pacchetti del progetto NuGet** alla versione *preliminare* più recente di Application Insights: fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web.
+**Aggiornare i pacchetti del progetto NuGet** all'ultima versione *preliminare* di Application Insights: fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web.
 
 In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) è possibile regolare la frequenza massima della telemetria che l'algoritmo adattivo deve raggiungere:
 
@@ -395,7 +395,7 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -404,4 +404,4 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

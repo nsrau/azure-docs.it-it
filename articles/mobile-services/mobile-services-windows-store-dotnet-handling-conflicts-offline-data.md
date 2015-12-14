@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Gestire i conflitti relativi ai dati offline in app di Windows universali | Microsoft Azure" 
-	description="Informazioni su come usare Servizi mobili di Azure per gestire conflitti durante la sincronizzazione dei dati offline nell'applicazione di Windows universale" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Gestire i conflitti relativi ai dati offline in app di Windows universali | Microsoft Azure"
+	description="Informazioni su come usare Servizi mobili di Azure per gestire conflitti durante la sincronizzazione dei dati offline nell'applicazione di Windows universale"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/12/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/12/2015"
 	ms.author="glenga"/>
 
 
 # Gestione dei conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
@@ -45,7 +50,7 @@ Per completare questa esercitazione, è necessario disporre di Visual Studio 201
 
 Questa esercitazione è una procedura dettagliata che illustra come usare l'[esempio di Servizi mobili offline Todo] per gestire i conflitti di sincronizzazione tra l'archivio offline locale e il database di Servizi mobili in Azure.
 
-1. Scaricare il file con estensione zip per il [repository Github degli esempi di Servizi mobili] ed estrarlo in una directory di lavoro. 
+1. Scaricare il file con estensione zip per il [repository Github degli esempi di Servizi mobili] ed estrarlo in una directory di lavoro.
 
 2. Se SQLite per Windows 8.1 e Windows Phone 8.1 non sono già installati, come indicato nell'esercitazione [Introduzione ai dati offline], installare entrambi i runtime.
 
@@ -64,7 +69,7 @@ Si noti che l'app non è ancora connessa ad alcun servizio mobile, pertanto i pu
 
 Ora verrà eseguito il test dell'app su Servizi mobili.
 
-1. Nel portale di gestione di Azure individuare l'applicazione del servizio mobile facendo clic su **Gestisci chiavi** sulla barra dei comandi della scheda **Dashboard**. Copiare la **chiave applicazione**.
+1. Nel [portale di Azure classico] individuare l'applicazione del servizio mobile facendo clic su **Gestisci chiavi** sulla barra dei comandi della scheda **Dashboard**. Copiare la **chiave applicazione**.
 
 2. In Esplora soluzioni di Visual Studio aprire il file App.xaml.cs nel progetto di esempio client. Modificare l'inizializzazione di **MobileServiceClient** per utilizzare l'URL del servizio mobile e la chiave applicazione:
 
@@ -88,14 +93,14 @@ In uno scenario reale un conflitto di sincronizzazione si verifica quando un'app
 I passaggi seguenti mostrano come i client Windows Phone 8.1 e Windows Store 8.1 eseguiti simultaneamente provochino e risolvano un conflitto usando l'esempio.
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto Windows Phone 8.1 e quindi scegliere **Imposta come progetto di avvio**. Premere quindi **CTRL+F5** per eseguire il client Windows Phone 8.1 senza il debug. Una volta che il client Windows Phone 8.1 è operativo nell'emulatore, fare clic sul pulsante **Pull** per sincronizzare l'archivio locale con lo stato corrente del database.
- 
+
     ![][3]
- 
-   
+
+
 2. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di Windows 8.1 Runtime e quindi scegliere **Imposta come progetto di avvio** per impostarlo nuovamente sul progetto di avvio. Premere quindi **F5** per eseguirlo. Una volta che il client Windows Store 8.1 è operativo, fare clic sul pulsante **Pull** per sincronizzare l'archivio locale con lo stato corrente del database.
 
     ![][4]
- 
+
 3. A questo punto entrambi i client sono sincronizzati con il database. Il codice di entrambi i client sta anche usando la sincronizzazione incrementale in modo che vengano sincronizzati solo elementi todo incompleti. Gli elementi todo completati verranno ignorati. Scegliere uno degli elementi e modificare il testo dello stesso elemento in entrambi i client sostituendolo con un valore diverso. Fare clic sul pulsante **Push** per sincronizzare entrambe le modifiche con il database sul server.
 
     ![][5]
@@ -126,7 +131,7 @@ La classe `SyncHandler` in **SyncHandler.cs** implementa `IMobileServiceSyncHand
 
 Per risolvere i conflitti a favore dell'elemento locale, è sufficiente riprovare a eseguire l'operazione. Dopo che un conflitto si è verificato, la versione dell'elemento locale verrà aggiornata in base alla versione del server, quindi la ripetizione dell'operazione sovrascriverà le modifiche del server con le modifiche locali:
 
-    await operation.ExecuteAsync(); 
+    await operation.ExecuteAsync();
 
 Per risolvere i conflitti a favore dell'elemento del server, è sufficiente eseguire una restituzione da `ExecuteTableOperationAsync`. La versione locale dell'oggetto verrà eliminata e sostituita con il valore del server.
 
@@ -158,10 +163,9 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 [Get started with Mobile Services]: ../mobile-services-windows-store-get-started.md
 [Introduzione ai dati offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Handling Database Conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md#test-app
 [repository Github degli esempi di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=512865
 [esempio di Servizi mobili offline Todo]: http://go.microsoft.com/fwlink/?LinkId=512866
- 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

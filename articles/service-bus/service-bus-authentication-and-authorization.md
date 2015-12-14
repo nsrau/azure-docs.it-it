@@ -45,7 +45,7 @@ Il supporto per l'autenticazione della firma di accesso condiviso per il bus di 
 
 ## Autenticazione tramite il servizio di controllo di accesso (ACS)
 
-L'autenticazione del bus di servizio tramite ACS viene gestita con uno spazio dei nomi ACS "-sb" specifico. Se si vuole che venga creato uno spazio dei nomi ACS specifico per uno spazio dei nomi del bus di servizio, non è possibile creare lo spazio dei nomi del bus di servizio usando il portale di Azure, ma è necessario usare il cmdlet di PowerShell [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx). Ad esempio:
+L'autenticazione del bus di servizio tramite ACS viene gestita con uno spazio dei nomi ACS "-sb" specifico. Se si vuole che venga creato uno spazio dei nomi ACS specifico per uno spazio dei nomi del bus di servizio, non è possibile creare lo spazio dei nomi del bus di servizio usando il portale di Azure classico, ma è necessario usare il cmdlet di PowerShell [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx). Ad esempio:
 
 ```
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
@@ -73,4 +73,4 @@ Per una panoramica generale della firma di accesso condiviso nel bus di servizio
 
 Per altre informazioni sui token ACS, vedere [Procedura: Richiedere un token da ACS tramite il protocollo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

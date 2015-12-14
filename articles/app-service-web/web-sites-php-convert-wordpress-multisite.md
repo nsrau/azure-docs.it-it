@@ -54,7 +54,7 @@ Accedere all'area *wp-admin* del sito Web. Si noterà un nuovo elemento **Networ
 
 ![Schermata di configurazione della rete][wordpress-network-setup]
 
-In questa esercitazione viene utilizzata lo schema di sito *Sub-directories* che dovrebbe essere sempre funzionante. I domini personalizzati per ciascun sito secondario verranno configurati più avanti in questa esercitazione. Dovrebbe tuttavia essere possibile configurare un'installazione di sottodominio se si mappa un dominio tramite il [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) e si configura correttamente il DNS con caratteri jolly.
+In questa esercitazione viene utilizzata lo schema di sito *Sub-directories* che dovrebbe essere sempre funzionante. I domini personalizzati per ciascun sito secondario verranno configurati più avanti in questa esercitazione. Dovrebbe tuttavia essere possibile configurare un'installazione di sottodominio se si mappa un dominio tramite il [Portale di Azure](https://portal.azure.com) e si configura correttamente il DNS con caratteri jolly.
 
 Per ulteriori informazioni sulla differenza tra le configurazioni di sottodomini e sottodirectory, vedere l'articolo relativo ai [tipi di rete multisito][wordpress-codex-types-of-networks] su WordPress Codex.
 
@@ -138,7 +138,6 @@ App Web di Azure consente di aggiungere un numero illimitato di domini a un'app 
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
@@ -154,4 +153,4 @@ App Web di Azure consente di aggiungere un numero illimitato di domini a un'app 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,7 +24,7 @@ Informazioni su come personalizzare i cluster HDInsight basati su Windows con Gi
 
 **Articoli correlati**
 
-- [Installare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md): installare Giraph tramite il portale di anteprima di Azure
+- [Installare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md): installare Giraph tramite il portale di Azure
 - [Installare Giraph nei cluster Hadoop di HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md): informazioni generali sulla creazione di cluster HDInsight.
 - [Personalizzare cluster HDInsight mediante Azione di script][hdinsight-cluster-customize]\: informazioni generali sulla personalizzazione di cluster HDInsight mediante Azione di script.
@@ -171,7 +171,7 @@ Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-ha
 
 ## Vedere anche
 
-- [Installare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md): installare Giraph tramite il portale di anteprima di Azure
+- [Installare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md): installare Giraph tramite il portale di Azure
 - [Installare Giraph nei cluster Hadoop di HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md): informazioni generali sulla creazione di cluster HDInsight.
 - [Personalizzare cluster HDInsight mediante Azione di script][hdinsight-cluster-customize]\: informazioni generali sulla personalizzazione di cluster HDInsight mediante Azione di script.
@@ -190,4 +190,4 @@ Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-ha
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

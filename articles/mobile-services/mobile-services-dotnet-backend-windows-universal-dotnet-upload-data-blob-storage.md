@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Caricare immagini nell'archiviazione BLOB di Azure da un'app Windows universale | Microsoft Azure" 
-	description="Informazioni su come utilizzare un servizio mobile back-end di .NET per caricare immagini in archiviazione Blob di Azure e accedere alle immagini dalla propria app Windows universale." 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	services="mobile-services,storage" 
-	manager="dwrede" 
+<properties
+	pageTitle="Caricare immagini nell'archiviazione BLOB di Azure da un'app Windows universale | Microsoft Azure"
+	description="Informazioni su come utilizzare un servizio mobile back-end di .NET per caricare immagini in archiviazione Blob di Azure e accedere alle immagini dalla propria app Windows universale."
+	documentationCenter="windows"
+	authors="ggailey777"
+	services="mobile-services,storage"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="glenga"/>
 
 # Caricare immagini in Archiviazione di Azure mediante Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
@@ -52,7 +57,7 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 + [Riferimento per i concetti e le procedure di .NET per Servizi mobili](../mobile-services-windows-dotnet-how-to-use-client-library.md)
 
      Altre informazioni su come usare Servizi mobili con .NET.
- 
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -66,9 +71,7 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: ../mobile-services-windows-store-dotnet-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

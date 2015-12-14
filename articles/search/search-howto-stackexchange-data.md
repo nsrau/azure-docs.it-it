@@ -18,7 +18,7 @@
 
 # Come cercare dati di StackExchange con Ricerca di Azure
 
-Questo articolo illustra in dettaglio alcune delle principali funzionalità di ricerca full-text che è possibile usare con [Ricerca di Azure](https://azure.microsoft.com/it-IT/services/search/). Sfrutta i dati resi [disponibili](https://archive.org/details/stackexchange) da Stack Exchange per l'utilizzo di Creative Commons con l'[attribuzione](http://blog.stackoverflow.com/2009/06/attribution-required/) seguente.
+Questo articolo illustra in dettaglio alcune delle principali funzionalità di ricerca full-text che è possibile usare con [Ricerca di Azure](https://azure.microsoft.com/services/search/). Sfrutta i dati resi [disponibili](https://archive.org/details/stackexchange) da Stack Exchange per l'utilizzo di Creative Commons con l'[attribuzione](http://blog.stackoverflow.com/2009/06/attribution-required/) seguente.
 
 ## Introduzione
 
@@ -104,9 +104,9 @@ Brent Ozar ha già approfondito questo aspetto mostrando come organizzare i dati
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-Al termine, è possibile usare il [portale Azure](https://portal.azure.com) scegliendo "Importa dati" dalla vista SQL di Azure precedente per creare quindi un indice di Ricerca di Azure basato sullo schema dei campi presenti nella vista. Se si vuole usare il database SQL di Azure di staging, ecco la stringa di connessione di sola lettura che è possibile usare:
+Al termine, è possibile usare il [portale Azure classico](https://portal.azure.com) scegliendo "Importa dati" dalla vista SQL di Azure precedente per creare quindi un indice di Ricerca di Azure basato sullo schema dei campi presenti nella vista. Se si vuole usare il database SQL di Azure di staging, ecco la stringa di connessione di sola lettura che è possibile usare:
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

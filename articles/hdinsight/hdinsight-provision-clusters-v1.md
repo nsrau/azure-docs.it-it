@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Effettuare il provisioning personalizzato di cluster Hadoop in HDInsight | Microsoft Azure" 
-   description="Informazioni su come effettuare il provisioning personalizzato di cluster per Azure HDInsight tramite il portale di Azure, Azure PowerShell, una riga di comando o .NET SDK" 
+   description="Informazioni su come effettuare il provisioning personalizzato di cluster per Azure HDInsight tramite il portale di Azure classico, Azure PowerShell, una riga di comando o .NET SDK" 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -113,7 +113,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 	I cluster HDInsight consentono di configurare due account utente durante il provisioning:
 
-	- Utente HTTP. Il nome utente predefinito è admin con la configurazione di base nel portale di Azure.
+	- Utente HTTP. Il nome utente predefinito è admin con la configurazione di base nel portale di Azure classico.
 	- Utente RDP (cluster Windows): usato per la connessione al cluster tramite RDP. Quando si crea l'account, è necessario impostare una scadenza corrispondente a una data entro 90 giorni dalla data odierna. 
 	- Utente SSH (cluster Linux): usato per la connessione ai cluster tramite SSH. È possibile creare account utente SSH aggiuntivi dopo la creazione del cluster tramite l'esecuzione dei passaggi illustrati in [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
   
@@ -199,7 +199,7 @@ Per altre informazioni, vedere il blog di Azim Uddin relativo alla [personalizza
 
 ### Personalizzare i cluster mediante l'azione script
 
-L'uso di script durante il provisioning consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono chiamati tramite un'**azione script**, ovvero un'opzione di configurazione che può essere usata da portale di Azure, dai cmdlet di Windows PowerShell per HDInsight o da .NET SDK per HDInsight. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster.md).
+L'uso di script durante il provisioning consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono chiamati tramite un'**azione di script**, ovvero un'opzione di configurazione che può essere usata dal portale di Azure classico, dai cmdlet di Windows PowerShell per HDInsight o da .NET SDK per HDInsight. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster.md).
 
 
 ### Usare le reti virtuali di Azure
@@ -233,18 +233,18 @@ Per altre informazioni sulle funzionalità, i vantaggi e le capacità della rete
 
 ## Strumenti per il provisioning
 
-- Portale di Azure
+- Il portale di Azure classico
 - Azure PowerShell
 - .NET SDK
 - CLI
 
-### Usare il portale di Azure
+### Usare il portale di Azure classico
 
 Per una spiegazione dei campi, vedere le [opzioni di configurazione di base] e le [opzioni di configurazione avanzate].
 
 **Per creare un cluster HDInsight con l'opzione di creazione personalizzata**
 
-1. Accedere al [portale di Azure][azure-management-portal].
+1. Accedere al [portale di Azure classico][azure-management-portal].
 2. Fare clic su **+ NUOVO** nella parte inferiore della pagina, quindi su **SERVIZI DATI**, **HDINSIGHT** e infine su **CREAZIONE PERSONALIZZATA**.
 3. Nella pagina **Dettagli cluster** digitare o scegliere i valori seguenti:
 
@@ -374,7 +374,7 @@ Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibi
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
 
-	>[AZURE.NOTE]I comandi $hadoopUserName e $hadoopUserPassword consentono di creare l'account utente Hadoop per il cluster. Questo account verrà usato per connettersi al cluster ed eseguire processi. Se si usa l'opzione Creazione rapida del portale di Azure per effettuare il provisioning di un cluster, il nome utente Hadoop predefinito sarà "admin". Non confondere questo account con l'account utente RDP (Remote Desktop Protocol), che deve essere diverso dall'account utente Hadoop. Per altre informazioni, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di gestione di Azure][hdinsight-admin-portal].
+	>[AZURE.NOTE]I comandi $hadoopUserName e $hadoopUserPassword consentono di creare l'account utente Hadoop per il cluster. Questo account verrà usato per connettersi al cluster ed eseguire processi. Se si usa l'opzione Creazione rapida del portale di Azure classico per effettuare il provisioning di un cluster, il nome utente Hadoop predefinito sarà "admin". Non confondere questo account con l'account utente RDP (Remote Desktop Protocol), che deve essere diverso dall'account utente Hadoop. Per altre informazioni, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di Azure classico][hdinsight-admin-portal].
 
 	Il completamento del provisioning del cluster può richiedere alcuni minuti.
 
@@ -574,7 +574,7 @@ HDInsight usa un contenitore dell'archivio BLOB di Azure come file system predef
 
 	Quando viene richiesto un percorso, selezionarne uno in cui sia possibile effettuare il provisioning di un cluster HDInsight. La risorsa di archiviazione deve trovarsi nello stesso percorso del cluster HDInsight. Attualmente i cluster HDInsight possono essere ospitati solo nelle aree seguenti: **Asia orientale**, **Asia sudorientale**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti orientali**, **Stati Uniti occidentali**, **Stati Uniti centro-settentrionali** e **Stati Uniti centro-meridionali**.
 
-Per informazioni sulla creazione di un account di archiviazione di Azure tramite il portale di Azure, vedere [Creare, gestire o eliminare un account di archiviazione](../storage-create-storage-account.md).
+Per informazioni sulla creazione di un account di archiviazione di Azure tramite il portale di Azure classico, vedere [Creare, gestire o eliminare un account di archiviazione](../storage-create-storage-account.md).
 
 Se si dispone già di un account di archiviazione, ma non se ne conosce né il nome né la chiave, è possibile usare i comandi seguenti per recuperare tali informazioni:
 
@@ -587,7 +587,7 @@ Se si dispone già di un account di archiviazione, ma non se ne conosce né il n
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Creare, gestire o eliminare un account di archiviazione](../storage-create-storage-account.md).
+Per i dettagli sull'acquisizione delle informazioni mediante il portale di Azure classico, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Creare, gestire o eliminare un account di archiviazione](../storage-create-storage-account.md).
 
 Un cluster HDInsight richiede anche un contenitore in un account di archiviazione. Se l'account di archiviazione indicato non dispone già un contenitore, il comando *azure hdinsight cluster create* richiede il nome di un contenitore e lo crea. Se tuttavia si vuole creare il contenitore prima, è possibile usare il comando seguente:
 
@@ -810,4 +810,4 @@ In questo articolo si sono appresi vari modi per effettuare il provisioning di u
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

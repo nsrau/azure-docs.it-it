@@ -349,6 +349,6 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 
 ## Passaggi successivi
 
-Ulteriori informazioni sulla creazione di script PowerShell leggendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e altri script di PowerShell di Azure a vedere il [Script Center](https://azure.microsoft.com/it-IT/documentation/scripts/).
+Ulteriori informazioni sulla creazione di script PowerShell leggendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e altri script di Azure PowerShell nello [Script Center](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

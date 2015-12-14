@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Esercitazione: Integrazione di Azure Active Directory con Kindling | Microsoft Azure"
+	pageTitle="Esercitazione: integrazione di Azure Active Directory con Kindling | Microsoft Azure"
 	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Kindling."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
-# Esercitazione: Integrazione di Azure Active Directory con Kindling
+# Esercitazione: integrazione di Azure Active Directory con Kindling
 
 Questa esercitazione illustra come integrare Kindling con Azure Active Directory (Azure AD).<br>L'integrazione di Kindling con Azure AD offre i vantaggi seguenti:
 
@@ -41,7 +41,7 @@ Per configurare l'integrazione di Azure AD con Kindling, sono necessari gli elem
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si ha un ambiente di prova di Azure AD, fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per ottenere una versione di valutazione valida un mese. 
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -60,11 +60,11 @@ Per configurare l'integrazione di Kindling in Azure AD, è necessario aggiungere
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.<br><br>![Applicazioni][2]<br>
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br> ![Applicazioni][2]<br>
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.<br><br>![Applicazioni][4]<br>
-6. Nella casella di ricerca digitare **Kindling**.<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Kindling** e quindi fare clic su **Completa** per aggiungere l'applicazione.<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_02.png)<br>
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
+6. Nella casella di ricerca digitare **Kindling**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_01.png)<br>
+7. Nel riquadro dei risultati selezionare **Kindling** e quindi fare clic su **Completa** per aggiungere l'applicazione.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Kindling con un utente test di nome "Britta Simon".
@@ -75,7 +75,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Kindling, è 
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente test di Kindling](#creating-a-kindling-test-user)**: per avere una controparte di Britta Simon in Kindling collegata alla relativa rappresentazione in Azure AD.
+4. **[Creazione di un utente test di Kindling](#creating-a-kindling-test-user)** - per avere una controparte di Britta Simon in Kindling collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 6. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
@@ -89,14 +89,14 @@ Per configurare l'accesso Single Sign-On per Kindling, è necessario un dominio 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Kindling, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Kindling** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nella pagina di integrazione dell'applicazione **Kindling** del portale di Azure AD, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Kindling** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_03.png)<br>
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Kindling** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_03.png) <br>
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png)<br>
+3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
 
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Kindling, ad esempio **https://fabrikam.Kindling.com/*).
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Kindling, (ad esempio **https://fabrikam.Kindling.com/*).
 
     b. Contattare il team di supporto di Kindling per ottenere i valori **Issuer** e **Reply URL**.
  
@@ -105,15 +105,15 @@ Per configurare l'accesso Single Sign-On per Kindling, è necessario un dominio 
  
 4. Nella pagina **Configura accesso Single Sign-On in Kindling** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_05.png) <br>
 
-    a. Fare clic su **Download certificato** e quindi salvare il file nel computer.
+    a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
     b. Contattare il team di supporto di Kindling affinché impostino SSO per la propria applicazione. Sarà necessario fornire al team di supporto il certificato scaricato, il valore dell’**emittente URL** che esegue il mapping dell’**ID entità** di Kindling, il valore **URL servizi Single Sign-On** che esegue il mapping dell’**URL dell’accesso Single Sign On** e il **URL servizi Single Sign-Out**che esegue il mapping dell’**URL di disconnessione SSO** di Kindling.
 
-    c. Fare clic su **Next**.
+    c. Fare clic su **Avanti**.
 
 6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
-7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.<br><br>![Accesso Single Sign-On di Azure AD][11]
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
 
 
 
@@ -127,33 +127,33 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco utenti, nel menu in alto fare clic su **Utenti**.<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_03.png)<br>
+3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_03.png) <br>
  
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_04.png)<br>
+4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_04.png) <br>
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_05.png)<br>
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_05.png) <br>
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+    b. Nella **casella di testo** Nome utente, digitare **BrittaSimon**.
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png)<br>
+6.  Nella pagina della finestra di dialogo **Profilo utente**, seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png) <br>
  
     a. Nella casella di testo **Nome**, digitare **Britta**.
 
-    b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. Nella casella di testo **Cognome**, digitare **Simon**.
 
-    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato**, digitare **Britta Simon**.
 
-    d. Nell'elenco **Ruolo** selezionare **Utente**. e. Fare clic su **Avanti**.
+    d. Nell'elenco **Ruolo**, selezionare **Utente**. e. Fare clic su **Avanti**.
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_07.png)<br>
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **crea**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_07.png) <br>
  
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura:<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_08.png)<br>
+8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_08.png) <br>
   
-    a. Prendere nota del valore in **Nuova password**.
+    a. Prendere nota del valore visualizzato in **Nuova password**.
 
     b. Fare clic su **Complete**.
 
@@ -161,7 +161,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
  
 ### Creazione di un utente test di Kindling
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in Kindling. Kindling supporta il provisioning JIT (just-in-time), che è già stato configurato in [Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on).
+Questa sezione descrive come creare un utente chiamato Britta Simon in Kindling. Kindling supporta il provisioning just-in-time. È già stato abilitato in [Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on).
 
 Non è necessario alcun intervento dell'utente in questa sezione.
 
@@ -174,21 +174,21 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 **Per assegnare Britta Simon a Kindling, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br> <br>![Assegna utente][201]<br>
+1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
 
 2. Nell'elenco di applicazioni selezionare **Kindling**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_50.png) <br>
 
-1. Nel menu in alto fare clic su **Utenti**.<br> <br>![Assegna utente][203]<br>
+1. Nel menu in alto fare clic su **Utenti**.<br><br>![Assegna utente][203] <br>
 
 1. Nell'elenco utenti selezionare **Britta Simon**.
 
-2. Sulla barra degli strumenti in basso fare clic su **Assegna**. <br><br>![Assegna utente][205]
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
 
 
 
 ### Test dell'accesso Single Sign-On
 
-In questa sezione viene descritto come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il Pannello di accesso.<br> Quando si fa clic sul riquadro Kindling nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Kindling.
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro Kindling nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Kindling.
 
 
 ## Risorse aggiuntive
@@ -215,4 +215,4 @@ In questa sezione viene descritto come testare la configurazione dell'accesso Si
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

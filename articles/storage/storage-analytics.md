@@ -22,7 +22,7 @@
 
 Analisi archiviazione di Azure esegue la registrazione e fornisce le metriche dei dati per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione.
 
-Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarlo dal [portale Azure](https://manage.windowsazure.com/). Per i dettagli, vedere [Come monitorare un account di archiviazione](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Utilizzare le operazioni [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx) e [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) per abilitare Analisi archiviazione per ciascun servizio.
+Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarlo dal [portale di Azure](portal.azure.com). Per i dettagli, vedere [Come monitorare un account di archiviazione](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Utilizzare le operazioni [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx) e [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) per abilitare Analisi archiviazione per ciascun servizio.
 
 I dati aggregati vengono archiviati in un BLOB noto (per la registrazione) e in tabelle note (per le metriche), a cui è possibile accedere tramite le API del servizio BLOB e del servizio tabelle.
 
@@ -62,7 +62,7 @@ Vengono registrati i seguenti tipi di richieste anonime:
 
 - Richieste GET non riuscite con codice di errore 304 (non modificate)
 
-Tutte le altre richieste anonime non riuscite non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx) e [Formato log Analisi archiviazione](https://msdn.microsoft.com/library/hh343259.aspx).
+Tutte le altre richieste anonime non riuscite non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx) e [Formato log Analisi archiviazione(https://msdn.microsoft.com/library/hh343259.aspx))].
 
 ### Come vengono archiviati i log
 Tutti i log vengono archiviati in BLOB di blocchi in un contenitore denominato $logs, che viene creato automaticamente quando viene abilitata Analisi archiviazione per un account di archiviazione. Il contenitore $logs si trova nello spazio dei nomi BLOB dell'account di archiviazione, ad esempio: `http://<accountname>.blob.core.windows.net/$logs`. Questo contenitore non può essere eliminato una volta abilitata Analisi di archiviazione, sebbene sia possibile eliminarne il contenuto.
@@ -126,7 +126,7 @@ Tutti i dati del contenitore `$logs` sono accessibili tramite le API del servizi
 
 Analisi archiviazione è in grado di archiviare le metriche che includono le statistiche delle transazioni aggregate e i dati di capacità relativi alle richieste in un servizio di archiviazione. Le transazioni vengono segnalate sia a livello di operazione API, sia a livello di servizio di archiviazione, mentre la capacità viene segnalata a livello di servizio di archiviazione. I dati delle metriche possono essere utilizzati per analizzare l'uso del servizio di archiviazione, diagnosticare i problemi relativi alle richieste effettuate al servizio di archiviazione e per migliorare le prestazioni delle applicazioni che usano un servizio.
 
-Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarlo dal [portale Azure](https://manage.windowsazure.com/). Per i dettagli, vedere [Come monitorare un account di archiviazione](../how-to-monitor-a-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. [Utilizzare le operazioni Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx) e [Get Table Service Properties per abilitare Analisi archiviazione](https://msdn.microsoft.com/library/hh452238.aspx) per ciascun servizio.
+Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarlo dal [portale di Azure](portal.azure.com). Per i dettagli, vedere [Come monitorare un account di archiviazione](../how-to-monitor-a-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. [Utilizzare le operazioni Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx) e [Get Table Service Properties per abilitare Analisi archiviazione](https://msdn.microsoft.com/library/hh452238.aspx) per ciascun servizio.
 
 ### Metriche di transazione
 
@@ -206,4 +206,4 @@ Quando si osservano i dati di Analisi archiviazione, è possibile utilizzare le 
 - [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

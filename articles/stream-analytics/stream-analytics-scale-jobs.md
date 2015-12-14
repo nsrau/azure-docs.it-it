@@ -29,7 +29,7 @@ Un processo richiede almeno un'origine di input per il flusso dei dati. L'origin
 ## Configurazione delle unità di streaming ##
 Le unità di streaming rappresentano le risorse e le funzionalità dedicate all'esecuzione di un processo di Analisi di flusso di Azure. Le unità di streaming descrivono la capacità relativa di elaborazione di eventi in base a una misurazione combinata di CPU, memoria e frequenze di lettura e scrittura. Ogni unità di streaming corrisponde a circa 1 MB al secondo di velocità effettiva.
 
-Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione della partizione per gli input e dalla query definita per il processo. È possibile selezionare un numero massimo pari alla quota di unità di streaming per un processo mediante il portale di Azure. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota di un massimo di 50 unità di streaming per tutti i processi di analisi in un'area specifica. Per aumentare le unità di streaming per le sottoscrizioni, contattare il [Supporto tecnico Microsoft](http://support.microsoft.com).
+Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione della partizione per gli input e dalla query definita per il processo. È possibile selezionare un numero massimo pari alla quota di unità di streaming per un processo mediante il portale di Azure classico. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota di un massimo di 50 unità di streaming per tutti i processi di analisi in un'area specifica. Per aumentare le unità di streaming per le sottoscrizioni, contattare il [Supporto tecnico Microsoft](http://support.microsoft.com).
 
 Il numero di unità di streaming che un processo può usare dipende dalla configurazione delle partizioni per gli input e dalla query definita per il processo. Si noti inoltre che è necessario usare un valore valido per le unità di streaming. I valori validi iniziano da 1, 3, 6 e poi a salire con incrementi di 6, come illustrato di seguito.
 
@@ -147,20 +147,20 @@ Questa query può essere aumentata fino a 24 unità di streaming.
 
 **Per regolare l'unità di streaming di un processo**
 
-1. Accedere al [portale di gestione](https://manage.windowsazure.com).
+1. Accedere al [portale classico](https://manage.windowsazure.com).
 2. Fare clic su **Analisi dei flussi** nel riquadro a sinistra.
 3. Fare clic sul processo di Analisi dei flussi da scalare.
 4. Nella parte superiore della pagina fare clic su **RIDIMENSIONA**.
 
 ![Scalabilità delle unità di streaming di Analisi di flusso di Azure][img.stream.analytics.streaming.units.scale]
 
-Nel portale di anteprima di Azure è possibile accedere alle impostazioni di scala in Impostazioni:
+Nel portale di Azure è possibile accedere alle impostazioni della scalabilità in Impostazioni:
 
-![Configurazione del processo di analisi di flusso del portale di anteprima di Azure][img.stream.analytics.preview.portal.settings.scale]
+![Configurazione del processo di analisi di flusso del portale di Azure][img.stream.analytics.preview.portal.settings.scale]
 
 ## Monitorare le prestazioni del processo ##
 
-Nel portale di gestione è possibile rilevare la velocità effettiva di un processo, espressa in eventi al secondo:
+Nel portale classico è possibile rilevare la velocità effettiva di un processo, espressa in eventi al secondo:
 
 ![Processi di monitoraggio di Analisi dei flussi di Azure][img.stream.analytics.monitor.job]
 
@@ -265,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

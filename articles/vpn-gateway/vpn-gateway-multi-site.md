@@ -31,7 +31,7 @@ Se il gateway è basato su criteri (o di routing statico), è sempre possibile m
 
 ## Elementi da considerare:
 
-**Non sarà possibile usare il portale di gestione per apportare modifiche a questa rete virtuale.** Per questa versione è necessario apportare modifiche al file di configurazione di rete invece di usare il portale di gestione. Se si apportano modifiche nel portale di gestione, queste sovrascriveranno le impostazioni di riferimento multisito per questa rete virtuale. Dovrebbe risultare piuttosto semplice usando il file di configurazione di rete nel momento in cui è stata completata la procedura multisito. Tuttavia, se si ci sono più persone che lavorano alla configurazione di rete, è necessario verificare che tutti siano a conoscenza di questa limitazione. Ciò non significa che non sia possibile usare il portale di gestione. È possibile usarlo per qualsiasi operazione ad eccezione delle modifiche di configurazione a questa particolare rete virtuale.
+**Non sarà possibile usare il portale di Azure classico per apportare modifiche a questa rete virtuale.** Per questa versione è necessario apportare modifiche al file di configurazione di rete invece di usare il portale di Azure classico. Se si apportano modifiche nel portale di Azure classico, queste sovrascriveranno le impostazioni di riferimento multisito per questa rete virtuale. Dovrebbe risultare piuttosto semplice usando il file di configurazione di rete nel momento in cui è stata completata la procedura multisito. Tuttavia, se si ci sono più persone che lavorano alla configurazione di rete, è necessario verificare che tutti siano a conoscenza di questa limitazione. Ciò non significa che non sia possibile usare il portale di Azure classico. È possibile usarlo per qualsiasi operazione ad eccezione delle modifiche di configurazione a questa particolare rete virtuale.
 
 ## Prima di iniziare
 
@@ -45,23 +45,23 @@ Prima di iniziare la configurazione, verificare ci siano le condizioni seguenti:
 
 -   La versione più recente dei cmdlets di Azure PowerShell. È possibile scaricare e installare la versione più recente dalla sezione Windows PowerShell della [Pagina di download](http://azure.microsoft.com/downloads/).
 
-- Una persona esperta nella configurazione di hardware VPN. Non sarà possibile usare gli script VPN generati automaticamente dal portale di gestione per configurare i propri dispositivi VPN. Ciò significa che è necessario avere una conoscenza approfondita di come configurare il proprio dispositivo VPN oppure lavorare insieme una persona esperta in questo campo.
+- Una persona esperta nella configurazione di hardware VPN. Non sarà possibile usare gli script VPN generati automaticamente dal portale di Azure classico per configurare i propri dispositivi VPN. Ciò significa che è necessario avere una conoscenza approfondita di come configurare il proprio dispositivo VPN oppure lavorare insieme una persona esperta in questo campo.
 
 - Gli intervalli di indirizzi IP da usare per la propria rete virtuale (se non ne hai già creata una).
 
-- Gli intervalli di indirizzi IP per ogni sito della rete locale a cui si effettuerà la connessione. È necessario verificare che gli intervalli di indirizzi IP per ogni sito della rete locale a cui ci si vuole connettere non si sovrappongano. In caso contrario, il portale di gestione o l'API REST rifiuteranno il caricamento della configurazione. Se, ad esempio, ci sono due siti della rete locale che entrambi contengono l'intervallo di indirizzo IP 10.2.3.0/24 e si ha a disposizione un pacchetto con un indirizzo di destinazione 10.2.3.3, Azure non saprà a quale sito si vuole inviare il pacchetto perché gli intervalli degli indirizzi si sovrappongono. Per evitare problemi di routing, Azure non consente di caricare un file di configurazione con intervalli che si sovrappongono.
+- Gli intervalli di indirizzi IP per ogni sito della rete locale a cui si effettuerà la connessione. È necessario verificare che gli intervalli di indirizzi IP per ogni sito della rete locale a cui ci si vuole connettere non si sovrappongano. In caso contrario, il portale di Azure classico o l'API REST rifiuteranno il caricamento della configurazione. Se, ad esempio, ci sono due siti della rete locale che entrambi contengono l'intervallo di indirizzo IP 10.2.3.0/24 e si ha a disposizione un pacchetto con un indirizzo di destinazione 10.2.3.3, Azure non saprà a quale sito si vuole inviare il pacchetto perché gli intervalli degli indirizzi si sovrappongono. Per evitare problemi di routing, Azure non consente di caricare un file di configurazione con intervalli che si sovrappongono.
 
 ## Creare la rete virtuale e il gateway
 
 1. **Creare una VPN da sito a sito con un gateway di routing dinamico.** Se già ne avete una, È possibile procedere e iniziare a [Esportare le impostazioni di configurazione della rete virtuale](#export). Se non ne avete una, eseguire le operazioni seguenti:
 
-	**Se già si ha a disposizione una rete virtuale da sito a sito, ma ha un gateway di routing statico:** **1.** Modificare il tipo di gateway in routing dinamico. Una VPN multisito richiede un gateway di routing dinamico. Per modificare il tipo di gateway, è necessario prima eliminare quello esistente e poi crearne uno nuovo. Per istruzioni, vedere [Modifica di un tipo di routing del gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configurare il nuovo gateway e creare il proprio tunnel VPN. Per istruzioni, vedere [Configurare un gateway VPN nel portale di gestione](vpn-gateway-configure-vpn-gateway-mp.md).
+	**Se già si ha a disposizione una rete virtuale da sito a sito, ma ha un gateway di routing statico:** **1.** Modificare il tipo di gateway in routing dinamico. Una VPN multisito richiede un gateway di routing dinamico. Per modificare il tipo di gateway, è necessario prima eliminare quello esistente e poi crearne uno nuovo. Per istruzioni, vedere [Modifica di un tipo di routing del gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configurare il nuovo gateway e creare il proprio tunnel VPN. Per istruzioni, vedere [Configurare un gateway VPN nel portale di Azure classico](vpn-gateway-configure-vpn-gateway-mp.md).
 	
-	**Se non si ha a disposizione una rete virtuale da sito a sito:** **1.** Creare una rete virtuale da sito a sito usando le istruzioni seguenti: [Creare una rete virtuale con una connessione VPN da sito a sito nel portale di gestione](vpn-gateway-site-to-site-create.md). **2.** Configurare un gateway di routing dinamico usando le istruzioni seguenti: [Configurare un gateway VPN nel portale di gestione](vpn-gateway-configure-vpn-gateway-mp.md). Assicurarsi di selezionare **routing dinamico** per il tipo di gateway.
+	**Se non si ha a disposizione una rete virtuale da sito a sito:** **1.** Creare una rete virtuale da sito a sito usando le istruzioni seguenti: [Creare una rete virtuale con una connessione VPN da sito a sito nel portale di Azure classico](vpn-gateway-site-to-site-create.md). **2.** Configurare un gateway di routing dinamico usando le istruzioni seguenti: [Configurare un gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md). Assicurarsi di selezionare **routing dinamico** per il tipo di gateway.
 
 
 
-1. **<a name="export"></a>Esportare le impostazioni di configurazione della rete virtuale.** Per esportare il file di configurazione di rete, vedere [Per esportare le impostazioni di rete](../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). Il file esportato verrà usato per configurare le nuove impostazioni multisito.
+1. **<a name="export"></a>Esportare le impostazioni di configurazione della rete virtuale.** Per esportare il file di configurazione di rete, vedere [Per esportare le impostazioni di rete](../virtual-network/virtual-networks-using-network-configuration-file.md). Il file esportato verrà usato per configurare le nuove impostazioni multisito.
 
 1. **Aprire il file di configurazione di rete.** Aprire il file di configurazione di rete scaricato nell'ultimo passaggio. Usare qualsiasi editor xml desiderato. Il codice dovrebbe essere simile a quello riportato di seguito:
 
@@ -177,4 +177,4 @@ Prima di iniziare la configurazione, verificare ci siano le condizioni seguenti:
 
 Per altre informazioni sui gateway VPN, vedere [Informazioni sui gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

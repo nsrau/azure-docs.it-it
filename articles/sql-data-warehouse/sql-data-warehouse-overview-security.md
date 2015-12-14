@@ -24,7 +24,7 @@ Questo articolo illustra i concetti di base relativi alla protezione del proprio
 
 La sicurezza delle connessioni fa riferimento al modo che si limitano e proteggono le connessioni al database mediante regole del firewall e crittografia di connessione.
 
-Le regole del firewall vengono usate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Per consentire all'applicazione o all'indirizzo IP pubblico del computer client di connettersi a un nuovo database, è innanzitutto necessario creare una regola firewall di livello server tramite il portale di gestione di Azure, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile. Per altre informazioni, vedere [Firewall di database SQL di Azure][].
+Le regole del firewall vengono usate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Per consentire all'applicazione o all'indirizzo IP pubblico del computer client di connettersi a un nuovo database, è innanzitutto necessario creare una regola firewall di livello server tramite il portale di Azure classico, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile. Per altre informazioni, vedere [Firewall di database SQL di Azure][].
 
 
 ## Autenticazione
@@ -72,7 +72,7 @@ Esistono modi per limitare ulteriormente le operazioni possibili con il database
 - È possibile utilizzare [autorizzazioni][] che consentono di controllare le operazioni possibili per le singole colonne, tabelle, viste, procedure e altri oggetti nel database.
 - È possibile utilizzare le [Stored procedure][] per limitare le operazioni che possono essere eseguite nel database.
 
-La gestione di database e server logici dal portale di gestione di Azure o mediante l'API di gestione risorse di Azure viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per altre informazioni su questo argomento, vedere l'articolo relativo al [controllo degli accessi in base al ruolo nel portale di anteprima di Azure][].
+La gestione di database e server logici dal portale di Azure classico o mediante l'API di gestione risorse di Azure viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per ulteriori informazioni su questo argomento, vedere [Controllo di accesso basato sui ruoli nel portale di Azure][].
 
 
 
@@ -87,7 +87,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-È inoltre possibile abilitare Transparent Data Encryption dalle impostazioni del database del [portale di Azure][].
+È inoltre possibile abilitare Transparent Data Encryption dalle impostazioni del database del [portale di Azure classico][].
 
 
 
@@ -114,9 +114,9 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [Stored procedure]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
 [Introduzione al controllo del database SQL]: sql-database-auditing-get-started.md
-[portale di Azure]: https://portal.azure.com/
+[portale di Azure classico]: https://portal.azure.com/
 
 <!--Other Web references-->
-[controllo degli accessi in base al ruolo nel portale di anteprima di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
+[Controllo di accesso basato sui ruoli nel portale di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

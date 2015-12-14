@@ -31,9 +31,9 @@ Il piano tariffario consigliato per ciascun database viene specificato durante i
 
 A seconda dell'ambiente specifico, il servizio potrebbe consigliare l'aggiornamento di alcuni o di tutti i database in un [pool di database elastici](sql-database-elastic-pool.md).
 
-Per visualizzare i livelli di servizio consigliati per i database ritirati, è possibile usare il [portale di anteprima di Azure](https://portal.azure.com) o PowerShell. Per istruzioni dettagliate, vedere:
+Per visualizzare i livelli di servizio consigliati per i database ritirati, è possibile usare il [portale di Azure](https://portal.azure.com) o PowerShell. Per istruzioni dettagliate, vedere:
 
-- [Eseguire l'aggiornamento alla versione 12 del database SQL (portale di anteprima di Azure)](sql-database-v12-upgrade.md)
+- [Eseguire l'aggiornamento alla versione 12 del database SQL (portale di Azure)](sql-database-v12-upgrade.md)
 - [Eseguire l'aggiornamento alla versione 12 del database SQL (PowerShell)](sql-database-upgrade-server.md)
 
 
@@ -89,7 +89,7 @@ I livelli di prestazioni e le funzionalità del nuovo livello di servizio vengon
 
 | Articolo | Descrizione |
 |:--|:--|
-|[Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md)| Panoramica, metriche e funzionalità di ogni livello di servizio (e istruzioni su come monitorare l'uso dei database nel portale di gestione o mediante viste a gestione dinamica). |
+|[Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md)| Panoramica, metriche e funzionalità di ogni livello di servizio (e istruzioni su come monitorare l'uso dei database nel portale classico o mediante viste a gestione dinamica). |
 |[Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)|Dettagli delle funzionalità di continuità aziendale e ripristino di emergenza (ripristino a un momento specifico, ripristino geografico, replica geografica) disponibili per i diversi livelli di servizio.|
 |[Database SQL - Prezzi](http://azure.microsoft.com/pricing/details/sql-database/)|Informazioni dettagliate sui prezzi per i diversi livelli di servizio e di prestazioni.|
 
@@ -101,21 +101,21 @@ Dopo la selezione del livello di servizio adatto a soddisfare i requisiti del da
 
 ## 2\. Determinare un livello di prestazioni accettabile in base alla cronologia d'uso delle risorse
 
-Il servizio database SQL di Azure espone informazioni nel portale di gestione e in viste di sistema per fornire il nuovo livello di servizio e di prestazioni comparabile suggerito per il database Web o Business esistente.
+Il servizio database SQL di Azure espone informazioni nel portale classico e in viste di sistema per fornire il nuovo livello di servizio e di prestazioni comparabile suggerito per il database Web o Business esistente.
 
 Poiché ai database Web e Business non sono associati limiti di DTU/risorse garantiti, i valori delle percentuali vengono normalizzati in termini di quantità di risorse disponibili per un database nel livello di prestazioni S2. Il consumo percentuale di DTU medio di un database in qualsiasi intervallo specifico può essere calcolato come il valore percentuale più alto tra utilizzo di CPU, IO e log in tale intervallo.
 
 
-Usare il portale di anteprima di Azure per avere una panoramica generale dell'uso percentuale di DTU, quindi esaminare i dettagli usando le viste di sistema.
+Usare il portale di Azure per avere una panoramica generale dell'uso percentuale di DTU, quindi esaminare i dettagli usando le viste di sistema.
 
-È anche possibile usare il nuovo portale di anteprima di Azure per visualizzare il livello di servizio consigliato per il database Web o Business in uso quando si aggiorna un server alla versione 12 del database SQL di Azure.
+È anche possibile usare il nuovo portale di Azure per visualizzare il livello di servizio consigliato per il database Web o Business in uso quando si aggiorna un server alla versione 12 del database SQL di Azure.
 
-### Come visualizzare il livello di servizio consigliato nel portale di anteprima di Azure
+### Come visualizzare il livello di servizio consigliato nel portale di Azure
 Nel portale di Azure viene suggerito il livello di servizio appropriato per il database Web o Business in uso durante la procedura di aggiornamento di un server alla versione 12 del database SQL. Il suggerimento si basa su un'analisi cronologica del consumo delle risorse del database.
 
 **Nuovo portale di gestione**
 
-1. Accedere al [portale di anteprima di Azure ](https://portal.azure.com) e passare a un server contenente un database Web o Business.
+1. Accedere al [portale di Azure ](https://portal.azure.com) e passare a un server contenente un database Web o Business.
 2. Fare clic sulla parte **Aggiornamento più recente** nel pannello del server.
 3. Fare clic su **Aggiorna questo server**.
 
@@ -127,9 +127,9 @@ Nel pannello **Aggiorna questo server** viene ora visualizzato un elenco di data
 Il portale di gestione fornisce informazioni sul consumo di DTU per un database Web o Business esistente. Le informazioni sulle DTU sono disponibili nel portale Azure corrente.
 
 
-**Portale di gestione**
+**Portale classico**
 
-1. Accedere al [portale di gestione](https://manage.windowsazure.com) e passare a un database Web o Business esistente.
+1. Accedere al [portale classico](https://manage.windowsazure.com) e passare a un database Web o Business esistente.
 2. Fare clic sulla scheda **MONITORAGGIO**.
 3. Fare clic su **AGGIUNGI METRICHE**.
 4. Selezionare **Percentuale DTU** e fare clic sul segno di spunta nella parte inferiore per confermare.
@@ -253,7 +253,7 @@ Dopo aver determinato il livello di servizio e il livello di prestazioni appropr
 
 | Strumento di gestione | Per cambiare il livello di servizio e il livello di prestazioni di un database|
 | :---| :---|
-| [Portale di gestione di Azure](https://manage.windowsazure.com) | fare clic sulla scheda **RIDIMENSIONA** nella pagina Dashboard del database. |
+| [Portale di Azure classico](https://manage.windowsazure.com) | fare clic sulla scheda **RIDIMENSIONA** nella pagina Dashboard del database. |
 | [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | usare il cmdlet [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx). |
 | [API REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) | usare il comando [Crea o Aggiorna database](https://msdn.microsoft.com/library/azure/mt163685.aspx).|
 | [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | usare l'istruzione [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx). |
@@ -272,7 +272,7 @@ Il database SQL di Azure fornisce informazioni di stato sulle operazioni di gest
     and o.major_resource_id = '<database_name>'
     ORDER BY o.last_modify_time DESC;
 
-Se per l'aggiornamento è stato usato il portale di gestione, nel portale è disponibile anche una notifica per l'operazione.
+Se per l'aggiornamento è stato usato il portale classico, nel portale è disponibile anche una notifica per l'operazione.
 
 ## 7\. Monitorare il database dopo l'aggiornamento
 Dopo l'aggiornamento del database Web/Business al nuovo livello, è consigliabile monitorare attivamente il database per verificare che le applicazioni siano in esecuzione con le prestazioni desiderate e ottimizzare l'utilizzo in base alle esigenze. Per monitorare il database, è consigliata la seguente procedura aggiuntiva.
@@ -293,7 +293,7 @@ Dopo l'aggiornamento del database Web/Business al nuovo livello, è consigliabil
 Informazioni dettagliate sull'uso di questa DMV, sono disponibili nella [documentazione](http://msdn.microsoft.com/library/dn800981.aspx) aggiuntiva. In [Linee guida sulle prestazioni del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn369873.aspx) viene illustrato come monitorare e ottimizzare l'applicazione.
 
 
-- **Avvisi:** configurare "Avvisi" nel portale di gestione di Azure per ricevere una notifica quando il consumo di DTU per un database aggiornato si avvicina a un determinato livello elevato. Nel portale di gestione di Azure si possono configurare avvisi di database per diverse metriche delle prestazioni, come DTU, CPU, IO e log. 
+- **Avvisi:** configurare "Avvisi" nel portale di Azure classico per ricevere una notifica quando il consumo di DTU per un database aggiornato si avvicina a un determinato livello elevato. Nel portale di Azure classico si possono configurare avvisi di database per diverse metriche delle prestazioni, come DTU, CPU, IO e log. 
 
 	Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentuale DTU se il valore medio della percentuale DTU supera il 75% negli ultimi 5 minuti. Fare riferimento a [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) per altre informazioni sulla configurazione di notifiche di avviso.
 
@@ -317,4 +317,4 @@ Il servizio Database SQL di Azure fornisce i dati di telemetria e gli strumenti 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

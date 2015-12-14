@@ -38,6 +38,7 @@ U-SQL | Diagrammi della sintassi | 1 | in corso, usando [questo](http://bottleca
 Servizio | Protezione di processi, dati e tabelle in Data Lake Analytics |1| in corso | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
 Servizio | Spostamento di output di SQL Data Warehouse mediante Data factory |1 | in corso | [@mumian](https://github.com/mumian) | 
 Strumenti | Uso di strumenti di diagnostica | 1 | In sospeso | [@mumian](https://github.com/mumian) | 
+U-SQL | Illustrare le tecniche per eseguire operazioni di JOIN basate sull’intervallo | 1 | In sospeso | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -46,7 +47,7 @@ Strumenti | Uso di strumenti di diagnostica | 1 | In sospeso | [@mumian](https:/
 
 Area |Argomento | location
 ------------- | ------------- | -------------- 
-Servizio | Coordinamento della distribuzione di Data Lake Analytics con altri servizi di Azure mediante i modelli ARM | [Località](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
+Servizio | Coordinamento della distribuzione di Data Lake Analytics con altri servizi di Azure mediante i modelli ARM | [Località](../data-lake-analytics-manage-use-powershell.md)
 
 ## Come fornire commenti e suggerimenti per il backlog
 Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backlog:
@@ -55,4 +56,4 @@ Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backl
 * Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Inviare un messaggio di posta elettronica a [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

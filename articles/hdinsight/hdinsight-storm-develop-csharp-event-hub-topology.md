@@ -70,7 +70,7 @@ La versione più recente del file **eventhubs-storm-spout-0.9-jar-with-dependenc
 
 L'hub eventi è l'origine dati per questo esempio. Per creare un nuovo hub eventi, seguire questa procedura.
 
-1. Nel [Portale di Azure](https://manage.windowsazure.com) selezionare **NUOVO** > **Bus di servizio** > **Hub eventi** > **Creazione personalizzata**.
+1. Nel [Portale di Azure classico](https://manage.windowsazure.com) selezionare **NUOVO** > **Bus di servizio** > **Hub eventi** > **Creazione personalizzata**.
 
 2. Nella schermata **Aggiungi hub eventi** immettere un nome in **Nome hub eventi**, selezionare l'area in cui creare l'hub in **Area geografica** e creare un nuovo spazio dei nomi o selezionarne uno esistente. Fare clic sulla **freccia** per continuare.
 
@@ -100,7 +100,7 @@ L'hub eventi è l'origine dati per questo esempio. Per creare un nuovo hub event
 
 L'archivio tabelle verrà usato per memorizzare i valori letti dall'hub eventi, in quanto è facilmente visibile da Visual Studio tramite **Esplora server**. Per creare un nuovo archivio tabelle, seguire questa procedura.
 
-1. Nel [Portale di Azure](https://manage.windowsazure.com) selezionare **NUOVO** > **Servizi dati** > **Archiviazione** > **Creazione rapida**.
+1. Nel [Portale di Azure classico](https://manage.windowsazure.com) selezionare **NUOVO** > **Servizi dati** > **Archiviazione** > **Creazione rapida**.
 
 	![creazione rapida archiviazione](./media/hdinsight-storm-develop-csharp-event-hub-topology/storagecreate.png)
 
@@ -557,4 +557,4 @@ In questo documento si è appreso come usare lo spout e il bolt dell'hub eventi 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

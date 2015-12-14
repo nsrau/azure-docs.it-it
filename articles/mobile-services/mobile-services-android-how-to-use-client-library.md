@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015" 
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
 # Come usare la libreria client Android per Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
@@ -55,7 +59,7 @@ Il codice seguente consente di creare l'oggetto [MobileServiceClient](http://dl.
 				"AppKey", 			// replace with the Application Key
 				this)
 
-Nel codice riportato sopra sostituire `MobileServiceUrl` e `AppKey` con l'URL del servizio mobile e la chiave applicazione, nell'ordine specificato. Entrambi gli elementi sono disponibili nel portale di gestione di Azure selezionando il servizio mobile e quindi facendo clic su *Dashboard*.
+Nel codice riportato sopra sostituire `MobileServiceUrl` e `AppKey` con l'URL del servizio mobile e la chiave applicazione, nell'ordine specificato. Entrambi gli elementi sono disponibili nel portale di Azure classico selezionando il servizio mobile e quindi facendo clic su *Dashboard*.
 
 ##<a name="instantiating"></a>Procedura: Creare un riferimento alla tabella
 
@@ -133,7 +137,7 @@ Il codice seguente consente di restituire tutti gli elementi della tabella *ToDo
                     final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
-                		Log.i(TAG, "Read object with ID " + item.id);  
+                		Log.i(TAG, "Read object with ID " + item.id);
 					}
                 } catch (Exception exception) {
                     createAndShowDialog(exception, "Error");
@@ -371,7 +375,7 @@ Il seguente codice illustra come eliminare i dati da una tabella. Elimina un ele
 	}
 
 
-Nel codice seguente viene illustrato un altro modo per eseguire questa operazione. In questo caso per eliminare un elemento esistente dalla tabella ToDoItem viene specificato il valore del campo id della riga da eliminare, presupponendo che sia uguale a "2FA404AB-E458-44CD-BC1B-3BC847EF0902". In un'applicazione reale sarebbe necessario rilevare l'ID e passarlo come variabile. In questo caso, per semplificare il test, è possibile accedere al portale di Servizi mobili di Azure per il servizio, fare clic su **Dati** e copiare un ID con il quale si desidera eseguire il test.
+Nel codice seguente viene illustrato un altro modo per eseguire questa operazione. In questo caso per eliminare un elemento esistente dalla tabella ToDoItem viene specificato il valore del campo id della riga da eliminare, presupponendo che sia uguale a "2FA404AB-E458-44CD-BC1B-3BC847EF0902". In un'applicazione reale sarebbe necessario rilevare l'ID e passarlo come variabile. In questo caso, per semplificare il test, è possibile accedere al portale di Azure classico per il servizio, fare clic su **Dati** e copiare un ID con il quale si desidera eseguire il test.
 
     public void deleteItem(View view) {
 
@@ -396,7 +400,7 @@ Nel codice seguente viene illustrato un altro modo per eseguire questa operazion
     }
 
 ##<a name="lookup"></a>Procedura: Cercare un elemento specifico
-In alcuni casi si desidera cercare un elemento specifico in base al relativo *id*, anziché eseguire una query che invece consente in genere di ottenere una raccolta di elementi che soddisfano alcuni criteri. Il codice seguente illustra come effettuare questa operazione per un valore *id* di `0380BAFB-BCFF-443C-B7D5-30199F730335`. In un'applicazione reale sarebbe necessario rilevare l'ID e passarlo come variabile. In questo caso, per semplificare il test, è possibile accedere al portale di Servizi mobili di Azure per il servizio, fare clic su **Dati** e copiare un ID con il quale si desidera eseguire il test.
+In alcuni casi si desidera cercare un elemento specifico in base al relativo *id*, anziché eseguire una query che invece consente in genere di ottenere una raccolta di elementi che soddisfano alcuni criteri. Il codice seguente illustra come effettuare questa operazione per un valore *id* di `0380BAFB-BCFF-443C-B7D5-30199F730335`. In un'applicazione reale sarebbe necessario rilevare l'ID e passarlo come variabile. In questo caso, per semplificare il test, è possibile accedere al portale di Azure classico, fare clic su **Dati** e copiare un ID con il quale si desidera eseguire il test.
 
     /**
      * Lookup specific item from table and UI
@@ -679,7 +683,7 @@ In Servizi mobili sono supportati i seguenti provider di identità esistenti che
 
 È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è inoltre possibile utilizzare l'ID di un utente autenticato.
 
-Per le prime due attività viene utilizzato il [portale di gestione di Azure](https://manage.windowsazure.com/). Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili](http://go.microsoft.com/fwlink/p/?LinkId=296316).
+Per le prime due attività viene utilizzato il [portale di Azure classico](https://manage.windowsazure.com/). Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
 ### <a name="caching"></a>Procedura: Aggiungere codice di autenticazione all'app
 
@@ -933,4 +937,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione a Servizi mobili]: mobile-services-android-get-started.md
 [codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -17,7 +17,7 @@
    ms.date="11/16/2015"
    ms.author="danlep"/>
 
-# Introduzione a Docker e Compose per avviare un'applicazione multi-contenitore in una macchina virtuale di Azure
+# Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure
 
 In questo articolo viene illustrato come iniziare a utilizzare Docker e [Compose](http://github.com/docker/compose) per definire ed eseguire un'applicazione complessa in una macchina virtuale Linux in Azure. Con Compose (il successore di *Fig*), si utilizza un file di testo semplice per definire un'applicazione costituita da più contenitori Docker. Quindi si avvia l'applicazione con un unico comando che esegue le operazioni necessarie per l'esecuzione dell’applicazione nella macchina virtuale. Ad esempio, in questo articolo viene illustrato come configurare rapidamente un blog WordPress con un database SQL MariaDB back-end, ma è anche possibile utilizzare Compose per configurare applicazioni più complesse.
 
@@ -49,10 +49,7 @@ Per verificare l'installazione di Compose, eseguire i comandi indicati di seguit
 $ docker-compose --version
 ```
 
-L'output sarà simile a
-```
-docker-compose 1.3.2
-```
+L'output sarà simile a `docker-compose 1.4.1`
 
 
 ## Passaggio 3: creare un file di configurazione docker-compose.yml
@@ -61,18 +58,9 @@ Successivamente, verrà creato un file `docker-compose.yml`, che è semplicement
 
 Creare una directory di lavoro in una macchina virtuale e utilizzare un editor di testo per creare `docker-compose.yml`. Per provare un semplice esempio, copiare il testo seguente nel file. Questa configurazione utilizza le immagini del [Registro di sistema DockerHub](https://registry.hub.docker.com/_/wordpress/) per installare WordPress (il sistema di creazione blog e gestione del contenuto open source) e un database MariaDB back-end collegato.
 
- ```
- wordpress:
-  image: wordpress
-  links:
-    - db:mysql
-  ports:
-    - 8080:80
+ ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
 
-db:
-  image: mariadb
-  environment:
-    MYSQL_ROOT_PASSWORD: <your password>
+db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
 
 ```
 
@@ -88,9 +76,7 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress_db_1...
-Creating wordpress_wordpress_1...
-```
+Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
 
 >[AZURE.NOTE]Assicurarsi di utilizzare l’opzione **-d** all'avvio in modo che i contenitori vengano eseguiti in background continuamente.
 
@@ -122,11 +108,10 @@ Viene visualizzata la schermata di avvio di WordPress, in cui è possibile compl
 
 * Per ulteriori esempi di compilazione e distribuzione di app multi-contenitore, consultare il [riferimento CLI di Compose](http://docs.docker.com/compose/reference/) e il [manuale dell'utente](http://docs.docker.com/compose/).
 * Utilizzare un modello di Gestione risorse di Azure, quello proprio o uno fornito dalla [community](http://azure.microsoft.com/documentation/templates/), per distribuire una macchina virtuale di Azure con Docker e un'applicazione configurata con Compose. Ad esempio, il modello [Distribuire un blog WordPress con Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) utilizza Docker e Compose per distribuire rapidamente WordPress con un back-end MySQL in una VM Ubuntu.
-* Provare a integrare Docker Compose con un cluster [Docker Swarm](virtual-machines-docker-swarm.md). Per gli scenari, vedere
-[Docker Compose/Swarm integration](https://github.com/docker/compose/blob/master/SWARM.md).
+* Provare a integrare Docker Compose con un cluster [Docker Swarm](virtual-machines-docker-swarm.md). Per gli scenari, vedere [Docker Compose/Swarm integration](https://github.com/docker/compose/blob/master/SWARM.md).
 
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

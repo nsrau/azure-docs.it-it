@@ -73,7 +73,7 @@ Quando il servizio viene ridistribuito, verrà visualizzato l'errore seguente co
 
 2. Durante la distribuzione della soluzione con Visual Studio scegliere "Configura connessioni Desktop remoto". Per altre informazioni sulla configurazione della connessione Desktop remoto, vedere [Uso di Desktop remoto con i ruoli Azure](https://msdn.microsoft.com/library/gg443832.aspx).
 
-3. Quando lo stato dell'istanza è **Pronto**, nel portale di gestione di Microsoft Azure fare clic su una delle istanze del ruolo.
+3. Quando lo stato dell'istanza è **Pronto**, nel portale di Microsoft Azure classico, fare clic su una delle istanze del ruolo.
 
 4. Fare clic sull'icona **Connetti** nell'area **Accesso remoto** della barra multifunzione.
 
@@ -165,4 +165,4 @@ Dopo avere verificato che tutti gli errori sono stati corretti, sarà possibile 
 
 Altri [articoli sulla risoluzione dei problemi](..\?tag=top-support-issue&service=cloud-services) per i servizi cloud.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

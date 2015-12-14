@@ -69,7 +69,7 @@ Se si desidera specificarla in fase di esecuzione, è possibile chiamare il meto
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-La stringa di connessione per l'applicazione viene visualizzata nel portale di gestione di Azure.
+La stringa di connessione per l'applicazione viene visualizzata nel portale di Azure classico.
 
 ### Inizializzazione di Engagement
 
@@ -247,4 +247,4 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 > [AZURE.WARNING]La soglia di burst non può essere configurata per un periodo inferiore a un secondo. Se si tenta di impostare un valore minore, l'SDK mostrerà una traccia con l'errore e verrà ripristinato automaticamente il valore predefinito, ovvero zero secondi. In questo modo verrà attivato l'SDK per la segnalazione dei log in tempo reale.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

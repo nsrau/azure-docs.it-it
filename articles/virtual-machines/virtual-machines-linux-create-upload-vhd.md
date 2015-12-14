@@ -156,7 +156,7 @@ Utilizzare l’interfaccia della riga di comando di Azure per caricare l'immagin
 
 È necessario per caricare un account di archiviazione in cui caricare il file VHD. È possibile sceglierne uno esistente o crearne uno nuovo. Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../storage-create-storage-account.md)
 
-È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archiviazione BLOB. Negli esempi di comandi seguenti, **BlobStorageURL** è l'URL per l'account di archiviazione che si intende utilizzare e **YourImagesFolder** è il contenitore all'interno dell'archiviazione BLOB in cui si desidera archiviare le immagini. **VHDName** è l'etichetta che identifica il disco rigido virtuale visualizzata nel [portale di Azure](http://manage.windowsazure.com). **PathToVHDFile** è il percorso completo e il nome del file VHD.
+È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archiviazione BLOB. Negli esempi di comandi seguenti, **BlobStorageURL** è l'URL per l'account di archiviazione che si intende utilizzare e **YourImagesFolder** è il contenitore all'interno dell'archiviazione BLOB in cui si desidera archiviare le immagini. **VHDName** è l'etichetta che identifica il disco rigido virtuale visualizzata nel [portale di Azure classico](http://manage.windowsazure.com). **PathToVHDFile** è il percorso completo e il nome del file VHD.
 
 Nella finestra di Azure PowerShell utilizzata nel passaggio precedente, digitare:
 
@@ -164,11 +164,11 @@ Nella finestra di Azure PowerShell utilizzata nel passaggio precedente, digitare
 
 Per ulteriori informazioni, vedere [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE]La [versione di anteprima di Azure Powershell 1.0](https://azure.microsoft.com/it-IT/blog/azps-1-0-pre/) cambia notevolmente il modo in cui gestisce i cmdlet per il modello di distribuzione classica e di Gestione risorse. Questo articolo non usa ancora la versione di anteprima.
+> [AZURE.NOTE]La [versione di anteprima di Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) cambia notevolmente il modo in cui gestisce i cmdlet per il modello di distribuzione classica e di Gestione risorse. Questo articolo non usa ancora la versione di anteprima.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

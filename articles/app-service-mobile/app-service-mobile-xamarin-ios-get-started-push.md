@@ -13,32 +13,30 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
 Questa esercitazione è basata sull'[esercitazione Creare un'app per Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md), che deve essere completata per prima. In questa esercitazione si aggiungeranno notifiche push al progetto di creazione di un'app per Xamarin.iOS, in modo da attivare l'invio di una notifica push ogni volta che viene inserito un record. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Il [simulatore di iOS non supporta le notifiche push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), quindi è necessario utilizzare un dispositivo iOS fisico. È inoltre necessario iscriversi al programma [Apple Developer Program](https://developer.apple.com/programs/ios/).
-
 ##Prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non si ha un account, è possibile iscriversi alla versione di valutazione gratuita di Azure e ottenere fino a un massimo di 10 app per dispositivi mobili gratuite. Sarà possibile continuare a usarle anche dopo il termine del periodo di valutazione. Vedere [Versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Un account Azure attivo. Se non si ha un account, è possibile iscriversi alla versione di valutazione gratuita di Azure e ottenere fino a un massimo di 10 backend di app per dispositivi mobili gratuite. Sarà possibile continuare a usarle anche dopo il termine del periodo di valutazione. Vedere [Versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-* Un computer Mac in cui sono stati installati [Xamarin Studio] e [Xcode] 4.4 o versione successiva. È anche possibile eseguire l'app per Xamarin.iOS in Visual Studio su un computer Windows, ma la procedura è più complessa poiché è necessario connettersi a un computer Mac in rete che esegue l'host di compilazione Xamarin.iOS. Per informazioni su questa procedura, vedere la pagina relativa all'[installazione di Xamarin.iOS in Windows].
+* Un computer Mac in cui sono state installate le versioni [Xamarin Studio] e [Xcode] 4.4 o versioni successive. È anche possibile eseguire l'app per Xamarin.iOS in Visual Studio su un computer Windows, ma la procedura è più complessa poiché è necessario connettersi a un computer Mac in rete che esegue l'host di compilazione Xamarin.iOS. Per informazioni su questa procedura, vedere la pagina relativa all'[installazione di Xamarin.iOS in Windows].
 
 * Un dispositivo iOS fisico. Le notifiche push non sono supportate dal simulatore iOS.
 
-* Aver completato l'[esercitazione Creare un'app per Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md).
+* Un’[Appartenenza all’Apple Developer Program](https://developer.apple.com/programs/ios/), necessaria per la registrazione con Servizio notifiche Push Apple (APNS)
+
+* Completare l'[esercitazione sulla guida introduttiva per Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md).
 
 
 ##Registrare l'app per le notifiche push nel portale per sviluppatori Apple
@@ -49,11 +47,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Per configurare l'app per l'invio di notifiche, creare un nuovo hub e configurarlo per i servizi di notifica della piattaforma che si intende usare.
 
-1. Nel portale di Azure fare clic su **Sfoglia** > **App per dispositivi mobili** > la propria app per dispositivi mobili > **Impostazioni** > **Dispositivi mobili** > **Push** > **Hub di notifica** > **+ Hub di notifica**, specificare un nome e uno spazio dei nomi per un nuovo hub di notifica e quindi fare clic sul pulsante **OK**.
+1. Nel [Portale Azure](https://portal.azure.com/) fare clic su **Sfoglia** > **App per dispositivi mobili** > la propria app per dispositivi mobili > **Impostazioni** > **Dispositivi mobili** > **Push** > **Hub di notifica** > **+ Hub di notifica**, specificare un nome e uno spazio dei nomi per un nuovo hub di notifica e quindi fare clic sul pulsante **OK**.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
 
-2. Nel pannello di creazione dell'hub di notifica, fare clic su **Crea**.
+2. Nel pannello per la creazione dell'hub di notifica, fare clic su **Crea**.
 
 3. Fare clic su **Push** > **Apple (APN)** > **Carica certificato**. Caricare il file del certificato push (con estensione p12) esportato in precedenza. Assicurarsi di selezionare **Sandbox** se è stato creato un certificato push di sviluppo per le fasi di sviluppo e test. In caso contrario, scegliere **Produzione**. Il servizio è ora configurato per l'uso con le notifiche push in iOS.
 
@@ -67,13 +65,13 @@ Per configurare l'app per l'invio di notifiche, creare un nuovo hub e configurar
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-##Configurare il progetto Xamarin.Forms
+##Configurare il progetto Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
 ##Aggiungere notifiche push all'app
 
-1. In **QSTodoService** aggiungere la proprietà seguente in modo che l'oggetto **AppDelegate** possa acquisire il client per dispositivi mobili:
+1. In **QSTodoService**, aggiungere la proprietà seguente in modo che l'oggetto **AppDelegate** possa acquisire il client per dispositivi mobili:
         
             public MobileServiceClient GetClient {
             get
@@ -88,7 +86,8 @@ Per configurare l'app per l'invio di notifiche, creare un nuovo hub e configurar
 
 1. Aggiungere l'istruzione `using` seguente all'inizio del file **AppDelegate.cs**.
 
-        using Microsoft.WindowsAzure.MobileServices;
+		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
 
 2. In **AppDelegate** eseguire l'override dell'evento **FinishedLaunching**:
 
@@ -107,16 +106,28 @@ Per configurare l'app per l'invio di notifiche, creare un nuovo hub e configurar
             return true;
         }
 
-3. Nello stesso file eseguire l'override dell'evento **RegisteredForRemoteNotifications**:
+3. Nello stesso file eseguire l'override dell'evento **RegisteredForRemoteNotifications**. In questo codice ci si sta registrando per una semplice notifica del modello che verrà inviata a tutte le piattaforme supportate dal server.
+ 
+	Per altre informazioni sui modelli con Hub di notifica, vedere [Modelli](../notification-hubs/notification-hubs-templates.md).
+
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
             MobileServiceClient client = QSTodoService.DefaultService.GetClient;
 
+            const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
+
+            JObject templates = new JObject();
+            templates["genericMessage"] = new JObject
+            {
+                {"body", templateBodyAPNS}
+            };
+
             // Register for push with your mobile app
             var push = client.GetPush();
-            push.RegisterAsync(deviceToken);
+            push.RegisterAsync(deviceToken, templates);
         }
+
 
 4. Sovrascrivere quindi l'evento **DidReceivedRemoteNotification**:
 
@@ -144,7 +155,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 	
 	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
+2. Nell'app, digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
 3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
@@ -159,10 +170,8 @@ L'esercitazione è stata completata.
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-[Azure Management Portal]: https://manage.windowsazure.com/
-[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 
  
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

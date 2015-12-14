@@ -39,27 +39,27 @@ I seguenti passaggi descrivono le attività relative alla creazione di applicazi
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-	Questa operazione può essere eseguita anche dopo la creazione del canale.
+Questa operazione può essere eseguita anche dopo la creazione del canale.
 
 1. Creare e avviare un canale.
 
 1. Recuperare l'URL di inserimento del canale.
 
-	L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
+L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
 
 1. Recuperare l'URL di anteprima del canale.
 
-	Usare questo URL per verificare che il canale riceva correttamente il flusso live.
+Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 
 2. Creare un asset.
 3. Se si desidera che l'asset sia crittografato in modo dinamico durante la riproduzione, seguire questa procedura:
-	1. Creare una chiave simmetrica.
-	1. Configurare i criteri di autorizzazione della chiave simmetrica.
-	1. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
+1. Creare una chiave simmetrica.
+1. Configurare i criteri di autorizzazione della chiave simmetrica.
+1. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
 3. Creare un programma e specificare di usare l'asset creato.
 1. Pubblicare l'asset associato al programma creando un localizzatore OnDemand.
 
-	Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
+Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 
 1. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
 2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
@@ -108,18 +108,12 @@ Per completare l'esercitazione è necessario quanto segue.
 ##Connettersi a Servizi multimediali
 Come procedura consigliata, usare un file app.config per archiviare il nome e la chiave dell'account di Servizi multimediali.
 
->[AZURE.NOTE]Per trovare i valori relativi a nome e chiave, passare al portale di Azure, selezionare l'account di Servizi multimediali e fare clic sull'icona "GESTISCI CHIAVI" nella parte inferiore della finestra del portale. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
+>[AZURE.NOTE]Per trovare i valori relativi a nome e chiave, passare al portale di Azure classico, selezionare l'account di Servizi multimediali e fare clic sull'icona "GESTISCI CHIAVI" nella parte inferiore della finestra del portale. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
 
 Aggiungere una sezione appSettings al file app.config e impostare i valori per il nome e la chiave dell'account di Servizi multimediali.
 
 
-	<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 ##Esempio di codice
@@ -522,4 +516,4 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 
 Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

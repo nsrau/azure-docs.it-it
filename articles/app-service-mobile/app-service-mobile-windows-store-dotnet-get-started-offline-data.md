@@ -18,9 +18,7 @@
 
 # Abilitare la sincronizzazione offline per l'app di Windows
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Panoramica
 
@@ -36,7 +34,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 * Visual Studio 2013 in esecuzione su Windows 8.1.
 * Completamento dell'esercitazione [Creare un'app Windows][create a windows app].
-* [SQLite Store di Servizi mobili di Azure versione 2.0.0-beta2][sqlite store nuget]
+* [Azure Mobile Services SQLite Store][sqlite store nuget]
 * [SQLite per Windows 8.1](http://www.sqlite.org/downloads)
 
 ## Aggiornare l'app client per supportare le funzionalità offline
@@ -48,13 +46,9 @@ Le funzionalità offline delle app per dispositivi mobili di Azure consentono di
     * **Windows 8.1 Runtime:** installare [SQLite per Windows 8.1].
     * **Windows Phone 8.1:** installare [SQLite per Windows Phone 8.1].
 
-    >[AZURE.NOTE]Quando si fa clic sul collegamento di installazione di SQLite in Internet Explorer, è possibile che venga chiesto di scaricare il file con estensione vsix come zip. Salvare il file in un percorso del disco rigido utilizzando l'estensione .vsix invece di .zip. Quindi, fare doppio clic sul file con estensione vsix in Esplora risorse per eseguire l'installazione.
+    >[AZURE.NOTE]Queste istruzioni funzionano anche per i progetti Windows 10 UAP, ma in quel caso è necessario installare [SQLite per Windows 10].
 
-2. In Visual Studio aprire il progetto completato nell'esercitazione [Creare un'app Windows]. Installare il pacchetto NuGet **WindowsAzure.MobileServices.SQLiteStore** per i progetti relativi a Windows 8.1 Runtime e Windows Phone 8.1.
-
-    In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Gestisci pacchetti NuGet per la soluzione** per eseguire Gestione pacchetti NuGet. Nella scheda "Online" selezionare l'opzione "Includi versione preliminare" nell'elenco a discesa nella parte superiore. Cercare **SQLiteStore** per installare la versione 2.0.0-beta di `WindowsAzure.MobileServices.SQLiteStore`.
-
-    Aggiungere quindi il riferimento a NuGet nei progetti Windows Store 8.1 e Windows Phone 8.1.
+2. In Visual Studio aprire il progetto completato nell'esercitazione [Creare un'app Windows]. Installare il pacchetto NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** per i progetti relativi a Windows 8.1 Runtime e Windows Phone 8.1. Aggiungere il riferimento a NuGet nei progetti Windows Store 8.1 e Windows Phone 8.1.
 
     >[AZURE.NOTE]Se l'installazione crea un riferimento aggiuntivo a una versione diversa di SQLite rispetto a quella installata, verrà generato un errore di compilazione. Risolvere l'errore rimuovendo il duplicato nel nodo **Riferimenti** dei progetti.
 
@@ -77,7 +71,7 @@ Le funzionalità offline delle app per dispositivi mobili di Azure consentono di
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
         using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
 
-6. In MainPage.cs commentare la riga di codice che inizializza `todoTable` come `IMobileServiceTable`. Rimuovere il commento dalla riga di codice che inizializza `todoTable` come `IMobileServiceSyncTable`:
+6. In MainPage.cs, commentare la riga di codice che inizializza `todoTable` come `IMobileServiceTable`. Rimuovere il commento dalla riga di codice che inizializza `todoTable` come `IMobileServiceSyncTable`:
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
@@ -198,7 +192,7 @@ In questa sezione si modificherà l'app client per simulare uno scenario offline
 
 5. (Facoltativo) In Visual Studio aprire **Esplora server**. Passare al database in **Azure**->**Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**. È ora possibile passare alla tabella di database SQL e al relativo contenuto. Verificare che i dati nel database back-end non siano stati modificati.
 
-6. (Facoltativo) Usare uno strumento REST come Fiddler o Postman per eseguire una query sul back-end mobile, ricorrendo a una query GET in formato `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
+6. (Facoltativo) Usare uno strumento REST come Fiddler o Postman per eseguire una query sul back-end mobile, usando una query GET nel formato `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
 ## <a name="update-online-app"></a>Aggiornare l'app per la riconnessione al back-end dell'app per dispositivi mobili
 
@@ -248,7 +242,7 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 * [Azure Friday: App con supporto offline in Servizi mobili di Azure]
 
@@ -269,13 +263,13 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 [create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
 [Creare un'app Windows]: ../app-service-mobile-windows-store-dotnet-get-started.md
 [Creare un'app di Windows]: ../app-service-mobile-windows-store-dotnet-get-started.md
-[SQLite per Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[SQLite per Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
+[SQLite per Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
+[SQLite per Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
+[SQLite per Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 
-[azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/2.0.0-beta
+[sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
  
-[Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

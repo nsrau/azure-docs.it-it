@@ -22,7 +22,7 @@
 
 L’archiviazione file di Azure offre condivisioni di file nel cloud utilizzando il protocollo standard SMB. L’archiviazione file è ora disponibile al pubblico e supporta sia SMB 3.0 che SMB 2.1.
 
-È possibile creare condivisioni file di Azure nel portale di anteprima di Azure, con i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. E poiché le condivisioni file sono condivisioni SMB, è possibile accedervi tramite le note API del file system standard.
+È possibile creare condivisioni file di Azure tramite il [portale di Azure](portal.azure.com), con i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. E poiché le condivisioni file sono condivisioni SMB, è possibile accedervi tramite le note API del file system standard.
 
 Le applicazioni in esecuzione in Azure possono montare condivisioni file dalle macchine virtuali di Azure. Con la versione più recente dell’archiviazione di file, è inoltre possibile montare una condivisione di file da un'applicazione locale che supporta SMB 3.0.
 
@@ -91,7 +91,7 @@ Se si utilizza Open SUSE 13.2, è possibile montare il file come indicato di seg
 
 ## Gestire la condivisione file ##
 
-Il [portale di anteprima di Azure](https://portal.azure.com/) ora offre un'interfaccia utente per la gestione dell'archiviazione file di Azure. Dal Web browser è possibile eseguire le azioni seguenti:
+Il [portale di Azure](portal.azure.com) ora offre un'interfaccia utente per la gestione dell'archiviazione file di Azure. Dal Web browser è possibile eseguire le azioni seguenti:
 
 - Caricare i file nella condivisione file e scaricarli.
 - Monitorare l'uso effettivo di ogni condivisione file.
@@ -102,9 +102,9 @@ Il [portale di anteprima di Azure](https://portal.azure.com/) ora offre un'inter
 
 ## Sviluppare con Archiviazione file ##
 
-Gli sviluppatori possono creare un'applicazione con l'archiviazione di file usando la [libreria client di Archiviazione di Azure per Java](https://github.com/azure/azure-storage-java). Per esempi di codice, vedere [Come usare l'archiviazione file da Java](storage-java-how-to-use-file-storage.md).
+Gli sviluppatori possono creare un'applicazione con l'archiviazione file usando la [libreria client di Archiviazione di Azure per Java](https://github.com/azure/azure-storage-java). Per esempi di codice, vedere [Come usare l'archiviazione file da Java](storage-java-how-to-use-file-storage.md).
 
-È inoltre possibile usare la [libreria client di Archiviazione di Azure per Node.js](https://github.com/Azure/azure-storage-node) da sviluppare per l'archiviazione di file.
+È inoltre possibile usare la [libreria client di Archiviazione di Azure per Node.js](https://github.com/Azure/azure-storage-node) da sviluppare per l'archiviazione file.
 
 ## Commenti e suggerimenti e altre informazioni ##
 
@@ -137,4 +137,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

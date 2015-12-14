@@ -56,7 +56,7 @@ Dopo aver distribuito il servizio Web, è possibile seguire i passaggi seguenti 
 
 	![Request URI][image4]
 
-3. Passare alla pagina relativa all'[App Web del servizio di richiesta-risposta di Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) e fare clic su **Crea app Web**. Il modello consente di accedere al portale Microsoft Azure in cui viene creata la nuova app Web.
+3. Passare alla pagina relativa all'[App Web del servizio di richiesta-risposta di Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) e fare clic su **Crea app Web**. Il modello consente di accedere al portale di Microsoft Azure classico in cui viene creata la nuova app Web.
 
 	- Assegnare all'app Web un nome univoco. L'URL dell'app Web sarà il nome seguito da `.azurewebsites.net.` Ad esempio, `http://carprediction.azurewebsites.net.`
 
@@ -86,7 +86,7 @@ Dopo aver distribuito il servizio Web, è possibile seguire i passaggi seguenti 
 
 Se si vuole ritornare alla pagina **Configuration**, andare alla pagina `setting.aspx` dell'app Web. Ad esempio: `http://carprediction.azurewebsites.net/setting.aspx.` Verrà richiesto di immettere di nuovo la chiave dell'API richiesta per accedere alla pagina e aggiornare le impostazioni.
 
-È possibile arrestare, riavviare o eliminare l'app Web nel portale di Azure come qualsiasi altra app Web. Mentre è in esecuzione, è possibile accedere all'indirizzo Web della home page e immettere nuovi valori.
+È possibile arrestare, riavviare o eliminare l'app Web nel portale di Azure classico come qualsiasi altra app Web. Mentre è in esecuzione, è possibile accedere all'indirizzo Web della home page e immettere nuovi valori.
 
 ## Come usare il modello di servizio di esecuzione batch (BES)
 
@@ -125,4 +125,4 @@ Per altre informazioni su...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

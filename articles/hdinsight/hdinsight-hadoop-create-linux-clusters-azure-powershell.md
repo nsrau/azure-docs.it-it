@@ -1,9 +1,9 @@
 <properties
-   	pageTitle="Creare cluster Hadoop, HBase o Storm in Linux in HDInsight tramite la CLI di Azure | Microsoft Azure"
-   	description="Informazioni su come creare cluster Hadoop, HBase o Storm su Linux per HDInsight tramite la CLI di Azure."
+   	pageTitle="Creare cluster Hadoop, HBase o Storm in Linux in HDInsight tramite Azure PowerShell | Microsoft Azure"
+   	description="Informazioni su come creare cluster Hadoop, HBase o Storm su Linux per HDInsight tramite Azure PowerShell."
    	services="hdinsight"
    	documentationCenter=""
-   	authors="nitinme"
+   	authors="mumian"
    	manager="paulettm"
    	editor="cgronlun"
 	tags="azure-portal"/>
@@ -25,11 +25,12 @@ Azure PowerShell è un ambiente di scripting potente che può essere usato per c
 
 > [AZURE.NOTE]Azure PowerShell è disponibile solo su client Windows. Se si utilizza un client Mac OS X, Linux o Unix, vedere [creare un cluster HDInsight basato su Linux utilizzando Azure CLI](hdinsight-hadoop-create-linux-cluster-azure-cli.md) per informazioni sull'utilizzo di CLI di Azure per creare un cluster.
 
-##Prerequisiti
+###Prerequisiti
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure PowerShell__ Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet Windows PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md). Per altre informazioni sull'uso di Azure PowerShell con HDInsight, vedere [Amministrare HDInsight tramite PowerShell](hdinsight-administer-use-powershell.md). Per l'elenco dei cmdlet di Windows PowerShell per HDInsight, vedere la [documentazione di riferimento dei cmdlet per HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+
 
 ##Creare il cluster
 
@@ -127,4 +128,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

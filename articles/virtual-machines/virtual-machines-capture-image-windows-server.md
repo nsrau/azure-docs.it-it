@@ -40,7 +40,7 @@ Non rappresenta un modo per eseguire il backup di una macchina virtuale. Uno dei
 
 ##Acquisizione della macchina virtuale
 
-1. Nel [portale di Azure](http://manage.windowsazure.com) **connettersi** alla macchina virtuale. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server][].
+1. Nel[portale di Azure classico](http://manage.windowsazure.com), **Connetti**alla macchina virtuale. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server][].
 
 2.	Aprire una finestra del Prompt dei comandi come amministratore.
 
@@ -56,9 +56,9 @@ Non rappresenta un modo per eseguire il backup di una macchina virtuale. Uno dei
 
 	![Eseguire Sysprep.](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	Sysprep arresta la macchina virtuale, il cui stato nel portale di Azure diventa **Arrestato**.
+7.	Sysprep arresta la macchina virtuale il cui stato nel portale di Azure classico diventa **Arrestato**.
 
-8.	Nel portale di Azure fare clic su **Macchine virtuali** e selezionare la macchina virtuale che si vuole acquisire.
+8.	Nel portale di Azure classico, fare clic su**Macchine virtuali**e selezionare la macchina virtuale che si desidera acquisire.
 
 9.	Nella barra dei comandi fare clic su **Capture**.
 
@@ -90,4 +90,4 @@ L'immagine è pronta per essere utilizzata per creare macchine virtuali. Per ese
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

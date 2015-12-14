@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come configurare un servizio cloud (portale di anteprima) | Microsoft Azure" 
-	description="Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo. Questi esempi utilizzano il portale di anteprima di Azure." 
+	pageTitle="Come configurare un servizio cloud | Microsoft Azure" 
+	description="Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo. Questi esempi utilizzano il portale di Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -22,10 +22,10 @@
 # Come configurare i servizi cloud
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-configure.md)
-- [Azure Preview Portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Azure portal](cloud-services-how-to-configure-portal.md)
 
-È possibile configurare le impostazioni più comuni di un servizio cloud nel portale di gestione di Azure. In alternativa, se si preferisce aggiornare direttamente i file di configurazione, scaricare un file di configurazione del servizio da aggiornare, quindi caricare il file aggiornato e aggiornare il servizio cloud con le modifiche apportate alla configurazione. In ogni caso, per gli aggiornamenti della configurazione viene effettuato il push in tutte le istanze del ruolo.
+È possibile configurare le impostazioni più comuni di un servizio cloud nel portale di Azure. In alternativa, se si preferisce aggiornare direttamente i file di configurazione, scaricare un file di configurazione del servizio da aggiornare, quindi caricare il file aggiornato e aggiornare il servizio cloud con le modifiche apportate alla configurazione. In ogni caso, per gli aggiornamenti della configurazione viene effettuato il push in tutte le istanze del ruolo.
 
 È inoltre possibile abilitare la connessione Desktop remoto in uno o in tutti i ruoli in esecuzione nel servizio cloud. Desktop remoto consente di accedere al desktop dell'applicazione in esecuzione e di risolvere e diagnosticare i problemi. È possibile abilitare una connessione Desktop remoto nel ruolo anche se non è stato configurato il file di definizione del servizio (con estensione csdef) per Desktop remoto durante lo sviluppo dell'applicazione. Non è necessario ridistribuire l'applicazione per abilitare la connessione Desktop remoto.
 
@@ -33,7 +33,7 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 
 ## Modificare un servizio cloud
 
-1. Nel [portale di anteprima di Azure](http://portal.azure.com/) passare al servizio cloud.
+1. Nel [portale di Azure](http://portal.azure.com/), passare al servizio cloud.
 
 2. Fare clic sull’icona **Impostazioni** o sul collegamento **Essentials/Tutte le impostazioni** per aprire il blade **Impostazioni**.
 
@@ -53,13 +53,13 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
     
     ![Pulsanti di istanza del servizio cloud](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
->[AZURE.NOTE]Il sistema operativo utilizzato per il servizio cloud non può essere modificato tramite il **portale di anteprima di Azure**, ma è possibile modificare questa impostazione solo tramite il [portale di non anteprima](http://manage.windowsazure.com/). Questa operazione è illustrata in dettaglio [qui](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
+>[AZURE.NOTE]Il sistema operativo utilizzato per il servizio cloud non può essere modificato tramite il **portale di Azure**, ma è possibile modificare questa impostazione solo tramite il [portale di Azure classico](http://manage.windowsazure.com/). Questa operazione è illustrata in dettaglio [qui](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
 
 ## Aggiornare il file di configurazione di un servizio cloud
 
 1. Innanzitutto, scaricare il file di configurazione del servizio cloud esistente (.cscfg).
 
-    1. Nel [portale di anteprima di Azure](http://portal.azure.com/) passare al servizio cloud.
+    1. Nel [portale di Azure](http://portal.azure.com/), passare al servizio cloud.
 
     2. Fare clic sull’icona **Impostazioni** o sul collegamento **Essentials/Tutte le impostazioni** per aprire il blade **Impostazioni**.
 
@@ -85,7 +85,7 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 
 ## Configurare l'accesso remoto a istanze del ruolo
 
-L’accesso remoto non può essere configurato tramite il **portale di anteprima di Azure**, ma è possibile modificare questa impostazione solo tramite il [portale di non anteprima](http://manage.windowsazure.com/). Questo processo è descritto [qui](cloud-services-role-enable-remote-desktop.md).
+L’accesso remoto non può essere configurato tramite il **portale di Azure**, ma è possibile modificare questa impostazione solo tramite il [portale di Azure classico](http://manage.windowsazure.com/). Questo processo è descritto [qui](cloud-services-role-enable-remote-desktop.md).
 			
 ## Passaggi successivi
 
@@ -94,4 +94,4 @@ L’accesso remoto non può essere configurato tramite il **portale di anteprima
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

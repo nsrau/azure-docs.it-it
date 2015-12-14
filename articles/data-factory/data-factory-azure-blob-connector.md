@@ -369,7 +369,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
 | type | La proprietà type deve essere impostata su: **AzureStorage** | Sì |
-| connectionString | Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. È possibile ottenere la proprietà connectionString per l'archivio Azure dal Portale di Azure. | Sì |
+| connectionString | Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. È possibile ottenere la proprietà connectionString per l'archivio Azure dal Portale di Azure classico. | Sì |
 
 ## Proprietà type del set di dati BLOB di Azure
 
@@ -505,4 +505,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la seguente st
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

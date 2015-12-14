@@ -23,13 +23,13 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
-[MySQL](http://www.mysql.com) è un database SQL open source molto diffuso. Dalla raccolta immagini del [portale di Azure](http://manage.windowsazure.com), è possibile creare una macchina virtuale che esegue Windows Server 2012 R2 dalla Galleria Immagini. Sarà quindi possibile installarla e configurarla come un server MySQL.
+[MySQL](http://www.mysql.com) è un database SQL open source molto diffuso. Dalla raccolta immagini del [portale di Azure classico](http://manage.windowsazure.com), è possibile creare una macchina virtuale che esegue Windows Server 2012 R2 dalla Galleria Immagini. Sarà quindi possibile installarla e configurarla come un server MySQL.
 
-Per istruzioni sull'installazione di MySQL su Linux, vedere: [Come installare MySQL in Azure](virtual-machines-linux-install-mysql.md).
+Per istruzioni sull'installazione di MySQL su Linux, fare riferimento a: [Come installare MySQL in Azure](virtual-machines-linux-install-mysql.md).
 
 Questa esercitazione illustra come:
 
-- Usare il portale di gestione per creare una macchina virtuale che esegue Windows Server 2012 R2.
+- Usare il portale di Azure classico per creare una macchina virtuale che esegue Windows Server 2012 R2.
 
 - Installare ed eseguire la versione Community di MySQL 5.6.23 come server MySQL Server nella macchina virtuale.
 
@@ -101,7 +101,7 @@ Se si desidera rendere disponibile il servizio MySQL Server per i computer clien
 
 Per configurare un endpoint per il servizio MySQL Server:
 
-1.	Nel portale di Azure fare clic su **Macchine virtuali**, quindi sul nome della macchina virtuale MySQL e infine su **Endpoint**.
+1.	Nel portale di Azure classico fare clic su **Macchine virtuali**, quindi sul nome della macchina virtuale MySQL e infine su **Endpoint**.
 2.	Nella barra dei comandi fare clic su **Aggiungi**.
 3.	Nella pagina **Aggiungi un endpoint a una macchina virtuale** fare clic sulla freccia destra.
 4.	Se si sta usando la porta TCP predefinita di MySQL numero 3306, fare clic su **MySQL** in **Nome** e quindi fare clic sul segno di spunta.
@@ -120,7 +120,7 @@ Per aggiungere una regola di Windows Firewall che consenta a MySQL di ricevere d
 
 Per testare la connessione remota al servizio MySQL Server in esecuzione nella macchina virtuale di Azure, è necessario innanzitutto determinare il nome DNS corrispondente al servizio cloud che contiene la macchina virtuale che esegue MySQL Server.
 
-1.	Nel portale di Azure fare clic su **Macchine virtuali**, quindi sul nome della macchina virtuale MySQL e infine su **Dashboard**.
+1.	Nel portale di Azure classico fare clic su **Macchine virtuali** quindi sul nome della macchina virtuale MySQL e infine su **Dashboard**.
 2.	Dal dashboard della macchina virtuale, prendere nota del valore **Nome DNS** sotto la sezione **Riepilogo rapido**. Di seguito è fornito un esempio:
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_DNSName.png)
@@ -138,4 +138,4 @@ Per testare la connessione remota al servizio MySQL Server in esecuzione nella m
 
 Per informazioni su MySQL, vedere la [Documentazione di MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

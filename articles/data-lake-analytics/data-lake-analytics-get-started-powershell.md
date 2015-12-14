@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Esercitazione: Introduzione ad Azure Data Lake Analytics con Azure PowerShell
@@ -22,46 +22,30 @@
 
 Informazioni su come usare Azure PowerShell per creare gli account di Azure Data Lake Analytics, definire i processi di Data Lake Analytics in [U-SQL](data-lake-analytics-u-sql-get-started.md) e inviare processi agli account di Data Lake Analytics. Per altre informazioni su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-In questa esercitazione verrà sviluppato un processo che legge un file di valori separati da tabulazioni (TSV) e lo converte in un file di valori separati da virgole (CSV). Per eseguire la stessa esercitazione usando altri strumenti supportati, fare clic sulle schede nella parte superiore di questa sezione.
+In questa esercitazione si svilupperà un processo che legge un file di valori separati da tabulazioni (TSV) e lo converte in un file di valori separati da virgole (CSV). Per eseguire la stessa esercitazione usando altri strumenti supportati, fare clic sulle schede nella parte superiore di questa sezione.
 
 **Processo di Data Lake Analytics di base:**
 
 ![Diagramma di flusso del processo di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
 
-1. Creare un account di Data Lake Analytics.
+1. Creare un account di Analisi Data Lake.
 2. Preparare i dati di origine. I processi di Data Lake Analytics possono leggere dati da account di Azure Data Lake Store o da account di archiviazione BLOB di Azure.   
 3. Sviluppare uno script U-SQL.
-4. Inviare un processo (script U-SQL) all'account di Data Lake Analytics. Il processo legge i dati di origine, elabora i dati come indicato nello script U-SQL e quindi salva l'output in un account di Data Lake Store o in un account di archiviazione BLOB.
+4. Inviare un processo (script U-SQL) all'account di Analisi Data Lake. Il processo legge i dati di origine, li elabora come indicato nello script U-SQL e quindi salva l'output in un account di Archivio Data Lake o in un account di archiviazione BLOB.
 
 
 **Prerequisiti**
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/).
-- **Azure PowerShell 1.0 o versione successiva**. Vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md). Dopo avere installato Azure PowerShell 1.0 o versione successiva, è necessario eseguire il cmdlet seguente per installare il modulo Azure Data Lake Analytics.
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Workstation con Azure PowerShell**. Vedere [Installare Azure PowerShell 1.0 e versioni successive](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater).
 
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
-
-	Per altre informazioni sul modulo **AzureRM.DataLakeStore**, vedere [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore). Per altre informazioni sul modulo **AzureRM.DataLakeAnalytics**, vedere [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics).
-
-	Se si sta creando un account di Data Lake per la prima volta, eseguire:
-
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	Per connettersi ad Azure, usare i cmdlet seguenti:
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
-
-##Creare un account di Data Lake Analytics
+##Creare un account di Analisi Data Lake
 
 È necessario disporre di un account di Data Lake Analytics prima di poter eseguire qualsiasi processo. Per creare un account di Data Lake Analytics, è necessario specificare quanto segue:
 
-- **Gruppo di risorse di Azure**: è necessario creare un account di Data Lake Analytics all'interno di un gruppo di risorse di Azure. [Gestione risorse di Azure](resource-group-overview.md) consente di usare le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.  
+- **Gruppo di risorse di Azure**: è necessario creare un account di Data Lake Analytics all'interno di un gruppo di risorse di Azure. [Gestione risorse di Azure](resource-group-overview.md) consente di lavorare con le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.  
 
 	Per elencare i gruppi di risorse nella sottoscrizione:
     
@@ -151,7 +135,7 @@ Lo script di PowerShell seguente mostra come ottenere il nome dell'archivio pred
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE]Il portale di anteprima di Azure fornisce un'interfaccia utente per copiare i file di dati di esempio nell'account di Data Lake Store predefinito. Per istruzioni, vedere [Introduzione ad Azure Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
+>[AZURE.NOTE]Il portale di Azure fornisce un'interfaccia utente per copiare i file di dati di esempio nell'account di Data Lake Store predefinito. Per istruzioni, vedere [Introduzione ad Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
 Data Lake Analytics può inoltre accedere all'archivio BLOB di Azure. Per caricare i dati nell'archivio BLOB di Azure, vedere [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md).
 
@@ -178,7 +162,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
-	Questo script U-SQL legge il file dei dati di origine mediante **Extractors.Tsv()** e quindi crea un file CSV mediante **Outputters.Csv()**.
+	Questo script U-SQL legge il file dei dati di origine mediante **Extractors.Tsv()** e quindi crea un file con estensione csv mediante **Outputters.Csv()**.
     
     Non modificare i due percorsi, a meno che il file di origine non sia stato copiato in una posizione diversa. Data Lake Analytics creerà la cartella di output, se non esiste già.
 	
@@ -186,7 +170,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
-    È necessario usare percorsi assoluti per accedere ai file presenti negli account di archiviazione collegati. La sintassi dei file archiviati nell'account di archiviazione collegato di Azure è:
+    È necessario usare percorsi assoluti per accedere ai file presenti negli account di archiviazione collegati. La sintassi dei file presenti in un account di Archiviazione di Azure collegato è:
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
@@ -228,9 +212,9 @@ Dopo il completamento del processo, è possibile usare i cmdlet seguenti per vis
 
 - Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
 - Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-- Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-- Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-manage-use-portal.md).
+- Per informazioni sulle attività di gestione, vedere [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 - Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

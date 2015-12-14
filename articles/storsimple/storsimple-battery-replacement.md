@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
@@ -35,7 +35,7 @@ Il modulo della batteria di backup per il dispositivo Microsoft Azure StorSimple
 
 #### Per rimuovere il modulo della batteria di backup:
 
-1. Nel portale di gestione, passare a **Dispositivi** > **Manutenzione** > **Stato hardware**. Sotto **Componenti condivisi**, controllare lo stato della batteria.
+1. Nel portale di Azure classico, passare a **Dispositivi** > **Manutenzione** > **Stato hardware**. Sotto **Componenti condivisi**, controllare lo stato della batteria.
 
 2. Identificare il PCM in cui la batteria è guasta. Nella Figura 1 viene mostrata la parte posteriore del dispositivo StorSimple.
 
@@ -89,13 +89,13 @@ Eseguire i passaggi seguenti per installare il modulo della batteria sostitutiva
 
 3. Sostituire il PCM nello chassis principale seguendo le linee guida descritte in [Sostituzione del modulo di alimentazione e raffreddamento nel dispositivo StorSimple](storsimple-power-cooling-module-replacement.md).
 
-4. Una volta completata la sostituzione, accedere al portale di gestione e passare a **Dispositivi** > **Manutenzione** > **Stato hardware**, quindi verificare lo stato della batteria per assicurarsi che l'installazione sia avvenuta correttamente. Se il LED mostra uno stato verde, la batteria è integra.
+4. Una volta completata la sostituzione, accedere al portale di Azure classico e passare a **Dispositivi** > **Manutenzione** > **Stato hardware**, quindi verificare lo stato della batteria per assicurarsi che l'installazione sia avvenuta correttamente. Se il LED mostra uno stato verde, la batteria è integra.
 
 ## Mantenimento del modulo della batteria di backup
 
 Nel dispositivo, il modulo della batteria di backup fornisce alimentazione al controller durante un evento di perdita dell'alimentazione. Consente al dispositivo StorSimple di salvare i dati critici prima dell'arresto in modo controllato. Con due batterie completamente cariche nei PCM, il sistema può gestire due eventi di perdita consecutivi.
 
-Nel portale di gestione, **Stato hardware** nella pagina **Manutenzione** indica se la batteria non funziona correttamente o quando si sta avvicinando la fine del ciclo di vita. Lo stato della batteria è indicato da **Batteria in PCM 0** o **Batteria in PCM 1** sotto **Componenti condivisi**. In questa pagina verrà visualizzato uno stato **DANNEGGIATO** per indicare l'avvicinarsi della fine del ciclo di vita e **NON RIUSCITO** per indicare che è stata raggiunta la fine del ciclo di vita.
+Nel portale di Azure classico, **Stato hardware** nella pagina **Manutenzione** indica se la batteria non funziona correttamente o se si sta avvicinando la fine del ciclo di vita. Lo stato della batteria è indicato da **Batteria in PCM 0** o **Batteria in PCM 1** sotto **Componenti condivisi**. In questa pagina verrà visualizzato uno stato **DANNEGGIATO** per indicare l'avvicinarsi della fine del ciclo di vita e **NON RIUSCITO** per indicare che è stata raggiunta la fine del ciclo di vita.
 
 >[AZURE.NOTE]La batteria può segnalare **NON RIUSCITO** quando è semplicemente necessario ricaricarla.
  
@@ -115,4 +115,4 @@ Se viene visualizzato lo stato **DANNEGGIATO**, è consigliabile adottare la lin
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

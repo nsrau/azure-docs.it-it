@@ -41,12 +41,12 @@ Azure Machine Learning dispone di due tipi di servizi:
 Per altre informazioni sui servizi Web di Azure Machine Learning, vedere [Distribuire un servizio Web Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Ottenere una chiave di autorizzazione Azure Machine Learning ##
-È possibile ottenere una chiave API del servizio Web da un servizio Web ML. È possibile ottenerla da Microsoft Azure Machine Learning studio o dal portale di gestione di Azure.
+È possibile ottenere una chiave API del servizio Web da un servizio Web ML. È possibile ottenerla da Microsoft Azure Machine Learning studio o dal portale di Azure classico.
 ### Microsoft Azure Machine Learning Studio ###
 1. In Microsoft Azure Machine Learning Studio fare clic su **WEB SERVICES** a sinistra.
 2. Fare clic su un servizio Web. La "chiave API" si trova nella scheda **DASHBOARD**.
 
-### Portale di gestione di Azure ###
+### Portale di Azure classico ###
 
 1. Fare clic su **MACHINE LEARNING** a sinistra.
 2. Fare clic su un'area di lavoro.
@@ -103,4 +103,4 @@ Per connettersi a un servizio Web di Azure ML, usare la libreria **urllib2** per
 2. Assegnare la chiave API con la chiave da un servizio Web. Scoprire come ottenere una chiave di autorizzazione ML di Azure.
 3. Assegnare l'URI del servizio con l'URI della richiesta. Scoprire come ottenere un URI della richiesta.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

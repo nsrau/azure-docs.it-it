@@ -24,7 +24,7 @@
 Questo argomento descrive la pianificazione e i preparativi da effettuare per eseguire l'aggiornamento dei database SQL di Azure dalla versione 11 alla versione 12.
 
 
-È disponibile un nuovo [portale di anteprima di Azure](http://portal.azure.com/) per supportare l'aggiornamento alla versione 12.
+È disponibile un nuovo [portale di Azure](http://portal.azure.com/) per supportare l'aggiornamento alla versione 12.
 
 
 Nella seguente tabella vengono elencati altri argomenti della Guida relativi alla versione 12.
@@ -91,7 +91,7 @@ I livelli di prezzo Web e Business non sono supportati nella versione 12.
 Se il database SQL di Azure versione 11 è un database Web o Business, durante il processo di aggiornamento verrà proposto di passare a un piano supportato. Viene suggerito un piano adeguato in base alla cronologia del carico di lavoro del database. È comunque possibile scegliere il piano supportato che si preferisce.
 
 
-Per ridurre i passaggi da eseguire durante l'aggiornamento, è possibile disattivare il piano Web e Business per il database versione 11 prima di avviare l'aggiornamento. Questa operazione può essere eseguita [Portale di anteprima di Azure](http://portal.azure.com/).
+Per ridurre i passaggi da eseguire durante l'aggiornamento, è possibile disattivare il piano Web e Business per il database versione 11 prima di avviare l'aggiornamento. Questa operazione può essere eseguita nel [portale di Azure](http://portal.azure.com/).
 
 
 In caso di incertezza sul livello di servizio a cui passare, il livello S2 del piano Standard rappresenta una scelta iniziale adeguata. Qualsiasi livello inferiore disporrà di un minor numero di risorse rispetto al livello Web e Business.
@@ -132,12 +132,12 @@ Sono disponibili tre portali per Azure e ognuno dispone di capacità diverse rel
  - Consente l'aggiornamento del database versione 11 alla versione 12.
 
 
-- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>Questo portale, infine, potrebbe essere eliminato. Portale in uso:
+- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>Questo portale di Azure classico, infine, potrebbe essere eliminato. Portale in uso:
  - Consente di gestire i server e i database versione 12.
  - *Non* consente l'aggiornamento del database versione 11 alla versione 12.
 
 
-- (http://*yourservername*.database.windows.net)<br/> Portale di gestione database SQL di Azure:
+- (http://*yourservername*.database.windows.net)<br/> Portale classico di Database SQL di Azure:
  - *Non* consente la gestione di server versione 12.
 
 
@@ -152,7 +152,7 @@ Si consiglia di connettersi ai database SQL di Azure con Visual Studio 2013 (VS2
 È invece possibile connettersi con [Visual Studio Community 2013,](https://www.visualstudio.com/it-IT/news/vs2013-community-vs.aspx/) una versione gratuita e completa di VS2013.
 
 
-Nella pagina del database del portale di Azure precedente, per avviare VS2013 nel computer e connettersi al database SQL di Azure è possibile fare clic su **Apri in Visual Studio**.
+Nella pagina del database del portale di Azure classico precedente, per avviare VS2013 nel computer e connettersi al database SQL di Azure è possibile fare clic su **Apri in Visual Studio**.
 
 
 In alternativa, per connettersi al database SQL di Azure è possibile utilizzare SQL Server Management Studio (SSMS) 2014 con [CU6](http://support.microsoft.com/kb/3031047/). Ulteriori dettagli sono in questo post di blog:<br/>[Aggiornamenti degli strumenti client per il database SQL di Azure](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
@@ -184,7 +184,7 @@ Il database V11 rimane disponibile per l'accesso ai dati durante l'aggiornamento
 ### Esportazione e importazione *dopo* l'aggiornamento alla versione 12
 
 
-È possibile esportare o importare un database versione 12 utilizzando il [Portale di anteprima di Azure](http://portal.azure.com/). In alternativa, è possibile esportare o importare usando uno dei seguenti strumenti:
+È possibile esportare o importare un database versione 12 usando il [portale di Azure](http://portal.azure.com/). In alternativa, è possibile esportare o importare usando uno dei seguenti strumenti:
 
 
 - SQL Server Management Studio (SSMS)
@@ -254,4 +254,4 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

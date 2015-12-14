@@ -18,6 +18,11 @@
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ##Panoramica
@@ -155,7 +160,7 @@ Dopo aver registrato l'app con il servizio APN e aver configurato il progetto, �
 
     Annotare il nome del file e il percorso del certificato esportato.
 
-2. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app.
+2. Accedere al [portale di Azure classico], fare clic su **Servizi mobili** e quindi sull'app.
 
     ![][18]
 
@@ -275,9 +280,9 @@ Il servizio mobile è ora configurato per funzionare con il servizio APN.
 
 L'app è ora aggiornata per il supporto delle notifiche push.
 
-## <a name="update-scripts"></a>Aggiornare lo script insert registrato nel portale di gestione
+## <a name="update-scripts"></a>Aggiornare lo script insert registrato nel portale di Azure classico
 
-1. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
+1. Nel [portale di Azure classico] fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
     ![][21]
 
@@ -392,10 +397,10 @@ L'esercitazione è stata completata.
 [provisioning del dispositivo Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [oggetto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

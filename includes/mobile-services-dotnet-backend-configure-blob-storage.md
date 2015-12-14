@@ -34,7 +34,7 @@ L'elemento **TodoItemController** viene aggiornato in modo che il metodo **PostT
 
 0. Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione].
 
-1. Nel portale di gestione fare clic su **Archiviazione**, sull'account di archiviazione e quindi su **Gestisci chiavi**.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Archiviazione**, sull'account di archiviazione e quindi su **Gestisci chiavi**.
 
 2. Prendere nota dei valori di **Nome account di archiviazione** e **Chiave di accesso**.
  
@@ -132,4 +132,4 @@ In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funz
 [Come creare un account di archiviazione]: ../articles/storage/storage-create-storage-account.md
 [Impostazioni app]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

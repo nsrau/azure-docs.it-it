@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Test delle impostazioni di Gestione traffico
@@ -52,9 +52,9 @@ Per verificare in modo efficace il metodo di bilanciamento del carico delle pres
 
 Sono disponibili servizi di analisi approfondita e DNS basati su Web gratuiti. Alcuni di essi consentono di verificare la risoluzione del nome DNS da località diverse. Eseguire una ricerca in "Ricerca DNS" per alcuni esempi. Un'altra opzione prevede l'utilizzo di una soluzione di terze parti, come ad esempio Gomez o Keynote, per verificare se i profili distribuiscono il traffico come previsto.
 
-## Vedere anche
+## Passaggi successivi
 
 [Informazioni sui metodi di routing di Gestione traffico](../about-traffic-manager-balancing-methods.md) [Gestione traffico](../traffic-manager.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

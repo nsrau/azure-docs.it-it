@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/01/2015"
 	ms.author="szark"/>
 
 
@@ -37,12 +37,13 @@ L'agente Linux di Azure è già preinstallato nelle immagini della raccolta di A
 
 Distribuzione|Versione|Driver|Agente
 ---|---|---|---
-Canonical Ubuntu|Ubuntu 12.04, 14.04, 15.04 e 15.10|Nel kernel|Pacchetto: in repo sotto "WALinuxAgent"<p><p>Origine: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-CentOS di OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3:[LIS Download](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: nel Kernel|Pacchetto: in <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic repo sotto "WALinuxAgent"<p><p>Origine: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Ubuntu|Ubuntu 12.04, 14.04, 15.04 e 15.10|Nel kernel|Pacchetto: in repo sotto "walinuxagent" <p><p>Origine: [GitHub](https://github.com/Azure/WALinuxAgent)
+CentOS di OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3:[LIS Download](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: nel Kernel|Pacchetto: in <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic repo sotto "WALinuxAgent"<p><p>Origine: [GitHub](https://github.com/Azure/WALinuxAgent)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |Nel kernel|Origine: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4+, 7.0+|Nel kernel|Pacchetto: in repo sotto "WALinuxAgent"<p><p>Origine: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 SUSE Linux Enterprise |SLES 11 SP3 +, + 12 SLES e<p><p>SLES per SAP 11.3 + |Nel kernel|Pacchetto: in repo [Cloud:Strumenti](https://build.opensuse.org/project/show/Cloud:Tools) sotto "WALinuxAgent"<p><p>Origine: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE |openSUSE 13.1+|Nel kernel|Pacchetto: in repo [Cloud:Strumenti](https://build.opensuse.org/project/show/Cloud:Tools) sotto "WALinuxAgent"<p><p>Codice di origine: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|Nel kernel|Pacchetto: in repo [Cloud:Strumenti](https://build.opensuse.org/project/show/Cloud:Tools) sotto "WALinuxAgent"<p><p>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent)
+Debian da Credativ |Debian 7,9 +, 8.2 +|Nel kernel|Pacchetto: in repo sotto "waagent"<p><p>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent)
 
 ## Partner
 
@@ -79,4 +80,9 @@ La strategia di Oracle consiste nell'offrire una vasta gamma di soluzioni per cl
 
 SUSE Linux Enterprise Server su Azure è una piattaforma collaudata che offre un'affidabilità e una sicurezza superiori per il cloud computing. La piattaforma Linux versatile di SUSE consente l'integrazione lineare con i servizi cloud di Azure per offrire un ambiente cloud facilmente gestibile. Grazie alle oltre 9.200 applicazioni certificate create da oltre 1.800 fornitori indipendenti di software per SUSE Linux Enterprise Server, SUSE è in grado di assicurare che i carichi di lavoro in esecuzione supportati nei data center possano essere distribuiti con sicurezza su Azure.
 
-<!---HONumber=Nov15_HO4-->
+### Credativ
+[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+
+Credativ è una società indipendente di servizi e consulenza, specializzata nello sviluppo e nell’implementazione di soluzioni professionali tramite l'utilizzo di software gratuiti. Come leader specialista nell’Open Source, aziendale ha ottenuto il riconoscimento internazionale, con molti reparti IT che utilizzano la sua assistenza. Insieme a Microsoft, credativ sta attualmente preparando delle immagini Debian corrispondenti per Debian 8 (Jessie) e Debian precedente a 7 (Wheezy), che sono appositamente progettate per l'esecuzione in Azure e possono essere gestite facilmente tramite la piattaforma. credativ supporta anche la manutenzione a lungo termine e l'aggiornamento delle immagini Debian per Azure tramite i centri di supporto Open Source.
+
+<!---HONumber=AcomDC_1203_2015-->

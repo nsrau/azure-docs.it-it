@@ -400,7 +400,7 @@ I computer (dispositivi) appartenenti a un dominio Windows 10 sincronizzeranno a
 | displayName | X| |
 | ms-DS-CreatorSID | X| Chiamato anche registeredOwnerReference.|
 | objectGUID | X| Chiamato anche deviceID.|
-| objectSID | X| Chiamato anche omPremisesSecurityIdentifier.|
+| objectSID | X| Chiamato anche onPremisesSecurityIdentifier.|
 | operatingSystem | X| Chiamato anche deviceOSType.|
 | operatingSystemVersion | X| Anche chiamato deviceOSVersion.|
 | userCertificate | X| |
@@ -435,4 +435,4 @@ Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Conn
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

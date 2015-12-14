@@ -129,11 +129,11 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
 6.  Assicurarsi che siano presenti account validi per i servizi cloud e di archiviazione creati nella sottoscrizione a cui lo script sia in grado di fare riferimento. L'account di archiviazione (archiviazione BLOB) verrà usato per caricare e archiviare temporaneamente il pacchetto di distribuzione e il file di configurazione durante la creazione della distribuzione.
 
-    -   Per creare un nuovo servizio cloud, è possibile chiamare questo script o usare il portale di gestione di Azure. Il nome del servizio cloud verrà usato come prefisso di un nome di dominio completo e deve pertanto essere univoco.
+    -   Per creare un nuovo servizio cloud, è possibile chiamare questo script o usare il portale di Azure classico. Il nome del servizio cloud verrà usato come prefisso di un nome di dominio completo e deve pertanto essere univoco.
 
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
-    -   Per creare un nuovo account di archiviazione, è possibile chiamare questo script o usare il portale di gestione di Azure. Il nome dell'account di archiviazione verrà usato come prefisso di un nome di dominio completo e deve pertanto essere univoco. È possibile provare a usare lo stesso nome come del servizio cloud.
+    -   Per creare un nuovo account di archiviazione, è possibile chiamare questo script o usare il portale di Azure classico. Il nome dell'account di archiviazione verrà usato come prefisso di un nome di dominio completo e deve pertanto essere univoco. È possibile provare a usare lo stesso nome come del servizio cloud.
 
             New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
@@ -165,11 +165,11 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
         Add-AzureCertificate -serviceName <CLOUDSERVICENAME> -certToDeploy (get-item cert:\CurrentUser\MY<THUMBPRINT>)
 
-    ad esempio:
+    Ad esempio:
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    In alternativa, è possibile esportare il file PFX di certificato con la chiave privata e caricare i certificati per ogni servizio cloud di destinazione tramite il portale di gestione di Azure. Per altre informazioni, leggere l'articolo seguente: [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
+    In alternativa, è possibile esportare il file PFX di certificato con la chiave privata e caricare i certificati per ogni servizio cloud di destinazione tramite il portale di Azure classico. Per altre informazioni, leggere l'articolo seguente: [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **Aggiorna distribuzione ed Elimina distribuzione -> Nuova distribuzione**
 
@@ -576,4 +576,4 @@ Per abilitare il debug remoto durante l'uso della distribuzione continua, vedere
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

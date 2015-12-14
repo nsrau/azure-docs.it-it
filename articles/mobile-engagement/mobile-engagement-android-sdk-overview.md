@@ -35,9 +35,13 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-android-sdk
 
 ##Note sulla versione
 
+##4\.1.2 (11/25/2015)
+
+- Miglioramenti della stabilità.
+
 ##4\.1.1 (11/04/2015)
 
-Miglioramenti della stabilità.
+- Miglioramenti della stabilità.
 
 ##4\.1.0 (08/25/2015)
 
@@ -52,4 +56,4 @@ Per le versioni precedenti, vedere le [note sulla versione complete](mobile-enga
 
 Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, consultare [Procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

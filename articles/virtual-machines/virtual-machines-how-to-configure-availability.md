@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurare un set di disponibilità per le macchine virtuali | Microsoft Azure"
-	description="Configurare un set di disponibilità per una macchina virtuale nuova o esistente nel modello di distribuzione classico usando il portale di Azure e Azure PowerShell."
+	description="Configurare un set di disponibilità per una macchina virtuale nuova o esistente nel modello di distribuzione classico usando il Portale di Azure classico e Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -35,11 +35,11 @@ Per assicurare la continua disponibilità e l'esecuzione efficiente dell'applica
 
 ## <a id="createset"> </a>Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente.##
 
-A tale scopo, è possibile usare il portale di Azure o i comandi di Azure PowerShell.
+A tale scopo, è possibile usare il Portale di Azure classico o i comandi di Azure PowerShell.
 
-Per usare il portale di Azure:
+Usare il portale di Azure classico.
 
-1. Accedere al portale di Azure, se questa operazione non è già stata eseguita.
+1. Accedere al portale di Azure classico, se questa operazione non è già stata eseguita.
 
 2. Sulla barra dei comandi fare clic su **Nuovo**.
 
@@ -72,9 +72,9 @@ Se si vogliono usare i comandi di Azure PowerShell per creare una macchina virtu
 
 ## <a id="addmachine"></a>Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità.##
 
-Nel portale di Azure è possibile aggiungere macchine virtuali esistenti a un set di disponibilità esistente oppure crearne una nuova. (si noti che le macchine virtuali presenti nello stesso set di disponibilità devono appartenere allo stesso servizio cloud). La procedura è quasi la stessa: con Azure PowerShell è possibile aggiungere la macchina virtuale a un set di disponibilità esistente.
+Nel Portale di Azure classico è possibile aggiungere macchine virtuali esistenti a un set di disponibilità esistente oppure crearne una nuova. (si noti che le macchine virtuali presenti nello stesso set di disponibilità devono appartenere allo stesso servizio cloud). La procedura è quasi la stessa: con Azure PowerShell è possibile aggiungere la macchina virtuale a un set di disponibilità esistente.
 
-1. Accedere al portale di Azure, se questa operazione non è già stata eseguita.
+1. Accedere al Portale di Azure classico se questa operazione non è già stata eseguita.
 
 2. Nella barra dei comandi fare clic su **Macchine virtuali**.
 
@@ -112,4 +112,4 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 [Panoramica di Rete virtuale]: virtual-networks-overview.md
 [Articoli sulle Macchine virtuali nella gestione dei servizi]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

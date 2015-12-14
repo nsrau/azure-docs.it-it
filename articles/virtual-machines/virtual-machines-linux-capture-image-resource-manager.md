@@ -176,7 +176,7 @@ Usare l'immagine acquisita e il modello per distribuire altre VM seguendo i pass
 * Creare una nuova scheda di interfaccia di rete nella stessa rete virtuale o in un'altra
 * Creare una distribuzione nel gruppo di risorse in cui è stata configurata la rete virtuale, usando il file JSON del modello modificato
 
-Per configurare automaticamente la rete quando si crea una VM dall'immagine, usare [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) da GitHub. Questo modello crea una VM dall'immagine personalizzata e la rete virtuale, l'indirizzo IP pubblico e le risorse NIC necessari. Per una procedura dettagliata sull'uso del modello nel portale di anteprima di Azure, vedere la pagina che illustra [come creare una macchina virtuale da un'immagine personalizzata con un modello ARM](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
+Per configurare automaticamente la rete quando si crea una VM dall'immagine, usare [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) da GitHub. Questo modello crea una VM dall'immagine personalizzata e la rete virtuale, l'indirizzo IP pubblico e le risorse NIC necessari. Per una procedura dettagliata sull'uso del modello nel portale di Azure, vedere la pagina che illustra [Come creare una macchina virtuale da un'immagine personalizzata con un modello ARM](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
 
 ## Usare il comando azure vm create
 
@@ -200,4 +200,4 @@ Per altre opzioni del comando, eseguire `azure help vm create`.
 
 Per gestire le VM con l'interfaccia della riga di comando, vedere le attività in [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

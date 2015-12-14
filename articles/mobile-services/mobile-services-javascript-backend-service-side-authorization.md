@@ -28,7 +28,7 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 
 ## <a name="register-scripts"></a>Registrare gli script
 
-1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sul servizio mobile. Fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
+1. Accedere al [portale di Azure classico], fare clic su **Servizi mobili** e quindi sul servizio mobile. Fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
 2. Fare clic su **Script**, selezionare l’operazione **Inserisci**, sostituire lo script esistente con la funzione seguente, quindi fare clic su **Salva**.
 
@@ -67,7 +67,7 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Aggiungere l'autenticazione all'app di Servizi mobili esistente]: /develop/mobile/tutorials/get-started-with-users-ios
 
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

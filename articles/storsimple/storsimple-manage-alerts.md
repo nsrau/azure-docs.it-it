@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Utilizzare il servizio StorSimple Manager per visualizzare e gestire gli avvisi di StorSimple.
@@ -151,7 +151,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 	A seconda della quantità di dati nei livelli locale del dispositivo, le operazioni di scrittura anche continuerà a verificarsi per prima alcune ore dopo l'interruzione della connettività cloud. Le operazioni di scrittura verrà quindi rallentano e alla fine iniziano ad avere esito negativo se viene interrotta la connettività cloud per diverse ore.
 
  
-- **Per i dati nel cloud**: per la maggior parte degli errori di connettività cloud, viene restituito un errore. Una volta la connettività viene ripristinata, senza che sia necessario portare il volume in linea viene ripresi IOs. In rari casi, potrebbe essere necessario riportare in linea il volume dal portale di Azure l'intervento dell'utente.
+- **Per i dati nel cloud**: per la maggior parte degli errori di connettività cloud, viene restituito un errore. Una volta la connettività viene ripristinata, senza che sia necessario portare il volume in linea viene ripresi IOs. In rari casi, l'intervento dell'utente potrebbe essere necessario per riportare in linea il volume dal portale di Azure classico.
  
 - **Per gli snapshot cloud in corso**: l'operazione verrà ripetuta alcune volte all'interno di 4-5 ore e se non viene ripristinata la connettività, gli snapshot cloud avrà esito negativo.
 
@@ -234,4 +234,4 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 - Ulteriori informazioni sugli [Errori di StorSimple](storsimple-troubleshoot-operational-device.md).
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

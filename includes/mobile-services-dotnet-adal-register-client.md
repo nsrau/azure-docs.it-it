@@ -1,6 +1,6 @@
 ## <a name="register-app-aad"></a>Registrare l'app client in Azure Active Directory
 
-1. Passare ad **Active Directory** nel [portale di gestione di Azure], quindi fare clic sulla directory.
+1. Passare ad **Active Directory** nel [portale di Azure classico](https://manage.windowsazure.com/), quindi fare clic sulla directory.
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png)
 
@@ -28,7 +28,4 @@
 
 Il servizio mobile è ora configurato in Azure Active Directory per ricevere accessi tramite Single Sign-On dall'app.
 
-
-[portale di gestione di Azure]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

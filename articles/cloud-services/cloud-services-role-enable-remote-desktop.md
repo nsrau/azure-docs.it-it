@@ -18,7 +18,7 @@ ms.author="saurabh"/>
 # Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
 
 >[AZURE.SELECTOR]
-- [Azure Portal](cloud-services-role-enable-remote-desktop.md)
+- [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 - [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
 
@@ -147,4 +147,4 @@ Il file [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 
 
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

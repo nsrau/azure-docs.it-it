@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione alle impostazioni rapide per Azure AD Connect | Microsoft Azure"
+	pageTitle="Azure AD Connect: introduzione alle impostazioni rapide | Microsoft Azure"
 	description="Informazioni su come scaricare, installare e configurare la procedura guidata per Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -49,7 +49,7 @@ La selezione di Impostazioni rapide rappresenta l'opzione predefinita ed è uno 
 	- Nella pagina Pronto per la configurazione lasciare deselezionata l'opzione "**Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale**". In tal caso, la procedura guidata configurerà la sincronizzazione ma lascerà disabilitata l'attività in modo che non venga eseguita fino a quando non la si abilita manualmente nell'Utilità di pianificazione. Dopo avere abilitato l'attività, la sincronizzazione verrà eseguita ogni tre ore.
 	- È anche possibile scegliere di configurare i servizi di sincronizzazione per **Distribuzione ibrida di Exchange** selezionando la casella di controllo corrispondente. Se non si prevede di avere cassette postali di Exchange nel cloud e in locale, non è necessario selezionare questa opzione. ![Avvio di Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)<br>
 8. Al termine dell'installazione, fare clic su **Esci**.
-
+9. Dopo il completamento dell'installazione, disconnettersi e accedere nuovamente prima di usare la Gestione del servizio di sincronizzazione o l’Editor della Regola di sincronizzazione.
 
 <br> <br>
 
@@ -59,8 +59,8 @@ Per un video sull'uso dell'Installazione rapida, vedere:
 
 
 ## Passaggi successivi
-Dopo avere installato Azure AD Connect è possibile [verificare l'installazione e assegnare le licenze](active-directory-aadconnect-whats-next.md).
+Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e assegnare le licenze](active-directory-aadconnect-whats-next.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -41,7 +41,7 @@ Se si desidera usare le dimensioni di istanze a elevato utilizzo di calcolo A8 o
 
 ## Passaggio 1: Creare un servizio cloud e un account di archiviazione per aggiungere nodi di Azure
 
-Usare il portale di Azure o strumenti equivalenti per configurare gli elementi seguenti, necessari per la distribuzione dei nodi di Azure:
+Usare il Portale di Azure classico o strumenti equivalenti per configurare gli elementi seguenti, necessari per la distribuzione dei nodi di Azure:
 
 * Un nuovo servizio cloud di Azure
 * Un nuovo account di archiviazione di Azure
@@ -63,7 +63,7 @@ Per aggiungere nodi di Azure come risorse di calcolo, sarà necessario disporre 
 
 Per questo scenario, è possibile scegliere il **certificato di gestione di Azure HPC predefinito** installato e configurato automaticamente da HPC Pack nel nodo head. Questo certificato è utile a scopo di test e per distribuzioni con modello di verifica. Per usare questo certificato, caricare semplicemente il file C:\\Programmi\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer dalla macchina virtuale del nodo head alla sottoscrizione.
 
-Per ulteriori opzioni per configurare il certificato di gestione, vedere gli [scenari per configurare il certificato di gestione di Azure per distribuzioni di potenziamento di Azure](http://technet.microsoft.com/library/gg481759.aspx).
+Per altre opzioni per configurare il certificato di gestione, vedere gli [scenari per configurare il certificato di gestione di Azure per distribuzioni di potenziamento di Azure](http://technet.microsoft.com/library/gg481759.aspx).
 
 ## Passaggio 3: Distribuire nodi di Azure nel cluster
 
@@ -88,4 +88,4 @@ Se si verificano problemi durante la distribuzione di nodi di Azure, vedere le i
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

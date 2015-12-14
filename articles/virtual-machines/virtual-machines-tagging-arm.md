@@ -28,7 +28,7 @@ In questo articolo vengono descritti diversi modi per contrassegnare una macchin
 
 In primo luogo, diamo un'occhiata ai tag tramite modelli. [Questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)inserisce i tag per le risorse seguenti: calcolo (macchina virtuale), archiviazione (Account di archiviazione) e rete (indirizzo IP pubblico, rete virtuale e interfaccia di rete).
 
-Fare clic sul pulsante**Distribuisci in Azure**dal [collegamento modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Verrà visualizzato il [portale di anteprima di Azure](http://portal.azure.com/) in cui è possibile distribuire il modello.
+Fare clic sul pulsante**Distribuisci in Azure**dal [collegamento modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Verrà visualizzato il [portale di Azure](http://portal.azure.com/) in cui è possibile distribuire il modello.
 
 ![Distribuzione semplice di tag](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -47,7 +47,7 @@ Salvare il file di modello al termine della modifica, con i tag di propria scelt
 
 Successivamente, nella sezione**Modifica parametri**, è possibile compilare i valori per i tag.
 
-![Modificare tag nel portale di anteprima di Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
+![Modificare i tag nel portale di Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
 Fare clic su**Crea**per distribuire il modello con i valori dei tag.
 
@@ -58,15 +58,15 @@ Dopo aver creato le risorse con i tag, è possibile visualizzare, aggiungere ed 
 
 Selezionare l'icona di tag per visualizzare i tag:
 
-![Icona di tag nel portale di anteprima di Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
+![Icona di tag nel portale di Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
 
 Aggiungere un nuovo tag tramite il portale definendo la propria coppia chiave/valore e salvarlo.
 
-![Aggiunti nuovo tag nel portale di anteprima di Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
+![Aggiungi nuovo Tag nel portale di Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
 
 Il nuovo tag verrà visualizzato nell'elenco dei tag per la risorsa.
 
-![Nuovo tag salvato nel portale di anteprima di Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
+![Nuovo Tag salvato nel portale di Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
 
 
 ## Assegnazione di tag tramite PowerShell
@@ -159,15 +159,15 @@ I tag applicati a risorse di calcolo, rete e archiviazione tramite Gestione riso
 
 Fare clic su **Scarica dettagli dell'utilizzo** per visualizzare i dettagli di utilizzo nella sottoscrizione.
 
-![Dettagli di utilizzo nel portale di anteprima di Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
+![Dettagli di utilizzo nel portale di Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
 Selezionare l'estratto conto e i dettagli di utilizzo **Versione 2**:
 
-![Dettagli di utilizzo dell'anteprima di Versione 2 nel portale di anteprima di Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
+![Dettagli sull'utilizzo di Version 2 Preview nel portale di Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
 Dai dettagli di utilizzo è possibile visualizzare tutti i tag nella colonna **Tag**:
 
-![Colonna di tag nel portale di anteprima di Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
+![Colonna dei tag nel portale di Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
 Analizzando i tag e il loro utilizzo, le organizzazioni saranno in grado di acquisire nuove informazioni nei dati relativi al consumo.
 
@@ -190,4 +190,4 @@ Analizzando i tag e il loro utilizzo, le organizzazioni saranno in grado di acqu
 [Informazioni sulla fatturazione di Azure]: ../billing-understand-your-bill.md
 [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

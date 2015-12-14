@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Connettersi in remoto al dispositivo StorSimple
@@ -37,9 +37,9 @@ In questa esercitazione viene illustrato come configurare il dispositivo per la 
 
 La connessione a Windows PowerShell per StorSimple tramite una sessione HTTP offre una maggiore protezione rispetto alla connessione tramite la console seriale del dispositivo StorSimple. Sebbene non sia il metodo più sicuro, è accettabile su reti attendibili.
 
-Per configurare la gestione remota, è possibile utilizzare il portale di Azure o la console seriale. Selezionare una delle seguenti procedure:
+Per configurare la gestione remota, è possibile utilizzare il portale di Azure classico o la console seriale. Selezionare una delle seguenti procedure:
 
-- [Utilizzo del portale di Azure per abilitare la gestione remota su HTTP](#use-the-azure-portal-to-enable-remote-management-over-http)
+- [Utilizzo del portale di Azure classico per abilitare la gestione remota su HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
 
 - [Utilizzo della console seriale per abilitare la gestione remota su HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
@@ -47,11 +47,11 @@ Dopo aver abilitato la gestione remota, utilizzare la procedura seguente per pre
 
 - [Preparazione del client per la connessione remota](#prepare-the-client-for-remote-connection)
 
-### Utilizzo del portale di Azure per abilitare la gestione remota su HTTP 
+### Utilizzo del portale di Azure classico per abilitare la gestione remota su HTTP 
 
-Eseguire i passaggi seguenti nel portale di Azure per abilitare la gestione remota su HTTP.
+Eseguire i passaggi seguenti nel portale di Azure classico per abilitare la gestione remota su HTTP.
 
-#### Per abilitare la gestione remota tramite il portale di Azure
+#### Per abilitare la gestione remota tramite il portale di Azure classico
 
 1. Accedere a **Dispositivi** > **Configura** per il dispositivo.
 
@@ -122,9 +122,9 @@ Eseguire le operazioni seguenti sul client per abilitare la gestione remota.
 
 La connessione a Windows PowerShell per StorSimple tramite una sessione HTTPS è il metodo più sicuro e consigliato di connessione remota al dispositivo Microsoft Azure StorSimple. Nelle procedure seguenti viene illustrato come configurare la console seriale e i computer client, in modo che sia possibile utilizzare HTTPS per connettersi a Windows PowerShell per StorSimple.
 
-Per configurare la gestione remota, è possibile utilizzare il portale di Azure o la console seriale. Selezionare una delle seguenti procedure:
+Per configurare la gestione remota, è possibile utilizzare il portale di Azure classico o la console seriale. Selezionare una delle seguenti procedure:
 
-- [Utilizzo del portale di Azure per abilitare la gestione remota su HTTPS](#use-the-azure-portal-to-enable-remote-management-over-https)
+- [Utilizzo del portale di Azure classico per abilitare la gestione remota sugli HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
 
 - [Utilizzo della console seriale per abilitare la gestione remota su HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
@@ -134,11 +134,11 @@ Dopo aver abilitato la gestione remota, utilizzare le procedure seguenti per pre
 
 - [Connessione al dispositivo dall'host remoto](#connect-to-the-device-from-the-remote-host)
 
-### Utilizzo del portale di Azure per abilitare la gestione remota su HTTPS
+### Utilizzo del portale di Azure classico per abilitare la gestione remota sugli HTTP
 
-Eseguire i passaggi seguenti nel portale di Azure per abilitare la gestione remota su HTTPS.
+Eseguire i passaggi seguenti nel portale di Azure classico per abilitare la gestione remota sugli HTTP.
 
-#### Per abilitare la gestione remota su HTTPS dal portale Azure
+#### Per abilitare la gestione remota su HTTPS dal portale di Azure classico
 
 1. Accedere a **Dispositivi** > **Configura** per il dispositivo.
 
@@ -272,4 +272,4 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

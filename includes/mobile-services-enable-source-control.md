@@ -1,5 +1,5 @@
 
-1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com/), fare clic su **Servizi mobili**, sul servizio mobile desiderato e quindi sulla scheda **Dashboard**.
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/), fare clic su **Servizi mobili**, sul servizio mobile desiderato e quindi sulla scheda **Dashboard**.
 
 2. (Facoltativo) Se le credenziali del controllo codice sorgente di Servizi mobili o di Siti Web per la sottoscrizione di Azure sono state già impostate, è possibile passare direttamente al passaggio 4. In alternativa, fare clic su **Impostare il controllo codice sorgente** in **Riepilogo rapido** e fare clic su **Sì** per confermare.
 
@@ -18,4 +18,4 @@
 Con il controllo del codice sorgente abilitato nel servizio mobile, è possibile usare Git per clonare il repository nel computer locale.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

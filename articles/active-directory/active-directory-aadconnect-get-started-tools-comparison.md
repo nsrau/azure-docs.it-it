@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Confronto degli strumenti di integrazione directory | Microsoft Azure"
+	pageTitle="Azure AD Connect: confronto degli strumenti di integrazione della directory | Microsoft Azure"
 	description="Questa pagina fornirà tabelle complete che confrontano i vari strumenti di integrazione di directory."
 	services="active-directory"
 	documentationCenter=""
@@ -91,4 +91,4 @@ Personalizzazione avanzata dei flussi di attributi | ● | ● | | ●
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

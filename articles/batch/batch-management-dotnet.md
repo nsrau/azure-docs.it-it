@@ -20,7 +20,7 @@
 # Gestire quote e account Batch di Azure con la gestione .NET per Batch
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](batch-account-create-portal.md)
+- [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
 È possibile ridurre il sovraccarico di manutenzione nelle applicazioni Azure Batch usando la libreria di [gestione .NET per Batch][api_mgmt_net] per automatizzare le operazioni di individuazione delle quote, gestione delle chiavi, creazione ed eliminazione di account Batch.
@@ -30,7 +30,7 @@
 - **Controllare le quote degli account** e determinare senza errori i limiti dei singoli account Batch. Il controllo delle quote degli account prima di avviare processi, creare pool o aggiungere nodi di calcolo permette di stabilire attivamente dove e quando creare risorse di calcolo. È possibile determinare quali account richiedono un aumento della quota prima dell'allocazione di risorse aggiuntive in tali account.
 - **Integrare funzionalità di altri servizi Azure** per un'esperienza di gestione completa sfruttando i vantaggi della gestione .NET per Batch, di [Azure Active Directory][aad_about] e di [Gestione risorse di Azure][resman_overview] nella stessa applicazione. Usando queste funzionalità e le relative API è possibile eliminare i problemi di autenticazione, consentire la creazione e l'eliminazione di gruppi di risorse e fornire le funzionalità descritte in precedenza per una soluzione di gestione end-to-end.
 
-> [AZURE.NOTE]Questo articolo è incentrato sulla gestione di quote, chiavi e account Batch a livello di codice, ma è possibile eseguire molte di queste attività usando il [portale di anteprima di Azure][azure_portal]. Per altre informazioni, vedere [Creare e gestire un account Azure Batch nel portale di anteprima di Azure](batch-account-create-portal.md) e [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
+> [AZURE.NOTE]Questo articolo è incentrato sulla gestione di quote, chiavi e account Batch a livello di codice, ma è possibile eseguire molte di queste attività usando il [portale di Azure][azure_portal]. Per altre informazioni, vedere [Creare e gestire un account Batch di Azure nel portale di Azure](batch-account-create-portal.md) e [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 
 ## Creare ed eliminare account Batch
 
@@ -119,7 +119,7 @@ Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
 Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
 ```
 
-> [AZURE.IMPORTANT]Molti dei limiti delle quote predefinite per i servizi e le sottoscrizioni di Azure possono essere aumentati inviando una richiesta nel [portale di anteprima di Azure][azure_portal]. Per istruzioni su come aumentare le quote dell'account Batch, vedere ad esempio, [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
+> [AZURE.IMPORTANT]Molti dei limiti delle quote predefinite per i servizi e le sottoscrizioni di Azure possono essere aumentati inviando una richiesta nel [portale di Azure][azure_portal]. Per istruzioni su come aumentare le quote dell'account Batch, vedere ad esempio, [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 
 ## Gestione .NET per Batch, Azure Active Directory e Gestione risorse
 
@@ -133,7 +133,7 @@ Nel progetto di esempio illustrato di seguito, Azure [Active Directory Authentic
 
 ### Gestione risorse
 
-Quando si usa la libreria di gestione .NET per Batch, gli account Batch vengono in genere creati all'interno di un [Gruppo di risorse][resman_overview]. È possibile creare il gruppo di risorse a livello di programmazione usando [ResourceManagementClient][resman_client] all'interno della libreria [.NET per Gestione risorse][resman_api] oppure è possibile aggiungere un account a un gruppo di risorse esistente creato in precedenza con il [portale di anteprima di Azure][azure_portal].
+Quando si usa la libreria di gestione .NET per Batch, gli account Batch vengono in genere creati all'interno di un [Gruppo di risorse][resman_overview]. È possibile creare il gruppo di risorse a livello di programmazione usando [ResourceManagementClient][resman_client] all'interno della libreria [.NET per Gestione risorse][resman_api] oppure è possibile aggiungere un account a un gruppo di risorse esistente creato in precedenza con il [portale di Azure][azure_portal].
 
 ## <a name="sample"></a>Progetto di esempio su GitHub
 
@@ -159,9 +159,9 @@ L'applicazione di esempio illustra le operazioni seguenti:
   - Eliminare l'account appena creato
 7. Eliminare il gruppo di risorse.
 
-Prima di eliminare l'account Batch e il gruppo di risorse appena creati, è possibile esaminarli entrambi nel [portale di anteprima di Azure][azure_portal]\:
+Prima di eliminare l'account Batch e il gruppo di risorse appena creati, è possibile esaminarli entrambi nel [portale di Azure][azure_portal]\:
 
-![Portale di anteprima di Azure con il gruppo di risorse e l'account Batch][1] <br /> *Portale di anteprima di Azure con il nuovo gruppo di risorse e il nuovo account Batch*
+![Portale di Azure con il gruppo di risorse e l’account Batch][1] <br /> *Portale di Azure con il nuovo gruppo di risorse e il nuovo account Batch*
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Informazioni su Azure Active Directory"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
@@ -190,4 +190,4 @@ Prima di eliminare l'account Batch e il gruppo di risorse appena creati, è poss
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

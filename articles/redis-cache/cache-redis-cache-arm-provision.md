@@ -28,9 +28,9 @@ Per il modello completo, vedere il [modello di Cache Redis](https://github.com/A
 
 >[AZURE.NOTE]Dei modelli ARM per il nuovo [livello Premium](cache-premium-tier-intro.md) sono disponibili.
 >
->-    [Creare una Cache Redis Premium con il clustering](https://azure.microsoft.com/it-IT/documentation/templates/201-redis-premium-cluster-diagnostics/)
->-    [Creare una Cache Redis Premium con persistenza dei dati](https://azure.microsoft.com/it-IT/documentation/templates/201-redis-premium-persistence/)
->-    [Creare una Cache Redis Premium con rete virtuale e clustering facoltativo](https://azure.microsoft.com/it-IT/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+>-    [Creare una Cache Redis Premium con il clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+>-    [Creare una Cache Redis Premium con persistenza dei dati](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
+>-    [Creare una Cache Redis Premium con rete virtuale e clustering facoltativo](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 >
 >Per verificare gli ultimi modelli, vedere [modelli delle Guide rapide di Azure](https://azure.microsoft.com/documentation/templates/) e cercare `Redis Cache`.
 
@@ -137,4 +137,4 @@ Crea la Cache Redis di Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

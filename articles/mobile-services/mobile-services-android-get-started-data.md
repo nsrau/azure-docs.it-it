@@ -18,12 +18,14 @@
 
 # Aggiungere Servizi mobili a un'app esistente (back-end JavaScript)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 ## Riepilogo
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>Questo argomento illustra come usare Servizi mobili di Azure per aggiungere dati persistenti a un'app per Android. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e si integrerà l'app con il servizio mobile, in modo che archivi e aggiorni i dati in Servizi mobili di Azure invece che localmente, quindi si userà il portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.</p>
+<p>Questo argomento illustra come usare Servizi mobili di Azure per aggiungere dati persistenti a un'app per Android. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e si integrerà l'app con il servizio mobile, in modo che archivi e aggiorni i dati in Servizi mobili di Azure invece che localmente, quindi si userà il portale di Azure classico per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.</p>
 
 </div>
 
@@ -59,7 +61,7 @@ Per visualizzare il codice sorgente completato, passare <a href="https://github.
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code.md)]
 
-## Creare un nuovo servizio mobile nel portale di gestione
+## Creare un nuovo servizio mobile nel portale di Azure classico
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -84,7 +86,7 @@ Ora che l'app è stata aggiornata per consentire l'uso di Servizi mobili per l'a
 
    	Un nuovo elemento verrà inviato come inserimento al servizio mobile.
 
-3. Nel [portale di gestione] fare clic su **Servizi mobili** e quindi sul servizio mobile.
+3. Nel [portale di Azure classico] fare clic su **Servizi mobili** e quindi sul servizio mobile in questione.
 
 4. Fare clic sulla scheda **Dati** e quindi su **Sfoglia**.
 
@@ -143,10 +145,9 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-android
 [Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-android
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[portale di gestione]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Azure Mobile Services Android SDK]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

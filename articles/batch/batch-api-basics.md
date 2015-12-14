@@ -66,7 +66,7 @@ Quando si usa il servizio Azure Batch, è possibile sfruttare le risorse seguent
 
 ### <a name="account"></a>Account
 
-Un account Batch è un'entità identificata in modo univoco all'interno del servizio Batch. Tutte le operazioni di elaborazione sono associata a un account Batch. Quando si eseguono operazioni con il servizio Batch, sono necessari il nome dell'account e la chiave dell'account. Per creare un account Batch, vedere [Creare e gestire un account Azure Batch nel portale di anteprima di Azure](batch-account-create-portal.md).
+Un account Batch è un'entità identificata in modo univoco all'interno del servizio Batch. Tutte le operazioni di elaborazione sono associata a un account Batch. Quando si eseguono operazioni con il servizio Batch, sono necessari il nome dell'account e la chiave dell'account. Per creare un account Batch, vedere [Creare e gestire un account Azure Batch nel portale di Azure](batch-account-create-portal.md).
 
 ### <a name="computenode"></a>Nodo di calcolo
 
@@ -354,4 +354,4 @@ A ogni nodo di un pool viene assegnato un ID univoco e il nodo in cui viene eseg
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

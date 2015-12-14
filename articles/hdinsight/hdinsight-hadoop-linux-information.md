@@ -120,9 +120,9 @@ Durante la creazione del cluster si è scelto se usare un account e un contenito
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-Per individuare le informazioni di archiviazione, è anche possibile usare il portale di anteprima di Azure:
+Per individuare le informazioni di archiviazione, è anche possibile usare il portale di Azure:
 
-1. Nel [portale di anteprima di Azure](https://portal.azure.com/) selezionare il cluster HDInsight.
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare il cluster HDInsight.
 
 2. Nella sezione __Informazioni di base__ selezionare __Tutte le impostazioni__.
 
@@ -207,7 +207,7 @@ L'operazione di ridimensionamento può influire sui tipi di cluster come indicat
 
 Per informazioni specifiche sul ridimensionamento del cluster HDInsight, vedere:
 
-* [Gestire cluster Hadoop in HDInsight tramite il portale di anteprima di Azure](hdinsight-administer-use-portal-linux.md#scaling)
+* [Gestire cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-portal-linux.md#scaling)
 
 * [Gestire cluster Hadoop in HDInsight tramite Azure PowerShell](hdinsight-administer-use-command-line.md#scaling)
 
@@ -252,4 +252,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

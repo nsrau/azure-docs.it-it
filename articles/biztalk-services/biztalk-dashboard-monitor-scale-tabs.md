@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride in Servizi BizTalk | Microsoft Azure" 
-	description="Informazioni sui controlli per monitorare le prestazioni nelle schede del portale di gestione per Servizi BizTalk: Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride. MABS, WABS" 
+	description="Informazioni sui controlli per monitorare le prestazioni nelle schede del portale classico per Servizi BizTalk: Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,28 +23,25 @@
 
 Dopo aver creato il servizio BizTalk e aver distribuito l'applicazione, è possibile modificare alcune impostazioni del servizio BizTalk e monitorare le prestazioni dell'applicazione.
 
-Quando si apre il portale di gestione di Azure, viene visualizzata automaticamente la scheda **TUTTI GLI ELEMENTI**. Per visualizzare il servizio BizTalk, selezionarlo nella scheda **TUTTI GLI ELEMENTI** oppure fare clic sulla scheda **SERVIZI BIZTALK**, quindi selezionare il nome del proprio servizio BizTalk.
+Quando si apre il portale di Azure classico, viene visualizzata automaticamente la scheda **TUTTI GLI ELEMENTI**. Per visualizzare il servizio BizTalk, selezionarlo nella scheda **TUTTI GLI ELEMENTI** oppure fare clic sulla scheda **SERVIZI BIZTALK**, quindi selezionare il nome del proprio servizio BizTalk.
 
 Verrà aperta una nuova finestra con le schede seguenti, che sono descritte in questo argomento.
 
 ## Avvio rapido (![Avvio rapido][QuickStart])
-A seconda dell'edizione di Servizi BizTalk, non tutte le opzioni elencate potrebbero essere disponibili.
-<table border="1">
-    <tr>
-        <td><strong>Scarica gli strumenti</strong></td>
+A seconda dell'edizione di Servizi BizTalk, non tutte le opzioni elencate potrebbero essere disponibili. <table border="1"> <tr> <td><strong>Scarica gli strumenti</strong></td>
 
-        <td>Scaricare l'SDK di Servizi BizTalk per installare i modelli di progetto di Visual Studio sul computer di sviluppo locale. I modelli consentono di creare i progetti Visuali Studio dei <strong>Servizi BizTalk</strong> (bridge) e degli <strong>elementi del servizio BizTalk</strong> (Transform) Visual Studio distribuiti nel proprio servizio BizTalk.
+        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
-		Negli articoli su <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">come iniziare a utilizzare l'SDK di Servizi BizTalk di Azure</a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">installare l'SDK di Servizi BizTalk di Azure</a> sono elencate tutte le procedure introduttive.
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
 
     <tr>
-        <td><strong>Crea contratti partner</strong></td>
+        <td><strong>Create partner agreements</strong></td>
 
-        <td>Consente di aprire il portale Servizi BizTalk di Azure ospitato su Azure dove aggiungere partner e creare contratti EDI X12, AS2 ed EDIFACT.
+        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
         <br/><br/>
-        Nell'articolo relativo alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">configurazione di componenti per la messaggistica EDI sul portale Servizi BizTalk</a> sono elencate le procedure introduttive.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
     </tr>
 
@@ -72,7 +69,7 @@ L'articolo relativo alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=30365
 <td>Visualizzare <strong>Informazioni di connessione</strong> dello spazio dei nomi ACS</td>
 <td>Quando si seleziona Informazioni di connessione, vengono visualizzati i valori di Spazio dei nomi di Access Control, Autorità emittente predefinita e Chiave predefinita. È possibile copiare questi valori.
 <br/><br/>
-È anche possibile aprire il portale di gestione di Access Control, L'articolo <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Creare uno spazio dei nomi di Controllo di accesso</a> offre altre informazioni sul portale di gestione del servizio di controllo di accesso.</td>
+È anche possibile aprire il portale di Controllo di accesso. L'articolo <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Creare uno spazio dei nomi di Controllo di accesso</a> offre altre informazioni sul portale del servizio di controllo di accesso.</td>
 </tr>
 
 <tr>
@@ -83,9 +80,9 @@ Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di a
 <br/><br/>
 <ol>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare la chiave secondaria. Così facendo, il servizio BizTalk comincia a usare la chiave secondaria.</li>
-<li>Nel portale di gestione di Azure, selezionare il proprio account di archiviazione e rigenerare la chiave primaria. Si tenga presente che il servizio BizTalk sta usando la chiave secondaria.</li>
+<li>Nel portale di Azure classico, selezionare il proprio account di archiviazione e rigenerare la chiave primaria. Si tenga presente che il servizio BizTalk sta usando la chiave secondaria.</li>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare adesso la chiave primaria, ossia la nuova chiave primaria rigenerata dall'utente.</li>
-<li>Nel portale di gestione di Azure, selezionare il proprio account di archiviazione e rigenerare la chiave secondaria.</li>
+<li>Nel portale di Azure classico, selezionare il proprio account di archiviazione e rigenerare la chiave secondaria.</li>
 </ol>
 <br/>
 Questo processo è denominato "chiavi di rollover". Lo scopo è quello di consentire agli utenti di passare dalla chiave primaria alla secondaria e viceversa senza interrompere il servizio BizTalk.</td>
@@ -170,7 +167,7 @@ Nella pagina relativa alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302
 </tr>
 <tr>
 <td><strong>Nome sottoscrizione</strong></td>
-<td>Indica il nome della sottoscrizione che ospita il servizio BizTalk. La sottoscrizione consente di gestire l'accesso al portale di gestione di Azure.</td>
+<td>Indica il nome della sottoscrizione che ospita il servizio BizTalk. La sottoscrizione consente di gestire l'accesso al portale di Azure classico.</td>
 </tr>
 <tr>
 <td><strong>ID sottoscrizione</strong></td>
@@ -178,7 +175,7 @@ Nella pagina relativa alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302
 </tr>
 </table>
 
-Nell'articolo [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280) sono elencati i passaggi per creare un servizio BizTalk.
+Nell'articolo [Servizi BizTalk: effettuare il provisioning mediante il portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=302280) sono elencati i passaggi per creare un servizio BizTalk.
 
 
 ##### Gestisci, Informazioni di connessione, Chiavi di sincronizzazione ed Elimina sulla barra delle applicazioni:
@@ -197,9 +194,9 @@ L'articolo relativo alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=30365
 <td>Visualizzare <strong>Informazioni di connessione</strong> dello spazio dei nomi ACS</td>
 <td>Visualizza i valori di Spazio dei nomi di Access Control, Autorità emittente predefinita e Chiave predefinita, che possono essere copiati.
 <br/><br/>
-È anche possibile aprire il portale di gestione di Access Control, che offre le stesse funzioni dell'opzione Active Directory nel pannello di navigazione a sinistra.
+È anche possibile aprire il portale di Controllo di accesso. Questo portale di Controllo di accesso è lo stesso di quando si usa l'opzione Active Directory nel pannello di navigazione a sinistra.
 <br/><br/>
-L'articolo <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Gestione dello spazio dei nomi ACS</a> offre altre informazioni sul portale di gestione del servizio di controllo di accesso.</td>
+L'articolo <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Gestione dello spazio dei nomi ACS</a> offre altre informazioni sul portale del servizio di controllo di accesso.</td>
 </tr>
 <tr>
 <td>Usare <strong>Chiavi di sincronizzazione</strong> nell'account di archiviazione</td>
@@ -209,9 +206,9 @@ Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di a
 <br/><br/>
 <ol>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare la chiave secondaria. Così facendo, il servizio BizTalk comincia a usare la chiave secondaria.</li>
-<li>Nel portale di gestione di Azure, selezionare il proprio account di archiviazione e rigenerare la chiave primaria. Si tenga presente che il servizio BizTalk sta usando la chiave secondaria.</li>
+<li>Nel portale di Azure classico, selezionare il proprio account di archiviazione e rigenerare la chiave primaria. Si tenga presente che il servizio BizTalk sta usando la chiave secondaria.</li>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare adesso la chiave primaria, ossia la nuova chiave primaria rigenerata dall'utente.</li>
-<li>Nel portale di gestione di Azure, selezionare il proprio account di archiviazione e rigenerare la chiave secondaria.</li>
+<li>Nel portale di Azure classico, selezionare il proprio account di archiviazione e rigenerare la chiave secondaria.</li>
 </ol>
 <br/>
 Questo processo è denominato "chiavi di rollover". Lo scopo è quello di consentire agli utenti di passare dalla chiave primaria alla secondaria e viceversa senza interrompere il servizio BizTalk.</td>
@@ -236,18 +233,14 @@ Include i valori in tempo reale relativi all'integrità del servizio BizTalk. È
 
 ##### Per rimuovere o visualizzare la metrica nel grafico
 1. Selezionare la scheda **Monitoraggio**.
-2. Selezionare **Aggiungi metriche** sulla barra delle applicazioni:
-<br/>
-![Fare clic su Aggiungi metriche][AddMetrics]
+2. Selezionare **Aggiungi metriche** sulla barra delle applicazioni: ![Fare clic su Aggiungi metriche][AddMetrics]
 3. Controllare la metrica delle prestazioni che si desidera visualizzare.
 4. Fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**.
 5. Fare clic sul cerchio accanto alla metrica desiderata per visualizzarne il valore nel grafico.  
 
-	Ad esempio, la metrica **Utilizzo di CPU** è inattiva e il relativo valore non è visualizzato nel grafico:  
-![Metrica Utilizzo di CPU disabilitata][GrayedMetric]  
+	Ad esempio, la metrica **Utilizzo CPU** è inattiva e il relativo output non è visualizzato nel grafico: ![Metrica Utilizzo CPU disabilitata][GrayedMetric]
 
-	Fare clic sul cerchio inattivo per abilitare la metrica **Utilizzo di CPU** e visualizzarne il valore nel grafico:  
-![Metrica CPU Usage abilitata][EnabledMetric]
+	Selezionare il cerchio inattivo per abilitare la metrica **Utilizzo CPU** per visualizzarne l'output nel grafico: ![Metrica Utilizzo CPU abilitata][EnabledMetric]
 
 6. Per rimuovere una metrica dal grafico e dall'elenco, fare clic su **Elimina metrica** sulla barra delle applicazioni. Per aggiungere di nuovo la metrica all'elenco, fare clic su **Aggiungi metriche** sulla barra delle applicazioni, controllare la metrica e fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**. Selezionare il cerchio in grigio per abilitare la metrica.
 
@@ -336,7 +329,7 @@ Nell'articolo [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md) 
 
 
 ## <a name="HybridConnections"></a>Connessioni ibride
-Le connessioni ibride consentono la connessione di un'applicazione Azure, come Siti Web o Servizi mobili, a una risorsa locale che usa una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP e la maggior parte dei servizi Web personalizzati. Le connessioni ibride vengono gestite in Servizi BizTalk nel portale di gestione di Azure.
+Le connessioni ibride consentono la connessione di un'applicazione Azure, come Siti Web o Servizi mobili, a una risorsa locale che usa una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP e la maggior parte dei servizi Web personalizzati. Le connessioni ibride vengono gestite in Servizi BizTalk nel portale di Azure classico.
 
 Per creare connessioni ibride in Siti Web di Azure, vedere [Accesso alle risorse locali usando connessioni ibride nel servizio app di Azure](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
@@ -356,7 +349,7 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 ## Vedere anche
 - [Connessioni ibride](integration-hybrid-connection-overview.md)  
 - [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)  
-- [Creare un servizio BizTalk mediante il portale di gestione di Azure](biztalk-provision-services.md)  
+- [Servizi BizTalk: effettuare il provisioning di un servizio BizTalk mediante il portale di Azure classico](biztalk-provision-services.md)  
 - [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md)  
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
@@ -366,4 +359,4 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

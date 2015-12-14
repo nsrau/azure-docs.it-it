@@ -35,7 +35,7 @@ Per creare uno spazio dei nomi, seguire i passaggi descritti in [Procedura: Crea
 
 >[AZURE.NOTE]Non è necessario usare lo stesso spazio dei nomi per le applicazioni client e per le applicazioni del servizio.
 
-1. Nella finestra principale del portale di Azure fare clic sul nome dello spazio dei nomi del servizio creato nel passaggio precedente.
+1. Nella finestra principale del [portale di Azure classico][], fare clic sul nome dello spazio dei nomi del servizio creato nel passaggio precedente.
 
 2. Fare clic su **Configura** per visualizzare i criteri di accesso condiviso predefiniti per lo spazio dei nomi.
 
@@ -49,7 +49,7 @@ Il contratto di servizio specifica le operazioni (terminologia dei servizi Web p
 
 1. Aprire Visual Studio come amministratore. Fare clic con il pulsante destro del mouse sul programma nel menu **Start** e quindi scegliere **Esegui come amministratore**.
 
-1. Creare un nuovo progetto di applicazione console. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#** (se **Visual C#** non è visualizzato, vedere in **Altri linguaggi**). Fare clic sul modello **Applicazione console** e denominarlo **EchoService**. Usare il valore predefinito per **Percorso**. Fare clic su **OK** per creare il progetto.
+1. Creare un nuovo progetto di applicazione console. Fare clic sul menu**File**, selezionare **Nuovo**, quindi fare clic su **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#** (se **Visual C#** non è visualizzato, vedere in **Altri linguaggi**). Fare clic sul modello **Applicazione console** e denominarlo **EchoService**. Usare il valore predefinito del campo **Posizione**. Fare clic su **OK** per creare il progetto.
 
 1. Aggiungere al progetto un riferimento a `System.ServiceModel.dll`: in Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Riferimenti** della cartella del progetto, quindi fare clic su **Aggiungi riferimento**. Selezionare la scheda **.NET** nella finestra di dialogo **Aggiungi riferimento** e scorrere verso il basso fino a visualizzare **System.ServiceModel**. Selezionarlo e quindi fare clic su **OK**.
 
@@ -473,7 +473,7 @@ Il passaggio successivo consiste nel creare un'applicazione console del bus di s
 
 1. In Esplora soluzioni fare doppio clic sul file Program.cs nel progetto **EchoClient** per aprirlo nell'editor.
 
-1. Modificare il nome predefinito dello spazio dei nomi `EchoClient` in `Microsoft.ServiceBus.Samples`.
+1. Modificare il nome dello spazio dei nomi da nome predefinito di `EchoClient` a `Microsoft.ServiceBus.Samples`.
 
 1. Aggiungere un riferimento a System.ServiceModel.dll per il progetto:
 	1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** nel progetto **EchoClient**. Fare quindi clic su **Aggiungi riferimento**.
@@ -841,4 +841,6 @@ Per altre informazioni sul bus di servizio, vedere gli argomenti seguenti.
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Architettura del bus di servizio](service-bus-architecture.md)
 
-<!---HONumber=Oct15_HO3-->
+[portale di Azure classico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

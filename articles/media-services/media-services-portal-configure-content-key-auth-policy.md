@@ -26,7 +26,7 @@
 
 Servizi multimediali di Microsoft Azure consente di distribuire contenuti crittografati con AES (Advanced Encryption Standard), mediante chiavi di crittografia a 128 bit, e con PlayReady DRM. Servizi multimediali fornisce inoltre un **servizio di distribuzione di chiavi/licenze** dal quale i client possono ottenere una chiave o una licenza per riprodurre i contenuti crittografati.
 
-Questo argomento illustra come usare il **portale di gestione di Azure** per configurare i criteri di autorizzazione della chiave simmetrica. La chiave può essere usata in un secondo momento per crittografare i contenuti dinamicamente. Si noti che attualmente è possibile crittografare i formati di streaming seguenti: HLS, MPEG DASH e Smooth Streaming. Non è possibile crittografare il formato di streaming HDS o i download progressivi.
+Questo argomento illustra come usare il **portale di Azure classico** per configurare i criteri di autorizzazione della chiave simmetrica. La chiave può essere usata in un secondo momento per crittografare i contenuti dinamicamente. Si noti che attualmente è possibile crittografare i formati di streaming seguenti: HLS, MPEG DASH e Smooth Streaming. Non è possibile crittografare il formato di streaming HDS o i download progressivi.
  
 Quando un lettore richiede un flusso impostato per la crittografia dinamica, Servizi multimediali usa la chiave configurata per crittografare dinamicamente i contenuti mediante AES o PlayReady. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
@@ -95,7 +95,7 @@ Quando si protegge il contenuto con **PlayReady**, è necessario includere nei c
 
 
 ##Passaggi successivi
-Dopo la configurazione dei criteri di autorizzazione della chiave, passare all'argomento [Procedura: Usare il portale di gestione di Azure per abilitare la crittografia](../media-services-manage-content#encrypt/).
+Dopo la configurazione dei criteri di autorizzazione della chiave, passare all'argomento [Procedura: Usare il portale di Azure classico per abilitare la crittografia](../media-services-manage-content#encrypt/).
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -103,4 +103,4 @@ Dopo la configurazione dei criteri di autorizzazione della chiave, passare all'a
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

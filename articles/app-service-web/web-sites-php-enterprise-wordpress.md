@@ -51,7 +51,7 @@ All'interno di ogni area, il sito WordPress viene ancora scalato tra più istanz
 
 La replica e il routing in più database MySQL possono essere eseguiti con il [router CDBR a disponibilità elevata][cleardbscale] di ClearDB, illustrato a sinistra, oppure con [MySQL Cluster CGE][cge].
 
-###Distribuzione in più aree con memorizzazione nella cache e archiviazione di contenuti multimediali
+###Multi-region deployment with media storage and caching
 
 Se il sito accetta caricamenti o ospita file multimediali, usare l'archiviazione BLOB di Azure. Se sono necessarie soluzioni di memorizzazione nella cache, in [Azure Store][rediscache] sono disponibili [Cache Redis](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), [MemCachier](http://azure.microsoft.com/gallery/store/) e altre offerte.
 
@@ -134,7 +134,7 @@ Usare una delle sezioni seguenti per eseguire la migrazione del sito.
 
 6. Fare clic su **Submit**. Verrà visualizzata la conferma della corretta esecuzione dell'importazione.
 
-8. Dopo aver completato tutti questi passaggi, riavviare il sito dal relativo pannello dell'app Web nel [portale di anteprima di Azure][mgmtportal].
+8. Dopo aver completato tutti questi passaggi, riavviare il sito dal relativo pannello dell'app Web nel [portale di Azure][mgmtportal].
 
 Dopo l'importazione del sito, può essere necessario eseguire i passaggi seguenti per abilitare impostazioni non contenute nel file di importazione.
 
@@ -161,7 +161,7 @@ Se si usano... | Effettuare l'operazione seguente:
 
 4. Creare una nuova app Web nel portale di Azure e pubblicare il backup di WordPress.
 
-	1. Creare una nuova app Web nel [portale di anteprima di Azure][mgmtportal] con un database selezionando **Nuovo** -> **Web e dispositivi mobili** -> **Azure Marketplace** -> **App Web** -> **App Web e SQL** (o **App Web e MySQL**) -> **Crea**. Configurare tutte le impostazioni necessarie per creare un'app Web vuota.
+	1. Creare una nuova app Web nel [portale di Azure][mgmtportal] con un database selezionando **Nuovo** -> **Web e dispositivi mobili** -> **Azure Marketplace** -> **App Web** -> **App Web e SQL** (o **App Web e MySQL**) -> **Crea**. Configurare tutte le impostazioni necessarie per creare un'app Web vuota.
 
 	2. Nel backup di WordPress individuare il file **wp-config.php** e aprirlo in un editor. Sostituire le voci seguenti con le informazioni del nuovo database MySQL.
 
@@ -173,7 +173,7 @@ Se si usano... | Effettuare l'operazione seguente:
 
 		Dopo aver cambiato queste voci, salvare e chiudere il file **wp-config.php**.
 
-	3. Vedere le informazioni disponibili in [Distribuire un'app Web nel servizio app di Azure][deploy] per abilitare il metodo di distribuzione che si desidera usare, quindi distribuire il backup di WordPress nell'app Web nel servizio app di Azure.
+	3. Fare riferimento alle informazioni disponibili in [Distribuire un'app Web nel servizio app di Azure][deploy] per abilitare il metodo di distribuzione che si desidera usare, quindi distribuire il backup di WordPress nell'app Web nel servizio app di Azure.
 
 5. Dopo la distribuzione del sito WordPress, dovrebbe essere possibile accedere al nuovo sito (come app Web di Servizio app di Azure) usando l'URL *.azurewebsite.net.
 
@@ -236,7 +236,6 @@ Per | Opzione
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il portale di anteprima, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [performance-diagram]: ./media/web-sites-php-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-php-enterprise-wordpress/basic-diagram.png
@@ -283,4 +282,4 @@ Per | Opzione
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

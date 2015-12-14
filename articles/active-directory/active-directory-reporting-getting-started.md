@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Report AD Azure: Guida introduttiva"
+   pageTitle="Azure Active Directory Reporting: Introduzione | Microsoft Azure"
    description="Elenca i vari report disponibili nei report di Azure Active Directory"
    services="active-directory"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="12/01/2015"
    ms.author="curtand;kenhoff"/>
 
-# Introduzione ad Azure AD Report
+# Introduzione ad Azure Active Directory Reporting
 
 ## Che cos'è
 
-Azure Active Directory include la sicurezza, l’attività e report di controllo per la directory. Di seguito è riportato un elenco dei report compresi:
+Azure Active Directory (Azure AD) include la sicurezza, l’attività e i report di controllo per la directory. Di seguito è riportato un elenco dei report compresi:
 
 ### Report sulla sicurezza
 
@@ -61,7 +61,7 @@ La pipeline di report è costituita da tre passaggi principali. Ogni volta che u
 
 - In primo luogo, l'utente viene autenticato (con esito positivo o negativo) e il risultato viene archiviato nei database del servizio Azure Active Directory.
 - A intervalli regolari, tutti gli accessi recenti vengono elaborati. A questo punto, la sicurezza e gli algoritmi relativi ad attività anomale eseguono la ricerca di attività sospette in tutti gli accessi recenti.
-- Dopo l'elaborazione, i report vengono scritti, memorizzati nella cache e gestiti nel portale di gestione di Azure.
+- Dopo l'elaborazione, i report vengono scritti, memorizzati nella cache e gestiti nel portale di Azure classico.
 
 ### Tempi per la generazione di report
 
@@ -78,9 +78,9 @@ A causa della grande quantità di autenticazioni e accessi elaborati dalla piatt
 ## Introduzione
 
 
-### Accedere al portale di gestione di Azure.
+### Accedere al portale di Azure classico.
 
-Innanzitutto, è necessario accedere al [portale di gestione di Azure](https://manage.windowsazure.com).come amministratore globale o di conformità. Si deve anche essere un amministratore del servizio di sottoscrizione di Azure o CO-amministratore, o disporre della sottoscrizione Azure di "Accesso ad Azure AD"
+Innanzitutto, è necessario accedere al [portale di Azure classico](https://manage.windowsazure.com).come amministratore globale o di conformità. Si deve anche essere un amministratore del servizio di sottoscrizione di Azure o CO-amministratore, o disporre della sottoscrizione Azure di "Accesso ad Azure AD"
 
 ### Passare al report
 
@@ -156,4 +156,4 @@ Indirizzo di posta elettronica [aadreportinghelp@microsoft.com](mailto:aadreport
 
 > [AZURE.TIP]Per ulteriori informazioni sul Report di AD Azure, consultare [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

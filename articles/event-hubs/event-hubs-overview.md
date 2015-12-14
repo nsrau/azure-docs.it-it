@@ -17,7 +17,7 @@
 
 # Panoramica di Hub eventi di Azure
 
-Molte soluzioni moderne intendono fornire esperienze del cliente adattive o migliorare i prodotti tramite feedback continui e telemetria automatizzata. Tali soluzioni devono affrontare la sfida della protezione e dell’elaborazione affidabile di grandi quantità di informazioni di più autori simultanei. Hub eventi di Microsoft Azure è un servizio di piattaforma gestita che fornisce una base per l'acquisizione di dati su larga scala in una vasta gamma di scenari. Esempi di tali scenari sono il rilevamento del comportamento in app per dispositivi mobili, informazioni sul traffico da web farm, l’acquisizione di eventi in gioco nei giochi di console o i dati di telemetria raccolti da computer industriali o veicoli connessi. Il ruolo comune svolto da Hub eventi nelle architetture delle soluzioni è la sua funzione di "porta principale" per una pipeline di eventi, spesso denominata *ingestor evento*. Un ingestor evento è un componente o servizio che si trova tra i producer e i consumer di eventi per separare la produzione di un flusso di eventi dal consumo di tali eventi.
+Molte soluzioni moderne intendono fornire esperienze del cliente adattive o migliorare i prodotti tramite feedback continui e telemetria automatizzata. Tali soluzioni devono affrontare la sfida della protezione e dell’elaborazione affidabile di grandi quantità di informazioni di più autori simultanei. Hub eventi di Microsoft Azure è un servizio di piattaforma gestita che fornisce una base per l'acquisizione di dati su larga scala in una vasta gamma di scenari. Esempi di tali scenari sono il rilevamento del comportamento in app per dispositivi mobili, informazioni sul traffico da web farm, l’acquisizione di eventi in gioco nei giochi di console o i dati di telemetria raccolti da computer industriali o veicoli connessi. Il ruolo comune svolto da Hub eventi nelle architetture delle soluzioni è la sua funzione di "porta principale" per una pipeline di eventi, spesso denominata *ingestor evento*. Un ingestor evento è un componente o servizio che si trova tra gli autori e i consumer di eventi per separare la produzione di un flusso di eventi dal consumo di tali eventi.
 
 ![Hub eventi](./media/event-hubs-overview/IC759856.png)
 
@@ -132,7 +132,7 @@ La capacità di velocità effettiva di Hub eventi è controllata dalle unità el
 
 - In uscita: fino a 2 MB al secondo.
 
-L’ingresso è limitato dalla quantità di capacità fornita dal numero di unità elaborate acquistate. L'invio di dati oltre questa quantità causa un'eccezione di "quota superata". Questa quantità è 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo. L’uscita non genera eccezioni di limitazione, ma è limitata alla quantità di trasferimento dei dati fornito dalle unità elaborate acquistate: 2 MB al secondo per ogni unità elaborata. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi in cui è stato creato l'Hub eventi. Per ottenere ulteriori unità elaborate, è possibile modificare l'impostazione nella pagina **Spazi dei nomi** della scheda **Scalabilità** nel portale di Azure. È inoltre possibile modificare questa impostazione utilizzando le API di Azure.
+L’ingresso è limitato dalla quantità di capacità fornita dal numero di unità elaborate acquistate. L'invio di dati oltre questa quantità causa un'eccezione di "quota superata". Questa quantità è 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo. L’uscita non genera eccezioni di limitazione, ma è limitata alla quantità di trasferimento dei dati fornito dalle unità elaborate acquistate: 2 MB al secondo per ogni unità elaborata. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi in cui è stato creato l'Hub eventi. Per ottenere ulteriori unità elaborate, è possibile modificare l'impostazione nella pagina **Spazi dei nomi** della scheda **Scalabilità** nel [portale di Azure classico][]. È inoltre possibile modificare questa impostazione utilizzando le API di Azure.
 
 Mentre le partizioni sono un concetto di organizzazione di dati, le unità elaborate sono semplicemente un concetto di capacità. Le unità elaborate vengo o fatturate su base oraria e sono pre-acquistate. Una volta acquistate, le unità elaborate vengono fatturate per un minimo di un'ora. Fino a 20 velocità elaborate possono essere acquistate per uno spazio dei nomi del Bus di servizio ed è previsto un limite di account Azure di 20 unità elaborate. Tali unità elaborate sono condivise tra tutti gli Hub eventi in un determinato spazio dei nomi.
 
@@ -144,7 +144,7 @@ Per dettagliate informazioni sui prezzi, vedere [Hub eventi Prezzi](http://azure
 
 ### Criterio di autore
 
-Hub eventi consente un controllo granulare dei producer di eventi tramite *criteri di autore*. I criteri di autore sono un insieme di funzionalità di runtime progettate per consentire un numero elevato di producer di eventi indipendenti. Con i criteri di autore, ogni autore utilizza un proprio identificatore univoco durante la pubblicazione di eventi in un Hub eventi mediante il meccanismo seguente:
+Hub eventi consente un controllo granulare degli autori di eventi tramite *criteri di autore*. I criteri di autore sono un insieme di funzionalità di runtime progettate per consentire un numero elevato di autori di eventi indipendenti. Con i criteri di autore, ogni autore utilizza un proprio identificatore univoco durante la pubblicazione di eventi in un Hub eventi mediante il meccanismo seguente:
 
 	//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
@@ -162,9 +162,10 @@ Ora che i concetti di Hub eventi sono chiari, è possibile passare agli scenari 
 - Un'[applicazione di esempio completa che usa Hub eventi].
 - Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
 
+[portale di Azure classico]: http://manage.windowsazure.com
 [esercitazione di Hub eventi]: event-hubs-csharp-ephcs-getstarted.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

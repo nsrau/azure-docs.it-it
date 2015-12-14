@@ -1,8 +1,8 @@
-## Retrieve the IoT Hub keys
+## Recuperare le chiavi dell’hub IoT
 
-Display the authentication keys for the new IoT Hub.
+Visualizzare i codici di autenticazione per il nuovo hub IoT.
 
-1. Add the following method to Program.cs:
+1. Aggiungere il metodo seguente a Program.cs:
 
     ```
     static void ShowIoTHubKeys(ResourceManagementClient client, string token)
@@ -11,7 +11,7 @@ Display the authentication keys for the new IoT Hub.
     }
     ```
 
-2. Add the following code to the **ShowIoTHubKeys** method to print the authentication keys to the console:
+2. Aggiungere il codice seguente al metodo **ShowIoTHubKeys** per stampare le chiavi di autenticazione nella console:
 
     ```
     client.HttpClient.DefaultRequestHeaders.Authorization = 
@@ -24,3 +24,5 @@ Display the authentication keys for the new IoT Hub.
     Console.WriteLine("Keys: {0}, 
         httpsRepsonse.Content.ReadAsStringAsync().Result);
     ```
+
+<!---HONumber=AcomDC_1203_2015-->

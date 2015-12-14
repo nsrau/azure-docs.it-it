@@ -1,27 +1,32 @@
-<properties 
-	pageTitle="Amministrazione di un servizio mobile dalla riga di comando | Microsoft Azure" 
-	description="Informazioni su come creare, distribuire e gestire il servizio mobile di Azure usando gli strumenti da riga di comando." 
-	services="mobile-services" 
-	documentationCenter="Mobile" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Amministrazione di un servizio mobile dalla riga di comando | Microsoft Azure"
+	description="Informazioni su come creare, distribuire e gestire il servizio mobile di Azure usando gli strumenti da riga di comando."
+	services="mobile-services"
+	documentationCenter="Mobile"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="NA"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
-# Eseguire l'automazione dei servizi mobili con gli strumenti da riga di comando 
+# Eseguire l'automazione dei servizi mobili con gli strumenti da riga di comando
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##Panoramica
 
 Questo argomento illustra come usare gli strumenti da riga di comando di Azure per automatizzare la creazione e la gestione di Servizi mobili di Azure e descrive come installare e iniziare a usare gli strumenti da riga di comando per eseguire le attività principali di Servizi mobili.
- 
+
 Se combinati in un unico script o file batch, questi singoli comandi consentono di automatizzare i processi di creazione, verifica ed eliminazione di un servizio mobile.
 
 Questo argomento illustra alcune attività di amministrazione comuni supportate dagli strumenti da riga di comando di Azure. Per altre informazioni, vedere la [documentazione degli strumenti da riga di comando di Azure][reference-docs].
@@ -46,7 +51,7 @@ Per iniziare, è necessario innanzitutto scaricare e importare le impostazioni d
 
 	azure account download
 
-Verrà aperto il browser predefinito e richiesto di accedere al portale di gestione. Dopo l'accesso, verrà scaricato il file `.publishsettings`. Prendere nota del percorso del file salvato.
+Verrà aperto il browser predefinito e richiesto di accedere al portale di Azure classico. Dopo l'accesso, verrà scaricato il file `.publishsettings`. Prendere nota del percorso del file salvato.
 
 Importare quindi il file `.publishsettings` eseguendo il comando seguente e sostituendo `<path-to-settings-file>` con il percorso del proprio file `.publishsettings`:
 
@@ -104,9 +109,9 @@ Usare il comando seguente per creare una nuova tabella con autorizzazione `read`
 
 	azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-La tabella seguente illustra il valore dell'autorizzazione dello script rispetto al valore dell'autorizzazione nel [portale di gestione di Azure].
+La tabella seguente illustra il valore dell'autorizzazione dello script rispetto al valore dell'autorizzazione nel [portale di Azure classico].
 
-|Valore script|Valore portale di gestione| |========|========| |`public`|Tutti| |`application`(impostazione predefinita)|Chiunque con la chiave applicazione| |`user`|Solo gli utenti autenticati| |`admin`|Solo script e amministratori|
+|Valore script|Valore portale| |========|========| |`public`|Tutti| |`application`(impostazione predefinita)|Chiunque con la chiave applicazione| |`user`|Solo gli utenti autenticati| |`admin`|Solo script e amministratori|
 
 Il comando `mobile table create` ha esito negativo quando la tabella specificata esiste già. Negli script di automazione, provare a eliminare una tabella prima di tentare di ricrearla.
 
@@ -140,7 +145,7 @@ La dichiarazione di funzione nel file di script deve corrispondere all'operazion
 
 	function insert(item, user, request) {
 	    ...
-	} 
+	}
 
 Per altre informazioni sulla registrazione di script, vedere la pagina relativa alle [informazioni di riferimento sugli script del server di Servizi mobili].
 
@@ -173,7 +178,7 @@ Per altre informazioni sulla registrazione di script, vedere la pagina relativa 
 <!-- URLs. -->
 [informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
@@ -182,6 +187,4 @@ Per altre informazioni sulla registrazione di script, vedere la pagina relativa 
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Come installare gli strumenti da riga di comando di Azure per Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

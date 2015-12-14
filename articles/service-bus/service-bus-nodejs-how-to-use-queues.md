@@ -68,11 +68,11 @@ Il modulo di Azure legge le variabili di ambiente AZURE\_SERVICEBUS\_NAMESPACE e
 
 Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Servizio cloud Node.js con archiviazione][].
 
-Per un esempio di impostazione delle variabili di ambiente nel portale di Azure per un sito Web di Azure, vedere [App Web Node.js con il servizio tabelle di Azure][].
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][] per un sito Web di Azure, vedere [Applicazione Web Node.js][] con il servizio tabelle di Azure.
 
 ## Creare una coda
 
-L'oggetto **ServiceBusService** consente di usare le code del bus di servizio. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo Azure:
+L'oggetto **ServiceBusService** consente di usare le code del bus di servizio. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo azure:
 
 ```
 var serviceBusService = azure.createServiceBusService();
@@ -192,14 +192,14 @@ Per altre informazioni, vedere le risorse seguenti.
 -   [Centro per sviluppatori di Node.js](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-  [Azure portal]: http://manage.windowsazure.com
+  [portale di Azure classico]: http://manage.windowsazure.com
   
   [Servizio cloud Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
   [Creare e distribuire un'applicazione Node.js in un sito Web di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servizio cloud Node.js con archiviazione]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
-  [App Web Node.js con il servizio tabelle di Azure]: ../storage/storage-nodejs-how-to-use-table-storage.md
+  [Applicazione Web Node.js]: ../storage/storage-nodejs-how-to-use-table-storage.md
   [Code di Azure e code del bus di servizio]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

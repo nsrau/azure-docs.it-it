@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Usare il portale di Azure per creare canali che ricevono il flusso live a più velocità in bit da codificatori locali | Microsoft Azure"
+	pageTitle="Usare il portale di Azure classico per creare canali che ricevono il flusso live a più velocità in bit da codificatori locali | Microsoft Azure"
 	description="Questa esercitazione illustra la procedura per implementare un'applicazione di streaming live di Servizi multimediali di base in cui un canale riceve un flusso live a più velocità in bit da un codificatore live locale."
 	services="media-services"
 	documentationCenter=""
@@ -17,20 +17,20 @@
 	ms.author="juliako"/>
 
 
-# Usare il portale di Azure per creare canali che ricevono il flusso live a più velocità in bit da codificatori locali
+# Usare il portale di Azure classico per creare canali che ricevono il flusso live a più velocità in bit da codificatori locali
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
 Questa esercitazione illustra la procedura per implementare un'applicazione di streaming live di Servizi multimediali di base in cui un canale riceve un flusso live a più velocità in bit da un codificatore live locale. Per una panoramica più dettagliata dell'uso dei canali e dei componenti correlati, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md).
 
-In questa esercitazione il portale di Azure viene usato per eseguire le attività seguenti:
+In questa esercitazione il portale di Azure classico viene usato per eseguire le attività seguenti:
 
 2.  Configurare gli endpoint di streaming
 3.  Creare un canale.
 1.  Configurare un codificatore live e inserire il flusso live nel canale (in questo passaggio viene usato Wirecast).
 1.  Creare un programma (e un asset).
-1.  Pubblicare l'asset e ottenere gli URL di streaming.  
+1.  Pubblicare l'asset e ottenere gli URL di streaming.
 1.  Riprodurre i contenuti.
 2.  Eseguire la pulizia.
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione è necessario quanto segue.
 - Una webcam e un codificatore in grado di inviare un flusso live a più velocità in bit.
 
 
-## Configurare l'endpoint di streaming usando il portale di Azure
+## Configurare l'endpoint di streaming usando il portale di Azure classico
 
 Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Con lo streaming a bitrate adattivo, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
 
@@ -52,26 +52,26 @@ Per avvalersi della creazione dinamica dei pacchetti, è necessario ottenere alm
 
 Per modificare il numero di unità riservate di streaming, effettuare le seguenti operazioni:
 
-1. Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
 
 2. Selezionare la pagina **ENDPOINT DI STREAMING**. Quindi, fare clic sull'endpoint di streaming che si desidera modificare.
 
 3. Per specificare il numero di unità di streaming, selezionare la scheda **RIDIMENSIONA** e spostare il dispositivo di scorrimento capacità riservata.
 
-	![Pagina Scale](./media/media-services-portal-get-started-with-live/media-services-origin-scale.png)
+![Pagina Scale](./media/media-services-portal-get-started-with-live/media-services-origin-scale.png)
 
 4. Fare clic sul pulsante **SALVA** per salvare le modifiche apportate.
 
-	L'allocazione di nuove unità richiede circa 20 minuti.
+L'allocazione di nuove unità richiede circa 20 minuti.
 
-	>[AZURE.NOTE]Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming venga disabilitato per un periodo che può durare fino a un'ora.
-	>
-	> Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
+>[AZURE.NOTE]Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming venga disabilitato per un periodo che può durare fino a un'ora.
+>
+> Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 
 ## Creare un canale
 
-Nel portale di Azure selezionare la pagina **CANALI**. Fare clic su **NUOVO**. Nella finestra di dialogo **Crea un nuovo canale live** immettere un nome per il canale.
+Nel portale di Azure classico selezionare la pagina **CANALI**. Fare clic su **NUOVO**. Nella finestra di dialogo **Crea un nuovo canale live** immettere un nome per il canale.
 
 ![createchannel](./media/media-services-portal-get-started-with-live/media-services-create-channel.png)
 
@@ -96,7 +96,7 @@ Per altre informazioni sugli URL di inserimento, vedere [Uso di codificatori loc
 
 Per informazioni dettagliate su come configurare Wirecast e avviare l'inserimento del flusso, vedere [Configurazione di Wirecast](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
->[AZURE.NOTE]Se per qualsiasi motivo si arresta il codificatore e in seguito è necessario riavviarlo, è consigliabile reimpostare il canale scegliendo il comando **REIMPOSTA** nel portale di Azure.
+>[AZURE.NOTE]Se per qualsiasi motivo si arresta il codificatore e in seguito è necessario riavviarlo, è consigliabile reimpostare il canale scegliendo il comando **REIMPOSTA** nel portale di Azure classico.
 
 
 ## Creare e gestire un programma
@@ -129,25 +129,25 @@ Per avviare l'evento è possibile procedere in due modi:
 
 1. Nella pagina **CANALE** fare clic su **AGGIUNGI** per aggiungere un nuovo programma.
 
-	Nella pagina **Crea un nuovo programma**, specificare il nome del programma, il nome dell'asset, l'intervallo di archiviazione e l'opzione di crittografia.
+Nella pagina **Crea un nuovo programma**, specificare il nome del programma, il nome dell'asset, l'intervallo di archiviazione e l'opzione di crittografia.
 
-	![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
+![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
 
-	Se **Pubblica questo programma ora** è selezionato, vengono creati gli URL di pubblicazione.
+Se **Pubblica questo programma ora** è selezionato, vengono creati gli URL di pubblicazione.
 
-	Per avviare lo streaming del programma, fare clic su **AVVIA**.
+Per avviare lo streaming del programma, fare clic su **AVVIA**.
 
-	Dopo avere avviato il programma, fare clic su **RIPRODUCI** per avviare la riproduzione del contenuto.
+Dopo avere avviato il programma, fare clic su **RIPRODUCI** per avviare la riproduzione del contenuto.
 
-	![createdprogram](./media/media-services-portal-get-started-with-live/media-services-created-program.png)
+![createdprogram](./media/media-services-portal-get-started-with-live/media-services-created-program.png)
 
 2. In alternativa, è possibile usare un collegamento e fare clic sul pulsante **AVVIA STREAMING** nella pagina **CANALI**. In questo modo verrà creato un localizzatore di asset, programma e streaming.
 
-	Il programma è denominato DefaultProgram e l'intervallo di archiviazione è impostato su 1 ora.
+Il programma è denominato DefaultProgram e l'intervallo di archiviazione è impostato su 1 ora.
 
-	Il programma pubblicato può essere riprodotto dalla pagina **CANALI**.
+Il programma pubblicato può essere riprodotto dalla pagina **CANALI**.
 
-	![channelpublish](./media/media-services-portal-get-started-with-live/media-services-channel-play.png)
+![channelpublish](./media/media-services-portal-get-started-with-live/media-services-channel-play.png)
 
 
 Se si fa clic su **ARRESTA STREAMING** nella pagina **CANALI**, il programma predefinito verrà arrestato ed eliminato. L'asset sarà ancora disponibile ed è possibile pubblicarlo o annullarne la pubblicazione dalla pagina **CONTENUTO**.
@@ -159,7 +159,7 @@ Se si passa alla pagina **CONTENUTO**, sarà possibile visualizzare gli asset cr
 
 ## Riproduzione del contenuto
 
-Per fornire all'utente un URL che consente di trasmettere il contenuto in streaming, è necessario innanzitutto *pubblicare* l'asset (come descritto nella sezione precedente) creando un localizzatore (quando si pubblica un asset tramite il portale di Azure, i localizzatori vengono creati automaticamente). I localizzatori forniscono l'accesso ai file contenuti nell'asset.
+Per fornire all'utente un URL che consente di trasmettere il contenuto in streaming, è necessario innanzitutto *pubblicare* l'asset (come descritto nella sezione precedente) creando un localizzatore (quando si pubblica un asset tramite il portale di Azure classico, i localizzatori vengono creati automaticamente). I localizzatori forniscono l'accesso ai file contenuti nell'asset.
 
 A seconda del protocollo di streaming che si vuole usare per la riproduzione del contenuto, potrebbe essere necessario modificare l'URL che si ottiene mediante il collegamento **URL DI PUBBLICAZIONE** in canale\\programma.
 
@@ -167,15 +167,15 @@ La creazione dinamica dei pacchetti si occuperà di inserire il flusso live in u
 
 Per impostazione predefinita, un URL di streaming presenta il seguente formato e può essere usato per riprodurre asset Smooth Streaming:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest
 
 Per creare un URL di streaming HLS, aggiungere (format=m3u8-aapl) all'URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl)
 
 Per creare un URL di streaming MPEG DASH, aggiungere (format=mpd-time-csf) all'URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=mpd-time-csf)
 
 Per altre informazioni sulla distribuzione del contenuto, vedere [Distribuzione di contenuto](media-services-deliver-content-overview.md).
 
@@ -205,11 +205,11 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 
 
 ## Risorse aggiuntive
-- [Guida introduttiva a Live Streaming tramite il portale di gestione di Azure](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [Guida introduttiva a Live Streaming tramite il portale di Azure classico](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

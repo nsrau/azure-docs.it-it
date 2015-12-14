@@ -39,10 +39,10 @@ Quando si esegue un cluster HDInsight in HDInsight, creare un account di archivi
 
 **Per creare un account di archiviazione di Azure**
 
-1. Accedere al [portale di Azure][azure-management-portal].
+1. Accedere al [portale di Azure classico][azure-management-portal].
 2. Fare clic su **NUOVO** nell'angolo in basso a sinistra e quindi immettere i valori come illustrato nell'immagine.
 
-	![Portale di Azure dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Portale di Azure dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione")
+	![Portale di Azure classico, dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione.](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Portale di Azure classico, dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione.")
 
 >[AZURE.NOTE]Assicurarsi quindi di creare l'account di archiviazione in una località supportata dal cluster,
 
@@ -57,7 +57,7 @@ In questa sezione si esegue una versione 3.2 del cluster HDInsight, basato sulla
 
 **Come eseguire un cluster Spark**
 
-1. Accedere al [portale di Azure][azure-management-portal]. 
+1. Accedere al [portale di Azure classico][azure-management-portal]. 
 
 2. Fare clic su **NUOVO** nell'angolo in basso a sinistra e quindi immettere i valori come illustrato nell'immagine.
 
@@ -70,7 +70,7 @@ Dopo che è stato eseguito un cluster, è possibile usare un notebook on line Ze
 
 >[AZURE.NOTE]Il notebook che avete creato seguendo le istruzioni seguenti è inoltre disponibile come predefinito sul cluster. Dopo aver avviato Zeppelin, si noterà il notebook dal nome **Esercitazione Zeppelin HVAC**.
 
-1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://portal.azure.com/) fare clic sul riquadro per il cluster Spark (se è stato bloccato sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
+1. Dal [Portale di Azure](https://portal.azure.com/), dalla schermata iniziale, fare clic sul riquadro per il cluster Spark (se lo si è bloccato alla schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
 
 2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e quindi dal pannello **Dashboard del cluster** fare clic su **Notebook di Zeppelin**. Se richiesto, immettere le credenziali per il cluster.
 
@@ -156,7 +156,7 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 
 >[AZURE.NOTE]Il notebook che avete creato seguendo le istruzioni seguenti è inoltre disponibile come predefinito sul cluster. Dopo aver avviato Jupyter, si noterà il notebook con nome **HVACTutorial.ipynb**.
 
-1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://portal.azure.com/) fare clic sul riquadro per il cluster Spark (se è stato bloccato sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
+1. Dal [Portale di Azure](https://portal.azure.com/), dalla schermata iniziale, fare clic sul riquadro per il cluster Spark (se lo si è bloccato alla schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
 
 2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard del cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
@@ -260,4 +260,4 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

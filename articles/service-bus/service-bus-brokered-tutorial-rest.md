@@ -27,7 +27,7 @@ Il primo passaggio consiste nel creare uno spazio dei nomi del servizio e nell'o
 
 1. Per informazioni complete su come creare uno spazio dei nomi del servizio, vedere l'argomento [Procedura: creare o modificare uno spazio dei nomi del servizio Bus di servizio](https://msdn.microsoft.com/library/azure/hh690931.aspx) nella sezione [Gestione degli spazi dei nomi del servizio Bus di servizio](https://msdn.microsoft.com/library/azure/hh690928.aspx).
 
-1. Nella finestra principale del portale di Azure, fare clic sul nome dello spazio dei nomi del servizio creato al passaggio precedente.
+1. Nella finestra principale del [portale di Azure classico][], fare clic sul nome dello spazio dei nomi del servizio creato al passaggio precedente.
 
 1. Fare clic sulla scheda **Configure**.
 
@@ -629,4 +629,6 @@ Vedere gli articoli seguenti per ulteriori informazioni:
 - [Dati fondamentali del bus di servizio](fundamentals-service-bus-hybrid-solutions.md)
 - [Esercitazione sul REST di inoltro del bus di servizio](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Oct15_HO3-->
+[portale di Azure classico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

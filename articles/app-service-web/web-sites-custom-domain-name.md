@@ -35,13 +35,13 @@ Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possi
 
 ## Panoramica
 
-Se non si ha già registrato un nome di dominio esterno (cioè non *. azurewebsites.net), il modo più semplice per impostare un dominio personalizzato è acquistarlo direttamente nel [portale di anteprima di Azure](https://portal.azure.com). Il processo consente di gestire il nome di dominio dell'app Web direttamente nel portale invece di usare un sito di terze parti come GoDaddy per gestirlo. Analogamente, la configurazione del nome di dominio nelle app Web è notevolmente semplificata, se l'app Web utilizza [Gestione traffico di Azure](web-sites-traffic-manager-custom-domain-name.md). Per ulteriori informazioni, vedere [Comprare e configurare un nome di dominio personalizzato nel servizio app di Azure](custom-dns-web-site-buydomains-web-app.md).
+Se non è già stato registrato un nome di dominio esterno (cioè non *. azurewebsites.net), il modo più semplice per impostare un dominio personalizzato è acquistarlo direttamente nel [portale di Azure](https://portal.azure.com). Il processo consente di gestire il nome di dominio dell'app Web direttamente nel portale invece di usare un sito di terze parti come GoDaddy per gestirlo. Analogamente, la configurazione del nome di dominio nelle app Web è notevolmente semplificata, se l'app Web utilizza [Gestione traffico di Azure](web-sites-traffic-manager-custom-domain-name.md). Per ulteriori informazioni, vedere [Comprare e configurare un nome di dominio personalizzato nel servizio app di Azure](custom-dns-web-site-buydomains-web-app.md).
 
 Se si dispone già di un nome di dominio o si desidera riservare un dominio da altri registrar, questa è la procedura generale da seguire per definire un nome di dominio personalizzato per l'app Web (vedere [istruzioni specifiche per GoDaddy.com](web-sites-godaddy-custom-domain-name.md)):
 
 1. Riservare il nome di dominio. Questo processo non viene descritto in questo articolo. Sono disponibili numerosi registrar di dominio. Quando si esegue l'accesso, il sito del registrar fornisce la procedura per il processo.
 1. Creare record DNS che eseguono il mapping del dominio all'app Web di Azure.
-1. Aggiungere il nome di dominio all'interno del [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+1. Aggiungere il nome di dominio all'interno del [portale di Azure](https://portal.azure.com).
 
 All'interno del quadro di base, esistono diversi casi specifici da prendere in considerazione:
 
@@ -144,7 +144,6 @@ Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstar
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Anchors. -->
 [Overview]: #overview
@@ -156,4 +155,4 @@ Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstar
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

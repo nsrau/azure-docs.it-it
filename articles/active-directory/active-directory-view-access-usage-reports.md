@@ -13,10 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
+
 # Visualizzare i report di accesso e utilizzo
+
+## Articoli di documentazione della creazione di report
+
+ - [API di creazione report](active-directory-reporting-api-getting-started.md)
+ - [Eventi di controllo](active-directory-reporting-audit-events.md)
+ - [Conservazione](active-directory-reporting-retention.md)
+ - [Anteprime](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Recupero delle informazioni](active-directory-reporting-backfill.md)
+ - [Latenze](active-directory-reporting-latencies.md)
+ - [Evento "Attore sconosciuto"](active-directory-reporting-unknown-actor.md)
 
 È possibile usare i report di utilizzo e accesso di Azure Active Directory per ottenere informazioni sull'integrità e sicurezza della directory dell'organizzazione. Con queste informazioni un amministratore di directory può stabilire meglio dove potrebbero esserci possibili rischi per la sicurezza in modo da poterne pianificare adeguatamente la riduzione.
 
@@ -159,7 +171,7 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 | :-------------     | :-------        |
 | Usare questo report per visualizzare l'utilizzo di tutte le applicazioni SaaS presenti nella directory. Questo report si basa sul numero di selezioni dell'applicazione eseguite nel Pannello di accesso. | Scheda Directory > Report |
 
-Questo report include gli accessi a _tutte_ le applicazioni a cui ha accesso la directory, incluse le applicazioni Microsoft preintegrate.
+Questo report include gli accessi a _tutte_ le applicazioni a cui ha accesso la directory, comprese le applicazioni Microsoft pre-integrate.
 
 Le applicazioni Microsoft preintegrate includono Office 365, SharePoint, il portale di gestione di Azure e altre.
 
@@ -260,7 +272,7 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
 	- Fino a 1000 eventi saranno visualizzati nel portale di gestione di Azure.
 5. Se applicabile, fare clic su **Download** per scaricare il report in un file compresso in formato valori separati da virgole (CSV) per visualizzarlo offline o a scopo di archiviazione.
 	- Fino a 75.000 eventi verranno inclusi nel file scaricato.
-	- Per altri dati, consultare l'[API di creazione report di Azure AD](active-directory-reporting-api-getting-started.md).
+	- Per ulteriori dati, consultare l[API di Reporting AD Azure](active-directory-reporting-api-getting-started.md).
 
 ## Ignorare un evento
 
@@ -275,4 +287,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

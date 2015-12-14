@@ -27,7 +27,7 @@ Sostituire il commento con la riga seguente nella dichiarazione `@interface`. Ve
 ```
 
 
-* Nel portale di gestione fare clic su **Servizi mobili** e quindi sul sevizio mobile. Fare clic sulla scheda **Dashboard** e prendere nota del valore in **URL sito**. Fare clic su **Gestisci chiavi** e prendere nota del valore in **Chiave applicazione**. Questi valori sono necessari per accedere al servizio mobile dal codice dell'app.
+* Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi mobili** e quindi sul sevizio mobile. Fare clic sulla scheda **Dashboard** e prendere nota del valore in **URL sito**. Fare clic su **Gestisci chiavi** e prendere nota del valore in **Chiave applicazione**. Questi valori sono necessari per accedere al servizio mobile dal codice dell'app.
 
 
 * In **TodoService.m** individuare la riga seguente:
@@ -146,4 +146,4 @@ Sostituire il corpo del metodo da quel punto alla fine del metodo, con il codice
 }
 ```
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

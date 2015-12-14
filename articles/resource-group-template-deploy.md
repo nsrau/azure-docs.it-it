@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
 
-In questo argomento viene illustrato come usare i modelli di Gestione risorse di Azure per distribuire l'applicazione in Azure. Viene descritto come distribuire l'applicazione usando Azure PowerShell, l’interfaccia della riga di comando di Azure, API REST o il portale di anteprima di Microsoft Azure.
+In questo argomento viene illustrato come usare i modelli di Gestione risorse di Azure per distribuire l'applicazione in Azure. Viene descritto come distribuire l'applicazione usando Azure PowerShell, l’interfaccia della riga di comando di Azure, API REST o il portale di Azure.
 
 Per un'introduzione a Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md). Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
@@ -32,17 +32,7 @@ Quando si distribuisce un'applicazione con un modello, è possibile fornire valo
 
 1. Accedere al proprio account Azure. Una volta specificate le credenziali, il comando restituisce le informazioni relative all'account.
 
-    Precedente all’anteprima di Azure PowerShell 1.0:
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-        ...
-        PS C:\> Add-AzureAccount
-
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-    Anteprima di Azure PowerShell 1.0:
+    Azure PowerShell 1.0:
 
          PS C:\> Login-AzureRmAccount
 
@@ -55,7 +45,7 @@ Quando si distribuisce un'applicazione con un modello, è possibile fornire valo
 
         PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-3. Se non si dispone di una risorsa di gruppo esistente, creare un nuovo gruppo di risorsa con il comando **New AzureRmResourceGroup**. Specificare il nome del gruppo di risorse e il percorso per la soluzione. Viene restituito un riepilogo del nuovo gruppo di risorse.
+3. Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New AzureRmResourceGroup**. Specificare il nome del gruppo di risorse e il percorso per la soluzione. Viene restituito un riepilogo del nuovo gruppo di risorse.
 
         PS C:\> New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -69,7 +59,7 @@ Quando si distribuisce un'applicazione con un modello, è possibile fornire valo
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. Per creare una nuova distribuzione per il gruppo di risorsa, eseguire il comando **New-AzureResourceGroupDeployment** e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario.
+5. Per creare una nuova distribuzione per il gruppo di risorse, eseguire il comando **New-AzureResourceGroupDeployment** e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario.
    
      Per specificare i valori dei parametri sono disponibili le opzioni seguenti:
    
@@ -219,13 +209,13 @@ Con Visual Studio, è possibile creare un progetto del gruppo di risorse e distr
 
 Per un'introduzione all'utilizzo di Visual Studio con gruppi di risorse, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-## Distribuire con il portale di anteprima
+## Distribuire con il portale
 
-Novità Ogni applicazione creata con il [portale di anteprima](https://portal.azure.com/) è supportata da un modello di Gestione risorse di Azure. Creando semplicemente una macchina virtuale, una rete virtuale, un account di archiviazione, un servizio app o database tramite il portale, si sfruttano automaticamente i vantaggi di Gestione risorse di Azure. È sufficiente selezionare l'icona **Nuovo** e si sarà sulla strada giusta per distribuire un'applicazione con Gestione risorse di Azure.
+Novità Ogni applicazione creata con il [portale](https://portal.azure.com/) è supportata da un modello di Gestione risorse di Azure. Creando semplicemente una macchina virtuale, una rete virtuale, un account di archiviazione, un servizio app o database tramite il portale, si sfruttano automaticamente i vantaggi di Gestione risorse di Azure. È sufficiente selezionare l'icona **Nuovo** e si sarà sulla strada giusta per distribuire un'applicazione con Gestione risorse di Azure.
 
 ![Nuovo](./media/resource-group-template-deploy/new.png)
 
-Per altre informazioni sull'uso del portale con Gestione risorse di Azure, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](azure-portal/resource-group-portal.md).
+Per altre informazioni sull'uso del portale con Gestione risorse di Azure, vedere [Uso del portale di Azure per gestire le risorse di Azure](azure-portal/resource-group-portal.md).
 
 
 ## File di parametri
@@ -251,12 +241,12 @@ Se si usa un file di parametri per passare i valori di parametro al modello dura
 La dimensione del file di parametro non può essere superiore a 64 KB.
 
 ## Passaggi successivi
-- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](arm-template-deployment.md).
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](arm-template-deployment.md)
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments-preview-portal.md).
 - Per altre informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md).
-- Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere [Funzioni di modello](resource-group-template-functions.md).
+- Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere [Funzioni di modello](resource-group-template-functions.md)
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

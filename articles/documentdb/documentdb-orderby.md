@@ -131,7 +131,7 @@ Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documen
 
 Aggiornamenti futuri del servizio espanderanno il supporto Order By introdotto qui. Sono in corso di sviluppo le seguenti aggiunte e le priorità di rilascio saranno stabilite in base al feedback degli utenti:
 
-- Criteri di indicizzazione dinamica: possibilità di modificare il criterio di indicizzazione dopo la creazione della raccolta e nel portale di Azure
+- Criteri di indicizzazione dinamica: possibilità di modificare il criterio di indicizzazione dopo la creazione della raccolta e nel portale di Azure classico
 - Supporto per gli indici composti per un uso più efficiente di Order By e Order By su più proprietà.
 
 ## Domande frequenti
@@ -177,4 +177,4 @@ Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documen
 * [Esempi di Order By di DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

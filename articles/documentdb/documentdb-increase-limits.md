@@ -47,7 +47,7 @@ La tabella seguente descrive le quote di DocumentDB che è possibile modificare 
 ##<a id="RequestQuotaIncrease"></a> Richiedere una modifica delle quote
 I passaggi seguenti mostrano come richiedere una modifica delle quote.
 
-1. Nel [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Sfoglia** e quindi su **Guida e supporto**.
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Sfoglia** e quindi su **Guida e supporto**.
 
 	![Schermata di avvio di Guida e supporto](media/documentdb-increase-limits/helpsupport.png)
 
@@ -75,4 +75,4 @@ Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettroni
 ##<a name="NextSteps"></a> Passaggi successivi
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

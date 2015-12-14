@@ -13,14 +13,25 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="09/29/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff"/>
 
 # Ricerca di Report di Azure Active Directory
 
+## Articoli di documentazione della creazione di report
+
+ - [API di creazione report](active-directory-reporting-api-getting-started.md)
+ - [Eventi di controllo](active-directory-reporting-audit-events.md)
+ - [Conservazione](active-directory-reporting-retention.md)
+ - [Anteprime](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Recupero delle informazioni](active-directory-reporting-backfill.md)
+ - [Latenze](active-directory-reporting-latencies.md)
+ - [Evento "Attore sconosciuto"](active-directory-reporting-unknown-actor.md)
+
 Azure Active Directory fornisce i amministratori di directory la capacità di ricercare la sicurezza l’attività e dell'utente, attività e gli eventi di controllo in più report.
 
-Per individuare il pannello di ricerca, passare a **portale di gestione di Azure -> Your Azure Active Directory -> Reports.** Il pannello è disponibile nella parte superiore dell'elenco di report.
+Per individuare il pannello di ricerca, passare a **portale di gestione di Azure -> Azure Active Directory -> Report.** Il pannello è disponibile nella parte superiore dell'elenco di report.
 
 Per cercare le attività o gli eventi di controllo per un determinato utente, selezionare un intervallo di date nei campi Da e A, digitare nell’UPN dell’utente o nel nome visualizzato e fare clic sul pulsante di segno di spunta.
 
@@ -56,4 +67,4 @@ Utilizzo dispositivi RMS | No
  - [Report di Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Enti di controllo per il report di Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

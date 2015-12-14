@@ -1,6 +1,6 @@
 <properties
    	pageTitle="Creare cluster Hadoop, HBase o Storm in Linux in HDInsight tramite il portale | Microsoft Azure"
-   	description="Informazioni su come creare cluster Hadoop, HBase o Storm in Linux per HDInsight usando un Web browser e il portale di anteprima di Azure."
+   	description="Informazioni su come creare cluster Hadoop, HBase o Storm in Linux per HDInsight usando un Web browser e il portale di Azure."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -18,25 +18,25 @@
    	ms.author="nitinme"/>
 
 
-#Creare cluster basati su Linux in HDInsight tramite il portale di anteprima di Azure
+#Creare cluster basati su Linux in HDInsight tramite il portale di Azure
 
 [AZURE.INCLUDE [selettore](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Il portale di anteprima di Azure è uno strumento di gestione basato sul Web per servizi e risorse ospitati nel cloud di Microsoft Azure. Usare le informazioni in questo documento per creare un nuovo cluster HDInsight basato su Linux tramite il portale di anteprima e il Web browser.
+Il portale di Azure è uno strumento di gestione basato sul Web per servizi e risorse ospitati nel cloud di Microsoft Azure. Usare le informazioni in questo documento per creare un nuovo cluster HDInsight basato su Linux tramite il portale e il Web browser.
 
 ##Prerequisiti
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __Un Web browser moderno__. Il portale di anteprima di Azure usa HTML5 e Javascript e potrebbe non funzionare correttamente nei browser meno recenti.
+- __Un Web browser moderno__. Il portale di Azure usa HTML5 e Javascript e potrebbe non funzionare correttamente nei browser meno recenti.
 
 ##Creare un cluster
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Fare clic su **NUOVO**, fare clic su **Analisi di dati** e quindi fare clic su **HDInsight**.
 
-    ![Creazione di un nuovo cluster nel portale di anteprima di Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di anteprima di Azure")
+    ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Azure")
 
 3. Immettere un valore in **Nome cluster**, selezionare **Hadoop** per **Tipo di cluster** e dall'elenco a discesa **Sistema operativo cluster** selezionare **Ubuntu**. Un segno di spunta verde verrà visualizzato accanto al nome del cluster, se disponibile.
 
@@ -144,7 +144,7 @@ Il portale di anteprima di Azure è uno strumento di gestione basato sul Web per
 
 	* **Utenti** (![icona utenti](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): consente di impostare le autorizzazioni per _Gestione portale_ di questo cluster per altri utenti nella sottoscrizione Azure.
 
-		> [AZURE.IMPORTANT]Questo influisce _solo_ sull'accesso e sulle autorizzazioni per tale cluster nel portale di anteprima di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
+		> [AZURE.IMPORTANT]Questo influisce _solo_ sull'accesso e sulle autorizzazioni per tale cluster nel portale di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
 
 	* **Tag** (![icona tag](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__, e usare un valore comune per tutti i servizi associati a un progetto specifico.
 
@@ -169,4 +169,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

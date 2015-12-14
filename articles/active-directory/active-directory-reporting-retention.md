@@ -13,10 +13,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/02/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff"/>
 
 # Criteri di conservazione dei report di Azure Active Directory
+
+## Articoli di documentazione della creazione di report
+
+ - [API di creazione report](active-directory-reporting-api-getting-started.md)
+ - [Eventi di controllo](active-directory-reporting-audit-events.md)
+ - [Conservazione](active-directory-reporting-retention.md)
+ - [Anteprime](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Recupero delle informazioni](active-directory-reporting-backfill.md)
+ - [Latenze](active-directory-reporting-latencies.md)
+ - [Evento "Attore sconosciuto"](active-directory-reporting-unknown-actor.md)
+
 I report di Azure AD conservano i dati per un determinato numero di giorni, come indicato di seguito.
 
 Report | Descrizione
@@ -45,4 +57,4 @@ Utenti RMS più attivi | 30 giorni
 Utilizzo dispositivi RMS | 30 giorni
 Utilizzo applicazioni abilitate per RMS | 30 giorni
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -261,7 +261,7 @@
 
 	
 
-12. Aggiungere alla classe **Program** il metodo helper seguente usato per il metodo **Main**. Tramite questo metodo viene visualizzata una finestra di dialogo che consente di specificare il **nome utente** e la **password** usati per accedere al portale di Azure.
+12. Aggiungere alla classe **Program** il metodo helper seguente usato per il metodo **Main**. Tramite questo metodo viene visualizzata una finestra di dialogo che consente di specificare il **nome utente** e la **password** usati per accedere al portale di Azure classico.
  
 		public static string GetAuthorizationHeader()
         {
@@ -371,7 +371,7 @@
 		Jane, Doe
 	 
 17. Eseguire l'esempio scegliendo **Debug** -> **Avvia debug** dal menu. Quando viene visualizzato un messaggio simile ad **Acquisizione dettagli dell'esecuzione di una sezione di dati**, attendere qualche minuto e premere **INVIO**.
-18. Usare il portale di anteprima di Azure per verificare che la data factory **APITutorialFactory** venga creata con gli elementi seguenti: 
+18. Usare il portale di Azure per verificare che la data factory **APITutorialFactory** venga creata con gli elementi seguenti: 
 	- Servizio collegato: **LinkedService\_AzureStorage**. 
 	- Set di dati: **DatasetBlobSource** e **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample**. 
@@ -392,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

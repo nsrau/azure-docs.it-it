@@ -33,7 +33,7 @@ I messaggi a una coda o a un argomento partizionato non presentano costi aggiunt
 
 Per usare le code e gli argomenti partizionati con il bus di servizio di Microsoft Azure, è necessario usare Azure SDK 2.2 o versione successiva oppure specificare `api-version=2013-10` nelle richieste HTTP.
 
-È possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è di 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 partizioni per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 * 16). È possibile visualizzare le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][].
+È possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è di 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 partizioni per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 * 16). È possibile visualizzare le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure classico][].
 
 Sono disponibili vari modi per creare una coda o un argomento partizionato. Quando si crea la coda o l'argomento dalla propria applicazione, è possibile abilitare il partizionamento per la coda o l'argomento impostando, rispettivamente, la proprietà [QueueDescription.EnablePartitioning][] o [TopicDescription.EnablePartitioning][] su **true**. Queste proprietà devono essere impostate al momento della creazione della coda o dell'argomento. Non è possibile modificare queste proprietà in una coda o in un argomento esistente. Ad esempio:
 
@@ -45,7 +45,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-In alternativa, è possibile creare una coda o un argomento partizionato in Visual Studio o nel [portale di Azure][]. Quando si crea una nuova coda o un nuovo argomento nel portale, selezionare l'opzione **Abilita partizionamento** nella scheda **Configura** della finestra della coda o dell'argomento. In Visual Studio fare clic sulla casella di controllo **Abilita partizionamento** nella finestra di dialogo **Nuova coda** o **Nuovo argomento**.
+In alternativa, è possibile creare una coda o un argomento partizionato in Visual Studio o nel [portale di Azure classico][]. Quando si crea una nuova coda o un nuovo argomento nel portale, selezionare l'opzione **Abilita partizionamento** nella scheda **Configura** della finestra della coda o dell'argomento. In Visual Studio fare clic sulla casella di controllo **Abilita partizionamento** nella finestra di dialogo **Nuova coda** o **Nuovo argomento**.
 
 ## Uso delle chiavi di partizione
 
@@ -128,7 +128,7 @@ Nell'implementazione corrente il bus di servizio impone alle code o agli argomen
 Per altre informazioni sul partizionamento delle entità di messaggistica, vedere la discussione relativa al supporto di AMQP 1.0 per le code e gli argomenti partizionati del bus di servizio (presto disponibile).
 
   [Architettura del bus di servizio]: service-bus-architecture.md
-  [portale di Azure]: http://manage.windowsazure.com
+  [portale di Azure classico]: http://manage.windowsazure.com
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
   [BrokeredMessage.SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
@@ -144,4 +144,4 @@ Per altre informazioni sul partizionamento delle entità di messaggistica, veder
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

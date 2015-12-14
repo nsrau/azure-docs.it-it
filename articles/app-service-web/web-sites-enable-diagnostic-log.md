@@ -22,7 +22,7 @@
 
 Azure offre diagnostica integrata per facilitare il debug di un'[app Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione, oltre a come accedere alle informazioni registrate da Azure.
 
-L'articolo illustra inoltre l'uso del [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), di Azure PowerShell e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+L'articolo illustra inoltre l'uso del [portale di Azure](https://portal.azure.com), di Azure PowerShell e dell'interfaccia della riga di comando di Azure (Azure CLI) per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -50,7 +50,7 @@ Le app Web del servizio app registrano anche le informazioni di distribuzione de
 
 ## <a name="enablediag"></a>Come abilitare la diagnostica
 
-Per abilitare la diagnostica nel [portale di anteprima di Azure](https://portal.azure.com), passare al pannello dell'app Web e fare clic su **Impostazioni > Log di diagnostica**.
+Per abilitare la diagnostica nel [portale di Azure](https://portal.azure.com), passare al pannello dell'app Web e fare clic su **Impostazioni > Log di diagnostica**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte del log](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -59,9 +59,9 @@ Quando si abilita**Diagnostica applicazioni** è anche possibile scegliere il **
 
 > [AZURE.NOTE]Diversamente da quanto accade nella modifica del file web.config, l'abilitazione della diagnostica applicazioni o la modifica dei livelli dei log di diagnostica non comportano il riciclaggio del dominio dell'applicazione in cui viene eseguita la stessa.
 
-Nella scheda **Configura** dell'app Web nel [Portale di Azure](https://manage.windowsazure.com), è possibile selezionare **Archiviazione** o **File system** per **Registrazione server Web**. La selezione di **storage** consente di selezionare un account di archiviazione e quindi un contenitore BLOB in cui verranno scritti i log. Tutti gli altri log per la **diagnostica del sito** verranno scritti solo sul file system.
+Nella scheda **Configura** dell'app Web nel [portale classico](https://manage.windowsazure.com), è possibile selezionare **archiviazione** o **file system** per **Registrazione server Web**. La selezione di **storage** consente di selezionare un account di archiviazione e quindi un contenitore BLOB in cui verranno scritti i log. Tutti gli altri log per la **diagnostica del sito** verranno scritti solo sul file system.
 
-La scheda **Configura** dell'app Web del [Portale di Azure](https://manage.windowsazure.com) include anche altre impostazioni per la Diagnostica applicazioni:
+La scheda **Configura** dell'app Web del [portale classico](https://manage.windowsazure.com) include anche altre impostazioni per la diagnostica applicazioni:
 
 * **File system**: consente di archiviare le informazioni di diagnostica applicazioni sul file system dell'app Web. È possibile accedere a questi file mediante FTP oppure scaricarli come archivio zip tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
 * **Archivio tabelle**: consente di memorizzare le informazioni di diagnostica applicazioni nell'account di archiviazione di Azure e nel nome tabella specificati.
@@ -99,7 +99,7 @@ La struttura di directory in cui sono memorizzati i log è la seguente:
 
 ### FTP
 
-Per accedere alle informazioni sulle diagnostiche tramite FTP, visitare il **Dashboard** dell'app Web nel [portale di Azure](https://manage.windowsazure.com). Nella sezione **quick glance** usare il collegamento **FTP Diagnostic Logs** per accedere ai file di log mediante FTP. In **Deployment/FTP User** è indicato il nome utente da utilizzare per accedere al sito FTP.
+Per accedere alle informazioni sulle diagnostiche tramite FTP, visitare il **Dashboard** dell'app Web nel [portale classico](https://manage.windowsazure.com). Nella sezione **quick glance** usare il collegamento **FTP Diagnostic Logs** per accedere ai file di log mediante FTP. In **Deployment/FTP User** è indicato il nome utente da utilizzare per accedere al sito FTP.
 
 > [AZURE.NOTE]Se la voce **Utente FTP/distribuzione** non è impostata oppure se è stata dimenticata la password per questo utente, è possibile creare un nuovo utente con relativa password mediante il collegamento **Reimpostare le credenziali** di distribuzione nella sezione **Riepilogo rapido** del **Dashboard**.
 
@@ -132,7 +132,7 @@ Visual Studio Application Insights fornisce strumenti per il filtro e la ricerca
 2. Aggiungere il pacchetto di Listener di traccia al progetto.
  * In Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet. Selezionare `Microsoft.ApplicationInsights.TraceListener` [ulteriori](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Caricare il progetto ed eseguire la generazione di dati del log.
-4. Nel [portale di anteprima di Azure](http://portal.azure.com/) individuare la nuova risorsa di Application Insights e aprire **Ricerca**. Verranno visualizzati i dati dei log insieme a quelli relativi alle richieste, all'utilizzo e alla telemetria. Per la visualizzazione di alcuni dati di telemetria potrebbero essere necessari alcuni minuti: fare clic su Aggiorna. [Ulteriori informazioni](../application-insights/app-insights-diagnostic-search.md)
+4. Nel [portale di Azure](http://portal.azure.com/) individuare la nuova risorsa di Application Insights e aprire **Ricerca**. Verranno visualizzati i dati dei log insieme a quelli relativi alle richieste, all'utilizzo e alla telemetria. Per la visualizzazione di alcuni dati di telemetria potrebbero essere necessari alcuni minuti: fare clic su Aggiorna. [Ulteriori informazioni](../application-insights/app-insights-diagnostic-search.md)
 
 [Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../insights-perf-analytics.md)
 
@@ -259,7 +259,7 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 
 ##<a name="nextsteps"></a> Passaggi successivi
 
-- [Come monitorare le app Web](/it-IT/manage/services/web-sites/how-to-monitor-websites/)
+- [Come monitorare le app Web](/manage/services/web-sites/how-to-monitor-websites/)
 - [Risoluzione dei problemi delle app Web di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analisi dei log delle app Web in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
@@ -270,4 +270,4 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -70,7 +70,7 @@ Premere **INVIO** per chiudere l'applicazione. A questo punto, è stato creato c
 
 > [AZURE.NOTE]Se si verificano errori come "Valore non valido per la chiave 'attachdbfilename'" o un altro errore di allegato al database, potrebbero verificarsi conflitti di Controllo dell'account utente. Ai fini di questa dimostrazione, risolvere questi errori effettuando le seguenti operazioni: copiare la soluzione in una cartella nuova o esistente (ad esempio Temp) che fornisce l'accesso agli utenti autenticati. Utilizzare **Esegui come amministratore** per avviare Visual Studio. Aprire la soluzione, compilarlo e premere **F5** per creare l'indice.
 
-Per verificare la creazione dell'indice e il caricamento del documento, passare al dashboard del servizio di ricerca nel [portale di gestione di Azure](https://portal.azure.com). In Utilizzo, il numero dell'indice dovrebbe essere aumentato di uno e dovrebbero essere disponibili 294 documenti, uno per ogni prodotto presente nel database.
+Per verificare la creazione dell'indice e il caricamento dei documenti, passare al dashboard del servizio di ricerca nel [portale di Azure classico](https://portal.azure.com). In Utilizzo, il numero dell'indice dovrebbe essere aumentato di uno e dovrebbero essere disponibili 294 documenti, uno per ogni prodotto presente nel database.
 
 Fare clic sul riquadro **Indici** per visualizzare l'elenco degli indici, che verrà espanso in modo da visualizzare il nuovo numero di indici e documenti. Si noti che è possibile avere fino a tre indici a livello di prezzo Free. Se si dispone già di tre indici, è necessario eliminare uno per liberare spazio per quelli nuovi.
 
@@ -206,4 +206,4 @@ Per approfondire l'argomento, è possibile considerare l'aggiunta di una pagina 
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

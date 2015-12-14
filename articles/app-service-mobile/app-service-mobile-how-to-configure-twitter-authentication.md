@@ -33,7 +33,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 ## <a name="register"> </a>Registrare l'applicazione con Twitter
 
 
-1. Accedere al [portale di gestione di Azure] e passare all'applicazione. Copiare l'**URL**. Verrà usato per configurare l'app Twitter.
+1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l'**URL**. Verrà usato per configurare l'app Twitter.
 
 2. Passare al sito Web [Twitter Developers], accedere con le credenziali dell'account Twitter e quindi fare clic su **Create New App**.
 
@@ -43,11 +43,11 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 3.  Nella parte inferiore della pagina, leggere e accettare le condizioni di utilizzo. Fare clic su **Create your Twitter application**. L'app verrà registrata e verranno visualizzati i dettagli dell'applicazione.
 
-4. Fare clic sulla scheda **Impostazion**, selezionare **Allow this application to be used to sign in with Twitter** e quindi fare clic su **Update Settings**.
+4. Fare clic sulla scheda **Settings**, selezionare **Allow this application to be used to sign in with Twitter** e quindi fare clic su **Update Settings**.
 
 5. Selezionare la scheda **Keys and Access Tokens**. Prendere nota dei valori di **Consumer Key (API Key)** e **Consumer secret (API Secret)**.
 
-    > [AZURE.NOTE] Il segreto consumer è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app.
+    > [AZURE.NOTE]Il segreto consumer è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app.
 
 
 ## <a name="secrets"> </a>Aggiungere informazioni di Twitter all'applicazione
@@ -55,7 +55,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 > [AZURE.NOTE]Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gateway nel portale. Selezionare **Settings**, **Identity**, e quindi **Twitter**. Incollare i valori ottenuti nel passaggio precedente e fare clic su **Save**.
 
 
-13. Nel [Portale di gestione di Azure] passare all'applicazione desiderata. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
+13. Nel [portale di Azure], passare all'applicazione. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
 
 14. Se la funzionalità di autenticazione/autorizzazione non è abilitata, impostare l'opzione in modo da **abilitarla**.
 
@@ -85,7 +85,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 <!-- URLs. -->
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[portale di gestione di Azure]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

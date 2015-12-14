@@ -23,7 +23,7 @@
 In Servizi multimediali di Azure un **canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un **canale** riceve i flussi di input live in uno dei due modi seguenti:
 
 - Un codificatore live locale invia al canale un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a più velocità in bit. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live, Telestream Wirecast e transcodificatori Tricaster. I flussi inseriti passano attraverso il **canale** senza altre elaborazioni. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
-- Un flusso a velocità in bit singola (in uno dei seguenti formati: **RTP** (MPEG-TS)), **RTMP** o **Smooth Streaming** (MP4 frammentato)) viene inviato al **canale** abilitato per l'esecuzione della codifica live con Servizi multimediali. Il **canale** esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti. 
+- Un flusso a velocità in bit singola (in uno dei seguenti formati: **RTP** (MPEG-TS)), **RTMP** o **Smooth Streaming** (MP4 frammentato)) viene inviato al **canale** abilitato per l'esecuzione della codifica live con Servizi multimediali. Il **canale** esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
 A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale è possibile specificare in che modo il canale riceverà il flusso di input e se eseguirà o meno la codifica live del flusso. Sono disponibili due opzioni:
 
@@ -36,9 +36,9 @@ A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale 
 
 ##Implicazioni relative alla fatturazione
 
-Un canale di codifica live avvia la fatturazione non appena il suo stato viene impostato su "In esecuzione" tramite l'API. È possibile visualizzare lo stato del canale nel portale di Azure o nello strumento Azure Media Services Explorer (http://aka.ms/amse).
+Un canale di codifica live avvia la fatturazione non appena il suo stato viene impostato su "In esecuzione" tramite l'API. È possibile visualizzare lo stato del canale nel portale di Azure classico o nello strumento Azure Media Services Explorer (http://aka.ms/amse).
 
-La tabella seguente illustra il mapping degli stati del canale agli stati di fatturazione nell'API e nel portale. È possibile che gli stati visualizzati nell'API risultino leggermente diversi da quelli dell'interfaccia del portale. Non appena un canale viene impostato sullo stato "In esecuzione" tramite l'API o sullo stato "Pronto" o "Streaming" nel portale di Azure, viene attivata la fatturazione. Per sospendere l'attività di fatturazione del canale, è necessario interrompere il canale tramite l'API o nel portale di Azure. È l'utente ad essere responsabile dell'interruzione dei canali al termine dell'utilizzo del canale di codifica live. La mancata interruzione del canale di codifica comporta infatti il proseguimento della fatturazione.
+La tabella seguente illustra il mapping degli stati del canale agli stati di fatturazione nell'API e nel portale di Azure classico. È possibile che gli stati visualizzati nell'API risultino leggermente diversi da quelli dell'interfaccia del portale. Non appena un canale viene impostato sullo stato "In esecuzione" tramite l'API o sullo stato "Pronto" o "Streaming" nel portale di Azure classico, viene attivata la fatturazione. Per sospendere l'attività di fatturazione del canale, è necessario interrompere il canale tramite l'API o nel portale di Azure classico. È l'utente ad essere responsabile dell'interruzione dei canali al termine dell'utilizzo del canale di codifica live. La mancata interruzione del canale di codifica comporta infatti il proseguimento della fatturazione.
 
 ###<a id="states"></a>Stati del canale e relativi metodi di mapping alla modalità di fatturazione 
 
@@ -93,7 +93,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 
 3. Creare un programma.
 
-	Se si crea un programma tramite il portale di gestione di Azure, viene creato anche un asset.
+	Se si crea un programma tramite il portale di Azure classico, viene creato anche un asset.
 
 	Se si usa .NET SDK o REST, è necessario creare un asset e specificarne l'uso quando si crea un programma. 
 1. Pubblicare l'asset associato al programma.   
@@ -244,7 +244,7 @@ I canali forniscono anche un endpoint di anteprima (URL di anteprima) che consen
 
 Una volta che il canale inizia a inserire i dati, è possibile visualizzare in anteprima il flusso.
 
-**Nota**: attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato. Per testare il flusso Smooth Streaming, è possibile usare il lettore [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor). Per visualizzare il flusso, è inoltre possibile usare un lettore ospitato nel portale di gestione di Azure.
+**Nota**: attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato. Per testare il flusso Smooth Streaming, è possibile usare il lettore [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor). Per visualizzare il flusso, è inoltre possibile usare un lettore ospitato nel portale di Azure classico.
 
 ###Indirizzi IP consentiti
 
@@ -466,4 +466,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

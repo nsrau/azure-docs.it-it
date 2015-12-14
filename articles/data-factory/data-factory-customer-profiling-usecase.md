@@ -36,7 +36,7 @@ Sono molte le problematiche che le società di giochi online devono affrontare q
 
 Questo semplice caso di utilizzo esemplifica la modalità di utilizzo di Azure Data Factory per inserire, preparare, trasformare, analizzare e pubblicare i dati.
 
-![Flusso di lavoro end-to-end](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)Nella figura precedente viene illustrato come vengono visualizzate le pipeline di dati nell'interfaccia utente del portale di Azure dopo la distribuzione.
+![Flusso di lavoro end-to-end](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)Nella figura precedente viene illustrato come vengono visualizzate le pipeline di dati nell'interfaccia utente del portale di Azure classico dopo la distribuzione.
 
 1.	**PartitionGameLogsPipeline** legge gli eventi del gioco non elaborati da una risorsa di archiviazione BLOB e crea partizioni basate su anno, mese e giorno.
 2.	**EnrichGameLogsPipeline** unisce gli eventi di giochi partizionati con dati di riferimento del codice geografico e arricchisce i dati eseguendo il mapping di indirizzi IP per le aree geografiche corrispondenti.
@@ -48,4 +48,4 @@ In questo esempio di caso di utilizzo, Azure Data Factory viene utilizzata per g
 
 Per ottimizzare l’analisi del profilo dell'utente e allinearla agli obiettivi aziendali, le società giochi online sono in grado di raccogliere rapidamente modelli di utilizzo e analizzare l'efficacia delle campagne pubblicitarie per tutti i propri diversi giochi.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

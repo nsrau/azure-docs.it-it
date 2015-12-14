@@ -18,6 +18,8 @@
 
 # Usare un'app per le API interna nel servizio app di Azure da un client .NET 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Panoramica
 
 Questa esercitazione illustra come scrivere codice per un'[app per le API](app-service-api-apps-why-best-platform.md) ASP.NET che chiama un'altra app per le API configurata per il livello di accesso **interno**. Entrambe le app per le API devono trovarsi nello stesso gruppo di risorse. È possibile usare lo stesso codice per chiamare un'app per le API interna da un'[app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop-preview.md).
@@ -265,4 +267,4 @@ Per altri esempi di codice per chiamare app per le API dai client .NET, scaricar
 Per informazioni sull'autenticazione nel servizio app, vedere [Autenticazione per app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

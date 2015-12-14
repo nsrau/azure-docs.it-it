@@ -1,28 +1,33 @@
-<properties 
+<properties
 	pageTitle="Pianificare le attività di back-end in un servizio mobile back-end di .NET | Microsoft Azure"
 	description="Utilizzare l'utilità di pianificazione in servizi mobili di Azure per definire i processi back-end .NET eseguiti in una pianificazione."
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
-# Pianificare i processi ricorrenti in Servizi mobili 
+# Pianificare i processi ricorrenti in Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
- 
-Questo argomento illustra come usare la funzionalità di pianificazione processi nel portale di gestione per definire il codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
+
+Questo argomento illustra come usare la funzionalità dell’utilità di pianificazione processi nel portale di Azure classico per definire il codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
 
 + Archiviazione di record di dati obsoleti o duplicati.
 + Richiesta e archiviazione di dati esterni, ad esempio tweet, voci RSS e informazioni sulla posizione.
@@ -70,13 +75,13 @@ In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 	Viene aggiunto un nuovo riferimento ad assembly.
 
 2. In questa nuova classe aggiungere le istruzioni **using** seguenti:
- 
+
 		using Microsoft.WindowsAzure.Mobile.Service;
 		using System.ComponentModel.DataAnnotations;
 
 3. Sostituire la definizione della classe **Updates** con il codice seguente:
 
-		public class Updates 
+		public class Updates
 	    {
 	        [Key]
 	        public int UpdateId { get; set; }
@@ -96,14 +101,14 @@ In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 
 Sarà quindi possibile creare l'attività pianificata che accede a Twitter e archivia i dati dei tweet nella nuova tabella Updates.
 
-##<a name="add-job"></a>Creare un nuovo processo pianificato  
+##<a name="add-job"></a>Creare un nuovo processo pianificato
 
 1. Espandere la cartella ScheduledJobs e aprire il file del progetto SampleJob.cs.
 
-	Questa classe, che eredita da **ScheduledJob**, rappresenta un processo la cui esecuzione può essere pianificata nel portale di gestione di Azure secondo una pianificazione fissa oppure su richiesta.
+	Questa classe, che eredita da **ScheduledJob**, rappresenta un processo la cui esecuzione può essere pianificata nel portale di Azure classico secondo una pianificazione fissa oppure su richiesta.
 
 2. Sostituire il contenuto del file SampleJob.cs con il codice seguente:
- 
+
 		using System;
 		using System.Linq;
 		using System.Threading;
@@ -114,7 +119,7 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		using LinqToTwitter;
 		using todolistService.Models;
 		using todolistService.DataObjects;
-		
+
 		namespace todolistService
 		{
 		    // A simple scheduled job which can be invoked manually by submitting an HTTP
@@ -124,29 +129,29 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		        private todolistContext context;
 		        private string accessToken;
 		        private string accessTokenSecret;
-		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor,
 					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
-		
+
 		            // Create a new context with the supplied schema name.
 		            context = new todolistContext();
 		        }
-		
+
 		        public async override Task ExecuteAsync()
-		        {            
-		            // Try to get the stored Twitter access token from app settings.  
+		        {
+		            // Try to get the stored Twitter access token from app settings.
 		            if (!(Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN", out accessToken) |
 		            Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN_SECRET", out accessTokenSecret)))
 		            {
 		                Services.Log.Error("Could not retrieve Twitter access credentials.");
 		            }
-		
+
 		            // Create a new authorizer to access Twitter v1.1 APIs
 		            // using single-user OAUth 2.0 credentials.
 		            MvcAuthorizer auth = new MvcAuthorizer();
-		            SingleUserInMemoryCredentialStore store = 
+		            SingleUserInMemoryCredentialStore store =
 		                new SingleUserInMemoryCredentialStore()
 		            {
 		                ConsumerKey = Services.Settings.TwitterConsumerKey,
@@ -154,13 +159,13 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		                OAuthToken = accessToken,
 		                OAuthTokenSecret = accessTokenSecret
 		            };
-		
+
 		            // Set the credentials for the authorizer.
 		            auth.CredentialStore = store;
-		
+
 		            // Create a new LINQ to Twitter context.
 		            TwitterContext twitter = new TwitterContext(auth);
-		
+
 		            // Get the ID of the most recent stored tweet.
 		            long lastTweetId = 0;
 		            if (context.Updates.Count() > 0)
@@ -170,7 +175,7 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		                               select u).Take(1).SingleOrDefault()
 		                                            .TweetId;
 		            }
-		
+
 		            // Execute a search that returns a filtered result.
 		            var response = await (from s in twitter.Search
 		                                  where s.Type == SearchType.Search
@@ -178,13 +183,13 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		                                  && s.SinceID == Convert.ToUInt64(lastTweetId + 1)
 		                                  && s.ResultType == ResultType.Recent
 		                                  select s).SingleOrDefaultAsync();
-		
+
 		            // Remove retweets and replies and log the number of tweets.
 		            var filteredTweets = response.Statuses
 		                .Where(t => !t.Text.StartsWith("RT") && t.InReplyToUserID == 0);
 		            Services.Log.Info("Fetched " + filteredTweets.Count()
 		                + " new tweets from Twitter.");
-		
+
 		            // Store new tweets in the Updates table.
 		            foreach (Status tweet in filteredTweets)
 		            {
@@ -196,10 +201,10 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		                        Author = tweet.User.Name,
 		                        Date = tweet.CreatedAt
 		                    };
-		
+
 		                context.Updates.Add(newTweet);
 		            }
-		
+
 		            await context.SaveChangesAsync();
 		        }
 		        protected override void Dispose(bool disposing)
@@ -214,7 +219,7 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		}
 
 	Nel codice precedente è necessario sostituire le stringhe _todolistService_ e _todolistContext_ con lo spazio dei nomi e la classe DbContext del progetto scaricato, che sono rispettivamente *nome&#95;servizio&#95;mobile*Servizio e nome&#95;servizio&#95;mobile*Contesto.
-   	
+
 	Inoltre, il metodo di override **ExecuteAsync** chiama l'API query Twitter usando le credenziali archiviate per richiedere i tweet recenti contenenti l'hashtag `#mobileservices`. I tweet duplicati e le risposte sono rimossi dai risultati prima di essere archiviati nella tabella.
 
 ##<a name="run-job-locally"></a>Testare a livello locale il processo pianificato
@@ -228,7 +233,7 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 2. Fare clic su **Prova**, quindi su **POST jobs/{jobName}**.
 
 	![][8]
- 
+
 4. Fare clic su **Prova**, digitare `Sample` come valore del parametro **{jobName}** e quindi fare clic su **Invia**.
 
 	![][9]
@@ -239,20 +244,20 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 
 	I nuovi tweet verranno immessi come righe nella tabella dati.
 
-##<a name="register-job"></a>Pubblicare il servizio e registrare il nuovo processo 
+##<a name="register-job"></a>Pubblicare il servizio e registrare il nuovo processo
 
 È necessario registrare il processo nella scheda **Scheduler** in modo che sia possibile eseguirlo in base alla pianificazione definita dall'utente in Servizi mobili.
 
-3. Ripubblicare il progetto di servizio mobile in Azure. 
+3. Ripubblicare il progetto di servizio mobile in Azure.
 
-4. Nel [portale di gestione di Azure], fare clic su Mobile Services e quindi sull'app.
+4. Nel [portale di Azure classico], fare clic su Servizi mobili e quindi sull'app.
 
 2. Fare clic sulla scheda **Utilità di pianificazione** e quindi su **+Crea**.
 
     >[AZURE.NOTE]Quando si esegue il servizio mobile nella modalità <em>gratuita</em>, è possibile eseguire un solo processo pianificato alla volta. Nelle modalità a pagamento è invece possibile eseguire fino a dieci processi pianificati contemporaneamente.
 
 3. Nella finestra di dialogo dell'utilità di pianificazione immettere _Sample_ per **Nome processo**, impostare le unità e l'intervallo di pianificazione e quindi fare clic sul segno di spunta.
-   
+
    	![][4]
 
    	Viene creato un nuovo processo denominato **Sample**.
@@ -263,11 +268,11 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 
 	>[AZURE.NOTE]È comunque possibile usare una richiesta POST per avviare il processo pianificato. Per impostazione predefinita, l'autorizzazione è concessa all'utente, quindi la richiesta dovrà includere la chiave applicazione nell'intestazione.
 
-4. (Facoltativo) Nel [portale di gestione di Azure] fare clic su Manage per il database associato al servizio mobile.
+4. (Facoltativo) Nel [portale di Azure classico] fare clic su Gestisci per il database associato al servizio mobile.
 
     ![][6]
 
-5. Nel portale di gestione eseguire una query per visualizzare le modifiche apportate dall'app. La query sarà simile a quella riportata di seguito, ma come nome dello schema verrà usato il nome del servizio mobile anziché `todolist`.
+5. Nel portale di Azure classico eseguire una query per visualizzare le modifiche apportate dall'app. La query sarà simile a quella riportata di seguito, ma come nome dello schema verrà usato il nome del servizio mobile anziché `todolist`.
 
         SELECT * FROM [todolist].[Updates]
 
@@ -294,10 +299,10 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [9]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-try-this-out.png
 
 <!-- URLs. -->
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [progetto CodePlex di LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

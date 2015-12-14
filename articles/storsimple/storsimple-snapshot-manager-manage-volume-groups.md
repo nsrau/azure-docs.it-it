@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Utilizzo di Gestione snapshot StorSimple per creare e gestire gruppi di volumi
@@ -52,11 +52,11 @@ Colonna risultati | Descrizione
 Nome | La colonna **Nome** contiene il nome del gruppo di volumi.
 Applicazione | La colonna **Applicazioni** mostra il numero di writer del Servizio snapshot del volume attualmente installati e in esecuzione sull'host Windows.
 Selezionato | La colonna **Selezionati** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi.
-Importati | La colonna **Importati** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di gestione di Microsoft Azure e non è stato creato in Gestione snapshot StorSimple.
+Importati | La colonna **Importati** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di Azure classico e non è stato creato in Gestione snapshot StorSimple.
  
->[AZURE.NOTE]I gruppi di volumi di Gestione snapshot StorSimple vengono inoltre visualizzati nella scheda **Criteri di backup** del portale di gestione di Azure.
+>[AZURE.NOTE]I gruppi di volumi di Gestione snapshot StorSimple vengono inoltre visualizzati nella scheda **Criteri di backup** del portale di Azure classico.
  
-## Creazione di un gruppo di volumi
+## Creare un gruppo di volumi
 
 Utilizzare la procedura seguente per creare un gruppo di volumi.
 
@@ -147,4 +147,4 @@ Utilizzare la procedura seguente per eliminare un gruppo di volumi.
 - Informazioni su come [usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 - Informazioni su come [usare Gestione Snapshot StorSimple per creare e gestire criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

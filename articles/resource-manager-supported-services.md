@@ -13,29 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Supporto di Gestione risorse per servizi, aree e versioni API
 
-Gestione risorse di Azure fornisce un nuovo modo per distribuire e gestire i servizi che costituiscono le applicazioni.
-La maggior parte, ma non tutti i servizi, supportano Gestione risorse e alcuni servizi supportano Gestione risorse solo parzialmente. Microsoft abiliterà Gestione risorse per ogni servizio importante per le soluzioni future, ma fino a quando il supporto sarà coerente, è necessario conoscere lo stato corrente di ogni servizio. In questo argomento è fornito un elenco di provider di risorse supportati per Gestione risorse di Azure.
+Gestione risorse di Azure fornisce un nuovo modo per distribuire e gestire i servizi che costituiscono le applicazioni. La maggior parte, ma non tutti i servizi, supportano Gestione risorse e alcuni servizi supportano Gestione risorse solo parzialmente. Microsoft abiliterà Gestione risorse per ogni servizio importante per le soluzioni future, ma fino a quando il supporto sarà coerente, è necessario conoscere lo stato corrente di ogni servizio. In questo argomento è fornito un elenco di provider di risorse supportati per Gestione risorse di Azure.
 
 Durante la distribuzione delle risorse, è anche necessario conoscere quali aree supportano tali risorse e quali versioni dell'API sono disponibili per tali risorse. La sezione [Aree supportate](#supported-regions) illustra come trovare le aree adatte alla propria sottoscrizione e alle proprie risorse. La sezione [Versioni API supportate](#supported-api-versions) illustra come determinare quali versioni dell'API è possibile usare.
 
-Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzione e la gestione tramite Gestione risorse e quali no. La colonna denominata **Sposta risorse** indica se le risorse di questo tipo possono essere spostate sia in un nuovo gruppo di risorse che in una nuova sottoscrizione. La colonna denominata **Portale di anteprima** indica se è possibile creare il servizio tramite il portale di anteprima.
+Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzione e la gestione tramite Gestione risorse e quali no. La colonna denominata **Sposta risorse** indica se le risorse di questo tipo possono essere spostate sia in un nuovo gruppo di risorse che in una nuova sottoscrizione. La colonna denominata **Portale** indica se è possibile creare il servizio tramite il [Portale di Azure](https://portal.azure.com).
 
 
 ## Calcolo
 
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | Macchine virtuali | Sì | Sì, molte opzioni | No | [Creare una VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Sì | [Sì (solo classica)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Sì | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Servizi del ciclo di vita Dynamics | Sì | No | | | |
-| Macchine virtuali (classiche) | Limitato | Sì | Parziale (vedere di seguito) | - | - |
-| App remota | No | - | - | - | - |
-| Infrastruttura di servizi | No | - | - | - | - |
+| Macchine virtuali (classiche) | Limitato | Sì, molte opzioni | Parziale (vedere di seguito) | - | - | | App remota | No | No | - | - | - | | Infrastruttura di servizi | No | No | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
@@ -43,7 +40,7 @@ Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuit
 
 ## Rete
 
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | Gateway applicazione | Sì | | | | |
 | DNS | Sì | | | [Creare una zona DNS](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
@@ -54,7 +51,7 @@ Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuit
 
 ## Dati e archiviazione
 
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
 | DocumentDB | Sì | [Sì](https://portal.azure.com/#create/Microsoft.DocumentDB) | Sì | [REST DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
 | Archiviazione | Sì | [Sì](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | No | [Creazione dell'account di archiviazione](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Account di archiviazione](resource-manager-template-storage.md) |
@@ -62,12 +59,11 @@ Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuit
 | Database SQL | Sì | [Sì](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Sì | [Creare database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Ricerca | Sì | [Sì](https://portal.azure.com/#create/Microsoft.Search) | Sì | [REST Ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Sì | [Sì](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | No | No | - | - | - |
-| Cache gestita | No | No | - | - | - |
+| StorSimple | No | No | - | - | - | | Cache gestita | No | No | - | - | - |
 
 ## Web e dispositivi mobili
 
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | Gestione API | Sì | No | Sì | [Create API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
 | App per le API | Sì | [Sì](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [01/03/2015-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
@@ -83,18 +79,17 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 ## Analytics
 
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Hub eventi | Sì | No | | [Creare l'hub eventi](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
 | Analisi dei flussi | Sì | [Sì](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Sì | [Sì](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sì | | |
 | Data factory | Sì | [Sì](https://portal.azure.com/#create/Microsoft.DataFactory) | Sì | [Creare Data factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Machine Learning | No | No | - | - | - |
-| Catalogo dati | No | No | - | - | - |
+| Machine Learning | No | No | - | - | - | | Catalogo dati | No | No | - | - | - |
 
 ## Supporti multimediali e CDN
 
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | RETE CDN | Sì (anteprima) | No | | | |
 | Servizi multimediali | No | No | | | |
@@ -102,24 +97,21 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 ## Integrazione ibrida
 
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Servizi BizTalk | Sì | No | | | [01/04/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Bus di servizio | Sì | No | | [REST bus di servizio](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Backup | No | No | - | - | - |
-| Ripristino sito | No | No | - | - | - |
+| Backup | No | No | - | - | - | | Ripristino sito | No | No | - | - | - |
 
 ## Gestione dell'identità e dell'accesso 
 
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | No | No | - | - | - |
-| Azure Active Directory B2C | No | No | - | - | - |
-| Multi-Factor Authentication | No | No | - | - | - |
+| Azure Active Directory | No | No | - | - | - | | Azure Active Directory B2C | No | No | - | - | - | | Multi-Factor Authentication | No | No | - | - | - |
 
 ## Servizi per gli sviluppatori 
 
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
 | Application Insights | Sì | [Sì](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | No | | [01/04/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing Mappe | Sì | [Sì](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
@@ -127,7 +119,7 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 ## gestione 
 
-| Servizio | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Servizio | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Automazione | Sì | [Sì](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | Sì | | |
 | Insieme di credenziali di chiave | Sì | No | Sì | [REST insieme di credenziali di chiave](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
@@ -137,7 +129,7 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 
 ## Gestione risorse
 
-| Funzionalità | Gestione risorse abilitato | Portale di anteprima | Sposta risorse | API REST | Schema |
+| Funzionalità | Gestione risorse abilitato | Portale | Sposta risorse | API REST | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | Authorization | Sì | N/D | N/D | [Blocchi di gestione](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[Controllo degli accessi in base al ruolo](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [Blocco di risorsa](resource-manager-template-lock.md)<br />[Assegnazioni di ruoli](resource-manager-template-role.md) |
 | Risorse | Sì | N/D | N/D | [Linked Resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [Collegamenti alle risorse](resource-manager-template-links.md) |
@@ -155,7 +147,7 @@ Per individuare le aree disponibili per un determinato tipo di risorsa nella sot
 
 ### PowerShell
 
-Nell'esempio seguente viene illustrato come ottenere le aree supportate per i siti Web utilizzando l'anteprima di Azure PowerShell 1.0. Per altre informazioni sul rilascio dell'anteprima di 1.0, vedere [Anteprima di Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/)
+Nell'esempio seguente viene illustrato come ottenere le aree supportate per i siti Web mediante Azure PowerShell 1.0. Per altre informazioni sul rilascio della versione 1.0, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -207,7 +199,7 @@ Per scoprire quali versioni API sono disponibili per determinati tipi di risorse
 
 ### PowerShell
 
-L'esempio seguente illustra come ottenere le versioni dell'API disponibili per un determinato tipo di risorse usando l'anteprima di Azure PowerShell 1.0.
+L'esempio seguente illustra come ottenere le versioni dell'API disponibili per un determinato tipo di risorse usando Azure PowerShell 1.0.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
     
@@ -238,7 +230,7 @@ Per Azure PowerShell 0.9.8, utilizzare:
 
 ## Passaggi successivi
 
-- Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+- Per altre informazioni sulla creazione di modelli di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per altre informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

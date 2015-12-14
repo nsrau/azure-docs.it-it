@@ -8,14 +8,14 @@ Ora che l'app è stata aggiornata per consentire l'uso di Servizi mobili per l'a
 
    	Un nuovo elemento verrà inviato come inserimento al servizio mobile.
 
-    È possibile riavviare l'app per verificare che le modifiche siano state salvate in modo permanente nel database in Azure. È anche possibile esaminare il database nel portale di gestione di Azure. I due passaggi successivi illustrano come eseguire questa operazione per visualizzare le modifiche nel database.
+    È possibile riavviare l'app per verificare che le modifiche siano state salvate in modo permanente nel database in Azure. È anche possibile esaminare il database nel portale di Azure classico. I due passaggi successivi illustrano come eseguire questa operazione per visualizzare le modifiche nel database.
 
 
-4. Nel portale di gestione di Azure fare clic su Gestisci per il database associato al servizio mobile.
+4. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su Gestisci per il database associato al servizio mobile.
 
     ![](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png)
 
-5. Nel portale di gestione eseguire una query per visualizzare le modifiche apportate dall'app di Windows Store. La query da usare sarà simile alla seguente, ma anziché `todolist` conterrà il nome del database.
+5. Nel portale di Azure classico eseguire una query per visualizzare le modifiche apportate dall'app di Windows Store. La query da usare sarà simile alla seguente, ma anziché `todolist` conterrà il nome del database.
 
         SELECT * FROM [todolist].[todoitems]
 
@@ -23,4 +23,4 @@ Ora che l'app è stata aggiornata per consentire l'uso di Servizi mobili per l'a
 
 L'esercitazione **Introduzione ai dati** per Android è terminata.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

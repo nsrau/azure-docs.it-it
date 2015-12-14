@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/02/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Modificare le impostazioni dell'interfaccia di rete DATI 0 sul dispositivo StorSimple
@@ -41,7 +41,7 @@ Dopo aver letto questa esercitazione, si sarà in grado di:
 
 3. Verrà visualizzata una procedura guidata per configurare l'interfaccia DATI 0 del dispositivo. Fornire nuovi valori per l'indirizzo IP, il gateway e la netmask.
 
-> [AZURE.NOTE]Gli IP fissi dei controller dovranno essere riconfigurati tramite la pagina **Configura** del dispositivo StorSimple nel portale di gestione di Azure. Per ulteriori informazioni, andare a [Modificare le interfacce di rete](storsimple-modify-device-config.md#modify-network-interfaces).
+> [AZURE.NOTE]Gli IP fissi dei controller dovranno essere riconfigurati tramite la pagina **Configura** del dispositivo StorSimple nel portale di Azure classico. Per ulteriori informazioni, andare a [Modificare le interfacce di rete](storsimple-modify-device-config.md#modify-network-interfaces).
 
 
 ## Modificare le impostazioni di rete di DATI 0 tramite il cmdlet Set-HcsNetInterface
@@ -69,6 +69,7 @@ Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell
 
 ## Passaggi successivi
 
-Per configurare le interfacce di rete diverse da DATA 0, è possibile utilizzare la [pagina di configurazione nel portale di gestione](storsimple-modify-device-config.md). Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md).
+- Per configurare le interfacce di rete diverse da DATA 0, è possibile utilizzare la [pagina di configurazione nel portale di Azure classico](storsimple-modify-device-config.md). 
+- Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

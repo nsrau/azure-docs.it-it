@@ -89,7 +89,7 @@ Ogni script del server include una funzione principale e può avere funzioni di 
 
 Gli script del server registrati per un'operazione su tabella possono essere definiti in uno dei modi seguenti:
 
-+ Nel [portale di gestione di Azure][Management Portal]. Gli script per le operazioni su tabella sono accessibili nella scheda **Script** per una determinata tabella. Di seguito viene illustrato il codice predefinito registrato nello script insert per la tabella `TodoItem`. È possibile sostituire questo codice con la logica di business personalizzata.
++ Nel [portale di Azure classico]. Gli script per le operazioni su tabella sono accessibili nella scheda **Script** per una determinata tabella. Di seguito viene illustrato il codice predefinito registrato nello script insert per la tabella `TodoItem`. È possibile sostituire questo codice con la logica di business personalizzata.
 
 	![1][1]
 	
@@ -336,7 +336,7 @@ Lo stato globale viene mantenuto tra le esecuzioni.
 
 Gli script del server registrati nei metodi HTTP in un endpoint API personalizzata possono essere definiti in uno dei modi seguenti:
 
-+ Nel [portale di gestione di Azure][Management Portal]. Gli script di API personalizzate vengono creati e modificati nella scheda **API**. Il codice di script del server si trova nella scheda **Script** di una specifica API personalizzata. Di seguito è riportato lo script che viene richiamato da una richiesta POST all'endpoint dell'API personalizzata `CompleteAll`. 
++ Nel [portale di Azure classico]. Gli script di API personalizzate vengono creati e modificati nella scheda **API**. Il codice di script del server si trova nella scheda **Script** di una specifica API personalizzata. Di seguito è riportato lo script che viene richiamato da una richiesta POST all'endpoint dell'API personalizzata `CompleteAll`. 
 
 	![2][2]
 	
@@ -443,17 +443,17 @@ Le due route nell'esempio di API personalizzata precedente possono essere richia
 
 ##<a name="scheduler-scripts"></a>Utilità di pianificazione processi
 
-Servizi mobili consente di definire script del server che vengono eseguiti come processi secondo una pianificazione fissa oppure su richiesta dal portale di gestione. I processi pianificati sono utili per eseguire attività periodiche, quali la pulizia della tabella dati e l'elaborazione batch. Per ulteriori informazioni, vedere [Pianificare i processi].
+Servizi mobili consente di definire script del server che vengono eseguiti come processi secondo una pianificazione fissa oppure su richiesta dal portale di Azure classico. I processi pianificati sono utili per eseguire attività periodiche, quali la pulizia della tabella dati e l'elaborazione batch. Per ulteriori informazioni, vedere [Pianificare i processi].
 
 Gli script registrati per i processi pianificati hanno una funzione principale il cui nome corrisponde a quello del processo pianificato. Poiché uno script pianificato non viene richiamato da una richiesta HTTP, non esiste un contesto che può essere passato dal runtime del server e la funzione non accetta parametri. Come per altri tipi di script, possono essere presenti funzioni di subroutine e possono essere richiesti moduli condivisi. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto].
 
 ###<a name="scheduler-scripts"></a>Procedura: Definire script di processi pianificati
 
-È possibile assegnare uno script del server a un processo definito nell'utilità di pianificazione di Servizi mobili. Questi script appartengono al processo e vengono eseguiti in base alla pianificazione del processo. È inoltre possibile utilizzare il [portale di gestione] per eseguire processi su richiesta. Uno script che definisce un processo pianificato non include parametri perché non riceve dati da Servizi mobili; esso viene eseguito come una normale funzione JavaScript e non interagisce direttamente con Servizi mobili.
+È possibile assegnare uno script del server a un processo definito nell'utilità di pianificazione di Servizi mobili. Questi script appartengono al processo e vengono eseguiti in base alla pianificazione del processo. È inoltre possibile utilizzare il [portale di Azure classico] per eseguire processi su richiesta. Uno script che definisce un processo pianificato non include parametri perché non riceve dati da Servizi mobili; esso viene eseguito come una normale funzione JavaScript e non interagisce direttamente con Servizi mobili.
 
 Per definire processi pianificati è possibile procedere in uno dei modi seguenti:
 
-+ Nel [portale di gestione di Azure][Management Portal] nella scheda **Script** dell'utilità di pianificazione:
++ Nel [portale di Azure classico] nella scheda **Script** dell'utilità di pianificazione:
 
 	![3][3]
 
@@ -924,7 +924,7 @@ Il modo principale per eseguire il debug e risolvere i problemi relativi agli sc
 
 Per scrivere nei log, utilizzare l'[oggetto console] globale. Utilizzare la funzione **log** o **info** per registrare avvisi a livello di informazioni. Le funzioni **warning** e **error** registrano i rispettivi livelli, che sono descritti nei log.
 
-> [AZURE.NOTE]Per visualizzare i log per il proprio servizio mobile, accedere al [portale di gestione](https://manage.windowsazure.com/), selezionare il servizio mobile, quindi scegliere la scheda **Log**.
+> [AZURE.NOTE]Per visualizzare i log per il proprio servizio mobile, accedere al [portale di Azure classico](https://manage.windowsazure.com/), selezionare il servizio mobile, quindi scegliere la scheda **Log**.
 
 È anche possibile utilizzare la funzione di registrazione dell'[oggetto console] per formattare i messaggi mediante parametri. Nell'esempio seguente un oggetto JSON viene fornito come parametro alla stringa del messaggio:
 
@@ -1019,8 +1019,7 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [Convalidare i dati]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
 [Modificare la richiesta]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
 [Modificare la risposta]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
-[Management Portal]: https://manage.windowsazure.com/
-[portale di gestione]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Pianificare i processi]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [Convalida e modifica dei dati in Servizi mobili mediante script del server]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [comandi per gestire Servizi mobili di Azure]: ../virtual-machines-command-line-tools.md#Mobile_Scripts
@@ -1051,4 +1050,4 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [supporto di package.json in Servizi mobili di Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

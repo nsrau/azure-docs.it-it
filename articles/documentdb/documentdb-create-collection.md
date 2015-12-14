@@ -18,11 +18,11 @@
 
 # Creare una raccolta DocumentDB
 
-PPer utilizzare Microsoft Azure DocumentDB, è necessario disporre di un[DocumentDB account](documentdb-create-account.md)[database](documentdb-create-database.md)una raccolta e documenti. In questo argomento viene descritto come creare una raccolta DocumentDB nel portale di anteprima di Microsoft Azure.
+PPer utilizzare Microsoft Azure DocumentDB, è necessario disporre di un[DocumentDB account](documentdb-create-account.md)[database](documentdb-create-database.md)una raccolta e documenti. In questo argomento viene descritto come creare una raccolta DocumentDB nel portale di Azure.
 
 ![Schermata che evidenzia gli account di DocumentDB nell'indice, l'account nel pannello Account DocumentDB e il database nel pannello dell’account DocumentDB, nella sezione Database](./media/documentdb-create-collection/docdb-database-creation-1-3.png)
 
-1.  Nel [portale di anteprima di Azure](https://portal.azure.com/), nell’indice fare clic su **Account DocumentDB**. 
+1.  Nel [portale di Azure](https://portal.azure.com/), nell’indice fare clic su **Account DocumentDB**. 
 
 2.  Nel pannello **Account DocumentDB** selezionare l'account in cui aggiungere una raccolta. Se non è elencato alcun account, sarà necessario [creare un account DocumentDB](documentdb-create-account.md).
 
@@ -53,16 +53,16 @@ PPer utilizzare Microsoft Azure DocumentDB, è necessario disporre di un[Documen
 
 ## Altri modi per creare una raccolta di DocumentDB
 
-Le raccolte non possono essere create utilizzando il portale di anteprima, ma è anche possibile crearle utilizzando [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Per un esempio di codice c# che illustra come creare un insieme utilizzando DocumentDB .NET SDK, vedere il[Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs)file nel progetto CollectionManagement, disponibile in[azure-documentdb-net](https://github.com/Azure/azure-documentdb-net)repository in[GitHub.com](https://github.com).
+Le raccolte non possono essere create utilizzando il portale, ma è possibile crearle utilizzando gli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Per un esempio di codice c# che illustra come creare un insieme utilizzando DocumentDB .NET SDK, vedere il[Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs)file nel progetto CollectionManagement, disponibile in[azure-documentdb-net](https://github.com/Azure/azure-documentdb-net)repository in[GitHub.com](https://github.com).
 
 ## Passaggi successivi
 
 A questo punto, dopo aver creato una raccolta, il passaggio successivo consiste nell'aggiungere i documenti o nell'importarli nella raccolta. Per l'aggiunta di documenti a una raccolta, sono disponibili alcune opzioni:
 
-- È possibile [aggiungere i documenti](../documentdb-view-json-document-explorer.md) usando il riquadro Esplora documenti nel portale di anteprima.
+- È possibile [aggiungere i documenti](../documentdb-view-json-document-explorer.md) usando il riquadro Esplora documenti nel portale.
 - È possibile [importare i documenti e i dati](documentdb-import-data.md) usando lo strumento di migrazione dati di DocumentDB, che consente di importare i file JSON e CSV, oltre ai dati da SQL Server, MongoDB, Archiviazione tabelle di Azure e altre raccolte DocumentDB. 
 - Oppure è possibile aggiungere i documenti usando gli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. Il file [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) nel progetto DocumentManagement, disponibile nel[azure-documentdb-net](https://github.com/Azure/azure-documentdb-net)repository in[GitHub.com](https://github.com)illustra le operazioni CRUD su documenti tramite il SDK di .NET DocumentDB.
 
-Quando si hanno documenti in una raccolta, è possibile utilizzare [DocumentDB SQL](documentdb-sql-query.md) e [eseguire query](documentdb-sql-query.md#executing-queries) rispetto ai documenti utilizzando il [Explorer Query](documentdb-query-collections-query-explorer.md) nel portale di anteprima, [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno del [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-queries) nei documenti tramite [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

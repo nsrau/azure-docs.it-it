@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="12/01/2015" 
 	ms.author="spelluru"/>
 
 # Data factory di Azure - Domande frequenti
@@ -57,7 +57,7 @@ Per saperne di più, vedere la [pagina relativa ai prezzi di Data factory di Azu
   
 ### In che modo i clienti accedono a Data factory?
 
-I clienti possono accedere a Data factory tramite il [portale di anteprima di Azure][azure-preview-portal].
+I clienti possono accedere a Data factory tramite il [portale di Azure][azure-portal].
 
 ### In quali paesi è disponibile Data factory?
 
@@ -72,7 +72,7 @@ Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione
 
 È possibile creare data factory con uno degli strumenti seguenti:
 
-- **Portale di anteprima di Azure**. I pannelli di Data factory nel portale di anteprima di Azure offrono una ricca interfaccia per creare data factory e servizi collegati. L'**editor di Data factory**, anch'esso parte del portale, consente di creare facilmente servizi collegati, tabelle, set di dati e pipeline specificando definizioni JSON per questi elementi. Vedere [Editor di Data factory di Azure][data-factory-editor] per una panoramica dell'editor e [Introduzione a Data factory di Azure][datafactory-getstarted] per un esempio dell'uso del portale o dell'editor per creare e distribuire un'istanza di Data factory.   
+- **Portale di Azure** I pannelli di Data factory nel portale di Azure offrono una ricca interfaccia per creare data factory e servizi collegati. L'**editor di Data factory**, anch'esso parte del portale, consente di creare facilmente servizi collegati, tabelle, set di dati e pipeline specificando definizioni JSON per questi elementi. Vedere [Editor di Data factory di Azure][data-factory-editor] per una panoramica dell'editor e [Introduzione a Data factory di Azure][datafactory-getstarted] per un esempio dell'uso del portale o dell'editor per creare e distribuire un'istanza di Data factory.   
 - **Azure PowerShell**. Gli utenti di PowerShell potrebbero voler usare PowerShell invece dell'interfaccia utente del portale. In tal caso, i cmdlet di Data factory di Azure disponibili in Azure PowerShell consentono di creare e distribuire data factory. Per un semplice esempio, vedere l'articolo relativo alla [creazione e monitoraggio di Data factory di Azure con Azure PowerShell][create-data-factory-using-powershell]. Per un esempio avanzato relativo all'uso dei cmdlet di PowerShell per creare e distribuire un'istanza di Data factory, vedere [Esercitazione: Spostare ed elaborare i file di log con Data factory][adf-tutorial]. Per la documentazione completa dei cmdlet di Data factory, vedere le [informazioni di riferimento sui cmdlet di Data factory][adf-powershell-reference] in MSDN Library.  
 - **Visual Studio** È inoltre possibile utilizzare Visual Studio per creare, monitorare e gestire le factory di dati a livello di programmazione. Vedere l’articolo [Creazione, monitoraggio e gestione di data factory di Azure mediante Data Factory .NET SDK](data-factory-create-data-factories-programmatically)per maggiori dettagli.  
 - **Libreria di classi .NET**. È possibile creare data factory a livello di codice usando .NET SDK per Data factory. Per la procedura dettagliata per la creazione di un'istanza di Data factory con .NET SDK, vedere [Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante .NET SDK][create-factory-using-dotnet-sdk]. Per la documentazione completa di Data Factory .NET SDK, vedere le [informazioni di riferimento sulla libreria di classi per Data factory][msdn-class-library-reference].  
@@ -168,7 +168,7 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
@@ -177,4 +177,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

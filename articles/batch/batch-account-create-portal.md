@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare un account Azure Batch | Microsoft Azure"
-	description="Informazioni su come creare un account Azure Batch nel portale di anteprima di Azure per eseguire carichi di lavoro paralleli su larga scala nel cloud"
+	description="Informazioni su come creare un account Azure Batch nel portale di Azure per eseguire carichi di lavoro paralleli su larga scala nel cloud"
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,19 +18,19 @@
 
 
 
-# Creare e gestire un account Azure Batch nel portale di anteprima di Azure
+# Creare e gestire un account Azure Batch nel portale di Azure
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](batch-account-create-portal.md)
+- [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-Questo articolo illustra come usare il [portale di anteprima di Azure](https://portal.azure.com) per creare e gestire un account Batch di Azure e le impostazioni, ad esempio le chiavi dell'account. Per autenticare tutte le richieste API Batch, sono necessari un URL dell'account Batch e una chiave di accesso associata. Tutte le risorse Batch (ad esempio, pool, processi e attività) per il carico di lavoro Batch vengono associate con un account Batch specifico.
+Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per creare e gestire un account Batch di Azure e le impostazioni, come ad esempio le chiavi dell'account. Per autenticare tutte le richieste API Batch, sono necessari un URL dell'account Batch e una chiave di accesso associata. Tutte le risorse Batch (ad esempio, pool, processi e attività) per il carico di lavoro Batch vengono associate con un account Batch specifico.
 
 >[AZURE.NOTE]Il portale di anteprima attualmente supporta funzionalità per la gestione dell'account Batch e la visualizzazione di alcune risorse dell'account. Le funzionalità Batch complete sono disponibili per gli sviluppatori nelle API Batch.
 
 ## Creare un account Batch
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Fare clic su **Nuovo** > **Calcolo** > **Servizio Batch**.
 
@@ -84,4 +84,4 @@ Per visualizzare e gestire le chiavi di accesso, fare clic sull'icona a forma di
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,6 +18,11 @@
 
 # Introduzione alla sincronizzazione dei dati offline in Servizi mobili
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 La sincronizzazione offline consente di visualizzare, aggiungere o modificare i dati in un'app mobile anche se non è presente alcuna connessione di rete. Questa esercitazione descrive la capacità dell'app di memorizzare automaticamente le modifiche apportate in un database locale offline e di sincronizzare le modifiche ogni volta che torna online.
@@ -30,7 +35,7 @@ La sincronizzazione offline presenta diversi vantaggi:
 * Esegue la sincronizzazione dei dati su più dispositivi
 * Rileva i conflitti quando lo stesso record viene modificato da due dispositivi
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e [ottenere servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione](http://azure.microsoft.com/pricing/details/mobile-services/). Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e [ottenere servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione](http://azure.microsoft.com/pricing/details/mobile-services/). Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
 Questa esercitazione è basata sull'esercitazione [Guida introduttiva per Servizi mobili], che deve essere completata per prima. È consigliabile esaminare innanzitutto il codice relativo alla sincronizzazione offline già presente nella Guida introduttiva.
 
@@ -138,7 +143,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     | id (obbligatorio) | Stringa |
     | operationId | Valore integer 64 |
     | properties | Dati binari |
-    | tableKind | Integer 16 |
+    | tableKind | Valore integer 16 |
 
     #### MS\_TableConfig
 
@@ -196,7 +201,7 @@ In questa sezione si disattiverà il Wi-Fi nel simulatore per creare uno scenari
 
 3. Visualizzare i contenuti della tabella TodoItem remota. Verificare che i nuovi elementi _non_ siano stati sincronizzati con il server.
 
-   - Per il back-end JavaScript, accedere al portale di gestione e fare clic sulla scheda Dati per visualizzare i contenuti della tabella `TodoItem`.
+   - Per il back-end JavaScript, accedere al [portale di Azure classico](http://manage.windowsazure.com) e fare clic sulla scheda Dati per visualizzare i contenuti della tabella `TodoItem`.
    - Per il back-end .NET, visualizzare il contenuto della tabella mediante uno strumento SQL, ad esempio SQL Server Management Studio, o mediante un client REST, ad esempio Fiddler o Postman.
 
 4. Attivare il Wi-Fi nel simulatore iOS. Successivamente, eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi. Verranno visualizzati un indicatore di avanzamento e il testo "Syncing...".
@@ -270,4 +275,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

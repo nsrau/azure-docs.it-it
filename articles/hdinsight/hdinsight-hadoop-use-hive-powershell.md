@@ -31,7 +31,7 @@ Questo documento fornisce un esempio di come usare Azure PowerShell nel gruppo d
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 - **Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Windows o basato su Linux)**
-- **Una workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Una workstation con Azure PowerShell**. Vedere [Installare Azure PowerShell 1.0 e versioni successive](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 ##Eseguire query Hive usando Azure PowerShell
 
@@ -184,4 +184,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

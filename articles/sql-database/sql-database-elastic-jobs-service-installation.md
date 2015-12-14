@@ -17,7 +17,7 @@
 	ms.author="ddove;sidneyh"/>
 
 # Installazione dei processi di database elastici (panoramica)
-I [**Processi di database elastici**](sql-database-elastic-jobs-overview.md) possono essere installati tramite PowerShell o tramite il portale di Azure. È possibile ottenere l'accesso solo per creare e gestire processi utilizzando l'API PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento.
+I [**Processi di database elastici**](sql-database-elastic-jobs-overview.md) possono essere installati tramite PowerShell o tramite il portale di Azure classico. È possibile ottenere l'accesso solo per creare e gestire processi utilizzando l'API PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento.
 
 Se sono già stati installati i **Processi database elastici** tramite il portale da un’esistente **pool di database elastici**, l'ultima anteprima di Powershell include gli script per aggiornare l'installazione esistente. È consigliabile aggiornare l'installazione alla versione più recente dei componenti dei **Processi di database elastici** per trarre vantaggio dalle nuove funzionalità esposte tramite le API di PowerShell.
 
@@ -155,7 +155,7 @@ Dopo aver creato un [pool di database elastici](sql-database-elastic-pool-portal
 
 **Tempo previsto per il completamento:** 10 minuti
 
-1. Dalla vista dashboard del pool di database elastici, tramite il [portale di anteprima di Azure](https://ms.portal.azure.com/#) fare clic su **Crea processo**.
+1. Dalla vista dashboard del pool di database elastici, tramite il [portale di Azure](https://ms.portal.azure.com/#) fare clic su **Crea processo**.
 2. Se si sta creando un processo per la prima volta, è necessario installare **processi di database elastici** facendo clic su **ANTEPRIMA TERMINI**. 
 3. Accettare i termini selezionando la casella di controllo.
 4. Nella vista "Installa servizi", fare clic su **CREDENZIALI PROCESSO**.
@@ -187,4 +187,4 @@ Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di sc
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

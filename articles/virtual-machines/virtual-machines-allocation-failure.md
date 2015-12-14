@@ -38,7 +38,7 @@ Quando una richiesta di allocazione è bloccata su un cluster, la probabilità d
 
 Questi passaggi di base possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali.
 
-- Ridimensionare la VM specificando una dimensione della VM diversa.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale personale > Impostazioni > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
+- Ridimensionare la VM con una dimensione diversa della VM.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale personale > Impostazioni > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 
 - Eliminare tutte le VM dal servizio cloud e ricrearle.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale personale > Elimina >. Fare quindi clic su Nuovo > Calcolo > [immagine di macchina virtuale]
 
@@ -81,7 +81,7 @@ La richiesta di ridimensionamento di una VM o l'aggiunta di una VM o un'istanza 
 
 **Soluzione alternativa**
 
-Se l'errore è Upgrade\_VMSizeNotSupported*, provare con dimensioni della VM diverse. Se l'uso di dimensioni della VM diverse non è possibile, ma è accettabile usare un indirizzo IP virtuale (VIP) diverso, creare un nuovo servizio cloud per ospitare la nuova VM e aggiungere il nuovo servizio cloud alla rete virtuale dell'area in cui sono in esecuzione le VM esistenti. Se il servizio cloud esistente non usa la rete virtuale dell'area, è comunque possibile creare una nuova rete virtuale per il nuovo servizio cloud e quindi connettere la [rete virtuale esistente a quella nuova](https://azure.microsoft.com/it-IT/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Per altre informazioni, vedere il blog relativo alle [reti virtuali dell'area](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Se l'errore è Upgrade\_VMSizeNotSupported*, provare con dimensioni della VM diverse. Se l'uso di dimensioni della VM diverse non è possibile, ma è accettabile usare un indirizzo IP virtuale (VIP) diverso, creare un nuovo servizio cloud per ospitare la nuova VM e aggiungere il nuovo servizio cloud alla rete virtuale dell'area in cui sono in esecuzione le VM esistenti. Se il servizio cloud esistente non usa la rete virtuale dell'area, è comunque possibile creare una nuova rete virtuale per il nuovo servizio cloud e quindi connettere la [rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Ricevere altre informazioni sulla [Rete virtuale dell'area](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 Se l'errore è GeneralError*, è probabile che il tipo di risorsa (ad esempio dimensioni della VM specifiche) sia supportato dal cluster, ma che al momento non ci siano risorse disponibili nel cluster. Come detto sopra, provare ad aggiungere la risorsa di calcolo desiderata tramite la creazione di un nuovo servizio cloud (notare che il nuovo servizio cloud deve usare un indirizzo IP virtuale diverso) e usare la rete virtuale dell'area per connettere i servizi cloud.
 
@@ -97,7 +97,7 @@ Deallocazione **parziale** significa che una o più VM in un servizio cloud sono
 
 **Soluzione alternativa**
 
-Se è accettabile usare un indirizzo IP virtuale diverso, eliminare le VM arrestate (deallocate), mantenendo però i dischi associati, e riaggiungere le VM tramite un servizio cloud diverso. Usare la rete virtuale dell'area per connettere i servizi cloud: 1. Se il servizio cloud esistente usa una rete virtuale dell'area, è sufficiente aggiungere il nuovo servizio cloud alla stessa rete virtuale. 2. Se il servizio cloud esistente non usa la rete virtuale dell'area, creare una nuova rete virtuale per il nuovo servizio cloud e quindi connettere la [rete virtuale esistente a quella nuova](https://azure.microsoft.com/it-IT/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Per altre informazioni, vedere il blog relativo alle [reti virtuali dell'area](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Se è accettabile usare un indirizzo IP virtuale diverso, eliminare le VM arrestate (deallocate), mantenendo però i dischi associati, e riaggiungere le VM tramite un servizio cloud diverso. Usare la rete virtuale dell'area per connettere i servizi cloud: 1. Se il servizio cloud esistente usa una rete virtuale dell'area, è sufficiente aggiungere il nuovo servizio cloud alla stessa rete virtuale. 2. Se il servizio cloud esistente non usa la rete virtuale dell'area, creare una nuova rete virtuale per il nuovo servizio cloud e quindi [connettere la rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Ricevere altre informazioni sulla [Rete virtuale dell'area](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ### Scenario di allocazione: riavvio di VM arrestate (deallocate) - deallocazione completa
 **Errore**
@@ -149,7 +149,7 @@ Prima dell'annuncio della rete virtuale dell'area era necessario associare una r
 
 **Soluzione alternativa**
 
-Se il gruppo di affinità non è necessario, creare una nuova rete virtuale dell'area per le nuove risorse aggiunte, quindi [connettere la rete virtuale esistente a quella nuova](https://azure.microsoft.com/it-IT/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Per altre informazioni, vedere il blog relativo alle [reti virtuali dell'area](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Se il gruppo di affinità non è necessario, creare una nuova rete virtuale dell'area per le nuove risorse aggiunte, quindi [connettere la rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Ricevere altre informazioni sulla [Rete virtuale dell'area](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 In alternativa, è possibile [eseguire la migrazione della rete virtuale basata su gruppi di affinità alla rete virtuale dell'area](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) e quindi provare a riaggiungere le risorse desiderate.
 
@@ -226,6 +226,6 @@ Si è verificato un errore interno del server. Ripetere la richiesta." o "Non è
 ## Risorse aggiuntive
 ### Contattare il supporto tecnico di Azure
 
-Se questo articolo non ha consentito di risolvere il problema di Azure, esplorare i forum di Azure su [MSDN e overflow dello stack](http://azure.microsoft.com/support/forums/). È anche possibile registrare una richiesta di supporto per Azure relativa al problema. Accedere al sito del [Supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Se questo articolo non ha consentito di risolvere il problema di Azure, esplorare i forum di Azure su [MSDN e overflow dello stack](http://azure.microsoft.com/support/forums/). È anche possibile registrare una richiesta di supporto per Azure relativa al problema. Accedere al sito del [Supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su Ottenere supporto. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](http://azure.microsoft.com/support/faq/).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

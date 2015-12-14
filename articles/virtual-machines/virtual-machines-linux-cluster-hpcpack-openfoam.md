@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="11/22/2015"
+ ms.date="11/25/2015"
  ms.author="danlep"/>
 
 # Eseguire OpenFoam con Microsoft HPC Pack in un cluster Linux RDMA in Azure
@@ -114,7 +114,7 @@ Per generare con facilità una coppia di chiavi RSA, che contiene una chiave pub
 
 2. Usare le procedure standard di Windows Server per creare un account utente di dominio nel dominio di Active Directory del cluster. Ad esempio, usare lo strumento Utenti e computer di Active Directory sul nodo head. Gli esempi in questo articolo presuppongono che venga creato un utente di dominio denominato hpclab\\hpcuser.
 
-3.	Creare un file con nome C:\\cred.xml e copiarvi i dati della chiave RSA. Un esempio di questo file è disponibile nell'Appendice alla fine dell'articolo.
+3.	Creare un file con nome C:\\cred.xml e copiarvi i dati della chiave RSA. Un esempio di questo file è disponibile nei file di esempio alla fine dell'articolo.
 
     ```
     <ExtendedData>
@@ -176,7 +176,7 @@ Salvare il pacchetto di installazione scaricato per Intel MPI (in questo esempio
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/intel/l_mpi_p_5.0.3.048.tgz -C /opt/intel/
     ```
 
-2.  Per eseguire un'installazione di Intel MPI Library invisibile all'utente, usare un file silent.cfg. Un esempio di questo file è disponibile nell'Appendice alla fine dell'articolo. Posizionare questo file nella cartella condivisa /openfoam. Per informazioni dettagliate sul file silent.cfg, vedere l'articolo relativo alla [guida all'installazione di Intel MPI Library per Linux - Installazione invisibile all'utente](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall).
+2.  Per eseguire un'installazione di Intel MPI Library invisibile all'utente, usare un file silent.cfg. Un esempio è disponibile nei file di esempio alla fine dell'articolo. Posizionare questo file nella cartella condivisa /openfoam. Per informazioni dettagliate sul file silent.cfg, vedere l'articolo relativo alla [guida all'installazione di Intel MPI Library per Linux - Installazione invisibile all'utente](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall).
 
     >[AZURE.TIP]Assicurarsi di salvare il file silent.cfg come file di testo con terminazioni di riga Linux (solo LF, non CR LF), in modo da assicurarne l'esecuzione corretta nei nodi Linux.
 
@@ -188,20 +188,20 @@ Salvare il pacchetto di installazione scaricato per Intel MPI (in questo esempio
     
 ### Configurare MPI
 
-Ai fini del test, aggiungere le righe seguenti al file /etc/security/limits.conf nei nodi Linux:
+Ai fini del test, aggiungere le righe seguenti al file /etc/security/limits.conf in ogni nodo Linux:
 
 ```
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 ```
 
-È possibile eseguire questa operazione creando un file limits.conf in C:\\OpenFoam (salvare il file di testo con terminazioni di riga Linux) ed eseguire il comando seguente per copiarlo nei nodi Linux:
+Dopo aver aggiornato il file limits.conf, riavviare i nodi Linux. Ad esempio, usare il comando seguente **clusrun**.
 
 ```
-clusrun /nodegroup:LinuxNodes cp /openfoam/limits.conf /etc/security
+clusrun /nodegroup:LinuxNodes systemctl reboot
 ```
 
-Dopo aver aggiornato il file limits.conf, riavviare i nodi Linux. Dopo il riavvio, assicurarsi che la cartella condivisa sia montata come /openfoam.
+Dopo il riavvio, assicurarsi che la cartella condivisa sia montata come /openfoam.
 
 ### Compilare e installare OpenFOAM
 
@@ -218,25 +218,33 @@ Salvare il pacchetto di installazione scaricato per OpenFOAM Source Pack (in que
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
     ```
 
-2.  Per compilare OpenFOAM con Intel MPI Library, è prima necessario configurare alcune variabili di ambiente per Intel MPI e OpenFOAM. A tale scopo, usare uno script bash denominato settings.sh. Un esempio di questo file è disponibile nell'Appendice alla fine dell'articolo. Copiare questo file (salvato con terminazioni riga Linux) nella cartella condivisa /openfoam. Questo file contiene anche le impostazioni per i runtime MPI e OpenFOAM che verranno usati più avanti per eseguire un processo OpenFOAM.
+2.  Per compilare OpenFOAM con Intel MPI Library, è prima necessario configurare alcune variabili di ambiente per Intel MPI e OpenFOAM. A tale scopo, usare uno script bash denominato settings.sh. Un esempio è disponibile nei file di esempio alla fine dell'articolo. Copiare questo file (salvato con terminazioni riga Linux) nella cartella condivisa /openfoam. Questo file contiene anche le impostazioni per i runtime MPI e OpenFOAM che verranno usati più avanti per eseguire un processo OpenFOAM.
 
-3. Installare i pacchetti dipendenti necessari per compilare OpenFOAM. A seconda della distribuzione Linux corrente, potrebbe essere prima necessario aggiungere diversi repository. I repository e i pacchetti sono elencati nella sezione Appendice alla fine di questo articolo. È consigliabile stabilire una connessione a ogni nodo Linux tramite SSH per eseguire i comandi e verificare che funzionino correttamente.
+3. Installare i pacchetti dipendenti necessari per compilare OpenFOAM. A seconda della distribuzione Linux corrente, potrebbe essere prima necessario aggiungere un repository. Eseguire comandi **clusrun** simili al seguente:
+
+    ```
+    clusrun /nodegroup:LinuxNodes zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ opensuse
+    
+    clusrun /nodegroup:LinuxNodes zypper -n --gpg-auto-import-keys install --repo opensuse --force-resolution -t pattern devel_C_C++
+    ```
+    
+    Se necessario, stabilire una connessione a ogni nodo Linux tramite SSH per eseguire i comandi e verificare che funzionino correttamente.
 
 4.  Eseguire il comando seguente per compilare OpenFOAM. Il processo di compilazione richiederà diverso tempo e genererà una grande quantità di informazioni di log nell'output standard, quindi usare l'opzione **/ interleaved** per visualizzare l'output con interfoliazione.
 
     ```
     clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
     ```
-
->[AZURE.NOTE]Il simbolo "`" nel secondo comando è un simbolo di escape per PowerShell. "`&" indica che "&" è parte del comando.
+    
+    >[AZURE.NOTE]Il simbolo "`" nel secondo comando è un simbolo di escape per PowerShell. "`&" indica che "&" è parte del comando.
 
 ## Preparare l'esecuzione di un processo OpenFOAM
 
-A questo punto, verrà eseguito un processo MPI denominato sloshingTank3D, uno degli esempi di OpenFOAM, in 2 nodi Linux. In questo esempio, /opt/openfoam231 è il percorso di installazione di OpenFOAM nei nodi Linux.
+A questo punto, verrà eseguito un processo MPI denominato sloshingTank3D, uno degli esempi di OpenFOAM, in 2 nodi Linux.
 
 ### Configurare l'ambiente di runtime
 
-Eseguire il comando seguente in una finestra di Windows PowerShell nel nodo head per configurare gli ambienti di runtime per MPI e OpenFOAM in tutti i nodi Linux.
+Eseguire il comando seguente in una finestra di Windows PowerShell nel nodo head per configurare gli ambienti di runtime per MPI e OpenFOAM in tutti i nodi Linux. (Questo comando è valido solamente per SUSE Linux).
 
 ```
 clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
@@ -305,7 +313,7 @@ In questo passaggio verrà creato un file host (un elenco di nodi di calcolo) ch
 
     **Wrapper di script bash**
 
-    Se sono presenti molti nodi Linux e il processo verrà eseguito solo su alcuni di essi, non è consigliabile usare un file di host predefinito, perché i nodi che verranno allocati al processo non sono noti. In questo caso, scrivere un wrapper di script bash per il comando **mpirun** per creare automaticamente il file host. È possibile trovare un wrapper di script bash di esempio denominato hpcimpirun.sh nella sezione Appendice alla fine di questo articolo e salvarlo come /openfoam/hpcimpirun.sh. Questo script di esempio esegue queste operazioni:
+    Se sono presenti molti nodi Linux e il processo verrà eseguito solo su alcuni di essi, non è consigliabile usare un file di host predefinito, perché i nodi che verranno allocati al processo non sono noti. In questo caso, scrivere un wrapper di script bash per il comando **mpirun** per creare automaticamente il file host. È possibile trovare un wrapper di script bash di esempio denominato hpcimpirun.sh nei file di esempio alla fine di questo articolo e salvarlo come /openfoam/hpcimpirun.sh. Questo script di esempio esegue queste operazioni:
 
     1.	Configura le variabili di ambiente per **mpirun** e alcuni parametri di comando aggiuntivi per eseguire il processo MPI attraverso la rete RDMA. In questo caso, imposta quanto segue:
 
@@ -337,9 +345,9 @@ In questo passaggio verrà creato un file host (un elenco di nodi di calcolo) ch
         
     3.	Chiama il comando **mpirun** e aggiunge 2 parametri nella riga di comando.
 
-        * `--hostfile <hostfilepath>: <hostfilepath>` è il percorso del file host creato dallo script
+        * `--hostfile <hostfilepath>: <hostfilepath>` - è il percorso del file host creato dallo script
 
-        * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` è una variabile di ambiente impostata dal nodo head HPC Pack, che archivia il numero totale di core allocati a questo processo. In questo caso specifica il numero di processi per **mpirun**.
+        * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` - è una variabile di ambiente impostata dal nodo head HPC Pack, che archivia il numero totale di core allocati a questo processo. In questo caso specifica il numero di processi per **mpirun**.
 
 
 ## Inviare un processo OpenFOAM
@@ -348,15 +356,15 @@ A questo punto è possibile inviare un processo in HPC Cluster Manager. Sarà qu
 
 1. Connettersi al nodo head del cluster e avviare HPC Cluster Manager.
 
-2. In **Resource Management** assicurarsi che lo stato dei nodi di calcolo Linux sia **Online**. Se lo stato è diverso, selezionarli e fare clic su **Bring Online**.
+2. In **Resource Management** assicurarsi che lo stato dei nodi di calcolo Linux sia **Online**. Se lo stato è diverso, selezionarli e fare clic su **Portare Online**.
 
-3.  In **Job Management** fare clic su **New Job**.
+3.  In **Gestione dei processi** fare clic su **Nuovo processo**.
 
 4.  Immettere un nome per il processo, ad esempio _sloshingTank3D_.
 
     ![Dettagli del processo][job_details]
 
-5.	In **Job resources** scegliere "Node" come tipo di risorsa e impostare il valore di Minimum su 2. In questo modo il processo verrà eseguito su 2 nodi Linux che, in questo esempio, presentano 8 core ciascuno.
+5.	In **Risorse del processo** scegliere "Node" come tipo di risorsa e impostare il valore di Minimum su 2. In questo modo il processo verrà eseguito su 2 nodi Linux che, in questo esempio, presentano 8 core ciascuno.
 
     ![Risorse del processo][job_resources]
 
@@ -371,6 +379,8 @@ A questo punto è possibile inviare un processo in HPC Cluster Manager. Sarà qu
         *   **Riga di comando** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
     
         *   **Directory di lavoro** - /openfoam/sloshingTank3D
+        
+        Vedere la figura seguente. Le attività restanti vengono configurate in modo analogo.
 
         ![Dettagli dell'attività 1][task_details1]
 
@@ -382,8 +392,6 @@ A questo punto è possibile inviare un processo in HPC Cluster Manager. Sarà qu
 
         *   **Directory di lavoro** - /openfoam/sloshingTank3D
 
-        ![Dettagli dell'attività 2][task_details2]
-
     *   **Attività 3**. Eseguire **reconstructPar** per unire i set delle directory temporali da ogni directory processore\_N\_ in un singolo set di directory temporali.
 
         *   Assegnare all'attività 1 nodo
@@ -391,8 +399,6 @@ A questo punto è possibile inviare un processo in HPC Cluster Manager. Sarà qu
         *   **Riga di comando** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
 
         *   **Directory di lavoro** - /openfoam/sloshingTank3D
-
-        ![Dettagli dell'attività 3][task_details3]
 
     *   **Attività 4**. Eseguire **foamToEnsight** in parallelo per convertire i file dei risultati di OpenFOAM nel formato EnSight e posizionare i file EnSight in una directory denominata Ensight nella directory case.
 
@@ -402,15 +408,13 @@ A questo punto è possibile inviare un processo in HPC Cluster Manager. Sarà qu
 
         *   **Directory di lavoro** - /openfoam/sloshingTank3D
 
-        ![Dettagli dell'attività 4][task_details4]
-
 6.	Aggiungere a queste attività le dipendenze in ordine di attività crescente.
 
     ![Dipendenze dell'attività][task_dependencies]
 
 7.	Fare clic su **Submit** per eseguire il processo.
 
-    Per impostazione predefinita, HPC Pack invia il processo usando l'account utente attualmente connesso. Dopo aver fatto clic su **Submit**, potrebbe essere visualizzata una finestra di dialogo richiede l'immissione del nome utente e della password.
+    Per impostazione predefinita, HPC Pack invia il processo usando l'account utente attualmente connesso. Dopo aver fatto clic su **Submit**, potrebbe essere visualizzata una finestra di dialogo che richiede l'immissione del nome utente e della password.
 
     ![Credenziali del processo][creds]
 
@@ -451,9 +455,9 @@ Facoltativamente è possibile usare [EnSight](https://www.ceisoftware.com/) per 
 
     ![Modificare il colore dell'oggetto isosurface][isosurface_color]
 
-5.  Creare un oggetto **Iso-volume** da **walls** selezionando **walls** nel riquadro **Parts** e fare clic sul pulsante **Isosurfaces** sulla barra degli strumenti.
+5.  Creare un oggetto **Iso-volume** da **walls** selezionando **walls** nel riquadro **Parti** e fare clic sul pulsante **Isosurfaces** sulla barra degli strumenti.
 
-6.	Nella finestra di dialogo selezionare **Type** per **Isovolume** e impostare l'opzione Min di **Isovolume range** su 0,5. Fare clic su **Create with selected parts** per creare l'oggetto isovolume.
+6.	Nella finestra di dialogo selezionare **Tipo** per **Isovolume** e impostare l'opzione Min di **Intervallo di Isovolume** su 0,5. Fare clic su **Creare con le parti selezionate** per creare l'oggetto isovolume.
 
 7.	Impostare il colore per l'oggetto **Iso\_volume\_part** creato nel passaggio precedente. Ad esempio, impostarlo su blu.
 
@@ -463,8 +467,7 @@ Facoltativamente è possibile usare [EnSight](https://www.ceisoftware.com/) per 
 
     ![Risultato per il serbatoio][tank_result]
 
-
-## Appendice
+## File di esempio
 
 
 ### File cred.xml di esempio
@@ -576,27 +579,6 @@ source /opt/OpenFOAM/OpenFOAM-2.3.1/etc/bashrc
 export WM_MPLIB=INTELMPI
 ```
 
-### Comandi di esempio per aggiungere repository e pacchetti dipendenti nei nodi Linux
-
-```
-sudo zypper ar ftp://ftp.muug.mb.ca/mirror/opensuse/factory-snapshot/repo/oss/ update1
-
-sudo zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ update2
-
-sudo zypper ar ftp://ftp.pbone.net/mirror/ftp.opensuse.org/factory-snapshot/repo/oss/ update3
-
-sudo zypper ar ftp://mirror.switch.ch/pool/4/mirror/opensuse/opensuse/distribution/13.2/repo/oss/ update4
-
-sudo zypper ar ftp://bo.mirror.garr.it/pub/1/opensuse/distribution/13.2/repo/oss/ update6
-
-sudo zypper ar ftp://ftp.pbone.net/mirror/ftp.opensuse.org/distribution/13.2/repo/oss/ update7
-
-sudo zypper ar ftp://ftp.icm.edu.pl/vol/rzm5/linux-opensuse/distribution/13.2/repo/oss/ update8
-
-sudo zypper install -t pattern devel_C_C++
-
-sudo zypper install cmake boost-devel gnuplot mpfr-devel openmpi-devel glu-devel  
-```
 
 ###Script hpccharmrun.sh di esempio
 
@@ -664,9 +646,6 @@ exit ${RTNSTS}
 [job_details]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_details.png
 [job_resources]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_resources.png
 [task_details1]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details1.png
-[task_details2]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details2.png
-[task_details3]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details3.png
-[task_details4]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details4.png
 [task_dependencies]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_dependencies.png
 [creds]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/creds.png
 [heat_map]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/heat_map.png
@@ -676,4 +655,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

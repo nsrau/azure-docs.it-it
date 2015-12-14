@@ -33,7 +33,7 @@ Le sezioni successive includono altri dettagli sugli aspetti seguenti del serviz
 
 ## Connettore
 
-I moduli di codice usati per comunicare con una directory connessa sono chiamati connettori (definiti in precedenza agenti di gestione).
+I moduli di codice usati per comunicare con una directory connessa sono chiamati connettori (definiti in precedenza agenti di gestione (MA)).
 
 Sono installati nel computer che esegue il servizio di sincronizzazione Azure AD Connect. I connettori offrono la possibilità di comunicare senza agente usando protocolli di sistema remoto invece di basarsi sulla distribuzione di agenti specializzati. Ciò comporta una riduzione del rischio e dei tempi di distribuzione, in particolare in caso di applicazioni e sistemi critici.
 
@@ -89,4 +89,4 @@ Quando una regola determina che è necessario creare un nuovo oggetto spazio con
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

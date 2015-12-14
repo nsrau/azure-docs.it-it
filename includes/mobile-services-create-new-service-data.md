@@ -2,7 +2,7 @@
 
 A questo punto verrà creato un nuovo servizio mobile per sostituire l'elenco in memoria per l'archivio dati. Per creare un nuovo servizio mobile, attenersi alla procedura seguente.
 
-1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com/). 
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/). 
 2.	Nella parte inferiore del pannello di navigazione fare clic su **+NUOVO**.
 
 	![plus-new](./media/mobile-services-create-new-service-data/plus-new.png)
@@ -33,4 +33,4 @@ A questo punto verrà creato un nuovo servizio mobile per sostituire l'elenco in
 
 A questo punto è stato creato un nuovo servizio mobile che può essere utilizzato dalle app per dispositivi mobili. In seguito, verrà aggiunta una nuova tabella in cui archiviare i dati dell'app. Questa tabella verrà utilizzata dall'app al posto della raccolta in memoria.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -19,11 +19,11 @@
 
 # Come creare un database per DocumentDB
 
-Per utilizzare Microsoft Azure DocumentDB, è necessario disporre di un [account DocumentDB](documentdb-create-account.md), un database, una raccolta e documenti. In questo argomento viene descritto come creare un database per DocumentDB nel portale di anteprima di Microsoft Azure.
+Per utilizzare Microsoft Azure DocumentDB, è necessario disporre di un [account DocumentDB](documentdb-create-account.md), un database, una raccolta e documenti. In questo argomento viene descritto come creare un database per DocumentDB nel portale di Microsoft Azure.
 
 ![Cattura di schermata in cui viene mostrato come creare un database e sono evidenziati il pulsante Sfoglia, Account DocumentDB nel pannello Sfoglia e un account DocumentDB nel pannello Account DocumentDB](./media/documentdb-create-database/docdb-database-creation-1-3.png)
 
-1.  Nel [portale di anteprima di Azure](https://portal.azure.com/), nell’indice fare clic su **Account DocumentDB**. 
+1.  Nel [portale di Azure](https://portal.azure.com/), nell’indice fare clic su **Account DocumentDB**. 
 
 2.  Nel pannello **Account DocumentDB** selezionare l'account in cui aggiungere un database NoSQL DocumentDB. Se non è elencato alcun account, sarà necessario [creare un account DocumentDB](documentdb-create-account.md).
 
@@ -39,14 +39,14 @@ Per utilizzare Microsoft Azure DocumentDB, è necessario disporre di un [account
 
 ## Altri modi per creare un database di DocumentDB
 
-I database non devono essere necessariamente creati dal portale di anteprima. È possibile crearli anche usando gli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Per un esempio di codice C# che illustra come creare un database utilizzando il SDK di .NET DocumentDB, vedere il[Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DatabaseManagement/Program.cs)file nel progetto DatabaseManagement, disponibile nel[azure-documentdb-net](https://github.com/Azure/azure-documentdb-net)repository in[GitHub.com](https://github.com).
+I database non devono essere creati dal portale. È possibile crearli anche usando gli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Per un esempio di codice C# che illustra come creare un database utilizzando il SDK di .NET DocumentDB, vedere il[Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DatabaseManagement/Program.cs)file nel progetto DatabaseManagement, disponibile nel[azure-documentdb-net](https://github.com/Azure/azure-documentdb-net)repository in[GitHub.com](https://github.com).
 
 ## Passaggi successivi
 
 Dopo aver appreso come creare un database per DocumentDB, il passaggio successivo consiste nella [creazione di una raccolta](documentdb-create-collection.md).
 
-Una volta creata la raccolta, è possibile[aggiungere documenti JSON](../documentdb-view-json-document-explorer.md)utilizzando Microsoft Document Explorer nel portale di anteprima[importare documenti](documentdb-import-data.md)nella raccolta utilizzando lo strumento di migrazione dei dati DocumentDB o utilizzare uno del[DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)per eseguire le operazioni CRUD. DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. Per esempi di codice .NET che illustra come creare, rimuovere, aggiornare ed eliminare i documenti, vedere[Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs)nel progetto DocumentManagement nel repository di azure-documentdb-net in GitHub.com.
+Una volta creata la raccolta, è possibile[aggiungere documenti JSON](../documentdb-view-json-document-explorer.md)utilizzando Esplora Documenti nel portale, [importare documenti](documentdb-import-data.md)nella raccolta utilizzando lo strumento di migrazione dei dati DocumentDB o utilizzare uno degli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)per eseguire le operazioni CRUD. DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. Per esempi di codice .NET che illustra come creare, rimuovere, aggiornare ed eliminare i documenti, vedere[Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs)nel progetto DocumentManagement nel repository di azure-documentdb-net in GitHub.com.
 
-Quando si hanno documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-queries) sui documenti usando [Esplora query](documentdb-query-collections-query-explorer.md) nel portale di anteprima, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-queries) nei documenti tramite [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

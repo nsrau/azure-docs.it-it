@@ -153,4 +153,4 @@ Di seguito sono riportasti alcuni altri cmdlet PowerShell che possono risultare 
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

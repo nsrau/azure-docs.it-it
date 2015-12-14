@@ -92,4 +92,4 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		                      }
 		                    ]
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

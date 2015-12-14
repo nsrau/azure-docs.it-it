@@ -22,7 +22,7 @@
 
 Quando si distribuisce l'app Web al [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), è possibile eseguire la distribuzione a uno slot di distribuzione distinto, invece di quello predefinito, se la modalità dei piani del servizio app è **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app Web dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app Web e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
 
-- È possibile convalidare le modifiche alle app Web in uno slot di distribuzione temporaneo prima di scambiarlo con quello di produzione.
+- È possibile convalidare le modifiche alle app Web in uno slot di distribuzione di staging prima di scambiarlo con quello di produzione.
 
 - La distribuzione preliminare di un'app Web in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app Web. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. L'intero flusso di lavoro può essere automatizzata tramite la configurazione di [scambio automatico](#configure-auto-swap-for-your-web-app) quando non è necessario spazio di pre-swapping convalida.
 
@@ -34,7 +34,7 @@ Ciascuna modalità di piano del servizio app supporta un numero diverso di slot 
 
 - Gli slot non di produzione non sono scalabili.
 
-- La gestione delle risorse collegate non è supportata per gli slot non di produzione. Solo nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), è possibile evitare questo impatto potenziale su uno slot di produzione spostando temporaneamente lo slot non di produzione in una modalità di piano del servizio app differente. Si noti che lo slot non di produzione deve ancora una volta condividere la stessa modalità dello slot di produzione per potere eseguire lo scambio tra i due slot.
+- La gestione delle risorse collegate non è supportata per gli slot non di produzione. Solo nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), è possibile evitare questo impatto potenziale su uno slot di produzione spostando temporaneamente lo slot non di produzione in una modalità di piano servizio app differente. Si noti che lo slot non di produzione deve ancora una volta condividere la stessa modalità dello slot di produzione per potere eseguire lo scambio tra i due slot.
 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -44,7 +44,7 @@ Ciascuna modalità di piano del servizio app supporta un numero diverso di slot 
 
 Per abilitare più slot di distribuzione, l'app Web deve essere in esecuzione in modalità **Standard** o **Premium**.
 
-1. Nel [portale di anteprima di Azure](https://portal.azure.com/), aprire il pannello dell'app Web.
+1. Nel [portale di Azure](https://portal.azure.com/), aprire il pannello dell'app Web.
 2. Fare clic su **Slot di distribuzione**. Quindi, nel pannello **Slot di distribuzione**, fare clic su **Aggiungi slot**.
 
 	![Aggiungi nuovo slot di distribuzione][QGAddNewDeploymentSlot]
@@ -242,7 +242,6 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]: ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
@@ -260,4 +259,4 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

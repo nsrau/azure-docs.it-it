@@ -20,7 +20,7 @@
 
 In questo argomento viene illustrato come caricare un'applicazione web di Java personalizzata di [servizio App Azure] applicazioni Web. Sono incluse informazioni applicabili a qualsiasi sito Web Java e vengono forniti alcuni esempi per specifiche applicazioni.
 
-Si noti che Azure fornisce un mezzo per la creazione di applicazioni web Java utilizzando l'interfaccia utente di configurazione del portale di anteprima di Azure e Azure Marketplace, come descritto in [creare un'applicazione web Java nel servizio di Azure App](web-sites-java-get-started.md). Questa esercitazione è adatta per gli scenari in cui si preferisce non usare l'interfaccia di configurazione di Azure o la raccolta di applicazioni di Azure.
+Si noti che Azure fornisce un mezzo per la creazione di applicazioni web Java utilizzando l'interfaccia utente di configurazione del portale di Azure e Azure Marketplace, come descritto in [creare un'applicazione web Java nel servizio App di Azure](web-sites-java-get-started.md). Questa esercitazione è adatta per gli scenari in cui si preferisce non usare l'interfaccia di configurazione del Portale di Azure o il Marketplace di Azure.
 
 ## Linee guida per la configurazione
 
@@ -257,4 +257,4 @@ Per ulteriori informazioni su Java, vedere il [Centro per sviluppatori di Java](
 <!-- External Links -->
 [servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

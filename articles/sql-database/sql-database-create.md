@@ -30,7 +30,7 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
 | Creazione del database | Screenshot |
 | :--- | :--- |
-| 1\. Accedere a [http://portal.azure.com/](http://portal.azure.com/). | ![Nuovo portale di Azure][1] |
+| 1\. Accedere a [http://portal.azure.com/](http://portal.azure.com/). | ![Nuovo portale di Azure classico][1] |
 | 2\. Nella parte inferiore della pagina fare clic su **Nuovo** a sinistra. | ![Avvio di un nuovo servizio][2]|
 | 3\. Fare clic su **Database SQL**.| ![Diversi servizi disponibili per la selezione][3] |
 | 4\. Viene visualizzato un pannello **Database SQL**. Nel campo **Nome** specificare un nome per il database. | ![Nome del database][4] |
@@ -66,4 +66,4 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

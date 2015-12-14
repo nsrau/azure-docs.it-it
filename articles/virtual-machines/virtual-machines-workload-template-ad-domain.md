@@ -1,6 +1,6 @@
 <properties
 	pageTitle="di Servizi di dominio di Active Directory a disponibilità elevata con Modello ARM | Microsoft Azure"
-	description="Distribuire facilmente i due server che fungono da controller di dominio di Servizi di dominio di Active Directory con un modello di gestione delle risorse e il portale di anteprima di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure."
+	description="Distribuire facilmente i due server che fungono da controller di dominio di Servizi di dominio di Active Directory con un modello di gestione delle risorse e il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -26,11 +26,11 @@ Utilizzare le istruzioni riportate in questo articolo per distribuire un dominio
 
 ![](./media/virtual-machines-workload-template-ad-domain/two-server-ad.png)
 
-È possibile eseguire il modello con il portale di anteprima di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
+È possibile eseguire il modello con il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
-## Portale di anteprima di Azure
+## Portale di Azure
 
-Per distribuire il carico di lavoro usando un modello di gestione delle risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
+Per distribuire il carico di lavoro usando un modello di Gestione risorse e il portale di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
@@ -108,4 +108,4 @@ Una volta completata l'esecuzione del modello, si dispone di un nuovo, dominio d
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

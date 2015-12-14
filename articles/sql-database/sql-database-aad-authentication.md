@@ -95,7 +95,7 @@ L'autenticazione di Azure Active Directory è supportata nell'ultima versione 12
 
 Se si ha già un database, verificare che sia ospitato nella versione 12 del database SQL. A questo scopo, connettersi al database (usando ad esempio SQL Server Management Studio) ed eseguire `SELECT @@VERSION;` L'output previsto per un database nella versione 12 del database SQL è almeno **Microsoft SQL Azure (RTM) - 12.0**.
 
-Se il database non è ospitato nella versione 12 del database SQL, vedere [Pianificazione e predisposizione dell'aggiornamento alla versione 12 del database SQL](sql-database-v12-plan-prepare-upgrade.md) e quindi visitare il portale di Azure per eseguire la migrazione del database alla versione 12 del database SQL.
+Se il database non è ospitato nella versione 12 del database SQL, vedere [Pianificazione e predisposizione dell'aggiornamento alla versione 12 del database SQL](sql-database-v12-plan-prepare-upgrade.md) e quindi visitare il portale di Azure classico per eseguire la migrazione del database alla versione 12 del database SQL.
 
 In alternativa è possibile creare un nuovo database nella versione 12 del database SQL eseguendo i passaggi descritti in [Creare il primo database SQL di Azure](sql-database-get-started.md). **Suggerimento**: leggere il passaggio successivo prima di selezionare una sottoscrizione per il nuovo database.
 
@@ -107,7 +107,7 @@ Per associare il database alla directory di Azure AD dell'organizzazione, impost
 
 Le procedure seguenti forniscono istruzioni dettagliate sulla modifica della directory associata per una determinata sottoscrizione.
 
-1. Connettersi al [portale di Azure](https://manage.windowsazure.com/) come amministratore della sottoscrizione di Azure.
+1. Connettersi al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione di Azure.
 2. Nel banner a sinistra selezionare **IMPOSTAZIONI**. 
 3. Le sottoscrizioni sono visualizzate nella schermata delle impostazioni. Se la sottoscrizione desiderata non è visualizzata, fare clic su **Sottoscrizioni** in alto, fare clic sulla casella di riepilogo a discesa **FILTRA PER DIRECTORY** e selezionare la directory che contiene le sottoscrizioni, quindi fare clic su **APPLICA**.
 
@@ -131,9 +131,9 @@ Ogni server di Azure SQL viene avviato con un singolo account amministratore del
 
 > [AZURE.NOTE]Gli utenti che non hanno un account Azure AD (incluso l'account amministratore di Azure SQL Server) non possono creare utenti di Azure AD, perché non hanno l'autorizzazione per convalidare con Azure AD gli utenti di database proposti.
 
-### Effettuare il provisioning di un amministratore di Azure Active Directory per Azure SQL Server tramite il portale di Azure 
+### Effettuare il provisioning di un amministratore di Azure Active Directory per Azure SQL Server tramite il portale di Azure classico 
 
-1. Nell'angolo in alto a destra del [portale di Azure](https://portal.azure.com/) fare clic sulla connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. Scegliere la directory corretta come directory predefinita di Azure AD. Questo passaggio elenca l'associazione della sottoscrizione di Active Directory con il database SQL di Azure, assicurando che la stessa sottoscrizione venga usata per Azure AD e per SQL Server.
+1. Nell'angolo in alto a destra del [portale di Azure classico](https://portal.azure.com/) fare clic sulla connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. Scegliere la directory corretta come directory predefinita di Azure AD. Questo passaggio elenca l'associazione della sottoscrizione di Active Directory con il database SQL di Azure, assicurando che la stessa sottoscrizione venga usata per Azure AD e per SQL Server.
 
 	![choose-ad][8]
 2. Nel banner a sinistra selezionare **SQL Server**, selezionare l'istanza di **SQL Server** in uso e quindi nel pannello **SQL Server** in alto fare clic su **Impostazioni**.
@@ -192,7 +192,7 @@ Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
-> [AZURE.NOTE]Il valore **ObjectID** di Azure AD è obbligatorio quando **DisplayName** non è univoco. Per recuperare i valori **ObjectID** e **DisplayName**, usare la sezione Active Directory del portale di Azure e visualizzare le proprietà di un utente o un gruppo.
+> [AZURE.NOTE]Il valore **ObjectID** di Azure AD è obbligatorio quando **DisplayName** non è univoco. Per recuperare i valori **ObjectID** e **DisplayName**, usare la sezione Active Directory del portale di Azure classico e visualizzare le proprietà di un utente o un gruppo.
 
 L'esempio seguente restituisce informazioni sull'amministratore di Azure AD corrente per Azure SQL Server:
 
@@ -327,4 +327,4 @@ Per esempi di codice specifici relativi all'autenticazione di Azure AD, vedere i
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

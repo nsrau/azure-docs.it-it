@@ -132,7 +132,7 @@ Ci sono molti altri buoni motivi per i quali i clienti dovrebbero eseguire l'agg
 Per verificare in modo semplice se è in esecuzione un database o un server logico in una versione precedente del servizio Database SQL, eseguire le operazioni seguenti:
 
 
-1. Passare al [portale di anteprima di Azure](http://portal.azure.com/).
+1. Accedere al [portale di Azure](http://portal.azure.com/).
 2. Fare clic su **Sfoglia**.
 3. Fare clic su **SQL Server**.
 4. L'icona accanto al server o al database è significativa:
@@ -161,4 +161,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

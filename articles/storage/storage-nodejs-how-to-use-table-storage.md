@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="12/01/2015"
 	ms.author="robmcm"/>
 
 
@@ -71,7 +71,7 @@ Aggiungere il codice seguente all'inizio del file **server.js** nell'applicazion
 
 Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **TableService**.
 
-Per un esempio di impostazione delle variabili di ambiente nel portale di Azure per un sito Web di Azure, vedere [App Web Node.js con il servizio tabelle di Azure].
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](portal.azure.com) per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione].
 
 ## Creare una tabella
 
@@ -432,22 +432,20 @@ Dopo avere impostato l'elenco di controllo di accesso, è possibile creare una f
 
 Per altre informazioni, vedere le risorse seguenti:
 
--   Documentazione MSDN: [Archiviazione e accesso ai dati in Azure][]
--   [Blog del team di Archiviazione di Azure][]
--   Repository [Azure Storage SDK per Node][] su GitHub
+-   [Blog del team di Archiviazione di Azure][].
+-   Repository [Azure Storage SDK per Node][] su GitHub.
 -   [Centro per sviluppatori di Node. js](/develop/nodejs/)
 
   [Azure Storage SDK per Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
   [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure Portal]: portal.azure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [App Web Node.js con il servizio tabelle di Azure]: ../storage-nodejs-use-table-storage-web-site.md
+  [Applicazione Web Node.js con archiviazione]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

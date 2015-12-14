@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
-#Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nel portale di anteprima
+# Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nel portale di anteprima
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -30,7 +30,7 @@
 
 
 
-## Creare un endpoint del servizio di bilanciamento di carico tramite il portale di anteprima	
+## Introduzione alla creazione di un endpoint del servizio di bilanciamento di carico tramite il portale di anteprima	
 
 Per creare un modello di distribuzione (classica) per Internet del servizio di bilanciamento carico dal portale di anteprima, seguire questa procedura.
 
@@ -66,4 +66,4 @@ Per creare un modello di distribuzione (classica) per Internet del servizio di b
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

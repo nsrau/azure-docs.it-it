@@ -24,7 +24,7 @@ Questa esercitazione illustra come creare nel [servizio app di Azure](http://go.
 
 Si acquisiranno le nozioni seguenti:
 
-* Creare un'app Web di Azure e un database SQL usando il [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Poiché PHP è abilitato nelle app Web di Servizio app di Azure per impostazione predefinita, non è necessario effettuare operazioni particolari per eseguire il codice PHP.
+* Creare un'app Web di Azure e un database SQL usando il [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Poiché PHP è abilitato nelle app Web di Servizio app di Azure per impostazione predefinita, non è necessario effettuare operazioni particolari per eseguire il codice PHP.
 * Pubblicare e ripubblicare l'applicazione in Azure tramite Git.
  
 Seguendo questa esercitazione, verrà creata una semplice applicazione Web di registrazione in PHP, ospitata in un sito Web di Azure. Di seguito è riportata una schermata dell'applicazione completata:
@@ -39,7 +39,7 @@ Seguendo questa esercitazione, verrà creata una semplice applicazione Web di re
 
 Per creare un'app Web di Azure e un database SQL, seguire questa procedura:
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
+1. Accedere al [Portale di Azure](https://portal.azure.com/).
 
 2. Aprire Azure Marketplace facendo clic sull'icona **Nuovo** in alto a sinistra nel dashboard, fare clic su **Seleziona tutto** accanto a Marketplace e quindi selezionare **Web e dispositivi mobili**.
 	
@@ -284,7 +284,6 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il portale di anteprima, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 
@@ -296,4 +295,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

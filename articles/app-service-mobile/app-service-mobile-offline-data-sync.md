@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/30/2015"
 	ms.author="wesmc"/>
 
 # Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure
@@ -126,4 +126,4 @@ Quando si usano le tabelle di sincronizzazione, il codice client controlla quand
 [Xamarin Android: Abilitare la sincronizzazione offline]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: Abilitare la sincronizzazione offline]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

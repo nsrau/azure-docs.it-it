@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Metodi di routing di Gestione traffico
@@ -23,7 +23,7 @@ Sono disponibili tre metodi di routing del traffico in Gestione traffico. In ogn
 
 I tre metodi di routing di Gestione traffico sono:
 
-- **Failover**: selezionare Failover quando gli endpoint si trovano nello stesso data center o in data center diversi di Azure, noti come regioni nel portale di gestione, e si desidera usare un endpoint primario per tutto il traffico, ma fornire backup da usare nel caso in cui l'endpoint primario o di backup non sia disponibile. Per ulteriori informazioni, vedere[Metodo di routing del traffico Failover](#failover-traffic-routing-method).
+- **Failover**: selezionare Failover quando gli endpoint si trovano nello stesso data center o in data center diversi di Azure, noti come regioni nel portale di Azure, e si desidera usare un endpoint primario per tutto il traffico, ma fornire backup da usare nel caso in cui l'endpoint primario o di backup non sia disponibile. Per ulteriori informazioni, vedere[Metodo di routing del traffico Failover](#failover-traffic-routing-method).
 
 - **Round robin**: selezionare Round robin quando si desidera distribuire il carico in un set di endpoint nello stesso data center o in data center diversi. Per ulteriori informazioni, vedere[Metodo di routing del traffico Round Robin](#round-robin-traffic-routing-method).
 
@@ -37,7 +37,7 @@ Tenere presente che Siti Web di Azure offre già funzionalità di routing del tr
 
 In genere le organizzazioni desiderano offrire la massima affidabilità per i servizi erogati. A questo scopo, è necessario fornire servizi di backup in caso di inattività del servizio primario. Un modello comune di failover del servizio consiste nel fornire un set di endpoint identici e inviare il traffico a un servizio primario, con un elenco di uno o più backup. Se il servizio primario non è disponibile, i client richiedenti vengono indirizzati a quello successivo nell'ordine. Se il primo e il secondo servizio nell'elenco non sono disponibili, il traffico viene indirizzato al terzo e così via.
 
-Quando si configura il metodo di routing del traffico Failover, l'ordine degli endpoint selezionati è importante. Con il portale di gestione è possibile configurare l'ordine di failover nella pagina Configurazione del profilo.
+Quando si configura il metodo di routing del traffico Failover, l'ordine degli endpoint selezionati è importante. Con il portale di Azure è possibile configurare l'ordine di failover nella pagina Configurazione del profilo.
 
 Nella Figura 1 viene illustrato un esempio di metodo di routing del traffico Failover per un set di endpoint.
 
@@ -81,7 +81,7 @@ Il routing del traffico con metodo Round robin ponderato consente di distribuire
 - Migrazione dell'applicazione in Azure: creare un profilo con endpoint di Azure ed esterni, quindi specificare il peso del traffico indirizzato a ogni endpoint.
 - Espansione del cloud per capacità aggiuntiva: espandere rapidamente una distribuzione locale nel cloud posizionandola dietro a un profilo di Gestione traffico. In caso di necessità di capacità aggiuntiva nel cloud, si possono aggiungere o abilitare più endpoint e si può specificare la quantità di traffico da indirizzare a ogni endpoint.
 
-Attualmente, non si può usare il portale di gestione per configurare il routing del traffico ponderato. Azure offre accesso a livello di codice a questo metodo mediante l'API REST di gestione dei servizi associata e i cmdlet di Azure PowerShell.
+Attualmente, non si può usare il portale di Azure per configurare il routing del traffico ponderato. Azure offre accesso a livello di codice a questo metodo mediante l'API REST di gestione dei servizi associata e i cmdlet di Azure PowerShell.
 
 Per informazioni sull'uso delle API REST, vedere [Operazioni per Gestione traffico (documentazione di riferimento sulle API REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 
@@ -137,4 +137,4 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

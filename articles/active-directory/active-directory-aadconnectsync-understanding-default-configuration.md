@@ -16,7 +16,7 @@
    ms.date="11/10/2015"
    ms.author="andkjell"/>
 
-# Informazioni sulla configurazione predefinita
+# Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
 
 Questo articolo illustra la configurazione predefinita del servizio di sincronizzazione Azure AD Connect. Scopo dell'articolo è spiegare con un esempio reale il funzionamento del modello di configurazione, detto provisioning dichiarativo. Nell'articolo si presuppone che l'utente abbia già installato e configurato Azure AD Sync tramite l'Installazione guidata.
 
@@ -150,4 +150,4 @@ Le informazioni fornite fino a questo punto dovrebbero essere sufficienti per co
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

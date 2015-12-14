@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurare gli endpoint in una macchina virtuale in Azure"
-	description="Informazioni su come configurare gli endpoint nel portale di Azure per consentire la comunicazione con una macchina virtuale in Azure."
+	description="Informazioni su come configurare gli endpoint nel portale di Azure classico per consentire la comunicazione con una macchina virtuale in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,7 +23,7 @@
 
 Tutte le macchine virtuali create in Azure possono comunicare automaticamente mediante un canale di rete privato con altre macchine virtuali dello stesso servizio cloud o nella stessa rete virtuale. Tuttavia, i computer in Internet o altre reti virtuali richiedono gli endpoint per indirizzare il traffico di rete in ingresso a una macchina virtuale.
 
-Quando si crea una macchina virtuale nel portale di Azure, vengono creati automaticamente gli endpoint per Desktop remoto, la comunicazione remota di Windows PowerShell e Secure Shell (SSH). È possibile configurare altri endpoint durante la creazione della macchina virtuale o successivamente all'occorrenza.
+Quando si crea una macchina virtuale nel portale di gestione di Azure, vengono creati automaticamente gli endpoint per Desktop remoto, la comunicazione remota di Windows PowerShell e Secure Shell (SSH). È possibile configurare altri endpoint durante la creazione della macchina virtuale o successivamente all'occorrenza.
 
 [AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
@@ -38,7 +38,7 @@ Ogni endpoint dispone di una porta pubblica e di una porta privata.
 - La porta pubblica viene usata dal servizio di bilanciamento del carico di Azure per restare in attesa di traffico in ingresso sulla macchina virtuale da Internet.
 - La porta privata viene usata dalla macchina virtuale per restare in attesa di traffico in ingresso, in genere destinato a un'applicazione o a un servizio in esecuzione nella macchina virtuale.
 
-I valori predefiniti per il protocollo IP e le porte TCP o UDP per i protocolli di rete noti vengono forniti quando si creano endpoint con il portale di Azure. Per gli endpoint personalizzati, è necessario specificare il protocollo IP corretto (TCP o UDP) e le porte pubbliche e private. Per distribuire il traffico in ingresso in modo casuale tra più macchine virtuali, è necessario creare un set con carico bilanciato costituito da più endpoint.
+I valori predefiniti per il protocollo IP e le porte TCP o UDP per i protocolli di rete noti vengono forniti quando si creano endpoint con il portale di Azure classico. Per gli endpoint personalizzati, è necessario specificare il protocollo IP corretto (TCP o UDP) e le porte pubbliche e private. Per distribuire il traffico in ingresso in modo casuale tra più macchine virtuali, è necessario creare un set con carico bilanciato costituito da più endpoint.
 
 Dopo aver creato un endpoint, è possibile usare un elenco di controllo di accesso (ACL) per definire regole che autorizzano o rifiutano il traffico in ingresso alla porta pubblica dell'endpoint in base al relativo indirizzo IP di origine. Tuttavia, se la macchina virtuale è in una rete virtuale di Azure, è consigliabile usare invece i gruppi di sicurezza di rete. Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](virtual-networks-nsg.md).
 
@@ -46,7 +46,7 @@ Dopo aver creato un endpoint, è possibile usare un elenco di controllo di acces
 
 ##Creare un endpoint
 
-1.	Accedere al portale di Azure, se questa operazione non è già stata eseguita.
+1.	Accedere al portale di Azure classico, se questa operazione non è già stata eseguita.
 2.	Fare clic su **Macchine virtuali** e quindi scegliere il nome della macchina virtuale da configurare.
 3.	Fare clic su **Endpoint**. Nella pagina **Endpoint** sono elencati tutti gli endpoint correnti per la macchina virtuale.
 
@@ -78,7 +78,7 @@ Per definire il set di computer che può inviare il traffico, l'elenco di contro
 
 Se la macchina virtuale si trova in una rete virtuale di Azure, è consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso. Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](virtual-networks-nsg.md).
 
-1.	Accedere al portale di Azure, se questa operazione non è già stata eseguita.
+1.	Accedere al portale di Azure classico, se questa operazione non è già stata eseguita.
 2.	Fare clic su **Macchine virtuali** e quindi scegliere il nome della macchina virtuale da configurare.
 3.	Fare clic su **Endpoint**. Selezionare l'endpoint appropriato nell'elenco.
 
@@ -100,4 +100,4 @@ Per usare un cmdlet di Azure PowerShell per impostare questa funzionalità, vede
 
 [Bilanciamento del carico per i servizi di infrastruttura di Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

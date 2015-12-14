@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Utilizzo di Gestione snapshot StorSimple per connettere e gestire i dispositivi StorSimple
@@ -30,7 +30,7 @@ A seconda delle selezioni di **Visualizza**, nel riquadro **Risultati** vengono 
 
 | Colonna risultati |Descrizione |
 |:----------------|:--------------------| 
-| Nome | Il nome del dispositivo come configurato nel portale di gestione di Microsoft Azure|
+| Nome | Il nome del dispositivo come configurato nel portale di gestione di Azure classico|
 | Modello | Il numero di modello del dispositivo|
 | Versione | La versione software installata sul dispositivo |
 | Stato | Se il dispositivo è disponibile |
@@ -82,7 +82,7 @@ Utilizzare la procedura seguente per aggiungere o sostituire un dispositivo Stor
 
 3. Nella casella di riepilogo a discesa **Dispositivo**, selezionare l'indirizzo IP del dispositivo o del dispositivo virtuale.
 
-4. Nella casella di testo **Password**, digitare la password di Gestione snapshot StorSimple creata per il dispositivo nel portale di gestione di Azure. Fare clic su **OK**. Gestione snapshot StorSimple esegue la ricerca del dispositivo identificato.
+4. Nella casella di testo **Password**, digitare la password di Gestione snapshot StorSimple creata per il dispositivo nel portale di Azure classico. Fare clic su **OK**. Gestione snapshot StorSimple esegue la ricerca del dispositivo identificato.
 
     - Se il dispositivo è disponibile, Gestione snapshot StorSimple aggiunge una connessione. 
 
@@ -190,11 +190,11 @@ Utilizzare la procedura seguente per eliminare la configurazione di un singolo d
 
 ## Modifica della password scaduta di un dispositivo
 
-È necessario immettere una password per autenticare un dispositivo StorSimple con Gestione snapshot StorSimple. È possibile configurare questa password quando si utilizza l'interfaccia Windows PowerShell per configurare il dispositivo. Tuttavia, la password può scadere. In questo caso, è possibile utilizzare il portale di gestione di Microsoft Azure per modificare la password. Quindi, poiché il dispositivo è stato configurato in Gestione snapshot StorSimple prima della scadenza della password, è necessario autenticare nuovamente il dispositivo in Gestione snapshot StorSimple.
+È necessario immettere una password per autenticare un dispositivo StorSimple con Gestione snapshot StorSimple. È possibile configurare questa password quando si utilizza l'interfaccia Windows PowerShell per configurare il dispositivo. Tuttavia, la password può scadere. In questo caso, è possibile utilizzare il portale di Azure classico per modificare la password. Quindi, poiché il dispositivo è stato configurato in Gestione snapshot StorSimple prima della scadenza della password, è necessario autenticare nuovamente il dispositivo in Gestione snapshot StorSimple.
 
 #### Per modificare la password scaduta
 
-1. Nel portale di gestione di Azure, avviare il servizio StorSimple Manager.
+1. Nel portale di Azure classico accedere al servizio StorSimple Manager.
 
 2. Fare clic su **Dispositivi** > **Configura** per il dispositivo.
 
@@ -263,4 +263,4 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 - Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 - Informazioni su come [utilizzare Gestione Snapshot StorSimple per visualizzare e gestire volumi](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

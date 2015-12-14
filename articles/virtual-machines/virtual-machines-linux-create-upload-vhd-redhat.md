@@ -18,14 +18,14 @@
 
 
 # Preparare una macchina virtuale basata su RedHat per Azure
-In questo articolo verrà descritto come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo in Azure. Le versioni di RHEL trattate in questo articolo sono 6.7 e 7.1 e gli hypervisor per la preparazione trattati in questo articolo sono Hyper-V, KVM e VMWare.
+In questo articolo verrà descritto come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo in Azure. Le versioni di RHEL trattate in questo articolo sono 6.7 e 7.1 e gli hypervisor per la preparazione trattati in questo articolo sono Hyper-V, KVM e VMWare. Per altre informazioni sui requisiti di idoneità per partecipare al programma di accesso al Cloud di Red Hat, vedere [Sito web di accesso al Cloud di Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access).
 
 
 
 
 ##Preparare un'immagine dalla console di gestione di Hyper-V 
 ###Prerequisiti
-In questa sezione si presuppone che un'immagine RHEL sia già stata installata da un file ISO ottenuto dal sito Web di Red Hat in un disco rigido virtuale (VHD). Per ulteriori informazioni su come utilizzare la console di gestione di Hyper-V per installare un'immagine del sistema operativo, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
+In questa sezione si presuppone che un'immagine RHEL sia già stata installata da un file ISO ottenuto dal sito Web di Red Hat in un disco rigido virtuale (VHD). Per altre informazioni su come usare la console di gestione di Hyper-V per installare un'immagine del sistema operativo, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Note sull'installazione di RHEL**
 
@@ -178,7 +178,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config`per includere la riga seguente:
+9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config` per includere la riga seguente:
 
         ClientAliveInterval 180
 
@@ -356,7 +356,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
     Modificare il secondo campo utente radice "!!" con la password crittografata
 
-3.	Creare una macchina virtuale in KVM dall'immagine qcow2, impostare il tipo di disco su **qcow2** e impostare il modello del dispositivo di interfaccia di rete virtuale su **virtio**. Quindi avviare la macchina virtuale e accedere come root.
+3.	Creare una macchina virtuale in KVM dall'immagine qcow2, impostare il tipo di disco su **qcow2**, impostare il modello di dispositivo di interfaccia di rete virtuale su **virtio**. Quindi avviare la macchina virtuale e accedere come root.
 
 4.	Creare un file denominato **network** nella directory `/etc/sysconfig/` contenente il testo seguente:
 
@@ -414,7 +414,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
         systemctl restart sshd	
 
-12.	Il pacchetto WALinuxAgent `WALinuxAgent-<version>` è stato inserito nell'archivio Fedora EPEL 6. Abilitare l’archivio epel eseguendo il comando seguente:
+12.	Il pacchetto WALinuxAgent `WALinuxAgent-<version>` è stato inserito nell’archivio Fedora EPEL 6. Abilitare l’archivio epel eseguendo il comando seguente:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -427,7 +427,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata d
 
         # systemctl enable waagent.service
 
-14.	Non creare l'area di swap sul disco del sistema operativo. L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure, come illustrato nel passaggio precedente, modificare i parametri seguenti in `/etc/waagent.conf` in modo appropriato:
+14.	Non creare l'area di swap sul disco del sistema operativo. L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti `/etc/waagent.conf` in modo appropriato:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -513,7 +513,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	Il pacchetto WALinuxAgent `WALinuxAgent-<version>` è stato inserito nell'archivio Fedora EPEL 6. Abilitare l’archivio epel eseguendo il comando seguente::
+7.	Il pacchetto WALinuxAgent `WALinuxAgent-<version>` è stato inserito nell’archivio Fedora EPEL 6. Abilitare l’archivio epel eseguendo il comando seguente::
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -531,7 +531,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
     L'avvio grafico e l'avvio silenzioso non sono utili in un ambiente cloud se tutti i log devono essere inviati alla porta seriale. L'opzione crashkernel può essere configurata, ma si tenga presente che questo parametro ridurrà la quantità di memoria disponibile nella VM di almeno 128 MB, il che potrebbe causare problemi con le VM di dimensioni inferiori.
 
-9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config` in modo da includere la riga seguente:
+9.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config` per includere la riga seguente:
 
         ClientAliveInterval 180
 
@@ -542,7 +542,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 11.	Non creare l'area di swap sul disco del sistema operativo:
     
-    L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure, come illustrato nel passaggio precedente, modificare i parametri seguenti in `/etc/waagent.conf` in modo appropriato:
+    L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti `/etc/waagent.conf` in modo appropriato:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -615,7 +615,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
     L'avvio grafico e l'avvio silenzioso non sono utili in un ambiente cloud se tutti i log devono essere inviati alla porta seriale. L'opzione crashkernel può essere configurata, ma si tenga presente che questo parametro ridurrà la quantità di memoria disponibile nella VM di almeno 128 MB, il che potrebbe causare problemi con le VM di dimensioni inferiori.
 
-6.	Dopo aver terminato di modificare `/etc/default/grub` come sopra illustrato, eseguire il comando seguente per ricompilare la configurazione GRUB:
+6.	Dopo aver terminato di modificare `/etc/default/grub` come sopra illustrato, eseguire questo comando per ricompilare la configurazione GRUB:
 
          # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -629,11 +629,11 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
         # dracut –f -v
 
-8.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config` in modo da includere la riga seguente:
+8.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito. Modificare `/etc/ssh/sshd_config` per includere la riga seguente:
 
         ClientAliveInterval 180
 
-9.	Il pacchetto WALinuxAgent `WALinuxAgent-<version>` è stato inserito nell'archivio Fedora EPEL 6. Abilitare l’archivio epel eseguendo il comando seguente:
+9.	Il pacchetto WALinuxAgent `WALinuxAgent-<version>` è stato inserito nell’archivio Fedora EPEL 6. Abilitare l’archivio epel eseguendo il comando seguente:
 
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
@@ -644,7 +644,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service
 
-11.	Non creare l'area di swap sul disco del sistema operativo. L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure, come illustrato nel passaggio precedente, modificare i parametri seguenti in `/etc/waagent.conf` in modo appropriato:
+11.	Non creare l'area di swap sul disco del sistema operativo. L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti `/etc/waagent.conf` in modo appropriato:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -830,4 +830,4 @@ Sebbene sia un problema intermittente, si verifica più spesso durante frequenti
 
     # sudo yum update
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

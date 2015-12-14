@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Abilitazione del writeback dei dispositivi in Azure AD Connect | Microsoft Azure"
+	pageTitle="Azure AD Connect: Abilitazione del writeback dei dispositivi | Microsoft Azure"
 	description="Questo documento descrive come abilitare il writeback dei dispositivi usando Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
@@ -24,7 +24,8 @@ Per abilitare l'accesso condizionale in base ai dispositivi alle applicazione pr
 
 Questo offre maggiore sicurezza e garantisce che l'accesso alle applicazioni venga concesso solo ai dispositivi attendibili. Per altre informazioni sull'accesso condizionale, vedere [Gestione dei rischi con l'accesso condizionale](active-directory-conditional-access.md) e [Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx).
 
->[AZURE.NOTE]Quando si usano dispositivi registrati nei criteri di accesso condizionale del servizio Registrazione dispositivo di Azure Active Directory, è necessario un abbonamento a Office 365 o una licenza di Azure AD Premium. Questo include i criteri applicati da Active Directory Federation Services (AD FS) alle risorse locali.
+>[AZURE.NOTE]Una sottoscrizione di Azure AD Premium è necessaria per il writeback dei dispositivi.
+
 
 ## Parte 1: Installare Azure AD Connect
 1. Installare Azure AD Connect usando le impostazioni personalizzate o rapide Si consiglia di sincronizzare utenti e gruppi prima di abilitare il writeback dei dispositivi.
@@ -92,7 +93,7 @@ Attività iniziali:
 - Assicurarsi che l'account specificato nello script di inizializzazione sia effettivamente l'utente corretto usato da Active Directory Connector. A questo scopo, seguire questa procedura:
 	- Avviare **Servizio di sincronizzazione** dal menu Start.
 	- Aprire la scheda **Connettori**.
-	- Trovare il connettore con il tipo Servizi di dominio Active Directory e selezionarlo.
+	- Trovare il connettore con il tipo Servizi di dominio di Active Directory e selezionarlo.
 	- In **Azioni** selezionare **Proprietà**.
 	- Passare a **Connetti a Foresta Active Directory**. Verificare che il dominio e il nome specificati in questa schermata corrispondano all'account specificato per lo script. ![Account connettore](./media/active-directory-aadconnect-get-started-custom-device-writeback/connectoraccount.png)
 
@@ -125,4 +126,4 @@ Verificare la configurazione in Active Directory: - Verificare che l'oggetto Dev
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

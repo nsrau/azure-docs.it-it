@@ -34,7 +34,7 @@ In questa attività viene illustrato come gestire un'applicazione in modo tempor
     Publish-AzureServiceProject -Slot staging
     ```
 
-2.  Accedere al [portale di gestione di Azure] e selezionare **Servizi cloud**. Dopo la creazione del servizio cloud e l'aggiornamento dello stato della colonna **Staging** in **Running**, fare clic sul nome del servizio.
+2.  Accedere al [portale di Azure classico] e selezionare **Servizi cloud**. Dopo la creazione del servizio cloud e l'aggiornamento dello stato della colonna **Staging** in **Running**, fare clic sul nome del servizio.
 
 	![Portale con servizio in esecuzione][cloud-service]
 
@@ -54,7 +54,7 @@ Dopo la verifica della versione aggiornata di un'applicazione nell'ambiente di g
 
 > [AZURE.NOTE]In questo passaggio si presuppone che un'applicazione sia già stata distribuita in produzione e che sia già stata eseguita la gestione temporanea della versione aggiornata dell'applicazione.
 
-1.  Accedere al [portale di gestione di Azure], fare clic su **Cloud Services** e quindi selezionare il nome del servizio.
+1.  Accedere al [portale di Azure classico], fare clic su **Servizi Cloud** e quindi selezionare il nome del servizio.
 
 2.  Da **Dashboard** selezionare **Staging** e quindi fare clic su **Swap** nella parte inferiore della pagina. Verrà aperta la finestra di dialogo VIP Swap.
 
@@ -68,11 +68,11 @@ La gestione temporanea di una distribuzione e l'aggiornamento di una distribuzio
 
 - [Come distribuire un aggiornamento del servizio in produzione mediante lo scambio di indirizzi VIP in Azure]
 
-[portale di gestione di Azure]: http://manage.windowsazure.com
+[portale di Azure classico]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Come distribuire un aggiornamento del servizio in produzione mediante lo scambio di indirizzi VIP in Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

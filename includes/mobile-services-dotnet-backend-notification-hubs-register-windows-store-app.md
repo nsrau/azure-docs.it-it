@@ -42,7 +42,7 @@
 
     > [AZURE.NOTE]Il segreto client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri né distribuirli con l'app.
 
-11. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app.
+11. Accedere al [portale di Azure classico](https://manage.windowsazure.com/), fare clic su **Servizi mobili** e quindi sull'app.
 
    	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
@@ -54,6 +54,5 @@
 
 <!-- URLs. -->
 [Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

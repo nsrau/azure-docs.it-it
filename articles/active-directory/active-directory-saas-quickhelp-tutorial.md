@@ -3,8 +3,8 @@
 	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e QuickHelp."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/06/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con QuickHelp
@@ -41,7 +41,7 @@ Per configurare l'integrazione di Azure AD con QuickHelp, sono necessari gli ele
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si ha un ambiente di prova di Azure AD, fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per ottenere una versione di valutazione valida un mese. 
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -75,7 +75,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con QuickHelp, è
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente test di QuickHelp](#creating-a-quickhelp-test-user)**: per avere una controparte di Britta Simon in QuickHelp collegata alla relativa rappresentazione in Azure AD.
+4. **[Creazione di un utente test di QuickHelp](#creating-a-quickhelp-test-user)** - per avere una controparte di Britta Simon in QuickHelp collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
@@ -85,13 +85,13 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 
 **Per configurare Single Sign-On di Azure AD con QuickHelp, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **QuickHelp** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nella pagina di integrazione dell'applicazione **QuickHelp** del portale di Azure AD, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a QuickHelp** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Accesso Single Sign-On di Azure AD][7] <br>
 
-3. Nella pagina **Configurare le impostazioni dell'app**, eseguire la procedura seguente: <br><br>![Configurare le impostazioni dell'app][8] <br>
+3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, eseguire la procedura seguente: <br><br>![Configurare le impostazioni dell'app][8] <br>
  
-     a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere al sito QuickHelp, ad esempio:* https://quickhelp.com/bsiazure/*).
+     a. Nella casella di testo **URL di accesso**, digitare l'URL usato dagli utenti per accedere al sito QuickHelp, (ad esempio:* https://quickhelp.com/bsiazure/*).
 
      >[AZURE.NOTE]Se non si conosce il valore dell'URL di accesso, contattare il team di supporto di QuickHelp.
 
@@ -107,21 +107,21 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 2. Nel menu in alto fare clic su **Admin**. <br><br>![Configura accesso Single Sign-On][21]<br>
 
 
-1. Nel menu **QuickHelp Admin** fare clic su **Settings**. <br><br>![Configura accesso Single Sign-On][22]<br>
+1. Nel menu **QuickHelp Admin** fare clic su **Impostazioni**. <br><br>![Configura accesso Single Sign-On][22]<br>
 
-1. Fare clic su **Authentication Settings**.
+1. Fare clic su **Impostazioni di autenticazione**.
 
-1. Nella pagina **Authentication Settings** seguire questa procedura <br><br>![Configura accesso Single Sign-On][23]<br>
+1. Nella pagina **Impostazioni di autenticazione** seguire questa procedura <br><br>![Configura accesso Single Sign-On][23]<br>
 
-    a. Come **tipo SSO** selezionare **WSFederation**.
+    a. Come **tipo SSO**, selezionare **WSFederation**.
 
     b. Per caricare il file dei metadati di Azure scaricato, fare clic su **Sfoglia**, passare al file e quindi fare clic su **Carica metadati**.
 
     d. Nella casella di testo **Email**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    e. Nella casella di testo **Nome** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+    e. Nella casella di testo **Nome**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
 
-    f. Nella casella di testo **Last name**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    f. Nella casella di testo **Cognome**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
     g. Nella **barra delle azioni**, fare clic su **Salva**.
 
@@ -183,7 +183,7 @@ Questa sezione descrive come creare un utente test nel portale di Azure denomina
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in QuickHelp. Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di QuickHelp che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in QuickHelp.
 
-QuickHelp supporta il provisioning JIT (just-in-time), Ciò significa che, se necessario, un account utente viene creato automaticamente in QuickHelp e che l'account è collegato all'account di Azure AD.
+QuickHelp supporta il provisioning just-in-time. Ciò significa che, se necessario, un account utente viene creato automaticamente in QuickHelp e che l'account è collegato all'account di Azure AD.
 
 Non è necessario alcun intervento dell'utente in questa sezione.
 
@@ -194,15 +194,15 @@ L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'
 
 **Per assegnare Britta Simon a QuickHelp, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br> <br>![Assegna utente][201]<br>
+1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br> <br>![Assegna utente][201]<br>
 
-2. Nell'elenco delle applicazioni selezionare **QuickHelp**. <br><br>![Assegna utente][202] <br>
+2. Nell'elenco delle applicazioni, selezionare **QuickHelp**. <br><br>![Assegna utente][202] <br>
 
-1. Nel menu in alto fare clic su **Utenti**.<br> <br>![Assegna utente][203]<br>
+1. Nel menu in alto, fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Sulla barra degli strumenti in basso fare clic su **Assegna**. <br><br>![Assegna utente][205]
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
 
 
 
@@ -255,4 +255,4 @@ In questa sezione viene descritto come testare la configurazione dell'accesso Si
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

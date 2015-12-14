@@ -1,26 +1,31 @@
-<properties 
-	pageTitle="Registrarsi per l'autenticazione Microsoft | Microsoft Azure" 
-	description="Informazioni su come registrarsi per l'autenticazione Microsoft nell'applicazione Servizi mobili di Azure." 
-	authors="ggailey777" 
-	services="mobile-services" 
-	documentationCenter="Mobile" 
-	manager="dwrede" 
+<properties
+	pageTitle="Registrarsi per l'autenticazione Microsoft | Microsoft Azure"
+	description="Informazioni su come registrarsi per l'autenticazione Microsoft nell'applicazione Servizi mobili di Azure."
+	authors="ggailey777"
+	services="mobile-services"
+	documentationCenter="Mobile"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/15/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="NA"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/15/2015"
 	ms.author="glenga"/>
 
 # Registrare l'app per l'uso dell'account Microsoft per l'autenticazione
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
 
-## Panoramica 
+## Panoramica
 
 Questo argomento illustra come registrare l'app per dispositivi mobili in modo da usare l'account Microsoft come provider di identità con Servizi mobili di Azure. Gli stessi passaggi si applicano all'autenticazione diretta dal servizio e all'autenticazione diretta dal client mediante Live SDK.
 
@@ -31,7 +36,7 @@ Le app di Windows Store devono innanzitutto essere registrate in Windows Dev Cen
 >[AZURE.NOTE]Per le app per Windows Phone 8, Windows Phone 8.1 Silverlight e non per Windows è possibile saltare questa sezione.
 
 1. Se l'app non è ancora stata registrata, passare a [Windows Dev Center](https://dev.windows.com/dashboard/Application/New), accedere con il proprio account Microsoft, digitare un nome per l’app, quindi fare clic su **Riservare un nome dell’app**.
- 
+
 3. Aprire il progetto dell’app Windows Visual Studio, poi in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto dell’app di Windows Store, quindi scegliere **Store** > **Associa app allo Store**.
 
   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-store-association.png)
@@ -57,7 +62,7 @@ Il primo passaggio di questa sezione si applica solo ad app per Windows Phone 8,
 2. Nella pagina dell'account Microsoft per l'app, fare clic su **Impostazioni API**, abilitare **App client desktop o per dispositivi mobili**, impostare l'URL del servizio mobile come **Dominio di destinazione**, poi specificare uno dei seguenti formati di URL in **URL di reindirizzamento** e fare clic su **Salva**:
 
 	+ **Back-end .NET**: `https://<mobile_service>.azure-mobile.net/signin-microsoft`
-	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` 
+	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/microsoftaccount`
 
 	 >[AZURE.NOTE]Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione avrà esito negativo. Il **dominio radice** deve essere compilato automaticamente. &nbsp;
 
@@ -65,16 +70,16 @@ Il primo passaggio di questa sezione si applica solo ad app per Windows Phone 8,
 
 
 4. Fare clic su **Impostazioni app** e prendere nota dei valori di **ID client**, **segreto client** e **ID di sicurezza del pacchetto**.
-	
+
    	![Impostazioni app dell'account Microsoft](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
-	
-	
+
+
     > [AZURE.NOTE]Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app. Solo per le registrazioni delle app di Windows Store il campo relativo all'ID di sicurezza del pacchetto risulta compilato.
 
-4. Nel [portale di gestione di Azure] fare clic sulla scheda **Identità** relativa al servizio mobile, immettere l'ID client, il segreto client e l'ID di sicurezza del pacchetto ottenuto dal provider di identità, poi fare clic su **Salva**.
-	
+4. Nel [portale di Azure classico] fare clic sulla scheda **Identità** relativa al servizio mobile, immettere l'ID client, il segreto client e l'ID di sicurezza del pacchetto ottenuto dal provider di identità, poi fare clic su **Salva**.
+
 	>[AZURE.NOTE]Non è necessario specificare un valore per l'ID di sicurezza del pacchetto per un'app per Windows Phone 8, Windows Phone Store 8.1 Silverlight o non per Windows.
-	
+
 Il servizio mobile e l'app sono ora configurati per l'uso con l'account Microsoft.
 
 <!-- Anchors. -->
@@ -86,7 +91,6 @@ Il servizio mobile e l'app sono ora configurati per l'uso con l'account Microsof
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
-[portale di gestione di Azure]: https://manage.windowsazure.com/
- 
+[portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

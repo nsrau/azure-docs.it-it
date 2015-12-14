@@ -84,7 +84,7 @@ Si noti che i servizi di distribuzione delle licenze Widevine forniti da Servizi
 
 ##<a id="oct_changes_15"></a>Versione di ottobre 2015
 
-Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di gestione di Azure per [creare account di Servizi multimediali](media-services-create-account.md#create-a-media-services-account-using-quick-create) ed eseguire diverse attività descritte [qui](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è tuttavia abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
+Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di Azure classico per [creare account di Servizi multimediali](media-services-create-account.md#create-a-media-services-account-using-quick-create) ed eseguire diverse attività descritte [qui](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è tuttavia abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
 
 - Brasile meridionale: sono disponibili solo unità riservate di codifica Standard e Basic
 - India occidentale, India meridionale e India centrale: sono disponibili solo unità riservate di codifica Basic
@@ -275,15 +275,15 @@ L'SDK di Servizi multimediali per .NET è ora disponibile nella versione 3.0.0.7
 ### <a id="sept_14_breaking_changes"></a>Modifiche di rilievo
 
 * L'entità **Origin** è stata rinominata in [StreamingEndpoint].
-* È stato modificato il comportamento predefinito del sistema quando si usa il **portale di gestione di Azure** per codificare e pubblicare file MP4. 
+* È stato modificato il comportamento predefinito del sistema quando si usa il **portale di Azure classico** per codificare e pubblicare file MP4.
 
-	Mentre, in precedenza, quando si usava il portale di gestione per pubblicare un asset video costituito da un unico file MP4, veniva creato un URL SAS (che consentiva di scaricare il video da un'archiviazione BLOB), adesso viene generato un URL che punta a un endpoint di flusso di origine di Servizi multimediali di Azure. Questa modifica, tuttavia, non riguarda i video MP4 che vengono caricati direttamente in Servizi multimediali e pubblicati senza essere codificati da Servizi multimediali di Azure.
-	
-	Attualmente, per risolvere il problema sono disponibili le due opzioni seguenti.
-	
-	* Abilitare le unità di streaming e usare il packaging dinamico per trasmettere l'asset mp4 come presentazione Smooth Streaming.
-	
-	* Creare un URL SAS per scaricare (o riprodurre in modo progressivo) il file MP4. Per altre informazioni sulla creazione di un localizzatore SAS, vedere [Distribuzione di contenuto].
+Mentre, in precedenza, quando si usava il portale di Azure classico per pubblicare un asset video costituito da un unico file MP4, veniva creato un URL della firma di accesso condiviso (che consentiva di scaricare il video da un'archiviazione BLOB), adesso quando si utilizza il portale di Azure classico per codificare e pubblicare un asset video costituito da un unico file MP4 viene generato un URL che punta a un endpoint di flusso di origine di Servizi multimediali di Azure. Questa modifica, tuttavia, non riguarda i video MP4 che vengono caricati direttamente in Servizi multimediali e pubblicati senza essere codificati da Servizi multimediali di Azure.
+
+Attualmente, per risolvere il problema sono disponibili le due opzioni seguenti.
+
+* Abilitare le unità di streaming e usare il packaging dinamico per trasmettere l'asset mp4 come presentazione Smooth Streaming.
+
+* Creare un URL SAS per scaricare (o riprodurre in modo progressivo) il file MP4. Per altre informazioni sulla creazione di un localizzatore SAS, vedere [Distribuzione di contenuto].
 
 
 ### <a id="sept_14_GA_changes"></a>Nuove funzionalità o scenari nella versione di disponibilità generale
@@ -601,7 +601,7 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Panoramica del modello di licenza PlayReady di Servizi multimediali]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Streaming di contenuto crittografato di archiviazione]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure Classic Portal]: https://manage.windowsazure.com
 [Dynamic Packaging]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [blog di Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protezione di Smooth Streaming e MPEG DASH con PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
@@ -620,4 +620,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

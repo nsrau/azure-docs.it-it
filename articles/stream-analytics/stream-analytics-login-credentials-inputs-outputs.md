@@ -34,7 +34,7 @@ Questa parte è applicabile ai seguenti input/output:
 Per altri input/output, andare alla Parte 2.
 
 ###Archiviazione blog/Archiviazione tabelle
-1.  Andare all’estensione di Archiviazione sul portale di gestione di Azure: ![graphic1][graphic1]
+1.  Andare all’estensione di Archiviazione sul portale di Azure classico: ![graphic1][graphic1]
 2.  Individuare l’archiviazione usata dal processo e accedervi: ![graphic2][graphic2]
 3.  Fare clic sul comando Gestisci chiavi di accesso: ![graphic3][graphic3]
 4.  Tra la chiave di accesso primaria e la chiave di accesso secondaria, **selezionare quella non usata dal processo**.
@@ -43,7 +43,7 @@ Per altri input/output, andare alla Parte 2.
 7.  Continuare con la Parte 2.
 
 ###Hub eventi
-1.  Andare all’estensione di bus di servizio sul portale di gestione di Azure: ![graphic6][graphic6]
+1.  Andare all’estensione di bus di servizio sul portale di Azure classico: ![graphic6][graphic6]
 2.  Individuare lo spazio dei nomi del bus di servizio usato dal processo e accedervi: ![graphic7][graphic7]
 3.  Se il processo usa criteri di accesso condivisi sullo spazio dei nomi del bus di servizio, saltare al passaggio 6  
 4.  Andare alla scheda Hub eventi: ![graphic8][graphic8]
@@ -57,9 +57,9 @@ Per altri input/output, andare alla Parte 2.
 
 ###Database SQL
 
->[AZURE.NOTE]Nota: sarà necessario connettersi al servizio Database SQL. Verrà mostrato come eseguire l’operazione utilizzando lo strumento di gestione sul portale di gestione di Azure. Tuttavia, è anche possibile scegliere uno strumento sul lato client come SQL Server Management Studio.
+>[AZURE.NOTE]Nota: sarà necessario connettersi al servizio Database SQL. Verrà mostrato come eseguire l’operazione utilizzando lo strumento di gestione sul portale di Azure classico. Tuttavia, è anche possibile scegliere uno strumento sul lato client come SQL Server Management Studio.
 
-1.  Andare all’estensione di Database SQL sul portale di gestione di Azure: ![graphic14][graphic14]
+1.  Andare all’estensione di Database SQL sul portale di Azure classico: ![graphic14][graphic14]
 2.  Individuare il Database SQL usato dal processo e **fare clic sul collegamento al server** sulla stessa riga: ![graphic15][graphic15]
 3.  Fare clic sul comando Gestisci: ![graphic16][graphic16]
 4.  Digitare master del database: ![graphic17][graphic17]
@@ -77,7 +77,7 @@ Per altri input/output, andare alla Parte 2.
 16. Continuare con la Parte 2.
 
 ##Parte 2: arresto del processo di Analisi dei flussi
-1.  Andare all’estensione Analisi dei flussi sul portale di gestione di Azure: ![graphic26][graphic26]
+1.  Andare all’estensione Analisi di flusso sul portale di Azure classico: ![graphic26][graphic26]
 2.  Individuare il processo e accedervi: ![graphic27][graphic27]
 3.  Andare nella scheda Input o nella scheda Output a seconda se si stanno ruotando le credenziali su un Input o su un Output. ![graphic28][graphic28]
 4.  Fare clic sul comando Arresta e confermare l’arresto del processo: ![graphic29][graphic29] Attendere l’arresto del processo.
@@ -193,4 +193,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

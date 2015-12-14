@@ -104,15 +104,13 @@ Per eliminare una coda e tutti i messaggi che contiene chiamare il metodo **dele
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   Vedere la documentazione MSDN: [Archiviazione e accesso ai dati in Azure][]
 -   [Blog del team di Archiviazione di Azure][]
 
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](/develop/python/).
 
-[Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
 [pacchetto di archiviazione Python di Azure]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

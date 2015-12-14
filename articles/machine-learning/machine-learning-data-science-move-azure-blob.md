@@ -30,13 +30,13 @@ Quale sia il metodo adatto dipenderà dallo scenario. L’articolo [Scenari rela
 
 > [AZURE.NOTE]Per una completa introduzione dell'archiviazione BLOB di Azure, fare riferimento a [Informazioni di base sui BLOB di Azure](../storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
-> [AZURE.TIP]In alternativa, è possibile usare [Data factory di Azure](https://azure.microsoft.com/it-IT/services/data-factory/) per creare e pianificare una pipeline che scarica i dati dall'archiviazione BLOB di Azure, li passa a un servizio Web di Azure Machine Learning pubblicato, riceve i risultati dell'analisi predittiva e carica i risultati nella risorsa di archiviazione. Per altre informazioni, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning](../data-factory/data-factory-create-predictive-pipelines.md).
+> [AZURE.TIP]In alternativa, è possibile usare [Data factory di Azure](https://azure.microsoft.com/services/data-factory/) per creare e pianificare una pipeline che scarica i dati dall'archiviazione BLOB di Azure, li passa a un servizio Web di Azure Machine Learning pubblicato, riceve i risultati dell'analisi predittiva e carica i risultati nella risorsa di archiviazione. Per altre informazioni, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning](../data-factory/data-factory-create-predictive-pipelines.md).
 
 ## Prerequisiti
 
 In questo documento si presuppone di avere una sottoscrizione di Azure, un account di archiviazione e delle chiavi di archiviazione corrispondenti per quell’account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure.
 
-- Per configurare una sottoscrizione di Azure, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/it-IT/pricing/free-trial/).
+- Per configurare una sottoscrizione di Azure vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 - Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull’account e la chiave, vedere [Informazioni sugli account di archiviazione di Azure](../storage-create-storage-account.md).
 
 
@@ -44,4 +44,4 @@ In questo documento si presuppone di avere una sottoscrizione di Azure, un accou
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -26,7 +26,7 @@ Se si ha già una macchina virtuale di Azure e si vuole configurare un server di
 
 Prima di iniziare il processo di creazione di una macchina virtuale su Azure, occorre determinare la dimensione della macchina necessaria per l'elaborazione dei dati del relativo progetto. Le macchine di dimensioni inferiori sono dotate di meno memoria e core CPU rispetto alle macchine di dimensioni più elevate, ma sono anche meno costose. Per un elenco dei prezzi e dei tipi di macchine virtuali disponibili, vedere la pagina <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Macchine virtuali - Prezzi</a>
 
-1. Accedere al <a href="https://manage.windowsazure.com" target="_blank">portale di Azure</a> e fare clic su **Nuovo** nell'angolo inferiore sinistro. Viene visualizzata una finestra. Selezionare **CALCOLO** -> **MACCHINA VIRTUALE** -> **DA RACCOLTA**.
+1. Accedere al <a href="https://manage.windowsazure.com" target="_blank">portale di Azure classico</a> e fare clic su **Nuovo** nell'angolo inferiore sinistro. Viene visualizzata una finestra. Selezionare **CALCOLO** -> **MACCHINA VIRTUALE** -> **DA RACCOLTA**.
 
 	![Creare un'area di lavoro][24]
 
@@ -60,7 +60,7 @@ Il completamento di tale processo può richiedere dai 15 ai 25 minuti. Dopo aver
 
 Se è stata creata la macchina virtuale attenendosi alla procedura descritta nel passaggio 1, l'endpoint per IPython Notebook è già stato aggiunto ed è possibile ignorare questo passaggio.
 
-Se la macchina virtuale già esiste ed è necessario aggiungere un endpoint per IPython Notebook che verrà installato più avanti nel passaggio 3, effettuare prima di tutto l'accesso al portale di gestione di Azure, selezionare la macchina virtuale e aggiungere l'endpoint per il server di IPython Notebook. Nella figura seguente viene riportata una schermata del portale dopo l'aggiunta dell'endpoint per IPython Notebook a una macchina virtuale di Windows.
+Se la macchina virtuale già esiste ed è necessario aggiungere un endpoint per IPython Notebook che verrà installato più avanti nel passaggio 3, effettuare prima di tutto l'accesso al portale di Azure classico, selezionare la macchina virtuale e aggiungere l'endpoint per il server di IPython Notebook. Nella figura seguente viene riportata una schermata del portale dopo l'aggiunta dell'endpoint per IPython Notebook a una macchina virtuale di Windows.
 
 ![Creare un'area di lavoro][17]
 
@@ -79,7 +79,7 @@ Quando richiesto, immettere una password per IPython Notebook e la password dell
 ## <a name="access"></a>Passaggio 4: Accedere a IPython Notebook da un Web browser
 Per accedere al server IPython Notebook, aprire un Web browser e immettere *https://&#60;virtual nome DNS macchina virtuale>:&#60;numero porta pubblica>* nella casella di testo dell'URL. In questo caso, il *&#60;numero porta pubblica>* corrisponde a quello specificato al momento dell'aggiunta dell'endpoint per IPython Notebook.
 
-Il *&#60;nome DNS della macchina virtuale>* è disponibile nel portale di gestione di Azure. Dopo aver effettuato l'accesso al portale di gestione, fare clic su **MACCHINE VIRTUALI**, selezionare la macchina virtuale creata, quindi selezionare **DASHBOARD**. Verrà visualizzato il nome DNS come mostrato di seguito:
+Il *&#60;nome DNS della macchina virtuale>* è disponibile nel portale di Azure classico. Dopo aver effettuato l'accesso al portale classico, fare clic su **MACCHINE VIRTUALI**, selezionare la macchina virtuale creata, quindi selezionare **DASHBOARD**. Verrà visualizzato il nome DNS come mostrato di seguito:
 
 ![Creare un'area di lavoro][19]
 
@@ -104,11 +104,11 @@ Con IPython Notebook si consente agli utenti di caricare con facilità un IPytho
 
 Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non ricevere addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)**.
 
-> [AZURE.NOTE]Se si arresta la macchina virtuale dall'interno (usando le opzioni di risparmio energia di Windows), la macchina virtuale viene arrestata ma rimane allocata. Per assicurarsi di non continuare a ricevere addebiti, arrestare sempre le macchine virtuali dal [portale di gestione di Azure](http://manage.windowsazure.com/). È anche possibile arrestare la macchina virtuale tramite Powershell chiamando il metodo **ShutdownRoleOperation** con il valore "PostShutdownAction" corrispondente a "StoppedDeallocated".
+> [AZURE.NOTE]Se si arresta la macchina virtuale dall'interno (usando le opzioni di risparmio energia di Windows), la macchina virtuale viene arrestata ma rimane allocata. Per assicurarsi di non continuare a ricevere addebiti, arrestare sempre le macchine virtuali dal [portale di Azure classico](http://manage.windowsazure.com/). È anche possibile arrestare la macchina virtuale tramite Powershell chiamando il metodo **ShutdownRoleOperation** con il valore "PostShutdownAction" corrispondente a "StoppedDeallocated".
 
 Per arrestare e deallocare la macchina virtuale:
 
-1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com/) con il proprio account.  
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/) con il proprio account.  
 
 2. Selezionare **MACCHINE VIRTUALI** dalla barra di spostamento a sinistra.
 
@@ -118,7 +118,7 @@ Per arrestare e deallocare la macchina virtuale:
 
 ![Arresto della macchina virtuale][15]
 
-La macchina virtuale verrà deallocata ma non eliminata. È possibile riavviare la macchina virtuale in qualsiasi momento dal portale di gestione di Azure.
+La macchina virtuale verrà deallocata ma non eliminata. È possibile riavviare la macchina virtuale in qualsiasi momento dal portale di Azure classico.
 
 ## La macchina virtuale di Azure è pronta all'utilizzo: passaggi successivi
 
@@ -143,4 +143,4 @@ I passaggi successivi del processo di analisi avanzata dei dati sono illustrati 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

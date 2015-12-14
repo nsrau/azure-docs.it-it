@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Usare analisi di flusso per il feed di Power BI da Application Insights
@@ -39,6 +39,9 @@ In questo articolo viene illustrato come utilizzare [analisi di flusso](http://a
 Noam Ben Zeev illustra ciò che verrà descritto in questo articolo.
 
 > [AZURE.VIDEO export-to-power-bi-from-application-insights]
+
+
+**Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento](app-insights-sampling.md).
 
 ## Monitorare l'app con Application Insights
 
@@ -266,4 +269,4 @@ Noam Ben Zeev spiega come esportare i dati in Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Altri esempi e procedure dettagliate](app-insights-code-samples.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

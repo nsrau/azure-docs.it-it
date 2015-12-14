@@ -57,7 +57,7 @@ Se i clienti hanno impostato l'aggiornamento automatico del sistema operativo gu
 
 Le versioni del sistema operativo guest vengono rilasciate ogni mese. A causa della frequenza dei rilasci regolari, ogni versione ha una durata fissa.
 
-Allo scadere del periodo di 60 giorni una versione viene "*disabilitata*". "Disabilitata" significa che la versione viene rimossa dal portale di gestione di Azure. Inoltre non può più essere impostata dal file di configurazione CSCFG. Le distribuzioni esistenti vengono mantenute in esecuzione, ma non è consentito eseguire nuove distribuzioni e aggiornamenti di configurazione e di codice alle distribuzioni esistenti.
+Allo scadere del periodo di 60 giorni una versione viene "*disabilitata*". "Disabilitata" significa che la versione viene rimossa dal portale di Azure classico. Inoltre non può più essere impostata dal file di configurazione CSCFG. Le distribuzioni esistenti vengono mantenute in esecuzione, ma non è consentito eseguire nuove distribuzioni e aggiornamenti di configurazione e di codice alle distribuzioni esistenti.
 
 In un momento successivo, la versione del sistema operativo guest "*scade*", e viene forzato l'aggiornamento delle installazioni che ancora eseguono la versione in questione e viene impostato l'aggiornamento automatico del sistema operativo Guest per il futuro. La scadenza è un processo graduale, per cui il periodo che intercorre tra la disabilitazione e la scadenza può variare.
 
@@ -67,7 +67,7 @@ Questi periodi possono essere resi più lunghi a discrezione di Microsoft per fa
 
 ### Notifiche durante il ritiro 
 
-* **Ritiro della famiglia** <br>Microsoft userà i post di blog e la notifica tramite il portale di gestione. Gli utenti che usano ancora una famiglia di sistemi operativi guest ritirata verranno informati tramite una comunicazione diretta (e-mail, messaggi sul portale, telefonata) agli amministratori del servizio assegnato. Tutte le modifiche verranno inserite in questa pagina e il feed RSS verrà elencato all'inizio di questa pagina. 
+* **Ritiro della famiglia** <br>Microsoft userà i post di blog e la notifica tramite il portale di Azure classico. Gli utenti che usano ancora una famiglia di sistemi operativi guest ritirata verranno informati tramite una comunicazione diretta (e-mail, messaggi sul portale, telefonata) agli amministratori del servizio assegnato. Tutte le modifiche verranno inserite in questa pagina e il feed RSS verrà elencato all'inizio di questa pagina. 
 
 
 * **Ritiro della versione** <br>Tutte le modifiche verranno inserite in questa pagina e il feed RSS verrà elencato all'inizio di questa pagina, inclusa la data di rilascio, disabilitazione e scadenza. Se sono presenti distribuzioni in esecuzione su una versione o famiglia di sistemi operativi guest disabilitata, verranno inviati appositi messaggi e-mail agli amministratori dei servizi. La tempistica di questi messaggi può variare. In genere vengono inviati almeno un mese prima della disabilitazione, anche se questo non rappresenta un impegno contrattuale di servizio.
@@ -90,4 +90,4 @@ Se per l'architettura dell'applicazione Web è richiesta una dipendenza maggiore
 ## Passaggi successivi
 Esaminare la versione più recente [versioni del sistema operativo Guest](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -54,7 +54,7 @@ Di solito le stringhe di connessione, le credenziali di autenticazione e altre i
 
 Il servizio app di Azure consente di archiviare le informazioni di configurazione come parte dell'ambiente di runtime delle app Web come **impostazioni app** e **stringhe di connessione**. I valori vengono esposti nell'applicazione al runtime mediante *variabili di ambiente* per la maggior parte dei linguaggi di programmazione. Per le applicazioni .NET questi valori vengono inseriti nella configurazione .NET al runtime.
 
-**Impostazioni app** e **Stringhe di connessione** possono essere configurate nel [portale di anteprima di Azure](http://portal.azure.com) o con utilità come PowerShell o l'interfaccia della riga di comando di Azure.
+Le **impostazioni app** e le **stringhe di connessione** possono essere configurate mediante il [portale di Azure](http://portal.azure.com) o con utilità quali PowerShell o l'interfaccia della riga di comando di Azure.
 
 Per ulteriori informazioni sulle impostazioni delle app e sulle stringhe di connessione, vedere [Come configurare le app Web](web-sites-configure.md).
 
@@ -62,7 +62,7 @@ Per ulteriori informazioni sulle impostazioni delle app e sulle stringhe di conn
 
 Azure fornisce un accesso FTP sicuro al file system per l'app Web mediante **FTPS**. Ciò consente di accedere in modo sicuro al codice dell'applicazione nell'app Web e ai log di diagnostica. È possibile trovare il collegamento FTPS dell'app Web con la procedura seguente:
 
-1. Aprire il [Portale di anteprima di Azure](http://portal.azure.com).
+1. Aprire il [portale di Azure](http://portal.azure.com).
 2. Selezionare **Esplora tutto**.
 3. Nel pannello **Sfoglia** selezionare **App Web**.
 4. Nel pannello **App Web** selezionare l'app Web desiderata.
@@ -85,7 +85,4 @@ Per informazioni sulla registrazione per le app Web, utili per rilevare gli atta
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

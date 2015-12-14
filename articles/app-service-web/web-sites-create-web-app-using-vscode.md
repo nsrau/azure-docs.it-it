@@ -139,11 +139,11 @@ Dopo aver creato l'app Web e recuperato tutti i pacchetti NuGet per l'app, è or
 
 3. Chiudere il browser. Nella finestra di comando premere **CTRL+C** per arrestare l'applicazione o chiudere la finestra di comando.
 
-## Creare un'app Web nel portale di anteprima di Azure
+## Creazione di un'app Web nel portale di Azure ##
 
-La procedura seguente consente di creare di un'app Web nel portale di anteprima di Azure.
+La procedura seguente consente di creare di un'app Web nel Portale di Azure.
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [Portale di Azure](https://portal.azure.com).
 
 2. Fare clic su **NUOVO** nella parte superiore sinistra del portale.
 
@@ -165,7 +165,7 @@ La procedura seguente consente di creare di un'app Web nel portale di anteprima 
 
 Git è un sistema di controllo delle versioni distribuite che è possibile usare per distribuire l'app Web del servizio app di Azure. Il codice scritto per l'app Web verrà archiviato in un repository Git locale e verrà distribuito in Azure tramite il push in un repository remoto.
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Fare clic su **Sfoglia**.
 
@@ -258,7 +258,7 @@ A questo scopo, è possibile eseguire una delle due operazioni seguenti:
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* Nel portale di anteprima di Azure individuare il pannello dell'app Web e fare clic su **Sfoglia** per visualizzare l'app
+* Nel Portale di Azure, individuare il pannello dell'app Web e fare clic su **Sfoglia** per visualizzare l'app
 * nel browser predefinito.
 
 ![App Web di Azure](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
@@ -266,4 +266,4 @@ A questo scopo, è possibile eseguire una delle due operazioni seguenti:
 ## Riepilogo
 In questa esercitazione si è appreso come creare un'app Web in Visual Studio Code e distribuirla in Azure. Per altre informazioni su Visual Studio Code, vedere l'articolo sui [vantaggi di Visual Studio Code](https://code.visualstudio.com/Docs/). Per altre informazioni sulle app Web del servizio app, vedere [Panoramica delle app Web](app-service-web-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/15/2015"
-   ms.author="v-sharos@microsoft.com"/>
+   ms.date="12/02/2015"
+   ms.author="v-sharos"/>
 
 # Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple
 
 ## Panoramica 
 
-La pagina **Configura**del portale di gestione contiene tutti i parametri del dispositivo che è possibile riconfigurare in un dispositivo StorSimple gestito da un servizio StorSimple Manager. In questa esercitazione viene illustrato come utilizzare la pagina **Configura**per eseguire le seguenti attività a livello di dispositivo:
+La pagina **Configura**del portale di Azure classico contiene tutti i parametri del dispositivo che è possibile riconfigurare in un dispositivo StorSimple gestito da un servizio StorSimple Manager. In questa esercitazione viene illustrato come utilizzare la pagina **Configura**per eseguire le seguenti attività a livello di dispositivo:
 
 - Modificare le impostazioni del dispositivo 
 - Modificare le impostazioni di tempo 
@@ -39,15 +39,15 @@ Ad un dispositivo StorSimple connesso al servizio StorSimple Manager viene asseg
 - **0991003**-indica un prodotto specifico.
 - **G44HT**-le ultime 5 cifre vengono aggiunte per creare numeri di serie univoci. Questo potrebbe non essere un insieme sequenziale.
 
-È possibile utilizzare il portale di gestione per modificare il nome del dispositivo e assegnare il nome descrittivo univoco desiderato. Il nome descrittivo può contenere qualsiasi carattere e può contenere un massimo di 64 caratteri.
+È possibile utilizzare il portale di Azure classico per modificare il nome del dispositivo e assegnare il nome descrittivo univoco desiderato. Il nome descrittivo può contenere qualsiasi carattere e può contenere un massimo di 64 caratteri.
 
 È inoltre possibile specificare una descrizione del dispositivo. Una descrizione del dispositivo in genere consente di identificare il proprietario e il percorso fisico del dispositivo. Il campo descrizione deve contenere meno di 256 caratteri.
  
 ## Modificare le impostazioni di tempo
 
-Il dispositivo deve sincronizzare l'ora per l'autenticazione con il provider di servizi di archiviazione cloud. Selezionare il fuso orario dall'elenco a discesa e specificare fino a due server di protocollo NTP (Network Time). Il server NTP primario è obbligatorio e viene specificato quando si utilizza Windows PowerShell per StorSimple per configurare il dispositivo. È possibile specificare il valore predefinito di Windows Server**time.windows.com**come server NTP. È possibile visualizzare la configurazione del server NTP primario tramite il portale di gestione, ma è necessario utilizzare l'interfaccia Windows PowerShell per modificarlo.
+Il dispositivo deve sincronizzare l'ora per l'autenticazione con il provider di servizi di archiviazione cloud. Selezionare il fuso orario dall'elenco a discesa e specificare fino a due server di protocollo NTP (Network Time). Il server NTP primario è obbligatorio e viene specificato quando si utilizza Windows PowerShell per StorSimple per configurare il dispositivo. È possibile specificare il valore predefinito di Windows Server**time.windows.com**come server NTP. È possibile visualizzare la configurazione del server NTP primario tramite il portale di Azure classico, ma è necessario utilizzare l'interfaccia Windows PowerShell per modificarlo.
 
-La configurazione del server NTP secondario è facoltativa. È possibile utilizzare il portale di gestione per configurare un server NTP secondario.
+La configurazione del server NTP secondario è facoltativa. È possibile utilizzare il portale classico per configurare un server NTP secondario.
 
 Quando si configura il server NTP, assicurarsi che la rete consenta il traffico NTP dal Data Center a Internet. Quando si specifica un server NTP pubblico, è necessario assicurarsi che i firewall di rete e altri dispositivi di sicurezza siano configurati per consentire il traffico NTP da e verso la rete esterna. Se non è consentito il traffico NTP bidirezionale, è necessario utilizzare un server NTP interno (un controller di dominio di Windows fornisce questa funzione). Se il dispositivo non può sincronizzare l'ora, potrebbe non essere in grado di comunicare con il provider di archiviazione cloud.
 
@@ -61,7 +61,7 @@ Se il dispositivo viene distribuito in un fuso orario diverso, cambia il fuso or
 
 Un server DNS viene utilizzato quando il dispositivo tenta di comunicare con il provider di servizi di archiviazione cloud. Per la disponibilità elevata, è necessario configurare il database primario e i server DNS secondari durante la distribuzione iniziale del dispositivo. Per riconfigurare il server DNS primario, occorre utilizzare l'interfaccia Windows PowerShell del dispositivo StorSimple.
 
-Per modificare il server DNS secondario, è possibile utilizzare il portale di gestione.
+Per modificare il server DNS secondario, è possibile utilizzare il portale di Azure classico.
 
 <!-- If a secondary DNS server is not configured, you will not be able to create volume containers or provision volumes on the device.-->
 
@@ -102,7 +102,7 @@ Per ogni interfaccia di rete, vengono visualizzati i seguenti parametri:
 
 - **Indirizzo IP fisso**: questo campo è disponibile solo quando si configura l’interfaccia di DATA 0. Per operazioni come aggiornamenti o risoluzione dei problemi relativi al dispositivo, potrebbe essere necessario connettersi direttamente al controller del dispositivo. L'indirizzo IP fisso può essere utilizzato per accedere al controller attivo e passivo sul dispositivo.
 
-È possibile riconfigurare il Controller 0 e il Controller 1 tramite il portale di gestione.
+È possibile riconfigurare il Controller 0 e il Controller 1 tramite il portale di Azure classico.
 
 >[AZURE.NOTE]
 >
@@ -129,4 +129,4 @@ Per sostituire o riassegnare i VIP per qualsiasi interfaccia di rete, procedere 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

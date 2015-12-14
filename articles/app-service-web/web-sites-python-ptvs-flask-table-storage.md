@@ -82,7 +82,7 @@ Per effettuare operazioni di archiviazione, è necessario un account di archivia
 
 ## Configurare il progetto
 
-In questa sezione verrà configurata l'applicazione per usare l'account di archiviazione appena creato. Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale di Azure, quindi verrà eseguita l'applicazione in locale.
+In questa sezione verrà configurata l'applicazione per usare l'account di archiviazione appena creato. Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale di Azure. quindi verrà eseguita l'applicazione in locale.
 
 1.  In Visual Studio fare clic con il pulsante destro del mouse sul nodo del progetto in Esplora soluzioni e scegliere **Proprietà**. Fare clic sulla scheda **Debug**.
 
@@ -184,7 +184,6 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -194,7 +193,7 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Come usare il servizio di archiviazione tabelle di Python]: ../storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Azure Management Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure SDK per .NET]: http://azure.microsoft.com/downloads/
 [Python Tools per Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -212,4 +211,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

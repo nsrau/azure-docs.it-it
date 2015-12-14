@@ -78,7 +78,7 @@ Un servizio token è un servizio cloud personalizzato, che usa *criteri di acces
 
 Di seguito sono riportati i passaggi principali del modello del servizio token:
 
-1. Creare i [criteri di accesso condivisi dell'hub IoT][lnk-devguide-security] con autorizzazioni **DeviceConnect** per l'hub IoT. È possibile creare questi criteri nel [portale di anteprima][lnk-preview-portal] o a livello di programmazione. Il servizio token usa questi criteri per firmare i token creati.
+1. Creare i [criteri di accesso condivisi dell'hub IoT][lnk-devguide-security] con autorizzazioni **DeviceConnect** per l'hub IoT. È possibile creare questi criteri nel [portale di Azure][lnk-portal] o a livello di programmazione. Il servizio token usa questi criteri per firmare i token creati.
 2. Quando un dispositivo deve accedere all'hub IoT, richiede un token firmato dal servizio token. Il dispositivo può eseguire l'autenticazione con il registro delle identità dei dispositivi personalizzato/lo schema di autenticazione per determinare l'identità del dispositivo usata dal servizio token per creare il token.
 3. Il servizio token restituisce un token, creato in base alla sezione relativa alla [sicurezza della guida per gli sviluppatori dell'hub IoT][lnk-devguide-security], usando `/devices/{deviceId}` come `resourceURI`, con `deviceId` come dispositivo da autenticare. Il servizio token usa i criteri di accesso condivisi per costruire il token.
 4. Il dispositivo usa il token direttamente con l'hub IoT.
@@ -112,11 +112,11 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
-[lnk-preview-portal]: https://portal.azure.com
+[lnk-portal]: https://portal.azure.com
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

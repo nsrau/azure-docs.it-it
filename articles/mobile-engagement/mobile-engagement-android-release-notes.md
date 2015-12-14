@@ -19,6 +19,10 @@
 
 #Note sulla versione
 
+##4\.1.2 (11/25/2015)
+
+- Miglioramenti della stabilità.
+
 ##4\.1.1 (11/04/2015)
 
 - Miglioramenti della stabilità.
@@ -49,4 +53,4 @@
 -   Sono stati introdotti miglioramenti per la sicurezza.
 -   È stata rimossa la verifica per Google Play e SmartAd.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

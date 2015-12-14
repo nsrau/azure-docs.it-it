@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="12/01/2015"
 	ms.author="yuaxu"/>
 
 # Inviare notifiche multipiattaforma a un utente specifico
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-Questo argomento descrive come inviare notifiche a tutti i dispositivi registrati di un utente specifico dal proprio back-end mobile. È stato introdotto il concetto di [modelli], che offre alle applicazioni client la libertà di specificare i formati di payload e segnaposto di variabili al momento della registrazione. L'operazione di invio raggiunge tutte le piattaforme grazie a questi segnaposto, abilitando le notifiche multipiattaforma.
+Questo argomento descrive come inviare notifiche a tutti i dispositivi registrati di un utente specifico dal proprio back-end mobile. Sono stati introdotti i [modelli], che offrono alle applicazioni client la libertà di specificare i formati di payload e segnaposto di variabili al momento della registrazione. Quando viene inviata una notifica del modello da un server, l'hub di notifica indirizza tutte le piattaforme con questi segnaposto, abilitando le notifiche multipiattaforma.
 
 > [AZURE.NOTE]Affinché il push funzioni con i client multipiattaforma, sarà necessario completare questa esercitazione per ogni piattaforma che si vuole abilitare. Sarà necessario effettuare l'[aggiornamento del back-end mobile](#backend) solo una volta per i client che condividono lo stesso back-end mobile.
  
@@ -58,20 +56,7 @@ Prima di iniziare questa esercitazione, è necessario aver già completato le es
         }
         ...
 
-2. In **AppDelegate.cs** sostituire la chiamata **RegisterAsync** in **RegisteredForRemoteNotifications** con il codice seguente per il funzionamento con i modelli:
 
-        // delete await push.RegisterAsync (deviceToken);
-        
-        var notificationTemplate = "{"aps": {"alert":"$(message)"}}";
-
-        JObject templateBody = new JObject();
-        templateBody["body"] = notificationTemplate;
-
-        JObject templates = new JObject();
-        templates["testApnsTemplate"] = templateBody;
-
-        // register with templates
-        await push.RegisterAsync (deviceToken, templates);
 
 ##<a name="backend"></a>Aggiornare il back-end del servizio per inviare notifiche a un utente specifico
 
@@ -92,11 +77,14 @@ Prima di iniziare questa esercitazione, è necessario aver già completato le es
             ServiceUser authenticatedUser = this.User as ServiceUser;
             string userTag = "_UserId:" + authenticatedUser.Id;
 
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
+            // Sending the message so that all template registrations that contain "messageParam"
+            // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
+            Dictionary<string,string> templateParams = new Dictionary<string,string>();
+            templateParams["messageParam"] = item.Text + " was added to the list.";
 
             try
             {
-                await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
+                await Hub.SendTemplateNotificationAsync(templateParams, userTag);
             }
             catch (System.Exception ex)
             {
@@ -112,6 +100,6 @@ Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi del
 <!-- URLs. -->
 [Introduzione all'autenticazione]: app-service-mobile-xamarin-ios-get-started-users.md
 [Introduzione alle notifiche push]: app-service-mobile-xamarin-ios-get-started-push.md
-[modelli]: https://msdn.microsoft.com/it-IT/library/dn530748.aspx
+[modelli]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

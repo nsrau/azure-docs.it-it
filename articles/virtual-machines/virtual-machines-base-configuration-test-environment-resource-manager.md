@@ -118,7 +118,7 @@ Innanzitutto, specificare il nome del gruppo di risorse, il percorso Azure e il 
 
 Successivamente, connettersi alla macchina virtuale DC1.
 
-1.	Nel portale di anteprima di Azure, fare clic su **Sfoglia tutto** nel riquadro sinistro, fare clic su **Macchine virtuali** nell’elenco **Sfoglia** e quindi scegliere la macchina virtuale **DC1**.  
+1.	Nel portale di Azure, fare clic su **Sfoglia tutto** nel riquadro sinistro, fare clic su **Macchine virtuali** nell’elenco **Sfoglia** e quindi scegliere la macchina virtuale **DC1**.  
 2.	Nel riquadro**DC1**, fare clic su**Connetti**.
 3.	Quando richiesto, aprire il file DC1.rdp scaricato.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
@@ -147,7 +147,7 @@ Configurare quindi DC1 come controller di dominio e server DNS per il dominio co
 
 Dopo il riavvio di DC1, riconnettersi alla macchina virtuale DC1.
 
-1.	Nel portale di anteprima di Azure, fare clic su Sfoglia tutto nel riquadro sinistro, fare clic su Macchine virtuali nell’elenco Sfoglia e quindi scegliere la macchina virtuale DC1.
+1.	Nel portale di Azure, fare clic su Sfoglia tutto nel riquadro sinistro, fare clic su Macchine virtuali nell’elenco Sfoglia e quindi scegliere la macchina virtuale DC1.
 2.	Nel riquadro DC1, fare clic su Connetti.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
@@ -310,4 +310,4 @@ Per avviare le macchine virtuali in ordine con Azure PowerShell, inserire il nom
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

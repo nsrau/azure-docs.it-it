@@ -12,12 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
 # Compilare un servizio che usa un database SQL esistente con il back-end .NET per Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Il back-end .NET per Servizi mobili consente di sfruttare le risorse esistenti nella compilazione di un servizio mobile. Uno scenario particolarmente interessante è l'uso di un database SQL esistente (locale o nel cloud), che potrebbe essere già usato da altre applicazioni, per rendere i dati esistenti disponibili per i client mobili. In questo caso è indispensabile che il modello di database (o *schema*) rimanga invariato, per permettere alle soluzioni esistenti di continuare a funzionare.
 
@@ -26,7 +31,7 @@ Il back-end .NET per Servizi mobili consente di sfruttare le risorse esistenti n
 
 Per questa esercitazione verrà usato il database creato con il servizio mobile, ma non il modello predefinito creato. Verrà invece creato manualmente un modello arbitrario che rappresenterà una possibile applicazione esistente. Per informazioni complete su come connettersi invece a un database locale, vedere [Connettersi a un'istanza locale di SQL Server da un servizio mobile Azure usando Connessioni ibride](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-1. Per iniziare, creare un progetto server di Servizi mobili in **Visual Studio 2013 Update 2** o usare il progetto di guida introduttiva che è possibile scaricare nella scheda Servizi mobili del servizio nel [portale di gestione di Azure](http://manage.windowsazure.com). Ai fini di questa esercitazione, si suppone che il nome del progetto server sia **ShoppingService**.
+1. Per iniziare, creare un progetto server di Servizi mobili in **Visual Studio 2013 Update 2** o usare il progetto di guida introduttiva che è possibile scaricare nella scheda Servizi mobili del servizio nel [portale di Azure classico](http://manage.windowsazure.com). Ai fini di questa esercitazione, si suppone che il nome del progetto server sia **ShoppingService**.
 
 2. Creare un file **Customer.cs** nella cartella **Models** e usare l'implementazione seguente. Sarà necessario aggiungere al progetto un riferimento all'assembly **System.ComponentModel.DataAnnotations**.
 
@@ -614,4 +619,4 @@ Tenere presente che entrambe le implementazioni del controller usano esclusivame
 
 Come passaggio successivo, sarà possibile compilare l'app client per accedere al servizio.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

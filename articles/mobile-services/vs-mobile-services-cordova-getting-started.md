@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Introduzione al progetto dei servizi di Cordova (Servizi relativi a Visual Studio)" 
-	description="Descrive i primi passaggi da eseguire dopo la connessione del progetto Cordova ai servizi mobili di Azure utilizzando i servizi relativi a Visual Studio." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
+<properties
+	pageTitle="Introduzione al progetto dei servizi di Cordova (Servizi relativi a Visual Studio)"
+	description="Descrive i primi passaggi da eseguire dopo la connessione del progetto Cordova ai servizi mobili di Azure utilizzando i servizi relativi a Visual Studio."
+	services="mobile-services"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/17/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/17/2015"
 	ms.author="tarcher"/>
 
 # Introduzione a Servizi mobili (progetti Cordova)
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
@@ -47,7 +52,7 @@ Inserire un nuovo elemento in una tabella dati. Un ID (un GUID di tipo string) v
         this.text = text;
         this.complete = false;
     }
-    
+
     var items = new Array();
     var insertTodoItem = function (todoItem) {
         todoTable.insert(todoItem).done(function (item) {
@@ -94,4 +99,4 @@ Eliminare una riga da una tabella dati usando il metodo **del**. Chiamare il met
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

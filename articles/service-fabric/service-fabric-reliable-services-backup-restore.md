@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2015"
+   ms.date="12/01/2015"
    ms.author="mcoskun"/>
 
 # Backup e ripristino di Reliable Services
@@ -41,30 +41,37 @@ Per avviare un backup, il servizio deve richiamare **IReliableStateManager.Backu
 
 Come illustrato di seguito, il più semplice overload di **BackupAsync** accetta Func<< BackupInfo  bool >> denominata **backupCallback**.
 
-        await this.StateManager.BackupAsync(this.BackupCallbackAsync);
+```C#
+await this.StateManager.BackupAsync(this.BackupCallbackAsync);
+```
 
 **BackupInfo** fornisce le informazioni relative al backup, incluso il percorso della cartella in cui il backup è stato salvato durante la fase di esecuzione (BackupInfo.Directory). La funzione di callback prevede lo spostamento di BackupInfo.Directory in un archivio esterno o una posizione diversa. Questa funzione restituisce anche un valore booleano che indica se è riuscita a spostare la cartella di backup nel percorso di destinazione.
 
 Il codice seguente illustra in che modo è possibile usare backupCallback per caricare il backup nell'Archiviazione di Azure:
 
 ```C#
-        private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
-        {
-            var backupId = Guid.NewGuid();
+private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
+{
+    var backupId = Guid.NewGuid();
 
-            await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
+    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
 
-            return true;
-        }
+    return true;
+}
 ```
 
 Nell'esempio precedente **ExternalBackupStore** corrisponde alla classe di esempio usata per interfacciarsi con l'archiviazione BLOB di Azure e **UploadBackupFolderAsync** è il metodo che comprime la cartella e la inserisce nell'archivio BLOB di Azure.
 
->[AZURE.NOTE]In un determinato momento può esistere solo una chiamata **BackupAsync** per ogni esecuzione di replica. Più chiamate **BackupAsync** contemporanee provocheranno l'eccezione **FabricBackupInProgressException** che richiede di limitare a una le esecuzioni dei backup.[AZURE.NOTE]In caso di failover di una replica durante l'esecuzione di un backup, è possibile che il backup non venga completato. Al termine del failover, il servizio dovrà quindi riavviare il backup richiamando **BackupAsync** in base alla necessità.
+Si noti che:
+
+- In un determinato momento può esistere solo una chiamata **BackupAsync** per ogni esecuzione di replica. Più chiamate **BackupAsync** contemporanee provocheranno l'eccezione **FabricBackupInProgressException** che richiede di limitare a una le esecuzioni dei backup.
+
+- In caso di failover di una replica durante l'esecuzione di un backup, è possibile che il backup non venga completato. Al termine del failover, il servizio dovrà quindi riavviare il backup richiamando **BackupAsync** in base alla necessità.
 
 ## Come ripristinare i dati
 
-È possibile applicare la classificazione seguente agli scenari di ripristino in cui il servizio in esecuzione deve ripristinare i dati dall'archivio di backup:
+In generale, i casi in cui potrebbe essere necessario eseguire un'operazione di ripristino rientrano in una di queste categorie:
+
 
 1. La partizione del servizio ha perso dati. Ad esempio, il disco per due su tre repliche per una partizione, inclusa la replica primaria, viene danneggiato/cancellato. La nuova replica primaria potrebbe dover ripristinare i dati da un backup.
 
@@ -83,20 +90,20 @@ L'autore del servizio deve eseguire questa procedura per il recupero: - Eseguire
 L'esempio seguente illustra un'implementazione del metodo **OnDataLossAsync** insieme all'override di **IReliableStateManager**.
 
 ```C#
-        protected override IReliableStateManager CreateReliableStateManager()
-        {
-            return new ReliableStateManager(new ReliableStateManagerConfiguration(
-                    onDataLossEvent: this.OnDataLossAsync));
-        }
+protected override IReliableStateManager CreateReliableStateManager()
+{
+    return new ReliableStateManager(new ReliableStateManagerConfiguration(
+            onDataLossEvent: this.OnDataLossAsync));
+}
 
-        protected override async Task<bool> OnDataLossAsync(CancellationToken cancellationToken)
-        {
-            var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
+protected override async Task<bool> OnDataLossAsync(CancellationToken cancellationToken)
+{
+    var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
 
-            await this.StateManager.RestoreAsync(backupFolder);
+    await this.StateManager.RestoreAsync(backupFolder);
 
-            return true;
-        }
+    return true;
+}
 ```
 
 >[AZURE.NOTE]Il valore RestorePolicy è Safe per impostazione predefinita. L'API RestoreAsync avrà quindi esito negativo con ArgumentException se rileva che una cartella di backup include uno stato precedente o uguale allo stato contenuto nella replica. È possibile usare RestorePolicy.Force per ignorare questo controllo di protezione.
@@ -114,14 +121,15 @@ Se l'aggiornamento dell'applicazione appena distribuito presenta un bug, ciò po
 
 Dopo avere rilevato un bug così grave da provocare il danneggiamento dei dati, è prima di tutto necessario bloccare il servizio a livello di applicazione e, se possibile, eseguire l'aggiornamento alla versione del codice dell'applicazione che non include il bug. Anche dopo la correzione del codice del servizio è tuttavia possibile che i dati siano ancora danneggiati e che sia necessario ripristinarli. In questi casi potrebbe non essere sufficiente ripristinare il backup più recente, perché è possibile che anche i backup più recenti siano danneggiati. È quindi necessario individuare il backup più recente eseguito prima del danneggiamento dei dati.
 
-Se non si sa con esattezza quali siano i backup danneggiati e quali quelli integri, è possibile distribuire un nuovo Service Fabric Cluster e ripristinare i backup delle partizioni interessate con la stessa procedura dello scenario "Servizio eliminato" precedente. Per ogni partizione, avviare il ripristino dei backup dal più recente al meno recente. Dopo aver trovato un backup non danneggiato, spostare o eliminare tutti i backup della partizione più recenti di quel backup. Ripetere questo processo per ogni partizione. Quando **OnDataLossAsync** viene chiamato sulla partizione nel cluster di produzione, il backup più recente trovato nell'archivio esterno verrà selezionato dal processo precedente.
+Se non si sa con esattezza quali siano i backup danneggiati, è possibile distribuire un nuovo Service Fabric Cluster e ripristinare i backup delle partizioni interessate con la stessa procedura dello scenario "Servizio eliminato" precedente. Per ogni partizione, avviare il ripristino dei backup dal più recente al meno recente. Dopo aver trovato un backup non danneggiato, spostare o eliminare tutti i backup della partizione più recenti di quel backup. Ripetere questo processo per ogni partizione. Quando **OnDataLossAsync** viene chiamato sulla partizione nel cluster di produzione, il backup più recente trovato nell'archivio esterno verrà selezionato dal processo precedente.
 
 È ora possibile usare la procedura illustrata in "Servizio eliminato" per ripristinare lo stato del backup del servizio sul valore precedente al danneggiamento da parte del codice con bug.
 
+Si noti che:
 
->[AZURE.NOTE]Ogni volta che si esegue il ripristino è possibile che il backup ripristinato sia precedente allo stato della partizione prima della perdita dei dati. È quindi necessario usare il ripristino come ultima risorsa per recuperare la quantità maggiore possibile di dati.
+- Quando si esegue il ripristino è possibile che il backup ripristinato sia precedente allo stato della partizione prima della perdita dei dati. È quindi necessario usare il ripristino come ultima risorsa per recuperare la quantità maggiore possibile di dati.
 
->[AZURE.NOTE]La stringa che rappresenta il percorso della cartella di backup e i percorsi dei file nella cartella di backup può superare i 255 caratteri, in base al percorso FabricDataRoot e alla lunghezza del nome del tipo di applicazione. È quindi possibile che alcuni metodi .NET come **Directory.Move** generino l'eccezione **PathTooLongException**. Come soluzione alternativa, è possibile chiamare direttamente le API kernel32 come **CopyFile**.
+- La stringa che rappresenta il percorso della cartella di backup e i percorsi dei file nella cartella di backup può superare i 255 caratteri, in base al percorso FabricDataRoot e alla lunghezza del nome del tipo di applicazione. È quindi possibile che alcuni metodi .NET come **Directory.Move** generino l'eccezione **PathTooLongException**. Una soluzione consiste nel richiamare direttamente le API kernel32 come **CopyFile**.
 
 
 ## Approfondimento: altri dettagli sul backup e ripristino
@@ -138,4 +146,4 @@ Reliable State Manager consente di eseguire il ripristino da un backup mediante 
 
 RestoreAsync rilascia prima di tutto ogni stato esistente nella replica primaria su cui è stato chiamato. Reliable State Manager crea successivamente tutti gli oggetti Reliable esistenti nella cartella di backup. Viene quindi indicato agli oggetti Reliable di eseguire il ripristino dai rispettivi checkpoint nella cartella di backup. Reliable State Manager ripristina quindi il proprio stato dai record dei log nella cartella di backup ed esegue il ripristino. Come parte del processo di ripristino, le operazioni a partire dal "punto iniziale" con record di log di commit nella cartella di backup vengono riprodotte negli oggetti Reliable. Questo passaggio assicura che lo stato ripristinato sia coerente.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

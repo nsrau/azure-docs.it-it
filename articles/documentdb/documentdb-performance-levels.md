@@ -31,7 +31,7 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 Per ogni raccolta di DocumentDB creata con un account standard viene eseguito il provisioning con un livello di prestazioni associato. I livelli di prestazioni sono designati come S1, S2 o S3, classificati dal minimo al massimo delle prestazioni. Il livello di prestazione della raccolta determina la quantità di risorse di elaborazione riservate per l'applicazione. Ogni raccolta in un database può avere un livello di prestazioni diverso, consentendo di designare una velocità effettiva maggiore per le raccolte a cui si accede di frequente e una minore velocità effettiva per le raccolte a cui si accede raramente. Il livello di prestazioni minimo per qualsiasi raccolta è S1.
 
-A ogni livello di prestazioni è associato un limite di frequenza dell'unità di richiesta (RU). Si tratta della velocità effettiva che sarà riservata per una raccolta basata sul relativo livello di prestazioni ed è disponibile esclusivamente per l'uso in tale raccolta. È possibile creare le raccolte tramite il [portale di Azure](http://portal.azure.com) o uno qualsiasi degli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Le API di DocumentDB consentono di specificare il livello di prestazioni di una raccolta.
+A ogni livello di prestazioni è associato un limite di frequenza dell'unità di richiesta (RU). Si tratta della velocità effettiva che sarà riservata per una raccolta basata sul relativo livello di prestazioni ed è disponibile esclusivamente per l'uso in tale raccolta. È possibile creare le raccolte tramite il [portale di Azure classico](http://portal.azure.com) o uno qualsiasi degli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Le API di DocumentDB consentono di specificare il livello di prestazioni di una raccolta.
 
 Livello di prestazioni della raccolta|Velocità effettiva riservata
 ---|---
@@ -41,12 +41,12 @@ S3|2500 RU/sec
 
 DocumentDB consente un'ampia gamma di operazioni di database tra cui query, query con funzioni definite dall'utente (UDF), stored procedure e trigger. Il costo di elaborazione associato a ognuna di queste operazioni dipende da CPU, I/O e memoria necessari per il completamento dell'operazione. Invece di occuparsi della pianificazione e della gestione delle risorse hardware, sarà possibile usare un'unità di richiesta come misura singola per le risorse necessarie per eseguire diverse operazioni di database e rispondere a una richiesta dell'applicazione.
 
-> [AZURE.NOTE]I livelli di prestazioni vengono misurati in unità di richiesta. A ogni livello di prestazioni è associata una velocità massima di unità di richiesta al secondo. Il livello di prestazioni di una raccolta può essere modificato tramite le API o il [portale di Azure](https://portal.azure.com/).
+> [AZURE.NOTE]I livelli di prestazioni vengono misurati in unità di richiesta. A ogni livello di prestazioni è associata una velocità massima di unità di richiesta al secondo. Il livello di prestazioni di una raccolta può essere modificato tramite le API o il [portale di Azure classico](https://portal.azure.com/).
 
 ##Impostazione dei livelli di prestazioni per le raccolte
 Una volta creata una raccolta, l'allocazione completa di unità di richiesta in base al livello di prestazioni designato è riservata per la raccolta. Ad esempio, se una raccolta è impostata come S3: la raccolta è in grado di elaborare 2500 RU al secondo. Ogni raccolta riserva la velocità effettiva designata e 10 GB di archiviazione del database. Il prezzo della raccolta varia a seconda del livello delle prestazioni prescelto (S1, S2, S3). Si noti che DocumentDB opera in base alla prenotazione della capacità; con la creazione di una raccolta, un'applicazione riserva la velocità effettiva e riceve l'addebito per l'archiviazione di database e la velocità effettiva riservate, indipendentemente dalla quantità di archiviazione e velocità effettiva usata attivamente.
 
-Dopo aver creato le raccolte, è possibile modificare il livello di prestazioni tramite gli SDK di DocumentDB o tramite il portale di gestione di Azure.
+Dopo aver creato le raccolte, è possibile modificare il livello di prestazioni tramite gli SDK di DocumentDB o tramite il portale di Azure classico.
 
 > [AZURE.IMPORTANT]Per le raccolte standard di DocumentDB viene fatturata una tariffa oraria e per ogni raccolta creata verrà fatturata minimo un'ora di utilizzo.
 
@@ -67,11 +67,11 @@ Le raccolte di DocumentDB consentono di partizionare i dati basati su modelli di
 
 È consigliabile che l'applicazione usi un numero ridotto di raccolte, a meno che non si dispone di requisiti di archiviazione o throughput elevati. Assicurarsi di avere ben compreso i modelli di applicazione per la creazione di nuove raccolte. È possibile scegliere di riservare la creazione della raccolta come un'azione di gestione gestita all'esterno dell'applicazione. Analogamente, la regolazione del livello delle prestazioni per una raccolta cambierà la tariffa oraria con la quale la raccolta viene fatturata. Se l'applicazione consente di regolarli in modo dinamico, è opportuno monitorare i livelli delle prestazioni della raccolta.
 
-##Modifica dei livelli di prestazioni tramite il portale di anteprima di Azure
+##Modifica dei livelli di prestazioni tramite il portale di Azure
 
-Il portale di anteprima di Azure è una delle opzioni disponibili quando si gestiscono i livelli di prestazioni degli insiemi. Attenersi alla seguente procedura per modificare il livello di prestazioni di una raccolta dal portale di Azure.
+Il portale di Azure è una delle opzioni disponibili quando si gestiscono i livelli di prestazioni delle raccolte. Attenersi alla seguente procedura per modificare il livello di prestazioni di una raccolta dal portale di Azure classico.
 
-1. Per esplorare il [**portale di anteprima di Azure**](https://portal.azure.com) dal browser.
+1. Passare al [**portale di Azure**](https://portal.azure.com) dal browser.
 2. Fare clic su **Sfoglia** dalla barra di spostamento sul lato sinistro.
 3. Nello hub **Sfoglia**, fare clic su **account DocumentDB** sotto l’etichetta **filtrare in base a**.
 4. Nel pannello **account DocumentDB**, fare clic sull'account DocumentDB che contiene la raccolta desiderata.
@@ -122,4 +122,4 @@ Per altre informazioni su DocumentDB, vedere la [documentazione](http://azure.mi
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

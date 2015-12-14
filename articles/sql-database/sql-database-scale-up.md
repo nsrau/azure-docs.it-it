@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,10 +22,10 @@
 **Database singolo**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-scale-up.md)
+- [Azure Portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
-In questo articolo viene illustrato come modificare il livello del servizio e il livello delle prestazioni del database SQL con il [portale di anteprima di Azure](https://portal.azure.com).
+In questo articolo viene illustrato come modificare il livello del servizio e il livello delle prestazioni del database SQL con il [portale di Azure](https://portal.azure.com).
 
 Utilizzare le informazioni contenute negli argomenti [Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-new-service-tiers.md) e [Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md) per determinare il livello di prestazioni e il livello di servizio appropriati per il database SQL di Azure.
 
@@ -50,7 +50,7 @@ Utilizzare le informazioni contenute negli argomenti [Aggiornamento delle edizio
 
 Aprire il pannello del Database SQL per il database che si desidera scalare verso l’alto o verso il basso:
 
-1.	Passare al [portale di anteprima di Azure](https://portal.azure.com).
+1.	Accedere al [portale di Azure](https://portal.azure.com).
 2.	Fare clic su **ESPLORA TUTTO**.
 3.	Fare clic su **Database SQL**.
 2.	Fare clic sul database che si desidera modificare.
@@ -98,4 +98,4 @@ Aprire il pannello del Database SQL per il database che si desidera scalare vers
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

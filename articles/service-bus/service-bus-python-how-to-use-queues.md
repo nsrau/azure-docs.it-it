@@ -44,7 +44,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-I valori relativi al nome e al valore della chiave di firma di accesso condiviso sono disponibili nelle informazioni di connessione del [portale di Azure][] o nel pannello **Proprietà** di Visual Studio quando si seleziona lo spazio dei nomi del bus di servizio in Esplora server, come illustrato nella sezione precedente.
+I valori relativi al nome e al valore della chiave di firma di accesso condiviso sono disponibili nelle informazioni di connessione del [portale di Azure classico][] o nel pannello **Proprietà** di Visual Studio quando si seleziona lo spazio dei nomi del bus di servizio in Esplora server, come illustrato nella sezione precedente.
 
 ```
 bus_service.create_queue('taskqueue')
@@ -109,10 +109,10 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 
 -   Vedere [Code, argomenti e sottoscrizioni][].
 
-[portale di Azure]: http://manage.windowsazure.com
+[portale di Azure classico]: http://manage.windowsazure.com
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
 [Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
 [Code di Azure e code del bus di servizio]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

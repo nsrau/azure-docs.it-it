@@ -1,32 +1,37 @@
-<properties 
-	pageTitle="Inviare notifiche push agli utenti autenticati (Piattaforma UWP 8.1) | Servizi mobili di Azure" 
-	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push a un utente autenticato specifico che esegue l'app per la piattaforma UWP 8.1." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Inviare notifiche push agli utenti autenticati (Piattaforma UWP 8.1) | Servizi mobili di Azure"
+	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push a un utente autenticato specifico che esegue l'app per la piattaforma UWP 8.1."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/05/2015"
 	ms.author="glenga"/>
 
 # Inviare notifiche push agli utenti autenticati
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 ##Panoramica
 
 Questo argomento descrive come inviare notifiche push a un utente autenticato su un dispositivo registrato. A differenza della precedente esercitazione sulle [notifiche push][Get started with push notifications], in questa esercitazione il servizio mobile viene modificato in modo da richiedere l'autenticazione di un utente prima che il client possa effettuare la registrazione con l'hub di notifica per le notifiche push. Anche la registrazione viene modificata per poter aggiungere un tag in base all'ID utente assegnato. Infine il codice del server viene aggiornato per inviare la notifica solo all'utente autenticato invece che a tutte le registrazioni.
- 
+
 Questa esercitazione supporta app sia di Windows Store che di Windows Phone Store.
 
-##Prerequisiti 
+##Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario aver già completato queste esercitazioni su Servizi mobili:
 
@@ -62,8 +67,4 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 [Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 [Introduzione alle notifiche push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

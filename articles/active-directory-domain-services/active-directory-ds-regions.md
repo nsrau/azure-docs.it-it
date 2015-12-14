@@ -18,6 +18,6 @@
 
 # Servizi di dominio Azure AD *(anteprima)*
 
-Per informazioni su dove sono disponibili i servizi di Azure, vedere [Servizi in base all'area](https://azure.microsoft.com/it-IT/regions/#services).
+Per informazioni su dove sono disponibili i servizi di Azure, vedere [Servizi in base all'area](https://azure.microsoft.com/regions/#services).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

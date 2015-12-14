@@ -3,7 +3,7 @@
 	description="La funzionalità di filtro di paese utilizza i codici paese per definire i paesi da cui una richiesta viene consentita o bloccata per una directory protetta." 
 	services="cdn" 
 	documentationCenter=".NET" 
-	authors="juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 #Codici paese
 
@@ -268,4 +268,4 @@ La funzionalità di **filtro di paese** utilizza i codici paese per definire i p
 | ZM | Zambia | |
 | ZW | Zimbabwe | |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

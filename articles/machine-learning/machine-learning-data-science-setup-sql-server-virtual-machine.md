@@ -28,11 +28,11 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
  >[AZURE.NOTE]L'immagine di SQL Server 2012 SP2 Enterprise **non include un disco dati**. Sarà necessario aggiungere e/o collegare uno o più dischi rigidi virtuali per archiviare i dati. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. Non usare l'unità D per archiviare i dati. Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
 
 
-##<a name="Provision"></a>Connettersi al portale di gestione di Azure ed effettuare il provisioning di una macchina virtuale di SQL Server
+##<a name="Provision"></a>Connettersi al portale di Azure classico ed effettuare il provisioning di una macchina virtuale di SQL Server
 
-1.  Accedere al [portale di gestione di Azure](http://manage.windowsazure.com/) con il proprio account. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](http://www.windowsazure.com/pricing/free-trial/).
+1.  Accedere al [portale di Azure classico](http://manage.windowsazure.com/) con il proprio account. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](http://www.windowsazure.com/pricing/free-trial/).
 
-2.  Nel portale di gestione di Azure, nella parte sinistra della pagina Web fare clic su **+NEW**, su **COMPUTE**, su **VIRTUAL MACHINE** e infine su **FROM GALLERY**.
+2.  Nel portale di Azure classico, nella parte sinistra della pagina Web fare clic su **+NUOVO**, su **CALCOLO**, su **MACCHINA VIRTUALE** e infine su **DA RACCOLTA**.
 
 3.  Nella pagina **Crea macchina virtuale** selezionare un'immagine di una macchina virtuale contenente SQL Server in base alle esigenze dei dati di cui si dispone, quindi fare clic sulla freccia Avanti nella parte inferiore destra della pagina. Per le informazioni più aggiornate sulle immagini di SQL Server supportate in Azure, vedere l'argomento [Introduzione a SQL Server in Macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) nel set di documentazione [SQL Server in Macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
 
@@ -223,7 +223,7 @@ Per creare nuovi account di accesso di SQL Server tramite SQL Server Management 
 
 Per connettersi al motore di database di SQL Server da un altro computer, è necessario conoscere il nome DNS (Domain Name System) della macchina virtuale. (Si tratta del nome utilizzato da Internet per identificare la macchina virtuale. È possibile utilizzare l'indirizzo IP, ma questo indirizzo può cambiare se Azure sposta le risorse per la ridondanza o la manutenzione. Il nome DNS rimane stabile in quanto può essere reindirizzato a un nuovo indirizzo IP).
 
-1.  Nel portale di gestione di Azure (o dal passaggio precedente) selezionare **VIRTUAL MACHINES**.
+1.  Nel portale di Azure classico (o dal passaggio precedente) selezionare **MACCHINE VIRTUALI**.
 
 2.  Nella pagina **ISTANZE MACCHINA VIRTUALE**, nella colonna **NOME DNS**, trovare e copiare il nome DNS della macchina virtuale preceduto da ****http://**. (Nell'interfaccia utente potrebbe non essere visualizzato l'intero nome, ma è possibile fare clic su di esso con il pulsante destro del mouse e scegliere Copia).
 
@@ -259,11 +259,11 @@ Nelle fasi successive di Advanced Analytics Process and Technology verrà utiliz
 
 Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non subire addebiti quando non si utilizzano le macchine virtuali, lo stato deve essere impostato su **Arrestato (deallocato)**.
 
-> [AZURE.NOTE]Arrestando la macchina virtuale dall'interno (usando le opzioni di risparmio energia di Windows), la macchina virtuale viene arrestata ma rimane allocata. Per assicurarsi di non subire addebiti, arrestare sempre la macchina virtuale dal [portale di gestione di Azure](http://manage.windowsazure.com/). È inoltre possibile arrestare la macchina virtuale con Powershell chiamando ShutdownRoleOperation con "PostShutdownAction" uguale a "StoppedDeallocated".
+> [AZURE.NOTE]Arrestando la macchina virtuale dall'interno (usando le opzioni di risparmio energia di Windows), la macchina virtuale viene arrestata ma rimane allocata. Per assicurarsi di non subire addebiti, arrestare sempre le macchine virtuali dal [portale di Azure classico](http://manage.windowsazure.com/). È inoltre possibile arrestare la macchina virtuale con Powershell chiamando ShutdownRoleOperation con "PostShutdownAction" uguale a "StoppedDeallocated".
 
 Per arrestare e deallocare la macchina virtuale:
 
-1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com/) con il proprio account.  
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/) con il proprio account.  
 
 2. Selezionare **MACCHINE VIRTUALI** dalla barra di spostamento a sinistra.
 
@@ -273,7 +273,7 @@ Per arrestare e deallocare la macchina virtuale:
 
 ![Arresto della macchina virtuale][15]
 
-La macchina virtuale verrà deallocata ma non eliminata. È possibile riavviare la macchina virtuale in qualsiasi momento dal portale di gestione di Azure.
+La macchina virtuale verrà deallocata ma non eliminata. È possibile riavviare la macchina virtuale in qualsiasi momento dal portale di Azure classico.
 
 ## La macchina virtuale di Azure SQL Server è pronta all'utilizzo: passaggi successivi
 
@@ -298,4 +298,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

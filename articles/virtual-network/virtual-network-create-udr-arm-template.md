@@ -392,4 +392,4 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 
 >[AZURE.TIP]Se non è possibile visualizzare tutte le risorse, eseguire il comando **azure group deployment show** per assicurarsi che lo stato di provisioning della distribuzione sia *Riuscito*.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

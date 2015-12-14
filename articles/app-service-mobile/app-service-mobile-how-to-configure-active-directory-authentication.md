@@ -29,7 +29,7 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 
 ## <a name="express"> </a>Configurare Azure Active Directory usando le impostazioni rapide
 
-13. Nel [portale di gestione di Azure] passare all'applicazione desiderata. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
+13. Nel [portale di Azure], passare all'applicazione. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
 
 14. Se la funzionalità di autenticazione/autorizzazione non è abilitata, impostare l'opzione in modo da **abilitarla**.
 
@@ -52,9 +52,9 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 
 ### <a name="register"> </a>Registrare l'applicazione con Azure Active Directory
 
-1. Accedere all'[anteprima del portale di gestione di Azure] e passare all'applicazione. Copiare l'**URL**. L'URL verrà utilizzato per configurare l'app di Azure Active Directory.
+1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l'**URL**. L'URL verrà utilizzato per configurare l'app di Azure Active Directory.
 
-3. Accedere al [portale di gestione di Azure] e passare ad **Active Directory**.
+3. Accedere al [portale di Azure classico] e passare ad **Active Directory**.
 
     ![][2]
 
@@ -85,7 +85,7 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 > [AZURE.NOTE]Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gateway nel portale. Selezionare **Impostazioni**, **Identità** e quindi **Azure Active Directory**. Incollare l'ID client e aggiungere l'ID tenant all'elenco **Tenant consentiti**. Fare clic su **Salva**.
 
 
-13. Tornare all'[anteprima del portale di gestione di Azure] e accedere all'applicazione. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
+13. Nel [portale di Azure], passare all'applicazione. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
 
 14. Se la funzionalità di autenticazione/autorizzazione non è abilitata, impostare l'opzione in modo da **abilitarla**.
 
@@ -101,6 +101,30 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 
 È ora possibile usare Azure Active Directory per l'autenticazione nell'app.
 
+## (Facoltativo) Configurare un'applicazione client nativa
+
+Azure Active Directory consente inoltre di registrare i client nativi, il che offre maggiore controllo sul mapping delle autorizzazioni. È utile se si desidera eseguire l'account di accesso mediante una libreria, come ad esempio il **Active Directory Authentication Library**.
+
+1. Passare a **Active Directory** nel [Portale di Azure classico]
+
+2. Selezionare la directory, quindi la scheda **Applicazioni** nella parte superiore. Fare clic su **AGGIUNGI** in basso per creare una nuova registrazione dell'app.
+
+3. Fare clic su **Add an application my organization is developing**.
+
+4. Nella procedura guidata di aggiunta applicazione immettere un **Nome** per l'applicazione e fare clic sul tipo **Applicazione client nativa**. Fare quindi clic per continuare.
+
+5. Nella casella **URI di reindirizzamento** immettere l’endpoint del sito _/.auth/login/done_, utilizzando lo schema HTTPS. Questo valore dovrebbe essere simile a \__https://contoso.azurewebsites.net/.auth/login/done_.
+
+6. Dopo aver aggiunto l'applicazione nativa, fare clic sulla scheda **Configura**. Trovare l’**ID Client** e prendere nota del valore.
+
+7. Scorrere verso il basso fino alla sezione **Autorizzazioni per altre applicazioni** e fare clic su **Aggiungi applicazione**.
+
+8. Cercare l'applicazione Web registrata in precedenza e fare clic sull'icona più. Quindi, fare clic sul segni di spunta per chiudere la finestra di dialogo.
+
+9. Sulla nuova voce appena aggiunta, aprire l'elenco a discesa **Delega autorizzazioni** e selezionare **Accesso (appName)**. Fare quindi clic su **Salva**.
+
+Ora è stata configurata un'applicazione client nativa che può accedere all'applicazione del servizio App.
+
 ## <a name="related-content"> </a>Contenuti correlati
 
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
@@ -114,9 +138,9 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 
 <!-- URLs. -->
 
-[anteprima del portale di gestione di Azure]: https://portal.azure.com/
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure]: https://portal.azure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [metodo alternativo]: #advanced
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

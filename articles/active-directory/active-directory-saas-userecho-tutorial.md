@@ -3,8 +3,8 @@
 	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e UserEcho."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con UserEcho
@@ -41,7 +41,7 @@ Per configurare l'integrazione di Azure AD con UserEcho, sono necessari gli elem
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si ha un ambiente di prova di Azure AD, fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per ottenere una versione di valutazione valida un mese. 
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -64,7 +64,7 @@ Per configurare l'integrazione di UserEcho in Azure AD, è necessario aggiungere
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **UserEcho**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_01.png)<br>
-7. Nel riquadro dei risultati selezionare **UserEcho** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+7. Nel riquadro dei risultati, selezionare **UserEcho** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con UserEcho con un utente test di nome "Britta Simon".
@@ -75,7 +75,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con UserEcho, è 
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente test di UserEcho](#creating-a-userecho-test-user)**: per avere una controparte di Britta Simon in UserEcho collegata alla relativa rappresentazione in Azure AD.
+4. **[Creazione di un utente test di UserEcho](#creating-a-userecho-test-user)** - per avere una controparte di Britta Simon in UserEcho collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
@@ -88,18 +88,18 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con UserEcho, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **UserEcho** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nella pagina di integrazione dell'applicazione **UserEcho** nel portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a UserEcho** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png) <br>
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_04.png) <br>
+3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_04.png) <br>
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione UserEcho, ad esempio **https://fabrikam.UserEcho.com/*).
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione UserEcho (ad esempio **https://fabrikam.UserEcho.com/*).
 
     b. Fare clic su **Avanti**.
  
  
-4. Nella pagina **Configura accesso Single Sign-On in UserEcho** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_05.png) <br>
+4. Nella pagina **Configura accesso Single Sign-On in UserEcho**, seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_05.png) <br>
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
@@ -108,28 +108,28 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 1. In un'altra finestra del browser accedere al sito aziendale di UserEcho come amministratore.
 
-1. Sulla barra degli strumenti in alto fare clic sul nome utente per espandere il menu e quindi fare clic su **Setup**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
+1. Sulla barra degli strumenti in alto, fare clic sul nome utente per espandere il menu e quindi fare clic su **Setup**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
 
-1. Fare clic su **Integrations**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png) <br>
+1. Fare clic su **Integrazioni**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png) <br>
 
 
-1. Fare clic su **Website** e quindi su **Single sign-on (SAML2)**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png) <br>
+1. Fare clic su **Sito web** e quindi su **Single sign-on (SAML2)**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png) <br>
 
 
 1. Nella pagina **Single sign-on (SAML)** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_09.png) <br>
 
-    a. In **SAML-enabled** selezionare **Yes**.
+    a. Per **SAML-enabled** selezionare **Sì**.
 
-    b. Nella pagina **Configura accesso Single Sign-On in UserEcho** del portale di Azure copiare il valore di **URL servizio Single Sign-On**, aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **SAML SSO URL**.
+    b. Nella pagina **Configura accesso Single Sign-On in UserEcho** nel portale di Azure copiare il valore di **URL servizio Single Sign-On**, aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **SAML SSO URL**.
 
-    c. Nella pagina **Configura accesso Single Sign-On in UserEcho** del portale di Azure copiare il valore di **URL disconnessione remota**, aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **Remote logout URL**.
+    c. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in UserEcho** del portale di Azure copiare il valore di **URL disconnessione remota**, aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **Remote logout URL**.
 
     d. Aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **X.509 Certificate**.
 
-    e. Fare clic su **Salva**.
+    e. Fare clic su **Save**.
 
 
-6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
+6. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
 7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
 
@@ -149,7 +149,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
  
 4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png) <br>
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_05.png) <br>
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_05.png) <br>
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
@@ -167,13 +167,13 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     d. Nell'elenco **Ruolo** selezionare **Utente**. e. Fare clic su **Avanti**.
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_07.png) <br>
  
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png) <br>
+8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png) <br>
   
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. Fare clic su **Completa**.
+    b. Fare clic su **Complete**.
 
   
  
@@ -185,22 +185,22 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in UserEcho.
 
 1. Accedere al sito aziendale di UserEcho come amministratore.
 
-1. Sulla barra degli strumenti in alto fare clic sul nome utente per espandere il menu e quindi fare clic su **Setup**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
+1. Sulla barra degli strumenti in alto, fare clic sul nome utente per espandere il menu e quindi fare clic su **Setup**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
 
-1. Fare clic su **Users** per espandere la sezione **Users**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png) <br>
+1. Fare clic su **Utenti** per espandere la sezione **Utenti**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png) <br>
 
-1. Fare clic su **Users**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_11.png) <br>
+1. Fare clic su **Utenti**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_11.png) <br>
 
-1. Fare clic su **Invite a new user**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_12.png) <br>
+1. Fare clic su **Invita un nuovo utente**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_12.png) <br>
 
 
-1. Nella finestra di dialogo **Invite a new user** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_13.png) <br>
+1. Nella finestra di dialogo **Invita un nuovo utente** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_13.png) <br>
 
-    a. Nella casella di testo **Name** digitare **Britta Simon**.
+    a. Nella casella di testo **Nome** digitare **Britta Simon**.
 
     b. Nella casella di testo **Email** digitare l'indirizzo di posta elettronica di Britta Simon nel portale di Azure.
 
-    c. Fare clic su **Invite**.
+    c. Fare clic su **Invita**.
 
 A Britta viene inviato un invito che le permette di iniziare a usare UserEcho.
 
@@ -214,11 +214,11 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
 
-2. Nell'elenco di applicazioni selezionare **UserEcho**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png) <br>
+2. Nell'elenco di applicazioni, selezionare **UserEcho**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png) <br>
 
 1. Nel menu in alto fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
 
-1. Nell'elenco di utenti selezionare **Britta Simon**.
+1. Nell'elenco di utenti, selezionare **Britta Simon**.
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
 
@@ -253,4 +253,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

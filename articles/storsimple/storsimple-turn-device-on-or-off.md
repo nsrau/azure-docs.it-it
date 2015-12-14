@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Attivare o arrestare il dispositivo StorSimple 
@@ -189,11 +189,11 @@ Potrebbe essere necessario arrestare un dispositivo Microsoft Azure StorSimple i
 
 ### Dispositivo con enclosure principale<a name="8100a"> 
 
-Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione dal portale di gestione. L'unico modo per arrestare il sistema è tramite Windows PowerShell per StorSimple. Per arrestare il dispositivo in modo ordinato e controllato, accedere a Windows PowerShell per StorSimple e attenersi alla procedura seguente.
+Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione dal portale di Azure classico. L'unico modo per arrestare il sistema è tramite Windows PowerShell per StorSimple. Per arrestare il dispositivo in modo ordinato e controllato, accedere a Windows PowerShell per StorSimple e attenersi alla procedura seguente.
 
 >[AZURE.IMPORTANT]Non arrestare un dispositivo in esecuzione utilizzando il pulsante di alimentazione sul retro del dispositivo.
 >
->Prima di spegnere il dispositivo, assicurarsi che tutti i componenti del dispositivo siano integri. Nel portale di gestione passare a **Dispositivi** > **Manutenzione** > **Stato hardware** e verificare che lo stato di tutti i componenti sia verde. Questo vale solo per un sistema integro. Se il dispositivo viene arrestato per la sostituzione di un componente che non funziona correttamente, verrà visualizzato lo stato di errore (rosso) o danneggiato (giallo) per i rispettivi componenti nello **Stato hardware**.
+>Prima di spegnere il dispositivo, assicurarsi che tutti i componenti del dispositivo siano integri. Nel portale di Azure classico passare a **Dispositivi** > **Manutenzione** > **Stato hardware** e verificare che lo stato di tutti i componenti sia verde. Questo vale solo per un sistema integro. Se il dispositivo viene arrestato per la sostituzione di un componente che non funziona correttamente, verrà visualizzato lo stato di errore (rosso) o danneggiato (giallo) per i rispettivi componenti nello **Stato hardware**.
 
 È possibile accedere a Windows PowerShell per StorSimple connettendosi alla console seriale del dispositivo o usando la comunicazione remota di Windows PowerShell. Dopo l'accesso a Windows PowerShell per StorSimple, eseguire la procedura seguente per arrestare un dispositivo in esecuzione.
 
@@ -225,7 +225,7 @@ Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione d
 
 ### Dispositivo con enclosure EBOD<a name="8600a">
 
->[AZURE.IMPORTANT]Prima di arrestare l'enclosure principale ed EBOD, verificare che tutti i componenti del dispositivo siano integri. Nel portale di gestione passare a **Dispositivi** > **Manutenzione** > **Stato hardware** e verificare che tutti i componenti siano integri.
+>[AZURE.IMPORTANT]Prima di arrestare l'enclosure principale ed EBOD, verificare che tutti i componenti del dispositivo siano integri. Nel portale di Azure classico passare a **Dispositivi** > **Manutenzione** > **Stato hardware** e verificare che tutti i componenti siano integri.
 
 #### Per arrestare un dispositivo in esecuzione con enclosure EBOD
 
@@ -241,4 +241,4 @@ Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione d
 
 [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)se si riscontrano problemi durante l'attivazione o l'arresto di un dispositivo StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

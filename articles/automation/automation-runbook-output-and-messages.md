@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="11/24/2015"
    ms.author="bwren" />
 
 # Output di runbook e messaggi in automazione di Azure
@@ -168,4 +168,4 @@ Nell'esempio seguente viene avviato un runbook figlio e si attende il suo comple
 - [Tenere traccia di un processo del runbook](automation-runbook-execution.md)
 - [Runbook figlio](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

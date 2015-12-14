@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015" 
+	ms.date="12/01/2015" 
 	ms.author="robmcm"/>
 
 # Applicazione locale con archiviazione BLOB
@@ -364,7 +364,6 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
   [Come utilizzare il servizio di archiviazione BLOB da Java]: storage-java-how-to-use-blob-storage.md
   [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
   [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

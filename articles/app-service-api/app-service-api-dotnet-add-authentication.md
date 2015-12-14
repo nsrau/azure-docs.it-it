@@ -18,6 +18,8 @@
 
 # Proteggere un'app per le API: aggiungere l'autenticazione di Azure Active Directory o del provider di servizi di social networking
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Panoramica
 
 Questa esercitazione mostra come proteggere un'app per le API in modo che solo gli utenti autenticati possano accedervi, oltre a mostrare il codice che si può usare nell'app per le API ASP.NET per recuperare le informazioni relative all'utente connesso.
@@ -272,4 +274,4 @@ Questa sezione illustra come modificare il codice nell'app per le API ContactsLi
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di anteprima di Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

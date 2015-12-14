@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # Bloccare le risorse con Gestione risorse di Azure
@@ -22,7 +22,7 @@ Esistono scenari in cui l'amministratore può desiderare di applicare un blocco 
 
 La funzionalità Gestione risorse di Azure consente di limitare le operazioni sulle risorse tramite blocchi alla gestione delle risorse. I blocchi sono criteri che impongono un livello di blocco in un ambito specifico. L'ambito può essere una sottoscrizione, un gruppo di risorse o una risorsa. Il livello di blocco identifica il tipo di imposizione per i criteri e attualmente dispone di due valori, ovvero **CanNotDelete** e **ReadOnly**. **CanNotDelete** significa che gli utenti autorizzati possono comunque leggere e modificare le risorse, ma non eliminare le risorse limitate. **ReadOnly** significa che gli utenti autorizzati possono solo leggere la risorsa, ma non modificare o eliminare le risorse limitate.
 
-L'uso dei blocchi piuttosto che del controllo degli accessi in base al ruolo per assegnare autorizzazioni utente per l'esecuzione di determinate azioni presenta caratteristiche diverse. Per informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere [Controllo degli accessi in base al ruolo nel portale di anteprima](role-based-access-control-configure.md) e [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md). Diversamente dal controllo degli accessi in base al ruolo, è possibile usare blocchi di gestione per applicare una restrizione a utenti e ruoli, e in genere i blocchi si applicano solo per una durata limitata.
+L'uso dei blocchi piuttosto che del controllo degli accessi in base al ruolo per assegnare autorizzazioni utente per l'esecuzione di determinate azioni presenta caratteristiche diverse. Per informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere [Controllo degli di accesso basato sui ruoli nel portale](role-based-access-control-configure.md) e [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md). Diversamente dal controllo degli accessi in base al ruolo, è possibile usare blocchi di gestione per applicare una restrizione a utenti e ruoli, e in genere i blocchi si applicano solo per una durata limitata.
 
 ## Scenari comuni
 
@@ -108,4 +108,4 @@ PowerShell di Azure fornisce altri comandi per la gestione dei blocchi, ad esemp
 - Per modificare il gruppo di risorse in cui si trova una risorsa, vedere l'articolo relativo allo [spostamento delle risorse in un nuovo gruppo di risorse](resource-group-move-resources.md).
 - È possibile applicare restrizioni e convenzioni all’interno della sottoscrizione con criteri personalizzati. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

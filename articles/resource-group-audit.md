@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # Operazioni di controllo con Gestione risorse
@@ -27,13 +27,13 @@ Esistono due importanti limitazioni da tenere presenti quando si lavora con i lo
 1. I log di controllo vengono conservati solo per 90 giorni.
 2. È possibile eseguire solo query per un intervallo di 15 giorni o meno.
 
-Si possono recuperare le informazioni dai log di controllo tramite Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST o il portale di anteprima di Azure.
+Si possono recuperare le informazioni dai log di controllo tramite Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST o il portale di Azure.
 
 ## PowerShell
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Per recuperare le voci del log, eseguire il comando **Get- AzureRmLog** (o **Get-AzureResourceGroupLog** per le versioni precedenti ad Anteprima 1.0 di PowerShell). Fornire parametri aggiuntivi per filtrare l'elenco di voci.
+Per recuperare le voci del log, eseguire il comando **Get- AzureRmLog** (o **Get-AzureResourceGroupLog** per le versioni di PowerShell precedenti alla versione 1.0). Fornire parametri aggiuntivi per filtrare l'elenco di voci.
 
 L'esempio seguente mostra come usare il log di controllo per cercare le azioni eseguite durante il ciclo di vita della soluzione. È possibile vedere quando si è verificata l'azione e chi l'ha richiesta. Le date di inizio e fine vengono specificate in un formato Data.
 
@@ -144,9 +144,9 @@ Se l'elenco delle operazioni dall'ultima distribuzione è troppo lungo, è possi
 
 Le operazioni REST per l'utilizzo del log di controllo fanno parte delle [Informazioni di riferimento sulle API REST di Azure Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Per recuperare gli eventi del log di controllo, vedere [Elencare gli eventi di gestione in una sottoscrizione](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## Portale di anteprima di Azure
+## Portale
 
-È anche possibile vedere le operazioni registrate tramite il portale di anteprima. Selezionare semplicemente il pannello dei log di controllo.
+È anche possibile vedere le operazioni registrate tramite il portale. Selezionare semplicemente il pannello dei log di controllo.
 
 ![selezionare i log di controllo](./media/resource-group-audit/select-audit.png)
 
@@ -162,4 +162,4 @@ Visualizzare quindi l'elenco delle operazioni più recenti.
 - Per informazioni su come concedere l'accesso a un'entità servizio, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
 - Per informazioni su come agire su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,11 +18,11 @@
 	ms.author="rickbyh"/>
 
 
-# Procedura: configurare le impostazioni del firewall su Database SQL mediante il portale di Azure
+# Procedura: configurare le impostazioni del firewall su Database SQL mediante il portale di Azure classico
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -33,15 +33,15 @@ Il database SQL di Microsoft Azure utilizza le regole del firewall per consentir
 > [AZURE.IMPORTANT]Per consentire alle applicazioni da Azure di stabilire la connessione al server di database, è necessario abilitare le connessioni da Azure. Per ulteriori informazioni sulle regole del firewall e l'abilitazione delle connessioni da Azure, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md). È necessario aprire alcune porte TCP aggiuntive se si apportano le connessioni all'interno del cloud di Azure. Per ulteriori informazioni, vedere la sezione **V12 del database SQL: all'esterno rispetto all'interno** di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
-### Gestione delle regole del firewall a livello di server tramite il nuovo portale di Azure
+### Gestione delle regole del firewall a livello di server tramite il nuovo portale di Azure classico
 
 
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-## Gestione delle regole del firewall a livello di server tramite il Portale di gestione 
+## Gestione delle regole del firewall a livello di server tramite il portale classico 
 
-1. Nel Portale di gestione fare clic su **Database SQL**. Di seguito sono elencati tutti i database e i server corrispondenti.
+1. Dal portale classico, fare clic su **Database SQL**. Di seguito sono elencati tutti i database e i server corrispondenti.
 2. Fare clic su **Servers** nella parte superiore della pagina.
 3. Fare clic sulla freccia accanto al server per il quale si desidera gestire le regole del firewall.
 4. Fare clic su **Configure** nella parte superiore della pagina.
@@ -62,4 +62,4 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare il primo dat
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

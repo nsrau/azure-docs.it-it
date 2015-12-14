@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
+	ms.date="11/30/2015"
 	ms.author="jroth" />
 
 # Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
@@ -29,7 +29,7 @@
 
 Questa esercitazione end-to-end illustra come implementare i gruppo di disponibilità tramite SQL Server AlwaysOn in esecuzione in una macchina virtuale di Azure.
 
->[AZURE.NOTE]Nel portale di gestione di Azure, esiste una nuova impostazione di raccolta per i gruppi di disponibilità AlwaysOn con un Listener. In questo modo, tutto il necessario per i gruppi di disponibilità AlwaysOn viene configurato automaticamente. Per altre informazioni, vedere l'[offerta di SQL Server AlwaysOn nella raccolta del portale di Microsoft Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Per usare PowerShell, vedere l'esercitazione dello stesso scenario in [Esercitazione: gruppi di disponibilità AlwaysOn in Azure con PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md).
+>[AZURE.NOTE]Nel portale di gestione di Azure, esiste una nuova impostazione di raccolta per i gruppi di disponibilità AlwaysOn con un Listener. In questo modo, tutto il necessario per i gruppi di disponibilità AlwaysOn viene configurato automaticamente. Per altre informazioni, vedere l'[offerta SQL Server AlwaysOn nella raccolta del portale di Microsoft Azure classico](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Per usare PowerShell, vedere l'esercitazione dello stesso scenario in [Esercitazione: gruppi di disponibilità AlwaysOn in Azure con PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md).
 
 Al termine dell'esercitazione, la soluzione SQL Server AlwaysOn in Azure sarà composta dagli elementi seguenti:
 
@@ -61,7 +61,7 @@ Nell’esercitazione si presuppongono le condizioni seguenti:
 
 ## Creare la rete virtuale e il server del controller di dominio
 
-Si inizia con un nuovo account di prova di Azure. Una volta terminata la configurazione dell'account, viene visualizzata la schermata iniziale del portale di Azure.
+Si inizia con un nuovo account di prova di Azure. Una volta terminata la configurazione dell'account, viene visualizzata la schermata iniziale del portale di Azure classico.
 
 1. Fare clic sul pulsante **Nuovo** pulsante nell'angolo inferiore sinistro della pagina, come mostrato di seguito.
 
@@ -88,11 +88,11 @@ Si inizia con un nuovo account di prova di Azure. Una volta terminata la configu
 	|Page|Impostazioni|
 |---|---|
 |Selezionare il sistema operativo della macchina virtuale|Windows Server 2012 R2 Datacenter|
-|Configurazione macchina virtuale|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoDC<br/>**LIVELLO** = BASIC<br/>**DIMESIONE** = A2 (2 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|
+|Configurazione macchina virtuale|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoDC<br/>**LIVELLO** = STANDARD<br/>**DIMESIONE** = A2 (2 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|
 |Configurazione macchina virtuale|**SERVIZIO CLOUD** = Crea un nuovo servizio cloud<br/>**NOME DNS DEL SERVIZIO CLOUD** = Nome univoco del servizio cloud<br/>**NOME DNS** = Nome univoco (ad esempio, ContosoDC123)<br/>**AREA/SET DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back-end (10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = (Nessuno)|
 |Opzioni macchina virtuale|Valori predefiniti|
 
-Una volta terminata la configurazione della nuova macchina virtuale, attendere l’esecuzione del relativo provisioning. Il completamento di questo processo richiede del tempo e, se si fa clic sulla scheda **Macchina virtuale** nel portale di Azure, è possibile visualizzare il passaggio degli stati di ContosoDC da **Avvio in corso (Provisioning)** ad **Arrestato**, **Avvio in corso**, **In esecuzione (Provisioning)** e infine **In esecuzione**.
+Una volta terminata la configurazione della nuova macchina virtuale, attendere l’esecuzione del relativo provisioning. Il completamento di questo processo richiede del tempo e, se si fa clic sulla scheda **Macchina virtuale** nel portale di Azure classico, è possibile visualizzare il passaggio degli stati di ContosoDC da **Starting (Provisioning)** ad **Arrestato**, **Avvio in corso**, **Running (Provisioning)** e infine **In esecuzione**.
 
 A questo punto, il provisioning del server del controller di dominio è completato. Si configurerà quindi il dominio di Active Directory nel server del controller di dominio.
 
@@ -192,14 +192,18 @@ Dopo aver terminato la configurazione di Active Directory e degli oggetti utente
 
 ## Creare le macchine virtuali di SQL Server
 
-Successivamente, creare tre macchine virtuali, tra cui un nodo del cluster WSFC e due macchine virtuali SQL Server. Per creare ciascuna delle macchine virtuali, tornare al portale di Azure, fare clic su **Nuovo**, **Calcola**, **Macchina virtuale**, quindi **Da raccolta**. Successivamente, usare i modelli indicati della seguente tabella per creare le macchine virtuali.
+Successivamente, creare tre macchine virtuali, tra cui un nodo del cluster WSFC e due macchine virtuali SQL Server. Per creare ciascuna delle macchine virtuali, tornare al portale di Azure classico, fare clic su **Nuovo**, **Calcolo**, **Macchina virtuale**, quindi **Da raccolta**. Successivamente, usare i modelli indicati della seguente tabella per creare le macchine virtuali.
 
 |Page|VM1|VM2|VM3|
 |---|---|---|---|
 |Selezionare il sistema operativo della macchina virtuale|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 RTM Enterprise**|**SQL Server 2014 RTM Enterprise**|
-|Configurazione macchina virtuale|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoWSFCNode<br/>**LIVELLO** = BASIC<br/>**DIMENSIONE** = A2 (2 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoSQL1<br/>**LIVELLO** = BASIC<br/>**DIMENSIONE** = A3 (4 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**OME MACCHINA VIRTUALE** = ContosoSQL2<br/>**LIVELLO** = BASIC<br/>**SIZE** = A3 (4 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|
+|Configurazione macchina virtuale|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoWSFCNode<br/>**LIVELLO** = STANDARD<br/>**DIMENSIONE** = A2 (2 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoSQL1<br/>**LIVELLO** = STANDARD<br/>**DIMENSIONE** = A3 (4 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoSQL2<br/>**LIVELLO** = STANDARD<br/>**DIMENSIONE** = A3 (4 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|
 |Configurazione macchina virtuale|**SERVIZIO CLOUD** = Nome DNS del servizio cloud univoco creato in precedenza (ad esempio ContosoDC123)<br/>**AREA/SET DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back(10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = Crea set di disponibilità<br/>**NOME SET DI DISPONIBILITÀ** = SQLHADR|**SERVIZIO CLOUD** = Nome DNS del servizio cloud univoco creato in precedenza (ad esempio ContosoDC123)<br/>**AREA/SET DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back(10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = SQLHADR. È inoltre possibile configurare il set di disponibilità dopo la creazione della macchina virtuale. Tutte e tre le macchine virtuali devono essere assegnate al set di disponibilità SQLHADR.|**SERVIZIO CLOUD** = Nome DNS del servizio cloud univoco creato in precedenza (ad esempio ContosoDC123)<br/>**AREA/SET DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back(10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = SQLHADR. È inoltre possibile configurare il set di disponibilità dopo la creazione della macchina virtuale. Tutte e tre le macchine virtuali devono essere assegnate al set di disponibilità SQLHADR.|
 |Opzioni macchina virtuale|Valori predefiniti|Valori predefiniti|Valori predefiniti|
+
+<br/>
+
+>[AZURE.NOTE]La configurazione precedente suggerisce macchine virtuali di livello STANDARD, poiché le macchine di livello BASIC non supportano gli endpoint con carico bilanciato necessari per creare in seguito listener del gruppo di disponibilità. Inoltre, le dimensioni delle macchine qui suggerite sono pensate per il test dei gruppi di disponibilità all'interno di macchine virtuali di Azure. Per ottenere prestazioni ottimali su carichi di lavoro di produzione, vedere le dimensioni e la configurazione consigliate per la macchina SQL Server in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Una volta eseguito il provisioning completo delle tre macchine virtuali, sarà necessario aggiungerle al dominio **corp.contoso.com** e concedere a queste ultime i diritti amministrativi di CORP\\Install. A tale scopo, seguire questa procedura per ognuna delle tre macchine virtuali.
 
@@ -217,7 +221,7 @@ Una volta eseguito il provisioning completo delle tre macchine virtuali, sarà n
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Change the settings of this connection** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -235,7 +239,7 @@ Una volta eseguito il provisioning completo delle tre macchine virtuali, sarà n
 
 1. Selezionare la casella di controllo **Dominio** e digitare **corp.contoso.com** nella casella di testo. Fare clic su **OK**.
 
-1. Nella finestra di dialogo popup **Sicurezzaz di Windows** specificare le credenziali per l'account amministratore di dominio predefinito (**CORP\\AzureAdmin**) e la password (**Contoso!000**).
+1. Nella finestra di dialogo popup **Sicurezza di Windows** specificare le credenziali per l'account amministratore di dominio predefinito (**CORP\\AzureAdmin**) e la password (**Contoso!000**).
 
 1. Quando viene visualizzato il messaggio di benvenuto nel dominio corp.contoso.com, fare clic su **OK**.
 
@@ -327,7 +331,7 @@ Seguire questa procedura per effettuare le seguenti attività e configurare comp
 
 1. Nel riquadro di sinistra espandere **Gestione cluster di failover**, quindi fare clic su **Cluster1.corp.contoso.com**.
 
-1. Nel riquadro centrale scorrere verso il basso fino alla sezione **Risorse principali del cluster** ed espandere i dettagli **Nome: Clutser1**. Lo stato visualizzato di entrambe le risorse **Nome** e **Indirizzo IP** deve essere **Operazione non riuscita**. La risorsa Indirizzo IP non può essere portata online in quanto al cluster è assegnato lo stesso indirizzo IP della macchina, vale a dire che si tratta di un indirizzo duplicato.
+1. Nel riquadro centrale scorrere verso il basso fino alla sezione **Risorse principali del cluster** ed espandere i dettagli **Nome: Cluster1**. Lo stato visualizzato di entrambe le risorse **Nome** e **Indirizzo IP** deve essere **Operazione non riuscita**. La risorsa Indirizzo IP non può essere portata online in quanto al cluster è assegnato lo stesso indirizzo IP della macchina, vale a dire che si tratta di un indirizzo duplicato.
 
 1. Fare clic con il pulsante destro del mouse sulla risorsa **Indirizzo IP** non riuscita, quindi fare clic su **Proprietà**.
 
@@ -337,7 +341,7 @@ Seguire questa procedura per effettuare le seguenti attività e configurare comp
 
 1. Nella sezione **Risorse principali del cluster** fare clic con il pulsante destro del mouse su **Nome: Cluster1** e scegliere **Porta online**. Attendere finché entrambe le risorse non sono online Quando la risorsa del nome cluster torna online, il server del controller di dominio viene aggiornato con un nuovo account del computer Active Directory. L'account di Active Directory verrà utilizzato per seguire il servizio del cluster del gruppo di disponibilità in un secondo momento.
 
-1. Infine, si aggiungono i rimanenti nodi al cluster Nella struttura del browser fare clic con il pulsante destro del mouse su **Cluster1.corp.contoso.com** e scegliere **Add Node**, come mostrato di seguito.
+1. Infine, si aggiungono i rimanenti nodi al cluster Nella struttura del browser fare clic con il pulsante destro del mouse su **Cluster1.corp.contoso.com** e scegliere **Aggiungi nodo**, come mostrato di seguito.
 
 	![Aggiungere un nodo al cluster](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784634.png)
 
@@ -355,7 +359,7 @@ Seguire questa procedura per effettuare le seguenti attività e configurare comp
 
 ## Preparare le istanze di SQL Server per il gruppo di disponibilità
 
-In questa sezione verranno effettuate le azioni seguenti sia in **ContosoSQL1**, sia in **contosoSQL2**:
+In questa sezione verranno effettuate le azioni seguenti sia in **ContosoSQL1**, sia in **ContosoSQL2**:
 
 - Aggiungere un account di accesso per **NT AUTHORITY\\System** con le autorizzazioni necessarie impostate all'istanza predefinita di SQL Server
 
@@ -409,11 +413,11 @@ Queste azioni possono essere eseguite in qualsiasi ordine. Tuttavia, i passaggi 
 
 1. Nella pagina **Nome** specificare un nome per la regola, ad esempio **SQL Server (Regola di programma)** nella casella di testo **Nome** quindi fare clic su **Fine**.
 
-1. Successivamente, abilitare la funzionalità **Gruppi di disponibilità AlwaysOn Availability**. Dalla schermata **Start** avviare **Gestione configurazione SQL Server**.
+1. Successivamente, abilitare la funzionalità **Gruppi di disponibilità AlwaysOn**. Dalla schermata **Start** avviare **Gestione configurazione SQL Server**.
 
 1. Nella struttura del browser fare clic su **Servizi di SQL**, fare clic con il pulsante destro del mouse sul servizio **SQL Server (MSSQLSERVER)**, quindi scegliere **Proprietà**.
 
-1. Fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita gruppi di disponibilità AlwaysOn**, come mostrato di seguito, quindi scegliere **Applica**. Fare clic su **OK** nella finestra di dialogo popup e non chiudere ancora la finestra delle proprietà. Verrà riavviato il servizio SQL Server dopo la modifica dell'account del servizio.
+1. Fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita gruppi di disponibilità AlwaysOn**, come mostrato di seguito, quindi scegliere **Applica**. Fare clic su **OK** nella finestra di dialogo popup. Non chiudere ancora la finestra delle proprietà. Verrà riavviato il servizio SQL Server dopo la modifica dell'account del servizio.
 
 	![Abilitare Gruppi di disponibilità AlwaysOn in Azure](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665520.gif)
 
@@ -441,9 +445,9 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 1. Avviare il file RDP per **ContosoSQL1** e accedere come **CORP\\Install**.
 
-1. In **Esplora file**, creare una directory denominata **backup**. Questa directory verrà utilizzata per eseguire il backup e il ripristino del database.
+1. In **Esplora file**, in **C:**, creare una directory denominata **backup**. Questa directory verrà utilizzata per eseguire il backup e il ripristino del database.
 
-1. Fare clic con il pulsante destro del mouse sulla nuova directory, puntare a **Condividi con**, quindi scegliere **Utenti specifici**, come mostrato di seguito.
+1. Fare clic con il pulsante destro del mouse sulla nuova directory, scegliere **Condividi con**, quindi scegliere **Utenti specifici**, come mostrato di seguito.
 
 	![Creare una cartella di backup](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665521.gif)
 
@@ -459,25 +463,25 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 ### Eseguire un backup completo di MyDB1 e ripristinarlo in ContosoSQL2:
 
-1. Successivamente, si esegue un backup completo del database. In **Esplora oggetti** espandere **Database**, quindi fare clic con il pulsante destro del mouse su **MyDB1**, puntare ad **Attività** e fare clic su **Backup**.
+1. Successivamente, si esegue un backup completo del database. In **Esplora oggetti** espandere **Database**, quindi fare clic con il pulsante destro del mouse su **MyDB1**, scegliere **Attività** e fare clic su **Backup**.
 
-1. Nella **sezione Source** mantenere **Tipo di backup** impostato su **Completo**. Nella **Destinazione** fare clic su **Rimuovi** per rimuovere il percorso predefinito per il file di backup.
+1. Nella sezione **Source** mantenere **Tipo di backup** impostato su **Completo**. Nella **Destinazione** fare clic su **Rimuovi** per rimuovere il percorso predefinito per il file di backup.
 
 1. Nella sezione **Destinazione** fare clic su **Aggiungi**.
 
 1. Nella casella di testo **Nome file** digitare **\\ContosoSQL1\\backup\\MyDB1.bak**. Successivamente, fare clic su **OK**, quindi fare di nuovo clic su **OK** per completare l'operazione di backup del database. Una volta completata l'operazione di backup, fare di nuovo clic su **OK** per chiudere la finestra di dialogo.
 
-1. Successivamente, si esegue un backup del log delle transazioni del database. In **Esplora oggetti** espandere **Database**, quindi fare clic con il pulsante destro del mouse su **MyDB1**, puntare ad **Attività** e fare clic su **Backup**.
+1. Successivamente, si esegue un backup del log delle transazioni del database. In **Esplora oggetti** espandere **Database**, quindi fare clic con il pulsante destro del mouse su **MyDB1**, scegliere **Attività** e fare clic su **Backup**.
 
 1. In **Tipo di backup** selezionare **Log delle transazioni**. Mantenere il percorso file **di destinazione** impostato su quello specificato in precedenza e fare clic su **OK**. Una volta completata l'operazione di backup, fare di nuovo clic su **OK**.
 
-1. Successivamente, si ripristinano i backup completo e del log delle transazioni in **ContosoSQL2**. Avviare il file RDP per **ContosoSQL2** e accedere come **CORP\\Install**. Lasciare aperta la sessione desktop remoto per **ContosoSQL1**.
+1. Si procede quindi al ripristino del backup completo e del log delle transazioni in **ContosoSQL2**. Avviare il file RDP per **ContosoSQL2** e accedere come **CORP\\Install**. Lasciare aperta la sessione desktop remoto per **ContosoSQL1**.
 
 1. Dal menu **Start** avviare **SQL Server Management Studio**, quindi fare clic su **Connetti** per connettersi all'istanza predefinita di SQL Server.
 
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse su **Ripristina database** e scegliere **Ripristina database**.
 
-1. Nella sezione **Origine** selezionare **Dispositivo** e fare clic sul pulsante **…**dei puntini di sospensione.
+1. Nella sezione **Origine** selezionare **Dispositivo** e fare clic sul pulsante **…**.
 
 1. In **Seleziona dispositivi di backup**, fare clic su **Aggiungi**.
 
@@ -515,7 +519,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 	![Creazione guidata nuovo gruppo di disponibilità: selezionare la sincronizzazione dati iniziale](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665529.gif)
 
-1. Nella pagina **Convalida** fare clic su **Avanti**. L'aspetto di questa pagina dovrebbe essere simile a quanto riportato di seguito. È presente un avviso per la configurazione del listener in quanto non è stato configurato un listener del gruppo di disponibilità. È possibile ignorare questo avviso, poiché l'esercitazione non configura alcun listener. Per configurare il listener dopo il completamento dell'esercitazione, vedere [Configurazione del listener per i gruppi di disponibilità AlwaysOn in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+1. Nella pagina **Convalida** fare clic su **Avanti**. L'aspetto di questa pagina dovrebbe essere simile a quanto riportato di seguito. È presente un avviso per la configurazione del listener in quanto non è stato configurato un listener del gruppo di disponibilità. È possibile ignorare questo avviso, poiché l'esercitazione non configura alcun listener. Per configurare il listener dopo il completamento dell'esercitazione, vedere [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
 	![Creazione guidata nuovo gruppo di disponibilità: convalida](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665530.gif)
 
@@ -540,8 +544,8 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 >[AZURE.WARNING]Non tentare di eseguire il failover del gruppo di disponibilità da Gestione cluster di failover. È consigliabile eseguire tutte le operazioni di failover nel **Dashboard AlwaysOn** in SSMS. Per altre informazioni, vedere le [restrizioni relative all'uso di Gestione cluster di failover WSFC con i gruppi di disponibilità](https://msdn.microsoft.com/library/ff929171.aspx).
 
 ## Passaggi successivi
-SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere l'articolo relativo alla [configurazione di un listener di ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere l'articolo [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

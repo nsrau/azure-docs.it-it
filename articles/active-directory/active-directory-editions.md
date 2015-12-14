@@ -28,7 +28,7 @@ Per migliorare Azure Active Directory, è possibile aggiungere funzionalità a p
 Le sottoscrizioni di Office 365 includono funzionalità di Azure Active Directory aggiuntive, descritte nella tabella di confronto seguente.
 
 
-> [AZURE.NOTE]Per le opzioni relative ai prezzi di queste edizioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/it-IT/pricing/details/active-directory/). <br>Azure Active Directory Premium e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il forum di Azure Active Directory.
+> [AZURE.NOTE]Per le opzioni relative ai prezzi di queste edizioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). <br>Azure Active Directory Premium e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il forum di Azure Active Directory.
 
 
 - **Azure Active Directory Basic**: progettata per gli utenti che svolgono attività basate sul cloud, questa edizione garantisce l'accesso alle applicazioni incentrate su cloud e soluzioni di gestione delle identità self-service. L'edizione Basic di Azure Active Directory offre funzionalità per il miglioramento della produttività e la riduzione dei costi, ad esempio la gestione degli accessi basata sui gruppi, la reimpostazione delle password self-service per le applicazioni cloud e il proxy di applicazione di Azure Active Directory (per pubblicare applicazioni Web locali usando Azure Active Directory), supportate da un contratto di servizio a livello aziendale che garantisce un tempo di attività del 99,9%.
@@ -65,7 +65,7 @@ Per iscriversi e iniziare a usare subito Active Directory Premium, vedere [Intro
 | | [Reimpostazione delle password self-service per gli utenti cloud](active-directory-passwords.md)| Incluso nelle sottoscrizioni di Office 365 [4]| ![Controllo][12]| ![Controllo][12]|
 | | [Proxy di applicazione: accesso remoto sicuro e SSO ad applicazioni Web locali](active-directory-application-proxy-get-started.md)| | ![Controllo][12]| ![Controllo][12]|
 | | [Gestione e provisioning degli accessi alle applicazioni basati sui gruppi](active-directory-accessmanagement-group-saasapps.md)| | ![Controllo][12]| ![Controllo][12]|
-| | [Tempo di attività previsto dal contratto di servizio con disponibilità elevata (99,9%)](https://azure.microsoft.com/it-IT/support/legal/sla/)| Contratto di servizio di Microsoft Online Services [5]| ![Controllo][12]| ![Controllo][12]|
+| | [Tempo di attività previsto dal contratto di servizio con disponibilità elevata (99,9%)](https://azure.microsoft.com/support/legal/sla/)| Contratto di servizio di Microsoft Online Services [5]| ![Controllo][12]| ![Controllo][12]|
 | **Funzionalità solo Premium**| [Creazione di report avanzati sull'utilizzo di applicazioni](active-directory-view-access-usage-reports.md)| | | ![Controllo][12]|
 | | [Gestione dei gruppi self-service per gli utenti del cloud] (Gestione dei gruppi self-service per gli utenti in Azure AD)| | | ![Controllo][12]|
 | | [Reimpostazione delle password self-service con writeback locale](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![Controllo][12]|
@@ -102,4 +102,4 @@ Per iscriversi e iniziare a usare subito Active Directory Premium, vedere [Intro
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

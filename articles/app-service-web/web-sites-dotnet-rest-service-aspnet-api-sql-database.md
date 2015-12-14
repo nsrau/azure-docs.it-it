@@ -137,7 +137,7 @@ Non è necessario eseguire per il momento altre operazioni per creare l'applicaz
 
 12. Fare clic su **Pubblica**.
 
-![Scheda Impostazioni](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/pw.png)
+![Scheda Settings](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/pw.png)
 
 Visual Studio avvierà il processo di copia dei file nel server Azure. Nella finestra **Output** vengono indicate le azioni di distribuzione effettuate e viene segnalato il corretto completamento della distribuzione.
 
@@ -740,7 +740,6 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -811,4 +810,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

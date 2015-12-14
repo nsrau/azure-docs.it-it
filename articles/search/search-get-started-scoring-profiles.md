@@ -46,8 +46,8 @@ Scegliere la scheda del codice sorgente, **Download** per ottenere un file zip d
 ## Modificare il file app.config
 
 1. Dopo l'estrazione dei file, aprire la soluzione in Visual Studio per modificare il file di configurazione.
-1. In Esplora soluzioni fare doppio clic su **app. config**. Questo file specifica l'endpoint del servizio e un `api-key` utilizzato per autenticare la richiesta. È possibile ottenere questi valori dal portale di gestione.
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. In Esplora soluzioni fare doppio clic su **app. config**. Questo file specifica l'endpoint del servizio e un `api-key` utilizzato per autenticare la richiesta. È possibile ottenere questi valori dal portale classico.
+1. Accedere al [portale di Azure classico](https://portal.azure.com).
 1. Passare al dashboard del servizio per Ricerca di Azure.
 1. Scegliere il **proprietà** riquadro per copiare l'URL del servizio
 1. Fare clic sui **chiavi** riquadro per copiare la `api-key`.
@@ -126,4 +126,4 @@ Per altre informazioni sulla creazione degli indici, [Guardare questo video](htt
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -50,7 +50,7 @@ Di seguito viene riportata una schermata dell'applicazione completata.
 1. Seguire le istruzioni riportate [qui](virtual-machines-windows-tutorial-classic-portal.md) per creare una macchina virtuale di Azure della distribuzione Windows Server 2012 R2 Datacenter.
 
 1. Impostare Azure in modo da dirigere il traffico della porta 80 proveniente dal Web alla porta 80 della macchina virtuale:
- - Passare alla macchina virtuale appena creata nel portale di Azure e fare clic sulla scheda **ENDPOINTS**.
+ - Passare alla macchina virtuale appena creata nel portale di Azure classico e fare clic sulla scheda **ENDPOINTS**.
  - Fare clic sul pulsante **ADD** nella parte inferiore della schermata. ![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
  - Selezionare il protocollo **TCP** e aprire **PUBLIC PORT 80** come **PRIVATE PORT 80**. ![][port80]
@@ -184,4 +184,4 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

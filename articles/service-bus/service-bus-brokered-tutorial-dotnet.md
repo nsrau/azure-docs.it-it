@@ -33,7 +33,7 @@ Di seguito alcuni passaggi amministrativi e prerequisiti, da seguire prima di in
 
 1. Per creare uno spazio dei nomi del servizio, seguire i passaggi descritti in [Procedura: creazione o modifica di uno spazio dei nomi del servizio del bus di servizio](https://msdn.microsoft.com/library/azure/hh690931.aspx).
 
-1. Nella finestra principale del portale di Azure, fare clic sul nome dello spazio dei nomi del servizio creato al passaggio precedente.
+1. Nella finestra principale del [portale di Azure classico][], fare clic sul nome dello spazio dei nomi del servizio creato al passaggio precedente.
 
 1. Fare clic su **Configure**.
 
@@ -106,8 +106,8 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
 	    publicclass Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList;
 	```
 
 1. Al di fuori di `Main()`, definire un metodo `ParseCSV()` che analizzi l'elenco dei messaggi in Data.csv e carichi i messaggi in una tabella [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), come illustrato di seguito. Il metodo restituisce un oggetto **DataTable**.
@@ -169,7 +169,8 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
 	    // Instantiate the brokered list object
 	    List<BrokeredMessage> result = new List<BrokeredMessage>();
 	
-	    // Iterate through the table and create a brokered message for each rowforeach (DataRow item in issues.Rows)
+	    // Iterate through the table and create a brokered message for each row
+	    foreach (DataRow item in issues.Rows)
 	    {
 	        BrokeredMessage message = new BrokeredMessage();
 	        foreach (DataColumn property in issues.Columns)
@@ -266,7 +267,7 @@ In questa fase, si definiscono le operazioni di gestione utilizzate per creare l
 	}
 	```
 
-1. Il passaggio successivo consiste nel creare credenziali SAS utilizzando un oggetto [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Il metodo di creazione accetta il nome della chiave SAS e il valore ottenuto nel metodo `CollectUserInput()`. Aggiungere il codice seguente al metodo `Queue()`:
+1. Il passaggio successivo consiste nel creare credenziali della firma di accesso condiviso utilizzando un oggetto [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Il metodo di creazione accetta il nome della chiave della firma di accesso condiviso e il valore ottenuto nel metodo `CollectUserInput()`. Aggiungere il codice seguente al metodo `Queue()`:
 
 	```
 	staticvoid Queue()
@@ -629,9 +630,9 @@ In Visual Studio dal menu **Compila**, fare clic su **Compila soluzione** o prem
 
 ### Esecuzione dell'applicazione QueueSample
 
-1. Prima di eseguire l'applicazione, è necessario verificare di aver creato uno spazio dei nomi del servizio e ottenuto una chiave SAS, come descritto in [Introduzione e prerequisiti](#introduction-and-prerequisites).
+1. Prima di eseguire l'applicazione, è necessario verificare di aver creato uno spazio dei nomi del servizio e ottenuto una chiave della firma di accesso condiviso, come descritto in [Introduzione e prerequisiti](#introduction-and-prerequisites).
 
-1. Aprire un browser e raggiungere il [Portale di Azure](http://manage.windowsazure.com).
+1. Aprire un browser e raggiungere il [portale di Azure classico][].
 
 1. Nella struttura ad albero a sinistra fare clic su **Bus di servizio**.
 
@@ -649,4 +650,6 @@ Per altre informazioni sul [Bus di servizio](https://azure.microsoft.com/service
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Architettura del bus di servizio](service-bus-architecture.md)
 
-<!---HONumber=Nov15_HO4-->
+[portale di Azure classico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

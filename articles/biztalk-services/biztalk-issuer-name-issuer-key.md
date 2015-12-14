@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -39,7 +39,7 @@ Il nome e la chiave dell'autorità emittente del Controllo di accesso vengono us
 
 ### Per copiare e incollare il nome e la chiave dell'autorità emittente del Controllo di accesso
 
-1. Accedere al [portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Nel pannello di navigazione sinistro selezionare **BizTalk Services**.
 3. Selezionare il servizio BizTalk desiderato. 
 4. Selezionare **Connection Information** nella barra delle applicazioni. I valori Spazio dei nomi di Access Control, Autorità emittente predefinita (Nome dell'autorità emittente) e Chiave predefinita (Chiave autorità emittente) sono elencati e possono essere copiati e incollati.  
@@ -49,7 +49,7 @@ Per riepilogare: Nome autorità emittente = Autorità emittente predefinita Chia
 
 È inoltre possibile fare clic su **Apri portale di gestione ACS** per recuperare i valori del Controllo di accesso:
 
-1. Accedere al [portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Nel pannello di navigazione sinistro selezionare **BizTalk Services**.
 3. Selezionare il servizio BizTalk desiderato.
 4. Selezionare il pulsante Connection Information e quindi **Open ACS Management Portal**.
@@ -67,13 +67,11 @@ Il nome e la chiave dell'autorità emittente del bus di servizio vengono usati d
 
 ### Per recuperare il nome e la chiave dell'autorità emittente del bus di servizio
 
-1. Accedere al [portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Nel pannello di navigazione sinistro selezionare **Bus di servizio**.
 3. Selezionare lo spazio dei nomi. Nella barra delle applicazioni selezionare **Informazioni di connessione**. Verranno visualizzati i valori relativi a **Default Issuer** (nome dell'autorità emittente) e **Default Key** (chiave dell'autorità emittente). Questi valori possono essere copiati.  
 
-Per riepilogare:  
-Nome autorità emittente = Autorità emittente predefinita  
-Chiave autorità emittente = Chiave predefinita
+Per riepilogare: Nome autorità emittente = Autorità emittente predefinita Chiave autorità emittente = Chiave predefinita
 
 ## Avanti
 Ulteriori argomenti relativi a Servizi BizTalk di Azure:
@@ -87,11 +85,11 @@ Ulteriori argomenti relativi a Servizi BizTalk di Azure:
 ## Vedere anche
 -  [Procedura: Usare il servizio di gestione ACS per la configurazione delle identità del servizio](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 - [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [Servizi BizTalk: effettuare il provisioning di un servizio BizTalk mediante il portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [Servizi BizTalk: Tabella degli stati del servizio](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 - [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [Servizi BizTalk: backup e ripristino](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [Servizi BizTalk: limitazione](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

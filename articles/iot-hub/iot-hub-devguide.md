@@ -59,7 +59,7 @@ L'articolo [API e SDK dell'hub IoT][lnk-apis-sdks] illustra i diversi modi in cu
 
 Quando si usa [Azure Service Bus SDK per .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) o [Hub eventi - Host processore di eventi][], è possibile usare qualsiasi stringa di connessione dell'hub IoT con le autorizzazioni corrette e quindi usare `messages/events` come nome dell'hub eventi.
 
-Quando si usano gli SDK o le integrazioni del prodotto non compatibili con l'hub IoT, è necessario recuperare un endpoint compatibile con gli hub eventi e un nome di hub eventi dalle impostazioni dell'hub IoT nel [portale di anteprima di Azure][]\:
+Quando si usano gli SDK o le integrazioni del prodotto non compatibili con l'hub IoT, è necessario recuperare un endpoint compatibile con gli hub eventi e un nome di hub eventi dalle impostazioni dell'hub IoT nel [portale di Azure][]\:
 
 1. Nel pannello dell'hub IoT fare clic su **Impostazioni**, quindi su **Messaggistica**.
 2. La sezione **Impostazioni da dispositivo a cloud** include una casella **Endpoint compatibile con l'hub eventi**, **Nome compatibile con l'hub eventi** e **Partizioni**.
@@ -193,7 +193,7 @@ L'hub IoT usa il set di *autorizzazioni* seguente per concedere l'accesso all'en
 
 Le autorizzazioni vengono concesse nei modi seguenti:
 
-* **Criteri di accesso condivisi a livello di hub**. I *criteri di accesso condiviso* possono concedere qualsiasi combinazione delle autorizzazioni elencate nella sezione precedente. È possibile definire i criteri nel [portale di anteprima di Azure][lnk-management-portal] o a livello di codice mediante le [API del provider di risorse dell'hub IoT di Azure][lnk-resource-provider-apis]. Un hub IoT appena creato ha i criteri predefiniti seguenti:
+* **Criteri di accesso condivisi a livello di hub**. I *criteri di accesso condiviso* possono concedere qualsiasi combinazione delle autorizzazioni elencate nella sezione precedente. È possibile definire i criteri nel [portale di Azure][lnk-management-portal] o a livello di codice mediante le [API del provider di risorse dell'hub IoT di Azure][lnk-resource-provider-apis]. Un hub IoT appena creato ha i criteri predefiniti seguenti:
 
     - *iothubowner*: criteri con tutte le autorizzazioni
     - *service*: criteri con autorizzazione **ServiceConnect**
@@ -352,7 +352,7 @@ Un hub IoT espone le proprietà seguenti per controllare la messaggistica D2C.
 
 Analogamente agli hub eventi, l'hub IoT consente la gestione dei Gruppi di consumer nell'endpoint di ricezione da dispositivo a cloud.
 
-È possibile modificare tutte queste proprietà tramite il [portale di anteprima di Azure][lnk-management-portal] o a livello di codice mediante l’[Hub IoT di Azure - API del provider di risorse][lnk-resource-provider-apis].
+È possibile modificare tutte queste proprietà tramite il [portale di Azure][lnk-management-portal] o a livello di codice mediante [Hub IoT di Azure - API del provider di risorse][lnk-resource-provider-apis].
 
 #### Proprietà anti-spoofing <a id="antispoofing"></a>
 
@@ -491,7 +491,7 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 
 [Hub eventi - Host processore di eventi]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
-[portale di anteprima di Azure]: https://portal.azure.com
+[portale di Azure]: https://portal.azure.com
 
 [img-summary]: ./media/iot-hub-devguide/summary.png
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
@@ -532,4 +532,4 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

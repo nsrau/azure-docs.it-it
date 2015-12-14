@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
 # Come usare l'archivio BLOB da Xamarin (anteprima)
@@ -173,10 +173,7 @@ In questa esercitazione, è stato illustrato come utilizzare l'archivio BLOB di 
 
 È possibile ottenere ulteriori informazioni su BLOB, tabelle e code visitando i collegamenti seguenti:
 
-[Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md)  
-[Come usare l'archivio BLOB da .NET](storage-dotnet-how-to-use-blobs.md)  
-[Come usare l'archivio tabelle da .NET](storage-dotnet-how-to-use-tables.md)  
-[Come usare l'archiviazione delle code da .NET](storage-dotnet-how-to-use-queues.md)
+[Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) [Come usare l'archivio BLOB da .NET](storage-dotnet-how-to-use-blobs.md) [Come usare l'archivio tabelle da .NET](storage-dotnet-how-to-use-tables.md) [Come usare l'archiviazione delle code da .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

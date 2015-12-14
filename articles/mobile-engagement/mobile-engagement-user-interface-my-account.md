@@ -13,27 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/22/2015"
    ms.author="piyushjo"/>
 
-# Come gestire il profilo dell'account e i dispositivi di test 
-Nella sezione Account personale dell'interfaccia utente è possibile visualizzare e modificare le impostazioni associate al proprio account, incluse le impostazioni del profilo e gli ID dei dispositivi di test. Queste impostazioni contengono elementi a cui è possibile accedere anche tramite l'API di dispositivo.
+# Come gestire il profilo dell'account e i dispositivi di test
+ 
+In questo articolo viene descritta la **Home page** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
+ 
+Per ottenere la pagina account personale, fare clic sul proprio account nella parte superiore della pagina.
 
-### Vedere anche
--  [Guida per la risoluzione dei problemi - Assistenza][Link 24]
+Nella sezione Account personale dell'interfaccia utente è possibile visualizzare e modificare le impostazioni associate al proprio account, incluse le impostazioni del profilo e gli ID dei dispositivi di test. Queste impostazioni contengono elementi a cui è possibile accedere anche tramite l'API di dispositivo.
 
 ![MyAccount1][7]
 
 ## Profilo:
-È possibile visualizzare o modificare le impostazioni del proprio account: password, nome, cognome, organizzazione, numero di telefono, fuso orario, consenso o rifiuto esplicito degli aggiornamenti tramite posta elettronica. È inoltre possibile assegnare a un altro utente l'autorizzazione per utilizzare l'applicazione in base all'indirizzo di posta elettronica da "home".
-
-### Vedere anche
--  [Documentazione dell'interfaccia utente - Home page][Link 13]
+È possibile visualizzare o modificare le impostazioni del proprio account mostrate di seguito: È inoltre possibile assegnare a un altro utente l'autorizzazione per utilizzare l'applicazione in base all'indirizzo di posta elettronica da[Home](mobile-engagement-interface-home.md).
 
 ![MyAccount2][8]
 
 ## Dispositivi:
-È possibile visualizzare, aggiungere o rimuovere gli ID dei dispositivi di test che si possono usare per testare le campagne di push o Reach. Istruzioni contestuali per trovare l'ID dei dispositivi per ogni piattaforma (iOS, Android, Windows Phone e così via) vengono visualizzate quando si fa clic su "Nuovo dispositivo".
+È possibile visualizzare, aggiungere o rimuovere gli ID dei dispositivi di test che si possono usare per testare le campagne di **copertura** o **push**. Istruzioni contestuali per trovare l'ID dei dispositivi per ogni piattaforma (iOS, Android, Windows Phone e così via) vengono visualizzate quando si fa clic su "Nuovo dispositivo".
  
 ![MyAccount3][9]
  
@@ -45,6 +44,13 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
 4. Da un annuncio Web Reach, se il codice HTML dell'annuncio contiene il modello {deviceid}, questo verrà sostituito automaticamente dall'identificatore del dispositivo di visualizzazione dell'annuncio Web. Ecco l'identificatore del dispositivo: {deviceid} verrà sostituito da: Ecco l'identificatore del dispositivo: XXXXXXXXXXXXXXXX
 5.  Aprire l'applicazione sul dispositivo ed eseguire un evento nell'app contrassegnata. Da "Interfaccia utente - app - Monitoraggio - Eventi - Dettagli", trovare l'evento eseguito nell'elenco. Fare clic su questo evento in Monitoraggio. L'ID del dispositivo sarà presente nell'elenco dei dispositivi che hanno eseguito l'evento. Quindi, è possibile copiare tale ID del dispositivo e registrarlo in "Interfaccia utente - Account personale - Dispositivi - Nuovo dispositivo - Seleziona la piattaforma del dispositivo".
 >Tenere presente che quando IDFA è disabilitato per iOS, l'ID del dispositivo potrebbe cambiare nel tempo se si disinstalla e si reinstalla l'app.
+
+##Guida per la risoluzione dei problemi
+-  [Guida per la risoluzione dei problemi - Assistenza][Link 24]
+
+## Vedere anche
+-  [Documentazione dell'interfaccia utente - Home page][Link 13]
+
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -145,4 +151,4 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

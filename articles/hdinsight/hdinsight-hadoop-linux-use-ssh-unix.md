@@ -85,15 +85,15 @@ Se si prevede di usare chiavi SSH con il cluster, attenersi alle seguenti inform
 
 Quando si crea un cluster HDInsight basato su Linux, è necessario fornire la chiave pubblica creata in precedenza. Da client Linux, Unix o OS X è possibile creare un cluster HDInsight in due modi:
 
-* **Portale di anteprima di Azure**: viene usato un portale basato sul Web per creare il cluster.
+* **Portale di Azure** - usa un portale basato sul Web per creare il cluster.
 
 * **Interfaccia della riga di comando di Azure**: usa i comandi della riga di comando per creare il cluster.
 
 Ognuno di questi metodi richiederà un password o una chiave pubblica. Per informazioni dettagliate sulla creazione di un cluster HDInsight basato su Linux, vedere l'articolo [Provisioning di cluster Hadoop Linux in HDInsight con opzioni personalizzate](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Portale di anteprima di Azure
+###Portale di Azure
 
-Quando si usa il [portale di anteprima di Azure][preview-portal] per creare un cluster HDInsight basato su Linux, è necessario compilare il campo **NOME UTENTE SSH** e selezionare **PASSWORD** o **CHIAVE PUBBLICA SSH**.
+Quando si usa il [Portale di Azure][preview-portal] per creare un cluster HDInsight basato su Linux, è necessario inserire un **SSH USER NAME** e per accedere selezionare una **PASSWORD** o **SSH PUBLIC KEY**.
 
 Se si seleziona **CHIAVE PUBBLICA SSH**, incollare la chiave pubblica (contenuta nel file con l’estensione **pub**) nel campo __SSH PublicKey__ oppure selezionare __Seleziona un file__ per cercare e selezionare il file di chiave pubblica.
 
@@ -238,4 +238,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

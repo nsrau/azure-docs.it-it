@@ -39,11 +39,11 @@ Iniziare con la rigenerazione della chiave di archiviazione secondaria. Per impo
 
 Aggiornare Servizi multimediali per l'uso della chiave di accesso alle risorse di archiviazione secondaria. Per sincronizzare la chiave di archiviazione rigenerata con Servizi multimediali è possibile usare uno dei due seguenti metodi.
 
-- Usare il portale di Azure: selezionare l'account di Servizi multimediali e fare clic sull'icona "GESTISCI CHIAVI" nella parte inferiore della finestra del portale. A seconda della chiave di archiviazione che si desidera sincronizzare con Servizi multimediali, selezionare il pulsante relativo alla sincronizzazione con la chiave primaria o secondaria. In questo caso, usare la chiave secondaria.
+- Usare il portale di Azure classico: selezionare l'account di Servizi multimediali e fare clic sull'icona "GESTISCI CHIAVI" nella parte inferiore della finestra del portale. A seconda della chiave di archiviazione che si desidera sincronizzare con Servizi multimediali, selezionare il pulsante relativo alla sincronizzazione con la chiave primaria o secondaria. In questo caso, usare la chiave secondaria.
 
 - Usare l'API REST di gestione di Servizi multimediali.
 
-	Il seguente esempio di codice mostra come creare la richiesta https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key per sincronizzare la chiave di archiviazione specificata con Servizi multimediali. In questo caso, viene usato il valore relativo alla chiave di archiviazione secondaria. Per altre informazioni, vedere [Procedura: Usare l'API REST di gestione dei servizi multimediali](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+Il seguente esempio di codice mostra come creare la richiesta https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key per sincronizzare la chiave di archiviazione specificata con Servizi multimediali. In questo caso, viene usato il valore relativo alla chiave di archiviazione secondaria. Per altre informazioni, vedere [Procedura: Usare l'API REST di gestione dei servizi multimediali](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -159,4 +159,4 @@ Utilizzare la stessa procedura, come descritto nel [passaggio 3](media-services-
 
 Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Cenk Dingiloglu, Gada Milano, Seva Titov.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

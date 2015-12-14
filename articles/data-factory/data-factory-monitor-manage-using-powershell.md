@@ -24,11 +24,11 @@
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
 
 
-L'esercitazione [Introduzione a Data factory di Azure][adf-get-started] illustra come creare e monitorare una data factory di Azure mediante il [portale di anteprima di Azure][azure-preview-portal]. In questa esercitazione verrà creata e monitorata una data factory di Azure mediante i cmdlet di Azure PowerShell. La pipeline nella data factory creata in questa esercitazione copia i dati da un BLOB di Azure e li inserisce in un database SQL di Azure.
+L'esercitazione [Introduzione a Data factory di Azure][adf-get-started] illustra come creare e monitorare una data factory di Azure mediante il [portale di Azure][azure-portal]. In questa esercitazione verrà creata e monitorata una data factory di Azure mediante i cmdlet di Azure PowerShell. La pipeline nella data factory creata in questa esercitazione copia i dati da un BLOB di Azure e li inserisce in un database SQL di Azure.
 
 > [AZURE.NOTE]Questo articolo non illustra tutti i cmlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
 >  
->  Se si usa Azure PowerShell 1.0 Preview, sarà necessario usare i cmdlet documentati [qui](https://msdn.microsoft.com/library/dn820234.aspx). Usare ad esempio New-AzureRMDataFactory invece di New-AzureDataFactory.
+>  Se si usa Azure PowerShell 1.0, sarà necessario usare i cmdlet documentati [qui](https://msdn.microsoft.com/library/dn820234.aspx). Usare ad esempio New-AzureRMDataFactory invece di New-AzureDataFactory.
 
 
 
@@ -50,9 +50,9 @@ Passaggio | Descrizione
 In questo passaggio è possibile usare Azure PowerShell per creare una data factory di Azure denominata **ADFTutorialDataFactoryPSH**.
 
 1. Avviare **Azure PowerShell** ed eseguire i comandi seguenti. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
-	- Eseguire **Add-AzureAccount** e immettere il nome utente e la password usati per accedere al portale di anteprima di Azure.  
+	- Eseguire **Add-AzureAccount** e immettere il nome utente e la password usati per accedere al portale di Azure.  
 	- Eseguire **Get-AzureSubscription** per visualizzare tutte le sottoscrizioni per l'account.
-	- Eseguire **Select-AzureSubscription** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di anteprima di Azure. 
+	- Eseguire **Select-AzureSubscription** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di Azure. 
 2. Passare alla modalità **AzureResourceManager** perché i cmdlet di Data factory di Azure sono disponibili in questa modalità.
 
 		Switch-AzureMode AzureResourceManager 
@@ -170,7 +170,7 @@ Se è stata eseguita l'esercitazione disponibile nell'articolo [Introduzione ad 
 
 	Se nel computer è installato SQL Server 2014, seguire le istruzioni disponibili nel [Passaggio 2: Connettersi al database SQL dell'articolo Gestione di database SQL di Azure tramite SQL Server Management Studio][sql-management-studio] per connettersi al server SQL di Azure ed eseguire lo script SQL.
 
-	Se nel computer è installato Visual Studio 2013, nel portale di anteprima di Azure ([http://portal.azure.com](http://portal.sazure.com)) fare clic sull'hub **SFOGLIA** a sinistra, quindi su **Server SQL**, selezionare il database e fare clic su **Apri in Visual Studio** sulla barra degli strumenti per connettersi al server SQL di Azure ed eseguire lo script. Se il client non è autorizzato ad accedere al server SQL di Azure, sarà necessario configurare il firewall per il server SQL di Azure in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server SQL di Azure, vedere l'articolo precedente.
+	Se nel computer è installato Visual Studio 2013, nel portale di Azure ([http://portal.azure.com](http://portal.sazure.com)) fare clic sull'hub **SFOGLIA** a sinistra, quindi su **Server SQL**, selezionare il database e fare clic su **Apri in Visual Studio** sulla barra degli strumenti per connettersi al server SQL di Azure ed eseguire lo script. Se il client non è autorizzato ad accedere al server SQL di Azure, sarà necessario configurare il firewall per il server SQL di Azure in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server SQL di Azure, vedere l'articolo precedente.
 		
 ### Creare la tabella di input 
 Un tabella è un set di dati rettangolare che prevede uno schema. In questo passaggio si creerà una tabella denominata **EmpBlobTable** che punta a un contenitore BLOB nella risorsa di archiviazione di Azure rappresentato dal servizio collegato **StorageLinkedService**. Questo contenitore BLOB (**adftutorial**) contiene i dati di input nel file: **emp.txt**.
@@ -426,7 +426,7 @@ Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la document
 [data-factory-create-storage]: ../storage-create-storage-account.md
 
 [adf-get-started]: data-factory-get-started.md
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [download-azure-powershell]: ../powershell-install-configure.md
 [data-factory-introduction]: data-factory-introduction.md
 
@@ -435,4 +435,4 @@ Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la document
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

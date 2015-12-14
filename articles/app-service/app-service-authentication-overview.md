@@ -18,6 +18,8 @@
 
 # Autenticazione per le app per API e dispositivi mobili nel servizio app di Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Panoramica
 
 Questo articolo illustra le funzionalità di autenticazione incorporate per le [app per API](../app-service-api/app-service-api-apps-why-best-platform.md) e le [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop-preview.md).
@@ -187,17 +189,17 @@ Questo articolo illustra i servizi di autenticazione offerti dal servizio app di
 ### <a id="apiaclient"></a>Flusso client delle app per le API
 
 * [Proteggere un'app per le API](../app-service-api/app-service-api-dotnet-add-authentication.md): la parte relativa alla configurazione dell'app per le API è valida sia per il flusso client sia per il flusso server, ma la parte relativa al test nel browser illustra il flusso server.
-* [Utilizzare un'app per le API nel servizio app di Azure da un client .NET](../app-service-api/app-service-api-dotnet-consume.md): l'app di esempio per una chiamata autenticata illustra il flusso server, ma è seguita da una sezione di [flusso client](../app-service-api/app-service-api-dotnet-consume.md#client-flow) con il codice di esempio.
+* [Utilizzare un'app per le API nel servizio app di Azure da un client .NET](../app-service-api/app-service-api-dotnet-consume.md) - l'app di esempio per una chiamata autenticata illustra il flusso del server, ma è seguita da una sezione di [flusso del client](../app-service-api/app-service-api-dotnet-consume.md#client-flow) con il codice di esempio.
 
 ### <a id="apiaserver"></a>Flusso server delle app per le API
 
-* [Proteggere un'app per le API](../app-service-api/app-service-api-dotnet-add-authentication.md): la parte relativa alla configurazione dell'app per le API è valida sia per il flusso client sia per il flusso server e la parte relativa al test nel browser illustra il flusso server.
+* [Proteggere un'app per le API](../app-service-api/app-service-api-dotnet-add-authentication.md) - la parte relativa alla configurazione dell'app per le API è valida sia per il flusso del client sia per il flusso del server e la parte relativa al test nel browser illustra il flusso del server.
 * [Usare un'app per le API nel servizio app di Azure da un client .NET](../app-service-api/app-service-api-dotnet-consume.md): il codice di esempio per una chiamata autenticata illustra il flusso server. 
 
 ### <a id="apiaobo"></a>Chiamate "on-behalf-of" delle app per le API
 
 * [Distribuire e configurare un'app per le API di un connettore SaaS nel servizio app di Azure](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md): illustra come eseguire il provisioning di un'app per le API del connettore predefinita, come configurarla e come chiamarla tramite gli strumenti del browser.
-* [Connettersi a una piattaforma SaaS da un'app per le API ASP.NET nel servizio app di Azure](../app-service-api/app-service-api-dotnet-connect-to-saas.md): illustra come scrivere il connettore, ovvero come effettuare il provisioning, configurare e scrivere il codice per un'app per le API personalizzata che esegue chiamate "on-behalf-of" a un provider SaaS.
+* [Connettersi a una piattaforma SaaS da un'app per le API ASP.NET nel servizio app di Azure](../app-service-api/app-service-api-dotnet-connect-to-saas.md) - illustra come scrivere il connettore, ovvero come effettuare il provisioning, configurare e scrivere il codice per un'app per le API personalizzata che esegue chiamate "on-behalf-of" a un provider SaaS.
 
 ### <a id="maclient"></a>Flusso client delle app per dispositivi mobili
 
@@ -214,4 +216,4 @@ Questo articolo illustra i servizi di autenticazione offerti dal servizio app di
 
 * [Ottenere un token di accesso e chiamare l'API SharePoint in un'app per dispositivi mobili](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

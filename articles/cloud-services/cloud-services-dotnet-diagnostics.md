@@ -154,7 +154,7 @@ Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe
 4.	Nella finestra di dialogo **Crea servizio cloud e account di archiviazione** immettere un valore in **Nome** (ad esempio, "WadExample") e selezionare un'area o un gruppo di affinità.
 5.	Impostare **Ambiente** su **Gestione temporanea**.
 6.	Modificare le altre **Impostazioni** nel modo appropriato e fare clic su **Pubblica**.
-7.	Al termine della distribuzione, verificare nel portale di Azure che lo stato del servizio cloud sia **In esecuzione**.
+7.	Al termine della distribuzione, verificare nel portale di Azure classico che lo stato del servizio cloud sia **In esecuzione**.
 
 ### Passaggio 4: Creare il file di configurazione della diagnostica e installare l'estensione
 1.	Scaricare la definizione dello schema del file di configurazione pubblico eseguendo il comando PowerShell seguente:
@@ -511,4 +511,4 @@ ETW basato su manifesto|No|Tabella|Eventi ETW generati da un processo qualsiasi.
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -181,4 +181,4 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 	- **-f (or --template-file)**. Percorso del file di modello ARM.
 	- **-e (or --parameters-file)**. Percorso del file di parametri ARM.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

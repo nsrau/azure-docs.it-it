@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="11/30/2015"
    ms.author="stepsic"/>
 
 # Uso del connettore Azure Resource e aggiunta all'app per la logica 
@@ -98,4 +98,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -236,7 +236,7 @@ require_once(ABSPATH . 'wp-settings.php');
 ```
 
 #### Configurare un ambiente di staging
-Partendo dal presupposto che l'app Web WordPress sia già in esecuzione nell'app Web di Azure, accedere al [portale di anteprima di Azure](http://portal.azure.com) e passare all'app Web WordPress. In caso contrario, è possibile crearne una dal Marketplace. Per altre informazioni, fare clic [qui](web-sites-php-web-site-gallery). Fare clic su Impostazioni -> Slot di distribuzione -> Aggiungi per creare uno slot di distribuzione con il nome "stage". Uno slot di distribuzione è un'altra applicazione Web che condivide le stesse risorse dell'app Web primaria creata sopra.
+Partendo dal presupposto che l'app Web WordPress sia già in esecuzione nell'app Web di Azure, accedere al [portale di Azure](http://portal.azure.com) e passare all'app Web WordPress. In caso contrario, è possibile crearne una dal Marketplace. Per altre informazioni, fare clic [qui](web-sites-php-web-site-gallery). Fare clic su Impostazioni -> Slot di distribuzione -> Aggiungi per creare uno slot di distribuzione con il nome "stage". Uno slot di distribuzione è un'altra applicazione Web che condivide le stesse risorse dell'app Web primaria creata sopra.
 
 ![Creare lo slot di distribuzione "stage"](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -278,7 +278,7 @@ Esplorare e testare l'app Web di staging. Si consideri uno scenario in cui è ne
 
 ![Anteprima modifiche dello scambio per WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]>Se invece è presente uno scenario in cui è solo necessario eseguire il push dei file (senza aggiornamenti del database), **selezionare** la casella di controllo **Impostazione slot** per tutte le *impostazioni app* e le *impostazioni delle stringhe di connessione* relative al database nel pannello delle impostazioni dell'app Web nel portale di anteprima di Azure prima di fare clic su SCAMBIA. In questo caso, le impostazioni DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER e la stringa di connessione predefinita non verranno visualizzate nell'anteprima modifiche quando si esegue un'operazione di **scambio**. In questa fase, al termine dell'operazione di **scambio** l'app Web WordPress conterrà **SOLO** i file aggiornati.
+ >[AZURE.NOTE]>Se invece è presente uno scenario in cui è solo necessario eseguire il push dei file (senza aggiornamenti del database), **selezionare** la casella di controllo **Impostazione slot** per tutte le *impostazioni app* e le *impostazioni delle stringhe di connessione* relative al database nel pannello delle impostazioni dell'app Web nel portale di Azure prima di fare clic su SCAMBIA. In questo caso, le impostazioni DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER e la stringa di connessione predefinita non verranno visualizzate nell'anteprima modifiche quando si esegue un'operazione di **scambio**. In questa fase, al termine dell'operazione di **scambio** l'app Web WordPress conterrà **SOLO** i file aggiornati.
 
 Ecco l'app Web WordPress di produzione ![App Web di produzione prima dello scambio degli slot](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png) prima dell'operazione di SCAMBIO
 
@@ -362,21 +362,14 @@ Per procedere con la configurazione è necessario aggiornare il file courier.con
   </repositories>
  ```
 
-In `<repositories>` immettere l'URL del sito di produzione e le informazioni dell'utente. Se si usa il provider di appartenenze Umbraco predefinito, aggiungere l'ID per l'utente Administration nella sezione <user>. Se si usa il provider di appartenenze Umbraco personalizzato, usare `<login>` e `<password>` affinché il modulo Courier2 possa connettersi al sito di produzione. Per altre informazioni, consultare la [documentazione](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) relativa al modulo Courier.
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-Analogamente, installare il modulo Courier nel sito di produzione e configurarlo affinché gestisca in modo temporaneo l'app Web nel relativo file courier.config, come illustrato di seguito
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 Fare clic sulla scheda Courier2 nel dashboard dell'app Web Umbraco CMS e selezionare la località. Verrà visualizzato il nome del repository come indicato in `courier.config`. Ripetere la stessa operazione sia per le app Web di staging che di produzione.
 
@@ -429,4 +422,4 @@ Questo esempio illustra la flessibilità della piattaforma in cui è possibile c
 
 [Come bloccare l'accesso Web agli slot di distribuzione non di produzione](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/18/2015"
+   ms.date="12/01/2015"
    ms.author="juliako"/>
 
 
@@ -58,11 +58,11 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
 
 - La **Cache nel ruolo ** è stata aggiornata per usare **Microsoft Azure Storage SDK** versione 4.3. Fino ad ora, la **Cache nel ruolo ** ha usato Azure Storage SDK versione 1.7.
 
-	I clienti che usano Azure SDK 2.5 o versioni precedenti devono effettuare l'aggiornamento ad Azure SDK 2.6 e passare alla nuova versione di Azure Storage SDK. Si noti che Azure Storage versione 2011-08-18 verrà rimosso il 9 dicembre 2015. Per altri dettagli, leggere [questo annuncio](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/).
+	I clienti che usano Azure SDK 2.5 o versioni precedenti devono effettuare l'aggiornamento ad Azure SDK 2.6 e passare alla nuova versione di Azure Storage SDK.
 
-	Per altre informazioni, vedere [Cache nel ruolo per Cache di Azure](https://msdn.microsoft.com/library/azure/dn386103.aspx).
+	In questo momento Archiviazione di Azure versione 2011-08-18 è pianificato per essere rimosso il 1 agosto 2016. Le migrazioni di Cache nel ruolo da Azure SDK 2.5 o versioni precedenti alla versione 2.6 devono essere complete a questo punto. Per ulteriori informazioni sul ritiro di Azure Storage versione 2011-08-18, vedere [Aggiornamento della rimozione della versione del servizio di archiviazione di Microsoft Azure: estensione al 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
-##Strumenti del servizio app di Azure
+##Strumenti di Azure App Service
 
 Gli elementi seguenti sono stati aggiornati nella versione Azure SDK 2.6.
 
@@ -106,4 +106,4 @@ Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di d
 
 [Informazioni sul Supporto e il Ritiro di Azure SDK per .NET e API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

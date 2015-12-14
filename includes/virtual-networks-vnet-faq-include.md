@@ -205,7 +205,7 @@ No, un indirizzo MAC non può essere configurato in modo statico.
 
 ### L'indirizzo MAC rimarrà invariato per la macchina virtuale dopo averla creata?
 
-No, l’indirizzo MAC della macchina virtuale può cambiare per diversi motivi. Se la macchina virtuale passa allo stato Arrestato (deallocato), se si modificano le dimensioni della macchina virtuale oppure se è disponibile la correzione del servizio o la manutenzione pianificata del server host, l'indirizzo MAC non viene conservato.
+No, ma verrà modificato solo se la VM viene portata nello stato di arresto (deallocata). Se si modificano le dimensioni della VM, si esegue il riavvio o in caso di correzione del servizio o di manutenzione pianificata del server host, l'indirizzo MAC viene mantenuto.
 
 ### È possibile eseguire la connessione a Internet da una macchina virtuale in una rete virtuale?
 
@@ -222,7 +222,7 @@ All’interno delle reti virtuali, è possibile usare solo servizi di calcolo. I
 Sì. È possibile distribuire App Web all'interno di una rete virtuale utilizzando Esplora archivi Azure (Ambiente del servizio app). Oltre a questo, le app Web possono eseguire la connessione e l'accesso alle risorse in una rete virtuale di Azure in modo sicuro se si dispone di point-to-site configurati per la rete virtuale. Per altre informazioni, vedere quanto segue:
 
 
-- [Creare app Web in un ambiente del servizio app](https://azure.microsoft.com/it-IT/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+- [Creare app Web in un ambiente del servizio app](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
 - [Integrazione della rete virtuale di app Web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
@@ -266,4 +266,4 @@ Sì. È possibile usare le API REST per gestire le reti virtuali e la connettivi
 
 Sì. È possibile usare gli strumenti di PowerShell e della riga di comando per un'ampia gamma di piattaforme. Ulteriori informazioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

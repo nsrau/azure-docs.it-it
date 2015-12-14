@@ -31,9 +31,9 @@ Se si dispone di una sottoscrizione Trend Micro per una soluzione locale, è pos
 
 ## Installare Deep Security Agent in una nuova macchina virtuale
 
-Il [portale di Azure](http://manage.windowsazure.com) consente di installare l'agente di macchine virtuali e l'estensione per la sicurezza di Trend Micro quando si usa l'opzione **Da raccolta** per creare la macchina virtuale. L'uso di questo approccio rappresenta un modo semplice per aggiungere la protezione di Trend Micro quando si crea un'unica macchina virtuale.
+Il [portale di Azure classico](http://manage.windowsazure.com) consente di installare l'agente VM e l'estensione per la sicurezza di Trend Micro quando si usa l'opzione **Da raccolta** per creare la macchina virtuale. L'uso di questo approccio rappresenta un modo semplice per aggiungere la protezione di Trend Micro quando si crea un'unica macchina virtuale.
 
-L'opzione **Da raccolta** apre una procedura guidata che consente di configurare la macchina virtuale. L'ultima pagina della procedura guidata consente di installare l'agente di macchine virtuali e l'estensione di sicurezza di Trend Micro. Per istruzioni generali, vedere [Creare una macchina virtuale che esegue Windows Server nel portale di Azure](virtual-machines-windows-tutorial-classic-portal.md). Quando si raggiunge l'ultima pagina della procedura guidata, eseguire le operazioni seguenti:
+L'opzione **Da raccolta** apre una procedura guidata che consente di configurare la macchina virtuale. L'ultima pagina della procedura guidata consente di installare l'agente di macchine virtuali e l'estensione di sicurezza di Trend Micro. Per istruzioni generali, vedere [Creare una macchina virtuale che esegue Windows Server nel portale di Azure classico](virtual-machines-windows-tutorial-classic-portal.md). Quando si raggiunge l'ultima pagina della procedura guidata, eseguire le operazioni seguenti:
 
 1.	In **Agente di macchine virtuali** selezionare **Installa agente di macchine virtuali**.
 
@@ -87,4 +87,4 @@ Per l'avvio dell'agente sono necessari alcuni minuti dopo l'installazione. In se
 [Come accedere a una macchina virtuale che esegue Windows Server]: virtual-machines-log-on-windows-server.md
 [Estensioni VM e funzionalità di Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

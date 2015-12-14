@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 
@@ -36,7 +36,7 @@ L'editor dei criteri comprende tre sezioni principali: l'ambito criteri (in alto
 
 ![Editor criteri][policies-editor]
 
-Per iniziare a configurare i criteri, prima è necessario selezionare l'ambito in cui applicare i criteri. Nella schermata seguente è selezionato il prodotto Starter. Il quadratino accanto al nome del criterio indica che un criterio è già applicato a questo livello.
+Per iniziare a configurare i criteri, prima è necessario selezionare l'ambito in cui applicare i criteri. Nella schermata seguente è selezionato il prodotto **Starter**. Il quadratino accanto al nome del criterio indica che un criterio è già applicato a questo livello.
 
 ![Ambito][policies-scope]
 
@@ -48,17 +48,17 @@ Il criterio viene dapprima visualizzato come di sola lettura. Per modificare la 
 
 ![Modificare][policies-edit]
 
-La definizione criteri è un semplice documento XML che descrive una sequenza di istruzioni in ingresso e in uscita. Il codice XML può essere modificato direttamente nella finestra della definizione. Un elenco di istruzioni è disponibile a destra e le istruzioni applicabili all'ambito corrente sono abilitate ed evidenziate, come ad esempio l'istruzione Limita frequenza chiamate nella schermata precedente.
+La definizione criteri è un semplice documento XML che descrive una sequenza di istruzioni in ingresso e in uscita. Il codice XML può essere modificato direttamente nella finestra della definizione. Un elenco di istruzioni è disponibile a destra e le istruzioni applicabili all'ambito corrente sono abilitate ed evidenziate, come ad esempio l'istruzione **Limita frequenza chiamate** nella schermata precedente.
 
 Facendo clic su un'istruzione abilitata, il codice XML appropriato verrà aggiunto in corrispondenza del cursore nella visualizzazione definizione.
 
 Un elenco completo di istruzioni dei criteri e le relative impostazioni sono disponibili in [Informazioni di riferimento per i criteri][].
 
-Ad esempio, per aggiungere una nuova istruzione per limitare le richieste in arrivo agli indirizzi IP specificati, posizionare il cursore nel contenuto dell'elemento XML "inbound" e fare clic sull'istruzione Limita IP chiamanti.
+Ad esempio, per aggiungere una nuova istruzione per limitare le richieste in arrivo agli indirizzi IP specificati, posizionare il cursore nel contenuto dell'elemento XML `inbound` e fare clic sull'istruzione **Limita IP chiamanti**.
 
 ![Criteri di restrizione][policies-restrict]
 
-Verrà aggiunto un frammento XML all'elemento "inbound" che fornisce informazioni aggiuntive sulla configurazione dell'istruzione.
+Verrà aggiunto un frammento XML all'elemento `inbound` che fornisce informazioni aggiuntive sulla configurazione dell'istruzione.
 
 	<ip-filter action="allow | forbid">
 		<address>address</address>
@@ -73,22 +73,40 @@ Per limitare le richieste in ingresso e accettare solo quelle da un indirizzo IP
 
 ![Salva][policies-save]
 
-Dopo aver configurato le istruzioni per il criterio, fare clic su Salva per propagare immediatamente le modifiche al gateway di Gestione API.
+Dopo aver configurato le istruzioni per il criterio, fare clic su **Salva** per propagare immediatamente le modifiche al gateway di Gestione API.
 
 ##<a name="sections"> </a>Informazioni sulla configurazione dei criteri
 
-Un criterio è una serie di istruzioni eseguite in un determinato ordine in relazione a una richiesta e una risposta. La configurazione è correttamente suddivisa in un elemento inbound (richiesta) e un elemento outbound (criterio) come mostrato nella configurazione.
+Un criterio è una serie di istruzioni eseguite in un determinato ordine in relazione a una richiesta e una risposta. La configurazione è correttamente suddivisa nelle sezioni `inbound`, `backend`, `outbound`, e `on-error` come mostrato nella seguente configurazione.
 
 	<policies>
-		<inbound>
-			<!-- statements to be applied to the request go here -->
-		</inbound>
-		<outbound>
-			<!-- statements to be applied to the response go here -->
-		</outbound>
-	</policies>
+	  <inbound>
+	    <!-- statements to be applied to the request go here -->
+	  </inbound>
+	  <backend>
+	    <!-- statements to be applied before the request is forwarded to 
+	         the backend service go here -->
+	  </backend>
+	  <outbound>
+	    <!-- statements to be applied to the response go here -->
+	  </outbound>
+	  <on-error>
+	    <!-- statements to be applied if there is an error condition go here -->
+	  </on-error>
+	</policies> 
 
-Poiché i criteri possono essere specificati a livelli diversi (globale, prodotto, API e operazione), la configurazione consente di specificare l'ordine in cui le istruzioni di questa definizione vengono eseguite rispetto al criterio padre.
+Se si verifica un errore durante l'elaborazione di una richiesta, tutti i rimanenti passaggi nelle sezioni `inbound`, `backend`, o `outbound` vengono ignorate e l'esecuzione prosegue con le istruzioni nella sezione`on-error`. Inserendo istruzioni di criteri nella sezione `on-error` è possibile rivedere l'errore utilizzando la proprietà `context.LastError`, esaminare e personalizzare la risposta di errore tramite il criterio `set-body` e configurare che cosa accade se si verifica un errore. Sono disponibili codici di errore per i passaggi incorporati e per gli errori che possono verificarsi durante l'elaborazione delle istruzioni dei criteri. Per altre informazioni, vedere [Gestione degli errori nei criteri di Gestione API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+
+Poiché i criteri possono essere specificati a livelli diversi (globale, di prodotto, di API e di operazione), la configurazione fornisce un modo per specificare l'ordine in cui le istruzioni della definizione del criterio vengono eseguite rispetto al criterio padre.
+
+Gli ambiti dei criteri vengono valutati nell'ordine seguente.
+
+1. Ambito globale
+2. Ambito del prodotto
+3. Ambito dell’API
+4. Ambito dell'operazione
+
+Le istruzioni all'interno di essi vengono valutate in base alla posizione dell’elemento `base`, se presente.
 
 Ad esempio, se ci sono un criterio a livello globale e un criterio configurato per un'API, quando questa particolare API viene usata, vengono applicati entrambi i criteri. Gestione API consente l'ordinamento deterministico delle istruzioni combinate per i criteri attraverso l'elemento di base.
 
@@ -100,9 +118,11 @@ Ad esempio, se ci sono un criterio a livello globale e un criterio configurato p
     	</inbound>
 	</policies>
 
-Nella definizione del criterio dell'esempio precedente, l'istruzione cross-domain verrà eseguita prima di un criterio di livello superiore che verrà a sua volta seguito dal criterio find-and-replace.
+Nella definizione del criterio dell'esempio precedente, l'istruzione `cross-domain` verrà eseguita prima di un criterio di livello superiore che verrà a sua volta seguito dal criterio `find-and-replace`.
 
-Nota: con i criteri globali non sono disponibili criteri padre e l'uso dell'elemento `<base>` in tali criteri non produce alcun effetto.
+Se lo stesso criterio viene visualizzato due volte nell'istruzione del criterio, viene applicato il criterio che è stato valutato più di recente. È possibile utilizzare questo per sostituire i criteri definiti a un ambito più elevato. Per visualizzare i criteri nell'ambito corrente nell'editor dei criteri, fare clic su **Ricalcolare il criterio effettivo per l'ambito selezionato**.
+
+Notare che i criteri globali non hanno criteri padre e che usando in essi l'elemento `<base>` esso non produce alcun effetto.
 
 ## Passaggi successivi
 
@@ -128,4 +148,4 @@ Vedere il video seguente sulle espressioni di criteri.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

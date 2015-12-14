@@ -26,7 +26,7 @@ Questo articolo illustra come configurare un computer client locale che esegue W
 
 ## Prerequisiti
 
-* **Nodo head HPC Pack distribuito in una macchina virtuale di Azure**: è possibile usare strumenti automatizzati, ad esempio un [modello di Guida introduttiva di Azure](https://azure.microsoft.com/it-IT/documentation/templates/) o uno [script di Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script.md), per distribuire il nodo head e il cluster, oppure distribuire il cluster manualmente in Azure, con la stessa procedura usata per distribuire un cluster locale. Per completare la procedura descritta in questo articolo, sono necessari il nome DNS del nodo head e le credenziali di un amministratore del cluster.
+* **Nodo head HPC Pack distribuito in una VM di Azure**: è possibile usare strumenti automatizzati, ad esempio un [modello di Guida introduttiva di Azure](https://azure.microsoft.com/documentation/templates/) o uno [script di Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script.md), per distribuire il nodo head e il cluster, oppure distribuire il cluster manualmente in Azure, con la stessa procedura usata per distribuire un cluster locale. Per completare la procedura descritta in questo articolo, sono necessari il nome DNS del nodo head e le credenziali di un amministratore del cluster.
 
     Se il nodo head è stato distribuito manualmente, assicurarsi che nella macchina virtuale sia configurato un endpoint HTTPS. In caso contrario, configurarne uno. Vedere: [Come configurare gli endpoint in una macchina virtuale](virtual-machines-set-up-endpoints.md)
 
@@ -183,4 +183,4 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

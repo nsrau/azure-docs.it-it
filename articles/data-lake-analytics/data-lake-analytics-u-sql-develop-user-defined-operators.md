@@ -25,7 +25,7 @@ Informazioni su come sviluppare operatori definiti dall'utente da utilizzare e r
 
 - Visual Studio 2015, Visual Studio 2013 Update 4 oppure Visual Studio 2012 con Visual C++ installato 
 - Microsoft Azure SDK per .NET versione 2.5 o successiva. Installare il prodotto usando il programma di installazione della piattaforma Web.
-- Un account di Analisi Data Lake. Vedere [Introduzione a Analisi Azure Data Lake tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md).
+- Un account di Analisi Data Lake. Vedere [Introduzione ad Analisi Data Lake di Azure con il portale di Azure](data-lake-analytics-get-started-portal.md).
 - Seguire i passaggi dell’esercitazione [Introduzione a U-SQL Studio di Analisi Azure Data Lake](data-lake-analytics-u-sql-studio-get-started.md).
 - Connettersi ad Azure, vedere [Introduzione a U-SQL Studio di Analisi Azure Data Lake](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure). 
 - Caricare i dati di origine, vedere [Introduzione a U-SQL Studio di Analisi Azure Data Lake](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files). 
@@ -147,4 +147,4 @@ Informazioni su come sviluppare operatori definiti dall'utente da utilizzare e r
 - [Introduzione ad Analisi Data Lake mediante il portale di Azure](data-lake-analytics-get-started-portal.md)
 - [Utilizzare gli strumenti Data Lake per Visual Studio per lo sviluppo di applicazioni U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

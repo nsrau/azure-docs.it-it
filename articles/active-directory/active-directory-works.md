@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come funziona Azure Active Directory?"
-	description="Azure AD crea un panorama di identità proprio dell'utente nel cloud. Può essere collegato al sistema di identità locale o usato in modo indipendente."
+	pageTitle="Come funziona Azure Active Directory? | Microsoft Azure"
+	description="Azure Active Directory crea un panorama di identità proprio dell'utente nel cloud. Può essere collegato al sistema di identità locale o usato in modo indipendente."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
 
 
 # Come funziona Azure Active Directory?
 
-
 ###Altri articoli su questo argomento
 [Che cos'è Azure AD?](active-directory-whatis.md)<br> [Come funziona?](active-directory-works.md)<br> [Introduzione](active-directory-get-started.md)<br> [Passaggi successivi](active-directory-next-steps.md)<br> [Altre informazioni](active-directory-learn-map.md)
 
 
-Azure AD crea un panorama di identità proprio dell'utente nel cloud. Può essere collegato al sistema di identità locale o usato in modo indipendente.
+Azure Active Directory (Azure AD) crea un panorama di identità proprio dell'utente nel cloud. Può essere collegato al sistema di identità locale o usato in modo indipendente.
 
 È possibile considerare un account in Azure AD come una patente di guida per il cloud: rappresenta l'ID univoco per l'accesso ai servizi online. In tal senso, Azure AD funziona come il proprio registrar privato nel cloud per quelle patenti di guida. Consente di usare le identità ovunque nel cloud e migliora la mobilità per gli utenti che accedono a risorse locali.
 
@@ -49,4 +48,4 @@ Si intende approfondire la conoscenza delle modalità di gestione di Azure AD? C
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

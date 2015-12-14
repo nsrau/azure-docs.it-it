@@ -39,15 +39,15 @@ Nel seguente diagramma viene illustrato il cluster HPC Pack che verrà creato, a
 
 ## Passaggio 1. Configurazione di un cluster HPC Pack in Azure
 
-Verranno mostrati due metodi per configurare il cluster: nel primo, vengono usati un modello di Guida introduttiva di Azure e il portale di anteprima di Azure e nel secondo viene usato uno script di distribuzione di Azure PowerShell.
+Verranno mostrati due metodi per configurare il cluster: nel primo, vengono usati un modello di Guida introduttiva di Azure e il portale di Azure e nel secondo, viene usato uno script di distribuzione di Azure PowerShell.
 
 
 ### Uso di un modello di Guida introduttiva
-Usare un modello di Guida introduttiva di Azure per distribuire con rapidità e facilità un cluster HPC Pack nel portale di anteprima di Azure. Aprendo il modello nel portale di anteprima, si ottiene un'interfaccia utente semplice in cui è possibile immettere le impostazioni per il cluster. Di seguito sono riportati i passaggi necessari.
+Usare un modello di Guida introduttiva di Azure per distribuire con rapidità e facilità un cluster HPC Pack nel portale di Azure. Aprendo il modello nel portale di anteprima, si ottiene un'interfaccia utente semplice in cui è possibile immettere le impostazioni per il cluster. Di seguito sono riportati i passaggi necessari.
 
 1. Visitare la [pagina del modello per la creazione del cluster HPC su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Se lo si desidera, esaminare le informazioni sul modello e il codice sorgente.
 
-2. Fare clic su **Distribuisci in Azure** per avviare una distribuzione con il modello nel portale di anteprima di Azure.
+2. Fare clic su **Distribuisci in Azure** per avviare una distribuzione con il modello nel portale di Azure.
 
     ![Modello di distribuzione in Azure][github]
 
@@ -81,7 +81,7 @@ Usare un modello di Guida introduttiva di Azure per distribuire con rapidità e 
 
 3.	Al termine della distribuzione (in genere richiede circa 30 minuti), esportare il file del certificato del cluster dal nodo head del cluster. In un passaggio successivo questo certificato pubblico verrà importato nel computer client per fornire l'autenticazione sul lato server per l'associazione HTTP protetta.
 
-    a. Connettersi al nodo head da Desktop remoto nel portale di anteprima di Azure.
+    a. Connettersi al nodo head da Desktop remoto nel portale di Azure.
 
      ![Connettersi al nodo head][connect]
 
@@ -347,7 +347,7 @@ A tale scopo, impostare in modo esplicito il flag UseAzureQueue su false in Sess
 
 ### Uso dell'associazione NetTcp
 
-Per usare l'associazione NetTcp, la configurazione è analoga alla connessione a un cluster locale. È necessario aprire alcuni endpoint nella VM del nodo head. Eseguire le operazioni seguenti nel portale di Azure.
+Per usare l'associazione NetTcp, la configurazione è analoga alla connessione a un cluster locale. È necessario aprire alcuni endpoint nella VM del nodo head. Eseguire le operazioni seguenti nel portale di Azure classico.
 
 
 1. Arrestare la VM.
@@ -381,4 +381,4 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

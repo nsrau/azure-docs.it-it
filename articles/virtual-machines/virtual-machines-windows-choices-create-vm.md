@@ -27,9 +27,9 @@ Modelli di Gestione risorse di Azure sono stati introdotti recentemente per cons
 
 ## Opzioni dello strumento
 
-### GUI: portale di anteprima di Azure
+### Interfaccia utente grafica: Nuovo portale di Azure
 
-L'interfaccia utente grafica del portale di Azure è un modo semplice per provare a usare una macchina virtuale, soprattutto se si ha poca esperienza con Azure. Usare il portale di anteprima di Azure per creare la macchina virtuale:
+L'interfaccia utente grafica del portale di Azure classico è un modo semplice per provare a usare una macchina virtuale, soprattutto se si ha poca esperienza con Azure. Usare il portale di Azure per creare la macchina virtuale:
 
 [Creare una macchina virtuale che esegue Windows][]
 
@@ -79,4 +79,4 @@ Scegliere un'immagine in base al sistema operativo che si desidera eseguire. Azu
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

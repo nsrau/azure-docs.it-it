@@ -13,30 +13,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
-# Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica
+# Abilitazione di Metriche di archiviazione di Azure e visualizzazione dei dati delle metriche
 
-Per impostazione predefinita, Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio usando il portale di gestione di Azure o Windows PowerShell. In alternativa, è possibile abilitarlo a livello di codice tramite un'API di archiviazione.
+[AZURE.INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
+
+## Panoramica
+
+Per impostazione predefinita, Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio tramite il [portale di Azure](portal.azure.com) o Windows PowerShell o a livello di codice mediante la libreria del client di archiviazione.
 
 Quando si abilita Metriche di archiviazione, è necessario scegliere un periodo di memorizzazione per i dati: questo periodo determina per quanto tempo il servizio di archiviazione mantiene le metriche e addebita all'utente lo spazio necessario per archiviarle. In genere, è consigliabile usare un periodo di memorizzazione per le metriche al minuto più breve che per le metriche orarie, a causa dello spazio supplementare significativo necessario per le metriche al minuto. È consigliabile scegliere un periodo di memorizzazione tale da avere tempo sufficiente per analizzare i dati e scaricare le metriche da mantenere per l'analisi non in linea o la creazione di report. Tenere presente che verrà addebitato anche il download dei dati di metrica dall'account di archiviazione.
 
-## Come abilitare Metriche di archiviazione usando il portale di gestione di Azure
+## Come abilitare le metriche usando il portale di Azure
 
-Nel portale di gestione di Azure, usare la pagina Configura per fare in modo che un account di archiviazione controlli le metriche di archiviazione. Per il monitoraggio, è possibile impostare un livello e un periodo di memorizzazione in giorni per ciascun BLOB, tabella e coda. In ciascun caso, il livello è uno dei seguenti:
+Seguire questi passaggi per abilitare le metriche nel [portale di Azure](portal.azure.com):
 
+1. Passare all'account di archiviazione. 
+1. Aprire il pannello **Impostazioni** e selezionare **Diagnostica**.
+1. Assicurarsi che **Stato** sia impostato su **On**.
+1. Selezionare le metriche per i servizi che si desidera monitorare.
+2. Specificare un criterio di conservazione per indicare per quanto tempo conservare le metriche e dati di log.
 
-- Disattivato: indica che non viene raccolta alcuna metrica.
+Il [portale di Azure](portal.azure.com) attualmente non consente di configurare le metriche al minuto nell'account di archiviazione; è necessario abilitare le metriche al minuto usando PowerShell o a livello di codice.
 
-- Minimo: Metriche di archiviazione raccoglie un set base di metriche come ingresso/uscita, disponibilità, latenza e percentuali di successo, aggregate per i servizi BLOB, di tabelle e di accodamento.
-
-- Dettagliato: Metriche di archiviazione raccoglie un set completo di metriche che include le stesse metriche per ciascuna operazione API di archiviazione, oltre alle metriche a livello di servizio. Le metriche dettagliate consentono un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione.
-
-Il portale di gestione attualmente non consente di configurare le metriche al minuto nell'account di archiviazione; è necessario abilitare le metriche al minuto usando PowerShell o a livello di codice.
-
-
-## Come abilitare Metriche di archiviazione usando PowerShell
+## Come abilitare le metriche usando PowerShell
 
 È possibile usare PowerShell nel computer locale per configurare Metriche di archiviazione nell'account di archiviazione usando il cmdlet di Azure PowerShell Get-AzureStorageServiceMetricsProperty per recuperare le impostazioni correnti e il cmdlet Set-AzureStorageServiceMetricsProperty per modificare le impostazioni correnti.
 
@@ -46,7 +48,7 @@ I cmdlet che controllano Metriche di archiviazione usano i seguenti parametri:
 
 - I valori possibili di ServiceType sono BLOB, Queue e Table.
 
-- I valori possibili di MetricsLevel sono None (equivalente a Disattivato nel portale di gestione), Service (equivalente a Minimo nel portale di gestione) e ServiceAndApi (equivalente a Dettagliato nel portale di gestione).
+- I valori possibili di MetricsLevel sono None, Service e ServiceAndApi.
 
 Ad esempio, il seguente comando attiva le metriche al minuto per il servizio BLOB nell'account di archiviazione predefinito con il periodo di memorizzazione impostato su cinque giorni:
 
@@ -60,34 +62,44 @@ Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la s
 
 ## Come abilitare Metriche di archiviazione a livello di codice
 
-Per controllare Metriche di archiviazione, oltre a usare il portale di gestione di Azure o i cmdlet di Azure PowerShell, è possibile usare anche una delle API di archiviazione di Azure. Ad esempio, con un linguaggio .NET, è possibile usare la libreria client di archiviazione.
+Il frammento C# seguente illustra come abilitare le metriche e la registrazione per il servizio BLOB con la libreria del client di archiviazione per .NET:
 
-Le classi CloudBlobClient, CloudQueueClient e CloudTableClient hanno tutte metodi come SetServiceProperties e SetServicePropertiesAsync, che usano un oggetto ServiceProperties come parametro. È possibile usare l'oggetto ServiceProperties per configurare Metriche di archiviazione. Ad esempio, nel frammento di codice c# riportato di seguito viene illustrato come modificare il livello di metrica e i giorni di memorizzazione per le metriche di accodamento orarie:
+	// Parse connection string.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    var storageAccount = CloudStorageAccount.Parse(connStr);
-    var queueClient = storageAccount.CreateCloudQueueClient();
-    var serviceProperties = queueClient.GetServiceProperties();
-     
-    serviceProperties.HourMetrics.MetricsLevel = MetricsLevel.Service;
-    serviceProperties.HourMetrics.RetentionDays = 10;
-     
-    queueClient.SetServiceProperties(serviceProperties);
+    // Create service client for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+    // Enable Storage Analytics logging and set retention policy to 10 days. 
+    ServiceProperties properties = new ServiceProperties();
+    properties.Logging.LoggingOperations = LoggingOperations.All;
+    properties.Logging.RetentionDays = 10;
+    properties.Logging.Version = "1.0";
+
+    // Configure service properties for metrics. Both metrics and logging must be set at the same time.
+    properties.HourMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
+    properties.HourMetrics.RetentionDays = 10;
+    properties.HourMetrics.Version = "1.0";
+
+    properties.MinuteMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
+    properties.MinuteMetrics.RetentionDays = 10;
+    properties.MinuteMetrics.Version = "1.0";
+
+    // Set the default service version to be used for anonymous requests.
+    properties.DefaultServiceVersion = "2015-04-05";
+
+    // Set the service properties.
+    blobClient.SetServiceProperties(properties);
+
     
 ## Visualizzazione di Metriche di archiviazione
 
-Una volta configurato Metriche di archiviazione per monitorare l'account di archiviazione, le metriche vengono registrate in un set di tabelle note nell'account di archiviazione. È possibile usare la pagina Monitoraggio relativa all'account di archiviazione nel portale di gestione per visualizzare in un grafico le metriche orarie non appena risultano disponibili. In questa pagina del portale di gestione è possibile:
+Una volta configurate le metriche dell’analisi di archiviazione per monitorare l'account di archiviazione, l’analisi di archiviazione registra le metriche in un set di tabelle note nell'account di archiviazione. È possibile configurare i grafici per visualizzare le metriche orarie nel [portale di Azure](portal.azure.com):
 
-- Selezionare le metriche da tracciare nel grafico (la scelta delle metriche disponibili dipende dal fatto che sia stato scelto il monitoraggio dettagliato o minimo per il servizio nella pagina Configura).
-
-
-- Selezionare l'intervallo di tempo per le metriche visualizzate nel grafico.
-
-
-- Scegliere di usare una scala assoluta o relativa per tracciare le metriche.
-
-
-- Configurare gli avvisi di posta elettronica per inviare una notifica all'utente quando una metrica specifica raggiunge un determinato valore.
-
+1. Passare all'account di archiviazione nel [portale di Azure](portal.azure.com).
+2. Nella sezione **Monitoraggio**, fare clic su **Aggiungi riquadri** per aggiungere un nuovo grafico. Nella **Raccolta dei riquadri**, selezionare la metrica che si desidera visualizzare e trascinarla nella sezione **Monitoraggio**.
+3. Per modificare le metriche visualizzate in un grafico, fare clic sul collegamento **Modifica**. È possibile aggiungere o rimuovere singole metriche selezionandole o deselezionandole.
+4. Fare clic su **Salva** al termine della modifica delle metriche.
 
 Se si desidera scaricare le metriche per l'archiviazione a lungo termine o per analizzare le metriche in locale, è necessario usare uno strumento o scrivere il codice per leggere le tabelle. È necessario scaricare le metriche al minuto per l'analisi. Se si elencano tutte le tabelle nell'account di archiviazione, le tabelle non vengono visualizzate, ma è possibile accedervi direttamente mediante il nome. Molti strumenti di esplorazione di archiviazione di terze parti sono compatibili con queste tabelle e consentono di visualizzarle direttamente (per un elenco di strumenti disponibili, vedere il post di blog [Microsoft Azure Storage Explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)).
 
@@ -122,7 +134,7 @@ Nei dati delle metriche al minuto di questo esempio, la chiave di partizione usa
 
 I dati di esempio sopra riportati mostrano tutti i record per un solo minuto (a partire dalle 11.00). La somma del numero di richieste QueryEntities, del numero di richieste QueryEntity e del numero di richieste UpdateEntity è sette, che corrisponde al totale visualizzato nella riga user:All. Analogamente, è possibile ricavare la latenza end-to-end media 104,4286 nella riga user:All calcolando ((143,8 * 5) + 3 + 9) / 7.
 
-È consigliabile impostare gli avvisi nel portale di gestione nella pagina Monitoraggio in modo che Metriche di archiviazione possa notificare automaticamente eventuali importanti modifiche nel comportamento dei servizi di archiviazione. Se si usa uno strumento di esplorazione di archiviazione per scaricare i dati di metrica in un formato delimitato, è possibile usare Microsoft Excel per analizzare i dati. Per un elenco di strumenti di esplorazione di archiviazione disponibili, vedere il post di blog [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
+È consigliabile impostare gli avvisi nel [portale di Azure](portal.azure.com) nella pagina Monitoraggio in modo che Metriche di archiviazione possa notificare automaticamente eventuali importanti modifiche nel comportamento dei servizi di archiviazione. Se si usa uno strumento di esplorazione di archiviazione per scaricare i dati di metrica in un formato delimitato, è possibile usare Microsoft Excel per analizzare i dati. Per un elenco di strumenti di esplorazione di archiviazione disponibili, vedere il post di blog [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
 
 
 
@@ -192,4 +204,4 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 [Abilitazione di Registrazione archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

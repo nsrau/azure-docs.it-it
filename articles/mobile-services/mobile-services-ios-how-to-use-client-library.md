@@ -18,9 +18,14 @@
 
 # Come usare la libreria client iOS per Servizi mobili di Azure
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-Questa guida descrive come eseguire scenari comuni usando l'[SDK per iOS ] di Servizi mobili di Azure. Se non si ha familiarità con i Servizi mobili, completare innanzitutto l'esercitazione di [introduzione per Servizi mobili] per configurare l'account, creare una tabella e creare un servizio mobile.
+Questa guida descrive come eseguire scenari comuni usando l'[SDK per iOS ] di Servizi mobili di Azure. Se non si ha familiarità con i Servizi mobili, completare innanzitutto l'esercitazione di [Guida introduttiva per Servizi mobili] per configurare l'account, creare una tabella e creare un servizio mobile.
 
 > [AZURE.NOTE]In questa guida viene usata la versione più recente dell'[SDK per iOS di Servizi mobili](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se il progetto usa una versione precedente dell'SDK, aggiornare innanzitutto il framework in Xcode.
 
@@ -28,7 +33,7 @@ Questa guida descrive come eseguire scenari comuni usando l'[SDK per iOS ] di Se
 
 ##<a name="Setup"></a>Installazione e prerequisiti
 
-In questa guida si presuppone che siano stati creati un servizio mobile e una tabella. Per altre informazioni, vedere [Creare una tabella] o riutilizzare la tabella `TodoItem` creata in [Introduzione veloce a Servizi mobili]. In questa guida si presuppone che la tabella abbia lo stesso schema delle tabelle presenti in tali esercitazioni. In questa guida si presuppone anche che Xcode faccia riferimento a `WindowsAzureMobileServices.framework` e importi `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
+In questa guida si presuppone che siano stati creati un servizio mobile e una tabella. Per altre informazioni, vedere [Creare una tabella] o riutilizzare la tabella `TodoItem` creata in [Guida introduttiva per Servizi mobili]. In questa guida si presuppone che la tabella abbia lo stesso schema delle tabelle presenti in tali esercitazioni. In questa guida si presuppone anche che Xcode faccia riferimento a `WindowsAzureMobileServices.framework` e importi `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
 
 ##<a name="create-client"></a>Procedura: Creare il client di Servizi mobili
 
@@ -311,7 +316,7 @@ Il file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azur
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introduzione veloce a Servizi mobili]: mobile-services-ios-get-started.md
+[Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 [introduzione per Servizi mobili]: mobile-services-ios-get-started.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -329,4 +334,4 @@ Il file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azur
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Gestione dei problemi di conflitto]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

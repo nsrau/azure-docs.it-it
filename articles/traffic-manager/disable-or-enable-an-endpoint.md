@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Disabilitare o abilitare un endpoint di Gestione traffico
@@ -23,7 +23,7 @@
 
 ## Per disabilitare un endpoint
 
-1. Nel riquadro di Gestione traffico nel portale di gestione individuare il profilo di Gestione traffico in cui sono contenute le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
+1. Nel riquadro di Gestione traffico nel portale di Azure individuare il profilo di Gestione traffico in cui sono contenute le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
 1. Per visualizzare gli endpoint inclusi nella configurazione, fare clic su **Endpoints** nella parte superiore della pagina. 
 1. Fare clic sull'endpoint da disabilitare, quindi fare clic su **Disabilita** nella parte inferiore della pagina.
 1. Il traffico indirizzato all'endpoint verrà arrestato in base alla durata (TTL) del DNS configurato per il nome di dominio di Gestione traffico. È possibile modificare la durata (TTL) dalla pagina di configurazione del profilo di Gestione traffico.
@@ -31,7 +31,7 @@
 ## Per abilitare un endpoint
 
 
-1. Nel riquadro di Gestione traffico nel portale di gestione individuare il profilo di Gestione traffico in cui sono contenute le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
+1. Nel riquadro di Gestione traffico nel portale di Azure individuare il profilo di Gestione traffico in cui sono contenute le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
 1. Per visualizzare gli endpoint inclusi nella configurazione, fare clic su **Endpoints** nella parte superiore della pagina.
 1. Fare clic sull'endpoint da abilitare, quindi fare clic su **Abilita** nella parte inferiore della pagina.
 1. Il traffico indirizzato al servizio ospitato riprenderà di nuovo secondo il profilo.
@@ -44,4 +44,4 @@
 
 [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

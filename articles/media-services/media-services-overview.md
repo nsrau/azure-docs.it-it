@@ -30,7 +30,7 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
 
 - [API REST di Servizi multimediali](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - Uno degli SDK client disponibili: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
-- Strumenti esistenti: [Portale di gestione di Azure](http://manage.windowsazure.com/) o [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
+- Strumenti esistenti: [portale di Azure classico](http://manage.windowsazure.com/) o [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
 ##Percorsi di apprendimento di Media Services
@@ -50,7 +50,7 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
 Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre di quanto segue:
  
 3. Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](azure.microsoft.com).
-2. Un account di Servizi multimediali di Azure. Usare il portale di gestione di Azure, .NET o l'API REST per creare un account di Servizi multimediali di Azure. Per ulteriori informazioni, vedere [Creare un account](media-services-create-account.md).
+2. Un account di Servizi multimediali di Azure. Usare il portale di Azure classico, .NET o l'API REST per creare un account di Servizi multimediali di Azure. Per ulteriori informazioni, vedere [Creare un account](media-services-create-account.md).
 3. (Facoltativo) Configurare l'ambiente di sviluppo. Scegliere .NET o API REST per l'ambiente di sviluppo. Per ulteriori informazioni, vedere [Configurare l’ambiente](media-services-dotnet-how-to-use.md). 
 
 	Inoltre, sono disponibili informazioni su come connettersi a livello di programmazione [Connect](media-services-dotnet-connect_programmatically.md).
@@ -231,4 +231,4 @@ Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) forn
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

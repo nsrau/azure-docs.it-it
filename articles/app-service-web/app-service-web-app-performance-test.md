@@ -20,7 +20,7 @@
 
 Verificare le prestazioni dell'app Web prima di implementarla nell'ambiente di produzione o di distribuire aggiornamenti. In questo modo, è possibile valutare se l'app è pronta per il rilascio ed essere sicuri che l'app sia in grado di gestire il traffico nei periodi di picco o in occasione del push di marketing successivo.
 
-Durante l'anteprima pubblica, è possibile testare gratuitamente le prestazioni dell'app nel portale di anteprima di Azure. I test simulano il carico utente nell'app in un periodo di tempo specificato e misurano la risposta dell'app. Ad esempio, i test possono mostrare la velocità di risposta dell'app a un numero di utenti specifico o il numero di richieste non riuscite, che può indicare che l'app presenta alcuni problemi.
+Durante l'anteprima pubblica, è possibile testare gratuitamente le prestazioni dell'app nel portale di Azure. I test simulano il carico utente nell'app in un periodo di tempo specificato e misurano la risposta dell'app. Ad esempio, i test possono mostrare la velocità di risposta dell'app a un numero di utenti specifico o il numero di richieste non riuscite, che può indicare che l'app presenta alcuni problemi.
 
 ![Individuare problemi di prestazioni nell'app Web][TestOverview]
 
@@ -34,7 +34,7 @@ Durante l'anteprima pubblica, è possibile testare gratuitamente le prestazioni 
 
 ## Configurare ed eseguire il test delle prestazioni
 
-0.	Accedere al [portale di anteprima di Azure][AzurePortal]. Per usare un account Visual Studio Team Services di cui si è proprietari, eseguire l'accesso come proprietario dell'account.
+0.	Accedere al [portale di Azure][AzurePortal]. Per usare un account Visual Studio Team Services di cui si è proprietari, eseguire l'accesso come proprietario dell'account.
 
 0.	Passare all'app Web.
 
@@ -76,7 +76,7 @@ I commenti e suggerimenti degli utenti sono molto apprezzati. Per domande o prob
 
 #### D: È previsto un limite di durata per l'esecuzione di un test? 
 
-R: Sì. È possibile eseguire test per un massimo di un'ora nel portale di anteprima di Azure.
+R: Sì. È possibile eseguire test per un massimo di un'ora nel portale di Azure.
 
 #### D: Quanti sono i minuti disponibili per l'esecuzione dei test delle prestazioni? 
 
@@ -84,7 +84,7 @@ R: Dopo l'anteprima pubblica, l'utente ottiene 20.000 minuti utente virtuale (VU
 
 #### D: Dove posso controllare il numero di minuti utente virtuale usati fino a questo momento?
 
-R: È possibile visualizzare questo valore nel portale di anteprima di Azure.
+R: È possibile visualizzare questo valore nel portale di Azure.
 
 ![Accedere al proprio account VSTS][VSTSAccount]
 
@@ -112,4 +112,4 @@ R: Per individuare il nuovo account, passare a ```https://{accountname}.visualst
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

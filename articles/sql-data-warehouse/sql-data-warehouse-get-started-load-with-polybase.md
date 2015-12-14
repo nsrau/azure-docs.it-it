@@ -72,7 +72,7 @@ Per preparare un file di testo di esempio:
 
 Per individuare l'endpoint di servizio BLOB:
 
-1. Dal portale di Azure selezionare **Sfoglia** > **Account di archiviazione**.
+1. Dal portale di Azure classico selezionare **Sfoglia** > **Account di archiviazione**.
 2. Fare clic sull'account di archiviazione da usare.
 3. Nel pannello Account di archiviazione fare clic su BLOB.
 
@@ -282,4 +282,4 @@ Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBa
 [Create Database Scoped Credential (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

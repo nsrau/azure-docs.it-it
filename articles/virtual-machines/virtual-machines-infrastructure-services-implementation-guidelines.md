@@ -39,7 +39,7 @@ Il set di convenzioni di denominazione deve essere concordato in anticipo. Alcun
 
 ### Affissi
 
-Quando si creano determinate risorse, Azure userà alcune impostazioni predefinite per semplificare la gestione delle risorse associate a queste risorse. Ad esempio, quando si crea la prima macchina virtuale per un nuovo servizio cloud, il portale di Azure tenterà di usare il nome della macchina virtuale come nome di un nuovo servizio cloud per la macchina virtuale.
+Quando si creano determinate risorse, Azure userà alcune impostazioni predefinite per semplificare la gestione delle risorse associate a queste risorse. Ad esempio, quando si crea la prima macchina virtuale per un nuovo servizio cloud, il Portale di Azure classico tenterà di usare il nome della macchina virtuale come nome di un nuovo servizio cloud per la macchina virtuale.
 
 È quindi utile identificare i tipi di risorse che richiedono un affisso per l’identificazione del tipo. Inoltre, specificare chiaramente la posizione dell’affisso:
 
@@ -204,7 +204,7 @@ Decisioni:
 
 Attività:
 
-- Creare il set di account di archiviazione usando la convenzione di denominazione scelta. È possibile usare il portale di anteprima di Azure, il portale di Azure o il cmdlet PowerShell **New-AzureStorageAccount**.
+- Creare il set di account di archiviazione usando la convenzione di denominazione scelta. È possibile usare il portale di Azure, il Portale di Azure classico il cmdlet PowerShell **New-AzureStorageAccount**.
 
 ## 4\. Servizi cloud
 
@@ -232,7 +232,7 @@ Decisione:
 
 Attività:
 
-- Creare il set di servizi cloud usando la convenzione di denominazione scelta. È possibile usare il portale di Azure o il cmdlet di PowerShell **New-AzureService**.
+- Creare il set di servizi cloud usando la convenzione di denominazione scelta. È possibile usare il Portale di Azure classico o il cmdlet di PowerShell **New-AzureService**.
 
 ## 5\. Reti virtuali
 
@@ -290,7 +290,7 @@ Attività:
 - Definire lo spazio degli indirizzi per la rete virtuale.
 - Definire il set di subnet e lo spazio degli indirizzi per ognuno.
 - Per le reti virtuali cross-premise, definire il set di spazi degli indirizzi della rete locale per le sedi locali che devono essere raggiunte dalle macchine virtuali nella rete virtuale.
-- Creare la rete virtuale usando la convenzione di denominazione scelta. È possibile usare il portale di anteprima di Azure o il portale di Azure.
+- Creare la rete virtuale usando la convenzione di denominazione scelta. È possibile usare il portale di Azure o il Portale di Azure classico.
 
 ## 6\. Set di disponibilità
 
@@ -314,7 +314,7 @@ Attività:
 
 In Azure PaaS, Azure consente di gestire le macchine virtuali e i relativi dischi associati. È necessario creare e denominare i servizi cloud e i ruoli e successivamente Azure creerà le istanze associate a tali ruoli. Nel caso di Azure IaaS, è responsabilità dell'utente fornire nomi per i servizi cloud, le macchine virtuali e i dischi associati.
 
-Per ridurre il carico amministrativo, il portale di Azure usa il nome del computer come un suggerimento per il nome predefinito per il servizio cloud associato (nel caso in cui il cliente scelga di creare un nuovo servizio cloud come parte della creazione guidata della macchina virtuale).
+Per ridurre il carico amministrativo, il Portale di Azure classico usa il nome del computer come un suggerimento per il nome predefinito per il servizio cloud associato (nel caso in cui il cliente scelga di creare un nuovo servizio cloud come parte della creazione guidata della macchina virtuale).
 
 Inoltre, in Azure i dischi e i relativi BLOB VHD di supporto vengono denominati usando una combinazione del nome del servizio cloud, nome del computer e data di creazione.
 
@@ -329,7 +329,7 @@ Decisione:
 Attività:
 
 - Definire ciascun nome di macchina virtuale usando la convenzione di denominazione scelta.
-- Creare le macchine virtuali con il portale di anteprima di Azure, il portale di Azure, il cmdlet di PowerShell **New-AzureVM**, l'interfaccia della riga di comando di Azure o i modelli di Gestione risorse.
+- Creare le macchine virtuali con il portale di Azure, il Portale di Azure classico, il cmdlet di PowerShell **New-AzureVM**, l'interfaccia della riga di comando di Azure o i modelli di Gestione risorse.
 
 ## Esempio di un carico di lavoro IT: il motore di analisi finanziaria di Contoso
 
@@ -377,7 +377,7 @@ Contoso ha stabilito che sono necessari due account di archiviazione:
 
 Poiché la rete virtuale non necessita di connettività costante alla rete locale Contoso, l’azienda ha optato per una rete virtuale solo cloud.
 
-Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tramite il portale di anteprima di Azure:
+Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tramite il portale di Azure:
 
 - Nome: AZFAE-USE-VN01
 - Sede: Stati Uniti orientali 2
@@ -442,4 +442,4 @@ Questa configurazione include:
 
 [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

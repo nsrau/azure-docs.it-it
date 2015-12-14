@@ -21,11 +21,11 @@
 
 Il controllo dell'aumento degli indici e delle dimensioni del documento consente di regolare in modo proattivo la capacità prima di raggiungere il limite massimo stabilito per il servizio.
 
-Per monitorare l'utilizzo delle risorse, è possibile visualizzare facilmente conteggi e statistiche nel [portale Azure](https://portal.azure.com), ma è possibile anche ottenere le informazioni a livello di codice se si sta creando uno strumento di amministrazione del servizio personalizzato. In questo articolo vengono illustrati i passaggi per entrambe le tecniche.
+Per monitorare l'utilizzo delle risorse, è possibile visualizzare facilmente conteggi e statistiche nel [portale di Azure classico](https://portal.azure.com), ma è possibile anche ottenere le informazioni a livello di codice se si sta creando uno strumento di amministrazione del servizio personalizzato. In questo articolo vengono illustrati i passaggi per entrambe le tecniche.
 
 ##Visualizzare conteggi e metriche nel portale 
 
-1. Accedere al [portale di Azure](https://portal.azure.com). 
+1. Accedere al [portale di Azure classico](https://portal.azure.com). 
 
 2. Aprire il dashboard relativo al servizio Ricerca di Azure. Nella Home page sono presenti riquadri per il servizio oppure è possibile accedere al servizio tramite Sfoglia nell'indice. Vedere [Creare un servizio](search-create-service-portal.md) per istruzioni dettagliate.
 
@@ -57,4 +57,4 @@ Visitare [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) p
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

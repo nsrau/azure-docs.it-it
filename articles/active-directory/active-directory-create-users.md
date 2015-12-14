@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare o modificare utenti in Azure AD"
-	description="Argomento che descrive come creare o modificare account utente in Azure AD."
+	pageTitle="Creare o modificare utenti in Azure Active Directory | Microsoft Azure"
+	description="Illustra come creare o modificare account utente in Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# Creare o modificare utenti in Azure AD
+# Creare o modificare utenti in Azure Active Directory
 
-È necessario creare un account per ogni utente che accederà a un servizio cloud Microsoft. È anche possibile modificare gli account utente oppure eliminarli quando non sono più necessari. Per impostazione predefinita, gli utenti non hanno autorizzazioni di amministratore, ma è possibile scegliere facoltativamente di assegnarle.
+È necessario creare un account in Azure Active Directory (Azure AD) per ogni utente che accederà a un servizio cloud Microsoft. È anche possibile modificare gli account utente oppure eliminarli quando non sono più necessari. Per impostazione predefinita, gli utenti non hanno autorizzazioni di amministratore, ma è possibile scegliere facoltativamente di assegnarle.
 
 ## Creare un utente
 
@@ -41,7 +41,7 @@ Se l'organizzazione usa più di un dominio, è opportuno essere a conoscenza dei
 
 Se l'utente che si sta tentando di modificare è sincronizzato con il servizio Active Directory locale, verrà visualizzato un messaggio di errore e non sarà possibile modificare l'utente con questa procedura. Per modificare l'utente, usare gli strumenti di gestione del servizio Active Directory locale.
 
-Per modificare un utente nel portale di gestione di Azure:
+Per modificare un utente nel portale di Azure classico:
 
 1. Fare clic su **Active Directory**, quindi sul nome della directory dell'organizzazione.
 2. Nella pagina **Utenti** fare clic sul nome visualizzato dell'utente da modificare.
@@ -61,7 +61,7 @@ In Azure AD si possono anche aggiungere utenti a una directory di Azure AD da un
 
 Gli utenti aggiunti da un'altra directory sono utenti esterni. Gli utenti esterni possono collaborare con utenti già presenti in una directory, ad esempio in un ambiente di test, senza richiedere che eseguano l'accesso con nuovi account e credenziali. Al momento dell'accesso, gli utenti esterni vengono autenticati dalla propria home directory e l'autenticazione è valida per tutte le altre directory di cui sono membri.
 
-Per creare un utente esterno, accedere al portale e per **Tipo di utente** selezionare **Utente in un'altra directory di Microsoft Azure AD**.
+Per creare un utente esterno, creare un utente nel portale di Azure classico e per **Tipo di utente** selezionare **Utente in un'altra directory di Microsoft Azure AD**.
 
 ## Gestione e limiti dell'utente esterno
 
@@ -73,7 +73,7 @@ L'unico collegamento tra i due oggetti consiste nel fatto che l'utente effettua 
 
 Se un utente viene eliminato nella home directory o se viene annullato il relativo account Microsoft, l'utente esterno continua a esistere nella directory. L'utente non può tuttavia accedere alle risorse nella directory, perché non può più effettuare l'autenticazione alla propria home directory o all'account Microsoft.
 
-Un utente amministratore di più directory può gestire ciascuna directory nel portale di gestione di Azure. Tuttavia, altre applicazioni come Office 365 non offrono attualmente la possibilità di assegnare i servizi e di accedervi come utente esterno di un'altra directory. In futuro verrà fornito agli sviluppatori materiale sussidiario con indicazioni su come usare le proprie app con gli utenti membri di più directory.
+Un utente amministratore di più directory può gestire ciascuna directory nel portale di Azure classico. Tuttavia, altre applicazioni come Office 365 non offrono attualmente la possibilità di assegnare i servizi e di accedervi come utente esterno di un'altra directory. In futuro verrà fornito agli sviluppatori materiale sussidiario con indicazioni su come usare le proprie app con gli utenti membri di più directory.
 
 Esistono attualmente delle limitazioni, perché un amministratore può concedere il consenso solo a un'applicazione multi-tenant nella home directory e può eseguire il provisioning solo per le app SaaS e SSO tramite il pannello di accesso della home directory. Gli utenti di account Microsoft hanno le stesse limitazioni perché non possono concedere il consenso a un'applicazione multi-tenant o usare il pannello di accesso.
 
@@ -85,7 +85,7 @@ Nella directory gli utenti guest hanno un set di diritti limitato. Questi diritt
 
 ## Configurare i criteri di accesso dell'utente
 
-La scheda **Configura** di una directory include le opzioni per il controllo degli accessi per gli utenti esterni. Tali opzioni possono essere modificate unicamente da un amministratore globale di directory all'interno dell'interfaccia utente (non sono disponibili i metodi Windows PowerShell e API) del portale di Azure completo. Per aprire la scheda **Configura** nel portale di Azure, fare clic su **Active Directory**, quindi selezionare il nome della directory.
+La scheda **Configura** di una directory include le opzioni per il controllo degli accessi per gli utenti esterni. Tali opzioni possono essere modificate unicamente da un amministratore globale di directory all'interno dell'interfaccia utente (non sono disponibili i metodi Windows PowerShell e API) nel portale di Azure classico completo. Per aprire la scheda **Configura** nel portale di Azure classico, fare clic su **Active Directory**, quindi selezionare il nome della directory.
 
 ![][1]
 
@@ -111,4 +111,4 @@ La possibilità per gli ospiti di visualizzare dettagli limitati di un utente o 
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

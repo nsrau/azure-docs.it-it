@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh; ddove" />
 
 # Introduzione ai processi di Database Elastici
@@ -33,9 +33,9 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
 
 	![Aprire il prompt dei comandi.][1]
 
-2.  Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invio**; ripetere l'azione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
+2.  Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invia**. Ripetere l'operazione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
 
-3.  Il [portale di anteprima di Azure](https://portal.azure.com) deve visualizzare tre nuovi database nel server v12:
+3.  Nel [portale di Azure](https://portal.azure.com) dovrebbero essere visualizzati tre nuovi database nel server v12:
 
 	![Conferma di Visual Studio][2]
 
@@ -276,7 +276,7 @@ Aggiornare l'aggiornamento del criterio di esecuzione desiderato:
  
 ## Annullare un processo
 
-I processi di database elastici supportano le richieste di annullamento dei processi. Se i processi di database elastici rilevano una richiesta di annullamento per un processo in fase di esecuzione, verrà effettuato un tentativo di arresto del processo.
+I processi di database elastico supportano le richieste di annullamento dei processi. Se i processi di database elastici rilevano una richiesta di annullamento per un processo in fase di esecuzione, verrà effettuato un tentativo di arresto del processo.
 
 E’ possibile cancellare un processo in due modi diversi tramite i processi di database elastici:
 
@@ -379,7 +379,7 @@ Impostare quanto segue in modo da riflettere lo script, le credenziali e la dest
 
 ## Creare una pianificazione per l'esecuzione del processo utilizzando un trigger di processo
 
-Il seguente script di PowerShell può essere utilizzato per creare una pianificazione ricorrente. Questo script utilizza un intervallo minuti, ma New-AzureSqlJobSchedule supporta anche i parametri - DayInterval, -HourInterval, -MonthInterval e -WeekInterval. Le pianificazioni che vengono eseguite una sola volta possono essere create specificando -OneTime.
+Il seguente script di PowerShell può essere utilizzato per creare una pianificazione ricorrente. Questo script usa l'intervallo di minuti, ma New-AzureSqlJobSchedule supporta anche i parametri -DayInterval, -HourInterval, -MonthInterval e -WeekInterval. Le pianificazioni che vengono eseguite una sola volta possono essere create specificando -OneTime.
 
 Creare una nuova pianificazione:
 
@@ -447,4 +447,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://az
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

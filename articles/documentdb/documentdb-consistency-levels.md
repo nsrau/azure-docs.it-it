@@ -56,7 +56,7 @@ La coerenza finale rappresenta il livello più debole, ma offre la latenza più 
 
 ### Modifica del livello di coerenza del database
 
-1.  Nel [portale di anteprima di Azure](https://portal.azure.com/), nell’indice fare clic su **Account DocumentDB**.
+1.  Nel [portale di Azure](https://portal.azure.com/), nell’indice, fare clic su **Account DocumentDB**.
 
 2. Nel pannello **DocumentDB account**, selezionare il database di account da modificare.
 
@@ -88,4 +88,4 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 -	Werner Vogels. Coerente Finale - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

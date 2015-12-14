@@ -1,6 +1,6 @@
 <properties
    pageTitle="Provisioning Apache Spark cluster in HDInsight | Microsoft Azure"
-   description="Informazioni su come effettuare il provisioning di cluster Spark per Azure HDInsight tramite il portale di Azure, Azure PowerShell, una riga di comando o HDInsight .NET SDK"
+   description="Informazioni su come effettuare il provisioning di cluster Spark per Azure HDInsight tramite il portale di Azure classico, Azure PowerShell, una riga di comando o HDInsight .NET SDK"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -21,7 +21,7 @@
 
 Per la maggior parte degli scenari, è possibile eseguire il provisioning di un cluster Spark utilizzando il metodo veloce come descritto in [Introduzione a Spark Apache in HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md). In alcuni scenari, è possibile eseguire il provisioning di un cluster personalizzato. Ad esempio, è possibile collegare un archivio di metadati esterno per conservare i metadati Hive in modo persistente oltre la durata di un cluster o è possibile utilizzare ulteriore spazio di archiviazione con il cluster.
 
-Per questi e altri scenari, in questo articolo vengono fornite istruzioni su come utilizzare il portale di Azure, Azure PowerShell o .NET SDK per HDInsight per eseguire il provisioning di un cluster di Spark personalizzato in HDInsight.
+Per questi e altri scenari, in questo articolo vengono fornite istruzioni su come utilizzare il portale di Azure classico, Azure PowerShell o .NET SDK per HDInsight per eseguire il provisioning di un cluster di Spark personalizzato in HDInsight.
 
 
 **Prerequisiti:**
@@ -46,7 +46,7 @@ Per istruzioni su come creare un database SQL in Azure, vedere [Creare il primo 
 
 ### Personalizzazione cluster
 
-L'uso di script durante il provisioning consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono chiamati tramite un'**azione script**, ovvero un'opzione di configurazione che può essere usata da portale di Azure, dai cmdlet di Windows PowerShell per HDInsight o da .NET SDK per HDInsight. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script][hdinsight-customize-cluster].
+L'uso di script durante il provisioning consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono chiamati tramite un'**azione di script**, ovvero un'opzione di configurazione che può essere usata dal portale di Azure classico, dai cmdlet di Windows PowerShell per HDInsight o da .NET SDK per HDInsight. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script][hdinsight-customize-cluster].
 
 
 ###Reti virtuali
@@ -75,16 +75,16 @@ Per altre informazioni sulle funzionalità, i vantaggi e le capacità della rete
 >
 > È consigliabile designare una singola subnet per un cluster.
 
-##Utilizzare il Portale di anteprima di Azure
+##Usare il portale di Azure
 
 I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure come file system predefinito. Per creare un cluster HDInsight, è necessario un account di archiviazione di Azure nello stesso data center. Per altre informazioni, vedere [Usare l'archiviazione BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Come creare un account di archiviazione][azure-create-storageaccount].
 
 **Per creare un cluster HDInsight con l'opzione di creazione personalizzata**
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
-2. Fare clic su **NUOVO**, su **Analisi dei dati**, quindi su **HDInsight**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Fare clic su **NUOVO**, su **Analisi dei dati** e quindi su **HDInsight**.
 
-    ![Creazione di un nuovo cluster nel portale di anteprima di Azure](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di anteprima di Azure")
+    ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Azure")
 
 3. Immettere un **Nome cluster**, selezionare **Spark** per il **tipo di Cluster**, e dall’elenco a discesa **Sistema operativo Cluster**, selezionare **Windows Server 2012 R2 Datacenter**. Un segno di spunta verde verrà visualizzato accanto al nome del cluster, se disponibile.
 
@@ -108,7 +108,7 @@ I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure co
 
 	- **Metodo di selezione**: impostare questa proprietà su **Da tutte le sottoscrizioni** per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su **Tasto di scelta** se si desidera immettere un valore nei campi **Nome di archiviazione** e **Tasto di scelta** per un account di archiviazione esistente.
 
-	- **Seleziona account di archiviazione / Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. Fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
+	- **Seleziona account di archiviazione / Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
 
 	- **Scegli contenitore predefinito**: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
 
@@ -118,7 +118,7 @@ I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure co
 
 	Fare clic su **Seleziona** per salvare la configurazione dell'origine dati.
 
-8. Fare clic su **Livelli di prezzi nodo** per visualizzare informazioni sui nodi che verranno creati per questo cluster. Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Verrà visualizzato il costo stimato del cluster all'interno del pannello.
+8. Fare clic su **Piani tariffari per il nodo** per visualizzare informazioni sui nodi che verranno creati per questo cluster. Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Verrà visualizzato il costo stimato del cluster all'interno del pannello.
 
 	![Pannello livelli dei prezzi di nodo](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.5.png "Specificare il numero di nodi del cluster")
 
@@ -136,7 +136,7 @@ I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure co
 
 		![Pannello metastore personalizzati](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.7.png "Specificare metastore esterni")
 
-		Per i metadati**Utilizzare un database SQL esistente per Hive**, fare clic su **Sì**, selezionare un database SQL e quindi specificare il nome utente e la password per il database. Ripetere questi passaggi se si desidera **Utilizzare un database SQL esistente per i metadati Oozie**. Fare clic su **Seleziona** fino a quando non si visualizza di nuovo il pannello **Configurazione facoltativa**.
+		Per i metadati**Utilizzare un database SQL esistente per Hive**, fare clic su **Sì**, selezionare un database SQL e quindi specificare il nome utente e la password per il database. Ripetere questa procedura se si desidera **Utilizzare un database SQL esistente per i metadati Oozie**. Fare clic su **Seleziona** fino a quando non si visualizza di nuovo il pannello **Configurazione facoltativa**.
 
 		>[AZURE.NOTE]Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Windows Azure** fare clic su **Sì** e infine su **Salva**.
 
@@ -152,7 +152,7 @@ I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure co
 
 		Fare clic su **Seleziona** fino a quando non verrà visualizzato il pannello **Nuovo cluster HDInsight**.
 
-10. Nel pannello**Nuovo cluster HDInsight** assicurarsi che **Aggiungi a Schermata iniziale** sia selezionato, quindi fare clic su **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
+10. Nel pannello **Nuovo cluster HDInsight** assicurarsi che **Aggiungi alla Schermata iniziale** sia selezionato, quindi fare clic su **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure classico. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
 
 	| Durante il provisioning | Provisioning completato |
 	| ------------------ | --------------------- |
@@ -170,19 +170,19 @@ I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure co
 
 	* **Dashboard** e **URL**: sono modi per accedere al dashboard del cluster, che è un portale Web per eseguire processi nel cluster.
 
-	* **Desktop remoto**: consente di attivare o disattivare desktop remoto nei nodi del cluster.
+	* **Desktop remoto**: consente di attivare o disattivare il desktop remoto nei nodi del cluster.
 
 	* **Scalabilità cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
 
 	* **Elimina**: consente di eliminare il cluster HDInsight.
 
-	* **Guide rapide** (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-apache-spark-provision-clusters/quickstart.png)): Visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
+	* **Guide rapide** (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-apache-spark-provision-clusters/quickstart.png)): visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
 
-	* **Utenti** (![icona utenti](./media/hdinsight-apache-spark-provision-clusters/users.png)): consente di impostare le autorizzazioni per _Gestione portale_ di questo cluster per altri utenti nella sottoscrizione Azure.
+	* **Utenti** (![icona utenti](./media/hdinsight-apache-spark-provision-clusters/users.png)): consente di impostare le autorizzazioni per _Gestione portale_ di questo cluster per altri utenti nella sottoscrizione di Azure.
 
-		> [AZURE.IMPORTANT]Questo influisce _solo_ sull'accesso e sulle autorizzazioni per tale cluster nel portale di anteprima di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
+		> [AZURE.IMPORTANT]Questo influisce _solo_ sull'accesso e sulle autorizzazioni per tale cluster nel portale di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
 
-	* **Tag** (![icona tag](./media/hdinsight-apache-spark-provision-clusters/tags.png)): consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__, e usare un valore comune per tutti i servizi associati a un progetto specifico.
+	* **Tag** (![icona tag](./media/hdinsight-apache-spark-provision-clusters/tags.png)): i tag consentono di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__, e usare un valore comune per tutti i servizi associati a un progetto specifico.
 
 	* **Dashboard del cluster**: avvia il pannello del Dashboard del Cluster da cui è possibile avviare lo stesso dashboard del cluster o avviare i notebook Zeppelin e Jupyter.
 
@@ -245,4 +245,4 @@ Specificare il tipo di cluster Spark:
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

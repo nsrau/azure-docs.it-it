@@ -35,7 +35,7 @@ In qualità di amministratore, è possibile aggiungere il servizio di ricerca a 
 
 I sottoscrittori possono usufruire dell'accesso gratuito al servizio di ricerca che può essere usato ai fini dell'apprendimento, per testare modelli di prova o per progetti di ricerca sviluppo di piccole dimensioni. Per iscriversi alla versione gratuita, attenersi alla procedura seguente.
 
-1. Accedere a [Portale di Azure](https://portal.azure.com) utilizzando la sottoscrizione esistente. Si noti che questo URL reindirizzerà l'utente al portale di anteprima. Il portale di anteprima costituisce un requisito. 
+1. Accedere al [Portale di Azure classico](https://portal.azure.com) utilizzando la sottoscrizione esistente. Si noti che questo URL reindirizzerà l'utente al portale. L’utilizzo del portale costituisce un requisito. 
 
 2. Nella parte superiore della pagina fare clic su **Save**.
  
@@ -78,7 +78,7 @@ La configurazione di risorse dedicate può richiedere fino a 15 minuti o più.
 
 **Passaggio 1: creare un nuovo servizio con livello di prezzo impostato su Standard**
 
-1. Accedere a [Portale di Azure](https://portal.azure.com) utilizzando la sottoscrizione esistente. 
+1. Accedere al [portale di Azure classico](https://portal.azure.com) utilizzando la sottoscrizione esistente. 
 
 2. Fare clic su **New** nella parte inferiore della pagina.
 
@@ -310,7 +310,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 Per un ripasso su dove trovare le pagine di configurazione, eseguire la procedura seguente per passare al dashboard servizi.
 
-1.	Accedere a [Portale di Azure](https://portal.azure.com) utilizzando la sottoscrizione esistente. 
+1.	Accedere al [portale di Azure classico](https://portal.azure.com) utilizzando la sottoscrizione esistente. 
 2.	Fare clic su **Home** e quindi fare clic sul riquadro per il servizio di ricerca.
 
  	![][22]
@@ -378,4 +378,4 @@ Pronti per il passaggio successivo? Fare clic sui collegamenti seguenti per acce
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

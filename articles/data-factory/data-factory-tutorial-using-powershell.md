@@ -51,9 +51,9 @@ In questa procedura dettagliata, si raccoglieranno log di esempio, li si elabore
 	- **Database SQL di Azure** - Server, database, nome utente e password.
 	- **Cluster HDInsight di Azure** - Nome del cluster HDInsight, nome utente, password e nome e chiave dell'account per l'archiviazione di Azure associati a questo cluster. Se si desidera usare un cluster HDInsight su richiesta, anziché il proprio cluster HDInsight, è possibile ignorare questo passaggio.  
 8. Avviare **Azure PowerShell** ed eseguire i comandi seguenti. Tenere aperta la finestra di Azure PowerShell. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
-	- Eseguire **Add-AzureAccount** e immettere il nome utente e la password usati per accedere al portale di anteprima di Azure.  
+	- Eseguire **Add-AzureAccount** e immettere il nome utente e la password usati per accedere al portale di Azure.  
 	- Eseguire **Get-AzureSubscription** per visualizzare tutte le sottoscrizioni per l'account.
-	- Eseguire **Select-AzureSubscription** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di anteprima di Azure.
+	- Eseguire **Select-AzureSubscription** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di Azure.
 	
 
 ## Panoramica
@@ -101,7 +101,7 @@ Il flusso di lavoro end-to-end è illustrato di seguito:![Flusso end-to-end dell
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Passaggio 6: monitorare le pipeline e le sezioni di dati](#MainStep6). In questo passaggio si monitoreranno le pipeline, le tabelle e le sezioni di dati usando il portale di Azure.
+6. [Passaggio 6: monitorare le pipeline e le sezioni di dati](#MainStep6). In questo passaggio si monitoreranno le pipeline, le tabelle e le sezioni di dati usando il portale di Azure classico.
 
 ## <a name="MainStep1"></a> Passaggio 1: caricare script e dati di esempio
 In questo passaggio si caricano tutti i dati di esempio (inclusi tutti i log e i dati di riferimento) e gli script Hive/Pig richiamati dai flussi di lavoro. Gli script eseguiti creano anche un database SQL di Azure chiamato **MarketingCampaigns**, tabelle, tipi definiti dall'utente e stored procedure.
@@ -122,7 +122,7 @@ Le tabelle, i tipi definiti dall'utente e le stored procedure vengono usati quan
 	
 	In alternativa, è possibile usare i file nella cartella C:\\ADFWalkthrough\\Scripts per caricare gli script pig/hive e i file di esempio nel contenitore adfwalkthrough nell'archiviazione BLOB e creare la tabella MarketingCampaignEffectiveness nel database SQL di Azure MarketingCamapaigns.
    
-2. Verificare che al computer locale sia consentito l'accesso al database SQL di Azure. Per abilitare l'accesso, usare il **Portale di gestione di Azure** o **sp\_set\_firewall\_rule** nel database master per creare una regola firewall per l'indirizzo IP del computer. Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. Vedere [Procedura: Configurare le impostazioni del firewall (database SQL di Azure)][azure-sql-firewall].
+2. Verificare che al computer locale sia consentito l'accesso al database SQL di Azure. Per abilitare l'accesso, usare il [Portale di Azure classico](http://manage.windowsazure.com) o **sp\_set\_firewall\_rule** nel database master per creare una regola firewall per l'indirizzo IP del computer. Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. Vedere [Procedura: Configurare le impostazioni del firewall (database SQL di Azure)][azure-sql-firewall].
 4. In Azure PowerShell passare al percorso in cui si sono estratti gli esempi (ad esempio, **C:\\ADFWalkthrough**)
 5. Eseguire **uploadSampleDataAndScripts.ps1** 
 6. Una volta completata l'esecuzione dello script, verrà visualizzato quanto segue:
@@ -160,7 +160,7 @@ Le tabelle, i tipi definiti dall'utente e le stored procedure vengono usati quan
 ## <a name="MainStep2"></a> Passaggio 2: creare un'istanza di Data factory di Azure
 In questo passaggio si crea un'istanza di Data factory di Azure denominata **LogProcessingFactory**.
 
-1.	Dopo aver eseguito l'accesso al [Portale di anteprima di Azure][azure-preview-portal], fare clic su **NUOVO** dall'angolo inferiore sinistro, quindi su **Data factory** nel pannello **Nuovo**. 
+1.	Dopo aver eseguito l'accesso al [Portale di Azure][azure-portal], fare clic su **NUOVO** dall'angolo inferiore sinistro, quindi su **Data factory** nel pannello **Nuovo**. 
 
 	![Nuovo->DataFactory][image-data-factory-new-datafactory-menu]
 	
@@ -178,7 +178,7 @@ In questo passaggio si crea un'istanza di Data factory di Azure denominata **Log
 	
 		![Crea gruppo di risorse][image-data-factory-tutorial-create-resourcegroup]
 7. Selezionare **ADF** come **NOME GRUPPO DI RISORSE**.  
-8.	Nel pannello **Nuova data factory** si noti che **Aggiungi alla schermata iniziale** è selezionato per impostazione predefinita. In questo modo viene aggiunto un collegamento a Data factory nella Schermata iniziale (come si vede quando si accede al portale di anteprima di Azure).
+8.	Nel pannello **Nuova data factory** si noti che **Aggiungi alla schermata iniziale** è selezionato per impostazione predefinita. In questo modo viene aggiunto un collegamento a Data factory nella Schermata iniziale (come si vede quando si accede al portale di Azure).
 
 	![Pannello di creazione Data factory][image-data-factory-tutorial-create-datafactory]
 
@@ -197,7 +197,7 @@ In questo passaggio si crea un'istanza di Data factory di Azure denominata **Log
  
 ## <a name="MainStep3"></a> Passaggio 3: creare servizi collegati
 
-> [AZURE.NOTE]Questo articolo usa Azure PowerShell per creare servizi collegati, tabelle e pipeline. Per eseguire questa esercitazione usando il portale di Azure e in particolar modo l'Editor di Data factory, vedere l'esercitazione sull'uso dell'[Editor di Data factory][adftutorial-using-editor].
+> [AZURE.NOTE]Questo articolo usa Azure PowerShell per creare servizi collegati, tabelle e pipeline. Per eseguire questa esercitazione usando il portale di Azure classico, e in particolar modo l'Editor di Data factory, vedere l'[esercitazione sull'uso dell’Editor di Data factory][adftutorial-using-editor].
 
 In questo passaggio verranno creati i servizi collegati seguenti: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService e HDInsightLinkedService.
 
@@ -236,16 +236,16 @@ In questo passaggio verranno creati i servizi collegati seguenti: StorageLinkedS
 		
  		![Impostazioni SQL di Azure][image-data-factory-tutorial-azuresql-settings]
 
-		Per ottenere questi valori nel portale di gestione di Azure: fare clic su Visualizzare le stringhe di connessione del database SQL per il database MarketingCampaigns
+		Per ottenere questi valori dal [portale di Azure classico](http://manage.windowsazure.com): fare clic su Visualizzare le stringhe di connessione del database SQL per il database MarketingCampaigns
 
 		![Stringa di connessione del database SQL di Azure][image-data-factory-tutorial-azuresql-database-connection-string]
 
 12. Verificare che tutti e tre gli archivi creati siano visualizzati: **StorageLinkedService**, **HDInsightStorageLinkedService** e **AzureSqlLinkedService**.
 13. È necessario creare un altro servizio collegato, questa volta un servizio di calcolo, per la precisione **Cluster HDInsight di Azure**. Il portale non supporta ancora la creazione di un servizio collegato di calcolo. Quindi è necessario usare Azure PowerShell per creare questo servizio collegato. 
 14. Passare ad **Azure PowerShell** se è già aperto oppure avviare **Azure PowerShell**. Se Azure PowerShell è stato chiuso e riaperto, è necessario eseguire i comandi seguenti: 
-	- Eseguire **Add-AzureAccount** e immettere il nome utente e la password usati per accedere al portale di anteprima di Azure.  
+	- Eseguire **Add-AzureAccount** e immettere il nome utente e la password usati per accedere al portale di Azure.  
 	- Eseguire **Get-AzureSubscription** per visualizzare tutte le sottoscrizioni per l'account.
-	- Eseguire **Select-AzureSubscription** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di anteprima di Azure. 
+	- Eseguire **Select-AzureSubscription** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di Azure. 
 15. Passare alla modalità **AzureResourceManager** perché i cmdlet di Data factory di Azure sono disponibili in questa modalità.
 
 		Switch-AzureMode AzureResourceManager
@@ -296,7 +296,7 @@ In questo passaggio si creeranno le tabelle seguenti:
  
 L'immagine precedente visualizza le pipeline nella parte centrale e le tabelle nelle parti superiore e inferiore.
 
-Poiché il portale di Azure non supporta ancora la creazione di set di dati/tabelle, sarà necessario usare Azure PowerShell per creare le tabelle in questa versione.
+Poiché il portale di Azure classico non supporta ancora la creazione di set di dati/tabelle, sarà necessario usare Azure PowerShell per creare le tabelle in questa versione.
 
 ### Per creare le tabelle
 
@@ -324,7 +324,7 @@ Poiché il portale di Azure non supporta ancora la creazione di set di dati/tabe
 
 
 
-4. Nel **Portale di anteprima di Azure** fare clic su **Set di dati** nel pannello **DATA FACTORY** per **LogProcessingFactory** e verificare che tutti i set di dati siano visualizzati (le tabelle sono set di dati rettangolari).
+4. Nel **Portale di Azure** fare clic su **Set di dati** nel pannello **DATA FACTORY** per **LogProcessingFactory** e verificare che tutti i set di dati siano visualizzati (le tabelle sono set di dati rettangolari).
 
 	![Set di dati - Tutti][image-data-factory-tutorial-datasets-all]
 
@@ -390,7 +390,7 @@ Per specificare il periodo attivo per la pipeline, è possibile usare il cmdlet 
 			
 			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
 
-11. Nel **Portale di anteprima di Azure** fare clic sul riquadro **Pipeline** (non sui nomi delle pipeline) nel pannello **DATA FACTORY** per **LogProcessingFactory**. Verranno visualizzate le pipeline create.
+11. Nel **Portale di Azure** fare clic sul riquadro **Pipeline** (non sui nomi delle pipeline) nel pannello **DATA FACTORY** per **LogProcessingFactory**. Verranno visualizzate le pipeline create.
 
 	![Tutte le pipeline][image-data-factory-tutorial-pipelines-all]
 
@@ -402,7 +402,7 @@ Per specificare il periodo attivo per la pipeline, è possibile usare il cmdlet 
 
 	![Vista Diagramma][image-data-factory-tutorial-diagram-view]
 
-	**Congratulazioni**. Sono stati creati Data factory di Azure, i servizi collegati, le pipeline, le tabelle ed è stato avviato il flusso di lavoro.
+	**Congratulazioni.** Sono stati creati Data factory di Azure, i servizi collegati, le pipeline, le tabelle ed è stato avviato il flusso di lavoro.
 
 
 ## <a name="MainStep6"></a> Passaggio 6: monitorare le pipeline e le sezioni di dati 
@@ -438,7 +438,7 @@ Per specificare il periodo attivo per la pipeline, è possibile usare il cmdlet 
 
 	![Pannello SEZIONE DATI RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Se si è verificato un errore, viene visualizzato lo stato **Operazione non riuscita**. È anche possibile che entrambe le sezioni abbiano lo stato **Pronto** o **ConvalidaInSospeso**, a seconda della velocità di elaborazione delle sezioni.
+	Se si è verificato un errore, viene visualizzato lo stato **Operazione non riuscita**. È anche possibile che entrambe le sezioni abbiano lo stato **Pronto** o **PendingValidation**, a seconda della velocità di elaborazione delle sezioni.
  
 	Per conoscere tutti i possibili stati delle sezioni, vedere la [Guida di riferimento per gli sviluppatori di Data factory di Azure][developer-reference].
 
@@ -451,7 +451,7 @@ Per specificare il periodo attivo per la pipeline, è possibile usare il cmdlet 
 	
 Quando tutta la pipeline ha completato l'esecuzione, è possibile visualizzare i risultati in **MarketingCampaignEffectivenessTable** nel database SQL di Azure **MarketingCampaigns**.
 
-**Congratulazioni**. Ora è possibile monitorare e risolvere i problemi dei flussi di lavoro. In questa esercitazione si è appreso come usare Data factory di Azure per elaborare i dati e ottenere l'analisi.
+**Congratulazioni.** Ora è possibile monitorare e risolvere i problemi dei flussi di lavoro. In questa esercitazione si è appreso come usare Data factory di Azure per elaborare i dati e ottenere l'analisi.
 
 ## Estendere l'esercitazione all'uso dei dati locali
 Nell'ultimo passaggio dello scenario di elaborazione dei log dalla procedura dettagliata in questo articolo, l'output dell'efficacia della campagna di marketing è stato copiato in un database SQL di Azure. È anche possibile spostare questi dati in SQL Server locale per l'analisi nell'organizzazione.
@@ -474,7 +474,7 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 [tutorial-onpremises-using-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -562,4 +562,4 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

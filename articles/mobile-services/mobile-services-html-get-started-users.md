@@ -132,9 +132,7 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: mobile-services-html-get-started.md
 [Autorizzazione di utenti con script]: mobile-services-javascript-backend-service-side-authorization.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

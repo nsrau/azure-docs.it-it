@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # Riferimento ai criteri di Gestione API di Azure
@@ -34,6 +34,11 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 	-	[choose][]\: applica in modo condizionale istruzioni dei criteri sulla base dei risultati della valutazione di [espressioni][] booleane.
 	-	[Inoltro richiesta][] - Inoltra la richiesta al servizio back-end.
 	-	[Registro a Hub eventi][] -invia messaggi nel formato specificato a una destinazione del messaggio definita da un’entità [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) .
+	-	[Restituzione della risposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - l’esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante.
+	-	[Invio richiesta unidirezionale](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - invia una richiesta all'URL specificato senza attendere una risposta.
+	-	[Invio richiesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - invia una richiesta all'URL specificato.
+	-	[Impostazione metodo di richiesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - consente di modificare il metodo HTTP per una richiesta.
+	-	[Impostazione codice di stato](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - modifica il codice di stato HTTP per il valore specificato.
 	-	[set-variable][]\: rende persistente un valore in una variabile [context][] denominata e consente di accedervi successivamente.
 -	[Criteri di autenticazione][]
 	-	[authentication-basic][]\: consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
@@ -49,7 +54,7 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 	-	[json-to-xml][]\: converte il corpo della richiesta o della risposta da JSON a XML.
 	-	[xml-to-json][]\: converte il corpo della richiesta o della risposta da XML a JSON.
 	-	[find-and-replace][]\: trova una sottostringa di richiesta o risposta e la sostituisce con una sottostringa diversa.
-	-	[redirect-body-urls][]\: riscrive (maschera) i collegamenti nel corpo della risposta e nell'intestazione del percorso, in modo che facciano riferimento al collegamento equivalente tramite il gateway.
+	-	[Maschera URL nel contenuto][]\: riscrive (maschera) i collegamenti nel corpo della risposta e nell'intestazione del percorso, in modo che facciano riferimento al collegamento equivalente tramite il gateway.
 	-	[set-backend-service][]\: consente di cambiare il servizio back-end per una richiesta in ingresso.
 	-	[set-body][]\: consente di impostare il corpo del messaggio per richieste in ingresso e in uscita.
 	-	[Imposta intestazione HTTP][]\: assegna un valore a una intestazione di risposta e/o di richiesta esistente oppure aggiunge una nuova intestazione di risposta e/o di richiesta.
@@ -93,7 +98,7 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 [json-to-xml]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#ConvertJSONtoXML
 [xml-to-json]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#ConvertXMLtoJSON
 [find-and-replace]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#Findandreplacestringinbody
-[redirect-body-urls]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#MaskURLSContent
+[Maschera URL nel contenuto]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#MaskURLSContent
 [set-backend-service]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetBackendService
 [set-body]: https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBody
 [Imposta intestazione HTTP]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetHTTPheader
@@ -109,4 +114,4 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

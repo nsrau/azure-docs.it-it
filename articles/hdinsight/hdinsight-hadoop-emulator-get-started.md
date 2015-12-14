@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/07/2015"
+	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
 # Introduzione all’ecosistema Hadoop con HDInsight Emulator, un ambiente sandbox Hadoop
@@ -37,8 +37,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - HDInsight Emulator richiede una versione a 64 bit di Windows. È quindi necessario disporre di una delle versioni seguenti:
 
-	- Windows 7 Service Pack 1
-	- Windows Server 2008 R2 Service Pack 1
+	- Windows 10
 	- Windows 8
 	- Windows Server 2012
 
@@ -397,7 +396,7 @@ Prima di iniziare con le istruzioni riportate di seguito è necessario aver crea
 
 **Per creare un contenitore**
 
-1. Accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/).
+1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
 2. Fare clic su **NUOVO** a sinistra, fare clic su **Dati + archiviazione**, quindi fare clic su **Archiviazione**.
 3. Nel pannello Account di archiviazione, configurare le proprietà come illustrato nella schermata riportata di seguito.
 	
@@ -498,4 +497,4 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

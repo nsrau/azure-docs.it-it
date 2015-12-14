@@ -22,16 +22,16 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
 
-Se non è possibile connettersi a una macchina virtuale di Windows a causa di una password dimenticata o un problema con la configurazione del servizio Desktop remoto, usare il portale di anteprima di Azure o l'estensione VMAccess per reimpostare la password di amministratore locale o la configurazione del servizio Desktop remoto.
+Se non è possibile connettersi a una macchina virtuale di Windows a causa di una password dimenticata o un problema con la configurazione del servizio Desktop remoto, usare il portale di Azure o l'estensione VMAccess per reimpostare la password di amministratore locale o la configurazione del servizio Desktop remoto.
 
-## Portale di anteprima di Azure
+## Portale di Azure
 
-Per reimpostare il servizio Desktop remoto nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia tutto** > **Macchine virtuali (classiche)** > *macchina virtuale Windows* > **Reimposta accesso remoto**. Verrà visualizzata la pagina seguente.
+Per reimpostare il servizio Desktop remoto nel [portale di Azure](https://portal.azure.com), fare clic su **Sfoglia tutto** > **Macchine virtuali (classiche)** > *macchina virtuale Windows* > **Reimposta accesso remoto**. Verrà visualizzata la pagina seguente.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Per reimpostare il nome e la password dell'account di amministratore locale nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia tutto** > **Macchine virtuali (classiche)** > *macchina virtuale Windows* > **Tutte le impostazioni** > **Reimpostazione password**. Verrà visualizzata la pagina seguente.
+Per reimpostare il nome e la password dell'account di amministratore locale nel [portale di Azure](https://portal.azure.com), fare clic su **Sfoglia tutto** > **Macchine virtuali (classiche)** > *macchina virtuale Windows* > **Tutte le impostazioni** > **Reimpostazione password**. Verrà visualizzata la pagina seguente.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -114,4 +114,4 @@ Se non è possibile eseguire il pacchetto di diagnostica Azure IaaS (Windows) o 
 
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

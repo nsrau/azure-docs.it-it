@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Risolvere i problemi di Data factory
-È possibile risolvere i problemi relativi a Data factory di Azure usando il portale di Azure oppure i cmdlet di Azure PowerShell. Questo argomento contiene procedure dettagliate che illustrano come usare il portale di Azure per risolvere rapidamente eventuali errori che possono verificarsi con Data factory.
+È possibile risolvere i problemi relativi a Data factory di Azure usando il portale di Azure classico (oppure) i cmdlet di Azure PowerShell. Questo argomento contiene procedure dettagliate che illustrano come usare il portale di Azure classico per risolvere rapidamente eventuali errori che possono verificarsi con Data factory.
 
 ## Problema: impossibile eseguire i cmdlet di Data factory
 Per risolvere questo problema, passare la modalità Azure su **AzureResourceManager**:
@@ -31,23 +31,23 @@ Probabilmente non si sta utilizzando l'account o la sottoscrizione Azure appropr
 
 1. Add-AzureAccount: usare l'ID utente e la password appropriati
 2. Get-AzureSubscription: visualizzare tutte le sottoscrizioni relative all'account. 
-3. Select-AzureSubscription <subscription name>: selezionare la sottoscrizione appropriata. Usare la stessa che consente di creare una data factory nel portale di anteprima di Azure.
+3. Select-AzureSubscription <subscription name>: selezionare la sottoscrizione appropriata. Usare la stessa che si usa per creare una data factory nel portale di Azure.
 
-## Problema: impossibile possibile avviare la configurazione rapida del gateway dati dal portale di Azure
+## Problema: impossibile avviare la configurazione rapida del gateway dati dal portale di Azure classico
 La configurazione rapida del gateway dati richiede Internet Explorer o un Web browser compatibile con Microsoft ClickOnce. Se non si riesce ad avviare la configurazione rapida, è possibile
 
 1. Passare a Internet Explorer se l'installazione non riesce in altri browser. Oppure
 2. Usare i collegamenti "Installazione manuale" mostrati sullo stesso pannello nel portale per eseguire l'installazione, quindi copiare la chiave visualizzata sullo schermo e incollarla quando la configurazione del gateway di gestione dati è pronta. Se non viene avviata, cercare il gateway di gestione dati Microsoft nel menu Start e incollarvi la chiave all'avvio. 
 
 
-## Problema: impossibile avviare Gestione credenziali dal portale di Azure
-Quando si configura o si aggiorna un servizio collegato di SQL Server con il portale di Azure, l'applicazione Gestione credenziali verrà avviata per garantire la sicurezza. È richiesto Internet Explorer o un Web browser compatibile con Microsoft ClickOnce. È possibile passare a Internet Explorer se l'installazione non riesce in altri browser.
+## Problema: impossibile avviare Gestione credenziali dal portale di Azure classico
+Quando si configura o si aggiorna un servizio collegato di SQL Server con il portale di Azure classico, l'applicazione di Gestione credenziali verrà avviata per garantire la sicurezza. È richiesto Internet Explorer o un Web browser compatibile con Microsoft ClickOnce. È possibile passare a Internet Explorer se l'installazione non riesce in altri browser.
 
 ## Problema: impossibile connettersi all'istanza di SQL Server locale 
 Verificare che SQL Server sia raggiungibile dal computer in cui è installato il gateway. Nel computer in cui è installato il gateway, è possibile
 
 1. Eseguire il ping del computer in cui è installato SQL Server. Oppure
-2. Provare a connettersi all'istanza di SQL Server con le credenziali specificate nel portale di Azure usando SQL Server Management Studio (SSMS).
+2. Provare a connettersi all'istanza di SQL Server con le credenziali specificate nel portale di Azure classico usando SQL Server Management Studio (SSMS).
 
 
 ## Problema: le sezioni di input sono sempre nello stato PendingExecution o PendingValidation
@@ -92,7 +92,7 @@ Per altre informazioni su questa proprietà, vedere l'argomento Tabelle in [Info
 ## Problema: l'operazione di copia ibrida non riesce
 Per ulteriori informazioni:
 
-1. Avviare il programma per la gestione della configurazione del gateway di gestione dei dati nel computer in cui è stato installato il gateway stesso. Verificare che **Nome gateway** sia impostato sul nome del gateway logico nel **portale di Azure**, che **Stato della chiave del gateway** sia **registrato** e che **Stato del servizio** sia **Avviato**. 
+1. Avviare il programma per la gestione della configurazione del gateway di gestione dei dati nel computer in cui è stato installato il gateway stesso. Verificare che il **Nome del gateway** sia impostato sul nome del gateway logico nel **portale di Azure classico**, che lo **Stato della chiave del gateway** sia **registrato** e che lo **Stato del servizio** sia **Avviato**. 
 2. Avviare **Visualizzatore eventi**. Espandere **Registri applicazioni e servizi** e fare clic su **Gateway di gestione dati**. Verificare se sono presenti errori correlati al Gateway di gestione di dati. 
 
 ## Problema: il provisioning di HDInsight su richiesta non riesce con errore
@@ -110,11 +110,11 @@ Questo errore indica generalmente che il percorso dell'account di archiviazione 
 ## Problema: l'attività personalizzata non riesce
 Quando si usa un'attività personalizzata in Data factory di Azure (tipo di attività pipeline CustomActivity), l'applicazione personalizzata viene eseguita nel servizio collegato specificato in HDInsight come processo MapReduce di streaming solo di mapping.
 
-Quando viene eseguita l'attività personalizzata, Data factory di Azure potrà acquisire l'output dal cluster HDInsight e salvarlo nel contenitore di archiviazione *adfjobs* nell'account di archiviazione BLOB di Azure. In caso di errore, è possibile leggere il testo dal file di testo di output **stderr** dopo che si è verificato un errore. I file sono accessibili e leggibili dal portale di Azure stesso nel Web browser o con gli strumenti di esplorazione delle risorse di archiviazione per accedere ai file conservati direttamente nel contenitore di archiviazione nell'archivio BLOB di Azure.
+Quando viene eseguita l'attività personalizzata, Data factory di Azure potrà acquisire l'output dal cluster HDInsight e salvarlo nel contenitore di archiviazione *adfjobs* nell'account di archiviazione BLOB di Azure. In caso di errore, è possibile leggere il testo dal file di testo di output **stderr** dopo che si è verificato un errore. I file sono accessibili e leggibili dal portale di Azure classico stesso nel Web browser o con gli strumenti di esplorazione delle risorse di archiviazione per accedere ai file conservati direttamente nel contenitore di archiviazione nell'archivio BLOB di Azure.
 
 Per enumerare e leggere i log per una particolare attività personalizzata, è possibile usare una delle procedure dettagliate illustrate più avanti in questa pagina. Riepilogo:
 
-1.  Nel portale di Azure, scegliere **Sfoglia** per trovare la data factory.
+1.  Nel portale di Azure classico, scegliere **Sfoglia** per trovare la data factory.
 2.  Usare il pulsante **Diagramma** per visualizzare il diagramma della data factory e fare clic sulla tabella **Set di dati** che segue la specifica **Pipeline** contenente l'attività personalizzata. 
 3.  Nel pannello **Tabella**, fare clic sulla sezione di interesse in **Sezioni con errori** relativa all'intervallo di tempo da esaminare.
 4.  Viene visualizzato il pannello **Sezione dati** in cui sono elencate più **Esecuzioni attività** per la sezione. Fare clic su un'**attività** dall'elenco. 
@@ -168,7 +168,7 @@ Se si usano le versioni obsolete di Azure PowerShell SDK potrebbero essere visua
 
 
 ## <a name="copywalkthrough"></a>Procedura dettagliata: Risoluzione dei problemi relativi a errori di copia dei dati
-In questa procedura dettagliata si introdurrà un errore nell'esercitazione dell'articolo Introduzione a Data factory e si apprenderà come usare il portale di Azure per risolvere l'errore.
+In questa procedura dettagliata si presenterà un errore nell'esercitazione dall'articolo Introduzione a Data factory e si apprenderà come usare il portale di Azure classico per risolvere l'errore.
 
 ### Prerequisiti
 1. Completare l'esercitazione nell'articolo [Introduzione a Data factory di Azure][adfgetstarted].
@@ -182,9 +182,9 @@ In questa procedura dettagliata si introdurrà un errore nell'esercitazione dell
 	Sostituire il valore di **StartDateTime** con il giorno corrente e il valore di **EndDateTime** con il giorno successivo.
 
 
-### Usare il portale di anteprima di Azure per risolvere l'errore
+### Usare il portale di Azure per risolvere l'errore
 
-1.	Accedere al [portale di anteprima di Azure][azure-preview-portal]. 
+1.	Accedere al [Portale di Azure][azure-portal]. 
 2.	Fare clic su **ADFTutorialDataFactory** da **Schermata iniziale**. Se il collegamento a Data factory non è visualizzato in **Schermata iniziale**, fare clic sull'hub **SFOGLIA**, quindi scegliere **Tutto**. Fare clic su **Istanze di Data factory** nel pannello **Sfoglia**, quindi fare clic su **ADFTutorialDataFactory**.
 3.	Si noti la visualizzazione della dicitura **Con errori** nel riquadro **Set di dati**. Fare clic su **Con errori**. Viene visualizzato il pannello **Set di dati con errori**.
 
@@ -267,10 +267,10 @@ Per risolvere il problema, creare la tabella **emp** usando lo script SQL nell'a
  
 
 ## <a name="pighivewalkthrough"></a> Procedura dettagliata: Risoluzione dei problemi relativi a errori dei processi Hive/Pig
-Questa procedura dettagliata illustra come risolvere un errore con i processi Hive/Pig usando il portale di anteprima di Azure e Azure PowerShell.
+Questa procedura dettagliata illustra come risolvere un errore con i processi Hive/Pig usando il portale di Azure e Azure PowerShell.
 
 
-### Procedura dettagliata: Usare il portale di Azure per risolvere un errore di un processo Pig o Hive
+### Procedura dettagliata: usare il portale di Azure classico per risolvere un errore di un processo Pig o Hive
 In questo scenario, il set di dati è in stato di errore a causa di un errore nell'elaborazione dell'Hive in un cluster HDInsight.
 
 1. Fare clic su **Con errori** nel riquadro **Set di dati** della home page **DATA FACTORY**.
@@ -359,7 +359,7 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [image-data-factory-troubleshoot-with-error-link]: ./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png
 
@@ -382,4 +382,4 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

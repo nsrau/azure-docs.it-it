@@ -733,14 +733,14 @@ PERCENTILE\_DISC non esegue l'interpolazione dei valori, quindi il valore median
 ## Vedere anche
 
 - [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Introduzione ad Analisi Data Lake tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md)
-- [Introduzione ad Analisi Data Lake con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+- [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
+- [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Usare le esercitazioni interattive di Analisi Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
 - [Analizzare i log dei siti Web con Analisi Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
-- [Introduzione al linguaggio U-SQL di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-- [Gestire Analisi Azure Data Lake tramite il portale di anteprima di Azure](data-lake-analytics-use-portal.md)
-- [Gestire Analisi Azure Data Lake con Azure PowerShell](data-lake-analytics-use-powershell.md)
-- [Monitorare e risolvere i problemi dei processi di Analisi Azure Data Lake tramite il portale di anteprima di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
+- [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-use-portal.md)
+- [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

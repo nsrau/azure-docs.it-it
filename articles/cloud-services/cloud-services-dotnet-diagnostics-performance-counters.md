@@ -23,7 +23,7 @@ I contatori delle prestazioni disponibili per Windows Server, IIS e ASP.NET poss
 
 È possibile esaminare i dati dei contatori delle prestazioni 1. Direttamente nell'host applicazione con lo strumento Performance Monitor accessibile da Desktop remoto 2. Con System Center Operations Manager con Azure Management Pack 3. Con altri strumenti di monitoraggio che accedono ai dati di diagnostica trasferiti ad Archiviazione di Azure. Per altre informazioni, vedere [Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx).
 
-Per altre informazioni sul monitoraggio delle prestazioni dell'applicazione nel [portale di gestione di Azure](http://manage.azure.com/), vedere [Come monitorare i servizi cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+Per altre informazioni sul monitoraggio delle prestazioni dell'applicazione nel [portale di Azure classico](http://manage.azure.com/), vedere [Come monitorare i servizi cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
 Per ulteriori indicazioni dettagliate sulla creazione di una strategia di registrazione e traccia e sull'utilizzo della diagnostica e di altre tecniche per risolvere i problemi e ottimizzare le applicazioni Azure, vedere le [procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure](https://msdn.microsoft.com/library/azure/hh771389.aspx).
 
@@ -83,7 +83,7 @@ Questa sezione presuppone che il monitor di diagnostica sia stato importato nell
 
 ## Passaggio 1: Raccogliere e archiviare i dati dei contatori delle prestazioni
 
-Dopo avere aggiunto il file della diagnostica alla soluzione Visual Studio è possibile configurare la raccolta e l'archiviazione dei dati dei contatori delle prestazioni in un'applicazione Azure. Questa operazione viene eseguita tramite l'aggiunta di contatori delle prestazioni nel file della diagnostica. I dati di diagnostica, inclusi i dati dei contatori delle prestazioni, vengono innanzitutto raccolti nell'istanza e quindi salvati in modo permanente nella tabella WADPerformanceCountersTable del servizio tabelle di Azure, pertanto è necessario specificare l'account di archiviazione nell'applicazione. Se si esegue il test dell'applicazione in locale nell'emulatore di calcolo, è anche possibile archiviare i dati di diagnostica in locale nell'emulatore di archiviazione. Prima di archiviare i dati di diagnostica è necessario passare al [Portale di gestione di Azure](http://manage.windowsazure.com/) e creare un account di archiviazione. È consigliabile creare l'account di archiviazione nella stessa area geografica in cui si trova l'applicazione Azure per evitare di sostenere costi di larghezza di banda esterna e ridurre la latenza.
+Dopo avere aggiunto il file della diagnostica alla soluzione Visual Studio è possibile configurare la raccolta e l'archiviazione dei dati dei contatori delle prestazioni in un'applicazione Azure. Questa operazione viene eseguita tramite l'aggiunta di contatori delle prestazioni nel file della diagnostica. I dati di diagnostica, inclusi i dati dei contatori delle prestazioni, vengono innanzitutto raccolti nell'istanza e quindi salvati in modo permanente nella tabella WADPerformanceCountersTable del servizio tabelle di Azure, pertanto è necessario specificare l'account di archiviazione nell'applicazione. Se si esegue il test dell'applicazione in locale nell'emulatore di calcolo, è anche possibile archiviare i dati di diagnostica in locale nell'emulatore di archiviazione. Prima di archiviare i dati di diagnostica è necessario passare al [Portale di Azure classico](http://manage.windowsazure.com/) e creare un account di archiviazione. È consigliabile creare l'account di archiviazione nella stessa area geografica in cui si trova l'applicazione Azure per evitare di sostenere costi di larghezza di banda esterna e ridurre la latenza.
 
 ### Aggiungere i contatori delle prestazioni nel file della diagnostica
 
@@ -136,7 +136,7 @@ Per Azure SDK 2.5 l'account di archiviazione può essere specificato nel file di
 
 Per impostare le stringhe di connessione:
 
-1. Aprire il file ServiceConfiguration.Cloud.cscfg usando l'editor di testo preferito e impostare la stringa di connessione per l'account di archiviazione. I valori *AccountName* e *AccountKey* sono disponibili nel dashboard dell'account di archiviazione sul portale di gestione, in Gestisci chiavi.
+1. Aprire il file ServiceConfiguration.Cloud.cscfg usando l'editor di testo preferito e impostare la stringa di connessione per l'account di archiviazione. I valori *AccountName* e *AccountKey* sono disponibili nel dashboard dell'account di archiviazione sul portale di Azure classico, in Gestisci chiavi.
 
     ```
     <ConfigurationSettings>
@@ -313,4 +313,4 @@ A questo punto, dopo aver appreso le nozioni di base della raccolta dei contator
 
 [Come monitorare i servizi cloud](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

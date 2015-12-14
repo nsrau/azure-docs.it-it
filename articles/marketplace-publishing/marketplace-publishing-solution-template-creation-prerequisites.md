@@ -22,10 +22,10 @@ Leggere attentamente le informazioni sul processo prima di iniziare e comprender
 ## Sviluppo di blocchi predefiniti
 È necessario decidere cosa fare con i blocchi predefiniti della soluzione prima di procedere con il modello di soluzione nel portale di pubblicazione. Di seguito sono riportati alcuni collegamenti ai documenti che aiutano nel processo:
 
-1. [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](https://azure.microsoft.com/it-IT/documentation/articles/best-practices-resource-manager-design-templates/)
-2. [Creazione di modelli di Gestione risorse di Azure](https://azure.microsoft.com/it-IT/documentation/articles/resource-group-authoring-templates/)
+1. [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](../best-practices-resource-manager-design-templates.md)
+2. [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
 3. Modelli di Guida introduttiva di Azure:
-  - [https://azure.microsoft.com/it-IT/documentation/templates/](https://azure.microsoft.com/it-IT/documentation/templates/)
+  - [https://azure.microsoft.com/it-IT/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Passaggi successivi
@@ -34,4 +34,4 @@ Dopo avere esaminato i prerequisiti e completato le attività necessarie, è pos
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 
 
-1. Accedere al portale di gestione di Azure, fare clic su **Servizi mobili** e quindi selezionare il servizio mobile.
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/), fare clic su **Servizi mobili** e quindi selezionare il servizio mobile.
 
 2. Fare clic sulla scheda **API** e quindi su **Crea**. Verrà visualizzata la finestra di dialogo **Crea nuova API personalizzata**.
 
@@ -35,4 +35,4 @@
 <!-- URLs. -->
 [mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

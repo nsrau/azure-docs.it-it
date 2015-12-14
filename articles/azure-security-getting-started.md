@@ -45,15 +45,15 @@ Alcune delle altre funzionalità di gestione delle identità e dell'accesso incl
 
 -   Azure AD abilita [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) nelle applicazioni SaaS, indipendentemente da dove vengono ospitate. Alcune applicazioni sono federate con Azure AD e altre usano SSO basato su password. Le applicazioni federate possono anche supportare il provisioning utenti e l'insieme di credenziali delle password.
 
--   L'accesso ai dati in [Archiviazione di Azure](https://azure.microsoft.com/it-IT/services/storage/) è controllato dall'autenticazione. Ogni account di archiviazione ha una chiave primaria ([chiave dell'account di archiviazione](https://msdn.microsoft.com/library/azure/ee460785.aspx)) e una chiave privata secondaria ([firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)).
+-   L'accesso ai dati in [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) è controllato dall'autenticazione. Ogni account di archiviazione ha una chiave primaria ([chiave dell'account di archiviazione](https://msdn.microsoft.com/library/azure/ee460785.aspx)) e una chiave privata secondaria ([firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)).
 
 -   Azure AD fornisce l'identità come servizio tramite la federazione (con [Active Directory Federation Services](fundamentals-identity.md)), la sincronizzazione e la replica con le directory locali.
 
 -   [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication.md) è il servizio di autenticazione a più fattori che richiede agli utenti l'ulteriore verifica dell'accesso tramite un'app per dispositivi mobili, una chiamata telefonica o un SMS. È disponibile per l'uso con Azure AD per la protezione delle risorse locali con il server Azure MFA e con applicazioni e directory personalizzate che usano l'SDK.
 
--   [Servizi di dominio Azure AD](https://azure.microsoft.com/it-IT/services/active-directory-ds/) consente di aggiungere le macchine virtuali di Azure a un dominio senza bisogno di distribuire controller di dominio. Gli utenti possono accedere a queste macchine virtuali con le credenziali di Active Directory aziendali e amministrare le macchine virtuali aggiunte a un dominio con Criteri di gruppo per applicare le baseline della sicurezza in tutte le macchine virtuali di Azure.
+-   [Servizi di dominio Azure AD](https://azure.microsoft.com/services/active-directory-ds/) consente di aggiungere le macchine virtuali di Azure a un dominio senza bisogno di distribuire controller di dominio. Gli utenti possono accedere a queste macchine virtuali con le credenziali di Active Directory aziendali e amministrare le macchine virtuali aggiunte a un dominio con Criteri di gruppo per applicare le baseline della sicurezza in tutte le macchine virtuali di Azure.
 
--   [Azure Active Directory B2C](https://azure.microsoft.com/it-IT/services/active-directory-b2c/) offre un servizio di gestione delle identità globale a disponibilità elevata per le applicazioni rivolte agli utenti, adattabile a centinaia di milioni di identità. Il servizio può essere integrato tra piattaforme mobili e Web. Gli utenti possono accedere a tutte le applicazioni attraverso esperienze personalizzabili usando gli account dei propri social network esistenti o creando nuove credenziali.
+-   [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) offre un servizio di gestione delle identità globale a disponibilità elevata per le applicazioni rivolte agli utenti, adattabile a centinaia di milioni di identità. Il servizio può essere integrato tra piattaforme mobili e Web. Gli utenti possono accedere a tutte le applicazioni attraverso esperienze personalizzabili usando gli account dei propri social network esistenti o creando nuove credenziali.
 
 ##Controllo di accesso ai dati e crittografia
 
@@ -107,7 +107,7 @@ In questo caso sono previste due categorie di regole:
 
 Garantire la separazione per impedire il trasferimento non autorizzato e non intenzionale di informazioni tra le distribuzioni in un'architettura multi-tenant condivisa è un altro importante requisito di sicurezza del cloud.
 
-Azure implementa il [controllo di accesso alla rete](https://azure.microsoft.com/it-IT/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/) e la separazione tramite l'isolamento VLAN, gli ACL, i servizi di bilanciamento del carico e i filtri IP. Il traffico esterno in ingresso verso le macchine virtuali è limitato alle porte e ai protocolli definiti. L'applicazione di filtri alla rete viene implementata per impedire il traffico falsificato e limita il traffico in ingresso e in uscita ai componenti attendibili della piattaforma. Nei dispositivi di protezione perimetrale vengono implementati criteri di flusso che rifiutano il traffico per impostazione predefinita.
+Azure implementa il [controllo di accesso alla rete](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/) e la separazione tramite l'isolamento VLAN, gli ACL, i servizi di bilanciamento del carico e i filtri IP. Il traffico esterno in ingresso verso le macchine virtuali è limitato alle porte e ai protocolli definiti. L'applicazione di filtri alla rete viene implementata per impedire il traffico falsificato e limita il traffico in ingresso e in uscita ai componenti attendibili della piattaforma. Nei dispositivi di protezione perimetrale vengono implementati criteri di flusso che rifiutano il traffico per impostazione predefinita.
 
 ![Microsoft Antimalware in Azure](./media/azure-security-getting-started\sec-azgsfig3.PNG)
 
@@ -133,7 +133,7 @@ Le [reti distribuite e virtuali](http://download.microsoft.com/download/4/3/9/43
 
 La sottoscrizione può contenere più reti private isolate (e includere un firewall, il bilanciamento del carico e Network Address Translation).
 
-Azure offre tre livelli principali di separazione delle reti in ogni cluster di Azure per separare il traffico in modo logico. Le [reti locali virtuali](https://azure.microsoft.com/it-IT/services/virtual-network/) (VLAN) vengono usate per separare il traffico dei clienti dal resto della rete di Azure. L'accesso alle rete di Azure dall'esterno del cluster è limitato dai servizi di bilanciamento del carico.
+Azure offre tre livelli principali di separazione delle reti in ogni cluster di Azure per separare il traffico in modo logico. Le [reti locali virtuali](https://azure.microsoft.com/services/virtual-network/) (VLAN) vengono usate per separare il traffico dei clienti dal resto della rete di Azure. L'accesso alle rete di Azure dall'esterno del cluster è limitato dai servizi di bilanciamento del carico.
 
 Il traffico di rete verso e dalle VM deve passare attraverso il commutatore virtuale dell'hypervisor. Il componente del filtro IP nel sistema operativo radice isola la VM radice dalle VM guest e le VM guest l'una dall'altra. Applica filtri al traffico per limitare la comunicazione tra i nodi del tenant e Internet pubblico (in base alla configurazione del servizio del cliente), separandoli dagli altri tenant.
 
@@ -147,7 +147,7 @@ Il filtro IP impedisce alle VM guest di:
 
 - Inviare o ricevere traffico broadcast non appropriato
 
-È possibile inserire le macchine virtuali nelle [reti virtuali di Azure](https://azure.microsoft.com/it-IT/documentation/services/virtual-network/). Queste reti virtuali sono simili alle reti configurate negli ambienti locali, dove vengono in genere associate a un commutatore virtuale. Le macchine virtuali connesse alla stessa rete virtuale di Azure possono comunicare tra loro senza alcuna configurazione aggiuntiva. È anche possibile configurare subnet diverse nella rete virtuale di Azure.
+È possibile inserire le macchine virtuali nelle [reti virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-network/). Queste reti virtuali sono simili alle reti configurate negli ambienti locali, dove vengono in genere associate a un commutatore virtuale. Le macchine virtuali connesse alla stessa rete virtuale di Azure possono comunicare tra loro senza alcuna configurazione aggiuntiva. È anche possibile configurare subnet diverse nella rete virtuale di Azure.
 
 Per proteggere le comunicazioni sulla rete virtuale di Azure, è possibile usare le tecnologie di Rete virtuale di Azure seguenti:
 
@@ -161,7 +161,7 @@ Per proteggere le comunicazioni sulla rete virtuale di Azure, è possibile usare
 
 -   [ACL **endpoint**](virtual-machines-set-up-endpoints.md). È possibile controllare a quali computer sono consentite le connessioni in ingresso da Internet a una macchina virtuale nella rete virtuale di Azure definendo gli ACL endpoint.
 
--   [**Soluzioni di sicurezza di rete per i partner**](https://azure.microsoft.com/it-IT/marketplace/). Sono disponibili numerose soluzioni di sicurezza di rete per i partner accessibili da Azure Marketplace.
+-   [**Soluzioni di sicurezza di rete per i partner**](https://azure.microsoft.com/marketplace/). Sono disponibili numerose soluzioni di sicurezza di rete per i partner accessibili da Azure Marketplace.
 
 ### Come Azure implementa le reti virtuali e il firewall
 
@@ -183,13 +183,13 @@ Se Azure sposta i dati di un cliente durante le normali operazioni o durante un'
 
 Per i dati archiviati nel cloud devono essere abilitate misure di sicurezza sufficienti per impedire gli exploit e garantire la riservatezza e l'integrità durante il transito. Queste misure includono controlli di rete associati ai meccanismi di gestione delle identità e dell'accesso controllabile e basata su criteri di un'organizzazione.
 
-La tecnologia di crittografia predefinita consente di crittografare le comunicazioni all'interno e tra distribuzioni, tra aree di Azure e da Azure ai data center locali. L'accesso di amministratore alle macchine virtuali con [sessioni Desktop remoto](virtual-machines-log-on-windows-server.md), [Windows PowerShell remoto](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) e il [portale di gestione di Azure](https://azure.microsoft.com/it-IT/overview/preview-portal/) è sempre crittografato.
+La tecnologia di crittografia predefinita consente di crittografare le comunicazioni all'interno e tra distribuzioni, tra aree di Azure e da Azure ai data center locali. L'accesso di amministratore alle macchine virtuali con [sessioni Desktop remoto](virtual-machines-log-on-windows-server.md), [Windows PowerShell remoto](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) e il [portale di gestione di Azure](https://azure.microsoft.com/overview/preview-portal/) è sempre crittografato.
 
 Per estendere in modo sicuro il data center locale al cloud, Azure fornisce sia [VPN da sito a sito](vpn-gateway-create-site-to-site-rm-powershell.md) che [VPN da punto a sito](vpn-gateway-point-to-site-create.md), oltre a collegamenti dedicati con [ExpressRoute](expressroute-introduction.md) (le connessioni alle reti virtuali di Azure su VPN vengono crittografate).
 
 ### Come Azure implementa l'accesso remoto sicuro
 
-Le connessioni al portale di Azure devono essere sempre autenticate e richiedono SSL/TLS. È possibile configurare certificati di gestione per abilitare la gestione sicura. I protocolli sicuri standard del settore, ad esempio [SSTP](https://technet.microsoft.com/it-IT/magazine/2007.06.cableguy.aspx) e [IPsec](https://en.wikipedia.org/wiki/IPsec) sono completamente supportati.
+Le connessioni al portale di Azure devono essere sempre autenticate e richiedono SSL/TLS. È possibile configurare certificati di gestione per abilitare la gestione sicura. I protocolli sicuri standard del settore, ad esempio [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) e [IPsec](https://en.wikipedia.org/wiki/IPsec) sono completamente supportati.
 
 [Azure ExpressRoute](expressroute-introduction.md) permette di creare connessioni private tra i data center di Azure e l'infrastruttura disponibile localmente o in un ambiente con percorso condiviso. Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. Offrono più affidabilità, maggiore velocità, latenze più basse e maggiore sicurezza dei normali collegamenti basati su Internet. In alcuni casi, l'uso di connessioni ExpressRoute per trasferire dati tra dispositivi locali e Azure può produrre vantaggi significativi in termini di costi.
 
@@ -233,7 +233,7 @@ Azure usa controlli di sicurezza per implementare la prevenzione delle minacce e
 
 ##Passaggi successivi
 
-[Centro protezione Azure](https://azure.microsoft.com/it-IT/support/trust-center/)
+[Centro protezione Azure](https://azure.microsoft.com/support/trust-center/)
 
 [Blog del team di sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/)
 
@@ -241,4 +241,4 @@ Azure usa controlli di sicurezza per implementare la prevenzione delle minacce e
 
 [Blog di Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

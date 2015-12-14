@@ -102,6 +102,12 @@ Nell'esempio seguente viene illustrato come usare un URL di base per creare due 
         }
     }
 
+È inoltre possibile utilizzare [distribuzione ()](resource-group-template-functions.md/#deployment) per ottenere l'URL di base per il modello corrente e utilizzarlo per ottenere l'URL per i modelli nello stesso percorso. Ciò è utile se il percorso del modello cambia (forse a causa del controllo delle versioni) o si desidera evitare la codifica URL nel file del modello.
+
+    "variables": {
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+    }
+
 ## Passaggio di valori da un modello collegato
 
 Se è necessario passare un valore dal modello collegato al modello principale, è possibile creare un valore nella sezione **outputs** del modello collegato. Per un esempio vedere[Condivisione dello stato in modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md).
@@ -110,4 +116,4 @@ Se è necessario passare un valore dal modello collegato al modello principale, 
 - [Creazione di modelli](./resource-group-authoring-templates.md)
 - [Distribuzione di modelli](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

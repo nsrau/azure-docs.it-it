@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Come monitorare un servizio cloud | Microsoft Azure" 
-	description="Informazioni su come monitorare i servizi cloud usando il portale di gestione di Azure." 
+	description="Informazioni su come monitorare i servizi cloud usando il portale di Azure classico." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="rboucher" 
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [dichiarazione di non responsabilità](../../includes/disclaimer.md)]
 
-È possibile monitorare le metriche delle prestazioni chiave per i servizi cloud nel portale di gestione di Azure. È possibile impostare il livello di monitoraggio da minimo a dettagliato per ogni ruolo del servizio e personalizzare le schermate di monitoraggio. I dati di monitoraggio dettagliati vengono memorizzati in un account di archiviazione, a cui è possibile accedere fuori dal portale.
+È possibile monitorare le metriche delle prestazioni chiave per i servizi cloud nel portale di Azure classico. È possibile impostare il livello di monitoraggio da minimo a dettagliato per ogni ruolo del servizio e personalizzare le schermate di monitoraggio. I dati di monitoraggio dettagliati vengono memorizzati in un account di archiviazione, a cui è possibile accedere fuori dal portale.
 
-Le schermate di monitoraggio nel portale di gestione sono altamente configurabili. È possibile scegliere le metriche che si desidera monitorare dall'elenco delle metriche nella pagina **Monitor** e le metriche da riportare nei relativi grafici nella pagina **Monitor** e nel dashboard.
+Le schermate di monitoraggio nel portale di Azure classico sono altamente configurabili. È possibile scegliere le metriche che si desidera monitorare dall'elenco delle metriche nella pagina **Monitor** e le metriche da riportare nei relativi grafici nella pagina **Monitor** e nel dashboard.
 
 ##Concetti##
 
@@ -38,7 +38,7 @@ Si noti che l'abilitazione del monitoraggio dettagliato comporta un aumento dei 
 
 ##Procedura: Configurare il monitoraggio per i servizi cloud##
 
-Attenersi alle procedure seguenti per configurare il monitoraggio dettagliato o minimo nel portale di gestione.
+Attenersi alle procedure seguenti per configurare il monitoraggio dettagliato o minimo nel portale di Azure classico.
 
 ###Prima di iniziare###
 
@@ -62,25 +62,25 @@ Assicurarsi che la stringa di connessione della diagnostica sia presente nella c
 
 ###Per cambiare il livello di monitoraggio a dettagliato o minimo###
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) aprire la pagina di **configurazione** per la distribuzione del servizio cloud.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) aprire la pagina di **Configurazione** per la distribuzione del servizio cloud.
 
 2. In **Level** fare clic su **Verbose** o **Minimal**.
 
 3. Fare clic su **Save**.
 
-Dopo avere abilitato il monitoraggio dettagliato, è consigliabile visualizzare i primi dati di monitoraggio nel portale di gestione entro un'ora.
+Dopo avere abilitato il monitoraggio dettagliato, è consigliabile visualizzare i primi dati di monitoraggio nel portale di Azure classico entro un'ora.
 
 I dati non elaborati del contatore di prestazioni e i dati aggregati di monitoraggio sono archiviati nell'account di archiviazione in tabelle contraddistinte dall'ID di distribuzione per i ruoli.
 
 ##Procedura: Ricevere avvisi per le metriche dei servizi cloud##
 
-È possibile ricevere avvisi basati sulle metriche di monitoraggio del servizio cloud. Nella pagina **Management Services** del portale di gestione di Azure è possibile creare una regola per attivare un avviso quando la metrica scelta raggiunge il valore specificato. È inoltre possibile impostare l'invio di un messaggio di posta elettronica all'attivazione dell'avviso. Per altre informazioni, vedere [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+È possibile ricevere avvisi basati sulle metriche di monitoraggio del servizio cloud. Nella pagina **Servizi di gestione** del portale di Azure classico è possibile creare una regola per attivare un avviso quando la metrica scelta raggiunge il valore specificato. È inoltre possibile impostare l'invio di un messaggio di posta elettronica all'attivazione dell'avviso. Per altre informazioni, vedere [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 ##Procedura: Aggiungere metriche alla relativa tabella##
 
-1. Nel [portale di gestione](http://manage.windowsazure.com/) aprire la pagina **Monitor** per il servizio cloud.
+1. Nel [portale di Azure classico](http://manage.windowsazure.com/) aprire la pagina **Monitoraggio** per il servizio cloud.
 
-	Per impostazione predefinita, la tabella delle metriche riporta un subset delle metriche disponibili. Nell'illustrazione sono visualizzate le metriche dettagliate predefinite per un servizio cloud, limitate al contatore di prestazioni Memoria/MB disponibili, con dati aggregati a livello di ruolo. Utilizzare **Add Metrics** per selezionare altre metriche aggregate e a livello di ruolo da monitorare nel portale di gestione.
+	Per impostazione predefinita, la tabella delle metriche riporta un subset delle metriche disponibili. Nell'illustrazione sono visualizzate le metriche dettagliate predefinite per un servizio cloud, limitate al contatore di prestazioni Memoria/MB disponibili, con dati aggregati a livello di ruolo. Utilizzare **Aggiungi Metriche** per selezionare altre metriche aggregate e a livello di ruolo da monitorare nel portale di Azure classico.
 
 	![Visualizzazione dettagliata](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
  
@@ -133,7 +133,7 @@ Per visualizzare i contatori delle prestazioni personalizzati nel portale è nec
 	</PerformanceCounterConfiguration>
 	```
 4. Salvare le modifiche e caricare il file di configurazione nuovamente nello stesso percorso sovrascrivendo il file esistente nel BLOB.
-5. Passare alla modalità dettagliata nella configurazione del portale di gestione. Se si è già in modalità dettagliata è necessario attivare la modalità minima e tornare alla modalità dettagliata.
+5. Passare alla modalità dettagliata nella configurazione del portale di Azure classico. Se si è già in modalità dettagliata è necessario attivare la modalità minima e tornare alla modalità dettagliata.
 6. Il contatore delle prestazioni personalizzato sarà ora disponibile nella finestra di dialogo **Aggiungi metriche**. 
 
 ##Procedura: Personalizzare il grafico delle metriche##
@@ -159,7 +159,7 @@ Per visualizzare i contatori delle prestazioni personalizzati nel portale è nec
 
 2. Aggiungere o rimuovere le metriche dal grafico:
 
-	- Per riportare una nuova metrica, selezionare la casella di controllo corrispondente nelle intestazioni del grafico. Su uno schermo stretto, fare clic sulla freccia giù accanto a ***n*??metrics** per tracciare sul grafico una metrica non visualizzata nell'area delle intestazioni del grafico.
+	- Per riportare una nuova metrica, selezionare la casella di controllo corrispondente nelle intestazioni del grafico. Su uno schermo stretto, fare clic sulla freccia giù accanto a ***n*??metriche** per tracciare sul grafico una metrica non visualizzata nell'area delle intestazioni del grafico.
 
 	- Per eliminare una metrica tracciata sul grafico, deselezionare la casella di controllo accanto all'intestazione.
 
@@ -167,7 +167,7 @@ Per visualizzare i contatori delle prestazioni personalizzati nel portale è nec
 
 4. Scegliere se visualizzare dati relativi a 1 ora, 24 ore o 7 giorni.
 
-##Procedura: Accedere ai dati di monitoraggio dettagliati all'esterno del portale di gestione##
+##Procedura: accedere ai dati di monitoraggio dettagliati all'esterno del portale di Azure classico##
 
 I dati di monitoraggio dettagliati sono archiviati in tabelle negli account di archiviazione specificati per ogni ruolo. Per ogni distribuzione del servizio cloud, vengono create sei tabelle per il ruolo. Vengono create due tabelle per ogni intervallo di tempo (5 minuti, 1 ora e 12 ore). Una di queste tabelle archivia aggregazioni a livello di ruolo, mentre l'altra archivia le aggregazioni per le istanze del ruolo.
 
@@ -192,4 +192,4 @@ Ad esempio, nelle seguenti tabelle sarebbero archiviati dati di monitoraggio det
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

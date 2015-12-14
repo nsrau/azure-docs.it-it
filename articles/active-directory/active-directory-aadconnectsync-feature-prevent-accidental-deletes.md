@@ -16,7 +16,7 @@
    ms.date="10/20/2015"
    ms.author="andkjell"/>
 
-# Impedire eliminazioni accidentali
+# Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
 In questo argomento viene descritta la funzionalità relativa alla prevenzione delle eliminazioni accidentali (impedire eliminazioni accidentali) in AD Connect di Azure.
 
 Durante l'installazione di Azure AD Connect verrà attivata per impostazione predefinita la funzionalità per evitare le eliminazioni accidentali e verrà configurata in modo da non consentire un'esportazione con più di 500 eliminazioni. Questa funzionalità è progettata per la protezione da modifiche accidentali della configurazione e da modifiche alla directory locale che potrebbero riguardare un numero elevato di utenti.
@@ -48,4 +48,4 @@ Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Conn
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

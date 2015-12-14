@@ -14,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/>
 
 # Informazioni sugli output di analisi di flusso
 
 Quando si crea un processo di analisi di flusso, una considerazione da fare riguarda l'utilizzo dell'output del processo. In che modo i consumer della trasformazione dei dati visualizzeranno i risultati del processo di analisi di flusso? Quali strumenti useranno per analizzare l'output? La conservazione dei dati o il data warehouse è un requisito?
 
-Per poter abilitare un'ampia gamma di modelli dell'applicazione, l'analisi di flusso di Azure offre sette metodi diversi per archiviare e visualizzare gli output del processo. Database SQL, archivio BLOB, Hub eventi, code del bus di servizio, argomenti del bus di servizio, Power BI e archivio tabelle sono tutti output supportati. In questo modo è possibile visualizzare facilmente l'output del processo e si ottiene flessibilità nell'utilizzo e nell'archiviazione dell'output del processo per il data warehouse e altri scopi.
+Per poter abilitare un'ampia gamma di modelli dell'applicazione, l'analisi di flusso di Azure offre diversi metodi diversi per archiviare e visualizzare gli output del processo. In questo modo è possibile sia visualizzare facilmente l'output del processo e sia ottenere flessibilità nell'utilizzo e nell'archiviazione dell'output del processo per il data warehouse e altri scopi. Qualsiasi elemento output configurato nel processo, deve esistere prima che il processo venga avviato e gli eventi avviino il flusso. Ad esempio, se si utilizza l'archiviazione Blob come output, il processo non creerà un account di archiviazione automaticamente. Deve essere creato dall'utente prima che venga avviato il processo ASA.
 
 
 ## Database SQL ##
@@ -118,11 +118,11 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 
 [Power BI](https://powerbi.microsoft.com/) può essere usato come output per un processo di analisi di flusso per offrire agli utenti dell'analisi di flusso un'esperienza di visualizzazione avanzata. Questa funzionalità può essere utilizzata per i dashboard operativi, la generazione di report e la creazione di report basati sulle metriche.
 
-> [AZURE.NOTE]A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di anteprima di Azure.
+> [AZURE.NOTE]A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di Azure.
 
 ### Autorizzare un account Power BI
 
-1.	Quando Power BI è selezionato come output nel portale di gestione di Azure, verrà richiesto di autorizzare un utente di Power BI esistente oppure di creare un nuovo account di Power BI.  
+1.	Quando Power BI è selezionato come output nel portale di Azure classico, verrà richiesto di autorizzare un utente di Power BI esistente oppure di creare un nuovo account di Power BI.  
 
     ![Autorizzare l'utente di Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -267,4 +267,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="11/30/2015" 
 	ms.author="genemi"/>
 
 
@@ -54,7 +54,7 @@ L'elenco dei numeri di errore classificati come guasti temporanei è disponibile
 ## Esempio di codice C#
 
 
-L'esempio di codice C# nel presente argomento contiene la logica di ripetizione tentativi e il rilevamento personalizzato per gestire gli errori temporanei.
+L'esempio di codice C# nel presente argomento contiene la logica di ripetizione tentativi e il rilevamento personalizzato per gestire gli errori temporanei. Nell'esempio si presuppone che sia installato .NET Framework 4.5.1 o versione successiva.
 
 
 L'esempio di codice segue alcune linee guida di base o indicazioni che si applicano indipendentemente dalla tecnologia utilizzata per interagire con Database SQL di Azure. È possibile visualizzare le indicazioni generali in:
@@ -131,8 +131,6 @@ namespace RetryAdo2
 			int retryIntervalSeconds = 10;
 			bool returnBool = false;
 
-			Program program = new Program();
-
 			for (int tries = 1; tries <= 5; tries++)
 			{
 				try
@@ -142,8 +140,7 @@ namespace RetryAdo2
 						H.Thread.Sleep(1000 * retryIntervalSeconds);
 						retryIntervalSeconds = Convert.ToInt32(retryIntervalSeconds * 1.5);
 					}
-
-					program.GetSqlConnectionStringBuilder(out sqlConnectionSB);
+					this.GetSqlConnectionStringBuilder(out sqlConnectionSB);
 
 					sqlConnection = new C.SqlConnection(sqlConnectionSB.ToString());
 
@@ -193,6 +190,10 @@ SELECT TOP 3
 			_sqlConnectionSB["User ID"] = "MyLogin";  // "@yourservername"  as suffix sometimes.
 			_sqlConnectionSB["Password"] = "MyPassword";
 			_sqlConnectionSB["Database"] = "MyDatabase";
+
+			// Adjust these values if you like. (.NET 4.5.1 or later.)
+			_sqlConnectionSB["ConnectRetryCount"] = 3;
+			_sqlConnectionSB["ConnectRetryInterval"] = 10;  // Seconds.
 
 			// Leave these values as they are.
 			_sqlConnectionSB["Trusted_Connection"] = false;
@@ -281,4 +282,4 @@ Eseguirebbe il programma con il parametro "test" e verificherebbe che ha dapprim
 
 - [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

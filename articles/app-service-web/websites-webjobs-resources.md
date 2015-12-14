@@ -54,7 +54,7 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 ##<a name="deploy"></a>Distribuzione di Processi Web
 
 * [Come distribuire Processi Web di Azure mediante Visual Studio](websites-dotnet-deploy-webjobs.md)
-* [Come distribuire Processi Web mediante il portale di gestione di Azure](web-sites-create-web-jobs.md)
+* [Come distribuire Processi Web mediante il portale di Azure](web-sites-create-web-jobs.md)
 * [Abilitazione della distribuzione da riga di comando o continua di processi Web di Azure](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Distribuzione tramite Git di un'app per console .NET in Azure mediante Processi Web](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Distribuzione di un processo Web F# in Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
@@ -66,7 +66,7 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 ##<a name="schedule"></a>Pianificazione di Processi Web
 
 * [Finestra di dialogo Aggiungi processo Web Azure](websites-dotnet-deploy-webjobs.md#configure)
-* [Creare un processo Web pianificato nel portale di gestione di Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Creare un processo Web pianificato nel portale di Azure](web-sites-create-web-jobs.md#CreateScheduled)
 * [Associazione di un processo Web a un processo di pianificazione](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Pianificazione dei processi Web di Azure con espressioni cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
@@ -142,4 +142,4 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

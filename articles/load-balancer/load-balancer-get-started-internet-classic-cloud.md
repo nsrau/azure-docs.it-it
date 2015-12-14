@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/30/2015"
    ms.author="joaoma" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet per i servizi cloud
@@ -27,6 +27,8 @@
 
 I servizi cloud vengono configurati automaticamente con il servizio di bilanciamento del carico e possono essere personalizzati tramite il modello del servizio.
 
+## Creare un bilanciamento del carico tramite il file di definizione del servizio
+ 
 È possibile usare Azure SDK per .NET 2.5 per aggiornare il servizio cloud. Le impostazioni degli endpoint per i servizi cloud vengono effettuate nel file di [definizione del servizio](https://msdn.microsoft.com/library/azure/gg557553.aspx), con estensione .csdef.
 
 L'esempio seguente mostra la configurazione di un file servicedefinition.csdef per una distribuzione cloud:
@@ -56,7 +58,7 @@ Analizzando il frammento di codice per il file con estensione csdef generato da 
 
 
 
-### Controllo dello stato di integrità del servizio di bilanciamento del carico per i servizi cloud
+## Controllo dello stato di integrità del servizio di bilanciamento del carico per i servizi cloud
 
 
 Di seguito è riportato un esempio di probe di integrità:
@@ -81,4 +83,4 @@ Per altre informazioni, fare riferimento allo schema di definizione del servizio
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

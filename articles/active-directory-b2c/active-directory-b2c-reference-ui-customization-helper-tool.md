@@ -60,7 +60,7 @@ Se si desidera usare Archiviazione BLOB di Azure per ospitare il contenuto della
 #### Creare un account di archiviazione
 
 1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
-2. Fare clic su **+ Nuovo** -> **Dati e archiviazione** -> **Account di archiviazione**. Per creare un account di archiviazione BLOB di Azure è necessaria una sottoscrizione di Azure. Fare clic [qui](https://azure.microsoft.com/it-IT/pricing/free-trial/) per usare la versione di valutazione gratuita.
+2. Fare clic su **+ Nuovo** -> **Dati e archiviazione** -> **Account di archiviazione**. Per creare un account di archiviazione BLOB di Azure è necessaria una sottoscrizione di Azure. Fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per usare la versione di valutazione gratuita.
 3. Specificare un valore in **Nome** per l'account di archiviazione, ad esempio "contoso", e selezionare le voci appropriate in **Piano tariffario**, **Gruppo di risorse** e **Sottoscrizione**. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Create**.
 4. Tornare alla schermata iniziale e fare clic sull'account di archiviazione appena creato.
 5. Nella sezione **Riepilogo** fare clic su **Contenitori** e quindi su **+ Aggiungi**.
@@ -90,4 +90,4 @@ Dopo aver caricato il contenuto di esempio nell'account di archiviazione, è nec
         
 È ora possibile usare il pulsante **Esegui adesso** o la propria applicazione per eseguire nuovamente il criterio. Il risultato dovrebbe essere lo stesso, poiché in entrambi i casi sono stati usati gli stessi file HTML e CSS di esempio. I criteri tuttavia fanno ora riferimento alla propria istanza di Archiviazione BLOB di Azure e si è liberi di modificare e caricare di nuovo i file in base alle proprie esigenze. Per altre informazioni sulla personalizzazione dei file HTML e CSS, fare riferimento all'[articolo principale sulla personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

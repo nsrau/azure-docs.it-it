@@ -35,7 +35,7 @@ Le immagini vengono utilizzate in Azure per fornire una nuova macchina virtuale 
 
 ## Utilizzo di immagini
 
-È possibile utilizzare l'interfaccia della riga di comando di Azure (CLI) per modulo Mac, Linux e Windows o Azure PowerShell per gestire le immagini disponibili per la sottoscrizione di Azure. È inoltre possibile utilizzare il portale di Azure per alcune attività di immagine, ma la riga di comando offre ulteriori opzioni.
+È possibile utilizzare l'interfaccia della riga di comando di Azure (CLI) per modulo Mac, Linux e Windows o Azure PowerShell per gestire le immagini disponibili per la sottoscrizione di Azure. È inoltre possibile utilizzare il portale di Azure classico per alcune attività di immagine, ma la riga di comando offre ulteriori opzioni.
 
 Per informazioni sull'utilizzo di questi strumenti con le distribuzioni di gestione delle risorse, vedere [Immagini Navigating e selezione di macchina virtuale di Azure con PowerShell e Azure CLI](resource-groups-vm-searching.md).
 
@@ -59,4 +59,4 @@ Per esempi dell'utilizzo di strumenti in una distribuzione classica:
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

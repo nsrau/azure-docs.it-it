@@ -111,7 +111,7 @@ Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante 
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Poiché queste macchine virtuali sono per un'applicazione intranet, non sono assegnate a un indirizzo IP pubblico o a un'etichetta di nome di dominio DNS ed esposti in Internet. Tuttavia, questo significa anche che non è possibile connettersi a esse dal portale di anteprima di Azure. Il pulsante **Connetti** non è disponibile quando si visualizzano le proprietà della macchina virtuale. Utilizzare l'accessorio connessione Desktop remoto o un altro strumento di Desktop remoto per connettersi alla macchina virtuale utilizzando l’indirizzo IP privato o il nome DNS di intranet.
+> [AZURE.NOTE]Poiché queste macchine virtuali sono per un'applicazione intranet, non sono assegnate a un indirizzo IP pubblico o a un'etichetta di nome di dominio DNS ed esposti in Internet. Tuttavia, questo significa anche che non è possibile connettersi a esse dal portale di Azure. Il pulsante **Connetti** non è disponibile quando si visualizzano le proprietà della macchina virtuale. Utilizzare l'accessorio connessione Desktop remoto o un altro strumento di Desktop remoto per connettersi alla macchina virtuale utilizzando l’indirizzo IP privato o il nome DNS di intranet.
 
 ## Configurare il primo controller di dominio
 
@@ -165,13 +165,13 @@ Verrà chiesto di fornire le credenziali di un account amministratore di dominio
 
 A questo punto, è necessario aggiornare i server DNS per la rete virtuale in modo che Azure assegni alle macchine virtuali gli indirizzi IP dei due nuovi controller di dominio da usare come server DNS. In questa procedura vengono usati i valori della Tabella V (per le impostazioni di rete virtuale) e della Tabella M (per le macchine virtuali).
 
-1.	Nel riquadro sinistro del portale di anteprima di Azure fare clic su **Sfoglia tutto > Reti virtuali**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
+1.	Nel riquadro sinistro del portale di Azure fare clic su **Sfoglia tutto > Reti virtuali**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
 2.	Nel riquadro della rete virtuale fare clic su **Tutte le impostazioni**.
 3.	Nel riquadro **Impostazioni** fare clic su **Server DNS**.
 4.	Nel riquadro **Server DNS** digitare quanto segue:
 	- Per **Server DNS primario**: Tabella V - Elemento 6 - Colonna Valore
 	- Per **Server DNS secondario **: Tabella V - Elemento 7 - Colonna Valore
-5.	Nel riquadro sinistro del portale di anteprima di Azure fare clic su **Sfoglia tutto > Macchine virtuali**.
+5.	Nel riquadro sinistro del portale di Azure fare clic su **Sfoglia tutto > Macchine virtuali**.
 6.	Nel **riquadro Macchine virtuali** fare clic sul nome del primo controller di dominio (Tabella M - Elemento 1 - Colonna Nome macchina virtuale).
 7.	Nel riquadro per la macchina virtuale fare clic su **Riavvia**.
 8.	Dopo aver avviato il primo controller di dominio, fare clic sul nome del secondo controller di dominio nel riquadro **Macchine virtuali** (Tabella M - Elemento 2 - Colonna Nome macchina virtuale).
@@ -210,4 +210,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

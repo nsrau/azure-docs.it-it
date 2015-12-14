@@ -72,12 +72,12 @@ Attualmente, la funzionalità Multi-NIC presenta i requisiti e i vincoli seguent
 |DS11|2|
 |DS12|4|
 |DS13|8|
-|DS14|16|
+|DS14|8|
 |D1\_v2|1|
 |D2\_v2|2|
 |D3\_v2|4|
 |D4\_v2|8|
-|D5\_v2|16|
+|D5\_v2|8|
 |D11\_v2|2|
 |D12\_v2|4|
 |D13\_v2|8|
@@ -265,4 +265,4 @@ Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento pre
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione di Gestione risorse](virtual-network-deploy-multinic-arm-template).
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione classica](virtual-network-deploy-multinic-classic-ps).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

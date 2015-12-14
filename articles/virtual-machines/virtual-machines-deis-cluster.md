@@ -90,9 +90,9 @@ In questa sezione, verrà utilizzato un modello [Gestione risorse di Azure](../r
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
 
-11. Una volta che viene eseguito il provisioning del gruppo di risorse, è possibile visualizzare tutte le risorse nel gruppo sul portale di Azure. Come illustrato nella schermata seguente, il gruppo di risorse contiene una rete virtuale con tre macchine virtuali, che hanno effettuato l’accesso allo stesso set di disponibilità. Il gruppo contiene inoltre un servizio di bilanciamento del carico, che dispone di un IP pubblico associato.
+11. Una volta che viene eseguito il provisioning del gruppo di risorse, è possibile visualizzare tutte le risorse nel gruppo sul portale di Azure classico. Come illustrato nella schermata seguente, il gruppo di risorse contiene una rete virtuale con tre macchine virtuali, che hanno effettuato l’accesso allo stesso set di disponibilità. Il gruppo contiene inoltre un servizio di bilanciamento del carico, che dispone di un IP pubblico associato.
 
-  ![Il gruppo di risorse di cui è stato eseguito il provisioning nel portale di Azure](media/virtual-machines-deis-cluster/resource-group.png)
+  ![Il gruppo di risorse di cui è stato eseguito il provisioning nel portale di Azure classico](media/virtual-machines-deis-cluster/resource-group.png)
 
 ## Installazione del client
 
@@ -113,7 +113,7 @@ Per controllare il cluster Deis, è necessario **deisctl**. Anche se deisctl vie
 
         export DEISCTL_TUNNEL=[public ip of the load balancer]:2223
 
-Il modello definisce le regole NAT in entrata che eseguono il mapping 2223 all’istanza 1, 2224 all’istanza 2 e 2225 all’istanza 3. Ciò fornisce ridondanza per utilizzare lo strumento deisctl. È possibile esaminare queste regole sul portale di Azure:
+Il modello definisce le regole NAT in entrata che eseguono il mapping 2223 all’istanza 1, 2224 all’istanza 2 e 2225 all’istanza 3. Ciò fornisce ridondanza per utilizzare lo strumento deisctl. È possibile esaminare queste regole sul portale di Azure classico:
 
 ![Regole NAT sul servizio di bilanciamento del carico](media/virtual-machines-deis-cluster/nat-rules.png)
 
@@ -258,4 +258,4 @@ In questo articolo vengono illustrati tutti i passaggi per eseguire il provision
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

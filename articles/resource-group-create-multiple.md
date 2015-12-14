@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Creare più istanze di risorse in Gestione risorse di Azure
@@ -151,9 +151,52 @@ Naturalmente, si imposta il numero di copia a un valore diverso dalla lunghezza 
 	    "outputs": {}
     }
 
+## Ciclo su una risorsa annidata
+
+Non è possibile utilizzare un ciclo di copia per una risorsa annidata. Se è necessario creare più istanze di una risorsa che è in genere definita come annidata all'interno di un'altra risorsa, si deve invece creare la risorsa come una risorsa di livello principale e definire la relazione con la risorsa padre mediante le proprietà **tipo** e **nome**.
+
+Si supponga, ad esempio, di definire in genere un set di dati come una risorsa annidata all'interno di una Data Factory.
+
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[variables('dataFactoryName')]",
+        ...
+        "resources": [
+        {
+            "type": "datasets",
+            "name": "[variables('dataSetName')]",
+            "dependsOn": [
+                "[variables('dataFactoryName')]"
+            ],
+            ...
+        }
+    }]
+    
+Per creare più istanze di set di dati, è necessario modificare il modello come illustrato di seguito. Si noti che il tipo qualificato come completo e il nome includono il nome della data factory.
+
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[variables('dataFactoryName')]",
+        ...
+    },
+    {
+        "type": "Microsoft.DataFactory/datafactories/datasets",
+        "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
+        "dependsOn": [
+            "[variables('dataFactoryName')]"
+        ],
+        "copy": { 
+            "name": "datasetcopy", 
+            "count": "[parameters('count')]" 
+        } 
+        ...
+    }]
+
 ## Passaggi successivi
 - Per altre informazioni sulle sezioni di un modello, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
 - Per tutte le funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md).
 - Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

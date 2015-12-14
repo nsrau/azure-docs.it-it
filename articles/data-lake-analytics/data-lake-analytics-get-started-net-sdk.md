@@ -29,10 +29,10 @@ In questa esercitazione verrà sviluppata un'applicazione console C# contenente 
 
 ![Diagramma di flusso del processo di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
 
-1. Creare un account di Data Lake Analytics.
+1. Creare un account di Analisi Data Lake.
 2. Preparare i dati di origine. I processi di Data Lake Analytics possono leggere dati da account di Azure Data Lake Store o da account di archiviazione BLOB di Azure.   
 3. Sviluppare uno script U-SQL.
-4. Inviare un processo (script U-SQL) all'account di Data Lake Analytics. Il processo legge i dati di origine, elabora i dati come indicato nello script U-SQL e quindi salva l'output in un account di Data Lake Store o in un account di archiviazione BLOB.
+4. Inviare un processo (script U-SQL) all'account di Analisi Data Lake. Il processo legge i dati di origine, elabora i dati come indicato nello script U-SQL e quindi salva l'output in un account di Data Lake Store o in un account di archiviazione BLOB.
 
 ##Prerequisiti
 
@@ -43,7 +43,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **[Strumenti di Data Lake per Visual Studio](http://aka.ms/adltoolsvs)**. 
 - **Un account di Data Lake Analytics**. Vedere [Creare un account di Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
-	Strumenti di Data Lake non supporta la creazione degli account di Data Lake Analytics. Sarà pertanto necessario creare tali account tramite il portale di anteprima di Azure, Azure PowerShell, .NET SDK o l'interfaccia della riga di comando di Azure.
+	Data Lake Tools non supporta la creazione degli account Analisi Data Lake. Sarà quindi necessario creare questi account tramite il portale di Azure, Azure PowerShell, .NET SDK o l'interfaccia della riga di comando di Azure.
 
 ##Creare un'applicazione console
 
@@ -91,7 +91,7 @@ Un log di ricerca di esempio è stato copiato in un contenitore BLOB di Azure pu
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
-    È necessario usare percorsi assoluti per accedere ai file presenti negli account di archiviazione collegati. La sintassi dei file archiviati nell'account di archiviazione collegato di Azure è:
+    È necessario usare percorsi assoluti per accedere ai file presenti negli account di archiviazione collegati. La sintassi dei file presenti in un account di Archiviazione di Azure collegato è:
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
@@ -252,7 +252,7 @@ Un log di ricerca di esempio è stato copiato in un contenitore BLOB di Azure pu
 - Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-- Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-manage-use-portal.md).
+- Per informazioni sulle attività di gestione, vedere [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 - Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

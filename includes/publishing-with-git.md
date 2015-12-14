@@ -58,7 +58,7 @@ In App Web sono supportate applicazioni create in diversi linguaggi di programma
 
 Eseguire la procedura seguente per abilitare un repository Git per l'app Web.
 
-1. Accedere al [portale di anteprima di Azure].
+1. Accedere al [Portale di Azure].
 
 2. Nel pannello dell'app Web scorrere fino alla sezione **Distribuzione** e fare clic su **Imposta distribuzione continua**. Fare clic su **Scegli origine**, quindi su **Repository Git locale** e infine su **OK**.
 
@@ -269,10 +269,9 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Azure Developer Center]: http://azure.microsoft.com/develop/overview/
-[portale di anteprima di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Come usare PowerShell per Azure]: ../articles/install-configure-powershell.md
@@ -298,4 +297,4 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [utilizzo di Dropbox per la condivisione di archivi Git]: https://gist.github.com/trey/2722927
 [Distribuzione continua in Azure tramite Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

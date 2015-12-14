@@ -37,7 +37,7 @@ I servizi cloud sono interessati se si verifica una delle seguenti condizioni:
 
 1. Nel file ServiceConfiguration.cscfg del servizio cloud è specificato esplicitamente il valore "osFamily = "1". 
 2. Nel file ServiceConfiguration.cscfg per il servizio cloud non è specificato esplicitamente alcun valore per osFamily. Attualmente viene usato il valore predefinito "1" in questo caso.
-3. Il valore della famiglia di sistemi operativi guest indicato nel portale di gestione di Azure è "Windows Server 2008". Vedere [questo argomento](https://msdn.microsoft.com/library/azure/gg456325.aspx) per individuare tale valore.
+3. Il valore della famiglia di sistemi operativi guest indicato nel portale di Azure classico è "Windows Server 2008". Vedere [questo argomento](https://msdn.microsoft.com/library/azure/gg456325.aspx) per individuare tale valore.
 
 Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](../install-configure-powershell.md). Per altre informazioni sullo script, vedere l'articolo relativo alla [fine vita della famiglia di sistemi operativi guest di Azure 1 di giugno 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
@@ -81,4 +81,4 @@ I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più suppo
 ## Passaggi successivi
 Esaminare la versione più recente [versioni del sistema operativo Guest](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

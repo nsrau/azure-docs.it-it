@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
@@ -103,7 +103,7 @@ Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali
     :--------------|:-------------
     Nome | Il**colonna**Nome, contiene la lettera di unità assegnata a ogni volume individuato.
     Dispositivo | La**colonna**dispositivo contiene l'indirizzo IP del dispositivo connesso al computer.
-    Nome Dispositivo Volume | La**Colonna**Nome Dispositivo Volume contiene il nome del volume del dispositivo a cui appartiene il volume selezionato. Questo è il nome del volume definito nel portale di gestione di Azure per il volume specifico.
+    Nome Dispositivo Volume | La**Colonna**Nome Dispositivo Volume contiene il nome del volume del dispositivo a cui appartiene il volume selezionato. Questo è il nome del volume definito nel portale di Azure classico per il volume specifico.
     Percorsi di accesso | La**colonna**Percorsi di Accesso mostra il percorso di accesso al volume. Si tratta del punto di montaggio o lettera di unità in cui il volume è accessibile nel computer.
  
 ## Eliminare un volume
@@ -271,4 +271,4 @@ Utilizzare la procedura seguente per configurare un volume con mirroring dinamic
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

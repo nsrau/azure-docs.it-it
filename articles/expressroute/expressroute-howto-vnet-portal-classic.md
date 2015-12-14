@@ -23,7 +23,7 @@ Questa procedura illustra la configurazione di una rete virtuale e un gateway da
 
 >[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione di Azure](../azure-classic-rm.md).
 
-1. Accedere al **Portale di Azure**.
+1. Accedere al **portale di Azure classico**.
 
 2. Nell'angolo inferiore sinistro della schermata fare clic su **New**. Nel riquadro di spostamento, fare clic su **Servizi di rete**, quindi fare clic su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 
@@ -53,7 +53,7 @@ Questa procedura illustra la configurazione di una rete virtuale e un gateway da
 	- **Aggiungi subnet** inclusi IP iniziale e conteggio indirizzi. Non sono necessarie altre subnet, ma è possibile creare una subnet separata per le macchine virtuali che avranno DIP dinamici. In alternativa, è possibile collocare le macchine virtuali in una subnet separata dalle istanze PaaS.
 	- **Aggiungi subnet gateway**: fare clic per aggiungere la subnet del gateway. La subnet del gateway viene usata solo per il gateway di rete virtuale ed è obbligatoria per la configurazione. ***Importante:*** la subnet del gateway per ExpressRoute deve essere /28 o inferiore (/27, /26 ecc.).
 
-7. Fare clic sul segno di spunta nella parte inferiore della pagina per iniziare a creare la rete virtuale. Al termine della creazione della rete virtuale, in **Status** verrà visualizzato **Created** nella pagina relativa alle **Reti** del portale di gestione.
+7. Fare clic sul segno di spunta nella parte inferiore della pagina per iniziare a creare la rete virtuale. Al termine della creazione della rete virtuale, in **Stato** verrà visualizzato **Creato** nella pagina **Reti** del portale di Azure classico.
 
 8. Nella pagina relativa alle **Reti**, fare clic sulla rete virtuale appena creata, quindi fare clic su **Dashboard**.
 9. Nella parte inferiore della pagina Dashboard, fare clic su **CREATE GATEWAY**, quindi fare clic su **Yes**.
@@ -70,4 +70,4 @@ Questa procedura illustra la configurazione di una rete virtuale e un gateway da
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

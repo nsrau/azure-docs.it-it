@@ -33,7 +33,7 @@ Ottenere il processore di contenuti multimediali con **.NET** o **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
 
-##Creazione di processi 
+##Creazione di processi
 
 Un processo è un'entità contenente i metadati relativi a un set di attività, ad esempio la codifica o l'indicizzazione. Ogni attività esegue in modo atomico un'operazione sugli asset di input. Per un esempio su come creare processi di codifica, vedere:
 
@@ -43,22 +43,22 @@ Un processo è un'entità contenente i metadati relativi a un set di attività, 
 
 [AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
 
-##Codifica 
+##Codifica
 
-Codificare con **Azure Media Encoder** tramite il **portale di gestione di Azure**, **.NET** o **API REST**.
- 
+Codificare con **Azure Media Encoder** tramite il **portale di Azure classico**, **.NET** o **API REST**.
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 ##Monitoraggio dello stato di avanzamento dei processi
 
-Monitorare lo stato di avanzamento dei processi tramite il **portale di gestione di Azure**, **.NET** o **REST API**.
+Monitorare lo stato di avanzamento dei processi tramite il **portale di Azure classico**, **.NET** o **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
 ##Collegamenti correlati
 
 [Quote e limitazioni](media-services-quotas-and-limitations.md) – Descrive le quote usate e le limitazioni del codificatore di Servizi multimediali
- 
+
 
 ##Percorsi di apprendimento di Media Services
 
@@ -68,4 +68,4 @@ Monitorare lo stato di avanzamento dei processi tramite il **portale di gestione
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -45,6 +45,6 @@ A partire da Servizi Multimediali .NET SDK versione 3.5.2, Servizi multimediali 
 
 [Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-drm.md)
 
-[Blog di Mingfei](https://azure.microsoft.com/it-IT/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
+[Blog di Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

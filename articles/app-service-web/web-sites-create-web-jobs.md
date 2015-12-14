@@ -22,7 +22,7 @@
 
 È possibile eseguire programmi o script in Processi Web nell'app Web del [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) in tre modi: su richiesta, sempre, in base a una pianificazione. Non sono previsti costi aggiuntivi per l'uso di Processi Web.
 
-Nell'articolo viene descritto come distribuire Processi Web utilizzando il [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Per informazioni sulla distribuzione mediante Visual Studio o un processo di distribuzione continua, vedere [Come distribuire Processi Web di Azure nelle App Web](websites-dotnet-deploy-webjobs.md).
+Nell'articolo viene descritto come distribuire Processi Web utilizzando il [Portale di Azure](https://portal.azure.com). Per informazioni sulla distribuzione mediante Visual Studio o un processo di distribuzione continua, vedere [Come distribuire Processi Web di Azure nelle App Web](websites-dotnet-deploy-webjobs.md).
 
 Azure WebJobs SDK semplifica molte attività di programmazione dei processi Web. Per ulteriori informazioni, vedere [Definizione dell'SDK di Processi Web](websites-dotnet-webjobs-sdk.md).
 
@@ -104,9 +104,9 @@ Altri esempi di programmazione CRON:
 
 La tecnica alternativa seguente usa l'utilità di pianificazione di Azure. In questo caso, il processo Web non dispone di alcuna conoscenza diretta della pianificazione. Al contrario, l'utilità di pianificazione di Azure verrà configurata per attivare il processo Web in una pianificazione.
 
-Il portale di gestione di Azure non permette ancora di creare un processo Web pianificato; tuttavia, attualmente è possibile eseguire questa operazione utilizzando il [portale precedente](http://manage.windowsazure.com).
+Il portale di Azure non permette ancora di creare un processo Web pianificato; tuttavia, attualmente è possibile eseguire questa operazione utilizzando il [portale classico](http://manage.windowsazure.com).
 
-1. Nel [portale precedente](http://manage.windowsazure.com), accedere alla pagina del processo Web e fare clic su **Aggiungi**.
+1. Nel [portale classico](http://manage.windowsazure.com), accedere alla pagina del processo Web e fare clic su **Aggiungi**.
 
 1. Nella casella **Modalità di esecuzione**, scegliere **Esegui in base a una pianificazione**.
 	
@@ -152,7 +152,7 @@ Il portale di gestione di Azure non permette ancora di creare un processo Web pi
 	
 ### <a name="Scheduler"></a>Processi pianificati e Utilità di pianificazione di Azure
 
-I processi pianificati possono essere ulteriormente configurati mediante l'Utilità di pianificazione di Azure del [portale precedente](http://manage.windowsazure.com).
+I processi pianificati possono essere ulteriormente configurati nell'Utilità di pianificazione di Azure del [portale classico](http://manage.windowsazure.com).
 
 1.	Nella pagina WebJobs fare clic sul collegamento **schedule** del processo per passare alla pagina del portale dell'Utilità di pianificazione di Azure. 
 	
@@ -239,4 +239,4 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

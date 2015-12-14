@@ -159,7 +159,7 @@ Aggiungere un blocco al comando per avviare il processo di creazione della macch
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-Il nome breve del servizio cloud è il nome visualizzato nell'elenco dei servizi cloud nel portale di gestione di Azure o nell'elenco dei gruppi di risorse nel portale di anteprima di Azure.
+Il nome breve del servizio cloud è il nome visualizzato nell'elenco dei servizi cloud nel portale di Azure classico o nell'elenco dei gruppi di risorse nel portale di Azure classico.
 
 **Opzione 2**: creare la macchina virtuale in un servizio cloud e in una rete virtuale esistenti.
 
@@ -178,7 +178,7 @@ Dopo aver creato la macchina virtuale, vedere [Come accedere a una macchina virt
 Se si desidera riutilizzare il set di comandi, è possibile:
 
 - Salvare questo set di comandi come file di script di PowerShell (*.ps1)
-- Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di Azure.
+- Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di Azure classico.
 
 ## <a id="examples"></a>Esempi:
 
@@ -280,4 +280,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -41,7 +41,7 @@ Attività per nodo di calcolo|4 x numero di core del nodo
 
 ## Visualizzare le quote Batch
 
-Visualizzare le quote dell'account Batch nel [portale di anteprima di Azure](https://portal.azure.com).
+Visualizzare le quote dell'account Batch nel [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di anteprima fare clic su **Account Batch** e quindi sul nome dell'account Batch.
 
@@ -53,7 +53,7 @@ Visualizzare le quote dell'account Batch nel [portale di anteprima di Azure](htt
 
 ## Aumentare una quota
 
-Usare i passaggi seguenti per richiedere un aumento di quota nel portale di anteprima di Azure. È possibile richiedere un aumento anche nel [portale di Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+Usare i passaggi seguenti per richiedere un aumento di quota nel portale di Azure (è possibile richiedere un aumento anche nel [portale di Azure classico](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
 
 1. Nel dashboard del portale di anteprima fare clic su **Guida e supporto**.
 
@@ -95,4 +95,4 @@ Si verrà contatti dal supporto di Azure. Il completamento della richiesta può 
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

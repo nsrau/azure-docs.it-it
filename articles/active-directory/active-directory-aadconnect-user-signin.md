@@ -63,4 +63,8 @@ Per la maggior parte delle organizzazioni che desiderano semplicemente abilitare
 	- Funzionalità di integrazione di Active Directory, ad esempio il blocco degli account soft o criteri relativi alle ore di lavoro e alla password in Active Directory
 	- Accesso condizionale alle risorse sia locali che nel cloud mediante la registrazione del dispositivo, il join Azure AD o i criteri Intune MDM
 
-<!---HONumber=Oct15_HO3-->
+
+## Passaggi successivi
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=AcomDC_1203_2015-->

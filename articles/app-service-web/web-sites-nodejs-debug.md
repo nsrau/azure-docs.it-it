@@ -46,7 +46,7 @@ Se il **IISNode.yml** non esisteva già nell'applicazione, sarà necessario riav
 
 > [AZURE.NOTE]Se il sito Web è stato creato con gli strumenti da riga di comando di Azure o i cmdlet di Azure PowerShell, verrà creato automaticamente un file **IISNode.yml** predefinito.
 
-Per riavviare l'app Web, selezionarla nel [portale di anteprima di Azure](https://portal.azure.com) e quindi fare clic sul pulsante **RIAVVIA**:
+Per riavviare l'app Web, selezionarla nel [portale di Azure](https://portal.azure.com) e quindi fare clic sul pulsante **RIAVVIA**:
 
 ![Pulsante Restart][restart-button]
 
@@ -67,7 +67,7 @@ Dopo l'installazione, è possibile accedere agli strumenti tramite il comando 'a
 
 ###FTP
 
-Per accedere alle informazioni diagnostiche tramite FTP, visitare il [portale di anteprima di Azure](https://portal.azure.com), selezionare il sito Web e scegliere **DASHBOARD**. Nella sezione **quick links** fare clic sui collegamenti **FTP DIAGNOSTIC LOGS** e **FTPS DIAGNOSTIC LOGS** per accedere ai log tramite il protocollo FTP.
+Per accedere alle informazioni diagnostiche tramite FTP, visitare il [portale di Azure](https://portal.azure.com), selezionare l’app Web e scegliere **DASHBOARD**. Nella sezione **quick links** fare clic sui collegamenti **FTP DIAGNOSTIC LOGS** e **FTPS DIAGNOSTIC LOGS** per accedere ai log tramite il protocollo FTP.
 
 > [AZURE.NOTE]Se in precedenza non sono stati configurati nome utente e password per FTP o per la distribuzione, è possibile effettuare questa operazione nella pagina di gestione **Quick Start** selezionando **Set up deployment credentials**.
 
@@ -114,7 +114,6 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -127,4 +126,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

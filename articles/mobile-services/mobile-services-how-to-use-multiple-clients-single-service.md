@@ -7,7 +7,7 @@
 	manager="dwrede"
 	editor="mollybos"/>
 <tags
-	ms.service="mobile-services" 
+	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
@@ -16,6 +16,11 @@
 	ms.author="glenga"/>
 
 # Supporto di piattaforme per più dispositivi da un singolo servizio mobile
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Uno dei principali vantaggi offerto da Servizi mobili di Azure nello sviluppo di app per dispositivi mobili è la possibilità di usare un unico servizio back-end che supporta un'app su più piattaforme client. Servizi mobili fornisce librerie client native per le principali piattaforme per dispositivi, semplificando lo sviluppo di app mediante l'uso di un unico servizio back-end e di strumenti multipiattaforma. Questo argomento illustra gli aspetti relativi all'esecuzione di app su più piattaforme client usando al tempo stesso un unico servizio mobile back-end:
 
@@ -145,7 +150,6 @@ Sono disponibili strumenti multipiattaforma che consentono di sviluppare app per
 
 
 <!-- URLs -->
-[Azure Management portal]: https://manage.windowsazure.com
 [Hub di notifica di Azure]: /develop/net/how-to-guides/service-bus-notification-hubs/
 [SSO Windows Store]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [SSO Windows Phone]: /develop/mobile/tutorials/single-sign-on-wp8/
@@ -169,4 +173,4 @@ Sono disponibili strumenti multipiattaforma che consentono di sviluppare app per
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

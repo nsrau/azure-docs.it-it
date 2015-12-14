@@ -18,6 +18,8 @@
 
 # Distribuire e configurare un'app per le API del connettore SaaS nel servizio app di Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Panoramica
 
 Questa esercitazione illustra come installare, configurare e testare un [connettore SaaS (Software-as-a-Service)](../app-service-logic-what-are-bizTalk-api-apps.md) nel [servizio app di Azure](/documentation/services/app-service/) in modo da chiamarlo a livello di codice, ad esempio da un'app mobile. Un connettore SaaS è un'[app per le API](app-service-api-apps-why-best-platform.md) che semplifica l'integrazione con una piattaforma SaaS, ad esempio Office 365, Salesforce, Facebook e Dropbox. Se, invece di usare un connettore predefinito, si vuole creare un'app per le API .NET personalizzata, vedere [Connettersi a una piattaforma SaaS da un'app per le API ASP.NET](app-service-api-dotnet-connect-to-saas.md).
@@ -33,7 +35,7 @@ Questa esercitazione usa un connettore DropBox come esempio e illustra in modo d
 * Configurare il gruppo di risorse in modo che solo gli utenti autenticati possano accedere alle app per le API incluse nel gruppo di risorse.
 * Eseguire i test per verificare il funzionamento corretto dell'autenticazione utente e dell'autenticazione Dropbox.
 
-Per altre informazioni sull'autenticazione nel servizio app, vedere [Autenticazione per app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
+Per altre informazioni sull'autenticazione nel servizio app, vedere [Autenticazione per app per le API e app per dispositivi mobili](../app-service/app-service-authentication-overview.md).
 
 ## Installare il connettore Dropbox
 
@@ -236,4 +238,4 @@ Nei passaggi seguenti verrà effettuata una richiesta Get al connettore Dropbox 
 [portale di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

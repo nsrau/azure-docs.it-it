@@ -90,7 +90,7 @@ Per istruzioni su come allocare risorse in un cluster Spark, vedere [Gestire le 
 
 ### Creare un'applicazione di flusso con Zeppelin
 
-1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://portal.azure.com/) fare clic sul riquadro per il cluster Spark (se è stato bloccato sulla Schermata iniziale). È anche possibile passare al cluster in **Esplora tutto** > **Cluster HDInsight**.   
+1. Dal [portale di Azure](https://portal.azure.com/), dalla schermata iniziale, fare clic sul riquadro per il cluster Spark (se lo si è bloccato alla schermata iniziale). È anche possibile passare al cluster in **Esplora tutto** > **Cluster HDInsight**.   
 
 2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e quindi dal pannello **Dashboard del cluster** fare clic su **Notebook di Zeppelin**. Se richiesto, immettere le credenziali per il cluster.
 
@@ -192,4 +192,4 @@ Utilizzare Zeppelin per ricevere il flusso di dati in cluster Spark in HDInsight
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

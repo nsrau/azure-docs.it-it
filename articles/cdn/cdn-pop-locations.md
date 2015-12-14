@@ -3,7 +3,7 @@
 	description="In questo argomento vengono elencate le località POP della rete per la distribuzione di contenuti (rete CDN) di Azure." 
 	services="cdn" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,10 +11,10 @@
 	ms.service="cdn" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 
 #Località POP della rete per la distribuzione di contenuti (rete CDN) di Azure
@@ -25,7 +25,7 @@ In questo argomento vengono elencate le località POP (point of presence) corren
 ![Località POP della rete CDN](./media/cdn-pop-locations/CDN_POP_locations_update.png)
 
 
-##Stati Uniti
+##America del Nord
 
 - Atlanta
 - Chicago
@@ -39,6 +39,10 @@ In questo argomento vengono elencate le località POP (point of presence) corren
 - Washington DC
 - Boston
 
+##America del Sud
+
+- São Paulo
+- Quito
 
 ##Europa
 
@@ -64,11 +68,14 @@ In questo argomento vengono elencate le località POP (point of presence) corren
 - Seul
 - Singapore
 - Tokyo
-
+- Bangalore
+- Chennai
+- Delhi
+- Mumbai
 
 ##Australia
 
 - Melbourne
 - Sydney 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

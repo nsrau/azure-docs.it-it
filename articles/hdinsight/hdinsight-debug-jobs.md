@@ -21,15 +21,15 @@
 
 I messaggi di errore indicati in questo argomento sono forniti allo scopo di aiutare gli utenti di Hadoop in Azure HDInsight a comprendere le possibili condizioni di errore che possono verificarsi quando il servizio viene amministrato mediante Azure PowerShell e di indicare le procedure di ripristino appropriate.
 
-Alcuni di questi messaggi di errore possono essere visualizzati anche nel portale di anteprima di Azure quando viene usato per la gestione dei cluster HDInsight. Altri messaggi di errore, invece, sono meno granulari a causa dei vincoli relativi alle azioni di correzione possibili in questo contesto. Altri messaggi di errore vengono visualizzati in contesti in cui la soluzione correttiva è ovvia. In caso di violazione dei vincoli relativi ai parametri, ad esempio, il messaggio è visualizzato sulla destra della casella in cui è stato immesso il valore. Nel caso seguente è stato richiesto un numero eccessivo di nodi di dati. La soluzione consiste nel ridurre il numero a un valore consentito che sia pari o inferiore a 33.
+Alcuni di questi messaggi di errore possono essere visualizzati anche nel portale di Azure quando viene usato per la gestione dei cluster HDInsight. Altri messaggi di errore, invece, sono meno granulari a causa dei vincoli relativi alle azioni di correzione possibili in questo contesto. Altri messaggi di errore vengono visualizzati in contesti in cui la soluzione correttiva è ovvia. In caso di violazione dei vincoli relativi ai parametri, ad esempio, il messaggio è visualizzato sulla destra della casella in cui è stato immesso il valore. Nel caso seguente è stato richiesto un numero eccessivo di nodi di dati. La soluzione consiste nel ridurre il numero a un valore consentito che sia pari o inferiore a 33.
 
-![Messaggio di errore del portale di anteprima di HDInsight][image-hdi-debugging-error-messages-portal]
+![Messaggio di errore del portale di HDInsight][image-hdi-debugging-error-messages-portal]
 
-In situazioni in cui l'errore è specifico di Azure HDInsight, è consigliabile capire la causa dell'errore. Per informazioni sui diversi codici di errore e su come correggere gli errori, vedere la sezione [Codici di errore di HDInsight](#hdi-error-codes). In alcuni casi è possibile accedere direttamente ai log di Hadoop. A tale scopo, è possibile usare il portale di anteprima di Azure.
+In situazioni in cui l'errore è specifico di Azure HDInsight, è consigliabile capire la causa dell'errore. Per informazioni sui diversi codici di errore e su come correggere gli errori, vedere la sezione [Codici di errore di HDInsight](#hdi-error-codes). In alcuni casi è possibile accedere direttamente ai log di Hadoop. A tale scopo, è possibile usare il portale di Azure.
 
 ## Visualizzare i log di integrità e dei processi del cluster
 
-* **Accedere all'interfaccia utente di Hadoop**. Dal portale di anteprima di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**.
+* **Accedere all'interfaccia utente di Hadoop**. Dal portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**.
 
 	![Avviare il dashboard del cluster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
   
@@ -37,7 +37,7 @@ In situazioni in cui l'errore è specifico di Azure HDInsight, è consigliabile 
 
 	![Avviare l'interfaccia utente di Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
-* **Accedere all'interfaccia utente Yarn**. Dal portale di anteprima di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente YARN**.
+* **Accedere all'interfaccia utente Yarn**. Dal portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente YARN**.
 
 	È possibile usare l'interfaccia utente YARN per eseguire queste operazioni:
 
@@ -49,11 +49,11 @@ In situazioni in cui l'errore è specifico di Azure HDInsight, è consigliabile 
 
 	* **Monitorare lo stato dei processi**. Nel riquadro sinistro espandere **Cluster** e quindi fare clic su **Applicazioni** per elencare tutti i processi del cluster. Se si desidera esaminare i processi con uno stato specifico (ad esempio processi nuovi, inviati, in esecuzione e così via), fare clic sul collegamento appropriato in **Applicazioni**. È possibile fare clic sul nome del processo per ottenere altre informazioni, ad esempio l'output, i log e così via.
 
-* **Accedere all'interfaccia utente HBase**. Dal portale di anteprima di Azure fare clic sul nome di un cluster HDInsight HBase per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente HBase**.
+* **Accedere all'interfaccia utente HBase**. Dal portale di Azure fare clic sul nome di un cluster HDInsight HBase per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente HBase**.
 
 ## <a id="hdi-error-codes"></a>Codici di errore di HDInsight
 
-Di seguito sono elencati in ordine alfabetico per nome gli errori che possono verificarsi in Azure PowerShell o nel portale di anteprima di Azure. Gli errori sono collegati a una voce nella sezione [Diagnostica e risoluzione degli errori](#discription-mitigation-errors) che fornisce le informazioni seguenti per ogni errore:
+Di seguito sono elencati per nome in ordine alfabetico gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure. Gli errori sono collegati a una voce nella sezione [Diagnostica e risoluzione degli errori](#discription-mitigation-errors) che fornisce le informazioni seguenti per ogni errore:
 
 - **Descrizione**: il messaggio di errore visualizzato dagli utenti.
 - **Soluzione**: procedura che è possibile effettuare per il ripristino in caso di errore.
@@ -129,7 +129,7 @@ Di seguito sono elencati in ordine alfabetico per nome gli errori che possono ve
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
 - **Descrizione**: il nome del cluster *NomeCluster* non è disponibile. Scegliere un altro nome.  
-- **Soluzione**: l'utente deve specificare un nome di cluster che sia univoco e insistente, quindi riprovare. Se l’utente usa il portale di anteprima, durante la procedura di creazione l’interfaccia utente indica se un nome di cluster è già in uso.
+- **Soluzione**: l'utente deve specificare un nome di cluster che sia univoco e insistente, quindi riprovare. Se usa il portale, durante la procedura di creazione l’interfaccia utente indica se un nome di cluster è già in uso.
 
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
@@ -258,7 +258,7 @@ Di seguito sono elencati in ordine alfabetico per nome gli errori che possono ve
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 - **Descrizione**: l'account di archiviazione *NomeAccountArchiviazione* si trova nell'area *NomeAreaGeograficaCorrente*. Dovrebbe corrispondere all'area del cluster *NomeAreaGeograficaCluster*.  
-- **Soluzione**: specificare un account di archiviazione nella stessa area del cluster oppure, se i dati si trovano già nell'account di archiviazione, creare un nuovo cluster nella stessa area dell'account di archiviazione esistente. Se si usa il portale di anteprima, questo problema verrà segnalato in anticipo dall’interfaccia utente.
+- **Soluzione**: specificare un account di archiviazione nella stessa area del cluster oppure, se i dati si trovano già nell'account di archiviazione, creare un nuovo cluster nella stessa area dell'account di archiviazione esistente. Se si usa il portale, questo problema verrà segnalato in anticipo dall’interfaccia utente.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 - **Descrizione**: l'ID sottoscrizione specificato *IDSottoscrizione* non è attivo.  
@@ -300,4 +300,4 @@ Di seguito sono elencati in ordine alfabetico per nome gli errori che possono ve
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

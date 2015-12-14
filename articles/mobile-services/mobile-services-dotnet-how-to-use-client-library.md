@@ -13,14 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015" 
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
 # Come usare la libreria client gestita per Servizi mobili di Azure
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-##Panoramica 
+##Panoramica
 
 Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per Servizi mobili di Azure in app Windows e Xamarin. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Se non si ha familiarità con Servizi mobili, si consiglia di completare prima l'esercitazione [Introduzione a Servizi mobili](mobile-services-dotnet-backend-xamarin-ios-get-started.md).
 
@@ -58,7 +63,7 @@ Il codice seguente consente di creare l'oggetto `MobileServiceClient` usato per 
 		"AppKey"
 	);
 
-Nel codice riportato sopra sostituire `AppUrl` e `AppKey` con l'URL del servizio mobile e la chiave applicazione, nell'ordine specificato. Entrambi gli elementi sono disponibili nel portale di gestione di Azure selezionando il servizio mobile e quindi facendo clic su "Dashboard".
+Nel codice riportato sopra sostituire `AppUrl` e `AppKey` con l'URL del servizio mobile e la chiave applicazione, nell'ordine specificato. Entrambi gli elementi sono disponibili nel portale di Azure classico selezionando il servizio mobile e quindi facendo clic su "Dashboard".
 
 >[AZURE.IMPORTANT]La chiave dell'applicazione consente di filtrare le richieste casuali nel servizio mobile e viene distribuita con l'applicazione. Poiché questa chiave non è crittografata, non può essere considerata sicura. Per proteggere i dati del servizio mobile, è necessario invece autenticare gli utenti prima di consentire l'accesso. Per altre informazioni, vedere la sezione [Procedura: Autenticare gli utenti](#authentication).
 
@@ -304,7 +309,7 @@ Il client di Servizi mobili consente di registrarsi per le notifiche push con Hu
 	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 	}
 
-Si noti che in questo esempio due tag sono inclusi con la registrazione. Per altre informazioni sulle app Windows, vedere [Aggiungere notifiche push all'app di Servizi mobili](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)
+Si noti che in questo esempio due tag sono inclusi con la registrazione. Per altre informazioni sulle app Windows, vedere [Aggiungere notifiche push all'applicazione](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
 
 Le app Xamarin in esecuzione su iOS o Android richiedono codice aggiuntivo per poter essere registrate, rispettivamente, con i servizi APNS (Apple Push Notification Service) e GCM (Google Cloud Messaging). Per altre informazioni, vedere **Aggiungere notifiche push all'app di Servizi mobili** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
@@ -319,11 +324,11 @@ L'esempio seguente consente di attivare le notifiche periodiche per richiedere i
     TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
         new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
         PeriodicUpdateRecurrence.Hour
-    ); 
+    );
 
 Selezionare il valore di [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) più adatto alla frequenza di aggiornamento dei dati desiderata.
 
-##<a name="optimisticconcurrency"></a>Procedura: usare la concorrenza ottimistica
+##<a name="optimisticconcurrency"></a>Procedura: Usare la concorrenza ottimistica
 
 In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. Il controllo della concorrenza ottimistica presuppone che per ogni transazione sia possibile eseguire il commit, quindi non procede al blocco delle risorse. Prima di effettuare il commit di una transazione, il controllo della concorrenza ottimistica verifica che i dati non siano stati modificati da un'altra transazione. Se i dati sono stati modificati, verrà eseguito il rollback di tale transazione.
 
@@ -685,7 +690,7 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.
@@ -764,4 +769,4 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [API personalizzata nei Servizi mobili di Azure - SDK client]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

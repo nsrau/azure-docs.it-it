@@ -13,147 +13,98 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Come gestire le impostazioni globali dell'applicazione
-Le opzioni del menu Impostazioni disponibili per un'applicazione variano a seconda della piattaforma dell'applicazione e delle autorizzazioni di cui si dispone per l'applicazione. Sono disponibili le impostazioni seguenti: Dettagli, Progetti, Push nativo, Velocità push, SDK, Rilevamento, Info App, Pressione commerciale e Autorizzazioni. Solo l'opzione di menu Info app della sezione Impostazioni dell'interfaccia utente contiene elementi che possono essere gestiti con la funzionalità "Tag" dell'API dispositivo. Il glossario nella pagina relativa ai concetti contiene le definizioni di termini e abbreviazioni, ad esempio: APNS, GCM, IDFA, API, SDK, chiave API, chiave SDK, ID applicazione (ID app), ID AppStore, piano di tag, ID utente, ID dispositivo, delegato dell'app, analisi dello stack e deep linking.
 
-### Vedere anche
-- [Documentazione API - API dispositivo][Link 4], [Concetti - Glossario][Link 6], [Guida alla risoluzione dei problemi - Assistenza][Link 24]
+Le opzioni del menu **Impostazioni** disponibili per un'applicazione variano a seconda della piattaforma dell'applicazione e delle autorizzazioni di cui si dispone per l'applicazione. Sono disponibili le impostazioni seguenti: Dettagli, Progetti, Push nativo, Velocità push, Tag (info app) e Pressione commerciale. L'opzione di menu Tag (info app) della sezione Impostazioni può essere gestita dall'applicazione (utilizzando l’SDK) o dal back-end (utilizzando l'API dispositivo).
 
-  ![settings1][46]
+
+>[AZURE.NOTE]Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 
 ## Dettagli
-Consente di modificare il nome e la descrizione dell'applicazione e di visualizzare il proprietario dell'applicazione e le autorizzazioni del ruolo. Configurazione di Analytics: consente di visualizzare o modificare il giorno da cui iniziano le settimane e il tempo di assorbimento in giorni:
+
+Consente di modificare il nome e la descrizione dell'applicazione e di visualizzare il proprietario dell'applicazione e le autorizzazioni del ruolo.
+
+La configurazione di Analytics consente di visualizzare o modificare il giorno da cui iniziano le settimane e il tempo di conservazione in giorni.
  
-  ![settings2][47]
+  ![settings1][46]
  
 ## Progetti
-Consente di selezionare tutti i progetti in cui deve essere visualizzata l'applicazione. È inoltre possibile eseguire la ricerca di un progetto e visualizzare il nome, la descrizione, il proprietario e le autorizzazioni del ruolo di qualsiasi progetto di cui l'applicazione fa parte.
 
-### Vedere anche
--    [Documentazione dell'interfaccia utente - Home page][Link 13]
+Consente di selezionare tutti i progetti in cui deve essere visualizzata l'applicazione.
+
+È inoltre possibile eseguire la ricerca di un progetto e visualizzare il nome, la descrizione, il proprietario e le autorizzazioni del ruolo di qualsiasi progetto di cui l'applicazione fa parte.
+
+Per altre informazioni, vedere: [Documentazione UI - Home][Link 13].
  
   ![settings3][48]
 
 ## Push nativo
-Consente di registrare un nuovo certificato o di eliminare un certificato esistente per l'utilizzo con push nativo. Il push nativo consente a Azure Mobile Engagement di effettuare il push all'applicazione in qualsiasi momento, anche quando non è in esecuzione. Dopo aver fornito le credenziali o i certificati per almeno un servizio di push nativo, è possibile selezionare "In qualsiasi momento" in fase di creazione di campagne Reach, nonché usare il parametro "notifier" nell'API PUSH.
 
-### Vedere anche
-- [Documentazione API - API Reach][Link 4],[Documentazione API - API Push][Link 4], [Documentazione dell'interfaccia utente - Reach - Nuova campagna di push][Link 27]
+Consente di registrare un nuovo certificato o di eliminare un certificato esistente per l'utilizzo con push nativo. Il push nativo consente a Azure Mobile Engagement di effettuare il push all'applicazione in qualsiasi momento, anche quando non è in esecuzione.
+
+Dopo aver fornito le credenziali o i certificati per almeno un servizio di push nativo, è possibile selezionare "In qualsiasi momento" in fase di creazione di campagne Reach, nonché usare il parametro "notifier" nell'API PUSH.
+
+
 
 ### Apple Push Notification Service (APNS)
+
 Per abilitare il push nativo tramite Apple Push Notification Service è necessario registrare il certificato. Occorre specificare il tipo di certificato: sviluppo (DEV) o produzione (PROD) e quindi caricare il certificato e la password.
 
-### Vedere anche
-- [Documentazione SDK - iOS - Come preparare l'applicazione per le notifiche push Apple][Link 5]
+Per ulteriori informazioni, vedere: [Documentazione SDK - iOS - Come preparare l'applicazione per le notifiche push Apple][Link 5]
  
 ![settings4][49]
  
 ### Servizio notifica Push Windows (WPNS)
+
 Per abilitare il push nativo tramite il Servizio notifica Push Windows, è necessario fornire le credenziali dell'applicazione. Sono necessari l'identificatore di sicurezza del pacchetto (SID) e la chiave segreta.
  
 ![settings5][50]
  
 ### Google Cloud Messaging per Android (GCM)
+
 Per abilitare il push nativo tramite GCM, è necessario seguire le istruzioni fornite da Google. È necessario, quindi, incollare una chiave API semplice del server, configurata senza restrizioni IP. Richiede l'integrazione con SDK per Android v1.12.0+.
 
-### Vedere anche
-- [Documentazione SDK - Android - Come integrare GCM][Link 5], [Sviluppatori Google - Guida GCM](http://developer.android.com/guide/google/gcm/gs.html), [Sviluppatori Google - Documentazione GCM](http://developer.android.com/google/gcm/index.html)
+Per altre informazioni, vedere:
+
+- [Documentazione SDK Android Come integrare GCM][Link 5]
+- [Guida GCM di Google per sviluppatori](http://developer.android.com/guide/google/gcm/gs.html)
  
 ### Amazon Device Messaging for Android (ADM)
+
 Per abilitare il push nativo mediante ADM, è necessario specificare le <OAuth credentials> Amazon costituite da ID e segreto client (è necessaria l'integrazione con l'SDK per Android v2.1.0+).
 
-### Vedere anche
-- [Documentazione SDK - Android - Come integrare ADM][Link 5], [Sviluppatori Amazon - Documentazione ADM](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
+Per altre informazioni, vedere:
 
+- [Documentazione SDK - Android - Come integrare ADM][Link 5]
+- [Documentazione ADM di Amazon per sviluppatori](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
+ 
 ![settings6][51]
 
 ## Velocità di push
-Mostra la velocità di push corrente dell'applicazione e consente di definire la velocità di push dell'applicazione. La velocità di push definisce il numero massimo di push al secondo che saranno eseguiti dal modulo Reach. Questa impostazione può essere utile nel caso in cui i server sono sovraccarichi a causa di un numero eccessivo di richieste al secondo dopo l'attivazione di una campagna.
+
+Mostra la velocità di push corrente dell'applicazione e consente di definire la velocità di push dell'applicazione.
  
   ![settings7][52]
 
-## Rilevamento
-La funzionalità di rilevamento consente di rilevare le origini delle installazioni delle applicazioni iOS e Android. Grazie a questa funzionalità è possibile sapere da dove gli utenti hanno scaricato l'applicazione (ad esempio da quale archivio di applicazioni) e la posizione di origine da cui sono partiti (vale a dire campagna pubblicitaria, blog, sito Web, posta elettronica, SMS e così via). La funzionalità Rilevamento di Azure Mobile Engagement deve essere integrata nell'applicazione dall'SDK come passaggio separato.
+## Tag (info app)
 
-### Vedere anche
-- [Documentazione SDK - Android - Come integrare][Link 5], [Documentazione SDK - iOS - Come integrare][Link 5]
- 
-### Archivi
-Consentono di registrare tutti gli archivi da cui è possibile scaricare l'applicazione in base ai relativi nomi e agli URL di download associati. In questo modo è possibile creare percorsi per gli URL di rilevamento host. Gli archivi possono essere creati o eliminati da questa pagina. Utilizzando l'icona per creare un nuovo URL di rilevamento si raggiunge la pagina degli URL di rilevamento descritta di seguito. Esistono diversi modi per rilevare la pagina da cui gli utenti scaricano l'app:
-
--    Usare un Server Active Directory di terze parti (Azure Mobile Engagement supporta attualmente [SmartAd](http://smartadserver.fr/) e [Surikate](http://www.surikate.com/)).
--    Usare un servizio di attribuzione di terze parti (Azure Mobile Engagement supporta attualmente [Mobile App Tracking](http://www.mobileapptracking.com/), mentre [Trademob](http://www.trademob.com/) potrebbe essere supportato in un prossimo futuro).
--    Usare un referrer di installazione di terze parti (Azure Mobile Engagement supporta attualmente [Google Play Install Referrer](https://developers.google.com/app-conversion-tracking/docs/third-party-trackers/), solo per Android).
--    Usare la segnalazione manuale.
- 
-  ![settings8][53]
- 
-### Campagne pubblicitarie
-Consentono di creare nuove campagne pubblicitarie costituite da un nome di server Active Directory, un ID campagna e l'origine da cui è possibile scaricare l'applicazione.
- 
-  ![settings9][54]
- 
-### URL di rilevamento
-Consente di creare gli URL di rilevamento da utilizzare come URL di destinazione nelle origini (campagna pubblicitaria, blog, sito web, posta elettronica, SMS e così via) che possono reindirizzare gli utenti agli archivi da cui è possibile scaricare l'applicazione. Consente, inoltre, di visualizzare tutti gli di URL di rilevamento già creati. Un URL di rilevamento può essere utilizzato come URL di azione di una campagna pubblicitaria o di un annuncio di Reach per invitare gli utenti a scaricare una delle app da un'altra app. Un URL di rilevamento reindirizza all'URL associato all'archivio selezionato, consentendo al sistema di rilevamento di registrare l'archivio da cui l'applicazione viene scaricata al momento dell'installazione. Se viene fornita un'origine, viene registrata dal sistema di rilevamento, consentendo di distinguere tra le diverse campagne pubblicitarie create per l'applicazione.
-
-La creazione di un nuovo URL di rilevamento richiede di specificare un archivio e di impostare un'origine personalizzata o un'origine server Active Directory o nessuna origine.
-
--    Se non viene impostata alcuna origine, viene creato un URL di rilevamento predefinito.
--    Un'origine personalizzata consente di specificare un URL su un server esterno per scaricare l'applicazione.
--    Un'origine server Active Directory crea un URL di rilevamento predefinito in un server Active Directory denominato predefinito.
- 
-### Vedere anche
-- [Documentazione dell'interfaccia utente - Reach - Nuova campagna di push][Link 27] 
- 
-### Creare un URL di rilevamento
-È inoltre possibile creare un URL di rilevamento che consente agli utenti di scaricare una delle applicazioni dall'interno della sezione di contenuto di una nuova campagna Reach.
-
-### Vedere anche
-- [Documentazione dell'interfaccia utente - Reach - Contenuti del push][Link 29]
-
-![settings10][55]
-
-## Info app
-Consente di registrare informazioni aggiuntive associate agli utenti dell'applicazione. È possibile inserire tali informazioni tramite l'applicazione (utilizzando l'SDK) o tramite il back-end (utilizzando l'API dispositivo).
-
-### Vedere anche
-- [Documentazione API - API dispositivo][Link 4]
-
-La registrazione di tag di informazioni dell'applicazione consente di segmentare le campagne Reach creando criteri di destinatari di Reach specifici. È possibile visualizzare il nome e il tipo di tag di info app esistenti o aggiungere nuove info app in base al nome e al tipo: stringa, data, numero intero o booleano.
-
-### Vedere anche
-- [Documentazione dell'interfaccia utente - Reach - Nuova campagna di push][Link 27]
- 
 ![settings11][56]
- 
+  
 ## Pressione commerciale
-Le quote di push consentono di definire il numero massimo di volte per cui un dispositivo può essere destinazione di push per un determinato periodo. Le quote di push sono utilizzate solo per le campagne Reach con l'opzione "Applica quote di push" abilitata. Le quote di push possono essere gestite per segmento o per impostazione predefinita. Le quote possono essere impostate per inviare solo un numero massimo di notifiche push in un periodo scorrevole dell'ultima ora, giorno, settimana o mese.
 
-### Vedere anche
-- [Documentazione dell'interfaccia utente - Reach - Nuova campagna di push][Link 27], [Documentazione dell'interfaccia utente - Segmenti][Link 18]
-
-### Quote:
-- Quota per impostazione predefinita: questa quota viene applicata agli utenti che non hanno corrispondenza con alcun segmento nella sezione Quota per segmento riportata di seguito. Per impostazione predefinita, non è impostata alcuna quota.
-- Quota per segmento: dal momento che una quota deve essere applicata a un gruppo di utenti, è necessario creare un segmento per identificare gli utenti a cui applicarla. Può trattarsi di un segmento per utenti frequenti, definito in base al numero di sessioni avviate o da qualsiasi altra caratteristica che si ritiene interessante ai fini della definizione del gruppo. Se un dispositivo corrisponde a più segmenti con una quota definita, viene applicata solo la quota con il numero massimo più alto di push all'ora.
 
 ![settings12][57]
+
+
+## Vedere anche
+
+- [Concetti][Link 6]
+- [Guida per la risoluzione dei problemi - Assistenza][Link 24]
+
  
-## Autorizzazioni
-Consente di cercare e visualizzare il livello di messaggio di posta elettronica, nome, organizzazione e autorizzazione degli utenti dell'applicazione. Il concetto di autorizzazioni è un'aggiunta al ruolo di progetto. Consente di associare un gruppo di autorizzazioni a un utente specifico che ha accesso all'applicazione.
-
-### I livelli di autorizzazioni correnti disponibili sono:
--    "Creatore della campagna Reach" (un utente che può creare le campagne Reach) 
--    "Responsabile della campagna Reach" (un utente che può creare campagne Reach e attivarle, sospenderle, terminarle ed eliminarle)
-
-> Nota: quando un utente ha un ruolo di progetto e dispone anche di un gruppo di autorizzazioni per una determinata applicazione, viene usato il concetto più permissivo. Di conseguenza, quando si utilizzano le autorizzazioni, è consigliabile impostare il ruolo di progetto degli utenti su "Visualizzatore" (il ruolo più restrittivo) e aggiungere autorizzazioni più permissive a livello di applicazione.
-
-### Vedere anche
-- [Documentazione dell'interfaccia utente - Home page][Link 13]  
- 
-![settings13][58]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -251,4 +202,4 @@ Consente di cercare e visualizzare il livello di messaggio di posta elettronica,
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

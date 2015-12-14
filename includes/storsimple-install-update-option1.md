@@ -23,7 +23,7 @@
 
     6. Fare clic su **Download**. Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. L'aggiornamento verrà scaricato nella cartella del **bundle StorSimple Update 1.2 Appliance Update** (KB3063418) per il percorso selezionato. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
     
-	Questa procedura descrive come installare l'aggiornamento del dispositivo software come aggiornamento rapido, gli aggiornamenti del firmware del disco dal server di Microsoft Update, e il driver LSI e gli aggiornamenti di Windows dal portale di Azure. È tuttavia possibile scegliere di installare aggiornamenti firmware del software, del driver e del disco come gli aggiornamenti rapidi. Sarà quindi necessario scaricare l'aggiornamento di StorSimple 1.2 SAS Controller (KB3043005) e aggiornamento StorSimple 1.2 Disk Firmware (KB3063416) e copiarli nella stessa cartella condivisa. Per installare aggiornamenti firmware del disco come aggiornamenti rapidi, seguire le istruzioni in [installazione degli aggiornamenti rapidi in modalità di manutenzione tramite Windows PowerShell per StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
+	Questa procedura descrive come installare l'aggiornamento del dispositivo software come aggiornamento rapido, gli aggiornamenti del firmware del disco dal server di Microsoft Update, e il driver LSI e gli aggiornamenti di Windows dal portale di Azure classico. È tuttavia possibile scegliere di installare aggiornamenti firmware del software, del driver e del disco come gli aggiornamenti rapidi. Sarà quindi necessario scaricare l'aggiornamento di StorSimple 1.2 SAS Controller (KB3043005) e aggiornamento StorSimple 1.2 Disk Firmware (KB3063416) e copiarli nella stessa cartella condivisa. Per installare aggiornamenti firmware del disco come aggiornamenti rapidi, seguire le istruzioni in [installazione degli aggiornamenti rapidi in modalità di manutenzione tramite Windows PowerShell per StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
     
 	> [AZURE.NOTE]L'aggiornamento rapido deve essere accessibile da entrambi i controller per rilevare eventuali messaggi di errore potenziali dal controller peer.
             
@@ -101,7 +101,7 @@
     
 9. A questo punto si installeranno gli aggiornamenti del firmware del disco che sono problematici e che richiedono circa 30-45 minuti. È possibile scegliere di installare tali aggiornamenti in una finestra di manutenzione pianificata tramite la connessione alla console seriale del dispositivo. Per istallare gli aggiornamenti del firmware del disco, seguire le istruzioni in [Installare gli aggiornamenti in modalità manutenzione tramite Windows PowerShell per StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
-10. Dopo la corretta istallazione degli aggiornamenti del firmware del disco e dopo che il dispositivo ha terminato la modalità manutenzione, tornare al portale di Azure. Gli aggiornamenti in modalità manutenzione non vengono aggiornati nel portale fino a quando non sono trascorse 24 ore. Potrebbe essere necessario attendere prima di applicare gli aggiornamenti non problematici rimanenti dal portale di Azure.
+10. Dopo la corretta istallazione degli aggiornamenti del firmware del disco e dopo che il dispositivo ha terminato la modalità manutenzione, tornare al portale di Azure classico. Gli aggiornamenti in modalità manutenzione non vengono aggiornati nel portale fino a quando non sono trascorse 24 ore. Potrebbe essere necessario attendere prima di applicare gli aggiornamenti non problematici rimanenti dal portale di Azure classico.
 
 11. Quando si è pronti ad applicare gli aggiornamenti, passare alla pagina **Manutenzione** e nella parte inferiore della pagina, fare clic su **Analisi aggiornamenti**. Si riceverà una notifica che indica che sono disponibili aggiornamenti, tra cui quelli del driver e di Windows. Fare clic su **Installa aggiornamenti **per avviare il processo di installazione. Attendere che tutti gli aggiornamenti vengano installati correttamente.
 
@@ -112,4 +112,4 @@
  
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

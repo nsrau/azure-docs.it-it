@@ -62,7 +62,7 @@ L'azienda può tuttavia richiedere che i dati vengano mantenuti in locale. Le ap
 
 Ottimizzare l'applicazione line-of-business scalandola automaticamente mediante Scalabilità automatica, effettuando la memorizzazione nella cache con Cache Redis di Azure, eseguendo le attività in background con Processi Web e mantenendo una disponibilità elevata con Gestione traffico di Azure.
 
-L'implementazione della [scalabilità verticale e orizzontale] offerta dalle app Web del servizio app di Azure risponde alle esigenze dell'applicazione line-of-business, indipendentemente dalla dimensione del carico di lavoro. È possibile eseguire la scalabilità orizzontale dell'app Web manualmente tramite il [portale di gestione di Azure], a livello di codice tramite l'[API di gestione del servizio] o gli [script di PowerShell] oppure automaticamente tramite la funzionalità Scalabilità automatica. Nel livello **Standard**, tale funzionalità consente di implementare la scalabilità orizzontale di un'app Web automaticamente, in base all'uso della CPU. Per le procedure consigliate, vedere l'articolo di [Troy Hunt] relativo ai [10 elementi appresi per implementare rapidamente la scalabilità delle app Web con Azure].
+L'implementazione della [scalabilità verticale e orizzontale] offerta dalle app Web del servizio app di Azure risponde alle esigenze dell'applicazione line-of-business, indipendentemente dalla dimensione del carico di lavoro. Eseguire la scalabilità orizzontale dell'app Web manualmente tramite il [Portale di Azure], a livello di codice tramite l'[API di gestione del servizio] o gli [script di PowerShell], oppure automaticamente tramite la funzionalità Scalabilità automatica. Nel livello **Standard**, tale funzionalità consente di implementare la scalabilità orizzontale di un'app Web automaticamente, in base all'uso della CPU. Per le procedure consigliate, vedere l'articolo di [Troy Hunt] relativo ai [10 elementi appresi per implementare rapidamente la scalabilità delle app Web con Azure].
 
 È possibile aumentare la velocità di risposta dell'app Web con [Cache Redis di Azure]. Usare questa funzionalità per memorizzare nella cache i dati dei database back-end e altri elementi come lo [stato della sessione ASP.NET] e la [cache di output].
 
@@ -72,7 +72,7 @@ L'implementazione della [scalabilità verticale e orizzontale] offerta dalle app
 
 Tramite Azure o strumenti di terze parti è possibile mantenersi aggiornati sulle prestazioni dell'app Web e ricevere avvisi su eventi critici nell'app Web. Inoltre, con Application Insights o mediante l'analisi dei log Web di HDInsight, è possibile ottenere facilmente informazioni dettagliate sugli utenti.
 
-Il pannello dell'app Web nel portale di Azure offre un [riepilogo rapido] delle metriche delle prestazioni e delle quote delle risorse correnti dell'app Web nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Per informazioni complete sulla disponibilità, le prestazioni e l'uso dell'applicazione, usare [Azure Application Insights], che offre potenti e rapidi strumenti per la risoluzione dei problemi, la diagnostica e il recupero delle informazioni sull'uso. In alternativa, usare uno strumento di terze parti come [New Relic] per fornire dati di monitoraggio avanzati per le app Web.
+Il pannello dell'app Web nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) offre un [riepilogo rapido] delle metriche delle prestazioni e delle quote delle risorse correnti dell'app Web. Per informazioni complete sulla disponibilità, le prestazioni e l'uso dell'applicazione, usare [Azure Application Insights], che offre potenti e rapidi strumenti per la risoluzione dei problemi, la diagnostica e il recupero delle informazioni sull'uso. In alternativa, usare uno strumento di terze parti come [New Relic] per fornire dati di monitoraggio avanzati per le app Web.
 
 Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app e ricevere notifiche tramite e-mail nel caso in cui l'app non risponda. Per altre informazioni, vedere [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure].
 
@@ -108,7 +108,7 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 [Rete virtuale di Azure]: web-sites-integrate-with-vnet.md
 
 [scalabilità verticale e orizzontale]: web-sites-scale.md
-[portale di gestione di Azure]: http://manage.windowsazure.com/
+[Portale di Azure]: http://portal.azure.com/
 [API di gestione del servizio]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [script di PowerShell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]: https://twitter.com/troyhunt
@@ -124,4 +124,4 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

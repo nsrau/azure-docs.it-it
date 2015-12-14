@@ -66,4 +66,4 @@ Creare un altro endpoint per la seconda VM "web2" utilizzando lo stesso nome del
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

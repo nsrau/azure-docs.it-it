@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Comprendere la distribuzione di Gestione delle risorse e distribuzione classica
@@ -42,19 +42,19 @@ Le risorse create tramite Gestione risorse condividono le caratteristiche seguen
 
 - Creato tramite uno dei metodi seguenti:
 
-  - Il [portale di anteprima](https://portal.azure.com/).
+  - Il [portale di Azure](https://portal.azure.com/).
 
-        ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Per le versioni di Azure PowerShell precedenti alla versione di anteprima 1.0, i comandi vengono eseguiti nella modalità **AzureResourceManager**.
+  - Per le versioni di Azure PowerShell precedenti alla versione 1.0, i comandi vengono eseguiti nella modalità **AzureResourceManager**.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - Per l'anteprima di Azure PowerShell 1.0, usare la versione di Gestione risorse dei comandi. Questi comandi hanno il formato *verb-AzureRm*, come illustrato di seguito.
+  - Per Azure PowerShell 1.0, usare la versione di Gestione risorse dei comandi. Questi comandi hanno il formato *verb-AzureRm*, come illustrato di seguito.
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -73,19 +73,19 @@ Le risorse create nel modello di distribuzione classica condividono le caratteri
 
 - Creato tramite uno dei metodi seguenti:
 
-  - [Portale di Azure](https://manage.windowsazure.com)
+  - [Portale classico](https://manage.windowsazure.com)
 
-        ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Per le versioni di Azure PowerShell precedenti alla versione di anteprima 1.0, eseguire i comandi di PowerShell nella modalità **AzureServiceManagement** (che è la modalità predefinita, pertanto, se non si passa in modo specifico a AzureResourceManager, viene eseguito in modalità AzureServiceManagement).
+  - Per le versioni di Azure PowerShell precedenti alla versione 1.0, i comandi vengono eseguiti nella modalità **AzureServiceManagement** (che è la modalità predefinita, pertanto, se non si passa in modo specifico a AzureResourceManager, viene eseguito in modalità AzureServiceManagement).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - Per l'anteprima di Azure PowerShell 1.0, usare la versione di Gestione servizi dei comandi. Questi nomi di comandi **non** hanno il formato *verb-AzureRm*, come illustrato di seguito.
+  - Per Azure PowerShell 1.0, usare la versione di Gestione servizi dei comandi. Questi nomi di comandi **non** hanno il formato *verb-AzureRm*, come illustrato di seguito.
 
             PS C:\> Get-AzureDeployment
 
@@ -95,7 +95,7 @@ Le risorse create nel modello di distribuzione classica condividono le caratteri
 
     ![tipo classico](./media/resource-manager-deployment-model/classic-type.png)
 
-È comunque possibile utilizzare il portale di anteprima per gestire le risorse che sono state create tramite distribuzione classica.
+È comunque possibile utilizzare il portale per gestire le risorse che sono state create tramite la distribuzione classica.
 
 ## Vantaggi dell'utilizzo di Gestione risorse e di gruppi di risorse
 
@@ -109,7 +109,7 @@ Gestione risorse ha aggiunto il concetto di gruppo di risorse. Tutte le risorse 
 - È possibile applicare i tag alle risorse per organizzare logicamente tutte le risorse nella sottoscrizione.
 
 
-Ogni risorsa creata da una distribuzione classica prima della Gestione risorse, non esiste all'interno di un gruppo di risorse. Quando è stato aggiunto Gestione risorse, tutte le risorse retroattive sono state aggiunti ai gruppi di risorse predefiniti. Se ora si crea una risorsa tramite la distribuzione classica, la risorsa viene creata automaticamente all'interno di un gruppo di risorse predefinito per tale servizio anche se non è stato specificato il gruppo di risorse in fase di distribuzione. Tuttavia, il solo fatto di esister all'interno di un gruppo di risorse non significa che la risorsa è stata convertita nel modello di Gestione risorse. Per macchine virtuali, archiviazione e reti virtuali, se la risorsa è stata creata da una distribuzione classica, è necessario continuare a operare su di essa tramite operazioni classiche.
+Ogni risorsa creata da una distribuzione classica prima della Gestione risorse, non esiste all'interno di un gruppo di risorse. Quando è stato aggiunto Gestione risorse, tutte le risorse retroattive sono state aggiunti ai gruppi di risorse predefiniti. Se ora si crea una risorsa tramite la distribuzione classica, la risorsa viene creata automaticamente all'interno di un gruppo di risorse predefinito per tale servizio anche se non è stato specificato il gruppo di risorse in fase di distribuzione. Tuttavia, il solo fatto di esistere all'interno di un gruppo di risorse non significa che la risorsa è stata convertita nel modello di Gestione risorse. Per macchine virtuali, archiviazione e reti virtuali, se la risorsa è stata creata da una distribuzione classica, è necessario continuare a operare su di essa tramite operazioni classiche.
 
 È possibile spostare le risorse a un gruppo di risorse diverso e aggiungere nuove risorse al gruppo di risorse. Pertanto, il gruppo di risorse può contenere una combinazione di risorse creato tramite Gestione risorse e distribuzione classica. Questa combinazione di risorse può produrre risultati imprevisti perché le risorse non supportano le stesse operazioni.
 
@@ -168,4 +168,4 @@ Per informazioni sulla connessione di reti virtuali da diversi modelli di distri
 - Per informazioni sulla creazione dei modelli di distribuzione dichiarativa, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

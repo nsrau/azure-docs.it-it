@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare farm di SharePoint Server | Microsoft Azure"
-	description="È possibile creare rapidamente una nuova farm base o a disponibilità elevata di SharePoint Server 2013 con il marketplace nel Portale di anteprima di Azure."
+	description="È possibile creare rapidamente una nuova farm base o a disponibilità elevata di SharePoint Server 2013 con il marketplace nel portale di Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello classico.
 
-Con il marketplace del portale di anteprima di Microsoft Azure, è possibile creare rapidamente delle farm pre-configurate di SharePoint Server 2013. Ciò consente di risparmiare una notevole quantità di tempo in caso si necessiti di una farm di SharePoint di base o a disponibilità elevata per un ambiente di sviluppo e test o in caso si stia valutando l'opportunità di usare SharePoint Server 2013 come soluzione per la collaborazione all'interno dell'organizzazione.
+Con il marketplace del portale di Microsoft Azure, è possibile creare rapidamente delle farm pre-configurate di SharePoint Server 2013. Ciò consente di risparmiare una notevole quantità di tempo in caso si necessiti di una farm di SharePoint di base o a disponibilità elevata per un ambiente di sviluppo e test o in caso si stia valutando l'opportunità di usare SharePoint Server 2013 come soluzione per la collaborazione all'interno dell'organizzazione.
 
-> [AZURE.NOTE]L'elemento **SharePoint Farm** nella sezione Marketplace del portale di anteprima di Azure è stato rimosso.
+> [AZURE.NOTE]L'elemento **SharePoint Farm** nella sezione Marketplace del portale di Azure è stato rimosso.
 
 La farm di SharePoint di base è costituita da tre macchine virtuali in questa configurazione.
 
@@ -59,7 +59,7 @@ Per creare la farm di SharePoint a disponibilità elevata (nove server):
 
 Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti personali, le applicazioni di SharePoint e altre funzionalità. Per altre informazioni, vedere [Configurare SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE]Il portale di anteprima di Azure crea entrambe queste farm in una rete virtuale solo cloud con una presenza Web con connessione Internet. Non esiste alcuna connessione VPN o ExpressRoute da sito a sito alla rete dell'organizzazione.
+> [AZURE.NOTE]Il portale di Azure crea entrambe queste farm in una rete virtuale solo cloud con una presenza Web con connessione Internet. Non esiste alcuna connessione VPN o ExpressRoute da sito a sito alla rete dell'organizzazione.
 
 ## Risorse aggiuntive
 
@@ -69,4 +69,4 @@ Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti 
 
 [Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,36 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Come analizzare i dati cronologici sull'applicazione
-La sezione Analytics dell'interfaccia utente fornisce informazioni aggregate sull'applicazione, tratte dai dati cronologici che vengono aggiornati ogni 24 ore. Le informazioni vengono visualizzate in dashboard diversi, composti da grafici a linee/barre/torta, griglie e mappe. I dati possono anche essere scaricati come file con estensione csv. La maggior parte di queste informazioni è disponibile in tempo reale nella sezione Monitoraggio dell'interfaccia utente. Inoltre, è possibile accedervi dall'API Analytics. Nel "Glossario" in "Concetti" sono riportate le definizioni dei termini e delle abbreviazioni usati in Analisi e Monitoraggio, ad esempio: utente attivo, nuovo utente, utente assorbito, sessione, grafico percorso utenti, mapping utenti, URL di rilevamento, tendenze, attività, evento, processo, errore, informazioni supplementari, arresto anomalo e informazioni sull'app.
 
-### Vedere anche
--  [Concetti - Glossario][Link 6], [Guida alla risoluzione dei problemi - Analisi][Link 21]
+In questo articolo viene descritta la scheda **ANALYTICS** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
+
+
+La sezione Analytics dell'interfaccia utente fornisce informazioni aggregate sull'applicazione, tratte dai dati cronologici che vengono aggiornati ogni 24 ore. Le informazioni vengono visualizzate in dashboard diversi, composti da grafici a linee/barre/torta, griglie e mappe. I dati possono anche essere scaricati come file con estensione csv. La maggior parte di queste informazioni è disponibile in tempo reale nella sezione Monitoraggio dell'interfaccia utente. Inoltre, è possibile accedervi dall'API Analytics.
+
+>[AZURE.NOTE]Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 
 ## Analisi standard e personalizzate
-Azure Mobile Engagement offre un set di informazioni analitiche standard di base relative all'applicazione che possono essere rappresentate in un grafico, non appena si integra l'app con l'SDK. Azure Mobile Engagement offre anche la possibilità di riunire ulteriori informazioni analitiche personalizzate relative al comportamento degli utenti finali. È possibile effettuare questa operazione creando una pianificazione di "tag sulle informazioni dell'app" personalizzata da "Impostazioni". In questo modo, Azure Mobile Engagement può raccogliere tali dati aggiuntivi per conto dell'utente.
 
-### Vedere anche
--  [Documentazione dell'interfaccia utente - Impostazioni][Link 20]
- 
-## Intestazione di Analytics
-- Nome elemento: identifica con un'etichetta l'elemento incluso nell'analisi
-- Mostra la Guida: visualizza informazioni contestuali sulla sezione corrente
-- Versioni: consente di visualizzare diverse informazioni analitiche per ogni versione dell'applicazione o per tutte le versioni. Nota: se si filtrano i dati analitici nell'interfaccia utente, è possibile visualizzare tutti gli esempi di questo tipo, a prescindere dalla versione dell'app. Ad esempio, verranno visualizzati gli "arresti anomali" filtrati in base al nome per le versioni 1 e 2 dell'app.
-- Periodo: ultimi 7 giorni, ultimi 30 giorni, sempre, personalizzato
-- Frequenza: ogni ora, giorno, settimana, mese
-- Visualizzazione: grafico a linee, griglia, Invia a dashboard e Scarica file CSV
- 
-![Analytics1][10]
+Azure Mobile Engagement offre un set di informazioni analitiche standard di base relative all'applicazione che possono essere rappresentate in un grafico, non appena si integra l'app con l'SDK. Azure Mobile Engagement offre anche la possibilità di riunire ulteriori informazioni analitiche personalizzate relative al comportamento degli utenti finali. È possibile effettuare questa operazione creando una pianificazione di "tag (informazioni dell'app)" personalizzata creata da **Impostazioni**. In questo modo, Azure Mobile Engagement può raccogliere tali dati aggiuntivi per conto dell'utente.
 
+ 
+ 
 ## Analytics
 - Dashboard: visualizza informazioni generali sugli utenti nuovi e attivi e sulle loro tendenze.
 - Utenti: gli utenti sono identificati tramite l'identificatore del dispositivo. Questo valore è univoco per ogni dispositivo (a un nuovo utente corrisponde un nuovo dispositivo). Un utente viene considerato come nuovo in un determinato intervallo di tempo, se ha eseguito la prima sessione durante questo intervallo di tempo. Un utente viene considerato come assorbito se ha eseguito almeno una sessione negli ultimi 7 giorni. Gli utenti attivi sono quelli che hanno effettuato almeno una sessione durante un determinato periodo. È possibile ordinarli per mese, settimana, giorno oppure ora. Tutti i grafici hanno un aspetto simile, ma consentono di filtrare gli elementi in base a funzionalità differenti (ad esempio, la versione dell'applicazione) e successivamente in base all'intervallo di tempo. Tra le informazioni standard raccolte integrando l'SDK sono incluse le seguenti: utenti attivi, nuovo utente, numero di sessioni, durata di ogni sessione, informazioni tecniche sul paese, impostazioni locali, località, lingua, gestore telefonico, dispositivi, firmware, rete (Wi-Fi), versioni dell'app e dell'SDK, utilizzo dei clienti. È possibile visualizzare tali informazioni in tempo reale dalla sezione di monitoraggio. 
-- Il rilevamento in base all'origine consente di visualizzare il numero di nuovi utenti che hanno scaricato l'applicazione come risultato di una campagna promozionale. Gli utenti vengono identificati tramite l'identificatore del dispositivo. Tale valore è univoco per ogni dispositivo (a un nuovo utente corrisponde un nuovo dispositivo). Un utente viene considerato come nuovo in un determinato intervallo di tempo, se ha eseguito la prima sessione durante questo intervallo di tempo.
-- Il rilevamento in base allo store consente di visualizzare il numero di nuovi utenti che hanno scaricato l'applicazione da un determinato store. Gli utenti vengono identificati tramite l'identificatore del dispositivo. Tale valore è univoco per ogni dispositivo (a un nuovo utente corrisponde un nuovo dispositivo). Un utente viene considerato come nuovo in un determinato intervallo di tempo, se ha eseguito la prima sessione durante questo intervallo di tempo.
 
 > Nota: il periodo si basa sulla data definita nelle impostazioni del dispositivo dell'utente. Pertanto, se nel telefono la data non è corretta, è possibile che venga visualizzato il periodo errato.
 
@@ -77,6 +68,12 @@ La parte centrale della schermata Panoramica su assorbimento è suddivisa in div
 3.    L'indicatore visivo fornisce le stesse informazioni rappresentate graficamente. Un terzo del cerchio rappresenta il 33%. Il colore fornisce ulteriori indicazioni: il verde indica che il numero è in aumento rispetto al calcolo precedente. Il giallo indica una situazione stabile, mentre il rosso rappresenta una riduzione.
 4.    Indica i valori utilizzati per il calcolo.
 5.    Si tratta di un grafico sparkline relativo alla cronologia dei valori di assorbimento. Consente di visualizzare i valori del passato per avere una visione più ampia sull'evoluzione.
+
+
+## Vedere anche
+
+- [Concetti][Link 6]
+- [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -174,4 +171,4 @@ La parte centrale della schermata Panoramica su assorbimento è suddivisa in div
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

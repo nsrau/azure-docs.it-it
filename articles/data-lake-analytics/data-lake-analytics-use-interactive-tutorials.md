@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Informazioni su Data Lake Analytics e U-SQL usando le esercitazioni interattiva del portale di anteprima di Azure | Azure" 
+   pageTitle="Informazioni su Data Lake Analytics e U-SQL usando le esercitazioni interattiva del portale di Azure | Azure" 
    description="Guida introduttiva all'apprendimento di Data Lake Analytics e U-SQL." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -19,7 +19,7 @@
 
 # Usare le esercitazioni interattive di Azure Data Lake Analytics
 
-Il portale di anteprima di Azure fornisce un'esercitazione interattiva che consente di iniziare a usare Data Lake Analytics. In questo articolo viene illustrato come completare l'esercitazione per analizzare i log del sito Web.
+Il portale di Azure fornisce un'esercitazione interattiva che consente di iniziare a usare Data Lake Analytics. In questo articolo viene illustrato come completare l'esercitazione per analizzare i log del sito Web.
 
 
 >[AZURE.NOTE]Se si desidera eseguire la stessa esercitazione usando Visual Studio, vedere [Analizzare i log del sito Web mediante Data Lake Analytics](data-lake-analytics-analyze-weblogs.md). Al portale verranno aggiunte altre esercitazioni interattive.
@@ -27,7 +27,7 @@ Il portale di anteprima di Azure fornisce un'esercitazione interattiva che conse
 
 Per altre esercitazioni, vedere:
 
-- [Introduzione a Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md)
+- [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
 - [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introduzione ad Azure Data Lake Analytics con .NET SDK](data-lake-analytics-get-started-net-sdk.md)
 - [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) 
@@ -36,17 +36,17 @@ Per altre esercitazioni, vedere:
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Un account di Data Lake Analytics**. Vedere [Introduzione ad Azure Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md).
+- **Un account di Data Lake Analytics**. Vedere [Introduzione ad Analisi Data Lake di Azure con il portale di Azure](data-lake-analytics-get-started-portal.md).
 
-##Creare un account di Data Lake Analytics 
+##Creare un account di Analisi Data Lake 
 
-È necessario disporre di un account di Data Lake Analytics prima di poter eseguire qualsiasi processo.
+È necessario disporre di un account di Analisi Data Lake prima di poter eseguire qualsiasi processo.
 
 Ogni account di Data Lake Analytics dispone di una dipendenza a livello di account di [Azure Data Lake Store](data-lake-store-overview.md). Questo account viene definito account di Data Lake Store predefinito. È possibile creare l'account di Data Lake Store anticipatamente o quando si crea l'account di Data Lake Analytics. In questa esercitazione si creerà l'account di Data Lake Store con l'account di Analytics.
 
-**Per creare un account di Data Lake Analytics**
+**Per creare un account di Analisi Data Lake**
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
+1. Accedere al [portale di Azure](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
 2. Fare clic su **Microsoft Azure** nell'angolo superiore sinistro per aprire la Schermata iniziale.
 3. Fare clic sul riquadro **Marketplace**.  
 3. Digitare **Azure Data Lake Analytics** nella casella di ricerca del pannello **Tutto** e quindi premere **INVIO**. Nell'elenco verrà visualizzato **Azure Data Lake Analytics**.
@@ -62,7 +62,7 @@ Ogni account di Data Lake Analytics dispone di una dipendenza a livello di accou
 	- **Gruppo di risorse**. Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo. Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md). 
 	- **Percorso**. Selezionare un data center di Azure per l'account di Data Lake Analytics. 
 7. Selezionare **Aggiungi alla Schermata iniziale**. Questa impostazione è necessaria per l'esecuzione di questa esercitazione.
-8. Fare clic su **Crea**. Viene visualizzata la Schermata iniziale del portale. Alla home page viene aggiunto un nuovo riquadro con l'etichetta "Deploying Azure Data Lake Analytics". Il processo di creazione di un account di Data Lake Analytics richiede alcuni istanti. Una volta creato l'account, il portale aprirà l'account in un nuovo pannello.
+8. Fare clic su **Crea**. Viene visualizzata la Schermata iniziale del portale. Alla home page viene aggiunto un nuovo riquadro con l'etichetta "Deploying Azure Data Lake Analytics". Il processo di creazione di un account di Data Lake Analytics richiede alcuni istanti. Al termine del processo, il portale aprirà l'account in un nuovo pannello.
 
 	![Pannello del portale di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
@@ -70,7 +70,7 @@ Ogni account di Data Lake Analytics dispone di una dipendenza a livello di accou
 
 **Per aprire l'esercitazione interattiva Website Log Analytics**
 
-1. Nel portale di anteprima fare clic su **Microsoft Azure** dal menu a sinistra per aprire la Schermata iniziale.
+1. Nel portale, fare clic su **Microsoft Azure** dal menu a sinistra per aprire la Schermata iniziale.
 2. Fare clic nel riquadro collegato all'account di Data Lake Analytics.
 3. Fare clic su **Explore interactive tutorials** sulla barra **Essentials**.
 
@@ -82,10 +82,10 @@ Ogni account di Data Lake Analytics dispone di una dipendenza a livello di accou
 
 ##Vedere anche
 
-- [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Introduzione a Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md)
+- [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+- [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
 - [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Analizzare i log dei siti Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

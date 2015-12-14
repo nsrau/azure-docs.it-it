@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare una macchina virtuale personalizzata | Microsoft Azure"
-	description="Come creare una macchina virtuale personalizzata dal portale di Azure usando il modello di distribuzione classico."
+	description="Come creare una macchina virtuale personalizzata dal portale di Azure classico usando il modello di distribuzione classico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -36,4 +36,4 @@ Una macchina virtuale *personalizzata* indica semplicemente una macchina virtual
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

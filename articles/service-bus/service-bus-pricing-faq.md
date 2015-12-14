@@ -84,7 +84,7 @@ Come gli altri servizi in Azure, il bus di servizio applica un set specifico di 
 
 - **Numero di listener di inoltro simultanei per spazio dei nomi servizio**: il bus di servizio applica un limite di 2.000 listener di inoltro simultanei per ogni spazio dei nomi servizio. Se viene raggiunta questa quota, le successive richieste di apertura di altri listener di inoltro verranno rifiutate e il codice chiamante riceverà un'eccezione.
 
-- **Numero di argomenti/code per spazio dei nomi servizio**: il numero massimo di argomenti o code (entità con archiviazione permanente) per uno spazio dei nomi servizio è limitato a 10.000. Se viene raggiunta questa quota, le successive richieste di creazione di un nuovo argomento o di una nuova coda nello spazio dei nomi servizio verranno rifiutate. In questo caso, nel portale di Azure verrà visualizzato un messaggio di errore oppure al codice client chiamante verrà inviata un'eccezione, a seconda che il tentativo di creazione sia stato eseguito tramite il portale o nel codice client.
+- **Numero di argomenti/code per spazio dei nomi servizio**: il numero massimo di argomenti o code (entità con archiviazione permanente) per uno spazio dei nomi servizio è limitato a 10.000. Se viene raggiunta questa quota, le successive richieste di creazione di un nuovo argomento o di una nuova coda nello spazio dei nomi servizio verranno rifiutate. In questo caso, nel [portale di Azure classico][] verrà visualizzato un messaggio di errore oppure al codice client chiamante verrà inviata un'eccezione, a seconda che il tentativo di creazione sia stato eseguito tramite il portale o nel codice client.
 
 - **Quote per le dimensioni dei messaggi**
 	- **Coda/argomento/sottoscrizione**
@@ -96,7 +96,7 @@ Come gli altri servizi in Azure, il bus di servizio applica un set specifico di 
 
 	I messaggi che superano queste quote di dimensioni verranno rifiutati e il codice chiamante riceverà un'eccezione.
 
-- **Numero di sottoscrizioni per argomento**: il numero massimo di sottoscrizioni per argomento è limitato a 2.000. Se viene raggiunta questa quota, le successive richieste di creazione di altre sottoscrizioni per l'argomento verranno rifiutate. In questo caso, nel portale di gestione verrà visualizzato un messaggio di errore oppure al codice client chiamante verrà inviata un'eccezione, a seconda che il tentativo di creazione sia stato eseguito tramite il portale o nel codice client.
+- **Numero di sottoscrizioni per argomento**: il numero massimo di sottoscrizioni per argomento è limitato a 2.000. Se viene raggiunta questa quota, le successive richieste di creazione di altre sottoscrizioni per l'argomento verranno rifiutate. In questo caso, nel [portale di Azure classico][] verrà visualizzato un messaggio di errore oppure al codice client chiamante verrà inviata un'eccezione, a seconda che il tentativo di creazione sia stato eseguito tramite il portale o nel codice client.
 
 - **Numero di filtri SQL per argomento**: il numero massimo di filtri SQL per argomento è limitato a 2.000. Se viene raggiunta questa quota, le successive richieste di creazione di altri filtri per l'argomento verranno rifiutate e il codice chiamante riceverà un'eccezione.
 
@@ -114,4 +114,6 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Panoramica dell'architettura del bus di servizio di Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+[portale di Azure classico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

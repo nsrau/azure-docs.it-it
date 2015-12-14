@@ -25,7 +25,7 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'
 - Query principali a livello di utilizzo di DTU, che possono essere ottimizzate per migliorare le prestazioni. 
 - Capacità di eseguire il drill-down nei dettagli di una query. ​
 
-> [AZURE.NOTE]Query Performance Insight è attualmente disponibile in modalità di anteprima e solo nel [portale di anteprima di Azure](https://portal.azure.com/).
+> [AZURE.NOTE]Query Performance Insight è attualmente disponibile in modalità di anteprima e solo nel [portale di Azure](https://portal.azure.com/).
 
 
 
@@ -62,7 +62,7 @@ Query Performance Insight è facile da usare:
 
 ## Esaminare le query principali a livello di utilizzo di DTU
 
-Eseguire le operazioni seguenti nel [portale di anteprima](https://portal.azure.com):
+Eseguire le operazioni seguenti nel [portale](https://portal.azure.com):
 
 1. Passare a un database SQL e fare clic su **Query Performance Insight**. 
 
@@ -109,4 +109,4 @@ Per indicazioni aggiuntive sul miglioramento delle prestazioni del database SQL,
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

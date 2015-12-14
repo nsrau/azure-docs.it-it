@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/05/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple 
@@ -21,7 +21,7 @@
 
 È possibile utilizzare il servizio StorSimple Manager per monitorare dispositivi specifici all'interno della soluzione StorSimple. È possibile creare grafici personalizzati basati su prestazioni I/O, utilizzo della capacità, velocità effettiva della rete e metriche delle prestazioni del dispositivo.
 
-Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, nel portale di gestione, selezionare il servizio StorSimple Manager, fare clic sulla scheda**Monitor** e quindi selezionare dall'elenco dei dispositivi. La pagina **Monitor** contiene le informazioni seguenti:
+Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, nel portale di Azure classico, selezionare il servizio StorSimple Manager, fare clic sulla scheda**Monitor** e quindi selezionare dall'elenco dei dispositivi. La pagina **Monitor** contiene le informazioni seguenti:
 
 ## Prestazione I/O 
 
@@ -121,4 +121,4 @@ Grafici riportati di seguito mostrano la velocità effettiva della rete per Data
 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

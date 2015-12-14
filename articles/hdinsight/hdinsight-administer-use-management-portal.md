@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestire cluster Hadoop in HDInsight tramite il portale di anteprima di Azure | Microsoft Azure"
+	pageTitle="Gestire cluster Hadoop in HDInsight tramite il portale di Azure | Microsoft Azure"
 	description="Informazioni su come amministrare il servizio HDInsight. Creare un cluster HDInsight, aprire la console interattiva JavaScript e aprire la console dei comandi di Hadoop."
 	services="hdinsight"
 	documentationCenter=""
@@ -17,11 +17,11 @@
 	ms.date="11/24/2015"
 	ms.author="jgao"/>
 
-# Gestire cluster Hadoop in HDInsight tramite il portale di anteprima di Azure
+# Gestire cluster Hadoop in HDInsight tramite il portale di Azure
 
 [AZURE.INCLUDE [selettore](../../includes/hdinsight-portal-management-selector.md)]
 
-Tramite il [portale di anteprima di Azure][azure-portal] è possibile creare cluster Hadoop in Azure HDInsight, modificare la password utente di Hadoop e abilitare RDP (Remote Desktop Protocol) per accedere alla console dei comandi di Hadoop nel cluster.
+Tramite il [portale di Azure][azure-portal] è possibile creare cluster Hadoop in Azure HDInsight, modificare la password utente di Hadoop e abilitare RDP (Remote Desktop Protocol) per accedere alla console dei comandi di Hadoop nel cluster.
 
 Le informazioni contenute in questo articolo si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sulla gestione di cluster basati su Linux, fare clic sul selettore di schede in alto.
 
@@ -38,7 +38,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Account di archiviazione di Azure**: cluster HDInsight usano un contenitore di archiviazione BLOB di Azure come file system predefinito. Per altre informazioni sull'esperienza lineare offerta dall'archivio BLOB con cluster HDInsight, vedere [Usare l'archivio BLOB di Azure con HDInsight](../hdinsight-use-blob-storage.md). Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Come creare un account di archiviazione](../storage-create-storage-account.md).
 
-##Aprire il portale di anteprima
+##Aprire il portale
 
 1. Accedere a [https://portal.azure.com](https://portal.azure.com).
 2. Dopo avere aperto il portale, è possibile:
@@ -56,7 +56,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 ##Creare i cluster
 
-Per le istruzioni di creazione con il portale di anteprima, vedere [Creare cluster HDInsight](hdinsight-provision-clusters.md#create-using-the-preview-portal).
+Per le istruzioni di creazione con il portale, vedere [Creare cluster HDInsight](hdinsight-provision-clusters.md#create-using-the-preview-portal).
 
 HDInsight è compatibile con una vasta gamma di componenti Hadoop. Per l'elenco dei componenti verificati e supportati, vedere [Versione di Hadoop inclusa in Azure HDInsight](hdinsight-component-versioning.md). Per personalizzare HDInsight, è possibile usare una delle opzioni seguenti:
 
@@ -94,8 +94,8 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 	
 	- Per personalizzare il menu, fare clic con il pulsante destro del mouse su un punto qualsiasi del menu e quindi scegliere **Personalizza**.
 	- **Impostazioni** e **Tutte le impostazioni**: visualizzano il pannello**Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
-	- **Dashboard**, **Dashboard del cluster** e **URL**: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web.
-	- **Desktop remoto**: connettersi al cluster con RDP.
+	- **Dashboard**, **Dashboard del cluster** e **URL: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web.
+- **Desktop remoto**: connettersi al cluster con RDP.
 	- **Ridimensiona cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
 	- **Elimina**: elimina il cluster.
 	- **Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
@@ -148,7 +148,7 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 
 L'eliminazione di un cluster non eliminerà l'account di archiviazione predefinito né gli account di archiviazione collegati. È possibile ricreare il cluster usando gli stessi account di archiviazione e gli stessi metastore.
 
-1. Accedere al [portale di anteprima][azure-portal].
+1. Accedere al [Portale][azure-portal].
 2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
 3. Scegliere **Elimina** dal menu in alto e quindi seguire le istruzioni.
 
@@ -202,7 +202,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 **Per ridimensionare i cluster**
 
-1. Accedere al [portale di anteprima][azure-portal].
+1. Accedere al [Portale][azure-portal].
 2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
 3. Fare clic su **Impostazioni** dal menu in alto, quindi fare clic su **Ridimensiona cluster**.
 4. Immettere il **numero di nodi del ruolo di lavoro**. Il limite al numero dei nodi del cluster varia tra le diverse sottoscrizioni di Azure. Per aumentare il limite, contattare il team del supporto fatturazione. Le informazioni sui costi rifletteranno le modifiche apportate al numero di nodi.
@@ -211,8 +211,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 ##Sospendere/Arrestare i cluster
 
-La maggior parte dei processi Hadoop sono processi batch che vengono eseguito solo occasionalmente. La maggior parte dei cluster Hadoop non viene usata per l'elaborazione per lunghi periodi di tempo. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato.
-Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
+La maggior parte dei processi Hadoop sono processi batch che vengono eseguito solo occasionalmente. La maggior parte dei cluster Hadoop non viene usata per l'elaborazione per lunghi periodi di tempo. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
 
 Questo processo può essere programmato in molti modi:
 
@@ -221,7 +220,7 @@ Questo processo può essere programmato in molti modi:
 - Usare l'interfaccia della riga di comando di Azure. Vedere [Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md).
 - Usare HDInsight .NET SDK. Vedere [Inviare processi di Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
 
-Per informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Per eliminare un cluster dal portale di anteprima, vedere [Eliminare cluster](#delete-clusters)
+Per informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Per eliminare un cluster dal portale, vedere [Eliminare cluster](#delete-clusters)
 
 ##Modificare il nome utente del cluster
 
@@ -229,7 +228,7 @@ Per un cluster HDInsight possono esistere due account utente. L'account utente d
 
 **Per modificare il nome utente e la password di un cluster HDInsight**
 
-1. Accedere al [portale di anteprima][azure-portal].
+1. Accedere al [Portale][azure-portal].
 2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
 3. Scegliere **Impostazioni** dal menu in alto, quindi fare clic su **Account di accesso del cluster**.
 4. Se **Account di accesso del cluster** è stato abilitato, è necessario fare clic su **Disabilita** e quindi su **Abilita** prima di poter modificare il nome utente e la password.
@@ -247,13 +246,13 @@ Per i cluster HDInsight sono disponibili i servizi Web HTTP seguenti (tutti con 
 - Oozie
 - Templeton
 
-Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibile revocare/concedere l'accesso dal portale di anteprima di Azure.
+Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibile revocare/concedere l'accesso dal portale di Azure.
 
 >[AZURE.NOTE]La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
 
 **Per concedere/revocare l'accesso ai servizi Web HTTP**
 
-1. Accedere al [portale di anteprima][azure-portal].
+1. Accedere al [Portale][azure-portal].
 2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
 3. Scegliere **Impostazioni** dal menu in alto, quindi fare clic su **Account di accesso del cluster**.
 4. Se **Account di accesso del cluster** è stato abilitato, è necessario fare clic su **Disabilita** e quindi su **Abilita** prima di poter modificare il nome utente e la password.
@@ -267,7 +266,7 @@ Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibi
 
 ##Trovare l'account di archiviazione predefinito
 
-Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di archiviazione predefinito e le chiavi per un cluster vengono visualizzati in **Impostazioni**/**Proprietà**/**Chiavi di archiviazione di Azure**. Vedere [Elencare e visualizzare i cluster](list-and-show-clusters).
+Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di archiviazione predefinito e le chiavi per un cluster vengono visualizzati in **Impostazioni**/**Proprietà**/**Chiavi di archiviazione di Azure**. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
 
 	
 ##Trovare il gruppo di risorse 
@@ -312,11 +311,11 @@ La console query HDInsight include le funzionalità seguenti:
 
 ##Eseguire query Hive
 
-Per eseguire i processi Hive dal portale di anteprima, fare clic su **Editor Hive** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
+Per eseguire i processi Hive dal portale, fare clic su **Editor Hive** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
 
 ##Monitorare i processi
 
-Per monitorare i processi dal portale di anteprima, fare clic su **Cronologia processo** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
+Per monitorare i processi dal portale, fare clic su **Cronologia processo** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
 
 ##Ricerca dei file
 
@@ -347,7 +346,7 @@ Le credenziali del cluster fornite durante la creazione consentono di accedere a
 
 **Per abilitare Desktop remoto**
 
-1. Accedere al [portale di anteprima][azure-portal].
+1. Accedere al [portale][azure-portal].
 2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
 3. Scegliere **Impostazioni** dal menu in alto, quindi fare clic su **Desktop remoto**.
 4. Immettere **Scadenza**, **Nome utente di Desktop remoto** e **Password di Desktop remoto**, quindi fare clic su **Abilita**.
@@ -359,7 +358,7 @@ Le credenziali del cluster fornite durante la creazione consentono di accedere a
 
 **Per connettersi a un cluster tramite RDP**
 
-1. Accedere al [portale di anteprima][azure-portal].
+1. Accedere al [portale][azure-portal].
 2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
 3. Scegliere **Impostazioni** dal menu in alto, quindi fare clic su **Desktop remoto**.
 4. Fare clic su **Connetti** e seguire le istruzioni. Se Connetti è disabilitato, è necessario prima abilitarlo. Assicurarsi di utilizzare il nome utente e la password del Desktop remoto. Non è possibile utilizzare le credenziali dell'utente del Cluster.
@@ -388,7 +387,7 @@ Nella schermata precedente il numero di versione di Hadoop è incorporato nel no
 	cd %hcatalog_home%
 	
 ##Passaggi successivi
-In questo articolo è stato illustrato come creare un cluster HDInsight tramite il portale di anteprima di Azure e come aprire lo strumento da riga di comando di Hadoop. Per altre informazioni, vedere gli articoli seguenti:
+In questo articolo è stato illustrato come creare un cluster HDInsight tramite il portale, e come aprire lo strumento da riga di comando di Hadoop. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Amministrare HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Amministrare HDInsight tramite l’interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)
@@ -400,4 +399,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -16,7 +16,7 @@
    ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# Introduzione ad Archivio Data Lake di Azure tramite il portale di anteprima di Azure.
+# Introduzione all’Archivio Data Lake di Azure tramite il portale di Azure.
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-get-started-portal.md)
@@ -24,19 +24,19 @@
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
 
-Informazioni su come usare il portale di anteprima di Azure per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica dell’archivio Data Lake di Azure](data-lake-store-overview.md).
+Informazioni su come usare il portale di Azure per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica dell’archivio Data Lake di Azure](data-lake-store-overview.md).
 
 ## Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="signup"></a>Abilitare la sottoscrizione di Azure per l'anteprima pubblica di Data Lake Store.
 
 È innanzitutto necessario richiedere che la sottoscrizione di Azure sia abilitata per l'anteprima pubblica di Archivio Data Lake. Attenersi ai passaggi indicati di seguito:
 
-1. Accedere al nuovo [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
 2. Fare clic su **NUOVO**, fare clic su **Dati + archiviazione**, e quindi fare clic su **Archivio Data Lake di Azure**.
 3. Nel pannello **nuovo archivio Data Lake**, fare clic su **Iscriversi per visualizzare l’anteprima**. Leggere le informazioni e quindi fare clic su **OK**. Quando la sottoscrizione è stata abilitata per l'anteprima pubblica, si riceverà un messaggio di posta elettronica.
 
@@ -44,7 +44,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ## Creare un account di Azure Data Lake Store
 
-1. Accedere al nuovo [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
 
 2. Fare clic su **NUOVO**, fare clic su **Dati + archiviazione**, e quindi fare clic su **Archivio Data Lake di Azure**. Leggere le informazioni nel pannello **Archivio Azure Data Lake**, quindi fare clic su **Crea** nell'angolo inferiore sinistro del pannello.
 
@@ -133,4 +133,4 @@ Per eliminare un account di Archivio Data Lake di Azure, dal pannello dell’acc
 - [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

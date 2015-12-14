@@ -78,11 +78,11 @@ Quando si effettua il provisioning di un cluster HDInsight, si specifica un acco
 
 **Per creare un account di archiviazione di Azure**
 
-1. Accedere al [portale di gestione di Azure][azure-classic-portal].
+1. Accedere al [portale di Azure classico][azure-classic-portal].
 	
-	> [AZURE.NOTE]Azure HDInsight è attualmente supportato nel portale di gestione di Azure, mentre Azure DocumentDB esiste solo nel portale di Microsoft Azure.
+	> [AZURE.NOTE]Azure HDInsight è attualmente supportato nel portale di Azure classico, mentre Azure DocumentDB esiste solo nel portale di Microsoft Azure.
 
-2. Fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **SERVIZI DATI**, quindi **ARCHIVIAZIONE** e infine **CREAZIONE RAPIDA**.![Portale di Azure dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione.][image-storageaccount-quickcreate]
+2. Fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **SERVIZI DATI**, quindi **ARCHIVIAZIONE** e infine **CREAZIONE RAPIDA**.![Portale di Azure classico dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione.][image-storageaccount-quickcreate]
 
 3. Immettere l'**URL**, selezionare i valori **PERCORSO** e **REPLICA**, quindi fare clic su **CREA ACCOUNT DI ARCHIVIAZIONE**. I gruppi di affinità non sono supportati.
 	
@@ -93,9 +93,9 @@ Quando si effettua il provisioning di un cluster HDInsight, si specifica un acco
 4. Attendere che il valore di **STATUS** per il nuovo account di archiviazione venga modificato in **Online**.
 
 ## <a name="ProvisionHDInsight"></a>Passaggio 2: creare un cluster HDInsight personalizzato
-Questa esercitazione usa l'Azione script dal portale di gestione di Azure per personalizzare il cluster HDInsight. In questa esercitazione si userà il portale di gestione di Azure per creare il cluster personalizzato. Per istruzioni su come usare i cmdlet di PowerShell oppure HDInsight .NET SDK, leggere l'articolo [Personalizzare cluster HDInsight mediante Azione script][hdinsight-custom-provision].
+Questa esercitazione usa l'Azione script dal portale di Azure classico per personalizzare il cluster HDInsight. In questa esercitazione si userà il portale di Azure classico per creare il cluster personalizzato. Per istruzioni su come usare i cmdlet di PowerShell oppure HDInsight .NET SDK, leggere l'articolo [Personalizzare cluster HDInsight mediante Azione script][hdinsight-custom-provision].
 
-1. Accedere al [portale di gestione di Azure][azure-classic-portal]. È possibile che sia già stato eseguito l'accesso al passaggio precedente.
+1. Accedere al [portale di Azure classico][azure-classic-portal]. È possibile che sia già stato eseguito l'accesso al passaggio precedente.
 
 2. Fare clic su **+ NUOVO** nella parte inferiore della pagina, quindi su **SERVIZI DATI**, **HDINSIGHT** e infine su **CREAZIONE PERSONALIZZATA**.
 
@@ -155,7 +155,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 		<td>Consente di specificare il contenitore predefinito nell'account di archiviazione viene usato come file system predefinito per il cluster HDInsight. Se si sceglie <strong>Utilizzare l'archiviazione esistente</strong> per il campo <strong>Account di archiviazione</strong> e non ci sono contenitori in tale account, il contenitore verrà creato per impostazione predefinita con lo stesso nome del cluster. Se esiste già un contenitore con il nome del cluster, al nome del contenitore verrà aggiunto un numero di sequenza.
     </td></tr>
 	<tr><td>Account di archiviazione aggiuntivi</td>
-		<td>HDInsight supporta più account di archiviazione. Un cluster può usare un numero illimitato di account di archiviazione aggiuntivi. Se tuttavia si crea un cluster tramite il portale di Azure, esiste un limite di sette dovuto ai vincoli dell'interfaccia utente. Per ogni account di archiviazione aggiuntivo specificato viene aggiunta un'ulteriore pagina Account di archiviazione alla procedura guidata, in cui è possibile specificare le informazioni account.</td></tr>
+		<td>HDInsight supporta più account di archiviazione. Un cluster può usare un numero illimitato di account di archiviazione aggiuntivi. Se tuttavia si crea un cluster tramite il portale di Azure classico, esiste un limite di sette dovuto ai vincoli dell'interfaccia utente. Per ogni account di archiviazione aggiuntivo specificato viene aggiunta un'ulteriore pagina Account di archiviazione alla procedura guidata, in cui è possibile specificare le informazioni account.</td></tr>
 </table>Fare clic sulla freccia destra.
 
 7. Nella pagina **Azioni script** fare clic su **aggiungi azione script** per specificare i dettagli relativi allo script di PowerShell da eseguire per personalizzare un cluster, nel momento in cui viene creato. Lo script di PowerShell installerà il connettore Hadoop di DocumentDB nei cluster HDInsight durante la creazione del cluster.
@@ -181,7 +181,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 1. Installare Azure PowerShell. Le istruzioni sono consultabili [qui][powershell-install-configure].
 
-	> [AZURE.NOTE]In alternativa, solo per le query Hive, è possibile usare l'Editor Hive online di HDInsight. A tale scopo, accedere al [portale di gestione di Azure][azure-classic-portal], fare clic su **HDInsight** nel riquadro sinistro per visualizzare un elenco dei cluster HDInsight. Fare clic sul cluster che sul quale si vogliono eseguire le query Hive e quindi fare clic su **Console Query**.
+	> [AZURE.NOTE]In alternativa, solo per le query Hive, è possibile usare l'Editor Hive online di HDInsight. A tale scopo, accedere al [portale di Azure classico][azure-classic-portal], fare clic su **HDInsight** nel riquadro sinistro per visualizzare un elenco dei cluster HDInsight. Fare clic sul cluster che sul quale si vogliono eseguire le query Hive e quindi fare clic su **Console Query**.
 
 2. Aprire Integrated Scripting Environment di Azure PowerShell:
 	- In un computer che esegue Windows 8 o Windows Server 2012 o versione successiva, è possibile usare la funzionalità di ricerca incorporata. Dalla schermata Start digitare **powershell ise** e fare clic su **Invio**. 
@@ -280,7 +280,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 9. **Eseguire** il nuovo script. **Fare clic** sul pulsante di esecuzione verde.
 
-10. Verificare i risultati. Eseguire l'accesso al [portale di anteprima di Azure][azure-portal].
+10. Verificare i risultati. Accedere al [portale di Azure][azure-portal].
 	1. Fare clic su <strong>Sfoglia</strong> nel riquadro a sinistra. </br>
 	2. Fare clic su <strong>tutto</strong> in alto a destra del riquadro di esplorazione. </br>
 	3. Individuare e fare clic su <strong>Account DocumentDB</strong>. </br>
@@ -362,7 +362,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 		
 9. **Eseguire** il nuovo script. **Fare clic** sul pulsante di esecuzione verde.
 
-10. Verificare i risultati. Eseguire l'accesso al [portale di anteprima di Azure][azure-portal].
+10. Verificare i risultati. Accedere al [portale di Azure][azure-portal].
 	1. Fare clic su <strong>Sfoglia</strong> nel riquadro a sinistra. </br>
 	2. Fare clic su <strong>tutto</strong> in alto a destra del riquadro di esplorazione. </br>
 	3. Individuare e fare clic su <strong>Account DocumentDB</strong>. </br>
@@ -405,7 +405,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 5. **Eseguire** il nuovo script. **Fare clic** sul pulsante di esecuzione verde.
 
-6. Verificare i risultati. Eseguire l'accesso al [portale di anteprima di Azure][azure-portal].
+6. Verificare i risultati. Accedere al [portale di Azure][azure-portal].
 	1. Fare clic su <strong>Sfoglia</strong> nel riquadro a sinistra.
 	2. Fare clic su <strong>tutto</strong> in alto a destra del riquadro di esplorazione.
 	3. Individuare e fare clic su <strong>Account DocumentDB</strong>.
@@ -470,4 +470,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

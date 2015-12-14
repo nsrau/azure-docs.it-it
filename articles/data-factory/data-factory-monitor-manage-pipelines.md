@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Monitorare e gestire le pipeline di Data factory di Azure" 
-	description="Informazioni su come usare il portale di gestione di Azure e Azure PowerShell per monitorare e gestire le istanze di Data factory di Azure e le pipeline create." 
+	description="Informazioni su come usare il portale di Azure classico e Azure PowerShell per monitorare e gestire le istanze di Data factory di Azure e le pipeline create." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -22,10 +22,10 @@ Il servizio Data factory offre una visione completa dei servizi di archiviazione
 Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline. Contiene anche informazioni su come creare avvisi e ricevere notifiche sugli errori.
 
 ## Informazioni sulle pipeline e sugli stati delle attività
-Con il portale di anteprima di Azure, è possibile visualizzare la data factory come diagramma, visualizzare le attività in una pipeline, visualizzare i set di dati di input e output e altro ancora. Questa sezione illustra anche come avviene la transizione di una sezione da uno stato a un altro.
+Con il portale di Azure, è possibile visualizzare la data factory come diagramma, visualizzare le attività in una pipeline, visualizzare i set di dati di input e output e altro ancora. Questa sezione illustra anche come avviene la transizione di una sezione da uno stato a un altro.
 
 ### Passare alla data factory
-1.	Accedere al [portale di anteprima di Azure](http://portal.azure.com).
+1.	Accedere al [portale di Azure](http://portal.azure.com).
 2.	Fare clic su **Esplora tutto** e selezionare **Data factory**.
 	
 	![Esplora tutto -> Data factory](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -69,7 +69,7 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 
 <table>
 <tr>
-	<th align="left">State</th><th align="left">Sottostato</th><th align="left">Descrizione</th>
+	<th align="left">Stato</th><th align="left">Sottostato</th><th align="left">Descrizione</th>
 </tr>
 <tr>
 	<td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è il momento di eseguire la sezione.</td>
@@ -96,6 +96,7 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 <td>ValidationRetry</td><td>In attesa della riesecuzione della convalida.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>Convalida in corso.</td><td>Convalida in esecuzione.</td>
 </tr>
 <td></td>
@@ -137,7 +138,7 @@ Per visualizzare i dettagli di un'esecuzione attività, fare clic sulla voce di 
 
 ![Dettagli esecuzione attività](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**. Ciò è molto utile quando lo stato della sezione è **Waiting** e si desidera conoscere le dipendenze upstream su cui la sezione è in attesa.
+Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**. Ciò è molto utile quando lo stato della sezione è **In attesa** e si desidera conoscere le dipendenze upstream su cui la sezione è in attesa.
 
 ![Sezioni upstream non pronte](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -148,9 +149,9 @@ Una volta che una data factory è stata distribuita e le pipeline hanno un perio
 
 Il flusso di transizione di stato del set dati nella data factory è il seguente: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
 
-Lo stato iniziale delle sezioni è **Waiting** in modo da soddisfare le condizioni preliminari prima dell'esecuzione. In seguito inizia l'esecuzione dell'attività e la sezione passa allo stato **In-Progress**. Lo stato della sezione passa a **Ready** o **Failed** a seconda che l'esecuzione dell'attività venga completata o meno.
+Lo stato iniziale delle sezioni è **In attesa** in modo da soddisfare le condizioni preliminari prima dell'esecuzione. In seguito inizia l'esecuzione dell'attività e la sezione passa allo stato **In corso**. Lo stato della sezione passa a **Pronto** o **Non riuscito** a seconda che l'esecuzione dell'attività venga completata o meno.
 
-L'utente può reimpostare la sezione in modo che dallo stato **Ready** o **Failed** torni allo stato **Waiting**. L'utente può anche impostare lo stato della sezione su **Skip** per impedire l'esecuzione dell'attività e l'elaborazione della sezione.
+L'utente può reimpostare la sezione in modo che dallo stato **Pronto** o **Non riuscito** torni allo stato **In attesa**. L'utente può anche impostare lo stato della sezione su **Ignora** per impedire l'esecuzione dell'attività e l'elaborazione della sezione.
 
 
 ## Gestire le pipeline
@@ -181,23 +182,23 @@ Ad esempio:
 
 
 ## Eseguire il debug delle pipeline
-Tramite il portale di Azure e Azure PowerShell, Data factory di Azure offre funzionalità avanzate per il debug e la risoluzione dei problemi relativi alle pipeline.
+Tramite il portale di Azure classico e Azure PowerShell, Data factory di Azure offre funzionalità avanzate per il debug e la risoluzione dei problemi relativi alle pipeline.
 
 ### Trovare gli errori in una pipeline
 Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati generato dalla pipeline è in uno stato di errore. È possibile eseguire il debug e risolvere i problemi relativi agli errori in Data factory di Azure usando i meccanismi seguenti.
 
-#### Usare il portale di Azure per eseguire il debug di un errore:
+#### Usare il portale di Azure classico per eseguire il debug di un errore:
 
-1.	Fare clic su **Con errori** nel riquadro **Set di dati** della home page della data factory.
+1.	Fare clic su **Con errori** nel riquadro **Set di dati** della home page data factory.
 	
 	![Riquadro Set di dati con errore](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
 2.	Nel pannello **Set di dati con errori** fare clic sulla tabella che interessa.
 
 	![Pannello Set di dati con errori](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	Nel pannello **TABELLA** fare clic sulla sezione con errori con **STATO** impostato su **Failed**.
+3.	Nel pannello **TABELLA** fare clic sulla sezione con errori con **STATO** impostato su **Non riuscito**.
 
 	![Pannello Tabella con sezione con errori](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-4.	Nel pannello **SEZIONE DI DATI** fare clic sull'esecuzione attività non riuscita.
+4.	Nel pannello **SEZIONE DI DATI** fare clic sull'esecuzione dell’attività non riuscita.
 	
 	![Sezione dati con un errore](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
 5.	Nel pannello **DETTAGLI ESECUZIONE ATTIVITÀ** è possibile scaricare i file associati all'elaborazione di HDInsight. Fare clic su Scarica in corrispondenza di Stato/stderr per scaricare il file di log degli errori che contiene i dettagli dell'errore stesso.
@@ -209,7 +210,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 2.	Passare alla modalità **AzureResourceManager** perché i cmdlet di Data factory sono disponibili unicamente in questa modalità.
 
 		switch-azuremode AzureResourceManager
-3.	Eseguire il comando **Get-AzureDataFactorySlice** per visualizzare le sezioni e il relativo stato. Verrà visualizzata una sezione con lo stato **Failed**.
+3.	Eseguire il comando **Get-AzureDataFactorySlice** per visualizzare le sezioni e il relativo stato. Verrà visualizzata una sezione con lo stato **Non riuscito**.
 
 		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
@@ -262,7 +263,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 
 ## Eseguire nuovamente le operazioni non riuscite in una pipeline
 
-### Uso del portale di Azure
+### Uso del portale di Azure classico
 
 Dopo avere risolto i problemi relativi agli errori in una pipeline e averne eseguito il debug, è possibile eseguire nuovamente le operazioni non riuscite passando alla sezione degli errori e facendo clic sul pulsante **Esegui** sulla barra dei comandi.
 
@@ -391,26 +392,44 @@ Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribu
 
 
 #### Risoluzione dei problemi relativi agli eventi utente
-È possibile visualizzare tutti gli eventi generati dopo aver selezionato il riquadro **Operazioni**. Gli avvisi possono essere configurati per qualsiasi operazione visibile nel pannello **Eventi**:
-
-![Operazioni](./media/data-factory-monitor-manage-pipelines/operations.png)
-
-Per visualizzare gli avvisi configurati usando PowerShell, è possibile eseguire il comando seguente e visualizzare tutti gli avvisi creati. Verranno visualizzati tutti gli avvisi configurati sia per le metriche che per gli eventi con il tipo di risorsa **microsoft.insights/alertrules**.
-
-	Get-AzureResourceGroup -Name $resourceGroupName
-
-	ResourceGroupName : mdwevent
-	Location          : westus
-	ProvisioningState : Succeeded
-	Resources         :
-                    Name                  Type                                 Location
-                    ====================  ===================================  ========
-                    abhieventtest1        Microsoft.DataFactory/dataFactories  westus
-                    abhieventtest2        Microsoft.DataFactory/dataFactories  westus
-                    FailedValidationRuns  microsoft.insights/alertrules        eastus
 
 
-Se si visualizzano gli eventi di generazione avvisi nel pannello del portale, ma non si ricevono le notifiche di posta elettronica, controllare se l'indirizzo di posta elettronica specificato è impostato per la ricezione di messaggi da mittenti esterni. I messaggi di avviso potrebbero essere stati bloccati dalle impostazioni di posta elettronica.
+- È possibile visualizzare tutti gli eventi generati dopo aver selezionato il riquadro **Operazioni**. Gli avvisi possono essere configurati per qualsiasi operazione visibile nel pannello **Eventi**:
+
+	![Operazioni](./media/data-factory-monitor-manage-pipelines/operations.png)
+
+
+- Vedere l’articolo [Cmdlet di Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) per i cmdlet PowerShell che è possibile usare per gli avvisi add/get/remove. Ecco alcuni esempi di utilizzo del cmdlet **Get-AlertRule**:
+
+		PS C:\> Get-AlertRule -res $resourceGroup
+	
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+				Location   : West US
+				Name       : FailedExecutionRunsWest3
+	
+		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+
+	Eseguire i seguenti comandi get-help per visualizzare informazioni dettagliate ed esempi per il cmdlet Get-AlertRule.
+
+		get-help Get-AlertRule -detailed 
+		get-help Get-AlertRule -examples
+
+
+- Se si visualizzano gli eventi di generazione avvisi nel pannello del portale, ma non si ricevono le notifiche di posta elettronica, controllare se l'indirizzo di posta elettronica specificato è impostato per la ricezione di messaggi da mittenti esterni. I messaggi di avviso potrebbero essere stati bloccati dalle impostazioni di posta elettronica.
 
 ### Avvisi relativi alle metriche
 Data factory consente di acquisire diverse metriche e di creare avvisi per le metriche. È possibile monitorare e creare avvisi per le metriche seguenti relative alle sezioni della data factory.
@@ -497,9 +516,7 @@ Questo comportamento è diverso da quello degli eventi in cui verrà inviata una
  
 Sostituire subscriptionId resourceGroupName e dataFactoryName dell'esempio precedente con i valori appropriati.
 
-*metricName* supporta al momento 2 valori:
-- FailedRuns
-- SuccessfulRuns
+*metricName* supporta al momento 2 valori: - FailedRuns - SuccessfulRuns
 
 **Distribuzione dell'avviso:**
 
@@ -523,4 +540,4 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 	Parameters        :
 	Outputs           
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

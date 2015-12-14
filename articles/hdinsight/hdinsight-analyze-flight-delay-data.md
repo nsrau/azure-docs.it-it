@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/01/2015"
 	ms.author="jgao"/>
 
 #Analizzare i dati sui ritardi dei voli con Hive in HDInsight
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Workstation con Azure PowerShell**. Vedere [Installare Azure PowerShell 1.0 e versioni successive](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 **File usati in questa esercitazione**
 
@@ -70,7 +70,7 @@ Nella tabella seguente vengono elencati i file usati nell'esercitazione:
 
 ##Creare cluster ed eseguire processi Hive/Sqoop
 
-Per Hadoop MapReduce è prevista l'elaborazione batch. Il modo più economico di eseguire un processo Hive consiste nel creare di un cluster per il processo ed eliminare il processo dopo il completamento. Lo script seguente descrive l'intero processo. Per altre informazioni sulla creazione di un cluster HDInsight e sull'esecuzione di processi Hive, vedere [Creare cluster Hadoop in HDInsight][hdinsight-provision] e [Usare Hive con HDInsight][hdinsight-use-hive].
+Per Hadoop MapReduce è prevista l'elaborazione batch. Il modo più economico di eseguire un processo Hive consiste nel creare un cluster per il processo ed eliminare il processo dopo il completamento. Lo script seguente descrive l'intero processo. Per altre informazioni sulla creazione di un cluster HDInsight e sull'esecuzione di processi Hive, vedere [Creare cluster Hadoop in HDInsight][hdinsight-provision] e [Usare Hive con HDInsight][hdinsight-use-hive].
 
 **Per eseguire le query Hive con Azure PowerShell**
 
@@ -234,7 +234,7 @@ Per Hadoop MapReduce è prevista l'elaborazione batch. Il modo più economico di
 
 ---
 ##<a id="appendix-a"></a>Appendice A: caricare i dati relativi ai ritardi dei voli nell'archivio BLOB di Azure
-Prima di caricare il file di dati e i file script HiveQL, vedere l'[Appendice B](#appendix-b), è richiesta un'attività di pianificazione. L'idea è di archiviare i file di dati e il file HiveQL prima di creare un cluster HDInsight e di eseguire il processo Hive. Sono disponibili due opzioni:
+Prima di caricare il file di dati e i file script HiveQL, vedere l'[Appendice B](#appendix-b), è richiesta un'attività di pianificazione. L'idea è quella di archiviare i file di dati e il file HiveQL prima di creare un cluster HDInsight e di eseguire il processo Hive. Sono disponibili due opzioni:
 
 - **Usare lo stesso account di archiviazione di Azure che sarà usato come file system predefinito per il cluster HDInsight:** poiché il cluster HDInsight avrà la chiave di accesso dell'account di archiviazione, non è necessario apportare altre modifiche.
 - **Usare un account di archiviazione di Azure diverso dal file system predefinito del cluster HDInsight:** In questo caso è necessario modificare la parte relativa alla creazione dello script di Windows PowerShell disponibile in [Creare un cluster HDInsight ed eseguire processi Hive/Sqoop](#runjob) per includere l'account di archiviazione come account di archiviazione aggiuntivo. Per istruzioni, vedere [Creare cluster Hadoop in HDInsight][hdinsight-provision]. Il cluster HDInsight conosce quindi la chiave di accesso per l'account di archiviazione.
@@ -346,7 +346,7 @@ Se si sceglie un metodo diverso per il caricamento dei file, verificare che il p
 
 	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
-tutorials/flightdelay/data è la cartella virtuale creata durante il caricamento dei file. Verificare che siano disponibili 12 file, uno per ogni mese.
+Il percorso tutorials/flightdelay/data è la cartella virtuale creata durante il caricamento dei file. Verificare che siano disponibili 12 file, uno per ogni mese.
 
 >[AZURE.NOTE]È necessario aggiornare la query Hive per consentire la lettura dal nuovo percorso.
 
@@ -742,4 +742,4 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

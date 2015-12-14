@@ -138,9 +138,9 @@ Dall'interfaccia utente Web Ambari, selezionare il servizio per il quale si desi
 
 È possibile selezionare le dimensioni del nodo head solo durante la creazione del cluster. La dimensione predefinita per i nodi head è **A3**, che fornisce 4 core, 7GB di memoria e 285GB di spazio di archiviazione locale. È possibile trovare un elenco delle varie dimensioni di VM disponibili per HDInsight, inclusi core, memoria e archiviazione locale per ognuna, sulla [pagina dei prezzi di HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
-Quando si crea un nuovo cluster, è possibile specificare le dimensioni dei nodi. Di seguito viene spiegato come specificare le dimensioni utilizzando il [portale di anteprima di Azure][preview-portal], [Azure PowerShell][azure-powershell], e [l’interfaccia della riga di comando di Azure][azure-cli]\:
+Quando si crea un nuovo cluster, è possibile specificare le dimensioni dei nodi. Di seguito viene spiegato come specificare le dimensioni utilizzando il [portale di Azure][preview-portal], [Azure PowerShell][azure-powershell], e [l’interfaccia della riga di comando di Azure][azure-cli]\:
 
-* **Portale di anteprima di Azure**: quando si crea un nuovo cluster, è possibile impostare le dimensioni (piano tariffario) dei nodi head e data (ruolo di lavoro) del cluster:
+* **Portale di Azure**: quando si crea un nuovo cluster, è possibile impostare le dimensioni (piano tariffario) dei nodi head e dei dati (ruolo di lavoro) del cluster:
 
 	![Immagine della creazione guidata di cluster con la selezione delle dimensioni del nodo](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -166,4 +166,4 @@ In questo documento si è appreso il modo in cui Azure HDInsight fornisce dispon
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

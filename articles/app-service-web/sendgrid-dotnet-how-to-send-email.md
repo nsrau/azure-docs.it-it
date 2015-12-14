@@ -116,7 +116,7 @@ Dopo aver creato un messaggio di posta elettronica, è possibile inviarlo tramit
 
 Per l'invio di messaggi di posta elettronica è necessario specificare le credenziali dell'account SendGrid (nome utente e password) o la chiave API di SendGrid. La Chiave API è il metodo preferito. Per informazioni dettagliate su come configurare le chiavi API, visitare la [documentazione](https://sendgrid.com/docs/Classroom/Send/api_keys.html)
 
-È possibile archiviare le credenziali tramite il portale di Azure facendo clic su Configura e aggiungere le coppie chiave/valore nella sezione "impostazioni app".
+È possibile archiviare le credenziali tramite il Portale di Azure facendo clic su CONFIGURA e aggiungere le coppie chiave/valore nella sezione "impostazioni app".
 
  ![Impostazioni app di Azure][azure_app_settings]
 
@@ -261,4 +261,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # La carta di credito non viene accettata quando si tenta iscriversi ad Azure
 Questo articolo illustra le cause più comuni dei problemi relativi all'iscrizione con una carta di credito o di debito.
@@ -64,4 +64,4 @@ Se l'attivazione di una versione di valutazione gratuita non riesce perché è g
 ## Contattare il supporto di Azure
 Se continua a verificarsi un problema di iscrizione dopo aver eseguito i passaggi di risoluzione dei problemi, contattare il [supporto di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

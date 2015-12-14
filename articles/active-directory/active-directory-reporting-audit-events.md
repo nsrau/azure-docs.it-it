@@ -13,10 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Eventi del report di controllo di Azure Active Directory
+
+## Articoli di documentazione della creazione di report
+
+ - [API di creazione report](active-directory-reporting-api-getting-started.md)
+ - [Eventi di controllo](active-directory-reporting-audit-events.md)
+ - [Conservazione](active-directory-reporting-retention.md)
+ - [Anteprime](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Recupero delle informazioni](active-directory-reporting-backfill.md)
+ - [Latenze](active-directory-reporting-latencies.md)
+ - [Evento "Attore sconosciuto"](active-directory-reporting-unknown-actor.md)
+
 Il report di controllo di Azure Active Directory consente ai clienti di identificare le azioni con privilegi che si sono verificate nella propria istanza di Azure Active Directory. Le azioni con privilegi includono modifiche di elevazione dei privilegi, ad esempio la creazione dei ruoli o le reimpostazioni delle password, la modifica delle configurazioni dei criteri, ad esempio i criteri delle password o le modifiche alla configurazione della directory, ad esempio le modifiche alle impostazioni di federazione del dominio. Nei report è incluso il record di controllo per il nome dell'evento, l'attore che ha eseguito l'azione, la risorsa di destinazione interessata dalla modifica e la data e l'ora (UTC). I clienti possono recuperare l'elenco degli eventi di controllo per la propria istanza di Azure Active Directory tramite il [portale di gestione di Azure](https://manage.windowsazure.com/), come descritto nell'articolo relativo alla [visualizzazione dei report di utilizzo e di accesso](active-directory-view-access-usage-reports.md).
 
 
@@ -119,4 +131,4 @@ TelephoneNumber | Numero di telefono dell'utente.
 
 I record di controllo rappresentano un controllo obbligatorio per molte normative per la conformità. Per i clienti che usano i report di controllo di Azure Active Directory per garantire la conformità alle normative, è consigliabile inviare una copia di questo argomento della guida insieme al report di controllo esportato del cliente per fornire una descrizione delle informazioni contenute nel report. Per altre informazioni sulle normative di conformità attualmente soddisfatte da Azure, suggerire al revisore di visitare la pagina relativa alla [conformità](http://azure.microsoft.com/support/trust-center/compliance/) del Centro protezione Microsoft Azure.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

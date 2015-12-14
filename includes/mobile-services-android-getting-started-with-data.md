@@ -52,7 +52,7 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 9. Trovare la classe *ProgressFilter* verso la fine del file e rimuovere i simboli di commento. Questa classe visualizza un indicatore 'loading' mentre *MobileServiceClient* esegue le operazioni di rete.
 
 
-10. Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
+10. Nel portale di Azure classico fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 11. Fare clic sulla scheda **Dashboard** e prendere nota del valore di **URL sito**, quindi fare clic su **Gestisci chiavi** e prendere nota del valore di **Chiave applicazione**.
 
@@ -162,4 +162,4 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

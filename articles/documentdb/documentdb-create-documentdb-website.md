@@ -128,11 +128,11 @@ Si procederà a questo punto alla distribuzione del primo modello.
 
 	![Applicazione di esempio](./media/documentdb-create-documentdb-website/image2.png)
 
-7. Creare un paio di attività e quindi aprire il [portale di anteprima di Microsoft Azure](https://portal.azure.com).
+7. Creare un paio di attività e quindi aprire il [portale di Microsoft Azure](https://portal.azure.com).
 
 8. Sfogliare i gruppi di risorse, quindi selezionare il gruppo di risorse creato durante la distribuzione (nell'esempio precedente myDemoResourceGroup).
 
-	![Schermata del postale di Azure con myDemoResourceGroup evidenziato](./media/documentdb-create-documentdb-website/image3.png)
+	![Schermata del portale di Azure classico con myDemoResourceGroup evidenziato](./media/documentdb-create-documentdb-website/image3.png)
 9.  Notare che la mappa delle risorse nel filtro di riepilogo mostra tutte le risorse correlate (account DocumentDB, app Web del servizio app, monitoraggio).
 
 	![Schermata del filtro di riepilogo](./media/documentdb-create-documentdb-website/image4.png)
@@ -172,7 +172,7 @@ Si procederà ora alla distribuzione del secondo modello.
 	> [AZURE.TIP]Si noti che verrà richiesto di immettere il nome utente e la password dell'account Azure come parte dell'esecuzione dello script. Il completamento della distribuzione richiederà tra 10 e 15 minuti.
 
 4. L'output della distribuzione sarà molto simile a quello del primo esempio di modello.
-5. Prima di aprire il portale di anteprima di Azure, si cercheranno di individuare gli obiettivi raggiunti con il completamento della distribuzione:
+5. Prima di aprire il portale di Azure, si cercheranno di individuare gli obiettivi raggiunti con il completamento della distribuzione:
 
 	- È stata creata un'app Web del servizio app.
 
@@ -182,14 +182,14 @@ Si procederà ora alla distribuzione del secondo modello.
 
 	- 	È stata creata una serie di regole di monitoraggio predefinite.
 
-6. Aprire il [portale di anteprima di Azure](https://portal.azure.com), sfogliare i gruppi di risorse, quindi selezionare il gruppo di risorse creato durante la distribuzione (nell'esempio precedente myOtherDemoResourceGroup).
+6. Aprire il [portale di Azure](https://portal.azure.com), sfogliare i gruppi di risorse, quindi selezionare il gruppo di risorse creato durante la distribuzione (nell'esempio precedente myOtherDemoResourceGroup).
 7. Nel filtro di riepilogo, fare clic sull'app Web che è stata appena distribuita.
 
 	![Schermata del filtro di riepilogo con l'app Web myotherdocumentdbwebapp evidenziata](./media/documentdb-create-documentdb-website/image6.png)
 8. Nel pannello dell'app Web fare clic su **Tutte le impostazioni**, quindi su **Impostazioni applicazione** e notare la presenza di impostazioni dell'applicazione per l'endpoint e per ognuna delle chiavi master di DocumentDB.
 
 	![Schermata dei pannelli dell'app Web , Impostazioni e delle impostazioni dell'applicazione](./media/documentdb-create-documentdb-website/image7.png)
-9. È possibile continuare a esplorare il portale di anteprima di Azure o seguire uno degli [esempi](http://go.microsoft.com/fwlink/?LinkID=402386) di DocumentDB per creare la propria applicazione DocumentDB.
+9. È possibile continuare a esplorare il portale di Azure o seguire uno degli [esempi](http://go.microsoft.com/fwlink/?LinkID=402386) di DocumentDB per creare la propria applicazione DocumentDB.
 
 	
 	
@@ -205,9 +205,9 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un'app Web 
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio dal portale precedente al nuovo portale vedere: [Informazioni di riferimento per l'esplorazione del portale di Azure classico](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

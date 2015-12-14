@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # Come creare e gestire Cache Redis di Azure tramite l'interfaccia della riga di comando di Azure (Azure CLI)
+
+> [AZURE.SELECTOR]
+- [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+- [Azure CLI](cache-manage-cli.md)
 
 L'interfaccia della riga di comando di Azure è un ottimo modo di gestire l'infrastruttura di Azure da qualsiasi piattaforma. In questo articolo viene illustrato come creare e gestire le istanze di Cache Redis di Azure tramite la CLI di Azure.
 
@@ -25,9 +29,9 @@ L'interfaccia della riga di comando di Azure è un ottimo modo di gestire l'infr
 Per creare e gestire le istanze di Cache Redis di Azure utilizzando CLI di Azure, è necessario completare i passaggi seguenti.
 
 -	È necessario disporre di un account Azure. Se non si dispone di uno, è possibile creare un [account di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) in pochi istanti.
--	[Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
--	Connettere l'installazione di Azure CLI con un account Azure personale o con un account di lavoro o scolastico di Azure, e accedere dal CLI di Azure utilizzando il comando `azure login`. Per comprendere le differenze e scegliere, vedere [Connetti a una sottoscrizione di Azure dall'interfaccia della riga di comando Azure (Azure CLI)](../xplat-cli-connect.md).
--	Prima di eseguire uno dei seguenti comandi, passare CLI Azure in modalità di gestione delle risorse eseguendo il comando `azure config mode arm`. Per ulteriori informazioni, vedere [Impostare la modalità di gestione risorse di Azure](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
+-	[Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
+-	Connettere l'installazione dell’interfaccia della riga di comando di Azure con un account Azure personale o con un account di lavoro o scolastico di Azure, e accedere dall’interfaccia della riga di comando di Azure utilizzando il comando `azure login`. Per comprendere le differenze e scegliere, vedere [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli-connect.md).
+-	Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando di Azure in modalità di Gestione delle risorse eseguendo il comando `azure config mode arm`. Per ulteriori informazioni, vedere [Impostare la modalità di gestione risorse di Azure](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
 
 ## Proprietà di Cache Redis
 
@@ -84,7 +88,7 @@ Per creare una Cache Redis, utilizzare il comando seguente:
 
 	azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
 
-Per ulteriori informazioni su questo comando, eseguire il comando `azure rediscache create -h`.
+Per altre informazioni su questo comando, eseguire il comando `azure rediscache create -h`.
 
 	C:\>azure rediscache create -h
 	help:    Create a Redis Cache
@@ -113,7 +117,7 @@ Per eliminare una Cache Redis, utilizzare il comando seguente:
 
 	azure rediscache delete [--name <name> --resource-group <resource-group> ]
 
-Per ulteriori informazioni su questo comando, eseguire il comando `azure rediscache delete -h`.
+Per altre informazioni su questo comando, eseguire il comando `azure rediscache delete -h`.
 
 	C:\>azure rediscache delete -h
 	help:    Delete an existing Redis Cache
@@ -137,7 +141,7 @@ Per elencare tutte le cache di all'interno della sottoscrizione o un gruppo di r
 
 	azure rediscache list [options]
 
-Per ulteriori informazioni su questo comando, eseguire il comando `azure rediscache list -h`.
+Per altre informazioni su questo comando, eseguire il comando `azure rediscache list -h`.
 
 	C:\>azure rediscache list -h
 	help:    List all Redis Caches within your Subscription or Resource Group
@@ -160,7 +164,7 @@ Per visualizzare le proprietà di una Cache Redis esistente, utilizzare il coman
 
 	azure rediscache show [--name <name> --resource-group <resource-group>]
 
-Per ulteriori informazioni su questo comando, eseguire il comando `azure rediscache show -h`.
+Per altre informazioni su questo comando, eseguire il comando `azure rediscache show -h`.
 
 	C:\>azure rediscache show -h
 	help:    Show properties of an existing Redis Cache
@@ -184,7 +188,7 @@ Per modificare le impostazioni di una Cache Redis esistente, utilizzare il coman
 
 	azure rediscache set [--name <name> --resource-group <resource-group> --max-memory-policy <max-memory-policy>]
 
-Per ulteriori informazioni su questo comando, eseguire il comando `azure rediscache set -h`.
+Per altre informazioni su questo comando, eseguire il comando `azure rediscache set -h`.
 
 	C:\>azure rediscache set -h
 	help:    Change settings of an existing Redis Cache
@@ -211,7 +215,7 @@ Per rinnovare la chiave di autenticazione per una Cache Redis esistente, utilizz
 
 Specificare `Primary` o `Secondary` per `key-type`.
 
-Per ulteriori informazioni su questo comando, eseguire il comando `azure rediscache renew-key -h`.
+Per altre informazioni su questo comando, eseguire il comando `azure rediscache renew-key -h`.
 
 	C:\>azure rediscache renew-key -h
 	help:    Renew the authentication key for an existing Redis Cache
@@ -236,7 +240,7 @@ Per le chiavi di elenco primario o secondario di una Cache Redis esistente, util
 
 	azure rediscache list-keys [--name <name> --resource-group <resource-group>]
 
-Per ulteriori informazioni su questo comando, eseguire il comando `azure rediscache list-keys -h`.
+Per altre informazioni su questo comando, eseguire il comando `azure rediscache list-keys -h`.
 
 	C:\>azure rediscache list-keys -h
 	help:    Lists Primary and Secondary key of an existing Redis Cache
@@ -254,4 +258,4 @@ Per ulteriori informazioni su questo comando, eseguire il comando `azure redisca
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

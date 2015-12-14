@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Creare un'applicazione e un'entità servizio di Active Directory tramite il portale
@@ -111,7 +111,7 @@ Selezionare il ruolo che si desidera assegnare all'applicazione, e cercare l'app
 
 ![selezionare gli utenti](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
-Per altre informazioni sull'utilizzo di utenti, applicazioni e ruoli, vedere [Gestire gli accessi tramite il portale di gestione di Azure](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal)
+Per ulteriori informazioni sull'assegnazione di utenti e applicazioni a ruoli tramite il portale, vedere [Gestire gli accessi tramite il portale di gestione di Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Ottenere token di accesso nel codice
 
@@ -162,4 +162,4 @@ Nell'applicazione, aggiungere un metodo simile al seguente per recuperare il tok
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -68,7 +68,7 @@ Tenendo presenti le suddette categorie e risorse, il modello di controllo di acc
 Come accennato in precedenza, le chiavi master di DocumentDB forniscono l'accesso amministrativo completo a tutte le risorse in un account di DocumentDB, mentre le chiavi di sola lettura consentono l'accesso in lettura a tutte le risorse nell'account. Il seguente frammento di codice illustra come usare un endpoint dell'account di DocumentDB e la chiave master per creare un'istanza di DocumentClient e per creare un nuovo database.
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
-    //These values are available from the Azure Management Portal on the DocumentDB Account Blade under "Keys".
+    //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
     
 	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -163,4 +163,4 @@ Per ottenere facilmente tutte le risorse autorizzazione associate a un particola
 - Per informazioni su come costruire i token di autorizzazione di DocumentDB, fare clic [qui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -92,7 +92,7 @@ Internamente, questa estensione usa le configurazioni PublicConfiguration e Priv
 
 È possibile seguire uno dei due passaggi seguenti per aggiungere AzureLogCollector a uno o più istanze di un servizio Cloud o di una macchina virtuale dei ruoli selezionati, che attiva le raccolte in ogni macchina virtuale per eseguire e inviare i file raccolti all'account Azure specificato.
 
-## Aggiungere AzureLogCollector come estensione del servizio
+## Aggiunta come estensione del servizio
 
 1. Seguire le istruzioni per la connessione di Azure PowerShell alla sottoscrizione.
 
@@ -186,7 +186,7 @@ Di seguito è riportata la definizione dei parametri passati allo script. (Copia
       { String Name, String Location, String SearchPattern, Bool Recursive }
              
             
-## Aggiungere AzureLogCollector come estensione della macchina virtuale
+## Aggiunta come estensione VM
 
 Seguire le istruzioni per la connessione di Azure PowerShell alla sottoscrizione.
 
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 È ora possibile esaminare o copiare i log da una posizione semplificata.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

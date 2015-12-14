@@ -32,6 +32,6 @@ Per risolvere il problema, vedere l'articolo [Perché si riceve una notifica che
 
 ### La sottoscrizione di Azure è stata cancellata
 
-Per riattivare una sottoscrizione, è necessario creare un ticket di supporto. Per creare un ticket di supporto per riattivare una sottoscrizione di Azure, vedere l'articolo relativo alla [creazione di un ticket di supporto per i problemi di sottoscrizione e fatturazione di Azure](../billing-create-billing-support-ticket.md).
+Per riattivare una sottoscrizione, è necessario creare un ticket di supporto. Per creare un ticket di supporto per riattivare una sottoscrizione di Azure, vedere l'articolo relativo alla [creazione di un ticket di supporto per i problemi di sottoscrizione e fatturazione di Azure](../billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

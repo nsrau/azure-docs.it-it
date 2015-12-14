@@ -93,7 +93,7 @@ L'attributo userPrincipalName in Active Directory non è sempre noto agli utenti
 
 `userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
-In questa espressione è necessario selezionare tutti gli elementi che si trovano a sinistra del primo segno @ (Word) e concatenarli con una stringa fissa.
+necessario selezionare tutti gli elementi dell'espressione che si trovano a sinistra del primo segno @ (Word) e concatenarli con una stringa fissa.
 
 ### Convertire un multivalore in un valore singolo
 
@@ -131,4 +131,4 @@ Per l'elenco completo delle funzioni, vedere [Servizio di sincronizzazione Azure
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

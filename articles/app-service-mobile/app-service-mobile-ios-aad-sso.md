@@ -98,7 +98,7 @@ Sarà ora possibile fare riferimento ad Active Directory Authentication Library 
             }];
         }
 
-4. Nel codice per il metodo `loginAndGetData` precedente sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato effettuato il provisioning dell'applicazione, nel formato https://login.windows.net/tenant-name.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di gestione di Azure].
+4. Nel codice per il metodo `loginAndGetData` precedente sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato effettuato il provisioning dell'applicazione, nel formato https://login.windows.net/tenant-name.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
 
 5. Nel codice per il metodo `loginAndGetData` precedente sostituire **INSERT-RESOURCE-URI-HERE** con l'**URI ID app** dell'app per dispositivi mobili . Se sono state seguite le istruzioni riportate nell'argomento [Come configurare un'app mobile con Azure Active Directory], l'URI ID app dovrebbe essere simile a https://contosogateway.azurewebsites.net/login/aad.
 
@@ -118,9 +118,9 @@ Sarà ora possibile fare riferimento ad Active Directory Authentication Library 
 
 <!-- URLs. -->
 [Come configurare un'app mobile con Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Active Directory Authentication Library per iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [Introduzione ad App per dispositivi mobili]: app-service-mobile-ios-get-started.md
 [Aggiungere l'autenticazione all'app]: app-service-mobile-ios-get-started-users.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

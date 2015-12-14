@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come applicare scalabilità all'elaborazione di contenuti mediante il portale di Azure"
+	pageTitle="Come applicare scalabilità all'elaborazione di contenuti mediante il portale di Azure classico"
 	description="Informazioni su come scalare servizi multimediali specificando il numero di unità riservate di streaming on demand e di unità riservate di codifica di cui eseguire il provisioning nell'account in uso."
 	services="media-services"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# Come applicare scalabilità all'elaborazione di contenuti mediante il portale di Azure
+# Come applicare scalabilità all'elaborazione di contenuti mediante il portale di Azure classico
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -35,7 +35,7 @@ Oltre al tipo di unità riservata, è possibile specificare il provisioning dell
 
 Per cambiare il tipo di unità riservata e il numero di unità riservate di codifica, seguire questa procedura:
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Media Services**. Fare quindi clic sul nome del servizio multimediale.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
 
 2. Selezionare la pagina **CODIFICA**.
 
@@ -69,4 +69,4 @@ Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

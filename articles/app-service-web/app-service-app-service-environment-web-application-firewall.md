@@ -35,7 +35,7 @@ Per configurare un ambiente del servizio app, fare riferimento alla [documentazi
 Sul sito Barracuda è disponibile un [articolo dettagliato](https://techlib.barracuda.com/WAF/AzureDeploy) sulla distribuzione del firewall WAF in una macchina virtuale in Azure. Poiché tuttavia quello che si vuole è la ridondanza senza introdurre un singolo punto di guasto, è opportuno distribuire almeno 2 VM con istanze WAF nello stesso servizio cloud quando si seguono queste istruzioni.
 
 ### Aggiunta di endpoint al servizio cloud ###
-Una volta create 2 o più istanze VM WAF nel servizio cloud, è possibile usare il [portale di gestione di Azure](https://portal.azure.com) per aggiungere endpoint HTTP e HTTPS usati dall'applicazione come illustrato nell'immagine seguente.
+Una volta create 2 o più istanze VM WAF nel servizio cloud, è possibile usare il [portale di Azure](https://portal.azure.com) per aggiungere endpoint HTTP e HTTPS usati dall'applicazione come illustrato nell'immagine seguente.
 
 ![Configurare l'endpoint][ConfigureEndpoint]
 
@@ -66,11 +66,11 @@ Fare clic sulla scheda Services per configurare il firewall WAF per i servizi pr
 > Nota: a seconda di come sono configurate le applicazioni e di quali funzionalità sono in uso nell'ambiente del servizio app, sarà necessario inoltrare il traffico per le porte TCP diverse dalla 80 e dalla 443, ad esempio se IP SSL è configurato per un'app Web. Per un elenco di porte di rete usate negli ambienti del servizio app, fare riferimento alla sezione Porte di rete della [documentazione sul controllo del traffico in ingresso](app-service-app-service-environment-control-inbound-traffic.md).
 
 ## Configurazione di Gestione traffico di Microsoft Azure (FACOLTATIVO) ##
-Se l'applicazione è disponibile in più aree, è preferibile bilanciarne il carico dietro [Gestione traffico di Azure](traffic-manager.md). A questo scopo, è possibile aggiungere un endpoint nel [portale di gestione di Azure](https://manage.azure.com) usando il nome del servizio cloud per il firewall WAF nel profilo di Gestione traffico come illustrato nell'immagine seguente.
+Se l'applicazione è disponibile in più aree, è preferibile bilanciarne il carico dietro [Gestione traffico di Azure](traffic-manager.md). A questo scopo, è possibile aggiungere un endpoint nel [portale di Azure classico](https://manage.azure.com) usando il nome del servizio cloud per il firewall WAF nel profilo di Gestione traffico come illustrato nell'immagine seguente.
 
 ![Endpoint di Gestione traffico][TrafficManagerEndpoint]
 
-Se l'applicazione richiede l'autenticazione, assicurarsi di disporre di qualche risorsa che non richiede alcuna autenticazione per consentire a Gestione traffico di effettuare il ping per la disponibilità dell'applicazione. È possibile configurare l'URL nella sezione Configura del [portale di gestione di Azure](https://manage.azure.com) come illustrato di seguito.
+Se l'applicazione richiede l'autenticazione, assicurarsi di disporre di qualche risorsa che non richiede alcuna autenticazione per consentire a Gestione traffico di effettuare il ping per la disponibilità dell'applicazione. È possibile configurare l'URL nella sezione Configura del [portale di Azure classico](https://manage.azure.com) come illustrato di seguito.
 
 ![Configurare Gestione traffico][ConfigureTrafficManager]
 
@@ -99,4 +99,4 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

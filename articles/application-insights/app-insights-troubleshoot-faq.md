@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Risoluzione dei problemi e domande - Application Insights per ASP.NET
@@ -152,6 +152,17 @@ Vedere le [note sulla versione](app-insights-release-notes.md) dell'SDK appropri
 + Verificare che il sito non venga visualizzato in modalità di compatibilità in Internet Explorer.
 + Usare la funzionalità di debug del browser (F12 in alcuni browser, quindi scegliere Rete) per verificare che i dati vengano inviati a dc.services.visualstudio.com.
 
+#### Non vengono più visualizzati i dati disponibili in precedenza
+
+* Controllare il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
+* È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](http://azure.microsoft.com/pricing/details/application-insights/).
+
+
+#### Non sono presenti tutti i dati previsti
+
+* **Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. È possibile disabilitarla. [Altre informazioni sul campionamento.](app-insights-sampling.md)
+
+
 #### <a name="q08"></a>Si può usare Application Insights per monitorare un server Web Intranet?
 
 Sì, è possibile monitorare l'integrità e l'utilizzo se il server è in grado di inviare dati alla rete Internet pubblica. Nel firewall, aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com e f5.services.visualstudio.com.
@@ -161,11 +172,6 @@ Se però si vuole eseguire test Web per il servizio, è necessario che sia acces
 #### Si può monitorare un server Web intranet che non ha accesso a Internet pubblico?
 
 È necessario predisporre un proxy che possa inoltrare le chiamate POST https a dc.services.visualstudio.com
-
-#### Non vengono più visualizzati i dati disponibili in precedenza
-
-* Controllare il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
-* È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](http://azure.microsoft.com/pricing/details/application-insights/).
 
 ## Status Monitor non funziona
 
@@ -216,7 +222,7 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 <tr><th>Elementi che dovrebbero essere visualizzati</th><th>Come ottenerli</th><th>Perché si vuole ottenerli</th></tr>
 <tr><td>Grafici di disponibilità</td><td><a href="../app-insights-monitor-web-app-availability/">Test Web</a></td><td>Stabilire se l'app Web è attiva</td></tr>
 <tr><td>Prestazioni dell'app server: tempi di risposta, ...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Aggiungere Application Insights al progetto</a><br/>oppure <br/><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights nel server</a> (o scrivere il proprio codice per <a href="../app-insights-api-custom-events-metrics/#track-dependency">il tracciamento delle dipendenze</a>)</td><td>Rilevare i problemi di prestazioni</td></tr>
+</td><td><a href="../app-insights-asp-net/">Aggiungere Application Insights al progetto</a><br/>oppure <br/><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights nel server</a> (o scrivere il proprio codice per <a href="../app-insights-api-custom-events-metrics/#track-dependency">il tracciamento delle dipendenze</a>)</td><td>Rilevare i problemi di prestazioni</td></tr>
 <tr><td>Telemetria di dipendenza</td><td><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights nel server</a></td><td>Diagnosticare i problemi relativi a database o altri componenti esterni</td></tr>
 <tr><td>Ricavare analisi dello stack dalle eccezioni</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Inserire chiamate TrackException nel codice</a> (ma alcune sono segnalate automaticamente)</td><td>Rilevare e diagnosticare le eccezioni</td></tr>
 <tr><td>Eseguire la ricerca di tracce dei log</td><td><a href="../app-insights-search-diagnostic-logs/">Aggiungere un adattatore di registrazione</a></td><td>Diagnosticare le eccezioni, problemi di prestazioni</td></tr>
@@ -246,4 +252,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

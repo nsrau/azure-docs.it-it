@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Connettersi a un'istanza di SQL Server locale da un servizio mobile back-end di .NET mediante Connessioni ibride | Servizi mobili di Azure" 
-	description="Informazioni su come connettersi a un'istanza di SQL Server locale da un servizio mobile back-end di .NET mediante Connessioni ibride di Azure" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Connettersi a un'istanza di SQL Server locale da un servizio mobile back-end di .NET mediante Connessioni ibride | Servizi mobili di Azure"
+	description="Informazioni su come connettersi a un'istanza di SQL Server locale da un servizio mobile back-end di .NET mediante Connessioni ibride di Azure"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/15/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/15/2015"
 	ms.author="glenga"/>
 
-  
-# Connettersi a un'istanza di SQL Server locale da Servizi mobili di Azure mediante Connessioni ibride 
+
+# Connettersi a un'istanza di SQL Server locale da Servizi mobili di Azure mediante Connessioni ibride
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Quando un'azienda passa al cloud, potrebbe non essere possibile eseguire subito la migrazione di tutte le risorse in Azure. La funzionalità Connessioni ibride consente a Servizi mobili di Azure di connettersi in modo sicuro alle risorse locali. In questo modo, è possibile rendere accessibili i dati locali ai client mobili mediante Azure. Sono supportate tutte le risorse che usano una porta TCP statica, compresi Microsoft SQL Server, MySQL, le API Web HTTP e la maggior parte dei servizi Web personalizzati. La funzionalità Connessioni ibride usa l'autorizzazione con firma di accesso condiviso per proteggere le connessioni tra il servizio mobile e Gestione connessione ibrida locale. Per altre informazioni, vedere [Panoramica delle connessioni ibride](../integration-hybrid-connection-overview.md).
 
@@ -27,7 +32,7 @@ In questa esercitazione si apprenderà come modificare un servizio mobile back-e
 
 Per completare questa esercitazione, è necessario disporre di:
 
-- **Un servizio mobile back-end .NET esistente** <br/>Eseguire l'esercitazione [Introduzione a Servizi mobili] per creare e scaricare un nuovo servizio mobile back-end .NET dal [portale di gestione di Azure].
+- **Un servizio mobile back-end .NET esistente** <br/>Eseguire l'esercitazione [Introduzione a Servizi mobili] per creare e scaricare un nuovo servizio mobile back-end .NET dal [portale di Azure classico].
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -47,13 +52,13 @@ Per completare questa esercitazione, è necessario disporre di:
 
 In questo passaggio viene definita una stringa di connessione per il database locale e il servizio mobile viene modificato in modo da usare la connessione.
 
-1. In Visual Studio 2013 aprire il progetto che definisce il servizio mobile back-end .NET. 
+1. In Visual Studio 2013 aprire il progetto che definisce il servizio mobile back-end .NET.
 
 	Per informazioni su come scaricare il progetto di back-end .NET, vedere [Introduzione a Servizi mobili](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 2. In Esplora soluzioni aprire il file Web.config, individuare la sezione **connectionStrings**, aggiungere una nuova voce SqlClient simile alla seguente, che punta al database di SQL Server locale:
-	
-	    <add name="OnPremisesDBConnection" 
+
+	    <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
          Initial Catalog=OnPremisesDB;
          User ID=HybridConnectionLogin;
@@ -62,7 +67,7 @@ In questo passaggio viene definita una stringa di connessione per il database lo
          providerName="System.Data.SqlClient" />
 
 	Ricordare di sostituire `<**secure_password**>` in questa stringa con la password creata per *HbyridConnectionLogin*.
-	
+
 3. Fare clic su **Salva** in Visual Studio per salvare il file Web.config.
 
 	> [AZURE.NOTE]Questa impostazione di connessione viene usata per l'esecuzione nel computer locale. Per l'esecuzione in Azure viene eseguito l'override di questa impostazione con l'impostazione di connessione definita nel portale.
@@ -80,7 +85,7 @@ In questo passaggio viene definita una stringa di connessione per il database lo
         }
 
 	Il servizio userà ora la nuova connessione al database di SQL Server.
- 
+
 ##Testare la connessione al database in locale
 
 Prima di eseguire la pubblicazione in Azure e di usare la connessione ibrida, è consigliabile verificare che la connessione al database funzioni durante l'esecuzione in locale. In questo modo è più semplice potere diagnosticare e correggere eventuali problemi di connessione prima di eseguire una nuova pubblicazione e di iniziare a usare la connessione ibrida.
@@ -91,8 +96,8 @@ Prima di eseguire la pubblicazione in Azure e di usare la connessione ibrida, è
 
 Dopo aver verificato la connessione al database, è necessario aggiungere un'impostazione dell'app per la nuova stringa di connessione in modo da poter essere usata da Azure e quindi pubblicare il servizio mobile in Azure.
 
-1. Passare al servizio mobile nel [portale di gestione di Azure].
-  
+1. Passare al servizio mobile nel [portale di Azure classico].
+
 1. Fare clic sulla scheda **Configura** e individuare la sezione **Stringhe di connessione**.
 
 	![Stringa di connessione del database locale](./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png)
@@ -121,7 +126,7 @@ Dopo aver verificato la connessione al database, è necessario aggiungere un'imp
 	Si noti che le modifiche generate nell'app sono state salvate dal servizio mobile nel database locale mediante la connessione ibrida.
 
 ##Vedere anche##
- 
+
 + [Sito Web delle connessioni ibride](../../services/biztalk-services/)
 + [Panoramica delle connessioni ibride](../integration-hybrid-connection-overview.md)
 + [Servizi BizTalk: schede Dashboard, Monitor, Scala, Configura e Connessione ibrida](../biztalk-dashboard-monitor-scale-tabs.md)
@@ -129,8 +134,9 @@ Dopo aver verificato la connessione al database, è necessario aggiungere un'imp
 
 <!-- IMAGES -->
 
+
 <!-- Links -->
-[portale di gestione di Azure]: http://manage.windowsazure.com
+[portale di Azure classico]: http://manage.windowsazure.com
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

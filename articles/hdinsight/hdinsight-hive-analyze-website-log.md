@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/29/2015" 
 	ms.author="nitinme"/>
 
 # Usare Hive con HDInsight per analizzare i log dei siti Web
@@ -39,7 +39,7 @@ In questo esempio si userà un cluster HDInsight per analizzare i file di log de
 
 ##Per eseguire l'esempio
 
-1. Dal [portale di anteprima di Azure](https://ms.portal.azure.com/), dalla schermata iniziale (se il cluster è stato aggiunto lì), fare clic sul riquadro del cluster in cui si desidera eseguire l'esempio.
+1. Dal [portale di Azure](https://ms.portal.azure.com/), dalla schermata iniziale (se il cluster è stato aggiunto lì), fare clic sul riquadro del cluster in cui si desidera eseguire l'esempio.
 
 2. Dal pannello del cluster, in **Collegamenti rapidi**, fare clic su **Dashboard del Cluster**, quindi dal pannello **Dashboard del Cluster**, fare clic su **Dashboard del Cluster HDInsight**. In alternativa, è possibile aprire direttamente la dashboard usando l'URL seguente:
 
@@ -61,4 +61,4 @@ Provare l'esempio seguente: [Analizzare i dati dei sensori mediante Hive con HDI
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

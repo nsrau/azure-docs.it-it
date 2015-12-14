@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
-[MongoDB][MongoDB] è un diffuso database NoSQL open source a prestazioni elevate. Tramite il [portale di Azure][AzurePortal], è possibile creare una macchina virtuale con Windows Server da Raccolta immagini tramite il modello di distribuzione classico. Su tale macchina virtuale sarà quindi possibile installare e configurare un database MongoDB.
+[MongoDB][MongoDB] è un diffuso database NoSQL open source a prestazioni elevate. Tramite il [portale di Azure classico][AzurePortal], è possibile creare una macchina virtuale con Windows Server da Raccolta immagini tramite il modello di distribuzione classico. Su tale macchina virtuale sarà quindi possibile installare e configurare un database MongoDB.
 
 
 ## Creare una macchina virtuale che esegue Windows Server
@@ -51,4 +51,4 @@ In questa esercitazione è stato illustrato come creare una macchina virtuale ch
 [MongoDB]: http://www.mongodb.org/
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

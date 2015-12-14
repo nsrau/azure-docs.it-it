@@ -65,7 +65,7 @@ Per servire i clienti internazionali nelle rispettive aree geografiche di appart
 
 È possibile ottimizzare il sito .COM grazie al ridimensionamento automatico mediante Scalabilità automatica, la memorizzazione nella cache con Cache Redis di Azure, l'esecuzione di attività in background tramite Processi Web e il mantenimento della disponibilità elevata con Gestione traffico di Azure.
 
-La funzionalità di [scalabilità verticale e orizzontale] di App Web del servizio app di Azure soddisfa le esigenze dei siti .COM, indipendentemente dalle dimensioni del carico di lavoro. È possibile scalare in orizzontale il sito Web manualmente tramite il [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), a livello di codice tramite l'[API di gestione del servizio] o gli [script di PowerShell] oppure automaticamente tramite la funzionalità Scalabilità automatica. Nel piano di hosting **Standard** questa funzionalità consente di scalare in orizzontale un sito Web automaticamente in base all'uso della CPU. Per le procedure consigliate, vedere l'articolo di [Troy Hunt] relativo ai [10 elementi appresi per implementare rapidamente la scalabilità delle app Web con Azure].
+La funzionalità di [scalabilità verticale e orizzontale] di App Web del servizio app di Azure soddisfa le esigenze dei siti .COM, indipendentemente dalle dimensioni del carico di lavoro. È possibile scalare in orizzontale il sito Web manualmente tramite il [portale di Azure](https://portal.azure.com), a livello di codice tramite l'[API di gestione del servizio] o gli [script di PowerShell], oppure automaticamente tramite la funzionalità Scalabilità automatica. Nel piano di hosting **Standard** questa funzionalità consente di scalare in orizzontale un sito Web automaticamente in base all'uso della CPU. Per le procedure consigliate, vedere l'articolo di [Troy Hunt] relativo ai [10 elementi appresi per implementare rapidamente la scalabilità delle app Web con Azure].
 
 È possibile aumentare la velocità di risposta del sito Web con [Cache Redis di Azure]. Usare questa funzionalità per memorizzare nella cache i dati dei database back-end e altri elementi come lo [stato della sessione ASP.NET] e la [cache di output].
 
@@ -75,7 +75,7 @@ Mantenere un'elevata disponibilità del sito Web mediante [Gestione traffico di 
 
 Tramite Azure o strumenti di terze parti è possibile mantenersi aggiornati sulle prestazioni del sito Web e ricevere avvisi su eventi critici nel sito. Inoltre, con Application Insights o mediante l'analisi dei log Web di HDInsight, è possibile ottenere facilmente informazioni dettagliate sugli utenti.
 
-È possibile visualizzare un [riepilogo rapido] delle metriche delle prestazioni e delle quote delle risorse correnti del sito Web nel pannello dell'app Web nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Per informazioni complete sulla disponibilità, le prestazioni e l'uso dell'applicazione, usare [Azure Application Insights], che offre potenti e rapidi strumenti per la risoluzione dei problemi, la diagnostica e il recupero delle informazioni sull'uso. In alternativa, usare uno strumento di terze parti come [New Relic] per fornire dati di monitoraggio avanzati per i siti Web.
+Mediante il pannello dell'app Web nel [portale di Azure](https://portal.azure.com), è possibile ottenere un [riepilogo rapido] delle metriche delle prestazioni correnti del sito Web e delle quote relative alle risorse. Per informazioni complete sulla disponibilità, le prestazioni e l'uso dell'applicazione, usare [Azure Application Insights], che offre potenti e rapidi strumenti per la risoluzione dei problemi, la diagnostica e il recupero delle informazioni sull'uso. In alternativa, usare uno strumento di terze parti come [New Relic] per fornire dati di monitoraggio avanzati per i siti Web.
 
 Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di risposta, è possibile ricevere notifiche via e-mail ogni volta che il sito smette di rispondere. Per altre informazioni, vedere [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure].
 
@@ -137,4 +137,4 @@ Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di ris
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

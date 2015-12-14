@@ -29,7 +29,7 @@ Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di 
 
 ##<a id="subheading-1"></a>Nozioni di base sul controllo del database SQL di Azure
 
-Nella sezione seguente è descritta la configurazione del controllo utilizzando il Portale di anteprima di Azure. È inoltre possibile [configurare il controllo per il database con il Portale di Azure classico].
+Nella sezione seguente è descritta la configurazione del controllo utilizzando il portale di Azure. È inoltre possibile [configurare il controllo per il database con il portale di Azure classico].
 
 Il controllo del database SQL consente di:
 
@@ -62,24 +62,24 @@ Prima di impostare il controllo verificare che si stia utilizzando un ["Client d
 
 ##<a id="subheading-2"></a>Configurare il controllo per il database
 
-1. Avviare il [Portale di anteprima di Azure](https://portal.azure.com) all’indirizzo https://portal.azure.com. In alternativa, è anche possibile avviare il [Portale di Azure classico](https://manage.windowsazure.com/) all'indirizzo https://manage.windowsazure.com/. Fare riferimento ai dettagli riportati di seguito.
+1. Avviare il [portale di Azure](https://portal.azure.com) in https://portal.azure.com. In alternativa, è anche possibile avviare il [portale di Azure classico](https://manage.windowsazure.com/) all'indirizzo https://manage.windowsazure.com/. Fare riferimento ai dettagli riportati di seguito.
 
 2. Passare al pannello di configurazione del database SQL / SQL Server che si vuole controllare. Nel pannello Impostazioni selezionare **Controllo e rilevamento delle minacce**.
 
-	![Pannello di navigazione][1]
+	![Riquadro di spostamento][1]
 
 3. Nel pannello di configurazione del controllo, attivare il controllo impostandolo su**ON**.
 
 4. Selezionare i **Dettagli di archiviazione** per aprire il pannello di archiviazione dei log di controllo. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e il periodo di conservazione. **Suggerimento:** per sfruttare al massimo i modelli di report preconfigurati, usare lo stesso account di archiviazione per tutti i database controllati.
 
-	![Pannello di navigazione][2]
+	![Riquadro di spostamento][2]
 
 5. Fare clic su **Eventi controllati** per personalizzare gli eventi da controllare. Nel pannello **Registrazione per evento**, fare clic su **Operazione riuscita** e **Operazione non riuscita** per registrare tutti gli eventi oppure scegliere singole categorie di eventi.
 
 
 6. È possibile spuntare la casella di controllo **Impostazioni di controllo ereditato dal server** per indicare che il database sarà controllato in base alle impostazioni del proprio server. Una volta selezionata questa opzione, verrà visualizzato un collegamento che consente di visualizzare o modificare le impostazioni di controllo del server da questo contesto.
 
-	![Pannello di navigazione][3]
+	![Riquadro di spostamento][3]
 
 7. Dopo aver configurato le impostazioni di controllo, è possibile attivare Threat Detection impostandolo su **ON** e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Vedere la pagina[Introduzione a Threat Detection](sql-database-threat-detection-get-started.md) per altri dettagli.
 
@@ -91,31 +91,31 @@ Prima di impostare il controllo verificare che si stia utilizzando un ["Client d
 
 I log di controllo vengono aggregati in una raccolta di tabelle di archiviazione con il prefisso **SQLDBAuditLogs** nell'account di archiviazione di Azure scelto durante l'installazione. È possibile visualizzare i file di log con uno strumento come [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/).
 
-È possibile scaricare un modello di report preconfigurato in formato [foglio di calcolo di Excel scaricabile](http://go.microsoft.com/fwlink/?LinkId=403540), che consente di analizzare rapidamente i dati di log. Per usare il modello nei log di controllo sono necessari Excel 2013 o versione successiva e Power Query, disponibile per il download [qui](http://www.microsoft.com/download/details.aspx?id=39379).
+È possibile scaricare un modello di rapporto preconfigurato in formato [foglio di calcolo di Excel scaricabile](http://go.microsoft.com/fwlink/?LinkId=403540), che consente di analizzare rapidamente i dati di log. Per usare il modello nei log di controllo sono necessari Excel 2013 o versione successiva e Power Query, disponibile per il download [qui](http://www.microsoft.com/download/details.aspx?id=39379).
 
 È possibile importare i registri di controllo nel modello di Excel direttamente dall'account di archiviazione di Azure utilizzando Power Query. È quindi possibile esplorare i record di controllo e creare dashboard e report sui dati di log.
 
 
-![Pannello di navigazione][4]
+![Riquadro di navigazione][4]
 
 
 ##<a id="subheading-4"></a>Configurare il controllo per il database con il portale di Azure classico
 
-1. Avviare il [Portale di Azure classico](https://manage.windowsazure.com/) all’indirizzo https://manage.windowsazure.com/.
+1. Avviare il [portale di Azure classico](https://manage.windowsazure.com/) all’indirizzo https://manage.windowsazure.com/.
 
 2. Fare clic sul Database SQL/SQL Server che si desidera controllare e quindi selezionare la scheda **CONTROLLO E SICUREZZA**.
 
 3. Impostare il controllo su **ABILITATO**.
 
-	![Pannello di navigazione][5]
+	![Riquadro di spostamento][5]
 
 4. Modificare **REGISTRAZIONE PER EVENTO** in base alle esigenze, per personalizzare gli eventi da controllare.
 
-	![Pannello di navigazione][6]
+	![Riquadro di spostamento][6]
 
 5. Selezionare un **ACCOUNT DI ARCHIVIAZIONE** e configurare il periodo di **CONSERVAZIONE**.
 
-	![Pannello di navigazione][7]
+	![Riquadro di spostamento][7]
 
 6. Fare clic su **SAVE**.
 
@@ -123,7 +123,7 @@ I log di controllo vengono aggregati in una raccolta di tabelle di archiviazione
 
 
 ##<a id="subheading-5">Procedure per l'uso in produzione</a>
-La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il [Portale di anteprima di Azure](https://portal.azure.com) o il [Portale di Azure classico](https://manage.windowsazure.com/).
+La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il [portale di Azure](https://portal.azure.com) o il [portale di Azure classico](https://manage.windowsazure.com/).
 
 
 ##<a id="subheading-6"></a>Rigenerazione delle chiavi di archiviazione
@@ -131,13 +131,13 @@ La descrizione in questa sezione fa riferimento alle schermate precedenti. È po
 Durante la produzione è probabile che si aggiornino periodicamente le chiavi di archiviazione. Quando si aggiornano le chiavi, è necessario salvare nuovamente il criterio di controllo. Il processo è il seguente:
 
 
-1. Nel pannello di configurazione di controllo, cambiare **Tasto di scelta alle risorse di archiviazione**da *Primaria* a *Secondaria* e premere **SALVA**.
+1. Nel pannello di configurazione di controllo, cambiare **Chiave di accesso alle risorse di archiviazione**da *Primaria* a *Secondaria* e premere **SALVA**.
 
 	![][8]
 
 2. Passare al pannello di configurazione di archiviazione e **rigenerare** la *Chiave di accesso primaria*.
 
-3. Tornare al pannello di configurazione di controllo, cambiare **Tasto di scelta alle risorse di archiviazione** da *Secondaria* a *Primaria* e premere **SALVA**.
+3. Tornare al pannello di configurazione di controllo, cambiare **Chiave di accesso alle risorse di archiviazione** da *Secondaria* a *Primaria* e premere **SALVA**.
 
 4. Tornare all'interfaccia utente di archiviazione e **rigenerare** il *Tasto di scelta secondario* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
   
@@ -159,7 +159,7 @@ Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per config
 [Nozioni di base sul controllo del database SQL di Azure]: #subheading-1
 [Configurare il controllo per il database]: #subheading-2
 [Analizzare i log di controllo e i report]: #subheading-3
-[configurare il controllo per il database con il Portale di Azure classico]: #subheading-4
+[configurare il controllo per il database con il portale di Azure classico]: #subheading-4
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation]: #subheading-7
@@ -178,4 +178,4 @@ Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per config
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

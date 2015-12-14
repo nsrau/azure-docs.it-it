@@ -59,7 +59,7 @@ Prima di impostare il controllo verificare che si stia utilizzando un ["Client d
 
 ##<a id="subheading-2"></a>Configurare il controllo per il database
 
-1. Avviare il <a href="https://portal.azure.com" target="_blank">portale di anteprima di Azure</a>
+1. Avviare il <a href="https://portal.azure.com" target="_blank">portale di Azure</a>.
 
 2. Passare al pannello di configurazione del database SQL Data Warehouse / SQL Server che si vuole controllare. Fare clic sul pulsante **Impostazioni** nella parte superiore e quindi nel pannello Impostazioni e selezionare **Controllo**.
 
@@ -102,7 +102,7 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il document
 
 
 ##<a id="subheading-4">Procedure per l'uso in produzione</a>
-La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il <a href="https://portal.azure.com" target="_blank">portale di anteprima di Azure</a> o il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a>.
+La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a>.
  
 
 ##<a id="subheading-5"></a>Rigenerazione delle chiavi di archiviazione
@@ -141,4 +141,4 @@ Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command 
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

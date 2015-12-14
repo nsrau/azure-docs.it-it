@@ -22,7 +22,7 @@ Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure
 
 ##Controllo delle versioni e distribuzione delle funzionalità
 
-Le funzionalità vengono rilasciate separatamente o congiuntamente tramite l’[API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216) o il dashboard del servizio nel [portale di Azure](https://portal.azure.com).
+Le funzionalità vengono rilasciate separatamente o congiuntamente tramite l’[API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216) o il dashboard del servizio nel [portale di Azure classico](https://portal.azure.com).
 
 La libreria .NET e le API REST hanno di più versioni. Le API precedenti restano operative mentre vengono distribuite nuove funzionalità. Per ulteriori informazioni sui criteri di controllo delle versioni, visitare [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -87,7 +87,7 @@ Visitare [Azure Search is now Generally Available](http://go.microsoft.com/fwlin
 
 - [Analizzatori di lingua Lucene](search-api-2014-10-20-preview.md) sono stati aggiunti per fornire il supporto multilingua per gli analizzatori di lingua personalizzati distribuiti con Lucene. 
 
-- È stato introdotto il supporto di strumenti per la compilazione di indici, inclusi i profili di punteggio, nel [portale di gestione di Azure](https://portal.azure.com).
+- È stato introdotto il supporto di strumenti per la compilazione di indici, inclusi i profili di punteggio, nel [portale di Azure classico](https://portal.azure.com).
 
 ##Versione api 31/07/2014-Anteprima
 **Data di rilascio: 21 agosto 2014**
@@ -100,7 +100,7 @@ Questa versione è stata la versione di anteprima pubblica per Ricerca di Azure 
 
 - Il supporto geospaziale è stato reso disponibile dall'inizio, fornito tramite il tipo di dati `Edm.GeographyPoint` che è stato parte di Ricerca di Azure fin dal principio.
 
-- Provisioning nella versione di anteprima del [portale di gestione di Azure](https://portal.azure.com). Ricerca di Azure era uno dei pochi servizi disponibili solo nel nuovo portale.
+- Provisioning nella versione di anteprima del [portale di Azure classico](https://portal.azure.com). Ricerca di Azure era uno dei pochi servizi disponibili solo nel nuovo portale.
 
 ##Versione api di gestione 2015-08-19
 **Data di rilascio: 11 settembre 2015**
@@ -125,4 +125,4 @@ La versione di anteprima dell'[API REST di gestione](search-management-api-2014-
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

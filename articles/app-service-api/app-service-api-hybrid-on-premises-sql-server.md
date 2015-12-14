@@ -18,9 +18,11 @@
 
 # Connettersi a un'istanza di SQL Server locale da un'app per le API nel servizio app di Azure mediante le connessioni ibride
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 Le connessioni ibride possono connettere le app per le API del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) a risorse locali che usano una porta TCP statica. Le risorse supportate includono Microsoft SQL Server, MySQL, HTTP API Web, servizi mobili e la maggior parte dei servizi Web personalizzati.
 
-In questa esercitazione si apprenderà come creare un'app per le API del servizio app nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) che si connette a un database locale di SQL Server mediante la funzionalità Connessione ibrida. Questa esercitazione presuppone che l'utente non abbia mai usato Azure o SQL Server.
+In questa esercitazione si apprenderà come creare un'app per le API del servizio app nell’[anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) che si connette a un database locale di SQL Server mediante la funzionalità Connessione ibrida. Questa esercitazione presuppone che l'utente non abbia mai usato Azure o SQL Server.
 
 >[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -30,7 +32,7 @@ Per completare l'esercitazione, sono necessari i prodotti seguenti. Sono tutti d
 
 - **Sottoscrizione di Azure**: per una sottoscrizione gratuita, vedere [Versione di valutazione gratuita di Azure](/pricing/free-trial/). 
 
-- **Visual Studio**: per scaricare una versione di valutazione gratuita di Visual Studio 2013 o Visual Studio 2015, vedere [Download di Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installare una di queste versioni prima di continuare. Le schermate di questa esercitazione sono state create in Visual Studio 2013.
+- **Visual Studio** - per scaricare una versione di valutazione gratuita di Visual Studio 2013 o di Visual Studio 2015, vedere [Download di Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installare una di queste versioni prima di continuare. Le schermate di questa esercitazione sono state create in Visual Studio 2013.
 
 - **SQL Server 2014 Express with Tools**: scaricare Microsoft SQL Server Express gratuitamente dalla [pagina del database della piattaforma Web Microsoft](https://www.microsoft.com/it-IT/download/details.aspx?id=42299). Più avanti nell'esercitazione verrà illustrato come [installare SQL Server](#InstallSQLDB) per assicurare che sia configurato correttamente.
 
@@ -112,11 +114,11 @@ Per abilitare TCP/IP, si userà Gestione configurazione SQL Server, installato a
 <a name="CreateSQLDB"></a>
 ### Creare un database SQL Server locale
 
-1. In **SQL Server Management Studio** connettersi all'istanza di SQL Server appena installata. In **Tipo server** scegliere **Motore di database**. In **Nome server** è possibile usare **localhost** o il nome del computer. Scegliere **Autenticazione di SQL Server**, quindi accedere con il nome utente e la password `sa` creati in precedenza.
+1. In **SQL Server Management Studio** connettersi all'istanza di SQL Server appena installata In **Tipo server** scegliere **Motore di database**. In **Nome server** è possibile usare **localhost** o il nome del computer. Scegliere **Autenticazione di SQL Server**, quindi accedere con il `sa` nome utente e la password creati in precedenza.
 
 	![Connetti al server](./media/app-service-api-hybrid-on-premises-sql-server/connect-to-server.png)
 	
-	Se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro a sinistra, fare clic su **Connetti** e quindi su **Motore di database**.
+	Se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro sinistro, fare clic su** Connetti** e quindi fare clic su **Motore di database**.
 	
 2. Per creare un nuovo database usando SQL Server Management Studio, fare clic con il pulsante destro del mouse su **Database** in Esplora oggetti, quindi fare clic su **Nuovo database**.
 	
@@ -140,7 +142,7 @@ Per abilitare TCP/IP, si userà Gestione configurazione SQL Server, installato a
 
 	![Nuove Colonne tabella](./media/app-service-api-hybrid-on-premises-sql-server/table-def.png)
 
-4. Premere **&lt;CTRL>S** per salvare la nuova definizione di tabella. Sarà necessario immettere un nome di tabella. Immettere `Speakers` e premere **OK**.
+4. Premere **&lt;CTRL>S** per salvare la nuova definizione della tabella. Sarà necessario immettere un nome di tabella. Immettere `Speakers` e premere **OK**.
 
 	![Salvare la nuova tabella](./media/app-service-api-hybrid-on-premises-sql-server/save-new-table.png)
 
@@ -166,7 +168,7 @@ Questa sezione illustra in modo dettagliato la creazione della demo di app per l
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-project-api-app.png)
 
-4. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Modelli**, quindi scegliere l'opzione **Aggiungi > Classe...** dal menu contestuale.
+4. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Modelli**, quindi scegliere l'opzione **Aggiungi > Classe...** dal menu di scelta rapida.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-model-menu.png)
 
@@ -186,7 +188,7 @@ Questa sezione illustra in modo dettagliato la creazione della demo di app per l
 			}
 		}
 
-7. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Controller**, quindi scegliere l'opzione **Aggiungi > Controller...** dal menu contestuale.
+7. In **Esplora soluzioni**, fare clic con il pulsante destro del mouse sulla cartella **Controller**, quindi scegliere l'opzione **Aggiungi > Controller...** dal menu a scelta rapida.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-controller.png)
 
@@ -200,7 +202,7 @@ Questa sezione illustra in modo dettagliato la creazione della demo di app per l
 
 10. Sostituire il codice nel file `SpeakersController.cs` con il codice seguente. Assicurarsi di specificare valori personalizzati per i segnaposto &lt;serverName> e &lt;password> in `connectionString`. Il valore &lt;serverName> corrisponde al nome del computer in cui si trova SQL Server e il valore &lt;password> corrisponde al valore impostato durante l'installazione e la configurazione di SQL Server.
 
-	> [AZURE.NOTE]Il frammento di codice seguente include le informazioni sulla password. Ciò permette di mantenere semplice la demo. In un ambiente di produzione reale, è consigliabile non archiviare le credenziali nel codice. Vedere invece le [Procedure consigliate per la distribuzione di password e altri dati sensibili in ASP.NET e Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+	> [AZURE.NOTE]Il frammento di codice seguente include le informazioni sulla password. Ciò permette di mantenere semplice la demo. In un ambiente di produzione reale, è consigliabile non archiviare le credenziali nel codice. Vedere invece le [Procedure consigliate per la distribuzione di password (e altri dati sensibili) in ASP.NET e Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 		using System;
 		using System.Collections.Generic;
@@ -296,7 +298,7 @@ L'abilitazione dell'interfaccia utente di Swagger consentirà di testare con fac
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/error-forbidden.png)
 
-2. Nella barra degli indirizzi del browser aggiungere `/swagger` alla fine dell'URL, quindi premere **&lt;INVIO>**. Verrà visualizzata l'interfaccia utente di Swagger abilitata nella sezione precedente.
+2. Nella barra degli indirizzi del browser aggiungere `/swagger` alla fine dell'URL, quindi premere **&lt;Invio>**. Verrà visualizzata l'interfaccia utente di Swagger abilitata nella sezione precedente.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/swagger-ui.png)
 
@@ -365,11 +367,11 @@ La finestra **Attività del servizio app di Azure** mostra l'avanzamento della d
  
 	![Pannello App per le API](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
-6. Quando viene visualizzato il pannello **Host app API**, scorrere verso il basso fino alla sezione **Rete**, quindi fare clic su **Connessioni ibride**.
+6. Quando viene visualizzato il pannello **Host app per le API**, scorrere verso il basso fino alla sezione **Rete**, quindi fare clic su **Connessioni ibride**.
 	
 	![Connessioni ibride](./media/app-service-api-hybrid-on-premises-sql-server/api-app-host-blade-hybrid-connections.png)
 	
-7. Nel pannello **Connessioni ibride** fare clic su **Aggiungi** > **Nuova connessione ibrida**.
+7. Nel pannello **Connessioni ibride**, fare clic su **Aggiungi** > **Nuova connessione ibrida**.
 	
 8. Nel **pannello Crea connessione ibrida**:
 	- In **Nome** specificare un nome per la connessione.
@@ -397,9 +399,9 @@ Dopo avere completato l'infrastruttura della connessione ibrida, sarà possibile
 <a name="CreateASPNET"></a>
 ## Testare l'app per le API completata in Azure
 
-1. Nel portale di anteprima di Azure tornare al pannello Host app API, quindi fare clic sul valore disponibile in **URL**.
+1. Nel portale di anteprima di Azure tornare al pannello Host app per le API, quindi fare clic sul valore disponibile in **URL**.
 	
-2. Quando viene visualizzata la pagina dell'host dell'app per le API nel browser, aggiungere `/swagger` alla fine dell'URL nella barra degli indirizzi del browser, quindi premere **&lt;INVIO>**.
+2. Quando viene visualizzata la pagina dell'host dell'app per le API nel browser, aggiungere `/swagger` alla fine dell'URL nella barra degli indirizzi del browser, quindi premere **&lt;Invio>**.
 	
 3. Fare clic sulla sezione **Speakers** per espanderla.
 
@@ -430,4 +432,4 @@ Dopo avere completato l'infrastruttura della connessione ibrida, sarà possibile
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

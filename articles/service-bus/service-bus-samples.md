@@ -29,7 +29,7 @@ Tenere presente che per gli esempi relativi alla messaggistica negoziata è nece
 
 ### Per ottenere una stringa di connessione per il bus di servizio di Azure
 
-1. Accedere al [Portale di Azure](http://manage.windowsazure.com).
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com).
 
 1. Nella colonna sinistra fare clic su **Bus di servizio**.
 
@@ -132,4 +132,4 @@ Per altre panoramiche sul bus di servizio, vedere gli argomenti seguenti.
 - [Architettura del bus di servizio](service-bus-architecture.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

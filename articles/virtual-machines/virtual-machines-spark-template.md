@@ -47,9 +47,9 @@ Come illustrato nell'immagine riportata in precedenza, la topologia di distribuz
 -	Quattro nodi slave in esecuzione nella stessa subnet virtuale e nello stesso set di disponibilità del nodo master.
 -	Una macchina virtuale "jumpbox" presente nella stessa rete virtuale e nella stessa subnet con cui è possibile accedere al cluster.
 
-Spark 3.0.0 è la versione predefinita e può essere modificato con qualsiasi file binario pre-esistente disponibile nel repository di Spark. Nello script è inoltre presente una disposizione per rimuovere dalla compilazione i commenti correlati all'origine. Verrà assegnato un indirizzo IP statico per ciascun nodo Spark master: 10.0.0.10. Verrà assegnato un indirizzo IP statico per ciascun nodo Spark slave per risolvere il problema relativo alla limitazione attuale di non poter comporre in modo dinamico un elenco di indirizzi IP dall'interno del modello. (Per impostazione predefinita, al primo nodo verrà assegnato l'indirizzo IP privato 10.0.0.30, al secondo nodo verrà assegnato 10.0.0.31 e così via.) Per verificare che non siano presenti errori di distribuzione, andare al portale di anteprima di Azure e selezionare **Gruppo di risorse** > **Ultima distribuzione** > **Verifica dettagli operazione**.
+Spark 3.0.0 è la versione predefinita e può essere modificato con qualsiasi file binario pre-esistente disponibile nel repository di Spark. Nello script è inoltre presente una disposizione per rimuovere dalla compilazione i commenti correlati all'origine. Verrà assegnato un indirizzo IP statico per ciascun nodo Spark master: 10.0.0.10. Verrà assegnato un indirizzo IP statico per ciascun nodo Spark slave per risolvere il problema relativo alla limitazione attuale di non poter comporre in modo dinamico un elenco di indirizzi IP dall'interno del modello. (Per impostazione predefinita, al primo nodo verrà assegnato l'indirizzo IP privato 10.0.0.30, al secondo nodo verrà assegnato 10.0.0.31 e così via.) Per verificare che non siano presenti errori di distribuzione, andare al portale di Azure e selezionare **Gruppo di risorse** > **Ultima distribuzione** > **Verifica dettagli operazione**.
 
-Prima di addentrarsi in ulteriori dettagli relativi a Gestione risorse di Azure e al modello utilizzato per la distribuzione, assicurarsi che Azure PowerShell o l’interfaccia della riga di comando di Azure sia configurata correttamente.
+Prima di addentrarsi in ulteriori dettagli relativi a Gestione risorse di Azure e al modello usato per la distribuzione, assicurarsi che Azure PowerShell o l'interfaccia della riga di comando di Azure sia configurata correttamente.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
@@ -381,7 +381,7 @@ Parameters        :
 
 Durante e dopo la distribuzione, è possibile controllare tutte le richieste effettuate durante il provisioning, compresi gli errori che si sono verificati.
 
-A tale scopo, visitare il [portale di anteprima di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
+A tale scopo, visitare il [portale di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
 
 - Fare clic su **Sfoglia** nella barra di spostamento a sinistra, quindi scorrere verso il basso e fare clic su **Gruppi di risorse**.
 - Fare clic sul gruppo di risorse appena creato, per visualizzare il pannello "Gruppo di risorse".
@@ -847,4 +847,4 @@ Scoprire altri [framework di applicazioni](virtual-machines-app-frameworks.md).
 
 [Risoluzione dei problemi relativi alle distribuzioni dei modelli](resource-group-deploy-debug.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 
-1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com/), fare clic su **Mobile Services** e quindi sull'app.
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/), fare clic su **Servizi mobili** e quindi sull'app.
 
 2. Fare clic sulla scheda **Push**, immettere il valore **Chiave API** ottenuto da GCM nella procedura precedente, quindi fare clic su **Salva**.
 
@@ -9,4 +9,4 @@
 
 Il servizio mobile e l'app sono ora configurati per funzionare con GCM e Hub di notifica.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

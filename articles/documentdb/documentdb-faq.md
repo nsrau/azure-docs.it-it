@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Domande sui database DocumentDB - Domande frequenti | Microsoft Azure" 
-	description="Risposte alle domande frequenti sul servizio database di documenti NoSQL Azure DocumentDB. Rispondere a domande sui database relative a capacità, livelli delle prestazioni e scalabilità." 
+	description="Risposte alle domande frequenti sul servizio DocumentDB di Azure, servizio di database di documenti NoSQL per JSON. Rispondere a domande sui database relative a capacità, livelli delle prestazioni e scalabilità." 
 	keywords="Domande sui database - Domande frequenti, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/30/2015" 
 	ms.author="mimig"/>
 
 
@@ -49,7 +49,7 @@ Gli account DocumentDB possono essere scalati in termini di archiviazione e la v
 Per informazioni dettagliate sui prezzi, vedere la pagina relativa ai [prezzi di DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317). Gli addebiti per l'utilizzo di DocumentDB sono determinati dal numero di raccolte in uso, dal numero di ore in cui le raccolte sono state online e dal [livello di prestazioni](documentdb-performance-levels.md) di ogni raccolta.
 
 ### È disponibile una versione di valutazione gratuita?
-I nuovi utenti possono effettuare l'iscrizione alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/) che è valida 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. Gli abbonati a MSDN hanno invece diritto a [150 dollari statunitensi di crediti Azure gratuiti](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure.
+I nuovi utenti possono effettuare l'iscrizione alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/) che è valida 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. Se si possiede una sottoscrizione a Visual Studio si ha invece diritto a [150 dollari statunitensi di crediti Azure gratuiti al mese](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure.
 
 ### Dove è possibile reperire ulteriori informazioni e supporto su DocumentDB?
 Per ottenere informazioni o supporto, è possibile visitare il sito [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), i [forum per sviluppatori MSDN relativi ad Azure DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) o pianificare una [chat 1:1 con il team di progettazione di DocumentDB](http://www.askdocdb.com/). Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti di DocumentDB, è possibile seguirci su [Twitter](https://twitter.com/DocumentDB).
@@ -57,13 +57,13 @@ Per ottenere informazioni o supporto, è possibile visitare il sito [Stack Overf
 ## Configurare Microsoft Azure DocumentDB
 
 ### In che modo è possibile iscriversi a Microsoft Azure DocumentDB?
-Microsoft Azure DocumentDB è disponibile nel [portale di anteprima di Azure][azure-portal]. È innanzitutto necessario iscriversi a una sottoscrizione di Microsoft Azure. Una volta creata la sottoscrizione di Microsoft Azure, sarà possibile aggiungere un account DocumentDB alla sottoscrizione di Azure. Per istruzioni su come aggiungere un account DocumentDB, vedere [Creare un account di database di DocumentDB](documentdb-create-account.md).
+Microsoft Azure DocumentDB è disponibile nel [portale di Azure][azure-portal]. È innanzitutto necessario iscriversi a una sottoscrizione di Microsoft Azure. Una volta creata la sottoscrizione di Microsoft Azure, sarà possibile aggiungere un account DocumentDB alla sottoscrizione di Azure. Per istruzioni su come aggiungere un account DocumentDB, vedere [Creare un account di database di DocumentDB](documentdb-create-account.md).
 
 ### Che cos'è una chiave master?
-Una chiave master è un token di sicurezza per l'accesso a tutte le risorse di un account. Gli utenti con la chiave hanno l'accesso in lettura e scrittura a tutte le risorse nell'account del database. È quindi consigliabile prestare attenzione quando si distribuiscono le chiavi master. La chiave master primaria e la chiave master secondaria sono disponibili nel pannello **Chiavi** del [portale di anteprima di Azure][azure-portal]. Per altre informazioni sulle chiavi, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](documentdb-manage-account.md#keys).
+Una chiave master è un token di sicurezza per l'accesso a tutte le risorse di un account. Gli utenti con la chiave hanno l'accesso in lettura e scrittura a tutte le risorse nell'account del database. È quindi consigliabile prestare attenzione quando si distribuiscono le chiavi master. La chiave master primaria e la chiave master secondaria sono disponibili nel pannello **Chiavi** del [portale di Azure][azure-portal]. Per altre informazioni sulle chiavi, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](documentdb-manage-account.md#keys).
 
 ### Come si crea un database?
-Per creare i database, è possibile usare il [portale di anteprima di Azure](), come descritto in [Creare un database DocumentDB](documentdb-create-database.md), uno degli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) o le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Per creare i database, è possibile usare il [portale di Azure](), come descritto in [Creare un database DocumentDB](documentdb-create-database.md), uno degli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) o le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Che cos'è una raccolta?
 Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. L'ambito di query e transazioni è impostato sulle raccolte. È possibile archiviare un set di documenti JSON eterogenei in una singola raccolta, nella quale tutti i documenti vengono indicizzati automaticamente.
@@ -99,7 +99,7 @@ DocumentDB supporta le transazioni Language Integrated tramite trigger e stored 
 Sono disponibili tre modi per eseguire l'inserimento in blocco di documenti in DocumentDB:
 
 - Lo strumento per la migrazione dei dati, come descritto in [Importare i dati in DocumentDB](documentdb-import-data.md).
-- La funzionalità Esplora documenti nel portale di anteprima di Azure, come descritto in [Aggiungere documenti in blocco con Esplora documenti](documentdb-view-json-document-explorer.md#BulkAdd).
+- La funzionalità Esplora documenti nel portale di Azure, come descritto in [Aggiungere documenti in blocco con Esplora documenti](documentdb-view-json-document-explorer.md#BulkAdd).
 - Le stored procedure, come descritto in [Programmazione sul lato server di DocumentDB](documentdb-programming.md).
 
 ### In DocumentDB è supportata la memorizzazione nella cache dei collegamenti alle risorse?
@@ -112,4 +112,4 @@ Sì. Dal momento che DocumentDB è un servizio RESTful, i collegamenti alle riso
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

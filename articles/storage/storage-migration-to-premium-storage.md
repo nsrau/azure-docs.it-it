@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="12/01/2015"
     ms.author="tamram"/>
 
 
@@ -50,7 +50,7 @@ Seguire i passaggi specificati nella sezione pertinente al proprio scenario.
 ### Considerazioni
 
 #### Dimensioni delle macchine virtuali
-Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni delle macchine virtuali](https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-size-specs/). Esaminare le caratteristiche delle prestazioni delle Macchine virtuali che usano Archiviazione Premium e scegliere le dimensioni delle VM maggiormente indicate per i propri carichi di lavoro. Assicurarsi che nella macchina virtuale sia disponibile larghezza di banda sufficiente per gestire il traffico dei dischi.
+Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-size-specs.md). Esaminare le caratteristiche delle prestazioni delle Macchine virtuali che usano Archiviazione Premium e scegliere le dimensioni delle VM maggiormente indicate per i propri carichi di lavoro. Assicurarsi che nella macchina virtuale sia disponibile larghezza di banda sufficiente per gestire il traffico dei dischi.
 
 
 #### Dimensione disco
@@ -76,9 +76,9 @@ Per altre informazioni sulle specifiche di Archiviazione Premium, vedere [Obiett
 A seconda del carico di lavoro, determinare se per la macchina virtuale in uso sono necessari dischi dati aggiuntivi. È possibile collegare più dischi dati persistenti alla macchina virtuale in uso. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume. Se si esegue lo striping dei dischi dati di Archiviazione Premium usando gli [spazi di archiviazione](http://technet.microsoft.com/library/hh831739.aspx), è necessario configurarlo con una colonna per ciascun disco utilizzato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per le macchine virtuali Linux è possibile usare l'utilità *mdadm* per ottenere lo stesso risultato. Per informazioni dettagliate, vedere l'articolo sulla [configurazione del RAID software in Linux](../virtual-machines-linux-configure-raid.md).
 
 #### Criteri di memorizzazione nella cache su disco
-Per impostazione predefinita, il criterio di memorizzazione nella cache su disco è impostata su *Sola lettura* per tutti i dischi di dati Premium e su *Lettura/scrittura* per il disco del sistema operativo Premium collegato alla macchina virtuale. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni. Le impostazioni della cache per i dischi dati esistenti possono essere aggiornate mediante il portale di Azure o il parametro *- HostCaching* del cmdlet *Set-AzureDataDisk*.
+Per impostazione predefinita, il criterio di caching su disco è impostata su *Sola lettura* per tutti i dischi di dati Premium e su *Lettura/scrittura* per il disco del sistema operativo Premium collegato alla VM. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni. Le impostazioni della cache per i dischi dati esistenti possono essere aggiornate mediante il [portale di Azure](portal.azure.com) o il parametro *-HostCaching* del cmdlet *Set-AzureDataDisk*.
 
-#### Percorso
+#### Località
 Selezionare una posizione in cui è disponibile il servizio Archiviazione Premium di Azure. Per informazioni aggiornate sulle posizioni disponibili, vedere [Servizi di Azure per area](http://azure.microsoft.com/regions/#services). Le macchine virtuali presenti nella stessa area dell'account di archiviazione in cui sono archiviati i dischi per la macchina virtuale, offrirà prestazioni superiori rispetto a quelle ubicate in aree separate.
 
 #### Altre impostazioni di configurazione delle macchine virtuali di Azure
@@ -250,7 +250,7 @@ Utilizzare i cmdlet PowerShell riportati di seguito per registrare il disco rigi
 
 Copiare e salvare il nome di questo nuovo disco dati di Azure. Nell'esempio precedente è *DataDisk*.
 
-### Creare una macchina virtuale della serie DS o della serie GS.
+### Creare una VM della serie DS o della serie GS.
 
 Una volta che l'immagine del sistema operativo o il disco del sistema operativo sono registrati, creare una nuova macchina virtuale (VM) di Azure della serie DS o GS. Si utilizzerà l'immagine del sistema operativo o il nome del disco del sistema operativo registrato. Selezionare il tipo di macchina virtuale dal livello Archiviazione Premium. Nell'esempio riportato di seguito viene usata la dimensione VM *Standard\_DS2*.
 
@@ -300,7 +300,7 @@ Specificare altre informazioni di macchina virtuale di Azure, ad esempio, un ser
 
 Infine, se sono stati registrati i dischi rigidi virtuali del disco dati, collegarli alla nuova VM di Azure serie DS o serie GS.
 
-Utilizzare il seguente cmdlet PowerShell per collegare il disco dati alla nuova macchina virtuale e specificare i criteri di memorizzazione nella cache. Nell'esempio riportato di seguito il criterio di memorizzazione nella cache è impostato su *ReadOnly*.
+Utilizzare il seguente cmdlet PowerShell per collegare il disco dati alla nuova macchina virtuale e specificare i criteri di memorizzazione nella cache. Nell'esempio riportato di seguito il criterio di caching è impostato su *ReadOnly*.
 
 	$vm = Get-AzureVM -ServiceName $serviceName -Name $vmName
 
@@ -677,4 +677,4 @@ Inoltre, controllare le seguenti risorse per ulteriori informazioni su Archiviaz
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

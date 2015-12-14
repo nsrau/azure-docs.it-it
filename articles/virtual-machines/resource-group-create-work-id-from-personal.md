@@ -28,11 +28,11 @@ Fortunatamente, uno degli aspetti migliori dell'account Azure personale sta nel 
 
 > [AZURE.NOTE]Se si sono ricevuti un nome utente e una password da un amministratore, è probabile che si abbia già un ID di lavoro o scuola (a volte detto anche *ID organizzazione*). In tal caso, è possibile iniziare immediatamente a usare l'account di Azure per accedere alle risorse di Azure che ne richiedono uno. Se non è possibile usare tali risorse, potrebbe essere necessario tornare a questo articolo. Per altre informazioni, vedere [Account che è possibile usare per l'accesso](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) e [Relazione di una sottoscrizione di Azure e Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
-I passaggi sono semplici. È necessario individuare l'identità attiva nel portale di Azure, scoprire il dominio di Azure Active Directory predefinito e aggiungere un nuovo utente come co-amministratore di Azure.
+I passaggi sono semplici. È necessario individuare l'identità attiva nel portale di Azure classico, scoprire il dominio di Azure Active Directory predefinito e aggiungere un nuovo utente come co-amministratore di Azure.
 
-## Individuare la directory predefinita nel portale di Azure
+## Individuare la directory predefinita nel portale di Azure classico
 
-Per iniziare, accedere al [portale di Azure](https://manage.windowsazure.com) con l'identità dell'account Microsoft personale. Dopo l'accesso, scorrere verso il basso nel pannello blu sul lato sinistro e fare clic su **ACTIVE DIRECTORY**.
+Per iniziare, accedere al [portale di Azure classico](https://manage.windowsazure.com) con l'identità dell'account Microsoft personale. Dopo l'accesso, scorrere verso il basso nel pannello blu sul lato sinistro e fare clic su **ACTIVE DIRECTORY**.
 
 ![Azure Active Directory](./media/resource-group-create-work-id-from-personal/azureactivedirectorywidget.png)
 
@@ -144,4 +144,4 @@ Dovrebbe essere visualizzato un messaggio simile al seguente, che conferma il co
     data:
     info:    group create command OK
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

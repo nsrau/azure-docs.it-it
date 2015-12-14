@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit utilizzando il portale di Azure" 
-	description="Questa esercitazione illustra i passaggi per creare un canale che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit utilizzando il portale di Azure." 
+	pageTitle="Creazione di Canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit utilizzando il portale di Azure classico" 
+	description="Questa esercitazione illustra i passaggi per creare un canale che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit utilizzando il portale di Azure classico." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit utilizzando il portale di Azure
+#Creazione di canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit utilizzando il portale di Azure classico
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -58,7 +58,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 
 ##Contenuto dell'esercitazione:
 
-In questa esercitazione il portale di gestione di Azure viene usato per eseguire le attività seguenti:
+In questa esercitazione il portale di Azure classico viene usato per eseguire le attività seguenti:
 
 2.  Configurare gli endpoint di streaming
 3.  Creare un canale abilitato per eseguire la codifica live.
@@ -85,7 +85,7 @@ Per avvalersi della creazione dinamica dei pacchetti, è necessario ottenere alm
 
 Per modificare il numero di unità riservate di streaming, effettuare le seguenti operazioni:
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Media Services**. Fare quindi clic sul nome del servizio multimediale.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
 
 2. Selezionare la pagina ENDPOINT DI STREAMING. Quindi, fare clic sull'endpoint di streaming da modificare.
 
@@ -105,7 +105,7 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
  
 ##Creare un CANALE
 
-1.	Nel [portale di gestione](http://manage.windowsazure.com/) fare clic su Servizi multimediali e quindi sul nome dell'account di Servizi multimediali.
+1.	Nel [portale di Azure classico](http://manage.windowsazure.com/) fare clic su Servizi multimediali e quindi sul nome dell'account di Servizi multimediali.
 2.	Selezionare la pagina CANALI.
 3.	Selezionare Aggiungi+ per aggiungere un nuovo canale.
 
@@ -276,4 +276,4 @@ Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui 
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

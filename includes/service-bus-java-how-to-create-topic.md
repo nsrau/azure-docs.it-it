@@ -16,11 +16,11 @@ Per iniziare a usare gli argomenti e le sottoscrizioni del bus di servizio in Az
 
 Per creare uno spazio dei nomi del servizio:
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di Azure classico][].
 
-2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Bus di servizio**.
+2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
 
-3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**. ![][0]
+3.  Nel riquadro inferiore del portale fare clic su **Crea**. ![][0]
 
 4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.![][2]
 
@@ -35,7 +35,7 @@ Per creare uno spazio dei nomi del servizio:
 
 ## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
-Per poter eseguire le operazioni di gestione nel nuovo spazio dei nomi, ad esempio creare un argomento o una sottoscrizione, è necessario ottenere le credenziali di gestione per lo spazio dei nomi. È possibile ottenere questi valori nel portale di gestione di Azure.
+Per poter eseguire le operazioni di gestione nel nuovo spazio dei nomi, ad esempio creare un argomento o una sottoscrizione, è necessario ottenere le credenziali di gestione per lo spazio dei nomi. È possibile ottenere queste credenziali dal portale.
 
 ### Per ottenere le credenziali di gestione dal portale
 
@@ -48,7 +48,7 @@ Per poter eseguire le operazioni di gestione nel nuovo spazio dei nomi, ad esemp
 4.  Prendere nota del valore della chiave o copiarlo negli Appunti.
 
 
-  [portale di gestione di Azure]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
   [0]: ./media/service-bus-java-how-to-create-topic/sb-queues-13.png
   [2]: ./media/service-bus-java-how-to-create-topic/sb-queues-04.png
   [3]: ./media/service-bus-java-how-to-create-topic/sb-queues-09.png
@@ -57,4 +57,4 @@ Per poter eseguire le operazioni di gestione nel nuovo spazio dei nomi, ad esemp
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

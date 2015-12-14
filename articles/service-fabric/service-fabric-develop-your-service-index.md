@@ -73,6 +73,7 @@ Reliable Services offre un modello di programmazione di alto livello, semplice e
 - [Architettura](service-fabric-reliable-services-platform-architecture.md)
 - [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 - [Configurazione di Reliable Services con stato](../Service-Fabric/service-fabric-reliable-services-configuration.md)
+- [Serializzazione](../Service-Fabric/service-fabric-reliable-services-serialization.md)
 - [Uso avanzato del modello di programmazione Reliable Services](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
 
 La comunicazione con Reliable Services e le astrazioni utilizzabili dai client per individuare e comunicare con gli endpoint dei servizi sono descritte negli articoli seguenti:
@@ -87,4 +88,4 @@ I servizi Reliable Services emettono eventi e contatori delle prestazioni utiliz
 
 - [Diagnostica di Reliable Services con stato](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/12/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
@@ -78,26 +78,44 @@ Restituisce l'indice corrente di un ciclo di iterazione. Per esempi di uso di qu
 
 Restituisce informazioni sull'operazione di distribuzione corrente.
 
-Le informazioni sulla distribuzione vengono restituite come oggetto con le seguenti proprietà:
+Questa espressione restituisce l'oggetto che viene passato durante la distribuzione. Le proprietà nell'oggetto restituito varieranno in base a se l'oggetto di distribuzione viene passato come un collegamento o come un oggetto inline. Quando l'oggetto di distribuzione viene passato inline, come quando si utilizza il parametro **- TemplateFile** in Azure PowerShell per puntare a un file locale, l'oggetto restituito è nel formato seguente:
 
     {
-      "name": "",
-      "properties": {
-        "template": {},
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-      }
+        "name": "",
+        "properties": {
+            "template": {
+                "$schema": "",
+                "contentVersion": "",
+                "resources": [
+                ],
+                "outputs": {}
+            },
+            "parameters": {},
+            "mode": "",
+            "provisioningState": ""
+        }
     }
 
-L'esempio seguente mostra come restituire le informazioni di distribuzione nella sezione dell’output.
+Quando l'oggetto viene passato come un collegamento, come ad esempio quando si utilizza il parametro **- TemplateUri** per puntare a un oggetto remoto, l'oggetto viene restituito nel formato seguente.
 
-    "outputs": {
-      "exampleOutput": {
-        "value": "[deployment()]",
-        "type" : "object"
-      }
+    {
+        "name": "",
+        "properties": {
+            "templateLink": {
+                "uri": "",
+                "contentVersion": ""
+            },
+            "mode": "",
+            "provisioningState": ""
+        }
     }
+
+Nell'esempio seguente viene illustrato come utilizzare la distribuzione () per collegarsi a un altro modello in base all'URI del modello padre.
+
+    "variables": {  
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+    }  
+
 
 ## div
 
@@ -131,9 +149,25 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
 
 ## length
 
-**length(array)**
+**lunghezza (matrice o stringa)**
 
-Restituisce il numero di elementi in una matrice. In genere usato per specificare il numero di iterazioni durante la creazione di risorse. Per un esempio di uso di questa funzione, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+Restituisce il numero di elementi in una matrice o il numero di caratteri in una stringa. È possibile usare questa funzione con una matrice per specificare il numero di iterazioni durante la creazione di risorse. Nell'esempio seguente, il parametro **siteNames** fa riferimento a una matrice di nomi da utilizzare durante la creazione di siti web.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+Per altre informazioni sull’uso di questa funzione con una matrice, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+
+In alternativa, è possibile utilizzarla con una stringa:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
 
 ## listKeys
 
@@ -559,9 +593,11 @@ Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 | baseUri | Sì | La stringa URI di base.
 | relativeUri | Sì | La stringa URI relativa da aggiungere alla stringa di URI di base.
 
-Nell'esempio seguente viene illustrato come creare un URI assoluto nel collegamento del modello. Il risultato è ****http://contoso.com/resources/nested/azuredeploy.json**.
+Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene utilizzato per costruire l'URI. Ad esempio, passare * ***http://contoso.com/resources/azuredeploy.json** quando il parametro baseUri comporterà un URI di base di ****http://contoso.com/resources/**.
 
-    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+Nell'esempio seguente viene illustrato come costruire un collegamento a un modello annidato in base al valore del modello padre.
+
+    "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
 
 ## variables
@@ -578,7 +614,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 ## Passaggi successivi
 - Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md)
-- Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
+- Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -309,7 +309,7 @@ Quando si effettua la distribuzione, tenere presente che è necessario creare un
 
 Durante e dopo la distribuzione, è possibile controllare tutte le richieste effettuate durante il provisioning, compresi gli errori che si sono verificati.
 
-A tale scopo, visitare il [portale di anteprima di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
+A tale scopo, visitare il [portale di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
 
 - Fare clic su **Sfoglia** nella barra di spostamento a sinistra, scorrere verso il basso e fare clic su **Gruppi di risorse**.
 - Dopo aver fatto clic sul gruppo di risorse appena creato, viene visualizzato il pannello Gruppo di risorse.
@@ -694,4 +694,4 @@ In pratica, questo approccio suggerisce che:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

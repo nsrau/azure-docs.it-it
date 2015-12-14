@@ -38,9 +38,7 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 -	Un [account Microsoft Azure](http://azure.microsoft.com/account/) attivo
 -	Visual Studio 2013 con [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure.
-> + È possibile [aprire un account Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web.
-> + È possibile [attivare i benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio l’app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 ## Distribuire un'app Web di Azure con un endpoint della rete CDN integrato ##
 
@@ -73,14 +71,14 @@ In questa sezione verrà distribuito il modello di applicazione MVC di ASP.NET p
 
 	Dopo il completamento della pubblicazione, l'app Web verrà visualizzata nel browser.
 
-1. Per creare un endpoint della rete CDN, accedere al [portale di gestione di Azure](http://manage.windowsazure.com/).
+1. Per creare un endpoint della rete CDN, accedere al [portale di Azure classico](http://manage.windowsazure.com/).
 2. Fare clic su **Nuovo** > **Servizi app** > **Rete CDN** > **Creazione rapida**. Selezionare **http://*&lt;sitename>*.azurewebsites.net/** e fare clic su **Crea**.
 
 	![](media/app-service-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE]Dopo aver creato l'endpoint della rete CDN, nel portale di Azure viene visualizzato il relativo URL e il dominio di origine in esso integrato. È tuttavia possibile che la completa propagazione della configurazione del nuovo endpoint della rete CDN a tutte le ubicazioni dei nodi della rete CDN richieda del tempo.
+	> [AZURE.NOTE]Dopo aver creato l'endpoint della rete CDN, nel portale di Azure classico viene visualizzato il relativo URL e il dominio di origine in esso integrato. È tuttavia possibile che la completa propagazione della configurazione del nuovo endpoint della rete CDN a tutte le ubicazioni dei nodi della rete CDN richieda del tempo.
 
-3. Tornare al portale di Azure e nella scheda **Rete CDN** fare clic sul nome dell'endpoint della rete CDN appena creato.
+3. Tornare al portale classico e nella scheda **Rete CDN** fare clic sul nome dell'endpoint della rete CDN appena creato.
 
 	![](media/app-service-with-cdn/8-select-cdn.png)
 
@@ -444,7 +442,7 @@ Se si verifica un errore nell'endpoint della rete CDN di Azure per un motivo qua
 
 La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una proprietà denominata [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) che consente di configurare il meccanismo di fallback per l'errore della rete CDN. Per usare questa proprietà, seguire i passaggi descritti di seguito:
 
-1. Nel progetto ASP.NE, aprire *App_Start\BundleConfig.cs* dove è stato aggiunto un URL della rete CDN in ogni [costruttore di bundle](http://msdn.microsoft.com/library/jj646464.aspx) e apportare le modifiche evidenziate di seguito per aggiungere il meccanismo di fallback ai bundle predefiniti:  
+1. Nel progetto ASP.NE, aprire *App\_Start\\BundleConfig.cs*, dove è stato aggiunto un URL della rete CDN in ogni [costruttore di bundle](http://msdn.microsoft.com/library/jj646464.aspx) e aggiungere il codice `CdnFallbackExpression` come indicato per aggiungere il meccanismo di fallback ai bundle predefiniti:  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -491,7 +489,7 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 2. Per usare questa soluzione alternativa, creare un nuovo file con estensione CS nella cartella *App\_Start* del progetto ASP.NET, denominata *StyleBundleExtensions.cs* e sostituirne il contenuto con il [codice di GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. In *App_Start\StyleFundleExtensions.cs* rinominare lo spazio dei nomi con lo spazio dei nomi dell'applicazione ASP.NET (ad esempio **cdnwebapp**).
+4. In *App\_Start\\StyleFundleExtensions.cs* rinominare lo spazio dei nomi con lo spazio dei nomi dell'applicazione ASP.NET (ad esempio **cdnwebapp**).
 
 3. Tornare a `App_Start\BundleConfig.cs` e modificare l'ultima istruzione `bundles.Add` come illustrato di seguito.
 	
@@ -558,4 +556,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 - [Uso della rete CDN per Azure](../cdn-how-to-use.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

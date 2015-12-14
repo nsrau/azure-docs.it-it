@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/25/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # Creazione e gestione di database SQL con C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
+- [Azure Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -55,7 +55,7 @@ Acquisire le librerie di gestione richieste installando i pacchetti seguenti med
 
 Le [API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) per l'autenticazione utilizzano Azure Active Directory anziché i certificati utilizzati dalle precedenti API REST di gestione del servizio Azure.
 
-Per autenticare l'applicazione client in base all'utente corrente è necessario prima registrare l'applicazione nel dominio AAD associato alla sottoscrizione in cui sono state create le risorse di Azure. Se la sottoscrizione ad Azure è stata creata con un account Microsoft anziché un account aziendale o dell'istituto di istruzione si dispone già di un dominio AAD predefinito. La registrazione dell'applicazione può essere eseguita nel [portale di gestione](https://manage.windowsazure.com/).
+Per autenticare l'applicazione client in base all'utente corrente è necessario prima registrare l'applicazione nel dominio AAD associato alla sottoscrizione in cui sono state create le risorse di Azure. Se la sottoscrizione ad Azure è stata creata con un account Microsoft anziché un account aziendale o dell'istituto di istruzione si dispone già di un dominio AAD predefinito. La registrazione dell'applicazione può essere eseguita nel [portale classico](https://manage.windowsazure.com/).
 
 Per creare una nuova applicazione e registrarla nell’active directory corrente procedere come descritto di seguito:
 
@@ -105,7 +105,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
 Il nome di dominio è obbligatorio per il codice. Un modo semplice per identificare il nome di dominio corretto è:
 
-1. Passare al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare il mouse sul proprio nome nell'angolo superiore destro e osservare il dominio visualizzato nella finestra popup.
 
     ![Identificare il nome di dominio][3]
@@ -798,4 +798,4 @@ Per eliminare un gruppo di risorse:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

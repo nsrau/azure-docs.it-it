@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -34,7 +34,7 @@ Quando si lavora con il database SQL di Azure, si consiglia di utilizzare la ver
 
 Per la connessione al database SQL è necessario conoscere il nome del server in Azure. Potrebbe essere necessario accedere al portale per ottenere questa informazione.
 
-1.  Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
+1.  Accedere al [portale di Azure classico](http://manage.windowsazure.com).
 
 2.  Nel riquadro sinistro fare clic su **Database SQL**.
 
@@ -192,4 +192,4 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

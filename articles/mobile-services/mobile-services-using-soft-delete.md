@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Uso dell'eliminazione temporanea in Servizi mobili (Windows Store) | Microsoft Azure" 
-	description="Informazioni sull'uso della funzionalità di eliminazione temporanea di Servizi mobili di Azure nell'applicazione" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Uso dell'eliminazione temporanea in Servizi mobili (Windows Store) | Microsoft Azure"
+	description="Informazioni sull'uso della funzionalità di eliminazione temporanea di Servizi mobili di Azure nell'applicazione"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="wesmc"/>
 
 # Uso dell'eliminazione temporanea in Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##Panoramica
 
@@ -44,7 +49,7 @@ Il supporto dell'eliminazione temporanea per il back-end .NET è stato rilasciat
 Nei passaggi successivi viene illustrata l'abilitazione dell'eliminazione temporanea per un servizio mobile back-end .NET.
 
 1. Aprire il servizio mobile back-end .NET in Visual Studio.
-2. Fare clic con il pulsante destro del mouse sul progetto di back-end .NET e quindi scegliere **Gestisci pacchetti NuGet**. 
+2. Fare clic con il pulsante destro del mouse sul progetto di back-end .NET e quindi scegliere **Gestisci pacchetti NuGet**.
 3. Nella finestra di dialogo Gestione pacchetti fare clic su **Nuget.org** sotto gli aggiornamenti e installare la versione 1.0.402 o successiva dei pacchetti NuGet del [back-end .NET per Servizi mobili di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 3. In Esplora soluzioni per Visual Studio espandere il nodo **Controller** sotto il progetto del back-end .NET e aprire l'origine del controller. Ad esempio, *TodoItemController.cs*.
 4. Nel metodo `Initialize()` del controller passare il parametro `enableSoftDelete: true` al costruttore EntityDomainManager.
@@ -65,7 +70,7 @@ Se si sta creando una nuova tabella per il servizio mobile, è possibile abilita
 
 Per abilitare l'eliminazione temporanea in una tabella esistente nel back-end JavaScript:
 
-1. Nel [portale di gestione] fare clic sul servizio mobile, quindi fare clic sulla scheda Dati.
+1. Nel [portale di Azure classico] fare clic sul servizio mobile. quindi fare clic sulla scheda Dati.
 2. Nella pagina dei dati fare clic per selezionare la tabella desiderata, quindi fare clic sul pulsante **Abilita eliminazione temporanea** nella barra dei comandi. Se l'eliminazione temporanea è già abilitata per la tabella, questo pulsante non verrà visualizzato, ma sarà possibile vedere la colonna *\_\_deleted* facendo clic sulle schede **Sfoglia** o **Colonne**.
 
     ![][0]
@@ -82,23 +87,23 @@ Il seguente processo pianificato ripulisce i record eliminati temporaneamente pi
     public class SampleJob : ScheduledJob
     {
         private MobileService1Context context;
-     
-        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+
+        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor,
             CancellationToken cancellationToken)
         {
             base.Initialize(scheduledJobDescriptor, cancellationToken);
             context = new MobileService1Context();
         }
-     
+
         public override Task ExecuteAsync()
         {
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
-     
+
             var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
             context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
-     
+
             return Task.FromResult(true);
         }
     }
@@ -113,12 +118,12 @@ Per altre informazioni sui processi pianificati con il back-end .NET di Servizi 
 Gli script delle tabelle vengono usati per aggiungere la logica alla funzionalità di eliminazione temporanea con Servizi mobili per il back-end JavaScript.
 
 Per rilevare una richiesta di ripristino, usare la proprietà "undelete" nello script della tabella di aggiornamento:
-    
+
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
 Per includere in uno script i record eliminati nel risultato di una query, impostare il parametro "includeDeleted" su true:
-    
+
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
         success: function (results) {
@@ -158,9 +163,6 @@ Per altre informazioni sui processi pianificati con il back-end JavaScript di Se
 <!-- URLs. -->
 [tipo bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
 [sincronizzazione dati offline per Servizi mobili]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-[portale di gestione]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -19,7 +19,7 @@
 
 ## Panoramica
 
-L'interfaccia della riga di comando di Azure fornisce un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel portale di gestione di Azure, nonché funzionalità di accesso ai dati complessi.
+L'interfaccia della riga di comando di Azure fornisce un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](portal.azure.com), nonché funzionalità di accesso ai dati complessi.
 
 In questa guida verrà illustrato come usare l'[interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli-install.md) per eseguire una serie di attività di sviluppo e amministrazione con archiviazione di Azure. Si consiglia di scaricare e installare oppure di aggiornare il modulo alla versione di Azure PowerShell più recente prima di usare questa guida.
 
@@ -169,7 +169,7 @@ Per eliminare un blob, utilizzare il comando seguente:
 
 ## Creare e gestire condivisioni di file
 
-L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per ulteriori informazioni sull'archiviazione di file di Azure, vedere [Come utilizzare l'archiviazione di file di Azure con Windows](storage-dotnet-how-to-use-files) o [Come utilizzare l'archiviazione di file di Azure con Linux](storage-how-to-use-files-linux.md).
+L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per ulteriori informazioni sull'archiviazione file di Azure, vedere [Come utilizzare l'archiviazione file di Azure con Windows](storage-dotnet-how-to-use-files) o [Come utilizzare l'archiviazione file di Azure con Linux](storage-how-to-use-files-linux.md).
 
 ### Creare una condivisione file
 
@@ -222,4 +222,4 @@ Per altre informazioni, vedere gli articoli e le risorse correlati seguenti:
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/02/2015"
 	ms.author="billmath"/>
 
-# Domande frequenti su Azure Active Directory Connect
+# Domande frequenti su Azure AD Connect
 
 ## Installazione generale
 **D: L'installazione verrà eseguita correttamente se per l'amministratore globale di Active Directory Azure è abilitata l'autenticazione a due fattori?**
@@ -90,4 +90,4 @@ No. Questa opzione non recupererà tutte le impostazioni di configurazione e non
 
 - Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

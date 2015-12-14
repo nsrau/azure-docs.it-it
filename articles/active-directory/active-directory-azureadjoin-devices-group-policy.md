@@ -55,7 +55,7 @@ Per abilitare l'accesso condizionale, è possibile creare dei criteri che consen
 
 Azure AD Connect consentirà il provisioning dei computer locali come oggetti dispositivo nel cloud. Per abilitare Azure AD Connect, fare riferimento all'articolo "Abilitazione della directory per la gestione ibrida con Azure AD Connect".
 
- - Se è stata eseguita un'[installazione personalizzata di Azure AD Connect](https://azure.microsoft.com/it-IT/documentation/articles/active-directory-aadconnect-get-started-custom/) (non l'installazione rapida), è necessario seguire la procedura **Creare un punto di connessione del servizio (SCP) in Active Directory locale**, descritta di seguito.
+ - Se è stata seguita un'[installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (non l'installazione rapida), è necessario seguire la procedura **Creare un punto di connessione del servizio (SCP) in Active Directory locale**, descritta di seguito.
  - Se invece si dispone di una configurazione federata con Azure AD (ad esempio, se in precedenza è stato distribuito Active Directory Federation Services), prima di installare Azure AD Connect è necessario seguire la procedura **Configurare regole attestazioni per AD FS** descritta di seguito.
 
 ### Creare un punto di connessione del servizio (SCP) in Active Directory locale
@@ -137,4 +137,4 @@ Nel server AD FS (o in una sessione connessa al server AD FS) eseguire i comandi
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

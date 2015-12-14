@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/02/2015"
 	ms.author="adrianhall"/>
 
 # Come usare Node.js SDK per App per dispositivi mobili di Azure
 
 Questo articolo fornisce informazioni dettagliate ed esempi sull'uso di un back-end Node.js nelle app per dispositivi mobili del servizio app di Azure.
 
-> [AZURE.NOTE]Questo SDK è disponibile in ANTEPRIMA. Non è quindi consigliabile usare questo SDK in fase di produzione. Gli esempi di questo documento usano la versione 2.0.0-alpha6 di [azure-mobile-apps].
+> [AZURE.NOTE]Questo SDK è disponibile in ANTEPRIMA. Non è quindi consigliabile usare questo SDK in fase di produzione. Gli esempi di questo documento usano la versione 2.0.0-beta1 di [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduzione
 
@@ -98,7 +98,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
 
 5. Fare clic sul nodo **npm** e selezionare **Install New npm packages**.
 
-6. Al momento della creazione della prima applicazione Node.js è necessario aggiornare il catalogo npm. A questo scopo, fare clic su **Refresh**.
+6. Al momento della creazione della prima applicazione Node.js potrebbe essere necessario aggiornare il catalogo npm. In questo caso, verrà richiesto di fare clic su **Aggiorna**.
 
 7. Immettere _azure-mobile-apps_ nella casella di ricerca. Fare clic sul pacchetto **azure-mobile-apps 2.0.0**, quindi fare clic su **Install Package**.
 
@@ -211,8 +211,8 @@ Se si definiscono le tabelle in modo statico, è necessario chiamare il metodo t
 L'SDK di Node.js per App per dispositivi mobili di Azure offre tre opzioni per la gestione dei dati predefiniti:
 
 - Usare il driver di **memoria** per fornire un archivio di esempio non persistente
-- Usare il driver **sql** per fornire un archivio dati di SQL Express per lo sviluppo
-- Usare il driver **sql** per fornire un archivio dati di SQL Azure per la produzione
+- Usare il driver **mssql** per fornire un archivio dati di SQL Express per lo sviluppo
+- Usare il driver **mssql** per fornire un archivio dati di SQL Azure per la produzione
 
 L'SDK di Node.js per App per dispositivi mobili di Azure usa il [pacchetto Node.js mssql] per stabilire e usare una connessione a SQL Express e a SQL Azure. Per questo pacchetto è necessario abilitare le connessioni TCP nell'istanza di SQL Express.
 
@@ -222,23 +222,40 @@ L'SDK di Node.js per App per dispositivi mobili di Azure usa il [pacchetto Node.
 
 2. Eseguire Gestione configurazione SQL Server 2014.
 
-  a. Espandere il nodo **Configurazione di rete SQL Server** nel menu struttura a sinistra. b. Fare clic su **Protocolli per SQLEXPRESS**. c. Fare clic con il pulsante destro del mouse su **TCP/IP** e scegliere **Abilita**. Fare clic su **OK** nella finestra di dialogo popup. d. Fare clic con il pulsante destro del mouse su **TCP/IP** e scegliere **Proprietà**. e. Fare clic sulla scheda **Indirizzi IP**. f. Trovare il nodo **IPAll**. Nel campo **Porta TCP** immettere **1433**.
-
-  ![Configurare SQL Express per TCP/IP][3]
-
-  g. Fare clic su **OK**. Fare clic su **OK** nella finestra di dialogo popup. h. Fare clic su **Servizi di SQL Server** nel menu struttura a sinistra. i. Fare clic con il pulsante destro del mouse su **SQL Server (SQLEXPRESS)** e scegliere **Riavvia**. j. Chiudere Gestione configurazione SQL Server 2014.
+  1. Espandere il nodo **Configurazione di rete SQL Server** nel menu struttura a sinistra.
+  2. Fare clic su **Protocolli per SQLEXPRESS**.
+  3. Fare clic con il pulsante destro del mouse su **TCP/IP** e scegliere **Enable**. Fare clic su **OK** nella finestra di dialogo popup.
+  4. Fare clic con il pulsante destro del mouse su **TCP/IP** e scegliere **Proprietà**.
+  5. Fare clic sulla scheda **Indirizzi IP**.
+  6. Trovare il nodo **IPAll**. Nel campo **Porta TCP** immettere **1433**.
+  
+	 	 ![Configure SQL Express for TCP/IP][3]
+  7. Fare clic su **OK**. Fare clic su **OK** nella finestra di dialogo popup.
+  8. Fare clic su **Servizi di SQL Server** nel menu struttura a sinistra.
+  9. Fare clic con il pulsante destro del mouse su **SQL Server (SQLEXPRESS)** e scegliere **Riavvia**
+  10. Chiudere Gestione configurazione SQL Server 2014.
 
 3. Creare un'esecuzione di SQL Server 2014 Management Studio e connettersi all'istanza locale di SQL Express
 
-  a. Fare clic con il pulsante destro del mouse sull'istanza in Esplora oggetti e scegliere **Proprietà**. b. Selezionare la pagina **Sicurezza**. c. Assicurarsi che l'opzione **Autenticazione di SQL Server e di Windows** sia selezionata. d. Fare clic su **OK**.
+  1. Fare clic con il pulsante destro del mouse sull'istanza in Esplora oggetti e scegliere **Proprietà**.
+  2. Selezionare la pagina **Sicurezza**
+  3. Assicurarsi che l'opzione **Modalità di autenticazione di SQL Server e di Windows** sia selezionata.
+  4. Fare clic su **OK**
 
-  ![Configurare l'autenticazione di SQL Express][4]
+  		![Configure SQL Express Authentication][4]
 
-  e. Espandere **Sicurezza** > **Account di accesso** in Esplora oggetti. f. Fare clic con il pulsante destro del mouse su **Account di accesso** e scegliere **Nuovo account di accesso**. g. Immettere un nome account di accesso. Selezionare **Autenticazione di SQL Server**. Immettere una password, quindi immettere la stessa password in **Conferma password**. Si noti che la password deve soddisfare i requisiti di complessità di Windows. h. Fare clic su **OK**.
+  5. Espandere **Sicurezza** > **Account di accesso** in Esplora oggetti.
+  6. Fare clic con il pulsante destro del mouse su **Account di accesso** e scegliere **Nuovo account di accesso**
+  7. Immettere un nome account di accesso. Selezionare **Autenticazione di SQL Server**. Immettere una password, quindi immettere la stessa password in **Conferma password**. Si noti che la password deve soddisfare i requisiti di complessità di Windows.
+  8. Fare clic su **OK**
 
-  ![Aggiungere un nuovo utente a SQL Express][5]
+  		![Add a new user to SQL Express][5]
 
-  i. Fare clic con il pulsante destro del mouse sul nuovo account di accesso e scegliere **Proprietà**. j. Selezionare la pagina **Ruoli server**. k. Selezionare la casella accanto al ruolo server **dbcreator**. l. Fare clic su **OK**. m. Chiudere SQL Server 2015 Management Studio.
+  9. Fare clic con il pulsante destro del mouse sul nuovo account di accesso e scegliere **Proprietà**.
+  10. Selezionare la pagina **Ruoli server**.
+  11. Selezionare la casella accanto al ruolo server **dbcreator**.
+  12. Fare clic su **OK**.
+  13. Chiudere SQL Server 2015 Management Studio.
 
 Prendere nota del nome utente e della password selezionati. Potrebbe essere necessario assegnare autorizzazioni o ruoli server aggiuntivi a seconda dei requisiti di database specifici.
 
@@ -263,7 +280,7 @@ Di seguito è riportato un file _azureMobile.js_ di esempio che implementa le im
             origins: [ 'localhost' ]
         },
         data: {
-            provider: 'sql',
+            provider: 'mssql',
             server: '127.0.0.1',
             database: 'mytestdatabase',
             user: 'azuremobile',
@@ -278,7 +295,7 @@ Di seguito è riportato un file _azureMobile.js_ di esempio che implementa le im
 
 ### <a name="howto-use-sqlazure"></a>Usare SQL Azure come archivio dati di produzione
 
-<!-- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
+<!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
 L'uso di SQL Azure come archivio dati è identico in tutti i tipi di applicazione del Servizio app di Azure. Se non è già stato fatto, seguire questa procedura per creare un nuovo back-end dell'app per dispositivi mobili.
 
@@ -310,9 +327,9 @@ Una volta creato il back-end dell'app per dispositivi mobili, è possibile scegl
 
 11. Nel pannello **Aggiungi connessione dati** fare nuovamente clic su **OK** per creare il database.
 
-<!-- END OF ALTERNATE INCLUDE -->
+<!--- END OF ALTERNATE INCLUDE -->
 
-La creazione del database può richiedere alcuni minuti. Usare l'area **Notifiche** per monitorare l'avanzamento della distribuzione. L'avanzamento non viene eseguito se il database non è stato distribuito correttamente. Al termine della distribuzione viene creata una stringa di connessione per l'istanza di database SQL Azure nelle impostazioni app del back-end mobile. È possibile visualizzare questa impostazione app in **Impostazioni** > **Impostazioni applicazione** > **Stringhe di connessione**.
+La creazione del database può richiedere alcuni minuti. Usare l'area **Notifiche** per monitorare l'avanzamento della distribuzione. L'avanzamento non viene eseguito se il database non è stato distribuito correttamente. Al termine della distribuzione viene creata una stringa di connessione per l'istanza di database SQL Azure nelle impostazioni app del back-end mobile. È possibile visualizzare questa impostazione dell’app in **Impostazioni** > **Impostazioni applicazione** > **Stringhe di connessione**.
 
 ### <a name="howto-tables-auth"></a>Richiedere l'autenticazione per l'accesso alle tabelle
 
@@ -607,4 +624,4 @@ Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

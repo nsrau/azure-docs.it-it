@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="11/16/2015"
 	ms.author="cynthn"/>
 
 # Domande frequenti sulle macchine virtuali di Azure create con il modello di distribuzione classica
@@ -22,19 +22,17 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
-Questo articolo si impegna a rispondere ad alcune domande frequenti che gli utenti pongono riguardo alle macchine virtuali di Azure create con il modello di distribuzione classica, in base a input provenienti dal team di supporto per le VM di Azure, nonché dai forum, newsgroup e commenti in altri articoli. Per ottenere informazioni di base, iniziare con [Informazioni sulle Macchine virtuali](virtual-machines-about.md).
+Questo articolo analizza alcune delle domande più comuni poste dagli utenti sulle macchine virtuali di Azure create con un modello di distribuzione classica.
 
 ## Cosa è possibile eseguire in una VM di Azure?
 
-Tutti i sottoscrittori possono eseguire software del server in una macchina virtuale Azure. Inoltre, i sottoscrittori di MSDN hanno accesso a determinate immagini del client Windows fornite da Azure.
-
-Per il software del server, è possibile eseguire versioni recenti di Windows Server, nonché un'ampia gamma di distribuzioni di Linux e ospitare diversi carichi di lavoro e servizi su di essi. Per ulteriori informazioni di supporto, vedere:
+Tutti i sottoscrittori possono eseguire software del server in una macchina virtuale Azure. È possibile eseguire versioni recenti di Windows Server, nonché un'ampia gamma di distribuzioni di Linux. Per ulteriori informazioni di supporto, vedere:
 
 • Per VM di Windows - [Supporto del software del server Microsoft per macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
 • Per VM di Linux -- [Distribuzioni di Linux supportate da Azure](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-Per le immagini client Windows, alcune versioni di Windows 7 e Windows 8.1 sono disponibili agli abbonati MSDN Azure con benefici e agli abbonati MSDN sviluppo e test con pagamento in base al consumo, per attività di sviluppo e test. Per ulteriori informazioni, incluse le istruzioni e limitazioni, vedere [Immagini Client Windows per gli abbonati MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
+Per le immagini client Windows, alcune versioni di Windows 7 e Windows 8.1 sono disponibili agli abbonati MSDN Azure con benefici e agli abbonati MSDN sviluppo e test con pagamento in base al consumo, per attività di sviluppo e test. Per altre informazioni, incluse le istruzioni e limitazioni, vedere [Immagini Client Windows per gli abbonati MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
 ## Quanta memoria è possibile utilizzare con una macchina virtuale?
 
@@ -44,27 +42,25 @@ Un account di archiviazione Azure fornisce memoria per il disco del sistema oper
 
 ## Quali tipi di disco rigido virtuale è possibile utilizzare?
 
-Azure supporta dischi rigidi virtuali fissi in formato VHD. Se si desidera utilizzare un disco in formato VHDX in Azure, convertirlo mediante la console di gestione di Hyper-V o il cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) . Dopo aver fatto ciò, utilizzare il cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (in modalità gestione dei servizi) per caricare il disco rigido virtuale in un account di archiviazione in Azure, in modo da poterlo utilizzare con le macchine virtuali. Il cmdlet converte un disco rigido virtuale dinamico in un disco rigido virtuale fisso, ma non converte da VHDX in VHD.
+Azure supporta solo dischi rigidi virtuali fissi in formato VHD. Se si è in possesso di un VHDX che si desidera usare in Azure, è necessario prima convertirlo mediante la console di gestione di Hyper-V o il cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) . Dopo aver fatto ciò, utilizzare il cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (in modalità gestione dei servizi) per caricare il disco rigido virtuale in un account di archiviazione in Azure, in modo da poterlo utilizzare con le macchine virtuali.
 
 - Per le istruzioni di Linux, vedere [Creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md)
 
 - Per le istruzioni di Windows, vedere [Creare e caricare un disco rigido virtuale di Windows Server in Azure](virtual-machines-create-upload-vhd-windows-server.md).
 
-Per ulteriori informazioni sul caricamento di un disco dati, vedere l'articolo su Linux o Windows e iniziare con i passaggi per la connessione ad Azure.
-
 ## Queste macchine virtuali sono le stessi macchine virtuali di Hyper-V?
 
 In molti aspetti sono simili alla "generazione 1" di VM di Hyper-V, ma non sono esattamente la stessa cosa. Entrambi i tipi forniscono un hardware virtualizzato e i dischi rigidi virtuali in formato VHD sono compatibili. Ciò significa che è possibile spostarli tra Hyper-V e Azure. Tre differenze principali che talvolta sorprendono gli utenti di Hyper-V sono:
 
-- Azure non fornisce l'accesso tramite console a una macchina virtuale.
-- Le macchine virtuali di Azure nella maggior parte delle [dimensioni](virtual-machines-size-specs.md) dispongono di 1 sola scheda di rete virtuale, pertanto possono avere 1 solo indirizzo IP esterno. (Le dimensioni A8 e A9 utilizzano una seconda scheda di rete per la comunicazione delle applicazioni tra istanze in scenari limitati.)
-- Le macchine virtuali di Azure non supportano le funzionalità della macchina virtuale Hyper-V di seconda generazione. Per informazioni dettagliate su queste funzionalità, vedere [Specifiche delle macchine virtuali per Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
+- Azure non fornisce l'accesso tramite console a una macchina virtuale. Non è possibile accedere a una macchina virtuale finché non si è verificato l'avvio.
+- Le macchine virtuali di Azure nella maggior parte delle [dimensioni](virtual-machines-size-specs.md) dispongono di una sola scheda di rete virtuale, pertanto possono avere un solo indirizzo IP esterno. (Le dimensioni A8 e A9 utilizzano una seconda scheda di rete per la comunicazione delle applicazioni tra istanze in scenari limitati.)
+- Le macchine virtuali di Azure non supportano le funzionalità della macchina virtuale Hyper-V di seconda generazione. Per informazioni dettagliate su queste funzionalità, vedere [Specifiche delle macchine virtuali per Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) e [Panoramica della macchina virtuale di seconda generazione](https://technet.microsoft.com/library/dn282285.aspx).
 
 ## Queste macchine virtuali possono utilizzare l’infrastruttura di rete locale esistente?
 
-Per le macchine virtuali create in Gestione dei servizi, è possibile utilizzare la rete virtuale di Azure per estendere l'infrastruttura esistente. L'approccio è simile all’apertura di una succursale. È possibile effettuare il provisioning e la gestione delle reti private virtuali (VPN) in Azure, nonché collegare queste reti in modo sicuro all’infrastruttura IT locale. Per informazioni dettagliate, vedere [Panoramica della rete virtuale](../virtual-network/virtual-networks-overview.md).
+Per le macchine virtuali create nel modello di distribuzione classica, è possibile utilizzare la rete virtuale di Azure per estendere l'infrastruttura esistente. L'approccio è simile all’apertura di una succursale. È possibile effettuare il provisioning e la gestione delle reti private virtuali (VPN) in Azure, nonché collegarle in modo sicuro all’infrastruttura IT locale. Per informazioni dettagliate, vedere [Panoramica della rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-È necessario specificare la rete alla quale si desidera che la macchina virtuale appartenga, quando quest’ultima viene creata. Ciò significa, ad esempio, che è possibile unire una macchina virtuale esistente a una rete virtuale. Tuttavia, è possibile risolvere il problema scollegando il disco rigido virtuale (VHD) dalla macchina virtuale esistente e quindi utilizzarlo per creare una nuova macchina virtuale con la configurazione di rete desiderata.
+È necessario specificare la rete alla quale si desidera che la macchina virtuale appartenga, quando quest’ultima viene creata. Non è possibile unire una macchina virtuale esistente a una rete virtuale. Tuttavia, è possibile risolvere il problema scollegando il disco rigido virtuale (VHD) dalla macchina virtuale esistente e quindi utilizzarlo per creare una nuova macchina virtuale con la configurazione di rete desiderata.
 
 ## Come si accede alla macchina virtuale?
 
@@ -73,17 +69,19 @@ Per le macchine virtuali create in Gestione dei servizi, è possibile utilizzare
 - [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-log-on-windows-server.md) Sono supportate al massimo 2 connessioni simultanee, a meno che il server non sia configurato come host sessione Servizi Desktop remoto.  
 - [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md) Per impostazione predefinita, la SSH consente un massimo di 10 connessioni simultanee. È possibile aumentare questo numero modificando il file di configurazione.
 
-Se si verificano problemi relativi a Desktop remoto o SSH, installare e utilizzare l'estensione [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) per risolvere il problema. Per le macchine virtuali Windows, opzioni aggiuntive includono:
+Se si verificano problemi relativi a Desktop remoto o SSH, installare e utilizzare l'estensione [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) per risolvere il problema.
 
-- Nel portale di anteprima di Azure trovare la macchina virtuale, quindi fare clic su **Reimposta accesso remoto** dalla barra dei comandi.
+Per le macchine virtuali Windows, opzioni aggiuntive includono:
+
+- Nel portale di Azure classico, trovare la macchina virtuale, quindi fare clic su **Reimposta accesso remoto** dalla barra dei comandi.
 - Consulta [Risoluzione dei problemi relativi alle connessioni di Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 - Utilizzare la comunicazione remota di Windows PowerShell per effettuare la connessione alla macchina virtuale o creare endpoint aggiuntivi per la connessone di altre risorse alla macchina virtuale. Per informazioni dettagliate, vedere [Come configurare gli endpoint in una macchina virtuale](virtual-machines-set-up-endpoints.md).
 
-Se si ha familiarità con Hyper-V, è possibile che si stia cercando uno strumento simile a Virtual Machine Connection. Azure non offre uno strumento simile, poiché l'accesso da console a una macchina virtuale non è supportato.
+Se si ha familiarità con Hyper-V, è possibile che si stia cercando uno strumento simile a VMConnect. Azure non offre uno strumento simile, poiché l'accesso da console a una macchina virtuale non è supportato.
 
-## È possibile utilizzare l'unità D: (Windows) o /dev/sdb1 (Linux)?
+## È possibile utilizzare il disco temporaneo (L’unità D: per Windows o /dev/sdb1 per Linux) per archiviare i dati?
 
-È consigliabile non utilizzare l’unità D: (Windows) o /dev/sdb1 (Linux). Essi forniscono solamente una memoria temporanea, pertanto si rischierebbe di perdere dati che non possono essere recuperati. Un modo comune in cui questo problema può verificarsi è quando si sposta la macchina virtuale in un host diverso. Il ridimensionamento di una macchina virtuale, l'aggiornamento dell'host o un errore hardware nell'host sono alcuni dei motivi che potrebbero portare a spostare una macchina virtuale.
+Non si deve usare il disco temporaneo (L’unità D: per Windows o /dev/sdb1 per Linux) per archiviare i dati. Si tratta solo di memorie temporanee, pertanto si rischierebbe di perdere dati che non possono essere recuperati. Questo problema può verificarsi quando si sposta la macchina virtuale in un host diverso. Il ridimensionamento di una macchina virtuale, l'aggiornamento dell'host o un errore hardware nell'host sono alcuni dei motivi che potrebbero portare a spostare una macchina virtuale.
 
 ## Come modificare la lettera di unità del disco temporaneo?
 
@@ -94,17 +92,24 @@ In una macchina virtuale di Windows, è possibile modificare la lettera di unit�
 Il termine aggiornamento indica in genere il passaggio a una versione più recente del sistema operativo, rimanendo sullo stesso hardware. Per le VM di Azure, il processo per lo spostamento a una versione più recente è diverso per Linux e Windows:
 
 - Per le VM di Linux, utilizzare il pacchetto strumenti di gestione e le procedure appropriate per la distribuzione.
-- Per le macchine virtuali di Windows, utilizzare gli strumenti di migrazione per Windows Server. Non tentare di aggiornare il sistema operativo guest mentre questo risiede in Azure. Questo non è supportato a causa del rischio di perdere l'accesso a una macchina virtuale. Se si verificano problemi durante l'aggiornamento, si potrebbe perdere la possibilità di avviare una sessione Desktop remoto e non si sarebbe più in grado di risolvere i problemi. Per informazioni generali sugli strumenti e sul processo, vedere [Migrazione dei ruoli e delle funzionalità a Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940). Per informazioni dettagliate sull'aggiornamento a Windows Server 2012 R2, vedere [Aggiornamento delle opzioni per Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx).
+- Per una macchina virtuale di Windows, è necessario eseguire la migrazione al server usando strumenti come quelli di migrazione di Windows Server. Non tentare di aggiornare il sistema operativo guest mentre questo risiede in Azure. Questo non è supportato a causa del rischio di perdere l'accesso alla macchina virtuale. Se si verificano problemi durante l'aggiornamento, si potrebbe perdere la possibilità di avviare una sessione Desktop remoto e non si sarebbe più in grado di risolvere i problemi. 
+
+Per informazioni generali sugli strumenti e sui processi per la migrazione a Windows Server, vedere [Migrazione dei ruoli e delle funzionalità a Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
+
+
 
 ## Quali sono il nome utente e la password predefiniti per accedere alla macchina virtuale?
 
 Le immagini fornite da Azure non dispongono di un nome utente e una password predefiniti. Quando si crea la macchina virtuale utilizzando una di queste immagini, è necessario specificare un nome utente e una password, che verranno utilizzati per accedere alla macchina virtuale.
 
-Se si dimentica il nome utente o la password ed è stato installato l'agente VM, è possibile installare e utilizzare l'estensione VMAccess per risolvere il problema.
+Se si dimentica il nome utente o la password ed è stato installato l'agente VM, è possibile installare e utilizzare l'estensione [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) per risolvere il problema.
 
 Informazioni aggiuntive:
 
-- Per le immagini Linux, se si usa il portale di Azure, viene fornito il nome utente predefinito 'azureuser', che tuttavia si può modificare usando 'Da raccolta' invece di 'Creazione rapida' come metodo di creazione della macchina virtuale. Utilizzando il metodo 'Da raccolta', è inoltre possibile decidere se utilizzare una password, una chiave SSH o entrambe per l'accesso. L'account utente è un utente senza privilegi che dispone di accesso 'sudo' per l'esecuzione di comandi con privilegi. L'account 'root' è disabilitato.
+
+- Per le immagini Linux, se si usa il portale di Azure classico, viene fornito il nome utente predefinito 'azureuser', che tuttavia si può modificare usando 'Da raccolta' invece di 'Creazione rapida' come metodo di creazione della macchina virtuale. Utilizzando il metodo 'Da raccolta', è inoltre possibile decidere se utilizzare una password, una chiave SSH o entrambe per l'accesso. L'account utente è un utente senza privilegi che dispone di accesso 'sudo' per l'esecuzione di comandi con privilegi. L'account 'root' è disabilitato.
+
+
 - Per le immagini di Windows, è necessario fornire un nome utente e una password quando si crea la VM. L'account viene aggiunto al gruppo Administrators.
 
 ## Azure è in grado di eseguire software antivirus nelle macchine virtuali?
@@ -127,7 +132,7 @@ Azure addebita un costo orario in base alla dimensione della VM e al sistema ope
 
 Viene applicato un addebito quando lo stato della VM è in esecuzione o arrestato, ma non vengono applicati addebiti quando lo stato della VM viene arrestato (deallocato). Per mettere una VM nello stato arrestato (deallocato), effettuare una delle seguenti operazioni:
 
-- Arrestare o eliminare la VM dal portale di Azure.
+- Arrestare o eliminare la VM dal portale di Azure classico.
 - Utilizzare il cmdlet Stop-AzureVM disponibile nel modulo Azure PowerShell.
 - Utilizzare l’operazione Shutdown Role nel servizio di gestione API REST e specificare il valore StoppedDeallocated per l’elemento PostShutdownAction.
 
@@ -135,11 +140,13 @@ Per informazioni dettagliate, vedere [Prezzi delle macchine virtuali](http://azu
 
 ## Azure riavvia la VM per manutenzione?
 
-In genere, è possibile avviare, arrestare o riavviare la VM ogni volta che è necessario. Azure talvolta riavvia la VM come parte dei regolari aggiornamenti pianificati di manutenzione nei datacenter di Azure. Gli eventi di manutenzione non pianificati possono verificarsi quando Azure rileva un problema hardware grave che interessa la VM. Per gli eventi non pianificati, Azure effettua automaticamente la migrazione della VM a un host integro e riavvia la VM.
+Azure talvolta riavvia la VM come parte dei regolari aggiornamenti pianificati di manutenzione nei datacenter di Azure.
+
+Gli eventi di manutenzione non pianificati possono verificarsi quando Azure rileva un problema hardware grave che interessa la VM. Per gli eventi non pianificati, Azure effettua automaticamente la migrazione della VM a un host integro e riavvia la VM.
 
 Per qualsiasi VM autonoma (vale a dire quando la VM non fa parte di un set di disponibilità), Azure notifica l'amministratore del servizio di sottoscrizione tramite posta elettronica almeno una settimana prima della manutenzione pianificata, perché le VM potrebbero essere riavviate durante l'aggiornamento. Le applicazioni in esecuzione nelle macchine virtuali potrebbero subire un tempo di inattività.
 
-È inoltre possibile utilizzare il portale di Azure oppure Azure PowerShell per visualizzare i registri di riavvio quando il riavvio si è verificato per interventi di manutenzione pianificata. Per informazioni dettagliate, vedere [Visualizzazione dei registri di riavvio della macchina virtuale](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+È inoltre possibile utilizzare il portale di Azure classico oppure Azure PowerShell per visualizzare i registri di riavvio quando il riavvio si è verificato per interventi di manutenzione pianificata. Per informazioni dettagliate, vedere [Visualizzazione dei registri di riavvio della macchina virtuale](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Per garantire la ridondanza, inserire due o più VM configurate in modo analogo nello stesso set di disponibilità. In questo modo si assicura che almeno una VM sia disponibile durante la manutenzione pianificata o non pianificata. Azure garantisce determinati livelli di disponibilità della VM per questa configurazione. Per informazioni dettagliate, vedere [Gestione della disponibilità delle macchine virtuali](virtual-machines-manage-availability.md).
 
@@ -151,4 +158,4 @@ Per garantire la ridondanza, inserire due o più VM configurate in modo analogo 
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

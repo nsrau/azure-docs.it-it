@@ -292,4 +292,4 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

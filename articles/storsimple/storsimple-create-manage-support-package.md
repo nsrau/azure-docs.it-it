@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 
@@ -33,13 +33,13 @@ Dopo aver letto questa esercitazione, si sarà in grado di:
 - Decrittografare e modificare un pacchetto per il supporto
 
 
-## Creare un pacchetto per il supporto nel portale di gestione
+## Creare un pacchetto per il supporto nel portale di Azure classico
 
-Per risolvere eventuali problemi riscontrati con il servizio StorSimple Manager, è possibile creare e caricare un pacchetto per il supporto nel sito del supporto tecnico Microsoft tramite la pagina **Manutenzione** del servizio nel portale di gestione. È necessario fornire una passkey per il supporto per consentire il caricamento. La passkey per il supporto deve essere fornita dal supporto tecnico tramite posta elettronica. Viene creato un pacchetto per il supporto non crittografati e compresso (file con estensione cab). Questo pacchetto può quindi essere recuperato dal supporto tecnico nel sito di supporto quando il tecnico fornisce la passkey.
+Per risolvere eventuali problemi riscontrati con il servizio StorSimple Manager, è possibile creare e caricare un pacchetto per il supporto nel sito del supporto tecnico Microsoft tramite la pagina **Manutenzione** del servizio nel portale di Azure classico. È necessario fornire una passkey per il supporto per consentire il caricamento. La passkey per il supporto deve essere fornita dal supporto tecnico tramite posta elettronica. Viene creato un pacchetto per il supporto non crittografati e compresso (file con estensione cab). Questo pacchetto può quindi essere recuperato dal supporto tecnico nel sito di supporto quando il tecnico fornisce la passkey.
 
-Eseguire i passaggi seguenti nel portale di gestione per creare un pacchetto per il supporto.
+Eseguire i passaggi seguenti nel portale classico per creare un pacchetto per il supporto:
 
-#### Creare un pacchetto per il supporto nel portale di gestione
+#### Creazione di un pacchetto per il supporto nel portale di Azure classico
 
 1. Andare a **Dispositivi > Manutenzione**.
 
@@ -123,7 +123,7 @@ Nella tabella seguente sono riportati i diversi parametri che possono essere uti
 
 Dopo aver creato un pacchetto per il supporto, potrebbe essere necessario modificare il pacchetto per rimuovere le informazioni specifiche del cliente, ad esempio i nomi dei volumi, gli indirizzi IP dei dispositivi e i nomi di backup dai file di log.
 
-> [AZURE.IMPORTANT]È possibile solo modificare un pacchetto per il supporto che è stato generato tramite Windows PowerShell per StorSimple. Non è possibile modificare un pacchetto creato nel portale di Gestione con il servizio StorSimple Manager.
+> [AZURE.IMPORTANT]È possibile solo modificare un pacchetto per il supporto che è stato generato tramite Windows PowerShell per StorSimple. Non è possibile modificare un pacchetto creato nel portale di Azure classico con il servizio StorSimple Manager.
 
 Per modificare un pacchetto per il supporto prima di caricarlo nel sito del supporto tecnico Microsoft, è necessario decrittografare il pacchetto per supporto, modificare i file e crittografarlo nuovamente. Per modificare un pacchetto per il supporto, procedere come segue:
 
@@ -199,4 +199,4 @@ Di seguito è riportato un esempio che illustra come decrittografare, modificare
 - Informazioni su come [utilizzare i pacchetti per il supporto e i registri del dispositivo per risolvere i problemi di distribuzione del dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

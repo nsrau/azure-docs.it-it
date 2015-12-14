@@ -45,7 +45,7 @@ Il valore dell'impostazione `Microsoft.ServiceBus.ConnectionString` corrisponde 
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Dove `[namespace]` e `SharedAccessKey` vengono ottenuti dal portale di Azure. Per altre informazioni, vedere [Come usare le code del bus di servizio][].
+Dove `[namespace]` e `SharedAccessKey` vengono ottenuti dal [portale di Azure classico][]. Per altre informazioni, vedere [Come usare le code del bus di servizio][].
 
 Quando si usa AMQP, aggiungere `;TransportType=Amqp` alla fine della stringa di connessione. Questa notazione segnala alla libreria client di effettuare la connessione al bus di servizio mediante AMQP 1.0.
 
@@ -147,7 +147,7 @@ In particolare, le API seguenti non sono attualmente supportate quando si usa AM
 
 Esistono anche alcune piccole differenze di comportamento dell'API .NET del bus di servizio durante l'uso di AMQP, rispetto al protocollo predefinito:
 
--   La proprietà [OperationTimeout][] viene ignorata.
+-   La proprietà [OperationTimeout][] verrà ignorata.
 
 -   `MessageReceiver.Receive(TimeSpan.Zero)` viene implementato come `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 
@@ -199,8 +199,9 @@ Per altre informazioni, vedere i collegamenti seguenti:
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
+[portale di Azure classico]: http://manage.windowsazure.com
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

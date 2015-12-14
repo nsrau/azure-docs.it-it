@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Sostituzione di un modulo di alimentazione e raffreddamento nel dispositivo StorSimple
@@ -48,7 +48,7 @@ Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Coolin
 
 #### Per rimuovere un PCM:
 
-1. Nel portale di gestione, fare clic su **Dispositivi** > **Manutenzione** > **Stato hardware**. Controllare lo stato dei componenti del PCM sotto **Componenti condivisi** per identificare quale PCM è guasto:
+1. Nel portale di Azure classico, fare clic su **Dispositivi** > **Manutenzione** > **Stato hardware**. Controllare lo stato dei componenti del PCM sotto **Componenti condivisi** per identificare quale PCM è guasto:
 
      - Se un alimentatore in PCM 0 è guasto, lo stato di **Alimentatore in PCM 0** sarà rosso.
 
@@ -144,7 +144,7 @@ Seguire queste istruzioni per installare un PCM nel dispositivo StorSimple.
 
 7. Accendere il PCM.
 
-8. Verificare che la sostituzione sia stata completata correttamente: nel portale di gestione del servizio StorSimple Manager, passare a **Dispositivi** > **Manutenzione** > **Stato hardware**. Sotto **Componenti condivisi**, lo stato del PCM dovrebbe essere verde.
+8. Verificare che la sostituzione sia stata completata correttamente: nel portale di Azure classico del servizio StorSimple Manager, passare a **Dispositivi** > **Manutenzione** > **Stato hardware**. Sotto **Componenti condivisi**, lo stato del PCM dovrebbe essere verde.
 										
     >[AZURE.NOTE]L'inizializzazione completa del PCM sostitutivo potrebbe richiedere alcuni minuti.
 
@@ -152,4 +152,4 @@ Seguire queste istruzioni per installare un PCM nel dispositivo StorSimple.
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

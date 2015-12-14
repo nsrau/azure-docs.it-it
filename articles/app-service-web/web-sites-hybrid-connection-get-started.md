@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/24/2015" 
 	ms.author="cephalin"/>
 
 #Accesso alle risorse locali usando connessioni ibride nel servizio app di Azure
 
 È possibile connettere un'app Web nel servizio app di Azure a qualsiasi risorsa locale che utilizza una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP, Servizi mobili e la maggior parte dei servizi Web personalizzati. Questo articolo illustra come creare una connessione ibrida tra un'app Web nel servizio app e un database di SQL Server locale.
 
-> [AZURE.NOTE]La parte relativa alle app Web della funzionalità Connessioni ibride è disponibile solo nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> [AZURE.NOTE]La parte relativa alle app Web della funzionalità Connessioni ibride è disponibile solo nel [portale di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Prerequisiti
 - Una sottoscrizione di Azure. Per una sottoscrizione gratuita, vedere [Versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/). 
@@ -39,13 +39,11 @@
 
 > [AZURE.NOTE]Se nel portale di Azure è già stata creata un'app Web da usare per questa esercitazione, è possibile passare alla [creazione di una connessione ibrida e di un servizio BizTalk](#CreateHC).
 
-1. Nell'angolo inferiore sinistro del [portale di Azure](https://portal.azure.com), fare clic su **Nuovo** > **Web + Mobile** > **Sito Web**.
-	
-	![New button][New]
+1. Nell'angolo inferiore sinistro del [portale di Azure](https://portal.azure.com), fare clic su **Nuovo** > **Web e dispositivi mobili** > **App Web**.
 	
 	![Nuova applicazione web][NewWebsite]
 	
-2. Nel pannello **App Web**, fornire un URL > **Crea**.
+2. Nel pannello **App Web**, fornire un URL e fare clic su **Crea**.
 	
 	![Website name][WebsiteCreationBlade]
 	
@@ -64,7 +62,7 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 <a name="CreateHC"></a>
 ## Creare una connessione ibrida e un servizio BizTalk ##
 
-1. Scorrere verso il basso nel panello dell'app Web e scegliere **Connessioni ibride**.
+1. Nel pannello dell’app web fare clic su **Tutte le impostazioni** > **Rete** > **Configurare gli endpoint di connessione ibrida**.
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
@@ -77,11 +75,7 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	Nel **blade di connessione ibrida crea**:
-	- per **nome**, fornisce un nome per la connessione
-	- per **Hostname**, immettere il nome del computer locale che ospita la risorsa.
-	- per **porta**, immettere il numero di porta che la risorsa locale utilizza (1433 per un'istanza predefinita di SQL Server).
-	- fare clic su **servizio parlare Biz**
+	Nel **blade di connessione ibrida crea**: - per **nome**, fornisce un nome per la connessione - per **Hostname**, immettere il nome del computer locale che ospita la risorsa. - per **porta**, immettere il numero di porta che la risorsa locale utilizza (1433 per un'istanza predefinita di SQL Server).-fare clic su **servizio parlare Biz**
 
 
 4. Viene visualizzato il pannello **Crea servizio BizTalk**. Immettere un nome per il servizio BizTalk, quindi fare clic su **OK**.
@@ -97,7 +91,7 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 6. Al termine del processo l'area delle notifiche nel portale informa che la connessione è stata creata correttamente.
 	<!-- TODO
 
-Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
 (full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
 Create hybrid conn step, you get the following error
 Failed to create hybrid connection RelecIoudHC. The 
@@ -116,7 +110,7 @@ A questo punto è stata completata una parte importante dell'infrastruttura dell
 <a name="InstallHCM"></a>
 ## Installare l'istanza locale di Hybrid Connection Manager per completare la connessione ##
 
-1. Nel pannello dell'app Web, fare clic sull'icona Connessioni ibride. 
+1. Nel pannello dell’app web, fare clic su **Tutte le impostazioni** > **Rete** > **Configurare gli endpoint di connessione ibrida**. 
 	
 	![Hybrid connections icon][HCIcon]
 	
@@ -183,7 +177,6 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento nei siti Web e applicazioni Web nel servizio di Azure App](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [New]: ./media/web-sites-hybrid-connection-get-started/B01New.png
@@ -211,4 +204,4 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -121,7 +121,7 @@ Se l'origine dati è stata creata correttamente, si riceve una risposta HTTP 201
 
 ##<a id="CreateIndex"></a>Passaggio 2: Creare un indice
 
-Creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile eseguire questa operazione dall'[interfaccia utente del portale di Azure](../search-get-started.md#test-service-operations) o usando l'[API di creazione dell'](https://msdn.microsoft.com/library/azure/dn798941.aspx)indice.
+Creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile eseguire questa operazione dall'[interfaccia utente del portale di Azure classico](../search-get-started.md#test-service-operations) o usando l'[API di creazione dell'](https://msdn.microsoft.com/library/azure/dn798941.aspx)indice.
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -270,4 +270,4 @@ Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerc
  - Per altre informazioni su Ricerca di Azure, fare clic [qui](/services/search/).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

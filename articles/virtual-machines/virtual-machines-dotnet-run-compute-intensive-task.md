@@ -48,7 +48,7 @@ Di seguito è riportato un esempio dell'applicazione .NET che esegue il monitora
 
 ## Per creare una macchina virtuale
 
-1. Accedere al [Portale di Azure](https://manage.windowsazure.com).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Fare clic su **New**.
 3. Fare clic su **Virtual machine**.
 4. Fare clic su **Quick Create**.
@@ -57,11 +57,11 @@ Di seguito è riportato un esempio dell'applicazione .NET che esegue il monitora
 7. Immettere un nome per l'amministratore nel campo **User Name**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno utilizzati per l'accesso in remoto alla macchina virtuale.
 8. Immettere una password nel campo **Nuova password** e reimmetterla nel campo **Conferma**.
 9. Dall'elenco a discesa **Percorso**, selezionare il percorso del data center per la macchina virtuale.
-10. Fare clic su **Create virtual machine**. È possibile monitorare lo stato nella sezione **Macchine virtuali** del portale di Azure. Quando viene visualizzato lo stato **Active**, è possibile accedere alla macchina virtuale.
+10. Fare clic su **Create virtual machine**. È possibile monitorare lo stato nella sezione **Macchine virtuali** del portale di Azure classico. Quando viene visualizzato lo stato **Active**, è possibile accedere alla macchina virtuale.
 
 ## Per accedere in remoto alla macchina virtuale
 
-1. Accedere al [Portale di Azure](https://manage.windowsazure.com).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Fare clic su **Virtual machines**.
 3. Fare clic sul nome della macchina virtuale a cui si desidera accedere.
 4. Fare clic su **Connect**.
@@ -71,11 +71,11 @@ Di seguito è riportato un esempio dell'applicazione .NET che esegue il monitora
 
 Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi del servizio che fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
-Per creare uno spazio dei nomi servizio:
+Per creare uno spazio dei nomi del servizio:
 
-1.  Accedere al [Portale di Azure](https://manage.windowsazure.com).
-2.  Nel pannello di navigazione sinistro del portale di Azure fare clic su **Bus di servizio**.
-3.  Nel riquadro inferiore del portale di Azure fare clic su **Crea**.
+1.  Accedere al [portale di Azure classico](https://manage.windowsazure.com).
+2.  Nel pannello di navigazione sinistro del portale di Azure classico fare clic su **Bus di servizio**.
+3.  Nel riquadro inferiore del portale di Azure classico fare clic su **Crea**.
 
     ![Creazione di un bus di servizio][create_service_bus]
 4.  Nella finestra di dialogo **Crea uno spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome, che deve essere univoco.
@@ -90,7 +90,7 @@ Per creare uno spazio dei nomi servizio:
 
 	![Click create screenshot][click_create]
 
-Lo spazio dei nomi creato verrà quindi visualizzato nel portale di Azure e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active**.
+Lo spazio dei nomi creato verrà quindi visualizzato nel portale di Azure classico e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active**.
 
 ## Recupero delle credenziali di gestione predefinite per lo spazio dei nomi
 
@@ -539,7 +539,7 @@ Il risolutore eseguirà il comando finché non avrà terminato di esaminare tutt
 Per uscire dalle applicazioni risolutore e client e terminare prima del normale completamento, premere i tasti Ctrl+C.
 
 ## Alternativa alla creazione e all'eliminazione della coda con TSPSolver
-Per creare o eliminare la coda, è possibile utilizzare il [portale di Azure](https://manage.windowsazure.com) in sostituzione di TSPSolver. Visitare la sezione relativa al bus di servizio del portale di Azure per accedere alle interfacce utente per la creare o eliminare una coda, nonché per recuperare la stringa di connessione, l'autorità emittente e la chiave di accesso. È inoltre possibile visualizzare un dashboard delle code del bus di servizio, che consente di visualizzare le metriche per i messaggi in ingresso e in uscita.
+Per creare o eliminare la coda, è possibile utilizzare il [Portale di Azure classico](https://manage.windowsazure.com) in sostituzione di TSPSolver. Visitare la sezione relativa al bus di servizio del Portale di Azure classico per accedere alle interfacce utente per creare o eliminare una coda, nonché per recuperare la stringa di connessione, l'autorità emittente e la chiave di accesso. È inoltre possibile visualizzare un dashboard delle code del bus di servizio, che consente di visualizzare le metriche per i messaggi in ingresso e in uscita.
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
 [client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
@@ -550,4 +550,4 @@ Per creare o eliminare la coda, è possibile utilizzare il [portale di Azure](ht
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

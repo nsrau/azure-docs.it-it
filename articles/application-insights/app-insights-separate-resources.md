@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 # Separare le risorse di Application Insights per lo sviluppo, il test e la produzione
@@ -28,7 +28,7 @@ I dati ricevuti dall'applicazione vengono archiviati ed elaborati da Application
 
 In [portal.azure.com](https://portal.azure.com) aggiungere una nuova risorsa di Application Insights:
 
-![Fare clic su Nuovo, Application Insights](./media/app-insights-create-new-resource/01-new.png)
+![Fare clic su Nuovo, Application Insights](./media/app-insights-separate-resources/01-new.png)
 
 
 * Il **tipo di applicazione** influisce sul contenuto del pannello Panoramica e sulle proprietà disponibili in [Esplora metriche][metrics]. Se il proprio tipo di app non viene visualizzato, scegliere uno dei tipi Web per le pagine Web e uno dei tipi telefono per gli altri dispositivi.
@@ -46,7 +46,7 @@ La creazione della risorsa richiede pochi secondi. Al termine della creazione ve
 
 La chiave di strumentazione identifica la risorsa creata.
 
-![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/app-insights-create-new-resource/02-props.png)
+![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/app-insights-separate-resources/02-props.png)
 
 Saranno necessarie le chiavi di strumentazione di tutte le risorse a cui l'app invierà dati.
 
@@ -98,4 +98,4 @@ Il valore iKey viene usato anche nelle pagine Web dell'app, nello [script ottenu
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

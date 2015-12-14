@@ -39,14 +39,14 @@ Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Mar
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
 Iscriversi a New Relic usando Azure Marketplace
---
-New Relic si integra facilmente con i ruoli Web, i ruoli di lavoro e Azure App Service di Azure.
+
+New Relic si integra facilmente con i ruoli Web, i ruoli di lavoro e Azure App Service.
 
 Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa procedura in quattro semplici passaggi.
 
 ## Passaggio 1. Creare un account New Relic
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com) e fare clic su **Nuovo** nell'angolo.
+1. Accedere al [Portale di Azure](https://portal.azure.com) e fare clic su **Nuovo** nell'angolo.
 3. Fare clic su **Servizi per gli sviluppatori** > **APM di New Relic**.
 4. Configurare l'account New Relic specificando quanto segue, quindi fare clic su **Crea**.
 	- **Nome**
@@ -62,7 +62,7 @@ Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa pro
 
 ## Passaggio 2: Configurare l'integrazione di New Relic per l'app Web
 
-1. Aprire il pannello dell'app Web nel [portale di anteprima di Azure](https://portal.azure.com).
+1. Aprire il pannello dell'app Web nel [Portale di Azure](https://portal.azure.com).
 2. Nel menu "..." nella parte superiore del pannello fare clic su **Aggiungi riquadri**.
 3. Nella scheda **Monitoraggio** selezionare **Riepilogo applicazioni** e trascinarla nella posizione in cui si desidera che il riquadro venga visualizzato nel pannello dell'applicazione Web.
 4. Fare clic su Fine per terminare l'aggiunta di riquadri.
@@ -83,7 +83,7 @@ Pubblicare l'app Web con Visual Studio. Se l'app Web è già stata pubblicata, p
 
 Per visualizzare il dashboard di New Relic:
 
-2. Aprire il pannello dell'app Web nel [portale di anteprima di Azure](https://portal.azure.com).
+2. Aprire il pannello dell'app Web nel [Portale di Azure](https://portal.azure.com).
 3. Fare clic su **Monitoraggio applicazioni** > **nome applicazione** > **Visualizza in New Relic**.
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -121,8 +121,7 @@ Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new
     </tr>
     <tr>
        <td>Visualizzare dettagli Apdex a livello globale</td>
-       <td>Nella visualizzazione <b>Browser</b> della schermata Overview selezionare un punto qualsiasi nella mappa Global Apdex.<br />
-<b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a> per l'app selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
+       <td>Nella visualizzazione <b>Browser</b> della schermata Overview selezionare un punto qualsiasi nella mappa Global Apdex.<br /><b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a> per l'app selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
     </tr>
     <tr>
        <td>Visualizzare il dashboard <a href="https://docs.newrelic.com/docs/applications-menu/transactions-dashboard" target="_blank">Web Transactions</a></td>
@@ -130,8 +129,7 @@ Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new
     </tr>
     <tr>
        <td>Visualizzare il dashboard <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a></td>
-       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br />
-<b>Suggerimento:</b> è anche possibile visualizzare il dashboard Errors selezionando <b>Applications</b> > (applicazione) > Events > Errors.</td>
+       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br /><b>Suggerimento:</b> è anche possibile visualizzare il dashboard Errors selezionando <b>Applications</b> > (applicazione) > Events > Errors.</td>
     </tr>
     <tr>
        <td>Visualizzare i dettagli relativi al server applicazioni</td>
@@ -165,8 +163,7 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
 >[AZURE.NOTE]Per iniziare a usare Azure App Service prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Azure App Service e impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
 [vswebsite]: web-sites-dotnet-get-started.md
@@ -180,4 +177,4 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

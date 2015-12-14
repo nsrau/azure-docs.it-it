@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Configurare un Cluster di infrastruttura di servizi mediante un modello ARM
@@ -37,7 +37,7 @@ Questa pagina illustra come configurare un cluster di infrastruttura di servizi 
 
 ## Creazione di un modello ARM personalizzato
 
-2. In questo punto ci sono delle opzioni disponibili 
+2. Qui sono disponibili due opzioni 
 	1. È possibile acquisire un modello di esempio da [Raccolta di modelli di avvio rapido di Azure su github ](https://github.com/Azure/azure-quickstart-templates) e apportarvi delle modifiche.
 	2. Accedere al portale di azure e utilizzare le pagine del portale di infrastruttura di servizi per generare il modello per la personalizzazione. Tale procedura viene descritta di seguito.
 3. Accedere al portale di Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
@@ -45,7 +45,7 @@ Questa pagina illustra come configurare un cluster di infrastruttura di servizi 
 
 ## Distribuire il modello ARM in Azure mediante Azure Powershell
 
-Fare riferimento a [Distribuzione dei modelli ARM mediante PS ](https://azure.microsoft.com/it-IT/documentation/articles/resource-group-template-deploy/) per istruzioni dettagliate su come fare.
+Fare riferimento a [Distribuzione dei modelli ARM mediante PS ](resource-group-template-deploy.md) per istruzioni dettagliate su come fare.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
@@ -56,4 +56,4 @@ Fare riferimento a [Distribuzione dei modelli ARM mediante PS ](https://azure.mi
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

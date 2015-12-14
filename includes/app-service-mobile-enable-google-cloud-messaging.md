@@ -1,18 +1,19 @@
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials, and then click **Select a project**, then **Create a project**.
+1. Passare a [Google Cloud Console](https://console.developers.google.com/project), eseguire l'accesso con le credenziali dell'account Google e quindi fare clic su **Selezionare un progetto** e successivamente su **Crea progetto**.
 
-2. Enter a project name, accept the terms of service, and click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
+2. Immettere un nome di progetto, accettare le condizioni per l'utilizzo del servizio, quindi fare clic su **Create**. Se necessario, eseguire la verifica SMS, quindi fare nuovamente clic su **Create**.
 
-3. Make a note of the project number in the **Projects** section. 
+3. Prendere nota del numero di progetto nella sezione **Projects**.
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+	Più avanti nell'esercitazione si imposterà questo valore come variabile PROJECT\_ID nel client.
 
-4. Click **Enable and manage APIs** under **User Google APIs** and click **Cloud Messaging for Android**. Then on the next page click **Enable API**. 
+4. Fare clic su **Abilitare e gestire le API** in **Utente API Google** e fare clic su **Cloud Messaging per Android**. Quindi, nella pagina successiva fare clic su **Abilita API**.
 
-5. Click **Credentials**, and then click **Add Credential**->**API Key** 
+5. Fare clic su **Credentials**, quindi su **Add Credential**->**API Key**.
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+6. In **Create a new key** fare clic su **Server key**. Nella finestra successiva fare clic su **Create**.
 
-7. Make a note of the **API KEY** value.
+7. Prendere nota del valore di **API KEY**.
 
-	You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
+	Questo valore della chiave dell'API verrà usato successivamente per abilitare Azure per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app.
 
+<!---HONumber=AcomDC_1203_2015-->

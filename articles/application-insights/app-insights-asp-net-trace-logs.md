@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Esplorare i log di traccia .NET in Application Insights  
@@ -79,6 +79,7 @@ Ad esempio, è possibile:
 * Trovare altri eventi di telemetria relativi alla stessa richiesta dell'utente (ovvero, con lo stesso valore OperationId) 
 * Salvare la configurazione di questa pagina come preferita
 
+> [AZURE.NOTE]**Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
 
 ## Passaggi successivi
 
@@ -104,6 +105,10 @@ Talvolta la visualizzazione di tutti gli eventi e le richieste nella pipeline pu
 
 Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conservati per sette giorni.
 
+### Non è possibile vedere alcune delle voci di log previste
+
+Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
+
 ## <a name="add"></a>Passaggi successivi
 
 * [Configurare i test di disponibilità e velocità di risposta][availability]
@@ -124,4 +129,4 @@ Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conser
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

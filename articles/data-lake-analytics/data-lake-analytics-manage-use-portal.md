@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gestire Analisi Data Lake di Azure tramite il portale di anteprima di Azure | Azure" 
+   pageTitle="Gestire Analisi Data Lake di Azure tramite il portale di Azure | Azure" 
    description="Informazioni su come gestire account, origini dati, utenti e processi di Analisi Data Lake." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -16,17 +16,17 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Gestione di Analisi Data Lake di Azure tramite il portale di anteprima di Azure
+# Gestire Analisi Data Lake di Azure tramite il portale di Azure
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Informazioni su come gestire gli account, le origini dati, gli utenti e i processi di Analisi Data Lake di Azure tramite il portale di anteprima di Azure. Per visualizzare gli argomenti relativi alla gestione tramite altri strumenti, fare clic sul selettore di scheda sopra riportato.
+Informazioni su come gestire gli account, le origini dati, gli utenti e i processi di Azure Data Lake Analytics tramite il portale di Azure. Per visualizzare gli argomenti relativi alla gestione tramite altri strumenti, fare clic sul selettore di scheda sopra riportato.
 
 **Prerequisiti**
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/).
+- Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 
@@ -46,7 +46,7 @@ Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporr
 	![Analisi Data Lake di Azure - Pannello del portale](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
 	- **Nome**: nome dell'account di Analisi.
-	- **Archivio Data Lake**: ogni account di Analisi Data Lake dispone di un account di Archivio Data Lake di Azure dipendente. L'account di Analisi Data Lake e l'account di Archivio Data Lake dipendente devono trovarsi nello stesso data center di Azure. Seguire le istruzioni per creare un nuovo account di Archivio Data Lake o selezionarne uno esistente.
+	- **Archivio Data Lake**: ogni account di Analisi Data Lake dispone di un account di Archivio Data Lake di Azure dipendente. L'account di Analisi Data Lake e l'account di Archivio Data Lake dipendente devono trovarsi nello stesso data center di Azure. Seguire le istruzioni per creare un nuovo account di Data Lake Store o selezionarne uno esistente.
 	- **Sottoscrizione**: scegliere la sottoscrizione di Azure usata per l'account di Analisi.
 	- **Gruppo di risorse** Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo. Gestione risorse di Azure consente di usare le risorse dell'applicazione come singolo gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md). 
 	- **Località**. Selezionare un data center di Azure per l'account di Analisi Data Lake. 
@@ -145,7 +145,7 @@ Quando si crea un account di Analisi Data Lake, è necessario impostare un accou
 
 <a name="upload-data-to-adls"></a> **Per caricare file in un account di Archivio Data Lake**
 
-1. Nel menu a sinistra del portale di anteprima fare clic su **Sfoglia** e quindi su **Archivio Data Lake**.
+1. Nel menu a sinistra del portale, fare clic su **Sfoglia** e quindi su **Archivio Data Lake**.
 2. Selezionare l'account di Archivio Data Lake su cui si desidera caricare i dati. Per trovare l'account di archiviazione di Data Lake predefinito, vedere [qui](#default-adl-account).
 3. Fare clic su **Esplora dati** nel menu superiore.
 4. Fare clic su **Nuova directory** per creare una nuova cartella oppure su un nome di cartella per cambiare cartella.
@@ -256,7 +256,7 @@ Vedere [Monitorare processi di Analisi Data Lake](#monitor-jobs).
 
 ##Visualizzare il catalogo di U-SQL
 
-Il [catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md) permette di definire la struttura dei dati e del codice in modo da poterli condividere mediante U-SQL. Il catalogo consente di ottenere le migliori prestazioni possibili con i dati in Azure Data Lake. È possibile visualizzare il catalogo di U-SQL dal portale di anteprima di Azure.
+Il [catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md) permette di definire la struttura dei dati e del codice in modo da poterli condividere mediante U-SQL. Il catalogo consente di ottenere le migliori prestazioni possibili con i dati in Azure Data Lake. È possibile visualizzare il catalogo di U-SQL dal portale di Azure.
 
 **Per sfogliare il catalogo di U-SQL**
 
@@ -290,9 +290,9 @@ Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono
 
 ##Vedere anche 
 
-- [Panoramica di Analisi Data Lake di Microsoft Azure](data-lake-analytics-overview.md)
-- [Introduzione ad Analisi Data Lake tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md)
-- [Gestire Analisi Data Lake di Azure tramite Azure PowerShell](data-lake-analytics-use-powershell.md)
-- [Monitorare e risolvere i problemi dei processi Analisi Data Lake di Azure tramite il portale di anteprima di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+- [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
+- [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

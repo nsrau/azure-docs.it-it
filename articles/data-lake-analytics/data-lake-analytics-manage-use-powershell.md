@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Gestire Azure Data Lake Analytics tramite Azure PowerShell
@@ -27,38 +27,58 @@ Informazioni su come gestire gli account, le origini dati, gli utenti e i proces
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure]https://azure.microsoft.com/it-IT/pricing/free-trial/).
-- **Azure PowerShell 1.0 o versione successiva**. Vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md). Dopo avere installato Azure PowerShell 1.0 o versione successiva, è necessario eseguire il cmdlet seguente per installare il modulo Azure Data Lake Analytics.
+
+
+<!-- ################################ -->
+<!-- ################################ -->
+
+
+##Installare Azure PowerShell 1.0 e versioni successive
+
+È innanzitutto necessario disinstallare le versioni 0.9x.
+
+Per controllare la versione di PowerShell installata:
+
+	Get-Module *azure*
 	
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
+Per disinstallare la versione precedente, eseguire Programmi e Funzionalità nel Pannello di controllo.
 
-	Per altre informazioni sul modulo **AzureRM.DataLakeStore**, vedere [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore). Per altre informazioni sul modulo **AzureRM.DataLakeAnalytics**, vedere [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics).
+Sono disponibili due opzioni principali per l'installazione di Azure PowerShell.
 
-	Se si sta creando un account di Data Lake per la prima volta, eseguire:
+- [Raccolta di PowerShell](https://www.powershellgallery.com/). Dalla console di Windows PowerShell con privilegi elevati o di PowerShell ISE con privilegi elevati, eseguire i comandi seguenti:
 
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	Per connettersi ad Azure, usare i cmdlet seguenti:
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
 		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Per altre informazioni, vedere [Raccolta di PowerShell](https://www.powershellgallery.com/)
+
+- [Installazione guidata della piattaforma Web Microsoft (WebPI)](http://aka.ms/webpi-azps). Se si dispone di Azure PowerShell 0.9.x installata, verrà richiesto di disinstallare 0.9.x . Se sono stati installati dei moduli Azure PowerShell dalla raccolta di PowerShell, il programma di installazione richiede che i moduli vengano rimossi prima dell'installazione per garantire un ambiente di PowerShell Azure coerente. Per istruzioni, vedere [Come installare Azure PowerShell 1.0 tramite WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+WebPI riceverà degli aggiornamenti mensili. La Raccolta di PowerShell riceverà degli aggiornamenti su base continua. Se si ha familiarità con l'installazione dalla raccolta di PowerShell, quello sarà il primo canale per le ultimissime novità in Azure PowerShell.
+
 **Per visualizzare l'elenco dei cmdlet**:
 
 	Get-Command *Azure*DataLakeAnalytics*
 
-<!-- ################################ -->
-<!-- ################################ -->
+**Per connettersi ad Azure, usare i cmdlet seguenti**:
 
-
-
-<!-- ################################ -->
-<!-- ################################ -->
+	Login-AzureRmAccount
+	Get-AzureRmSubscription  # for finding the Azure Subscription ID
+	Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+	
 ## Gestire account
 
-Prima di eseguire qualsiasi processo di Data Lake, è necessario disporre di un account di Data Lake Analytics. A differenza di Azure HDInsight, un account di Analytics non è soggetto ad alcun pagamento se un processo non è in esecuzione. Viene infatti richiesto il pagamento solo per la durata di esecuzione di un processo. Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporre di un account di Analisi Data Lake. A differenza di Azure HDInsight, un account di Analisi non è soggetto ad alcun pagamento fino a quando il processo non è in esecuzione. Viene infatti richiesto il pagamento solo per la durata di esecuzione di un processo. Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 ###Creare account
 
@@ -209,7 +229,7 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 <!-- ################################ -->
 ## Gestire i processi
 
-È necessario disporre di un account di Data Lake Analytics prima di poter creare un processo. Per altre informazioni, vedere [Gestire gli account di Data Lake Analytics](#manage-data-lake-analytics-accounts).
+È necessario disporre di un account di Data Lake Analytics prima di poter creare un processo. Per altre informazioni, vedere [Gestire gli account di Analisi Data Lake](#manage-data-lake-analytics-accounts).
 
 ### Elencare i processi
 
@@ -272,7 +292,7 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 
 ## Gestire gli elementi del catalogo
 
-Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice in modo da poterli condividere mediante U-SQL. Il catalogo consente di ottenere le migliori prestazioni possibili con i dati in Azure Data Lake. Per altre informazioni, vedere la pagina di [Usare il catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md).
+Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice in modo da poterli condividere mediante U-SQL. Il catalogo consente di ottenere le migliori prestazioni possibili con i dati in Azure Data Lake. Per altre informazioni, vedere [Usare il catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
 ###Elencare gli elementi del catalogo
 
@@ -349,10 +369,10 @@ Un account di Data Lake Analytics e gli account di archiviazione dipendenti devo
 
 ##Vedere anche 
 
-- [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Introduzione a Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md)
-- [Gestire Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-use-portal.md)
-- [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+- [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
+- [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-use-portal.md)
+- [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##Appendice A - Modello ARM di Data Lake Analytics
 
@@ -411,4 +431,4 @@ Il seguente modello ARM può essere usato per distribuire un account di Data Lak
 		}
 	}
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

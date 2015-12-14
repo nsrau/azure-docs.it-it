@@ -13,11 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 
 # Introduzione all'API di creazione report di Azure AD
+
+## Articoli di documentazione della creazione di report
+
+ - [API di creazione report](active-directory-reporting-api-getting-started.md)
+ - [Eventi di controllo](active-directory-reporting-audit-events.md)
+ - [Conservazione](active-directory-reporting-retention.md)
+ - [Anteprime](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Recupero delle informazioni](active-directory-reporting-backfill.md)
+ - [Latenze](active-directory-reporting-latencies.md)
+ - [Evento "Attore sconosciuto"](active-directory-reporting-unknown-actor.md)
 
 Azure Active Directory offre un'ampia gamma di report di attività, sicurezza e controllo. I dati possono essere utilizzati tramite il portale di Azure ma possono risultare utili in molte altre applicazioni, ad esempio sistemi SIEM e strumenti di controllo o di business intelligence.
 
@@ -168,4 +179,4 @@ Lo script restituisce l'elenco di tutti i report disponibili e restituisce l'out
 - Per informazioni dettagliate sul report di controllo, vedere [Eventi dei report di controllo di Azure AD](active-directory-reporting-audit-events.md)
 - Per informazioni dettagliate sul servizio REST dell'API Graph, vedere [Report ed eventi di Azure AD (anteprima)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

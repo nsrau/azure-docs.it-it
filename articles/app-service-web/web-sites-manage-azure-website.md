@@ -22,7 +22,7 @@ In questo argomento vengono forniti collegamenti alle risorse per la gestione di
 
 Nel corso del ciclo di vita di un sito, vengono eseguite diverse attività di gestione, a mano a mano che si passa dalla distribuzione iniziale alle normali attività operative, di manutenzione e di aggiornamento.
 
-Nel portale Azure è possibile eseguire diverse attività di gestione dei siti Web.
+Nel portale di Azure è possibile eseguire diverse attività di gestione dei siti Web.
 
 ## Prima della distribuzione del sito alla produzione
 
@@ -35,7 +35,7 @@ Servizio di applicazione Azure è disponibile in cinque livelli: libero, Shared,
 
 ### Configurazione
 
-Utilizzare il [portale di gestione di Azure](https://portal.azure.com/) per impostare varie opzioni di configurazione. Per informazioni dettagliate, vedere [Configurazione delle app Web in Servizio app di Azure](web-sites-configure.md). Di seguito è riportato un rapido elenco di controllo:
+Utilizzare il [portale di Azure](https://portal.azure.com/) per impostare varie opzioni di configurazione. Per informazioni dettagliate, vedere [Configurazione delle app Web in Servizio app di Azure](web-sites-configure.md). Di seguito è riportato un rapido elenco di controllo:
 
 - Selezionare le **versioni runtime** per .NET, PHP, Java o Python, se necessario.
 - Abilitare **WebSocket** se il sito Web utilizza il protocollo WebSocket. Sono incluse le app che utilizzano [ASP.NET SignalR](http://www.asp.net/signalr) o [socket.io](web-sites-nodejs-chat-app-socketio.md).
@@ -59,14 +59,14 @@ Quando il sito è in esecuzione, accertarsi che sia disponibile e che assicuri l
 
 ### Monitoraggio
 
-- Attraverso il portale di gestione, è possibile [aggiungere metriche delle prestazioni](web-sites-monitor.md) quali utilizzo della CPU e numero di richieste dei client.
+- Attraverso il portale di Azure, è possibile [aggiungere metriche delle prestazioni](web-sites-monitor.md) quali utilizzo della CPU e numero di richieste dei client.
 - Per maggiori dettagli, utilizzare New Relic per il monitoraggio e la gestione delle prestazioni. Vedere [.NET web app nel servizio di applicazione Azure con gestione delle prestazioni delle applicazioni di New Relic](store-new-relic-web-sites-dotnet-application-performance-management.md).
 - [Applicare la scalabilità al proprio sito Web](web-sites-scale.md) per rispondere al traffico. A seconda del livello, è possibile applicare la scalabilità al numero di VM e/o le dimensioni delle istanze delle VM. Nel piano Standard, è inoltre possibile impostare la scalabilità automatica da applicare automaticamente ai siti secondo una pianificazione fissa o in risposta al carico.  
  
 ### Backups
 
 - Impostare i [backups automatici](web-sites-backup.md) del sito Web. Ulteriori informazioni sui backup sono disponibili in [questo video](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Ulteriori informazioni sulle opzioni per il [ripristino database](https://azure.microsoft.com/it-IT/documentation/articles/sql-database-business-continuity/) nel database SQL di Azure
+- Ulteriori informazioni sulle opzioni per il [ripristino database](../sql-database-business-continuity.md) nel database SQL di Azure
 
 ### Risoluzione dei problemi
 
@@ -103,4 +103,4 @@ Se si utilizza Visual Studio Team Services, è possibile configurare la distribu
 
   
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

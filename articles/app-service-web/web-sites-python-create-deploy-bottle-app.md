@@ -51,11 +51,11 @@ Per Git, è consigliabile [Git per Windows] o [GitHub per Windows]. Se si utiliz
 È necessario avere già installato Python e Git, ma assicurarsi di disporre di Python 2.7 o 3.4.
 
 
-## Creazione di app Web nel portale di anteprima di Azure
+## Creazione di un'app Web nel portale di Azure
 
-Il primo passaggio per la creazione di un'app consiste nella creazione dell'app Web tramite il [portale di anteprima di Azure](https://portal.azure.com).
+Il primo passaggio per la creazione di un'app consiste nella creazione dell'app Web tramite il [portale di Azure](https://portal.azure.com).
 
-1. Accedere al portale di anteprima di Azure e scegliere il pulsante **NUOVO** nell'angolo inferiore sinistro. 
+1. Accedere al portale di Azure e scegliere il **nuovo** pulsante nell'angolo inferiore sinistro. 
 2. Fare clic su **Web e dispositivi mobili**.
 3. Nella casella di ricerca digitare "python".
 4. Nei risultati della ricerca selezionare **Bottle** e quindi fare clic su **Crea**.
@@ -132,7 +132,7 @@ Nelle tre sezioni successive viene descritto come procedere con lo sviluppo dei 
 
 ### Clonare il repository
 
-Per prima cosa, clonare il repository usando l'URL presente nel portale di anteprima di Azure. Per altre informazioni, vedere [Distribuzione continua tramite GIT nel servizio app di Azure](web-sites-publish-source-control.md).
+Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azure. Per ulteriori informazioni, vedere [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md).
 
 Aprire il file della soluzione (.sln) incluso nella radice del repository.
 
@@ -144,7 +144,7 @@ A questo punto verrà creato un ambiente virtuale per lo sviluppo locale. Fare c
 
 - Assicurarsi che il nome dell'ambiente sia `env`.
 
-- Selezionare l'interprete di base. Assicurarsi di usare la stessa versione di Python selezionata per l'app Web (in runtime.txt o nel pannello **Impostazioni applicazione** dell'app Web nel portale di anteprima di Azure).
+- Selezionare l'interprete di base. Assicurarsi di utilizzare la stessa versione di Python è selezionata per l'applicazione web (in runtime.txt o **le impostazioni dell'applicazione** blade dell'applicazione web nel portale di Azure).
 
 - Assicurarsi che l'opzione per scaricare e installare i pacchetti sia selezionata.
 
@@ -199,7 +199,7 @@ Passare all'URL di Azure per visualizzare le modifiche.
 
 ### Clonare il repository
 
-Per prima cosa, clonare il repository usando l'URL presente nel portale di anteprima di Azure e aggiungere il repository di Azure come remoto. Per altre informazioni, vedere [Distribuzione continua tramite GIT nel servizio app di Azure](web-sites-publish-source-control.md).
+Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azure e aggiungere il repository di Azure come remoto. Per ulteriori informazioni, vedere [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -209,7 +209,7 @@ Per prima cosa, clonare il repository usando l'URL presente nel portale di antep
 
 Verrà creato un nuovo ambiente virtuale per lo sviluppo (non aggiungerlo al repository). Non è possibile cambiare la posizione degli ambienti virtuali in Python, pertanto, ciascuno sviluppatore che lavora all'applicazione ne creerà una locale.
 
-Assicurarsi di usare la stessa versione di Python selezionata per l'app Web (in runtime.txt o nel pannello Impostazioni applicazione dell'app Web nel portale di anteprima di Azure)
+Assicurarsi di utilizzare la stessa versione di Python selezionata per l'app web (in runtime.txt o nel pannello delle impostazioni dell'applicazione per l’app web nel portale di Azure).
 
 Per Python 2.7:
 
@@ -278,7 +278,7 @@ Passare all'URL di Azure per visualizzare le modifiche.
 
 ### Clonare il repository
 
-Per prima cosa, clonare il repository usando l'URL presente nel portale di anteprima di Azure e aggiungere il repository di Azure come remoto. Per altre informazioni, vedere [Distribuzione continua tramite GIT nel servizio app di Azure](web-sites-publish-source-control.md).
+Innanzitutto, clonare il repository utilizzando l'URL fornito sul portale di Azure e aggiungere il repository di Azure come remoto. Per ulteriori informazioni, vedere [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -288,7 +288,7 @@ Per prima cosa, clonare il repository usando l'URL presente nel portale di antep
 
 Verrà creato un nuovo ambiente virtuale per lo sviluppo (non aggiungerlo al repository). Non è possibile cambiare la posizione degli ambienti virtuali in Python, pertanto, ciascuno sviluppatore che lavora all'applicazione ne creerà una locale.
 
-Assicurarsi di usare la stessa versione di Python selezionata per l'app Web (in runtime.txt o nel pannello Impostazioni applicazione dell'app Web nel portale di anteprima di Azure).
+Assicurarsi di utilizzare la stessa versione di Python è selezionata per l'applicazione web (in runtime.txt o blade le impostazioni dell'applicazione dell'applicazione web nel portale di Azure).
 
 Per Python 2.7:
 
@@ -378,7 +378,6 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -398,4 +397,4 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 [Documentazione di Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

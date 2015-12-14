@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="12/01/2015"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite Azure PowerShell
@@ -30,11 +30,41 @@ Azure PowerShell è un ambiente di scripting potente che può essere usato per c
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-	> [AZURE.NOTE]Gli script di PowerShell forniti in questo articolo utilizza la modalità di gestione risorse di Azure. Affinché gli esempi siano funzionali, scaricare il più recente PowerShell di Azure utilizzando l'installazione guidata piattaforma Web Microsoft.
+##Installare Azure PowerShell 1.0 e versioni successive
 
-##Creazione di cluster
+È innanzitutto necessario disinstallare le versioni 0.9x.
+
+Per controllare la versione di PowerShell installata:
+
+	Get-Module *azure*
+	
+Per disinstallare la versione precedente, eseguire Programmi e Funzionalità nel Pannello di controllo.
+
+Sono disponibili due opzioni principali per l'installazione di Azure PowerShell.
+
+- [Raccolta di PowerShell](https://www.powershellgallery.com/). Dalla console di Windows PowerShell con privilegi elevati o di PowerShell ISE con privilegi elevati, eseguire i comandi seguenti:
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Per altre informazioni, vedere [Raccolta di PowerShell](https://www.powershellgallery.com/)
+
+- [Installazione guidata della piattaforma Web Microsoft (WebPI)](http://aka.ms/webpi-azps). Se si dispone di Azure PowerShell 0.9.x installata, verrà richiesto di disinstallare 0.9.x . Se sono stati installati dei moduli Azure PowerShell dalla raccolta di PowerShell, il programma di installazione richiede che i moduli vengano rimossi prima dell'installazione per garantire un ambiente di PowerShell Azure coerente. Per istruzioni, vedere [Come installare Azure PowerShell 1.0 tramite WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+WebPI riceverà degli aggiornamenti mensili. La Raccolta di PowerShell riceverà degli aggiornamenti su base continua. Se si ha familiarità con l'installazione dalla raccolta di PowerShell, quello sarà il primo canale per le ultimissime novità in Azure PowerShell.
+
+##Creare i cluster
 
 I cluster HDInsight utilizzano un gruppo di risorse di Azure e un contenitore di BLOB in un account di archiviazione di Azure:
 
@@ -64,7 +94,7 @@ I cluster HDInsight utilizzano un gruppo di risorse di Azure e un contenitore di
 [AZURE.INCLUDE [Elenco di data center](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-Per informazioni sulla creazione di un account di archiviazione di Azure tramite il portale di anteprima di Azure, vedere [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
+Per informazioni sulla creazione di un account di archiviazione di Azure tramite il portale di Azure, vedere [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
 
 Se si ha già di un account di archiviazione, ma non si conosce il nome dell'account e la chiave dell'account, è possibile usare i comandi seguenti per recuperare le informazioni:
 
@@ -73,7 +103,7 @@ Se si ha già di un account di archiviazione, ma non si conosce il nome dell'acc
 	# List the keys for a Storage account
 	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-Per i dettagli sull'acquisizione delle informazioni mediante il portale di Azure, vedere la sezione "Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" di [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
+Per i dettagli sull'acquisizione delle informazioni mediante il portale, vedere la sezione "Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" di [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
 
 **Per creare un contenitore di archiviazione di Azure**
 
@@ -213,11 +243,11 @@ Per concedere:
 
 >[AZURE.NOTE]La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
 
-Questa operazione può essere eseguita anche tramite il portale di anteprima di Azure. Vedere [Amministrare HDInsight tramite il portale di anteprima di Azure][hdinsight-admin-portal].
+Questa operazione può essere eseguita anche tramite il portale. Vedere [Amministrare cluster Hadoop in HDInsight tramite il portale di Azure][hdinsight-admin-portal]
 
 ##Aggiornare le credenziali utente HTTP
 
-È la stessa procedura di [Grant/revoke HTTP access](#grant/revoke-access). Se al cluster è stato concesso l'accesso HTTP, è necessario prima revocare. E quindi concedere l'accesso con le nuove credenziali utente HTTP.
+È la stessa procedura di [Grant/revoke HTTP access](#grant/revoke-access). Se al cluster è stato concesso l'accesso HTTP, è necessario prima revocarlo. E quindi concedere l'accesso con le nuove credenziali utente HTTP.
 
 
 ##Trovare l'account di archiviazione predefinito
@@ -249,7 +279,7 @@ Nella modalità ARM, ogni cluster HDInsight appartiene a un gruppo di risorse di
 
 Vedere [esempi di MapReduce di Hadoop in HDInsight basato su Windows](hdinsight-run-samples.md).
 
-**Inviare un processo Hive**
+**Inviare processi Hive**
 
 Vedere [Esecuzione di query Hive tramite PowerShell](hdinsight-hadoop-use-hive-powershell.md)
 
@@ -271,7 +301,7 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 ## Vedere anche
 * [Documentazione di riferimento dei cmdlet di HDInsight][hdinsight-powershell-reference]
-* [Amministrare HDInsight tramite il portale di anteprima di Azure][hdinsight-admin-portal]
+* [Amministrare cluster Hadoop in HDInsight tramite il portale di Azure][hdinsight-admin-portal]
 * [Amministrare cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando][hdinsight-admin-cli]
 * [Creare cluster HDInsight][hdinsight-provision]
 * [Caricare dati in HDInsight][hdinsight-upload-data]
@@ -302,4 +332,4 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

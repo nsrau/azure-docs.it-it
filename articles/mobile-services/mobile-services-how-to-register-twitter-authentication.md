@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Effettuare la registrazione per l'autenticazione Twitter | Microsoft Azure" 
-	description="Informazioni su come usare l'autenticazione Twitter con l'applicazione Servizi Mobili di Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Effettuare la registrazione per l'autenticazione Twitter | Microsoft Azure"
+	description="Informazioni su come usare l'autenticazione Twitter con l'applicazione Servizi Mobili di Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/15/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/15/2015"
 	ms.author="glenga"/>
 
 #Registrare le app per l'autenticazione Twitter con Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
 
@@ -29,9 +34,9 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 1. Passare al sito Web [Twitter Developers](http://go.microsoft.com/fwlink/p/?LinkId=268300), accedere con le credenziali dell'account Twitter e quindi fare clic su **Create New App**.
 
 2. Digitare i valori di **Nome**, **Descrizione**, e **Sito Web** per l'app, quindi digitare uno dei seguenti formati URL in **URL Callback**.
- 
+
 	+ **Back-end .NET**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
-	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/twitter` 
+	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/twitter`
 
 	 >[AZURE.NOTE]Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione non avrà esito positivo. & nbsp;
 
@@ -60,7 +65,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-[Azure Management Portal]: https://manage.windowsazure.com/
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

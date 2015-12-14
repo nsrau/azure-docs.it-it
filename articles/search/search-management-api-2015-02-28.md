@@ -39,7 +39,7 @@ Si noti che se il codice dell'applicazione gestisce le *operazioni di gestione d
 
 Nell'applicazione di esempio documentata in [Introduzione all'API REST di gestione di Ricerca di Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) vengono illustrate le tecniche di autenticazione per ogni tipo di operazione. Nella Guida introduttiva sono incluse le istruzioni per configurare un'applicazione client all’uso di Active Directory.
 
-Controllo di accesso per Gestione risorse di Azure utilizza i ruoli predefiniti Proprietario, Collaboratore e Lettore. Per impostazione predefinita, tutti gli amministratori dei servizi sono membri del ruolo Proprietario. Per informazioni dettagliate, vedere [Controllo di accesso basato sui ruoli nel portale di Azure](../role-based-access-control-configure.md).
+Controllo di accesso per Gestione risorse di Azure utilizza i ruoli predefiniti Proprietario, Collaboratore e Lettore. Per impostazione predefinita, tutti gli amministratori dei servizi sono membri del ruolo Proprietario. Per informazioni dettagliate, vedere [Controllo di accesso basato sui ruoli nel portale di Azure classico](../role-based-access-control-configure.md).
 
 
 ### Riepilogo delle API ##
@@ -810,6 +810,6 @@ Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 2
 
 ###Contenuto risposta###
 
-Nessuno.
+Nessuna.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

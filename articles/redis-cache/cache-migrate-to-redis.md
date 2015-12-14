@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="10/23/2015"
+    ms.date="11/30/2015"
     ms.author="sdanie" />
 
 # Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure
@@ -42,7 +42,7 @@ Il Servizio cache gestita di Azure e la Cache Redis di Azure sono simili, ma imp
 |Funzionalità del Servizio cache gestita|Supporto del Servizio cache gestita|Supporto della Cache Redis di Azure|
 |---|---|---|
 |Cache denominate|Viene configurata una cache predefinita e nelle offerte cache Standard e Premium possono essere configurate fino a nove cache denominate aggiuntive, se necessario.|Le cache Redis di Azure hanno 16 database che possono essere usati per implementare una funzionalità simile alle cache denominate. Per altre informazioni, vedere [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration).|
-|Disponibilità elevata|Fornisce disponibilità elevata per gli elementi nella cache nelle offerte cache Standard e Premium. Se gli elementi vengono persi a causa di un errore, sono ancora disponibili le copie di backup degli elementi nella cache. Le scritture nella cache secondaria vengono eseguite in modo sincrono.|La disponibilità elevata è disponibile nelle offerte cache Standard e Premium, che hanno una configurazione primaria/di replica a due nodi (ogni condivisione in una cache Premium ha una coppia primaria/ di replica). Le scritture nella replica vengono eseguite in modo asincrono. Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/it-IT/pricing/details/cache/).|
+|Disponibilità elevata|Fornisce disponibilità elevata per gli elementi nella cache nelle offerte cache Standard e Premium. Se gli elementi vengono persi a causa di un errore, sono ancora disponibili le copie di backup degli elementi nella cache. Le scritture nella cache secondaria vengono eseguite in modo sincrono.|La disponibilità elevata è disponibile nelle offerte cache Standard e Premium, che hanno una configurazione primaria/di replica a due nodi (ogni condivisione in una cache Premium ha una coppia primaria/ di replica). Le scritture nella replica vengono eseguite in modo asincrono. Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/).|
 |Notifiche|Consente ai client di ricevere notifiche asincrone quando in una cache denominata si verificano svariate operazioni della cache.|Le applicazioni client possono usare la pubblicazione/sottoscrizione di Redis o le [notifiche dello spazio delle chiavi](cache-configure.md#keyspace-notifications-advanced-settings) per ottenere una funzionalità simile alle notifiche.|
 |Cache locale|Archivia una copia degli oggetti memorizzati nella cache in locale nel client per un accesso velocissimo.|Le applicazioni client dovrebbero implementare questa funzionalità usando un dizionario o una struttura di dati simile.|
 |Criteri di rimozione|Nessuno o utilizzati meno di recente (LRU). Il criterio predefinito è LRU.|La Cache Redis di Azure supporta i criteri di rimozione seguenti: volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction. Il criterio predefinito è volatile-lru. Per altre informazioni, vedere [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration).|
@@ -56,7 +56,7 @@ Cache Redis di Microsoft Azure è disponibile nei seguenti livelli:
 
 -	**Basic**: singolo nodo, Più dimensioni fino a 53 GB.
 -	**Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del 99,9%.
--	**Premium**: attualmente in anteprima. Due nodi primario/Replica che ha fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB (contattare Microsoft per ulteriori informazioni). Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Nessun contratto di servizio durante il periodo di anteprima.
+-	**Premium**: principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB (contattare Microsoft per ulteriori informazioni). Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Le funzionalità vengono illustrate più avanti in questa guida. Per altre informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache](https://azure.microsoft.com/pricing/details/cache/).
 
@@ -195,4 +195,4 @@ La Cache Redis di Azure include provider sia per lo stato della sessione ASP.NET
 
 Per esercitazioni, esempi, video e altro ancora, vedere la [documentazione sulla Cache Redis di Azure](https://azure.microsoft.com/documentation/services/cache/).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

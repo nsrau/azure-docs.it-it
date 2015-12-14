@@ -32,7 +32,7 @@ Questo articolo fornisce istruzioni sull'uso del portale di Azure per eseguire l
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Un account di Archivio Data Lake di Azure**. Per istruzioni su come crearne uno, vedere [Introduzione ad Archivio Data Lake di Azure](data-lake-store-get-started-portal.md)
 
 ## Creare gruppi di sicurezza in Azure Active Directory
@@ -125,7 +125,7 @@ Con l'assegnazione di utenti/gruppi di sicurezza al file system di Azure Data La
 
 ## Rimuovere gruppi di sicurezza da un account di Archivio Data Lake di Azure
 
-Quando si rimuovono gruppi di sicurezza da un account di Archivio Data Lake di Azure, si modifica semplicemente l'accesso alle operazioni di gestione eseguite sull'account tramite il portale di anteprima di Azure o le API di Gestione risorse di Azure.
+Quando si rimuovono gruppi di sicurezza da un account di Archivio Data Lake di Azure, si modifica semplicemente l'accesso alle operazioni di gestione eseguite sull'account tramite il portale di Azure o le API di Gestione risorse di Azure.
 
 1. Nel pannello dell'account di Archivio Data Lake fare clic sull'icona dell'utente.
 
@@ -164,4 +164,4 @@ Quando si rimuovono gli elenchi di controllo di accesso dei gruppi di sicurezza 
 - [Introduzione ad Archivio Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 - [Introduzione ad Archivio Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

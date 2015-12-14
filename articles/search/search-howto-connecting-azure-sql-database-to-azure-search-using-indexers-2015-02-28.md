@@ -28,7 +28,7 @@ In questo articolo verranno illustrati i meccanismi di utilizzo degli indicizzat
 
 Per impostare e configurare un indicizzatore SQL di Azure, è possibile chiamare l’[API REST di Ricerca di Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) per creare e gestire **indicizzatori** e **origini dati**.
 
-È inoltre possibile utilizzare la [Classe indicizzatore](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) nel [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), o la procedura guidata per l’importazione dei dati o il [Portale Azure](https://portal.azure.com) per creare e pianificare un indicizzatore.
+È inoltre possibile utilizzare la [Classe indicizzatore](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) nel [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), o la procedura guidata per l’importazione dei dati o il [portale di Azure classico](https://portal.azure.com) per creare e pianificare un indicizzatore.
 
 Un'**origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono a Ricerca di Azure di identificare in modo efficace le modifiche apportate ai dati (righe nuove, modificate o eliminate). È definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
 
@@ -66,7 +66,7 @@ Creare, innanzitutto, l'origine dati:
 	}
 
 
-È possibile ottenere la stringa di connessione dal [portale di Azure](https://portal.azure.com). Utilizzare l’opzione `ADO.NET connection string`.
+È possibile ottenere la stringa di connessione dal [portale di Azure classico](https://portal.azure.com). Utilizzare l’opzione `ADO.NET connection string`.
 
 Quindi, creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile eseguire questa operazione dall’[interfaccia utente del portale](https://portal.azure.com) o usando l’[API di creazione dell’indice](https://msdn.microsoft.com/library/azure/dn798941.aspx). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. Vedere la tabella seguente per il mapping tra tipi di dati di ricerca di SQL e Azure.
 
@@ -279,4 +279,4 @@ A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

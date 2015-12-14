@@ -3,7 +3,7 @@
 	 description="Questo argomento illustra come abilitare la rete per la distribuzione di contenuti (CDN) per Azure." 
 	 services="cdn" 
 	 documentationCenter="" 
-	 authors="zhangmanling" 
+	 authors="camsoper" 
 	 manager="dwrede" 
 	 editor=""/>
 <tags 
@@ -12,46 +12,87 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="09/01/2015" 
-	 ms.author="mazha"/>
+	 ms.date="12/02/2015" 
+	 ms.author="casoper"/>
 
 
 
 #Come abilitare la rete per la distribuzione di contenuti (CDN) per Azure  
 
-È possibile abilitare la rete CDN per l’origine tramite il portale di gestione di Azure. Il tipo di origine disponibile corrente include: app Web, archiviazione, Servizi Cloud. È inoltre possibile abilitare la rete CDN per l'endpoint di streaming di Servizi multimediali di Azure. Dopo aver abilitato un endpoint della rete CDN per l'origine, tutti gli oggetti disponibili pubblicamente saranno idonei per la memorizzazione nella cache perimetrale della rete CDN.
+È possibile abilitare la rete CDN per l’origine tramite il portale di gestione di Azure. Sono supportati diversi tipi di origini di Azure integrati, compresi App Web, archiviazione BLOB, e Servizi Cloud. È inoltre possibile abilitare la rete CDN per l'endpoint di streaming di Servizi multimediali di Azure. Se l'origine non corrisponde a uno di questi servizi di Azure, o è ospitata in un' posizione all'esterno di Azure, è anche possibile creare un'origine personalizzata. Dopo aver abilitato un endpoint della rete CDN per l'origine, tutti gli oggetti disponibili pubblicamente saranno idonei per la memorizzazione nella cache perimetrale della rete CDN.
 
-Si noti che ora è inoltre possibile creare un'origine personalizzata che non deve necessariamente essere Azure.
+## Creare un nuovo profilo di rete CDN
 
-##Per creare nuovo endpoint della rete CDN  
+Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo contiene uno o più endpoint della rete CDN. Si consiglia di usare più profili per organizzare gli endpoint della rete CDN tramite il dominio internet, l’applicazione web o altri criteri.
 
-1.	Accedere al [portale di gestione di Azure](http://manage.windowsazure.com/).
-2.	Nel pannello di navigazione fare clic su **Rete CDN**.
-3.	Sulla barra multifunzione fare clic su **Nuovo**. Nella finestra di dialogo **Nuovo**, selezionare **SERVIZI APP**, quindi **CDN** e infine **CREAZIONE RAPIDA**.
-4.	Nell’elenco a discesa **TIPO DI ORIGINE** selezionare un tipo di origine dall’elenco dei tipi di origine disponibili.
+**Per creare un nuovo profilo di rete CDN**
+
+1. Nel [portale di gestione di Azure](https://portal.azure.com), in alto a sinistra, fare clic su **Nuovo**. Nel pannello **Nuovo**, selezionare **Servizi multimediali e Rete CDN**, quindi **Rete CDN**.
+
+    Viene visualizzato il pannello del nuovo profilo di rete CDN.
+    
+    ![Nuovo profilo di rete CDN][new-cdn-profile]
+
+2. Inserire un nome per il profilo di rete CDN.
+
+3. Selezionare un **Piano tariffario** oppure usare il valore predefinito.
+
+4. Selezionare o creare un **Gruppo di risorse**. Per altre informazioni sui Gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview/#resource-groups).
+
+5. Selezionare la **sottoscrizione** per questo profilo di rete CDN.
+
+6. Selezionare un **Percorso**. Questo è il percorso di Azure in cui verranno archiviate le informazioni relative al profilo di rete CDN. Non incide sulle posizioni dell’endpoint di rete CDN. Non è necessario che sia lo stesso percorso dell'account di archiviazione.
+
+7. Per creare il nuovo profilo, fare clic sul pulsante **Crea**.
+
+## Creare un nuovo endpoint della rete CDN
+
+**Per creare un nuovo endpoint della rete CDN per l'account di archiviazione**
+
+1. Nel [Portale di gestione di Azure](https://portal.azure.com), passare al profilo di rete CDN. Lo si potrebbe aver bloccato nel dashboard nel passaggio precedente. Se così non fosse, è possibile trovarlo cliccando su **Sfoglia**, quindi su **Profili di rete CDN**, e facendo clic sul profilo in cui si prevede di aggiungere l'endpoint.
+
+    Viene visualizzato il pannello del profilo di rete CDN.
+    
+    ![Profilo di rete CDN][cdn-profile-settings]
+    
+2. Fare clic sul pulsante **Aggiungi Endpoint**.
+
+    ![Pulsante Aggiungi endpoint][cdn-new-endpoint-button]
+
+    Viene visualizzato il pannello **Aggiungi un endpoint**.
+    
+    ![Pannello Aggiungi endpoint][cdn-add-endpoint]
+
+3. Immettere un **Nome** per questo endpoint della rete CDN. Questo nome verrà usato per accedere alle risorse memorizzate nella cache nel dominio `<EndpointName>.azureedge.net`.
+
+4. Nell'elenco a discesa**Tipo di origine**, selezionare il tipo di origine.
 	
-	Verrà visualizzato l'elenco di URL di origine disponibili nell’elenco a discesa **URL DI ORIGINE**.
-	
+	![Tipo di origine della rete CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 
-	![createnew][createnew]
+5. Nell'elenco a discesa**Nome host di origine**, selezionare o digitare il dominio di origine. Nell’elenco a discesa compariranno tutte le origini disponibili del tipo specificato nel passaggio 4. Se è stato selezionato l’elemento *Origine personalizzata* come **Tipo di origine**, si digiterà nel dominio di origine personalizzato.
 
-	Se si seleziona **Origine personalizzata**, è possibile immettere un URL di origine personalizzata, che non dispone di un'origine di Azure.
+6. Nella casella di testo **Percorso di origine**, inserire il percorso per le risorse che si desidera memorizzare nella cache, o lasciare vuoto per consentire la memorizzazione nella cache di qualsiasi risorsa nel dominio specificato nel passaggio 5.
 
-	![customorigin][customorigin]
+7. Nell’**Intestazione dell’host di origine**, inserire l'intestazione dell’host che si desidera che la rete CDN invii con ogni richiesta di immettere, o lasciare il valore predefinito.
 
-	>[AZURE.NOTE]Attualmente è supportato solo HTTP per l'origine ed è necessario utilizzare l'estensione Servizi multimediali per abilitare la rete CDN di Azure per un endpoint di streaming di Azure Media Services.
-	
-5.	Per creare il nuovo endpoint, fare clic sul pulsante **Crea**.
+8. Per **Protocollo** e **Porta di origine**, specificare i protocolli e le porte utilizzate per accedere alle risorse in corrispondenza dell'origine. I client continueranno a usare gli stessi protocolli e le stesse porte quando accedono a risorse nella rete CDN. È necessario selezionare almeno un protocollo (HTTP o HTTPS).
 
+9. Per creare il nuovo endpoint, fare clic sul pulsante **Aggiungi**.
 
->[AZURE.NOTE]la configurazione creata per l'endpoint non sarà disponibile immediatamente. Per la propagazione della registrazione nella rete CDN potrebbero essere necessari fino a 60 minuti. È possibile che gli utenti che provano a usare immediatamente il nome di dominio della rete CDN ricevano un errore con codice di stato 400 (Richiesta non valida) fino a quando il contenuto non risulterà disponibile tramite la rete CDN.
+10. Dopo la creazione, l'endpoint sarà visualizzato in un elenco di endpoint per il profilo. Nella visualizzazione elenco sono mostrati gli URL da usare per accedere a contenuti memorizzati nella cache, oltre al dominio di origine.
+
+    ![Endpoint della rete CDN][cdn-endpoint-success]
+
+    > [AZURE.NOTE]L'endpoint non sarà immediatamente disponibile per l'uso. Ci possono volere fino a 90 minuti per far sì che la registrazione si propaghi attraverso la rete CDN. È possibile che gli utenti che provano a usare immediatamente il nome di dominio della rete CDN ricevano un errore con codice di stato 404 fino a quando il contenuto non risulterà disponibile tramite la rete CDN.
 
 ##Vedere anche
 [Come eseguire il mapping del contenuto della rete per la distribuzione di contenuti (CDN) a un dominio personalizzato](cdn-map-content-to-custom-domain.md)
 
-[createnew]: ./media/cdn-create-new-endpoint/cdn-create-new-account.png
-
-[customorigin]: ./media/cdn-create-new-endpoint/cdn-custom-origin.png
+[new-cdn-profile]: ./media/cdn-create-new-endpoint/cdn-new-profile.png
+[cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
+[cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
+[cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
+[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

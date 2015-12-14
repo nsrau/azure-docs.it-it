@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerazioni sulla sicurezza e sulla privacy in Cloud App Discovery"
+	pageTitle="Considerazioni sulla sicurezza e sulla privacy in Cloud App Discovery | Microsoft Azure"
 	description="Questo argomento illustra le considerazioni sulla sicurezza e sulla privacy correlate a Cloud App Discovery."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/01/2015"
 	ms.author="markusvi"/>
 
 # Considerazioni sulla sicurezza e sulla privacy in Cloud App Discovery
@@ -177,4 +177,4 @@ Nel tentativo di proteggere i metadati raccolti, per impostazione predefinita so
 
 * [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

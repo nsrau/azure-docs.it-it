@@ -14,13 +14,13 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="11/06/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # Sviluppo di database in C&#x23;: Creare e configurare un pool di database elastici per database SQL
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -56,7 +56,7 @@ Prima di iniziare lo sviluppo di SQL in C#, è necessario completare alcune atti
 
 Le [API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) per l'autenticazione usano Azure Active Directory anziché i certificati usati dalle precedenti API REST di gestione del servizio Azure.
 
-Per autenticare l'applicazione client in base all'utente corrente è necessario prima registrare l'applicazione nel dominio AAD associato alla sottoscrizione in cui sono state create le risorse di Azure. Se la sottoscrizione ad Azure è stata creata con un account Microsoft anziché un account aziendale o dell'istituto di istruzione si dispone già di un dominio AAD predefinito. La registrazione dell'applicazione può essere eseguita nel [portale di gestione](https://manage.windowsazure.com/).
+Per autenticare l'applicazione client in base all'utente corrente è necessario prima registrare l'applicazione nel dominio AAD associato alla sottoscrizione in cui sono state create le risorse di Azure. Se la sottoscrizione ad Azure è stata creata con un account Microsoft anziché un account aziendale o dell'istituto di istruzione si dispone già di un dominio AAD predefinito. La registrazione dell'applicazione può essere eseguita nel [portale classico](https://manage.windowsazure.com/).
 
 Per creare una nuova applicazione e registrarla nell’active directory corrente procedere come descritto di seguito:
 
@@ -106,7 +106,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
 Il nome di dominio è obbligatorio per il codice. Un modo semplice per identificare il nome di dominio corretto è:
 
-1. Passare al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare il mouse sul proprio nome nell'angolo superiore destro e osservare il dominio visualizzato nella finestra popup. Sostituire **domain.onmicrosoft.com** nel frammento di codice seguente con il valore per l'account.
 
     ![Identificare il nome di dominio][3]
@@ -585,4 +585,4 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

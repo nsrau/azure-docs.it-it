@@ -77,7 +77,7 @@ Debian è un'importante distribuzione per l'ambito Linux e open source basata su
 La distribuzione Linux CentOS è una piattaforma stabile, prevedibile, gestibile e riproducibile derivata da Red Hat Enterprise Linux (RHEL).
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [Raccolta di immagini](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
+2. [Raccolta di immagini](http://azure.microsoft.com/marketplace/partners/OpenLogic/)
 3. [Procedura: preparare una macchina virtuale personalizzata basata su CentOS per Azure](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [Blog: come distribuire un'immagine di macchina virtuale CentOS da OpenLogic](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [Procedura: installare Apache Qpid Proton-C per AMQP e bus di servizio](http://msdn.microsoft.com/library/azure/dn235560.aspx)
@@ -96,7 +96,7 @@ La distribuzione Linux CentOS è una piattaforma stabile, prevedibile, gestibile
 
 CoreOS è una distribuzione di piccole dimensioni, ottimizzata per la pura scalabilità di calcolo con un livello elevato di controllo per la personalizzazione.
 
-10. [Raccolta di immagini](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
+10. [Raccolta di immagini](http://azure.microsoft.com/marketplace/partners/coreos/)  
 11. [Procedura: come usare CoreOS in Azure](virtual-machines-linux-coreos-how-to.md)
 12. [Procedura: guida introduttiva a Fleet e Docker su CoreOS in Azure](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [Blog: TechEd Europe -- Client Windows Docker e contenitori Linux](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -121,7 +121,7 @@ CoreOS è una distribuzione di piccole dimensioni, ottimizzata per la pura scala
 1. [Nozioni di base: Interfaccia della riga di comando di Azure (CLI di Azure)](../xplat-cli-install.md)
 4. [Nozioni di base: Uso e gestione dei certificati](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [Nozioni di base: Selezione dei nomi utente per Linux](virtual-machines-linux-usernames.md)
-6. [Nozioni di base: Accedere a una macchina virtuale Linux con il portale di Azure](virtual-machines-linux-how-to-log-on.md)
+6. [Nozioni di base: Accedere a una VM Linux con il portale di Azure classico](virtual-machines-linux-how-to-log-on.md)
 7. [Nozioni di base: SSH](virtual-machines-linux-use-ssh-key.md)
 8. [Nozioni di base: Come reimpostare una password o le proprietà SSH per Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [Nozioni di base: Uso di privilegi root](virtual-machines-linux-use-root-privileges.md)
@@ -150,7 +150,7 @@ CoreOS è una distribuzione di piccole dimensioni, ottimizzata per la pura scala
 
 1. [Immagini](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
 2. [Procedura: usare il bus di servizio da Java con AMQP 1.0](http://msdn.microsoft.com/library/azure/jj841073.aspx)
-3. [Procedura: configurare Tomcat7 in Linux mediante il portale di Azure](virtual-machines-linux-setup-tomcat7-linux.md)
+3. [Procedura: configurare Tomcat7 in Linux mediante il portale di Azure classico](virtual-machines-linux-setup-tomcat7-linux.md)
 4. [Video: SDK Java di Azure per la gestione dei servizi](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
 5. [Blog: introduzione ad Azure Management Libraries per Java](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
 5. [Repository GitHub: toolkit di Azure per Eclipse con Java](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
@@ -263,7 +263,7 @@ Questa sezione inizia con un post di blog contenente una serie di video in [Vide
 1. Docker
 	- [Estensione della VM Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 	- [Uso dell'estensione della VM Docker dall'interfaccia della riga di comando di Azure (CLI di Azure)](virtual-machines-docker-with-../xplat-cli-install.md)
-	- [Uso dell'estensione della VM Docker dal portale di anteprima di Azure](virtual-machines-docker-with-portal.md)
+	- [Uso dell'estensione VM Docker dal portale di Azure](virtual-machines-docker-with-portal.md)
 	- [Introduzione rapida a Docker in Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 	- [Come usare Docker Machine in Azure](virtual-machines-docker-machine.md)
 	- [Come usare Docker Swarm in Azure](virtual-machines-docker-swarm.md)
@@ -311,4 +311,4 @@ Questa sezione inizia con un post di blog contenente una serie di video in [Vide
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

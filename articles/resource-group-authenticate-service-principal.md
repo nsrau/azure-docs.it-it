@@ -142,7 +142,7 @@ In primo luogo, è necessario configurare alcuni valori di PowerShell che verran
 
 1. Per entrambi gli approcci, creare un oggetto X509Certificate nel certificato e recuperare il valore della chiave. Utilizzare il percorso del certificato e la password per il certificato.
 
-        $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
+        $cert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate -ArgumentList @("C:\certificates\examplecert.pfx", "yourpassword")
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
 2. Se si usano credenziali della chiave, creare l'oggetto credenziali della chiave e impostare il valore al `$keyValue` dal passaggio precedente.
@@ -312,4 +312,4 @@ In questa sezione si eseguiranno i passaggi per creare un’entità servizio per
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

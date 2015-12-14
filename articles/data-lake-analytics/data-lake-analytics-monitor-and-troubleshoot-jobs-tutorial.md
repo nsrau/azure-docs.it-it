@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Risolvere i problemi dei processi di Azure Data Lake Analytics mediante il portale di anteprima di Azure | Azure" 
-   description="Informazioni su come usare il portale di anteprima di Azure per risolvere i problemi relativi ai processi di Data Lake Analytics." 
+   pageTitle="Risolvere i problemi dei processi di Analisi di Azure Data Lake mediante il portale di Azure | Azure" 
+   description="Informazioni su come usare il portale di Azure per risolvere i problemi relativi ai processi di Analisi Data Lake." 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,18 +16,18 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Risolvere i problemi dei processi di Azure Data Lake Analytics mediante il portale di anteprima di Azure
+# Risolvere i problemi dei processi di Analisi di Azure Data Lake mediante il portale di Azure
 
-Informazioni su come usare il portale di anteprima di Azure per risolvere i problemi relativi ai processi di Data Lake Analytics.
+Informazioni su come usare il portale di Azure per risolvere i problemi relativi ai processi di Analisi Data Lake.
 
-In questa esercitazione verrà impostato un problema relativo a un file di origine mancante e verrà usato il portale di anteprima di Azure per risolvere il problema.
+In questa esercitazione verrà impostato un problema relativo a un file di origine mancante e verrà usato il portale di Azure per risolvere il problema.
 
 **Prerequisiti**
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Conoscenza di base dell'elaborazione dei processi di Data Lake Analytics**. Vedere [Introduzione ad Azure Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-get-started-use-portal.md).
-- **Un account di Data Lake Analytics**. Vedere [Introduzione ad Azure Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
+- **Conoscenza di base dell'elaborazione dei processi di Data Lake Analytics**. Vedere [Introduzione ad Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-get-started-use-portal.md).
+- **Un account di Data Lake Analytics**. Vedere [Introduzione ad Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
 - **Copiare i dati di esempio nell'account di Data Lake Store predefinito**. Vedere [Preparare i dati di origine](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data).
 
 ##Inviare un processo di Data Lake Analytics
@@ -36,8 +36,8 @@ A questo punto verrà creato un processo di U-SQL con un nome di file di origine
 
 **Per inviare il processo**
 
-1. Nel portale di anteprima di Azure fare clic su **Microsoft Azure** nell'angolo superiore sinistro.
-2. Fare clic nel riquadro contenente il nome dell'account di Data Lake Analytics. È stato aggiunto qui durante la creazione dell'account. Se l'account non è stato aggiunto, vedere [Aprire un account di Analytics dal portale](data-lake-analytics-manage-use-portal.md#access-adla-account).
+1. Nel portale di Azure fare clic su **Microsoft Azure** nell'angolo superiore sinistro.
+2. Fare clic nel riquadro contenente il nome dell'account di Analisi Data Lake personale. È stato aggiunto qui durante la creazione dell'account. Se l'account non è stato aggiunto, vedere [Aprire un account di Analytics dal portale](data-lake-analytics-manage-use-portal.md#access-adla-account).
 3. Fare clic su **Nuovo processo** nel menu in alto.
 4. Immettere un nome per il processo e lo script U-SQL seguente:
 
@@ -58,7 +58,7 @@ A questo punto verrà creato un processo di U-SQL con un nome di file di origine
 
     Il file di origine definito nello script è **/Samples/Data/SearchLog.tsv1**, ma dovrebbe essere modificato in **/Samples/Data/SearchLog.tsv**.
      
-5. Fare clic su **Invia processo** nel menu in alto. Viene visualizzato un nuovo riquadro Dettagli processo. Sulla barra del titolo viene visualizzato lo stato del processo. Il completamento dell'operazione richiede alcuni minuti. È possibile fare clic **Aggiorna** per visualizzare lo stato più recente.
+5. Fare clic su **Invia processo** nel menu in alto. Viene visualizzato un nuovo pannello Dettagli processo. Sulla barra del titolo viene visualizzato lo stato del processo. Il completamento dell'operazione richiede alcuni minuti. È possibile fare clic **Aggiorna** per visualizzare lo stato più recente.
 6. Attendere finché lo stato del processo non viene modificato in **Non riuscito**. Se lo stato del processo è **Riuscito**, significa che la cartella /Samples non è stata rimossa. Vedere la sezione **Prerequisiti** all'inizio dell'esercitazione.
 
 È lecito chiedersi come mai il completamento di un processo così piccolo abbia richiesto molto tempo. Tenere presente che Data Lake Analytics è progettato per l'elaborazione di Big Data. Pertanto è caratterizzato da prestazioni ottimali durante l'elaborazione di una grande quantità di dati usando il relativo sistema distribuito.
@@ -108,6 +108,6 @@ Nella sezione precedente il processo è stato inviato e la sua esecuzione ha avu
 - [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introduzione ad Azure Data Lake Analytics e U-SQL con Visual Studio](data-lake-analytics-get-started-u-sql-studio.md)
-- [Gestire Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-manage-use-portal.md)
+- [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

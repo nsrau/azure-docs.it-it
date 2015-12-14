@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come accedere a una VM | Microsoft Azure"
-	description="Usare il portale di Azure per accedere a una macchina virtuale di Windows creata con il modello di distribuzione classico."
+	description="Usare il portale di Azure classico per accedere a una macchina virtuale di Windows creata con il modello di distribuzione classico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,11 +18,11 @@
 	ms.author="cynthn"/>
 
 
-# Accedere a una macchina virtuale di Windows tramite il portale di Azure
+# Accedere a una macchina virtuale di Windows tramite il portale di Azure classico
 
 
 
-Nel portale di Azure, si utilizza il pulsante **Connetti** per avviare una sessione di Desktop remoto e accedere a una macchina virtuale Windows.
+Nel portale di Azure classico, si utilizza il pulsante **Connetti** per avviare una sessione di Desktop remoto e accedere a una macchina virtuale Windows.
 
 Si desidera effettuare la connessione a una macchina virtuale Linux? Vedere [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md).
 
@@ -38,11 +38,11 @@ Di seguito è riportata una procedura video dettagliata dei passaggi in questa e
 
 ## Connettersi alla macchina virtuale
 
-1. Accedere al portale di Azure.
+1. Accedere al portale di Microsoft Azure classico.
 
 2. Fare clic su **Macchine virtuali**, quindi selezionare la macchina virtuale.
 
-3. In fondo alla pagina, nella barra dei comandi, fare clic su **Connetti**.
+3. Nella barra dei comandi in fondo alla pagina, fare clic su **Connetti**.
 
 	![Accesso alla macchina virtuale](./media/virtual-machines-log-on-windows-server/connectwindows.png)
 	
@@ -61,4 +61,4 @@ Ecco alcuni aspetti da provare:
 
 Se le precedenti istruzioni non sono sufficienti o non sono quelle necessarie, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

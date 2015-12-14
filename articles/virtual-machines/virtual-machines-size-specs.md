@@ -80,7 +80,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 ## Livello Basic
 
-|Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (300 per disco)|
+|Dimensione: portale di Azure classico\\cmdlet classico e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (300 per disco)|
 |---|---|---|---|---|---|---|
 |A0\\Basic\_A0|1|768 MB|1|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x300|
 |A1\\Basic\_A1|1|1,75 GB|1|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 40 GB</p>|2|2x300|
@@ -90,7 +90,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 ## Livello Standard: serie A
 
-|Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
+|Dimensione: portale di Azure classico\\cmdlet classico e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|---|
 |A0\\ExtraSmall|1|768 MB|1|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x500|
 |A1\\piccola|1|1,75 GB|1|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 70 GB</p>|2|2x500|
@@ -107,7 +107,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 ## Livello Standard: serie D
 
-|Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
+|Dimensione: portale di Azure classico\\cmdlet classico e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|---|
 |Standard\_D1\\uguale|1|3,5 GB|1|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 50 GB</p>|2|2x500|
 |Standard\_D2\\uguale|2|7 GB|2|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 100 GB</p>|4|4x500|
@@ -116,25 +116,25 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 |Standard\_D11\\uguale|2|14 GB|2|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 100 GB</p>|4|4x500|
 |Standard\_D12\\uguale|4|28 GB|4|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 200 GB</p>|8|8x500|
 |Standard\_D13\\uguale|8|56 GB|8|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 400 GB</p>|16|16x500|
-|Standard\_D14\\uguale|16|112 GB|16|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 800 GB</p>|32|32x500|
+|Standard\_D14\\uguale|16|112 GB|8|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 800 GB</p>|32|32x500|
 
 ## Livello standard: serie Dv2
 
-|Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
+|Dimensione: portale di Azure classico\\cmdlet classico e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|---|
 |Standard\_D1\_v2\\same|1|3,5 GB|1|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 50 GB</p>|2|2x500|
 |Standard\_D2\_v2\\same|2|7 GB|2|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 100 GB</p>|4|4x500|
 |Standard\_D3\_v2\\same|4|14 GB|4|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 200 GB</p>|8|8x500|
 |Standard\_D4\_v2\\same|8|28 GB|8|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 400 GB</p>|16|16x500|
-|Standard\_D5\_v2\\same|16|56 GB|16|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 800 GB</p>|32|32x500|
+|Standard\_D5\_v2\\same|16|56 GB|8|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 800 GB</p>|32|32x500|
 |Standard\_D11\_v2\\same|2|14 GB|2|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 100 GB</p>|4|4x500|
 |Standard\_D12\_v2\\same|4|28 GB|4|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 200 GB</p>|8|8x500|
 |Standard\_D13\_v2\\same|8|56 GB|8|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 400 GB</p>|16|16x500|
-|Standard\_D14\_v2\\same|16|112 GB|16|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 800 GB</p>|32|32x500|
+|Standard\_D14\_v2\\same|16|112 GB|8|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 800 GB</p>|32|32x500|
 
 ## Livello Standard: serie DS*
 
-|Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda|
+|Dimensione: portale di Azure classico\\cmdlet classico e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda|
 |---|---|---|---|---|---|---|---|
 |Standard\_DS1\\uguale|1|3,5|1|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 7 GB</p>|2|43|<p>3.200</p><p>32 MB al secondo</p>|
 |Standard\_DS2\\uguale|2|7|2|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 14 GB</p>|4|86|<p>6.400</p><p>64 MB al secondo</p>|
@@ -143,29 +143,29 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 |Standard\_DS11\\uguale|2|14|2|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 28 GB</p>|4|72|<p>6.400</p><p>64 MB al secondo</p>|
 |Standard\_DS12\\uguale|4|28|4|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 56 GB</p>|8|144|<p>12.800</p><p>128 MB al secondo</p>|
 |Standard\_DS13\\uguale|8|56|8|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 112 GB</p>|16|288|<p>25.600</p><p>256 MB al secondo</p>|
-|Standard\_DS14\\uguale|16|112|16|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 224 GB</p>|32|576|<p>50.000</p><p>512 MB al secondo</p>|
+|Standard\_DS14\\uguale|16|112|8|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 224 GB</p>|32|576|<p>50.000</p><p>512 MB al secondo</p>|
 
 **Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage-premium-storage-preview-portal.md).
 
 ## Livello Standard: serie G
 
-|Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
+|Dimensioni: portale di Azure classico\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|---|
 |Standard\_G1\\uguale|2|28 GB|1|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 384 GB</p>|4|4x500|
 |Standard\_G2\\uguale|4|56 GB|2|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 768 GB</p>|8|8x500|
 |Standard\_G3\\uguale|8|112 GB|4|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 1.536 GB</p>|16|16x500|
 |Standard\_G4\\uguale|16|224 GB|8|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 3.072 GB</p>|32|32x500|
-|Standard\_G5\\uguale|32|448 GB|16|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 6.144 GB</p>|64|<p>64x500</p>|
+|Standard\_G5\\uguale|32|448 GB|8|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 6.144 GB</p>|64|<p>64x500</p>|
 
 ## Livello Standard: serie GS
 
-|Dimensioni: portale di Azure\\cmdlet e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda|
+|Dimensione: portale di Azure classico\\cmdlet classico e API|Core CPU|Memoria|NIC (Max)|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda|
 |---|---|---|---|---|---|---|---|
 |Standard\_GS1|2|28|1|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 56 GB</p>|4|264|<p>5.000</p><p>125 MB al secondo</p>|
 |Standard\_GS2|4|56|2|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 112 GB</p>|8|528|<p>10.000</p><p>250 MB al secondo</p>|
 |Standard\_GS3|8|112|4|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 224 GB</p>|16|1056|<p>20.000</p><p>500 MB al secondo</p>|
 |Standard\_GS4|16|224|8|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 448 GB</p>|32|2112|<p>40.000</p><p>1.000 MB al secondo</p>|
-|Standard\_GS5|32|448|16|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 896 GB</p>|64|4224|<p>80.000</p><p>2.000 MB al secondo</p>|
+|Standard\_GS5|32|448|8|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 896 GB</p>|64|4224|<p>80.000</p><p>2.000 MB al secondo</p>|
 
 
 ### Vedere anche
@@ -174,4 +174,4 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

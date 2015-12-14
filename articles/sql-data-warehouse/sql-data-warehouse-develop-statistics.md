@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/26/2015"
+   ms.date="12/03/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Gestire le statistiche in SQL Data Warehouse
@@ -441,8 +441,8 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 <!--Image references-->
 
 <!--Link references--In actual articles, you only need a single period before the slash.-->
-[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
-[tabelle temporanee]: ./sql-data-warehouse-develop-temporary-tables/
+[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[tabelle temporanee]: ./sql-data-warehouse-develop-temporary-tables.md
 
 <!-- External Links -->
 [Stima della cardinalità]: https://msdn.microsoft.com/library/dn600374.aspx
@@ -459,4 +459,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

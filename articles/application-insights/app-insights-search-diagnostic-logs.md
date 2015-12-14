@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Log, eccezioni e diagnostica personalizzata per ASP.NET in Application Insights
@@ -34,6 +34,11 @@ Aprire Ricerca diagnostica per visualizzare i dati di telemetria inviati automat
 ![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
 
 I dettagli variano da un tipo di applicazione all'altro. È possibile fare clic su un singolo evento per ottenere altri dettagli.
+
+## Campionamento 
+
+Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
+
 
 ##<a name="events"></a>Eventi personalizzati
 
@@ -271,6 +276,11 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationI
 
 Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conservati per sette giorni.
 
+### Alcune delle tracce o degli eventi dell’utente non vengono visualizzati
+
+Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
+
+
 ## <a name="add"></a>Passaggi successivi
 
 * [Configurare i test di disponibilità e velocità di risposta][availability]
@@ -285,7 +295,7 @@ Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conser
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-web-failures-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -295,4 +305,4 @@ Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conser
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

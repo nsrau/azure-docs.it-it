@@ -26,7 +26,7 @@ In questo articolo viene illustrato come usare le funzionalità di messaggistica
 
 ## Introduzione al bus di servizio
 
-In questo articolo si presuppone che si disponga già di uno spazio dei nomi del bus di servizio contenente una coda denominata "queue1". In caso contrario, è necessario creare lo spazio dei nomi e la coda tramite il [portale di Azure](http://manage.windowsazure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md).
+In questo articolo si presuppone che si disponga già di uno spazio dei nomi del bus di servizio contenente una coda denominata "queue1". In caso contrario, è necessario creare lo spazio dei nomi e la coda tramite il [portale di Azure classico](http://manage.windowsazure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md).
 
 ## Scaricare l’SDK del bus di servizio
 
@@ -63,7 +63,7 @@ Il valore dell'impostazione **Microsoft.ServiceBus.ConnectionString** corrispond
 Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 ```
 
-Dove `[namespace]` e `[SAS key]` vengono ottenuti dal portale di Azure. Per altre informazioni, vedere [Come usare le code del bus di servizio][].
+Dove `[namespace]` e `[SAS key]` vengono ottenuti dal [portale di Azure classico][]. Per altre informazioni, vedere Come usare le code del bus di servizio.
 
 Quando si usa AMQP, la stringa di connessione viene aggiunta alla fine di `;TransportType=Amqp`, che indica alla libreria client di effettuare questa connessione con il bus di servizio tramite AMQP 1.0.
 
@@ -322,5 +322,6 @@ Ora che è stata letta una panoramica del bus di servizio e di AMQP con .NET, ve
 * [Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
  
+[portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

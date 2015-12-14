@@ -18,13 +18,17 @@
 
 # Aggiungere la sincronizzazione offline dei dati all'app di Servizi mobili per Android
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 ## Riepilogo
 
 Le app per dispositivi mobili possono perdere la connettività di rete in caso di spostamento in un'area senza servizio o a causa di problemi di rete. Ad esempio, un'app per il settore edilizio usata in un cantiere in un'area remota potrebbe necessitare dell'immissione di dati di pianificazione, che verranno sincronizzati successivamente in Azure. La sincronizzazione offline di Servizi mobili di Azure permette di continuare a lavorare anche quando si perde la connettività di rete. Questo aspetto è essenziale per molte app per dispositivi mobili. Con la sincronizzazione offline si lavora su una copia locale della tabella di Azure SQL Server e si ripete periodicamente la sincronizzazione tra le due tabelle.
 
-In questa esercitazione verrà aggiornata l'app dell'[esercitazione Guida introduttiva per Servizi mobili] per abilitare la sincronizzazione offline e quindi l'app verrà testata mediante l'aggiunta di dati offline, la sincronizzazione degli elementi nel database online e la verifica delle modifiche nel portale di gestione di Azure.
+In questa esercitazione verrà aggiornata l'app dell'[esercitazione Guida introduttiva per Servizi mobili] per abilitare la sincronizzazione offline e quindi l'app verrà testata mediante l'aggiunta di dati offline, la sincronizzazione degli elementi nel database online e la verifica delle modifiche nel portale di Azure classico.
 
 Indipendentemente dallo stato offline o connesso, è possibile che si verifichino conflitti ogni volta che vengono apportate più modifiche ai dati. Un'esercitazione futura illustrerà la gestione dei conflitti di sincronizzazione, in cui si sceglie la versione delle modifiche da accettare. In questa esercitazione si presuppone che non siano presenti conflitti di sincronizzazione e che eventuali modifiche apportate ai dati esistenti vengano applicate direttamente ad Azure SQL Server.
 
@@ -179,12 +183,12 @@ One thing which is important to point out: if there are pending changes in the l
 
 3. Visualizzare i contenuti della tabella *TodoItem* di Azure. Verificare che i nuovi elementi _non_ siano stati sincronizzati con il server:
 
-   - Per il back-end JavaScript, accedere al portale di gestione e fare clic sulla scheda Dati per visualizzare i contenuti della tabella `TodoItem`.
-   - Per il back-end .NET, visualizzare il contenuto della tabella mediante uno strumento SQL, ad esempio *SQL Server Management Studio*, o mediante un client REST, ad esempio *Fiddler* o *Postman*.
+   - Per il back-end JavaScript, accedere al portale di Azure classico e fare clic sulla scheda Dati per visualizzare i contenuti della tabella `TodoItem`.
+   - Per il back-end .NET, visualizzare il contenuto della tabella mediante uno strumento SQL, ad esempio *SQL Server Management Studio* o mediante un client REST, ad esempio *Fiddler* o *Postman*.
 
 4. Attivare il WiFi nel dispositivo o nel simulatore. Premere quindi il pulsante di **aggiornamento**.
 
-5. Visualizzare di nuovo i dati TodoItem nel portale di Azure. Dovrebbero essere visualizzati gli elementi TodoItems nuovi e modificati.
+5. Visualizzare di nuovo i dati TodoItem nel portale di Azure classico. Dovrebbero essere visualizzati gli elementi TodoItems nuovi e modificati.
 
 
 ## Passaggi successivi
@@ -219,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [esercitazione Guida introduttiva per Servizi mobili]: mobile-services-android-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

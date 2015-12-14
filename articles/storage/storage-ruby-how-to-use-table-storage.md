@@ -58,13 +58,13 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 
 Per ottenere questi valori:
 
-1. Accedere al [Portale di Azure](https://manage.windowsazure.com/).
+1. Accedere al [Portale di Azure](portal.azure.com).
 
-2. Passare all'account di archiviazione che si desidera utilizzare.
+2. Passare all'account di archiviazione.
 
-3. Fare clic su **MANAGE KEYS** nella parte inferiore del pannello di navigazione.
+3. Nel pannello **Impostazioni**, selezionare **Chiavi**.
 
-4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile scegliere la primaria o la secondaria.
+4. Copiare il valore della chiave di accesso desiderata.
 
 ## Creare una tabella
 
@@ -154,8 +154,7 @@ Per eliminare una tabella utilizzare il metodo **delete\_table()** e passare il 
 
 Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
-- Riferimento MSDN: [Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Archivio [Azure SDK per Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

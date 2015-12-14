@@ -204,7 +204,7 @@ La funzione dei parametri è facilmente comprensibile. Sostituire le variabili d
 
 > [AZURE.NOTE]Nella riga di comando sono state automatizzate anche le regole di filtro per la rete degli endpoint mediante il parametro –tcp-endpoints. Sono state aperte le porte 80 e 3389 per fornire l'accesso per la pagina Web e la sessione RDP.
 
-Una volta eseguito il comando, passare al portale di anteprima di Azure, dove il computer inizia già a eseguire il provisioning.
+Una volta eseguito il comando, passare al portale di Azure, dove il computer inizia già a eseguire il provisioning.
 
 ![][13]
 
@@ -218,7 +218,7 @@ Una volta completata la distribuzione, dovrebbe essere possibile connettersi al 
 
 In questo esempio è stata impiegata una certa dose di creatività nell'uso del codice HTML.
 
-Tenere inoltre presente che è possibile connettersi tramite una sessione RDP dal portale di Azure attraverso la porta 3389.
+Tenere inoltre presente che è possibile connettersi tramite una sessione RDP dal portale di Azure classico attraverso la porta 3389.
 
 Si spera che questa guida sia stata utile. Ora è possibile avviare l'infrastruttura come percorso di codice con Azure.
 
@@ -239,4 +239,4 @@ Si spera che questa guida sia stata utile. Ora è possibile avviare l'infrastrut
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

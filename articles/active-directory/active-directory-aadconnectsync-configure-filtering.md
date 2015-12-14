@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Servizio di sincronizzazione Azure AD Connect: Configurare il filtro | Microsoft Azure"
+	pageTitle="Servizio di sincronizzazione Azure AD Connect: configurare il filtro | Microsoft Azure"
 	description="Illustra come configurare i filtri nel servizio di sincronizzazione Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -281,4 +281,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

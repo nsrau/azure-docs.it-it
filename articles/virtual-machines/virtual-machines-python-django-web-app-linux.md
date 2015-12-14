@@ -59,7 +59,7 @@ Anche se nella macchina virtuale Ubuntu Linux Python 2.7 è già preinstallato, 
 
 1.  Aprire una nuova finestra **Terminal**.
     
-1.  Immettere il comando seguente per connettersi alla macchina virtuale di Azure. Se non è stato creato un nome di dominio completo, è possibile connettersi utilizzando l'indirizzo IP pubblico visualizzato nel riepilogo della macchina virtuale nel portale di Azure.
+1.  Immettere il comando seguente per connettersi alla macchina virtuale di Azure. Se non è stato creato un nome di dominio completo, è possibile connettersi utilizzando l'indirizzo IP pubblico visualizzato nel riepilogo della macchina virtuale nel portale di Azure classico.
 
 		$ ssh yourusername@yourVmUrl
 
@@ -126,4 +126,4 @@ Anche se nella macchina virtuale Ubuntu Linux Python 2.7 è già preinstallato, 
 
 Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di Azure creata per liberare le risorse per altre esercitazioni e per evitare di incorrere in addebiti per l'utilizzo di Azure.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

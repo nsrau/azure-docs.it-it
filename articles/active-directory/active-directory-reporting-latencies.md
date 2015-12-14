@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Latenze dei report di Azure Active Directory
+
+## Articoli di documentazione della creazione di report
+
+ - [API di creazione report](active-directory-reporting-api-getting-started.md)
+ - [Eventi di controllo](active-directory-reporting-audit-events.md)
+ - [Conservazione](active-directory-reporting-retention.md)
+ - [Anteprime](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Recupero delle informazioni](active-directory-reporting-backfill.md)
+ - [Latenze](active-directory-reporting-latencies.md)
+ - [Evento "Attore sconosciuto"](active-directory-reporting-unknown-actor.md)
 
 Report | Minima | Media | Massima
 ------------------------------------------------------- | -------- | ---------- | ----------
@@ -50,4 +61,4 @@ Utilizzo applicazioni abilitate per RMS | 2 ore | 4 ore | 8 ore
 **Report di anteprima personalizzati** | | |
 Attività di accesso di tutti gli utenti | 2 ore | 4 ore | 8 ore
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

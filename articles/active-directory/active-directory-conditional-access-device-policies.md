@@ -44,4 +44,4 @@ D: Quando è previsto che i criteri di accesso condizionale per i servizi di Off
 
 R: Attualmente l'accesso condizionale ai servizi di Office 365 è limitato alle applicazioni avanzate su dispositivo. Secondo la roadmap, i criteri di accesso condizionale verranno estesi agli utenti che accedono ai servizi tramite browser.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

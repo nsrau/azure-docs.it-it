@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti e contatti | Microsoft Azure"
+	pageTitle="Servizio di sincronizzazione Azure AD Connect: informazioni su utenti e contatti | Microsoft Azure"
 	description="Informazioni su utenti e contatti nel Servizio di sincronizzazione Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti e contatti
 
-I motivi per cui possono essere presenti più foreste Active Directory e sono disponibili più topologie di distribuzione sono diversi. I modelli comuni prevedono una distribuzione account-risorse e foreste sincronizzate tramite Elenco indirizzi globale dopo operazioni di fusione e acquisizione. Anche se esistono modelli puri, sono molto diffusi anche i modelli ibridi. La configurazione predefinita nel Servizio di sincronizzazione Azure AD Connect non presuppone alcun modello specifico, ma è possibile osservare diversi comportamenti in base all'opzione di corrispondenza utenti selezionata nella guida all'installazione.
+I motivi per cui possono essere presenti più foreste Active Directory e sono disponibili più topologie di distribuzione sono diversi. I modelli comuni prevedono una distribuzione account-risorse e foreste sincronizzate tramite Elenco indirizzi globale dopo operazioni di fusione e acquisizione. Anche se esistono modelli puri, sono molto diffusi anche i modelli ibridi. La configurazione predefinita nel servizio di sincronizzazione Azure AD Connect non presuppone alcun modello specifico, ma è possibile osservare diversi comportamenti in base all'opzione di corrispondenza utenti selezionata nella guida all'installazione.
 
 Questo argomento illustra il comportamento della configurazione predefinita in determinate topologie. Sarà anche possibile esaminare la configurazione tramite l'editor delle regole di sincronizzazione.
 
@@ -33,9 +33,9 @@ La configurazione presuppone le regole generali seguenti:
 
 ## Contatti
 
-I contatti che rappresentano un utente in una foresta diversa costituiscono una situazione comune dopo un'operazione di acquisizione o fusione in cui la soluzione GALSync collega due o più foreste di Exchange. L'oggetto contatto viene sempre aggiunto dallo spazio connettore allo spazio metaverse usando l'attributo mail. Se è già presente un oggetto contatto o un oggetto utente con lo stesso indirizzo di posta elettronica, gli oggetti vengono uniti. Questo comportamento è configurato nella regola **In ingresso da Active Directory - Aggiunta contatto**. Esiste anche una regola denominata **In ingresso da Active Directory - Contatto comune** con un flusso dell'attributo all'attributo metaverse **sourceObjectType** con la costante **Contact**. Questa regola presenta una precedenza molto bassa, quindi se un oggetto utente viene aggiunto allo stesso oggetto metaverse, la regola **In ingresso da Active Directory - Utente comune** fornirà il valore User a questo attributo. Con questa regola l'attributo avrà il valore Contact solo se non sono stati aggiunti utenti e il valore User se è stato trovato almeno un utente.
+I contatti che rappresentano un utente in una foresta diversa costituiscono una situazione comune dopo un'operazione di acquisizione o fusione in cui la soluzione GALSync collega due o più foreste di Exchange. L'oggetto contatto viene sempre aggiunto dallo spazio connettore allo spazio metaverse usando l'attributo mail. Se è già presente un oggetto contatto o un oggetto utente con lo stesso indirizzo di posta elettronica, gli oggetti vengono uniti. Questo comportamento è configurato nella regola **In ingresso da Active Directory - Aggiunta contatto**. Esiste anche una regola denominata **In ingresso da Active Directory - Contatto comune** con un flusso dell'attributo all'attributo metaverse **sourceObjectType** con la costante **Contact**. Questa regola presenta una precedenza molto bassa, quindi se un oggetto utente viene aggiunto allo stesso oggetto metaverse, la regola **In ingresso da Active Directory - Utente comune** fornirà il valore Utente a questo attributo. Con questa regola l'attributo avrà il valore Contact solo se non sono stati aggiunti utenti e il valore User se è stato trovato almeno un utente.
 
-Per eseguire il provisioning di un oggetto in Azure AD, la regola in uscita **In uscita ad Azure AD - Aggiunta contatto** creerà un oggetto contatto se l'attributo metaverse **sourceObjectType** è impostato su **Contact**. Se questo attributo è impostato su **User**, la regola **In uscita ad Azure AD - Aggiunta utente** creerà un oggetto utente. È possibile che un oggetto venga innalzato di livello da Contact a User quando vengono importate e sincronizzate più directory di Active Directory di origine.
+Per eseguire il provisioning di un oggetto in Azure AD, la regola in uscita **In uscita ad Azure AD - Unione contatto** creerà un oggetto contatto se l'attributo metaverse **sourceObjectType** è impostato su **Contatto**. Se questo attributo è impostato su **Utente**, la regola **In uscita ad Azure AD - Unione utente** creerà un oggetto utente. È possibile che un oggetto venga innalzato di livello da Contact a User quando vengono importate e sincronizzate più directory di Active Directory di origine.
 
 Ad esempio, in una topologia GALSync saranno presenti oggetti contatto per tutti gli oggetti della seconda foresta quando si importa la prima. Verranno quindi inseriti nuovi oggetti contatto nel connettore AAD. Quando in seguito si importa e si sincronizza la seconda foresta, saranno presenti gli utenti effettivi che verranno aggiunti agli oggetti metaverse esistenti. Si procederà quindi all'eliminazione dell'oggetto contatto in Azure AD e verrà creato un nuovo oggetto utente.
 
@@ -49,11 +49,11 @@ Si presuppone che se viene trovato un account utente disabilitato, non verrà tr
 
 ## Modifica dell'attributo sourceAnchor
 
-Dopo che un oggetto è stato esportato in Azure AD, non è più possibile modificarne l'attributo sourceAnchor. Dopo che l'oggetto è stato esportato, l'attributo metaverse **cloudSourceAnchor** viene impostato sul valore **sourceAnchor** accettato da Azure AD. Se **sourceAnchor** viene modificato e non corrisponde a **cloudSourceAnchor**, la regola **In uscita ad Azure AD - Aggiunta utente** genera l'errore che indica che **l'attributo sourceAnchor è stato modificato**. In questo caso, è necessario correggere la configurazione o i dati in modo che lo stesso attributo sourceAnchor sia di nuovo presente nell'oggetto metaverse prima che l'oggetto venga sincronizzato di nuovo.
+Dopo che un oggetto è stato esportato in Azure AD, non è più possibile modificarne l'attributo sourceAnchor.. Dopo che l'oggetto è stato esportato, l'attributo metaverse **cloudSourceAnchor** viene impostato sul valore **sourceAnchor** accettato da Azure AD. Se **sourceAnchor** viene modificato e non corrisponde a **cloudSourceAnchor**, la regola **In uscita ad Azure AD - Unisci utente** genera l'errore che indica che **l'attributo sourceAnchor è stato modificato**. In questo caso, è necessario correggere la configurazione o i dati in modo che lo stesso attributo sourceAnchor sia di nuovo presente nell'oggetto metaverse prima che l'oggetto venga sincronizzato di nuovo.
 
 ## Risorse aggiuntive
 
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

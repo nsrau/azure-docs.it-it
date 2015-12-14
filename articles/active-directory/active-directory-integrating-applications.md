@@ -351,4 +351,4 @@ Un amministratore della società che vuole rimuovere l'accesso di un'app alla di
 
 - Visitare la[Guida per gli sviluppatori di Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

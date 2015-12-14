@@ -14,20 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="11/13/2015"
 	ms.author="nitinme"/>
 
 # Personalizzare cluster HDInsight mediante Azione di script (Windows)
 
-HDInsight offre un'opzione di configurazione denominata **Azione di script** in grado di chiamare script personalizzati che definiscono la personalizzazione da eseguire nel cluster durante il processo di creazione. Questi script possono essere usati per installare altro software in un cluster o per modificare la configurazione delle applicazioni in un cluster.
+[AZURE.INCLUDE [usescriptaction-selector](../../includes/hdinsight-selector-use-script-action.md)]
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+**Azione script** può essere utilizzato per richiamare [gli script personalizzati](hdinsight-hadoop-script-actions.md) durante il processo di creazione di cluster per l'installazione del software aggiuntivo in un cluster.
 
-* [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster-v1.md)
+Le informazioni contenute in questo articolo sono specifiche per i cluster HDInsight basati su Windows. Usare la scheda seleziona indicata sopra per passare a una versione di questo articolo che è specifica dei cluster basati su Linux.
 
-> [AZURE.NOTE]Le informazioni contenute in questo articolo sono specifiche per i cluster HDInsight basati su Windows. Per una versione di questo articolo specifica per i cluster basati su Linux, vedere [Personalizzare cluster HDInsight mediante Azione di script (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
-
-I cluster HDInsight possono essere personalizzati in molti modi diversi, ad esempio includendo account di archiviazione di Azure aggiuntivi, modificando i file di configurazione Hadoop (core-site.xml, hive-site.xml e così via) o aggiungendo librerie condivise (ad esempio Hive e Oozie) in posizioni comuni nel cluster. Queste personalizzazioni possono essere apportate tramite Azure PowerShell, Azure HDInsight .NET SDK o il portale di anteprima di Azure. Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight][hdinsight-provision-cluster].
+I cluster HDInsight possono essere personalizzati in molti modi diversi, ad esempio includendo account di archiviazione di Azure aggiuntivi, modificando i file di configurazione Hadoop (core-site.xml, hive-site.xml e così via) o aggiungendo librerie condivise (ad esempio Hive e Oozie) in posizioni comuni nel cluster. Queste personalizzazioni possono essere apportate tramite Azure PowerShell, Azure HDInsight .NET SDK o il portale di Azure. Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight][hdinsight-provision-cluster].
 
 ## Azione di script nel processo di creazione di cluster
 
@@ -37,7 +35,7 @@ L'opzione Azione di script viene usata solo mentre è in corso il processo di cr
 
 Quando lo script è in esecuzione, il cluster entra nella fase **ClusterCustomization**. In questa fase, lo script viene eseguito con l'account di amministratore di sistema in parallelo su tutti i nodi specificati nel cluster e fornisce privilegi di amministratore completi sui nodi.
 
-> [AZURE.NOTE]Perché durante la fase **ClusterCustomization** si dispone dei privilegi di amministratore sui nodi del cluster, è possibile usare lo script per eseguire operazioni come arresto e avvio dei servizi, inclusi quelli correlati a Hadoop. Pertanto, come parte dello script, è necessario assicurarsi che i servizi di Ambari e altri servizi correlati a Hadoop siano attivi prima che lo script termini l'esecuzione. Questi servizi sono necessari per verificare correttamente l'integrità e lo stato del cluster durante la creazione. Se si modifica qualsiasi configurazione del cluster che influisce su questi servizi, è necessario usare le funzioni di supporto fornite. Per altre informazioni sulle funzioni di supporto, vedere [Sviluppare script di Azione di script per HDInsight][hdinsight-write-script].
+> [AZURE.NOTE]Perché durante la fase **ClusterCustomization** si dispone dei privilegi di amministratore sui nodi del cluster, è possibile usare lo script per eseguire operazioni come arresto e avvio dei servizi, inclusi quelli correlati a Hadoop. Pertanto, come parte dello script, è necessario assicurarsi che i servizi di Ambari e altri servizi correlati a Hadoop siano attivi prima che lo script termini l'esecuzione. Questi servizi sono necessari per verificare correttamente l'integrità e lo stato del cluster durante la creazione. Se si modifica qualsiasi configurazione del cluster che influisce su questi servizi, è necessario usare le funzioni di supporto fornite. Per altre informazioni sulle funzioni di supporto, vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script].
 
 L'output e i log degli errori dello script vengono archiviati nell'account di archiviazione predefinito specificato per il cluster. I log vengono archiviati in una tabella con il nome **u<\\frammento-nome-cluster><\\timestamp>setuplog**. Si tratta di log aggregati dello script eseguito su tutti i nodi (nodo head e nodi di lavoro) del cluster.
 
@@ -47,21 +45,21 @@ HDInsight fornisce diversi script di esempio per installare i componenti seguent
 
 Nome | Script
 ----- | -----
-**Installare Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark].
-**Installare R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R nei cluster HDInsight][hdinsight-install-r].
-**Installare Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vedere [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
-- **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
+**Installare Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark in cluster HDInsight][hdinsight-install-spark].
+**Installare R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R in cluster HDInsight][hdinsight-install-r].
+**Installare Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vedere [Installare e usare Solr in cluster HDInsight](hdinsight-hadoop-solr-install.md).
+- **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare e usare Giraph in cluster HDInsight](hdinsight-hadoop-giraph-install.md).
 
 
 
-## Chiamare script tramite il portale di anteprima di Azure
+## Chiamare script tramite il portale di Azure
 
-**Dal portale di anteprima di Azure**
+**Nel portale di Azure**
 
 1. Avviare la creazione di un cluster come descritto in [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md#portal).
 2. In Configurazione facoltativa fare clic su **aggiungi azione di script** nel pannello **Azioni di script** per specificare i dettagli relativi all'azione di script, come illustrato di seguito:
 
-	![Usare Azione di script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Usare Azione di script per personalizzare un cluster")
+	![Usare l'azione di script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Usare Azione di script per personalizzare un cluster")
 
 	<table border='1'>
 	<tr><th>Proprietà</th><th>Valore</th></tr>
@@ -79,66 +77,80 @@ Nome | Script
 
 ## Chiamare script con Azure PowerShell
 
-Lo script di PowerShell seguente dimostra come installare Spark nel cluster HDInsight basato su Windows. Per installare altri software, è necessario sostituire il file script nello script:
+Lo script di PowerShell seguente dimostra come installare Spark nel cluster HDInsight basato su Windows.
 
-In questa sezione si usa il cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** per richiamare gli script usando Azione di script per personalizzare un cluster. Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet Azure PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell][powershell-install-configure].
+	# Provide values for these variables
+	$subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
-Eseguire la procedura seguente:
+	$nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
+	$namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+	
+	$resourceGroupName = $namePrefix + "rg"
+	$location = "EAST US 2" # used for creating resource group, storage account, and HDInsight cluster.
+	
+	$hdinsightClusterName = $namePrefix + "spark"
+	$httpUserName = "admin"
+	$httpPassword = "Pass@word111"
+	
+	$defaultStorageAccountName = "$namePrefix" + "store"
+	$defaultBlobContainerName = $hdinsightClusterName
+	
+	#############################################################
+	# Connect to Azure
+	#############################################################
+	
+	Try{
+		Get-AzureRmSubscription
+	}
+	Catch{
+		Login-AzureRmAccount
+	}
+	Select-AzureRmSubscription -SubscriptionId $subscriptionID
+	
+	#############################################################
+	# Prepare the dependent components
+	#############################################################
+	
+	# Create resource group
+	New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+	
+	# Create storage account
+	New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $storageAccountKey  
+	New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext
+	
+	#############################################################
+	# Create cluster with Spark
+	#############################################################
+	
+	# Specify the configuration options
+	$config = New-AzureRmHDInsightClusterConfig `
+				-DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+				-DefaultStorageAccountKey $defaultStorageAccountKey 
+				
+	
+	# Add a script action to the cluster configuration
+	$config = Add-AzureRmHDInsightScriptAction `
+				-Config $config `
+				-Name "Install Spark" `
+				-NodeType HeadNode `
+				-Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 `
+	
+	# Start creating a cluster with Spark installed
+	New-AzureRmHDInsightCluster `
+			-ResourceGroupName $resourceGroupName `
+			-ClusterName $hdinsightClusterName `
+			-Location $location `
+			-ClusterSizeInNodes 2 `
+			-ClusterType Hadoop `
+			-OSType Windows `
+			-DefaultStorageContainer $defaultBlobContainerName `
+			-Config $config
 
-1. Aprire una finestra di Azure PowerShell e dichiarare le variabili seguenti:
 
-		# Provide values for these variables
-		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription
-		$clusterName = "<HDInsightClusterName>"			# HDInsight cluster name
-		$storageAccountName = "<StorageAccountName>"	# Azure Storage account that hosts the default container
-		$storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
-		$containerName = $clusterName
-		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the Storage account.
-		$clusterNodes = <ClusterSizeInNumbers>			# Number of nodes in the HDInsight cluster
-		$version = "<HDInsightClusterVersion>"          # For example, "3.2"
+Per installare altri software, è necessario sostituire il file script nello script:
 
-2. Specificare i valori di configurazione, ad esempio i nodi del cluster e l'archivio predefinito da usare.
-
-		# Specify the configuration options
-		Select-AzureSubscription $subscriptionName
-		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
-		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
-		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
-		$config.DefaultStorageAccount.StorageContainerName=$containerName
-
-3. Usare il cmdlet **Add-AzureHDInsightScriptAction** per aggiungere un'azione di script alla configurazione del cluster. Successivamente, quando viene creato il cluster, viene eseguita l'azione di script.
-
-		# Add a script action to the cluster configuration
-		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
-
-	Il cmdlet **Add-AzureHDInsightScriptAction** accetta i parametri seguenti:
-
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Parametro</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">Definizione</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Config</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Oggetto di configurazione a cui vengono aggiunte le informazioni dell'azione di script.</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome dell'azione di script.</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Specifica i nodi in cui viene eseguito lo script di personalizzazione. I valori validi sono HeadNode (per eseguire l'installazione nel nodo head) o DataNode (per eseguire l'installazione in tutti i nodi di dati). È possibile usare uno o entrambi i valori.</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Specifica l'URI per lo script eseguito.</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parametri</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parametri richiesti dallo script. Poiché lo script di esempio usato in questo argomento non richiede alcun parametro, questo parametro non viene visualizzato nel frammento riportato sopra.
-</td></tr>
-</table>
-
-4. Al termine, avviare la creazione di un cluster personalizzato con Spark installato.
-
-		# Start creating a cluster with Spark installed
-		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
 Quando richiesto, immettere le credenziali per il cluster. La creazione del cluster può richiedere alcuni minuti.
 
@@ -256,14 +268,14 @@ Il servizio Microsoft Azure HDInsight è una piattaforma flessibile che permette
 
 Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
-- **Componenti predefiniti** - Questi componenti sono preinstallati nei cluster HDInsight e forniscono la funzionalità di base del cluster. Questa categoria include ad esempio il gestore risorse YARN, il linguaggio di query Hive (HiveQL) e la libreria Mahout. L'elenco completo dei componenti del cluster è disponibile in <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">Novità delle versioni cluster di Hadoop incluse in HDInsight</a>.
+- **Componenti predefiniti** - Questi componenti sono preinstallati nei cluster HDInsight e forniscono la funzionalità di base del cluster. Questa categoria include ad esempio il gestore risorse YARN, il linguaggio di query Hive (HiveQL) e la libreria Mahout. L'elenco completo dei componenti del cluster è disponibile in [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md)</a>.
 - **Componenti personalizzati** - Un utente del cluster può installare o usare nel carico di lavoro qualsiasi componente disponibile nella community o creato da lui stesso.
 
 I componenti predefiniti sono supportati in modo completo e il Supporto Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
 
 > [AZURE.WARNING]I componenti forniti con il cluster HDInsight sono supportati in modo completo e il Supporto Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
 >
-> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. Ad esempio, è possibile ricorrere a molti siti di community come: [il forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono anche disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
 
 Il servizio HDInsight permette di usare i componenti personalizzati in molti modi. Indipendentemente dal modo in cui un componente viene usato o installato nel cluster, verrà applicato lo stesso livello di supporto. L'elenco seguente illustra i modi più comuni per usare i componenti personalizzati nei cluster HDInsight:
 
@@ -273,7 +285,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 ## Sviluppare script di Azione di script
 
-Vedere [Sviluppare script di Azione di script per HDInsight][hdinsight-write-script].
+Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script].
 
 
 ## Vedere anche
@@ -282,8 +294,8 @@ Vedere [Sviluppare script di Azione di script per HDInsight][hdinsight-write-scr
 - [Sviluppare script di Azione di script per HDInsight][hdinsight-write-script]
 - [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]
 - [Installare e usare R nei cluster HDInsight][hdinsight-install-r]
-- [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
-- [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
+- [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md)
+- [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
@@ -294,4 +306,4 @@ Vedere [Sviluppare script di Azione di script per HDInsight][hdinsight-write-scr
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

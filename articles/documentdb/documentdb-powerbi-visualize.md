@@ -39,7 +39,7 @@ Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare c
 	- L'account demo viene popolato con i dati sui vulcani illustrati in questa esercitazione. Questo account demo non è associato ad alcun contratto di servizio e viene usato esclusivamente a scopo dimostrativo. Microsoft si riserva il diritto di apportare modifiche a questo account demo incluse, a titolo esemplificativo, la chiusura dell'account, la modifica della chiave, la limitazione dell'accesso, la modifica e l'eliminazione dei dati, in qualsiasi momento senza preavviso o motivo. 
 		- URL: https://analytics.documents.azure.com
 		- Chiave di sola lettura: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
-	- In alternativa, per creare un account personalizzato, vedere [Creare un account del database di DocumentDB usando il portale di anteprima di Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Per ottenere quindi dati di esempio sui vulcani simili a quelli usati in questa esercitazione, che però non contengono i blocchi GeoJSON, vedere il [sito NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) e quindi importare i dati con lo [strumento di migrazione dati di DocumentDB](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
+	- In alternativa, per creare un account personalizzato, vedere [Creare un account del database di DocumentDB mediante il portale di Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Per ottenere quindi dati di esempio sui vulcani simili a quelli usati in questa esercitazione, che però non contengono i blocchi GeoJSON, vedere il [sito NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) e quindi importare i dati con lo [strumento di migrazione dati di DocumentDB](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
 
 
 Per condividere i report in PowerBI.com, è necessario avere un account in PowerBI.com. Per altre informazioni su Power BI in versione gratuita o Power BI Pro, visitare il sito [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
@@ -86,7 +86,7 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
 
 	![Recupera dati di Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 
-6. Specificare l'URL dell'endpoint dell'account DocumentDB da cui recuperare i dati, come illustrato di seguito, quindi fare clic su **OK**. È possibile recuperare l'URL dalla casella URI del pannello **Chiavi** del portale di anteprima di Azure oppure si possono usare le informazioni dell'account demo fornite in precedenza. Per altre informazioni, vedere [Chiavi](documentdb-manage-account.md#keys).
+6. Specificare l'URL dell'endpoint dell'account DocumentDB da cui recuperare i dati, come illustrato di seguito, quindi fare clic su **OK**. È possibile recuperare l'URL dalla casella URI del pannello **Chiavi** del portale di Azure oppure si possono usare le informazioni dell'account demo fornite in precedenza. Per altre informazioni, vedere [Chiavi](documentdb-manage-account.md#keys).
 
 
 	*Nota. In questa esercitazione non vengono specificati il nome del database, il nome della raccolta o un'istruzione SQL, perché questi campi sono facoltativi. Si userà invece lo strumento di navigazione per selezionare il database e la raccolta per identificare la provenienza dei dati.*
@@ -95,7 +95,7 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
 
 7. Se ci si connette a questo endpoint per la prima volta, verrà richiesta la chiave dell'account. Immettere la chiave dell'account e fare clic su **Connetti**.
 	
-	*Nota. È consigliabile usare la chiave di sola lettura durante la creazione di report. In questo modo si impedirà un'inutile esposizione della chiave master a potenziali rischi di sicurezza. La chiave di sola lettura è disponibile nel pannello Chiavi di sola lettura del portale di anteprima di Azure oppure si possono usare le informazioni dell'account demo fornite in precedenza*.
+	*Nota. È consigliabile usare la chiave di sola lettura durante la creazione di report. In questo modo si impedirà un'inutile esposizione della chiave master a potenziali rischi di sicurezza. La chiave di sola lettura è disponibile nel pannello Chiavi di sola lettura del portale di Azure oppure si possono usare le informazioni dell'account demo fornite in precedenza*.
 
     ![Chiave account di Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
@@ -194,4 +194,4 @@ Per condividere il report, è necessario avere un account in PowerBI.com.
 - Per altre informazioni su Power BI, fare clic [qui](https://support.powerbi.com/knowledgebase).
 - Per altre informazioni su DocumentDB, vedere [qui](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

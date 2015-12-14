@@ -453,7 +453,7 @@ In Esportazione guidata certificati:
 
 ## Caricamento del certificato
 
-Nel [portale di gestione di Azure](http://portal.azure.com/)
+Accedere al [portale di Azure classico](http://portal.azure.com/).
 
 1. Selezionare **Servizi cloud**.
 2. Selezionare il servizio cloud.
@@ -473,4 +473,4 @@ Le credenziali archiviate in questo database vengono crittografate. Come procedu
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

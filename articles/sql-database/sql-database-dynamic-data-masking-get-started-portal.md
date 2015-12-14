@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduzione al mascheramento dei dati dinamici del database SQL (portale di Azure)"
-   description="Introduzione al mascheramento dei dati dinamici del database SQL nel portale di Azure"
+   pageTitle="Introduzione alla maschera dati dinamica del database SQL (portale di Azure classico)"
+   description="Introduzione al maschera dati dinamica del database SQL nel portale di Azure classico"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -16,10 +16,10 @@
    ms.date="10/20/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
-# Introduzione al mascheramento dei dati dinamici del database SQL (portale di Azure)
+# Introduzione alla maschera dati dinamica del database SQL (portale di Azure classico)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Preview portal](sql-database-dynamic-data-masking-get-started.md)
+- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 
 ## Panoramica
 
@@ -31,10 +31,10 @@ Ad esempio, un addetto all'assistenza in un call center può identificare i chia
 
 ## Nozioni fondamentali sul mascheramento dei dati dinamici del database SQL
 
-Impostare i criteri di mascheramento dei dati dinamici per il database nel portale di Azure nella scheda Controllo e sicurezza
+Impostare i criteri di mascheramento dei dati dinamici per il database nel portale di Azure classico nella scheda Controllo e sicurezza
 
 
-> [AZURE.NOTE]Per impostare un mascheramento dei dati dinamici nel portale di anteprima di Azure, vedere [Introduzione al mascheramento dei dati dinamici del database SQL (portale di Azure)](sql-database-dynamic-data-masking-get-started.md).
+> [AZURE.NOTE]Per impostare un maschera dati dinamica nel portale di Azure, vedere [Introduzione al maschera dati dinamica del database SQL (portale di Azure)](sql-database-dynamic-data-masking-get-started.md).
 
 
 ### Autorizzazioni per il mascheramento dei dati dinamici
@@ -55,15 +55,15 @@ Il mascheramento dei dati dinamici può essere configurato dall'amministratore d
 | **Carta di credito** |**Metodo di maschera che rende visibili le ultime quattro cifre dei campi designati** e aggiunge una stringa costante come prefisso sotto forma di carta di credito.<br/><br/>XXXX-XXXX-XXXX-1234|
 | **Codice fiscale** |**Metodo di maschera che rende visibili le ultime quattro cifre dei campi designati** e aggiunge una stringa costante come prefisso sotto forma di codice fiscale.<br/><br/>XXX-XX-1234 |
 | **Indirizzo di posta elettronica** | **Metodo di maschera che rende visibile la prima lettera e sostituisce il dominio con XXX.com** usando un prefisso stringa costante sotto forma di indirizzo di posta elettronica.<br/><br/>aXX@XXXX.com |
-| **Numero casuale** | **Metodo di maschera che genera un numero casuale** a seconda dei limiti selezionati e dei tipi di dati effettivi. Se i limiti designati sono uguali, la funzione maschera sarà un numero costante.<br/><br/>![Pannello di navigazione](./media/sql-database-dynamic-data-masking-get-started-portal/1_DDM_Random_number.png) |
-| **Testo personalizzato** | **Metodo di maschera che rende visibile il primo e l'ultimo carattere** e aggiunge una stringa di riempimento personalizzata al centro. Se la stringa originale è più corta del prefisso e del suffisso visibili, verrà usata solo la stringa di riempimento.<br/>prefisso[riempimento]suffisso<br/><br/>![Pannello di navigazione](./media/sql-database-dynamic-data-masking-get-started-portal/2_DDM_Custom_text.png) |
+| **Numero casuale** | **Metodo di maschera che genera un numero casuale** a seconda dei limiti selezionati e dei tipi di dati effettivi. Se i limiti designati sono uguali, la funzione maschera sarà un numero costante.<br/><br/>![Riquadro di spostamento](./media/sql-database-dynamic-data-masking-get-started-portal/1_DDM_Random_number.png) |
+| **Testo personalizzato** | **Metodo di maschera che rende visibile il primo e l'ultimo carattere** e aggiunge una stringa di riempimento personalizzata al centro. Se la stringa originale è più corta del prefisso e del suffisso visibili, verrà usata solo la stringa di riempimento.<br/>prefisso[riempimento]suffisso<br/><br/>![Riquadro di spostamento](./media/sql-database-dynamic-data-masking-get-started-portal/2_DDM_Custom_text.png) |
 
 
 <a name="Anchor1"></a>
 
-## Configurare il mascheramento dei dati dinamici per il database tramite il portale di Azure
+## Configurare il mascheramento dei dati dinamici per il database tramite il portale di Azure classico
 
-1. Avviare il portale di Azure in [https://manage.windowsazure.com](https://manage.windowsazure.com).
+1. Avviare il portale di Azure classico all'indirizzo [https://manage.windowsazure.com](https://manage.windowsazure.com).
 
 2. Fare clic sul database a cui si desidera applicare la maschera e quindi sulla scheda **CONTROLLO E SICUREZZA**.
 
@@ -73,7 +73,7 @@ Il mascheramento dei dati dinamici può essere configurato dall'amministratore d
 
 	>[AZURE.TIP]Per fare in modo che il livello dell'applicazione consenta la visualizzazione dei dati sensibili per gli utenti dell'applicazione con privilegi, aggiungere l'utente SQL o l'identità AAD usata dall'applicazione per eseguire query nel database. È altamente consigliabile che l'elenco contenga un numero limitato di utenti con privilegi per ridurre al minimo l'esposizione dei dati sensibili.
 
-	![Pannello di navigazione](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
+	![Riquadro di spostamento](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
 
 5. Nella parte inferiore della pagina nella barra dei menu fare clic su **Aggiungi maschera** per aprire la finestra di configurazione delle regole di maschera.
 
@@ -81,7 +81,7 @@ Il mascheramento dei dati dinamici può essere configurato dall'amministratore d
 
 7. Scegliere una **FUNZIONE MASCHERA** dall'elenco di categorie maschera dei dati sensibili.
 
-	![Pannello di navigazione](./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png)
+	![Riquadro di spostamento](./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png)
 
 8. Fare clic su **OK** nella finestra delle regole di maschera dei dati per aggiornare il set di regole di maschera nei criteri della maschera dati dinamica.
 
@@ -96,4 +96,4 @@ Vedere [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/azu
 
 Vedere [Operazioni per i database SQL di Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

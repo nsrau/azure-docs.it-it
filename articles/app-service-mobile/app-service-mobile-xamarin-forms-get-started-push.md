@@ -10,17 +10,15 @@
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/23/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app Xamarin.Forms
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
@@ -64,39 +62,6 @@ Questa procedura illustra la creazione di un nuovo hub di notifica. Se è già s
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 
-## Aggiornare il progetto di libreria di classi portabile 
-
-La classe `TodoItemManager` definita nel progetto condiviso esegue il wrapping della connessione client al back-end dell'app per dispositivi mobili insieme alle operazioni da eseguire sulla tabella ospitata nel back-end dell'app per dispositivi mobili. Viene esposta la connessione client in modo che sia possibile eseguire la registrazione per le notifiche push.
-
-1. In Visual Studio o Xamarin Studio aprire TodoItemManager.cs nel progetto condiviso. Aggiungere il membro statico e le funzioni di accesso seguenti alla classe `TodoItemManager`. Questa viene usata per accedere al `MobileServiceClient` quando è necessario ottenere l'oggetto `Microsoft.WindowsAzure.MobileServices.Push` specifico della piattaforma. 
-
-        static TodoItemManager defaultInstance = null;
-
-        public static TodoItemManager DefaultInstance
-        {
-            get
-            {
-                return defaultInstance;
-            }
-            private set
-            {
-                defaultInstance = value;
-            }
-        }
-
-		public MobileServiceClient CurrentClient
-		{
-			get { return client; }
-		}
-
-
-2. Aggiungere il codice per l'inizializzazione di `DefaultInstance` all'inizio del costruttore per la classe `TodoItemManager`.
-
-        DefaultClient = this;
-
-
-
-
 ##(Facoltativo) Configurare ed eseguire il progetto Android
 
 Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi Android. Se non si usano dispositivi Android, è possibile ignorare questa sezione.
@@ -110,7 +75,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 
 ####Configurare l'hub di notifica per GCM
 
-1. Accedere al [portale di Azure](https://portal.azure.com/). Fare clic su **Sfoglia** > **App per dispositivi mobili** > App per dispositivi mobili > **Impostazioni** > **Push** > **Google (GCM)**. Incollare la chiave API server creata in precedenza e fare clic su **Salva**. Il servizio è ora configurato per l'uso delle notifiche push per Android.
+1. Accedere al [Portale di Azure](https://portal.azure.com/). Fare clic su **Sfoglia** > **App per dispositivi mobili** > App per dispositivi mobili > **Impostazioni** > **Push** > **Google (GCM)**. Incollare la chiave API server creata in precedenza e fare clic su **Salva**. Il servizio è ora configurato per l'uso delle notifiche push per Android.
 
 	![](./media/app-service-mobile-xamarin-forms-get-started-push/mobile-app-save-gcm-api-key.png)
 
@@ -176,7 +141,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 		// Set the current instance of MainActivity.
 		instance = this;
 
-7. Aggiungere un nuovo file della classe per il progetto **droid**. Denominare il nuovo file della classe come **GcmService**.
+7. Aggiungere un nuovo file della classe per il progetto **Droid**. Denominare il nuovo file della classe come **GcmService**.
 
 8. Assicurarsi che le istruzioni `using` seguenti siano incluse all'inizio del file.
 
@@ -236,7 +201,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 		
 		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
 		
-            var push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 		
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
 		
@@ -346,7 +311,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 	
 	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
+2. Nell'app, digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
 3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
@@ -363,7 +328,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin iOS per dispositivi iO
 
 ####Configurare l'hub di notifica per APNS
 
-1. Accedere al [portale di Azure](https://portal.azure.com/). Fare clic su **Sfoglia** > **App per dispositivi mobili** > App per dispositivi mobili > **Impostazioni** > **Push** > **Apple (APNS)** > **Carica certificato**. Caricare il file del certificato push (con estensione p12) esportato in precedenza. Assicurarsi di selezionare **Sandbox** se è stato creato un certificato push di sviluppo per le fasi di sviluppo e test. In caso contrario, scegliere **Produzione**. Il servizio è ora configurato per l'uso delle notifiche push per iOS.
+1. Accedere al [Portale di Azure](https://portal.azure.com/). Fare clic su **Sfoglia** > **App per dispositivi mobili** > App per dispositivi mobili > **Impostazioni** > **Push** > **Apple (APNS)** > **Carica certificato**. Caricare il file del certificato push (con estensione p12) esportato in precedenza. Assicurarsi di selezionare **Sandbox** se è stato creato un certificato push di sviluppo per le fasi di sviluppo e test. In caso contrario, scegliere **Produzione**. Il servizio è ora configurato per l'uso delle notifiche push per iOS.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -422,7 +387,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin iOS per dispositivi iO
                 };
 
             // Register for push with your mobile app
-            Push push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            Push push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
             push.RegisterAsync(deviceToken, templates);
         }
 
@@ -454,7 +419,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 	
 	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-3. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
+3. Nell'app, digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
 4. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
@@ -505,7 +470,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
                   {"headers", headers} // Only needed for WNS & MPNS
                 };
 
-            await TodoItemManager.DefaultInstance.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
+            await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
 3. In App.xaml.cs aggiornare il gestore eventi `OnLaunched` con l'attributo `async` e chiamare `InitNotificationsAsync`.
@@ -559,7 +524,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
 	
 	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-3. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
+3. Nell'app, digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
 4. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
@@ -572,10 +537,6 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 
-
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

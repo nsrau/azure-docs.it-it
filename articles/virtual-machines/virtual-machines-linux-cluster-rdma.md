@@ -36,7 +36,7 @@ Di seguito vengono riportati i metodi utilizzabili per creare un cluster Linux R
 
 * **Script dell'interfaccia della riga di comando di Azure**: come mostrato nelle procedure del resto di questo articolo, usare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) per Mac, Linux e Windows per creare script per la distribuzione di una rete virtuale e degli altri componenti necessari per creare un cluster Linux. L'interfaccia della riga di comando nella modalità di distribuzione classica (Gestione dei servizi) crea i nodi del cluster in modo seriale, pertanto la distribuzione di molti nodi di calcolo potrebbe richiedere alcuni minuti.
 
-* **Modelli di Gestione risorse di Azure**: creando un semplice file modello JSON di Gestione risorse di Azure ed eseguendo i comandi dell'interfaccia della riga di comando di Azure per Gestione risorse o usando il portale di anteprima di Azure, distribuire più macchine virtuali Linux A8 e A9 e definire reti virtuali, indirizzi IP statici, impostazioni DNS e altre risorse per creare un cluster di elaborazione in grado di sfruttare la rete RDMA per eseguire i carichi di lavoro MPI. Per distribuire la soluzione desiderata, è possibile [creare un modello personalizzato](../resource-group-authoring-templates.md) o consultare la [pagina dei modelli di Avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) per accedere ai modelli forniti da Microsoft o dalla community. I modelli di Gestione risorse in genere rappresentano il modo più veloce e affidabile per distribuire un cluster Linux.
+* **Modelli di Gestione risorse di Azure**: creando un semplice file modello JSON di Gestione risorse di Azure ed eseguendo i comandi dell'interfaccia della riga di comando di Azure per Gestione risorse o usando il portale di Azure, distribuire più VM Linux A8 e A9 e definire reti virtuali, indirizzi IP statici, impostazioni DNS e altre risorse per creare un cluster di elaborazione in grado di sfruttare la rete RDMA per eseguire i carichi di lavoro MPI. Per distribuire la soluzione desiderata, è possibile [creare un modello personalizzato](../resource-group-authoring-templates.md) o consultare la [pagina dei modelli di Avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) per accedere ai modelli forniti da Microsoft o dalla community. I modelli di Gestione risorse in genere rappresentano il modo più veloce e affidabile per distribuire un cluster Linux.
 
 ## Distribuzione in Gestione dei servizi di Azure con gli script dell'interfaccia della riga di comando di Azure
 
@@ -370,4 +370,4 @@ In un cluster funzionante con due nodi dovrebbe venire visualizzato un output si
 
 * Per istruzioni su Intel MPI, vedere la [documentazione relativa a Intel MPI Library](https://software.intel.com/it-IT/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

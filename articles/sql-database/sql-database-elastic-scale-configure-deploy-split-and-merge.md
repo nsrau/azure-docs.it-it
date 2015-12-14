@@ -1,11 +1,11 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Esercitazione relativa allo strumento divisione-unione del database elastico | Microsoft Azure"
 	description="Suddivisione e unione con gli strumenti di database elastico"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
+	services="sql-database"  
+	documentationCenter=""
+	authors="sidneyh"
 	manager="jeffreyg"
-	authors="sidneyh"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh" />
 
 # Esercitazione relativa allo strumento divisione-unione del database elastico
@@ -33,9 +33,9 @@ I passaggi precedenti consentono di scaricare i file di divisione e unione nella
 
     ![Servizi consentiti][1]
 
-3. Creare un account di archiviazione di Azure che verrà usato per l'output di diagnostica. Passare al portale di anteprima di Azure. Nella barra di sinistra, fare clic su **Nuovo**, quindi fare clic su **Dati + Archiviazione**, quindi **Archiviazione**.
+3. Creare un account di archiviazione di Azure che verrà usato per l'output di diagnostica. Accedere al portale di Azure. Nella barra di sinistra, fare clic su **Nuovo**, quindi fare clic su **Dati + Archiviazione**, quindi **Archiviazione**.
 
-4. Creare un servizio cloud di Azure che conterrà il servizio di divisione e unione. Passare al portale di anteprima di Azure. Nella barra di sinistra, fare clic su **Nuovo**, quindi su **Calcolo**, **Servizio Cloud** e **Crea**.
+4. Creare un servizio cloud di Azure che conterrà il servizio di divisione e unione. Accedere al portale di Azure. Nella barra di sinistra, fare clic su **Nuovo**, quindi su **Calcolo**, **Servizio Cloud** e **Crea**.
 
 
 ## Configurare il servizio di divisione e unione
@@ -60,7 +60,7 @@ I passaggi precedenti consentono di scaricare i file di divisione e unione nella
 ### Configurazione della sicurezza
 Per istruzioni dettagliate sulla configurazione della sicurezza del servizio, vedere l'articolo [Configurazione di sicurezza per suddivisione-unione](sql-database-elastic-scale-split-merge-security-configuration.md)
 
-Ai fini di una semplice distribuzione di prova utile per il completamento di questa esercitazione, verrà completata una serie minima di passaggi di configurazione per la messa in funzione del servizio. Questi passaggi abilitano unicamente il computer/l'account che li esegue alla comunicazione con il servizio.
+Ai fini di una semplice distribuzione di prova per questa esercitazione, verrà completata una serie minima di passaggi di configurazione per la messa in funzione del servizio. Questi passaggi abilitano unicamente il computer/l'account che li esegue alla comunicazione con il servizio.
 
 ### Creazione di un certificato autofirmato
 
@@ -91,7 +91,7 @@ Eseguire il seguente comando dalla stessa finestra in cui è stato eseguito make
 
 ### Caricare il file PFX nel servizio cloud
 
-Passare al [portale di anteprima di Azure](https://portal.azure.com).
+Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Selezionare **Servizi cloud**.
 2. Selezionare il servizio cloud creato precedentemente per il servizio di divisione e unione.
@@ -154,7 +154,7 @@ Se la messa online del proprio ruolo di lavoro non riesce, ma riesce quella del 
 
 ### Connessione a un Web browser
 
-Determinare l'endpoint Web del servizio di divisione e unione. È possibile trovarlo nel portale di gestione di Azure accedendo al **dashboard** del proprio servizio cloud e guardando in **URL sito** a destra. Sostituire ****http://** con ****https://**, poiché le impostazioni di sicurezza predefinite disabilitano l'endpoint HTTP. Caricare la pagina per questo URL nel browser.
+Determinare l'endpoint Web del servizio di divisione e unione. È possibile trovarlo nel portale di Azure classico accedendo al **Dashboard** del proprio servizio cloud e guardando in **URL sito** a destra. Sostituire ****http://** con ****https://**, poiché le impostazioni di sicurezza predefinite disabilitano l'endpoint HTTP. Caricare la pagina per questo URL nel browser.
 
 ### Test con gli script di PowerShell
 
@@ -334,4 +334,4 @@ In questo caso, controllare il file di configurazione, in particolare l'impostaz
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

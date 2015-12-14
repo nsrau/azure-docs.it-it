@@ -23,7 +23,7 @@
 
 In questo argomento vengono fornite le procedure consigliate per ottimizzare le prestazioni di SQL Server nella macchina virtuale di Microsoft Azure. Durante l'esecuzione di SQL Server in Macchine virtuali di Azure, è consigliabile continuare a usare le stesse opzioni di ottimizzazione delle prestazioni dei database applicabili a SQL Server nell'ambiente server locale. Tuttavia, le prestazioni di un database relazionale in un cloud pubblico dipendono da molti fattori, ad esempio dalle dimensioni della macchina virtuale e dalla configurazione dei dischi dati.
 
-Durante la creazione di immagini di SQL Server, è possibile utilizzare il portale di anteprima di Azure per sfruttare i vantaggi delle funzionalità, quali l'utilizzo predefinito di Archiviazione Premium e altre opzioni, ad esempio configurazioni Applicazione automatica delle patch, Backup automatizzato e AlwaysOn.
+Durante la creazione di immagini di SQL Server, è possibile utilizzare il portale di Azure per sfruttare i vantaggi delle funzionalità, quali l'utilizzo predefinito di Archiviazione Premium e altre opzioni, ad esempio configurazioni Applicazione automatica delle patch, Backup automatizzato e AlwaysOn.
 
 Questo documento offre informazioni su come ottenere le migliori prestazioni per SQL Server in Macchine virtuali di Azure. Se il carico di lavoro è contenuto, potrebbero non essere necessarie tutte le ottimizzazione elencate di seguito. Prendere in considerazione le esigenze di prestazioni e i modelli di carico di lavoro durante la valutazione di queste indicazioni.
 
@@ -133,4 +133,4 @@ Per le procedure consigliate relative alla sicurezza, vedere [Considerazioni rel
 
 Esaminare altri argomenti relativi alle macchine virtuali di SQL Server in [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -163,7 +163,7 @@ La ricerca visualizza i singoli eventi, ad esempio visualizzazioni pagina, richi
 
 Aprire la ricerca diagnostica:
 
-![Aprire la ricerca diagnostica](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Aprire la ricerca diagnostica](./media/app-insights-portal/01-open-Diagnostic.png)
 
 Aprire il pannello Filtro e scegliere i tipi di evento che si vuole visualizzare. Se, in seguito, si vogliono ripristinare i filtri con cui è stato aperto il pannello, fare clic su Reimposta.
 
@@ -205,4 +205,4 @@ Per visualizzare nuovamente la ricerca, **andare al pannello Panoramica** e apri
 
 Se è stato salvato con intervallo di tempo Relativo, il pannello riaperto presenterà i dati più recenti. Se è stato salvato con intervallo di tempo Assoluto,verranno visualizzati gli stessi dati ogni volta.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

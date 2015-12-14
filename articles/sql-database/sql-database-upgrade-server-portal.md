@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Aggiornamento al database SQL V12 di Azure tramite il portale di anteprima di Azure | Microsoft Azure" 
-	description="Viene spiegato come eseguire l'aggiornamento al database SQL V12 di Azure, come eseguire l'aggiornamento di database Web e Business e come aggiornare un server V11 che sta migrando i database direttamente in un pool di database elastici mediante il portale di anteprima di Azure." 
+	pageTitle="Aggiornamento al database SQL V12 di Azure tramite il portale di Azure | Microsoft Azure" 
+	description="Viene spiegato come eseguire l'aggiornamento al database SQL V12 di Azure, come eseguire l'aggiornamento di database Web e Business e come aggiornare un server V11 che sta migrando i database direttamente in un pool di database elastici mediante il portale di Azure." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,15 +13,15 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="11/11/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein"/>
 
 
-# Aggiornamento al database SQL V12 di Azure tramite il portale di anteprima di Azure
+# Eseguire l'aggiornamento a database SQL V12 di Azure tramite il portale di Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -54,7 +54,7 @@ Dopo l'aggiornamento alla versione12, [le indicazioni per i livelli di servizio]
 
 ## Avviare l'aggiornamento
 
-1. Nel [portale di anteprima di Azure](http://portal.azure.com/) individuare il server che si desidera aggiornare selezionando **BROWSE ALL** > **Server SQL** e selezionando il server desiderato.
+1. Nel [portale di Azure](http://portal.azure.com/) individuare il server che si desidera aggiornare selezionando **ESPLORA TUTTO** > **Server SQL** e selezionando il server desiderato.
 2. Selezionare **Ultimo aggiornamento del database SQL**, quindi selezionare **Upgrade this server**.
 
       ![aggiornamento del server][1]
@@ -99,7 +99,7 @@ Quando tutti i database nel server sono idonei, si è pronti per iniziare l'aggi
 
 ## Spostare i database in un pool di database elastici
 
-Nel [portale di anteprima di Azure](https://ms.portal.azure.com/) passare al server V12 e fare clic su **Add pool**.
+Nel [portale di Azure](https://portal.azure.com/) passare al server V12 e fare clic su **Aggiungi pool**.
 
 -oppure-
 
@@ -137,7 +137,7 @@ Informazioni di monitoraggio aggiuntive:
 
 
 
-**Avvisi:** configurare gli avvisi nel portale di Azure per ricevere una notifica quando il consumo di DTU per un database aggiornato si avvicina a un livello elevato specifico. Nel portale di Azure si possono configurare avvisi di database per diverse metriche delle prestazioni, come DTU, CPU, IO e log. Individuare il database e selezionare **Regole di avviso** nel pannello **Impostazioni**.
+**Avvisi:** configurare "Avvisi" nel portale di Azure per ricevere una notifica quando il consumo di DTU per un database aggiornato si avvicina a un determinato livello elevato. Nel portale di Azure si possono configurare avvisi di database per diverse metriche delle prestazioni, come DTU, CPU, IO e log. Individuare il database e selezionare **Regole di avviso** nel pannello **Impostazioni**.
 
 Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentuale DTU se il valore medio della percentuale DTU supera il 75% negli ultimi 5 minuti. Fare riferimento a [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) per altre informazioni sulla configurazione di notifiche di avviso.
 
@@ -168,4 +168,4 @@ Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentu
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

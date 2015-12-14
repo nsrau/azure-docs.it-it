@@ -24,7 +24,7 @@ In questa esercitazione si apprenderà come creare un'app Web del servizio app n
 
 >[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 >
->La parte relativa ai siti Web della funzionalità Connessioni ibride è disponibile solo nel [portale di anteprima di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+>La parte relativa alle app Web della funzionalità Connessioni ibride è disponibile solo nel [portale di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Prerequisiti ##
 
@@ -116,11 +116,11 @@ L'applicazione Web Visual Studio richiede un database di appartenenza al quale A
 	![MembershipDB created][SSMSMembershipDBCreated]
 
 <a name="CreateSite"></a>
-## B. Creare un'app Web nel portale di anteprima di Azure ##
+## B. Creazione di un'app Web nel portale di Azure ## ##
 
-> [AZURE.NOTE]e nel portale di anteprima di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e servizi BizTalk](#CreateHC) e proseguire da quel punto.
+> [AZURE.NOTE]Se nel portale di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e servizi BizTalk](#CreateHC) e proseguire da quel punto.
 
-1. Nel [portale di anteprima Azure](https://portal.azure.com), fare clic su **Nuova** > **Web + Mobile** > **App Web**.
+1. Nel [portale Azure](https://portal.azure.com), fare clic su **Nuovo** > **Web + Mobile** > **App Web**.
 
 	![New button][New]
 
@@ -139,7 +139,7 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 <a name="CreateHC"></a>
 ## C. Creare una connessione ibrida e un servizio BizTalk ##
 
-1. Nel portale, passare alle impostazioni e fare clic su **Rete** > **Configurare gli endpoint di connessione ibrida**.
+1. Nel Portale, passare alle impostazioni e fare clic su **Rete** > **Configurare gli endpoint di connessione ibrida**.
 
 	![Hybrid connections][CreateHCHCIcon]
 
@@ -239,7 +239,7 @@ Ora l'applicazione verrà pubblicata nel sito Web di Azure e testata per verific
 
 ### Publish the web application ###
 
-1. È possibile scaricare il profilo di pubblicazione per l'app Web di servizi di app nel portale di anteprima di Azure. Nel pannello dell'app Web scegliere **Scarica profilo di pubblicazione**, quindi salvare il file nel computer.
+1. È possibile scaricare il profilo di pubblicazione per l'app Web del servizio app nel portale di Azure. Nel pannello dell'app Web scegliere **Scarica profilo di pubblicazione**, quindi salvare il file nel computer.
 
 	![Scaricare un profilo di pubblicazione][PortalDownloadPublishProfile]
 
@@ -363,4 +363,4 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

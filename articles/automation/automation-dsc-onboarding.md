@@ -236,4 +236,4 @@ Dopo la registrazione, ogni nodo negozia automaticamente un certificato univoco 
 * [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Prezzi di Automation DSC per Azure](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

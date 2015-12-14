@@ -19,9 +19,14 @@
 
 # Gestione dei conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
-Questo argomento illustra come sincronizzare e gestire i conflitti quando si usano le funzionalità offline di Servizi mobili di Azure. Questa esercitazione si basa sull'esercitazione [Introduzione ai dati non in linea].
+Questo argomento illustra come sincronizzare e gestire i conflitti quando si usano le funzionalità offline di Servizi mobili di Azure. Questa esercitazione si basa sull'esercitazione [Introduzione ai dati offline].
 
 >[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
 
@@ -136,8 +141,7 @@ Eseguire il movimento di aggiornamento nelle istanze delle app mediante trascina
 [Download the preview SDK here]: http://aka.ms/Gc6fex
 [How to use the Mobile Services client library for iOS]: mobile-services-ios-how-to-use-client-library.md
 [Getting Started Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[Introduzione ai dati Offline]: mobile-services-ios-get-started-offline-data.md
-[Introduzione ai dati non in linea]: mobile-services-ios-get-started-offline-data.md
+[Introduzione ai dati offline]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

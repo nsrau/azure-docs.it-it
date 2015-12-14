@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="11/30/2015"
    ms.author="sameerch"/>
 
 
@@ -59,22 +59,15 @@ Il trigger **New Tweet** è stato archiviato. Attualmente è ancora disponibile 
 ## Usare il connettore Twitter nell'app per la logica
 Dopo aver creato l'app per le API, è possibile usare il connettore Twitter come trigger o azione per l'app per la logica. A tale scopo, seguire questa procedura:
 
-1.	Creare una nuova app per la logica o aprirne una esistente: 
-	![][2]
-2.	Aprire **Triggers and Actions** per visualizzare la finestra di progettazione delle app per la logica: 
-	![][3]
-3.	Il connettore Twitter è elencato sul lato destro. Selezionarlo per aggiungerlo automaticamente all'app per la logica: 
-	![][4]
-4.	Selezionare **Authorize**, immettere le credenziali di Twitter e selezionare **Authorize app**: 
-	![][5]
+1.	Creare una nuova app per la logica o aprirne una esistente: ![][2]
+2.	Aprire **Triggers and Actions** per visualizzare la finestra di progettazione delle app per la logica: ![][3]
+3.	Il connettore Twitter è elencato sul lato destro. Selezionarlo per aggiungerlo automaticamente all'app per la logica: ![][4]
+4.	Selezionare **Authorize**, immettere le credenziali di Twitter e selezionare **Authorize app**: ![][5]
 
 
-È ora possibile configurare il connettore Twitter per compilare il flusso di lavoro. I tweet recuperati dal trigger Twitter possono essere usati in altre azioni del flusso: 
-	![][6]
+È ora possibile configurare il connettore Twitter per compilare il flusso di lavoro. I tweet recuperati dal trigger Twitter possono essere usati in altre azioni del flusso: ![][6]
 
-In modo analogo, si possono usare le azioni Twitter nel flusso. Selezionare un'azione Twitter e configurare gli input per l'azione: 
-	![][7] 
-	![][8]
+In modo analogo, si possono usare le azioni Twitter nel flusso. Selezionare un'azione Twitter e configurare gli input per l'azione: ![][7] ![][8]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
@@ -97,4 +90,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

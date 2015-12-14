@@ -43,7 +43,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-È possibile ottenere i valori per il nome e il valore della chiave di firma di accesso condiviso dalla finestra **Informazioni di connessione** del [portale di Azure][].
+È possibile ottenere i valori per il nome e il valore della chiave di firma di accesso condiviso dalla finestra **Informazioni di connessione** del [portale di Azure classico][].
 
 ```
 bus_service.create_topic('mytopic')
@@ -157,7 +157,7 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 ## Eliminare argomenti e sottoscrizioni
 
-Gli argomenti e le sottoscrizioni sono persistenti e devono pertanto essere eliminati in modo esplicito tramite il portale di Azure o a livello di codice. L'esempio seguente mostra come eliminare l’argomento denominato `mytopic`:
+Gli argomenti e le sottoscrizioni sono persistenti e devono pertanto essere eliminati in modo esplicito tramite il [portale di Azure classico][] o a livello di codice. L'esempio seguente mostra come eliminare l’argomento denominato `mytopic`:
 
 ```
 bus_service.delete_topic('mytopic')
@@ -176,10 +176,10 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 -   Vedere [Code, argomenti e sottoscrizioni][].
 -   Informazioni di riferimento per [SqlFilter.SqlExpression][].
 
-[portale di Azure]: http://manage.windowsazure.com
+[portale di Azure classico]: http://manage.windowsazure.com
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
 [Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Code di Azure e code del bus di servizio]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

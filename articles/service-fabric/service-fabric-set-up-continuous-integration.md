@@ -125,7 +125,7 @@ Notare che la definizione di compilazione creata da queste istruzioni non suppor
 
 ### Installare Service Fabric SDK
 
-Installare [Service Fabric SDK](https://azure.microsoft.com/zh-CN/campaigns/service-fabric/).
+Installare [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fabric/).
 
 ### Registrare il repository NuGet di Service Fabric SDK
 
@@ -339,4 +339,4 @@ Le istruzioni precedenti creano un nuovo cluster per ogni compilazione e lo rimu
 
 Per altre informazioni sull'integrazione continua con le applicazioni dell'infrastruttura di servizi, vedere gli articoli seguenti. - [Home page di documentazione sulla compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Distribuire un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Creare e configurare una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

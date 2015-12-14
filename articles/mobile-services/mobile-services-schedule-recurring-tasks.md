@@ -18,11 +18,16 @@
 
 # Pianificare i processi ricorrenti in Servizi mobili
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
-Questo argomento illustra come usare la funzionalità di pianificazione processi nel portale di gestione per definire il codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
+Questo argomento illustra come usare la funzionalità dell’utilità di pianificazione processi nel portale di Azure classico per definire il codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
 
 + Archiviazione di record di dati obsoleti o duplicati.
 + Richiesta e archiviazione di dati esterni, ad esempio tweet, voci RSS e informazioni sulla posizione.
@@ -38,11 +43,11 @@ Questa esercitazione descrive come usare la pianificazione processi per creare u
 
 In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 
-2. Nel portale di gestione fare clic sulla scheda **Dati** per il servizio mobile e quindi su **+Crea**.
+2. Nel [portale di Azure classico] fare clic sulla scheda **Dati** per il servizio mobile e quindi su **+Crea**.
 
 3. In **Nome tabella** digitare _Updates_ e quindi fare clic sul segno di spunta.
 
-##<a name="add-job"></a>Creare un nuovo processo pianificato  
+##<a name="add-job"></a>Creare un nuovo processo pianificato
 
 Ora è possibile creare l'attività pianificata che accede a Twitter e archivia i dati dei tweet nella nuova tabella Updates.
 
@@ -161,9 +166,9 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 <!-- URLs. -->
 [Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -84,7 +84,7 @@ Per ILB è necessario creare prima di tutto il servizio di bilanciamento del car
 
 1. Dopo aver impostato le variabili, copiare lo script dall'editor di testo nella sessione di Azure PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato >>, digitare di nuovo ENTER per assicurarsi che l'esecuzione dello script sia stata avviata. Nota
 
->[AZURE.NOTE]Il portale di Azure non supporta attualmente il servizio di bilanciamento del carico interno, quindi il servizio di bilanciamento del carico interno o gli endpoint non saranno visualizzati nel portale di Azure. **Get-AzureEndpoint** restituisce tuttavia un indirizzo IP interno, se nel portale è in esecuzione il servizio di bilanciamento del carico. In caso contrario, restituirà Null.
+>[AZURE.NOTE]Il portale di Azure classico non supporta attualmente il servizio di bilanciamento del carico interno, quindi il servizio di bilanciamento del carico interno o gli endpoint non saranno visualizzati nel portale di Azure classico. **Get-AzureEndpoint** restituisce tuttavia un indirizzo IP interno, se nel portale è in esecuzione il servizio di bilanciamento del carico. In caso contrario, restituirà Null.
 
 ## Se necessario, verificare che KB2854082 sia installato.
 
@@ -138,4 +138,4 @@ Per ILB è necessario creare prima di tutto il servizio di bilanciamento del car
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

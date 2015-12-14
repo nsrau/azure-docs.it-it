@@ -39,11 +39,11 @@ Database SQL offre servizi di archiviazione di dati relazionali, di accesso e di
 
 ## Creare e configurare il database SQL
 
-Sarà quindi possibile creare e configurare un database e un server. Nel portale di gestione di Azure i flussi di lavoro revisionati consentono di creare innanzitutto un database e quindi di eseguire il provisioning del server.
+Sarà quindi possibile creare e configurare un database e un server. Nel portale di Azure classico i flussi di lavoro revisionati consentono di creare innanzitutto un database e quindi di eseguire il provisioning del server.
 
 **Creare un documento di database e un logical server. **
 
-1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com).
 
 2. Fare clic su **NUOVO** nella parte inferiore della pagina.
 
@@ -77,7 +77,7 @@ Sarà quindi possibile creare e configurare un database e un server. Nel portale
 
 12. Scegliere un'area, che determina la posizione geografica del server. Poiché le aree non possono essere cambiate facilmente, sceglierne una significativa per questo server. Selezionare la posizione più vicina. Per ridurre i costi relativi alla larghezza di banda in uscita e la latenza dei dati, è consigliabile mantenere il database e l'applicazione Azure nella stessa area.
 
-13. Assicurarsi che la casella di controllo **Allow Azure Services to access the server** sia selezionata in modo da consentire la connessione al database tramite il portale di gestione per il database SQL, i servizi di archiviazione e altri servizi di Azure.
+13. Assicurarsi che la casella di controllo **Allow Azure Services to access the server** sia selezionata in modo da consentire la connessione al database tramite il portale classico per il database SQL, i servizi di archiviazione e altri servizi di Azure.
 
 14. Al termine, fare clic sul segno di spunta nella parte inferiore della pagina.
 
@@ -211,4 +211,4 @@ Per ulteriori informazioni, vedere [Provider EntityClient per Entity Framework](
 Ora che sono state apprese le nozioni di base della connessione al Database SQL, vedere[Sviluppo: procedure (Database SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

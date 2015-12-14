@@ -1,26 +1,31 @@
-<properties 
-	pageTitle="Creare un servizio mobile back-end .NET che usa l'archiviazione tabelle | Servizi mobili di Azure" 
-	description="Informazioni su come usare l'archiviazione tabelle di Azure con il servizio mobile back-end .NET." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Creare un servizio mobile back-end .NET che usa l'archiviazione tabelle | Servizi mobili di Azure"
+	description="Informazioni su come usare l'archiviazione tabelle di Azure con il servizio mobile back-end .NET."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
 # Creare un servizio mobile back-end .NET che usa l'archiviazione tabelle
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 Questo argomento illustra come usare un archivio dati non relazionale per il servizio mobile back-end .NET. In questa esercitazione verrà modificato il progetto introduttivo dei Servizi mobili di Azure, in modo da usare l'archiviazione tabelle di Azure invece dell'archivio dati predefinito del database SQL di Azure.
 
-Prima di iniziare questa esercitazione, è necessario avere completato l'esercitazione [Introduzione a Servizi per dispositivi mobili]. Sarà necessario anche un account di archiviazione di Azure.
+Prima di iniziare questa esercitazione, è necessario avere completato l'esercitazione [Introduzione a Servizi mobili]. Sarà necessario anche un account di archiviazione di Azure.
 
 ##Configurare l'archiviazione tabelle di Azure nel servizio mobile back-end .NET
 
@@ -36,10 +41,10 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
 
 3. Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione](../storage-create-storage-account.md).
 
-4. Nel portale di gestione fare clic su **Archiviazione**, sull'account di archiviazione e quindi su **Gestisci chiavi**.
+4. Nel [portale di Azure classico] fare clic su **Archiviazione**, sull'account di archiviazione e quindi su **Gestisci chiavi**.
 
 5. Prendere nota dei valori di **Nome account di archiviazione** e **Chiave di accesso**.
- 
+
 6. Nel servizio mobile fare clic sulla scheda **Configura**, scorrere fino a **Stringhe di connessione** e immettere una nuova stringa di connessione con **Nome** pari a `StorageConnectionString` e un **Valore** che corrisponde alla stringa di connessione dell'account di archiviazione nel formato seguente.
 
 		DefaultEndpointsProtocol=https;AccountName=<ACCOUNT_NAME>;AccountKey=<ACCESS_KEY>;
@@ -83,12 +88,12 @@ Poiché il progetto introduttivo TodoList è stato progettato per l'uso con un d
         {
             base.Initialize(controllerContext);
 
-            // Create a new Azure Storage domain manager using the stored 
+            // Create a new Azure Storage domain manager using the stored
             // connection string and the name of the table exposed by the controller.
             string connectionStringName = "StorageConnectionString";
             var tableName = controllerContext.ControllerDescriptor.ControllerName.ToLowerInvariant();
-            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName, 
-                tableName, Request, Services);          
+            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName,
+                tableName, Request, Services);
         }
 
 	Verrà creato un nuovo account di gestione del dominio di archiviazione per il controller richiesto mediante la stringa di connessione dell'account di archiviazione.
@@ -99,7 +104,7 @@ Poiché il progetto introduttivo TodoList è stato progettato per l'uso con un d
         {
             // Call QueryAsync, passing the supplied query options.
             return DomainManager.QueryAsync(options);
-        } 
+        }
 
 	A differenza di un database SQL, questa versione non restituisce IQueryable<TEntity>, quindi è possibile associare il risultato ma non inserirlo in una query.
 
@@ -119,8 +124,8 @@ Poiché il progetto introduttivo TodoList è stato progettato per l'uso con un d
 
 ## <a name="test-application"></a>Testare l'applicazione
 
-1. (Facoltativo) Ripubblicare il progetto di back-end .NET del servizio mobile. 
-	
+1. (Facoltativo) Ripubblicare il progetto di back-end .NET del servizio mobile.
+
 	È anche possibile testare localmente il servizio mobile prima di pubblicare il progetto back-end .NET in Azure. Indipendentemente dall'esecuzione del test in locale o in Azure, il servizio mobile userà l'archiviazione tabelle di Azure.
 
 4. Eseguire l'app client introduttiva connessa al servizio mobile.
@@ -128,7 +133,7 @@ Poiché il progetto introduttivo TodoList è stato progettato per l'uso con un d
 	Si noti che non vengono visualizzati gli elementi aggiunti in precedenza mediante l'esercitazione introduttiva. Ciò dipende dal fatto che l'archivio tabelle è attualmente vuoto.
 
 5. Aggiungere nuovi elementi per generare le modifiche del database.
- 
+
 	Il comportamento dell'app e del servizio mobile non dovrebbe cambiare, ma i dati vengono ora archiviati nell'archivio non relazionale, invece che nel database SQL.
 
 ##Passaggi successivi
@@ -149,10 +154,9 @@ Vista la semplicità dell'uso dell'archiviazione tabelle con il back-end .NET, �
 
 
 <!-- URLs. -->
-[Introduzione a Servizi per dispositivi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+[portale di Azure classico]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

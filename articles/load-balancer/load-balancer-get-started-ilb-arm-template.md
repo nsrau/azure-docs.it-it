@@ -1,0 +1,83 @@
+<properties 
+   pageTitle="Creare un servizio di bilanciamento del carico interno in Gestione risorse con un modello | Microsoft Azure"
+   description="Informazioni su come creare un servizio di bilanciamento del carico interno in Gestione risorse con un modello"
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager"
+/>
+<tags  
+   ms.service="load-balancer"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="11/09/2015"
+   ms.author="joaoma" />
+
+# Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite un modello
+
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+
+[AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
+
+## Distribuire il modello tramite clic per la distribuzione
+
+Il modello di esempio disponibile nel repository pubblico usa un file di parametro che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Per distribuire questo modello mediante clic per la distribuzione, seguire [questo collegamento]((https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer), fare clic su **Distribuisci in Azure**, sostituire i valori del parametro predefinito se necessario e seguire le istruzioni nel portale.
+
+## Distribuire il modello tramite PowerShell
+
+Per distribuire il modello scaricato tramite PowerShell, seguire questa procedura.
+
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+2. Eseguire il cmdlet **Switch-AzureMode** per passare alla modalità Gestione risorse, come illustrato di seguito.
+
+		Switch-AzureMode AzureResourceManager
+
+	Di seguito è riportato l'output previsto per il comando precedente:
+
+		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
+
+>[AZURE.WARNING]Il cmdlet Switch-AzureMode verrà presto dichiarato obsoleto. Di conseguenza, tutti i cmdlet di Gestione risorse verranno rinominati.
+
+3\. Scaricare il file dei [parametri](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) sul disco locale.<BR> 4. Modificare il file e salvarlo.<BR> 5. Per creare un gruppo di risorse usando il modello, eseguire il cmdlet **New-AzureResourceGroup**.
+
+
+		New-AzureResourceGroup -Name TestRG -Location westus `
+		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
+		    -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
+	
+                
+		
+## Distribuire il modello tramite l'interfaccia della riga di comando di Azure
+
+Per distribuire il modello tramite l'interfaccia della riga di comando di Azure, seguire questa procedura.
+
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+2. Eseguire il comando **azure config mode** per passare alla modalità di gestione delle risorse, come illustrato di seguito.
+
+		azure config mode arm
+
+	Di seguito è riportato l'output previsto per il comando precedente:
+
+		info:    New mode is arm
+
+3. Aprire il [file del parametro](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json), selezionare i relativi contenuti e salvarlo in un file nel computer. In questo esempio il file dei parametri è stato salvato in *parameters.json*.
+
+4. Eseguire il cmdlet **azure group deployment create** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
+
+		azure group create -n TestRG -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json -e parameters.json
+
+
+
+## Passaggi successivi
+
+[Configurare una modalità di distribuzione del servizio di bilanciamento del carico utilizzando l’affinità dell’IP di origine](load-balancer-distribution-mode.md)
+
+[Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
+
+<!---HONumber=AcomDC_1203_2015-->

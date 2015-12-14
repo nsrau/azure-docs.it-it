@@ -45,7 +45,7 @@ Di seguito viene riportato il set dei componenti coinvolti.
 Prima di entrare nel processo dettagliato di risoluzione dei problemi, è utile esaminare mentalmente cosa è cambiato da quando si era in grado di creare connessioni Desktop remoto e utilizzare tale cambiamento come base per la correzione del problema. Ad esempio:
 
 - Se si era in grado di creare connessioni Desktop remoto ed è stato modificato l'indirizzo IP pubblico della macchina virtuale o del servizio cloud contenente la macchina virtuale (noto anche come indirizzo IP virtuale [VIP]), nella cache del client DNS potrebbe essere presente una voce per il nome DNS e l’*indirizzo IP precedente*. Scaricare la cache del client DNS e riprovare. In alternativa, provare a effettuare la connessione utilizzando il nuovo indirizzo VIP.
-- Se si è passati dall'utilizzo del portale di Azure o del portale di anteprima di Azure all'uso di un'applicazione per gestire le connessioni Desktop remoto, assicurarsi che la configurazione dell'applicazione includa la porta TCP determinata in modo casuale per il traffico di Desktop remoto.
+- Se si è passati dall'utilizzo del portale di Azure classico o del portale di Azure all'uso di un'applicazione per gestire le connessioni Desktop remoto, assicurarsi che la configurazione dell'applicazione includa la porta TCP determinata in modo casuale per il traffico di Desktop remoto.
 
 Nelle sezioni seguenti si passerà dall’isolamento e dalla definizione delle varie cause principali di questo problema, al fornire soluzioni definitive e temporanee.
 
@@ -54,7 +54,7 @@ Nelle sezioni seguenti si passerà dall’isolamento e dalla definizione delle v
 
 Eseguire questi passaggi prima di procedere alla risoluzione dei problemi dettagliata.
 
-- Verificare lo stato della macchina virtuale nel portale di Azure o nel portale di anteprima di Azure
+- Verificare lo stato della macchina virtuale nel portale di Azure classico o nel portale di Azure
 - Riavviare la macchina virtuale
 - [Ridimensionare la macchina virtuale](virtual-machines-size-specs.md)
 
@@ -207,4 +207,4 @@ Verificare che anche l'endpoint Desktop remoto per la macchina virtuale di Azure
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

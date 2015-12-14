@@ -36,7 +36,7 @@ Inoltre, nell'esercitazione si presuppone che siano già stati implementati i pr
 
 - Creazione di due macchine virtuali (VM) in Azure usando l'immagine di Oracle Enterprise Edition fornita dalla piattaforma in Windows Server. Per informazioni, vedere [Creazione di una macchina virtuale di Oracle Database 12c in Azure](#z3dc8d3c097cf414e9048f7a89c026f80) e [Macchine virtuali di Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Verifica che le macchine virtuali si trovino nello [stesso servizio cloud](virtual-machines-load-balance.md) e nella stessa [rete virtuale](http://azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente.
 
-- Impostazione dei nomi di macchina virtuale "MachineGG1" per il sito A e "MachineGG2" per il sito B nel portale di Azure.
+- Impostazione dei nomi di macchina virtuale "MachineGG1" per il sito A e "MachineGG2" per il sito B nel portale di Azure classico.
 
 - Creazione dei database di test "TestGG1" nel sito A e "TestGG2" nel sito B.
 
@@ -95,7 +95,7 @@ Per le versioni successive di Oracle Database e Oracle GoldenGate potrebbero ess
 ##1\. Installare il database nei siti A e B
 In questa sezione viene illustrato come eseguire i prerequisiti del database nei siti A e B. È necessario eseguire tutti i passaggi di questa sezione in entrambi i siti: sito A e il sito B.
 
-Innanzitutto, connettersi con desktop remoto ai siti A e B tramite il portale di Azure. Aprire un prompt dei comandi di Windows e creare una home directory per i file di installazione di Oracle GoldenGate:
+Innanzitutto, connettersi con desktop remoto ai siti A e B tramite il portale di Azure classico. Aprire un prompt dei comandi di Windows e creare una home directory per i file di installazione di Oracle GoldenGate:
 
 	mkdir C:\OracleGG
 
@@ -183,7 +183,7 @@ Successivamente, creare e abilitare un trigger di database, INVENTORY\_CDR\_TRG,
 ##2\. Preparare i siti A e B sito per la replica del database
 In questa sezione viene illustrato come preparare i siti A e B per la replica del database. È necessario eseguire tutti i passaggi di questa sezione in entrambi i siti: sito A e sito B.
 
-Innanzitutto, connettersi con desktop remoto ai siti A e B tramite il portale di Azure. Attivare la modalità archivelog per il database tramite la finestra dei comandi di SQL*Plus:
+Innanzitutto, connettersi con desktop remoto ai siti A e B tramite il portale di Azure classico. Attivare la modalità archivelog per il database tramite la finestra dei comandi di SQL*Plus:
 
 	sql>shutdown immediate
 	sql>startup mount
@@ -285,7 +285,7 @@ Avviare il processo Manager:
 
 ###Creare i processi Extract e Data Pump nel sito A
 
-È necessario creare i processi Extract e Data Pump nel sito A e nel sito B. Connettersi con desktop remoto ai siti A e B tramite il portale di Azure. Aprire la finestra dell'interprete dei comandi GGSCI. Eseguire i comandi seguenti nel sito A:
+È necessario creare i processi Extract e Data Pump nel sito A e nel sito B. Connettersi con desktop remoto ai siti A e B tramite il portale di Azure classico. Aprire la finestra dell'interprete dei comandi GGSCI. Eseguire i comandi seguenti nel sito A:
 
 	GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
 	EXTRACT added.
@@ -602,4 +602,4 @@ Connettersi con desktop remoto al sito A e controllare se la replica ha avuto lu
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

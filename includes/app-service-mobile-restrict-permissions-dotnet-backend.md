@@ -22,4 +22,4 @@ Per impostazione predefinita, le API in un back-end dell'app per dispositivi mob
 
 	Per ulteriori informazioni, fare riferimento a [Richiedere l'autenticazione per l'accesso alle tabelle](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth) in [Come utilizzare l’SDK di Node.js di App per dispositivi mobili di Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

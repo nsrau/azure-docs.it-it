@@ -19,8 +19,7 @@
 
 # Distribuzione di un'app Web ASP.NET MVC 5 per dispositivi mobili nel servizio app di Azure
 
-In questa esercitazione verranno illustrate le nozioni di base per lo sviluppo di un'app Web ASP.NET MVC 5 per dispositivi mobili e la distribuzione di tale app nel servizio app di Azure. Ai fini di questa esercitazione, è necessario disporre di [Visual Studio Express 2013 for Web][Visual Studio Express 2013] o della versione professionale di Visual Studio.
-È possibile utilizzare [Visual Studio 2015], ma le schermate saranno diverse ed è necessario utilizzare i modelli ASP.NET 4.x.
+In questa esercitazione verranno illustrate le nozioni di base per lo sviluppo di un'app Web ASP.NET MVC 5 per dispositivi mobili e la distribuzione di tale app nel servizio app di Azure. Ai fini di questa esercitazione, è necessario disporre di [Visual Studio Express 2013 for Web][Visual Studio Express 2013] o della versione professionale di Visual Studio. È possibile utilizzare [Visual Studio 2015], ma le schermate saranno diverse ed è necessario utilizzare i modelli ASP.NET 4.x.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -546,7 +545,6 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Internal Links -->
 [Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
@@ -619,4 +617,4 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

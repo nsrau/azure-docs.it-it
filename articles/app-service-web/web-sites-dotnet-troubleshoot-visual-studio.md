@@ -20,7 +20,7 @@
 
 ## Panoramica
 
-Questa esercitazione illustra come usare gli strumenti di Visual Studio che consentono di sottoporre a debug un'app Web in esecuzione nel [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), attivando la [modalità debug](http://www.visualstudio.com/it-IT/get-started/debug-your-app-vs.aspx) in remoto oppure visualizzando i log dell'applicazione e i log del server Web.
+Questa esercitazione illustra come usare gli strumenti di Visual Studio che consentono di sottoporre a debug un'app Web in esecuzione nel [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), attivando la [modalità debug](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) in remoto oppure visualizzando i log dell'applicazione e i log del server Web.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -71,7 +71,7 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
    
 	Per informazioni sulle finestre di stringhe di connessione e le impostazioni dell'applicazione in questa finestra, vedere l'argomento relativo a [impostazioni dell'applicazione e stringhe di connessione di App Web di Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-	Se si desidera eseguire un'attività di gestione app Web che non può essere completata in questa finestra, fare clic su **Apri in portale di gestione** per aprire una finestra del browser nel portale di anteprima di Azure. Per altre informazioni, vedere [Come configurare app Web](/it-IT/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	Se si desidera eseguire un'attività di gestione app Web che non può essere completata in questa finestra, fare clic su **Apri in portale di gestione** per aprire una finestra del browser nel portale di Azure classico. Per altre informazioni, vedere [Come configurare app Web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 ## <a name="remoteview"></a>Accedere ai file dell'app Web in Esplora server
 
@@ -156,7 +156,7 @@ In questa sezione viene illustrato come eseguire il debug remoto utilizzando il 
 
 6. Per Visual Studio 2012 con aggiornamento 4 o successivo:<a id="vs2012"></a>
 
-	* Nel portale di gestione di Azure passare a **Impostazioni > Impostazioni applicazione** per l'app Web, quindi scorrere in basso fino alla sezione **Debug**.
+	* Nel portale di Azure classico passare a **Impostazioni > Impostazioni applicazione** per l'app Web, quindi scorrere in basso fino alla sezione **Debug**.
 
 	* Impostare **Debug remoto** su **On** e impostare **Versione remota di Visual Studio** su **2012**.
 
@@ -166,7 +166,7 @@ In questa sezione viene illustrato come eseguire il debug remoto utilizzando il 
 
 	* Selezionare **Mostra i processi di tutti gli utenti**.
 
-	* Quando vengono richieste le credenziali, immettere il nome e la password dell'utente che dispone delle autorizzazioni per distribuire contenuti nell'app Web. Per ottenere queste credenziali, passare alla scheda Dashboard relativa all'app Web nel portale di gestione e fare clic su **Scaricare il profilo di pubblicazione**. Aprire il file in un editor di testo. Il nome utente e la password si troveranno dopo le prime occorrenze di **userName=** e **userPWD=**.
+	* Quando vengono richieste le credenziali, immettere il nome e la password dell'utente che dispone delle autorizzazioni per distribuire contenuti nell'app Web. Per ottenere queste credenziali, passare alla scheda Dashboard relativa all'app Web nel portale classico e fare clic su **Scaricare il profilo di pubblicazione**. Aprire il file in un editor di testo. Il nome utente e la password si troveranno dopo le prime occorrenze di **userName=** e **userPWD=**.
 
 	* Quando i processi compariranno nella tabella **Processi disponibili**, selezionare **w3wp.exe** e quindi fare clic su **Connetti**.
 
@@ -475,9 +475,9 @@ I log del server Web registrano tutta l'attività HTTP che si verifica nell'app 
 	![Log del server Web nella finestra Output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-Per impostazione predefinita, quando vengono abilitati per la prima volta tramite Visual Studio, i log vengono scritti nel file system. In alternativa, è possibile utilizzare il portale di gestione per specificare che devono essere scritti in un contenitore di BLOB in un account di archiviazione. Per ulteriori informazioni, vedere la sezione relativa alla **diagnostica del sito** in [Come configurare i siti Web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+Per impostazione predefinita, quando vengono abilitati per la prima volta tramite Visual Studio, i log vengono scritti nel file system. In alternativa, è possibile utilizzare il portale classico per specificare che devono essere scritti in un contenitore di BLOB in un account di archiviazione. Per ulteriori informazioni, vedere la sezione relativa alla **diagnostica del sito** in [Come configurare i siti Web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
-Se si utilizza il portale di gestione per abilitare la registrazione del server Web in un account di archiviazione di Azure e quindi si disabilita la registrazione in Visual Studio, quando si riabilita la registrazione in Visual Studio le impostazioni dell'account di archiviazione verranno ripristinate.
+Se si utilizza il portale classico per abilitare la registrazione del server Web in un account di archiviazione di Azure e quindi si disabilita la registrazione in Visual Studio, quando si riabilita la registrazione in Visual Studio le impostazioni dell'account di archiviazione verranno ripristinate.
 
 ## <a name="detailederrorlogs"></a>Visualizzare i log dei messaggi di errore dettagliati
 
@@ -527,7 +527,7 @@ Tutti i log che è possibile monitorare nella finestra **Output** possono anche 
 
 ## <a name="storagelogs"></a>Visualizzare i log di archiviazione
 
-I log di traccia dell'applicazione possono anche essere inviati a un account di archiviazione di Azure ed è possibile visualizzarli in Visual Studio. A questo scopo, creare un account di archiviazione, abilitare i log di archiviazione nel portale di gestione e visualizzarli nella scheda **Log** della finestra **App Web di Azure**.
+I log di traccia dell'applicazione possono anche essere inviati a un account di archiviazione di Azure ed è possibile visualizzarli in Visual Studio. A questo scopo, creare un account di archiviazione, abilitare i log di archiviazione nel portale classico e visualizzarli nella scheda **Log** della finestra **App Web di Azure**.
 
 È possibile inviare i log a una o a tutte le destinazioni seguenti:
 
@@ -567,12 +567,11 @@ Gli account di archiviazione offrono più spazio e un periodo più lungo di cons
 
 1. Nella finestra **App Web di Azure** di Visual Studio fare clic sulla scheda **Log**, quindi su **Configura registrazione nel portale di gestione**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Configurare la registrazione](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configurare la registrazione](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	Nel portale di Azure verrà visualizzata la scheda **Configura** relativa all'app Web.
+	Nel portale classico verrà visualizzata la scheda **Configura** relativa all'app Web.
 
-2. Nel scheda **Configure** del portale scorrere verso il basso fino alla sezione di diagnostica applicazioni, quindi impostare **Application Logging (Table Storage)** su **On**.
+2. Nel scheda **Configure** del portale classico scorrere verso il basso fino alla sezione di diagnostica applicazioni, quindi impostare **Application Logging (Archiviazione tabelle)** su **On**.
 
 3. Impostare **Logging Level** su **Information**.
 
@@ -586,7 +585,7 @@ Gli account di archiviazione offrono più spazio e un periodo più lungo di cons
 
 6. Fare clic sul segno di spunta nella finestra **Manage table storage for application diagnostics** per chiuderla.
 
-6. Nella scheda **Configura** del portale fare clic su **Salva**.
+6. Nella scheda **Configura** del portale classico fare clic su **Salva**.
 
 7. Nella finestra del browser in cui viene visualizzata l'app Web dell'applicazione, fare clic su **Home**, quindi su **About** e infine su **Contact**.
 
@@ -638,13 +637,13 @@ Nelle app Web di Azure viene utilizzata la stessa funzionalità di traccia delle
 
 2. In Visual Studio, nella scheda **Configurazione** della finestra **App Web di Azure** fare clic su **Apri nel portale di gestione**.
 
-3. Nel pannello del portale di anteprima di Azure per l'app Web, fare clic su **Impostazioni > Credenziali distribuzione**, quindi immettere un nuovo nome utente e una password.
+3. Nel pannello del portale di Azure (https://portal.azure.com) per l'app Web, fare clic su **Impostazioni > Credenziali distribuzione**, quindi immettere un nuovo nome utente e una password.
 
 	![Nuovo nome utente e nuova password FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
 	****Quando si effettua l'accesso, è necessario utilizzare il nome utente completo con il prefisso del nome dell'app Web. Ad esempio, se si immette "idpersonale" come nome utente e il sito è "esempiopersonale", è accedere come "esempiopersonale\\idpersonale".
 
-5. In una nuova finestra del browser passare all'URL indicato in **Nome host FTP** o **Nome host FTPS** del pannello **App Web** del portale per l'app Web.
+5. In una nuova finestra del browser passare all'URL indicato in **Nome host FTP** o **Nome host FTPS** del pannello **App Web** per l'app Web.
 
 6. Effettuare l'accesso usando le credenziali FTP create in precedenza, includendo il prefisso del nome dell'app Web per il nome utente.
 
@@ -762,4 +761,4 @@ Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un'ap
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

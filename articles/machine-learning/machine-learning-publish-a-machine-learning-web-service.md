@@ -31,7 +31,7 @@ In generale, questo avviene in tre passaggi:
 Dopo aver distribuito il servizio Web, è possibile:
 
 - **[Accedervi]** tramite l'API del servizio Web
-- **[Gestirlo]** tramite il portale di gestione di Azure e
+- **[Gestirlo]** tramite il portale di Azure classico, e
 - **[Aggiornarlo]** se il modello viene modificato
 
 [Creare un esperimento di training]: #create-a-training-experiment
@@ -76,7 +76,7 @@ Per verificare il servizio Web, fare clic sul collegamento **Test** nella scheda
 
 ![Testare il servizio Web](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-Nella scheda **CONFIGURAZIONE** è possibile modificare il nome visualizzato per il servizio e assegnarvi una descrizione. Il nome e la descrizione vengono visualizzati nel portale di gestione di Azure, in cui vengono gestiti i servizi Web. È anche possibile inserire una descrizione dei dati di input e output e dei parametri del servizio Web immettendo una stringa per ciascuna colonna in **SCHEMA INPUT**, **SCHEMA OUTPUT** e **PARAMETRO DEL SERVIZIO WEB**. Queste descrizioni vengono usate nella documentazione del codice di esempio fornita per il servizio Web. È anche possibile abilitare la registrazione per diagnosticare eventuali problemi rilevati durante l'uso del servizio Web.
+Nella scheda **CONFIGURAZIONE** è possibile modificare il nome visualizzato per il servizio e assegnarvi una descrizione. Il nome e la descrizione vengono visualizzati nel portale di Azure classico, in cui vengono gestiti i servizi Web. È anche possibile inserire una descrizione dei dati di input e output e dei parametri del servizio Web immettendo una stringa per ciascuna colonna in **SCHEMA INPUT**, **SCHEMA OUTPUT** e **PARAMETRO DEL SERVIZIO WEB**. Queste descrizioni vengono usate nella documentazione del codice di esempio fornita per il servizio Web. È anche possibile abilitare la registrazione per diagnosticare eventuali problemi rilevati durante l'uso del servizio Web.
 
 Per altre informazioni, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](machine-learning-web-services-logging.md).
 
@@ -92,12 +92,11 @@ Il dashboard offre tutte le informazioni necessarie per accedere al servizio Web
 Per altre informazioni su come accedere a un servizio Web di Machine Learning, vedere [Come usare un servizio Web di Azure Machine Learning distribuito](machine-learning-consume-web-services.md).
 
 
-## Gestire il servizio Web nel portale di gestione di Azure
+## Gestire il servizio Web nel portale di Azure classico
 
-Nel portale di gestione di Azure è possibile gestire i servizi Web facendo clic sul servizio **Machine Learning**, aprendo l'area di lavoro Machine Learning e quindi aprendo il servizio Web dalla scheda **SERVIZI WEB**. Da questa pagina è possibile monitorare il servizio Web, aggiornarlo ed eliminarlo. È anche possibile aggiungere un secondo endpoint per il servizio Web oltre all'endpoint predefinito creato al momento della distribuzione.
+Nel portale di Azure classico è possibile gestire i servizi Web facendo clic sul servizio **Machine Learning**, aprendo l'area di lavoro Machine Learning e quindi aprendo il servizio Web dalla scheda **SERVIZI WEB**. Da questa pagina è possibile monitorare il servizio Web, aggiornarlo ed eliminarlo. È anche possibile aggiungere un secondo endpoint per il servizio Web oltre all'endpoint predefinito creato al momento della distribuzione.
 
-Per altre informazioni, vedere [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md).
-<!-- When this article gets published, fix the link and uncomment
+Per altre informazioni, vedere [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
@@ -112,4 +111,4 @@ Per aggiornare il servizio Web, aprire l'esperimento predittivo originale usato 
 
 Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

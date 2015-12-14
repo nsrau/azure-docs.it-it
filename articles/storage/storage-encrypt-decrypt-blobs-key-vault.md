@@ -167,7 +167,7 @@ Aggiungere il codice seguente per crittografare un BLOB e caricarlo nell'account
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-Di seguito è riportato uno screenshot del portale di Azure corrente relativo a un BLOB che è stato crittografato mediante la crittografia lato client con una chiave archiviata nell'insieme di credenziali delle chiavi. La proprietà **KeyId** è l'URI della chiave nell'insieme di credenziali delle chiavi che funziona come chiave KEK. La proprietà **EncryptedKey** contiene la versione crittografata della chiave CEK.
+Di seguito è riportato uno screenshot del [portale di Azure classico](manage.windowsazure.com) relativo a un BLOB che è stato crittografato mediante la crittografia lato client con una chiave archiviata nell'insieme di credenziali delle chiavi. La proprietà **KeyId** è l'URI della chiave nell'insieme di credenziali delle chiavi che funziona come chiave KEK. La proprietà **EncryptedKey** contiene la versione crittografata della chiave CEK.
 
 ![Screenshot che mostra i metadati BLOB con i metadati di crittografia][1]
 
@@ -235,4 +235,4 @@ Per le informazioni più recenti su Archiviazione di Microsoft Azure, visitare i
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

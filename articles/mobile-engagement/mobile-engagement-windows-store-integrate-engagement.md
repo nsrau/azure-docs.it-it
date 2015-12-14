@@ -90,7 +90,7 @@ Se si desidera specificarla in fase di esecuzione, è possibile chiamare il meto
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-La stringa di connessione per l'applicazione viene visualizzata nel portale di Azure.
+La stringa di connessione per l'applicazione viene visualizzata nel portale di Azure classico.
 
 ### Inizializzazione di Engagement
 
@@ -285,4 +285,4 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

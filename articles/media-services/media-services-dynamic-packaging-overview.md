@@ -60,11 +60,11 @@ Per preparare l'asset per lo streaming dinamico sono disponibili due opzioni:
 Per informazioni su come caricare e codificare asset, vedere gli articoli seguenti:
 
 
-Caricare i file usando il **portale di gestione di Azure**, **.NET** o **API REST**.
+Caricare i file usando il **portale di Azure classico**, **.NET** o **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Codificare con **Azure Media Encoder** tramite il **portale di gestione di Azure**, **.NET** o **API REST**.
+Codificare con **Azure Media Encoder** tramite il **portale di Azure classico**, **.NET** o **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -85,7 +85,7 @@ Configurare i criteri di distribuzione degli asset usando **.NET** o **API REST*
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di gestione di Azure** o **.NET**.
+Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di Azure classico** o **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -105,4 +105,4 @@ I formati di file di origine seguenti non sono supportati dalla creazione dinami
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

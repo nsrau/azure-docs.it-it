@@ -18,6 +18,10 @@
 
 # Caricare immagini nell'archiviazione di Azure da un dispositivo Android
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 Questo argomento illustra come abilitare l'app Android di Servizi mobili di Azure in modo che carichi immagini nell'archiviazione di Azure.
@@ -50,7 +54,7 @@ L'archiviazione delle credenziali necessarie per caricare i dati nel servizio Ar
 ## Esempio di codice
 [Qui](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages)è disponibile la parte di codice sorgente client completo di questa app. Per eseguirlo è necessario completare le parti di back-end di servizi mobili di questa esercitazione.
 
-## Aggiornare lo script insert registrato nel portale di gestione
+## Aggiornare lo script insert registrato nel portale di Azure classico
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
 
@@ -369,7 +373,7 @@ Questo codice invia una richiesta al servizio mobile per inserire un nuovo ogget
 
 4. Premere **Upload**. Si noti che ToDoItem è stato aggiunto all'elenco, come di consueto.
 
-5. Nel portale di Microsoft Azure passare all'account di archiviazione, quindi selezionare la scheda **Contenitori** e premere il nome del contenitore nell'elenco.
+5. Nel portale di Azure classico passare all'account di archiviazione, quindi selezionare la scheda **Contenitori** e premere il nome del contenitore nell'elenco.
 
 6. Verrà visualizzato un elenco di file BLOB caricati. Selezionare un file e premere **Download**.
 
@@ -416,10 +420,10 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 [Riferimento per gli script del server di Servizi mobili]: mobile-services-how-to-use-server-scripts.md
 [Introduzione a Servizi mobili]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

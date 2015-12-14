@@ -94,7 +94,7 @@ Per un esempio pratico completo di un'applicazione del bus di servizio che illus
 
 ## Accesso alle regole di autorizzazione per l'accesso condiviso in uno spazio dei nomi
 
-Per le operazioni nella radice dello spazio dei nomi del bus di servizio è necessaria l'autenticazione tramite certificati. È necessario caricare un certificato di gestione per la sottoscrizione di Azure. Per caricare un certificato di gestione, fare clic su **Impostazioni** nel riquadro a sinistra del portale di Azure. Per altre informazioni su sui certificati di gestione di Azure, vedere [Creare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+Per le operazioni nella radice dello spazio dei nomi del bus di servizio è necessaria l'autenticazione tramite certificati. È necessario caricare un certificato di gestione per la sottoscrizione di Azure. Per caricare un certificato di gestione, fare clic su **Impostazioni** nel riquadro a sinistra del [portale di Azure classico][]. Per altre informazioni sui certificati di gestione di Azure, vedere [Creare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
 
 L'endpoint per l'accesso alle regole di autorizzazione per l'accesso condiviso in uno spazio dei nomi del bus di servizio è il seguente:
 
@@ -143,7 +143,7 @@ https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespa
 
 ## Accesso alle regole di autorizzazione per l'accesso condiviso in un'entità
 
-È possibile accedere a un oggetto [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) configurato in una coda o in un argomento del bus di servizio tramite la raccolta [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) negli oggetti [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) o [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) corrispondenti.
+È possibile accedere a un oggetto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) configurato in una coda o in un argomento del bus di servizio tramite la raccolta [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) negli oggetti [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) o [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) corrispondenti.
 
 Il codice seguente illustra come aggiungere regole di autorizzazione per una coda.
 
@@ -254,6 +254,8 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 
 Per una panoramica generale della firma di accesso condiviso nel bus di servizio, vedere [Firme di accesso condiviso](service-bus-sas-overview.md).
 
-Per altre informazioni sull'autenticazione del bus di servizio, vedere [Autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md).
+Vedere [Autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md) per altre informazioni sull’autenticazione del bus di servizio.
 
-<!---HONumber=Oct15_HO3-->
+[portale di Azure classico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

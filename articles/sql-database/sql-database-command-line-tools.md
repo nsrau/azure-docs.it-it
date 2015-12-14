@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="sstein; vinsonyu"/>
+	ms.date="12/01/2015" 
+	ms.author="sstein"/>
 
 # Gestire il database SQL di Azure con PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -36,7 +36,7 @@ Per eseguire i cmdlet di PowerShell, è necessario disporre di Azure PowerShell 
 
 ## Configurazione delle credenziali
 
-Per eseguire i cmdlet PowerShell nella sottoscrizione di Azure, è necessario innanzitutto stabilire l'accesso al proprio account Azure. Eseguire le operazioni seguenti e verrà visualizzata una schermata di accesso per immettere le credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
+Per eseguire i cmdlet PowerShell nella sottoscrizione di Azure, è necessario innanzitutto stabilire l'accesso al proprio account Azure. Eseguire le operazioni seguenti e verrà visualizzata una schermata di accesso per immettere le credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure classico.
 
 	Add-AzureAccount
 
@@ -115,7 +115,7 @@ Per creare un database, utilizzare il comando [New-AzureRMSqlDatabase](https://m
 Se si prevede di creare nuovamente queste risorse SQL di Azure o risorse simili, è possibile:
 
 - Salvare il codice come file di script di PowerShell (*.ps1).
-- Salvare il codice come runbook di Automazione di Azure nella sezione Automazione del portale di gestione di Azure. 
+- Salvare il codice come runbook di Automazione di Azure nella sezione Automazione del portale di Azure classico. 
 
 ## Passaggi successivi
 
@@ -131,4 +131,4 @@ Combinare i comandi e automatizzare. Ad esempio, sostituire tutto ciò che si tr
 
 - [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

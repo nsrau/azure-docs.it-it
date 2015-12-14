@@ -34,7 +34,7 @@ Nella prima sezione 'Passaggi di base' vengono elencati i passaggi per risolvere
 
 Questi passaggi di base aiutano a risolvere la maggior parte dei problemi comuni di connessione nelle macchine virtuali create con il modello di distribuzione classica: Dopo l'esecuzione di ciascun passaggio tentare la riconnessione alla macchina virtuale.
 
-- Reimpostare il servizio Desktop remoto dal [portale di anteprima di Azure](https://portal.azure.com) per risolvere i problemi di avvio con il server RDP.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale Windows > **Reimposta accesso remoto**.
+- Reimpostare il servizio Desktop remoto dal [portale di Azure](https://portal.azure.com) per risolvere i problemi di avvio con il server RDP.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale Windows > **Reimposta accesso remoto**.
 
     ![Schermata che mostra la reimpostazione della configurazione RDP](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -169,4 +169,4 @@ Se nessuno di questi errori si è verificato ed è ancora impossibile connetters
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

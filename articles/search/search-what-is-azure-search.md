@@ -29,7 +29,7 @@ La Ricerca di Azure è un servizio basato su API per gli sviluppatori e integrat
 
 La Ricerca di Azure è un [servizio PaaS](https://wikipedia.org/wiki/Platform_as_a_service) che delega la gestione di server e dell'infrastruttura a Microsoft, offrendo un servizio pronto per l'uso che consente di inserire i dati di ricerca e quindi accedere dall'applicazione. A seconda della configurazione del servizio, si utilizzerà il servizio gratuito condiviso con altri sottoscrittori Ricerca di Azure o il livello del prezzo Standard che offre risorse dedicate utilizzate solo dal servizio. La Ricerca standard è scalabile, con le opzioni per soddisfare le esigenze di maggiore per l'archiviazione o query carica.
 
-La Ricerca di Azure permette di archiviare dati in un indice e può essere effettuata la ricerca le query full-text. Lo schema di questi indici può essere creato nel portale di Azure o a livello di codice utilizzando la libreria client o l'API REST. Una volta definito lo schema, è quindi possibile caricare i dati al servizio di Ricerca di Azure dove sono successivamente indicizzati.
+La Ricerca di Azure permette di archiviare dati in un indice e può essere effettuata la ricerca le query full-text. Lo schema di questi indici può essere creato nel portale di Azure classico o a livello di codice utilizzando la libreria client o l'API REST. Una volta definito lo schema, è quindi possibile caricare i dati al servizio di Ricerca di Azure dove sono successivamente indicizzati.
 
 È possibile utilizzare push o pull modelli per caricare i dati dell'indice. Il modello pull è fornito tramite gli indicizzatori che possono essere configurati su richiesta o con aggiornamenti pianificati (vedere [operazioni indicizzatore (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), permettendo di acquisire facilmente dati ed i cambiamenti dei dati da un DocumentDB di Azure, Database SQL di Azure o SQL Server ospitato in una macchina virtuale di Azure VM. Il modello push viene fornito tramite il SDK o l'API REST per l'invio di documenti aggiornati a un indice. È possibile inserire dati da qualsiasi set di dati, purché in formato JSON. Vedere [Aggiungi, aggiorna o cancella documenti](https://msdn.microsoft.com/library/azure/dn798930.aspx) o [come utilizzare il SDK di .NET)](search-howto-dotnet-sdk.md) per informazioni sul caricamento dei dati.
 
@@ -131,4 +131,4 @@ Visitare [creare un servizio di ricerca di Azure](search-create-service-portal.m
 
 [Come utilizzare la Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) [iniziare a utilizzare Ricerca di Azure .NET](search-get-started-dotnet.md) [Ricerca di Azure: esempi di esercitazioni e demo video](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

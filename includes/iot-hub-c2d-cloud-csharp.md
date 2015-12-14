@@ -18,7 +18,7 @@ In questa sezione si scriverà un'app console di Windows che invia messaggi da c
 
 		using Microsoft.Azure.Devices;
 
-5. Aggiungere i campi seguenti per la classe **Program**, sostituendo i valori dei segnaposto con il nome dell'hub IoT e la stringa di connessione dell’hub IoT da [Introduzione all’hub IoT]\:
+5. Aggiungere i campi seguenti per la classe **Program**, sostituendo il valore del segnaposto con la stringa di connessione dell’hub IoT da [Introduzione all’hub IoT]\:
 
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -50,7 +50,7 @@ In questa sezione si scriverà un'app console di Windows che invia messaggi da c
     ![][21]
 
 ## Ricevere feedback di recapito
-È possibile richiedere la conferma della ricezione (o della scadenza) dall’hub IoT per ogni messaggio da cloud a dispositivo. In questo modo il back-end cloud informa facilmente la logica di ripetizione o di compensazione. Vedere la [Guida per sviluppatori di hub IoT][IoT Hub Developer Guide - C2D] per ulteriori informazioni sui feedback da cloud a dispositivo.
+È possibile richiedere la conferma della ricezione (o della scadenza) dall’hub IoT per ogni messaggio da cloud a dispositivo. In questo modo il back-end cloud informa facilmente la logica di ripetizione o di compensazione. Fare riferimento alla [Guida per sviluppatori di hub IoT][IoT Hub Developer Guide - C2D] per ulteriori informazioni sui feedback da cloud a dispositivo.
 
 In questa sezione si modificherà l’app **SendCloudToDevice** per richiedere feedback e riceverli dall’hub IoT.
 
@@ -102,4 +102,4 @@ In questa sezione si modificherà l’app **SendCloudToDevice** per richiedere f
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

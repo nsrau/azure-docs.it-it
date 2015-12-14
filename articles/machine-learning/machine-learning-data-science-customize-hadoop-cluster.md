@@ -29,7 +29,7 @@ Questa personalizzazione rende molti moduli Python comuni inclusi in Anaconda fa
 
 ## <a name="customize"></a>Personalizzare i cluster Hadoop di Azure HDInsight
 
-Per creare un cluster Hadoop di HDInsight personalizzato, gli utenti devono accedere al [**portale di gestione di Azure**](https://manage.windowsazure.com/), fare clic su **Nuovo** nell'angolo inferiore sinistro, quindi selezionare SERVIZI DATI -> HDINSIGHT -> **CREAZIONE PERSONALIZZATA** per visualizzare la finestra **Dettagli cluster**.
+Per creare un cluster Hadoop di HDInsight personalizzato, gli utenti devono accedere al [**portale di Azure classico**](https://manage.windowsazure.com/), fare clic su **Nuovo** nell'angolo inferiore sinistro, quindi selezionare SERVIZI DATI -> HDINSIGHT -> **CREAZIONE PERSONALIZZATA** per visualizzare la finestra **Dettagli cluster**.
 
 ![Creare un'area di lavoro][1]
 
@@ -68,7 +68,7 @@ Infine, fare clic sul segno di spunta per avviare la creazione del cluster Hadoo
 
 Gli utenti devono abilitare l'accesso remoto al cluster Hadoop in Azure prima di poter accedere al nodo head del cluster Hadoop tramite RDP.
 
-1. Accedere al [**portale di gestione di Azure**](https://manage.windowsazure.com/), selezionare **HDInsight** a sinistra, selezionare il cluster Hadoop nell'elenco dei cluster, fare clic sulla scheda **CONFIGURAZIONE** e quindi fare clic sull'icona **ABILITA MODALITÀ REMOTA** nella parte inferiore della pagina.
+1. Accedere al [**portale di Azure classico**](https://manage.windowsazure.com/), selezionare **HDInsight** a sinistra, selezionare il cluster Hadoop nell'elenco dei cluster, fare clic sulla scheda **CONFIGURAZIONE** e quindi fare clic sull'icona **ABILITA MODALITÀ REMOTA** nella parte inferiore della pagina.
 	
 	![Creare un'area di lavoro][7]
 
@@ -102,4 +102,4 @@ Vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di anali
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

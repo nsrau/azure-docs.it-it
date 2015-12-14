@@ -18,7 +18,7 @@
 
 
 # Gestire un'area di lavoro di Azure Machine Learning
-Tramite il portale di gestione di Azure è possibile gestire le aree di lavoro di Machine Learning per:
+Tramite il portale di Azure classico, è possibile gestire le aree di lavoro di Machine Learning per:
 
 - Monitorare la modalità d'uso dell'area di lavoro.
 - Configurare l'area di lavoro per consentire o negare l'accesso.
@@ -34,7 +34,7 @@ Nella scheda Dashboard viene inoltre fornita una panoramica dell'utilizzo dell'a
 Per gestire un'area di lavoro:
 
 1.	Accedere all'account Microsoft Azure, usando l'account associato alla sottoscrizione di Azure.
-2.	Nel [portale di gestione di Azure](https://manage.windowsazure.com/) nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
+2.	Nel [portale di Azure classico](https://manage.windowsazure.com/) nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
 3.	Fare clic sull'area di lavoro da gestire.
 
 La pagina dell'area di lavoro contiene tre schede:
@@ -54,7 +54,7 @@ Dal dashboard è possibile visualizzare l'utilizzo complessivo dell'area di lavo
 - **Usage overview** mostra l'archiviazione di Azure attualmente in uso nell'area di lavoro.
 - **Quick glance** visualizza un riepilogo delle informazioni dell'area di lavoro e collegamenti utili.
 
-> [AZURE.NOTE]Il link all’**Accesso a ML Studio** consente di aprire Machine Learning Studio usando l'account Microsoft con cui è stato eseguito l'accesso. L'account Microsoft usato per accedere al portale di Azure per creare un'area di lavoro non è automaticamente autorizzato ad aprire quell'area di lavoro. Per aprire un'area di lavoro, è necessario essere connessi con l'account Microsoft definito come proprietario dell'area di lavoro oppure ricevere un invito dal proprietario per partecipare all'area di lavoro.
+> [AZURE.NOTE]Il link all’**Accesso a ML Studio** consente di aprire Machine Learning Studio usando l'account Microsoft con cui è stato eseguito l'accesso. L'account Microsoft usato per accedere al portale di Azure classico per creare un'area di lavoro non è automaticamente autorizzato ad aprire quell'area di lavoro. Per aprire un'area di lavoro, è necessario essere connessi con l'account Microsoft definito come proprietario dell'area di lavoro oppure ricevere un invito dal proprietario per partecipare all'area di lavoro.
 
 
 ## Per concedere o sospendere l'accesso agli utenti ##
@@ -94,4 +94,4 @@ Fare clic sulla scheda **CONFIGURA** per modificare la descrizione, controllare 
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

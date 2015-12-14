@@ -134,9 +134,9 @@ Se sono stati ricevuti più codici di verifica, occorre notare che funzioneranno
 Se si è configurato un telefono di backup, è consigliabile riprovare selezionando tale telefono quando richiesto nella pagina di accesso. Se non sono stati configurati altri metodi, contattare l'amministratore e richiedere la cancellazione delle impostazioni. All'accesso successivo verrà quindi richiesto di ripetere la [configurazione dell'autenticazione a più fattori](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
 ##Le password dell'app non funzionano
-Assicurarsi prima di tutto di avere immesso correttamente la password dell'app. Se non funziona ancora, provare ad accedere e [creare una nuova password per l'app](multi-factor-authentication-end-user-app-passwords). Se il problema persiste, contattare l'amministratore e richiedere l'[eliminazione delle password esistenti per l'app](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords), quindi creare una nuova password e usarla.
+Assicurarsi prima di tutto di avere immesso correttamente la password dell'app. Se non funziona ancora, provare ad accedere e [creare una nuova password per l'app](multi-factor-authentication-end-user-app-passwords.md). Se il problema persiste, contattare l'amministratore e richiedere l'[eliminazione delle password esistenti per l'app](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords), quindi creare una nuova password e usarla.
 
 ##Come si rimuove Azure Authenticator dal dispositivo precedente per passare a un nuovo dispositivo?
 Quando si disinstalla l'app dal dispositivo o si sovrascrive la memoria del dispositivo, l'attivazione sul back-end non verrà rimossa. È consigliabile eseguire i passaggi illustrati nella sezione relativa allo [spostamento in un nuovo dispositivo](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

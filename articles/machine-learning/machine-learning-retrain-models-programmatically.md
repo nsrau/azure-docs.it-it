@@ -61,7 +61,7 @@ Diagramma 1: panoramica del processo di ripetizione del training
 	![][4]
 
 	Fare clic sul pulsante Publish Web Service e quindi su Yes. L'esperimento di training verrà pubblicato come un servizio Web che produce un modello con training e risultati di valutazione del modello. Verrà visualizzato il dashboard del servizio Web con la chiave API e la pagina della guida dell'API per Esecuzione batch. Si noti che è possibile usare solo il metodo Esecuzione batch per la creazione di modelli di training.  
-4. *Aggiungere un nuovo Endpoint* Il servizio Web di assegnazione dei punteggi pubblicato nel precedente passaggio 2 è stato creato con un endpoint predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, pertanto un modello con training dell'endpoint predefinito non può essere sostituito. Per creare un endpoint aggiornabile, visitare il portale di Azure e fare clic su Aggiungi endpoint (altri dettagli sono disponibili [qui](machine-learning-create-endpoint.md)).
+4. *Aggiungere un nuovo Endpoint* Il servizio Web di assegnazione dei punteggi pubblicato nel precedente passaggio 2 è stato creato con un endpoint predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, pertanto un modello con training dell'endpoint predefinito non può essere sostituito. Per creare un endpoint aggiornabile, visitare il portale di Azure classico e fare clic su Aggiungi endpoint (altri dettagli sono disponibili [qui](machine-learning-create-endpoint.md)).
 
 5. *Ripetere il training del modello con nuovi dati e con il servizio Esecuzione batch* Per chiamare le API per la ripetizione del training, creare una nuova applicazione console C# in Visual Studio (Nuovo->Progetto->Windows Desktop->Applicazione console).
 
@@ -84,7 +84,7 @@ Diagramma 1: panoramica del processo di ripetizione del training
 	```
 	1. Specificare informazioni sull'archiviazione di Azure. Il codice di esempio per il servizio Esecuzione batch caricherà un file da un'unità locale (ad esempio "C:\\temp\\CensusIpnput.csv") in Archiviazione di Azure, lo elaborerà e scriverà i risultati in Archiviazione di Azure.  
 
-		A tale scopo, è necessario recuperare il nome dell'account di archiviazione, la chiave e le informazioni relative al contenitore dal portale di gestione di Azure e quindi aggiornare qui il codice. È necessario anche assicurarsi che il file di input sia disponibile nella posizione specificata nel codice.
+		A tale scopo, è necessario recuperare il nome dell'account di archiviazione, la chiave e le informazioni relative al contenitore dal portale di Azure classico e quindi aggiornare qui il codice. È necessario anche assicurarsi che il file di input sia disponibile nella posizione specificata nel codice.
 
 		Questo esperimento di training è stato impostato con due output, in modo che i risultati includano le informazioni sul percorso di archiviazione per entrambi, come indicato di seguito. "output1" è l'output del modello con training e "output2" è l'output del modello di valutazione. Si noti inoltre che l'estensione di file dell'output per il modello con training (Output1) è ".ilearner" e non ".csv".
 
@@ -156,4 +156,4 @@ Mediante le API per la ripetizione del training è possibile aggiornare il model
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

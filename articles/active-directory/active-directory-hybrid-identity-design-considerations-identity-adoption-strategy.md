@@ -39,7 +39,7 @@ Gli scenari definiti nella figura precedente sono:
 - **Identità sincronizzate**: si tratta di identità che esistono sia in locale che nel cloud. Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti. L'hash della password dell'utente viene sincronizzato dall'ambiente locale al cloud in ciò che viene chiamato un hash della password. Lo svantaggio di questa soluzione è che se un utente viene disabilitato nell'ambiente locale, la visualizzazione dello stato dell'account aggiornato in Azure AD può richiedere fino a 3 ore. Questo è dovuto all'intervallo di tempo del processo di sincronizzazione.
 - **Identità federate**: si tratta di identità che esistono sia in locale che nel cloud. Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti.  
  
->[AZURE.NOTE]Per altre informazioni sulle opzioni di sincronizzazione, vedere [Integrazione delle identità locali con Azure Active Directory](https://azure.microsoft.com/it-IT/documentation/articles/active-directory-aadconnect/).
+>[AZURE.NOTE]Per altre informazioni sulle opzioni di sincronizzazione, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
 La tabella seguente consente di determinare i vantaggi e gli svantaggi di ognuna delle strategie seguenti:
 
@@ -114,7 +114,7 @@ In questo caso, se le affermazioni seguenti sono vere, sarà necessario valutare
 - Se non è presente una cassetta postale per l'utente, è possibile usare qualsiasi foresta per recuperare questi valori
 - Se è disponibile una cassetta postale collegata, è presente anche un altro account in una foresta diversa usato per l'accesso.
 
->[AZURE.NOTE]Gli oggetti presenti sia in locale sia nel cloud sono "connessi" tramite un identificatore univoco. Nel contesto della sincronizzazione della directory questo identificatore univoco viene indicato come SourceAnchor. Nel contesto del servizio Single Sign-On invece questo identificatore viene indicato come ImmutableId. Per altre considerazioni sull'uso dell'attributo SourceAnchor, vedere [Concetti di progettazione per Azure AD Connect](https://azure.microsoft.com/it-IT/documentation/articles/active-directory-aadconnect-design-concepts/#sourceanchor).
+>[AZURE.NOTE]Gli oggetti presenti sia in locale sia nel cloud sono "connessi" tramite un identificatore univoco. Nel contesto della sincronizzazione della directory questo identificatore univoco viene indicato come SourceAnchor. Nel contesto del servizio Single Sign-On invece questo identificatore viene indicato come ImmutableId. Per altre considerazioni sull'uso dell'attributo SourceAnchor, vedere [Concetti di progettazione per Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 Se le affermazioni precedenti non sono vere e sono presenti più account attivi o più cassette postali, Azure AD Connect selezionerà un account o una cassetta postale e ignorerà gli altri. Se sono presenti cassette postali collegate ma non sono presenti altri account, gli account non verranno esportati in Azure AD e l'utente non sarà membro di alcun gruppo. Questo comportamento è diverso da quanto accadeva in passato con DirSync ed è intenzionale, al fine di garantire un supporto migliore degli scenari con più foreste. La figura seguente mostra uno scenario con più foreste.
  
@@ -176,7 +176,7 @@ Anche se è già stata scelta una soluzione per la strategia, è comunque necess
 | Azure AD e Active Directory locale con Azure AD Connect, con sincronizzazione delle password | Entrambi |
 | Active Directory locale | Server Multi-Factor Authentication |
 
->[AZURE.NOTE]È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste. Per altre informazioni, vedere [Scegliere la soluzione di sicurezza a più fattori più adatta](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure).
+>[AZURE.NOTE]È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste. Per altre informazioni, leggere [Scegliere la soluzione di sicurezza a più fattori più adatta](../multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
 
 ## Provider di Multi-Factor Authentication
 La modalità Multi-Factor Authentication è disponibile per impostazione predefinita per gli amministratori globali che dispongono di un tenant Azure Active Directory. Tuttavia, se si intende estendere l'autenticazione a più fattori a tutti gli utenti e/o si vuole consentire agli amministratori globali di sfruttare i vantaggi offerti da funzionalità quali il portale di gestione, i messaggi di saluto personalizzati e i report, sarà necessario acquistare e configurare un provider Multi-Factor Authentication.
@@ -187,6 +187,6 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 [Determinare i requisiti di protezione dati](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## Vedere anche
-[Panoramica delle considerazioni sulla progettazione]((active-directory-hybrid-identity-design-considerations-overview.md)
+[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

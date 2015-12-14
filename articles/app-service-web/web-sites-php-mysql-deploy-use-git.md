@@ -31,7 +31,7 @@ In questa esercitazione viene illustrato come creare un'app Web PHP-MySQL e come
 
 Si acquisiranno le nozioni seguenti:
 
-* Creare un'app Web e un database MySQL mediante il [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Poiché PHP è abilitato nelle [app Web di Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) per impostazione predefinita, non è necessario effettuare operazioni particolari per eseguire il codice PHP.
+* Creare un'app Web e un database MySQL mediante il [portale di Azure](https://portal.azure.com). Poiché PHP è abilitato nelle [app Web di Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) per impostazione predefinita, non è necessario effettuare operazioni particolari per eseguire il codice PHP.
 * Pubblicare e ripubblicare l'applicazione in Azure tramite Git.
 
 Seguendo questa esercitazione, verrà creata una semplice app Web di registrazione in PHP, che verrà ospitata nelle app Web. Di seguito è riportata una schermata dell'applicazione completata:
@@ -153,7 +153,7 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 		<?php
 			// DB connection info
 			//TODO: Update the values for $host, $user, $pwd, and $db
-			//using the values you retrieved earlier from the portal.
+			//using the values you retrieved earlier from the Azure Portal.
 			$host = "value of Data Source";
 			$user = "value of User Id";
 			$pwd = "value of Password";
@@ -220,9 +220,9 @@ A questo punto è possibile passare a ****http://localhost:8000/** per testare l
 
 Dopo aver testato l'app in locale, è possibile pubblicarla su App Web tramite Git. Inizializzare l'archivio Git locale e pubblicare l'applicazione.
 
-> [AZURE.NOTE]Questi passaggi sono uguali a quelli illustrati nel portale alla fine della precedente sezione Creare un'app Web e configurare la pubblicazione Git.
+> [AZURE.NOTE]Questi passaggi sono uguali a quelli illustrati nel portale di Azure alla fine della precedente sezione Creare un'app Web e configurare la pubblicazione Git.
 
-1. (Facoltativo) Se l'URL del repisitory remoto Git è stato dimenticato o smarrito, passare alle proprietà dell'app Web nel portale.
+1. (Facoltativo) Se l'URL del repository remoto Git è stato dimenticato o smarrito, passare alle proprietà dell'app Web nel portale di Azure.
 
 1. Aprire GitBash (o un terminale, se Git si trova in `PATH`), passare alla directory radice dell'applicazione ed eseguire i comandi seguenti:
 
@@ -269,7 +269,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
@@ -303,4 +302,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

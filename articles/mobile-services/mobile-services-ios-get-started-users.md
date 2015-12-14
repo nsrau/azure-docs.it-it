@@ -18,11 +18,16 @@
 
 # Aggiungere l'autenticazione a un'app esistente
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 Questa esercitazione consente di aggiungere l'autenticazione all’[esercitazione Guida introduttiva per Servizi mobili] tramite un provider di identità supportato.
 
-È consigliabile completare prima di tutto l'[Esercitazione Guida introduttiva per Servizi mobili]. In alternativa scaricare semplicemente il progetto iOS di avvio rapido: fare clic sul portale di Azure > **Servizi mobili** > servizio mobile personalizzato > l'accesso cloud in alto a sinistra > **iOS** > **Crea una nuova app iOS** > **Scaricare ed eseguire l'applicazione** > **Objective-C** > **Scarica**. Fare clic su **Crea tabella TodoItem** prima di fare clic su **Scarica**, se la tabella non è ancora stata creata.
+È consigliabile completare prima di tutto l'[Esercitazione Guida introduttiva per Servizi mobili]. In alternativa scaricare semplicemente il progetto iOS di avvio rapido dal [portale di Azure classico], fare clic su **Servizi mobili** > servizio mobile personalizzato > l'accesso cloud in alto a sinistra > **iOS** > **Crea una nuova app iOS** > **Scaricare ed eseguire l'applicazione** > **Objective-C** > **Scarica**. Fare clic su **Crea tabella TodoItem** prima di fare clic su **Scarica**, se la tabella non è ancora stata creata.
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione
 
@@ -82,6 +87,6 @@ Quindi, leggere le informazioni su [come utilizzare il valore dell'ID utente per
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

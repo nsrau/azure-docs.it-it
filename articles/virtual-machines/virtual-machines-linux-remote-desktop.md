@@ -106,7 +106,7 @@ Riavviare il servizio xrdp, usare:
 
 
 ##Connettersi alla macchina virtuale Linux da un computer Windows
-In un computer Windows avviare il client desktop remoto, immettere il nome DNS della macchina virtuale Linux oppure passare al `Dashboard` della macchina virtuale nel portale di Azure e fare clic su `Connect` per connettere la macchina virtuale Linux, verrà visualizzata la finestra di accesso seguente:
+In un computer Windows avviare il client desktop remoto, immettere il nome DNS della VM Linux oppure passare al `Dashboard` della VM nel portale di Azure classico e fare clic su `Connect` per connettere la VM Linux, verrà visualizzata la finestra di accesso seguente:
 
 ![immagine](./media/virtual-machines-linux-remote-desktop/no2.png)
 
@@ -116,4 +116,4 @@ Accedere con `user` e `password` per la macchina Linux e sarà possibile usare s
 ##Avanti
 Per altre informazioni sull'uso di xrdp, vedere [questa pagina](http://www.xrdp.org/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

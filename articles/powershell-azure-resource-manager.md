@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tomfitz"/>
 
 # Uso di Azure PowerShell con Gestione risorse di Azure
@@ -34,9 +34,7 @@ Per completare questa esercitazione, sono necessari:
   + È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web. La carta di credito non verrà mai addebitata, a meno l'utente non modifichi le impostazioni e che richieda esplicitamente di essere addebitato.
   
   + È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
-- Azure PowerShell
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+- Azure PowerShell 1.0. Per informazioni su questa versione e su come installarla, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Questa esercitazione è stata ideata per gli utenti di Windows PowerShell non esperti, ma presuppone che si conoscano i concetti di base, quali moduli, cmdlet e sessioni. Per altre informazioni su Windows PowerShell, vedere [Introduzione a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -83,7 +81,7 @@ Per informazioni complete per un cmdlet, digitare un comando con il formato segu
 
 Prima di usare la soluzione, è necessario accedere al proprio account.
 
-Per accedere al proprio account Azure, usare il cmdlet **Login-AzureRmAccount**. Nelle versioni di Azure PowerShell precedenti alla 1.0 Preview usare il comando **Add-AzureAccount**.
+Per accedere al proprio account Azure, usare il cmdlet **Login-AzureRmAccount**.
 
     PS C:\> Login-AzureRmAccount
 
@@ -95,7 +93,7 @@ Le impostazioni dell'account hanno una scadenza, quindi è necessario aggiornarl
 
 ## Recuperare la posizione dei tipi di risorsa
 
-Quando si distribuisce una risorsa, è necessario specificare dove ospitarla. Non tutte le aree supportano ogni tipo di risorsa. Prima di distribuire l'app Web e il database SQL, è necessario sapere quali aree supportano tali tipi. Anche se un gruppo di risorse può contenere risorse che si trovano in aree diverse, quando è possibile, è consigliabile creare le risorse nella stessa posizione per ottimizzare le prestazioni. In particolare, è possibile assicurarsi che il database si trovi nello stesso percorso dell'applicazione che effettua l'accesso.
+Quando si distribuisce una risorsa, è necessario specificare dove ospitarla. Non tutte le aree supportano ogni tipo di risorsa. Prima di distribuire l'app Web e il database SQL, è necessario sapere quali aree supportano tali tipi. Anche se un gruppo di risorse può contenere risorse che si trovano in aree diverse, quando è possibile, è consigliabile creare le risorse nella stessa posizione per ottimizzare le prestazioni. In particolare, è consigliabile assicurarsi che il database si trovi nello stesso percorso dell'applicazione che esegue l'accesso.
 
 Per recuperare le posizioni che supportano ciascun tipo di risorsa, sarà necessario usare il cmdlet **Get-AzureRmResourceProvider**. Prima di tutto, ecco che cosa restituisce questo comando:
 
@@ -214,7 +212,7 @@ Per il database, verrà visualizzato:
 
 ## Creare il modello
 
-Questo argomento non spiega come creare il modello e non ne illustra la struttura. Per queste informazioni, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). Il modello che si distribuirà è riportato di seguito. Si noti che il modello usa le versioni dell'API recuperate nella sezione precedente. Per assicurarsi che tutte le risorse si trovino nella stessa area, viene usata l'espressione modello **resourceGroup().location** per usare la posizione del gruppo di risorse.
+Questo argomento non spiega come creare il modello e non ne illustra la struttura. Per queste informazioni, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). Il modello che si distribuirà è riportato di seguito. Si noti che il modello usa le versioni dell'API recuperate nella sezione precedente. Per assicurarsi che tutte le risorse si trovino nella stessa area, viene usata l'espressione del modello **resourceGroup().location** per usare la posizione del gruppo di risorse.
 
 Si noti anche la sezione dei parametri. Questa sezione definisce i valori che è possibile specificare quando si distribuiscono le risorse. Questi valori verranno usati più avanti nell'esercitazione.
 
@@ -382,7 +380,7 @@ In pochi passaggi, sono state create e distribuite le risorse necessarie per un 
 
 Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo di Gestione risorse per gestire i gruppi di risorse.
 
-- Per ottenere i gruppi di risorse della propria sottoscrizione, usare il cmdlet **Get-AzureRmResourceGroup**:
+- Per ottenere tutti i gruppi di risorse della propria sottoscrizione, usare il cmdlet **Get-AzureRmResourceGroup**:
 
 		PS C:\>Get-AzureRmResourceGroup
 
@@ -394,9 +392,9 @@ Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo d
 		
 		...
 
-- Per ottenere le risorse del gruppo di risorse, usare il cmdlet **Get-AzureRmResource** e il relativo parametro ResourceGroupName. Senza parametri, Get-AzureRmResource recupera tutte le risorse della sottoscrizione di Azure.
+- Per ottenere le risorse nel gruppo di risorse, usare il cmdlet **Find-AzureRmResource** e il relativo parametro **ResourceGroupNameContains**. Senza parametri, Find-AzureRmResource recupera tutte le risorse nella sottoscrizione di Azure.
 
-		PS C:\> Get-AzureRmResource -ResourceGroupName TestRG1
+		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
 		Name              : exampleserver
                 ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
@@ -416,7 +414,7 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 
 ## Spostare una risorsa
 
-È possibile spostare le risorse esistenti in un nuovo gruppo di risorse. Per esempi, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
+È possibile spostare le risorse esistenti in un nuovo gruppo di risorse. Per esempi, vedere [Spostare le risorse in un gruppo di risorse o in una sottoscrizione nuovi](resource-group-move-resources.md).
 
 ## Eliminare un gruppo di risorse
 
@@ -438,9 +436,9 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 
 ## Passaggi successivi
 
-- Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
+- Per altre informazioni sulla creazione di modelli di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
 - Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](./resource-group-template-deploy.md).
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per altre informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

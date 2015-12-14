@@ -28,7 +28,7 @@ Seguire questa guida dettagliata e in caso di problemi inserire commenti alla fi
 
 ## Creare una rete virtuale
 
-È possibile creare una rete virtuale in Azure usando il portale di Azure o Powershell. Per questa esercitazione verrà usato Powershell. Per creare una rete virtuale usando il portale di Azure, vedere [Creare una rete virtuale](../create-virtual-network.md)
+È possibile creare una rete virtuale in Azure usando il portale di Azure classico o Powershell. Per questa esercitazione verrà usato Powershell. Per creare una rete virtuale usando il portale di Azure classico, vedere [Creare una rete virtuale](../create-virtual-network.md)
 
     #Create Virtual Network
 
@@ -147,4 +147,4 @@ I servizi cloud dovrebbero essere stati aggiunti al controller di dominio person
 Ci auguriamo che questa guida sia risultata utile.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

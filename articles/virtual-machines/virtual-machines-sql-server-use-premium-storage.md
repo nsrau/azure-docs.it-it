@@ -149,7 +149,7 @@ Una volta eseguito il mapping dei dischi rigidi virtuali ai dischi fisici nei po
 
 Le prestazioni dell’archiviazione dipendono dalle dimensioni della macchina virtuale DS* specificate e della dimensioni del disco rigido virtuale. Le macchine virtuali hanno quote diverse per il numero di dischi rigidi virtuali che possono essere collegati e la larghezza di banda massima che supporteranno (MB/s). Per i numeri di larghezza di banda specifici, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](virtual-machines-size-specs.md).
 
-Input/output al secondo maggiori si ottengono con dimensioni del disco maggiori. Tenere conto di questa considerazione quando si decide il percorso di migrazione. Per informazioni dettagliate, [vedere la tabella per i tipi di disco e input/output al secondo](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whIT-ITing-premium-storage).
+Input/output al secondo maggiori si ottengono con dimensioni del disco maggiori. Tenere conto di questa considerazione quando si decide il percorso di migrazione. Per informazioni dettagliate, [vedere la tabella per i tipi di disco e input/output al secondo](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-ITing-premium-storage).
 
 Infine, tenere presente che le macchine virtuali supporteranno larghezza di banda massime diverse per tutti i dischi collegati. Con un carico elevato si potrebbe saturare la larghezza di banda su disco massima disponibile per le dimensioni del ruolo di macchina virtuale. Ad esempio, Standard\_DS14 supporterà fino a 512 MB/s. Pertanto, con tre dischi P30 si potrebbe saturare la larghezza di banda del disco della macchina virtuale. In questo esempio, tuttavia, il limite di velocità effettiva potrebbe essere superato a seconda della combinazione di I/O di lettura e scrittura.
 
@@ -380,7 +380,7 @@ Sono disponibili due strategie per eseguire la migrazione delle distribuzioni di
 1. **Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn**
 1. **Eseguire la migrazione a un nuovo cluster di AlwaysOn**
 
-#### 1. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
+#### 1\. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
 
 Una strategia consiste nell'aggiungere ulteriori repliche secondarie al gruppo di disponibilità AlwaysOn. È necessario aggiungere questi elementi in un nuovo servizio cloud e aggiornare il listener con il nuovo IP del servizio di bilanciamento carico.
 
@@ -402,7 +402,7 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 1. Copiare i backup completi e ripristinare con **NORECOVERY**.
 1. Copiare gli oggetti dipendenti esterni al database utente, ad esempio nomi di accesso e così via.
 1. Crea un nuovo servizio di carico bilanciamento interno (ILB) oppure utilizzare un servizio di bilanciamento del carico esterno (ELB) e quindi impostare gli endpoint con bilanciamento del carico in entrambi i nodi nuovi.
-> [AZURE.NOTE] Prima di continuare, verificare che tutti i nodi abbiano la configurazione dell'endpoint corretta
+> [AZURE.NOTE]Prima di continuare, verificare che tutti i nodi abbiano la configurazione dell'endpoint corretta
 
 1. Impedire all'utente/applicazione l’accesso a SQL Server (se si utilizzano pool di archiviazione).
 1. Arrestare i servizi motore di SQL Server in tutti i nodi (se si utilizzano il pool di archiviazione).
@@ -427,7 +427,7 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 - Il tempo di trasferimento dei dati SQL potrebbe essere molto lungo durante la configurazione di repliche secondarie.
 - Esiste un costo aggiuntivo durante la migrazione mentre le nuove macchine vengono eseguite in parallelo.
 
-#### 2. Eseguire la migrazione a un nuovo cluster di AlwaysOn
+#### 2\. Eseguire la migrazione a un nuovo cluster di AlwaysOn
 
 Un'altra strategia consiste nel creare un nuovo cluster AlwaysOn con nuovi nodi nel nuovo servizio cloud e quindi reindirizzare i client per poterlo utilizzare.
 
@@ -458,7 +458,7 @@ Sono disponibili due strategie per la migrazione delle distribuzioni di AlwaysOn
 1. **Utilizzare una replica secondaria esistente: singolo sito**
 1. **Utilizzare repliche secondarie esistenti: multisito**
 
-#### 1. Utilizzare una replica secondaria esistente: singolo sito
+#### 1\. Utilizzare una replica secondaria esistente: singolo sito
 
 Una strategia per il tempo di inattività minimo consiste nel rimuovere una replica secondaria del cloud esistente dal servizio cloud corrente. Successivamente si copiano i dischi rigidi virtuali nel nuovo account di Archiviazione Premium e si crea la macchina virtuale nel nuovo servizio cloud. A questo punto, si aggiorna il listener in clustering e failover.
 
@@ -504,7 +504,7 @@ In questo documento non viene illustrato un esempio end-to-end completo. In [App
 - Se si utilizzano i passaggi 5ii, aggiungere SQL1 come possibile proprietario per la risorsa indirizzo IP aggiunto
 - Testare i failover.
 
-#### 2. Utilizzare repliche secondarie esistenti: multisito
+#### 2\. Utilizzare repliche secondarie esistenti: multisito
 
 Se si dispone di nodi in più centri dati Azure o se si dispone di un ambiente ibrido, è possibile utilizzare una configurazione AlwaysOn in questo ambiente per ridurre al minimo i tempi di inattività.
 
@@ -680,7 +680,7 @@ Poiché sarà portato offline almeno un SQL Server alla volta, è necessario mod
 
     Set-ClusterQuorum -NodeMajority  
 
-Per ulteriori informazioni sulla gestione e configurazione del quorum del cluster, vedere [Configurare e gestire il quorum in un cluster di failover di Windows Server 2012](https://technet.microsoft.com/IT-IT/library/jj612870.aspx).
+Per ulteriori informazioni sulla gestione e configurazione del quorum del cluster, vedere [Configurare e gestire il quorum in un cluster di failover di Windows Server 2012](https://technet.microsoft.com/library/jj612870.aspx).
 
 #### Passaggio 6: Estrarre endpoint e ACL esistenti
     #GET Endpoint info
@@ -1083,7 +1083,7 @@ Per informazioni sui singoli BLOB: #Controllare lo stato del singolo BLOB Get-Az
     Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
     
     
-    #STOP!!! CHECK in the Azure portal or Machine Endpoints through powershell that these Endpoints are created!
+    #STOP!!! CHECK in the Azure classic portal or Machine Endpoints through powershell that these Endpoints are created!
     
     #SET ACLs or Azure Network Security Groups & Windows FWs 
      
@@ -1149,4 +1149,4 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

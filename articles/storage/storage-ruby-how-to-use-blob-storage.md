@@ -59,7 +59,7 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 
 Per ottenere questi valori:
 
-1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com/).
+1. Accedere al [Portale di Azure](portal.azure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Fare clic su **MANAGE KEYS** nella parte inferiore del pannello di navigazione.
 4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria.
@@ -142,8 +142,7 @@ Per eliminare un BLOB, infine, usare il metodo **delete\_blob()**. Nell'esempio 
 
 Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
-- Riferimento MSDN: [Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Archivio [Azure SDK per Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

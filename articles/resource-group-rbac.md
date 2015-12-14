@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="11/28/2015"
    ms.author="tomfitz"/>
 
 # Gestione dell'accesso alle risorse
@@ -26,10 +26,21 @@ Questo argomento analizza i comandi da usare per assegnare ruoli e autorizzazion
 
 Esistono alcuni concetti fondamentali sul controllo di accesso in base ai ruoli:
 
-1. Entità: l'entità che ha concesso l'autorizzazione, ad esempio un utente, un gruppo di sicurezza o un'applicazione.
-2. Ruolo: il set di azioni consentite
-3. Ambito: il livello a cui viene applicato un ruolo, ad esempio la sottoscrizione, il gruppo di risorse o la risorsa.
-3. Assegnazione dei ruoli: il processo di aggiunta di un'entità a un ruolo e l'impostazione dell'ambito.
+1. Entità - l'entità che ha concesso l'autorizzazione, ad esempio un utente di Azure Active Directory, un gruppo di sicurezza o un'applicazione.
+2. Ruolo - un set di azioni consentite ed escluse.
+3. Azione - un'azione che viene eseguita in una risorsa (ad esempio, leggere, creare). 
+4. Ambito: il livello a cui viene applicato un ruolo, ad esempio la sottoscrizione, il gruppo di risorse o la risorsa.
+5. Assegnazione del ruolo -il processo di assegnazione di un'entità a un ruolo, e l'impostazione dell'ambito.
+
+È possibile ottenere un elenco di **Azioni** supportate usando lo strumento di interfaccia della riga di comando della multipiattaforma di Azure (xPlat) o il modulo di Azure PowerShell.
+
+Per lo strumento di interfaccia della riga di comando della multipiattaforma di Azure, utilizzare il comando seguente per elencare **tutte** le azioni, per tutti i provider di risorse.
+
+    azure provider operations show --operationSearchString '*';
+
+Se si usa il modulo PowerShell di Gestione risorse di Azure(AzureRm), usare il comando seguente per elencare **tutte** le azioni, per **tutti** i provider di risorse.
+
+    Get-AzureRmProviderOperation -OperationSearchString *;
 
 ## Esempi di ruolo
 Per comprendere i concetti di controllo di accesso in base ai ruoli, vengono riportati alcuni esempi di definizioni di ruolo comuni:
@@ -263,10 +274,10 @@ Creare l'assegnazione dei ruoli.
 ## Passaggi successivi
 
 - Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md).
-- Per altre informazioni sull'uso delle entità servizio per gestire l'accesso per le applicazioni nella propria sottoscrizione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md) e [Creare una nuova entità servizio di Azure usando il portale di Azure classico](../resource-group-create-service-principal-portal.md).
+- Per altre informazioni sull'uso delle entità servizio per gestire l'accesso per le applicazioni nella propria sottoscrizione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md) e [Creare una nuova entità servizio di Azure tramite il portale di Azure classico](../resource-group-create-service-principal-portal.md).
 - Per altre informazioni sulle operazioni di controllo all'interno dell'organizzazione, vedere [Operazioni di controllo con Gestione risorse](resource-group-audit.md).
 - È possibile applicare restrizioni e convenzioni all’interno della sottoscrizione con criteri personalizzati. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

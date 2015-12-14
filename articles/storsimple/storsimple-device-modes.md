@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Cambiare le modalità del dispositivo sul dispositivo StorSimple
@@ -63,7 +63,7 @@ Se il sistema passa in modalità di ripristino, è necessario contattare il supp
 
 Per eseguire la manutenzione o installare gli aggiornamenti in modalità manutenzione, è possibile porre il dispositivo StorSimple in modalità di manutenzione (dalla modalità normale). Eseguire le procedure seguenti per attivare o disattivare la modalità di manutenzione.
 
-> [AZURE.IMPORTANT]Prima di attivare la modalità manutenzione, verificare che entrambi i controller del dispositivo siano integri controllando lo **stato dell’hardware** sulla pagina **Manutenzione** nel portale di gestione. Se il controller non è integro, contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, andare su [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
+> [AZURE.IMPORTANT]Prima di entrare in modalità manutenzione, verificare che entrambi i controller di dispositivi siano integri effettuando l’accesso allo **Stato Hardware** sulla pagina **Manutenzione** nel portale di Azure classico. Se il controller non è integro, contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, andare su [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
 #### Per attivare la modalità di manutenzione
 
@@ -75,7 +75,7 @@ Per eseguire la manutenzione o installare gli aggiornamenti in modalità manuten
 
 	`Enter-HcsMaintenanceMode`
 
-4. Verrà visualizzato un messaggio di avviso indicante che la modalità di manutenzione interromperà tutte le richieste I/O e la connessione al portale di gestione e verrà richiesto di confermare che si desidera procedere. Digitare **Y** per attivare la modalità di manutenzione.
+4. Verrà visualizzato un messaggio di avviso indicante che la modalità di manutenzione interromperà tutte le richieste I/O e la connessione al portale di Azure classico e verrà richiesto di confermare che si desidera procedere. Digitare **Y** per attivare la modalità di manutenzione.
 
 5. Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità di manutenzione.
 
@@ -97,4 +97,4 @@ Per eseguire la manutenzione o installare gli aggiornamenti in modalità manuten
 
 Informazioni su come [applicare gli aggiornamenti in modalità normale e manutenzione](storsimple-update-device.md) al dispositivo StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

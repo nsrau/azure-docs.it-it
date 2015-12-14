@@ -71,4 +71,12 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=AcomDC_1125_2015-->
+## Passaggi successivi
+
+[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-internal-getstarted.md)
+
+[Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
+
+[Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
+
+<!---HONumber=AcomDC_1203_2015-->

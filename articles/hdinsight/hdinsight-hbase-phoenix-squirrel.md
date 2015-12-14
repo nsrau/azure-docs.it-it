@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/29/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Usare Apache Phoenix e SQuirreL con i cluster HBase inHDinsight  
@@ -29,7 +29,7 @@ Informazioni su come usare [Apache Phoenix](http://phoenix.apache.org/) in HDIns
 Per usare SQLLine sono necessari:
 
 - **Un cluster HBase in HDInsight**. Per informazioni sul provisioning di un cluster HBase, vedere l'[introduzione all'uso di Apache HBase in HDInsight][hdinsight-hbase-get-started].
-- **Connessione al cluster HBase tramite il file RDP (Remote Desktop Protocol)**. Per istruzioni, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di Azure][hdinsight-manage-portal].
+- **Connessione al cluster HBase tramite il file RDP (Remote Desktop Protocol)**. Per istruzioni, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di Azure classico][hdinsight-manage-portal].
 
 **Per individuare il nome host**
 
@@ -116,7 +116,7 @@ Assicurarsi di aver eseguito il provisioning di un cluster HBase in una rete vir
 
 **Per configurare la connettività Point-to-Site**
 
-1. Accedere al [portale di Azure][azure-portal].
+1. Accedere al [portale di Azure classico][azure-portal].
 2. A sinistra, fare clic su **RETI**.
 3. Fare clic sulla rete virtuale creata (vedere [Provisioning di cluster HBase in Rete virtuale di Azure][hdinsight-hbase-provision-vnet]).
 4. Fare clic su **CONFIGURA** nella parte superiore.
@@ -129,7 +129,7 @@ Assicurarsi di aver eseguito il provisioning di un cluster HBase in una rete vir
 
 **Per creare un gateway di routing dinamico**
 
-1. Dal portale di Azure, fare clic su **DASHBOARD** nella parte superiore della pagina.
+1. Dal portale di Azure classico, fare clic su **DASHBOARD** nella parte superiore della pagina.
 2. Fare clic su **CREA GATEWAY** nella parte inferiore della pagina.
 3. Fare clic su **SÌ** per confermare. Attendere la creazione del gateway.
 4. Fare clic su **DASHBOARD** nella parte superiore. Verrà visualizzato un grafico visuale della rete virtuale:
@@ -147,7 +147,7 @@ Un modo per creare un certificato X.509 consiste nell'usare lo strumento di crea
 
 1. Dalla workstation, aprire una finestra del prompt dei comandi.
 2. Passare alla cartella Strumenti di Visual Studio. 
-3. Il comando nell'esempio seguente consente di creare e installare un certificato radice nell'archivio certificati personale nella workstation e creare anche un file corrispondente con estensione cer da caricare in seguito nel portale di Azure. 
+3. Il comando nell'esempio seguente consente di creare e installare un certificato radice nell'archivio certificati personale nella workstation e creare anche un file corrispondente con estensione cer da caricare in seguito nel portale di Azure classico. 
 
 		makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
@@ -171,9 +171,9 @@ Un modo per creare un certificato X.509 consiste nell'usare lo strumento di crea
 
 	Un certificato client deve essere installato in ogni computer che si connette alla rete virtuale. Si consiglia di creare client univoci certificati per ogni computer che si desidera connettersi alla rete virtuale. Per esportare i certificati client, usare certmgr.msc.
 
-**Per caricare il certificato radice nel portale di Azure**
+**Per caricare il certificato radice nel portale di Azure classico**
 
-1. Dal portale di Azure, fare clic su **RETE** a sinistra.
+1. Dal portale di Azure classico, fare clic su **RETE** a sinistra.
 2. Fare clic sulla rete virtuale in cui è stato distribuito il cluster HBase.
 3. Fare clic su **CERTIFICATI** nella parte superiore.
 4. Fare clic **CARICA** dalla parte inferiore e specificare il file del certificato radice creato nella penultima procedura. Attendere che il certificato sia stato importato.
@@ -306,4 +306,4 @@ In questo articolo si è appreso come usare Apache Phoenix in HDInsight. Per alt
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

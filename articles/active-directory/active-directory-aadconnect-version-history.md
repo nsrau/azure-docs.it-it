@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/03/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
@@ -26,6 +26,16 @@ Collegamenti correlati:
 
 - Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.0.9131.0
+Data di rilascio: dicembre 2015
+
+**Problemi risolti:**
+
+- La sincronizzazione delle password potrebbe non funzionare quando si modificano le password in AD DS, ma funziona quando si imposta la password.
+- Quando si dispone di un server proxy, l'autenticazione ad Azure AD potrebbe non riuscire durante l'installazione o durante un aggiornamento nella pagina di configurazione.
+- L'aggiornamento da una versione precedente di Azure AD Connect con una versione completa di SQL Server avrà esito negativo se non si è SA in SQL.
+- L'aggiornamento da una versione precedente di Azure AD Connect con una versione remota di SQL Server mostrerà il messaggio di errore "Impossibile accedere al database SQL di ADSync".
 
 ## 1\.0.9125.0
 Data di rilascio: novembre 2015
@@ -40,11 +50,11 @@ Data di rilascio: novembre 2015
 **Nuove funzionalità di anteprima:**
 
 - [Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md).
-- Supporto per la sincronizzazione della password dei [Servizi di dominio Azure AD](active-directory-ds-getting-started.md)
+- Supporto per la sincronizzazione della password dei [Servizi di dominio di Azure AD](active-directory-ds-getting-started.md)
 
 **Nuovo scenario supportato:**
 
-- Supporta più organizzazioni di Exchange locali Per altre informazioni, vedere la pagina [Distribuzioni ibride con più insiemi di strutture di Active Directory](https://technet.microsoft.com/it-IT/library/jj873754.aspx)
+- Supporta più organizzazioni di Exchange locali Per altre informazioni, vedere la pagina [Distribuzioni ibride con più foreste di Active Directory](https://technet.microsoft.com/library/jj873754.aspx)
 
 **Problemi risolti:**
 
@@ -83,7 +93,7 @@ Data di rilascio: agosto 2015
 
 **Funzionalità di anteprima rimosse:**
 
-- La funzionalità di anteprima [Utente writeback](active-directory-aadconnect-feature-preview.md#user-writeback) è stata temporaneamente rimossa in base ai suggerimenti fatti dei clienti dell’anteprima. Verrà aggiunto di nuovo in un secondo momento, una volta valutato il feedback fornito.
+- La funzionalità di anteprima [Utente writeback](active-directory-aadconnect-feature-preview.md#user-writeback) è stata temporaneamente rimossa in base ai suggerimenti espressi dai clienti dell’anteprima. Verrà aggiunto di nuovo in un secondo momento, una volta valutato il feedback fornito.
 
 ## 1\.0.8641.0
 Data di rilascio: giugno 2015
@@ -94,7 +104,7 @@ Il nome è stato modificato da Azure AD Sync ad Azure AD Connect.
 
 **Nuove funzionalità:**
 
-- Installazione [Impostazioni rapide](active-directory-aadconnect-get-started-express.md)
+- Installazione mediante le [impostazioni rapide](active-directory-aadconnect-get-started-express.md)
 - È possibile [configurare ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 - È possibile [aggiornare da DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [Impedire eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
@@ -199,4 +209,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

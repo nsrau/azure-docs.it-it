@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Sostituzione di un'unità disco nel dispositivo StorSimple
@@ -70,13 +70,13 @@ Il dispositivo StorSimple supporta una configurazione degli spazi di archiviazio
 >
 >- Assicurarsi di inserire un'unità SSD sostitutiva in uno slot che in precedenza conteneva un'unità SSD. Analogamente, inserire un'unità HDD sostitutiva in uno slot che in precedenza conteneva un'unità HDD.
 >
->- Nel portale di gestione, gli slot sono numerati da 0 a 11. Pertanto, se nel portale viene mostrato che un disco nello slot 2 è guasto, sul dispositivo, cercare il disco guasto nel terzo slot dalla parte superiore sinistra.
+>- Nel portale di Azure classico, gli slot sono numerati da 0 a 11. Pertanto, se nel portale viene mostrato che un disco nello slot 2 è guasto, sul dispositivo, cercare il disco guasto nel terzo slot dalla parte superiore sinistra.
 
 Le unità possono essere rimosse e sostituite durante il funzionamento del sistema.
 
 #### Per rimuovere un'unità:
 
-1. Per identificare il disco guasto, nel portale di gestione, passare a **Dispositivi** > **Manutenzione** > **Stato hardware**. Poiché un disco essere guasto nello chassis principale e/o in uno chassis EBOD (se si utilizza un modello 8600), controllare lo stato dei dischi sotto **Componenti condivisi** e **Componenti condivisi dello chassis EBOD**. Un disco guasto verrà visualizzato con uno stato rosso in entrambi gli chassis.
+1. Per identificare il disco guasto, nel portale di Azure classico passare a **Dispositivi** > **Manutenzione** > **Stato hardware**. Poiché un disco essere guasto nello chassis principale e/o in uno chassis EBOD (se si utilizza un modello 8600), controllare lo stato dei dischi sotto **Componenti condivisi** e **Componenti condivisi dello chassis EBOD**. Un disco guasto verrà visualizzato con uno stato rosso in entrambi gli chassis.
 
 2. Individuare le unità nella parte anteriori dello chassis principale o dello chassis EBOD. Per il disco guasto, si accenderà il LED ambra.
 
@@ -116,7 +116,7 @@ Dopo aver rimosso un'unità guasta nel dispositivo Microsoft Azure StorSimple, s
 
 4. Utilizzare la chiave di blocco fornita da Microsoft (cacciavite Torx a prova di manomissione) per fissare in posizione il punto di manipolazione del supporto girando la vite di blocco di un quarto in senso orario.
 
-5. Verificare che la sostituzione sia stata eseguita correttamente e che l'unità sia funzionante accedendo al portale di gestione e passando a **Manutenzione** > **Stato hardware**. Sotto **Componenti condivisi** o **Componenti condivisi dello chassis EBOD**, lo stato dell'unità deve essere verde, ovvero integro.
+5. Verificare che la sostituzione sia stata eseguita correttamente e che l'unità sia funzionante accedendo al portale di Azure classico e passando a **Manutenzione** > **Stato hardware**. Sotto **Componenti condivisi** o **Componenti condivisi dello chassis EBOD**, lo stato dell'unità deve essere verde, ovvero integro.
 
     >[AZURE.NOTE]Potrebbero essere necessarie diverse ore affinché lo stato del disco diventi verde dopo la sostituzione.
 
@@ -124,4 +124,4 @@ Dopo aver rimosso un'unità guasta nel dispositivo Microsoft Azure StorSimple, s
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -26,25 +26,25 @@ I processi di analisi di flusso di Azure possono essere connessi a uno o più ou
 
 Per aggiungere un input al processo di analisi di flusso:
 
-1. Nel portale di Azure fare clic su **Input** e poi scegliere **Aggiungi un input** nel processo di analisi di flusso.
+1. Nel portale di Azure classico fare clic su **Input** e poi scegliere **Aggiungi un input** nel processo di analisi di flusso.
 
     ![Aggiungere input](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
 
-    Nel portale di anteprima di Azure fare clic sul riquadro **Input** nel processo di analisi di flusso.
+    Nel portale di Azure fare clic sul riquadro **Input** nel processo di analisi di flusso.
 
-    ![Aggiungere input al portale di anteprima di Azure](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
+    ![Aggiungere input nel portale di Azure](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
 
 2. Specificare il tipo di input: **Flusso di dati** o **Dati di riferimento**.
 
     ![Aggiungere dati](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)
 
-    ![Aggiungere dati al portale di anteprima di Azure](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)
+    ![Aggiungere dati nel portale di Azure](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)
 
 3. Se si crea un input del flusso di dati, specificare il tipo di origine per l'input. Questo passaggio può essere ignorato durante la creazione dei dati di riferimento, poiché al momento è supportato soltanto l’archivio BLOB.
 
     ![Aggiungere flusso di dati](./media/stream-analytics-add-inputs/3-stream-analytics-add-inputs.png)
 
-    ![Aggiungere dati al portale di anteprima del flusso di dati](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)
+    ![Aggiungere il portale del flusso di dati](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)
 
 4. Fornire un nome descrittivo per l'input nella finestra di Alias di Input. Questo nome verrà utilizzare nella query del processo in un secondo momento per fare riferimento all'input.
 
@@ -58,13 +58,13 @@ Per aggiungere un input al processo di analisi di flusso:
 
     ![Impostazioni della serializzazione dei dati](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)
 
-    ![Impostazioni di serializzazione dei dati nel portale di anteprima di Azure](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)
+    ![Impostazioni di serializzazione dei dati nel portale di Azure](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)
 
 6. Dopo aver completato la creazione dell’input, l’analisi di flusso verificherà che è possibile connettersi all'origine di input. È possibile visualizzare lo stato dell'operazione di connessione di prova nell'hub di notifica.
 
     ![Connessione di test](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)
 
-    ![Test di connessione nel portale di anteprima di Azure](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
+    ![Test della connessione del portale di Azure](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
 
 ## Ottenere aiuto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
@@ -77,4 +77,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,7 +22,7 @@
 
 # Come scalare automaticamente un'applicazione
 
-Nella pagina Scale del portale di gestione di Azure è possibile scalare manualmente l'applicazione o impostare parametri per la scalabilità automatica. È possibile scalare le applicazioni che eseguono ruoli Web, ruoli di lavoro o macchine virtuali. Per scalare un'applicazione che esegue istanze di ruoli Web o ruoli di lavoro, vengono aggiunte o rimosse istanze dei ruoli per supportare il carico di lavoro.
+Nella pagina Scalabilità del portale di Azure classico è possibile scalare manualmente l'applicazione o impostare parametri per la scalabilità automatica. È possibile scalare le applicazioni che eseguono ruoli Web, ruoli di lavoro o macchine virtuali. Per scalare un'applicazione che esegue istanze di ruoli Web o ruoli di lavoro, vengono aggiunte o rimosse istanze dei ruoli per supportare il carico di lavoro.
 
 Quando si scala un'applicazione che esegue macchine virtuali, non vengono create o eliminate macchine ma vengono attivate o disattivate macchine da un set di disponibilità di macchine create in precedenza. È possibile specificare la scalabilità in base a una percentuale media di utilizzo della CPU o al numero di messaggi in una coda.
 
@@ -43,7 +43,7 @@ Prima di configurare la scalabilità per l'applicazione, tenere presente quanto 
 
 Nella pagina Scale è possibile aumentare o diminuire manualmente il numero delle istanze in esecuzione in un servizio di cloud.
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Cloud Services** e quindi sul nome del servizio cloud per aprire il dashboard.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
 
 2. Fare clic su **Scale**. La scalabilità automatica è disattivata per impostazione predefinita per tutti i ruoli, ovvero è possibile modificare manualmente il numero di istanze usate dall'applicazione.
 
@@ -74,7 +74,7 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
 ## Utilizzo medio della CPU:
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Cloud Services** e quindi sul nome del servizio cloud per aprire il dashboard.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
 
 2. Fare clic su **Scale**.
 
@@ -126,7 +126,7 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
 ## Messaggi in coda:
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Cloud Services** e quindi sul nome del servizio cloud per aprire il dashboard.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
 2. Fare clic su **Scale**.
 3. Scorrere fino alla sezione relativa al ruolo o al set di disponibilità, quindi fare clic su **Queue**. In questo modo viene abilitata la scalabilità automatica dell'applicazione in base a un determinato numero di messaggi in coda.
 
@@ -176,7 +176,7 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
 Quando si scala un ruolo, spesso risulta utile scalare anche il database usato dall'applicazione. Se si collega il database al servizio cloud, nella pagina Scale viene modificata l'edizione del database SQL e viene ridimensionato il database.
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Cloud Services** e quindi sul nome del servizio cloud per aprire il dashboard.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
 2. Fare clic su **Scale**.
 3. Nella sezione Linked Resources selezionare l'edizione da usare per il database.
 
@@ -195,7 +195,7 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 
 **Nota**: le pianificazioni non sono attualmente disponibili per le applicazioni che usano Macchine virtuali.
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Cloud Services** e quindi sul nome del servizio cloud per aprire il dashboard.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
 2. Fare clic su **Scale**.
 3. Nella pagina Scale fare clic su **set up schedule times**.
 
@@ -227,4 +227,4 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

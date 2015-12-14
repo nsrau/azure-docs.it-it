@@ -29,21 +29,21 @@ Impostare la prima o successiva di sviluppo e test o produzione farm di SharePoi
 
 L'ambiente creato automaticamente è costituito da tre server in una rete virtuale di Azure solo cloud: un controller di dominio, un server SQL e il server SharePoint.
 
-Vedere l'elemento [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) nella sezione Marketplace del portale di anteprima di Azure. Questo crea una farm di sviluppo e test di base per un sito Web di SharePoint con connessione Internet. Vedere [Creare farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) per ulteriori dettagli.
+Vedere l'elemento [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) nella sezione Marketplace del portale di Azure. Questo crea una farm di sviluppo e test di base per un sito Web di SharePoint con connessione Internet. Vedere [Creare farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) per ulteriori dettagli.
 
 È anche possibile usare un modello di Gestione risorse di Azure. Vedere [Distribuire una farm di SharePoint a tre server](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-> [AZURE.NOTE]L'elemento **SharePoint Farm** nella sezione Marketplace del portale di anteprima di Azure è stato rimosso.
+> [AZURE.NOTE]L'elemento **SharePoint Farm** nella sezione Marketplace del portale di Azure è stato rimosso.
 
 ## Farm di sviluppo e test di SharePoint a disponibilità elevata
 
 Questo ambiente creato automaticamente è costituito da nove server in una rete virtuale Azure solo cloud: due per i controller di dominio, tre per un cluster SQL server, due server SharePoint di livello applicazione e due server di SharePoint di livello Web.
 
-Vedere l'elemento [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) nella sezione Marketplace del portale di anteprima di Azure. Questo crea una farm di sviluppo e test ad alta disponibilità per un sito Web di SharePoint con connessione Internet. Vedere [Creare farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) per ulteriori dettagli.
+Vedere l'elemento [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) nella sezione Marketplace del portale di Azure. Questo crea una farm di sviluppo e test ad alta disponibilità per un sito Web di SharePoint con connessione Internet. Vedere [Creare farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) per ulteriori dettagli.
 
 È anche possibile usare un modello di Gestione risorse di Azure. Vedere [Distribuire una farm di SharePoint a nove server](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
-> [AZURE.NOTE]L'elemento **SharePoint Farm** nella sezione Marketplace del portale di anteprima di Azure è stato rimosso.
+> [AZURE.NOTE]L'elemento **SharePoint Farm** nella sezione Marketplace del portale di Azure è stato rimosso.
 
 ## Farm di sviluppo e test cloud ibrida
 
@@ -69,4 +69,4 @@ Questa configurazione usa il modello di distribuzione classica.
 
 [Distribuire la sincronizzazione delle directory di Office 365 (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -58,7 +58,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 ## Stringa di connessione per il database SQL
 
 
-L'esempio di codice crea un oggetto `Connection` usando una stringa di connessione. È possibile trovare la stringa di connessione mediante il [portale di anteprima di Azure](http://portal.azure.com/). Per informazioni dettagliate su come trovare la stringa di connessione, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md).
+L'esempio di codice crea un oggetto `Connection` usando una stringa di connessione. È possibile trovare la stringa di connessione mediante il [portale di Azure](http://portal.azure.com/). Per informazioni dettagliate su come trovare la stringa di connessione, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md).
 
 
 > [AZURE.NOTE]Driver JDBC JTDS se si utilizza il driver JDBC JTDS, sarà necessario aggiungere "ssl = require" all'URL della connessione stringa ed è necessario impostare l'opzione seguente per JVM "-Djsse.enableCBCProtection=false". Questa opzione JVM disattiva la correzione di una vulnerabilità di sicurezza,quindi assicurarsi di comprendere i rischi coinvolti prima di impostare questa opzione.
@@ -230,4 +230,4 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

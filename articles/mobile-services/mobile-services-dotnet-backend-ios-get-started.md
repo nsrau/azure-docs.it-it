@@ -18,6 +18,11 @@
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 >[AZURE.TIP]Se non si ha familiarità con lo sviluppo per dispositivi mobili tramite Microsoft Azure, [iniziare da App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-ios-get-started-preview.md) invece che da Servizi mobili di Azure. Con App per dispositivi mobili si avranno [vantaggi aggiuntivi](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
@@ -36,7 +41,7 @@ Dopo aver creato il servizio mobile, scaricare i progetti che è possibile esegu
 
 1. Fare clic sul servizio mobile appena creato, quindi nella scheda Avvio rapido fare clic su **iOS** in **Scegli piattaforma** ed espandere **Crea una nuova app iOS**.
 
-2. In un computer Windows fare clic su **Scarica** in **Scaricare e pubblicare il servizio nel cloud**. Verrà scaricato il progetto di Visual Studio che implementerà il servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
+2. In un PC Windows fare clic su **Scarica** in **Scaricare e pubblicare il servizio nel cloud**. Verrà scaricato il progetto di Visual Studio che implementerà il servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
 3. In un computer Mac fare clic su **Scarica** in **Scaricare ed eseguire l'applicazione**. Verrà scaricato il progetto per l'applicazione _To do list_ di esempio connessa al servizio mobile, unitamente all'SDK di Servizi Mobili per iOS. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
@@ -94,11 +99,8 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 [Aggiungere l'autenticazione a un'app esistente]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Aggiungere notifiche push a un'app esistente]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
-
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-
-[Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Versione per back-end JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

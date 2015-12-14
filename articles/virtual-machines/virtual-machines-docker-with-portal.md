@@ -18,14 +18,14 @@
 	ms.author="rasquill"/>
 
 
-# Come usare l'estensione della VM Docker con il portale di Azure
+# Come usare l'estensione della VM Docker con il portale di Azure classico
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
 [Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della VM Docker per l'[Agente Linux di Azure] per creare una macchina virtuale Docker che ospiti un numero qualsiasi di contenitori per le applicazioni in Azure.
 
-> [AZURE.NOTE]Questo argomento descrive come creare una VM Docker dal portale di Azure. Per scoprire come creare una macchina virtuale Docker nella riga di comando, vedere [Uso dell'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]. Per assistere a una discussione di alto livello sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> [AZURE.NOTE]Questo argomento descrive come creare una VM Docker dal portale di Azure classico. Per scoprire come creare una macchina virtuale Docker nella riga di comando, vedere [Uso dell'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]. Per assistere a una discussione di alto livello sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 ## Creare una nuova VM dalla Raccolta immagini
 Il primo passaggio richiede una VM di Azure da un'immagine Linux che supporti l'estensione della VM Docker, usando un'immagine di Ubuntu 14.04 LTS dalla Raccolta immagini come immagine del server di esempio e Ubuntu 14.04 Desktop come client. Nel portale, fare clic su **+ Nuovo** in basso a sinistra per creare una nuova istanza di VM, quindi selezionare un'immagine di Ubuntu 14.04 LTS dalle opzioni disponibili oppure dalla Raccolta immagini completa, come illustrato di seguito.
@@ -148,4 +148,4 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 [Esecuzione di Docker con https]: http://docs.docker.com/articles/https/
 [guida dell'utente di Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

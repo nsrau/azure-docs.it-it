@@ -38,7 +38,7 @@ In questa esercitazione si svilupperà un processo che legge un file di valori s
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Interfaccia della riga di comando di Azure**. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md).
 	- Scaricare e installare gli [Strumenti di Azure CLI](https://github.com/MicrosoftBigData/AzureDataLake/releases) **pre-release** per completare questa demo.
 - **Autenticazione**, utilizzando il comando seguente:
@@ -95,7 +95,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 In questa esercitazione si eseguirà l'elaborazione di alcuni log di ricerca. Il log di ricerca può essere archiviato in Archivio Data Lake o in un'archiviazione BLOB di Azure.
 
-L'interfaccia utente del portale di anteprima di Azure consente di copiare nell'account di Data Lake predefinito alcuni file di dati di esempio, tra cui anche un file di log di ricerca. Vedere [Preparare i dati di origine](data-lake-analytics-get-started-portal.md#prepare-source-data) per caricare i dati nell'account Archivio Data Lake predefinito.
+Il portale di Azure fornisce un’interfaccia utente per copiare alcuni file di dati di esempio nell'account di Data Lake predefinito, tra cui anche un file di log di ricerca. Vedere [Preparare i dati di origine](data-lake-analytics-get-started-portal.md#prepare-source-data) per caricare i dati nell'account Archivio Data Lake predefinito.
 
 Per caricare i file utilizzando cli, utilizzare il comando seguente:
 
@@ -166,7 +166,7 @@ Dopo il completamento del processo, è possibile usare i cmdlet seguenti per vis
 - Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-- Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-manage-use-portal.md).
+- Per informazioni sulle attività di gestione, vedere [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 - Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc;ricksal"/>
 
 # Risolvere i problemi del back-end .NET di Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Lo sviluppo con Servizi mobili è di solito facile e senza problemi, ma talvolta qualcosa può andare storto. Questa esercitazione illustra alcune tecniche che consentono di risolvere i problemi comuni che possono presentarsi con il back-end .NET di Servizi mobili.
 
@@ -36,7 +41,7 @@ Quando si sviluppano app con Servizi mobili, di solito si sfrutta l'SDK del clie
 1. Per iniziare, aprire un progetto del server di Servizi mobili in **Visual Studio 2013 Update 2** o versione successiva. Se non è disponibile alcun progetto, è possibile crearne uno selezionando **File**, **Nuovo**, **Progetto**, quindi il nodo **Cloud** e infine il modello **Servizi mobili di Microsoft Azure**.
 2. Premere **F5** per avviare la compilazione e l'esecuzione del progetto. Nella pagina iniziale, selezionare **Prova**.
 
-    >[AZURE.NOTE]Se il servizio è ospitato in locale, fare clic sul collegamento per essere reindirizzati alla pagina successiva. Se invece il servizio è ospitato nel cloud, verrà richiesto un set di credenziali, al fine di garantire che gli utenti non autenticati non possano accedere alle informazioni sull'API e i payload. Per poter visualizzare la pagina è necessario eseguire l'accesso lasciando il **nome utente vuoto** e usando la **chiave dell'applicazione** come password. La chiave dell'applicazione è disponibile nel **portale di gestione di Azure** passando alla scheda **Dashboard** relativa al proprio servizio mobile e selezionando **Gestisci chiavi**.
+    >[AZURE.NOTE]Se il servizio è ospitato in locale, fare clic sul collegamento per essere reindirizzati alla pagina successiva. Se invece il servizio è ospitato nel cloud, verrà richiesto un set di credenziali, al fine di garantire che gli utenti non autenticati non possano accedere alle informazioni sull'API e i payload. Per poter visualizzare la pagina è necessario eseguire l'accesso lasciando il **nome utente vuoto** e usando la **chiave dell'applicazione** come password. La chiave dell'applicazione è disponibile nel portale di Azure classico passando alla scheda **Dashboard** relativa al proprio servizio mobile e selezionando **Gestisci chiavi**.
     >
     > ![Prompt di autenticazione per accedere alla pagina della guida][HelpPageAuth]
 
@@ -107,9 +112,9 @@ Dopo aver pubblicato il servizio in Azure, i log relativi all'istanza di servizi
 
 ![Log in Esplora server di Visual Studio][LogsServerExplorer]
 
-Gli stessi log sono disponibili anche sul **portale di gestione di Azure**, nella scheda **Log** relativa al proprio servizio mobile.
+Gli stessi log sono disponibili anche sul portale di Azure classico, nella scheda **Log** relativa al proprio servizio mobile.
 
-![Log nel portale di gestione di Azure][LogsPortal]
+![Log nel portale di Azure classico][LogsPortal]
 
 <a name="AssemblyResolution"></a>
 ## Debug della risoluzione dell'assembly cloud
@@ -154,4 +159,4 @@ Le migrazioni possono essere complesse e richiedere di mantenere lo stato del da
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

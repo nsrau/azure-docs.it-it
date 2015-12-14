@@ -31,7 +31,7 @@ Sono inoltre disponibili PHP 5.5 e PHP 5.6, che però non sono abilitate per imp
 
 ### Portale di Azure
 
-1. Passare all'app Web nel [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) e fare clic sul pulsante **Impostazioni**.
+1. Passare all'app Web nel [Portale di Azure](https://portal.azure.com) e fare clic sul pulsante **Impostazioni**.
 
 	![Impostazioni app][settings-button]
 
@@ -74,7 +74,7 @@ Per qualsiasi runtime PHP incorporato, è possibile modificare le opzioni di con
 ### PHP\_INI\_USER, PHP\_INI\_PERDIR, la modifica delle impostazioni di configurazione PHP\_INI\_ALL
 
 1. Aggiungere un file [.user.ini] alla directory radice in uso.
-2. Aggiungere le impostazioni di configurazione al file  `.user.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera attivare l'impostazione `display_errors` e configurare l'impostazione `upload_max_filesize` su 10M, il file `.user.ini` conterrà il testo seguente:
+2. Aggiungere le impostazioni di configurazione al file `.user.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera attivare l'impostazione `display_errors` e configurare l'impostazione `upload_max_filesize` su 10M, il file `.user.ini` conterrà il testo seguente:
 
 		; Example Settings
 		display_errors=On
@@ -161,7 +161,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [valutazione gratuita]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo ()]: http://php.net/manual/en/function.phpinfo.php
@@ -182,4 +181,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

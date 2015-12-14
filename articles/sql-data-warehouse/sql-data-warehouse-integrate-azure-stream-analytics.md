@@ -53,7 +53,7 @@ Immettere i valori seguenti nella pagina successiva:
 	- Se il database SQL Data Warehouse esiste nella stessa sottoscrizione del processo di analisi di flusso, selezionare Usare il database SQL dalla sottoscrizione corrente.
 	- Se il database è in una sottoscrizione diversa, selezionare Usare il database SQL da un'altra sottoscrizione.
 - *Database*: specificare il nome di un database di destinazione.
-- *Nome server*: specificare il nome del server per il database specificato. Per trovarlo, è possibile usare il portale di Azure.
+- *Nome server*: specificare il nome del server per il database specificato. Per trovarlo, è possibile usare il portale di Azure classico.
 
 ![][server-name]
 
@@ -97,4 +97,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

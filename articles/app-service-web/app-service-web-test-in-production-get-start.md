@@ -41,7 +41,7 @@ A livello di base in ogni scenario di test in ambiente di produzione, si instrad
 
 >[AZURE.NOTE]Questi passaggi presuppongono che sia già disponibile uno [slot di distribuzione non di produzione](web-sites-staged-publishing.md) in cui sia già stato [distribuito](web-sites-publish-source-control.md) il contenuto desiderato dell'app Web.
 
-1. Accedere al [portale di anteprima](https://portal.azure.com) di Azure.
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel pannello dell'app Web fare clic su **Impostazioni** > **Routing del traffico**. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. Selezionare lo slot a cui instradare il traffico e la percentuale del traffico totale desiderata, quindi fare clic su **Salva**.
 
@@ -86,4 +86,4 @@ Per permettere agli utenti di acconsentire esplicitamente all'app beta, impostar
 -   [Agile Software Development con il servizio app di Azure](app-service-agile-software-development.md)
 -	[Usare efficacemente gli ambienti DevOps per le app Web](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

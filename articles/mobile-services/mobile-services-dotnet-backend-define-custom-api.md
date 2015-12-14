@@ -19,6 +19,11 @@
 
 # Procedura: definire un endpoint API personalizzato in un servizio mobile back-end di .NET
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR]
 - [JavaScript backend](./mobile-services-javascript-backend-define-custom-api.md)
 - [.NET backend](./mobile-services-dotnet-backend-define-custom-api.md)
@@ -36,4 +41,4 @@ Per informazioni su come richiamare un'API personalizzata nell'applicazione util
 
 <!-- URLs. -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -186,7 +186,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
      a. Nella casella di testo **Nome attributo** digitare ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. Nella casella di testo **Valore dell'attributo**, digitare **posta**.
+     b. Nella casella di testo **Valore dell'attributo**, digitare **userprincipalname**.
 
      c. Fare clic su **Completa** per chiudere la finestra di dialogo **Aggiungi attributo utente**.
 
@@ -249,7 +249,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Amazon We
 
 5. Nella finestra di dialogo Crea utente, eseguire la procedura seguente: <br><br>![Configura accesso Single Sign-On][30]<br>
 
-     a. Nelle caselle di testo **Enter User Names** digitare il nome utente di Britta Simon in Azure AD.
+     a. Nelle caselle di testo **Inserire Nomi Utenti** digitare il nome utente (userprincipalname) di Britta Simon in Azure AD.
 
      b. Fare clic su **Crea**.
 
@@ -320,4 +320,4 @@ L'obiettivo di questa sezione consiste nel testare la configurazione dell'access
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

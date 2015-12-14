@@ -33,7 +33,7 @@ Queste restrizioni e note sono soggette a modifiche nel corso del miglioramento 
 ## Uso del pulsante "Apri in Power BI"
 Il modo più semplice per spostarsi tra SQL Data Warehouse e Power BI consiste nell'usare il pulsante Apri in Power BI. Questo pulsante permette di creare con facilità nuovi dashboard in Power BI.
 
-1.	Per iniziare, passare all'istanza di SQL Data Warehouse nel portale di Azure.
+1.	Per iniziare, passare all'istanza di SQL Data Warehouse nel portale di Azure classico.
 2.	Fare clic su Apri in Power BI.
 3.	Se non è possibile accedere direttamente o se non si ha un account di Power BI, sarà necessario effettuare l'accesso.  
 4.	Si verrà indirizzati alla pagina di connessione di SQL Data Warehouse, con le informazioni di SQL Data Warehouse pre-popolate.
@@ -50,7 +50,7 @@ Oltre a usare il pulsante Apri in Power BI, gli utenti possono connettersi a SQL
 6.	 È possibile fare clic sul nuovo set di dati per esplorare tutte le tabelle e le visualizzazioni nel database. Se si seleziona una colonna, una query verrà restituita all'origine, creando dinamicamente l'oggetto visivo. Gli oggetti visivi possono essere salvati in un nuovo report e aggiunti nuovamente al dashboard.
 
 ## Individuazione dei valori dei parametri
-Il nome completo del server e il nome del database sono disponibili nel portale di Azure. Si noti che SQL Data Warehouse è attualmente disponibile solo nel portale di anteprima di Azure.
+Il nome completo del server e il nome del database sono disponibili nel portale di Azure classico. Si noti che SQL Data Warehouse è attualmente disponibile solo nel portale di Azure.
 
 
 <!--Image references-->
@@ -63,4 +63,4 @@ Il nome completo del server e il nome del database sono disponibili nel portale 
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

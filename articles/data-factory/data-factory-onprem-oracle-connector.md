@@ -224,7 +224,7 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
-tableName | Nome della tabella nell'istanza del database Oracle a cui fa riferimento il servizio collegato. | Sì
+tableName | Nome della tabella nell'istanza del database Oracle a cui fa riferimento il servizio collegato. | No (se **oracleReaderQuery** di **SqlSource** è specificato)
 
 ## Proprietà del tipo di attività di copia Oracle
 
@@ -234,12 +234,12 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
-In caso di attività di copia con origine di tipo SqlSource, sono disponibili le proprietà seguenti nella sezione typeProperties:
+In caso di attività di copia con origine di tipo **OracleSource**, sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
 Proprietà | Descrizione |Valori consentiti | Obbligatorio
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. 
-Ad esempio: selezionare * da MyTable <p>Se non specificata, l'istruzione SQL eseguita: selezionare * da MyTable</p> | No
+Ad esempio: selezionare * da MyTable <p>Se non specificata, l'istruzione SQL eseguita: selezionare * da MyTable</p> | No (se **tableName** di **set di dati** è specificato)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -280,7 +280,7 @@ XML | String
 
 ## Suggerimenti per la risoluzione dei problemi
 
-**** Problema: ** viene visualizzato quanto segue **messaggio di errore**: l’attività di copia ha trovato parametri non validi: 'UnknownParameterName' messaggio dettagliato: Impossibile trovare il Provider di dati Framework .NET richiesto. Potrebbe non essere installato".
+**** Problema: ** viene visualizzato il seguente **messaggio di errore**: l’attività di copia ha trovato parametri non validi: 'UnknownParameterName', messaggio dettagliato: Impossibile trovare il Provider di dati Framework .NET richiesto. Potrebbe non essere installato".
 
 **Possibili cause**
 
@@ -293,11 +293,11 @@ XML | String
 2. Se viene visualizzato il messaggio di errore anche dopo l'installazione del provider, eseguire le operazioni seguenti: 
 	1. Aprire la configurazione del computer di .NET 2.0 dalla cartella: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
 	2. Cercare il **Provider di dati Oracle per .NET**, si dovrebbe poter trovare una voce simile a quella sottostante in **system.data** -> **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
-2.	Copiare questa voce nel file .config del computer nella seguente cartella v 4.0: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config e modificare la versione a 4.xxx.x.x.
-3.	Installare “<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll” into the global assembly cache (GAC) by running “gacutil /i [percorso del provider]".
+2.	Copiare questa voce nel file .config del computer nella seguente cartella v4.0: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config e modificare la versione a 4.xxx.x.x.
+3.	Installare “<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll” nella global assembly cache (GAC) eseguendo “gacutil /i [percorso del provider]".
 
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -33,9 +33,9 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 
 ## <a id="update-scripts"></a>Aggiornare lo script back-end per l'invio di notifiche push
 
-* Nel portale di gestione fare clic sulla scheda **Dati** e quindi su **TodoItem**. In **TodoItem** fare clic sulla scheda **Script**, quindi selezionare **Insert**. Verrà visualizzata la funzione che viene richiamata quando si verifica un inserimento nella tabella **TodoItem**.
+* Nel [portale di Azure classico] fare clic sulla scheda **Dati** e quindi su **TodoItem**. In **TodoItem** fare clic sulla scheda **Script**, quindi selezionare **Insert**. Verrà visualizzata la funzione che viene richiamata quando si verifica un inserimento nella tabella **TodoItem**.
 
-* Sostituire la funzione insert con il codice seguente, quindi fare clic su **Save**. Verrà registrato un nuovo script insert, che usa l'[oggetto apns] per inviare una notifica push (il testo inserito) al dispositivo specificato nella richiesta insert. Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica push.
+* Sostituire la funzione insert con il codice seguente, quindi fare clic su **Salva**. Verrà registrato un nuovo script insert, che usa l'[oggetto apns] per inviare una notifica push (il testo inserito) al dispositivo specificato nella richiesta insert. Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica push.
 
 
 ```
@@ -106,7 +106,7 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Introduzione a Servizi mobili]: mobile-services-ios-get-started.md
 [Get started with authentication]: mobile-services-ios-get-started-users.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [oggetto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -117,4 +117,4 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -74,9 +74,9 @@ L'autenticazione con la chiave condivisa implica che l'applicazione userà il no
 
 Quando si usa l'autenticazione con la chiave condivisa, si creerà una stringa di connessione. La stringa di connessione è costituita da:
 
-- **DefaultEndpointsProtocol**: è possibile scegliere http o https. Tuttavia, è vivamente consigliato l'uso di https.
+- **DefaultEndpointsProtocol**: è possibile scegliere HTTP o HTTPS. Tuttavia, è vivamente consigliato l'uso di HTTPS.
 - **Nome account**: nome dell'account di archiviazione
-- **Chiave dell'account**: se si usa il [portale di gestione](manage.windowsazure.com), per trovarla, fare clic su *Gestisci chiavi di accesso*. Se si usa il [portale di anteprima](portal.azure.com), è possibile fare clic sull'icona a forma di chiave per trovare queste informazioni.
+- **Chiave account**: se si utilizza il [portale di Azure](portal.azure.com), passare all’account di archiviazione e fare clic sull’icona **Chiavi** per trovare queste informazioni. Se si utilizza il [portale di Azure classico](manage.windowsazure.com), passare all'account di archiviazione nel portale e fare clic su **Gestisci chiavi di accesso**. 
 
 Ecco come appare nell'applicazione:
 
@@ -137,7 +137,7 @@ Ogni BLOB nell'archivio di Azure deve risiedere in un contenitore. L'esempio seg
         }];
     }
 
-È possibile verificarne il funzionamento controllando il [portale](portal.azure.com) o qualsiasi [strumento di esplorazione di archiviazione](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e accertandosi che *newcontainer* sia nell'elenco di contenitori dell'account di archiviazione.
+È possibile verificarne il funzionamento controllando il [portale di Azure](portal.azure.com) o qualsiasi [strumento di esplorazione di archiviazione](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e accertandosi che *newcontainer* sia nell'elenco di contenitori dell'account di archiviazione.
 
 ## Impostare le autorizzazioni del contenitore
 Per impostazione predefinita, le autorizzazioni di un contenitore vengono configurate per l'accesso **Privato**. I contenitori, tuttavia, offrono alcune opzioni diverse per l'accesso al contenitore:
@@ -169,7 +169,7 @@ L'esempio seguente mostra come creare un contenitore con le autorizzazioni di ac
     }
 
 ## Caricare un BLOB in un contenitore
-Come accennato nella sezione [Concetti del servizio BLOB](#blob-service-concepts), l'archivio BLOB offre tre diversi tipi di BLOB: BLOB in blocchi, BLOB di accodamento e BLOB di pagine. Per il momento, la libreria iOS di Archiviazione di Azure supporta solo i BLOB in blocchi. Nella maggior parte dei casi è consigliabile utilizzare il tipo di BLOB in blocchi.
+Come accennato nella sezione [Concetti del servizio BLOB](#blob-service-concepts), l'archiviazione BLOB offre tre diversi tipi di BLOB: BLOB in blocchi, BLOB di accodamento e BLOB di pagine. Per il momento, la libreria iOS di Archiviazione di Azure supporta solo i BLOB in blocchi. Nella maggior parte dei casi è consigliabile utilizzare il tipo di BLOB in blocchi.
 
 L'esempio seguente mostra come caricare un BLOB in blocchi da NSString. Se in questo contenitore esiste già un BLOB con lo stesso nome, i contenuti del BLOB verranno sovrascritti.
 
@@ -202,7 +202,7 @@ L'esempio seguente mostra come caricare un BLOB in blocchi da NSString. Se in qu
          }];
      }
 
-È possibile verificarne il funzionamento controllando il [portale](portal.azure.com) o qualsiasi [strumento di esplorazione di archiviazione](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e accertandosi che il contenitore *containerpublic* contenga il BLOB *sampleblob*. Poiché in questo esempio è stato usato un contenitore pubblico, per verificarne il funzionamento è possibile andare all'URI dei BLOB:
+È possibile verificarne il funzionamento controllando il [portale di Azure](portal.azure.com) o qualsiasi [strumento di esplorazione di archiviazione](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e accertandosi che il contenitore *containerpublic* contenga il BLOB *sampleblob*. Poiché in questo esempio è stato usato un contenitore pubblico, per verificarne il funzionamento è possibile andare all'URI dei BLOB:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -352,10 +352,10 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 - [API REST di Archiviazione di Azure]
 - [Blog del team di Archiviazione di Azure]
 
-In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/it-IT/home?forum=windowsazuredata) o in [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](http://feedback.azure.com/forums/217298-storage).
+In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Overflow dello stack](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](http://feedback.azure.com/forums/217298-storage).
 
 [Libreria iOS di Archiviazione di Azure]: https://github.com/azure/azure-storage-ios
-[API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

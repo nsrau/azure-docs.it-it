@@ -1,10 +1,12 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **Android)**. Under **Configure your client applicatoin**, click **Download**. This downloads a complete Android project for an app pre-configured to connect to your backend. Open the project using Android Studio, Import project (Eclipse ADT, Gradle, etc.).
+1. Visitare il [portale di Azure]. Fare clic su **Esplora tutto** > **App per dispositivi mobili** > e sul back-end appena creato. Nelle impostazioni dell'app per dispositivi mobili fare clic su **Quickstart** > **Android**. In **Configurare le applicazioni client**, fare clic su **Scarica**. In questo modo, viene scaricato il progetto Android per un'app preconfigurata da connettere al back-end. Aprire il progetto utilizzando Android Studio, Importa progetto (Eclipse ADT, Gradle e così via).
 
-2. Press the **Run 'app'** button to build the project and start the app in the Android simulator.
+2. Fare clic sul pulsante **Esegui ‘app’** per creare il progetto e avviare l'app nel simulatore Android.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list. 
+3. Nell'app digitare un testo significativo, ad esempio _Completare l’esercitazione_ quindi fare clic sul pulsante Aggiungi. Verrà inviata una richiesta POST al back-end di Azure distribuito in precedenza. Il back-end inserisce i dati della richiesta nella tabella SQL TodoItem e restituisce le informazioni sugli elementi appena archiviati all'app per dispositivi mobili. L'app per dispositivi mobili consente di visualizzare questi dati nell'elenco.
 
     ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
-[Azure Portal]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
+
+<!---HONumber=AcomDC_1203_2015-->

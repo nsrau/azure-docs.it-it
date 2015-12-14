@@ -1,13 +1,11 @@
-1. Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio or by clicking **Tools** -> **Android** -> **SDK Manager** on the menu. Locate the target version of the Android SDK that is used in your project , open it, and choose **Google APIs**, if it is not already installed.
+1. Aprire Android SDK Manager facendo clic sull'icona della barra degli strumenti di Android Studio o su **Tools** -> **Android** -> **SDK Manager** nel menu. Individuare la versione di destinazione di Android SDK usata nel progetto, aprirla, quindi scegliere **Google APIs**, se non è già installato.
 
-2. Go to **File**, **Project Structure**. Then enable Push Notifications under **Notifications**.
+2. Passare a **File**, **Struttura progetto**. Abilitare le notifiche push in **Notifiche**.
 
-3. Open **AndroidManifest.xml** and add this tag to the *application* tag.
+3. Aprire **AndroidManifest.xml** e aggiungere il tag seguente al tag *application*.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
  
 
-
-
-
+<!---HONumber=AcomDC_1203_2015-->

@@ -31,8 +31,8 @@ Informazioni su come usare Azure PowerShell per inviare processi MapReduce e Hiv
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-* **Un cluster HDInsight di Azure**. Per istruzioni, vedere [Introduzione all'uso di HDInsight][hdinsight-get-started] o [Creare cluster Hadoop in HDInsight][hdinsight-provision].
-- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Un cluster HDInsight di Azure**. Per istruzioni, vedere [Introduzione all'uso di HDInsight][hdinsight-get-started] o [Creare cluster Hadoop in HDInsight][hdinsight-provision].
+- **Workstation con Azure PowerShell**. Vedere [Installare Azure PowerShell 1.0 e versioni successive](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 ##Invio di processi MapReduce tramite PowerShell
 
@@ -266,4 +266,4 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

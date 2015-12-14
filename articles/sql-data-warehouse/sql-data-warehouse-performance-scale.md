@@ -36,9 +36,9 @@ Se si dispone di un'applicazione con un carico di lavoro molto variabile, aument
 ## Aumento e riduzione delle risorse di calcolo
 L'elasticità di SQL Data Warehouse consente di aumentare, ridurre o sospendere la potenza di calcolo usando una scala scorrevole di unità data warehouse (DWU) in modo del tutto indipendente dall'archiviazione nel cloud. Questo conferisce la flessibilità necessaria per regolare la potenza di calcolo in modo ottimale per la propria azienda.
 
-Per aumentare la potenza di calcolo è possibile aggiungere ulteriori DWU al servizio utilizzando il dispositivo di scorrimento scala nel portale di Azure. È inoltre possibile aggiungere DWU tramite T-SQL, le API REST o i cmdlet di Powershell. L'aumento o la riduzione annulla tutte le attività in esecuzione o in coda, ma avviene in pochi secondi, pertanto è possibile riprendere con più o meno potenza di calcolo.
+Per aumentare la potenza di calcolo è possibile aggiungere ulteriori DWU al servizio utilizzando il dispositivo di scorrimento scala nel portale di Azure classico. È inoltre possibile aggiungere DWU tramite T-SQL, le API REST o i cmdlet di Powershell. L'aumento o la riduzione annulla tutte le attività in esecuzione o in coda, ma avviene in pochi secondi, pertanto è possibile riprendere con più o meno potenza di calcolo.
 
-Nel [portale di Azure][], è possibile fare clic sull'icona "Scala" nella parte superiore della pagina SQL Data Warehouse e quindi utilizzare il dispositivo di scorrimento per aumentare o ridurre la quantità di DWU applicati al Data Warehouse prima di fare clic su "Salva". Se si vuole modificare la scalabilità a livello di programmazione, il codice T-SQL seguente illustra come modificare l'allocazione di DWU per il proprio SQL Data Warehouse:
+Nel [portale di Azure classico][], è possibile fare clic sull'icona "Scalabilità" nella parte superiore della pagina SQL Data Warehouse e quindi utilizzare il dispositivo di scorrimento per aumentare o ridurre la quantità di DWU applicati al Data Warehouse prima di fare clic su "Salva". Se si vuole modificare la scalabilità a livello di programmazione, il codice T-SQL seguente illustra come modificare l'allocazione di DWU per il proprio SQL Data Warehouse:
 
 ```
 ALTER DATABASE MySQLDW 
@@ -58,7 +58,7 @@ Una caratteristica unica di SQL Data Warehouse è la possibilità di sospendere 
 
 L'azione di sospensione riporta le risorse di calcolo nel pool delle risorse disponibili all'interno del data center, mentre l'azione di ripresa acquisisce le risorse di calcolo necessarie per le DWU impostate e le assegna all'istanza di Data Warehouse.
 
-Per sospendere e riprendere la potenza di calcolo, è possibile usare il [portale di Azure][], le API REST oppure PowerShell. Con la sospensione vengono annullate tutte le attività in esecuzione o in coda e, al ritorno, è possibile riprendere le risorse di calcolo nel giro di qualche secondo.
+Per sospendere e riprendere la potenza di calcolo, è possibile usare il [portale di Azure classico][], le API REST oppure Powershell. Con la sospensione vengono annullate tutte le attività in esecuzione o in coda e, al ritorno, è possibile riprendere le risorse di calcolo nel giro di qualche secondo.
 
 Il codice seguente illustra come eseguire una sospensione tramite PowerShell:
 
@@ -91,6 +91,6 @@ Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle pre
 
 <!--Other Web references-->
 
-[portale di Azure]: http://portal.azure.com/
+[portale di Azure classico]: http://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

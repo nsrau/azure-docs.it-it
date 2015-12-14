@@ -233,7 +233,7 @@ Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è s
 
 #### Per usare un cluster HDInsight su richiesta
 
-1. Nel **portale di Azure**, fare clic su **Creare e distribuire** nella home page di Data factory.
+1. Nel **portale di Azure classico**, fare clic su **Creare e distribuire** nella home page di Data factory.
 2. Nell'Editor di Data factory, fare clic su **Nuovo calcolo** sulla barra dei comandi, quindi scegliere **Cluster HDInsight su richiesta** dal menu.
 2. Nello script JSON procedere come segue:
 	1. Per la proprietà **clusterSize**, specificare le dimensioni del cluster HDInsight.
@@ -248,7 +248,7 @@ Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è s
 			    "typeProperties": {
 			      "clusterSize": "1",
 			      "timeToLive": "00:05:00",
-			      "version": "3.1",
+			      "version": "3.2",
 			      "linkedServiceName": "StorageLinkedService"
 			    }
 			  }
@@ -374,7 +374,7 @@ Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è s
 
 	(percorso BLOB), (nome del BLOB), (numero di righe nel BLOB), (nodo in cui è stata eseguita l'attività), (indicatore data/ora)
 
-10.	Usare il [portale di Azure][azure-preview-portal] o i cmdlet di Azure PowerShell per monitorare l'istanza di Data factory, le pipeline e i set di dati. I messaggi possono essere visualizzati da **ActivityLogger** nel codice per l'attività personalizzata nei log (nello specifico, user-0.log) scaricabili dal portale o con i cmdlet.
+10.	Usare il [portale di Azure classico][azure-preview-portal] o i cmdlet di Azure PowerShell per monitorare l'istanza di Data factory, le pipeline e i set di dati. I messaggi possono essere visualizzati da **ActivityLogger** nel codice per l'attività personalizzata nei log (nello specifico, user-0.log) scaricabili dal portale o con i cmdlet.
 
 	![scaricare i log dall'attività personalizzata][image-data-factory-download-logs-from-custom-activity]
 
@@ -398,7 +398,7 @@ Per aggiornare il codice dell'attività personalizzata, compilarlo e caricare il
 
 Di seguito sono riportati i passaggi generali per usare il servizio collegato Azure Batch nella procedura dettagliata descritta nella sezione precedente:
 
-1. Creare un account di Azure Batch usando il portale di gestione di Azure. vedere l’articolo [Creare e gestire un account Azure Batch][batch-create-account] per istruzioni. Annotare il nome e la chiave dell'account Azure Batch.
+1. Creare un account Batch di Azure usando il [portale di Azure classico](http://manage.windowsazure.com). Vedere l’articolo [Creare e gestire un account Batch di Azure][batch-create-account] per istruzioni. Annotare il nome e la chiave dell'account Azure Batch.
 
 	Inoltre, è possibile usare il cmdlet [New-AzureBatchAccount][new-azure-batch-account] per creare un account di Azure Batch. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare [Utilizzo di Azure PowerShell per gestire l'account di Azure Batch][azure-batch-blog].
 2. Creare un pool di Azure Batch. Per creare un pool di Azure Batch, è possibile scaricare il codice origine per lo [strumento di esplorazione di Azure Batch][batch-explorer], generarlo e utilizzarlo oppure usare la [libreria di Azure Batch per .NET][batch-net-library]. Per istruzioni dettagliate sull'uso dello strumento di esplorazione di Azure Batch, vedere la [procedura dettagliata di esempio relativa allo strumento di esplorazione di Azure Batch][batch-explorer-walkthrough].
@@ -421,7 +421,7 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 		  }
 		}
 
-	> [AZURE.IMPORTANT]L’**URL** dal **pannello dell’account Azure Batch** è nel formato seguente: accountname.region.batch.azure.com. Per la proprietà **batchUri** in JSON, sarà necessario **rimuovere "accountname."** dall'URL e utilizzare l’**accountname** per la proprietà JSON **accountName**.
+	> [AZURE.IMPORTANT]L’**URL** dal **pannello dell’account Batch di Azure** è nel formato seguente: accountname.region.batch.azure.com. Per la proprietà **batchUri** in JSON, sarà necessario **rimuovere "accountname."** dall'URL e utilizzare l’**accountname** per la proprietà JSON **accountName**.
 
 	Per la proprietà **poolName**, è inoltre possibile specificare l'ID del pool anziché il nome del pool.
 
@@ -474,4 +474,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Tasti di scelta rapida per il portale di Azure | Microsoft Azure"
-   description="Questo articolo includerà sempre un elenco aggiornato dei tasti di scelta rapida disponibili nel portale di Azure. È possibile che i singoli servizi abbiano tasti di scelta rapida specializzati."
+   pageTitle="Tasti di scelta rapida per il portale di Azure classico | Microsoft Azure"
+   description="Questo articolo includerà sempre un elenco aggiornato dei tasti di scelta rapida disponibili nel portale di Azure classico. È possibile che i singoli servizi abbiano tasti di scelta rapida specializzati."
    services="cloud-services"
    documentationCenter=""
    authors="curtand"
-   manager="msStevenPo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="09/10/2015"
+   ms.date="12/01/2015"
    ms.author="curtand"/>
 
-# Tasti di scelta rapida per il portale di Azure
+# Tasti di scelta rapida per il portale di Azure classico
 
 ## Hub aperti
 
@@ -37,17 +37,11 @@
 | J | Pannello precedente aperto |
 | K | Pannello successivo aperto |
 | L | Ultimo pannello aperto |
-| - | Riduzione a icona del pannello o ripristino da ingrandimento |
-| + | Ingrandimento pannello o ripristino da riduzione a icona |
-| # | Chiusura pannello corrente |
-| ¦ | Chiusura di tutti i pannelli |
-| , | Passaggio dello stato attivo sulla barra dei comandi |
-| . | Passaggio dello stato attivo sulla barra di spostamento |
-| ? | Visualizzazione dei tasti di scelta rapida |
+| - | Riduzione a icona del pannello o ripristino da ingrandimento | | + | Ingrandimento pannello o ripristino da riduzione a icona | | # | Chiusura pannello corrente | | ¦ | Chiusura di tutti i pannelli | | , | Passaggio dello stato attivo sulla barra dei comandi | | . | Passaggio dello stato attivo sulla barra di spostamento | | ? | Visualizzazione dei tasti di scelta rapida |
 
 
 ## Passaggi successivi
 
-Altre informazioni sul portale di Azure: http://azure.microsoft.com.
+Altre informazioni sul portale di Azure classico: http://azure.microsoft.com.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

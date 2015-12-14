@@ -38,7 +38,7 @@ Il corpo principale della Ricerca diagnostica è un elenco di elementi di teleme
 Gli eventi vengono in genere visualizzati nella ricerca diagnostica prima che vengano visualizzati nell’esploratore di metriche. Anche se il pannello viene automaticamente aggiornato a intervalli, è possibile fare clic su Aggiorna se in attesa di un determinato evento.
 
 
-> [AZURE.NOTE]Se l’app genera molti dati di telemetria (e si utilizza l’SDK ASP.NET versione 2.0.0-beta3 o successive), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, in modo da rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
+> [AZURE.NOTE]Se l’app genera molti dati di telemetria (e si utilizza l’SDK ASP.NET versione 2.0.0-beta3 o successive), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
 
 
 ## Controllare i singoli elementi
@@ -203,4 +203,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

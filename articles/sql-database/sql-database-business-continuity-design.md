@@ -55,13 +55,13 @@ I database di livello Standard non consentono di usare la replica geografica att
 
 ##Come abilitare la replica geografica
 
-È possibile abilitare la replica geografica tramite il portale di Azure o mediante una chiamata dell'API REST o del comando di PowerShell.
+È possibile abilitare la replica geografica tramite il portale di Azure classico o mediante una chiamata dell'API REST o del comando di PowerShell.
 
-###Portale di Azure
+###Portale di Azure classico
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. Accedere al [portale di Azure](https://portal.Azure.com).
+1. Accedere al [portale di Azure classico](https://portal.Azure.com)
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA** e quindi selezionare **Database SQL**.
 3. Passare al pannello del database, selezionare la **mappa della replica geografica** e fare clic su **Configura replica geografica**.
 4. Passare al pannello della replica geografica. Selezionare l'area di destinazione. 
@@ -98,4 +98,4 @@ Questa API è asincrona. Dopo la restituzione, usare l’API [Get Replication Li
 
 Quando si progetta l'applicazione per la continuità aziendale, è necessario considerare alcune opzioni di configurazione. La scelta dipenderà dalla topologia di distribuzione dell'applicazione e dalle parti dell'applicazione più vulnerabili a un'interruzione del servizio. Per informazioni aggiuntive, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

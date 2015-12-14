@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Visualizzare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB | Microsoft Azure"
-	description="Informazioni su Esplora script, uno strumento del portale di anteprima di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente."
+	description="Informazioni su Esplora script, uno strumento del portale di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/02/2015"
+	ms.date="12/01/2015"
 	ms.author="anhoh"/>
 
 # Visualizzare, modificare e creare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB
 
-In questo articolo viene fornita una panoramica di Esplora script di [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), uno strumento del portale di anteprima di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Ulteriori informazioni sulla programmazione sul lato server di DocumentDB sono disponibili [qui](documentdb-programming.md).
+In questo articolo viene fornita una panoramica di Esplora script di [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), uno strumento del portale di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Ulteriori informazioni sulla programmazione sul lato server di DocumentDB sono disponibili [qui](documentdb-programming.md).
 
 Dopo aver completato questa esercitazione, si potrà rispondere alle domande seguenti:
 
@@ -106,4 +106,4 @@ Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di
 Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

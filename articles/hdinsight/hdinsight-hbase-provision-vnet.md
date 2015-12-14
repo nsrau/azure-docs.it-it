@@ -60,7 +60,7 @@ Gestione risorse di Azure consente di lavorare con le risorse dell'applicazione 
 
 **Per creare un gruppo di risorse**
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **NUOVO**, fare clic su **Gestione**, quindi fare clic su **Gruppo di risorse**.
 3. Digitare o selezionare i valori seguenti:
 
@@ -74,7 +74,7 @@ Per poter effettuare il provisioning di un cluster HBase, è necessario disporre
 
 **Per creare una rete virtuale usando il portale di Azure**
 
-1. Accedere al [portale di anteprima](https://portal.azure.com).
+1. Accedere al [Portale](https://portal.azure.com).
 2. Fare clic su **NUOVO**, fare clic su **Rete**, quindi fare clic su **Rete virtuale**.
 3. In **Selezionare un modello di distribuzione**, selezionare **Classico** se si utilizza un cluster HDInsight basato su Windows; **Gestione risorse** se si utilizza un cluster HDInsight basato su Linux. Infine, fare clic su **Crea**.
 
@@ -115,25 +115,25 @@ Sebbene il server DNS sia generalmente facoltativo, in alcuni casi risulta neces
 
 **Per creare un cluster HDInsight**
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **NUOVO**, su **Analisi dei dati** e quindi su **HDInsight**.
 
-    ![Creazione di un nuovo cluster nel portale di anteprima di Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Anteprima di Azure")
+    ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Azure")
 
 3. Digitare o selezionare i valori seguenti:
 
   - **Nome del cluster**: Immettere un nome per il cluster. Un segno di spunta verde verrà visualizzato accanto al nome del cluster, se disponibile.
   - **Tipo di cluster**: selezionare **HBase**.
-  - **Sistema operativo del cluster**: selezionare **Windows Server 2012 R2 Datacenter**.
-  - **Sottoscrizione**: selezionare la sottoscrizione di Azure che verrà utilizzata per eseguire il provisioning del cluster.
-  - **Gruppo di Risorse**: selezionare il gruppo di risorse creato in precedenza nell'esercitazione.
-  - **Credenziali**: configurare il nome utente e la password per l'utente di Hadoop (utente HTTP). Se si abilita desktop remoto per il cluster, è necessario configurare il nome utente di desktop remoto utente e password e la data di scadenza dell’account. Fare clic su **Seleziona** nella parte inferiore per salvare le modifiche.
+  - **Sistema operativo cluster**: selezionare **Windows Server 2012 R2 Datacenter**.
+  - **Sottoscrizione**: selezionare la sottoscrizione di Azure che verrà usata per effettuare il provisioning del cluster.
+  - **Gruppo di risorse**: selezionare il gruppo di risorse creato in precedenza nell'esercitazione.
+  - **Credenziali**: configurare il nome utente e la password per l'utente di Hadoop (utente HTTP). Se si abilita desktop remoto per il cluster, è necessario configurare il nome utente e la password di desktop remoto nonché la data di scadenza dell'account. Fare clic su **Seleziona** in basso per salvare le modifiche.
   - **Origine dati**: selezionare un nuovo o selezionare un account di archiviazione di Azure esistente da utilizzare come file system predefinito per il cluster. Per impostazione predefinita, il nome del contenitore corrisponde al nome del cluster. Il percorso dell'account di archiviazione determina anche il percorso del cluster.
   - **Piano tariffario del nodo**: A scopo di valutazione o di formazione, selezionare 1 nodo area per ridurre al minimo il costo.
 
-  	- **Metodo di selezione**: impostare questa proprietà su **Da tutte le sottoscrizioni** per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su **Tasto di scelta** se si desidera immettere il **Nome di archiviazione** e il **Tasto di scelta** di un account di archiviazione esistente.
-  	- **Seleziona account di archiviazione / Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. Fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
-    - **Scegli contenitore predefinito**: utilizzare questa opzione per immettere il nome del contenitore predefinito da utilizzare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
+  	- **Metodo di selezione**: impostare questa proprietà su **Da tutte le sottoscrizioni** per consentire l'esplorazione degli account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su **Chiave di accesso** se si vuole immettere un valore nei campi **Nome archiviazione** e **Chiave di accesso** per un account di archiviazione esistente.
+  	- **Seleziona account di archiviazione/Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
+    - **Scegliere contenitore predefinito**: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
   	- **Percorso**: l'area geografica dove si trova o dove verrà creato l'account di archiviazione. Questo percorso determina il percorso del cluster. Il cluster e l'account di archiviazione predefinito devono trovarsi nello stesso data center di Azure.
 
   - **Livelli di prezzi nodo**: Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Verrà visualizzato il costo stimato del cluster all'interno del pannello.
@@ -389,4 +389,4 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

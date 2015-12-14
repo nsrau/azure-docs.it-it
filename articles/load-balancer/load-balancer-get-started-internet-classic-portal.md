@@ -66,4 +66,4 @@ Per bilanciare il carico del traffico di rete Internet tra le macchine virtuali 
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

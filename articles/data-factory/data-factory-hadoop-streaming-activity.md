@@ -40,7 +40,8 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 	                        "<nameofthecluster>/example/apps/wc.exe",
 	                        "<nameofthecluster>/example/apps/cat.exe"
 	                    ],
-	                    "fileLinkedService": "StorageLinkedService"
+	                    "fileLinkedService": "StorageLinkedService",
+	                    "getDebugInfo": "Failure"
 	                },
 	                "outputs": [
 	                    {
@@ -78,8 +79,9 @@ Tenere presente quanto segue:
 7. Nella sezione **filePaths** specificare i percorsi dei file eseguibili del mapper e del reducer. Nell'esempio: "adfsample/example/apps/wc.exe", adfsample è il contenitore BLOB, example/apps è la cartella e wc.exe è l'eseguibile.
 8. Per la proprietà **fileLinkedService** specificare il servizio collegato Archiviazione di Azure che rappresenta l'archivio di Azure contenente i file specificati nella sezione filePaths.
 9. Per la proprietà **arguments** specificare gli argomenti per il processo di streaming.
+10. La proprietà **getDebugInfo** è un elemento facoltativo. Quando viene impostata su Failure, i log vengono scaricati solo in caso di errore. Quando viene impostata su All, i log vengono sempre scaricati indipendentemente dallo stato dell'esecuzione.
 
-> [AZURE.NOTE]Come illustrato nell'esempio, sarà necessario specificare un set di dati di output per l'attività di Hadoop Streaming per la proprietà **outputs**. Questo è solo un set di dati fittizio che è necessario per la pianificazione della pipeline. Non è necessario specificare alcun set di dati di input per l'attività per la proprietà **inputs**.
+> [AZURE.NOTE]Come illustrato nell'esempio, sarà necessario specificare un set di dati di output per l'attività di Hadoop Streaming per la proprietà **output**. Questo è solo un set di dati fittizio che è necessario per la pianificazione della pipeline. Non è necessario specificare alcun set di dati di input per l'attività per la proprietà **input**.
 
 	
 ## Esempio
@@ -190,4 +192,4 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 	    }
 	}
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

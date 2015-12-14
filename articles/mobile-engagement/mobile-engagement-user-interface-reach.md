@@ -13,50 +13,53 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 
 # Come raggiungere gli utenti dell'applicazione con le notifiche push
+
+In questo articolo viene descritta la scheda **REACH** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
+
 La sezione Reach dell'interfaccia utente è lo strumento di gestione delle campagne push dove è possibile creare, modificare, attivare, terminare, monitorare e ottenere statistiche per le campagne di notifica push nonché funzionalità a cui è possibile accedere anche tramite l'API Reach e alcuni elementi dell'API Push di basso livello. Tenere presente che, indipendentemente dall'uso delle API o dell'interfaccia utente, è necessario integrare Azure Mobile Engagement e Reach nell'applicazione per ogni piattaforma con l'SDK prima di poter usare le campagne Reach.
 
-### Vedere anche
--  [Documentazione API - API Reach][Link 4], [Documentazione API - API Push][Link 4], [Guida alla risoluzione dei problemi - Push/Reach][Link 23]
--  [Reach - Campagna][Link 27], [Reach - Criterio][Link 28], [Reach - Contenuto][Link 29], [Reach - Procedure][Link 3]
+>[AZURE.NOTE]Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
+
  
 ## Quattro tipi di notifiche push
 1.    Annunci: consentono di inviare messaggi pubblicitari agli utenti che li reindirizzano a un'altra posizione all'interno dell'app o di inviarli a una pagina Web o a un archivio esterno all'app. 
 2.    Sondaggi: consentono di raccogliere informazioni dagli utenti finali ponendo loro domande.
 3.    Push di dati: consentono di inviare un file di dati binario o base64. Le informazioni contenute in un push di dati vengono inviate all'applicazione per modificare l'esperienza corrente degli utenti nell'app. L'applicazione deve essere in grado di elaborare i dati di un push di dati.
-4.    Riquadri (solo Windows Phone): consentono di utilizzare Servizi notifica Push di Microsoft (MPNS) per inviare push Windows nativi contenenti dati XML (supportato a partire dall'SDK versione 0.9.0. Il payload finale per i riquadri non può superare i 32 KB).
 
-### Vedere anche
--  [Concetti - Glossario][Link 6]
 
 ## Tre categorie di statistiche in tempo reale visualizzate per ogni campagna
+
 1.    Push inviati: il numero di push inviati in base ai criteri specificati nella campagna. 
 2.    Risposte: il numero di utenti che ha reagito alla notifica aprendola all'esterno dell'applicazione o chiudendola nell'applicazione. 
 3.    Considerate: il numero di utenti che hanno fatto clic sul collegamento nella notifica per essere reindirizzati a una nuova posizione nell'applicazione, a un archivio o a un browser Web. 
 
-> Nota: sono disponibili statistiche della campagna più dettagliate tramite "Stats" dell'API Reach
+> [AZURE.NOTE]\: sono disponibili statistiche della campagna più dettagliate tramite le statistiche dell'API Copertura
 
-### Vedere anche
--  [Concetti - Glossario][Link 6], [Documentazione API - API Reach - Statistiche][Link 4]
 
 
 ## Dettagli della campagna
+
 È possibile modificare, duplicare, eliminare o attivare campagne che non sono state ancora attivate passando il puntatore sopra i relativi nomi oppure fare clic per aprirle. È possibile duplicare campagne che sono già state attivate passando il puntatore sopra i nomi o fare clic per aprirle. Tuttavia, non è possibile modificare una campagna dopo che è stata attivata.
  
 ![Reach1][18]
 
 ## Feedback di Reach
-È possibile passare dalla visualizzazione dei dettagli a quella della statistiche di una campagna che è già stata attivata e passare dalla visualizzazione semplice a quella avanzata delle statistiche per ottenere informazioni più dettagliate (a seconda delle autorizzazioni). È inoltre possibile usare le informazioni di feedback di Reach di una campagna precedente come criteri di definizione dei destinatari di una nuova campagna. Le statistiche del feedback di Reach possono essere raccolte anche tramite "Stats" dell'API Reach. È inoltre possibile personalizzare i destinatari delle campagne di push in base a campagne precedenti.
 
+Per visualizzare i dettagli o le statistiche di una campagna, fare clic su di essa. È possibile quindi passare dalla visualizzazione dei dettagli a quella della statistiche di una campagna che è già stata attivata e passare dalla visualizzazione semplice a quella avanzata delle statistiche per ottenere informazioni più dettagliate (a seconda delle autorizzazioni). È inoltre possibile usare le informazioni di feedback di Reach di una campagna precedente come criteri di definizione dei destinatari di una nuova campagna. Le statistiche del feedback di Reach possono essere raccolte anche tramite **Stats** dell'API Reach. È inoltre possibile personalizzare i destinatari delle campagne di push in base a campagne precedenti.
 
-### Vedere anche 
--  [Documentazione dell'interfaccia utente - Reach - Nuova campagna di push][27], [Documentazione API - Reach API - Statistiche][Link 4]
 
 ![Reach2][19]
+
+
+## Vedere anche
+
+- [Concetti][Link 6]
+- [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -150,4 +153,4 @@ La sezione Reach dell'interfaccia utente è lo strumento di gestione delle campa
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

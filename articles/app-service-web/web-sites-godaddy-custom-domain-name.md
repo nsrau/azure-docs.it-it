@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
-Se si è acquistato un dominio tramite App Web del servizio app di Azure, fare riferimento all'ultimo passaggio dell'articolo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Acquistare un dominio per app Web</a>.
+Se si è acquistato un dominio tramite App Web del servizio app di Azure, fare riferimento all'ultimo passaggio di [Acquistare un dominio per app Web](custom-dns-web-site-buydomains-web-app.md).
 
 Questo articolo fornisce istruzioni generiche sull'uso di un nome di dominio personalizzato acquistato direttamente da [GoDaddy](https://godaddy.com) con [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -67,7 +67,7 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 5. Fare clic su **Aggiungi utente**.
 6. Selezionare **CNAME** come tipo di record, quindi specificare un valore **Host** di **awverify** e un valore **Point to** di **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE]Questo nome di record CNAME viene utilizzato da Azure per convalidare la proprietà del dominio descritto dal record A o il primo record CNAME. Una volta che il dominio è stato associato all'app web nel portale Azurepreview la voce **awverify** può essere rimossa.
+	> [AZURE.NOTE]Questo nome di record CNAME viene utilizzato da Azure per convalidare la proprietà del dominio descritto dal record A o il primo record CNAME. Una volta che il dominio è stato associato all'app web nel portale Azure la voce **awverify** può essere rimossa.
 
 5. Dopo avere completato l'aggiunta o la modifica dei record, fare clic su **Fine** per salvare le modifiche.
 
@@ -80,6 +80,5 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

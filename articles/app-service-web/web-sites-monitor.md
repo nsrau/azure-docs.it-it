@@ -32,7 +32,7 @@
 
 ##<a name="websitemetrics"></a>Procedura: aggiungere metriche dell'app Web
 
-1. Nel [portale di Azure](https://manage.windowsazure.com), dalle pagine delle app Web, fare clic sulla scheda **Monitoraggio** per visualizzare la pagina di gestione **Monitoraggio**. Per impostazione predefinita, il grafico nella pagina **Monitor** visualizza le stesse metriche del grafico nella pagina **Dashboard**.
+1. Nel [portale classico](https://manage.windowsazure.com), dalle pagine delle app Web, fare clic sulla scheda **Monitoraggio** per visualizzare la pagina di gestione **Monitoraggio**. Per impostazione predefinita, il grafico nella pagina **Monitor** visualizza le stesse metriche del grafico nella pagina **Dashboard**.
 
 2. Per visualizzare altre metriche per l'app Web, fare clic su **Aggiungi metriche** nella parte inferiore della pagina per visualizzare la finestra di dialogo **Scegli metriche**.
 
@@ -52,14 +52,14 @@ Nella modalità dell'app Web **Standard**, è possibile ricevere avvisi basati s
 
 ##<a name="howtoviewusage"></a>Procedura: visualizzare le quote di utilizzo per un'app Web
 
-È possibile configurare le app Web per l'esecuzione in modalità **Condivisa** o **Standard** dalla pagina di gestione **Scalabilità** dell'app Web nel [portale di Azure](https://manage.windowsazure.com). Ogni sottoscrizione Azure ha accesso a un pool di risorse fornito allo scopo di eseguire un massimo di 100 app Web per area in modalità **Condivisa**. Il pool di risorse disponibile per ogni sottoscrizione dell'app Web per questo scopo è condiviso da altre app Web nella stessa area configurata per l'esecuzione in modalità **Condivisa**. Poiché tali risorse sono condivise con altre app Web, tutte le sottoscrizioni prevedono un limite per l'utilizzo di tali risorse. I limiti applicati all'uso di queste risorse da parte della sottoscrizione sono espressi come quote di uso visualizzate nella sezione relativa alla panoramica sull'uso della pagina di gestione **Dashboard** di ogni app Web.
+È possibile configurare le app Web per l'esecuzione in modalità **Condivisa** o **Standard** dalla pagina di gestione **Scalabilità** dell'app Web nel [portale classico](https://manage.windowsazure.com). Ogni sottoscrizione Azure ha accesso a un pool di risorse fornito allo scopo di eseguire un massimo di 100 app Web per area in modalità **Condivisa**. Il pool di risorse disponibile per ogni sottoscrizione dell'app Web per questo scopo è condiviso da altre app Web nella stessa area configurata per l'esecuzione in modalità **Condivisa**. Poiché tali risorse sono condivise con altre app Web, tutte le sottoscrizioni prevedono un limite per l'utilizzo di tali risorse. I limiti applicati all'uso di queste risorse da parte della sottoscrizione sono espressi come quote di uso visualizzate nella sezione relativa alla panoramica sull'uso della pagina di gestione **Dashboard** di ogni app Web.
 
 >[AZURE.NOTE]Quando un'app Web app è configurata per l'esecuzione in modalità **Standard**, le vengono allocate risorse dedicate pari alle dimensioni delle macchine virtuali **Piccola** (predefinita), **Media** o **Grande**, come illustrato nella tabella in Dimensioni delle [macchine virtuali e dei servizi cloud per Azure][vmsizes]. Non sono previsti limiti alle risorse che una sottoscrizione può utilizzare per l'esecuzione di app Web in modalità **Standard**. Tuttavia, il numero di app Web in modalità **Standard** che è possibile creare per ogni area è pari a 500.
 
 ### Visualizzare quote di utilizzo per app Web configurate per la modalità Condivisa ###
 Per determinare il livello di impatto di un'app Web sulle quote di utilizzo delle risorse, eseguire la procedura seguente:
 
-1. Aprire la pagina di gestione **Dashboard** dell'app Web nel [portale di Azure](https://manage.windowsazure.com).
+1. Aprire la pagina di gestione **Dashboard** dell'app Web nel [portale classico](https://manage.windowsazure.com).
 2. Nella sezione **panoramica sull'uso** vengono visualizzate le quote di uso del rispettivo piano del [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), cioè un subset dei seguenti:
 	-	**Dati in uscita**, **Tempo CPU** e **Memoria**: quando si supera questa quota, Azure arresta l'app Web per il tempo residuo della quota di intervallo corrente. Azure avvierà l'app Web all'inizio dell'intervallo di quota successivo.
 	-	**Archiviazione file system**: quando si raggiunge questa quota, le risorse di archiviazione del file system rimangono accessibili per operazioni in lettura, ma tutte le operazioni in scrittura, incluse quelle necessarie per la normale attività dell'app Web, risultano bloccate. Le operazioni in scrittura riprenderanno quando si riduce l'uso dei file o si sposta l'app Web in un piano del servizio app con una quota maggiore.
@@ -76,7 +76,7 @@ Le quote non sono una questione di prestazioni o costi, ma rappresentano lo stru
 
 ##<a name="howtoconfigdiagnostics"></a>Procedura: configurare i log di diagnostica e download per un'app Web
 
-La diagnostica è abilitata nella scheda **Configurazione** dell'app Web nel [portale di Azure](https://manage.windowsazure.com). Esistono due tipi di dati diagnostici: **diagnostica applicazioni** e **diagnostica del sito**.
+La diagnostica è abilitata nella scheda **Configurazione** dell'app Web nel [portale classico](https://manage.windowsazure.com). Esistono due tipi di dati diagnostici: **diagnostica applicazioni** e **diagnostica del sito**.
 
 #### Diagnostica applicazioni ####
 
@@ -164,7 +164,7 @@ Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salv
 
 **FTP**
 
-1. Aprire la pagina di gestione **Dashboard** dell'app Web nel [portale di Azure](https://manage.windowsazure.com) e prendere nota del sito FTP indicato in **Log di diagnostica** e dell'account visualizzato in **Utente della distribuzione**. Il sito FTP è il sito in cui si trovano i file di log e l'account visualizzato in Deployment User è l'account utilizzato per eseguire l'autenticazione al sito FTP.
+1. Aprire la pagina di gestione **Dashboard** dell'app Web nel [portale classico](https://manage.windowsazure.com) e prendere nota del sito FTP indicato in **Log di diagnostica** e dell'account visualizzato in **Utente della distribuzione**. Il sito FTP è il sito in cui si trovano i file di log e l'account visualizzato in Deployment User è l'account utilizzato per eseguire l'autenticazione al sito FTP.
 2. Se non sono ancora state create le credenziali di distribuzione, l'account visualizzato in **Deployment User** indica **Not set**. In questo caso, è necessario creare le credenziali di distribuzione come descritto nella sezione Reset Deployment Credentials del Dashboard in quanto è necessario utilizzare queste credenziali per eseguire l'autenticazione al sito FTP in cui sono archiviati i file di log. In Azure non è supportata l'autenticazione al sito FTP mediante le credenziali Live ID.
 3. Valutare l'utilizzo di un client FTP, ad esempio [FileZilla][fzilla] per connettersi al sito FTP. Un client FTP semplifica l'immissione delle credenziali e la visualizzazione delle cartelle in un sito FTP rispetto al browser.
 4. Copiare i file di log dal sito FTP al computer locale.
@@ -289,4 +289,4 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

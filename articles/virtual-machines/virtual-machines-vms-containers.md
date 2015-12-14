@@ -129,7 +129,7 @@ Queste capacità poi sono spesso migrate a strumenti come [Puppet](https://puppe
 
 Più di recente, Azure ha rilasciato l’API REST [Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md) e aggiornato gli strumenti di PowerShell e dell’interfaccia della riga di comando di Azure per utilizzarla con facilità. È possibile distribuire, modificare o ridistribuire intere topologie di applicazioni usando i [modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md) con l'API di Gestione risorse di Azure usando:
 
-- il [Portale di anteprima di Azure utilizzando i modelli](https://github.com/Azure/azure-quickstart-templates)&mdash;si consiglia di utilizzare il pulsante "Distribuisci su Azure"
+- il [portale di Azure utilizzando i modelli](https://github.com/Azure/azure-quickstart-templates)&mdash;si consiglia di utilizzare il pulsante "Distribuisci su Azure"
 - l’[Interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 - i [ moduli di Azure PowerShell](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -187,7 +187,7 @@ Docker su Microsoft Azure:
 - [Estensione della VM Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 - [Guida dell’utente di Estensione della VM Docker di Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Uso dell'estensione della VM Docker dall'interfaccia della riga di comando di Azure (CLI di Azure)](virtual-machines-docker-with-xplat-cli-install.md)
-- [Uso dell'estensione della VM Docker dal portale di anteprima di Azure](virtual-machines-docker-with-portal.md)
+- [Uso dell'estensione VM Docker dal portale di Azure](virtual-machines-docker-with-portal.md)
 - [Introduzione rapida a Docker in Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 - [Come usare Docker Machine in Azure](virtual-machines-docker-machine.md)
 - [Come usare Docker Swarm in Azure](virtual-machines-docker-swarm.md)
@@ -240,4 +240,4 @@ Vedere [Docker](https://www.docker.com) e [Windows Server Containers](https://ms
 [microservizio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

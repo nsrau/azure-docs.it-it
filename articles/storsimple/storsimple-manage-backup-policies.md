@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos"/>
 
 # Per gestire i criteri di backup, è possibile usare il servizio StorSimple Manager.
@@ -28,7 +28,7 @@ Il **criteri di Backup** pagina consente inoltre di filtrare i criteri di backup
 - **Nome criterio** : il nome associato al criterio. I diversi tipi di criteri includono:
 
    - Criteri pianificati, vengono creati esplicitamente dall'utente.
-   - Criteri automatici, che vengono creati quando il backup predefinito per questa opzione è stato abilitato al momento della creazione del volume. Questi criteri sono denominati VolumeName\_Default dove nome Volume si riferisce al nome del volume StorSimple configurato dall'utente nel portale di gestione. I criteri automatici generare gli snapshot cloud giornalieri a partire da 22:30 ora del dispositivo.
+   - Criteri automatici, che vengono creati quando il backup predefinito per questa opzione è stato abilitato al momento della creazione del volume. Questi criteri sono denominati VolumeName\_Default dove nome Volume si riferisce al nome del volume StorSimple configurato dall'utente nel portale di Azure classico. I criteri automatici generare gli snapshot cloud giornalieri a partire da 22:30 ora del dispositivo.
    - Criteri importati, che sono stati originariamente creati in Gestione Snapshot StorSimple. Hanno un tag che descrive l'host di gestione Snapshot StorSimple che i criteri sono stati importati da.
 
 - **Volumi** – i volumi associati al criterio. Tutti i volumi associati a un criterio di backup vengono raggruppati quando vengono creati i backup.
@@ -49,7 +49,7 @@ Le operazioni utilizzate di frequente che è possibile eseguire da questa pagina
 
 ## Aggiungere un criterio di backup
 
-Aggiungere un criterio di backup per la pianificazione automatica dei backup. Eseguire i passaggi seguenti nel portale di gestione per aggiungere un criterio di backup per il dispositivo StorSimple. Dopo aver aggiunto i criteri, è possibile definire una pianificazione (vedere [Aggiungere o modificare una pianificazione](#add-or-modify-a-schedule)).
+Aggiungere un criterio di backup per la pianificazione automatica dei backup. Eseguire i passaggi seguenti nel portale di Azure classico per aggiungere un criterio di backup per il dispositivo StorSimple. Dopo aver aggiunto i criteri, è possibile definire una pianificazione (vedere [Aggiungere o modificare una pianificazione](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-aggiungere-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
@@ -60,26 +60,26 @@ Per guardare un video che illustra come creare un criterio di backup cloud o loc
 
 ## Aggiungere o modificare una pianificazione
 
-È possibile aggiungere o modificare una pianificazione che è collegata a un criterio di backup nel dispositivo StorSimple. Eseguire i passaggi seguenti nel portale di gestione per creare un backup pianificato.
+È possibile aggiungere o modificare una pianificazione che è collegata a un criterio di backup nel dispositivo StorSimple. Eseguire i passaggi seguenti nel portale di Azure classico per aggiungere o modificare un backup pianificato.
 
 [AZURE.INCLUDE [storsimple-aggiungere-modifica-backup-pianificazione](../../includes/storsimple-add-modify-backup-schedule.md)]
 
 ## Eliminare un criterio di backup
 
-Eseguire i passaggi seguenti nel portale di gestione per eliminare un criterio di backup nel dispositivo StorSimple.
+Eseguire i passaggi seguenti nel portale di Azure classico per eliminare un criterio di backup nel dispositivo StorSimple.
 
 [AZURE.INCLUDE [eliminazione di storsimple-criteri di backup](../../includes/storsimple-delete-backup-policy.md)]
 
 
 ## Creazione di un backup manuale
 
-Eseguire i passaggi seguenti nel portale di gestione per creare un backup manuale su richiesta per un singolo volume nel dispositivo StorSimple.
+Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup manuale su richiesta per un singolo volume.
 
 [AZURE.INCLUDE [storsimple-create-manual-backup](../../includes/storsimple-create-manual-backup.md)]
 
 ## Creare un criterio di backup personalizzato con più volumi e pianificazioni
 
-Eseguire i passaggi seguenti nel portale di gestione per creare un criterio di backup personalizzato che dispone di più volumi e pianificazioni.
+Eseguire i passaggi seguenti nel portale di Azure classico per creare un criterio di backup personalizzato che dispone di più volumi e pianificazioni.
 
 [AZURE.INCLUDE [storsimple-crea-custom--criteri di backup](../../includes/storsimple-create-custom-backup-policy.md)]
 
@@ -88,4 +88,4 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un criterio di b
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

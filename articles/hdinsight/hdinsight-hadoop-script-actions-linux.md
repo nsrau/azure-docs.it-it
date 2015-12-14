@@ -26,7 +26,7 @@ Le azioni di script consentono di personalizzare i cluster Azure HDInsight speci
 
 Le azioni script sono script Bash eseguiti sui nodi del cluster durante il provisioning. Un'azione script viene eseguita come radice e fornisce diritti di accesso completo ai nodi del cluster.
 
-È possibile usare l'azione script quando si effettua il provisioning di un cluster tramite il __portale di anteprima di Azure__, __Azure PowerShell__ o __HDInsight .NET SDK__.
+È possibile usare l'azione script quando si effettua il provisioning di un cluster tramite il __portale di Azure__, __Azure PowerShell__ o __HDInsight .NET SDK__.
 
 Per una procedura dettagliata sulla personalizzazione di un cluster con azioni script, vedere [Personalizzare i cluster HDInsight con azioni script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -220,4 +220,4 @@ Per il comando precedente sostituire __INFILE__ con il file contenente il caratt
 
 [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

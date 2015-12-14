@@ -34,7 +34,7 @@ Una coda partizionata aumenta ulteriormente la disponibilità, l'affidabilità e
 
 ### Creazione di code partizionate
 
-È possibile creare una coda partizionata tramite il portale di Azure classico e l’SDK del bus di servizio. Per creare una coda partizionata, la proprietà [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) deve essere impostata su **true** nell'istanza di [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). Il codice seguente illustra come creare una coda partizionata utilizzando l’SDK del Bus di servizio.
+È possibile creare una coda partizionata tramite il [portale di Azure classico][] e l’SDK del bus di servizio. Per creare una coda partizionata, la proprietà [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) deve essere impostata su **true** nell'istanza di [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). Il codice seguente illustra come creare una coda partizionata utilizzando l’SDK del Bus di servizio.
  
 ```
 // Create partitioned queue
@@ -72,7 +72,7 @@ Gli argomenti partizionati aumentano ulteriormente la disponibilità, l'affidabi
 
 ### Creare argomenti partizionati
 
-È possibile creare un argomento partizionato tramite il portale di Azure classico e l’SDK del Bus di servizio. Per creare un argomento partizionato, la proprietà [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) deve essere impostata su **true** nell'istanza [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). Il codice seguente illustra come creare un argomento partizionato utilizzando l’SDK del Bus di servizio.
+È possibile creare un argomento partizionato tramite il [portale di Azure classico][] e l’SDK del Bus di servizio. Per creare un argomento partizionato, la proprietà [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) deve essere impostata su **true** nell'istanza [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). Il codice seguente illustra come creare un argomento partizionato utilizzando l’SDK del Bus di servizio.
 	
 ```
 // Create partitioned topic
@@ -116,4 +116,6 @@ Vedere le seguenti informazioni aggiuntive per altre informazioni sul partiziona
 *    [Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 *    [Come usare AMQP 1.0 con l'API .NET del bus di servizio](service-bus-dotnet-advanced-message-queuing.md)
 
-<!---HONumber=Nov15_HO3-->
+[portale di Azure classico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

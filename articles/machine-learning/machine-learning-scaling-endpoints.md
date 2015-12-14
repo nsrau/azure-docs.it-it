@@ -21,7 +21,7 @@
 
 Gli endpoint del servizio Web in Azure Machine Learning dispongono di livelli di limitazione selezionabili in base alla frequenza con cui verrà utilizzato l'endpoint.
 
-Per controllare la quantità di limitazione dell'endpoint, utilizzare il dispositivo di scorrimento nel portale di gestione di Azure per impostare il numero massimo di chiamate simultanee tra 20-200
+Per controllare la quantità di limitazione nell'endpoint, usare il dispositivo di scorrimento nel portale di Azure classico per impostare il numero massimo di chiamate simultanee tra 20-200
 
 
 Le API sincrone in genere vengono usate nelle situazioni in cui si desidera una bassa latenza. La latenza qui indica il tempo impiegato dall'API per completare una richiesta e non tiene in considerazione i ritardi di rete. Si supponga di disporre di un'API con una latenza di 50 ms. Per utilizzare appieno la capacità disponibile con il livello di limitazione Elevato e il numero massimo di chiamate simultanee pari a 20, è necessario chiamare l'API 20 * 1000 / 50 = 400 volte al secondo. Estendendo ulteriormente tale capacità, un numero massimo di chiamate simultanee pari a 200 consentirà di chiamare l'API 4000 volte al secondo, supponendo una latenza di 50 ms.
@@ -47,4 +47,4 @@ L'interfaccia utente di gestione consente di specificare un numero di concorrenz
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

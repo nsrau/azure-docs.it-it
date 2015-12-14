@@ -20,9 +20,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-	Questo articolo non descrive come implementare le esperienze di accesso, iscrizione e gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione.
-Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
+
+> [AZURE.NOTE]Questo articolo non descrive come implementare le esperienze di accesso, iscrizione e gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
+
 
 > [AZURE.NOTE]Questo esempio è stato scritto per [Applicazione di esempio iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Eseguire prima la procedura dettagliata e in seguito seguire l’esempio.
 
@@ -53,7 +53,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 
 - Includere un'**app Web/API Web** nell'applicazione
 - Immettere `http://localhost/TodoListService` come **URL di risposta**: si tratta dell'URL predefinito per questo esempio di codice.
-- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
+- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesta a breve.
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -256,6 +256,8 @@ Creare un file `server.js` nell'editor preferito e aggiungere le seguenti inform
 /**
 * Module dependencies.
 */
+var fs = require('fs');
+var path = require('path');
 var util = require('util');
 var assert = require('assert-plus');
 var mongoose = require('mongoose/');
@@ -263,7 +265,7 @@ var bunyan = require('bunyan');
 var restify = require('restify');
 var config = require('./config');
 var passport = require('passport');
-var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
+var OIDCBearerStrategy = require('passport-azure-ad').BearerStrategy;
 ```
 
 Salvare il file. Servirà ancora tra poco.
@@ -284,7 +286,7 @@ Creare un file `config.js` nell'editor preferito e aggiungere le seguenti inform
 exports.creds = {
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
 audience: '<your audience URI>',
-identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration' // For using Microsoft you should never need to change this.
+identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration', // For using Microsoft you should never need to change this.
 tenantName:'<tenant name>',
 policyName:'b2c_1_<sign in policy name>',
 };
@@ -706,7 +708,7 @@ Date: Tue, 14 Jul 2015 05:43:38 GMT
 
 Ora è possibile aggiungere un'attività in questo modo:
 
-`$ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello`
+`$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
 
 La risposta dovrebbe essere:
 
@@ -842,7 +844,7 @@ next();
 });
 ```
 
-## 18: Eseguire nuovamente l'applicazione server e assicurarsi che rifiuti l'utente
+## 20: eseguire nuovamente l'applicazione server e assicurarsi che rifiuti l'utente
 
 Per verificare se la protezione OAuth2 per gli endpoint è attiva, usare nuovamente `curl`. Questa operazione verrà eseguita prima di eseguire uno qualsiasi degli SDK client in questo endpoint. Le intestazioni restituite dovrebbero bastare a indicare che si sta seguendo la strada giusta.
 
@@ -887,4 +889,4 @@ Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [Connettersi a un'API Web tramite iOS con B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -37,11 +37,11 @@ In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico
 
 Per risolvere gli errori di connessione SSH più comuni nelle macchine virtuali create con il modello di distribuzione classica, provare a eseguire questi passaggi:
 
-1. **Reimpostare l'accesso remoto** dal [portale di anteprima di Azure](https://portal.azure.com). Fare clic su **Esplora tutto** > **Macchine virtuali (classiche)** > macchina virtuale Windows > **Reimposta accesso remoto**.
+1. **Reimpostare l'accesso remoto** dal [portale di Azure](https://portal.azure.com). Fare clic su **Esplora tutto** > **Macchine virtuali (classiche)** > macchina virtuale Windows > **Reimposta accesso remoto**.
 
 	![Schermata che mostra la reimpostazione della configurazione SSH](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. **Riavviare** la macchina virtuale. Dal [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > macchina virtuale Windows > **Riavvia**. Dal [portale di Azure](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
+2. **Riavviare** la macchina virtuale. Dal [portale di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > macchina virtuale Windows > **Riavvia**. Dal [portale di Azure classico](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
 
 3. [**Ridimensionare** la macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -110,7 +110,7 @@ Per risolvere i problemi SSH comuni alle macchine virtuali create con il modello
 	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
 	```
 
-2. **Riavviare** la macchina virtuale Linux dal portale. Dal [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali** > macchina virtuale Windows > **Riavvia**.
+2. **Riavviare** la macchina virtuale Linux dal portale. Dal [portale di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali** > macchina virtuale Windows > **Riavvia**.
 
 	![Schermata che mostra il riavvio di una macchina virtuale V2](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)
 
@@ -176,14 +176,14 @@ Le informazioni nelle sezioni seguenti saranno utili per isolare l'origine dell'
 
 Prima di tutto controllare lo stato della macchina virtuale nel portale.
 
-Nel [portale di Azure](https://manage.windowsazure.com), per le macchine virtuali nel modello di distribuzione classica:
+Nel [portale di Azure classico](https://manage.windowsazure.com), per le macchine virtuali nel modello di distribuzione classica:
 
 1. Fare clic su **Macchine virtuali** > *Nome macchina virtuale*.
 2. Fare clic sul **dashboard** della macchina virtuale per controllarne lo stato.
 3. Fare clic su **Monitoraggio** per visualizzare le recenti attività di elaborazione e archiviazione e le risorse di rete.
 4. Fare clic su **Endpoint** per verificare che sia presente un endpoint per il traffico SSH.
 
-Nel [portale di anteprima di Azure](https://portal.azure.com):
+Nel [portale di Azure](https://portal.azure.com):
 
 1. Per una macchina virtuale creata nel modello di distribuzione classica fare clic su **Sfoglia** > **Macchine virtuali (classico)** > *Nome macchina virtuale*. Per una macchina virtuale basata su Gestione risorse fare clic su **Sfoglia** > **Macchine virtuali** > *Nome VM*. Nel riquadro di stato relativo alla macchina virtuale deve essere visualizzata l'opzione **In esecuzione**. Scorrere verso il basso per visualizzare le recenti attività di elaborazione e archiviazione e le risorse di rete.
 2. Fare clic su **Impostazioni** per esaminare gli endpoint, gli indirizzi IP e altre impostazioni. Per identificare gli endpoint nelle macchine virtuali create con Gestione risorse, controllare se è stato definito un [gruppo di sicurezza di rete](../traffic-manager/virtual-networks-nsg.md), se gli sono state applicate le regole e se vi si fa riferimento nella subnet.
@@ -253,7 +253,7 @@ Se non si dispone di un'altra macchina virtuale nella stessa rete virtuale, è p
 
 Se è possibile creare una connessione SSH con una macchina virtuale presente nella stessa rete virtuale, verificare quanto segue:
 
-- La configurazione dell'endpoint per il traffico SSH nella macchina virtuale di destinazione. La porta TCP privata dell'endpoint dovrebbe corrispondere alla porta TCP su cui è in ascolto il servizio SSH nella macchina virtuale (per impostazione predefinita è la porta 22). Per le macchine virtuali create con il modello di distribuzione di Gestione risorse usando i modelli, verificare il numero di porta TCP SSH nel portale di anteprima di Azure facendo clic su **Sfoglia** > **Macchine virtuali (v2)** > *Nome macchina virtuale* > **Impostazioni** > **Endpoint**.
+- La configurazione dell'endpoint per il traffico SSH nella macchina virtuale di destinazione. La porta TCP privata dell'endpoint dovrebbe corrispondere alla porta TCP su cui è in ascolto il servizio SSH nella macchina virtuale (per impostazione predefinita è la porta 22). Per le macchine virtuali create con il modello di distribuzione di Gestione risorse usando i modelli, verificare il numero di porta TCP SSH nel portale di Azure facendo clic su **Sfoglia** > **Macchine virtuali (v2)** > *Nome macchina virtuale* > **Impostazioni** > **Endpoint**.
 - L'ACL relativa all'endpoint per il traffico SSH sulla macchina virtuale di destinazione. Gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico SSH in ingresso nell'endpoint. Controllare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Informazioni sugli elenchi di controllo di accesso (ACL) di rete](../virtual-network/virtual-networks-acl.md).
 
 Per eliminare l'endpoint come origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, specificando il nome **SSH** (porta TCP 22 per il numero di porta pubblica e privata). Per altre informazioni, vedere [Configurare endpoint in una macchina virtuale in Azure](virtual-machines-set-up-endpoints.md).
@@ -287,4 +287,4 @@ Per le macchine virtuali nel modello di distribuzione classica, [Come reimpostar
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

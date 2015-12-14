@@ -18,6 +18,8 @@
 
 # Usare un'app per le API nel servizio app di Azure da un client .NET 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Panoramica
 
 Questa esercitazione descrive come usare App Service SDK per scrivere codice che chiama un'[app per le API](app-service-api-apps-why-best-platform.md) configurata per il livello di accesso **Pubblico (anonimo)** o **Pubblico (autenticato)**. Questo articolo illustra gli scenari di esempio seguenti:
@@ -180,7 +182,7 @@ In questa sezione verrà creato un progetto di applicazione desktop e vi si aggi
 
 ### <a id="client-flow"></a>Flusso server e flusso client a confronto
 
-L'applicazione di esempio illustra il [flusso server](../app-service/app-service-authentication-overview.md#server-flow), in cui il gateway ottiene il token di accesso del provider di identità. Per il [flusso client](../app-service/app-service-authentication-overview.md#client-flow), in cui l'applicazione client ottiene il token di accesso direttamente dal provider di identità e lo invia al gateway, si chiama `LoginAsync` invece di `SetCurrentUser`.
+L'applicazione di esempio illustra il [flusso server](../app-service/app-service-authentication-overview.md#server-flow), in cui il gateway ottiene il token di accesso del provider di identità. Per il [flusso client](../app-service/app-service-authentication-overview.md#client-flow), in cui l'applicazione client ottiene il token di accesso direttamente dal provider di identità e lo invia al gateway, si utilizzerà il nome `LoginAsync` invece del `SetCurrentUser`.
 
 Il seguente esempio di codice presume che il token di accesso del provider di identità sia contenuto in una variabile di tipo stringa denominata `providerAccessToken` e che l'indicatore del provider di identità ("aad", "microsoftaccount", "google", "twitter" o "facebook") sia contenuto in una variabile di tipo stringa denominata `idProvider`:
 
@@ -205,4 +207,4 @@ Per altri esempi di codice per chiamare app per le API dai client .NET, scaricar
 Per informazioni su come usare l'autenticazione nelle app per le API, vedere [Autenticazione per app per le API e per dispositivi mobili nel servizio app di Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

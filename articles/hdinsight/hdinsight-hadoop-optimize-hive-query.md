@@ -32,7 +32,7 @@ Per impostazione predefinita, i cluster Hadoop non sono ottimizzati per le prest
 
 Aumentando il numero di nodi di lavoro in un cluster è possibile usare più mapper e reducer da eseguire in parallelo. Esistono due modi per aumentare la scalabilità orizzontale in HDInsight:
 
-- In fase di provisioning, è possibile specificare il numero di nodi di lavoro usando il portale di anteprima di Azure, Azure PowerShell o l’interfaccia della riga di comando multipiattaforma. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight](hdinsight-provision-clusters.md). La schermata seguente mostra la configurazione dei nodi di lavoro nel portale di anteprima di Azure:
+- In fase di provisioning, è possibile specificare il numero di nodi di lavoro usando il portale di Azure, Azure PowerShell o l’interfaccia della riga di comando multipiattaforma. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight](hdinsight-provision-clusters.md). La schermata seguente mostra la configurazione dei nodi di lavoro nel portale di Azure:
 
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 
@@ -226,4 +226,4 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

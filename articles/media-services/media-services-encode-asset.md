@@ -34,7 +34,7 @@ Per sfruttare i vantaggi del servizio di [creazione dinamica dei pacchetti](medi
 Servizi multimediali supporta i seguenti codificatori su richiesta descritti in questo articolo:
 
 - **Codificatore multimediale standard**
-- **Azure Media Encoder** 
+- **Azure Media Encoder**
 - **Flusso di lavoro Premium del codificatore multimediale**
 
 In questo articolo è fornita una breve panoramica dei codificatori multimediali su richiesta e sono presenti collegamenti ad articoli che contengono informazioni più dettagliate. L'argomento fornisce inoltre il confronto dei codificatori.
@@ -45,7 +45,7 @@ Si noti che per impostazione predefinita, in ciascun account di Servizi multimed
 
 ###Panoramica
 
-È consigliabile utilizzare il codificatore multimediale standard. Tuttavia attualmente non è esposto tramite il portale di Azure.
+È consigliabile utilizzare il codificatore multimediale standard. Tuttavia attualmente non è esposto tramite il portale di Azure classico.
 
 Rispetto ad Azure Media Encoder, questo codificatore supporta più codec e formati di input e output. Questo approccio offre i vantaggi seguenti:
 
@@ -265,4 +265,4 @@ Windows Media Audio|No|Sì|Sì
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

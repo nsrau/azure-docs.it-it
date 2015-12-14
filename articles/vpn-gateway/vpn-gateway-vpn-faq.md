@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="cherylmc" />
 
 # Domande frequenti sul gateway VPN
@@ -20,12 +20,11 @@
 ## Connessione a reti virtuali
 
 ### È possibile connettere reti virtuali in diverse aree di Azure?
-
 Sì. Non esistono vincoli di area. Una rete virtuale può connettersi a un'altra rete virtuale nella stessa area o in un'area diversa di Azure.
 
 ### È possibile connettere reti virtuali in diverse sottoscrizioni?
-
 Sì.
+
 ### È possibile connettersi a più siti da una singola rete virtuale?
 
 È possibile connettersi a più siti tramite Windows PowerShell e le API REST di Azure. Vedere la sezione delle domande frequenti relative alla [connettività multisito e tra reti virtuali](#multi-site-and-vnet-to-vnet-connectivity).
@@ -42,6 +41,8 @@ Le seguenti connessioni cross-premise sono supportate:
 - [Multisito](vpn-gateway-multi-site.md) - si tratta di una variante di una configurazione Site-to-Site che consente di connettere più siti locali a un singolo gateway di rete virtuale.
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) - ExpressRoute è una connessione diretta ad Azure dalla rate WAN, non sulla rete Internet pubblica. Per altre informazioni, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md) e [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md).
+
+Per altre informazioni sulle connessioni cross-premise, vedere [Informazioni sulla connettività cross-premise protetta](vpn-gateway-cross-premises-options.md).
 
 ### Qual è la differenza tra una connessione Site-to-Site e una Point-to-Site?
 
@@ -97,9 +98,11 @@ Sono supportati i sistemi operativi seguenti:
 
 - Windows Server 2012
 
+- Windows 10
+
 ### Per la connettività Point-to-Site è possibile usare qualsiasi software VPN client che supporti SSTP?
 
-No. L'assistenza è limitata solo alle versioni dei sistemi operativi Windows elencati in precedenza. Il client Windows 10 è attualmente sottoposto a verifica.
+No. L'assistenza è limitata solo alle versioni dei sistemi operativi Windows elencati in precedenza.
 
 ### Di quanti endpoint client VPN è possibile disporre nella configurazione Point-to-Site?
 
@@ -135,11 +138,11 @@ Sì, è possibile. I prefissi IP delle reti virtuali non devono tuttavia essere 
 
 ## Gateway
 
-### Cos'è un gateway con routing statico?
+### Cos'è un gateway basato su criteri (con routing statico)?
 
 I gateway con routing statico implementano VPN basate su criteri. Le VPN basate su criteri crittografano e reindirizzano i pacchetti tramite tunnel IPsec basati sulle combinazioni di prefissi di indirizzo tra la rete locale e la rete virtuale di Azure. I criteri (o selettore di traffico) vengono in genere definiti come un elenco di accesso nella configurazione VPN.
 
-### Cos'è un gateway con routing dinamico?
+### Cos'è un gateway basato su route (con routing dinamico)?
 
 I gateway con routing dinamico implementano VPN basate su route. Le VPN basate su route usano "route" nella tabella di inoltro IP o di routing per reindirizzare i pacchetti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri o selettori di traffico per le VPN basate su route vengono configurati come any-to-any (o caratteri jolly).
 
@@ -167,7 +170,7 @@ Si noti che non è necessario distribuire le macchine virtuali o le istanze del 
 
 ### In che modo è possibile specificare il traffico che può passare attraverso il gateway VPN?
 
-Se si utilizza il portale di Azure, aggiungere tutti gli intervalli che si desidera inviare tramite il gateway per la rete virtuale nella pagina Reti in Reti locali.
+Se si utilizza il portale di Azure classico, aggiungere tutti gli intervalli che si desidera inviare tramite il gateway per la rete virtuale nella pagina Reti in Reti locali.
 
 ### È possibile configurare il tunneling forzato?
 
@@ -176,6 +179,13 @@ Sì. Vedere [Configurare il tunneling forzato](vpn-gateway-about-forced-tunnelin
 ### È possibile configurare il server VPN in Azure e usarlo per connettersi alla rete locale?
 
 Sì, è possibile distribuire i gateway o i server VPN in Azure da Azure Marketplace o tramite la creazione dei propri router VPN. Sarà necessario configurare le route definite dall'utente nella rete virtuale per garantire che il traffico venga indirizzato correttamente tra le reti locali e le subnet della rete virtuale.
+
+### Perché determinate porte sono aperte nella mia gateway VPN?
+
+Sono necessarie per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non potranno causare alcun effetto su tali endpoint.
+
+Un gateway VPN è basicamente un dispositivo multihomed con una scheda di rete che utilizza la rete privata del cliente e una scheda di rete rivolta alla rete pubblica. Le entità dell’infrastruttura di Azure non possono utilizzare le reti private del cliente per motivi di conformità, pertanto devono utilizzare endpoint pubblici per la comunicazione dell’infrastruttura. Gli endpoint pubblici vengono analizzati periodicamente dal controllo di sicurezza di Azure.
+
 
 ### Altre informazioni sui tipi di gateway, i requisiti e la velocità effettiva
 
@@ -240,7 +250,7 @@ Sì, questa operazione è supportata. Per altre informazioni, vedere [Configurar
 
 ### Se la macchina virtuale si trova in una rete virtuale e si dispone di una connessione cross-premise, in che modo è possibile connettersi alla macchina virtuale?
 
-Sono disponibili diverse opzioni. Se RDP è abilitato ed è stato creato un endpoint, è possibile connettersi alla macchina virtuale tramite il VIP. In tal caso, specificare il VIP e la porta a cui si desidera connettersi. Sarà necessario configurare la porta sulla macchina virtuale per il traffico. In genere, è possibile salvare le impostazioni per la connessione RDP al computer nel portale di gestione. Le impostazioni conterranno le informazioni necessarie sulla connessione.
+Sono disponibili diverse opzioni. Se RDP è abilitato ed è stato creato un endpoint, è possibile connettersi alla macchina virtuale tramite il VIP. In tal caso, specificare il VIP e la porta a cui si desidera connettersi. Sarà necessario configurare la porta sulla macchina virtuale per il traffico. In genere, è possibile passare al portale di Azure classico e salvare le impostazioni per la connessione RDP al computer. Le impostazioni conterranno le informazioni necessarie sulla connessione.
 
 Se si dispone di una rete virtuale per cui è configurata la connettività cross-premise, è possibile connettersi alla macchina virtuale usando il DIP interno o l'indirizzo IP privato. È possibile connettersi alla macchina virtuale anche usando il DIP interno di un'altra macchina virtuale presente nella stessa rete virtuale. Non è possibile usare RDP sulla macchina virtuale tramite DIP se si esegue la connessione da una posizione esterna alla rete virtuale. Se ad esempio è configurata una rete virtuale Point-to-Site e non si stabilisce una connessione dal computer, non è possibile connettersi alla macchina virtuale tramite DIP.
 
@@ -255,8 +265,8 @@ Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande fre
 
 ## Passaggi successivi
 
-È possibile visualizzare ulteriori informazioni sui gateway VPN nella [pagina di documentazione del Gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
+È possibile visualizzare altre informazioni sui gateway VPN nella [pagina di documentazione del Gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

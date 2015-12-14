@@ -50,7 +50,7 @@ Di seguito sono riportati alcuni scenari applicativi comuni con indicazioni rigu
 
 ### <a id="onprem"></a>Mi serve un front-end Web con funzionalità di elaborazione in background e un back-end di database per eseguire applicazioni aziendali integrate con risorse locali.
 
-Azure App Service è un'ottima soluzione per applicazioni aziendali complesse. Consente di sviluppare app scalabili automaticamente su una piattaforma con carico bilanciato, è protetto con Active Directory e si connette alle risorse locali. Semplifica la gestione di tali app tramite un portale di gestione e API di qualità superiore e consente di ottenere informazioni sul modo in cui i clienti le usano con strumenti di analisi approfondita delle app. La funzionalità [WebJobs][] consente di eseguire processi e attività in background nell'ambito del livello Web, mentre la connettività ibrida e le [funzionalità VNET](../fundamentals-introduction-to-azure.md#networking/) semplificano la connessione alle risorse in sede. Azure App Service offre contratti di servizio con garanzia di disponibilità del 99,999% per le app Web e consente di:
+Azure App Service è un'ottima soluzione per applicazioni aziendali complesse. Consente di sviluppare app scalabili automaticamente su una piattaforma con carico bilanciato, è protetto con Active Directory e si connette alle risorse locali. Semplifica la gestione di tali app tramite un portale e delle API di qualità superiore e consente di ottenere informazioni sul modo in cui i clienti le usano con strumenti di analisi approfondita delle app. La funzionalità [WebJobs][] consente di eseguire processi e attività in background nell'ambito del livello Web, mentre la connettività ibrida e le [funzionalità VNET](../fundamentals-introduction-to-azure.md#networking/) semplificano la connessione alle risorse in sede. Azure App Service offre contratti di servizio con garanzia di disponibilità del 99,999% per le app Web e consente di:
 
 * Eseguire le applicazioni in modo affidabile su una piattaforma cloud con funzionalità automatiche di riparazione e di applicazione di patch.
 * Scalare automaticamente in una rete globale di data center.
@@ -71,7 +71,7 @@ Azure App Service è un'ottima soluzione per l'hosting di siti Web aziendali. Co
 
 ### <a id="iis6"></a> Ho un'applicazione IIS6 in esecuzione su Windows Server 2003.
 
-Azure App Service consente di evitare facilmente i costi associati alla migrazione delle precedenti applicazioni IIS6. Microsoft ha creato [strumenti di migrazione e indicazioni dettagliate facili da usare](https://www.movemetowebsites.net/) che consentono di controllare la compatibilità e di identificare eventuali modifiche da apportare. L'integrazione con Visual Studio, TFS e con strumenti CMS comuni semplifica la distribuzione delle applicazioni IIS6 direttamente nel cloud. Dopo la distribuzione il portale di gestione di Azure fornisce solidi strumenti di gestione che consentono di ridurre il numero di istanze per gestire i costi e soddisfare la domanda in base alle esigenze. Con lo strumento di migrazione è possibile:
+Azure App Service consente di evitare facilmente i costi associati alla migrazione delle precedenti applicazioni IIS6. Microsoft ha creato [strumenti di migrazione e indicazioni dettagliate facili da usare](https://www.movemetowebsites.net/) che consentono di controllare la compatibilità e di identificare eventuali modifiche da apportare. L'integrazione con Visual Studio, TFS e con strumenti CMS comuni semplifica la distribuzione delle applicazioni IIS6 direttamente nel cloud. Dopo la distribuzione, il portale di Azure fornisce solidi strumenti di gestione che consentono di ridurre il numero di istanze per gestire i costi e soddisfare la domanda in base alle esigenze. Con lo strumento di migrazione è possibile:
 
 * Eseguire la migrazione dell'applicazione Web Windows Server 2003 al cloud in modo rapido e semplice.
 * Scegliere di lasciare in locale il database SQL collegato per creare un'applicazione ibrida.
@@ -154,7 +154,7 @@ Supporto WebMatrix|X||X|
 Accesso a servizi quali bus di servizio, archiviazione, database SQL|X|X|X|
 Hosting del livello Web o dei servizi Web di un'architettura multilivello|X|X|X|
 Hosting del livello intermedio di un'architettura multilivello|X|X|X|App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. L'anteprima [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md) fornisce anche altre funzionalità per l'hosting di servizi REST.
-Supporto integrato di MySQL distribuito come servizio|X|X|X|Servizi cloud può integrare MySQL distribuito come servizio tramite le offerte di ClearDB, ma non come parte del flusso di lavoro del portale di gestione.
+Supporto integrato di MySQL distribuito come servizio|X|X|X|Servizi cloud può integrare MySQL distribuito come servizio tramite le offerte di ClearDB, ma non come parte del flusso di lavoro del portale di Azure.
 Supporto per ASP.NET, ASP classico, Node.js, PHP, Python|X|X|X|
 Scalabilità orizzontale a più istanze senza ridistribuzione|X|X|X|Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra le macchine e creare un gruppo di affinità per impedire i riavvii simultanei di tutte le istanze a causa degli errori di manutenzione o hardware.
 Supporto per SSL|X|X|X|Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
@@ -204,4 +204,4 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [archiviazione]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

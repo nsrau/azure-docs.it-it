@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestione di Azure AD Connect | Microsoft Azure"
+	pageTitle="Azure AD Connect: passaggi successivi e come gestire Azure AD Connect | Microsoft Azure"
 	description="Informazioni su come estendere la configurazione predefinita e attività operative per Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="10/01/2015"
 	ms.author="billmath"/>
 
-# Gestione di Azure AD Connect
+# Passaggi successivi e come gestire Azure AD Connect
 Di seguito sono riportati argomenti operativi avanzati che permettono di personalizzare Azure Active Directory Connect per soddisfare le esigenze e i requisiti dell'organizzazione.
 
 ## Assegnazione delle licenze agli utenti di Azure AD Premium ed Enterprise Mobility
@@ -69,4 +69,4 @@ Abilitazione modalità di gestione temporanea | Consente di inserire in un'area 
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

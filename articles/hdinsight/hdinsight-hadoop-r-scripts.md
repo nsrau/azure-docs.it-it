@@ -39,11 +39,11 @@ R è compatibile con WASB (Azure Blob Storage), consentendo di elaborare i dati 
 
 ## Installare R
 
-Per installare R in un cluster HDInsight è disponibile uno [script di esempio](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) da un BLOB di sola lettura in archiviazione di Azure. Questa sezione contiene istruzioni su come usare lo script di esempio quando si creano cluster usando il portale di anteprima di Azure.
+Per installare R in un cluster HDInsight è disponibile uno [script di esempio](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) da un BLOB di sola lettura in archiviazione di Azure. Questa sezione contiene istruzioni su come usare lo script di esempio quando si creano cluster usando il portale di Azure.
 
 > [AZURE.NOTE]Lo script di esempio è stato introdotto con il cluster HDInsight versione 3.1. Per altre informazioni sulle versioni dei cluster HDInsight, vedere [Versioni cluster HDInsight](../hdinsight-component-versioning/).
 
-1. Durante la creazione di un cluster HDInsight dal portale di anteprima, fare clic su **Configurazione facoltativa** e quindi fare clic su **Azioni di script**.
+1. Durante la creazione di un cluster HDInsight dal portale, fare clic su **Configurazione facoltativa** e quindi fare clic su **Azioni di script**.
 2. Nella pagina **Azioni di script** immettere i valori seguenti:
 
 	![Usare Azione di script per personalizzare un cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Usare Azione di script per personalizzare un cluster")
@@ -65,7 +65,7 @@ Per installare R in un cluster HDInsight è disponibile uno [script di esempio](
 ## Eseguire gli script R
 Questa sezione descrive come eseguire uno script R nel cluster Hadoop con HDInsight.
 
-1. **Stabilire una connessione desktop remoto al cluster**: dal portale di anteprima di Azure abilitare il desktop remoto per il cluster creato con R installato, quindi connettersi al cluster. Per istruzioni, vedere <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
+1. **Stabilire una connessione desktop remoto al cluster**: dal portale, abilitare il desktop remoto per il cluster creato con R installato, quindi connettersi al cluster. Per istruzioni, vedere [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. **Aprire la console di R**: l'installazione di R inserisce un collegamento alla console di R sul desktop del nodo head. Fare clic su di esso per aprire la console di R.
 
@@ -113,4 +113,4 @@ Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-ha
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

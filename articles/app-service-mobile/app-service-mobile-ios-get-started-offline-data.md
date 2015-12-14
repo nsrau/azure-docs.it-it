@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="12/01/2015"
 	ms.author="krisragh"/>
 
 # Abilitare la sincronizzazione offline per l'app per dispositivi mobili per iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Panoramica
 
@@ -88,7 +86,7 @@ La funzionalità per la sincronizzazione di dati offline delle app per dispositi
 
     Il metodo `pullWithQuery` consente di specificare una query per filtrare i record da recuperare. In questo esempio, la query recupera semplicemente tutti i record nella tabella `TodoItem` remota.
 
-    Il secondo parametro di `pullWithQuery` è un ID di query usato per la *sincronizzazione incrementale*. La sincronizzazione incrementale recupera solo i record modificati dopo l'ultima sincronizzazione, usando il timestamp del record `UpdatedAt` (denominato `ms_updatedAt` nell'archivio locale). L'ID di query deve essere una stringa descrittiva univoca per ogni query logica presente nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `nil` come ID di query. Si noti che questa è una scelta potenzialmente inefficiente, perché in ogni operazione pull verranno recuperati tutti i record.
+    Il secondo parametro di `pullWithQuery` è un ID di query usato per la *sincronizzazione incrementale*. La sincronizzazione incrementale recupera solo i record modificati dopo l'ultima sincronizzazione, usando il timestamp del record `UpdatedAt` (denominato `updatedAt` nell'archivio locale). L'ID di query deve essere una stringa descrittiva univoca per ogni query logica presente nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `nil` come ID di query. Si noti che questa è una scelta potenzialmente inefficiente, perché in ogni operazione pull verranno recuperati tutti i record.
 
 	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
@@ -105,9 +103,9 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
       * MS\_TableOperations: per tenere traccia degli elementi da sincronizzare con il server
       * MS\_TableOperationErrors: per tenere traccia di eventuali errori verificatisi durante la sincronizzazione offline
       * MS\_TableConfig: per tenere traccia dell'ora dell'ultimo aggiornamento dell'ultima operazione di sincronizzazione per tutte le operazioni pull
-      * TodoItem: per archiviare gli elementi todo. Le colonne di sistema **ms\_createdAt**, **ms\_updatedAt** e **ms\_version** sono proprietà di sistema facoltative.
+      * TodoItem: per archiviare gli elementi todo. Le colonne di sistema **createdAt**, **updatedAt**, e **version** sono proprietà di sistema facoltative.
 
->[AZURE.NOTE]L'SDK delle app per dispositivi mobili di Azure riserva nomi di colonna che iniziano con "**`ms_`**". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto i nomi di colonna verranno modificati.
+>[AZURE.NOTE]L'SDK delle app per dispositivi mobili di Azure riserva nomi di colonna che iniziano con "**``**". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto i nomi di colonna verranno modificati.
 
 - Quando si usa la funzionalità di sincronizzazione offline, è necessario definire le tabelle di sistema come illustrato di seguito.
 
@@ -150,17 +148,16 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
 
     ### Tabella dati
 
-    ![][defining-core-data-todoitem-entity]
-
     **TodoItem**
-
 
     | Attributo | Tipo | Nota |
     |-----------   |  ------ | -------------------------------------------------------|
     | id | Stringa, contrassegnata come obbligatoria | chiave primaria nell'archivio remoto |
     | complete | Boolean | campo elemento ToDo |
     | text | String | campo elemento ToDo |
-    | ms\_createdAt | Date | (optional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (optional) maps to \_\_updatedAt system property | | ms\_version | String | (optional) used to detect conflicts, maps to \_\_version |
+    | createdAt | Data | (facoltativo) viene mappato alla proprietà di sistema createdAt |
+    | updatedAt | Data | (facoltativo) viene mappato alla proprietà di sistema updatedAt |
+    | version | String | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
 
 
 ## <a name="setup-sync"></a>Modificare il comportamento di sincronizzazione dell'app
@@ -181,22 +178,24 @@ In questa sezione si procederà alla modifica dell'app in modo che non effettui 
                 dispatch_async(dispatch_get_main_queue(), completion);
             }
 
-## <a name="test-app"></a>Test dell'app
+## <a name="test-app"></a>Testare l'app
 
+In questa sezione, ci si collegherà a un URL non valido per simulare uno scenario offline. Quando si aggiungono elementi di dati, questi vengono conservati nell'archivio Core Data locale, ma non sincronizzati con il back-end mobile.
 
-In questa sezione si disattiverà il Wi-Fi nel simulatore per creare uno scenario offline. Quando si aggiungono elementi di dati, questi vengono conservati nell'archivio Core Data locale, ma non sincronizzati con il back-end mobile.
+1. Modificare l'URL dell'app per dispositivi mobili in **QSTodoService.m** con un URL non valido ed eseguire di nuovo l'app:
 
-1. Disattivare il Wi-Fi nel simulatore iOS.
+        self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
 
 2. Aggiungere alcuni elementi todo o completare alcuni elementi. Uscire dal simulatore (o forzare la chiusura dell'app) e riavviare. Verificare che le modifiche siano state conservate.
 
 3. Visualizzare il contenuto della tabella TodoItem remota:
-   - Per il back-end JavaScript, accedere al portale di gestione e fare clic sulla scheda Dati per visualizzare il contenuto della tabella `TodoItem`.
-   - Per il back-end .NET, visualizzare il contenuto della tabella mediante uno strumento SQL, ad esempio SQL Server Management Studio, o mediante un client REST, ad esempio Fiddler o Postman.
+
+    + Per un back-end Node.js, passare al [portale di Azure](https://portal.azure.com/), in nel back-end dell’App per dispositivi mobili, fare clic su **Tabelle facili** > **TodoItem** per visualizzare il contenuto della tabella `TodoItem`.
+   	+ Per il back-end .NET, visualizzare il contenuto della tabella mediante uno strumento SQL, come ad esempio SQL Server Management Studio, o mediante un client REST, ad esempio Fiddler o Postman.
 
     Verificare che i nuovi elementi *non* siano stati sincronizzati con il server:
 
-4. Attivare il Wi-Fi nel simulatore iOS, quindi eseguire il movimento di aggiornamento trascinando verso il basso l'elenco di elementi. Verranno visualizzati un indicatore di avanzamento e il testo "Syncing...".
+4. Modificare l'URL ripristinando quello corretto **QSTodoService.m** ed eseguire di nuovo l'applicazione. Eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi. Verranno visualizzati un indicatore di avanzamento e il testo "Syncing...".
 
 5. Visualizzare nuovamente i dati di TodoItem. Dovrebbero essere visualizzati gli elementi TodoItems nuovi e modificati.
 
@@ -231,7 +230,7 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 <!-- URLs. -->
 
@@ -244,8 +243,8 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

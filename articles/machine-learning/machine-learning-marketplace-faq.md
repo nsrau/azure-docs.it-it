@@ -40,9 +40,9 @@
 
 È possibile che uno o più parametri di input del servizio Web abbiano superato il limite di lunghezza durante l'utilizzo del servizio Web nella pagina **Esplorare il set di dati** del Marketplace. I servizi possono essere chiamati con una lunghezza di input maggiore usando i metodi HTTP POST. Per esempi, vedere l'argomento relativo alle [soluzioni di esempio sull'uso di R in Machine Learning e pubblicate in Marketplace](machine-learning-r-csharp-web-service-examples.md).
 
-**4. Perché non riesco a visualizzare i risultati nella scheda "ESPLORA API" nello Store del portale di gestione di Azure?**
+**4. Perché non riesco a visualizzare i risultati nella scheda "ESPLORA API" nello Store del portale di Azure classico?**
 
-Si tratta di un problema noto con il Marketplace del portale di gestione di Azure. Il team è impegnato nella risoluzione del problema.
+Si tratta di un problema noto con il Marketplace del portale di Azure classico. Il team è impegnato nella risoluzione del problema.
 
 
 ##Domande sulla pubblicazione da Azure Machine Learning nel Marketplace
@@ -77,4 +77,4 @@ Per altre informazioni, contattare il team di Azure Marketplace in <datamarketbd
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/22/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # Advisor dell’indice del database SQL
@@ -22,12 +22,12 @@ L’advisor dell’indice del database SQL di Azure consiglia nuovi indici per i
 
 Il servizio del database SQL consente di valutare le prestazioni degli indici analizzando l'utilizzo cronologico delle risorse per un database SQL e vengono consigliati gli indici più adatti per l'esecuzione del carico di lavoro tipico del database.
 
-L’advisor dell’indice semplifica la gestione degli indici fornendo indicazioni su quali indici creare. Per i server V12, l’advisor dell’indice può anche creare e convalidare gli indici nel [portale di anteprima di Azure](https://portal.azure.com/) con pochi clic. Dopo aver creato l'indice, il servizio del database SQL analizza le prestazioni del carico di lavoro del database e fornisce i dettagli dell'impatto del nuovo indice. Se l'analisi determina che un indice consigliato ha un impatto negativo sulle prestazioni, l'indice viene ripristinato automaticamente.
+L’advisor dell’indice semplifica la gestione degli indici fornendo indicazioni su quali indici creare. Per i server V12, l’advisor dell’indice può anche creare e convalidare gli indici nel [portale di Azure](https://portal.azure.com/) con pochi clic. Dopo aver creato l'indice, il servizio del database SQL analizza le prestazioni del carico di lavoro del database e fornisce i dettagli dell'impatto del nuovo indice. Se l'analisi determina che un indice consigliato ha un impatto negativo sulle prestazioni, l'indice viene ripristinato automaticamente.
 
 L’advisor dell'indice consente di dedicare meno tempo all’ottimizzazione delle prestazioni del database.
 
 
-> [AZURE.NOTE]L’advisor dell’indice è attualmente in anteprima ed è disponibile solo nel [portale di anteprima di Azure](https://portal.azure.com/).
+> [AZURE.NOTE]L’advisor dell’indice è attualmente in anteprima ed è disponibile solo nel [portale di Azure](https://portal.azure.com/).
 
 
 ## Considerazioni di anteprima
@@ -57,11 +57,11 @@ L’advisor dell’indice è facile da utilizzare. Per semplificare la gestione 
 
 ## Esaminare gli indici consigliati
 
-L’advisor degli indici fornisce un elenco di indicazioni relative agli indici nel pannello del database nel [portale di anteprima di Azure](https://portal.azure.com/). Le migliori indicazioni selezionate vengono visualizzate per ogni tabella nel database selezionato in cui la creazione di un nuovo indice può fornire miglioramenti delle prestazioni.
+L’advisor degli indici fornisce un elenco di indicazioni relative agli indici nel pannello del database nel [portale di Azure](https://portal.azure.com/). Le migliori indicazioni selezionate vengono visualizzate per ogni tabella nel database selezionato in cui la creazione di un nuovo indice può fornire miglioramenti delle prestazioni.
 
 ### Per esaminare le indicazioni relative agli indici attualmente disponibili:
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **SFOGLIA** nel menu a sinistra.
 3. Fare clic su **Database SQL** nel pannello **Sfoglia**.
 4. Nel pannello dei **database SQL**, fare clic sul database di cui si desidera esaminare gli indici consigliati.
@@ -171,4 +171,4 @@ Monitorare le indicazioni relative agli indici e continuare ad applicarle in mod
 [3]: ./media/sql-database-index-advisor/recommended-indexes.png
 [4]: ./media/sql-database-index-advisor/index-operations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

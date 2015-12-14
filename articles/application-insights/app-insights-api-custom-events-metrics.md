@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="11/30/2015" 
 	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
@@ -104,22 +104,26 @@ Ad esempio, in un'app di gioco, inviare un evento ogni volta che un utente vince
 
     telemetry.trackEvent("WinGame");
 
-In questo caso, "WinGame" è il nome visualizzato nel portale di Application Insights. Fare clic sul riquadro Eventi personalizzati nel pannello Panoramica:
+In questo caso, "WinGame" è il nome visualizzato nel portale di Application Insights.
 
-![Individuare la risorsa dell'applicazione in portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
+Per visualizzare un conteggio degli eventi, aprire un pannello [Esplora metriche](app-insights-metrics-explorer.md), aggiungere un nuovo grafico e selezionare gli eventi.
+
+![](./media/app-insights-api-custom-events-metrics/01-custom.png)
+
+Per confrontare il conteggio di eventi diversi, impostare il tipo di grafico a Griglia e raggruppare in base al nome dell’evento:
+
+![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
 
-Il grafico è raggruppato in base al Nome evento per visualizzare i relativi contributi degli eventi più significativi. Per controllarlo, selezionare il grafico e utilizzare il controllo di raggruppamento.
-
-![Selezionare il grafico e impostare Raggruppamento](./media/app-insights-api-custom-events-metrics/02-segment.png)
-
-Nell'elenco sotto il grafico selezionare un nome evento. Fare clic per visualizzare le singole occorrenze dell'evento.
+Nella griglia, fare clic su un nome di evento per visualizzare le singole occorrenze di quell'evento.
 
 ![Eseguire il drill-through degli eventi](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 Per visualizzare altri dettagli, fare clic su qualsiasi occorrenza.
 
+Per concentrarsi sugli eventi specifici in ricerca o in Esplora metriche, impostare il filtro del pannello sui nomi degli eventi a cui si è interessati:
 
+![Aprire i filtri, espandere il nome dell’evento e selezionare uno o più valori](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ## Tenere traccia delle metriche
 
@@ -250,7 +254,7 @@ Gli SDK rilevano molte eccezioni automaticamente, pertanto non è sempre necessa
 
 * ASP.NET: [Scrivere codice per intercettare le eccezioni](app-insights-asp-net-exceptions.md)
 * J2EE: [Le eccezioni vengono rilevate automaticamente](app-insights-java-get-started.md#exceptions-and-request-failures)
-* App Windows: [Arresti anomali del sistema vengono rilevati automaticamente](app-insights-windows-crashes.md)
+* App di Windows: [Arresti anomali del sistema vengono rilevati automaticamente](app-insights-windows-crashes.md)
 * JavaScript: Rilevato automaticamente. Se si desidera disabilitare la raccolta automatica, aggiungere una riga al frammento di codice che si inserisce nelle pagine Web:
 
     ```
@@ -353,7 +357,7 @@ Se l'app raggruppa gli utenti in account, è inoltre possibile passare un identi
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-In [Esplora metriche](app-insights-metrics-explorer.md), è possibile creare un grafico che conta gli **Utenti, autenticati** e **gli account utente**.
+In [Esplora metriche](app-insights-metrics-explorer.md), è possibile creare un grafico che conta gli **Utenti, autenticati** e gli **Account utente**.
 
 È inoltre possibile [ricercare][diagnostic] i punti dati del client con account e nomi utente specifici.
 
@@ -548,9 +552,9 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
 
 È possibile scrivere il codice per elaborare i dati di telemetria prima che venga inviato da SDK. L'elaborazione include i dati inviati dai moduli telemetria standard come la raccolta delle richieste HTTP e la raccolta delle dipendenze.
 
-* [Aggiungere proprietà](app-insights-api-filtering-sampling.md#add-properties) di telemetria - ad esempio numeri di versione o valori calcolati da altre proprietà.
+* [Aggiungere proprietà](app-insights-api-filtering-sampling.md#add-properties) di telemetria - ad esempio, numeri di versione o valori calcolati da altre proprietà.
 * [Campionamento](app-insights-api-filtering-sampling.md#sampling) consente di ridurre il volume dei dati inviati dall'app al portale, senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati come eccezioni, richieste e visualizzazioni di pagina.
-* [Filtro](app-insights-api-filtering-sampling.md#filtering) riduce il volume. È possibile controllare gli elementi inviati o eliminati, ma è necessario tener conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, è possibile perdere la possibilità di navigare tra elementi correlati.
+* [Filtro](app-insights-api-filtering-sampling.md#filtering) riduce anche il volume. È possibile controllare gli elementi inviati o eliminati, ma è necessario tener conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, è possibile perdere la possibilità di navigare tra elementi correlati.
 
 [Altre informazioni](app-insights-api-filtering-sampling.md)
 
@@ -654,16 +658,24 @@ Se si imposta uno di questi valori personalmente, provare a rimuovere la riga pe
 
 ## Limiti
 
-Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione.
+Esistono alcuni limiti sul numero di metriche e eventi per applicazione (ovvero, per ogni chiave di strumentazione).
 
-1. Fino a 500 punti dati di telemetria al secondo per chiave di strumentazione (ovvero, per ogni applicazione). Sono inclusi i dati di telemetria standard inviati dai moduli SDK e gli eventi personalizzati, le metriche e altri dati di telemetria inviati dal codice.
+1. Una velocità massima al secondo che si applica separatamente a ogni chiave di strumentazione. Oltre il limite, verranno eliminati alcuni dati.
+ * Fino a 500 punti dati al secondo per le chiamate TrackTrace e i dati di log acquisiti. (100 al secondo per il piano tariffario gratuito.)
+ * Fino a 50 punti dati al secondo per le eccezioni, acquisiti dai moduli o dalle chiamate a TrackException. 
+ * Fino a 500 punti dati al secondo per tutti gli altri dati, inclusi i dati di telemetria standard inviati dai moduli SDK e gli eventi personalizzati, le metriche e altri dati di telemetria inviati dal codice. (100 al secondo per il piano tariffario gratuito.)
+1. Volume totale mensile dei dati, a seconda del [piano tariffario](app-insights-pricing.md).
 1.	Al massimo 200 nomi di metrica univoci e 200 nomi di proprietà univoci per l'applicazione. Le metriche includono l'invio di dati tramite TrackMetric, nonché le misurazioni di altri tipi di dati, ad esempio gli eventi. Le metriche e nomi di proprietà sono globali per una chiave di strumentazione, non definiti nell'ambito del tipo di dati.
 2.	Le proprietà possono essere usate per le operazioni di filtro e di raggruppamento solo quando possiedono meno di 100 valori univoci per ogni proprietà. Superati i 100 valori univoci, la proprietà può essere ancora usata per la ricerca e il filtro ma non per i filtri.
 3.	Proprietà standard, ad esempio Nome richiesta e URL pagina sono limitate a 1000 valori univoci alla settimana. Superati i 1000 valori univoci, i valori aggiuntivi vengono contrassegnati come "Altri valori". Il valore originale può essere ancora usato per la ricerca full-text e il filtro.
 
-* *D: per quanto tempo vengono conservati i dati?*
+*Come è possibile evitare di raggiungere il limite di velocità dei dati?*
 
-    Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
+* Installare l’SDK più recente per utilizzare [campionamento](app-insights-sampling.md).
+
+*Per quanto tempo vengono conservati i dati?*
+
+* Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
 
 ## Documentazione di riferimento
@@ -715,7 +727,7 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -724,4 +736,4 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

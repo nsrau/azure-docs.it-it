@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Informazioni sulle tecnologie NoSQL in Azure | Microsoft Azure" 
-	description="Informazioni su come le tecnologie NoSQL in HDInsight possono facilitare la gestione dei dati non adatti ai database relazionali, ad esempio set di Big Data e documenti JSON o grafici." 
+	description="Informazioni su come NoSQL di Azure consente di gestire i dati non adatti ai database relazionali. DocumentDB di Visual Studio Archiviazione tabelle di Visual Studio HBase di Visual Studio HDInsight di Visual Studio database SQL." 
 	editor="cgronlun" 
 	manager="jhubbard" 
 	services="documentdb, storage, hdinsight" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/21/2015" 
+	ms.date="12/01/2015" 
 	ms.author="mimig"/>
 
 # informazioni su NoSQL in Microsoft Azure
@@ -26,9 +26,10 @@ Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
  - Una breve analisi della tecnologia relazionale.
  - Un'introduzione a ciascuna delle tecnologie NoSQL di Azure: DocumentDB, archiviazione tabelle, HBase e HDInsight.
  - Un confronto delle tecnologie NoSQL e del database SQL di Azure. 
+ - Quando usare DocumentDB di Visual Studio. Archiviazione tabelle di Visual Studio HBase di Visual Studio HDInsight di Visual Studio database SQL.
 
 **Download PDF**: [Informazioni sulle tecnologie NoSQL in Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=330292)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

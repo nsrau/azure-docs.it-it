@@ -62,7 +62,7 @@ Se vengono rilevate incompatibilità del database, sarà necessario correggerle 
 
 ## Determinare se il database è compatibile mediante Esporta l'applicazione livello dati
 
-1. Verificare che la versione di SQL Server Management Studio disponibile sia 13.0.600.65 o successiva. Le nuove versioni di Management Studio vengono aggiornate ogni mese per rimanere sincronizzate con gli aggiornamenti apportati al portale di Azure.
+1. Verificare che la versione di SQL Server Management Studio disponibile sia 13.0.600.65 o successiva. Le nuove versioni di Management Studio vengono aggiornate ogni mese per rimanere sincronizzate con gli aggiornamenti apportati al portale di Azure classico.
 
  	 >[AZURE.IMPORTANT]Scaricare la versione [più recente](https://msdn.microsoft.com/library/mt238290.aspx) di SQL Server Management Studio. È consigliabile usare sempre la versione più aggiornata di Management Studio.
 
@@ -99,12 +99,12 @@ L'elenco seguente illustra le opzioni per la migrazione di un database compatibi
 > [AZURE.WARNING]Prima di eseguire la migrazione del database mediante uno di questi metodi, assicurarsi che non siano attive transazioni, in modo da garantire la coerenza transazionale durante la migrazione. Per disattivare un database sono disponibili vari metodi, dalla disabilitazione della connettività client alla creazione di uno [snapshot del database](https://msdn.microsoft.com/library/ms175876.aspx).
 
 - Per i database di piccole e medie dimensioni, la migrazione di database [compatibili](#determine-if-your-database-is-compatible) con SQL Server 2005 o versioni successive è semplice quanto l'esecuzione della [distribuzione guidata del database al database SQL di Microsoft Azure](#use-the-deploy-database-to-microsoft-azure-database-wizard) in SQL Server Management Studio. In caso di problemi di connettività, ovvero nessuna connettività, larghezza di banda ridotta o problemi di timeout, è possibile [usare un file BACPAC per la migrazione](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) di un database SQL Server al database SQL di Azure.
-- Per database di medie e grandi dimensioni o in caso di problemi di connettività, [usare un file BACPAC per la migrazione](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) di un database SQL Server al database SQL di Azure. Questo metodo consente di usare SQL Server Management Studio per esportare i dati e lo schema in un file [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) (archiviato localmente o in un BLOB di Azure) e quindi di importare il file BACPAC nell'istanza del database SQL di Azure. Se si archivia il file BACPAC in un BLOB di Azure, è inoltre possibile importare il file BACPAC dal [portale di Azure](sql-database-import.md) o [mediante PowerShell](sql-database-import-powershell.md).
+- Per database di medie e grandi dimensioni o in caso di problemi di connettività, [usare un file BACPAC per la migrazione](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) di un database SQL Server al database SQL di Azure. Questo metodo consente di usare SQL Server Management Studio per esportare i dati e lo schema in un file [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) (archiviato localmente o in un BLOB di Azure) e quindi di importare il file BACPAC nell'istanza del database SQL di Azure. Se si archivia il file BACPAC in un BLOB di Azure, è inoltre possibile importare il file BACPAC dal [portale di Azure classico](sql-database-import.md) o [mediante PowerShell](sql-database-import-powershell.md).
 - Per i database di grandi dimensioni, si otterranno migliori prestazioni migrando lo schema e i dati separatamente. Con questo metodo, creare un [file BACPAC senza dati](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) e importare tale file nel database SQL di Azure. Dopo l'importazione dello schema nel database SQL di Azure, usare [BCP](https://msdn.microsoft.com/library/ms162802.aspx) per estrarre i dati in file flat e quindi importarli nel database SQL di Azure.
 
 	 ![Diagramma di migrazione di SSMS](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-***Migrazione di un database compatibile tramite SQL Server Management Studio (SSMS) ***
+### Migrazione di un database compatibile senza tempi di inattività
 
 Quando non è possibile rimuovere il database SQL Server dalla produzione quando è in corso la migrazione, è possibile usare la replica transazionale di SQL Server come soluzione di migrazione. Con la replica transazionale, tutte le modifiche ai dati o agli schemi che si verificano tra il momento in cui inizia la migrazione e quello in cui viene completata vengono visualizzate nel database SQL di Azure. Una volta completata la migrazione, è sufficiente modificare la stringa di connessione delle applicazioni in modo che puntino al database SQL di Azure anziché al database locale. Una volta che la replica transazionale completa le eventuali modifiche rimaste nel database locale e tutte le applicazioni puntano al database di Azure, è possibile disinstallare la replica lasciando il database SQL di Azure come sistema di produzione.
 
@@ -127,7 +127,7 @@ La procedura guidata Distribuisci il database nel database SQL di Microsoft Azur
 
 > [AZURE.NOTE]Il passaggio precedente presuppone che sia già stato effettuato il [provisioning](../sql-database-get-started.md) dell'istanza logica del database SQL di Azure e che le informazioni di connessione siano disponibili.
 
-1. Verificare che la versione di SQL Server Management Studio disponibile sia 13.0.600.65 o successiva. Le nuove versioni di Management Studio vengono aggiornate ogni mese per rimanere sincronizzate con gli aggiornamenti apportati al portale di Azure.
+1. Verificare che la versione di SQL Server Management Studio disponibile sia 13.0.600.65 o successiva. Le nuove versioni di Management Studio vengono aggiornate ogni mese per rimanere sincronizzate con gli aggiornamenti apportati al portale di Azure classico.
 
 	 >[AZURE.IMPORTANT]Scaricare la versione [più recente](https://msdn.microsoft.com/library/mt238290.aspx) di SQL Server Management Studio. È consigliabile usare sempre la versione più aggiornata di Management Studio.
 
@@ -150,7 +150,7 @@ La procedura guidata Distribuisci il database nel database SQL di Microsoft Azur
 
 6.	Completare la procedura guidata per la migrazione del database. A seconda delle dimensioni e della complessità del database la distribuzione può richiedere da pochi minuti a diverse ore.
 7.	Usando Esplora oggetti, connettersi al database sottoposto a migrazione nel server del database SQL di Azure.
-8.	Usando il portale di Azure visualizzare il database e le relative proprietà.
+8.	Usando il portale di Azure classico visualizzare il database e le relative proprietà.
 
 ## Usare un file BACPAC per eseguire la migrazione di un database SQL Server nel database SQL di Azure
 
@@ -163,14 +163,14 @@ Per database di medie e grandi dimensioni o in caso di problemi di connettività
 
 - [Eseguire l'importazione da un file BACPAC al database SQL di Azure mediante SQL Server Management Studio](#import-from-a-bacpac-file-into-azure-sql-database-using-sql-server-management-studio)
 - [Eseguire l'importazione da un file BACPAC al database SQL di Azure mediante SqlPackage](#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage)
-- [Eseguire l'importazione da un file BACPAC al database SQL di Azure mediante il portale di Azure](sql-database-import.md)
+- [Eseguire l'importazione da un file BACPAC al database SQL di Azure mediante il portale di Azure classico](sql-database-import.md)
 - [Eseguire l'importazione da un file BACPAC al database SQL di Azure mediante PowerShell](sql-database-import-powershell.md)
 
 ## Esportare un database SQL Server compatibile in un file BACPAC mediante SQL Server Management Studio
 
 Seguire questa procedura per usare Management Studio per esportare un database SQL Server [compatibile](#determine-if-your-database-is-compatible) in un file BACPAC.
 
-1. Verificare che la versione di SQL Server Management Studio disponibile sia 13.0.600.65 o successiva. Le nuove versioni di Management Studio vengono aggiornate ogni mese per rimanere sincronizzate con gli aggiornamenti apportati al portale di Azure.
+1. Verificare che la versione di SQL Server Management Studio disponibile sia 13.0.600.65 o successiva. Le nuove versioni di Management Studio vengono aggiornate ogni mese per rimanere sincronizzate con gli aggiornamenti apportati al portale di Azure classico.
 
 	 >[AZURE.IMPORTANT]Scaricare la versione [più recente](https://msdn.microsoft.com/library/mt238290.aspx) di SQL Server Management Studio. È consigliabile usare sempre la versione più aggiornata di Management Studio.
 
@@ -211,7 +211,7 @@ Eseguire i passaggi seguenti per eseguire l'importazione da un file BACPAC nel d
 
 > [AZURE.NOTE]Il passaggio precedente presuppone che sia già stato effettuato il provisioning dell'istanza logica del database SQL di Azure e che le informazioni di connessione siano disponibili.
 
-1. Verificare che la versione di SQL Server Management Studio disponibile sia 13.0.600.65 o successiva. Le nuove versioni di Management Studio vengono aggiornate ogni mese per rimanere sincronizzate con gli aggiornamenti apportati al portale di Azure.
+1. Verificare che la versione di SQL Server Management Studio disponibile sia 13.0.600.65 o successiva. Le nuove versioni di Management Studio vengono aggiornate ogni mese per rimanere sincronizzate con gli aggiornamenti apportati al portale di Azure classico.
 
 	> [AZURE.IMPORTANT]Scaricare la versione [più recente](https://msdn.microsoft.com/library/mt238290.aspx) di SQL Server Management Studio. È consigliabile usare sempre la versione più aggiornata di Management Studio.
 
@@ -235,7 +235,7 @@ Eseguire i passaggi seguenti per eseguire l'importazione da un file BACPAC nel d
 
 7. Usando Esplora oggetti, connettersi al database sottoposto a migrazione nel server del database SQL di Azure.
 
-8.	Usando il portale di Azure visualizzare il database e le relative proprietà.
+8.	Usando il portale di Azure classico visualizzare il database e le relative proprietà.
 
 ## Eseguire l'importazione da un file BACPAC al database SQL di Azure mediante SqlPackage
 
@@ -277,4 +277,4 @@ Se si determina che il database SQL Server di origine non è compatibile, sarà 
 
 - SQL Server Management Studio. È possibile risolvere i problemi in Management Studio usando alcuni comandi Transact-SQL, ad esempio **ALTER DATABASE**.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

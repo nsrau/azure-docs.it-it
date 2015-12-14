@@ -29,4 +29,4 @@ In questo documento viene illustrato come esplorare i dati in quattro ambienti d
 - **Tabella hive** i dati vengono esplorati mediante le query Hive.
 - I dati **Azure Machine Learning (AML) Studio** vengono esplorati mediante i moduli AML.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

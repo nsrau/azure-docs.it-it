@@ -37,7 +37,7 @@ I passaggi seguenti consentono di pubblicare un servizio Web di Azure Machine Le
  Se non è già stato fatto, vedere questa [procedura dettagliata](machine-learning-walkthrough-5-publish-web-service.md).
 
 ###Passaggio 2: Distribuire il servizio in produzione e ottenere le informazioni sull'endpoint OData e sulla chiave API.###
-1. Nel [portale di gestione di Azure](http://manage.windowsazure.com) selezionare l'opzione **MACHINE LEARNING** nella barra di spostamento a sinistra e quindi selezionare l'area di lavoro. 
+1. Nel [portale di Azure classico](http://manage.windowsazure.com) selezionare l'opzione **MACHINE LEARNING** nella barra di spostamento a sinistra e quindi selezionare l'area di lavoro. 
 
 2. Fare clic sulla scheda **WEB SERVICES** e selezionare il servizio Web che si vuole pubblicare nel Marketplace.
 
@@ -84,7 +84,7 @@ distribuire il servizio in produzione.
 
 	![Azure Marketplace][image2]
 
-9.	Ottenere l'URL del servizio Web e la chiave API dal portale di gestione di Azure, come descritto nel passaggio 2 precedente:
+9.	Ottenere l'URL del servizio Web e la chiave API dal portale di Azure classico, come descritto nel passaggio 2 precedente.
 
 10.	Nella finestra di dialogo di configurazione del servizio dati del Marketplace incollare l'indirizzo dell'endpoint OData nella casella **URL servizio**.
 
@@ -109,4 +109,4 @@ distribuire il servizio in produzione.
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

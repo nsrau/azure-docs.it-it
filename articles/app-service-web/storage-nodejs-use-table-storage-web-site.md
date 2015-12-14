@@ -500,8 +500,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 	Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-	Il download del file inizia automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
+	<!-- ![The download page][download-publishing-settings] -->Il download del file inizia automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
 
 2. Immettere il seguente comando per importare le impostazioni:
 
@@ -600,7 +599,6 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Creazione e distribuzione di un'app Web Node.js nel Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
 [compilare e distribuire un'applicazione web di Node. js in Azure App servizio]: web-sites-nodejs-develop-deploy-mac.md
@@ -642,4 +640,4 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

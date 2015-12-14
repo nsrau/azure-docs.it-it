@@ -33,7 +33,7 @@ Il livello **Premium** fornisce l'isolamento delle risorse a livello di CPU e me
 
 Si noti che il costo base standard viene addebitato una sola volta al mese per ogni sottoscrizione di Azure. Ciò significa che dopo aver creato un unico spazio dei nomi del Bus di servizio nei livelli Standard o Premium, si potrà creare tanti nomi di spazio di livello Standard o Premium aggiuntivi quanti se ne desiderano nella stessa sottoscrizione Azure, senza incorrere in costi aggiuntivi di base.
 
-Tutti gli spazi dei nomi del Bus di servizio esistenti creati prima del 1 novembre 2014 sono stati automaticamente inseriti nel livello Standard. In questo modo ci si assicura di continuare ad avere accesso a tutte le funzionalità attualmente disponibili con il Bus di servizio. Successivamente, è possibile utilizzare il portale di Azure per effettuare il downgrade al livello di base se lo si desidera.
+Tutti gli spazi dei nomi del Bus di servizio esistenti creati prima del 1 novembre 2014 sono stati automaticamente inseriti nel livello Standard. In questo modo ci si assicura di continuare ad avere accesso a tutte le funzionalità attualmente disponibili con il Bus di servizio. Successivamente, è possibile utilizzare il [portale di Azure classico][] per effettuare il downgrade al livello di base se lo si desidera.
 
 Nella tabella seguente vengono riepilogate le differenze funzionali tra i livelli di base e quelli Standard/Premium.
 
@@ -85,7 +85,7 @@ I prezzi di seguito sono validi a partire dall’1 novembre 2014:
 
 ## Connessioni negoziate
 
-*Connessioni negoziate* adattare i modelli di utilizzo cliente che coinvolgono un numero elevato di mittenti/destinatari "connessi in modo permanente" per le code, argomenti/sottoscrizioni o gli hub di eventi. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
+*Connessioni negoziate* adattare i modelli di utilizzo cliente che coinvolgono un numero elevato di mittenti/destinatari "connessi in modo permanente" per le code, argomenti/sottoscrizioni o gli hub eventi. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
 
 In precedenza, le code e gli argomenti/sottoscrizioni avevano un limite previsto di 100 connessioni simultanee per ciascun URL. Lo schema di fatturazione corrente rimuove il limite per ogni URL per le code e gli argomenti/sottoscrizioni e implementa quote e misurazione sulle connessioni negoziate ai livelli di sottoscrizione di Azure dello spazio dei nomi del Bus di servizio.
 
@@ -147,4 +147,6 @@ Sì. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, 
 
 [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+[portale di Azure classico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

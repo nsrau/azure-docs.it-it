@@ -3,7 +3,7 @@
 	description="Domande frequenti su progettazione/implementazione di soluzioni di Hub di notifica"
 	services="notification-hubs"
 	documentationCenter="mobile"
-	authors="wesmc"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor="" />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc" />
 
 #Hub di notifica di Azure - Domande frequenti (FAQ)
@@ -70,7 +70,7 @@ Poiché le notifiche push vengono recapitate da un servizio notifica push specif
 ###9\. Quali sono gli aspetti da considerare per la progettazione di una soluzione con spazi dei nomi e Hub di notifica?
 *Ambiente/app per dispositivi mobili:* è consigliabile un Hub di notifica per app per dispositivi mobili per ogni ambiente. In uno scenario multi-tenant - ogni tenant deve avere un hub separato. È sempre sconsigliabile la condivisione di un Hub di notifica tra ambiente di test e di produzione in quanto tale condivisione può causare problemi durante l'invio delle notifiche. Ad esempio, Apple offre endpoint Sandbox e Production Push, che hanno credenziali separate. Se l'hub è stato inizialmente configurato con certificato sandbox Apple e successivamente riconfigurato per utilizzare il certificato di produzione di Apple, i token di dispositivo precedenti potrebbero diventare non validi con il nuovo certificato e causare la mancate esecuzione dei push. È consigliabile separare l'ambiente di test da quello di produzione e utilizzare hub diversi per diversi ambienti.
 
-*Credenziali PNS*: quando un'app per dispositivi mobili viene registrata con il portale per sviluppatori di una piattaforma (ad esempio, Apple o Google e così via), si ottiene un identificatore app e token di sicurezza che il back-end dell'app deve fornire ai servizi di notifica push della piattaforma per poter inviare notifiche push ai dispositivi. Questi token di sicurezza, che possono essere sotto forma di certificati (ad esempio per Apple iOS o Windows Phone) o chiavi di protezione (Google Android, Windows), devono essere configurate in Hub di notifica e così via. Questo avviene in genere a livello di hub di notifica, ma può essere eseguito anche a livello di spazio dei nomi in uno scenario multi-tenant.
+*Credenziali PNS*: quando un'app per dispositivi mobili viene registrata con il portale per sviluppatori di una piattaforma (ad esempio, Apple o Google e così via), si ottiene un identificatore app e token di sicurezza che il back-end dell'app deve fornire ai servizi di notifica push della piattaforma per poter inviare notifiche push ai dispositivi. Questi token di sicurezza, che possono essere sotto forma di certificati (ad esempio per Apple iOS o Windows Phone) o chiavi di protezione (Google Android, Windows e così via), devono essere configurate in Hub di notifica. Questo avviene in genere a livello di hub di notifica, ma può essere eseguito anche a livello di spazio dei nomi in uno scenario multi-tenant.
 
 *Spazi dei nomi:* gli spazi dei nomi possono essere utilizzati anche per il raggruppamento di distribuzione. Possono inoltre essere utilizzati per rappresentare tutti gli hub di notifica per tutti i tenant della stessa app nello scenario multi-tenant.
 
@@ -111,7 +111,7 @@ Tutte le operazioni di gestione degli hub di notifica passano ai log delle opera
 Gli hub di notifica di Azure forniscono numerose funzionalità a scopo di risoluzione dei problemi comuni, in particolare nello scenario più comune relativo alle notifiche eliminate. Visualizzare i dettagli in questo white paper sulla risoluzione dei problemi - [NH - risoluzione dei problemi]
 
 ###2\. Sono disponibili le funzionalità di telemetria?
-Gli Hub di notifica di Azure consentono la visualizzazione di dati di telemetria nel portale di gestione di Azure. I dettagli delle metriche disponibili sono reperibili qui: [NH - Metriche]. Si noti che le notifiche sono considerate riuscite quando sono state recapitate al Servizio di notifica Push esterno (APNS di Apple, GCM per Google e così via), per cui è responsabilità del PNS recapitare le notifiche ai dispositivi, e il PNS non espone tali metriche. È offerta inoltre la possibilità di esportare i dati di telemetria a livello di codice (nel livello Standard). Vedere questo esempio per ulteriori informazioni - [NH - Esempio di metriche]
+Gli Hub di notifica di Azure consentono la visualizzazione di dati di telemetria nel portale di gestione di Azure. I dettagli delle metriche disponibili sono reperibili qui: [NH - Metriche]. Si noti che le notifiche sono considerate riuscite quando sono state recapitate al Servizio di notifica Push esterno (servizio APN di Apple, GCM per Google e così via), per cui è responsabilità del PNS recapitare le notifiche ai dispositivi, e il PNS non espone tali metriche. È offerta inoltre la possibilità di esportare i dati di telemetria a livello di codice (nel livello Standard). Vedere questo esempio per ulteriori informazioni - [NH - Esempio di metriche]
 
 [portale di Azure]: https://manage.windowsazure.com
 [Prezzi di Hub di notifica]: http://azure.microsoft.com/pricing/details/notification-hubs/
@@ -134,4 +134,4 @@ Gli Hub di notifica di Azure consentono la visualizzazione di dati di telemetria
 [NH - Esempio di metriche]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Esportazione/importazione di registrazioni]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

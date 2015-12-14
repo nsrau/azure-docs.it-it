@@ -108,10 +108,10 @@ Accedere al primo computer controller di dominio utilizzando le credenziali dell
 
 ### <a id="logon"></a>Per accedere a una macchina virtuale utilizzando una connessione Desktop remoto
 
-1.	Nel riquadro sinistro del portale di Azure, fare clic su **Macchine virtuali**.
+1.	Nel riquadro sinistro del portale di Azure classico, fare clic su **Macchine virtuali**.
 2.	Per connettersi a una macchina virtuale, fare clic su **Esecuzione** nella colonna **Stato** accanto al relativo nome.
 3.	In fondo alla pagina, nella barra dei comandi, fare clic su **Connetti**.
-4.	Nel portale di Azure viene indicato che il file .rdp viene recuperato. Fare clic su **OK**.
+4.	Nel portale di Azure classico viene indicato che il file .rdp viene recuperato. Fare clic su **OK**.
 5.	Viene visualizzata la finestra di dialogo del browser in cui viene chiesto se si desidera aprire o salvare ComputerName.rdp da manage.windowsazure.com. Fare clic su **Apri**.
 6.	Nella finestra di dialogo **Connessione Desktop remoto**, fare clic su **Connetti**.
 7.	Nella finestra di dialogo **Protezione di Windows**, fare clic su **Usa un altro account**.
@@ -205,14 +205,14 @@ Successivamente, eseguire i passaggi seguente per aggiungere ulteriori propriet�
 
 Quindi, aggiornare i server DNS per la rete virtuale in modo che Azure assegni alle macchine virtuali gli indirizzi IP dei due nuovi controller di dominio da utilizzare come server DNS. Si noti che questa procedura utilizza i valori di tabella V (per le impostazioni di rete virtuale).
 
-1.	Nel riquadro sinistro del portale di Azure, fare clic su **Reti**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
+1.	Nel riquadro sinistro del portale di Azure classico, fare clic su **Reti**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
 2.	Fare clic su **Configure**.
 3.	In **Server DNS**, rimuovere le voci corrispondenti ai server DNS che si trovano sulla rete locale.
 4.	In **Server DNS**, aggiungere due voci con nomi descrittivi e gli indirizzi IP di questi due elementi di tabella:
  - Tabella V – Elemento 6 – Colonna Valore
  - Tabella V – Elemento 7 – Colonna Valore
 5.	Nella barra dei comandi in basso fare clic su **Salva**.
-6.	Nel riquadro sinistro del portale di Azure, fare clic su **Macchine virtuali**, quindi fare clic sulla colonna **Stato** accanto al nome del primo controller di dominio.
+6.	Nel riquadro sinistro del portale di Azure classico, fare clic su **Macchine virtuali**, quindi fare clic sulla colonna **Stato** accanto al nome del primo controller di dominio.
 7.	Nella barra dei comandi fare clic su **Riavvia**.
 8.	Quando viene avviato il primo controller di dominio, fare clic sulla colonna **Stato** accanto al nome del secondo controller di dominio.
 9.	Nella barra dei comandi fare clic su **Riavvia**. Attendere finché non viene avviato il secondo controller di dominio.
@@ -248,4 +248,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

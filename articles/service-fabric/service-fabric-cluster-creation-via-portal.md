@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Configurazione di cluster di infrastruttura di servizi dal portale di Azure
@@ -64,7 +64,7 @@ Questa pagina illustra come configurare un cluster di infrastruttura di servizi.
 
 
 
-1. **Facoltativo: proprietà di selezione host**: non è necessario aggiungere alcuna configurazione, perché una proprietà di selezione host predefinita di "NodeTypeName" viene aggiunta dal sistema. Se necessario, è possibile aggiungerne altre. 
+10. **Facoltativo: proprietà di selezione host**: non è necessario aggiungere alcuna configurazione, perché una proprietà di selezione host predefinita di "NodeTypeName" viene aggiunta dal sistema. Se necessario, è possibile aggiungerne altre. 
 
   
 ## Configurazioni di sicurezza
@@ -178,14 +178,11 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -A
 Register your application type with service fabric.
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
-````
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount" ````
 
 Creare una nuova istanza nel tipo di applicazione appena registrato.
 
-```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
-````
+```powershell New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0 ````
 
 Aprire ora il browser preferito e connettersi all'endpoint su cui l'applicazione è in ascolto. Per il conteggio di questa applicazione di esempio, l'URL è il seguente.
 
@@ -211,4 +208,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

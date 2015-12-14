@@ -292,7 +292,7 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 ## Note sulla versione di Data factory - 27/02/2015
 
 ### Nuovi miglioramenti
-- **Editor di Data factory di Azure**. L'editor di Data factory, incluso nel portale di anteprima di Azure, permette di creare, modificare e distribuire file JSON che definiscono servizi collegati, set di dati e pipeline. L'obiettivo principale dell'editor consiste nell'offrire un'interfaccia utente veloce e leggera per creare elementi di Data factory di Azure senza richiedere l'installazione di Azure PowerShell e l'uso intenso dei cmdlet di PowerShell. Per una breve panoramica e un video sull'editor di Data factory, vedere il post di blog [Editor di Data factory di Azure - Editor Web leggero][adf-editor-blog]. Per una panoramica dettagliata dell'editor, vedere l'articolo [Editor di Data factory][adf-editor].          
+- **Editor di Data factory di Azure**. L'editor di Data factory, incluso nel portale di Azure, permette di creare, modificare e distribuire file JSON che definiscono servizi collegati, set di dati e pipeline. L'obiettivo principale dell'editor consiste nell'offrire un'interfaccia utente veloce e leggera per creare elementi di Data factory di Azure senza richiedere l'installazione di Azure PowerShell e l'uso intenso dei cmdlet di PowerShell. Per una breve panoramica e un video sull'editor di Data factory, vedere il post di blog [Editor di Data factory di Azure - Editor Web leggero][adf-editor-blog]. Per una panoramica dettagliata dell'editor, vedere l'articolo [Editor di Data factory][adf-editor].          
 
 ### Modifiche
 
@@ -313,7 +313,7 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 - Integrazione con Azure Machine Learning
 	- Questa versione del servizio Data factory di Azure consente di integrare Data factory di Azure con Azure Machine Learning (ML) mediante **AzureMLLinkedService** e **AzureMLBatchScoringActivity**. Per informazioni dettagliate, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning][adf-azure-ml]. 
 - Viene fornito lo stato della versione del gateway
-	- Se è disponibile una versione più recente del gateway rispetto a quella attualmente installata, verrà visualizzato lo stato "NewVersionAvailable" nel portale di anteprima di Azure e nell'output del cmdlet Get-AzureDataFactoryGateway. È quindi possibile seguire il percorso nel portale per scaricare il nuovo file di installazione (.msi) ed eseguirlo per installare il gateway più recente. Non è necessaria alcuna configurazione aggiuntiva.
+	- Se è disponibile una versione più recente del gateway rispetto a quella attualmente installata, verrà visualizzato lo stato "NewVersionAvailable" nel portale di Azure e nell'output del cmdlet Get-AzureDataFactoryGateway. È quindi possibile seguire il percorso nel portale per scaricare il nuovo file di installazione (.msi) ed eseguirlo per installare il gateway più recente. Non è necessaria alcuna configurazione aggiuntiva.
 
 ### Modifiche
 
@@ -354,4 +354,4 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

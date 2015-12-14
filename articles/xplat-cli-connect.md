@@ -94,11 +94,11 @@ Se è necessario usare soltanto i comandi classici (Gestione dei servizi) dell'i
 
 		azure account download
 
-Verrà aperto il browser predefinito e richiesto di accedere al [portale di Azure][portal]. Dopo l'accesso, viene scaricato un file `.publishsettings`. Prendere nota del percorso in cui il file viene salvato.
+Verrà aperto il browser predefinito e richiesto di accedere al [portale di Azure classico][portal]. Dopo l'accesso, viene scaricato un file `.publishsettings`. Prendere nota del percorso in cui il file viene salvato.
 
 	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 	>
-	> Once selected using the download page, or by visiting the Azure portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 * **Per importare il file di impostazioni di pubblicazione**, eseguire il comando seguente.
 
@@ -158,4 +158,4 @@ Quando si accede con un account aziendale o dell'istituto di istruzione o si imp
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

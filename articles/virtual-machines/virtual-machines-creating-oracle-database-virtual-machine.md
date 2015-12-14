@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare una macchina virtuale Oracle Database con il portale di Azure | Microsoft Azure"
-	description="Informazioni su come creare una macchina virtuale con un database Oracle all'interno usando il modello di distribuzione classica e il portale di anteprima di Azure."
+	pageTitle="Creare una macchina virtuale Oracle Database con il portale di Azure classico | Microsoft Azure"
+	description="Informazioni su come creare una macchina virtuale con un database Oracle all'interno usando il modello di distribuzione classica e il portale di Azure."
 	services="virtual-machines"
 	authors="bbenz"
 	documentationCenter=""
@@ -24,7 +24,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 ##Per creare una macchina virtuale Oracle Database in Azure
 
-1.	Accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/).
+1.	Accedere al [Portale di Azure](https://ms.portal.azure.com/).
 
 2.	Fare clic su **Marketplace**, su **Calcolo** e quindi digitare **Oracle** nella casella di ricerca.
 
@@ -57,7 +57,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 ##Creazione del database utilizzando la macchina virtuale Oracle Database in Azure
 
-1.	Accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/).
+1.	Accedere al [Portale di Azure](https://ms.portal.azure.com/).
 
 2.	Fare clic su **Macchine virtuali**.
 
@@ -149,7 +149,7 @@ Per autorizzare l’accesso in remoto del database (ad esempio, da un computer c
 
 ### Creazione di un endpoint pubblico per la porta 1521
 
-1.	Accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/).
+1.	Accedere al [Portale di Azure](https://ms.portal.azure.com/).
 
 2.	Fare clic su **Sfoglia**.
 
@@ -176,9 +176,9 @@ Per autorizzare l’accesso in remoto del database (ad esempio, da un computer c
 10. Fare clic su **OK**.
 
 ##Abilitazione dell'accesso remoto a Oracle Database Enterprise Manager
-Se si desidera abilitare l'accesso remoto a Oracle Database Enterprise Manager, aprire la porta 5500 nel firewall e creare un endpoint della macchina virtuale per 5500 nel portale di Azure (utilizzando la procedura mostrata in precedenza per l’apertura della porta 1521 e la creazione di un endpoint per 1521). Quindi, per eseguire Oracle Enterprise Manager dal computer remoto, aprire un browser per accedere all'URL nel formato `http://<<unique_domain_name>>:5500/em`.
+Se si desidera abilitare l'accesso remoto a Oracle Database Enterprise Manager, aprire la porta 5500 nel firewall e creare un endpoint della macchina virtuale per 5500 nel portale di Azure classico (utilizzando la procedura mostrata in precedenza per l’apertura della porta 1521 e la creazione di un endpoint per 1521). Quindi, per eseguire Oracle Enterprise Manager dal computer remoto, aprire un browser per accedere all'URL nel formato `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE]È possibile determinare il valore per *<<unique\_domain\_name>>* all'interno del [portale di Azure](https://ms.portal.azure.com/) facendo clic su **Macchine virtuali** e selezionando la macchina virtuale usata per eseguire Oracle Database.
+> [AZURE.NOTE]È possibile determinare il valore per *<<unique\_domain\_name>>* all'interno del [portale di Azure classico](https://ms.portal.azure.com/) facendo clic su **Macchine virtuali** e selezionando la macchina virtuale usata per eseguire Oracle Database.
 
 ##Configurazione dei raggruppamenti di opzioni comuni e avanzate
 Se si sceglie il bundle **Oracle Database with Popular Options** o **Oracle Database with Advanced Options**, il passaggio successivo consiste nel configurare le funzionalità dei componenti aggiuntivi nell'installazione Oracle. Consultare la documentazione di Oracle per istruzioni sull'impostazione di tali opzioni in Windows, dal momento che le configurazioni possono variare notevolmente in base alle esigenze di ogni singolo componente.
@@ -200,4 +200,4 @@ Dopo aver configurato la macchina virtuale e creato il database, vedere gli argo
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

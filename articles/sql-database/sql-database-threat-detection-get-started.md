@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introduzione al rilevamento delle minacce nel database SQL"
-   description="Introduzione al rilevamento delle minacce nel database SQL nel portale di anteprima di Azure"
+   description="Introduzione al rilevamento delle minacce nel database SQL nel portale di Azure"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -30,7 +30,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 
 ## Configurare il rilevamento delle minacce per il database
 
-1. Avviare il portale di anteprima di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 2. Passare al pannello di configurazione del database SQL che si vuole monitorare. Nel pannello Impostazioni selezionare **Controllo e rilevamento delle minacce**.
 
@@ -89,4 +89,4 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 [8]: ./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
 [9]: ./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

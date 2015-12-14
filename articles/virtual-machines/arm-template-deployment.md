@@ -48,7 +48,7 @@ Per usare Azure AD per autenticare le richieste a Gestione risorse di Azure, è 
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Annotare l'identificatore dell’applicazione che viene restituito dopo che l'applicazione viene creata perché sarà necessario per il passaggio successivo. L'identificatore dell'applicazione è disponibile anche nel campo ID client dell'applicazione nella sezione Active Directory del portale di anteprima di Azure.
+	>[AZURE.NOTE]Annotare l'identificatore dell’applicazione che viene restituito dopo che l'applicazione viene creata perché sarà necessario per il passaggio successivo. L'identificatore dell'applicazione è disponibile anche nel campo ID client dell'applicazione nella sezione Active Directory del portale di Azure.
 
 3. Sostituire {application-id} con l'identificatore appena registrato, quindi creare l'entità servizio per l'applicazione:
 
@@ -298,7 +298,7 @@ Per specificare i valori per i parametri delle risorse definiti nel modello, cre
           }
         }
 
-    >[AZURE.NOTE]I nomi dei file VHD dell'immagine cambiano regolarmente nella raccolta immagini. È quindi necessario ottenere un nome di immagine corrente per distribuire la macchina virtuale. Per eseguire questa operazione, vedere [Immagini mediante macchine virtuali](https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-images/), quindi sostituire {source-image-name} con il nome del file VHD da usare. Ad esempio, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Sostituire {subscription-id} con l'identificatore della sottoscrizione.
+    >[AZURE.NOTE]I nomi dei file VHD dell'immagine cambiano regolarmente nella raccolta immagini. È quindi necessario ottenere un nome di immagine corrente per distribuire la macchina virtuale. Per eseguire questa operazione, vedere [Immagini mediante macchine virtuali](https://azure.microsoft.com/documentation/articles/virtual-machines-images/), quindi sostituire {source-image-name} con il nome del file VHD da usare. Ad esempio, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Sostituire {subscription-id} con l'identificatore della sottoscrizione.
 
 
 4.	Salvare il file dei parametri creato.
@@ -441,10 +441,10 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 2.	Premere **INVIO** dopo la restituzione di tutti i codici di stato per creare ciascuna risorsa. Dopo la creazione della macchina virtuale, eseguire il passaggio seguente prima di premere INVIO per eliminare tutte le risorse.
 
-	L'esecuzione completa dell'applicazione console dall'inizio alla fine dovrebbe richiedere circa 5 minuti. Prima di premere INVIO per avviare l'eliminazione delle risorse, è consigliabile dedicare alcuni minuti alla verifica della creazione delle risorse nel portale di anteprima di Azure prima dell'eliminazione.
+	L'esecuzione completa dell'applicazione console dall'inizio alla fine dovrebbe richiedere circa 5 minuti. Prima di premere Invio per avviare l'eliminazione delle risorse, è consigliabile dedicare alcuni minuti alla verifica della creazione delle risorse nel portale di Azure prima dell'eliminazione.
 
-3. Passare a Log di controllo nel portale di anteprima di Azure per visualizzare lo stato delle risorse:
+3. Passare a Log di controllo nel portale di Azure per visualizzare lo stato delle risorse:
 
 	![Creare un'applicazione di Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

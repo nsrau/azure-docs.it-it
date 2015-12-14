@@ -66,9 +66,9 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 ### Opzione 1: Creare un account di archiviazione
 
-1. Accedere al portale di Azure.
+1. Accedere al portale di Microsoft Azure classico.
 
-2. Sulla barra dei comandi fare clic su **Nuovo**.
+2. Sulla barra dei comandi fare clic su **New**.
 
 3. Fare clic su **Servizi dati** > **Archiviazione** > **Creazione rapida**.
 
@@ -102,7 +102,7 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 ### Opzione 2: Ottenere le informazioni sull'account di archiviazione
 
-1.	Accedere al portale di Azure.
+1.	Accedere al portale di Microsoft Azure classico.
 
 2.	Nel riquadro di spostamento fare clic su **Archiviazione**.
 
@@ -150,7 +150,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 	`Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
 
-	Dove: - **BlobStorageURL** è l'URL per l'account di archiviazione - **YourImagesFolder** è il contenitore nell'archivio BLOB in cui si vogliono archiviare le immagini - **VHDName** è il nome da visualizzare nel portale di Azure per identificare il disco rigido virtuale - **PathToVHDFile** è il percorso completo e il nome del file con estensione vhd
+	Dove: - **BlobStorageURL** è l'URL per l'account di archiviazione - **YourImagesFolder** è il contenitore nell'archivio BLOB in cui si vogliono archiviare le immagini - **VHDName** è il nome da visualizzare nel portale di Azure classico per identificare il disco rigido virtuale - **PathToVHDFile** è il percorso completo e il nome del file con estensione vhd
 
 	![Add-AzureVHD di PowerShell](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
 
@@ -158,11 +158,11 @@ Per altre informazioni sul cmdlet Add-AzureVhd, vedere [Add-AzureVhd](http://msd
 
 ## Passaggio 5: Aggiungere l'immagine all'elenco di immagini personalizzate
 
-> [AZURE.TIP]Per usare Azure PowerShell invece del portale di Azure per aggiungere l'immagine, usare il cmdlet **Add-AzureVMImage**. Ad esempio:
+> [AZURE.TIP]Per usare Azure PowerShell invece del portale di Azure classico per aggiungere l'immagine, usare il cmdlet **Add-AzureVMImage**. Ad esempio:
 
 >	`Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>`
 
-1. Nel portale di Azure in **Tutti gli elementi** fare clic su **Macchine virtuali**.
+1. Nel portale di Azure classico, in **Tutti gli elementi**, fare clic su **Macchine virtuali**.
 
 2. In Macchine virtuali fare clic su **Immagini**.
 
@@ -192,7 +192,7 @@ Per altre informazioni sul cmdlet Add-AzureVhd, vedere [Add-AzureVhd](http://msd
 
 	![creazione di una macchina virtuale in base a un'immagine personalizzata](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP]Se si verifica un errore quando si tenta di creare una macchina virtuale e viene visualizzato il messaggio "Le dimensioni virtuali del VHD https://XXXXX.. pari a YYYY byte non sono supportate. La dimensione deve essere un numero intero (espresso in MB)", significa che il disco rigido virtuale non corrisponde a un numero intero di MB. Deve essere un VHD di dimensioni fisse. Provare a usare il cmdlet PowerShell **Add-AzureVMImage** anziché il portale di Azure per aggiungere l'immagine (vedere il passaggio 5 precedente). I cmdlet di Azure garantiscono che il VHD soddisfi i requisiti di Azure.
+	> [AZURE.TIP]Se si verifica un errore quando si tenta di creare una macchina virtuale e viene visualizzato il messaggio "Le dimensioni virtuali del VHD https://XXXXX.. pari a YYYY byte non sono supportate. La dimensione deve essere un numero intero (espresso in MB)", significa che il disco rigido virtuale non corrisponde a un numero intero di MB. Deve essere un VHD di dimensioni fisse. Provare a usare il cmdlet PowerShell **Add-AzureVMImage** anziché il portale di Azure classico per aggiungere l'immagine (vedere il passaggio 5 precedente). I cmdlet di Azure garantiscono che il VHD soddisfi i requisiti di Azure.
 
 ## Passaggi successivi ##
 
@@ -203,4 +203,4 @@ Dopo aver creato una macchina virtuale, provare a creare una macchina virtuale d
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

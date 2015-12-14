@@ -61,7 +61,7 @@ Nella seguente tabella è riportato un set di intestazioni che possono essere re
 Intestazione|Tipo|Valore
 ---|---|---
 request-id|Stringa|Identificatore univoco per l'operazione corrente, generato dal servizio.
-client-request-id|Stringa|Identificatore specificato dal chiamante nella richiesta originale, se presente.
+client-request-id|String|Identificatore specificato dal chiamante nella richiesta originale, se presente.
 Date|Data RFC 1123|Data di elaborazione della richiesta.
 Content-Type|Variabile|Tipo di contenuto del corpo della risposta.
 Content-Encoding|Variabile|Gzip o deflate, a seconda delle esigenze.
@@ -99,10 +99,10 @@ Aggiungere "?api-version=2.x" alla fine dell'URI se si desidera visualizzare i m
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
   
-  [Management Portal]: http://manage.windowsazure.com/
+  [Azure Classic Portal]: http://manage.windowsazure.com/
 
 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

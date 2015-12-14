@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Come gestire gli endpoint di streaming in un account di Servizi multimediali" 
-	description="Questo argomento illustra come gestire gli endpoint di streaming mediante il portale di gestione di Azure." 
+	description="Questo argomento illustra come gestire gli endpoint di streaming mediante il portale di Azure classico." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -30,22 +30,22 @@ In Servizi multimediali di Microsoft Azure un **endpoint di streaming** rapprese
 
 Si noti che il costo viene addebitato solo quando il canale è in stato di esecuzione.
 
-Questo argomento fornisce informazioni generali sulle funzionalità principali fornite dagli endpoint di streaming. L'argomento illustra inoltre come usare il portale di gestione di Azure per gestire gli endpoint di streaming.
+Questo argomento fornisce informazioni generali sulle funzionalità principali fornite dagli endpoint di streaming. L'argomento illustra inoltre come usare il portale di Azure classico per gestire gli endpoint di streaming.
 
 
-##Aggiunta ed eliminazione degli endpoint di streaming 
+##Aggiunta ed eliminazione degli endpoint di streaming
 
-È possibile aggiungere o rimuovere gli endpoint di streaming usando .NET SDK, l'API REST o il portale di gestione di Azure.
+È possibile aggiungere o rimuovere gli endpoint di streaming usando .NET SDK, l'API REST o il portale di Azure classico.
 
-Per aggiungere o eliminare gli endpoint di streaming tramite il portale, procedere come segue:
+Per aggiungere o eliminare gli endpoint di streaming tramite il portale di Azure classico, procedere come segue:
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Media Services**. Fare quindi clic sul nome del servizio multimediale.
-2. Selezionare la pagina **ENDPOINT DI STREAMING**. 
-3. Fare clic sul pulsante AGGIUNGI o ELIMINA nella parte inferiore della pagina. Gli endpoint di streaming predefiniti non possono essere eliminati. 
-4. Fare clic sul pulsante AVVIA per avviare l'endpoint di streaming. 
-5. Fare clic sul nome dell'endpoint di streaming per configurarlo.   
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
+2. Selezionare la pagina **ENDPOINT DI STREAMING**.
+3. Fare clic sul pulsante AGGIUNGI o ELIMINA nella parte inferiore della pagina. Gli endpoint di streaming predefiniti non possono essere eliminati.
+4. Fare clic sul pulsante AVVIA per avviare l'endpoint di streaming.
+5. Fare clic sul nome dell'endpoint di streaming per configurarlo.
 
-	![Pagina Endpoint di streaming][streaming-endpoint]
+![Pagina Endpoint di streaming][streaming-endpoint]
 
 
 Per impostazione predefinita, è possibile disporre di un massimo di due endpoint di streaming. Se sono necessari più endpoint di streaming, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
@@ -54,7 +54,7 @@ Per impostazione predefinita, è possibile disporre di un massimo di due endpoin
 
 Le unità di streaming offrono sia capacità in uscita dedicata, acquistabile in incrementi di 200 Mbps, sia funzionalità aggiuntive che attualmente comprendono la [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md). Per impostazione predefinita, lo streaming è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming, si consiglia di acquistare unità di streaming.
 
-È possibile implementare la scalabilità usando .NET SDK, l'API REST o il portale di gestione di Azure.
+È possibile implementare la scalabilità usando .NET SDK, l'API REST o il portale di Azure classico.
 
 Per modificare il numero di unità di streaming tramite il portale, seguire questa procedura:
 
@@ -82,7 +82,7 @@ L'endpoint di streaming consente di configurare le seguenti proprietà quando si
 
 Per informazioni dettagliate su queste proprietà, vedere [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
 
-È possibile configurare queste proprietà usando .NET SDK, l'API REST o il portale di gestione di Azure.
+È possibile configurare queste proprietà usando .NET SDK, l'API REST o il portale di Azure classico.
 
 Per modificare il numero di unità di streaming tramite il portale, seguire questa procedura:
 
@@ -149,4 +149,4 @@ Per altre informazioni, vedere [Annuncio dell'integrazione di Servizi multimedia
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

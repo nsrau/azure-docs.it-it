@@ -13,33 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Come monitorare in tempo reale i dati relativi all'applicazione
-Nella sezione Monitoraggio dell'interfaccia utente vengono fornite informazioni di analisi in tempo reale ed è possibile impostare gli avvisi quando vengono raggiunte le soglie per la maggior parte delle informazioni cronologicamente disponibili anche nella sezione "Analisi" dell'interfaccia utente. Nel "Glossario" in "Concetti" sono riportate le definizioni dei termini e delle abbreviazioni usati in Analisi e Monitoraggio, ad esempio: utente attivo, nuovo utente, utente assorbito, sessione, grafico percorso utenti, mapping utenti, URL di rilevamento, tendenze, attività, evento, processo, errore, informazioni supplementari, arresto anomalo e informazioni sull'app.
 
-### Vedere anche
--  [Concetti - Glossario][Link 6], [Guida alla risoluzione dei problemi - Analisi][Link 21]
+In questo articolo viene descritta la scheda **MONITORAGGIO** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
+
+
+Nella sezione Monitoraggio dell'interfaccia utente vengono fornite informazioni di analisi in tempo reale ed è possibile impostare gli avvisi quando vengono raggiunte le soglie per la maggior parte delle informazioni cronologicamente disponibili anche nella sezione [ANALISI](mobile-engagement-user-interface-analytics.md) dell'interfaccia utente. Nella sezione **Glossario** nell’argomento [Concetti](http://go.microsoft.com/fwlink/?LinkId=525555) sono riportate le definizioni dei termini e delle abbreviazioni usati in Analisi e Monitoraggio, ad esempio: utente attivo, nuovo utente, utente assorbito, sessione, grafico percorso utenti, mapping utenti, URL di rilevamento, tendenze, attività, evento, processo, errore, informazioni supplementari, arresto anomalo e informazioni sull'app.
+
+>[AZURE.NOTE]Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 
 ## Monitoraggio: sessioni, processi, eventi, errori e arresti anomali
+
 È possibile verificare quanti utenti sono attualmente in sessione e su schermi specifici o stanno eseguendo particolari azioni. È possibile visualizzare l'attività dell'utente per sessioni, processi, eventi, errori e arresti anomali. È possibile visualizzare le informazioni correnti e mostrare le informazioni dall'ora, del giorno o della settimana più recente. È possibile visualizzare tutte le informazioni in ogni categoria o ordinarle per sessione, processo, evento, errore e arresto anomalo specifico. Il monitoraggio in tempo reale è utile durante eventi quali una campagna di push per verificare se esiste un aumento nell'azione subito dopo l'invio di una notifica push.
  
 ![Monitor1][14]
 
 ## Risoluzione dei problemi con Monitoraggio - Eventi - Dettagli
+
 La generazione di un evento nell'applicazione dal dispositivo di test e la relativa ricerca in Monitoraggio - Eventi - Dettagli è uno dei modi più semplici per trovare l'ID del dispositivo di test e per confermare che l'integrazione Azure Mobile Engagement di Analisi, Monitoraggio e Segmenti funzioni dall'applicazione. Dopo aver ottenuto l'ID del dispositivo di test, è possibile aggiungerlo ai dispositivi di test in "Account personale – Dispositivi". Se non è possibile generare un evento, assicurarsi che Azure Mobile Engagement sia correttamente integrato nell'app Android/iOS/Web/Windows/Windows Phone con l'SDK.
 
-### Vedere anche
--  [Documentazione SDK][Link 5]
+Per altre informazioni, vedere la [documentazione di SDK][Link 5]
 
 ![Monitor2][15]
 
 ## Risoluzione dei problemi con Monitoraggio - Arresti anomali - Dettagli
+
 È possibile esaminare le informazioni sull'arresto anomalo dell'app da Monitoraggio - Arresti anomali - Dettagli per determinare il motivo per cui l'app si blocca. È consigliabile, inoltre, cercare i problemi noti di ogni versione dell'SDK nelle note di rilascio che accompagnano ogni versione dell'SDK per Android/iOS/Web/Windows/Windows Phone.
 
-### Vedere anche
--  [Documentazione SDK - Note di rilascio][Link 5]
+Per ulteriori informazioni, vedere le [Documentazione SDK - Note di rilascio][Link 5]
 
 ![Monitor3][16]
 
@@ -47,6 +51,12 @@ La generazione di un evento nell'applicazione dal dispositivo di test e la relat
 È inoltre possibile specificare condizioni per gli avvisi da inviare automaticamente all'utente tramite posta elettronica o messaggistica istantanea (sono supportati tutti i servizi compatibili con XMPP come GTalk di Google o iChat Apple). Gli avvisi sono basati su una soglia di rilevamento predefinita maggiore (>) o minore (<) di un numero specifico di sessioni, processi, eventi, errori o arresti anomali al secondo, minuto o ora. Tramite Avvisi è possibile monitorare tutte le attività di un determinato tipo o semplicemente l'attività di un particolare processo, evento o errore. È inoltre possibile specificare una velocità minima di rilevamento, ossia la quantità minima di tempo che separa due notifiche per lo stesso avviso, per assicurarsi che quando viene attivato l'avviso non si riceva mai più di una notifica ogni X minuti.
  
 ![Monitor4][17]
+
+
+## Vedere anche
+
+- [Concetti][Link 6]
+- [Assistenza guida per la risoluzione dei problemi][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -144,4 +154,4 @@ La generazione di un evento nell'applicazione dal dispositivo di test e la relat
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

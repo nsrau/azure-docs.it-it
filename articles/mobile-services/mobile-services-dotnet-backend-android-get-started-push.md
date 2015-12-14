@@ -18,11 +18,16 @@
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app per Android. L'esercitazione consente di aggiungere notifiche push al progetto di guida introduttiva tramite Google Cloud Messaging (GCM). Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare [Introduzione a Servizi per dispositivi mobili] per connettere il progetto al servizio mobile. Di conseguenza, per completare l'esercitazione è necessario anche Visual Studio 2013.
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare [Introduzione a Servizi mobili] per connettere il progetto al servizio mobile. Di conseguenza, per completare l'esercitazione è necessario anche Visual Studio 2013.
 
 ## Codice di esempio
 Per visualizzare il codice sorgente completato, passare [qui](https://github.com/RickSaling/mobile-services-samples/tree/push/GettingStartedWithPush).
@@ -103,8 +108,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 <!-- URLs. -->
 [Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
-[Introduzione a Servizi per dispositivi mobili]: mobile-services-dotnet-backend-android-get-started.md
-[Management Portal]: https://manage.windowsazure.com/
+[Introduzione a Servizi mobili]: mobile-services-dotnet-backend-android-get-started.md
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 
 [Come usare la libreria client di Android per Servizi mobili]: mobile-services-android-how-to-use-client-library.md
@@ -112,6 +116,5 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Informazioni su Hub di notifica]: ../notification-hubs-overview.md
 [Inviare notifiche di trasmissione ai sottoscrittori]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Inviare notifiche basate su modelli ad altri sottoscrittori]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

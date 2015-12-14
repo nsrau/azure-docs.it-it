@@ -45,7 +45,7 @@ Naturalmente queste architetture di clustering possono essere estese ad altri pr
 
 ### Gruppo di affinità
 
-Un gruppo di affinità per la soluzione viene creato accedendo al portale di Azure, passando a Impostazioni e creando un nuovo gruppo di affinità. Le risorse allocate create in seguito verranno assegnate a questo gruppo di affinità.
+Un set di affinità per la soluzione viene creato accedendo al portale di Azure classico, passando a Impostazioni e creando un nuovo set di affinità. Le risorse allocate create in seguito verranno assegnate a questo gruppo di affinità.
 
 ### Reti
 
@@ -340,4 +340,4 @@ Si applicano le limitazioni seguenti:
 - È necessaria l'ottimizzazione di MySQL per assicurare che la scrittura venga effettuata con la velocità corretta e che le cache siano scaricate nel disco il più frequentemente possibile per ridurre al minimo le perdite di memoria
 - Le prestazioni delle operazioni di scrittura dipenderanno dall'interconnessione delle macchine virtuali nel commutatore virtuale, in quanto questo è il meccanismo usato da DRBD per replicare il dispositivo
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

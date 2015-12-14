@@ -59,7 +59,7 @@ Se non si dispone di una sottoscrizione Azure, è possibile effettuare l'iscrizi
 
 Creare innanzitutto la rete virtuale TestLab che ospiterà la subnet Corpnet della configurazione di base.
 
-1.	Nella barra delle applicazioni del [Portale di Azure ](https://manage.windowsazure.com) fare clic su **Nuovo > Servizi di rete > Rete virtuale > Creazione personalizzata**.
+1.	Nella barra delle applicazioni del [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Nuovo > Servizi di rete > Rete virtuale > Creazione personalizzata**.
 2.	Nella pagina Dettagli della rete virtuale digitare **TestLab** in **Nome**.
 3.	In **Percorso** selezionare il percorso appropriato.
 4.	Fare clic sulla freccia Avanti.
@@ -126,7 +126,7 @@ Innanzitutto, specificare il nome del servizio cloud e utilizzare questi comandi
 
 Successivamente, connettersi alla macchina virtuale DC1.
 
-1.	Nel riquadro sinistro del portale di Azure, fare clic su **Macchine virtuali**, quindi fare clic su **Avviato** nella colonna **Stato** della macchina virtuale DC1.  
+1.	Nel riquadro sinistro del portale di Azure classico, fare clic su **Macchine virtuali**, quindi fare clic su **Avviato** nella colonna **Stato** della macchina virtuale DC1.  
 2.	Nella barra delle applicazioni fare clic su **Connetti**.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
@@ -155,7 +155,7 @@ Configurare quindi DC1 come controller di dominio e server DNS per il dominio co
 
 Dopo il riavvio di DC1, riconnettersi alla macchina virtuale DC1.
 
-1.	Nella pagina Macchine virtuali del portale di Azure, fare clic su **In esecuzione** nella colonna **Stato** relativa alla macchina virtuale DC1.
+1.	Nella pagina Macchine virtuali del portale di Azure classico, fare clic su **In esecuzione** nella colonna **Stato** relativa alla macchina virtuale DC1.
 2.	Nella barra delle applicazioni fare clic su **Connetti**.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
@@ -288,4 +288,4 @@ Per avviare le macchine virtuali in ordine con Azure PowerShell, inserire il nom
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

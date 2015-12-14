@@ -53,7 +53,7 @@ I seguenti passaggi descrivono le attività relative alla creazione di applicazi
 
 3. Creare un programma.
 
-	Se si crea un programma tramite il portale di gestione di Azure, viene creato anche un asset.
+	Se si crea un programma tramite il portale di Azure classico, viene creato anche un asset.
 
 	Se si usa .NET SDK o REST, è necessario creare un asset e specificarne l'uso quando si crea un programma. 
 1. Pubblicare l'asset associato al programma.   
@@ -157,7 +157,7 @@ I canali forniscono anche un endpoint di anteprima (URL di anteprima) che consen
 
 Una volta che il canale inizia a inserire i dati, è possibile visualizzare in anteprima il flusso.
 
-Si noti che attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato. Per testare il flusso Smooth Streaming, è possibile usare il lettore [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor). Per visualizzare il flusso, è inoltre possibile usare un lettore ospitato nel portale di gestione di Azure.
+Si noti che attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato. Per testare il flusso Smooth Streaming, è possibile usare il lettore [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor). Per visualizzare il flusso, è inoltre possibile usare un lettore ospitato nel portale di Azure classico.
 
 
 ####Indirizzi IP consentiti
@@ -269,4 +269,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

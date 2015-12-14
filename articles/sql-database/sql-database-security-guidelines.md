@@ -25,7 +25,7 @@ In questo argomento vengono descritte le linee guida per il Database SQL di Micr
 
 Il servizio Database SQL di Azure è disponibile solo tramite la porta TCP 1433. Per accedere al Database SQL dal computer, assicurarsi che il firewall consenta la comunicazione TCP in uscita sulla porta TCP 1433. Come parte del processo di connessione, le connessioni da macchine virtuali di Azure vengono reindirizzate a un indirizzo IP diverso e a una porta, univoca per ogni ruolo di lavoro. Il numero di porta sarà compreso tra 11000 e 11999.
 
-Prima di connettersi al server di Database SQL di Azure per la prima volta, è necessario utilizzare il [portale di Azure](https://portal.azure.com) o [il portale di gestione della piattaforma Azure](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) per configurare il firewall del Database di SQL Azure. È necessario creare un'impostazione del firewall a livello di server che consenta tentativi di connessione dal computer o Azure al server di Database SQL di Azure. Inoltre, se si desidera controllare l'accesso ad alcuni database nel server di Database SQL di Azure, creare regole del firewall a livello di database per i rispettivi database. Per altre informazioni, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md).
+Prima di connettersi al server di Database SQL di Azure per la prima volta, è necessario utilizzare il [portale di Azure classico](https://portal.azure.com) o [il portale della piattaforma Azure classico](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) per configurare il firewall del Database di SQL Azure. È necessario creare un'impostazione del firewall a livello di server che consenta tentativi di connessione dal computer o Azure al server di Database SQL di Azure. Inoltre, se si desidera controllare l'accesso ad alcuni database nel server di Database SQL di Azure, creare regole del firewall a livello di database per i rispettivi database. Per altre informazioni, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md).
 
 ## Crittografia di connessione e convalida dei certificati
 
@@ -111,4 +111,4 @@ Considerare i seguenti punti per rendere le applicazioni del Database SQL di Azu
 
 [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

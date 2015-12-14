@@ -46,4 +46,6 @@
 
     Questo codice comunica a hub di notifica di inviare una notifica modello a tutte le registrazioni di modello che contengono "messageParam". La stringa verrà inserita al posto di messageParam in ogni PNS che ha una registrazione che utilizza "messageParam". Ciò consente di inviare la notifica a APNS, GCM, WNS o a qualsiasi altro PNS.
 
-<!---HONumber=AcomDC_1125_2015-->
+	Per ulteriori informazioni sui modelli con hub di notifica, vedere [Modelli](notification-hubs-templates.md).
+
+<!---HONumber=AcomDC_1203_2015-->

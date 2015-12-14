@@ -110,7 +110,7 @@ Di seguito viene descritto come abbiamo creato il prototipo.
 
 **Configurazione del servizio Ricerca di Azure**
 
-1. Abbiamo effettuato l’accesso al portale di Azure e aggiunto il servizio di ricerca alla sottoscrizione. Abbiamo utilizzato la versione condivisa (gratuita con la sottoscrizione).
+1. Abbiamo effettuato l’accesso al portale di Azure classico e aggiunto il servizio di ricerca alla sottoscrizione. Abbiamo utilizzato la versione condivisa (gratuita con la sottoscrizione).
 2. Creazione di un indice. Per il prototipo, abbiamo utilizzato l'interfaccia utente del portale per definire i campi di ricerca e creare i profili di assegnazione dei punteggi. Il nostro profilo di assegnazione dei punteggi si basa sui dati di posizione: paese | città |indirizzo (vedere: Aggiunta di profili di assegnazione dei punteggi).
 3. Copia dell’URL del servizio e della chiave API di amministrazione nei file di configurazione. Questa chiave si trova nella pagina del servizio di ricerca del portale e viene utilizzata per l'autenticazione al servizio.
 	
@@ -421,4 +421,4 @@ Il codice seguente compila l'indicizzatore menzionato nella sezione sulla compil
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

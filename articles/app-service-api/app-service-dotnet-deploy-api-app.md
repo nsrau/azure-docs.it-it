@@ -18,6 +18,8 @@
 
 # Distribuire un'app per le API nel servizio app di Azure 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Panoramica
 
 In questa esercitazione viene distribuito un progetto API Web creato nell'[esercitazione precedente](app-service-dotnet-create-api-app.md) in una nuova [app per le API](app-service-api-apps-why-best-platform.md). Viene usato Visual Studio per creare la risorsa di app per le API nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md) e per distribuire il codice dell'API Web nell'app per le API di Azure.
@@ -123,8 +125,8 @@ Si apporterà quindi una modifica alla definizione dell'API e la si vedrà rifle
 
 Si è appreso come le funzionalità di distribuzione diretta in Visual Studio consentono di testare il corretto funzionamento dell'API. Nell'[esercitazione successiva](../app-service-dotnet-remotely-debug-api-app.md) verrà illustrato come eseguire il debug dell'app per le API mentre è in esecuzione in Azure.
 
-Le app API sono app web con funzionalità aggiuntive per l'hosting di API, il che significa che è possibile utilizzare qualsiasi metodo di distribuzione che funzioni con le app web. Per ulteriori informazioni sulle opzioni di distribuzione per le app web, vedere [Distribuire un'app web nel servizio di Azure App](../app-service-web/web-sites-deploy.md).
+Le app API sono app web con funzionalità aggiuntive per l'hosting di API, il che significa che è possibile utilizzare qualsiasi metodo di distribuzione che funzioni con le app web. Per ulteriori informazioni sulle opzioni di distribuzione per le app web, vedere [Distribuire un'app web nel servizio app di Azure](../app-service-web/web-sites-deploy.md).
 
 Per informazioni sulle funzionalità delle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

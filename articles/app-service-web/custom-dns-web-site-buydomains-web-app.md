@@ -41,12 +41,12 @@ Per un'app Web di produzione, è probabile che l'amministratore desideri che gli
 
 > [AZURE.NOTE]Non tentare di acquistare un dominio con una sottoscrizione a cui non è associata una carta di credito attiva, perché è possibile che la sottoscrizione venga disabilitata.
 
-Se l'app Web non ha un nome di dominio, è possibile acquistarne uno facilmente sul [portale di gestione di Azure](https://portal.azure.com). Durante il processo di acquisto è possibile scegliere che i record DNS WWW e di radice di dominio vengano associati automaticamente all'app Web. È inoltre possibile gestire il dominio direttamente dal portale di Azure.
+Se l'app Web non ha un nome di dominio, è possibile acquistarne uno facilmente sul [portale di Azure](https://portal.azure.com). Durante il processo di acquisto è possibile scegliere che i record DNS WWW e di radice di dominio vengano associati automaticamente all'app Web. È inoltre possibile gestire il dominio direttamente dal portale di Azure.
 
 
 Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app Web.
 
-1. Accedere al [portale di gestione di Azure](https://portal.azure.com) dal browser.
+1. Accedere al [portale di Azure](https://portal.azure.com) dal browser.
 
 2. Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostazioni** e quindi **Domini personalizzati e SSL**.
 
@@ -98,4 +98,4 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

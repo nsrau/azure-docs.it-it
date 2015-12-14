@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come controllare lo stato dei processi mediante il portale di gestione di Azure" 
-	description="Informazioni su come controllare lo stato dei processi mediante il portale di gestione di Azure." 
+	pageTitle="Informazioni su come controllare lo stato dei processi mediante il portale di Azure classico" 
+	description="Informazioni su come tracciare lo stato dei processi mediante il portale di Azure classico." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -25,7 +25,7 @@
 
 ##Usare il portale per controllare lo stato dei processi
 
-1. Nel [portale di gestione](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Media Services** e quindi sul nome dell'account di Servizi multimediali.
+1. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Servizi multimediali** e quindi sul nome dell'account di Servizi multimediali.
 2. Selezionare la pagina **PROCESSI**. 
 
 	Nella pagina è possibile visualizzare lo stato di tutti i processi in uso. È inoltre possibile filtrare i processi in base allo stato, all'ora o all'ID.
@@ -42,7 +42,7 @@
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##Passaggi successivi
+##Passaggio successivo
 
 Pubblicare i contenuti. Per altre informazioni, vedere [Procedura: Codificare un asset](../media-services-manage-content#publish).
 
@@ -50,4 +50,4 @@ Pubblicare i contenuti. Per altre informazioni, vedere [Procedura: Codificare un
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

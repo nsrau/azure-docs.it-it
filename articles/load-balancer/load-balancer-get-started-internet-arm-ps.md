@@ -270,4 +270,4 @@ Utilizzare il comando Remove-AzureLoadBalancer per eliminare un bilanciamento de
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

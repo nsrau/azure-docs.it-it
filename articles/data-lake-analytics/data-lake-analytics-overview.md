@@ -52,7 +52,7 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
 ## Vedere anche
 
 - Introduzione
-    - [Introduzione a Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md)
+    - [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
     - [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Introduzione ad Azure Data Lake Analytics con Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
     - [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -63,10 +63,10 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     - [Usare le funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-use-window-functions.md)
     - [Sviluppare operatori U-SQL definiti dall'utente per i processi di Data Lake Analytics](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
     
-- Gestione
-    - [Gestire Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-manage-use-portal.md)
+- gestione
+    - [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
     - [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-    - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - Esercitazione end-to-end
     - [Usare le esercitazioni interattive di Azure Data Lake Analytics](data-lake-analytics-use-interactive-tutorials.md)
@@ -77,4 +77,4 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     - [Inviare una richiesta di funzionalità](http://aka.ms/adlafeedback)
     - [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

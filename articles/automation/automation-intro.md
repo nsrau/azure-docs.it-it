@@ -81,7 +81,7 @@ Di seguito sono riportati solo alcuni esempi dei tipi di scenari che è possibil
 
 ## In che modo Automazione di Azure è correlato ad altri strumenti di automazione?
 
-[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) è stato progettato per automatizzare le attività di gestione nel cloud privato. Viene installato in locale nel data center come componente di [Windows Azure Pack](https://www.microsoft.com/it-IT/server-cloud/). SMA e Automazione di Azure usano lo stesso formato di runbook basato sul flusso di lavoro di Windows PowerShell e su Windows PowerShell, ma SMA non supporta i [runbook grafici](automation-graphical-authoring-intro.md).
+[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) è stato progettato per automatizzare le attività di gestione nel cloud privato. Viene installato in locale nel data center come componente di [Microsoft Azure Pack](https://www.microsoft.com/it-IT/server-cloud/). SMA e Automazione di Azure usano lo stesso formato di runbook basato sul flusso di lavoro di Windows PowerShell e su Windows PowerShell, ma SMA non supporta i [runbook grafici](automation-graphical-authoring-intro.md).
 
 [System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) è stato progettato per consentire l'automazione delle risorse locali. Utilizza un formato diverso di Runbook rispetto ad Automazione di Azure e a Service Management Automation e presenta un'interfaccia grafica per creare Runbook senza che sia necessario creare degli script. I Runbook dello strumento sono composti da attività di Integration Pack scritti specificatamente per Orchestrator.
 
@@ -92,7 +92,7 @@ Sono disponibili numerose risorse per approfondire la conoscenza di Automazione 
 
 * La sezione dedicata ad **Automazione di Azure di MSDN Library** è il punto in cui ci si trova in questo momento. Gli articoli inclusi in questa sezione forniscono la documentazione completa sulla configurazione e l'amministrazione di Automazione di Azure e sulla creazione di Runbook personalizzati. 
 * La sezione relativa ai [cmdlet di Azure PowerShell](http://msdn.microsoft.com/library/jj156055.aspx) fornisce informazioni per l'automazione di operazioni di Azure con Windows PowerShell. Questi cmdlet vengono usati nei Runbook per lavorare con le risorse di Azure. 
-* Il [blog sulla gestione](https://azure.microsoft.com/it-IT/blog/tag/azure-automation/) fornisce informazioni aggiornate su Automazione di Azure e altre tecnologie di gestione di Microsoft. Effettuare la sottoscrizione a questo blog per essere aggiornati sulle ultime novità del team di Automazione di Azure. 
+* Il [blog sulla gestione](https://azure.microsoft.com/blog/tag/azure-automation/) fornisce informazioni aggiornate su Automazione di Azure e altre tecnologie di gestione di Microsoft. Effettuare la sottoscrizione a questo blog per essere aggiornati sulle ultime novità del team di Automazione di Azure. 
 * Il [forum su Automazione](http://go.microsoft.com/fwlink/p/?LinkId=390561) consente di pubblicare domande su Automazione di Azure a cui verrà data risposta da Microsoft e dalla community di Automazione. 
 * L'articolo relativo ai [cmdlet di Automazione di Azure](https://msdn.microsoft.com/library/mt244122.aspx) fornisce informazioni per l'automazione delle attività di amministrazione. Contiene i cmdlet per gestire account di automazione, asset, runbook, DSC.
 
@@ -101,4 +101,4 @@ Sono disponibili numerose risorse per approfondire la conoscenza di Automazione 
 
 **Gli utenti sono invitati a fornire commenti e suggerimenti.** Se si è in cerca di una soluzione Runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

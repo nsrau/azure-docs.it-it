@@ -41,7 +41,7 @@ Verrà creata una semplice applicazione Web di elenco contatti basata su Web For
 
 ![Pagina Contatti - Modifica](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>. Per iniziare a usare Azure prima di iscriversi per ottenere un account, vedere la pagina di [prova del servizio app](https://tryappservice.azure.com/) in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione Visual Studio</a> oppure <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>. Per iniziare a usare Azure prima di iscriversi per ottenere un account, vedere la pagina di [prova del servizio app](https://tryappservice.azure.com/) in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Configurare l'ambiente di sviluppo 
 Per iniziare, installare Visual Studio 2013 e Azure SDK per .NET per configurare l'ambiente di sviluppo.
@@ -68,7 +68,7 @@ In questa esercitazione il sito Web di Azure verrà eseguito in un ambiente di h
 
 Database SQL di Azure è un servizio di database relazionale basato sul cloud che si avvale delle tecnologie SQL Server. Gli strumenti e le applicazioni utilizzabili con SQL Server sono utilizzabili anche con database SQL.
 
-1. Nel [portale di gestione di Azure](https://manage.windowsazure.com/) fare clic su **Web Apps** nella scheda di sinistra, quindi su **New**. ![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Web Apps** nella scheda di sinistra, quindi su **New**. ![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
 2. Fare clic su **Web Site**, quindi su **Custom Create**. ![Custom Create](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png) Verrà aperta la procedura guidata **New Web App - Custom Create**.  
 
 3. Nel passaggio **Create Web Site** della procedura guidata immettere nella casella **URL** una stringa da utilizzare come URL univoco per l'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e dal suffisso visualizzato accanto alla casella di testo. L'illustrazione mostra un URL che è probabilmente già occupato, quindi **sarà necessario scegliere un URL diverso**. ![Contatti - Crea nuovo sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-04.png)
@@ -82,7 +82,7 @@ Database SQL di Azure è un servizio di database relazionale basato sul cloud ch
 11. Immettere un **Login Name** e una **Password** per l'amministratore. Se è stata selezionata l'opzione **New SQL Database server**, in questo passaggio non sarà necessario immettere un nome e una password esistenti, ma un nuovo nome e una nuova password, definiti ora e da utilizzare in seguito per l'accesso al database. Se è stato selezionato un database SQL Server creato in precedenza, verrà richiesta la password del nome account SQL Server creato in precedenza. Per questa esercitazione non verrà selezionata la casella **Avanzate**.
 12. Fare clic sul segno di spunta nella parte inferiore destra della finestra di dialogo per indicare che le operazioni sono state completate.
 
-Il **portale di gestione di Azure** torna alla pagina **Siti Web** e nella colonna **Stato** viene indicato che la creazione del sito è in corso. In genere, dopo meno di un minuto nella colonna **Stato** viene indicato che il sito è stato creato correttamente. Il numero di siti disponibili nell'account viene visualizzato nella barra di spostamento a sinistra accanto all'icona **Web App** e il numero di database viene visualizzato accanto all'icona **SQL Databases**.
+Il **portale di Azure classico** torna alla pagina **app Web** e nella colonna **Stato** viene indicato che la creazione del sito è in corso. In genere, dopo meno di un minuto nella colonna **Stato** viene indicato che il sito è stato creato correttamente. Il numero di siti disponibili nell'account viene visualizzato nella barra di spostamento a sinistra accanto all'icona **Web App** e il numero di database viene visualizzato accanto all'icona **SQL Databases**.
 ##Creare un'applicazione Web Form ASP.NET 
 È stato creato un'applicazione web, ma non è ancora alcun contenuto al suo interno. Il passaggio successivo consiste nel creare l'app Web di Visual Studio che verrà pubblicata in Azure.
 ###Creare il progetto 
@@ -644,9 +644,7 @@ Ora che l'applicazione Web è stata completata, è possibile pubblicarla in Azur
 6. Fare clic sulla scheda **Impostazioni**. ![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26.png)  
 7. Impostare la casella di riepilogo a discesa **Configurazione** su **Debug**.
 8. Fare clic sull'icona con la **freccia verso il basso** accanto alla voce **ApplicationDbContext** e impostarla su **ContactDB**.
-9. Selezionare la casella di controllo **Esegui migrazioni Code First**.  
-
-	>[AZURE.NOTE]In questo esempio selezionare questa casella di controllo solo se l'applicazione viene pubblicata per la prima volta. In questo modo, il metodo *Seed* nel file *Configuration.cs* verrà chiamato una volta sola.
+9. Selezionare la casella di controllo **Esegui migrazioni Code First**. In questo esempio selezionare questa casella di controllo solo se l'applicazione viene pubblicata per la prima volta. In questo modo, il metodo *Seed* nel file *Configuration.cs* verrà chiamato una volta sola.  
 
 10. Fare quindi clic su **Pubblica**. L'applicazione verrà pubblicata in Azure.
 
@@ -669,7 +667,7 @@ Per evitare che altre persone registrino e usino questa applicazione di esempio,
 2. In **Esplora server**, accedere ad **App Web**.
 3. Fare clic con il pulsante destro del mouse su ogni istanza del sito Web, quindi selezionare **Arresta sito Web**. ![Arrestare la voce di menu sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26a.png)  
 
-	In alternativa, dal portale di gestione di Microsoft Azure è possibile selezionare il sito Web, quindi fare clic sull'icona di **arresto** nella parte inferiore della pagina. ![Pagina Add New Contact](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)
+	In alternativa, dal portale di Azure classico è possibile selezionare l’app Web, quindi fare clic sull'icona **Interrompi** nella parte inferiore della pagina.![Pagina Add New Contact](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)
 
 ##Verificare il database 
 È importante conoscere le procedure per visualizzare e modificare il database direttamente, in quanto in questo modo è possibile confermare i dati nel database e acquisire informazioni sul modo in cui i dati vengono archiviati in ogni tabella.
@@ -703,4 +701,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/29/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos"/>
 
 # Sicurezza e protezione dei dati di StorSimple
@@ -36,9 +36,9 @@ Le sezioni seguenti descrivono le funzionalità di sicurezza di StorSimple che c
 
 ## Protezione del servizio StorSimple Manager
 
-StorSimple Manager è un servizio di gestione ospitato in Microsoft Azure che consente di gestire tutti i dispositivi StorSimple installati all'interno di un'organizzazione. Per accedere al servizio StorSimple Manager usare le credenziali aziendali nel portale di gestione di Azure con un Web browser.
+StorSimple Manager è un servizio di gestione ospitato in Microsoft Azure che consente di gestire tutti i dispositivi StorSimple installati all'interno di un'organizzazione. È possibile accedere al servizio StorSimple Manager usando le credenziali aziendali nel portale di Azure classico con un Web browser.
 
-Per l'accesso al servizio StorSimple Manager, l'organizzazione deve disporre di una sottoscrizione Azure in cui sia incluso StorSimple. La sottoscrizione determina la disponibilità delle funzionalità nel portale di Azure. Se l'organizzazione non dispone ancora di una sottoscrizione di Azure e si desidera ottenere informazioni al riguardo, vedere [Iscrizione ad Azure come organizzazione](../sign-up-organization.md).
+Per l'accesso al servizio StorSimple Manager, l'organizzazione deve disporre di una sottoscrizione Azure in cui sia incluso StorSimple. La sottoscrizione determina le funzionalità con cui accedere nel portale di Azure classico. Se l'organizzazione non dispone ancora di una sottoscrizione di Azure e si desidera ottenere informazioni al riguardo, vedere [Iscrizione ad Azure come organizzazione](../sign-up-organization.md).
 
 Poiché il servizio StorSimple Manager è ospitato in Azure, viene protetto dalle funzionalità di sicurezza di Azure. Per altre informazioni sulle funzionalità di sicurezza fornite da Microsoft Azure, andare in [Centro protezione Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
 
@@ -46,7 +46,7 @@ Poiché il servizio StorSimple Manager è ospitato in Azure, viene protetto dall
 
 Il dispositivo StorSimple è un dispositivo di archiviazione ibrido locale contenente unità SSD e unità disco rigido, oltre a controller ridondanti e funzionalità di failover automatico. I controller gestiscono la suddivisione in livelli dell'archiviazione, inserendo i dati attualmente usati (o hot data) nella risorsa di archiviazione locale (nel dispositivo StorSimple o nei server locali) e spostando nel cloud i dati usati meno di frequente.
 
-Solo i dispositivi StorSimple autorizzati possono aggiungere il servizio StorSimple Manager creato nella sottoscrizione di Azure. Per autorizzare un dispositivo, è necessario registrarlo con il servizio StorSimple Manager inserendo la chiave di registrazione del servizio. La chiave di registrazione del servizio è un codice casuale a 128 bit generato nel portale.
+Solo i dispositivi StorSimple autorizzati possono aggiungere il servizio StorSimple Manager creato nella sottoscrizione di Azure. Per autorizzare un dispositivo, è necessario registrarlo con il servizio StorSimple Manager inserendo la chiave di registrazione del servizio. La chiave di registrazione del servizio è un codice casuale a 128 bit generato nel portale di Azure classico.
 
 ![Chiave di registrazione del servizio](./media/storsimple-security/ServiceRegistrationKey.png)
 
@@ -131,7 +131,7 @@ Come descritto in altre sezioni, per autorizzare e autenticare gli utenti in mod
 
 ## Proteggere il flusso di dati attraverso il servizio
 
-Lo scopo principale del servizio StorSimple Manager è di gestire e configurare il dispositivo StorSimple. Il servizio StorSimple Manager viene eseguito in Microsoft Azure. Si usa il portale di gestione di Windows Azure per immettere i dati di configurazione del dispositivo e quindi Microsoft Azure usa il servizio StorSimple Manager per inviare i dati al dispositivo. StorSimple usa un sistema di coppie di chiavi asimmetriche per garantire che, nel caso in cui venga compromesso il servizio di Azure, non vengano compromesse anche le informazioni archiviate.
+Lo scopo principale del servizio StorSimple Manager è di gestire e configurare il dispositivo StorSimple. Il servizio StorSimple Manager viene eseguito in Microsoft Azure. Si usa il portale di Azure classico per immettere i dati di configurazione del dispositivo, poi Microsoft Azure usa il servizio StorSimple Manager per inviare i dati al dispositivo. StorSimple usa un sistema di coppie di chiavi asimmetriche per garantire che, nel caso in cui venga compromesso il servizio di Azure, non vengano compromesse anche le informazioni archiviate.
 
 ![Crittografia dei dati in esecuzione](./media/storsimple-security/DataEncryption.png)
 
@@ -167,7 +167,6 @@ Per garantire la sicurezza e l'integrità dei dati spostati nel cloud, StorSimpl
 - Quando si immette la chiave di crittografia per l'archiviazione cloud nel servizio StorSimple Manager, la chiave viene crittografata con la parte pubblica della chiave DEK del servizio e quindi inviata al dispositivo.
 - La chiave di crittografia per l'archiviazione cloud non viene archiviata nel servizio ed è nota solo al dispositivo.
 - Specificare una chiave di crittografia per l'archiviazione cloud è facoltativo. È possibile inviare i dati crittografati nell'host al dispositivo.
-- È consigliabile ruotare la chiave di crittografia di archiviazione cloud trimestralmente. Tuttavia, non verrà richiesta la rotazione delle chiavi.
 
 ### Procedure di sicurezza aggiuntive
 
@@ -184,7 +183,7 @@ Quando si crea un account di archiviazione, Microsoft Azure genera due chiavi di
 Per la rotazione delle chiavi, è opportuno seguire queste procedure consigliate:
 
 - Far ruotare regolarmente le chiavi dell'account di archiviazione per impedire a utenti non autorizzati di accedere all'account di archiviazione.
-- L'amministratore di Azure deve modificare o rigenerare periodicamente la chiave primaria o secondaria usando la sezione Archiviazione del portale di gestione per accedere direttamente all'account di archiviazione.
+- L'amministratore di Azure deve modificare o rigenerare periodicamente la chiave primaria o secondaria usando la sezione Archiviazione del portale di Azure classico per accedere direttamente all'account di archiviazione.
 
 
 ## Proteggere i dati mediante la crittografia
@@ -193,8 +192,8 @@ StorSimple usa i seguenti algoritmi di crittografia per proteggere i dati archiv
 
 | Algoritmo | Lunghezza chiave | Protocolli/applicazioni/commenti |
 | --------- | ---------- | ------------------------------- |
-| RSA | 2048 | RSA PKCS 1 v1.5 viene usato dal portale di gestione per crittografare i dati di configurazione inviati al dispositivo: ad esempio, le credenziali dell'account di archiviazione, la configurazione del dispositivo StorSimple e le chiavi di crittografia per l'archiviazione cloud. |
-| AES | 256 | AES con CBC viene usato per crittografare la parte pubblica della chiave DEK del servizio prima che venga inviata al portale di gestione dal dispositivo StorSimple. Viene usato anche dal dispositivo StorSimple per crittografare i dati prima che vengano inviati all'account di archiviazione cloud. |
+| RSA | 2048 | RSA PKCS 1 v1.5 viene usato dal portale di Azure classico per crittografare i dati di configurazione inviati al dispositivo: ad esempio, le credenziali dell'account di archiviazione, la configurazione del dispositivo StorSimple e le chiavi di crittografia per l'archiviazione cloud. |
+| AES | 256 | AES con CBC viene usato per crittografare la parte pubblica della chiave DEK del servizio prima che venga inviata al portale di Azure classico dal dispositivo StorSimple. Viene usato anche dal dispositivo StorSimple per crittografare i dati prima che vengano inviati all'account di archiviazione cloud. |
 
 
 ## Sicurezza del dispositivo virtuale StorSimple
@@ -259,7 +258,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **D:** Se un utente riesce ad accedere al certificato di crittografia dei dati, i miei dati verranno compromessi?
 
-**R:** Microsoft Azure archivia la chiave di crittografia dei dati del cliente (file con estensione pfx) in formato crittografato. Dato che il file con estensione pfx è crittografato e il servizio StorSimple non ha la chiave DEK del servizio per decrittografarlo, il semplice accesso al file con estensione pfx non espone alcun dato segreto.
+**R:** Microsoft Azure archivia la chiave di crittografia dei dati del cliente (file con estensione .pfx) in formato crittografato. Dato che il file con estensione pfx è crittografato e il servizio StorSimple non ha la chiave DEK del servizio per decrittografarlo, il semplice accesso al file con estensione pfx non espone alcun dato segreto.
 
 **D:** Cosa accade se un ente pubblico chiede i miei dati a Microsoft?
 
@@ -270,4 +269,4 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 [Distribuire il dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

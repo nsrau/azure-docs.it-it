@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Installazione personalizzata di Azure AD Connect | Microsoft Azure"
+	pageTitle="Azure AD Connect: Installazione personalizzata | Microsoft Azure"
 	description="Questo documento descrive le opzioni di installazione personalizzata per Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -51,7 +51,7 @@ Autorizzazioni | Per impostazione predefinita, Azure AD Connect crea quattro gru
 
 
 ## Accesso utente
-Dopo aver installato i componenti necessari, viene richiesto di specificare il metodo Single Sign-On che verrà usato dagli utenti. La tabella seguente fornisce una breve descrizione delle opzioni disponibili.
+Dopo aver installato i componenti necessari, viene richiesto di specificare il metodo Single Sign-On che verrà usato dagli utenti. La tabella seguente fornisce una breve descrizione delle opzioni disponibili. Per una descrizione completa dei metodi di accesso, vedere [Accesso utente](active-directory-aadconnect-user-signin.md).
 
 ![Accesso utente](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
@@ -242,8 +242,10 @@ Inoltre, eseguire i passaggi di verifica seguenti:
 
 
 ## Passaggi successivi
+Dopo il completamento dell'installazione, disconnettersi e accedere nuovamente a Windows prima di usare la Gestione del servizio di sincronizzazione o l’Editor della regola di sincronizzazione.
+
 Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e assegnare le licenze](active-directory-aadconnect-whats-next.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -67,7 +67,7 @@ Si userà anche la tipica strategia di diramazione, in cui il codice viene spost
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 >
 > Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -75,7 +75,7 @@ Si userà anche la tipica strategia di diramazione, in cui il codice viene spost
 
 >[AZURE.NOTE]Lo script usato in questa esercitazione configurerà automaticamente la pubblicazione continua dal repository GitHub. A questo scopo, è necessario che le credenziali GitHub siano già archiviate in Azure, altrimenti la distribuzione con script ha esito negativo quando si tenta di configurare le impostazioni di controllo del codice sorgente per le app Web.
 >
->Per archiviare le credenziali GitHub in Azure, creare un'app Web nel [Portale di anteprima di Azure](https://portal.azure.com) e [configurare la distribuzione GitHub](web-sites-publish-source-control.md#Step7). È necessario eseguire questa operazione una sola volta.
+>Per archiviare le credenziali GitHub in Azure, creare un'app Web nel [Portale di Azure](https://portal.azure.com) e [configurare la distribuzione GitHub](web-sites-publish-source-control.md#Step7). È necessario eseguire questa operazione una sola volta.
 
 In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a cui si desidera apportare modifiche tramite la pubblicazione continua. In questo scenario, è necessario distribuire nell'ambiente di produzione un modello sviluppato, testato e usato, che verrà configurato in questa sezione.
 
@@ -109,7 +109,7 @@ In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a 
 
 7.	Al termine dello script, tornare indietro per passare all'indirizzo del front-end (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) per visualizzare l'applicazione in esecuzione nell'ambiente di produzione.
  
-5.	Accedere al [portale di anteprima di Azure](https://portal.azure.com) per vedere gli elementi creati.
+5.	Accedere al [portale di Azure](https://portal.azure.com) per vedere gli elementi creati.
 
 	Dovrebbero essere visibili due app Web nello stesso gruppo di risorse, una con il suffisso `Api` nel nome. Osservando il gruppo di risorse, si noteranno anche il server e il database SQL, il piano del servizio app e gli slot di gestione temporanea per le app Web. Esplorare le diverse risorse e confrontarle con *&lt;radice\_repository>*\\ARMTemplates\\ProdAndStage.json per verificare come vengono configurate nel modello.
 
@@ -281,4 +281,4 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 -	[Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

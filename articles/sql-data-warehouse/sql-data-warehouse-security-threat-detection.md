@@ -30,7 +30,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 
 ## Configurare il rilevamento delle minacce per il database
 
-1. Avviare il portale di anteprima di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 2. Passare al pannello di configurazione dell’SQL Data Warehouse che si vuole monitorare. Nel pannello Impostazioni selezionare **Controllo e rilevamento delle minacce**.
 
@@ -55,7 +55,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 
 	![Riquadro di spostamento][4]
 
-2. Nel messaggio di posta elettronica fare clic sul collegamento relativo al **log di controllo SQL di Azure** che avvierà il portale di Azure visualizzando i record di controllo pertinenti intorno all'ora dell'evento sospetto.
+2. Nel messaggio di posta elettronica fare clic sul collegamento relativo al **log di controllo SQL di Azure** che avvierà il portale di Azure classico visualizzando i record di controllo pertinenti intorno all'ora dell'evento sospetto.
 
 	![Riquadro di spostamento][5]
 
@@ -89,4 +89,4 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

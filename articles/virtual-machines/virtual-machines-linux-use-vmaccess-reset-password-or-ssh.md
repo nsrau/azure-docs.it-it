@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Reimpostazione della password VM Linux da CLI di Azure | Microsoft Azure"
-	description="Come utilizzare l'estensione VMAccess dal portale di o dall’interfaccia della riga di comando di Azure per reimpostare le password VM di Linux e le chiavi SSH, le configurazioni SSH ed eliminare gli account utente."
+	description="Come utilizzare l'estensione VMAccess dal portale di Azure classico o dall’interfaccia della riga di comando di Azure per reimpostare le password VM di Linux e le chiavi SSH, le configurazioni SSH ed eliminare gli account utente."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -22,15 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
-Se non è possibile connettersi a una macchina virtuale Linux a causa di una password dimenticata, una chiave SSH (Secure Shell) non valida o un problema di configurazione di SSH, usare il portale di anteprima di Azure o l'estensione VMAccessForLinux per reimpostare la password o la chiave SSH oppure correggere la configurazione SSH. Tenere presente che questo articolo fa riferimento alle macchine virtuali create tramite il modello di distribuzione **Classico**.
+Se non è possibile connettersi a una macchina virtuale Linux a causa di una password dimenticata, una chiave SSH (Secure Shell) non valida o un problema di configurazione di SSH, usare il portale di Azure o l'estensione VMAccessForLinux per reimpostare la password o la chiave SSH oppure correggere la configurazione SSH. Tenere presente che questo articolo fa riferimento alle macchine virtuali create tramite il modello di distribuzione **Classico**.
 
-## Portale di anteprima di Azure
+## Portale di Azure
 
-Per ripristinare la configurazione SSH nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia** > **Macchine virtuali** > *macchina virtuale Linux* > **Reimposta accesso remoto**. Di seguito è fornito un esempio.
+Per ripristinare la configurazione SSH nel [portale di Azure](https://portal.azure.com), fare clic su **Sfoglia** > **Macchine virtuali** > *macchina virtuale Linux* > **Reimposta accesso remoto**. Di seguito è fornito un esempio.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
-Per reimpostare il nome e la password dell'account utente con privilegi sudo o la chiave pubblica SSH nel [portale di anteprima di Azure](https://portal.azure.com), fare clic su **Sfoglia** > **Macchine virtuali** > *macchina virtuale Linux* > **Tutte le impostazioni** > **Reimpostazione password**. Di seguito è fornito un esempio.
+Per reimpostare il nome e la password dell'account utente con privilegi sudo o la chiave pubblica SSH nel [portale di Azure](https://portal.azure.com), fare clic su **Sfoglia** > **Macchine virtuali** > *macchina virtuale Linux* > **Tutte le impostazioni** > **Reimpostazione password**. Di seguito è fornito un esempio.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
 
@@ -165,7 +165,7 @@ Se non si conosce il servizio cloud e il nome della macchina virtuale, eseguire 
 
 > [AZURE.NOTE]Le righe di comando che iniziano con $ configurano variabili di PowerShell che verranno usate successivamente nei comandi di PowerShell.
 
-Se la macchina virtuale è stata creata con il portale di Azure, eseguire il seguente comando aggiuntivo:
+Se la macchina virtuale è stata creata con il portale di Azure classico, eseguire il seguente comando aggiuntivo.
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -266,4 +266,4 @@ Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 [Estensioni VM e funzionalità di Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connettersi a una macchina virtuale di Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

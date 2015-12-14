@@ -49,7 +49,7 @@ Per istruzioni su come eseguire questa operazione, vedere [Creare un certificato
 
 Ogni sottoscrizione Azure è identificata da un valore GUID, noto come ID sottoscrizione. Per trovare questo valore, seguire questa procedura.
 
-1. Visitare il [portale di anteprima di Azure][portale di anteprima].
+1. Visitare il [portale di Azure][portale di anteprima].
 
 2. Dalla barra a sinistra del portale, selezionare __ESPLORA TUTTO__, quindi selezionare __Sottoscrizioni__ dal pannello __Sfoglia__.
 
@@ -155,7 +155,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
-* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md) 
-[portale di anteprima]: https://portal.azure.com/
+* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md) [portale di anteprima]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

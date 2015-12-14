@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creazione di una macchina virtuale di Azure che esegue Linux nel portale di Azure | Microsoft Azure"
-	description="Utilizzare il portale di Azure per creare una macchina virtuale di Azure che esegue Linux con i gruppi di risorse di Azure."
+	pageTitle="Creazione di una macchina virtuale di Azure che esegue Linux nel portale di Azure classico | Microsoft Azure"
+	description="Utilizzare il portale di Azure classico per creare una VM di Azure che esegue Linux con i gruppi di risorse di Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -17,15 +17,15 @@
 	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
-# Creazione di una macchina virtuale che esegue Linux tramite il portale di anteprima di Azure
+# Creazione di una macchina virtuale che esegue Linux tramite il portale di Azure
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure preview portal](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
 
 <br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica.
 
-La creazione di una macchina virtuale di Azure che esegue Linux è un'operazione semplice. In questa esercitazione viene illustrato come utilizzare il portale di anteprima di Azure per creare rapidamente una macchina virtuale e utilizzare il file di chiave pubblica `~/.ssh/id_rsa.pub` per proteggere la connessione **SSH** alla macchina virtuale. È inoltre possibile creare macchine virtuali di Linux utilizzando [le proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md).
+La creazione di una macchina virtuale di Azure che esegue Linux è un'operazione semplice. In questa esercitazione viene illustrato come utilizzare il portale di Azure per crearne una rapidamente e utilizzare il file di chiave pubblica `~/.ssh/id_rsa.pub` per proteggere la connessione **SSH** alla VM. È inoltre possibile creare macchine virtuali di Linux utilizzando [le proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE]In questa esercitazione viene creata una macchina virtuale di Azure gestita dall'API del gruppo di risorse di Azure. Per informazioni dettagliate, vedere [Panoramica del gruppo di risorse di Azure](resource-group-overview.md).
 
@@ -130,4 +130,4 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

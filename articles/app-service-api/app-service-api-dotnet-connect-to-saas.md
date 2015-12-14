@@ -18,11 +18,13 @@
 
 # Connettersi a una piattaforma SaaS da un'app per le API ASP.NET nel servizio app di Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Panoramica
 
-Questa esercitazione spiega come codificare e configurare un'[app per le API](app-service-api-apps-why-best-platform.md) che si connette a una [piattaforma Software-as-a-Service (SaaS)](../app-service/app-service-authentication-overview.md#obotosaas) con [App Service API app SDK for .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). L'esercitazione spiega anche come chiamare l'app per le API da un client .NET usando [App Service SDK for .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Al termine dell'esercitazione, si disporrà di un client app console .NET che chiama un'app per le API .NET in esecuzione nel servizio app di Azure. L'app per le API chiama l'API Dropbox e restituisce un elenco di file e cartelle nell'account Dropbox dell'utente.
+Questa esercitazione spiega come codificare e configurare un'[app per le API](app-service-api-apps-why-best-platform.md) che si connette a una [piattaforma Software-as-a-Service (SaaS)](../app-service/app-service-authentication-overview.md#obotosaas) con [App Service API app SDK per .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). L'esercitazione spiega anche come chiamare l'app per le API da un client .NET tramite [Servizio app SDK per .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Al termine dell'esercitazione, si disporrà di un client app console .NET che chiama un'app per le API .NET in esecuzione nel servizio app di Azure. L'app per le API chiama l'API Dropbox e restituisce un elenco di file e cartelle nell'account Dropbox dell'utente.
 
-Invece di scrivere il codice che chiama un'API SaaS direttamente da un'app per le API personalizzata, è possibile chiamare un'[app per le API di un connettore](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) predefinito. Per informazioni in proposito, vedere [Distribuire e configurare un'app per le API del connettore SaaS](app-service-api-connnect-your-app-to-saas-connector.md).
+Invece di scrivere il codice che chiama un'API SaaS direttamente da un'app per le API personalizzata, è possibile chiamare un'[app per le API di un connettore](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) predefinita. Per informazioni in proposito, vedere [Distribuire e configurare un'app per le API del connettore SaaS](app-service-api-connnect-your-app-to-saas-connector.md).
 
 L'esercitazione fornisce istruzioni dettagliate sulle operazioni seguenti:
 
@@ -40,21 +42,21 @@ L'esercitazione fornisce istruzioni dettagliate sulle operazioni seguenti:
 
 L'esercitazione presuppone quanto segue:
 
-* Avere completato le esercitazioni [Creare un'app per le API](app-service-dotnet-create-api-app.md) e [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
+* Sono state completate le esercitazioni [Creare un'app per le API](app-service-dotnet-create-api-app.md) e [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
   
-* Avere una conoscenza di base dell'architettura del gateway del servizio app di Azure App per l'autenticazione, presentata[Autenticazione per app per le API e per dispositivi mobili](app-service-authentication-overview.md).
+* Si ha una conoscenza di base dell'architettura del gateway del servizio app di Azure per l'autenticazione, come presentata in [Autenticazione per app per le API e per dispositivi mobili](app-service-authentication-overview.md).
 
-* Saper usare le app per le API nel portale di anteprima di Azure, come spiegato in [Come spostarsi ai pannelli App per le API e Gateway](app-service-api-manage-in-portal.md#navigate).
+* Si è a conoscenza di come usare le app per le API nel portale di anteprima di Azure, come spiegato in [Come passare ai pannelli delle app per le API e del Gateway](app-service-api-manage-in-portal.md#navigate).
 
 ## Creare il progetto app per le API
  
-Quando le istruzioni richiedono l'immissione di un nome per il progetto, indicare *SimpleDropbox*.
+Quando le istruzioni richiedono l'immissione di un nome per il progetto, inserire *SimpleDropbox*.
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
 ## Configurare il file *apiapp.json*
 
-Perché un'app per le API effettui chiamate in uscita a una piattaforma SaaS, la piattaforma SaaS deve essere specificata nel file *apiapp.json*.
+Affinché un'app per le API effettui chiamate in uscita verso una piattaforma SaaS, la piattaforma SaaS deve essere specificata nel file *apiapp.json*.
 
 1. Aprire il file *apiapp.json* e aggiungere una proprietà `authentication` come illustrato di seguito (sarà necessario aggiungere anche una virgola dopo la proprietà precedente):
 
@@ -117,7 +119,7 @@ Gli ambiti disponibili vengono definiti da ogni provider SaaS e si trovano nel p
 
 	* Dal menu **Strumenti** fare clic su **Gestione pacchetti NuGet > Console di Gestione pacchetti**.
 
-	* Nella finestra **Console di Gestione pacchetti** immettere questo comando:
+	* Nella finestra **Console di Gestione pacchetti** inserire questo comando:
 	 
 			install-package DropboxRestAPI  
 
@@ -169,7 +171,7 @@ Gli ambiti disponibili vengono definiti da ogni provider SaaS e si trovano nel p
 
 ## Creare un'app per le API in Azure
 
-In questa sezione si usa la procedura guidata **Pubblica sul Web** di Visual Studio per creare una nuova app per le API in Azure. Quando le istruzioni richiedono l'immissione di un nome per l'app per le API, indicare *SimpleDropbox*.
+In questa sezione si userà la procedura guidata **Pubblica sul Web** di Visual Studio per creare un'app per le API in Azure. Quando le istruzioni richiedono l'inserimento di un nome per l'app per le API, indicare *SimpleDropbox*.
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
@@ -205,7 +207,7 @@ Per consentire all'app per le API di chiamare l'API Dropbox, è necessario scamb
 
 I passaggi seguenti fanno riferimento a un'app per le API del connettore Dropbox, ma le procedure e l'interfaccia utente sono le stesse per l'app per le API SimpleDropbox che viene creata in questa esercitazione.
 
-> **Nota:** se non sono presenti i campi per l'ID client e il segreto client di Dropbox nel pannello **Autenticazione** dell'app per le API SimpleDropbox, verificare di avere riavviato il gateway come illustrato dopo la distribuzione del progetto app per le API nell'app per le API. Il valore "dropbox" nella proprietà `authentication` del file *apiapp.json* distribuito in precedenza consente al portale di visualizzare questi campi.
+> **Nota:** se non sono presenti i campi per l'ID client e il segreto client di Dropbox nel pannello **Autenticazione** dell'app per le API SimpleDropbox, come mostrato nella schermata, verificare di avere riavviato il gateway come illustrato dopo la distribuzione del progetto app per le API nell'app per le API. Il valore "dropbox" nella proprietà `authentication` del file *apiapp.json* distribuito in precedenza consente al portale di visualizzare questi campi.
 
 [AZURE.INCLUDE [app-service-api-exchange-dropbox-settings](../../includes/app-service-api-exchange-dropbox-settings.md)]
 
@@ -215,11 +217,11 @@ In questa sezione si crea un progetto app console che usa il codice client gener
 
 ### Creare il progetto
 
-1. In Visual Studio creare un nuovo progetto di Applicazione console e chiamarlo *SimpleDropboxTest*.
+1. In Visual Studio, creare un nuovo progetto di Applicazione console e chiamarlo *SimpleDropboxTest*.
 
 2. Impostare un riferimento a System.Windows.Forms.
  
-	* In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliere **Aggiungi riferimento**.
+	* In **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliere **Aggiungi riferimento**.
 
 	* Selezionare la casella di controllo a sinistra di **System.Windows.Forms** e quindi fare clic su **OK**.
 	 
@@ -376,12 +378,7 @@ Note aggiuntive:
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Ecco i valori da usare per gli altri provider:
-	* "microsoftaccount"
-	* "facebook"
-	* "twitter"
-	* "google"
-<br/><br/>
+	Ecco i valori da usare per gli altri provider: * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
 
 * Il secondo parametro per il metodo `GetConsentLinkAsync()` è l'URL callback a cui il server di consenso reindirizza dopo che l'utente accede a Dropbox e dà il consenso ad accedere all'account dell'utente.
 
@@ -452,4 +449,4 @@ Se si rimuove %3d%3d dalla fine del valore querystring `error`, si ottiene una s
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

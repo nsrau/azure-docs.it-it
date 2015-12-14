@@ -25,7 +25,7 @@ Per iscriversi per ottenere una sottoscrizione della versione di valutazione gra
 
 >[AZURE.NOTE]Il numero di telefono e il numero di carta di credito vengono usati solo per verificare l'identità. Sebbene non verrà eseguito alcun addebito sulla carta di credito, Microsoft inserirà un blocco di autorizzazione su di essa per una quantità minima in modo da verificarne la validità. Il blocco verrà rilasciato entro 3-5 giorni lavorativi, a seconda dei criteri dell'istituto finanziario.
 
-1. Aprire la [pagina della versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-IT/pricing/free-trial/) e quindi selezionare **Prova subito**.
+1. Aprire la [pagina della versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/) e quindi selezionare **Prova subito**.
 2. Accedere al proprio account Microsoft o all'account aziendale o dell'istituto di istruzione.
 3. Nella sezione **Informazioni personali** immettere le informazioni personali. ![Schermata delle informazioni personali](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
@@ -61,4 +61,4 @@ Se sono stati acquistati crediti Azure in Open da un rivenditore, seguire questi
 2. Immettere il codice Product key e quindi selezionare l'opzione del contratto.</br>![Chiave di attivazione servizio online](./media/billing-buy-sign-up-azure-subscription/OSAkey.png)
 3. Selezionare **Attiva**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

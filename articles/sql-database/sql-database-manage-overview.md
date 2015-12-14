@@ -22,12 +22,12 @@ In questo argomento vengono analizzati e confrontati strumenti e opzioni per la 
 
 
 
-## Portale di Azure
+## Portale di Azure classico
 
 
-Il [Portale di Azure](http://portal.azure.com) è un portale di gestione basato su Web dove è possibile creare, aggiornare ed eliminare i database e i server logici e monitorare le attività del database. Si tratta dello strumento ideale se si sta appena iniziando a utilizzare Azure, se si gestisce un numero ridotto di database, o se è necessario operare rapidamente.
+Il [portale di Azure classico](http://portal.azure.com) è un portale classico basato su Web dove è possibile creare, aggiornare ed eliminare i database e i server logici e monitorare le attività del database. Si tratta dello strumento ideale se si sta appena iniziando a utilizzare Azure, se si gestisce un numero ridotto di database, o se è necessario operare rapidamente.
 
-Per informazioni più dettagliate sull’utilizzo del portale, vedere [Gestione di database SQL tramite il portale di Azure](sql-database-manage-portal.md).
+Per informazioni più dettagliate sull’utilizzo del portale, vedere [Gestione di database SQL tramite il portale di Azure classico](sql-database-manage-portal.md).
 
 ## SQL Server Management Studio e SQL Server Data Tools in Visual Studio
 
@@ -44,4 +44,4 @@ Per ulteriori informazioni sulla gestione di database SQL di Azure con SSMS, ved
 Per ulteriori informazioni sulla gestione dei database SQL di Azure con gli strumenti da riga di comando vedere[Gestione di Database SQL con PowerShell](sql-database-command-line-tools.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

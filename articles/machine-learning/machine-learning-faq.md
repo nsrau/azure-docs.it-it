@@ -93,8 +93,9 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 
 **È possibile leggere i dati da Amazon S3?**
 
-Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure, quindi usare il modulo [Reader][reader] per passarli all'esperimento. 
-<!--<SEE CLOUD DS PROCESS>-->
+Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure, quindi usare il modulo [Reader][reader] per passarli all'esperimento. <!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **Esiste una capacità di input dell'immagine predefinita?**
 
@@ -211,13 +212,13 @@ Inoltre, è possibile utilizzare le API Retraining. Il codice di esempio è disp
 
 **Come si monitora il servizio Web distribuito in produzione?**
 
-Una volta inserito in produzione un modello predittivo, è possibile monitorarlo dal portale di Azure. Ogni servizio distribuito ha un proprio dashboard, in cui è possibile visualizzare le informazioni di monitoraggio per il servizio.
+Una volta inserito in produzione un modello predittivo, è possibile monitorarlo dal portale di Azure classico. Ogni servizio distribuito ha un proprio dashboard, in cui è possibile visualizzare le informazioni di monitoraggio per il servizio.
 
 **Esiste una posizione in cui è possibile visualizzare l'output di RRS/BES?**
 
 Per RRS, la risposta del servizio web si trova in genere dove si visualizza il risultato. È inoltre possibile scrivere un BLOB. Per BES, l'output viene scritto in un BLOB per impostazione predefinita. È inoltre possibile scrivere l'output in un database o in una tabella utilizzando il modulo di scrittura.
 
- **È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
+ ****È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
 
 ## Scalabilità
 
@@ -265,7 +266,7 @@ No.
 
 **Chi ha accesso all'endpoint HTTP per il servizio Web distribuito in produzione per impostazione predefinita? Come è possibile limitare l'accesso all'endpoint?**
 
-Dopo aver distribuito un servizio web, è necessario creare un endpoint predefinito per tale servizio. Tale endpoint predefinito viene distribuito nell'ambiente di produzione e può essere chiamato utilizzando la relativa chiave API. È possibile aggiungere altri endpoint con le rispettive chiavi dal portale di Azure o a livello di programmazione utilizzando le API di gestione del servizio Web. Le chiavi di accesso sono necessarie per effettuare le chiamate al servizio Web sia nell'ambiente di produzione che nell'ambiente di gestione temporanea. Per altre informazioni, vedere [Connessione a un servizio Web di Azure Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Dopo aver distribuito un servizio web, è necessario creare un endpoint predefinito per tale servizio. Tale endpoint predefinito viene distribuito nell'ambiente di produzione e può essere chiamato utilizzando la relativa chiave API. È possibile aggiungere altri endpoint con le rispettive chiavi dal portale di Azure classico o a livello di programmazione utilizzando le API di gestione del servizio Web. Le chiavi di accesso sono necessarie per effettuare le chiamate al servizio Web sia nell'ambiente di produzione che nell'ambiente di gestione temporanea. Per altre informazioni, vedere [Connessione a un servizio Web di Azure Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 
 **Cosa succede se non viene trovato l'account di archiviazione?**
@@ -277,7 +278,7 @@ Se si elimina accidentalmente l'account di archiviazione, l'unico modo per ripri
 
 **Cosa succede se la chiave di accesso dell'account di archiviazione non è sincronizzata?** Machine Learning Studio si basa su un account di archiviazione di Azure fornito dall'utente per salvare i dati intermedi quando si esegue il flusso di lavoro. Questo account di archiviazione viene fornito a Machine Learning Studio al momento della creazione di uno spazio di lavoro e le chiavi di accesso sono associate allo spazio di lavoro. Dopo aver creato lo spazio di lavoro, se le chiavi di accesso vengono modificate, lo spazio di lavoro non riesce più ad accedere all'account di archiviazione, quindi non funzionerà più e tutti gli esperimenti nello spazio di lavoro non riusciranno.
 
-Se sono state modificate le chiavi di accesso dell'account di archiviazione, assicurarsi di risincronizzare le chiavi di accesso nell'impostazione dello spazio di lavoro del portale di Azure
+Se sono state modificate le chiavi di accesso dell'account di archiviazione, assicurarsi di sincronizzare di nuovo le chiavi di accesso nell'impostazione dello spazio di lavoro nel portale di Azure classico
 
 
 ## Azure Marketplace
@@ -309,4 +310,4 @@ Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

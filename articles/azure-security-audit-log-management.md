@@ -3,7 +3,7 @@
    description="L’articolo fornisce informazioni introduttive per la generazione, la raccolta e l’analisi dei log di protezione da servizi ospitati in Azure. È destinato ai professionisti IT e ad analisti della protezione che si occupano di gestione delle risorse di informazioni su base giornaliera, inclusi i responsabili dell'attività di protezione e conformità dell'organizzazione."
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="TerryLanfear"
+   authors="nayak-mahesh"
    manager="msStevenPo"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="11/30/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Gestione della protezione e del log di controllo di Microsoft Azure
@@ -614,4 +614,4 @@ Le risorse seguenti forniscono informazioni generali su Microsoft Azure e i serv
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

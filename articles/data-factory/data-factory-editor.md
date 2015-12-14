@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Editor di Data factory di Azure
-L'editor di Data factory di Azure è un semplice editor Web che fa parte del portale di anteprima di Azure, che consente di creare, modificare e distribuire file JSON di tutte le entità di Data Factory Azure. Permette di creare servizi collegati, set di dati e pipeline usando i modelli JSON forniti con il servizio Data factory. Se non si conosce PowerShell, evita di dover installare e imparare a usare Azure PowerShell per creare data factory di Azure.
+L'editor di Data factory di Azure è un semplice editor Web che fa parte del portale di Azure, che consente di creare, modificare e distribuire file JSON di tutte le entità di Data Factory Azure. Permette di creare servizi collegati, set di dati e pipeline usando i modelli JSON forniti con il servizio Data factory. Se non si conosce PowerShell, evita di dover installare e imparare a usare Azure PowerShell per creare data factory di Azure.
 
 ## Avvio dell'editor di Data factory di Azure
 Per avviare l'editor di Data factory, fare clic sul riquadro **Creare e distribuire** del pannello **Data factory** della data factory di Azure.
@@ -220,4 +220,4 @@ Per istruzioni dettagliate per creare una data factory di Azure usando l'editor 
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

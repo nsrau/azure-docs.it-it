@@ -41,7 +41,7 @@
 
     >[AZURE.NOTE]Il segreto client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri né distribuirli con l'app.
 
-10. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app.
+10. Accedere al [portale di Azure classico](https://manage.windowsazure.com/), fare clic su **Servizi mobili** e quindi sull'app.
 
 11. Fare clic sulla scheda **Identità**, immettere i valori di **Segreto client** e **Identificatore di sicurezza del pacchetto (SID)** ottenuti da WNS al passaggio 4, quindi fare clic su **Salva**.
 
@@ -60,6 +60,5 @@
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started/#create-new-service
 [Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

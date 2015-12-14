@@ -26,14 +26,14 @@ I certificati usati da Azure possono contenere una chiave privata o una pubblica
 ## Cosa sono i certificati di servizio?
 I certificati di servizio sono associati ai servizi cloud e consentono la comunicazione sicura verso e dal servizio. Ad esempio, se si distribuisse un ruolo Web, si fornirebbe un certificato per autenticare un endpoint HTTPS esposto. I certificati di servizio, definiti nella definizione del servizio, vengono automaticamente distribuiti nella macchina virtuale che esegue un'istanza del ruolo.
 
-È possibile caricare i certificati di servizio nel portale di gestione usando il portale di gestione o usando l'API di gestione dei servizi. I certificati di servizio vengono associati a un servizio cloud specifico e assegnati a una distribuzione nel file di definizione del servizio.
+È possibile caricare i certificati di servizio nel portale di Azure classico usando il portale di Azure classico o usando l'API di gestione dei servizi. I certificati di servizio vengono associati a un servizio cloud specifico e assegnati a una distribuzione nel file di definizione del servizio.
 
 I certificati di servizio possono essere gestiti separatamente dai servizi e da persone diverse. Ad esempio, uno sviluppatore può caricare un pacchetto del servizio che fa riferimento a un certificato caricato in precedenza in Azure da un responsabile IT. Un responsabile IT può gestire e rinnovare tale certificato modificando la configurazione del servizio senza dover caricare un nuovo pacchetto del servizio. Questa operazione è possibile poiché il nome logico per il certificato e il relativo nome di archivio e il percorso vengono specificati nel file di definizione del servizio, mentre l'identificazione personale del certificato viene specificata nel file di configurazione del servizio. Per aggiornare il certificato, è sufficiente caricare un nuovo certificato e modificare il valore dell'identificazione personale nel file di configurazione del servizio.
 
 ## Cosa sono i certificati di gestione?
 I certificati di gestione consentono di eseguire l'autenticazione con l'API di gestione dei servizi fornita da Azure. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) useranno questi certificati per automatizzare la configurazione e la distribuzione dei vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud.
 
->[AZURE.WARNING]Pertanto, prestare attenzione prima di effettuare questa operazione. Questi tipi di certificati consentono a chiunque si autentichi di gestire la sottoscrizione a cui sono associati.
+>[AZURE.WARNING]Fare attenzione. Questi tipi di certificati consentono a chiunque si autentichi di gestire la sottoscrizione a cui sono associati.
 
 ### Limitazioni
 Esiste un limite di 100 certificati di gestione per ogni sottoscrizione. Esiste anche un limite di 100 certificati di gestione per tutte le sottoscrizioni che fanno riferimento all'ID utente di un amministratore del servizio specifico. Se l'ID utente per l'amministratore dell'account è già stato usato per aggiungere 100 certificati di gestione e ne sono necessari altri, è possibile aggiungere un coamministratore per aumentare il numero di certificati.
@@ -74,10 +74,10 @@ Su Internet sono disponibili molte pagine che spiegano come eseguire questa oper
 
 ## Passaggi successivi
 
-[Caricare il certificato di servizio nel portale di Azure](cloud-services-configure-ssl-certificate.md) (o nel [portale di anteprima](cloud-services-configure-ssl-certificate-portal.md)) e [configurarlo](cloud-services-xml-certs.md) per il servizio cloud.
+[Caricare il certificato di servizio nel portale di Azure classico](cloud-services-configure-ssl-certificate.md) (o nel [portale di Azure](cloud-services-configure-ssl-certificate-portal.md)) e [configurarli](cloud-services-xml-certs.md) per il servizio cloud.
 
-Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md) nel portale di Azure.
+Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md) nel portale di Azure classico.
 
->[AZURE.NOTE]Il portale di anteprima di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
+>[AZURE.NOTE]Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

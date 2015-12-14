@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per gestire li record di controllo di accesso
@@ -48,13 +48,13 @@ Attenersi alla seguente procedura per aggiungere un record di controllo di acces
 
    - Avviare l'iniziatore iSCSI di Microsoft sull’host di Windows.
    - Nella finestra Proprietà iniziatore iSCSI, nella scheda Configurazione, selezionare e copiare la stringa dal campo Nome iniziatore.
-   - Incollare la stringa nel campo **Nome iniziatore iSCSI** nella tabella dei record di controllo di accesso nel portale di gestione.
+   - Incollare la stringa nel campo **Nome iniziatore iSCSI** nella tabella dei record di controllo di accesso nel portale di Azure classico.
 
 4. Fare clic su **Salva** per salvare il record di controllo di accesso appena creato. L'elenco tabulare verrà aggiornato per riflettere questa aggiunta.
 
 ## Modificare un record di controllo di accesso
 
-Per modificare record di controllo di accesso, utilizzare la pagina **Configura** nel portale di gestione.
+Per modificare record di controllo di accesso, utilizzare la pagina **Configura** nel portale di Azure classico.
 
 > [AZURE.NOTE]È possibile modificare solo i record di controllo di acceso che non sono attualmente in uso. Per modificare un record di controllo di accesso associato a un volume attualmente in uso, è innanzitutto necessario rendere il volume offline.
 
@@ -72,7 +72,7 @@ Seguire questa procedura per modificare un record di controllo di accesso.
 
 ## Eliminare un record di controllo di accesso
 
-Per eliminare i record di controllo di accesso, utilizzare la pagina **Configura** nel portale di gestione.
+Per eliminare record di controllo di accesso, utilizzare la pagina **Configura** nel portale di Azure classico.
 
 > [AZURE.NOTE]È possibile eliminare solo i record di controllo di acceso che non sono attualmente in uso. Per eliminare un record di controllo di accesso associato a un volume attualmente in uso, è innanzitutto necessario rendere il volume offline.
 
@@ -94,4 +94,4 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

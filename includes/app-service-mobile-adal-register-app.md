@@ -1,6 +1,6 @@
 1. Registrare il backend dell'app per dispositivi mobili con il tenant Azure Active Directory come indicato nell'argomento [Come configurare l'app mobile con Azure Active Directory].
 
-2. Passare a **Active Directory** nel [Portale di gestione di Azure]
+2. Passare a **Active Directory** nel [portale di Azure classico]
 
    ![](./media/app-service-mobile-adal-register-app/app-service-navigate-aad.png)
 
@@ -24,7 +24,7 @@
 
 L'applicazione adesso è configurata in AAD in modo che gli utenti possano accedervi usando AAD Sign-On.
 
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Come configurare l'app mobile con Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -25,7 +25,7 @@ In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell
 
 ## Autenticazione: nomi utente, password e chiavi SSH
 
-Quando si crea una macchina virtuale Linux usando il portale di Azure viene richiesto di inserire un nome utente, una password o una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema (UID <100) già presenti nella macchina virtuale, ad esempio l'account 'root', non sono consentiti.
+Quando si crea una macchina virtuale Linux usando il portale di Azure classico viene richiesto di inserire un nome utente, una password o una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema (UID <100) già presenti nella macchina virtuale, ad esempio l'account 'root', non sono consentiti.
 
 
  - Vedere [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-tutorial.md)
@@ -45,7 +45,7 @@ Facoltativamente, è possibile ottenere una shell di root usando **sudo -s**.
 
 ## Configurazione del firewall
 
-In Azure è disponibile un filtro dei pacchetti in ingresso che limita la connettività alle porte specificate nel portale di Azure. Per impostazione predefinita, l'unica porta consentita è SSH. È possibile aprire l'accesso a porte aggiuntive nella macchina virtuale Linux mediante la configurazione di endpoint nel portale di Azure:
+In Azure è disponibile un filtro dei pacchetti in ingresso che limita la connettività alle porte specificate nel portale di Azure classico. Per impostazione predefinita, l'unica porta consentita è SSH. È possibile aprire l'accesso a porte aggiuntive nella macchina virtuale Linux mediante la configurazione di endpoint nel portale di Azure classico:
 
  - Vedere: [Come configurare gli endpoint in una macchina virtuale](virtual-machines-set-up-endpoints.md)
 
@@ -81,7 +81,7 @@ Azure offre la possibilità di acquisire lo stato di una macchina virtuale esist
 
 2. Arrestare/Spegnere la macchina virtuale.
 
-3. Fare clic su *Acquisisci* nel portale di Azure oppure usare Powershell o gli strumenti CLI per acquisire la macchina virtuale come immagine.
+3. Fare clic su *Acquisisci* nel portale di Azure classico oppure usare Powershell o gli strumenti dell’interfaccia della riga di comando per acquisire la macchina virtuale come immagine.
 
  - Vedere: [Come acquisire una macchina virtuale Linux da usare come modello](virtual-machines-linux-capture-image.md)
 
@@ -99,4 +99,4 @@ In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In quest
 
  - **Vedere anche:** [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

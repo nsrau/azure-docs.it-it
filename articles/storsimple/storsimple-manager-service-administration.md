@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Amministrazione del servizio StorSimple Manager | Microsoft Azure"
-   description="Informazioni su come gestire il dispositivo StorSimple mediante il servizio StorSimple Manager nel portale di gestione di Azure."
+   description="Informazioni su come gestire il dispositivo StorSimple mediante il servizio StorSimple Manager nel portale di Azure classico."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple
@@ -30,13 +30,13 @@ Una volta letto l'articolo, si sarà in grado di:
 
 ## Connettersi al servizio StorSimple Manager
 
-Il servizio StorSimple Manager viene eseguito in Microsoft Azure ed è connesso a più dispositivi di archiviazione StorSimple. Per gestire questi dispositivi, si utilizza un portale di gestione centrale di Microsoft Azure in esecuzione in un browser. Per connettersi al servizio StorSimple Manager, effettuare le operazioni seguenti.
+Il servizio StorSimple Manager viene eseguito in Microsoft Azure ed è connesso a più dispositivi di archiviazione StorSimple. Per gestire questi dispositivi, si utilizza un portale centrale di Microsoft Azure classico in esecuzione in un browser. Per connettersi al servizio StorSimple Manager, effettuare le operazioni seguenti.
 
 #### Per connettersi al servizio
 
 1. Accedere a [http://azure.microsoft.com/](http://azure.microsoft.com/)
 
-1. Utilizzando le credenziali dell'account Microsoft, accedere al portale di gestione di Microsoft Azure (in alto a destra del riquadro).
+1. Utilizzando le credenziali dell'account Microsoft, accedere al portale di Microsoft Azure classico (in alto a destra del riquadro).
 
 1. Scorrere verso il basso il riquadro di spostamento a sinistra per accedere al servizio StorSimple Manager.
 
@@ -57,11 +57,7 @@ Nella tabella seguente è illustrata la gerarchia di spostamento per l'interfacc
 |Pagina di destinazione|Pagine a livello di servizio|Pagine a livello di dispositivo|Pagine a livello di dispositivo|
 |---|---|---|---|
 |Servizio StorSimple Manager|Dashboard del servizio|Pagina dashboard||
-||Dispositivi →|Monitora|| 
-||Catalogo backup|Contenitori dei volumi→|Volumi| 
-||Configura (servizio)|Criteri di backup|| 
-||Processi|Configura (dispositivo)|| 
-||Avvisi|Manutenzione||
+||Dispositivi →|Monitora| ||Catalogo backup|Contenitori dei volumi→|Volumi| ||Configura (servizio)|Criteri di backup|| ||Processi|Configura (dispositivo)| ||Avvisi|Manutenzione|
 
 ![Video disponibile](./media/storsimple-manager-service-administration/Video_icon.png) **Video disponibile**
 
@@ -116,4 +112,4 @@ Se non è possibile risolvere i problemi ed è necessario creare una richiesta d
 
 -  [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

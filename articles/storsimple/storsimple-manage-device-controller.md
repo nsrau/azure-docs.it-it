@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Gestire i controller del dispositivo StorSimple
@@ -47,14 +47,11 @@ Il riavvio di un dispositivo non è un'operazione problematica per gli iniziator
 
 > - La procedura seguente si applica solo al dispositivo StorSimple fisico. Per informazioni su come avviare, arrestare e riavviare il dispositivo virtuale, vedere [Utilizzare il dispositivo virtuale](storsimple-virtual-device-u1.md#work-with-the-storsimple-virtual-device).
 
-È possibile riavviare o arrestare un singolo controller del dispositivo tramite:
+È possibile riavviare o arrestare un singolo controller del dispositivo mediante il portale di Azure classico del servizio StorSimple Manager o Windows PowerShell per StorSimple
 
-- Il portale di gestione del servizio StorSimple Manager
-- Windows PowerShell per StorSimple. 
+Per gestire i controller del dispositivo dal portale di Azure classico, effettuare le seguenti operazioni.
 
-Per gestire i controller del dispositivo dal portale di gestione, effettuare le seguenti operazioni.
-
-#### Per riavviare o arrestare un controller nel portale di gestione
+#### Per riavviare o arrestare un controller nel portale di Azure classico
 
 1. Andare a **Dispositivi > Manutenzione**.
 
@@ -66,7 +63,7 @@ Per gestire i controller del dispositivo dal portale di gestione, effettuare le 
 
 	![Gestire i controller del dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	>[AZURE.NOTE]Se non è possibile visualizzare **Gestisci controller**, è necessario installare gli aggiornamenti. Per ulteriori informazioni, vedere [Aggiornare il dispositivo StorSimple](storsimple-update-device.md).
+	>[AZURE.NOTE]Se non è possibile visualizzare **Gestisci controller**, è necessario installare gli aggiornamenti. Per altre informazioni, vedere [Aggiornare il dispositivo StorSimple](storsimple-update-device.md).
 
 1. Nella finestra di dialogo **Modifica impostazioni controller**, effettuare le seguenti operazioni:
 
@@ -96,7 +93,7 @@ Il controller verrà riavviato o arrestato. Nella tabella seguente sono riepilog
 
 
 #### Per riavviare o arrestare un controller in Windows PowerShell per StorSimple
-Eseguire la procedura seguente per arrestare o riavviare un unico controller nel dispositivo StorSimple dal portale di gestione.
+Eseguire la procedura seguente per arrestare o riavviare un unico controller nel dispositivo StorSimple dal portale di Azure classico.
 
 
 1. Accedere al dispositivo tramite la console seriale o una sessione telnet da un computer remoto. Connettersi al controller 0 o al controller 1 seguendo i passaggi riportati in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
@@ -128,7 +125,7 @@ In questa sezione viene illustrato come arrestare un dispositivo StorSimple in e
 
 #### Per arrestare un dispositivo StorSimple
 
-1. Utilizzare la procedura per [riavviare o arrestare un controller](#restart-or-shut-down-a-single-controller) per identificare e arrestare il controller passivo sul dispositivo. È possibile eseguire questa operazione nel portale di gestione o in Windows PowerShell per StorSimple.
+1. Usare la procedura per [riavviare o arrestare un controller](#restart-or-shut-down-a-single-controller) per identificare e arrestare il controller passivo sul dispositivo. È possibile eseguire questa operazione nel portale di Azure classico o in Windows PowerShell per StorSimple.
 2. Ripetere il passaggio precedente per arrestare il controller attivo.
 3. È ora necessario osservare la superficie posteriore del dispositivo. Una volta che i due controller sono completamente arrestati, il LED di stato di entrambi i controller deve lampeggiare rosso. Se è necessario disattivare completamente il dispositivo in questa fase, posizionare gli interruttori di alimentazione dei moduli PCM (Power and Cooling Modules) su OFF. In tal modo il dispositivo viene spento.
 
@@ -171,9 +168,9 @@ Per ripristinare le impostazioni predefinite di fabbrica del dispositivo StorSim
 
 	> [AZURE.TIP]
 	
-	> - Utilizzare il comando `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` per ignorare il controllo della versione del firmware, il cmdlet del ripristino delle impostazioni predefinite (come sopra) segnala un errore di mancata corrispondenza del firmware indicante che il ripristino delle impostazioni predefinite non può continuare a causa di una mancata corrispondenza tra le versioni del firmware. È necessario ignorare la verifica del firmware (utilizzando l'opzione `–SkipFirmwareCheck`) quando si esegue il ripristino delle impostazioni di fabbrica di un dispositivo che in precedenza è stato aggiornato tramite Microsoft Update o un meccanismo di aggiornamento rapido.
+	> - Utilizzare il comando `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` per ignorare il controllo della versione del firmware se il cmdlet del ripristino delle impostazioni predefinite (come sopra) segnala un errore di mancata corrispondenza del firmware indicante che il ripristino delle impostazioni predefinite non può continuare a causa di una mancata corrispondenza tra le versioni del firmware. È necessario ignorare la verifica del firmware (usando l'opzione `–SkipFirmwareCheck`) quando si esegue il ripristino delle impostazioni di fabbrica di un dispositivo che in precedenza è stato aggiornato tramite Microsoft Update o un meccanismo di aggiornamento rapido.
 	
-	> - Per altre informazioni su come utilizzare questo cmdlet, vedere la [documentazione di riferimento dei cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+	> - Per altre informazioni su come usare questo cmdlet, vedere la [documentazione di riferimento dei cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 
 ## Domande e risposte sulla gestione dei controller del dispositivo
@@ -184,17 +181,17 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 **R.** Se entrambi i controller del dispositivo sono integri e accesi, verrà richiesto di confermare. È possibile scegliere di:
 
-- **Riavviare il controller attivo**: viene ricevuta una notifica indicante che il riavvio di un controller attivo comporta il failover del dispositivo sul controller passivo. Il controller verrà riavviato.
+- **Riavviare il controller attivo** - viene ricevuta una notifica indicante che il riavvio di un controller attivo comporta il failover del dispositivo sul controller passivo. Il controller verrà riavviato.
 
-- **Arrestare il controller attivo**: viene ricevuta una notifica indicante che l'arresto del controller attivo determina tempi di inattività. Inoltre, è necessario premere il pulsante di alimentazione sul dispositivo per accendere il controller.
+- **Arrestare il controller attivo** - viene ricevuta una notifica indicante che l'arresto del controller attivo determina tempi di inattività. Inoltre, è necessario premere il pulsante di alimentazione sul dispositivo per accendere il controller.
 
 **D.** Cosa accade se il controller passivo nel dispositivo non è disponibile o è spento e si riavvia o arresta il controller attivo?
 
 **R.** Se il controller passivo sul dispositivo non è disponibile o è spento e si sceglie di:
 
-- **Riavviare il controller attivo**: viene ricevuta una notifica indicante che se si continua l'operazione si verificherà un'interruzione temporanea del servizio e verrà richiesto di confermare.
+- **Riavviare il controller attivo** - viene ricevuta una notifica indicante che se si continua l'operazione si verificherà un'interruzione temporanea del servizio e verrà richiesto di confermare.
 
-- **Arrestare il controller attivo**: viene ricevuta una notifica indicante che se si continua l'operazione si verificheranno tempi di inattività e sarà necessario premere il pulsante di alimentazione su uno o entrambi i controller per accendere il dispositivo. Verrà richiesto di confermare.
+- **Arrestare il controller attivo** - viene ricevuta una notifica indicante che se si continua l'operazione si verificheranno tempi di inattività e sarà necessario premere il pulsante di alimentazione su uno o entrambi i controller per accendere il dispositivo. Verrà richiesto di confermare.
 
 **D.** Quand'è che il riavvio o l'arresto del controller non vengono eseguiti?
 
@@ -208,7 +205,7 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 **D.** Come si capisce se un controller è stato riavviato o arrestato?
 
-**R.** È possibile controllare lo stato del controller nella pagina di manutenzione. Lo stato del controller indicherà se un controller è stato riavviato o arrestato. Inoltre, nella pagina degli avvisi è incluso un avviso informativo indicante se il controller è stato riavviato o arrestato. Le operazioni di riavvio e arresto del controller vengono inoltre registrate nei registri delle operazioni. Per ulteriori informazioni sui registri delle operazioni, vedere [Visualizzare i registri delle operazioni](storsimple-service-dashboard.md#view-the-operations-logs).
+**R.** È possibile controllare lo stato del controller nella pagina di manutenzione. Lo stato del controller indicherà se un controller è stato riavviato o arrestato. Inoltre, nella pagina degli avvisi è incluso un avviso informativo indicante se il controller è stato riavviato o arrestato. Le operazioni di riavvio e arresto del controller vengono inoltre registrate nei registri delle operazioni. Per altre informazioni sui registri delle operazioni, passare a [Visualizzare i registri delle operazioni](storsimple-service-dashboard.md#view-the-operations-logs).
 
 **D.** Il failover del controller ha impatto sulle operazioni di I/O?
 
@@ -216,12 +213,12 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 **D.** Come ripristinare il controller di servizio dopo che è stato arrestato e rimosso?
 
-**R.** Per ripristinare un controller di servizio, è necessario inserirlo nello chassis come descritto in [sostituire un modulo controller nel dispositivo StorSimple](storsimple-controller-replacement.md).
+**R.** Per ripristinare un controller di servizio, è necessario inserirlo nello chassis come descritto in [Sostituire un modulo controller nel dispositivo StorSimple](storsimple-controller-replacement.md).
 
 ## Passaggi successivi
 
-- Se si verificano problemi con i controller del dispositivo StorSimple che non si risolvono utilizzando le procedure elencate in questa esercitazione, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
+- Se si verificano problemi con i controller del dispositivo StorSimple che non si risolvono usando le procedure elencate in questa esercitazione, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-- Per ulteriori informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Per altre informazioni sull’utilizzo del servizio StorSimple Manager, passare a[Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

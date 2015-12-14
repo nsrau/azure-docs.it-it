@@ -12,10 +12,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
 # Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer 
+
+[AZURE.INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 ## Panoramica
 
@@ -34,11 +36,9 @@ Per risolvere i problemi relativi alle applicazioni client mediante Archiviazion
 
 	- La **registrazione di archiviazione** registra tutte le richieste in arrivo ai servizi di Archiviazione di Azure in un log sul lato server. Nel log vengono registrati dati dettagliati per ogni richiesta, tra cui l'operazione eseguita, lo stato dell'operazione e le informazioni sulla latenza. Per altre informazioni sui dati di richiesta e risposta che vengono scritti nei log di Analisi di archiviazione, vedere [Formato del log di Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343259.aspx).
 
-- **Portale di gestione di Azure**. Nel portale è configurare le metriche e la registrazione per l'account di archiviazione. È possibile anche visualizzare grafici che mostrano le prestazioni dell'applicazione nel tempo e configurare gli avvisi per ricevere una notifica se le prestazioni dell'applicazione si discostano dal previsto per una determinata metrica.
+- **Portale di Azure**. Nel [portale di Azure](portal.azure.com) è possibile configurare le metriche e la registrazione per l'account di archiviazione. È possibile anche visualizzare grafici che mostrano le prestazioni dell'applicazione nel tempo e configurare gli avvisi per ricevere una notifica se le prestazioni dell'applicazione si discostano dal previsto per una determinata metrica.
 	
-	Questa esercitazione illustra come monitorare l'account di archiviazione mediante il [portale di gestione di Azure](https://manage.windowsazure.com/). Per informazioni sulla configurazione del monitoraggio nel portale, vedere [Come monitorare un account di archiviazione](storage-monitor-storage-account.md).
-
-	È possibile anche usare il [portale di anteprima di Azure](https://portal.azure.com/) per accedere all'esperienza più recente, ma tenere presente che si tratta comunque di una versione di anteprima.
+	Per informazioni sulla configurazione del monitoraggio nel portale di Azure, vedere [Come monitorare un account di archiviazione](storage-monitor-storage-account.md).
 
 - **AzCopy**. I log di Archiviazione di Azure vengono memorizzati come BLOB, quindi è possibile usare AzCopy per copiare i BLOB di log in una directory locale per l'analisi mediante Microsoft Message Analyzer. Per altre informazioni su AzCopy, vedere [Come usare AzCopy Archiviazione di Microsoft Azure](storage-use-azcopy.md).
 
@@ -46,7 +46,7 @@ Per risolvere i problemi relativi alle applicazioni client mediante Archiviazion
 
 ## Informazioni sullo scenario di esempio
 
-In questa esercitazione verrà esaminato uno scenario in cui le metriche di Archiviazione di Azure indicano una bassa percentuale di operazioni riuscite per un'applicazione che chiama Archiviazione di Azure. La metrica relativa alla bassa percentuale di operazioni riuscite (visualizzata come **PercentSuccess** nel portale di Azure e nelle tabelle metriche) tiene traccia delle operazioni che hanno esito positivo, ma che restituiscono con un codice di stato HTTP maggiore di 299. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**. Per maggiori dettagli sulla metrica relativa alla bassa percentuale di operazioni riuscite, vedere [Le metriche indicano un valore PercentSuccess basso o le voci del log contengono operazioni con stato della transazione ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+In questa esercitazione verrà esaminato uno scenario in cui le metriche di Archiviazione di Azure indicano una bassa percentuale di operazioni riuscite per un'applicazione che chiama Archiviazione di Azure. La metrica relativa alla bassa percentuale di operazioni riuscite (visualizzata come **PercentSuccess** nel [portale di Azure](portal.azure.com) e nelle tabelle metriche) tiene traccia delle operazioni che hanno esito positivo, ma che restituiscono con un codice di stato HTTP maggiore di 299. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**. Per maggiori dettagli sulla metrica relativa alla bassa percentuale di operazioni riuscite, vedere [Le metriche indicano un valore PercentSuccess basso o le voci del log contengono operazioni con stato della transazione ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Le operazioni di Archiviazione di Azure possono restituire codici di stato HTTP maggiori di 299 in condizioni di funzionalità normali. In alcuni casi, tuttavia, questi errori indicano che è possibile ottimizzare l'applicazione client per migliorare le prestazioni.
 
@@ -88,15 +88,15 @@ In questa esercitazione viene usato Message Analyzer per utilizzare tre diversi 
 
 ### Configurare le metriche e la registrazione sul lato server
 
-In primo luogo è necessario configurare la registrazione e le metriche di Archiviazione di Azure, in modo da disporre di dati dell'applicazione client per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il portale di gestione di Azure, tramite PowerShell o a livello di codice. Per informazioni dettagliate sulla registrazione e sulle metriche, vedere [Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Abilitazione di Registrazione archiviazione e accesso ai dati di log](http://msdn.microsoft.com/library/azure/dn782840.aspx) su MSDN.
+In primo luogo è necessario configurare la registrazione e le metriche di Archiviazione di Azure, in modo da disporre di dati dell'applicazione client per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure](portal.azure.com), tramite PowerShell o a livello di codice. Per informazioni dettagliate sulla registrazione e sulle metriche, vedere [Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Abilitazione di Registrazione archiviazione e accesso ai dati di log](http://msdn.microsoft.com/library/azure/dn782840.aspx) su MSDN.
 
-**Tramite il portale di gestione**
+**Tramite il portale di Azure**
 
-Per configurare la registrazione e le metriche per l'account di archiviazione tramite il portale, seguire le istruzioni in [Come monitorare un account di archiviazione](storage-monitor-storage-account.md).
+Per configurare la registrazione e le metriche per l'account di archiviazione tramite il [portale di Azure](portal.azure.com), seguire le istruzioni in [Come monitorare un account di archiviazione](storage-monitor-storage-account.md).
 
-> [AZURE.NOTE]Non è possibile impostare la metrica al minuto mediante il portale di gestione di Azure. Tuttavia, è consigliabile impostarla ai fini di questa esercitazione e per l'analisi dei problemi di prestazioni relativi all'applicazione. La metrica al minuto può essere impostata tramite PowerShell, come mostrato di seguito, a livello di codice o tramite il portale di anteprima di Azure.
+> [AZURE.NOTE]Non è possibile impostare la metrica al minuto mediante il portale di Azure. Tuttavia, è consigliabile impostarla ai fini di questa esercitazione e per l'analisi dei problemi di prestazioni relativi all'applicazione. La metrica al minuto può essere impostata tramite PowerShell, come mostrato di seguito, o a livello di codice o tramite la libreria del client di archiviazione.
 >
-> Si noti che il portale di gestione di Azure non consente di visualizzare la metrica al minuto, ma solo la metrica oraria.
+> Si noti che il portale di Azure non consente di visualizzare la metrica al minuto, ma solo la metrica oraria.
 
 **Tramite PowerShell**
 
@@ -168,23 +168,15 @@ Per l'esercitazione, raccogliere e salvare una traccia di rete in Message Analyz
 
 Per informazioni dettagliate, vedere [l'argomento relativo all'uso delle funzionalità di traccia di rete](http://technet.microsoft.com/library/jj674819.aspx) su Technet.
 
-## Esaminare i dati di metrica nel portale
+## Esaminare i dati di metrica nel portale di Azure
 
-Dopo un certo periodo di esecuzione dell'applicazione, è possibile esaminare i grafici delle metriche visualizzati nel portale per verificare le prestazioni del servizio. Prima di tutto si aggiungerà la metrica **Percentuale di operazioni riuscite** alla pagina di monitoraggio:
+Dopo un certo periodo di esecuzione dell'applicazione, è possibile esaminare i grafici delle metriche visualizzati nel [portale di Azure](portal.azure.com) per verificare le prestazioni del servizio. Innanzitutto, passare all'account di archiviazione nel portale di Azure e aggiungere un grafico per la metrica **Percentuale di successo**.
 
-1. Passare al dashboard dell'account di archiviazione nel portale di gestione, quindi selezionare il Monitoraggio per visualizzare la pagina di monitoraggio.
-2. Fare clic su **Aggiungi metriche** per visualizzare la finestra di dialogo **Scegli metriche**.
-3. Scorrere fino al gruppo **Percentuale di operazioni riuscite**, espanderlo, quindi selezionare **Aggregato**, come illustrato nell'immagine seguente. Questa metrica aggrega i dati delle percentuali di operazioni riuscite da tutte le operazioni BLOB.
-
-![Scelta delle metriche](./media/storage-e2e-troubleshooting/choose-metrics-portal-1.png)
-
-La metrica **Percentuale di operazioni riuscite** verrà aggiunta al grafico di monitoraggio nel portale, insieme alle altre metriche aggiunte in precedenza (il grafico ne può contenere al massimo sei). Nell'immagine seguente si noterà che la percentuale di operazioni riuscite è leggermente inferiore al 100%. Questo è lo scenario che si passerà a esaminare analizzando i log in Message Analyzer:
-
-![Grafico delle metriche nel portale](./media/storage-e2e-troubleshooting/portal-metrics-chart-1.png)
+Nel portale di Azure, si vedrà ora **Percentuale di successo** all’interno del grafico di monitoraggio, insieme alle altre metriche che sono state aggiunte. La percentuale di operazioni riuscite è leggermente inferiore al 100%. Questo è lo scenario che si passerà a esaminare analizzando i log in Message Analyzer.
 
 Per maggiori dettagli sull'aggiunta di metriche alla pagina di monitoraggio, vedere [Procedura: aggiungere metriche alla relativa tabella](storage-monitor-storage-account.md#addmonitoringmetrics).
 
-> [AZURE.NOTE]Dopo avere abilitato la metrica di archiviazione, è possibile che la visualizzazione dei dati corrispondenti nel portale non sia immediata. Questo dipende dal fatto che la metrica oraria per l'ora precedente viene visualizzata nel portale solo allo scadere dell'ora in corso. Inoltre, la metrica oraria non è attualmente visualizzata nel portale. Quindi, per visualizzare i dati relativi alla metrica può essere necessaria fino a un'ora, a seconda del momento in cui è stata abilita.
+> [AZURE.NOTE]Dopo avere abilitato la metrica di archiviazione, è possibile che la visualizzazione dei dati corrispondenti nel portale di Azure non sia immediata. Questo dipende dal fatto che la metrica oraria per l'ora precedente viene visualizzata nel portale di Azure solo allo scadere dell'ora in corso. Inoltre, la metrica oraria non è attualmente visualizzata nel portale di Azure. Quindi, per visualizzare i dati relativi alla metrica può essere necessaria fino a un'ora, a seconda del momento in cui è stata abilita.
 
 ## Usare AzCopy per copiare i log del server in una directory locale
 
@@ -364,4 +356,4 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

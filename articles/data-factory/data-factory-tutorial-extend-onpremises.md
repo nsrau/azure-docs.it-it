@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copiare i dati di output in un database SQL Server locale (Portale di Azure)" 
-	description="Questa procedura dettagliata estende l'esercitazione utilizzando Data Factory Editor nel portale di Azure in modo che le copie della pipeline producano dei dati in un database SQL Server."
+	pageTitle="Copiare i dati di output in un database SQL Server locale (Portale di Azure classico)" 
+	description="Questa procedura dettagliata estende l'esercitazione utilizzando Data Factory Editor nel portale di Azure classico in modo che le copie della pipeline producano dei dati in un database SQL Server."
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -51,7 +51,7 @@ Il gateway di gestione dati è un agente client che fornisce accesso alle origin
 
 Se esiste già un gateway di dati che è possibile usare, saltare questo passaggio.
 
-1.	Creare un gateway di dati logico. Nel **portale di anteprima di Azure** fare clic su **Servizi collegati** nel pannello **DATA FACTORY** della data factory.
+1.	Creare un gateway di dati logico. Nel **portale di Azure** fare clic su **Servizi collegati** nel pannello **DATA FACTORY** per la data factory.
 2.	Fare clic su **Aggiungi (+) Gateway dati** nella barra dei comandi.  
 3.	Nel pannello **Nuovo gateway dati** fare clic su **CREA**.
 4.	Nel pannello **Crea** immettere **MyGateway** come **nome** del gateway di dati.
@@ -97,7 +97,7 @@ Per iniziare, è necessario creare il database SQL Server, la tabella, i tipi de
 
 ### Creare il servizio collegato
 
-1.	Nel **portale di anteprima di Azure** fare clic sul riquadro **Creare e distribuire** nel pannello **DATA FACTORY** per **LogProcessingFactory**.
+1.	Nel **portale di Azure** fare clic sul riquadro **Creare e distribuire** nel pannello **DATA FACTORY** per **LogProcessingFactory**.
 2.	Nell'**editor di Data factory** fare clic su **Nuovo archivio dati** sulla barra degli strumenti e selezionare **Database SQL Server locale**.
 3.	Nello script JSON procedere come segue: 
 	1.	Sostituire **<servername>** con il nome del server che ospita il database SQL Server.
@@ -153,7 +153,7 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -169,4 +169,4 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

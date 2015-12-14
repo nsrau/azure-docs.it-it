@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015" 
+	ms.date="09/15/2015"
 	ms.author="ggailey777"/>
 
 # Archiviare il codice del progetto nel controllo del codice sorgente dei Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -36,8 +41,7 @@ Per completare l'esercitazione, è necessario avere già creato un servizio mobi
 
 	I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere la sezione [Installazione di Git] per indicazioni specifiche del sistema operativo relative a distribuzioni e installazione.
 
-	> [AZURE.NOTE]
-	> In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si usa la versione da riga di comando.
+	> [AZURE.NOTE]In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si utilizza la versione da riga di comando.
 
 2. Aprire una riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale**.
 
@@ -94,7 +98,7 @@ Ora che il repository locale è stato creato, è possibile apportare modifiche a
 
 	Dovrebbe essere visualizzata una serie di comandi che indica che il commit è stato distribuito nel servizio mobile.
 
-6. Nel portale di gestione, fare clic sulla scheda **Data**, quindi sulla tabella **TodoItem**, selezionare **Script** e infine selezionare l'operazione **Inserisci**. Si noti che lo script dell'operazione insert visualizzato è lo stesso del codice JavaScript appena caricato nell'archivio.
+6. Nel [portale di Azure classico], fare clic sulla scheda **Data**, quindi sulla tabella **TodoItem**, selezionare **Script** e infine selezionare l'operazione **Inserisci**. Si noti che lo script dell'operazione insert visualizzato è lo stesso del codice JavaScript appena caricato nell'archivio.
 
 ##<a name="use-npm"></a>Usare codice condiviso e moduli Node.js negli script del server
 
@@ -150,8 +154,8 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Introduzione a Servizi mobili]: mobile-services-ios-get-started.md
 [Utilizzo degli script del server in Servizi mobili]: mobile-services-how-to-use-server-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [moduli]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

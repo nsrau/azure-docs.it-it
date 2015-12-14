@@ -6,7 +6,7 @@
    authors="aashishr"
    manager="shreeshd"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="11/25/2015" ms.author="aashishr"; "jimpark"/>
 
 # Flusso di lavoro di Backup offline in Backup di Azure
 
@@ -27,7 +27,7 @@ Con Backup di Azure e il servizio di importazione/esportazione di Azure, caricar
 7. Scaricare lo strumento di importazione/esportazione di Azure da [questa pagina](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) nel computer a cui è connessa l'unità di scrittura SATA.
 
 ## Flusso di lavoro
-Le informazioni presenti in questa sezione consentono di completare il flusso di lavoro di **Backup offline** in modo che i dati possano essere inviati a un data center di Azure e caricati nell'archiviazione di Azure. Per domande sul servizio di importazione o su qualsiasi aspetto del processo, vedere la panoramica del servizio di importazione citata [in precedenza](../storage-import-export-service.md).
+Le informazioni presenti in questa sezione consentono di completare il flusso di lavoro di **Backup offline** in modo che i dati possano essere inviati a un data center di Azure e caricati nell'archiviazione di Azure. Per domande sul servizio di importazione o su qualsiasi aspetto del processo, vedere la documentazione sulla [panoramica del servizio di importazione](../storage-import-export-service.md) citata in precedenza.
 
 ### Avviare Backup offline
 
@@ -108,4 +108,4 @@ Dopo che i dati del backup iniziale sono disponibili nell'account di archiviazio
 - Per domande sul flusso di lavoro di importazione/esportazione di Azure, fare riferimento a questo [articolo](../storage-import-export-service.md).
 - Per domande sul flusso di lavoro, fare riferimento alla sezione relativa al backup offline delle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

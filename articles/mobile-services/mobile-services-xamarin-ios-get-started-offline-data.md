@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Uso dei dati offline in Servizi mobili (Xamarin per iOS) | Microsoft Azure" 
-	description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per Xamarin iOS" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	editor="wesmc" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso dei dati offline in Servizi mobili (Xamarin per iOS) | Microsoft Azure"
+	description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per Xamarin iOS"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	editor="wesmc"
+	manager="dwrede"
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
 	ms.date="11/02/2015"
 	ms.author="donnam"/>
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -42,7 +47,7 @@ Questa esercitazione descrive le operazioni di base seguenti:
 Per completare questa esercitazione, è necessario disporre di:
 
 * Visual Studio con l'[estensione Xamarin] **o** [Xamarin Studio] in OS X
-* XCode 4.5 e iOS 6.0 (o versioni successive) 
+* XCode 4.5 e iOS 6.0 (o versioni successive)
 * Esercitazione [Introduzione a Servizi mobili] completata
 
 ## <a name="review-offline"></a>Esaminare il codice di sincronizzazione di Servizi mobili
@@ -145,9 +150,9 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 
 2. Ricompilare ed eseguire l'app. Si noti che i dati appaiono uguali a quelli dello scenario offline nonostante l'app sia ora connessa al servizio mobile. Il motivo è che l'app usa sempre l'interfaccia `IMobileServiceSyncTable` che fa riferimento all'archivio locale.
 
-3. Accedere al portale di gestione di Microsoft Azure ed esaminare il database relativo al servizio mobile. Se il servizio usa il back-end JavaScript, è possibile visualizzare i dati dalla scheda **Dati** del servizio mobile.
+3. Accedere al [portale di Azure classico] ed esaminare il database del servizio mobile. Se il servizio usa il back-end JavaScript, è possibile visualizzare i dati dalla scheda **Dati** del servizio mobile.
 
-    Se si usa il back-end .NET per il servizio mobile, in Visual Studio passare a **Esplora server** -> **Azure** -> **Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**.
+    Se si usa il back-end .NET per il servizio mobile, in Visual Studio passare a **Esplora server** > **Azure** > **Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**.
 
     Si noti che i dati *non* sono stati sincronizzati tra il database e l'archivio locale.
 
@@ -180,6 +185,6 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 
 [Xamarin Studio]: http://xamarin.com/download
 [estensione Xamarin]: http://xamarin.com/visual-studio
- 
+[portale di Azure classico]: https://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

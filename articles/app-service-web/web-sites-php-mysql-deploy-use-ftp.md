@@ -46,7 +46,7 @@ Seguendo questa esercitazione, verrà creata una semplice app Web di registrazio
 Per creare un'app Web e un database MySQL, attenersi alla procedura seguente:
 
 1. Eseguire l'accesso al [portale Azure][management-portal].
-2. Fare clic sull'icona **+ Nuovo** nella parte inferiore sinistra del portale.
+2. Fare clic sull'icona **+ Nuovo** nella parte inferiore sinistra del portale di Azure.
 
 	![Creazione di un nuovo sito Web di Azure][new-website]
 
@@ -300,4 +300,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

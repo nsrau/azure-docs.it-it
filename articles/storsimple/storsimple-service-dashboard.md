@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Utilizzare il dashboard del servizio StorSimple Manager
@@ -45,7 +45,7 @@ Nel dashboard del servizio StorSimple Manager sono visualizzate le informazioni 
 
 ## Visualizzare o rigenerare la chiave di registrazione del servizio
 
-Il codice di registrazione del servizio viene utilizzato per registrare un dispositivo Microsoft Azure StorSimple con il servizio StorSimple Manager, di modo che il dispositivo venga visualizzato nel portale di gestione di Microsoft Azure per altre azioni di gestione. La chiave viene creata sul primo dispositivo e condiviso con il resto dei propri dispositivi.
+Il codice di registrazione del servizio viene utilizzato per registrare un dispositivo Microsoft Azure StorSimple con il servizio StorSimple Manager, di modo che il dispositivo venga visualizzato nel portale di Azure classico per altre azioni di gestione. La chiave viene creata sul primo dispositivo e condiviso con il resto dei propri dispositivi.
 
 Cliccando su **codice di registrazione** (nella parte inferiore della pagina) consente di aprire la finestra di dialogo **codice di registrazione del servizio**, dalla quale è possibile copiare la chiave di registrazione del servizio corrente negli Appunti o rigenerare il codice di registrazione del servizio.
 
@@ -59,7 +59,7 @@ Le chiavi DEK del servizio vengono utilizzate per crittografare dati riservati d
 
 La modifica della chiave DEK del servizio è un processo che prevede 3 fasi:
 
-1. Mediante il portale di gestione, si autorizza un dispositivo a modificare la chiave DEK nel portale di gestione.
+1. Mediante il portale di Azure classico, si autorizza un dispositivo a modificare la chiave DEK nel portale di gestione.
 2. Mediante Windows PowerShell per StorSimple, si consente di avviare la modifica della chiave DEK del servizio.
 3. Se si dispone di più di un dispositivo StorSimple, è necessario aggiornare la chiave DEK del servizio in altri dispositivi.
 
@@ -78,4 +78,4 @@ I passaggi seguenti descrivono il processo di rollover per la chiave DEK del ser
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -133,15 +133,13 @@ Nell'esempio di codice seguente viene illustrato come eliminare una tabella da u
 
 A questo punto, dopo aver appreso le nozioni di base sull'archiviazione delle tabelle, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   Vedere la documentazione MSDN: [Archiviazione di Azure][]
+-   Vedere la documentazione MSDN [Archiviazione di Azure][].
 -   Visitare il [Blog del team di Archiviazione di Azure][]
 
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](/develop/python/).
 
-
-[Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
 [pacchetto di archiviazione Python di Azure]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

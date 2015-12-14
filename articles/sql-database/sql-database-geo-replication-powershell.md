@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/10/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # Configurare la replica geografica per il database SQL di Azure
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-geo-replication-portal.md)
+- [Azure portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
@@ -58,7 +58,7 @@ Dopo aver effettuato l'accesso, sullo schermo verranno visualizzate informazioni
 
 ### Selezionare la sottoscrizione ad Azure
 
-Per selezionare la sottoscrizione, è necessario il relativo ID, che può essere copiato dal passaggio precedente oppure, se si hanno più sottoscrizioni e sono necessarie altre informazioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Il cmdlet seguente usa l'ID sottoscrizione per impostare la sottoscrizione corrente:
+Per selezionare la sottoscrizione, è necessario il relativo ID. che può essere copiato dal passaggio precedente oppure, se si hanno più sottoscrizioni e sono necessarie altre informazioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Il cmdlet seguente usa l'ID sottoscrizione per impostare la sottoscrizione corrente:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -123,7 +123,7 @@ Il comando seguente crea un database secondario accessibile in lettura del datab
 
 ## Rimuovere un database secondario
 
-È possibile usare il cmdlet **Remove-AzureRmSqlDatabaseSecondary** per terminare definitivamente la relazione di replica tra un database secondario e il relativo database primario. Dopo la terminazione della relazione, il database secondario diventa un database accessibile in lettura e scrittura. Se la connettività al database secondario viene interrotta, il comando riesce ma il database diventerà di nuovo accessibile in lettura e scrittura al ripristino della connettività. Per altre informazioni, vedere [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) e [Livelli di servizio del database SQL](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+È possibile usare il cmdlet **Remove-AzureRmSqlDatabaseSecondary** per terminare definitivamente la relazione di replica tra un database secondario e il relativo database primario. Dopo la terminazione della relazione, il database secondario diventa un database accessibile in lettura e scrittura. Se la connettività al database secondario viene interrotta, il comando riesce ma il database diventerà di nuovo accessibile in lettura e scrittura al ripristino della connettività. Per altre informazioni, vedere [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) e [Livelli di servizio del database SQL](sql-database-service-tiers.md).
 
 Questo cmdlet sostituisce Stop-AzureSqlDatabaseCopy per la replica.
 
@@ -218,4 +218,4 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

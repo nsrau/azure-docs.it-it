@@ -58,9 +58,9 @@ Eseguire i passaggi seguenti da un computer che contiene i file di origine per l
 
 Dopo aver pubblicato la definizione del servizio di aggiornamento, è possibile connettersi all'istanza del ruolo.
 
-1.  Nel [portale di gestione di Azure] selezionare **Servizi cloud** e quindi selezionare il servizio.
+1.  Nel [portale di Azure classico] selezionare **Servizi cloud** e quindi selezionare il servizio.
 
-	![portale di gestione di Azure][cloud-services]
+	![Portale di Azure classico][cloud-services]
 
 2.  Fare clic su **Instances** e quindi fare clic su **Production** o su **Staging** per visualizzare le istanze del proprio servizio. Selezionare un'istanza e quindi fare clic su **Connect** nella parte inferiore della pagina.
 
@@ -74,7 +74,7 @@ Dopo aver pubblicato la definizione del servizio di aggiornamento, è possibile 
 
     ![Avviso di sicurezza di Windows][5]
 
-4.  Fare clic su **Connect**. Verrà visualizzato un avviso di sicurezza in cui si richiede di immettere le credenziali di accesso all'istanza. Immettere la password creata in [Passaggio 1](Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto) e quindi fare clic su **OK**.
+4.  Fare clic su **Connect**. Verrà visualizzato un avviso di sicurezza in cui si richiede di immettere le credenziali di accesso all'istanza. Immettere la password creata in [Passaggio 1][Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto] e quindi fare clic su **OK**.
 
     ![richiesta di nome utente/password][6]
 
@@ -102,7 +102,7 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
-[portale di gestione di Azure]: http://manage.windowsazure.com
+[portale di Azure classico]: http://manage.windowsazure.com
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
@@ -116,4 +116,4 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
   [Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

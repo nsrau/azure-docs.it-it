@@ -46,7 +46,7 @@ Il provisioning di un dispositivo con l'hub IoT di Azure si esegue tramite l'API
 
 È possibile usare un processo bootstrap, in base al modo in cui i dispositivi IoT vengono prodotti, sottoposti a provisioning e distribuiti. È possibile creare un servizio bootstrap come parte della soluzione per fornire la semplice connettività e posticipare il processo di assegnazione del dispositivo a un hub IoT specifico. La posizione in cui verrà usato il dispositivo potrebbe essere sconosciuta al momento in cui il dispositivo viene prodotto. Questo è solo un esempio di un numero elevato di flussi di lavoro potenzialmente complessi che semplificano la registrazione di un dispositivo nell'hub IoT di Azure e l'integrazione con i processi aziendali esistenti.
 
-Quando si usa un servizio bootstrap, viene avviato un dispositivo IoT e ciò può consentire l'accesso a un hub IoT di Azure assegnato. La richiesta deve includere le credenziali bootstrap del dispositivo ed eventuali altri dati necessari. Per i dispositivi autorizzati, il servizio bootstrap deve registrare il dispositivo in un hub IoT di Azure assegnato e deve fornire i dettagli per la connettività al dispositivo che richiede un bootstrap. L'hub IoT deve fornire i dettagli per la connettività al dispositivo che richiede un bootstrap. Per i dispositivi autorizzati, il servizio bootstrap deve registrare il dispositivo in un hub IoT di Azure assegnato e deve fornire i dettagli per la connettività al dispositivo che richiede un bootstrap. L'hub IoT deve fornire i dettagli per la connettività al dispositivo che richiede un bootstrap.
+Quando si usa un servizio bootstrap, viene avviato un dispositivo IoT che genera una richiesta e ciò può consentire l'accesso a un hub IoT di Azure assegnato. La richiesta deve includere le credenziali bootstrap del dispositivo ed eventuali altri dati necessari. Per i dispositivi autorizzati, il servizio bootstrap deve registrare il dispositivo in un hub IoT di Azure assegnato e deve fornire i dettagli per la connettività al dispositivo che richiede un bootstrap. L'hub IoT fornisce i dettagli per la connettività al dispositivo che richiede un bootstrap.
 
 ## Registro dei dispositivi e modelli dei dispositivi
 
@@ -141,11 +141,11 @@ Dopo il completamento di un aggiornamento firmware, il dispositivo deve essere i
 Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
 * [Iniziare a usare l'hub IoT][]
-* [Che cos'è l’hub IoT Azure?][]
+* [Che cos'è l'hub IoT Azure?][]
 * [Connetti il tuo dispositivo][]
 
 [Iniziare a usare l'hub IoT]: iot-hub-csharp-csharp-getstarted.md
-[Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
+[Che cos'è l'hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 [Connetti il tuo dispositivo]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

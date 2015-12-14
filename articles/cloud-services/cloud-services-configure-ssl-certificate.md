@@ -22,8 +22,8 @@
 # Configurazione di SSL per un'applicazione in Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 
 La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
 
@@ -114,9 +114,9 @@ Ora che i file di definizione e configurazione del servizio sono stati aggiornat
 
 ## Passaggio 3: Caricare un certificato
 
-Il pacchetto di distribuzione è stato aggiornato per utilizzare il certificato ed è stato aggiunto un endpoint HTTPS. Ora è possibile caricare il pacchetto e il certificato in Azure tramite il portale di gestione.
+Il pacchetto di distribuzione è stato aggiornato per utilizzare il certificato ed è stato aggiunto un endpoint HTTPS. Ora è possibile caricare il pacchetto e il certificato in Azure tramite il portale di Azure classico.
 
-1. Accedere al [portale di gestione di Azure][]. 
+1. Accedere al [portale di Azure classico][]. 
 2. Fare clic su **Servizi cloud** nel riquadro di spostamento a sinistra.
 3. Fare clic sul servizio cloud desiderato.
 4. Fare clic sulla scheda **Certificati**.
@@ -133,7 +133,7 @@ Il pacchetto di distribuzione è stato aggiornato per utilizzare il certificato 
 
 Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a questa usando HTTPS.
 
-1.  Nel portale di gestione selezionare la distribuzione, quindi fare clic sul collegamento in **Site URL**.
+1.  Nel portale di Azure classico selezionare la distribuzione, quindi fare clic sul collegamento in **URL sito**.
 
     ![Determinare l'URL del sito][2]
 
@@ -143,7 +143,7 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
 
     ![Sito Web SSL di esempio][3]
 
-Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anziché di produzione, è necessario innanzitutto determinare l'URL usato per la distribuzione di gestione temporanea. Distribuire il servizio cloud per l'ambiente di gestione temporanea senza includere un certificato né alcuna delle relative informazioni. Una volta distribuito il servizio, è possibile determinare l'URL basato su GUID, che viene visualizzato nel campo **Site URL** del portale di gestione. Creare un certificato con il nome comune uguale all'URL basato su GUID (ad esempio **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), utilizzare il portale di gestione per aggiungere il certificato al servizio cloud preconfigurato, aggiungere le informazioni del certificato ai file CSDEF e CSCFG, ricreare il pacchetto dell'applicazione, quindi aggiornare la distribuzione di gestione temporanea per utilizzare il nuovo pacchetto e il nuovo file CSCFG.
+Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anziché di produzione, è necessario innanzitutto determinare l'URL usato per la distribuzione di gestione temporanea. Distribuire il servizio cloud per l'ambiente di gestione temporanea senza includere un certificato né alcuna delle relative informazioni. Una volta distribuito il servizio, è possibile determinare l'URL basato su GUID, che viene visualizzato nel campo **URL sito** del portale di Azure classico. Creare un certificato con il nome comune (CN) uguale all'URL basato su GUID (ad esempio **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), utilizzare il portale di Azure classico per aggiungere il certificato al servizio cloud preconfigurato, aggiungere le informazioni del certificato ai file CSDEF e CSCFG, ricreare il pacchetto dell'applicazione, quindi aggiornare la distribuzione di gestione temporanea per utilizzare il nuovo pacchetto e il nuovo file CSCFG.
 
 ## Passaggi successivi
 
@@ -153,11 +153,11 @@ Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anzic
 * [Gestire il servizio cloud](cloud-services-how-to-manage.md).
 
 
-  [portale di gestione di Azure]: http://manage.windowsazure.com
+  [portale di Azure classico]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

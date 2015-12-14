@@ -34,7 +34,7 @@ Il database U-SQL contiene:
 ## Gestire i cataloghi
 A ogni account di Azure Data Lake Analytics è associato un account di Azure Data Lake Store predefinito. Questo account di Data Lake Store viene definito come account di Data Lake Store predefinito. Il catalogo di U-SQL viene archiviato nell'account di Data Lake Store predefinito nella cartella /catalog. Non eliminare i file contenuti nella cartella /catalog.
 
-### Usare il portale di anteprima di Azure
+### Usare il portale di Azure
 
 Vedere [Gestire Data Lake Analytics mediante il portale](data-lake-analytics-use-portal.md#view-u-sql-catalog)
 
@@ -64,7 +64,7 @@ Vedere [Gestire Data Lake Analytics mediante il portale](data-lake-analytics-use
 ## Vedere anche
 
 - Introduzione
-    - [Introduzione a Data Lake Analytics tramite il portale di anteprima di Azure](data-lake-analytics-get-started-portal.md)
+    - [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
     - [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Introduzione ad Azure Data Lake Analytics con Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
     - [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -75,13 +75,13 @@ Vedere [Gestire Data Lake Analytics mediante il portale](data-lake-analytics-use
     - [Usare le funzioni finestra U-SQL per i processi di Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)
     - [Sviluppare operatori U-SQL definiti dall'utente per i processi di Data Lake Analytics](data-lake-analtyics-u-sql-user-defined-operators.md)
 
-- Gestione
-    - [Gestire Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-use-portal.md)
+- gestione
+    - [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-use-portal.md)
     - [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-use-powershell.md)
-    - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics mediante il portale di anteprima di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - Esercitazione end-to-end
     - [Usare le esercitazioni interattive di Azure Data Lake Analytics](data-lake-analytics-use-interactive-tutorials.md)
     - [Analizzare i log dei siti Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -57,7 +57,7 @@ Prima di iniziare la configurazione, verificare di essere in possesso dei requis
 
 - Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- La versione più recente dei cmdlet PowerShell di Azure che utilizzano il programma di installazione di Web Platform. È possibile scaricare e installare la versione più recente da [Installazione guidata piattaforma Web](http://aka.ms/webpi-azps/). Questa documentazione è stata scritta per PowerShell 1.0 o versioni successive. I cmdlet necessari per questa configurazione non sono presenti nelle versioni precedenti. Per altre informazioni su PowerShell 1.0, vedere [Anteprima di Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/)
+- Cmdlet di Azure PowerShell (1.0 o versione successiva). È possibile scaricare e installare questa versione dalla sezione Windows PowerShell della [pagina di download](http://azure.microsoft.com/downloads/). Questa documentazione è stata scritta per PowerShell 1.0 o versioni successive. I cmdlet necessari per questa configurazione non sono presenti nelle versioni precedenti.
 
 - Se non si ha familiarità con Gestione risorse di Azure e PowerShell, vedere [questo articolo](../articles/powershell-azure-resource-manager.md) per altre informazioni.
 
@@ -71,9 +71,9 @@ Prima di iniziare la configurazione, verificare di essere in possesso dei requis
 
 		Get-AzureRmSubscription
 
-2. Specificare il nome della sottoscrizione di Azure.
+2. Specificare la sottoscrizione da usare.
 
-		Get-AzureRmSubscription -SubscriptionName "YourSubscriptionName" | Select-AzureRmSubscription
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 		
 3. Creare un gruppo di risorse.
 
@@ -132,4 +132,4 @@ Prima di iniziare la configurazione, verificare di essere in possesso dei requis
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

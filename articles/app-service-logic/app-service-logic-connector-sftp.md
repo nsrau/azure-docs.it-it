@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.date="11/30/2015"
 	ms.author="sameerch"/>
 
 # Uso del connettore SFTP e aggiunta all'app per la logica
@@ -26,8 +26,7 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Cercare "SFTP Connector", selezionarlo e fare clic su **Crea**.
-3. Configurare il connettore SFTP nel modo seguente:  
-![][1]
+3. Configurare il connettore SFTP nel modo seguente: ![][1]
 	- **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
 	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
 	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
@@ -43,23 +42,16 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 		- **Server Port**: specificare il numero di porta del server SFTP.
 4. Fare clic su Create. Viene creato un nuovo connettore SFTP.
 
-5. Individuare l'app per le API appena creata scegliendo Sfoglia -> App per le API -> <Name of the API App just created>. È possibile notare che il componente "Security" non è configurato:  
-![][2]
-6. Fare clic sul componente "Security" per configurarlo per il connettore SFTP. A tale scopo, indicare il nome utente, la password, la chiave privata e la password del file PPK. Nell'area Security selezionare la scheda di autorizzazione "Password", "Privatekey" o "MutliFactor" e fornire le proprietà richieste:  
-![][3]  
-![][4]  
-![][5]  
+5. Individuare l'app per le API appena creata scegliendo Sfoglia -> App per le API -> <Name of the API App just created>. È possibile notare che il componente "Security" non è configurato: ![][2]
+6. Fare clic sul componente "Security" per configurarlo per il connettore SFTP. A tale scopo, indicare il nome utente, la password, la chiave privata e la password del file PPK. Nell'area Security selezionare la scheda di autorizzazione "Password", "Privatekey" o "MutliFactor" e fornire le proprietà richieste: ![][3] ![][4] ![][5]  
 6. Una volta salvata la configurazione, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore SFTP.
 
 ## Usare il connettore SFTP nell'app per la logica ##
 Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come trigger o azione per l'app per la logica. A questo scopo, è necessario:
 
-1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore SFTP:  
-![][6]
-2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso:  
-![][7]
-3.	Il connettore SFTP viene visualizzato nella sezione relativa alle app per le API nel gruppo di risorse nella raccolta a destra:  
-![][8]
+1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore SFTP: ![][6]
+2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso: ![][7]
+3.	Il connettore SFTP viene visualizzato nella sezione relativa alle app per le API nel gruppo di risorse nella raccolta a destra: ![][8]
 4.	È possibile trascinare l'app per le API del connettore SFTP nell'editor facendo clic su "SFTP Connector".
 
 5.	È ora possibile usare il connettore SFTP nel flusso. È possibile usare il file recuperato dal trigger SFTP ("TriggerOnFileAvailable") in altre azioni del flusso.
@@ -71,11 +63,10 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 	- **Folder Path**: specificare il percorso della cartella da cui devono essere recuperati i file.
 	- **The type of the file: text or binary**: selezionare il tipo di file.
 	- **File Mask**: specificare il filtro file da applicare per recuperare i file. '*' recupera tutti i file contenuti nella cartella specificata.
-	- **Exclude File Mask**: specificare il filtro file da applicare per escludere i file. Se è impostata anche la proprietà "File Mask", Exclude File Mask verrà applicata per prima.
+- **Exclude File Mask**: specificare il filtro file da applicare per escludere i file. Se è impostata anche la proprietà "File Mask", Exclude File Mask verrà applicata per prima.
 
 
-	![][9]  
-	![][10]
+	![][9] ![][10]
 
 7.	È possibile usare le azioni SFTP nel flusso in modo analogo. È possibile usare l'azione "Upload File" per caricare un file nel server SFTP. Configurare le proprietà di input per l'azione "Upload File" nel modo indicato di seguito:
 
@@ -84,10 +75,9 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 	- **File Path**: specificare il percorso del file da caricare.
 	- **Overwrite**: specificare "true" per sovrascrivere il file, se esiste già.
 	- ****Append If Exists**: specificare "true" o "false". Se il parametro è impostato su "true", i dati vengono aggiunti al file, se esistente. Se impostato su "false", il file, se esistente, viene sovrascritto.
-	- **Temporary Folder**: se specificato, l'adattatore caricherà il file in 'Temporary Folder Path'. Al termine del caricamento, il file verrà spostato in 'Folder Path'. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
+- **Temporary Folder**: se specificato, l'adattatore caricherà il file in 'Temporary Folder Path'. Al termine del caricamento, il file verrà spostato in 'Folder Path'. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
 
-	![][11]  
-	![][12]
+	![][11] ![][12]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
@@ -113,4 +103,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -31,31 +31,27 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 ## <a name="register"> </a>Registrare l'applicazione con Facebook
 
-1. Accedere al [portale di gestione di Azure] e passare all'applicazione. Copiare l'**URL**. Verrà usato per configurare l'app Facebook.
+1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l'**URL**. Verrà usato per configurare l'app Facebook.
  
 2. In un'altra finestra del browser passare al sito Web [Facebook Developers] e accedere con le credenziali dell'account Facebook.
 
-3. (Facoltativo) Se non è ancora stata effettuata la registrazione, fare clic su **Apps** e quindi su **Register as a Developer**, accettare le condizioni e seguire la procedura di registrazione.
+3. (Facoltativo) Se non è ancora stata effettuata la registrazione, fare clic su **App** > **Registrarsi come uno Sviluppatore**, quindi accettare le condizioni e seguire la procedura di registrazione.
 
-4. Fare clic su **My Apps** e quindi su **Create a New App**.
+4. Fare clic su **Le mie App** > **Aggiungi una nuova App** > **Sito web** immettere un nome univoco per l'app, quindi fare clic su **Crea nuovo ID dell’app Facebook**.
 
-5. Selezionare **Website** come piattaforma. Scegliere un nome univoco per l'app e quindi fare clic su **Create New Facebook App ID**.
-
-6. Scegliere una categoria per l'applicazione dall'elenco a discesa. Fare clic su **Create App ID**.
-
-7. Nella pagina successiva scegliere **Skip Quick Start** in alto a destra. Si passerà al dashboard dello sviluppatore per la propria applicazione.
+6. Selezionare una categoria per l'applicazione dall'elenco a discesa, quindi fare clic su **Crea ID dell’App** e nella pagina successiva, fare clic su **Salta Avvio rapido**. Si passa al dashboard dello sviluppatore per la propria applicazione.
 
 8. Nel campo **App Secret** fare clic su **Show**, fornire la password se richiesto, quindi prendere nota dei valori di **App ID** e **App Secret**. L'applicazione verrà configurata in questo modo più avanti.
 
 	> [AZURE.NOTE]**Nota sulla sicurezza** Il segreto dell'app è una credenziale di sicurezza importante. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
 
-9. Nella barra di spostamento a sinistra fare clic su **Settings**. Digitare l'**URL** dell'app per dispositivi mobili in **App Domains** e quindi immettere un indirizzo di posta elettronica in **Contact Email**.
+9. Sulla barra di spostamento a sinistra, fare clic su **Impostazioni**, digitare l’**URL** dell'app per dispositivi mobili in **Domini dell’App** e quindi immettere un **Indirizzo email del contatto**.
 
     ![][0]
 
-10. Se non viene visualizzata una sezione "Website" in basso, fare clic su **Add Platform** e selezionare **Website**. Digitare l'**URL** dell'app per dispositivi mobili in **Site URL** e quindi fare clic su **Save Changes**.
+10. Se non viene visualizzata una sezione del sito Web di seguito, fare clic su **Aggiungi piattaforma** > **Sito web**, immettere l’**URL** dell'App per dispositivi mobili nel campo **URL sito**, quindi fare clic su **Salva modifiche**.
 
-11. Fare clic sulla scheda **Advanced** e aggiungere il proprio **URI di reindirizzamento** a **Valid OAuth redirect URIs**. Fare clic su **Save Changes**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso _/.auth/login/facebook/callback_. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assicurarsi che sia in uso lo schema HTTPS.
+11. Fare clic sulla scheda **Avanzate** e aggiungere l’**URI di reindirizzamento** dell’applicazione a **URI di reindirizzamento OAuth validi**, poi fare clic su **Salva modifiche**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso _/.auth/login/facebook/callback_. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assicurarsi che sia in uso lo schema HTTPS.
 
 
 	> [AZURE.NOTE]Se si utilizza il gateway del servizio app anziché la funzionalità Autenticazione/Autorizzazione, l'URL di reindirizzamento utilizza l'URL del gateway URL con il percorso _/signin-facebook_.
@@ -66,14 +62,12 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 ## <a name="secrets"> </a>Aggiungere le informazioni di Facebook all'applicazione
 
-> [AZURE.NOTE]Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gateway nel portale. Selezionare **Settings**, **Identity**, e quindi **Facebook**. Incollare i valori ottenuti nel passaggio precedente e fare clic su **Save**.
+> [AZURE.NOTE]Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gateway nel portale. Selezionare **Impostazioni**, **Identità**, e quindi **Facebook**. Incollare i valori ottenuti nel passaggio precedente e fare clic su **Salva**.
 
 
-13. Nel [Portale di gestione di Azure] passare all'applicazione desiderata. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
+13. Nel [portale di Azure], passare all'applicazione. Fare clic su **impostazioni** > **Autenticazione/autorizzazione**, e assicurarsi che **l'autenticazione del servizio App** sia su **Attiva**.
 
-14. Se la funzionalità di autenticazione/autorizzazione non è abilitata, impostare l'opzione in modo da **abilitarla**.
-
-15. Fare clic su **Facebook**. Incollare i valori ID App e Segreto app ottenuti in precedenza e facoltativamente abilitare tutti gli ambiti richiesti dall'applicazione. Fare quindi clic su **OK**.
+15. Fare clic su **Facebook**, incollare nell’ID dell’app e nel segreto dell’app i valori ottenuti in precedenza, e abilitare facoltativamente tutti gli ambiti richiesti dall'applicazione, poi fare clic su **OK**.
 
     ![][1]
 	
@@ -97,6 +91,6 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /it-IT/develop/mobile/tutorials/get-started-with-users-dotnet/
-[portale di gestione di Azure]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

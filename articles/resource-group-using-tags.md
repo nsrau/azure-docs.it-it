@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/02/2015"
 	ms.author="tomfitz"/>
 
 
@@ -51,9 +51,9 @@ L'esempio seguente illustra un account di archiviazione con un tag.
         }
     ]
 
-## I tag nel portale di anteprima
+## Tag nel portale
 
-Aggiungere tag alle risorse e ai gruppi di risorse nel portale di anteprima è facile. Usare l'hub Sfoglia per passare alla risorsa o al gruppo di risorse a cui aggiungere i tag e fare clic sull'area Tag nella sezione Panoramica nella parte superiore del pannello.
+Aggiungere tag alle risorse e ai gruppi di risorse nel portale è facile. Usare l'hub Sfoglia per passare alla risorsa o al gruppo di risorse a cui aggiungere i tag e fare clic sull'area Tag nella sezione Panoramica nella parte superiore del pannello.
 
 ![Parte relativa ai tag nella risorsa e nei pannelli relativi ai gruppi di risorse](./media/resource-group-using-tags/tag-icon.png)
 
@@ -67,7 +67,8 @@ Per visualizzare la tassonomia dei tag nel portale, usare l'hub Sfoglia per visu
 
 Aggiungere i tag più importanti alla propria schermata iniziale per accedervi velocemente. A questo punto si è pronti per iniziare. Buon divertimento!
 
-![Aggiungere tag alla Schermata iniziale](./media/resource-group-using-tags/pin-tags.png)
+![Aggiungere tag alla Schermata iniziale  
+](./media/resource-group-using-tags/pin-tags.png)
 
 ## Assegnazione di tag tramite PowerShell
 
@@ -139,7 +140,7 @@ Per recuperare i gruppi di risorse che presentano un tag specifico, usare il cmd
     rbacdemo-group
     tag-demo
 
-Per le versioni di Azure PowerShell precedenti all'anteprima 1.0 usare i comandi seguenti per ottenere le risorse con un tag specifico.
+Per le versioni di Azure PowerShell precedenti a quella 1.0, usare i comandi seguenti per ottenere le risorse con un tag specifico.
 
     PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -179,8 +180,8 @@ Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fattu
 ## Passaggi successivi
 
 - È possibile applicare restrizioni e convenzioni all’interno della sottoscrizione con criteri personalizzati. Il criterio definito potrebbe richiedere che un determinato tag sia impostato per tutte le risorse. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
-- Per un'introduzione all'uso di Azure PowerShell per la distribuzione delle risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md).
-- Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](./xplat-cli-azure-resource-manager.md).
-- Per un'introduzione all'uso del portale di anteprima, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](./resource-group-portal.md).  
+- Per un'introduzione all'uso di Azure PowerShell durante la distribuzione delle risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md).
+- Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure durante la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](./xplat-cli-azure-resource-manager.md).
+- Per un'introduzione all'uso del portale, vedere [Uso del portale di Azure per gestire le risorse di Azure](./resource-group-portal.md)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

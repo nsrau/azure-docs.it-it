@@ -92,7 +92,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione di un'origine dati** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query. 
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel [portale di gestione di Azure](https://portal.azure.com/). Per informazioni, vedere [Creare un servizio di ricerca nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel [portale di Azure classico](https://portal.azure.com/). Per informazioni, vedere [Creare un servizio di ricerca nel portale](search-create-service-portal.md).
 
 <a name="CreateDataSourceRequestSyntax"></a> **Sintassi del corpo della richiesta**
 
@@ -120,8 +120,8 @@ La richiesta contiene le proprietà seguenti:
 	- `documentdb` - Azure DocumentDB
 - `credentials`:
 	- La proprietà `connectionString` obbligatoria specifica la stringa di connessione per l'origine dati. Il formato della stringa di connessione dipende dal tipo di origine dati: 
-		- Per SQL Azure, si tratta della solita stringa di connessione di SQL Server. Se si usa il portale di gestione di Azure per recuperare la stringa di connessione, usare l'opzione `ADO.NET connection string`.
-		- Per DocumentDB, la stringa di connessione deve essere nel formato seguente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Tutti i valori sono obbligatori ed è possibile ottenerli nel [portale di gestione di Azure](https://portal.azure.com/).   
+		- Per SQL Azure, si tratta della solita stringa di connessione di SQL Server. Se si usa il portale di Azure classico per recuperare la stringa di connessione, usare l'opzione `ADO.NET connection string`.
+		- Per DocumentDB, la stringa di connessione deve essere nel formato seguente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Tutti i valori sono obbligatori ed è possibile ottenerli nel [portale di Azure classico](https://portal.azure.com/).   
 		
 - `container`:
 	- La proprietà `name` obbligatoria specifica la tabella o la visualizzazione (per l'origine dati di SQL Azure) o la raccolta (per l'origine dati di DocumentDB) che sarà indicizzata. 
@@ -222,7 +222,7 @@ Se la richiesta ha esito positivo, viene restituito il codice di stato 201 - Cre
 
 L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Richiesta** La sintassi del corpo della richiesta è analoga a quella indicata nell'operazione di [creazione di un'origine dati](#CreateDataSourceRequestSyntax).
 
@@ -240,7 +240,7 @@ L'operazione per **elencare le origini dati** restituisce un elenco delle origin
 
 L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Risposta**
 
@@ -279,7 +279,7 @@ L'operazione per **ottenere un'origine dati** ottiene la definizione dell'origin
 
 L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Risposta**
 
@@ -316,7 +316,7 @@ L'operazione di **eliminazione di un'origine dati** rimuove un'origine dati da R
 
 L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Risposta**
 
@@ -339,7 +339,7 @@ In alternativa, è possibile usare una richiesta PUT e specificare il nome dell'
 
 L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 
 <a name="CreateIndexerRequestSyntax"></a> **Sintassi del corpo della richiesta**
@@ -434,7 +434,7 @@ Se la richiesta ha esito positivo, viene restituito il codice di stato 201 - Cre
 
 L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Richiesta**
 
@@ -456,7 +456,7 @@ L'operazione per **elencare gli indicizzatori** restituisce l'elenco di indicizz
 
 L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Risposta**
 
@@ -498,7 +498,7 @@ L'operazione per **ottenere un indicizzatore** recupera la definizione dell'indi
 
 L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Risposta**
 
@@ -528,7 +528,7 @@ Quando viene eliminato un indicizzatore, le esecuzioni dell'indicizzatore in cor
  
 L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Risposta**
 
@@ -544,7 +544,7 @@ Oltre a essere eseguito periodicamente in base a una pianificazione, un indicizz
 
 L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Risposta**
 
@@ -561,7 +561,7 @@ L'operazione per **ottenere lo stato di un indicizzatore** recupera la cronologi
 
 L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Risposta**
 
@@ -653,7 +653,7 @@ L'operazione di **reimpostazione di un indicizzatore** reimposta lo stato di ril
 
 L'elemento `api-version` è obbligatorio. La versione di anteprima è `2015-02-28-Preview`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
-L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, vedere la sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
+L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
 **Risposta**
 
@@ -776,4 +776,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->
