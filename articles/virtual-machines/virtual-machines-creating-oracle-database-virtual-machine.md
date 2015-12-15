@@ -178,7 +178,7 @@ Per autorizzare l’accesso in remoto del database (ad esempio, da un computer c
 ##Abilitazione dell'accesso remoto a Oracle Database Enterprise Manager
 Se si desidera abilitare l'accesso remoto a Oracle Database Enterprise Manager, aprire la porta 5500 nel firewall e creare un endpoint della macchina virtuale per 5500 nel portale di Azure classico (utilizzando la procedura mostrata in precedenza per l’apertura della porta 1521 e la creazione di un endpoint per 1521). Quindi, per eseguire Oracle Enterprise Manager dal computer remoto, aprire un browser per accedere all'URL nel formato `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE]È possibile determinare il valore per *<<unique\_domain\_name>>* all'interno del [portale di Azure classico](https://ms.portal.azure.com/) facendo clic su **Macchine virtuali** e selezionando la macchina virtuale usata per eseguire Oracle Database.
+> [AZURE.NOTE] È possibile determinare il valore per *\<\<unique\_domain\_name\>\>* all'interno del [portale di Azure classico](https://ms.portal.azure.com/) facendo clic su **Macchine virtuali** e selezionando la macchina virtuale usata per eseguire Oracle Database.
 
 ##Configurazione dei raggruppamenti di opzioni comuni e avanzate
 Se si sceglie il bundle **Oracle Database with Popular Options** o **Oracle Database with Advanced Options**, il passaggio successivo consiste nel configurare le funzionalità dei componenti aggiuntivi nell'installazione Oracle. Consultare la documentazione di Oracle per istruzioni sull'impostazione di tali opzioni in Windows, dal momento che le configurazioni possono variare notevolmente in base alle esigenze di ogni singolo componente.
