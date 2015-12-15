@@ -1,5 +1,5 @@
 <properties"
-pageTitle="title="immagini di elenco di macchine Virtuali Oracle | Descrizione di Microsoft Azure"
+pageTitle="immagini di elenco di macchine Virtuali Oracle | Descrizione di Microsoft Azure"
 description="Ottenere l'elenco di immagini di Oracle nella raccolta di Azure e informazioni su come creare una macchina virtuale di Oracle in base a un"
 services="macchine-virtuali"
 documentationCenter=""
