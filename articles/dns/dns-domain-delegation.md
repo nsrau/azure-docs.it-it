@@ -129,7 +129,7 @@ Infine, si crea un set di record NS corrispondente nella zona padre per completa
 
 	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
 
 Come nel caso della delega con un registrar, è possibile verificare che tutto sia configurato correttamente eseguendo la ricerca di record SOA della zona figlio.
 

@@ -500,7 +500,9 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Introduzione alle notifiche push in Servizi mobili]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Usare Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-send-breaking-news.md
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
