@@ -304,7 +304,7 @@ Per una spiegazione dei campi, vedere le [opzioni di configurazione di base](#ba
   		
 		* **Metastore esterni**: specificare un database SQL di Azure da usare per salvare i metadati Hive e Oozie associati al cluster.
  
-            > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
+            > [AZURE.NOTE] La configurazione Metastore non è disponibile per i tipi di cluster HBase
 
 			![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 

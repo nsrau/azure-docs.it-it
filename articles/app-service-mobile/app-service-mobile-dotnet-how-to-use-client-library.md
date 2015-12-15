@@ -316,7 +316,9 @@ Si noti che in questo esempio due tag sono inclusi con la registrazione. Per ult
 Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 >[AZURE.NOTE] Quando è necessario inviare notifiche a specifici utenti registrati, è importante richiedere l'autenticazione prima della registrazione e quindi verificare che l'utente sia autorizzato a registrarsi con un tag specifico. È necessario ad esempio assicurarsi che un utente non si registri con un tag che è l'ID di un altro utente. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
->-->
+-->
+
+Le app Xamarin richiedono codice aggiuntivo per poter registrare un’app in esecuzione su iOS o Android, rispettivamente, con i servizi APNS (Apple Push Notification Service) e GCM (Google Cloud Messaging). Pour plus d'informations, consultez **Ajout de notifications Push à votre application** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 ## Procedura: registrare modelli push per inviare notifiche multipiattaforma
 
