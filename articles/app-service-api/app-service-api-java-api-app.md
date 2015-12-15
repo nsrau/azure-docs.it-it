@@ -289,8 +289,10 @@ Questa sezione descrive come creare una nuova app per le API tramite il portale 
 	![Usare l'API REST dei contatti Java in Azure](media/app-service-api-java-api-app/postman-calling-azure-contacts.png)
 	
 ## Passaggi successivi
-Questo articolo è iniziato con un file JSON Swagger e il codice Java sottoposto a scaffolding ottenuto dall'editor Swagger.io. Con alcune modifiche e un processo di distribuzione di un repository Git è stata creata un'app per le API funzionale, scritta in Java. A questo punto, è possibile tornare indietro e acquisire informazioni su [Storage SDK per Java](../storage/storage-java-how-to-use-blob-storage.md) per rendere permanenti i BLOB JSON. In alternativa, è possibile usare [DocumentDB Java SDK](../documentdb/documentdb-java-application.md) per salvare i dati dei contatti in Azure DocumentDB.
+Questo articolo è iniziato con un file JSON Swagger e il codice Java sottoposto a scaffolding ottenuto dall'editor Swagger.io. Con alcune modifiche e un processo di distribuzione di un repository Git è stata creata un'app per le API funzionale, scritta in Java. L'esercitazione successiva della serie di esercitazioni introduttive sulle app per le API mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md).
+
+Per approfondire questo esempio, è possibile acquisire informazioni su [Storage SDK per Java](../storage/storage-java-how-to-use-blob-storage.md) per rendere permanenti i BLOB JSON. In alternativa, è possibile usare [DocumentDB Java SDK](../documentdb/documentdb-java-application.md) per salvare i dati dei contatti in Azure DocumentDB.
 
 Per altre informazioni su come usare Java in Azure, vedere il [Centro per sviluppatori Java](/develop/java/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

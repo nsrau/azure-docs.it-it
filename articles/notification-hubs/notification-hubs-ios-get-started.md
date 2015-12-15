@@ -157,7 +157,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 ## Inviare notifiche
 
 
-È possibile testare la ricezione delle notifiche nell'app mediante l'invio di notifiche nel portale di Azure, usando la scheda Debug nell'hub di notifica, come illustrato nella schermata seguente.
+È possibile testare la ricezione delle notifiche nell'app inviando notifiche nel [portale di Azure classico] tramite la scheda Debug nell'hub di notifica, come illustrato nella schermata seguente.
 
 ![][30]
 
@@ -391,7 +391,7 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 		}
 
 
-10. In ViewController.m aggiungere i metodi delegati seguenti per supportare l'analisi della risposta mediante `NSXMLParser`.
+10. In ViewController.m aggiungere i metodi delegati seguenti per supportare l'analisi della risposta tramite `NSXMLParser`.
 
 		//===[ Implement NSXMLParserDelegate methods ]===
 
@@ -446,7 +446,7 @@ Per testare le notifiche push in iOS, è necessario distribuire l'applicazione i
 
 	![][33]
 
-2. È possibile inviare una notifica di prova dal portale di Azure. Se è stato aggiunto codice per l'invio della notifica nell'app, toccare nel campo di testo per immettere un messaggio di notifica. Usare il pulsante **Send** sulla tastiera o il pulsante **Send Notification** nella visualizzazione per inviare il messaggio di notifica.
+2. È possibile inviare una notifica di prova dal [portale di Azure classico]. Se è stato aggiunto codice per l'invio della notifica nell'app, toccare nel campo di testo per immettere un messaggio di notifica. Usare il pulsante **Send** sulla tastiera o il pulsante **Send Notification** nella visualizzazione per inviare il messaggio di notifica.
 
 	![][34]
 
@@ -494,7 +494,7 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Panoramica dell'Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
@@ -505,4 +505,4 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

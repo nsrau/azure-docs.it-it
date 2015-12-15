@@ -138,7 +138,8 @@ Per altre informazioni sul mapping di un dominio personalizzato, vedere [Come es
 ## Vedere anche
 
 - [Come abilitare la rete per la distribuzione di contenuti (CDN) per Azure](cdn-create-new-endpoint.md)
-- [Panoramica della Rete di distribuzione di contenuti (CDN) di Azure](cdn-overview.md)
+- [Panoramica della Rete per la distribuzione di contenuti (CDN) di Azure](cdn-overview.md)
+- [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

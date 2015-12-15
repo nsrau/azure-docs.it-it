@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Aggiungere, disabilitare, abilitare o eliminare gli endpoint
 
 La funzionalità App Web nell’Azure App Service offre già funzionalità di routing del traffico failover e round robin per i siti Web che si trovano all'interno di un data center, indipendentemente dalla modalità del sito Web. Gestione traffico di Azure consente di specificare il routing del traffico failover e round robin per i siti Web e i servizi cloud che si trovano in data center diversi. Il primo passaggio necessario a fornire tale funzionalità consiste nell'aggiungere l'endpoint del servizio cloud o del sito Web a Gestione traffico.
 
->[AZURE.NOTE]Non è possibile aggiungere i percorsi esterni o i profili di Gestione traffico come endpoint mediante il portale di Azure. È necessario usare l'API REST [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772) oppure [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774) di Windows PowerShell.
+>[AZURE.NOTE]Non è possibile aggiungere i percorsi esterni o i profili di Gestione traffico come endpoint tramite il portale di Azure classico. È necessario usare l'API REST [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772) oppure [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774) di Windows PowerShell.
 
 È anche possibile disabilitare singoli endpoint che appartengono a un profilo di Gestione traffico. Gli endpoint includono servizi cloud e siti Web. Quando si disabilita un endpoint questo continua a far parte del profilo, sebbene quest'ultimo si comporti come se non fosse incluso. Questa azione è particolarmente utile per rimuovere temporaneamente un endpoint che si trova in modalità di manutenzione o è in corso di ridistribuzione. Quando l'endpoint è di nuovo attivo e in esecuzione, è possibile abilitarlo.
 
@@ -28,7 +28,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 ## Per aggiungere un servizio cloud o un endpoint del sito Web
 
 
-1. Nel riquadro di Gestione traffico nel portale di Azure individuare il profilo di Gestione traffico in cui sono contenute le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
+1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
 2. Nella parte superiore della pagina fare clic su **Endpoint** per visualizzare gli endpoint che fanno già parte della configurazione.
 3. Nella parte inferiore della pagina fare clic su **Aggiungi** per accedere alla pagina **Aggiungi endpoint del servizio**. Per impostazione predefinita, in **Endpoint di servizio** sono elencati i servizi cloud.
 4. Per i servizi cloud, selezionare nell'elenco quelli che si desidera abilitare come endpoint per il profilo specificato. Se si cancella il nome del servizio cloud, questo viene rimosso dall'elenco degli endpoint.
@@ -40,14 +40,14 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 
 ## Per disabilitare un endpoint
 
-1. Nel riquadro di Gestione traffico nel portale di Azure individuare il profilo di Gestione traffico in cui sono contenute le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
+1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
 2. Per visualizzare gli endpoint inclusi nella configurazione, fare clic su **Endpoint** nella parte superiore della pagina.
 3. Fare clic sull'endpoint da disabilitare, quindi fare clic su **Disabilita** nella parte inferiore della pagina.
 4. Il traffico indirizzato all'endpoint verrà arrestato in base alla durata (TTL) del DNS configurato per il nome di dominio di Gestione traffico. È possibile modificare la durata (TTL) dalla pagina di configurazione del profilo di Gestione traffico.
 
 ## Per abilitare un endpoint
 
-1. Nel riquadro di Gestione traffico nel portale di Azure individuare il profilo di Gestione traffico in cui sono contenute le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
+1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
 2. Per visualizzare gli endpoint inclusi nella configurazione, fare clic su **Endpoint** nella parte superiore della pagina.
 3. Fare clic sull'endpoint da abilitare, quindi fare clic su **Abilita** nella parte inferiore della pagina.
 4. Il traffico indirizzato al servizio ospitato riprenderà di nuovo secondo il profilo.
@@ -55,12 +55,12 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 ## Per eliminare un servizio cloud o un endpoint del sito Web
 
 
-1. Nel riquadro di Gestione traffico nel portale di Azure individuare il profilo di Gestione traffico in cui sono contenute le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
+1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
 2. Nella parte superiore della pagina fare clic su **Endpoint** per visualizzare gli endpoint che fanno già parte della configurazione.
 3. Nella pagina Endpoint fare clic sul nome dell'endpoint che si desidera eliminare dal profilo.
 4. Nella parte inferiore della pagina fare clic su **Elimina**.
 
->[AZURE.NOTE]Non è possibile eliminare i percorsi esterni o i profili di Gestione traffico come endpoint mediante il portale di Azure. È necessario usare Windows PowerShell. Per altre informazioni, vedere [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
+>[AZURE.NOTE]Non è possibile eliminare i percorsi esterni o i profili di Gestione traffico come endpoint tramite il portale di Azure classico. È necessario usare Windows PowerShell. Per altre informazioni, vedere [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
 
 ## Passaggi successivi
 
@@ -75,4 +75,4 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

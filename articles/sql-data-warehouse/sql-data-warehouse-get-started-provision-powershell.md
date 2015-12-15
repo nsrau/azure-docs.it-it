@@ -67,8 +67,8 @@ Per altre informazioni su come gestire SQL Data Warehouse a livello di codice, c
 [caricare dati di esempio]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
 [Powershell]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-reference-powershell-cmdlets/
 [API REST]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[MSDN]: https://msdn.microsoft.com/it-IT/library/azure/dn546722.aspx
+[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [firewall rules]: https://azure.microsoft.com/it-IT/documentation/articles/sql-database-configure-firewall-settings/
 [Come installare e configurare Azure PowerShell]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

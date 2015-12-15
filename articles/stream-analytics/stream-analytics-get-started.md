@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Introduzione all’uso di Analisi di flusso di Azure: rilevamento di illeciti in tempo reale | Microsoft Azure"
 	description="Informazioni su come creare una soluzione per il rilevamento di illeciti in tempo reale con Analisi di flusso. Utilizzare un hub eventi per l'elaborazione di eventi in tempo reale."
-	keywords="hub eventi, rilevazione frodi, in tempo reale, elaborazione in tempo reale"
+	keywords="rilevamento anomalie, rilevamento delle frodi, rilevamento anomalie in tempo reale"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,14 +14,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok" />
 
 
 
 # Introduzione all’uso di Analisi di flusso di Azure: rilevamento di illeciti in tempo reale
 
-Informazioni su come creare una soluzione end-to-end per il rilevamento di illeciti in tempo reale con Analisi di flusso di Azure. Portare gli eventi nell’hub eventi di Azure, scrivere le query di Analisi di flusso per l'aggregazione o l’avviso e inviare i risultati a un sink di output per ottenere informazioni sui dati in tempo reale.
+Informazioni su come creare una soluzione end-to-end per il rilevamento di illeciti in tempo reale con Analisi di flusso di Azure. Portare gli eventi nell’hub eventi di Azure, scrivere le query di Analisi di flusso per l'aggregazione o l’avviso e inviare i risultati a un sink di output per ottenere informazioni sui dati in tempo reale. Viene descritto il rilevamento anomalie delle telecomunicazioni in tempo reale, ma la tecnica di esempio è ideale anche per altri tipi di rilevamento delle frodi, ad esempio gli scenari di furto di identità o di carta di credito.
 
 Analisi di flusso è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per altre informazioni, vedere l'articolo relativo all'[introduzione ad Analisi di flusso di Azure](stream-analytics-introduction.md).
 
@@ -257,4 +257,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

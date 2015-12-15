@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Personalizzare il portale per sviluppatori in Gestione API di Azure
@@ -24,7 +24,7 @@ Questa guida descrive come modificare l'aspetto del portale per sviluppatori in 
 
 Una delle funzionalità principali della personalizzazione del portale è la sostituzione del testo nella parte superiore di tutte le pagine con il nome o il logo dell'azienda.
 
-È possibile modificare il contenuto nel portale per sviluppatori tramite il portale di pubblicazione, a cui si accede tramite il portale di Azure. Per accedere al portale di pubblicazione delle API, fare clic su **Gestisci** nel portale di Azure per il servizio Gestione API.
+È possibile modificare il contenuto nel portale per sviluppatori dal portale di pubblicazione, a cui si accede dal portale di Azure classico. Per accedere al portale di pubblicazione delle API, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API.
 
 ![Portale di pubblicazione][api-management-management-console]
 
@@ -85,7 +85,7 @@ Fare clic nella pagina di **benvenuto** per modificare gli elementi visualizzati
 [Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -99,4 +99,4 @@ Fare clic nella pagina di **benvenuto** per modificare gli elementi visualizzati
 [bootstrap]: http://getbootstrap.com/
 [variabili LESS]: http://getbootstrap.com/css/
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Funzionamento di Azure Site Recovery"
+	pageTitle="Funzionamento di Azure Site Recovery | Microsoft Azure"
 	description="Questo articolo offre una panoramica dell'architettura di Site Recovery"
 	services="site-recovery"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="12/07/2015"
 	ms.author="raynew"/>
 
 # Funzionamento di Azure Site Recovery
@@ -43,7 +43,7 @@ Per proteggere VM VMware o computer fisici Windows/Linux mediante la replica in 
 
 **Posizione** | **Elementi necessari** 
 --- | --- 
- Locale | **Server di elaborazione**: questo server ottimizza i dati da macchine virtuali VMware protette o computer fisici Windows/Linux prima dell'invio in Azure. Gestisce anche l'installazione push del componente del servizio Mobility nei computer protetti ed esegue l'individuazione automatica delle macchine virtuali VMware. <br/><br/> **Server vCenter VMware**: se si proteggono VM VMware, sarà necessario un server vCenter VMware per la gestione degli hypervisor vSphere<br/><br/> **Server ESX**: se si proteggono VM VMware, sarà necessario un server che esegue ESX/ESXi versione 5.1 o 5.5 con gli aggiornamenti più recenti.<br/><br/> **Computer**: se si proteggono computer VMware, è necessario avere a disposizione VM VMware con strumenti VMware installati e in esecuzione. Se si proteggono computer fisici, è necessario che eseguano una versione supportata del sistema operativo Windows o Linux. Vedere le [informazioni sulle versioni supportate](site-recovery-vmware-to-azure/#before-you-start). <br/><br/> **Servizio Mobility**: deve essere installato nei computer da proteggere per acquisire le modifiche e comunicarle al server di elaborazione. <br/><br/>Componenti di terze parti: questa distribuzione dipende da alcuni [componenti di terze parti](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt).
+ Locale | **Server di elaborazione**: questo server ottimizza i dati da macchine virtuali VMware protette o computer fisici Windows/Linux prima dell'invio in Azure. Gestisce anche l'installazione push del componente del servizio Mobility nei computer protetti ed esegue l'individuazione automatica delle macchine virtuali VMware. <br/><br/> **Server vCenter VMware**: se si proteggono VM VMware, sarà necessario un server vCenter VMware per la gestione degli hypervisor vSphere<br/><br/> **Server ESX**: se si proteggono VM VMware, sarà necessario un server che esegue ESX/ESXi versione 5.1 o 5.5 con gli aggiornamenti più recenti.<br/><br/> **Computer**: se si proteggono computer VMware, è necessario avere a disposizione VM VMware con strumenti VMware installati e in esecuzione. Se si proteggono computer fisici, è necessario che eseguano una versione supportata del sistema operativo Windows o Linux. Vedere le [informazioni sui componenti supportati](site-recovery-vmware-to-azure.md/#before-you-start). <br/><br/> **Servizio Mobility**: deve essere installato nei computer da proteggere per acquisire le modifiche e comunicarle al server di elaborazione. <br/><br/>Componenti di terze parti: questa distribuzione dipende da alcuni [componenti di terze parti](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt).
 Azure | **Server di configurazione**: VM Standard A3 di Azure che coordina le comunicazioni tra i computer protetti, il server di elaborazione e i server di destinazione master in Azure. Configura la replica e coordina il ripristino in caso di failover. <br/><br/>**Server di destinazione master**: VM di Azure che include i dati replicati dai computer protetti mediante VHD associati creati nell'archivio BLOB nell'account di archiviazione di Azure. Un server di destinazione master di failback viene eseguito in locale, in modo che sia possibile eseguire il failback di VM d Azure in VM VMware. <br/><br/> **Insieme di credenziali di Site Recovery**: almeno un insieme di credenziali di Azure Site Recovery, configurato con una sottoscrizione al servizio Site Recovery. <br/><br/> **Rete virtuale**: una rete di Azure in cui si trovano il server di configurazione e i server di destinazione master, nella stessa sottoscrizione e area del servizio Site Recovery. <br/><br/> **Archiviazione di Azure**: account di archiviazione di Azure in cui archiviare i dati replicati. Deve essere un account con ridondanza geografica Standard o un account Premium nella stessa area della sottoscrizione a Site Recovery.
 
 
@@ -155,4 +155,4 @@ In questo scenario le modifiche della replica differenziale vengono inviate da U
 
 [Preparazione della distribuzione](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

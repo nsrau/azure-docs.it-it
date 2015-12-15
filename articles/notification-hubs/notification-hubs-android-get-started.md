@@ -15,7 +15,7 @@
 	ms.date="11/25/2015"
 	ms.author="wesmc"/>
 
-# Introduzione ad Hub di notifica per le app per .Android
+# Introduzione ad Hub di notifica per le app per Android
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -118,10 +118,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 	    private static Boolean isVisible = false;
 
 
-	Assicurarsi di aggiornare i tre segnaposto:
-	* **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console).
-	* **HubListenConnectionString**: impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure].
-	* **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub, **non** l'URL completo. Ad esempio, usare `"myhub"`.
+	Verificare di aggiornare i tre segnaposto: * **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure classico]. * **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub, **non** l'URL completo. Ad esempio, usare `"myhub"`.
 
 
 
@@ -295,7 +292,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 
 
 
-È possibile testare la ricezione delle notifiche nell'app mediante l'invio di notifiche nel portale di Azure, usando la scheda Debug nell'hub di notifica, come illustrato nella schermata seguente.
+È possibile testare la ricezione delle notifiche nell'app inviando notifiche nel [portale di Azure classico] tramite la scheda Debug nell'hub di notifica, come illustrato nella schermata seguente.
 
 ![][30]
 
@@ -350,7 +347,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 
 3. Nel file **MainActivity.java** aggiungere i membri seguenti all'inizio della classe `MainActivity`.
 
-	Aggiornare `HubFullAccess` con la stringa di connessione **DefaultFullSharedAccessSignature** per l'hub. Questa stringa di connessione può essere copiata dal [portale di Azure] facendo clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub di notifica.
+	Aggiornare `HubFullAccess` con la stringa di connessione **DefaultFullSharedAccessSignature** per l'hub. Questa stringa di connessione può essere copiata dal [portale di Azure classico] facendo clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub di notifica.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
@@ -440,7 +437,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
         }
 
 
-6. In **MainActivity.java** aggiungere il metodo seguente alla classe `MainActivity` per gestire il clic del pulsante **Send Notification** e inviare il messaggio di notifica all'hub mediante l'API REST.
+6. In **MainActivity.java** aggiungere il metodo seguente alla classe `MainActivity` per gestire il clic del pulsante **Send Notification** e inviare il messaggio di notifica all'hub tramite l'API REST.
 
         /**
          * Send Notification button click handler. This method parses the
@@ -515,11 +512,11 @@ Verificare anche di avere aggiunto l'account Google all'emulatore in esecuzione 
 
 ##Passaggi successivi
 
-In questo semplice esempio le notifiche di trasmissione sono state inviate a tutti i dispositivi Windows tramite il portale o un'app console. Come passaggio successivo, è consigliabile vedere l'esercitazione [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]. Verrà illustrato come inviare notifiche da un back-end ASP.NET destinate a utenti specifici.
+In questo semplice esempio le notifiche di trasmissione sono state inviate a tutti i dispositivi Windows tramite il portale o un'app console. Come passaggio successivo è consigliabile vedere l'esercitazione [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]. Verrà illustrato come inviare notifiche da un back-end ASP.NET destinate a utenti specifici.
 
 Se si desidera segmentare gli utenti per gruppi di interesse, vedere [Utilizzo di Hub di notifica per inviare le ultime notizie].
 
-Per informazioni generali su Hub di notifica, vedere [Linee guida su Hub di notifica].
+Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di notifica].
 
 
 
@@ -553,9 +550,9 @@ Per informazioni generali su Hub di notifica, vedere [Linee guida su Hub di noti
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
-[portale di Azure]: https://manage.windowsazure.com/
-[Linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
+[portale di Azure classico]: https://manage.windowsazure.com/
+[Panoramica dell'Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

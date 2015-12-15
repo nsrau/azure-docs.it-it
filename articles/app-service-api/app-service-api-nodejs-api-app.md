@@ -237,7 +237,10 @@ Usando le funzionalità incorporate di recapito continuo offerte dal servizio ap
 
     ![Postman raggiunge l'API](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
-## Riepilogo
-A questo punto è stata creata e distribuita la prima app per le API usando Node.js. Da qui è possibile aggiungere codice ai gestori per archiviare i dati in un database o sul disco dell'istanza di app per le API. Ora che la distribuzione continua è stata attivata, modificare le funzionalità dell'app per le API ed estendere le modifiche è semplice come modificare il codice ed eseguirne il push all'archivio Git.
+## Passaggi successivi
 
-<!---HONumber=AcomDC_1203_2015-->
+A questo punto è stata creata e distribuita la prima app per le API usando Node.js. L'esercitazione successiva della serie di esercitazioni introduttive sulle app per le API mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md).
+
+Per basarsi su questo esempio, è possibile aggiungere codice ai gestori per archiviare i dati in un database o sul disco dell'istanza di app per le API. Ora che la distribuzione continua è stata attivata, modificare le funzionalità dell'app per le API ed estendere le modifiche è semplice come modificare il codice ed eseguirne il push all'archivio Git.
+
+<!---HONumber=AcomDC_1210_2015-->

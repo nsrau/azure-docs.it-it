@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="12/08/2015"
 	ms.author="mandia"/>
 
 
@@ -237,7 +237,10 @@ Non è possibile distribuire nuovi bridge o creare nuovi contratti. Per distribu
 
 #### Come si esegue la migrazione da un livello di Servizi BizTalk a un altro?
 
-Usare il flusso di backup e ripristino per eseguire la migrazione da un livello a un altro. Sono supportati solo alcuni percorsi di migrazione. Per informazioni più dettagliate sui percorsi di migrazione supportati, vedere [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md).
+Non è possibile eseguire la migrazione dell'edizione gratuita o "scalarla" a un altro livello e non è possibile eseguirne il backup e il ripristino in un altro livello. Se è necessario un altro livello, creare un nuovo servizio BizTalk con il nuovo livello. Gli eventuali elementi creati con l'edizione gratuita, incluse le connessioni ibride, devono essere ricreati nel nuovo servizio BizTalk.
+
+Per le altre edizioni, usare il backup e ripristino per eseguire la migrazione degli elementi da un livello a un altro. Ad esempio, eseguire il backup degli elementi nel livello Standard e quindi ripristinarli nel livello Premium. [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md) descrive i percorsi di migrazione supportati ed elenca gli elementi di cui viene eseguito il backup. Si noti che il backup delle connessioni ibride non viene eseguito. Dopo il backup e ripristino in un nuovo livello, si ricreano le connessioni ibride.
+
 
 #### Il servizio Adapter BizTalk è incluso nel servizio? Come è possibile ricevere il software?
 
@@ -256,4 +259,4 @@ Per creare Servizi BizTalk di Azure nel portale di Azure, vedere [Servizi BizTal
 - [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)<br/>
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

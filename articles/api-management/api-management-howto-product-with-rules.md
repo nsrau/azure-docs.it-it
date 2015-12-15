@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Proteggere le API con limiti di frequenza usando Gestione API di Azure
@@ -28,7 +28,7 @@ In questa esercitazione verrà creato un prodotto API "Free Trial" che consente 
 
 In questo passaggio si creerà un prodotto Free Trial che non richiede l'approvazione della sottoscrizione.
 
-Per iniziare, fare clic su **Gestisci** nella sezione relativa al servizio Gestione API del portale di Azure. Verrà visualizzato il portale di pubblicazione di Gestione API.
+Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
 ![Portale di pubblicazione][api-management-management-console]
 
@@ -291,4 +291,4 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minut
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

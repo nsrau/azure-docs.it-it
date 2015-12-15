@@ -37,9 +37,8 @@ Questo articolo descrive come creare tutto ciò che occorre, incluso il server V
 
 I singoli passaggi per creare un pool di database elastici con Azure PowerShell sono suddivisi e illustrati per maggiore chiarezza. Per gli utenti che desiderano semplicemente un breve elenco di comandi, vedere la sezione **Riassumendo** nella parte inferiore di questo articolo.
 
-> [AZURE.IMPORTANT]Iniziando con la versione di anteprima di Azure PowerShell 1.0, il cmdlet Switch-AzureMode non è più disponibile e i cmdlet che sono stati nel modulo Azure ResourceManager sono stati rinominati. Gli esempi in questo articolo utilizzano nuove convenzioni di denominazione dell’Anteprima di PowerShell 1.0. Per informazioni dettagliate, vedere la pagina relativa alla [deprecazione di Switch-AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. A causa della rimozione di Switch-AzureMode, occorre scaricare e installare la versione più recente di Azure PowerShell eseguendo l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -55,14 +54,14 @@ Dopo aver effettuato l’accesso, sullo schermo dovrebbero essere visualizzate i
 
 ### Selezionare la sottoscrizione ad Azure
 
-Per selezionare la sottoscrizione, è necessario l'ID sottoscrizione o il nome della sottoscrizione (**-SubscriptionName**) che può essere copiato dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
+Per selezionare la sottoscrizione, è necessario l'ID sottoscrizione o il nome della sottoscrizione (**-SubscriptionName**), che può essere copiato dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 
 ## Creare un gruppo di risorse, il server e la regola firewall
 
-Ora è possibile accedere per eseguire i cmdlet con la sottoscrizione di Azure. Il passaggio successivo consiste quindi nello stabilire il gruppo di risorse che contiene il server in cui verrà creato il pool di database elastici per contenere più database. È possibile modificare il comando successivo per utilizzare qualsiasi percorso valido scelto. Eseguire **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** per ottenere un elenco di percorsi validi.
+Ora è possibile accedere per eseguire i cmdlet con la sottoscrizione di Azure. Il passaggio successivo consiste quindi nello stabilire il gruppo di risorse che contiene il server in cui verrà creato il pool di database elastici per contenere più database. È possibile modificare il comando successivo per utilizzare qualsiasi percorso valido scelto. Eseguire **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** per ottenere un elenco di percorsi validi.
 
 Se si dispone già di un gruppo di risorse, è possibile andare al passaggio successivo, oppure è possibile eseguire il comando seguente per creare un nuovo gruppo di risorse:
 
@@ -100,7 +99,7 @@ Ora si dispone di un gruppo di risorse, un server e una regola del firewall con 
 
 Il pool creato nel passaggio precedente è vuoto, non contiene alcun database elastico. Nelle sezioni seguenti viene illustrato come creare nuovi database elastici all'interno del pool, nonché come aggiungere database esistenti al pool.
 
-*Dopo la creazione di un pool è anche possibile usare Transact-SQL per creare nuovi database elastici nel pool e per spostare i database esistenti all'esterno o all'interno del pool. Per informazioni dettagliate, vedere il [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Dopo la creazione di un pool è anche possibile usare Transact-SQL per creare nuovi database elastici nel pool e per spostare i database esistenti all'esterno o all'interno del pool. Per informazioni dettagliate, vedere il [Riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Creare un nuovo database elastico all'interno di un pool di database elastici
 
@@ -236,4 +235,4 @@ Dopo aver creato un pool di database elastici, è possibile gestire i database e
 
 Per ulteriori informazioni sui database elastici e sui pool di database elastici, inclusi i dettagli sulle API e sugli errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

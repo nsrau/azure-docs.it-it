@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="08/04/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Che cos'è l'Utilità di pianificazione di Azure?
@@ -34,9 +34,9 @@ Con l'Utilità di pianificazione è possibile creare, aggiornare, eliminare, vis
 
  [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 
- [Introduzione all'utilizzo dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
+ [Introduzione all'uso dell'Utilità di pianificazione nel portale di Azure](scheduler-get-started-portal.md)
 
- [Piani e fatturazione nell'Utilità di pianificazione di Azure](scheduler-plans-billing.md)
+ [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
 
  [Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure](scheduler-advanced-complexity.md)
 
@@ -50,4 +50,4 @@ Con l'Utilità di pianificazione è possibile creare, aggiornare, eliminare, vis
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="12/10/2015" 
 	ms.author="billmath"/>
 
 # Introduzione ad Azure Multi-Factor Authentication nel cloud
@@ -25,13 +25,13 @@
 Dopo aver determinato che viene usata la modalità Multi-Factor Authentication nel cloud, è possibile procedere. Si noti che se si utilizza la modalità Multi-Factor Authentication per Office 365 o per amministratori di Azure, è possibile procedere al passaggio 3. Questo documento riguarda anche quanto segue
 
 
-1. **Iscriversi per ottenere una sottoscrizione ad Azure**
+1. [Iscriversi per ottenere una sottoscrizione ad Azure](https://azure.microsoft.com/pricing/free-trial/)
 	- Se non si dispone già di una sottoscrizione ad Azure, è necessario iscriversi. Se si è appena iniziato a esplorare la modalità Multi-Factor Authentication di Azure, è possibile utilizzare una sottoscrizione di valutazione
-2. **Creare un Provider Multi-Factor Authentication o assegnare una licenza Azure AD Premium o Enterprise Mobility Suite agli utenti**
+2. [Creare un Provider Multi-Factor Authentication](#creating-an-azure-multi-factor-auth-provider) o [assegnare una licenza Azure AD Premium o Enterprise Mobility Suite agli utenti](#assigning-an-azure-ad-premium-or-enterprise-mobility-license-top-users)
 	- Occorre creare un Provider Multi-Factor Authentication e assegnare alla directory o assegnare licenze agli utenti di Azure AD Premium o EMS. La modalità Azure Multi-Factor Authentication è inclusa in Azure Active Directory Premium e di conseguenza è compresa inoltre in Enterprise Mobility Suite. Se si dispone di Azure AD Premium o EMS, non è necessario creare un Provider Multi-Factor Authentication, piuttosto che attivare la Multi-Factor Authentication per un utente di Azure AD Premium o EMS, una licenza Azure AD Premium o EMS deve essere assegnata al medesimo utente e un amministratore può assegnare la modalità Multi-Factor Authentication all'utente tramite il portale di gestione. Per informazioni su come assegnare le licenze all'utente, vedere la sezione seguente.
-3. **Attivare la modalità Multi-Factor Authentication per gli utenti** 
+3. [Attivare la modalità Multi-Factor Authentication per gli utenti](#turn-on-multi-factor-authentication-for-users)
 	- Attivare Azure MFA per gli utenti tramite il portale di Office 365 o di Azure. Vedere la sezione seguente per informazioni su come eseguire questa operazione.
-4. **Inviare messaggi di posta elettronica agli utenti finali per informarli sulla modalità MFA**
+4. [Inviare messaggi di posta elettronica agli utenti finali per informarli sulla modalità MFA](#send-email-to-end-users)
 	- Dopo aver attivato la modalità Multi-Factor Authentication sull'account di un utente, si consiglia di inviare un messaggio di posta elettronica di notifica all'utente interessato. All'utente verrà richiesto di completare la procedura la volta successiva che eseguirà l'accesso, in modo da essere informato su ciò che si verificherà sull'account. Vedere la sezione seguente per un modello di messaggio di posta elettronica di esempio.
 
 
@@ -46,7 +46,7 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 
 1. Accedere al Portale di Azure come amministratore.
 2. A sinistra selezionare Active Directory.
-3. Nella parte superiore della pagina Active Directory, selezionare i provider Multi-Factor Authentication. Nella parte inferiore, fare clic su **Nuovo**.
+3. Nella parte superiore della pagina Active Directory, selezionare i provider Multi-Factor Authentication. Nella parte inferiore fare clic su **Nuovo**.
 4. In Servizi app, selezionare Provider di autenticazione attivi, quindi scegliere Creazione rapida.
 5. Compilare i campi seguenti, quindi selezionare Crea.
 	1. Nome: il nome del Provider di autenticazione attivo.
@@ -156,4 +156,4 @@ Dopo avere attivato gli utenti, si consiglia di inviare agli utenti un messaggio
 ## Passaggi successivi
 Ora che è stata impostata la modalità Multi-Factor Authentication nel cloud, è possibile passare alla fase successiva andando alla sezione [Configurazione di Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md). Da qui sarà possibile apprendere come creare report, segnalare avvisi di illecito, personalizzare i messaggi vocali e tutte le funzionalità offerte da Azure multi-Factor Authentication.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

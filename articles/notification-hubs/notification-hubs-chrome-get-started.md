@@ -66,7 +66,7 @@ Seguire anche le esercitazioni nella sezione "Passaggi successivi" per imparare 
 
 ##<a id="configure-hub"></a>Configurare l'hub di notifica
 
-1. Accedere al [portale di Azure], quindi fare clic su **+ NUOVO** nella parte inferiore dello schermo.
+1. Accedere al [portale di Azure classico] e quindi fare clic su **+NUOVO** in basso a sinistra della schermata.
 
 2. Fare clic su **Servizi app** > **Bus di servizio** > **Hub di notifica** > **Creazione rapida**. Digitare un nome per l'hub di notifica, selezionare l'area desiderata, quindi fare clic su **Crea un nuovo hub di notifica**.
 
@@ -368,16 +368,7 @@ L'app Chrome viene creata tramite JavaScript ed è possibile usare il proprio ed
 		  }
 		}
 
-	Nello script sopra riportato si notano i seguenti elementi:
-	- *window.onload* definisce gli eventi avviati dai due pulsanti nell'interfaccia utente: uno esegue la registrazione con GCM e l'altro usa l'ID di registrazione restituito dopo la registrazione con GCM per effettuare la registrazione con Hub di notifica di Azure.
-	- La funzione *updateLog* definisce una semplice funzione di registrazione.
-	- *registerWithGCM* è il primo gestore degli eventi Click del pulsante che effettua la chiamata **chrome.gcm.register** a GCM per registrare questa istanza dell'app Chrome.
-	- *registerCallback* è la funzione di richiamata che riceve la chiamata quando viene restituita la chiamata di registrazione GCM sopra menzionata.
-	- *registerWithNH* è il secondo gestore degli eventi Click del pulsante che esegue la registrazione con Hub di notifica. Ottiene **hubName** e **connectionString** specificati dall'utente e avvia la chiamata all'API REST per la registrazione con Hub di notifica.
-	- *splitConnectionString* e *generateSaSToken* sono un'implementazione Javascript della creazione di un token SaS da inviare in tutte le chiamate all'API REST. Per altre informazioni, vedere: [Concetti comuni](http://msdn.microsoft.com/library/dn495627.aspx)
-	- *sendNHRegistrationRequest* è la funzione che effettua una chiamata HTTP REST.
-	- *registrationPayload* definisce la registrazione del payload xml. Altre informazioni sono disponibili alla pagina - [Creare una registrazione - API REST di Hub di notifica]. L'ID della registrazione viene aggiornato con i dati ricevuti da GCM.
-	- *client* è un'istanza di **XMLHttpRequest** usata per eseguire la richiesta POST HTTP. L'intestazione **Authorization** viene aggiornata con il token di firma di accesso condiviso. Il corretto completamento di questa chiamata registra questa istanza dell'app Chrome in Hub di notifica di Azure.
+	Lo script precedente include le informazioni chiave seguenti: - *window.onload* definisce gli eventi relativi alla selezione dei due pulsanti dell'interfaccia utente. Un evento esegue la registrazione a GCM e l'altro usa l'ID di registrazione restituito dopo la registrazione a GCM per la registrazione in Hub di notifica di Azure. - *updateLog* è la funzione che definisce una semplice funzione di registrazione. - *registerWithGCM* è il gestore degli eventi di selezione del primo pulsante, che effettua la chiamata **chrome.gcm.register** a GCM per registrare questa istanza dell'app Chrome. - *registerCallback* è la funzione di callback che viene chiamata quando viene completata la chiamata di registrazione a GCM precedente. - *registerWithNH* è il gestore dell'evento di selezione del secondo pulsante, che esegue la registrazione in Hub di notifica. Ottiene **hubName** e **connectionString** specificati dall'utente e avvia la chiamata all'API REST per la registrazione nell'Hub di notifica. - *splitConnectionString* e *generateSaSToken* sono un'implementazione JavaScript della creazione di un token SaS da inviare in tutte le chiamate all'API REST. Per altre informazioni, vedere [Concetti comuni](http://msdn.microsoft.com/library/dn495627.aspx). - *sendNHRegistrationRequest* è la funzione che effettua una chiamata REST HTTP. - *registrationPayload* definisce il payload XML della registrazione. Per altre informazioni, vedere [Creare una registrazione dell'API REST per l'Hub di notifica]. L'ID della registrazione viene aggiornato con i dati ricevuti da GCM. - *client* è un'istanza di **XMLHttpRequest** usata per eseguire la richiesta POST HTTP. L'intestazione **Authorization** viene aggiornata con **sasToken**. Il corretto completamento di questa chiamata registra questa istanza dell'app Chrome in Hub di notifica di Azure.
 
 
 Al termine, per la cartella dovrebbe essere visualizzata la seguente vista: ![][21]
@@ -400,7 +391,7 @@ Al termine, per la cartella dovrebbe essere visualizzata la seguente vista: ![][
 
    	![][19]
 
-5. Immettere i valori **Notification Hub Name** e **DefaultListenSharedAccessSignature** ottenuti in precedenza dal portale di Azure, quindi fare clic su **Register with Azure Notification Hub**. Verranno visualizzati il messaggio **Notification Hub Registration successful!** e i dettagli della risposta della registrazione, che contiene l'ID di registrazione di Hub di notifica di Azure.
+5. Immettere i valori **Notification Hub Name** e **DefaultListenSharedAccessSignature** ottenuti in precedenza dal portale, quindi fare clic su **Register with Azure Notification Hub**. Verranno visualizzati il messaggio **Notification Hub Registration successful!** e i dettagli della risposta della registrazione, che contiene l'ID di registrazione di Hub di notifica di Azure.
 
    	![][20]
 
@@ -480,17 +471,17 @@ In questo semplice esempio le notifiche verranno trasmesse all'app Chrome. Per a
 <!-- URLs. -->
 [esempio di hub di notifica per l'app Chrome]: http://google.com
 [Google Cloud Console]: http://cloud.google.com/console
-[portale di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Panoramica dell'Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Informazioni generali sulle app Chrome]: https://developer.chrome.com/apps/about_apps
 [modello GCM per app Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [App Web installabili]: https://developers.google.com/chrome/apps/docs/
 [App Chrome su dispositivi mobili]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Creare una registrazione - API REST di Hub di notifica]: http://msdn.microsoft.com/library/azure/dn223265.aspx
+[Creare una registrazione dell'API REST per l'Hub di notifica]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [libreria crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging per Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!------HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

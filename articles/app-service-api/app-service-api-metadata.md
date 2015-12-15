@@ -24,11 +24,25 @@ Il supporto per i metadati dell'API [Swagger 2.0](http://swagger.io/) è incorpo
 
 È possibile specificare un endpoint che fornisca i metadati JSON di Swagger 2.0 per un'app per le API in una proprietà dell'app. L'endpoint può essere relativo all'URL di base dell'app per le API oppure un URL assoluto, che può indirizzare anche all'esterno dell'app per le API.
 
-L'URL deve essere accessibile pubblicamente (non protetto da un'autenticazione utente o del servizio).
+Per molti client downstream (ad esempio, la generazione di codice di Visual Studio e il flusso di aggiunta API di PowerApps) l'URL deve essere accessibile pubblicamente (non protetto da un'autenticazione utente o del servizio). Ciò significa che se si usa l'autenticazione del servizio app e si vuole esporre la definizione dell'API all'interno dell'app stessa, è necessario usare l'opzione di autenticazione che consente al traffico anonimo di raggiungere l'API. Per altre informazioni, vedere [Autenticazione e autorizzazione per le app per le API del servizio app](app-service-api-authentication.md).
+
+### Pannello del portale
 
 Nel [portale di Azure](https://portal.azure.com/) l'URL dell'endpoint può essere visualizzato e modificato nel pannello **Definizione API**.
 
 ![](./media/app-service-api-metadata/apidefblade.png)
+
+### Proprietà Gestione risorse di Azure
+
+È anche possibile configurare l'URL di definizione dell'API per un'app per le API usando strumenti di Gestione risorse di Azure come Azure PowerShell, CLI o [Esplora risorse](https://resources.azure.com/).
+
+Impostare la proprietà `apiDefinition` sul tipo di risorsa Microsoft.Web/sites/config per la risorsa <site name>/web. Ad esempio, in **Esplora risorse**, passare a **sottoscrizioni > {sottoscrizione} > gruppi di risorse > {gruppo di risorse} > provider > Microsoft.Web > siti > {sito} > config > web** per visualizzare la proprietà cors:
+
+		"apiDefinition": {
+		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
+		}
+
+### Valore predefinito
 
 Quando si usa Visual Studio per creare un'app per le API, l'endpoint della definizione dell'API viene automaticamente impostato sull'URL di base dell'app per le API, più `/swagger/docs/v1`. Questo è l'URL predefinito che il pacchetto NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) usa per gestire i metadati di Swagger generati dinamicamente per un progetto API Web ASP.NET.
 
@@ -42,4 +56,4 @@ Uno dei vantaggi dell'integrazione di Swagger nelle app per le API di Azure è l
 
 Per un'esercitazione dettagliata sulle procedure di creazione, distribuzione e utilizzo di un'app per le API, vedere [Introduzione alle app per le API nel servizio app di Azure](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

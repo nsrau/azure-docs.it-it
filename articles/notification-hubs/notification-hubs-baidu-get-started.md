@@ -141,7 +141,7 @@ Verrà visualizzato il messaggio **保存成功！** (**Salvataggio completato!*
 
 ##Configurare l'hub di notifica
 
-1. Accedere al [portale di Azure] e quindi fare clic su **+NUOVO** nella parte inferiore della schermata.
+1. Accedere al [portale di Azure classico] e quindi fare clic su **+NUOVO** nella parte inferiore della schermata.
 
 2. Fare clic su **Servizi app**, **Bus di servizio**, **Hub di notifica** e infine su **Creazione rapida**.
 
@@ -264,7 +264,7 @@ Verrà visualizzato il messaggio **保存成功！** (**Salvataggio completato!*
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Impostare il valore di **API\_KEY** specificando il valore recuperato in precedenza dal progetto cloud di Baidu, **NotificationHubName** con il nome dell'hub di notifica nel portale di Azure e **NotificationHubConnectionString** con DefaultListenSharedAccessSignature dal portale di Azure.
+	Impostare il valore di **API\_KEY** specificando il valore recuperato in precedenza dal progetto cloud di Baidu, **NotificationHubName** con il nome dell'hub di notifica nel portale di Azure classico e **NotificationHubConnectionString** con DefaultListenSharedAccessSignature dal portale di Azure classico.
 
 11. Aggiungere una nuova classe denominata **DemoApplication.java** e aggiungervi il codice seguente:
 
@@ -399,7 +399,7 @@ Verrà visualizzato il messaggio **保存成功！** (**Salvataggio completato!*
 ##Invio di notifiche all'app
 
 
-È possibile testare la ricezione delle notifiche nell'app mediante l'invio di notifiche nel portale di Azure, usando la scheda Debug nell'hub di notifica, come illustrato nella schermata seguente.
+È possibile testare la ricezione delle notifiche nell'app inviando notifiche nel portale di Azure classico tramite la scheda Debug nell'hub di notifica, come illustrato nella schermata seguente.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -459,7 +459,7 @@ Nella barra degli strumenti superiore di Eclipse fare clic su **Run** e selezion
 
 L'app recupera le proprietà 'userId' e 'channelId' dal servizio di notifiche push di Baidu ed esegue la registrazione nell'hub di notifica.
 
-Per inviare una notifica di prova, è possibile usare la scheda Debug del portale. Se è stata compilata l'applicazione console .NET per Visual Studio, è sufficiente premere F5 in Visual Studio per eseguirla. L'applicazione invierà una notifica, che verrà visualizzata nell'area di notifica principale del dispositivo o dell'emulatore.
+Per inviare una notifica di prova, è possibile usare la scheda Debug del portale di Azure classico. Se è stata compilata l'applicazione console .NET per Visual Studio, è sufficiente premere F5 in Visual Studio per eseguirla. L'applicazione invierà una notifica, che verrà visualizzata nell'area di notifica principale del dispositivo o dell'emulatore.
 
 
 <!-- Images. -->
@@ -500,7 +500,7 @@ Per inviare una notifica di prova, è possibile usare la scheda Debug del portal
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[portale di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [portale di Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

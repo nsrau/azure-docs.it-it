@@ -116,7 +116,9 @@ Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale 
 *Caso di utilizzo: dati dichiarativi* 1. Avvisi di novità da inviare ai segmenti: raccogliere dati dichiarativi per segmentare i destinatari in base alle loro preferenze. Consente di inviare notifiche push su un argomento specifico di particolare interesse per uno specifico gruppo di destinatari. 2. Segmentare i destinatari in base allo stato di accesso. Raccogliere dati per sapere se un utente è connesso o se ha creato un account. Consente di individuare gli utenti finali che non hanno ancora eseguito l'accesso e inviare loro una notifica push per convincerli a registrarsi. ![][2]
 
 ### Passaggi successivi
+
 - Per altre informazioni sui concetti di base di Mobile Engagement, vedere [Concetti relativi a Mobile Engagement].
+- [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
 - Per altre informazioni, vedere [Procedure consigliate](mobile-engagement-getting-started-best-practices.md).
 - Per informazioni sull'implementazione di Mobile Engagement con un'app di gioco di esempio, vedere [uno scenario di app di gioco](mobile-engagement-gaming-scenario.md). 
 - Per informazioni sull'implementazione di Mobile Engagement con un'app multimediale di esempio, vedere [uno scenario di app multimediale](mobile-engagement-media-scenario.md). 
@@ -130,4 +132,4 @@ Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale 
 [Concetti relativi a Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Esercitazioni]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -186,7 +186,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 ## Invio di notifiche
 
 
-È possibile testare la ricezione delle notifiche nell'app mediante l'invio di notifiche nel portale di Azure, usando la scheda Debug nell'hub di notifica, come illustrato nella schermata seguente.
+È possibile testare la ricezione delle notifiche nell'app inviando notifiche nel [portale di Azure classico] tramite la scheda Debug nell'hub di notifica, come illustrato nella schermata seguente.
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png)
 
@@ -217,11 +217,11 @@ In questa sezione si invieranno notifiche con un'app console .NET.
 
 	In questo modo viene visualizzata la console di Gestione pacchetti in Visual Studio.
 
-3. Nella finestra Console di Gestione pacchetti impostare **Progetto predefinito** sul nuovo progetto di applicazione console, quindi eseguire il comando seguente nella finestra della console:
+3. Nella finestra Console di Gestione pacchetti impostare **Progetto predefinito** sul nuovo progetto di applicazione console e quindi eseguire il comando seguente nella finestra della console:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	Verrà aggiunto un riferimento ad Azure Notification Hubs SDK tramite il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto Microsoft.Azure.Notification Hubs NuGet</a>.
+	Verrà aggiunto un riferimento ad Azure Notification Hubs SDK usando il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto NuGet Microsoft.Azure.Notification Hubs</a>.
 
 	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -253,9 +253,9 @@ In questa sezione si invieranno notifiche con un'app console .NET.
 
 In questa sezione si invieranno notifiche tramite un servizio mobile con uno script node.
 
-Per inviare una notifica tramite un servizio mobile, eseguire quanto descritto in [Introduzione a Servizi mobili], quindi eseguire le operazioni seguenti:
+Per inviare una notifica tramite un servizio mobile, vedere [Introduzione a Servizi mobili] e quindi seguire questa procedura:
 
-1. Accedere al [portale di Azure] e selezionare il servizio mobile.
+1. Accedere al [portale di Azure classico] e selezionare il servizio mobile.
 
 2. Selezionare la scheda **Utilità di pianificazione** in alto.
 
@@ -314,7 +314,7 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started-xamarin-ios
-[portale di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Panoramica dell'Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
@@ -331,4 +331,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

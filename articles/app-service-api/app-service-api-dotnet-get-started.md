@@ -30,16 +30,21 @@ L'applicazione di esempio è un semplice elenco di contatti. La figura seguente 
 
 ## Contenuto dell'esercitazione
 
-In questa esercitazione si apprenderà come:
+Tre funzionalità del servizio App di Azure sono particolarmente utili per lo sviluppo e l'hosting di API:
+
+* Supporto integrato per i metadati dell'API
+* Supporto CORS
+* Supporto per l'autenticazione e l'autorizzazione
+ 
+Questa è la prima esercitazione della serie che illustra queste funzionalità. Questa esercitazione è incentrata sui metadati dell'API, la seconda è incentrata su CORS, la terza e la quarta sono incentrate su autenticazione e autorizzazione.
+
+In queste esercitazioni si apprenderà come:
 
 * Preparare il computer per lo sviluppo in Azure installando Azure SDK per .NET.
 * Utilizzare le app per le API e le app Web nel servizio app di Azure usando gli strumenti incorporati in Visual Studio 2015.
 * Automatizzare l'individuazione di API tramite il pacchetto NuGet Swashbuckle per generare in modo dinamico il file JSON di definizione dell'API Swagger.
 * Usare codice client generato automaticamente per utilizzare un'app per le API da un client .NET.
 * Usare il portale di Azure per configurare l'endpoint per i metadati dell'app per le API.
-
-Questa è la prima di una serie di esercitazioni. Nelle esercitazioni successive, che si basano sugli elementi creati in questa esercitazione, si apprenderà come:
- 
 * Usare CORS per chiamare un'app per le API da un client JavaScript, quando quest'ultimo appartiene a un dominio diverso rispetto all'API.
 * Usare Azure Active Directory per proteggere un'API dall'accesso non autenticato.
 * Utilizzare un'API protetta per gli utenti connessi ad Azure Active Directory.
@@ -47,16 +52,22 @@ Questa è la prima di una serie di esercitazioni. Nelle esercitazioni successive
 
 ## Prerequisiti
 
-Questa esercitazione presuppone che l'utente abbia familiarità con ASP.NET. Se è necessaria un'introduzione, vedere [Introduzione ad ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api).
+### API Web ASP.NET
 
-Nelle istruzioni e nelle schermate si presuppone l'uso di Visual Studio 2015, ma le stesse informazioni funzionano anche per Visual Studio 2013.
+Questa esercitazione presuppone che l'utente abbia familiarità con l'API Web ASP.NET. Se è necessaria un'introduzione, vedere l'[introduzione all'API Web ASP.NET 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api).
+
+## Visual Studio 2015
+
+Nelle istruzioni e nelle schermate si presuppone l'uso di Visual Studio 2015, ma le stesse informazioni valgono anche per Visual Studio 2013.
+
+## Account Azure
 
 Per completare l'esercitazione, è necessario un account Azure. È possibile:
 
-* [Aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
-* [Attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). con l'abbonamento MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+* [Aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
+* [Attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con l'abbonamento MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
-Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina in cui è possibile [provare il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app iniziale temporanea nel servizio app. Non è richiesta una carta di credito, né occorre impegnarsi in alcun modo.
+Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app iniziale temporanea nel servizio app. Non è richiesta una carta di credito, né occorre impegnarsi in alcun modo.
 
 [AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
@@ -82,15 +93,17 @@ Il codice che verrà distribuito a un'app per le API e un'app Web per questa ese
 
 2. Compilare la soluzione per ripristinare i pacchetti NuGet.
 
-## Usare Swashbuckle e Swagger durante l'esecuzione locale
+## Usare l'interfaccia utente e i metadati di Swagger
 
-[Swagger](http://swagger.io/) è un formato JSON per descrivere un metodi e le risposte di un'API. Il supporto per Swagger 2.0 è integrato nel servizio app di Azure. Come si vedrà più avanti nell'esercitazione, se si forniscono metadati Swagger per un'API, Visual Studio può generare codice client che rende più semplice l'utilizzo dell'API.
+Il supporto per i metadati dell'API [Swagger](http://swagger.io/) 2.0 è integrato nel servizio app di Azure. Ogni app per le API può definire un endpoint dell'URL che restituisce i metadati per l'API in formato JSON Swagger. I metadati restituiti da tale endpoint possono essere usati per generare codice client che semplifica l'utilizzo dell'API.
 
-Per fornire i metadati di Swagger 2.0 per un progetto API Web ASP.NET, è possibile installare il pacchetto NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle). Swashbuckle usa la reflection per generare dinamicamente i metadati. Il pacchetto NuGet è già installato nel progetto ContactsList.API scaricato ed è già stato installato quando si crea un nuovo progetto usando il modello di progetto **App per le API di Azure**.
+In questa sezione dell'esercitazione viene illustrato come generare automaticamente i metadati per un progetto API Web ASP.NET e viene eseguito uno strumento di test API. Per eseguire queste attività non viene ancora usato il servizio app di Azure, si vedrà in seguito come le app per le API fanno uso dei metadati.
+
+Per fornire i metadati di Swagger 2.0 per un progetto API Web ASP.NET, è possibile installare il pacchetto NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle). Swashbuckle usa la reflection per generare dinamicamente i metadati. Il pacchetto NuGet Swashbuckle è già installato nel progetto ContactsList.API scaricato e viene installato quando si crea un nuovo progetto usando il modello di progetto **App per le API di Azure**. In Visual Studio: **File > Nuovo > Progetto > Applicazione Web ASP.NET > App per le API di Azure**.
 
 In questa sezione dell'esercitazione si esaminano i metadati di Swagger 2.0 generati e quindi si prova un'interfaccia utente di test basata sui metadati di Swagger.
 
-2. Impostare il progetto ContactsList.API come progetto di avvio. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e quindi scegliere **Imposta come progetto di avvio** dal menu di scelta rapida.
+2. Impostare il progetto ContactsList.API come progetto di avvio. Non il progetto CompanyContacts.API, che viene usato in una delle esercitazioni successive.
  
 4. Premere F5 per eseguire l'applicazione in modalità debug.
 
@@ -104,7 +117,7 @@ In questa sezione dell'esercitazione si esaminano i metadati di Swagger 2.0 gene
 
 	![](./media/app-service-api-dotnet-get-started/iev1json.png)
 
-	Se si usa Chrome, il browser visualizza file JSON nella finestra del browser.
+	Se si usa Chrome o Edge, il browser visualizza il file JSON nella finestra del browser.
 
 	![](./media/app-service-api-dotnet-get-started/chromev1json.png)
 
@@ -190,9 +203,13 @@ In questa sezione dell'esercitazione si esaminano i metadati di Swagger 2.0 gene
 
 12. Provare anche i metodi Put, Delete e Get by ID e quindi chiudere il browser.
 
-Swashbuckle funziona con qualsiasi progetto API Web ASP.NET. Se si vuole aggiungere la generazione metadati di Swagger a un progetto esistente, è sufficiente installare il pacchetto Swashbuckle. Se si vuole creare un nuovo progetto da distribuire come app per le API del servizio app, usare il modello di progetto ASP.NET **App per le API di Azure**. Questo modello crea un progetto API Web con Swashbuckle installato.
+Swashbuckle funziona con qualsiasi progetto API Web ASP.NET. Se si vuole aggiungere la generazione metadati di Swagger a un progetto esistente, è sufficiente installare il pacchetto Swashbuckle. Se si vuole creare un nuovo progetto da distribuire come app per le API del servizio app, usare il modello di progetto ASP.NET **App per le API di Azure** mostrato nella figura seguente.
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
+
+Questo modello crea un progetto di API Web con Swashbuckle installato.
+
+**Nota:** per impostazione predefinita, Swashbuckle può generare ID operazione di Swagger duplicati per i metodi del controller. Ciò si verifica se il controller presenta metodi di overload HTTP, ad esempio: `Get()` e `Get(id)`. Per informazioni su come gestire gli overload, vedere [Personalizzare le definizioni delle API generate da Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md). Se si crea un progetto di API Web in Visual Studio usando il modello App per le API di Azure, al file *SwaggerConfig.cs* viene aggiunto automaticamente codice che genera ID operazione univoci.
 
 ## Creare un'app per le API in Azure e distribuire il progetto ContactsList.API nell'app
 
@@ -211,6 +228,8 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 	![](./media/app-service-api-dotnet-get-started/clicknew.png)
 
 3. Nella scheda **Hosting** della finestra di dialogo **Crea servizio app** fare clic su **Tipo di modifica** e quindi su **App per le API**.
+
+	![](./media/app-service-api-dotnet-get-started/apptype.png)
 
 4. Immettere un **Nome app per le API** che sia univoco nel dominio *azurewebsites.net*.
 
@@ -250,7 +269,7 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	Visual Studio crea l'app per le API e un profilo di pubblicazione che include tutte le impostazioni necessarie per la nuova app per le API. Nei passaggi seguenti usare il nuovo profilo di pubblicazione per distribuire il progetto.
  
-	Nota: esistono altri modi per creare app per le API nel servizio app di Azure. In Visual Studio le stesse finestre di dialogo sono disponibili quando si crea un nuovo progetto. È anche possibile creare app per le API tramite il portale di Azure, i [cmdlet di Azure per Windows PowerShell](../powershell-install-configure.md) o [ o l'interfaccia della riga di comando multipiattaforma](../xplat-cli.md).
+	**Nota:** esistono altri modi per creare app per le API nel servizio app di Azure. In Visual Studio le stesse finestre di dialogo sono disponibili quando si crea un nuovo progetto. È anche possibile creare app per le API tramite il portale di Azure, i [cmdlet di Azure per Windows PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando multipiattaforma](../xplat-cli.md).
 
 8. Nella scheda **Connessione** della procedura guidata **Pubblica sito Web** fare clic su **Pubblica**.
 
@@ -270,7 +289,7 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	![](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 
-16. Fare clic su **Impostazioni** e quindi nel pannello **impostazioni** pannello individuare la sezione API e fare clic su **Definizione API**.
+16. Fare clic su **Impostazioni** e quindi nel pannello **Impostazioni** trovare la sezione API e fare clic su **Definizione API**.
 
 	![](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
 
@@ -278,9 +297,19 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	![](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
-	Quando si seleziona un'app per le API per generare il codice, Visual Studio recupera i metadati dall'URL.
+	Quando si seleziona un'app per le API per generare il relativo codice client, Visual Studio recupera i metadati dall'URL.
 
-## <a id="codegen"></a> Utilizzare da .NET tramite un codice client generato 
+### URL di definizione dell'API negli strumenti di Gestione risorse di Azure
+
+È anche possibile configurare l'URL di definizione dell'API per un'app per le API usando strumenti di Gestione risorse di Azure come Azure PowerShell, CLI o [Esplora risorse](https://resources.azure.com/).
+
+Impostare la proprietà `apiDefinition` sul tipo di risorsa Microsoft.Web/sites/config per la risorsa <site name>/web. Ad esempio, in **Esplora risorse**, passare a **sottoscrizioni > {sottoscrizione} > gruppi di risorse > {gruppo di risorse} > provider > Microsoft.Web > siti > {sito} > config > web** per visualizzare la proprietà cors:
+
+		"apiDefinition": {
+		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
+		}
+
+## <a id="codegen"></a> Utilizzare da un client .NET tramite un codice client generato 
 
 Uno dei vantaggi dell'integrazione di Swagger nelle app per le API di Azure è la generazione automatica del codice. Le classi client generate semplificano la scrittura del codice che chiama un'app per le API.
 
@@ -290,9 +319,11 @@ Questa sezione illustra come usare un'app per le API da un'app Web MVC ASP.NET. 
 
 È possibile generare il codice client per un'app per le API tramite Visual Studio o dalla riga di comando. Per questa esercitazione si userà Visual Studio. Per informazioni su come eseguire questa operazione dalla riga di comando, vedere il file Leggimi del repository [Azure/autorest](https://github.com/azure/autorest) in GitHub.com.
 
-Il progetto ContactsList.MVC include già il codice client generato, ma sarà eliminato e rigenerato per vedere come viene eseguita l'operazione e per impostare l'URL della propria app per le API come URL di destinazione predefinito.
+Il progetto ContactsList.MVC include già il codice client generato, ma sarà eliminato e rigenerato per impostare l'URL della propria app per le API come URL di destinazione predefinito.
 
 1. In **Esplora soluzioni** di Visual Studio eliminare la cartella *ContactsList.API* nel progetto ContactsList.MVC.
+
+	Questa cartella è stata creata con il processo di generazione di codice illustrato di seguito.
 
 	![](./media/app-service-api-dotnet-get-started/deletecodegen.png)
 
@@ -309,6 +340,8 @@ Il progetto ContactsList.MVC include già il codice client generato, ma sarà el
 	Questa finestra di dialogo offre più modi per organizzare le app per le API nell'elenco, nel caso ne siano presenti troppe da scorrere. Consente anche di immettere una stringa di ricerca per filtrare le app per le API per nome.
 
 	![](./media/app-service-api-dotnet-get-started/codegenselect.png)
+
+	Se l'app per le API non viene visualizzata nell'elenco, durante la creazione dell'app per le API il tipo potrebbe non essere stato modificato da app Web in app per le API. In tal caso, è possibile creare una nuova app per le API ripetendo i passaggi eseguiti in precedenza. È necessario scegliere un nome diverso per l'app per le API, a meno che prima non venga eliminata l'app Web dal portale.
 
 	Quando si torna alla finestra di dialogo **Aggiungi client API REST**, la casella di testo risulta già compilata con il valore dell'URL di definizione dell'API visualizzato in precedenza nel portale.
 
@@ -337,7 +370,14 @@ Il progetto ContactsList.MVC include già il codice client generato, ma sarà el
 
 	Questo codice passa l'URL di Express IIS locale del progetto di API al costruttore della classe client per consentire l'esecuzione locale del progetto Web MVC e del progetto API. Se si omette il parametro del costruttore, l'endpoint predefinito sarà l'URL da cui è stato generato il codice.
 
-6. La classe del client verrà generata con un nome diverso basato sul nome dell'app per le API. Modificare il codice in modo che il nome del tipo corrisponde a quello generato nel progetto.
+6. La classe del client verrà generata con un nome diverso basato sul nome dell'app per le API. Modificare il codice in modo che il nome del tipo corrisponde a quello generato nel progetto. Ad esempio, se l'app per le API è stata denominata ContactsListAPIContoso, il codice sarà simile all'esempio seguente:
+
+		private ContactsListAPIContoso db = new ContactsListAPIContoso(new Uri("http://localhost:51864"));
+		
+		public ActionResult Index()
+		{
+		    return View(db.Contacts.Get());
+		}
 
 7. Compilare la soluzione.
 
@@ -367,7 +407,7 @@ Prima della distribuzione in Azure, modificare l'endpoint dell'API nel progetto 
 
 1. Nel progetto ContactsList.MVC aprire *Controllers/ContactsController.cs*.
 
-2. Impostare come commento la riga che imposta l'URL di base dell'API sull'URL localhost e rimuovere il commento dalla riga che non include parametri del costruttore. Il codice sarà simile all'esempio seguente, ma in entrambe le righe il nome della classe deve riflettere il nome dell'app per le API da cui è stato generato il codice.
+2. Impostare come commento la riga che imposta l'URL di base dell'API sull'URL localhost e rimuovere il commento dalla riga che non include parametri del costruttore. Il codice sarà simile all'esempio seguente, ma in entrambe le righe il nome della classe riflette il nome dell'app per le API da cui è stato generato il codice.
 
 		private ContactsListAPI db = new ContactsListAPI();
 		//private ContactsListAPI db = new ContactsListAPI(new Uri("http://localhost:51864"));
@@ -384,7 +424,7 @@ Prima della distribuzione in Azure, modificare l'endpoint dell'API nel progetto 
 
 5. Nella finestra di dialogo **Servizio App** fare clic su **Nuovo**.
 
-3. Nella scheda **Hosting** della finestra di dialogo **Crea servizio app** fare clic su **Tipo di modifica** e verificar che il tipo sia **App Web**.
+3. Nella scheda **Hosting** della finestra di dialogo **Crea servizio app** fare clic su **Tipo di modifica** e verificare che il tipo sia **App Web**.
 
 4. Immettere un **Nome app Web** che sia univoco nel dominio *azurewebsites.net*.
 
@@ -408,6 +448,6 @@ Prima della distribuzione in Azure, modificare l'endpoint dell'API nel progetto 
 
 ## Passaggi successivi
 
-Questa esercitazione ha illustrato come creare app per le API, distribuire il codice in queste app e usarle dai client .NET. L'esercitazione successiva della serie di esercitazioni introduttive mostra come [Utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md).
+Questa esercitazione ha illustrato come creare app per le API, distribuire il codice in queste app e usarle dai client .NET. L'esercitazione successiva della serie di esercitazioni introduttive sulle app per le API mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

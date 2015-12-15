@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Gestire la prima API in Gestione API di Azure
@@ -61,7 +61,7 @@ Il sistema è costituito dai componenti seguenti:
 
 >[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
 
-Per poter usare Gestione API, occorre innanzitutto creare un'istanza del servizio. Accedere al [portale di Azure][] e fare clic su **Nuovo**, **Servizi app**, **Gestione API**, **Crea**.
+Per poter usare Gestione API, occorre innanzitutto creare un'istanza del servizio. Accedere al [portale di Azure classico][] e fare clic su **Nuovo**, **Servizi app**, **Gestione API**, **Crea**.
 
 ![API Management new instance][api-management-create-instance-menu]
 
@@ -95,7 +95,7 @@ Un'API rappresenta un set di operazioni che possono essere richiamate da un'appl
 
 >[AZURE.NOTE]Per informazioni aggiuntive sulla creazione di un'API e l'aggiunta manuale delle operazioni, vedere [Come creare le API](api-management-howto-create-apis.md) e [Come aggiungere operazioni a un'API](api-management-howto-add-operations.md).
 
-Le API vengono configurate dal portale di pubblicazione, accessibile dal portale di Azure. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure per il servizio Gestione API.
+Le API vengono configurate dal portale di pubblicazione, accessibile dal portale di Azure classico. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API.
 
 ![Portale di pubblicazione][api-management-management-console]
 
@@ -206,7 +206,7 @@ La sezione **Analisi** include le quattro schede seguenti:
 [Introduzione alla configurazione API avanzata]: api-management-get-started-advanced.md
 [Gestione API - Prezzi]: http://azure.microsoft.com/pricing/details/api-management/
 
-[portale di Azure]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -243,4 +243,4 @@ La sezione **Analisi** include le quattro schede seguenti:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

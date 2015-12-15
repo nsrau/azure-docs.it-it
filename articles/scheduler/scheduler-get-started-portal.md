@@ -12,36 +12,32 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="08/18/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
-# Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure
-
-## Configurare l'Utilità di pianificazione tramite il portale di Azure per creare processi in modo facile e veloce
-
-Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata l’Utilità di pianificazione di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, fare riferimento alla pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+# Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure classico
 
 ## Introduzione
 
-Creare processi e raccolte di processi nell'Utilità di pianificazione di Azure tramite il portale di Azure è un'operazione semplice. Questa esercitazione illustra la procedura dettagliata per la creazione di una raccolta di processi da usare per archiviare i progetti, per la creazione di un processo in una raccolta di processi e una panoramica delle attività di monitoraggio e gestione del processo disponibili tramite il portale. Per svolgere l'esercitazione, non è necessario avere esperienze precedenti nell'utilizzo di Azure.
+Creare processi e raccolte di processi nell'Utilità di pianificazione di Azure è un'operazione semplice. Questa esercitazione illustra la procedura dettagliata per la creazione di una raccolta di processi da usare per archiviare i progetti, per la creazione di un processo in una raccolta di processi e una panoramica delle attività di monitoraggio e gestione dei processi disponibili. Per svolgere l'esercitazione, non è necessario avere esperienze precedenti nell'utilizzo di Azure.
 
-Quando si apre il portale di Azure per la prima volta viene visualizzata automaticamente la scheda **TUTTI GLI ELEMENTI**, al cui interno sono presenti delle colonne che è possibile ordinare. Per visualizzare i processi e le raccolte di processi dell'utilità di pianificazione, cliccare sulla scheda **UTILITÀ DI PIANIFICAZIONE**.
+Quando si apre il portale di Azure classico per la prima volta viene visualizzata automaticamente la scheda **TUTTI GLI ELEMENTI**, al cui interno sono presenti delle colonne che è possibile ordinare. Per visualizzare i processi e le raccolte di processi dell'Utilità di pianificazione, fare clic sulla scheda **UTILITÀ DI PIANIFICAZIONE**.
 
 ![][1]
 
 ## Creare una raccolta di processi e un processo
 
-1.  Accedere al [portale di Azure](https://manage.windowsazure.com/).  
+1.  Accedere al [portale di Azure classico](https://manage.windowsazure.com/).  
 
 2.  Fare clic su **Servizi app**> **Crea nuovo** > **Utilità di pianificazione** e quindi fare clic su **Creazione personalizzata**. <br /><br /> ![][2]
 
-3.  In **Raccolta processi**, selezionare il nome della raccolta di processi esistente nell'elenco a discesa **Raccolta processi**. Se non si dispone di una raccolta processi esistente a cui aggiungere il processo, selezionare **Crea nuovo** e immettere un nome per identificare la nuova raccolta processi.<br /><br /> ![][3]
+3.  In **Raccolta processi** selezionare il nome della raccolta di processi esistente nell'elenco a discesa **Raccolta processi**. Se non si ha raccolta di processi esistente a cui aggiungere il processo, selezionare **Crea nuovo** e immettere un nome per identificare la nuova raccolta di processi.<br /><br /> ![][3]
 
 4.  In **Area** selezionare l'area geografica per la raccolta di processi.
 
 5.  Fare clic sul tasto di direzione per creare la raccolta di processi e passare alla fase successiva – creare un processo.
 
-6.  Creiamo un processo che parte semplicemente http://www.microsoft.com/ con una richiesta GET. Nella schermata **Azione processo** definire i valori seguenti per i campi modulo necessari:
+6.  Si creerà un processo che accede semplicemente a http://www.microsoft.com/ con una richiesta GET. Nella schermata **Azione processo** definire i valori seguenti per i campi modulo obbligatori:
 
     1.  **Nome:** ` getmicrosoft`  
 
@@ -127,7 +123,7 @@ Una tabella che mostra un elenco fisso di metriche su stati e impostazioni. Ques
 
 ### Scalabilità
 
-Nella scheda **Ridimensiona**, è possibile modificare le impostazioni e il livello di servizio usato dall'Utilità di pianificazione.
+Nella scheda **Ridimensiona** è possibile modificare le impostazioni e il livello di servizio usati dall'Utilità di pianificazione.
 
 ![][10]
 
@@ -261,4 +257,4 @@ Infine, per tutti i tipi di azione, è possibile modificare la pianificazione st
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->
