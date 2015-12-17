@@ -699,8 +699,8 @@ Dopo aver completato la Guida introduttiva, è possibile eseguire altre importan
 Sono inoltre disponibili ulteriori informazioni su Sencha Touch Extensions for Azure:
 
   * Procedura dettagliata[ dell'app di esempio](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters)
-  * Forum di Sencha[](http://www.sencha.com/forum)
-  * Documentazione di Sencha[](http://docs.sencha.com/)
+  * Forum di Sencha [Sencha Forums](http://www.sencha.com/forum)
+  * Documentazione di Sencha [Sencha Documentation](http://docs.sencha.com/)
   * Utilizzo di Sencha con Servizi mobili di Azure: [(Video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
 
 
