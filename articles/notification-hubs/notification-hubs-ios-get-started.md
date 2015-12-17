@@ -446,7 +446,7 @@ Per testare le notifiche push in iOS, è necessario distribuire l'applicazione i
 
 	![][33]
 
-2. È possibile inviare una notifica di prova dal [portale di Azure classico]. Se è stato aggiunto codice per l'invio della notifica nell'app, toccare nel campo di testo per immettere un messaggio di notifica. Usare il pulsante **Send** sulla tastiera o il pulsante **Send Notification** nella visualizzazione per inviare il messaggio di notifica.
+2. È possibile inviare una notifica di prova dal portale di Azure. Se è stato aggiunto codice per l'invio della notifica nell'app, toccare nel campo di testo per immettere un messaggio di notifica. Usare il pulsante **Send** sulla tastiera o il pulsante **Send Notification** nella visualizzazione per inviare il messaggio di notifica.
 
 	![][34]
 

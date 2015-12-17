@@ -86,9 +86,12 @@ Creazione di una richiesta "crea modello":
 |:--------|:--------|
 |POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	Nome parametro |	Valori validi |
+|	Nome parametro	|	Valori validi						|
 |:--------			|:--------								|
-|	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri | | apiVersion | 1.0 | ||| | Corpo della richiesta | NESSUNO |
+|	modelName	|	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri |
+|	apiVersion		| 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -134,12 +137,15 @@ Se si caricano diversi file del catalogo nello stesso modello con diverse chiama
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nome parametro |	Valori validi |
+|	Nome parametro	|	Valori validi						|
 |:--------			|:--------								|
-|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri | | apiVersion | 1.0 | ||| | Corpo della richiesta | Dati catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Item Name</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 255 caratteri</td><td>Nome dell'elemento</td></tr><tr><td>Item Category</td><td>Sì</td><td>Alfanumerico, lunghezza massima 255 caratteri</td><td>Categoria a cui appartiene l'elemento (ad esempio, Cucina, Teatro…)</td></tr><tr><td>Description</td><td>No</td><td>Alfanumerico, lunghezza massima: 4000 caratteri</td><td>Descrizione dell'elemento</td></tr></table><br>La dimensione massima file è di 200 MB<br><br>Esempio:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+|	modelId	|	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole)  |
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri |
+|	apiVersion	| 1.0 |
+|||
+| Corpo della richiesta | Dati catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Item Name</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 255 caratteri</td><td>Nome dell'elemento</td></tr><tr><td>Item Category</td><td>Sì</td><td>Alfanumerico, lunghezza massima 255 caratteri</td><td>Categoria a cui appartiene l'elemento (ad esempio, Cucina, Teatro…)</td></tr><tr><td>Description</td><td>No</td><td>Alfanumerico, lunghezza massima: 4000 caratteri</td><td>Descrizione dell'elemento</td></tr></table><br>La dimensione massima file è di 200 MB<br><br>Esempio:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **Risposta**:
@@ -180,12 +186,15 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri | | apiVersion | 1.0 | ||| | Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>User Id</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Time</td><td>No</td><td>Formato data: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati</td></tr><tr><td>Event</td><td>No, se fornito deve essere inserita anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>La dimensione massima file è di 200 MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+|	modelId	|	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri |
+|	apiVersion		| 1.0 |
+|||
+| Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>User Id</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Time</td><td>No</td><td>Formato data: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati</td></tr><tr><td>Event</td><td>No, se fornito deve essere inserita anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>La dimensione massima file è di 200 MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Risposta**:
 
@@ -228,10 +237,11 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 |:--------|:--------|
 |POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nome parametro |	Valori validi |
+|	Nome parametro	|	Valori validi						|
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
-||| |Corpo della richiesta| Immissione di dati evento per ogni evento da inviare. Per lo stesso utente o la stessa sessione del browser si dovrà inviare lo stesso ID nel campo SessionId. Vedere l'esempio di corpo dell'evento di seguito.|
+|	apiVersion		| 1\.0 |
+|||
+|Corpo della richiesta| Immissione di dati evento per ogni evento da inviare. Per lo stesso utente o la stessa sessione del browser si dovrà inviare lo stesso ID nel campo SessionId. Vedere l'esempio di corpo dell'evento di seguito.|
 
 
 - Esempio di evento "Click":
@@ -316,12 +326,13 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
-|	Nome parametro |	Valori validi |
+|	Nome parametro	|	Valori validi						|
 |:--------			|:--------								|
-| modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+| modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
 | apiVersion | 1\.0 |
-||| | Corpo della richiesta | NESSUNO |
+|||
+| Corpo della richiesta | NESSUNO |
 
 **Risposta**:
 
@@ -391,11 +402,11 @@ XML OData
 
 
 
-|	Nome parametro |	Valori validi |
+|	Nome parametro	|	Valori validi						|
 |:--------			|:--------								|
-|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
-|	onlyLastBuild |	Indica se restituire l'intera cronologia di compilazioni del modello o solo lo stato della compilazione più recente. |
-|	apiVersion |	1\.0 |
+|	modelId			|	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
+|	onlyLastBuild	|	Indica se restituire l'intera cronologia di compilazioni del modello o solo lo stato della compilazione più recente.	|
+|	apiVersion		|	1\.0									|
 
 
 **Risposta**:
@@ -466,9 +477,9 @@ XML OData
 
 
 
-|	Nome parametro |	Valori validi |
+|	Nome parametro	|	Valori validi						|
 |:--------			|:--------								|
-| modelId | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+| modelId | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
 | itemIds | Elenco con valori delimitati da virgole degli elementi per i quali aggiungere raccomandazioni.<br>Lunghezza massima: 1024 caratteri |
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false. |
@@ -648,11 +659,12 @@ Dopo avere implementato un modello di raccomandazione nell'ambiente di produzion
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	Nome parametro |	Valori validi |
+|	Nome parametro	|	Valori validi						|
 |:--------			|:--------								|
-| id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+| id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
 | apiVersion | 1\.0 |
-||| | Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere tutto il tag. |
+|||
+| Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere tutto il tag. |
 
 **Risposta**:
 
