@@ -74,7 +74,7 @@ Dopo aver pubblicato la definizione del servizio di aggiornamento, è possibile 
 
     ![Avviso di sicurezza di Windows][5]
 
-4.  Fare clic su **Connect**. Verrà visualizzato un avviso di sicurezza in cui si richiede di immettere le credenziali di accesso all'istanza. Immettere la password creata in [Passaggio 1][Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto] e quindi fare clic su **OK**.
+4.  Fare clic su **Connect**. Verrà visualizzato un avviso di sicurezza in cui si richiede di immettere le credenziali di accesso all'istanza. Immettere la password creata in [Passaggio 1]\[Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto] e quindi fare clic su **OK**.
 
     ![richiesta di nome utente/password][6]
 
