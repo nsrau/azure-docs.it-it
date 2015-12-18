@@ -33,7 +33,7 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-windows-pho
 ##Note sulla versione
 
 ###3\.1.0 (20/11/2015)
-Parte del pacchetto Nuget *MicrosoftAzure.MobileEngagement***v3.2.0**
+Parte del pacchetto Nuget *MicrosoftAzure.MobileEngagement* **v3.2.0**
 
 -   Arresto anomalo fisso durante la richiesta di id del dispositivo subito dopo l'inizializzazione.
 -   La console registra miglioramenti.
@@ -55,4 +55,4 @@ Nessuna.
 Vedere [Procedure di aggiornamento](mobile-engagement-windows-phone-upgrade-procedure/).
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->
