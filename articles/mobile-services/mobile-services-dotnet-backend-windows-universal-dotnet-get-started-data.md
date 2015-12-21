@@ -123,7 +123,7 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-[sito degli esempi di codice di Developer Network]: : http://go.microsoft.com/fwlink/p/?LinkID=510826
+[sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
