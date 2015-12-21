@@ -23,7 +23,7 @@ La maggior parte, ma non tutti i servizi, supportano Gestione risorse e alcuni s
 
 Durante la distribuzione delle risorse, è anche necessario conoscere quali aree supportano tali risorse e quali versioni dell'API sono disponibili per tali risorse. La sezione [Aree supportate](#supported-regions) illustra come trovare le aree adatte alla propria sottoscrizione e alle proprie risorse. La sezione [Versioni API supportate](#supported-api-versions) illustra come determinare quali versioni dell'API è possibile usare.
 
-Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzione e la gestione tramite Gestione risorse e quali no. La colonna denominata **Sposta risorse** indica se le risorse di questo tipo possono essere spostate sia in un nuovo gruppo di risorse che in una nuova sottoscrizione. La colonna denominata **Portale di anteprima** indica se è possibile creare il servizio tramite il portale di anteprima.
+Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzione e la gestione tramite Gestione risorse e quali no. La colonna denominata **Sposta risorse** indica se le risorse di questo tipo possono essere spostate sia in un nuovo gruppo di risorse che in una nuova sottoscrizione. La colonna denominata **Portale** indica se è possibile creare il servizio tramite il [portale di Azure](https://portal.azure.com).
 
 
 ## Calcolo
@@ -33,9 +33,9 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Macchine virtuali | Sì | Sì, molte opzioni | No | [Creare una VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Sì | [Sì (solo classica)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Sì | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Servizi del ciclo di vita Dynamics | Sì | No | | | |
-| Macchine virtuali (classiche) | Limitato | Sì | Parziale (vedere di seguito) | - | - |
-| App remota | No | - | - | - | - |
-| Infrastruttura di servizi | No | - | - | - | - |
+| Macchine virtuali (classiche) | Limitato | Sì, molte opzioni | Parziale (vedere di seguito) | - | - |
+| App remota | No | No | - | - | - |
+| Infrastruttura di servizi | No | No | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
@@ -199,7 +199,8 @@ Che restituisce:
 
 ## Versioni API supportate
 
-Quando si distribuisce un modello, è necessario specificare una versione dell'API da usare per la creazione di ogni risorsa. La versione dell'API corrisponde a una versione delle operazioni API REST che vengono rilasciate dal provider di risorse. Poiché un provider di risorse abilita nuove funzionalità, rilascerà una nuova versione dell'API REST. Di conseguenza, la versione dell'API specificata nel modello influisce sulle proprietà che è possibile specificare nel modello. In generale, è opportuno selezionare la versione più recente dell'API durante la creazione di nuovi modelli. Per i modelli esistenti, è possibile decidere se si desidera continuare a usare una versione precedente dell'API o aggiornare il modello alla versione più recente per sfruttare i vantaggi delle nuove funzionalità.
+Quando si distribuisce un modello, è necessario specificare una versione dell'API da usare per la creazione di ogni risorsa. La versione dell'API corrisponde a una versione delle operazioni API REST che vengono rilasciate dal provider di risorse.
+Poiché un provider di risorse abilita nuove funzionalità, rilascerà una nuova versione dell'API REST. Di conseguenza, la versione dell'API specificata nel modello influisce sulle proprietà che è possibile specificare nel modello. In generale, è opportuno selezionare la versione più recente dell'API durante la creazione di nuovi modelli. Per i modelli esistenti, è possibile decidere se si desidera continuare a usare una versione precedente dell'API o aggiornare il modello alla versione più recente per sfruttare i vantaggi delle nuove funzionalità.
 
 ### API REST
 
@@ -242,3 +243,4 @@ Per Azure PowerShell 0.9.8, utilizzare:
 - Per altre informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
 <!---HONumber=AcomDC_1203_2015-->
+
