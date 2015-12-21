@@ -67,7 +67,7 @@ Qualsiasi richiesta inviata a DocumentDB tramite un SDK ritirato verrà rifiutat
 | [1\.1.0](#1.1.0) | 09 luglio 2015 |---
 | [1\.0.1](#1.0.1) | 12 maggio 2015 |---
 | [1\.0.0](#1.0.0) | 07 aprile 2015 |---
- | 0.9.5-versione non definitiva | 09 marzo 2015 | 29 febbraio 2016
+| 0.9.5-versione non definitiva | 09 marzo 2015 | 29 febbraio 2016
 | 0.9.4-versione non definitiva | 17 febbraio 2015 | 29 febbraio 2016
 | 0.9.3-versione non definitiva | 13 gennaio 2015 | 29 febbraio 2016
 | 0.9.2-versione non definitiva | 19 dicembre 2014 | 29 febbraio 2016
@@ -81,4 +81,4 @@ Qualsiasi richiesta inviata a DocumentDB tramite un SDK ritirato verrà rifiutat
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
