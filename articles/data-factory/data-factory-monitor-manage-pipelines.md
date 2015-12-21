@@ -214,7 +214,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 
 		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
-	Ad esempio:
+	ad esempio:
 
 
 		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -226,7 +226,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
 		<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
-	Ad esempio:
+	ad esempio:
 
 
 		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -323,7 +323,7 @@ Per specificare una definizione di avviso, creare un file JSON che descrive le o
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                        "subStatus": "FailedExecution"   
+	                            "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -359,7 +359,7 @@ Vedere [Crea regola di avviso](https://msdn.microsoft.com/library/azure/dn510366
 #### Distribuzione dell'avviso 
 Per distribuire l'avviso, usare il cmdlet di Azure PowerShell **New-AzureResourceGroupDeployment**, come mostrato nell'esempio seguente:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
 
 Una volta completata la distribuzione del gruppo di risorse, si noteranno i messaggi seguenti:
 
@@ -398,7 +398,7 @@ Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribu
 
 - È possibile visualizzare tutti gli eventi generati dopo aver selezionato il riquadro **Operazioni**. Gli avvisi possono essere configurati per qualsiasi operazione visibile nel pannello **Eventi**:
 
-	![Operazioni](./media/data-factory-monitor-manage-pipelines/operations.png)
+![Operazioni](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - Vedere l’articolo [Cmdlet di Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) per i cmdlet PowerShell che è possibile usare per gli avvisi add/get/remove. Ecco alcuni esempi di uso del cmdlet **Get-AlertRule**:
@@ -427,7 +427,7 @@ Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribu
 				Tags       :
 				$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
 				Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
-				Location   : West US
+	Location          : westus
 				Name       : ADFAlertsSlice
 		
 		PS C:\> Get-AlertRule -res $resourceGroup
@@ -545,7 +545,9 @@ Questo comportamento è diverso da quello degli eventi in cui verrà inviata una
  
 Sostituire subscriptionId resourceGroupName e dataFactoryName dell'esempio precedente con i valori appropriati.
 
-*metricName* supporta al momento 2 valori: - FailedRuns - SuccessfulRuns
+*metricName* supporta al momento 2 valori:
+- FailedRuns
+- SuccessfulRuns
 
 **Distribuzione dell'avviso:**
 

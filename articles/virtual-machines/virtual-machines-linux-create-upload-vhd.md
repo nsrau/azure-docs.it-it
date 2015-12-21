@@ -48,8 +48,7 @@ In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
 - **Strumenti di Azure PowerShell**: il cmdlet `Add-AzureVhd` può essere utilizzato per caricare il VHD. Per scaricare i cmdlet di Azure Powershell, visitare la pagina [Download di Azure](http://azure.microsoft.com/downloads/). Per informazioni di riferimento, vedere [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-<a id="prepimage"> </a>
-## Passaggio 1: preparare l'immagine da caricare
+## <a id="prepimage"></a>Passaggio 1: Preparare l'immagine da caricare ##
 
 Azure supporta numerose distribuzioni di Linux (vedere la sezione [Distribuzioni approvate](../linux-endorsed-distributions.md)). Gli articoli seguenti forniscono le istruzioni per preparare le diverse distribuzioni Linux supportate in Azure:
 
@@ -65,8 +64,8 @@ Vedere inoltre le **[note sull'installazione di Linux](virtual-machines-linux-cr
 
 Una volta eseguite le procedure nelle guide precedenti, si dovrebbe avere un file VHD pronto per essere caricato in Azure.
 
-<a id="connect"> </a>
-## Passaggio 2: preparare la connessione ad Azure
+
+## <a id="connect"></a>Passaggio 2: Preparare la connessione ad Azure ##
 
 Prima di poter caricare un file VHD, è necessario stabilire una connessione sicura tra il computer e la sottoscrizione in Azure.
 
@@ -144,8 +143,7 @@ Utilizzare il metodo di Azure AD per accedere:
 
 > [AZURE.NOTE]È consigliabile che utilizzare il metodo più recente di Azure Active Directory per l'accesso alla sottoscrizione di Azure, dal CLI Azure o Azure PowerShell.
 
-<a id="upload"> </a>
-## Passaggio 3: caricare l'immagine in Azure
+## <a id="upload"></a>Passaggio 3: Caricare l'immagine in Azure ##
 
 ### Se si utilizza l'interfaccia della riga di comando di Azure
 

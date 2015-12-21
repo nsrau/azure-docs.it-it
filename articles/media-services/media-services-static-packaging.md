@@ -19,7 +19,7 @@
 
 # Utilizzare Azure Media Packager per eseguire attività di creazione statica dei pacchetti
 
->[AZURE.NOTE]Windows Azure Media Packager e Windows Azure Media Encryptor raggiungeranno la fine della vita il 1° marzo 2016. In quel momento, questi componenti non saranno più disponibili. Le funzionalità di crittografia e di conversione di formato verranno rese disponibile tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
+>[AZURE.NOTE]Microsoft Azure Media Packager e Microsoft Azure Media Encryptor raggiungeranno la fine della vita il 1° marzo 2016. In quel momento, questi componenti non saranno più disponibili. Le funzionalità di crittografia e di conversione di formato verranno rese disponibile tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
 
 ## Panoramica
 

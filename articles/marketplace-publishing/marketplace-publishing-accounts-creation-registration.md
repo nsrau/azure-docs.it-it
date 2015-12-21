@@ -147,7 +147,11 @@ Il portale di pubblicazione di Azure consente di pubblicare e gestire le offerte
 
   >[AZURE.TIP]I criteri di partecipazione sono descritti nel [sito Web di Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > In caso di problemi con il completamento della registrazione in Developer Center, registrare un ticket di supporto come indicato di seguito: 1. Contattare il [supporto tecnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=it-IT&pesid=15635&ccsid=635847950577064286). 2. Scegliere **Developer Center**. 3. Scegliere **Profilo**. 4. Scegliere un metodo di contatto.
+  > In caso di problemi con il completamento della registrazione in Developer Center, registrare un ticket di supporto come indicato di seguito:
+  1. Contattare il [supporto tecnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=it-IT&pesid=15635&ccsid=635847950577064286).
+  2. Scegliere **Developer Center**.
+  3. Scegliere **Profilo**.
+  4. Scegliere un metodo di contatto.
 
 
 
@@ -157,7 +161,12 @@ Il portale di pubblicazione di Azure consente di pubblicare e gestire le offerte
 ## Passaggi successivi
 Ora che l'account è stato creato e registrato, fare clic sul tipo di elemento (macchina virtuale, servizio di sviluppatore, servizio dati, modello di soluzione) che si desidera pubblicare in Azure Marketplace. Esaminare uno dei seguenti articoli per scoprire come pubblicare la propria offerta:
 
-|| Immagine di macchina virtuale| Servizio sviluppatore | Servizio dati | Modello per la soluzione | |----|-----|-----|-----|-----| |**Passaggio 2: Creare la propria offerta** |[Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| || [Prerequisiti tecnici per l'immagine di una VM][link-single-vm-prereq] | Prerequisiti tecnici per un servizio per sviluppatori | [Prerequisiti tecnici per un servizio dati](marketplace-publishing-data-service-creation-prerequisites.md) | [Prerequisiti tecnici per un modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) | || [Guida alla pubblicazione di un'immagine di VM][link-single-vm] | Guida alla pubblicazione di un servizio per sviluppatori | [Guida alla pubblicazione di un servizio dati](marketplace-publishing-data-service-creation.md) | [Guida alla pubblicazione di un modello di soluzione](marketplace-publishing-solution-template-creation.md) | || [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] |
+|| Immagine di macchina virtuale| Servizio sviluppatore | Servizio dati | Modello per la soluzione |
+|----|-----|-----|-----|-----|
+|**Passaggio 2: Creare la propria offerta** |[Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)|
+|| [Prerequisiti tecnici per l'immagine di una VM][link-single-vm-prereq] | Prerequisiti tecnici per un servizio per sviluppatori | [Prerequisiti tecnici per un servizio dati](marketplace-publishing-data-service-creation-prerequisites.md) | [Prerequisiti tecnici per un modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guida alla pubblicazione di un'immagine di VM][link-single-vm] | Guida alla pubblicazione di un servizio per sviluppatori | [Guida alla pubblicazione di un servizio dati](marketplace-publishing-data-service-creation.md) | [Guida alla pubblicazione di un modello di soluzione](marketplace-publishing-solution-template-creation.md) |
+|| [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] |
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)

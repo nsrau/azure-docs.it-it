@@ -147,7 +147,7 @@ Ogni server di Azure SQL viene avviato con un singolo account amministratore del
 
 	Il processo di modifica dell'amministratore può richiedere alcuni minuti. Il nuovo amministratore sarà quindi visualizzato nella casella **Amministratore di Active Directory**.
 
-> [AZURE.NOTE]Quando si imposta l'amministratore di Windows Azure il nuovo nome dell’amministratore (utente o gruppo) non può essere già presente nel database master come un account di accesso di autenticazione di SQL Server. Se presente, l’impostazione dell’amministratore di Windows Azure avrà esito negativo; eseguire il rollback della creazione e indicare che tale (nome) di amministratore già esiste. Poiché tale accesso di autenticazione del server SQL non è parte di Azure AD, qualsiasi tentativo di connettersi al server mediante l'autenticazione di Azure AD avrà esito negativo.
+> [AZURE.NOTE]Quando si imposta l'amministratore di Microsoft Azure il nuovo nome dell’amministratore (utente o gruppo) non può essere già presente nel database master come un account di accesso di autenticazione di SQL Server. Se presente, l’impostazione dell’amministratore di Microsoft Azure avrà esito negativo; eseguire il rollback della creazione e indicare che tale (nome) di amministratore già esiste. Poiché tale accesso di autenticazione del server SQL non è parte di Azure AD, qualsiasi tentativo di connettersi al server mediante l'autenticazione di Azure AD avrà esito negativo.
 
 Per rimuovere un amministratore in seguito, nel pannello **Amministratore di Active Directory** in alto fare clic su **Rimuovi amministratore**.
 

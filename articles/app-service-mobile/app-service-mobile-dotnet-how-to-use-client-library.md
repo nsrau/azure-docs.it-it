@@ -18,7 +18,8 @@
 
 # Come usare il client gestito per App per dispositivi mobili di Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-libbra](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-libbra](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -208,7 +209,7 @@ Per cercare oggetti dal database caratterizzati da un particolare ID, è possibi
 	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
 	TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
-### <a name="lookingup"></a>Procedura: Eseguire query non tipizzate
+### <a name="lookingup"></a>Procedura: eseguire query non tipizzate
 
 Quando si esegue una query utilizzando un oggetto tabella non tipizzato, è necessario specificare esplicitamente la stringa di query OData, come nel seguente esempio:
 
@@ -217,7 +218,7 @@ Quando si esegue una query utilizzando un oggetto tabella non tipizzato, è nece
 
 Si ottengono valori JSON utilizzabili come contenitore delle proprietà. Per ulteriori informazioni su JToken e Json.NET, vedere [Json.NET](http://json.codeplex.com/).
 
-##<a name="inserting"></a>Procedura: Inserire dati in un back-end di App per dispositivi mobili
+##<a name="inserting"></a>Procedura: inserire dati in un back-end di App per dispositivi mobili
 
 Tutti i tipi di client devono contenere un membro denominato **Id**, che per impostazione predefinita è una stringa. Questo **Id** è necessario per eseguire le operazioni CRUD e offline. Nel codice seguente viene illustrato come inserire nuove righe in una tabella. Il parametro contiene i dati da inserire come oggetto .NET.
 
@@ -259,7 +260,12 @@ Nel codice seguente viene illustrato come aggiornare con nuove informazioni un'i
 
 	await todoTable.UpdateAsync(todoItem);
 
-Per inserire dati non tipizzati è possibile sfruttare Json.NET come segue: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+Per inserire dati non tipizzati è possibile sfruttare Json.NET come segue:
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Hello World");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 Si noti che quando si effettua un aggiornamento, è necessario specificare un ID. Questo è il modo in cui il back-end identifica l'istanza da aggiornare. È possibile ottenere l'ID dal risultato della chiamata `InsertAsync`. Quando si prova ad aggiornare un elemento senza fornire il valore "Id", viene generata un'eccezione `ArgumentException`.
 

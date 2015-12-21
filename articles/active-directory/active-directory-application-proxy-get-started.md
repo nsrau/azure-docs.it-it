@@ -34,7 +34,7 @@ Il proxy dell’applicazione funziona mediante l'installazione di un servizio di
 Il proxy dell'applicazione di Azure AD fornisce l'accesso Single Sign-On alle applicazioni che usano l'autenticazione integrata di Windows o alle applicazioni in grado di riconoscere attestazioni. Se l'applicazione usa l'autenticazione integrata di Windows, il proxy dell'applicazione rappresenta l'utente tramite la delega vincolata Kerberos per fornire l'accesso Single Sign-On. Se invece si dispone di un'applicazione con riconoscimento delle attestazione che considera attendibile Azure Active Directory, l'accesso Single Sign-On viene concesso perché l'utente era già stato autenticato da Azure AD.
 
 ## Attività iniziali
-Assicurarsi di disporre di una sottoscrizione di Azure AD di base o premium e di una directory di Windows Azure di cui si è un amministratore globale. Sono inoltre necessarie licenze di base o premium di Windows Azure per l'amministratore della directory e gli utenti che accedono alle applicazioni. Per altre informazioni sulle edizioni di Azure AD, leggere [qui](active-directory-editions.md).
+Assicurarsi di disporre di una sottoscrizione di Azure AD di base o premium e di una directory di Microsoft Azure di cui si è un amministratore globale. Sono inoltre necessarie licenze di base o premium di Microsoft Azure per l'amministratore della directory e gli utenti che accedono alle applicazioni. Per altre informazioni sulle edizioni di Azure AD, leggere [qui](active-directory-editions.md).
 
 ### Guida introduttiva per l’abilitazione dell'accesso remoto alle applicazioni locali
 La configurazione del proxy dell'applicazione viene eseguita in due passaggi:

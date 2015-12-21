@@ -16,11 +16,12 @@
    ms.date="12/07/2015"
    ms.author="rajram"/>
 
+
 #BizTalk XPath Extractor
 
 Il connettore BizTalk XPath Extract permette all'app di cercare ed estrarre i dati dal contenuto XML in base a un XPath specifico.
 
-## Uso di BizTalk Xpath Extractor
+##Uso di BizTalk Xpath Extractor
 1. Per usare BizTalk Xpath Extractor, è prima di tutto necessario creare un'istanza dell'app per le API BizTalk Xpath Extractor. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API BizTalk Xpath Extractor da Azure Marketplace.
 
 	>[AZURE.NOTE]Nessuna impostazione di configurazione associata a BizTalk Xpath Extractor.
@@ -30,7 +31,7 @@ Il connettore BizTalk XPath Extract permette all'app di cercare ed estrarre i da
 
 5. Scegliere l'opzione di estrazione tramite XPath, che consente di valutare l'espressione xpath di input in uno specifico XML di input: ![Input di BizTalk XPath Extractor][2]
 
-	Parametro|Tipo|Descrizione del parametro
+Parametro|Tipo|Descrizione del parametro
 ---|---|---
 XPath|stringa|Percorso di query in XML.
 XML di input|stringa|Contenuto XML di input.
