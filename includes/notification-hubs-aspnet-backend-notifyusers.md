@@ -132,7 +132,7 @@ In questa sezione si aggiungerà un nuovo controller al back-end WebAPI per gest
 
         using Microsoft.Azure.NotificationHubs;
 
-6. Sostituire la definizione di classe `Notifications` con il codice seguente e assicurarsi di sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub (disponibile nel [portale di gestione di Azure](http://manage.windowsazure.com)):
+6. Sostituire la definizione di classe `Notifications` con il codice seguente e assicurarsi di sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub (disponibile nel [portale di Azure classico](http://manage.windowsazure.com)):
 
 		public class Notifications
         {
@@ -364,4 +364,4 @@ In questa sezione si aggiungerà un nuovo controller che espone un modo per cons
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -3,8 +3,8 @@
    description="Panoramica di come configurare l'integrazione continua per un'applicazione dell'infrastruttura di servizi tramite Visual Studio Online (VSO)."
    services="service-fabric"
    documentationCenter="na"
-   authors="cawa"
-   manager="paulyuk"
+   authors="cawams"
+   manager="timlt"
    editor="" />
 <tags
    ms.service="multiple"
@@ -339,4 +339,4 @@ Le istruzioni precedenti creano un nuovo cluster per ogni compilazione e lo rimu
 
 Per altre informazioni sull'integrazione continua con le applicazioni dell'infrastruttura di servizi, vedere gli articoli seguenti. - [Home page di documentazione sulla compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Distribuire un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Creare e configurare una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

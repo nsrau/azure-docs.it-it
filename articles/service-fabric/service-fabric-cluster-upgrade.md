@@ -66,6 +66,8 @@ Di seguito sono riportate le configurazioni che è possibile modificare in un cl
 
 ![CertificateUpgrade][CertificateUpgrade]
 
+**Nota** Prima di identificare i certificati da usare per le risorse del cluster, è necessario completare i passaggi seguenti. In caso contrario, il nuovo certificato non verrà usato. 1) Caricare il nuovo certificato nell'insieme di credenziali. Per istruzioni, fare riferimento alla [sicurezza di Service Fabric](service-fabric-cluster-security.md) e iniziare dal passaggio 2 in tale documento. 2) Aggiornare tutte le macchine virtuali che costituiscono il cluster, in modo che il certificato venga distribuito in tali macchine. Fare riferimento a [questo post di blog](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) sulla procedura.
+
 ### Porte dell'applicazione
 
 A tale scopo, è possibile modificare le proprietà della risorsa del servizio di bilanciamento del carico associate al tipo di nodo. È possibile usare il portale o ARM PowerShell direttamente.
@@ -94,7 +96,7 @@ Per aprire una nuova porta in tutte le macchine virtuali in un tipo di nodo, è 
 
 ### Metriche della capacità
 
-Per ogni tipo di nodo, è possibile aggiungere metriche della capacità personalizzate da usare nelle applicazioni per creare report sul carico. Per informazioni dettagliate sull'uso di metriche della capacità in base alle quali creare report sul carico, consultare [Panoramica della creazione di report sul carico dinamico](service-fabric-resource-balancer-dynamic-load-reporting.md).
+Per ogni tipo di nodo, è possibile aggiungere metriche della capacità personalizzate da usare nelle applicazioni per creare report sul carico. Per informazioni dettagliate sull'uso delle metriche della capacità in base alle quali creare report sul carico, fare riferimento a [Panoramica della creazione di report sul carico dinamico](service-fabric-resource-balancer-dynamic-load-reporting.md).
 
 ### Applicazione di patch del sistema operativo alle macchine virtuali che costituiscono il cluster
 Questa funzionalità verrà rilasciata in seguito. L'applicazione di patch alle macchine virtuali è attualmente un'operazione manuale, che è necessario eseguire gradualmente, in modo da non rendere inattiva più di una macchina virtuale alla volta.
@@ -113,4 +115,4 @@ Se è necessario aggiornare l'immagine del sistema operativo in uso, eseguire qu
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

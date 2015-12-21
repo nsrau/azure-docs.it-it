@@ -174,8 +174,8 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [Creare origine dati esterna]: https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [Creare formato file esterno]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [Creare tabella esterna]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
-[Creare chiave master]: https://msdn.microsoft.com/it-IT/library/ms174382.aspx
-[Creare credenziale con ambito database]: https://msdn.microsoft.com/it-IT/library/mt270260.aspx
+[Creare chiave master]: https://msdn.microsoft.com/library/ms174382.aspx
+[Creare credenziale con ambito database]: https://msdn.microsoft.com/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
 
@@ -183,4 +183,4 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 
 [Statistiche]: ./sql-data-warehouse-develop-statistics.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

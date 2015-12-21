@@ -51,7 +51,7 @@ Per il supporto ai dispositivi VPN, contattare il produttore del dispositivo.
 | Cisco | ASR | IOS 15.1 (statico), IOS 15.2 (dinamico) | [Esempi Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Esempi Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Cisco | ISR | IOS 15.0 (statico), IOS 15.1 (dinamico) | [Esempi Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Esempi Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Citrix | Dispositivo MPX CloudBridge o dispositivo virtuale VPX | N/D | [Istruzioni di integrazione](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Non compatibile |
-| Dell SonicWALL | Serie TZ, serie NSA, serie SuperMassive, serie NSA classe E | SonicOS 5.8.x, SonicOS 5.9.x, SonicOS 6.x | [Istruzioni di configurazione](https://www.sonicwall.com/app/projects/file_downloader/document_lib.php?t=TN&id=348) | Non compatibile |
+| Dell SonicWALL | Serie TZ, serie NSA, serie SuperMassive, serie NSA classe E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Istruzioni - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Istruzioni - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Istruzioni - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Istruzioni - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Serie BIG-IP | N/D | [Istruzioni di configurazione](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Non compatibile |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [Istruzioni di configurazione](http://docs.fortinet.com/fortigate/admin-guides) | [Istruzioni di configurazione](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | Serie SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Istruzioni di configurazione](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Non compatibile |
@@ -68,7 +68,7 @@ Per il supporto ai dispositivi VPN, contattare il produttore del dispositivo.
 ### Dispositivi non presenti nell'elenco compatibile
 
 
-Se il dispositivo non compare nell'elenco di dispositivi VPN compatibili e si desidera utilizzarlo per la connessione VPN, è necessario verificare che soddisfi i requisiti minimi descritti nella tabella [Requisiti del gateway](vpn-gateway-about-vpngateways.md#gateway-requirements). I dispositivi che soddisfano i requisiti minimi dovrebbero funzionare correttamente con Rete virtuale. Contattare il produttore del dispositivo per assistenza e istruzioni di configurazione.
+Se il dispositivo non viene visualizzato nell'elenco di dispositivi VPN compatibili e lo si vuole usare per la connessione VPN, è necessario verificare che soddisfi i requisiti minimi descritti nella tabella [Requisiti del gateway](vpn-gateway-about-vpngateways.md#gateway-requirements). I dispositivi che soddisfano i requisiti minimi dovrebbero funzionare correttamente con Rete virtuale. Contattare il produttore del dispositivo per assistenza e istruzioni di configurazione.
 
 
 ## Esempi di modifica di configurazione dispositivo
@@ -78,7 +78,7 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 **Per modificare il codice di esempio:**
 
 1. Aprire l'esempio utilizzando il blocco note. 
-1. Cercare e sostituire tutti le stringhe <*testo*> con i valori pertinenti all'ambiente. Assicurarsi di includere < and >. Quando viene specificato un nome, il nome selezionato deve essere univoco. Se un comando non funziona, consultare la documentazione del produttore dispositivo.
+1. Cercare e sostituire tutti le stringhe <*text*> con i valori pertinenti all'ambiente. Assicurarsi di includere < and >. Quando viene specificato un nome, il nome selezionato deve essere univoco. Se un comando non funziona, consultare la documentazione del produttore dispositivo.
 
 | **Testo di esempio** | **Modificare in** |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -91,7 +91,7 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 | &lt;SP\_AzureNetworkSubnetMask&gt; | Specificare la subnet mask. Esempio: 255.255.0.0 |
 | &lt;SP\_OnPremisesNetworkIpRange&gt; | Specificare l'intervallo in locale. Esempio: 10.2.1.0 |
 | &lt;SP\_OnPremisesNetworkSubnetMask&gt; | Specificare la subnet mask locale. Esempio: 255.255.255.0 |
-| &lt;SP\_AzureGatewayIpAddress&gt; | Queste informazioni sono specifiche per la rete virtuale e si trovano nel portale di gestione in **Indirizzo IP del gateway**. |
+| &lt;SP\_AzureGatewayIpAddress&gt; | Queste informazioni sono specifiche della rete virtuale e si trovano nel portale di gestione in **Indirizzo IP gateway**. |
 | &lt;SP\_PresharedKey&gt; | Queste informazioni sono specifiche per la rete virtuale e si trovano nel portale di gestione in chiave di gestione. |
 
 
@@ -154,6 +154,6 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 
 Per altre informazioni sui gateway VPN, vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md).
 
-Per configurare una rete virtuale con una connessione VPN da sito a sito vedere [Creare una rete virtuale con connessione VPN da sito a sito](vpn-gateway-site-to-site-create.md).
+Per configurare una connessione VPN da sito a sito, vedere [Creare una rete virtuale con una connessione VPN da sito a sito](vpn-gateway-site-to-site-create.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

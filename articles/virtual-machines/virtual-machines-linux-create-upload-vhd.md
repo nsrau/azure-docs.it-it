@@ -54,6 +54,7 @@ In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 Azure supporta numerose distribuzioni di Linux (vedere la sezione [Distribuzioni approvate](../linux-endorsed-distributions.md)). Gli articoli seguenti forniscono le istruzioni per preparare le diverse distribuzioni Linux supportate in Azure:
 
 - **[Distribuzioni basate su CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES e openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
@@ -74,7 +75,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 Le impostazioni predefinite dell’interfaccia della riga di comando di Azure più recenti nel modello di distribuzione di Gestione risorse, quindi verificare che ci si trovi nel modello di distribuzione classica mediante questo comando:
 
-		azure change mode asm  
+		azure config mode asm  
 
 Successivamente, utilizzare uno qualsiasi dei seguenti metodi di accesso per connettersi alla sottoscrizione di Azure.
 
@@ -88,7 +89,7 @@ Utilizzare il metodo di Azure AD per accedere:
 
 	Quando richiesto, digitare nome utente e password.
 
-**OPPURE**, utilizzare invece un file di impostazioni di pubblicazione:
+**OPPURE** usare un file di impostazioni di pubblicazione:
 
 1. Aprire una finestra della riga di comando di Azure
 
@@ -106,7 +107,7 @@ Utilizzare il metodo di Azure AD per accedere:
 
 	Dove `<PathToFile>` è il percorso completo del file .publishsettings.
 
-	Per ulteriori informazioni, leggere [connettersi ad Azure da Azure CLI](../xplat-cli-connect.md).
+	Per ulteriori informazioni, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
 
 ### Se si utilizza Azure PowerShell
@@ -121,7 +122,7 @@ Utilizzare il metodo di Azure AD per accedere:
 
 	Quando richiesto, immettere l'id utente dell'organizzazione e la password.
 
-**O**, in alternativa, utilizzare i file di impostazioni di pubblicazione:
+**OPPURE** usare i file delle impostazioni di pubblicazione:
 
 1. Aprire una finestra di Azure PowerShell.
 
@@ -164,11 +165,11 @@ Nella finestra di Azure PowerShell utilizzata nel passaggio precedente, digitare
 
 Per ulteriori informazioni, vedere [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE]La [versione di anteprima di Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) cambia notevolmente il modo in cui gestisce i cmdlet per il modello di distribuzione classica e di Gestione risorse. Questo articolo non usa ancora la versione di anteprima.
+> [AZURE.NOTE]La [versione di anteprima di Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) cambia notevolmente il modo in cui gestisce i cmdlet nel modello di distribuzione di Gestione risorse e in quello classico. Questo articolo non usa ancora la versione di anteprima.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

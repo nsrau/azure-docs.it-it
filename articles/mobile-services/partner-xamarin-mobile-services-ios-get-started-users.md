@@ -7,13 +7,14 @@
 	authors="lindydonna"
 	editor=""/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="11/30/2015"
 	ms.author="donnam"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -57,7 +58,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 ##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
-1. Aprire il file del progetto **ToDoService** e aggiungere le variabili seguenti:
+1. Aprire il file del progetto **QSToDoService** e aggiungere le variabili seguenti:
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
@@ -101,18 +102,19 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
         {
             base.ViewDidAppear(animated);
 
-            if (QSToDoService.DefaultService.User == null)
+            if (QSTodoService.DefaultService.User == null)
             {
-                await QSToDoService.DefaultService.LoginAndGetData(this);
+                await QSTodoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (QSToDoService.DefaultService.User == null)
+            if (QSTodoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
             }
 
-            RefreshAsync();
+
+            await RefreshAsync();
         }
 6. Rimuovere la chiamata originale a **RefreshAsync** da **TodoListViewController.ViewDidLoad**.
 
@@ -153,4 +155,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

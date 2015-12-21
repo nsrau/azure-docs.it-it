@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Risoluzione dei problemi di creazione di raccolte ibride di RemoteApp di Azure "
-    description="Informazioni su come risolvere i problemi relativi agli errori di creazione delle raccolte ibride di RemoteApp" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="vkbucha" 
+<properties
+    pageTitle="Risoluzione dei problemi di creazione delle raccolte ibride di RemoteApp | Microsoft Azure"
+    description="Informazioni su come risolvere i problemi relativi agli errori di creazione delle raccolte ibride di RemoteApp"
+    services="remoteapp"
+    documentationCenter=""
+    authors="vkbucha"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="11/04/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/04/2015"
     ms.author="elizapo" />
 
 
@@ -24,7 +24,7 @@ Una raccolta ibrida è ospitata nel cloud di Azure insieme ai dati ma consente a
 
 Se la raccolta non è stata ancora creata, vedere [Come creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md)
 
-Se si verificano problemi durante la creazione della raccolta o se la raccolta non funziona nel modo previsto, consultare le informazioni seguenti.
+Se si verificano problemi durante la creazione della raccolta o se la raccolta non funziona come previsto, consultare le informazioni seguenti.
 
 ## L'immagine non è valida ##
 Se viene visualizzato un messaggio del tipo "GoldImageInvalid" quando si è in attesa di Azure per eseguire il provisioning per la raccolta, significa che l'immagine del modello non soddisfa i [requisiti definiti per l’immagine](remoteapp-imagereqs.md). Quindi, leggere quei [requisiti](remoteapp-imagereqs.md), correggere l'immagine e cercare di creare nuovamente la raccolta.
@@ -84,4 +84,4 @@ Assicurarsi che i dettagli del dominio forniti siano validi e che il controller 
 
 Il nome di dominio creato o aggiunto deve essere un nome di dominio interno (non il nome di dominio Active Directory di Azure) e deve essere nel formato DNS risolvibile (contoso.local). Ad esempio, si dispone di un nome interno di Active Directory (contoso.local) e di un UPN di Directory Active (contoso.com): è necessario utilizzare il nome interno quando si crea la raccolta.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

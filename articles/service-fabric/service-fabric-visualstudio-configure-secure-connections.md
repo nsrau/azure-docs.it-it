@@ -46,9 +46,9 @@ La finestra di dialogo **Selezionare Cluster di Infrastruttura di servizi** cons
 
 4.	[Facoltativo]: È possibile modificare il profilo di pubblicazione per specificare una connessione protetta del cluster.
 
-    Poiché si sta modificando manualmente il file XML del profilo di pubblicazione per specificare le informazioni del certificato, assicurarsi di prendere nota del nome di archivio del certificati, la posizione dell’archivio e l’identificazione personale del certificato. È necessario fornire questi valori per il nome dell'archivio del certificato e il percorso dell'archivio. Vedere [Procedura: recuperare l'identificazione personale del certificato] (https://msdn.microsoft.com/it-IT/library/ms734695(v=vs.110).aspx) per ulteriori informazioni.
+    Poiché si sta modificando manualmente il file XML del profilo di pubblicazione per specificare le informazioni del certificato, assicurarsi di prendere nota del nome di archivio del certificati, la posizione dell’archivio e l’identificazione personale del certificato. È necessario fornire questi valori per il nome dell'archivio del certificato e il percorso dell'archivio. Per altre informazioni, vedere [Procedura: Recuperare l'identificazione personale del certificato] (https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx).
 
-    I parametri *ClusterConnectionParameters* consentono di specificare i parametri di PowerShell da utilizzare quando ci si connette al cluster di Infrastruttura di servizi. I parametri validi sono quelli che vengono accettati dal cmdlet Connect-ServiceFabricCluster. Vedere [Connect-ServiceFabricCluster](https://msdn.microsoft.com/it-IT/library/mt125938.aspx) per un elenco dei parametri disponibili.
+    I parametri *ClusterConnectionParameters* consentono di specificare i parametri di PowerShell da utilizzare quando ci si connette al cluster di Infrastruttura di servizi. I parametri validi sono quelli che vengono accettati dal cmdlet Connect-ServiceFabricCluster. Per un elenco dei parametri disponibili, vedere [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
     Se si pubblica in un cluster remoto, è necessario specificare i parametri appropriati per tale cluster specifico. Di seguito è riportato un esempio per la connessione a un cluster non protetto:
 
@@ -76,4 +76,4 @@ Per ulteriori informazioni sull'accesso ai cluster di Infrastruttura di servizi,
 [publishdialog]: ./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]: ./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

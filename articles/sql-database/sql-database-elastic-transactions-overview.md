@@ -35,9 +35,9 @@ Le transazioni di database elastico per il database SQL consentono alle applicaz
 
 ## Installazione e migrazione
 
-Le funzionalità per le transazioni di database elastico nel database SQL vengono fornite tramite aggiornamenti alle librerie .NET System.Data.dll e System.Transactions.dll. Le DLL assicurano che il protocollo 2PC venga usato dove necessario per garantire l'atomicità. Per iniziare a sviluppare applicazioni che usano transazioni di database elastico, installare [.NET 4.6.1 Release Candidate](http://blogs.msdn.com/b/dotnet/archive/2015/10/29/announcing-net-framework-4-6-1-rc.aspx) o una versione successiva di .NET Framework. Quando si esegue una versione precedente di .NET Framework, le transazioni non verranno alzate di livello a una transazione distribuita e verrà generata un'eccezione.
+Le funzionalità per le transazioni di database elastico nel database SQL vengono fornite tramite aggiornamenti alle librerie .NET System.Data.dll e System.Transactions.dll. Le DLL assicurano che il protocollo 2PC venga usato dove necessario per garantire l'atomicità. Per iniziare a sviluppare applicazioni che usano transazioni di database elastico, installare [.NET Framework 4.6.1](https://www.microsoft.com/it-IT/download/details.aspx?id=49981) o una versione successiva. Quando si esegue una versione precedente di .NET Framework, le transazioni non verranno alzate di livello a una transazione distribuita e verrà generata un'eccezione.
 
-Dopo l'installazione, è possibile usare l'API di transazione distribuita in System.Transactions con connessioni al database SQL. Se sono disponibili applicazioni di MSDTC che usano queste API, è sufficiente ricompilare le applicazioni esistenti per .NET 4.6 dopo avere installato la versione finale candidata. Se i progetti sono destinati a .NET 4.6, verranno usate automaticamente le DLL aggiornate della versione finale candidata e ora le chiamate API di transazione distribuita in combinazione con le connessioni al database SQL riusciranno.
+Dopo l'installazione, è possibile usare l'API di transazione distribuita in System.Transactions con connessioni al database SQL. Se sono disponibili applicazioni di MSDTC che usano queste API, è sufficiente ricompilare le applicazioni esistenti per .NET 4.6 dopo avere installato la versione 4.6.1 di Framework. Se i progetti sono destinati a .NET 4.6, verranno usate automaticamente le DLL aggiornate della nuova versione di Framework e le chiamate API di transazione distribuita in combinazione con le connessioni al database SQL ora riusciranno.
 
 Tenere presente che le transazioni di database elastico non richiedono l'installazione di MSDTC. Al contrario, le transazioni di database elastico sono gestite direttamente e internamente dal database SQL. In questo modo gli scenari basati sul cloud sono notevolmente più semplici, perché non è necessaria una distribuzione di MSDTC per usare transazioni distribuite con il database SQL. La sezione 4 illustra in dettaglio come distribuire le transazioni di database elastico e la versione di .NET Framework necessaria insieme alle proprie applicazioni cloud in Azure.
 
@@ -96,7 +96,7 @@ Le transazioni di database elastico per il database SQL supportano anche il coor
 
 ## Configurazione dei ruoli di lavoro di Azure
 
-È possibile automatizzare l'installazione e la distribuzione della versione di .NET e delle librerie necessarie per le transazioni di database elastico in Azure, ovvero nel sistema operativo guest del servizio cloud. Per i ruoli di lavoro di Azure, usare le attività di avvio. I concetti e i passaggi sono documentati in [Installare .NET in un ruolo del servizio cloud](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/).
+È possibile automatizzare l'installazione e la distribuzione della versione di .NET e delle librerie necessarie per le transazioni di database elastico in Azure, ovvero nel sistema operativo guest del servizio cloud. Per i ruoli di lavoro di Azure, usare le attività di avvio. I concetti e i passaggi sono documentati in [Installare .NET in un ruolo del servizio cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 Si noti che il programma di installazione per .NET 4.6.1 richiede più spazio di archiviazione temporaneo durante il processo di bootstrap nei servizi cloud di Azure rispetto al programma di installazione per .NET 4.6. Per garantire una corretta installazione, è necessario aumentare l'archiviazione temporanea per il servizio cloud di Azure nel file ServiceDefinition.csdef nella sezione LocalResources e le impostazioni di ambiente dell'attività di avvio, come illustrato nell'esempio seguente:
 
@@ -140,9 +140,9 @@ Per le transazioni di database elastico nel database SQL si applicano attualment
 
 ## Altre informazioni
 
-Se ancora non si usano le funzionalità del database elastico per le applicazioni Azure Vedere la [mappa della documentazione](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). Per domande è possibile visitare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum dei commenti e suggerimenti sul database SQL](http://feedback.azure.com/forums/217321-sql-database).
+Se ancora non si usano le funzionalità del database elastico per le applicazioni Azure Vedere la [mappa della documentazione](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Per domande è possibile visitare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum dei commenti e suggerimenti sul database SQL](http://feedback.azure.com/forums/217321-sql-database).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

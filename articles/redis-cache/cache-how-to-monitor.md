@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Come monitorare Cache Redis di Azure
@@ -24,11 +24,11 @@ Quando è abilitata la diagnostica della cache, le metriche per le istanze di Ca
 
 Le metriche della cache vengono raccolte utilizzando il comando [INFO](http://redis.io/commands/info) di Redis. Per ulteriori informazioni sui diversi comandi INFO utilizzati per ciascuna metrica della cache, vedere [Metriche disponibili e intervalli di report](#available-metrics-and-reporting-intervals).
 
-Per visualizzare le metriche della cache, [sfogliare](cache-configure.md) l’istanza della cache nel [portale di anteprima di Azure](https://portal.azure.com). L’accesso alle metriche per le istanze di Cache Redis di Azure viene eseguito nel pannello **Cache Redis**.
+Per visualizzare le metriche della cache, [passare](cache-configure.md) all'istanza della cache nel [portale di Azure](https://portal.azure.com). L’accesso alle metriche per le istanze di Cache Redis di Azure viene eseguito nel pannello **Cache Redis**.
 
 ![Monitoraggio][redis-cache-monitor-overview]
 
->[AZURE.IMPORTANT]Se viene visualizzato il messaggio seguente nel portale di anteprima, seguire i passaggi nella sezione [Abilitare la diagnostica della cache](#enable-cache-diagnostics) per abilitare la diagnostica della cache.
+>[AZURE.IMPORTANT]Se viene visualizzato il messaggio seguente nel portale di Azure, seguire i passaggi nella sezione [Abilitare la diagnostica della cache](#enable-cache-diagnostics) per abilitare la diagnostica della cache.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
@@ -36,7 +36,7 @@ Il pannello di **Cache Redis** dispone di grafici di **Monitoraggio** e grafici 
 
 ## Abilitare la diagnostica della cache
 
-Cache Redis di Azure offre la possibilità di disporre di dati di diagnostica archiviati in un account di archiviazione, in modo che sia possibile utilizzare gli strumenti desiderati per accedere ed elaborare i dati direttamente. Per consentire la raccolta, l’archiviazione e la visualizzazione della diagnostica della cache nel portale di anteprima di Azure, è necessario configurare un account di archiviazione. Le cache nella stessa area e nella stessa sottoscrizione condividono lo stesso account di archiviazione di diagnostica e quando viene modificata la configurazione, la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area.
+Cache Redis di Azure offre la possibilità di disporre di dati di diagnostica archiviati in un account di archiviazione, in modo che sia possibile utilizzare gli strumenti desiderati per accedere ed elaborare i dati direttamente. Per consentire la raccolta, l'archiviazione e la visualizzazione della diagnostica della cache nel portale di Azure, è necessario configurare un account di archiviazione. Le cache nella stessa area e nella stessa sottoscrizione condividono lo stesso account di archiviazione di diagnostica e quando viene modificata la configurazione, la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area.
 
 Per abilitare e configurare la diagnostica della cache, passare al pannello **Cache Redis** per l'istanza della cache. Se la diagnostica non è ancora abilitate, viene visualizzato un messaggio anziché un grafico di diagnostica.
 
@@ -56,9 +56,9 @@ Dopo aver configurate le impostazioni di diagnostica, fare clic su **Salva** per
 
 >[AZURE.IMPORTANT]Le cache nella stessa area e nella stessa sottoscrizione condividono lo stesso account di archiviazione di diagnostica e quando viene modificata la configurazione, la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area.
 
-Per visualizzare le metriche archiviate, esaminare le tabelle dell'account di archiviazione con i nomi che iniziano con `WADMetrics`. Per ulteriori informazioni sull'accesso alle metriche archiviate all'esterno del portale di anteprima, vedere l’esempio relativo all’[accesso ai dati di monitoraggio di Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
+Per visualizzare le metriche archiviate, esaminare le tabelle dell'account di archiviazione con i nomi che iniziano con `WADMetrics`. Per altre informazioni sull'accesso alle metriche archiviate all'esterno del portale di Azure, vedere l'esempio relativo all'[accesso ai dati di monitoraggio di Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
->[AZURE.NOTE]Solo le metriche archiviate nell'account di archiviazione selezionato vengono visualizzate nel portale di anteprima. Se si modificano gli account di archiviazione, i dati nell'account di archiviazione configurato in precedenza rimangono disponibili per il download, ma non vengono visualizzati nel portale di anteprima.
+>[AZURE.NOTE]Solo le metriche archiviate nell'account di archiviazione selezionato vengono visualizzate nel portale di Azure. Se si modificano gli account di archiviazione, i dati nell'account di archiviazione configurato in precedenza rimangono disponibili per il download, ma non vengono visualizzati nel portale di Azure.
 
 ## Metriche disponibili e intervalli di report
 
@@ -259,4 +259,4 @@ Per ulteriori informazioni sugli avvisi in Azure, vedere [Ricevere notifiche di 
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

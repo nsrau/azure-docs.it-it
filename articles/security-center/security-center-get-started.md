@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -20,7 +20,7 @@
 
 Questo documento consente di iniziare rapidamente a utilizzare il Centro protezione Azure guidando attraverso i componenti di gestione del monitoraggio e dei criteri di sicurezza e fornendo un collegamento ai passaggi successivi.
 
-> [AZURE.NOTE]Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Questa è un'introduzione al servizio con un esempio di distribuzione. Questa non è una guida dettagliata.
+> [AZURE.NOTE]Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Questa è un'introduzione al servizio con un esempio di distribuzione, Questa non è una guida dettagliata.
 
 ## Informazioni sul Centro sicurezza PC di Azure
 Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -29,12 +29,12 @@ Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce median
 
 Per iniziare a usare Centro sicurezza PC di Azure, è necessario avere una sottoscrizione di Microsoft Azure. Il Centro sicurezza PC di Azure viene abilitato con la sottoscrizione di Azure. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial).
 
-È possibile accedere al Centro sicurezza PC di Azure tramite il [portale di anteprima di Microsoft Azure](http://azure.microsoft.com/features/azure-portal/). Vedere [Documentazione del portale di anteprima di Azure](https://azure.microsoft.com/documentation/services/azure-portal/) per ulteriori informazioni.
+È possibile accedere al Centro sicurezza di Azure tramite il [portale di Azure](http://azure.microsoft.com/features/azure-portal/). Per altre informazioni, vedere la [documentazione del portale](https://azure.microsoft.com/documentation/services/azure-portal/).
 
 
 ## Accesso al Centro sicurezza PC di Azure
 
-Nel portale di Azure, attenersi alla procedura seguente per accedere al Centro sicurezza PC di Azure:
+Nel portale attenersi alla procedura seguente per accedere al Centro sicurezza di Azure:
 
 1. Selezionare **Sfoglia** e scorrere le opzioni del **Centro sicurezza PC**. ![][1]
 
@@ -103,4 +103,4 @@ In questo documento sono stati presentati i componenti del monitoraggio della si
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -54,8 +54,8 @@ Le raccolte Reliable Collections scelgono automaticamente il livello di isolamen
 
 Le raccolte Reliable Collections supportano due livelli di isolamento:
 
-- **Repeatable Read**: "Specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, fino al completamento della transazione corrente. (https://msdn.microsoft.com/it-IT/library/ms173763.aspx)".
-- **Snapshot**: "Specifica che i dati letti da qualsiasi istruzione in una transazione rappresenteranno la versione consistente dal punto di vista transazionale dei dati esistenti al momento dell'avvio della transazione. La transazione può quindi accedere solo alle modifiche dei dati di cui è stato eseguito il commit prima dell'avvio della transazione. Le modifiche apportate da altre transazioni dopo l'inizio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente. Con questo livello di isolamento, è come se le istruzioni di una transazione operassero su uno snapshot dei dati di cui è stato eseguito il commit, corrispondente ai dati esistenti al momento dell'avvio della transazione. (https://msdn.microsoft.com/it-IT/library/ms173763.aspx)"
+- **Repeatable Read**: "Specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, fino al completamento della transazione corrente. (https://msdn.microsoft.com/library/ms173763.aspx)".
+- **Snapshot**: "Specifica che i dati letti da qualsiasi istruzione in una transazione rappresenteranno la versione consistente dal punto di vista transazionale dei dati esistenti al momento dell'avvio della transazione. La transazione può quindi accedere solo alle modifiche dei dati di cui è stato eseguito il commit prima dell'avvio della transazione. Le modifiche apportate da altre transazioni dopo l'inizio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente. Con questo livello di isolamento, è come se le istruzioni di una transazione operassero su uno snapshot dei dati di cui è stato eseguito il commit, corrispondente ai dati esistenti al momento dell'avvio della transazione. (https://msdn.microsoft.com/library/ms173763.aspx)"
 
 Gli oggetti ReliableDictionary e ReliableQueue supportano entrambi il criterio "Read Your Writes". In altri termini, qualsiasi operazione di scrittura all'interno di una transazione sarà visibile a una lettura successiva appartenente alla stessa transazione.
 
@@ -119,4 +119,4 @@ Occorre tenere presente i concetti seguenti:
 - [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

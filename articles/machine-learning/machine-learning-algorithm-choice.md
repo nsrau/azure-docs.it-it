@@ -114,7 +114,7 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 |[macchina a vettori di supporto localmente approfondito](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Particolarmente valido per set di funzioni di grandi dimensioni|
 |[Bayes Point Machine](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**Classificazione multiclasse**| | | | | |
-|[regressione logistica](https://msdn.microsoft.com/it-IT/library/azure/dn905853.aspx)| |●|●|5| |
+|[regressione logistica](https://msdn.microsoft.com/library/azure/dn905853.aspx)| |●|●|5| |
 |[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[giungla delle decisioni ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Footprint della memoria ridotto|
 |[rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)|
@@ -237,4 +237,4 @@ Azure Machine Learning include inoltre l'accesso a una struttura di Machine Lear
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

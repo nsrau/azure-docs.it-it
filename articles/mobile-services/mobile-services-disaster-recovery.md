@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/08/2015"
+	ms.date="11/30/2015"
 	ms.author="christopheranderson"/>
 
 # Ripristinare il servizio mobile in caso di emergenza
@@ -83,12 +83,19 @@ Per ripristinare il servizio mobile in seguito a un'interruzione:
 	+ Nella scheda **"Configura"** relativa al servizio mobile del portale di Azure classico, scegliere "Cambia database", quindi selezionare il database appena ripristinato.
 
 7. A questo punto, il servizio mobile è ospitato in una posizione fisica diversa. Per consentire l'aggiornamento del sito in esecuzione, sarà necessario aggiornare le credenziali di pubblicazione e/o git.
-	+ Se si usa un **back-end .NET**, configurare di nuovo il profilo di pubblicazione come descritto in [Pubblicare il servizio mobile](mobile-services-dotnet-backend-windows-store-dotnet-get-started/#publish-your-mobile-service). I dettagli di pubblicazione verranno aggiornati in modo da puntare alla posizione del servizio.
-	+ Se si usa un **back-end Javascript** e si gestisce il servizio tramite il portale di Azure classico, non sarà necessario eseguire altre azioni.
+
+	+ Se si usa un **back-end .NET**, configurare di nuovo il profilo di pubblicazione come descritto in [Pubblicare il servizio mobile](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md#publish-your-mobile-service). I dettagli di pubblicazione verranno aggiornati in modo da puntare alla posizione del servizio.
+	+ Se si usa un **back-end Javascript** e si gestisce il servizio tramite il portale, non sarà necessario eseguire altre azioni.
+
 	+ Se si usa un **back-end Javascript** e si gestisce il servizio tramite il nodo, aggiornare il Git remoto in modo che punti al nuovo repository. A questo scopo, rimuovere il percorso del file con estensione git dal Git remoto:
 
-		1. Trovare l'origine remota corrente: Git remoto -v origine https://myservice.scm.azure-mobile.net/myservice.git (fetch) origine https://myservice.scm.azure-mobile.net/myservice.git (push)
-		3. Aggiornare l'origine remota usando lo stesso URL, ma senza il percorso del file con estensione git finale: Git remoto set-url origine https://myservice.scm.azure-mobile.net
+		1. Trovare l'origine remota corrente:
+
+				git remote -v
+				 origin  https://myservice.scm.azure-mobile.net/myservice.git (fetch)
+				 origin  https://myservice.scm.azure-mobile.net/myservice.git (push)
+
+		3. Aggiornare l'origine remota usando lo stesso URL, ma senza il percorso del file con estensione git finale: git remote set-url origin https://myservice.scm.azure-mobile.net
 		4. Effettuare il pull dell'origine per verificare che funzioni correttamente.
 
 Si avrà ora una situazione in cui il servizio mobile è stato ripristinato in una nuova area di Azure e accetta traffico dalle app dello Store usando il proprio URL originale.
@@ -100,11 +107,11 @@ Si avrà ora una situazione in cui il servizio mobile è stato ripristinato in u
 <!-- URLs. -->
 [continuità aziendale nel database SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
-
+[Github]: https://github.com/
 [controllo del codice sorgente]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
 [interfaccia della riga di comando di Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [portale di Azure classico]: http://manage.windowsazure.com/
 [dashboard dei servizi mobili di Azure]: http://www.windowsazure.com/support/service-dashboard/
 [Automatizzare i servizi mobili con l'interfaccia della riga di comando]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

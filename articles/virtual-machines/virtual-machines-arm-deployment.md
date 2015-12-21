@@ -48,7 +48,7 @@ Per usare Azure AD per autenticare le richieste a Gestione risorse di Azure, è 
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Annotare l'identificatore dell’applicazione che viene restituito dopo che l'applicazione viene creata perché sarà necessario per il passaggio successivo. L'identificatore dell'applicazione è disponibile anche nel campo ID client dell'applicazione nella sezione Active Directory del portale.
+	>[AZURE.NOTE]Annotare l'identificatore dell’applicazione che viene restituito dopo che l'applicazione viene creata perché sarà necessario per il passaggio successivo. L'identificatore dell'applicazione è disponibile anche nel campo ID client dell'applicazione nella sezione Active Directory del portale di Azure.
 
 3. Sostituire {application-id} con l'identificatore appena registrato, quindi creare l'entità servizio per l'applicazione:
 
@@ -349,7 +349,7 @@ Ora che sono state create tutte le risorse di supporto, è possibile creare una 
 2.	Aggiungere il codice seguente al metodo Main per chiamare il metodo appena aggiunto:
 
 		CreateVirtualMachine(credential);
-    Console.ReadLine();
+        Console.ReadLine();
 
 ##Passaggio 5: Aggiungere il codice per eliminare le risorse
 
@@ -378,10 +378,10 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 2.	Premere **INVIO** dopo la restituzione di tutti i codici di stato per creare ciascuna risorsa. Dopo la creazione della macchina virtuale, eseguire il passaggio seguente prima di premere INVIO per eliminare tutte le risorse.
 
-	L'esecuzione completa dell'applicazione console dall'inizio alla fine dovrebbe richiedere circa 5 minuti. Prima di premere INVIO per avviare l'eliminazione delle risorse, è consigliabile dedicare alcuni minuti alla verifica della creazione delle risorse nel portale di Azure prima dell'eliminazione.
+	L'esecuzione completa dell'applicazione console dall'inizio alla fine dovrebbe richiedere circa 5 minuti. Prima di premere Invio per avviare l'eliminazione delle risorse, è consigliabile dedicare alcuni minuti alla verifica della creazione delle risorse nel portale di Azure prima dell'eliminazione.
 
 3. Passare a Log di controllo nel portale di Azure per visualizzare lo stato delle risorse:
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

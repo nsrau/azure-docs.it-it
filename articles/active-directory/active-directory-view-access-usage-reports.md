@@ -13,22 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="12/07/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
 
 # Visualizzare i report di accesso e utilizzo
 
-## Articoli di documentazione della creazione di report
-
- - [API di creazione report](active-directory-reporting-api-getting-started.md)
- - [Eventi di controllo](active-directory-reporting-audit-events.md)
- - [Conservazione](active-directory-reporting-retention.md)
- - [Anteprime](active-directory-reporting-previews.md)
- - [Search](active-directory-reporting-search.md)
- - [Recupero delle informazioni](active-directory-reporting-backfill.md)
- - [Latenze](active-directory-reporting-latencies.md)
- - [Evento "Attore sconosciuto"](active-directory-reporting-unknown-actor.md)
+*Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
 È possibile usare i report di utilizzo e accesso di Azure Active Directory per ottenere informazioni sull'integrità e sicurezza della directory dell'organizzazione. Con queste informazioni un amministratore di directory può stabilire meglio dove potrebbero esserci possibili rischi per la sicurezza in modo da poterne pianificare adeguatamente la riduzione.
 
@@ -236,7 +227,7 @@ Solo determinati tipi di eventi di accesso verranno visualizzati nel report dell
 | Accessi a un'app federativa/con provisioning tramite il pannello di accesso, come Salesforce | Sì |
 | Accessi a un'app basata su password tramite il pannello di accesso, come Twitter | Sì |
 | Accessi a un'app di business personalizzata che è stata aggiunta alla directory | No (disponibile a breve) |
-| Accessi a un'app del proxy di applicazione di Azure AD che è stata aggiunta alla directory | No (disponibile a breve) |
+| Accessi a un'app del proxy dell'applicazione di Azure AD che è stata aggiunta alla directory | No (disponibile a breve) |
 
 > Nota: per ridurre la quantità di disturbo in questo report, non vengono visualizzati gli accessi all'[Assistente per l'accesso ai Microsoft Online Services](http://community.office365.com/it-IT/w/sso/534.aspx).
 
@@ -272,7 +263,7 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
 	- Fino a 1000 eventi saranno visualizzati nel portale di gestione di Azure.
 5. Se applicabile, fare clic su **Download** per scaricare il report in un file compresso in formato valori separati da virgole (CSV) per visualizzarlo offline o a scopo di archiviazione.
 	- Fino a 75.000 eventi verranno inclusi nel file scaricato.
-	- Per ulteriori dati, consultare l[API di Reporting AD Azure](active-directory-reporting-api-getting-started.md).
+	- Per altri dati, vedere [Introduzione all'API di creazione report](active-directory-reporting-api-getting-started.md).
 
 ## Ignorare un evento
 
@@ -280,11 +271,11 @@ Se si stanno visualizzando tutti i report anomalie, si noterà che è possibile 
 
 ## Notifiche automatiche tramite posta elettronica
 
-Per altre informazioni sulle notifiche della funzionalità di creazione di report di Azure AD, vedere [Notifiche relative alla funzionalità di creazione di report di Azure Active Directory](active-directory-reporting-notifications.md).
+Per altre informazioni sulle notifiche della funzionalità di creazione di report di Azure AD, vedere [Notifiche di Report di Azure Active Directory](active-directory-reporting-notifications.md).
 
 ## Passaggi successivi
 
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

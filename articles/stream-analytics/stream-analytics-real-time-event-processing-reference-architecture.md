@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Elaborazione di eventi in tempo reale con Analisi di flusso | Microsoft Azure" 
+	pageTitle="Elaborazione di eventi in tempo reale con l'elaborazione eventi di Analisi di flusso | Microsoft Azure" 
 	description="Informazioni su come un set di servizi di Azure è in grado di interagire per consentire l’elaborazione e l’analisi in tempo reale degli eventi." 
+    keywords="elaborazione in tempo reale, elaborazione di eventi, architettura di riferimento"
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 # Architettura di riferimento: elaborazione di eventi in tempo reale con Analisi di flusso di Microsoft Azure
@@ -58,8 +59,8 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 - [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

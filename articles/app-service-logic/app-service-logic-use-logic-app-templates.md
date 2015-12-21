@@ -1,6 +1,6 @@
 <properties
- pageTitle="Uso dei modelli di app per la logica"
- description="Informazioni su come usare modelli di app per la logica predefiniti."
+ pageTitle="Usare i modelli di app per la logica in Servizio app di Azure | Microsoft Azure"
+ description="Informazioni su come usare modelli di app per la logica predefiniti"
  authors="kevinlam1"
  manager="dwrede"
  editor=""
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/07/2015"
 	ms.author="klam"/>
 
 # Uso dei modelli di app per la logica
 
-I modelli di app per la logica sono un insieme di app per la logica predefinite e accuratamente progettate che consentono agli utenti di sviluppare rapidamente la propria applicazione di integrazione.
+I modelli di app per la logica costituiscono un set predefinito di app per la logica integrate, che consentono di sviluppare rapidamente applicazioni di integrazione personali.
 
-Questi modelli mostrano come usare alcuni dei numerosi connettori disponibili sul mercato. Costituiscono inoltre un ottimo modo per individuare diversi modelli che è possibile realizzare usando app per la logica. È possibile usare questi modelli così come sono oppure modificarli per adattarli a uno scenario specifico. Per iniziare a utilizzare un modello di applicazione per la logica passare al Marketplace, cercare "Modello di applicazione per la logica" e scegliere uno dei modelli dall'elenco curata o selezionare “Trigger e azioni” quando viene creata una nuova applicazione per la logica e scegliere tra il set di modelli nella finestra di progettazione.
+Questi modelli mostrano come usare alcuni dei numerosi connettori disponibili sul mercato. Costituiscono inoltre un ottimo modo per individuare diversi modelli che è possibile realizzare usando app per la logica. È possibile usare questi modelli così come sono oppure modificarli per adattarli a uno scenario specifico.
+
+Per iniziare a usare un modello di app di logica, aprire Marketplace, cercare "Modello di app per la logica" e scegliere uno dei modelli dall'elenco predefinito. In alternativa, selezionare "Trigger e azioni" durante la creazione di una nuova app per la logica e scegliere uno dei set di modelli disponibili nell'area di progettazione.
+
+## Modelli di esempio disponibili
 
 ### Modelli SaaS e cloud
 Si tratta di esempi di modalità di integrazione tra diversi connettori SaaS. Sono disponibili vari esempi di integrazione di Salesforce, Box, SharePoint e altri servizi.
@@ -35,9 +39,9 @@ Si tratta di modelli per il routing dei messaggi, inclusi richiesta-risposta sin
 Sono disponibili processi automatizzati per la gestione di comuni procedure di Azure che è in genere possibile eseguire manualmente o per cui è necessario scrivere codice personalizzato. Vengono forniti modelli procedurali per l'esecuzione di processi ricorrenti, ad esempio il riavvio di una macchina virtuale ogni fine settimana o il ricevimento di una notifica ogni volta che un nuovo utente RBAC viene aggiunto a una risorsa.
 
 ### Modelli cloud di livello consumer
-Vengono forniti semplici modelli che si integrano con le applicazioni di social networking come Twitter e Yammer e con i servizi e-mail. Queste applicazioni sono in grado di aumentare in modo significativo la produttività degli utenti. Sono costantemente in attesa di aggiornamenti ed effettuano vari tipi di azione quando questi ultimi arrivano.
+Vengono forniti semplici modelli che si integrano con le applicazioni di social networking come Twitter e Yammer e con i servizi di posta elettronica. Queste applicazioni sono in grado di aumentare in modo significativo la produttività degli utenti. Sono costantemente in attesa di aggiornamenti ed effettuano vari tipi di azione quando questi ultimi arrivano.
 
-Dopo aver selezionato uno dei modelli, completare la distribuzione. La procedura è analoga a quella per la distribuzione di una app per la logica creata dall'utente. Vedere [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
+Dopo aver selezionato uno dei modelli, completare la distribuzione seguendo la stessa procedura usata per le app per la logica create in modo autonomo. La procedura dettagliata è disponibile nell'articolo [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

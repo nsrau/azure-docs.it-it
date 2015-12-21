@@ -73,7 +73,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 	* [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 7. Per __Origine dati__, è possibile selezionare la voce per scegliere un'origine dati esistente o crearne una nuova.
 
@@ -188,9 +188,9 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 * [Amministrare HDInsight tramite l’interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)
 * [Effettuare il provisioning di cluster HDInsight](hdinsight-provision-clusters.md)
 * [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Introduzione ad Azure HDInsight](../hdinsight-get-started.md)
+* [Introduzione ad Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Versione di Hadoop inclusa in Azure HDInsight](hdinsight-component-versioning.md)
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

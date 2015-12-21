@@ -23,7 +23,7 @@ Il database SQL Azure offre le seguenti funzionalità per il ripristino da un'in
 - Replica geografica attiva [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - Replica geografica standard [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
 - Ripristino geografico [(blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-- Nuove capacità della replica geografica [(blog)](https://azure.microsoft.com/blog/azure-sql-database-geo-replication-october-2015-update/)
+- Nuove funzionalità della replica geografica [(blog)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
 Per informazioni su come prepararsi per possibili emergenze e su quando ripristinare il database, vedere la pagina [Progettazione per la continuità aziendale](sql-database-business-continuity-design.md).
 
@@ -131,4 +131,4 @@ Per altre informazioni sulle regole di avviso per il database, vedere [Ricevere 
 
 Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. Un indicatore efficace del fatto che è necessario un controllo è che le applicazioni client utilizzano stringhe di connessione protette in base a un modello di *.database.secure.windows.net. Per altre informazioni, vedere l'[Introduzione al controllo del database SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

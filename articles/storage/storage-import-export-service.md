@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Uso del servizio di importazione/esportazione per trasferire dati nell'archiviazione BLOB | Microsoft Azure" 
 	description="Informazioni su come creare ed esportare processi nel portale di Azure per trasferire dati all'archiviazione BLOB." 
-	authors="tamram" 
-	manager="adinah" 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio Blob
@@ -53,9 +53,9 @@ Quando si crea un processo di importazione o un processo di esportazione, sarà 
 
 1.	**Sottoscrizione e account di archiviazione:** per usare il servizio Importazione/Esportazione, è necessario disporre di una sottoscrizione di Azure esistente e di uno o più account di archiviazione. Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un processo non può estendersi tra più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md).
 2.	**Dischi rigidi:** con il servizio di importazione/esportazione sono supportati solo i dischi rigidi interni SATA II/III da 3,5 pollici. Sono supportati solo dischi rigidi fino a 6TB. Per i processi di importazione, verrà elaborato solo il primo volume di dati sull'unità. Il volume di dati deve essere formattato con NTFS. È possibile collegare un disco SATA II/III esternamente alla maggior parte dei computer mediante una scheda USB SATA esterna II/III.
-3.	**Crittografia BitLocker: **tutti i dati archiviati sui dischi rigidi devono essere crittografati mediante BitLocker con le chiavi di crittografia protette con password numeriche.
+3.	**Crittografia BitLocker:** tutti i dati archiviati sui dischi rigidi devono essere crittografati mediante BitLocker con le chiavi di crittografia protette con password numeriche.
 4.	**Destinazioni di archiviazione BLOB:** i dati possono essere caricati o scaricati da BLOB in blocchi e da BLOB di pagine. 
-5.	**Numero di processi: **un cliente può disporre di un massimo di 20 processi attivi per ogni account di archiviazione.
+5.	**Numero di processi:** un cliente può disporre di un massimo di 20 processi attivi per ogni account di archiviazione.
 6.	**Dimensione massima di un processo:** la dimensione di un processo è determinata dalla capacità dei dischi rigidi usati e dalla quantità massima di dati che possono essere archiviati in un account di archiviazione. Ogni processo non può contenere più di 10 dischi rigidi.
 
   >[AZURE.IMPORTANT]I dischi rigidi esterni forniti con un adattatore USB incorporato non sono supportati da questo servizio. Non preparare un disco rigido esterno. Il disco all'interno del casing esterno non può essere utilizzato anche per l'importazione di dati. Utilizzare un’unità disco rigido **interna** 3,5" SATA II/III. Se il disco SATA non può essere connesso direttamente al computer, utilizzare un SATA esterno per adattatore USB. Vedere l'elenco degli adattatori consigliati nella sezione Domande frequenti.
@@ -94,7 +94,7 @@ Lo strumento di importazione/esportazione di Microsoft Azure genera un *file jou
 
 	Se si dispone del numero di spedizione, selezionare il vettore di consegna dall'elenco, quindi immettere il numero di spedizione.
 
-	Se non si dispone ancora di un numero di spedizione, scegliere **Le informazioni di spedizione per questo processo di importazione verranno fornite dopo la spedizione del pacchetto**, quindi completare il processo di importazione.
+	Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
 
 7. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel [portale di Azure](portal.azure.com), selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 	
@@ -231,7 +231,7 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 	> [AZURE.IMPORTANT]È necessario fornire il numero di spedizione per il servizio Importazione/Esportazione di Azure o il processo non potrà essere elaborato.
 
-**Esistono costi associati alla spedizione di ritorno?**
+**Esistono costi associati alla spedizione di ritorno??**
 
 - Microsoft usa il numero di account del vettore fornito al momento della creazione del processo per spedire le unità all'indirizzo di restituzione dal data center. Assicurarsi di fornire un numero di account di un vettore supportato per l'area geografica del data center. È possibile creare un account del vettore [FedEx](http://www.fedex.com/us/oadr/) (per Stati Uniti ed Europa) o [DHL](http://www.dhl-welcome.com/Tutorial/) (Asia), se non lo si ha già.
 
@@ -270,4 +270,4 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

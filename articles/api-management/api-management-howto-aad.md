@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Come autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
@@ -26,7 +26,7 @@ Questa guida illustra come abilitare l'accesso al portale per sviluppatori per t
 
 ## Come autorizzare gli account per sviluppatori usando Azure Active Directory
 
-Per iniziare, fare clic su **Gestisci** nel portale di Azure per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
+Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
 ![Portale di pubblicazione][api-management-management-console]
 
@@ -36,7 +36,7 @@ Fare clic su **Sicurezza** dal menu **Gestione API** sulla sinistra, quindi sceg
 
 ![Identità esterne][api-management-security-external-identities]
 
-Fare clic su **Azure Active Directory**. Prendere nota dell'**URL di reindirizzamento** e passare alla directory di Azure Active Directory nel portale di Azure.
+Fare clic su **Azure Active Directory**. Prendere nota dell'**URL di reindirizzamento** e passare alla directory di Azure Active Directory nel portale di Azure classico.
 
 ![Identità esterne][api-management-security-aad-new]
 
@@ -228,4 +228,4 @@ L'utente ora è connesso al portale per sviluppatori per l'istanza del servizio 
 
 [Accedere al portale per sviluppatori con un account Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

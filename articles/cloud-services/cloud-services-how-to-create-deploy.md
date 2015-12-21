@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/07/2015"
 	ms.author="adegeo"/>
 
 
@@ -29,7 +29,7 @@ Nel portale di Azure classico sono disponibili due modi per creare e distribuire
 
 In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica**. Quando si usa questo metodo, il portale di Azure classico rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando **Creazione personalizzata**.
 
-> [AZURE.NOTE]Se si prevede di pubblicare il servizio cloud da Visual Studio Team Services (VSTS), usare Creazione rapida, quindi configurare la pubblicazione VSTS da **Avvio rapido** o dal dashboard. Per ulteriori informazioni, vedere [Recapito continuo in Azure mediante Visual Studio Team Services][TFSTutorialForCloudService] o la Guida alla pagina **Avvio rapido**.
+> [AZURE.NOTE]Se si prevede di pubblicare il servizio cloud da Visual Studio Team Services (VSTS), usare Creazione rapida, quindi configurare la pubblicazione VSTS da **Avvio rapido** o dal dashboard. Per altre informazioni, vedere [Recapito continuo in Azure tramite Visual Studio Team Services][TFSTutorialForCloudService] o la guida alla pagina **Avvio rapido**.
 
 ## Concetti
 Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre componenti:
@@ -47,21 +47,21 @@ Per poter distribuire un servizio cloud, è necessario creare il pacchetto di se
 
 Per poter esportare un pacchetto di servizio, è necessario configurare tre funzionalità del servizio cloud:
 
-- Se si desidera distribuire un servizio cloud che usa SSL (Secure Sockets Layer) per la crittografia dei dati, configurare l'applicazione per SSL. Per altre informazioni, vedere [Come configurare un certificato SSL su un endpoint HTTPS](http://msdn.microsoft.com/library/azure/ff795779.aspx).
+- Se si vuole distribuire un servizio cloud che usa SSL (Secure Sockets Layer) per la crittografia dei dati, [configurare l'applicazione](cloud-services-configure-ssl-certificate.md#step-2-modify-the-service-definition-and-configuration-files) per SSL.
 
-- Se si desidera configurare connessioni Desktop remoto a istanze del ruolo, configurare i ruoli per Desktop remoto. Per altre informazioni sulla preparazione del file di definizione del servizio di accesso remoto, vedere [Impostare una connessione Desktop remoto per un ruolo in Azure](http://msdn.microsoft.com/library/hh124107.aspx).
+- Se si vogliono configurare connessioni Desktop remoto a istanze del ruolo, [configurare i ruoli](cloud-services-role-enable-remote-desktop.md) per Desktop remoto.
 
 - Se si desidera configurare il monitoraggio dettagliato per il servizio cloud, abilitare la Diagnostica Azure per il servizio cloud. *Monitoraggio minimo* (livello di monitoraggio predefinito) ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). "Monitoraggio dettagliato* raccoglie metriche supplementari in base ai dati delle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per scoprire come abilitare la Diagnostica Azure, vedere [Abilitazione della diagnostica in Azure](cloud-services-dotnet-diagnostics.md).
 
-- Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di lavoro è necessario creare il pacchetto del servizio. Per informazioni sui file relativi al pacchetto vedere [Impostare un servizio cloud per Azure](http://msdn.microsoft.com/library/hh124108.aspx). Per creare il file del pacchetto vedere [Pacchetto di applicazione Azure](http://msdn.microsoft.com/library/hh403979.aspx). Se si usa Visual Studio per sviluppare l'applicazione, vedere [Pubblicazione di un servizio cloud con gli strumenti di Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di lavoro, è necessario [creare il pacchetto del servizio](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## Prima di iniziare
 
 - Se Azure SDK non è stato installato, fare clic su **Install Azure SDK** per aprire la pagina di [download](http://azure.microsoft.com/downloads/) di Azure e quindi scaricare l'SDK nel linguaggio in cui si preferisce sviluppare il codice. (È possibile eseguire questa operazione in seguito).
 
-- Se un'istanza del ruolo lo richiede, creare i certificati. I servizi cloud richiedono un file con estensione pfx con una chiave privata. È possibile caricare i certificati in Azure nel corso della creazione e della distribuzione del servizio cloud. Per informazioni sui certificati, vedere [Gestione certificati](http://msdn.microsoft.com/library/gg981929.aspx).
+- Se un'istanza del ruolo lo richiede, creare i certificati. I servizi cloud richiedono un file con estensione pfx con una chiave privata. È possibile [caricare i certificati in Azure](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) nel corso della creazione e della distribuzione del servizio cloud.
 
-- Se si prevede di distribuire il servizio cloud a un gruppo di affinità, creare il gruppo di affinità. Per distribuire il servizio cloud e altri servizi di Azure alla stessa posizione all'interno di un'area, è possibile usare un gruppo di affinità. È possibile creare il gruppo di affinità nell'area **Reti** del portale di Azure classico, alla pagina **Gruppi di affinità**. Per altre informazioni, vedere [Creare un gruppo di affinità nel portale di Azure classico](http://msdn.microsoft.com/library/jj156209.aspx).
+- Se si prevede di distribuire il servizio cloud a un gruppo di affinità, creare il gruppo di affinità. Per distribuire il servizio cloud e altri servizi di Azure alla stessa posizione all'interno di un'area, è possibile usare un gruppo di affinità. È possibile creare il gruppo di affinità nell'area **Reti** del portale di Azure classico, alla pagina **Gruppi di affinità**.
 
 
 ## Procedura: Creare un servizio cloud con Creazione rapida
@@ -87,7 +87,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 ## Procedura: Caricare un certificato per un servizio cloud
 
-1. Nel [portale di Azure classico](http://manage.windowsazure.com/) fare clic su **Servizi cloud**, quindi sul nome del servizio cloud e infine su **Certificati**.
+1. Nel [portale di Azure classico](http://manage.windowsazure.com/) fare clic su **Servizi cloud**, sul nome del servizio cloud e quindi su **Certificati**.
 
 	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
@@ -108,10 +108,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 ## Procedura: Distribuire un servizio cloud
 
-1. Nel [portale di Azure classico](http://manage.windowsazure.com/) fare clic su **Servizi cloud**, quindi sul nome del servizio cloud e infine su **Dashboard**.
-
-	Viene visualizzato il dashboard nell'ambiente di produzione. A questo punto è possibile selezionare Gestione temporanea per distribuire l'applicazione nell'ambiente di gestione temporanea. Per altre informazioni, vedere [Gestire le distribuzioni in Azure](http://msdn.microsoft.com/library/gg433027.aspx).
-
+1. Nel [portale di Azure classico](http://manage.windowsazure.com/) fare clic su **Servizi cloud**, sul nome del servizio cloud e quindi su **Dashboard**.
 
 2. Fare clic su **Carica una nuova distribuzione di produzione** oppure su **Carica**.
 
@@ -144,7 +141,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
     ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
  
 ## Passaggi successivi
 
@@ -153,4 +150,4 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 * [Gestire il servizio cloud](cloud-services-how-to-manage.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

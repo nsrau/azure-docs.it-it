@@ -1,7 +1,9 @@
+Usare la procedura corrispondente al tipo di progetto di back-end in corso: [back-end .NET](#dotnet) o [back-end Node. js](#nodejs).
 
+### <a name="dotnet"></a>Progetto di back-end .NET
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto server, quindi scegliere **Gestisci pacchetti NuGet**, cercare `Microsoft.Azure.NotificationHubs` e infine fare clic su **Installa**. Consente di installare la libreria di hub di notifica per l'invio di notifiche dal back-end.
 
-3. Nel progetto server aprire **Controller** > **TodoItemController.cs**, quindi aggiungere le istruzioni using seguenti:
+3. Nel progetto server aprire **Controller** > **TodoItemController.cs** e quindi aggiungere le istruzioni using seguenti:
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
@@ -46,6 +48,53 @@
 
     Questo codice comunica a hub di notifica di inviare una notifica modello a tutte le registrazioni di modello che contengono "messageParam". La stringa verrà inserita al posto di messageParam in ogni PNS che ha una registrazione che utilizza "messageParam". Ciò consente di inviare la notifica a APNS, GCM, WNS o a qualsiasi altro PNS.
 
-	Per ulteriori informazioni sui modelli con hub di notifica, vedere [Modelli](notification-hubs-templates.md).
+	Per ulteriori informazioni sui modelli con Hub di notifica, vedere [Modelli](notification-hubs-templates.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+### <a name="nodejs"></a>Progetto di back-end Node.js
+
+1. Sostituire il codice esistente nel file todoitem.js file con il codice seguente:
+
+		var azureMobileApps = require('azure-mobile-apps'),
+	    promises = require('azure-mobile-apps/src/utilities/promises'),
+	    logger = require('azure-mobile-apps/src/logger');
+	
+		var table = azureMobileApps.table();
+		
+		table.insert(function (context) {
+	    // For more information about the Notification Hubs JavaScript SDK, 
+	    // see http://aka.ms/nodejshubs
+	    logger.info('Running TodoItem.insert');
+	    
+	    // Define the template payload.
+	    var payload = '{"messageParam": context.item.text}'; 
+	    
+	    // Execute the insert.  The insert returns the results as a Promise,
+	    // Do the push as a post-execute action within the promise flow.
+	    return context.execute()
+	        .then(function (results) {
+	            // Only do the push if configured
+	            if (context.push) {
+					// Send a template notification.
+	                context.push.send(null, payload, function (error) {
+	                    if (error) {
+	                        logger.error('Error while sending push notification: ', error);
+	                    } else {
+	                        logger.info('Push notification sent successfully!');
+	                    }
+	                });
+	            }
+	            // Don't forget to return the results from the context.execute()
+	            return results;
+	        })
+	        .catch(function (error) {
+	            logger.error('Error while running context.execute: ', error);
+	        });
+		});
+
+		module.exports = table;  
+
+	Ogni volta che viene inserito un nuovo elemento Todo, viene inviata una notifica modello contenente l'elemento item.text.
+
+2. Quando si modifica il file nel computer locale, ripubblicare il progetto server.
+
+<!---HONumber=AcomDC_1210_2015-->

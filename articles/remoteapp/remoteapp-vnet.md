@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/29/2015"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -36,6 +36,5 @@ Per ulteriori informazioni sul flusso di lavoro della raccolta ibrida end-to-end
 - [Come pianificare la rete virtuale per RemoteApp di Azure](remoteapp-planvpn.md)
 - [Creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md)
 - [Distribuire la raccolta di Azure RemoteApp alla rete virtuale di Azure (con supporto per ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

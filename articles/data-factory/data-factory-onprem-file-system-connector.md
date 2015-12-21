@@ -52,13 +52,15 @@ Innanzitutto, impostare il Gateway di gestione dati in base alle istruzioni cont
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
 	    }
 	  }
 	}
+
+Per l'host, è possibile specificare **Local** o **localhost** se la condivisione file è nel computer gateway stesso. Si consiglia di usare la proprietà **encryptedCredential** anziché le proprietà **userid** e **password**. Per informazioni dettagliate su questo servizio collegato, vedere l'articolo relativo al [servizio collegato del file system](#onpremisesfileserver-linked-service-properties).
 
 **Servizio collegato di archiviazione BLOB di Azure:**
 
@@ -84,7 +86,7 @@ Impostando "external" su "true" e specificando i criteri externalData si comunic
 	    "type": " FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -146,7 +148,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -273,13 +275,15 @@ L'esempio copia i dati appartenenti a una serie temporale da una tabella nel dat
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
 	    }
 	  }
 	}
+
+Per l'host, è possibile specificare **Local** o **localhost** se la condivisione file è nel computer gateway stesso. Si consiglia di usare la proprietà **encryptedCredential** anziché le proprietà **userid** e **password**. Per informazioni dettagliate su questo servizio collegato, vedere l'articolo relativo al [servizio collegato del file system](#onpremisesfileserver-linked-service-properties).
 
 **Set di dati di input SQL Azure:**
 
@@ -320,7 +324,7 @@ I dati vengono copiati in un nuovo file ogni ora e il percorso per il BLOB rifle
 	    "type": "FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -427,13 +431,13 @@ I dati vengono copiati in un nuovo file ogni ora e il percorso per il BLOB rifle
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 type | La proprietà type deve essere impostata su **OnPremisesFileServer**. | Sì 
-host | Nome host del server. Usare ' \\ ' come carattere di escape, come nell'esempio seguente: se la condivisione è: \\servername, specificare \\servername.<p>Se il file system è locale rispetto al computer gateway, usare Local o localhost. Se il file system si trova su un server diverso dal computer gateway, usare \\servername.</p> | Sì
+host | Nome host del server. Usare ' \\ ' come carattere di escape, come nell'esempio seguente: se la condivisione è: \\servername, specificare \\\servername.<p>Se il file system è locale rispetto al computer gateway, usare Local o localhost. Se il file system si trova su un server diverso dal computer gateway, usare \\\servername.</p> | Sì
 userid | Specificare l'ID dell'utente che ha accesso al server | No (se si sceglie encryptedCredential)
 password | Specificare la password per l'utente (userid) | No (se si sceglie encryptedCredential) 
-encryptedCredential | Specificare le credenziali crittografate che è possibile ottenere eseguendo il cmdlet New-AzureDataFactoryEncryptValue<p>**Nota:** è necessario usare Azure PowerShell 0.8.14 o versione successiva per usare cmdlet come New-AzureDataFactoryEncryptValue con il parametro type impostato su OnPremisesFileSystemLinkedService</p> | No (se si sceglie di specificare ID utente e password in testo normale)
+encryptedCredential | Specificare le credenziali crittografate che è possibile ottenere eseguendo il cmdlet New-AzureRmDataFactoryEncryptValue<p>**Nota:** è necessario usare Azure PowerShell 0.8.14 o versione successiva per usare cmdlet come New-AzureRmDataFactoryEncryptValue con il parametro type impostato su OnPremisesFileSystemLinkedService</p> | No (se si sceglie di specificare ID utente e password in testo normale)
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database del file server locale | Sì
 
-Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati File System locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati file system locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 
 **Esempio: Uso di nome utente e password in testo normale**
 	
@@ -442,7 +446,7 @@ Per informazioni dettagliate sull'impostazione delle credenziali per un'origine 
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -466,18 +470,18 @@ Per informazioni dettagliate sull'impostazione delle credenziali per un'origine 
 
 ## Proprietà del tipo del set di dati del file system locale
 
-Per un elenco completo delle proprietà e delle sezioni disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure, file system locale e così via).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure, file system locale e così via).
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione, il formato dei dati e così via nell'archivio dati. La sezione typeProperties per il set di dati di tipo **FileShare** presenta le proprietà seguenti.
 
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
-folderPath | Percorso della cartella. Esempio: myfolder<p>Usare il carattere di escape ' \\ ' per i caratteri speciali nella stringa. Ad esempio: per folder\\subfolder, specificare folder\\subfolder e per d:\\samplefolder, specificare d:\\samplefolder.</p><p>È possibile unire questi percorsi a **partitionBy** per ottenere percorsi delle cartelle basati sull'intervallo di data di inizio e fine della sezione.</p> | Sì
-fileName | Specificare il nome del file in **folderPath** se si desidera che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella fa riferimento a tutti i file nella cartella.<p>Quando fileName non è specificato per un set di dati di output, il nome del file generato è nel formato seguente:</p><p>Data.<Guid>.txt (ad esempio: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p>) | No
+folderPath | Percorso della cartella. Esempio: myfolder<p>Usare il carattere di escape ' \\ ' per i caratteri speciali nella stringa. Ad esempio: per folder\\subfolder, specificare folder\\\subfolder e per d:\\samplefolder, specificare d:\\\samplefolder.</p><p>È possibile unire questi percorsi a **partitionBy** per ottenere percorsi delle cartelle basati sull'intervallo di data di inizio e fine della sezione.</p> | Sì
+fileName | Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella fa riferimento a tutti i file nella cartella.<p>Quando fileName non è specificato per un set di dati di output, il nome del file generato è nel formato seguente:</p><p>Data.<Guid>.txt (ad esempio: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p>) | No
 partitionedBy | partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. | No
 Format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando forAvroFormat corrisponde a TextFormat, è possibile specificare proprietà facoltative per il formato. Vedere la sezione relativa al formato di seguito per ulteriori dettagli. | No
 fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <p>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).</p><p>Esempio 1: "fileFilter": "*.log"</p>Esempio 2: "fileFilter": 2014-1-?.txt"</p><p>**Nota**: fileFilter è applicabile per un set di dati di input FileShare</p> | No
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Vedere la sezione [Supporto della compressione](#compression-support) per ulteriori dettagli. | No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
 > [AZURE.NOTE]filename e fileFilter non possono essere usati contemporaneamente.
 
@@ -519,8 +523,8 @@ Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 columnDelimiter | Carattere/i usato/i come separatore di colonne in un file. Il valore predefinito è la virgola (,). | No
 rowDelimiter | Carattere/i usato/i come separatore raw in un file. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No
-escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere.<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
-quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
+escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere.<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si vuole inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
+quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si vuole inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
 nullValue | Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Il valore predefinito è "\\N".> | No
 encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. <p>Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8.</p> | No
 
@@ -567,23 +571,23 @@ Per usare il formato Avro in una tabella Hive successiva, vedere l'[esercitazion
 | -------- | ----------- | -------------- | -------- |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. | True, False (valore predefinito)| No | 
 
-Il **FileSystemSink** supporta le proprietà seguenti:
+**FileSystemSink** supporta le proprietà seguenti:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | <p>Esistono tre possibili valori per la proprietà copyBehavior. </p><ul><li>**PreserveHierarchy:** mantiene la gerarchia del file nella cartella di destinazione, ad esempio, il percorso relativo del file di origine alla cartella di origine è identica al percorso relativo del file di destinazione alla cartella di destinazione.</li><li>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente. </li><li>**MergeFiles:** unisce tutti i file dalla cartella di origine a un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</li></ul> | No |
+| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | <p>Esistono tre possibili valori per la proprietà copyBehavior. </p><ul><li>**PreserveHierarchy:** mantiene la gerarchia del file nella cartella di destinazione, ad esempio, il percorso relativo del file di origine alla cartella di origine è identico al percorso relativo del file di destinazione alla cartella di destinazione.</li><li>**FlattenHierarchy:** tutti i file dalla cartella di origine si trovano nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente.</li><li>**MergeFiles:** unisce tutti i file dalla cartella di origine in un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</li></ul> | No |
 
 ### esempi ricorsivi e copyBehavior
 In questa sezione viene descritto il comportamento derivante dell'operazione di copia per diverse combinazioni di valori ricorsivi e copyBehavior.
 
 ricorsiva | copyBehavior | Comportamento risultante
 --------- | ------------ | --------
-true | preserveHierarchy | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la stessa struttura dell’origine<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>.  
-true | flattenHierarchy | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la destinazione Cartella1 avrà la seguente struttura: <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File5</p>
-true | mergeFiles | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la destinazione Cartella1 avrà la seguente struttura: <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;il contenuto di File1 + File2 + File3 + File4 + File 5 verrà unito in un file con nome del file generato automaticamente</p>
-false | preserveHierarchy | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la seguente struttura<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/></p><p>Sottocartella1 con File3, File4 e File5 non considerati.</p>.
-false | flattenHierarchy | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la seguente struttura<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/></p><p>Sottocartella1 con File3, File4 e File5 non considerati.</p>.
-false | mergeFiles | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la seguente struttura<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;il contenuto di File1 + File2 verrà unito in un file con nome del file generato automaticamente. Nome del file generato automaticamente per File1</p><p>Sottocartella1 con File3, File4 e File5 non considerati.</p>.
+true | preserveHierarchy | <p>Per una cartella di origine Cartella1 con la struttura seguente:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la stessa struttura dell'origine<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>.  
+true | flattenHierarchy | <p>Per una cartella di origine Cartella1 con la struttura seguente:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la struttura seguente: <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File5</p>
+true | mergeFiles | <p>Per una cartella di origine Cartella1 con la struttura seguente:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la struttura seguente: <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;il contenuto di File1 + File2 + File3 + File4 + File 5 verrà unito in un file con nome del file generato automaticamente</p>
+false | preserveHierarchy | <p>Per una cartella di origine Cartella1 con la struttura seguente:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la struttura seguente:<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/></p><p>Sottocartella1 con File3, File4 e File5 non considerati.</p>.
+false | flattenHierarchy | <p>Per una cartella di origine Cartella1 con la struttura seguente:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la struttura seguente:<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/></p><p>Sottocartella1 con File3, File4 e File5 non considerati.</p>.
+false | mergeFiles | <p>Per una cartella di origine Cartella1 con la struttura seguente:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la struttura seguente:<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;il contenuto di File1 + File2 verrà unito in un file con nome del file generato automaticamente. nome generato automaticamente per File1</p><p>Sottocartella1 con File3, File4 e File5 non considerati.</p>.
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -599,4 +603,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la seguente st
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

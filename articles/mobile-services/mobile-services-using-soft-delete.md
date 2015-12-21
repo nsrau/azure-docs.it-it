@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/07/2015"
 	ms.author="wesmc"/>
 
 # Uso dell'eliminazione temporanea in Servizi mobili
@@ -165,4 +165,4 @@ Per altre informazioni sui processi pianificati con il back-end JavaScript di Se
 [sincronizzazione dati offline per Servizi mobili]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

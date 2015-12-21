@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/08/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,11 +23,11 @@ I Servizi BizTalk di Azure includono funzioni di backup e ripristino. In questo 
 
 È anche possibile eseguire il backup dei Servizi BizTalk mediante l'[API REST](http://go.microsoft.com/fwlink/p/?LinkID=325584).
 
+> [AZURE.NOTE]Il backup delle connessioni ibride NON viene eseguito, indipendentemente dall'edizione. È necessario ricreare le connessioni ibride.
+
 ## Operazioni preliminari
 
 - Le funzionalità di backup e ripristino potrebbero non essere disponibili per tutte le edizioni. Vedere [Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md).
-
-	**Nota** Il backup delle connessioni ibride NON viene eseguito, indipendentemente dall'edizione.
 
 - Tramite il portale di Azure classico è possibile creare un backup su richiesta o backup pianificati.
 
@@ -55,7 +55,7 @@ I Servizi BizTalk di Azure includono funzioni di backup e ripristino. In questo 
 [Pianificare un backup](#backupschedule)
 
 #### <a name="backupnow"></a>Backup su richiesta
-1. Nel portale di Azure classico, selezionare **Servizi BizTalk** e quindi selezionare il servizio di cui si desidera eseguire il backup.
+1. Nel portale di Azure classico selezionare **Servizi BizTalk** e quindi il servizio di cui si vuole eseguire il backup.
 2. Nella scheda **Dashboard** selezionare **Backup** nella parte inferiore della pagina.
 3. Immettere un nome per il backup, ad esempio *ServizioBizTalk*BU*Data*.
 4. Scegliere un account di archiviazione BLOB e selezionare il segno di spunta per avviare il backup.
@@ -64,7 +64,7 @@ Al termine del backup verrà creato un contenitore con il nome di backup indicat
 
 #### <a name="backupschedule"></a>Pianificare un backup
 
-1. Nel portale di Azure classico selezionare **Servizi BizTalk**, selezionare il nome del servizio BizTalk di cui si desidera pianificare il backup e quindi la scheda **Configura**.
+1. Nel portale di Azure classico selezionare **Servizi BizTalk**, il nome del servizio di cui si vuole pianificare il backup e quindi la scheda **Configura**.
 2. Impostare **Stato backup** su **Automatico**. 
 3. Selezionare **Account di archiviazione** per archiviare il backup, immettere un valore in **Frequenza** per la creazione dei backup e specificare la durata di mantenimento dei backup (**Giorni di conservazione**):
 
@@ -96,7 +96,7 @@ Il collegamento apre i log operazioni dei servizi di gestione per semplificare l
 
 #### Ripristinare un backup
 
-1. Nel portale di Azure classico, selezionare **Nuovo** > **Servizi app** > **Servizio BizTalk** > **Ripristina**:
+1. Nel portale di Azure classico selezionare **Nuovo** > **Servizi app** > **Servizio BizTalk** > **Ripristina**:
 
 	![Ripristinare un backup][Restore]
 
@@ -233,4 +233,4 @@ Per creare Servizi BizTalk di Azure nel portale di Azure classico, passare a [Se
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

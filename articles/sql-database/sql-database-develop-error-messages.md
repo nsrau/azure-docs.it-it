@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="12/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -80,8 +80,6 @@ Gli errori temporanei richiedono che il programma client esegua la *logica di ri
 |49919|16|Il processo non può creare o aggiornare la richiesta. Troppe operazioni di creazione o aggiornamento in corso per "%ld" della sottoscrizione.<br/><br/>Il servizio è occupato nell'esecuzione di più richieste di creazione o aggiornamento per la sottoscrizione o il server. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) per le operazioni in sospeso. Attendere che le richieste di creazione o aggiornamento in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
 |49920|16|Impossibile elaborare una richiesta. Troppe operazioni di creazione o aggiornamento in corso per "%ld" della sottoscrizione.<br/><br/>Il servizio è occupato nell'esecuzione di più richieste per la presente sottoscrizione. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) per lo stato delle operazioni. Attendere che le richieste in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
 
-**Nota:** è possibile che anche gli errori 10053 e 10054 debbano essere inclusi nella logica di ripetizione.
-
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
 
@@ -143,7 +141,7 @@ Nella tabella seguente vengono illustrati gli errori causati dall'uso eccessivo 
 Per altre informazioni sulla governance delle risorse e gli errori correlati, vedere:
 
 
-- [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md).
+- [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
 
 
 
@@ -202,7 +200,7 @@ Nella tabella seguente sono elencati tutti gli errori generali che non rientrano
 |40631|16|La password specificata è troppo lunga. La password non deve contenere più di 128 caratteri.|
 |40632|16|Convalida della password non riuscita. La password non soddisfa i criteri in quanto non è sufficientemente complessa.|
 |40636|16|Impossibile utilizzare un nome di database riservato '%.&#x2a;ls' in questa operazione.|
-|40638|16|ID sottoscrizione non valido <subscription-id>. La sottoscrizione non esiste.|
+|40638|16|ID sottoscrizione <subscription-id> non valido. La sottoscrizione non esiste.|
 |40639|16|Richiesta non conforme allo schema: <schema error>.|
 |40640|20|Eccezione imprevista rilevata dal server.|
 |40641|16|Il percorso specificato non è valido.|
@@ -218,8 +216,7 @@ Nella tabella seguente sono elencati tutti gli errori generali che non rientrano
 |40651|16|Impossibile creare il server perché la sottoscrizione <subscription-id> è disabilitata.|
 |40652|16|Impossibile spostare o creare il server. La sottoscrizione <subscription-id> supera la quota del server.|
 |40671|17|Si è verificato un errore di comunicazione tra il gateway e il servizio di gestione. Riprovare più tardi.|
-|45168|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare.|
-|45169|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del server per una singola sottoscrizione (ad esempio, creare il server). La sottoscrizione specificata nel messaggio di errore ha superato il numero massimo di connessioni simultanee e la richiesta è stata negata. Riprovare.|
+|40852|16|Impossibile aprire il database "%.*ls" nel server "%.*ls" richiesto dall'account di accesso. L'accesso al database è consentito solo tramite una stringa di connessione con sicurezza abilitata. Per accedere al database, modificare le stringhe di connessione in modo che contengano "sicuro" nel FQDN del server - "nome server".database.windows.net deve essere modificato in "nome server".database.`secure`.windows.net.| |45168|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare più tardi.| |45169|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del server per una singola sottoscrizione (ad esempio, creare il server). La sottoscrizione specificata nel messaggio di errore ha superato il numero massimo di connessioni simultanee e la richiesta è stata negata. Riprovare più tardi.|
 
 
 ## Collegamenti correlati
@@ -227,4 +224,4 @@ Nella tabella seguente sono elencati tutti gli errori generali che non rientrano
 - [Limitazioni e linee guida generali per il database SQL di Azure](sql-database-general-limitations.md)
 - [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="11/16/2015" 
 	ms.author="microsofthelp@twilio.com"/>
 
 
@@ -192,4 +192,4 @@ Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo d
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

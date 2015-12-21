@@ -3,8 +3,8 @@
    description="Scopri gli obiettivi di scalabilità e prestazioni di Archiviazione di Azure, incluse la capacità, la velocità di richiesta e la larghezza di banda in entrata e in uscita sia per gli account di archiviazione standard che premium. Comprendere obiettivi di prestazioni per le partizioni all'interno di ciascun servizio Archiviazione di Azure."
    services="storage"
    documentationCenter="na"
-   authors="tamram"
-   manager="na"
+   authors="robinsh"
+   manager="carmonm"
    editor="na" />
 <tags 
    ms.service="storage"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="11/17/2015"
-   ms.author="tamram" />
+   ms.date="12/04/2015"
+   ms.author="robinsh" />
 
 # Obiettivi di scalabilità e prestazioni per Archiviazione di Azure
 
@@ -85,4 +85,4 @@ Le partizioni influiscono sul bilanciamento del carico e sulla scalabilità per 
 - [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](storage-performance-checklist.md)
 - [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

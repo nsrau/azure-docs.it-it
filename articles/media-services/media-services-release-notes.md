@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015"   
+	ms.date="12/09/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 - [Problemi noti correnti](#issues)
 - [Cronologia delle versioni dell'API REST](#rest_version_history)
+- [Versione di dicembre 2015](#dec_changes_15)
 - [Versione di novembre 2015](#nov_changes_15)
 - [Versione ottobre 2015](#oct_changes_15)
 - [Versione di settembre 2015](#september_changes_15)
@@ -76,9 +77,22 @@ Gli oggetti di Servizi multimediali nel modulo SDK non possono essere serializza
 
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
+##<a id="dec_changes_15"></a>Versione di dicembre 2015
+
+Il team di Azure SDK ha pubblicato una nuova versione del pacchetto [Azure SDK per PHP](http://github.com/Azure/azure-sdk-for-php) che contiene aggiornamenti e nuove funzionalità di Servizi multimediali di Microsoft Azure. In particolare, Azure Media Services SDK per PHP supporta ora le funzionalità di [protezione del contenuto](media-services-content-protection-overview.md) più recenti: la crittografia dinamica con AES e DRM (PlayReady e Widevine) con e senza restrizione Token. Supporta inoltre la scalabilità delle [unità di codifica](media-services-dotnet-encoding-units.md).
+
+Per altre informazioni, vedere:
+
+- Il blog di [Microsoft Azure Media Services SDK per PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
+- Gli [esempi di codice](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) seguenti per iniziare rapidamente a svolgere le attività preliminari:
+	- **vodworkflow\_aes.php**: si tratta di un file PHP che illustra come usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi. È basato sull'esempio .NET illustrato in [questo](media-services-protect-with-aes128.md) articolo.
+	- **vodworkflow\_aes.php**: si tratta di un file PHP che illustra come usare la crittografia dinamica PlayReady e il servizio di distribuzione delle licenze. È basato sull'esempio .NET illustrato in [questo](media-services-protect-with-drm.md) articolo.
+	- **scale\_encoding\_units.php**: si tratta di un file PHP che illustra come scalare unità riservate di codifica.
+
+
 ##<a id="nov_changes_15"></a>Versione di novembre 2015
 
-Servizi multimediali di Azure offre ora il servizio di distribuzione della licenza Google Widevine nel cloud. Per altri dettagli, consultare [questo annuncio di blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Vedere anche [questa esercitazione](media-services-protect-with-drm.md) e [archivio GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+Servizi multimediali di Azure offre ora il servizio di distribuzione della licenza Google Widevine nel cloud. Per altri dettagli, consultare [questo annuncio di blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Vedere anche [questa esercitazione](media-services-protect-with-drm.md) e il [repository GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 Si noti che i servizi di distribuzione delle licenze Widevine forniti da Servizi multimediali di Azure sono in anteprima. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
@@ -92,9 +106,9 @@ Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seg
 
 ##<a id="september_changes_15"></a>Versione di settembre 2015 
 
-- AMS offre ora la possibilità di proteggere le video on Demand (VOD) e i flussi Live con la tecnologia DRM modulare Widevine. È possibile utilizzare i seguenti partner dei servizi di recapito per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+- AMS offre ora la possibilità di proteggere le video on Demand (VOD) e i flussi Live con la tecnologia DRM modulare Widevine. È possibile usare i partner dei servizi di recapito seguenti per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/). Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
-	È possibile utilizzare [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (iniziando con la versione 3.5.1) o l'API REST per configurare l’AssetDeliveryConfiguration per utilizzare Widevine.
+	È possibile usare [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partire dalla versione 3.5.1) o l'API REST per configurare AssetDeliveryConfiguration per l'uso di Widevine.
 
 - AMS ha aggiunto il supporto per i video Apple ProRes. È ora possibile caricare i file video di origine QuickTime che utilizzano Apple ProRes o altri codec. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
@@ -105,11 +119,11 @@ Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seg
 	- È ora possibile utilizzare il formato Apple HTTP Live Streaming (HLS) con il filtro solo audio. Questo aggiornamento consente di rimuovere solo la traccia audio specificando (solo audio = false) nell'URL.
 	- Quando si definiscono i filtri per gli asset, ora è possibile combinare più filtri (fino a 3) in un singolo URL.
 
-	Per altre informazioni, vedere [questo](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
+	Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
 
 - AMS supporta ora gli I-Frames in HLS v4. Il supporto I-Frame consente di ottimizzare le operazioni di avanzamento veloce e riavvolgimento. Per impostazione predefinita, tutti gli output v4 HLS includono le playlist I-Frame (EXT-X-I-FRAME-STREAM-INF).
  
-	Per altre informazioni, vedere [questo](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
+	Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
 
 ##<a id="august_changes_15"></a>Versione di agosto 2015
 
@@ -124,7 +138,7 @@ Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seg
 
 - È stata annunciata la disponibilità generale del codificatore multimediale standard. Per altre informazioni, vedere [questo post di blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	Il codificatore multimediale standard usa i set di impostazioni descritti in [questa](http://go.microsoft.com/fwlink/?LinkId=618336) sezione. Si noti che, quando si usa un set di impostazioni per 4.000 codifiche, è consigliabile acquistare tipo di unità riservata **Premium**. Per altre informazioni, vedere [Come scalare la codifica](media-services-portal-encoding-units).
+	Il codificatore multimediale standard usa i set di impostazioni descritti in [questa](http://go.microsoft.com/fwlink/?LinkId=618336) sezione. Si noti che, quando si usa un set di impostazioni per 4000 codifiche, è consigliabile acquistare il tipo di unità riservata **Premium**. Per altre informazioni, vedere [Come scalare la codifica](media-services-portal-encoding-units).
 - Didascalie live in tempo reale con servizi multimediali e Player di Azure. Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Aggiornamenti dell'SDK di Servizi multimediali per .NET
@@ -275,7 +289,7 @@ L'SDK di Servizi multimediali per .NET è ora disponibile nella versione 3.0.0.7
 ### <a id="sept_14_breaking_changes"></a>Modifiche di rilievo
 
 * L'entità **Origin** è stata rinominata in [StreamingEndpoint].
-* È stato modificato il comportamento predefinito del sistema quando si usa il **portale di Azure classico** per codificare e pubblicare file MP4.
+* È stato modificato il comportamento predefinito quando si usa il **portale di Azure classico** per codificare e pubblicare file MP4.
 
 Mentre, in precedenza, quando si usava il portale di Azure classico per pubblicare un asset video costituito da un unico file MP4, veniva creato un URL della firma di accesso condiviso (che consentiva di scaricare il video da un'archiviazione BLOB), adesso quando si utilizza il portale di Azure classico per codificare e pubblicare un asset video costituito da un unico file MP4 viene generato un URL che punta a un endpoint di flusso di origine di Servizi multimediali di Azure. Questa modifica, tuttavia, non riguarda i video MP4 che vengono caricati direttamente in Servizi multimediali e pubblicati senza essere codificati da Servizi multimediali di Azure.
 
@@ -620,4 +634,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

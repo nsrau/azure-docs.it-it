@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015"    
+	ms.date="12/05/2015"    
 	ms.author="juliako"/>
 
 #Guida alla risoluzione dei problemi relativi allo streaming live
@@ -75,4 +75,4 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -17,43 +17,14 @@
 
 # Che cos'è un gruppo di sicurezza di rete
 
-È probabile che si conosca già l'uso dei firewall e degli elenchi di controllo di accesso (ACL) per filtrare il flusso del traffico di rete verso i segmenti di rete, i singoli computer e persino le schede di interfaccia di rete di un computer. Anche in Azure è possibile filtrare il flusso del traffico di rete in modi simili, come indicato di seguito.
+Un gruppo di sicurezza di rete contiene un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono/rifiutano il traffico di rete alle istanze VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole dell'elenco di controllo di accesso si applicano a tutte le istanze VM in tale subnet. Inoltre il traffico verso una singola VM può essere ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM.
 
-- **ACL endpoint**
-	- Possono filtrare solo il traffico in ingresso.
-	- Possono essere usati solo sugli endpoint esposti a Internet o con un servizio di bilanciamento del carico interno.
-	- Il limite è di 50 regole ACL per endpoint.
-	- **NON** richiedono una rete virtuale (distribuzioni classiche).
-- **Gruppi di sicurezza di rete (NGS)**
-	- Consentono o negano il traffico in base alla direzione, al protocollo, all'indirizzo e alla porta di origine e all'indirizzo e alla porta di destinazione.
-	- Possono controllare il traffico in ingresso e in uscita sulle VM o sulle istanze del ruolo (distribuzioni classiche), sulle schede di interfaccia di rete (distribuzioni di Gestione risorse) e sulle subnet (tutte le distribuzioni). Questo include tutte le risorse connesse alla subnet, ad esempio servizi cloud e ambienti AppService.
-	- Possono essere applicati solo alle risorse connesse a una rete virtuale dell'area.
-	- **NON** richiedono la gestione di un'appliance firewall.
-	- Il limite è di 100 gruppi di sicurezza di rete, ognuno con 200 regole, per area.
-- **Appliance firewall**
-	- Sono implementate come VM nella rete di Azure.
-	- Consentono o negano il traffico in base alla direzione, al protocollo, all'indirizzo e alla porta di origine e all'indirizzo e alla porta di destinazione.
-	- Forniscono funzionalità aggiuntive, a seconda dell'appliance firewall usata.
-
-Questo articolo è incentrato sui gruppi di sicurezza di rete. Per altre informazioni su scelte diverse per l'applicazione di filtri al traffico, fare clic sui collegamenti seguenti.
-
-- [Documentazione ACL](./virtual-networks-acl.md).
-- [Creare una rete perimetrale usando gruppi di sicurezza di rete e appliance firewall](virtual-networks-dmz-nsg-fw-udr-asm.md).
-
-## Come funziona un gruppo di sicurezza di rete?
-
-Un gruppo di sicurezza di rete contiene due tipi di regole, **In ingresso** e **In uscita**. Quando il traffico passa in un server di Azure che ospita VM o istanze del ruolo, l'host carica tutte le regole del gruppo di sicurezza di rete in ingresso o in uscita, in base alla direzione del traffico. L'host controlla quindi ogni regola in ordine di priorità. Se una regola corrisponde al pacchetto che l'host sta analizzando, viene applicata l'azione della regola (consenso o rifiuto). Se nessuna regola corrisponde al pacchetto, il pacchetto viene rimosso. La figura seguente illustra questo flusso decisionale.
-
-![Elenchi di controllo di accesso e gruppi di sicurezza di rete](./media/virtual-network-nsg-overview/figure3.png)
-
->[AZURE.NOTE]Le regole applicate a una determinata VM o istanza del ruolo possono provenire da più gruppi di sicurezza di rete, perché è possibile associare un gruppo di sicurezza di rete a una VM (distribuzioni classiche), a una scheda di interfaccia di rete (distribuzioni di Gestione risorse) o a una subnet (tutte le distribuzioni). La sezione [Associazione di gruppi di sicurezza di rete](#Associating-NSGs) descrive come vengono applicate le regole provenienti da più gruppi di sicurezza di rete a seconda della direzione del traffico.
-
-I gruppi di sicurezza di rete definiti dall'utente contengono le proprietà seguenti.
+I gruppi di sicurezza di rete contengono le proprietà seguenti.
 
 |Proprietà|Descrizione|Vincoli|Considerazioni|
 |---|---|---|---|
 |Nome|Nome per il gruppo di sicurezza di rete|Deve essere univoco nell'area<br/>Può contenere lettere, numeri, caratteri di sottolineatura, punti e segni meno<br/>Deve iniziare con una lettera o un numero<br/>Deve terminare con una lettera, un numero o un carattere di sottolineatura<br/>Può contenere fino a 80 caratteri|Poiché potrebbe essere necessario creare diversi gruppi di sicurezza di rete, assicurarsi di usare una convenzione di denominazione che permetta di identificare facilmente la funzione dei gruppi di sicurezza di rete|
-|Area|Area di Azure in cui è ospitato il gruppo di sicurezza di rete|I gruppi di sicurezza di rete possono essere applicati solo alle risorse nell'area in cui vengono creati|Vedere più avanti i [limiti](#Limits) per sapere quanti gruppi di sicurezza di rete possono esistere in un'area|
+|Region|Area di Azure in cui è ospitato il gruppo di sicurezza di rete|I gruppi di sicurezza di rete possono essere applicati solo alle risorse nell'area in cui vengono creati|Vedere più avanti i [limiti](#Limits) per sapere quanti gruppi di sicurezza di rete possono esistere in un'area|
 |Gruppo di risorse|Gruppo di risorse a cui appartiene il gruppo di sicurezza di rete|Anche se un gruppo di sicurezza di rete appartiene a un gruppo di risorse, può essere associato alle risorse di qualsiasi gruppo di risorse, purché le risorse facciano parte della stessa area di Azure del gruppo di sicurezza di rete|I gruppi di risorse vengono usati per gestire insieme più risorse, come unità di distribuzione<br/>È possibile raggruppare il gruppo di sicurezza di rete con le risorse a cui è associato|
 |Regole|Regole che definiscono dove il traffico è consentito o rifiutato||Vedere più avanti [Regole NSG](#Nsg-rules)| 
 
@@ -115,9 +86,9 @@ Come illustrato dalle regole predefinite seguenti, il traffico che origina e ter
  
 - **Associazione di un gruppo di sicurezza di rete a una VM (solo distribuzioni classiche).** Quando si associa un NSG a una VM, le regole di accesso alla rete nell’NSG vengono applicate a tutto il traffico verso e dalla VM. 
 
-- **Associazione di un gruppo di sicurezza di rete a una scheda di interfaccia di rete (solo distribuzioni di Gestione risorse).** Quando si associa un NSG a una scheda di rete, le regole di accesso di rete nell’NSG vengono applicate solo a tale scheda di rete. Ciò significa che in una VM con più schede di rete, se un NSG viene applicato a una singola scheda di rete, non influisce sul traffico associato alle altre schede di rete.
+- **Associazione di un gruppo di sicurezza di rete a una scheda di interfaccia di rete (solo distribuzioni di Gestione risorse).** Quando si associa un NSG a una scheda di rete, le regole di accesso di rete nell’NSG vengono applicate solo a tale scheda di rete. Ciò significa che in una VM con più schede di rete, se un gruppo di sicurezza di rete viene applicato a una singola scheda di rete, non influisce sul traffico associato alle altre schede di rete.
 
-- **Associazione di un gruppo di sicurezza di rete a una subnet (tutte le distribuzioni)**. Quando si associa un NSG a una subnet, le regole di accesso alla rete dell'NSG vengono applicate a tutte le risorse IaaS e PaaS nella subnet.
+- **Associazione di un gruppo di sicurezza di rete a una subnet (tutte le distribuzioni)**. Quando si associa un gruppo di sicurezza di rete a una subnet, le regole di accesso alla rete del gruppo di sicurezza di rete vengono applicate a tutte le risorse IaaS e PaaS nella subnet.
 
 È possibile associare gruppi di sicurezza di rete diversi a una VM (o a una scheda di interfaccia di rete, a seconda del modello di distribuzione) e alla subnet a cui è associata una scheda di interfaccia di rete o una VM. In questo caso, tutte le regole di accesso alla rete vengono applicate al traffico nell'ordine seguente:
 
@@ -156,7 +127,7 @@ Dopo avere risposto alle domande della sezione [Pianificazione](#Planning), esam
 |NSG per area per sottoscrizione|100|Per impostazione predefinita, per ogni VM creata nel portale di Azure viene creato un nuovo gruppo di sicurezza di rete. Se si consente questo comportamento predefinito, i gruppi di sicurezza di rete si esauriranno rapidamente. Tenere sempre presente questo limite durante la progettazione e, se necessario, separare le risorse in più aree o sottoscrizioni. |
 |Regole NSG per NSG|200|Usare a un ampio intervallo di IP e porte per essere certi di non oltrepassare questo limite. |
 
->[AZURE.IMPORTANT]Assicurarsi di visualizzare tutti i [limiti relativi ai servizi di rete in Azure](../azure-subscription-service-limits/#networking-limits) prima di progettare la soluzione. Alcun limiti possono essere aumentati aprendo un ticket di supporto.
+>[AZURE.IMPORTANT]Verificare di visualizzare tutti i [limiti relativi ai servizi di rete in Azure](../azure-subscription-service-limits/#networking-limits) prima di progettare la soluzione. Alcun limiti possono essere aumentati aprendo un ticket di supporto.
 
 ### Progettazione di reti virtuali e subnet
 
@@ -177,7 +148,7 @@ Le regole del gruppo di sicurezza di rete correnti consentono solo i protocolli 
 ### Subnet
 
 - Considerare il numero di livelli richiesto dal carico di lavoro. Ogni livello può essere isolato usando una subnet a cui è applicato un gruppo di sicurezza di rete. 
-- Se è necessario implementare una subnet per un gateway VPN o un circuito ExpressRoute, assicurarsi di **NON** applicare un gruppo di sicurezza di rete a tale subnet. In caso contrario, la connettività tra reti virtuali o cross-premise non funzionerà.
+- Se è necessario implementare una subnet per un gateway VPN o un circuito ExpressRoute, verificare di **NON** applicare un gruppo di sicurezza di rete a tale subnet. In caso contrario, la connettività tra reti virtuali o cross-premise non funzionerà.
 - Se è necessario implementare un'appliance virtuale, assicurarsi di distribuirla nella relativa subnet, in modo che le route definite dall'utente funzionino correttamente. È possibile implementare un gruppo di sicurezza di rete a livello di subnet per filtrare il traffico in ingresso e in uscita da questa subnet. Altre informazioni su [come controllare il flusso del traffico e usare appliance virtuali](virtual-networks-udr-overview.md).
 
 ### Servizi di bilanciamento del carico
@@ -188,7 +159,7 @@ Le regole del gruppo di sicurezza di rete correnti consentono solo i protocolli 
 
 ### Altri
 
-- Gli elenchi di controllo di accesso basati su endpoint e i gruppi di sicurezza di rete non sono supportati nella stessa istanza di macchina virtuale. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni su come eseguire questa operazione, vedere [Gestire elenchi di controllo di accesso basati su endpoint](virtual-networks-acl-powershell.md).
+- Gli elenchi di controllo di accesso basati su endpoint e i gruppi di sicurezza di rete non sono supportati nella stessa istanza VM. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni su come eseguire questa operazione, vedere [Gestire elenchi di controllo di accesso basati su endpoint](virtual-networks-acl-powershell.md).
 - Nel modello di distribuzione di Gestione risorse è possibile usare un gruppo di sicurezza di rete associato a una scheda di interfaccia di rete in modo che le VM con più schede di interfaccia di rete consentano la gestione (accesso remoto) in base alla scheda di interfaccia di rete, isolando quindi il traffico.
 - Come quando si usano i servizi di bilanciamento del carico, quando si filtra il traffico da altre reti virtuali, è necessario usare l'intervallo di indirizzi di origine del computer remoto e non quello del gateway che si connette alle reti virtuali.
 - Molti servizi di Azure non possono connettersi alle reti virtuali di Azure e quindi il traffico verso e da tali reti non può essere filtrato con i gruppi di sicurezza di rete. Per sapere se i servizi usati possono essere connessi alle reti virtuali, leggere la relativa documentazione.
@@ -273,8 +244,8 @@ Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole sch
 
 ## Passaggi successivi
 
-- [Distribuire gli NSG nel modello di distribuzione classica](virtual-networks-create-nsg-classic-ps.md).
-- [Distribuire gli NSG nella Gestione risorse](virtual-networks-create-nsg-arm-pportal.md).
+- [Distribuire gruppi di sicurezza di rete nel modello di distribuzione classica](virtual-networks-create-nsg-classic-ps.md).
+- [Distribuire gruppi di sicurezza di rete in Gestione risorse](virtual-networks-create-nsg-arm-pportal.md).
 - [Gestire i log dei gruppi di sicurezza di rete](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

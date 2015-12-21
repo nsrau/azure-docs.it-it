@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/03/2015"
    ms.author="v-darmi"/>
 
 
@@ -24,7 +24,7 @@ I criteri disponibili nel servizio Gestione API di Azure possono essere usati pe
 In precedenza è stata analizzata l'interazione con il [servizio Hub eventi di Azure per la registrazione, il monitoraggio e l'analisi](api-management-sample-logtoeventhub.md). In questo articolo verranno descritti i criteri che consentono di interagire con qualsiasi servizio esterno basato su HTTP. Questi criteri possono essere usati per l'attivazione di eventi remoti o per il recupero di informazioni che verranno usate per gestire la richiesta e la risposta originali.
 
 ## Send-One-Way-Request
-Probabilmente l'interazione esterna più semplice è lo stile fire-and-forget della richiesta, che consente a un servizio esterno di ricevere una notifica se si verifica un evento importante. È possibile usare i criteri del flusso di controllo <choose> per rilevare qualsiasi tipo di condizione di interesse e quindi, se la condizione è soddisfatta, inviare una richiesta HTTP esterna. Può trattarsi di una richiesta a un sistema di messaggistica, ad esempio Hipchat o Slack, o a un'API di posta elettronica, ad esempio SendGrid o MailChimp, o per eventi che richiedono interventi di supporto critico, ad esempio PagerDuty. Tutti questi sistemi di messaggistica dispongono di API HTTP semplici che possono essere richiamate facilmente.
+Probabilmente l'interazione esterna più semplice è lo stile fire-and-forget della richiesta, che consente a un servizio esterno di ricevere una notifica se si verifica un evento importante. È possibile usare i criteri del flusso di controllo `choose` per rilevare qualsiasi tipo di condizione di interesse e quindi, se la condizione è soddisfatta, inviare una richiesta HTTP esterna usando i criteri [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Può trattarsi di una richiesta a un sistema di messaggistica, ad esempio Hipchat o Slack, o a un'API di posta elettronica, ad esempio SendGrid o MailChimp, o per eventi che richiedono interventi di supporto critico, ad esempio PagerDuty. Tutti questi sistemi di messaggistica dispongono di API HTTP semplici che possono essere richiamate facilmente.
 
 ### Avvisi con Slack
 L'esempio seguente illustra come inviare un messaggio a una chat di Slack, se il codice di stato della risposta HTTP è maggiore o uguale a 500. Un errore di intervallo 500 indica un problema con l'API back-end che il client dell'API non può risolvere automaticamente. In genere richiede un intervento da parte dell'utente.
@@ -57,24 +57,24 @@ In Slack sono disponibili gli hook Web in ingresso. Quando si configura un hook 
 ![Hook Web di Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### Lo stile di richiesta fire-and-forget è sufficientemente efficace?
-Quando si usa uno stile di richiesta fire-and-forget è necessario tenere presenti alcuni svantaggi. Se per qualche motivo la richiesta ha esito negativo, l'errore non viene segnalato. In questo caso, la complessità di disporre di un sistema secondario di segnalazione dell'errore e il costo aggiuntivo delle prestazioni per l'attesa della risposta non sono garantiti. Per gli scenari in cui è fondamentale verificare la risposta, i criteri `send-request` rappresentano un'opzione migliore.
+Quando si usa uno stile di richiesta fire-and-forget è necessario tenere presenti alcuni svantaggi. Se per qualche motivo la richiesta ha esito negativo, l'errore non viene segnalato. In questo caso, la complessità di disporre di un sistema secondario di segnalazione dell'errore e il costo aggiuntivo delle prestazioni per l'attesa della risposta non sono garantiti. Per gli scenari in cui è fondamentale verificare la risposta, i criteri [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) rappresentano un'opzione migliore.
 
 ## Send-Request
-I criteri `send-request` consentono l'uso di un servizio esterno per eseguire funzioni di elaborazione complesse e restituire dati al servizio Gestione API, che può essere usato per un'elaborazione successiva dei criteri.
+I criteri `send-request` consentono l'utilizzo di un servizio esterno per eseguire funzioni di elaborazione complesse e restituire dati al servizio Gestione API, che può essere usato per un'elaborazione successiva dei criteri.
 
 ### Autorizzazione di token di riferimento
-Una funzione fondamentale di Gestione API è la protezione delle risorse back-end. Se il server di autorizzazione usato dall'API crea [token JWT](http://jwt.io/) come parte del flusso OAuth2, in modo analogo ad [Azure Active Directory](../active-directory/active-directory-aadconnect.md), è possibile usare i criteri `validate-jwt` per verificare la validità del token. Tuttavia, alcuni server di autorizzazione creano i cosiddetti [token di riferimento](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) che non possono essere verificati senza eseguire il callback al server di autorizzazione.
+Una funzione fondamentale di Gestione API è la protezione delle risorse back-end. Se il server di autorizzazione usato dall'API crea [token JWT](http://jwt.io/) come parte del flusso OAuth2, in modo analogo ad [Azure Active Directory](../active-directory/active-directory-aadconnect.md), è possibile usare i criteri `validate-jwt` per verificare la validità del token. Tuttavia, alcuni server di autorizzazione creano i cosiddetti [token di riferimento](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/), che non possono essere verificati senza eseguire il callback al server di autorizzazione.
 
 ### Introspezione standardizzata
-In passato non era disponibile alcuna modalità standardizzata per verificare un token di riferimento con un server di autorizzazione. Tuttavia, IETF ha recentemente pubblicato lo standard [RFC 7662](https://tools.ietf.org/html/rfc7662) che definisce le modalità in cui un server di risorse può verificare la validità di un token.
+In passato non era disponibile alcuna modalità standardizzata per verificare un token di riferimento con un server di autorizzazione. L'IETF, tuttavia, ha recentemente proposto e pubblicato lo standard [RFC 7662](https://tools.ietf.org/html/rfc7662), che definisce le modalità con cui un server di risorse può verificare la validità di un token.
 
 ### Estrazione del token
-Il primo passaggio consiste nell'estrarre il token dall'intestazione di autorizzazione. Il valore dell'intestazione deve essere costituito dallo schema di autorizzazione `Bearer`, uno spazio singolo e quindi il token di autorizzazione in base allo standard [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Purtroppo esistono casi in cui lo schema di autorizzazione viene omesso. Per questo motivo, durante l'analisi il valore dell'intestazione viene suddiviso su uno spazio e viene selezionata l'ultima stringa dalla matrice di stringhe restituita. Questa rappresenta una soluzione alternativa per le intestazioni di autorizzazione con formato non corretto.
+Il primo passaggio consiste nell'estrarre il token dall'intestazione di autorizzazione. Il valore dell'intestazione deve essere costituito dallo schema di autorizzazione `Bearer`, uno spazio singolo e il token di autorizzazione, in base allo standard [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Purtroppo esistono casi in cui lo schema di autorizzazione viene omesso. Per questo motivo, durante l'analisi il valore dell'intestazione viene suddiviso su uno spazio e viene selezionata l'ultima stringa dalla matrice di stringhe restituita. Questa rappresenta una soluzione alternativa per le intestazioni di autorizzazione con formato non corretto.
 
     <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 
 ### Invio della richiesta di convalida
-Dopo aver ottenuto il token di autorizzazione, è possibile inviare la richiesta per la convalida del token. Lo standard RFC 7662 definisce questa procedura introspezione e richiede che venga inviata una richiesta `POST` per un modulo HTML alla risorsa di introspezione. Il modulo HTML deve contenere almeno una coppia chiave/valore con la chiave `token`. La richiesta al server di autorizzazione deve essere autenticata anche per assicurarsi che client non autorizzati non vengano passati come token validi.
+Dopo aver ottenuto il token di autorizzazione, è possibile inviare la richiesta per la convalida del token. Lo standard RFC 7662 definisce questa procedura "introspezione" e richiede che venga eseguito il `POST` di un modulo HTML nella risorsa di introspezione. Il modulo HTML deve contenere almeno una coppia chiave/valore con la chiave `token`. La richiesta al server di autorizzazione deve essere autenticata anche per assicurarsi che client non autorizzati non vengano passati come token validi.
 
     <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
       <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
@@ -107,7 +107,7 @@ Per individuare un token non valido, si usano i criteri `<choose>` e, in questo 
       </when>
     </choose>
 
-In base allo standard [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) in cui viene descritto come usare i token `bearer`, viene inoltre restituita un'intestazione `WWW-Authenticate` con la risposta 401. L'intestazione WWW-Authenticate è progettata per indicare a un client come realizzare una richiesta correttamente autorizzata. A causa dell'ampia gamma di approcci possibili con il framework di OAuth2, è difficile comunicare tutte le informazioni necessarie. Fortunatamente sono disponibili soluzioni che consentono ai [client di definire come autorizzare correttamente le richieste a un server di risorse](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+In base allo standard [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3), in cui viene descritto come usare i token `bearer`, viene inoltre restituita un'intestazione `WWW-Authenticate` con la risposta 401. L'intestazione WWW-Authenticate è progettata per indicare a un client come realizzare una richiesta correttamente autorizzata. A causa dell'ampia gamma di approcci possibili con il framework di OAuth2, è difficile comunicare tutte le informazioni necessarie. Fortunatamente, sono disponibili soluzioni che consentono ai [client di definire le modalità per autorizzare correttamente le richieste a un server di risorse](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### Soluzione finale
 Combinando tutte le parti descritte, si ottengono i criteri seguenti:
@@ -144,7 +144,7 @@ Combinando tutte le parti descritte, si ottengono i criteri seguenti:
       <base />
     </inbound>
 
-Questo è solo uno dei numerosi esempi che illustrano come usare i criteri `send-request` per integrare i servizi esterni nel processo delle richieste e delle risposte che passano attraverso il servizio Gestione API.
+Questo è solo uno dei numerosi esempi che illustrano come usare i criteri `send-request` per integrare utili servizi esterni nel processo delle richieste e delle risposte che passano attraverso il servizio Gestione API.
 
 ## Composizione della risposta
 I criteri `send-request` possono essere usati per l'ottimizzazione di una richiesta primaria a un sistema back-end, come illustrato nell'esempio precedente, oppure come sostituzione completa della chiamata al back-end. Questa tecnica consente di creare facilmente risorse composite che vengono aggregate da più sistemi.
@@ -193,7 +193,7 @@ Queste richieste vengono eseguite in sequenza, ma non si tratta della situazione
 
 ### Invio delle risposte
 
-Per costruire la risposta composita è possibile usare i criteri `return-response`. L'elemento `set-body` può usare un'espressione per creare un nuovo oggetto `JObject` con tutte le rappresentazioni di componenti incorporate come proprietà.
+Per costruire la risposta composita è possibile usare i criteri [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). L'elemento `set-body` può usare un'espressione per creare un nuovo oggetto `JObject` con tutte le rappresentazioni di componenti incorporate come proprietà.
 
     <return-response response-variable-name="existing response variable">
       <set-status code="200" reason="OK" />
@@ -264,4 +264,4 @@ Nella configurazione dell'operazione segnaposto è possibile impostare la risors
 ## Riepilogo
 Il servizio Gestione API di Azure offre criteri flessibili che possono essere applicati in modo selettivo al traffico HTTP e consentono la realizzazione di servizi back-end. Se si desidera migliorare il gateway API con funzioni di avviso, verifica e convalida o creare nuove risorse complesse basate su più servizi back-end, `send-request` e i criteri correlati offrono numerose possibilità.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="luisca"/>
 
 
@@ -58,6 +58,7 @@ In genere si richiama Get Recommendation per un certo periodo di tempo. Durante 
 
 * Visual Studio 2013
 * Accesso a Internet 
+* Sottoscrizione all'API Recommendations (https://datamarket.azure.com/dataset/amla/recommendations).
 
 ##Soluzione di app di esempio di Azure Machine Learning
 
@@ -89,4 +90,4 @@ Per una descrizione completa delle API, vedere la documentazione di Microsoft Az
 L'app di esempio non è destinata all'esecuzione in un ambiente di produzione. I dati forniti nel catalogo sono molto limitati e non offrono un modello di raccomandazione significativo. Vengono forniti per fini dimostrativi.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

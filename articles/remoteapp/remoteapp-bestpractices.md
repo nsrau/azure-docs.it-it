@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Procedure consigliate di Azure RemoteApp"
+    pageTitle="Procedure consigliate di Azure RemoteApp | Microsoft Azure"
     description="Procedure consigliate per la configurazione e l'uso di Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Procedure consigliate per la configurazione e l'uso di Azure RemoteApp
@@ -42,6 +42,5 @@ Le informazioni seguenti consentono di configurare e usare in modo efficiente Az
 	- Archiviare i dati condivisi in percorsi di archiviazione esterni al servizio, ad esempio condivisioni file locali o OneDrive.
 	- Configurare le impostazioni a livello di sistema nell'immagine modello anziché sulle singole macchine virtuali in un servizio.
 	- Disabilitare gli aggiornamenti software automatici per le applicazioni pubblicate. Applicarli invece manualmente per l'immagine modello e testarli prima della distribuzione dal modello.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

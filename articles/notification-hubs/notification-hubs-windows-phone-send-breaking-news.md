@@ -149,7 +149,7 @@ L'app può quindi archiviare un set di categorie nell'archiviazione locale del d
 
 Questa procedura consente di effettuare la registrazione con l'hub di notifica all'avvio usando le categorie archiviate nella risorsa di archiviazione locale.
 
-> [AZURE.NOTE]Poiché l'URI di canale assegnato dal Servizio di notifica Push di Microsoft può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite di frequente, oltre una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
+> [AZURE.NOTE]Poiché l'URI di canale assegnato dal Servizio notifica push Microsoft può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. Questo esempio esegue la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite di frequente, oltre una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
 
 1. Aggiungere il codice seguente alla classe **Notifications**:
 
@@ -167,7 +167,7 @@ Questa procedura consente di effettuare la registrazione con l'hub di notifica a
 
 		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
-	In questo modo, ogni volta che l'app viene avviata vengono recuperate le categorie dall'archiviazione locale e viene richiesta una registrazione per queste categorie.
+	In questo modo, ogni volta che l'app viene avviata vengono recuperate le categorie dall'archiviazione locale e viene richiesta una registrazione per tali categorie.
 
 3. Nel file di progetto MainPage.xaml.cs aggiungere il codice seguente che implementa il metodo **OnNavigatedTo**:
 
@@ -252,6 +252,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [linee guida per gli hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

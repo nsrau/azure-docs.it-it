@@ -16,7 +16,7 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/it-IT/library/azure/dn205108.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
 
 # Elenco di Account di archiviazione di Azure #
 
@@ -100,4 +100,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

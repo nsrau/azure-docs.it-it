@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Connettersi al database SQL tramite Java con JDBC in Windows" 
+<properties
+	pageTitle="Connettersi al database SQL tramite Java con JDBC in Windows"
 	description="Presentazione di un esempio di codice Java che è possibile usare per connettersi al database SQL di Azure. L'esempio usa JDBC e viene eseguito su un computer client Windows."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="LuisBosquez" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="LuisBosquez"
+	manager="jeffreyg"
 	editor="genemi"/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="lbosq"/>
 
 
@@ -27,19 +27,20 @@
 Questo argomento presenta un esempio di codice Java che è possibile usare per connettersi al database SQL di Azure. L'esempio Java si basa su Java Development Kit (JDK) versione 1.8 e si connette a un database SQL di Azure tramite il driver JDBC.
 
 
-## Requisiti
+## Prerequisiti
 
+### Driver e librerie
 
 - [Driver Microsoft JDBC per SQL Server - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
 - Qualsiasi piattaforma di sistema operativo che esegue [Java Development Kit 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- Un database esistente in SQL Azure. Vedere l'[argomento introduttivo](sql-database-get-started.md) per informazioni su come creare un database di esempio e recuperare la stringa di connessione.
 
+### Un database SQL
 
-## Ambiente di test
+Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database.
 
+### Una tabella SQL
 
 L'esempio di codice Java in questo argomento presuppone che la tabella di test seguente esista già nel database SQL di Azure.
-
 
 <!--
 Could this instead be a #tempPerson table, so that the Java code sample could be fully self-sufficient and be runnable (with automatic cleanup)?
@@ -55,16 +56,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## Stringa di connessione per il database SQL
+## Passaggio 1: Ottenere la stringa di connessione
+
+[AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
+
+> [AZURE.NOTE]Se si usa il driver JDBC JTDS, sarà necessario aggiungere "ssl = require" all'URL della stringa di connessione ed è necessario impostare l'opzione seguente per JVM "-Djsse.enableCBCProtection=false". Questa opzione JVM disattiva la correzione di una vulnerabilità di sicurezza,quindi assicurarsi di comprendere i rischi coinvolti prima di impostare questa opzione.
 
 
-L'esempio di codice crea un oggetto `Connection` usando una stringa di connessione. È possibile trovare la stringa di connessione mediante il [portale di Azure](http://portal.azure.com/). Per informazioni dettagliate su come trovare la stringa di connessione, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md).
-
-
-> [AZURE.NOTE]Driver JDBC JTDS se si utilizza il driver JDBC JTDS, sarà necessario aggiungere "ssl = require" all'URL della connessione stringa ed è necessario impostare l'opzione seguente per JVM "-Djsse.enableCBCProtection=false". Questa opzione JVM disattiva la correzione di una vulnerabilità di sicurezza,quindi assicurarsi di comprendere i rischi coinvolti prima di impostare questa opzione.
-
-
-## Esempio di codice Java
+## Passaggio 2: Compilare l'esempio di codice Java
 
 
 Questa sezione contiene la parte principale dell'esempio di codice Java e include commenti che indicano dove copiare e incollare i segmenti Java più piccoli presentati nelle sezioni successive. L'esempio in questa sezione può essere compilato ed eseguito anche senza copiare e incollare i segmenti aggiuntivi in corrispondenza dei commenti, ma in tal caso può solo stabilire la connessione ed essere terminato. Sono inclusi i commenti seguenti:
@@ -80,36 +79,36 @@ In questa sezione è illustrata la parte principale dell'esempio di codice Java.
 
 	import java.sql.*;
 	import com.microsoft.sqlserver.jdbc.*;
-	
+
 	public class SQLDatabaseTest {
-	
+
 		public static void main(String[] args) {
 			String connectionString =
-				"jdbc:sqlserver://your_server.database.windows.net:1433;" 
+				"jdbc:sqlserver://your_server.database.windows.net:1433;"
 				+ "database=your_database;"
 				+ "user=your_user@your_server;"
 				+ "password=your_password;"
 				+ "encrypt=true;"
 				+ "trustServerCertificate=false;"
 				+ "hostNameInCertificate=*.database.windows.net;"
-				+ "loginTimeout=30;"; 
-	
+				+ "loginTimeout=30;";
+
 			// Declare the JDBC objects.
 			Connection connection = null;
 			Statement statement = null;
 			ResultSet resultSet = null;
 			PreparedStatement prepsInsertPerson = null;
 			PreparedStatement prepsUpdateAge = null;
-	
+
 			try {
 				connection = DriverManager.getConnection(connectionString);
-	
+
 				// INSERT two rows into the table.
 				// ...
-	
+
 				// TRANSACTION and commit for an UPDATE.
 				// ...
-	
+
 				// SELECT rows from the table.
 				// ...
 			}
@@ -137,7 +136,7 @@ Per eseguire effettivamente questo esempio, nella stringa di connessione è nece
 - your\_password
 
 
-## Inserire due righe nella tabella
+## Passaggio 3: Inserire righe
 
 
 Questo segmento Java esegue un'istruzione Transact-SQL INSERT per inserire due righe nella tabella Person. La sequenza generale è la seguente:
@@ -157,7 +156,7 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 	String insertSql = "INSERT INTO Person (firstName, lastName, age) VALUES "
 		+ "('Bill', 'Gates', 59), "
 		+ "('Steve', 'Ballmer', 59);";
-	
+
 	prepsInsertPerson = connection.prepareStatement(
 		insertSql,
 		Statement.RETURN_GENERATED_KEYS);
@@ -170,8 +169,7 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 	}
 
 
-## Eseguire la transazione e il commit per un aggiornamento
-
+## Passaggio 4: Eseguire il commit di una transazione
 
 Questo segmento di codice Java esegue un'istruzione Transact-SQL UPDATE per aumentare il valore `age` per ogni riga della tabella Person. La sequenza generale è la seguente:
 
@@ -186,22 +184,22 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 
 	// Set AutoCommit value to false to execute a single transaction at a time.
 	connection.setAutoCommit(false);
-	
+
 	// Write the SQL Update instruction and get the PreparedStatement object.
 	String transactionSql = "UPDATE Person SET Person.age = Person.age + 1;";
 	prepsUpdateAge = connection.prepareStatement(transactionSql);
-	
+
 	// Execute the statement.
 	prepsUpdateAge.executeUpdate();
-	
+
 	//Commit the transaction.
 	connection.commit();
-	
+
 	// Return the AutoCommit value to true.
 	connection.setAutoCommit(true);
 
 
-## Selezionare le righe da una tabella
+## Passaggio 4: Eseguire una query
 
 
 Questo segmento Java esegue un'istruzione Transact-SQL SELECT per visualizzare tutte le righe aggiornate dalla tabella Person. La sequenza generale è la seguente:
@@ -219,7 +217,7 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 	String selectSql = "SELECT firstName, lastName, age FROM dbo.Person";
 	statement = connection.createStatement();
 	resultSet = statement.executeQuery(selectSql);
-	
+
 	// Iterate through the result set and print the attributes.
 	while (resultSet.next()) {
 		System.out.println(resultSet.getString(2) + " "
@@ -228,6 +226,6 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 
 ## Passaggi successivi
 
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
+Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

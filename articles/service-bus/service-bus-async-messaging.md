@@ -154,7 +154,7 @@ Dopo avere appreso le nozioni di base della messaggistica asincrona, per altre i
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
-  [MessagingException]: https://msdn.microsoft.com/it-IT/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
+  [MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
   [Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio]: service-bus-outages-disasters.md
   [Microsoft.ServiceBus.Messaging.MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
   [MessageReceiver]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx
@@ -172,4 +172,4 @@ Dopo avere appreso le nozioni di base della messaggistica asincrona, per altre i
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
   [spazi dei nomi associati e implicazioni in termini di costo]: service-bus-paired-namespaces.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

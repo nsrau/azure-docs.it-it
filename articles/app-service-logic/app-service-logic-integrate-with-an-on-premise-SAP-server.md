@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integrazione con un server SAP locale nel servizio app di Microsoft Azure"
+	pageTitle="Integrazione con un server SAP locale in Servizio app di Azure | Microsoft Azure"
 	description="Informazioni su come eseguire l'integrazione con un server SAP locale"
 	authors="rajeshramabathiran"
 	manager="dwrede"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="sameerch"/>
 
 
@@ -40,15 +40,13 @@ Le librerie client specifiche di SAP sono richieste sul computer client su cui �
 
 
 ## Creare un nuovo connettore SAP
-1. Accedere al portale di gestione di Microsoft Azure.
+1. Accedere al portale di Azure.
 2. Selezionare **Nuovo**.
 3. Nel pannello di creazione, selezionare **Calcolo ** > **Azure Marketplace**.
-4. Nel pannello Marketplace, selezionare **App per le API**, quindi cercare SAP nella barra di ricerca:
-
-	![App per le API del connettore SAP][2]
+4. Nel pannello Marketplace selezionare **App per le API** e quindi eseguire la ricerca di SAP nella barra di ricerca: ![App per le API del connettore SAP][2]
 5. Selezionare il **connettore SAP** pubblicato da Microsoft.
 6. Nel pannello Connettore SAP selezionare **Crea**.
-7. Nel nuovo pannello che viene visualizzato, immettere le informazioni seguenti:
+7. Nel nuovo pannello che viene visualizzato, immettere le informazioni seguenti:  
 	1. **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
 	2. **Sottoscrizione**: scegliere una sottoscrizione in cui si vuole creare questo connettore
 	3. **Gruppo di risorse**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
@@ -83,7 +81,7 @@ Selezionare il collegamento **Scarica e configura**. Fare clic una volta aperto 
 
 ![Programma di installazione Click Once di Connessione ibrida][4]
 
-Selezionare **Installa**, quindi immettere l'impostazione di configurazione primaria del gateway copiata in precedenza:
+Selezionare **Installa** e quindi immettere la stringa di configurazione del gateway primario copiata in precedenza:
 
 ![Stringa di connessione del listener di inoltro][5]
 
@@ -102,7 +100,7 @@ Nel pannello del connettore, notare che lo stato di connessione ibrida è *Conne
 
 
 ## Uso del connettore SAP nelle app per la logica
-Dopo aver creato il connettore SAP è possibile usarlo all'interno del flusso di lavoro delle app per la logica. A tale scopo, creare una nuova app per la logica, scegliendo **Nuovo** > **App per la logica** > **Crea**. Immettere i metadati per l'app per la logica, incluso il gruppo di risorse.
+Dopo aver creato il connettore SAP è possibile usarlo all'interno del flusso di lavoro delle app per la logica. A tale scopo, creare una nuova app per la logica scegliendo **Nuovo** > **App per la logica** > **Crea**. Immettere i metadati relativi all'app per la logica, incluso il gruppo di risorse.
 
 Selezionare **Trigger e azioni**. Viene visualizzata la finestra di progettazione del flusso di lavoro delle app per la logica.
 
@@ -123,4 +121,4 @@ Per l'azione selezionata verranno visualizzati i parametri di input e output. È
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

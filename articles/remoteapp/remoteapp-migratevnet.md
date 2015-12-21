@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Come eseguire la migrazione da una rete virtuale RemoteApp a una rete virtuale di Azure"
-    description="Informazioni su come eseguire la migrazione da una rete virtuale RemoteApp a una rete virtuale di Azure" 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Come eseguire la migrazione da una rete virtuale RemoteApp a una rete virtuale di Azure | Microsoft Azure"
+    description="Informazioni su come eseguire la migrazione da una rete virtuale RemoteApp a una rete virtuale di Azure"
+    services="remoteapp"
+	documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/02/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/02/2015"
     ms.author="elizapo" />
 
 
@@ -48,6 +48,5 @@ In alternativa, se È necessario eseguire la migrazione delle informazioni utent
 L'operazione è così completata.
 
 In caso di domande o se è necessaria un'assistenza particolare, inviare un messaggio di posta elettronica a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

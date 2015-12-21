@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Come personalizzare l'aspetto del portale per sviluppatori in Gestione API di Azure
@@ -49,10 +49,9 @@ Dopo avere apportato le modifiche desiderate agli stili dell'elemento selezionat
 
 [Next steps]: #next-steps
 
-[Management Portal]: https://manage.windowsazure.com/
 
 [api-management-customization-toolbar]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-publish-form.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

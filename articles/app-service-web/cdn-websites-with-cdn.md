@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 
@@ -39,11 +39,9 @@ Verrà distribuita un'app Web nel servizio app di Azure usando il modello MVC di
 Per completare questa esercitazione, è necessario disporre dei prerequisiti seguenti:
 
 -	Un [account Microsoft Azure](/account/) attivo
--	Visual Studio 2013 con [Azure SDK per .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	Visual Studio 2015 con [Azure SDK per .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Se si usa Visual Studio, la procedura può variare.
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. 
-> + È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. 
-> + È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) - si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 >
 > Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -51,31 +49,28 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 
 In questa sezione verrà distribuito nel servizio app il modello di applicazione MCV di ASP.NET predefinito di Visual Studio 2013, che verrà quindi integrato con un nuovo endpoint della rete CDN. Seguire le istruzioni riportate di seguito:
 
-1. In Visual Studio 2013 creare una nuova applicazione Web ASP.NET dalla barra dei menu selezionando **File > Nuovo > Progetto > Web > Applicazione Web ASP.NET**. Assegnargli un nome e fare clic su **OK**.
+1. In Visual Studio 2015 creare una nuova applicazione Web ASP.NET dalla barra dei menu selezionando **File > Nuovo > Progetto > Web > Applicazione Web ASP.NET**. Assegnargli un nome e fare clic su **OK**.
 
 	![](media/cdn-websites-with-cdn/1-new-project.png)
 
-3. Selezionare **MVC** e fare clic su **Gestisci sottoscrizioni**.
+3. Selezionare **MVC** e fare clic su **OK**.
 
 	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. Fare clic su **Sign In**.
+4. Se non è ancora stato eseguito l'accesso all'account Azure, fare clic sull'icona dell'account nell'angolo superiore destro e seguire la finestra di dialogo per accedere all'account Azure. Al termine, configurare l'app come illustrato di seguito e quindi fare clic su **Nuovo** per creare un nuovo piano di servizio app per l'applicazione.
 
-	![](media/cdn-websites-with-cdn/3-manage-subscription.png)
+	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-6. Nella pagina di accesso eseguire l'accesso con l'account Microsoft usato per attivare l'account Azure.
-7. Una volta effettuato l'accesso, fare clic su **Chiudi**. Quindi, fare clic su **OK** per continuare.
+5. Configurare un nuovo piano di servizio app nella finestra di dialogo come illustrato di seguito e fare clic su **OK**.
 
-	![](media/cdn-websites-with-cdn/4-signed-in.png)
+	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
-8. Se non è stata creata un'app Web in Azure, è possibile farlo facilmente in Visual Studio. Nella finestra di dialogo **Configura sito Web di Microsoft Azure** verificare che il nome del sito sia univoco. Fare quindi clic su **OK**.
+8. Fare clic su **Crea** per creare l'app Web.
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/5-create-website.png)
 
-9. Dopo aver creato l'applicazione ASP.NET, pubblicarla in Azure nel riquadro Attività di pubblicazione Web facendo clic su **Pubblica `<app name>` su questo sito adesso**. Fare clic su **Pubblica** per completare il processo.
+9. Dopo aver creato l'applicazione ASP.NET, pubblicarla in Azure nel riquadro attività del servizio app di Azure facendo clic su **Pubblica `<app name>` adesso in questa app Web**. Fare clic su **Pubblica** per completare il processo.
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Dopo il completamento della pubblicazione, l'app Web verrà visualizzata nel browser.
@@ -87,7 +82,7 @@ In questa sezione verrà distribuito nel servizio app il modello di applicazione
 
 	> [AZURE.NOTE]Dopo aver creato l'endpoint della rete CDN, nel portale classico viene visualizzato il relativo URL e il dominio di origine in esso integrato. È tuttavia possibile che la propagazione completa della configurazione del nuovo endpoint della rete CDN in tutte le località in cui si trovano i nodi della rete CDN richieda tempo.
 
-3. Tornare al portale classico e nella scheda **Rete CDN** fare clic sul nome dell'endpoint della rete CDN appena creato.
+3. Tornare al portale classico e nella scheda **Rete CDN** e fare clic sul nome dell'endpoint della rete CDN appena creato.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
@@ -382,7 +377,7 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
 
           // Use the development version of Modernizr to develop with and learn from. Then, when you're
           // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
                 "~/Scripts/modernizr-*"));
 
           bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
@@ -407,9 +402,9 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
 
 	Questo costruttore comunica alle operazioni di creazione di bundle e minimizzazione ASP.NET di eseguire il rendering dei singoli file di script quando ne viene eseguito il debug a livello locale, ma di usare l'indirizzo della rete CDN specificato per accedere allo script in questione. Notare tuttavia due importanti caratteristiche di questo URL della rete CDN definito con precisione:
 	
-	-	L'origine per questo URL della rete CDN è `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, che in realtà è la directory virtuale dell'aggregazione di script nell'applicazione Web.
-	-	Poiché si sta usando un costruttore CDN, il tag dello script CDN per il bundle non contiene più la stringa di versione generata automaticamente nell'URL di cui è stato eseguito il rendering. È necessario generare manualmente una stringa di versione univoca ogni volta che il bundle di script viene modificato per forzare un mancato riscontro nella cache nella rete CDN di Azure. Allo stesso tempo, questa stringa di versione univoca deve rimanere costante per tutta la durata della distribuzione per aumentare i riscontri nella cache nella rete CDN di Azure dopo aver distribuito il bundle.
-	-	La stringa di query v=<W.X.Y.Z> effettua il pull da *Properties\\AssemblyInfo.cs* nel progetto ASP.NET. È possibile prevedere un flusso di lavoro di distribuzione che includa l'incremento della versione di assembly ogni volta che si pubblica su Azure. In alternativa, è possibile modificare solo il file *Properties\\AssemblyInfo.cs* nel progetto per incrementare automaticamente la stringa di versione ogni volta che si compila, usando il carattere jolly "*". ad esempio:
+	- L'origine per questo URL della rete CDN è `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, che in realtà è la directory virtuale dell'aggregazione di script nell'applicazione Web.
+	- Poiché si sta usando un costruttore CDN, il tag dello script CDN per il bundle non contiene più la stringa di versione generata automaticamente nell'URL di cui è stato eseguito il rendering. È necessario generare manualmente una stringa di versione univoca ogni volta che il bundle di script viene modificato per forzare un mancato riscontro nella cache nella rete CDN di Azure. Allo stesso tempo, questa stringa di versione univoca deve rimanere costante per tutta la durata della distribuzione per aumentare i riscontri nella cache nella rete CDN di Azure dopo aver distribuito il bundle.
+	- La stringa di query v=<W.X.Y.Z> effettua il pull da *Properties\\AssemblyInfo.cs* nel progetto ASP.NET. È possibile prevedere un flusso di lavoro di distribuzione che includa l'incremento della versione di assembly ogni volta che si pubblica su Azure. In alternativa, è possibile modificare solo il file *Properties\\AssemblyInfo.cs* nel progetto per incrementare automaticamente la stringa di versione ogni volta che si compila, usando il carattere jolly "*". ad esempio:
 
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -447,7 +442,7 @@ Se si verifica un errore nell'endpoint della rete CDN di Azure per un motivo qua
 
 La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una proprietà denominata [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) che consente di configurare il meccanismo di fallback per l'errore della rete CDN. Per usare questa proprietà, seguire i passaggi descritti di seguito:
 
-1. Nel progetto ASP.NE, aprire *App\_Start\\BundleConfig.cs* dove è stato aggiunto un URL della rete CDN in ogni [costruttore di bundle](http://msdn.microsoft.com/library/jj646464.aspx) e aggiungere il codice `CdnFallbackExpression` in quattro posizioni come indicato per aggiungere il meccanismo di fallback ai bundle predefiniti.  
+1. Nel progetto ASP.NET aprire *App\_Start\\BundleConfig.cs* dove è stato aggiunto un URL della rete CDN in ogni [costruttore di bundle](http://msdn.microsoft.com/library/jj646464.aspx) e aggiungere il codice `CdnFallbackExpression` in quattro posizioni come indicato per aggiungere il meccanismo di fallback ai bundle predefiniti.  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -483,10 +478,10 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 	Quando `CdnFallbackExpression` non è Null, lo script viene inserito nel linguaggio HTML per provare se l'aggregazione è stata caricata correttamente. In caso contrario, accedere all'aggregazione direttamente dal server Web dell'origine. Questa proprietà deve essere impostata su un'espressione JavaScript che verifichi se il rispettivo bundle CDN è stato caricato correttamente. L'espressione necessaria per testare ogni bundle differisce in base al contenuto. Per i bundle predefiniti sopra riportati:
 	
-	-	`window.jquery` viene definito nel file jquery-{version}.js
-	-	`$.validator` viene definito nel file jquery.validate.js
-	-	`window.Modernizr` viene definito nel file modernizer-{version}.js
-	-	`$.fn.modal` viene definito nel file bootstrap.js
+	- `window.jquery` viene definito nel file jquery-{version}.js
+	- `$.validator` viene definito nel file jquery.validate.js
+	- `window.Modernizr` viene definito nel file modernizer-{version}.js
+	- `$.fn.modal` viene definito nel file bootstrap.js
 	
 	Come è possibile osservare, non è stata impostata la proprietà CdnFallbackExpression per l'aggregazione `~/Cointent/css`, e questo perché attualmente esiste un [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) che inserisce un tag `<script>` per il file CSS di fallback invece del tag `<link>` previsto.
 	
@@ -496,7 +491,7 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 4. In *App\_Start\\StyleFundleExtensions.cs* rinominare lo spazio dei nomi con lo spazio dei nomi dell'applicazione ASP.NET (ad esempio **cdnwebapp**).
 
-3. Tornare a `App_Start\BundleConfig.cs` e sostituire l'ultima istruzione `bundles.Add` con il seguente codice:
+3. Tornare a `App_Start\BundleConfig.cs` e sostituire l'ultima istruzione `bundles.Add` con il codice seguente:
 
         bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
           .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
@@ -523,11 +518,11 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 	...
 	```
 
-	Si noti che lo script inserito per l'aggregazione CSS contiene ancora residui della proprietà `CdnFallbackExpression` nella riga:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Poiché però la prima parte dell'espressione || restituirà sempre true (nella riga subito sopra), la funzione document.write() non verrà mai eseguita.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Per verificare il funzionamento dello script di fallback, tornare indietro al dashboard dell'endpoint della rete CDN e fare clic su **Disabilita endpoint**.
 
@@ -547,4 +542,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

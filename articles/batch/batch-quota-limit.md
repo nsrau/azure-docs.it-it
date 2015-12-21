@@ -43,7 +43,7 @@ Attività per nodo di calcolo|4 x numero di core del nodo
 
 Visualizzare le quote dell'account Batch nel [portale di Azure](https://portal.azure.com).
 
-1. Nel portale di anteprima fare clic su **Account Batch** e quindi sul nome dell'account Batch.
+1. Nel portale fare clic su **Account Batch** e quindi sul nome dell'account Batch.
 
 2. Nel pannello dell'account fare clic su **Impostazioni** > **Proprietà**.
 
@@ -95,4 +95,4 @@ Si verrà contatti dal supporto di Azure. Il completamento della richiesta può 
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

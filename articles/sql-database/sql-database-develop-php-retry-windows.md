@@ -1,5 +1,5 @@
 <properties
-	pageTitle="PHP su Windows al database SQL | Microsoft Azure"
+	pageTitle="Logica di ripetizione dei tentativi PHP per connettersi al database SQL | Microsoft Azure"
 	description="Presenta un programma PHP di esempio che si connette al database SQL di Azure da un client Windows con gestione degli errori temporanei e fornisce collegamenti ai componenti software necessari per il client."
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -29,18 +29,20 @@ Questo argomento illustra come connettersi al database SQL di Azure da un'applic
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
+### Un database SQL
 
-## Creare un database e recuperare la stringa di connessione
-
-
-Vedere l'[argomento introduttivo](sql-database-get-started.md) per informazioni su come creare un database di esempio e recuperare la stringa di connessione. È importante seguire le istruzioni per creare un **modello di database AdventureWorks**. Gli esempi illustrati di seguito funzionano solo con lo **schema di AdventureWorks**.
+Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database di esempio. È importante seguire le istruzioni per creare un **modello di database AdventureWorks**. Gli esempi illustrati di seguito funzionano solo con lo **schema di AdventureWorks**.
 
 
-## Connettersi ed eseguire query di database 
+## Passaggio 1: Ottenere i dettagli di connessione
+
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
+
+## Passaggio 2: Connettersi ed eseguire query
 
 Il programma demo è progettato in modo che un errore temporaneo durante un tentativo di connessione comporti un nuovo tentativo. Ma un errore temporaneo durante un comando di query fa sì che il programma ignori la connessione e crei una nuova connessione, prima di ritentare il comando di query. Non consigliamo né sconsigliamo tale scelta di progettazione. Nel programma demo vengono illustrate alcune flessibilità di progettazione disponibili.
 
-<br>La lunghezza di questo esempio di codice è dovuta principalmente alla logica di eccezione catch. È disponibile una versione più breve di tale file Program.cs [qui](sql-database-develop-php-simple-windows.md). <br>Il metodo Main è in Program.cs. Lo stack di chiamate viene eseguito nel modo seguente: * Main chiama ConnectAndQuery. * ConnectAndQuery chiama EstablishConnection. * EstablishConnection chiama IssueQueryCommand.
+<br>La lunghezza di questo esempio di codice è dovuta principalmente alla logica di eccezione catch. È disponibile una versione più breve del file Program.cs [qui](sql-database-develop-php-simple-windows.md). <br>Il metodo Main è in Program.cs. Lo stack di chiamate viene eseguito nel modo seguente: * Main chiama ConnectAndQuery. * ConnectAndQuery chiama EstablishConnection. * EstablishConnection chiama IssueQueryCommand.
 
 Per recuperare un set di risultati di una query sul database SQL è possibile usare la funzione [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php). Questa funzione accetta essenzialmente qualsiasi query e l'oggetto connection e restituisce un set di risultati su cui è possibile eseguire l'iterazione usando [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -59,13 +61,13 @@ Per recuperare un set di risultati di una query sul database SQL è possibile us
 		{
 		    $errorArr = array();
 		    $ctr = 0;
-		    // [A.2] Connect, which proceeds to issue a query command. 
+		    // [A.2] Connect, which proceeds to issue a query command.
 		    $conn = sqlsrv_connect($serverName, $connectionOptions);  
 		    if( $conn == true)
 		    {
-		        echo "Connection was established"; 
+		        echo "Connection was established";
 		        echo "<br>";
-		 
+
 		        $tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
 		        $getProducts = sqlsrv_query($conn, $tsql);
 		        if ($getProducts == FALSE)
@@ -96,8 +98,8 @@ Per recuperare un set di risultati di una query sul database SQL è possibile us
 		        // [A.4] Check whether sqlExc.Number is on the whitelist of transients.
 		        $isTransientError = IsTransientStatic($errorArr);
 		        if ($isTransientError == TRUE)  // Is a static persistent error...
-		        { 
-		            echo("Persistent error suffered, SqlException.Number==". $errorArr[0].". Program Will terminate."); 
+		        {
+		            echo("Persistent error suffered, SqlException.Number==". $errorArr[0].". Program Will terminate.");
 		            echo "<br>";
 		            // [A.5] Either the connection attempt or the query command attempt suffered a persistent SqlException.
 		            // Break the loop, let the hopeless program end.
@@ -129,11 +131,9 @@ Per recuperare un set di risultati di una query sul database SQL è possibile us
 		        return TRUE;
 		}
 	?>
-	
+
 ## Passaggi successivi
 
 Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai database di SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

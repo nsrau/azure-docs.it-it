@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 
@@ -48,9 +48,9 @@ Il flusso di lavoro che si implementerà seguendo le istruzioni in questo docume
 
 1. Un'azione di Hive esegue uno script HiveQL per estrarre i record da **hivesampletable** inclusa in HDInsight. Ogni riga di dati descrive una visita da un dispositivo mobile specifico. Il formato del record risulterà simile al seguente:
 
-		8       18:54:20        it-IT   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        it-IT   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        it-IT   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        it-it   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        it-it   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        it-it   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	Lo script Hive usato in questo documento conta le visite totali per ogni piattaforma (ad esempio Android o iPhone) e archivia i conteggi in una nuova tabella Hive.
 
@@ -62,7 +62,7 @@ Il flusso di lavoro che si implementerà seguendo le istruzioni in questo docume
 
 ##Creare la directory di lavoro
 
-Oozie prevede che le risorse necessarie per un processo siano archiviate nella stessa directory. Questo esempio usa ****wasb:///tutorials/useoozie**. Usare il comando seguente per creare questa directory e la directory dati che conterrà la nuova tabella Hive creata da questo flusso di lavoro:
+Oozie prevede che le risorse necessarie per un processo siano archiviate nella stessa directory. Questo esempio usa **wasb:///tutorials/useoozie**. Usare il comando seguente per creare questa directory e la directory dati che conterrà la nuova tabella Hive creata da questo flusso di lavoro:
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -112,7 +112,7 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisca una query, 
 
 2. Premere CTRL+X per uscire dall'editor. Quando richiesto, selezionare **S** per salvare il file, quindi premere **INVIO** per usare il nome di file **useooziewf.hql**.
 
-3. Usare i comandi seguenti per copiare **useooziewf.hql** in****wasb:///tutorials/useoozie/useooziewf.hql**:
+3. Usare i comandi seguenti per copiare **useooziewf.hql** in **wasb:///tutorials/useoozie/useooziewf.hql**:
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -193,7 +193,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
 2. Usare CTRL+X, quindi **S** e **INVIO** per salvare il file.
 
-3. Usare il comando seguente per copiare il file **workflow.xml** in ****wasb:///tutorials/useoozie/workflow.xml**:
+3. Usare il comando seguente per copiare il file **workflow.xml** in **wasb:///tutorials/useoozie/workflow.xml**:
 
 		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
 
@@ -284,7 +284,7 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Salvare il valore ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**, perché verrà usato nei passaggi successivi.
+	Salvare il valore **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, perché verrà usato nei passaggi successivi.
 
 2. Usare il comando seguente per ottenere l'FQDN del nodo head del cluster. Verrà usato per l'indirizzo di JobTracker per il cluster. Verrà usato nel file di configurazione tra poco:
 
@@ -361,9 +361,9 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
 		  </property>
 		</configuration>
 
-	* Sostituire tutte le istanze di ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** con il valore ricevuto in precedenza.
+	* Sostituire tutte le istanze di **wasb://mycontainer@mystorageaccount.blob.core.windows.net** con il valore ricevuto in precedenza.
 
-	> [AZURE.WARNING]È necessario usare il percorso WASB completo, con l'account di archiviazione e il contenitore come parte del percorso. L'uso del formato breve (wasb:///) impedirà l'esecuzione dell'azione RunHiveScript all'avvio del processo.
+	> [AZURE.WARNING] È necessario usare il percorso WASB completo, con l'account di archiviazione e il contenitore come parte del percorso. L'uso del formato breve (wasb:///) impedirà l'esecuzione dell'azione RunHiveScript all'avvio del processo.
 
 	* Sostituire **JOBTRACKERADDRESS** con l'indirizzo di JobTracker/ResourceManager ricevuto in precedenza.
 
@@ -479,7 +479,8 @@ Per accedere all'interfaccia utente Web di Oozie, attenersi alla procedura segue
 
 1. Creare un tunnel SSH per il cluster HDInsight. Per altre informazioni su come eseguire questa operazione, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Dopo aver creato un tunnel, aprire l'interfaccia utente Web di Ambari nel Web browser. L'URI per il sito Ambari è ****https://CLUSTERNAME.azurehdinsight.net**. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight basato su Linux.
+
+2. Dopo aver creato un tunnel, aprire l'interfaccia utente Web di Ambari nel Web browser. L'URI per il sito Ambari è **https://CLUSTERNAME.azurehdinsight.net**. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight basato su Linux.
 
 3. Nel lato sinistro della pagina selezionare **Oozie**, quindi **Quick Links** e infine **Oozie Web UI**.
 
@@ -711,7 +712,7 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/it-IT/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/it-it/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -721,4 +722,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

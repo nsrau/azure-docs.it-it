@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/11/2015"
-    ms.author="tamram"/>
+    ms.date="12/04/2015"
+    ms.author="robinsh"/>
 
 # Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -33,7 +33,7 @@ Questo articolo è utile per rispondere alle domande comuni seguenti sull'ottimi
 
 Queste indicazioni sono specifiche per l'Archiviazione Premium, perché i carichi di lavoro in esecuzione nell'Archiviazione Premium sono influenzati in modo significativo dalle prestazioni. Sono disponibili esempi nei casi appropriati. È anche possibile applicare alcune indicazioni alle applicazioni in esecuzione su VM IaaS con dischi di archiviazione Standard.
 
-Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere l'articolo [Introduzione all'Archiviazione Premium](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/) e [Obiettivi di scalabilità e prestazioni per Archiviazione Premium di Azure](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-premium-storage-accounts).
+Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere l'articolo [Introduzione all'Archiviazione Premium](storage-premium-storage-preview-portal.md) e [Obiettivi di scalabilità e prestazioni per Archiviazione Premium di Azure](storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
 
 ## Indicatori di prestazioni dell'applicazione  
 È possibile valutare se le prestazioni di un'applicazione sono adeguate o meno usando indicatori di prestazioni, ad esempio la velocità di elaborazione di una richiesta utente da parte di un'applicazione, la quantità di dati elaborata da un'applicazione per ogni richiesta, il numero di richieste elaborate da un'applicazione in un periodo specifico, la durata dell'attesa da parte di un utente per ottenere una risposta dopo l'invio della richiesta. I termini tecnici per definire questi indicatori di prestazioni sono IOPS, velocità effettiva o larghezza di banda e latenza.
@@ -56,7 +56,7 @@ Come illustrato dalla formula seguente, esiste una relazione tra la velocità ef
 
 È quindi importante determinare i valori ottimali per la velocità effettiva e IOPS richiesti dall'applicazione. I tentativi di ottimizzazione di uno dei valori influiscono anche sull'altro. In una sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*, verrà illustrata in modo dettagliato l'ottimizzazione di IOPS e velocità effettiva.
 
-## Latenza  
+## Latency  
 La latenza è il tempo necessario perché un'applicazione riceva una singola richiesta, la invii ai dischi di archiviazione e restituisca la risposta al client. Si tratta di una misura essenziale delle prestazioni di un'applicazione, oltre a IOPS e velocità effettiva. La latenza di un disco di Archiviazione Premium è il tempo necessario per recuperare le informazioni per una richiesta e restituirle all'applicazione. L'Archiviazione Premium offre latenze uniformemente basse. Se si abilita la memorizzazione nella cache host ReadOnly nei dischi di Archiviazione Premium, sarà possibile ottenere una latenza di lettura molto più bassa. La memorizzazione nella cache dei dischi sarà illustrata in modo più dettagliato nella sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*.
 
 Quando si ottimizza l'applicazione per ottenere valori più elevati per IOPS e velocità effettiva, ciò influirà sulla latenza dell'applicazione. Dopo il perfezionamento delle prestazioni dell'app, è necessario valutare sempre la latenza dell'applicazione per evitare comportamenti imprevisti con latenza elevata.
@@ -72,19 +72,19 @@ Nella sezione precedente sono stati illustrati gli indicatori di prestazioni com
 
 | **Requisiti relativi alle prestazioni** | **50° percentile** | **90° percentile** | **99° percentile** |
 |---|---|---|---|
-| Max transazioni al secondo | | | |
+| Max. Transazioni al secondo | | | |
 | % di operazioni di lettura | | | |
 | % di operazioni di scrittura | | | |
 | % di operazioni casuali | | | |
 | % di operazioni sequenziali | | | |
 | Dimensioni delle richieste I/O | | | |
 | Velocità effettiva media | | | |
-| Max velocità effettiva | | | |
-| Min latenza | | | |
+| Max. Velocità effettiva | | | |
+| Min Latency | | | |
 | Latenza media | | | |
-| Max CPU | | | |
+| Max. CPU | | | |
 | Utilizzo medio CPU | | | |
-| Max memoria | | | |
+| Max. Memoria | | | |
 | Memoria media | | | |
 | Profondità coda | | | |
 
@@ -104,13 +104,13 @@ Sono disponibili contatori di PerfMon per il processore, la memoria e ogni disco
 | **IOPS o transazioni al secondo** | Numero di richieste I/O rilasciate al disco di archiviazione a secondo. | Letture disco/sec <br> Scritture disco/sec | tps <br> r/s <br> w/s |
 | **Letture e scritture del disco** | % di operazioni di lettura e scrittura eseguite sul disco. | % Tempo lettura disco <br> % Tempo scrittura disco | r/s <br> w/s |
 | **Velocità effettiva** | Quantità di dati letti da o scritti nel disco al secondo. | Byte letti da disco/sec <br> Byte scritti su disco/sec | kB\_read/s <br> kB\_wrtn/s |
-| **Latenza** | Tempo totale necessario per completare una richiesta I/O per il disco. | Media letture disco/sec <br> Media scritture disco/sec | await <br> svctm |
+| **Latency** | Tempo totale necessario per completare una richiesta I/O per il disco. | Media letture disco/sec <br> Media scritture disco/sec | await <br> svctm |
 | **Dimensioni I/O** | Dimensioni delle richieste I/O rilasciate ai dischi di archiviazione. | Media byte letti da disco <br> Media byte scritti su disco | avgrq-sz |
 | **Profondità coda** | Numero di richieste I/O in attesa che devono essere lette da o scritte nel disco di archiviazione. | Lunghezza corrente coda su disco | avgqu-sz |
 | **Max. memoria** | Quantità di memoria necessaria per eseguire correttamente un'applicazione. | % byte vincolati in uso | Use vmstat |
 | **Max. CPU** | Quantità di CPU necessaria per eseguire correttamente un'applicazione. | % tempo processore | %util |
 
-Altre informazioni su [iostat](http://linuxcommand.org/man_pages/iostat1.html) e [PerfMon](https://msdn.microsoft.com/library/aa645516(v=vs.71).aspx).
+Altre informazioni su [iostat](http://linuxcommand.org/man_pages/iostat1.html) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 
 ## Ottimizzazione delle prestazioni dell'applicazione  
@@ -121,7 +121,7 @@ In questa sezione è consigliabile vedere l'elenco di controllo creato relativo 
 ### Breve panoramica sull'ottimizzazione di IOPS, velocità effettiva e latenza  
 Questa tabella riepiloga tutti i fattori relativi alle prestazioni e i passaggi necessari per ottimizzare IOPS, velocità effettiva e latenza. Le sezioni successive al riepilogo illustreranno ogni fattore in modo più dettagliato.
 
-| | **IOPS** | **Velocità effettiva** | **Latenza** |
+| | **IOPS** | **Velocità effettiva** | **Latency** |
 |---|---|---|---|
 | **Scenario di esempio** | Applicazione OLTP aziendale che richiede una frequenza molto elevata di transazioni al secondo. | Applicazione aziendale di tipo data warehouse che elabora quantità elevate di dati. | Applicazioni quasi in tempo reale che necessitano di risposte immediate alle richieste degli utenti, ad esempio i giochi online. |
 | Fattori relativi alle prestazioni | | | |
@@ -142,7 +142,7 @@ La dimensione di I/O è uno dei fattori più importanti. Le dimensioni di I/O so
 
 Alcune applicazioni consentono di modificare le relative dimensioni di I/O, mentre altre applicazioni non lo consentono. Ad esempio, SQL Server determina automaticamente le dimensioni di I/O ottimali e non fornisce agli utenti manopole per la modifica. D'altra parte, Oracle fornisce un parametro denominato [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815), che consente di configurare le dimensioni delle richieste I/O del database.
 
-Se si usa un'applicazione che non consente la modifica delle dimensioni di I/O, usare le indicazioni disponibili in questo articolo per ottimizzare l'indicatore KPI relativo alle prestazioni più rilevante per l'applicazione. Ad esempio:
+Se si usa un'applicazione che non consente la modifica delle dimensioni di I/O, usare le indicazioni disponibili in questo articolo per ottimizzare l'indicatore KPI relativo alle prestazioni più rilevante per l'applicazione. Ad esempio,
 
 -   Un'applicazione OLTP genera milioni di richieste I/O piccole e casuali. Per gestire questo tipo di richieste I/O, è necessario progettare l'infrastruttura dell'applicazione in modo da ottenere valori di IOPS più elevati.  
 -   Un'applicazione di tipo data warehouse genera richieste I/O di grandi dimensioni e sequenziali. Per gestire questo tipo di richieste I/O, è necessario progettare l'infrastruttura dell'applicazione in modo da ottenere valori di larghezza di banda e velocità effettiva più elevati.
@@ -163,7 +163,7 @@ Ecco un esempio di come è possibile calcolare i valori di IOPS e larghezza di b
 
 Per ottenere valori di IOPS e larghezza di banda più elevati rispetto al valore massimo di un singolo disco di Archiviazione Premium, usare più dischi Premium con striping. Ad esempio, effettuare lo striping di due dischi P30 per ottenere un valore di IOPS combinato di 10.000 IOPS o un valore di velocità effettiva combinato di 400 MB al secondo. Come illustrato nella sezione successiva, è necessario usare una dimensione di VM che supporta i valori combinati di IOPS e velocità effettiva.
 
->**Nota:** poiché se si aumenta il valore di IOPS o di velocità effettiva aumenterà anche l'altro valore, è necessario assicurarsi di non raggiungere i limiti di velocità effettiva o IOPS del disco o della VM in caso di aumento di uno dei valori.
+>**Nota:** poiché, se si aumenta il valore di IOPS o di velocità effettiva aumenterà anche l'altro valore, è necessario verificare di non raggiungere i limiti di velocità effettiva o IOPS del disco o della VM in caso di aumento di uno dei valori.
 
 Per verificare gli effetti delle dimensioni di I/O sulle prestazioni dell'applicazione, è possibile eseguire gli strumenti di benchmarking sulle VM e sui dischi. Creare più esecuzioni dei test e usare diverse dimensioni di I/O per ogni esecuzione per verificarne l'impatto. Per altri dettagli, vedere la sezione [Benchmarking](#_Benchmarking) alla fine di questo articolo.
 
@@ -177,7 +177,7 @@ Le VM a scalabilità elevata sono disponibili in dimensioni diverse con un numer
 | Standard\_DS14 | 16 | 112 GB | Sistema operativo = 1023 GB <br> SSD locale = 224 GB | 32 | 576 GB | 50\.000 IOPS <br> 512 MB al secondo | 4\.000 IOPS e 33 MB al secondo |
 | Standard\_GS5 | 32 | 448 GB | Sistema operativo = 1023 GB <br> SSD locale = 896 GB | 64 | 4224 GB | 80\.000 IOPS <br> 2.000 MB al secondo | 5\.000 IOPS e 50 MB al secondo |
 
-Pr visualizzare un elenco completo di tutte le dimensioni di VM di Azure, vedere [Dimensioni delle macchine virtuali di Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
+Per visualizzare un elenco completo di tutte le dimensioni delle VM di Azure disponibili, vedere [Dimensioni delle macchine virtuali di Azure](virtual-machines-size-specs.md). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
 
 *Limiti di scalabilità* I limiti massimi per IOPS per ogni VM e ogni disco sono diversi e indipendenti gli uni dagli altri. Assicurarsi che l'applicazione gestisca i valori di IOPS entro i limiti della VM e dei dischi Premium collegati alla VM. In caso contrario, le prestazioni dell'applicazione verranno limitate.
 
@@ -197,7 +197,7 @@ La tabella seguente riepiloga la scomposizione costi di questo scenario per l'Ar
 | **Costo di dischi al mese** | $ 1.638,40 (32 x dischi da 1 TB) | $ 544,34 (4 x dischi P30) |
 | **Costo complessivo al mese** | $ 3.208,98 | $ 1.544,34 |
 
-*Distribuzioni di Linux* L'Archiviazione Premium di Azure offre lo stesso livello di prestazioni per VM che eseguono Windows e Linux. Sono supportati molti tipi di distribuzioni di Linux. L'elenco completo è disponibile [qui](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-endorsed-distributions/). È importante notare che diverse distribuzioni sono ottimali per diversi tipi di carichi di lavoro. Si otterranno livelli diversi di prestazioni in base alla distribuzione in cui è in esecuzione il carico di lavoro. Testare le distribuzioni di Linux con l'applicazione e scegliere quella migliore per le esigenze specifiche.
+*Distribuzioni di Linux* L'Archiviazione Premium di Azure offre lo stesso livello di prestazioni per VM che eseguono Windows e Linux. Sono supportati molti tipi di distribuzioni di Linux. L'elenco completo è disponibile [qui](virtual-machines-linux-endorsed-distributions.md). È importante notare che diverse distribuzioni sono ottimali per diversi tipi di carichi di lavoro. Si otterranno livelli diversi di prestazioni in base alla distribuzione in cui è in esecuzione il carico di lavoro. Testare le distribuzioni di Linux con l'applicazione e scegliere quella migliore per le esigenze specifiche.
 
 Quando si esegue Linux con l'Archiviazione Premium, verificare se sono disponibili aggiornamenti recenti per i driver necessari, in modo da assicurare prestazioni elevate.
 
@@ -206,7 +206,7 @@ L'Archiviazione Premium di Azure offre attualmente tre dimensioni di disco. Ogni
 
 | **Tipo di disco** | **P10** | **P20** | **P30** |
 |---------------------|-------------------|-------------------|-------------------|
-| Dimensioni disco | 128 GiB | 512 GiB | 1024 GiB (1 TB) |
+| Dimensione disco | 128 GiB | 512 GiB | 1024 GiB (1 TB) |
 | IOPS per disco | 500 | 2300 | 5000 |
 | Velocità effettiva per disco | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo |
 
@@ -233,14 +233,14 @@ Per altre informazioni sul funzionamento di BlobCache, vedere il post di blog re
 
 | **Tipo di disco** | **Impostazione predefinita per la cache** |
 |---|---|
-| Disco sistema operativo | ReadWrite |
+| Disco del sistema operativo | ReadWrite |
 | Disco dati | Nessuno |
 
 Ecco le impostazioni consigliate per la cache su disco per i dischi dati:
 
 | **Impostazione per la memorizzazione nella cache su disco** | **Indicazione sull'uso di questa impostazione** |
 |---|---|
-| None | Configurare la cache host come None per dischi di sola scrittura e dischi con numero elevato di operazioni di scrittura. |
+| Nessuno | Configurare la cache host come None per dischi di sola scrittura e dischi con numero elevato di operazioni di scrittura. |
 | ReadOnly | Configurare la cache host come ReadOnly per dischi di sola lettura e di lettura-scrittura. |
 | ReadWrite | Configurare la cache host come ReadWrite solo se l'applicazione gestisce correttamente la scrittura di dati memorizzati nella cache in dischi persistenti, quando necessario. |
 
@@ -263,13 +263,13 @@ In Windows è possibile usare gli spazi di archiviazione per lo striping dei dis
 
 Importante: l'uso dell'interfaccia utente di Gestione server consente di impostare il numero totale di colonne fino a un massimo di 8 per un volume con striping. Quando si collegano più di 8 dischi, usare PowerShell per creare il volume. L'uso di PowerShell consente di impostare un numero di colonne uguale al numero di dischi. Ad esempio, se un singolo set di striping include 16 dischi, specificare 16 colonne nel parametro *NumberOfColumns* del cmdlet *New-VirtualDisk* di PowerShell.
 
-In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni dettagliate sulla procedura di striping dei dischi su Linux, vedere [Configurare RAID software in Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-raid/).
+In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni dettagliate sulla procedura di striping dei dischi su Linux, vedere [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md).
 
 *Dimensione di striping* Un elemento importante della configurazione dello striping del disco è la dimensione di striping. La dimensione di striping o la dimensione del blocco è il blocco più piccolo di dati che l'applicazione può gestire in un volume con striping. La dimensione di striping configurabile dipende dal tipo di applicazione e dal relativo modello di richieste. Se si sceglie la dimensione di striping errata, è possibile che si ottenga un allineamento di I/O non corretto, che porta a prestazioni degradate per l'applicazione.
 
 Ad esempio, se una richiesta I/O generata dall'applicazione è maggiore della dimensione di striping del disco, il sistema di archiviazione la scrive oltre i limiti di unità di striping in più dischi. Quando è necessario accedere ai dati, occorrerà cercarli in più unità di striping per completare la richiesta. L'effetto cumulativo di questo comportamento può portare a una riduzione significativa delle prestazioni. D'altra parte, se la dimensione della richiesta I/O è minore della dimensione di striping ed è di tipo casuale, è possibile che le richieste I/P si concentrino sullo stesso disco, provocando un collo di bottiglia e danneggiando le prestazioni di I/O.
 
-Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server configurare dimensioni di striping pari a 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro di tipo data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/#disks-and-performance-considerations).
+Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server configurare dimensioni di striping pari a 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro di tipo data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations).
 
 >**Nota:** è possibile effettuare lo striping di un massimo di 32 dischi di Archiviazione Premium in una VM di serie DS e di 64 dischi di Archiviazione Premium in una VM di serie GS.
 
@@ -284,7 +284,7 @@ Ad esempio, se l'applicazione è in esecuzione su una VM a core singolo con due 
 
 Ad esempio, si supponga che l'applicazione che usa SQL Server stia eseguendo contemporaneamente una query di dimensioni elevate e un'operazione sull'indice. Si supponga di volere migliorare le prestazioni dell'operazione sull'indice rispetto alla query di grandi dimensioni. In questo caso è possibile impostare il valore MAXDOP dell'operazione sull'indice in modo che sia superiore al valore MAXDOP per la query. In questo modo SQL Server avrà un numero maggiore di processori da sfruttare per l'operazione sull'indice rispetto al numero di processori da dedicare alla query di grandi dimensioni. Occorre ricordare che non si può controllare il numero di thread usati da SQL Server per ogni operazione. È possibile controllare il numero massimo di processori dedicati al multithreading.
 
-Altre informazioni sui [Gradi di parallelismo](https://technet.microsoft.com/library/ms188611(v=sql.105).aspx) in SQL Server. Individuare le impostazioni che influenzano il multithreading nell'applicazione e le relative configurazioni per ottimizzare le prestazioni.
+Altre informazioni sui [Gradi di parallelismo](https://technet.microsoft.com/library/ms188611.aspx) in SQL Server. Individuare le impostazioni che influenzano il multithreading nell'applicazione e le relative configurazioni per ottimizzare le prestazioni.
 
 ## Profondità coda  
 Il valore per la profondità, la lunghezza o la dimensione della coda indica il numero di richieste I/O in sospeso nel sistema. Il valore della profondità della coda determina il numero di operazioni di I/O che possono essere accodate dall'applicazione e che verranno elaborate dai dischi di archiviazione. Influisce su tutti e tre gli indicatori di prestazioni illustrati in questo articolo, ovvero IOPS, velocità effettiva e latenza.
@@ -315,14 +315,14 @@ Il benchmarking è il processo di simulazione di diversi carichi di lavoro sull'
 
 Sono stati usati gli strumenti di benchmarking comuni Iometer e FIO, rispettivamente per Windows e Linux. Questi strumenti generano più thread che simulano un carico di lavoro analogo a quello di produzione e misurano le prestazioni del sistema. Questi strumenti consentono anche di configurare i parametri quali la dimensione dei blocchi e la profondità della coda, che in genere non possono essere modificati per un'applicazione. Ciò offre maggiore flessibilità per ottenere il livello massimo di prestazioni su una VM a scalabilità elevata con provisioning con dischi Premium per diversi tipi di carichi di lavoro dell'applicazione. Per altre informazioni su ogni strumento di benchmarking, vedere [Iometer](http://www.iometer.org/) e [FIO](http://freecode.com/projects/fio).
 
-Per eseguire gli esempi seguenti, creare una VM DS14 Standard e collegare 11 dischi di Archiviazione Premium alla VM. Degli 11 dischi, configurare 10 dischi con memorizzazione nella cache dell'host impostata su "None" ed effettuarne lo striping in un volume denominato NoCacheWrites. Configurare la memorizzazione nella cache dell'host come "ReadOnly" sul disco rimanente e creare un volume denominato CacheReads con questo disco. Usando questa configurazione, sarà possibile vedere le prestazioni massime di lettura e scrittura da una VM DS14 Standard. Per informazioni dettagliate sulla creazione di una VM DS14 con dischi Premium, vedere [Creare e usare un account di Archiviazione Premium per un disco dati della macchina virtuale](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Per eseguire gli esempi seguenti, creare una VM DS14 Standard e collegare 11 dischi di Archiviazione Premium alla VM. Degli 11 dischi, configurare 10 dischi con memorizzazione nella cache dell'host impostata su "None" ed effettuarne lo striping in un volume denominato NoCacheWrites. Configurare la memorizzazione nella cache dell'host come "ReadOnly" sul disco rimanente e creare un volume denominato CacheReads con questo disco. Usando questa configurazione, sarà possibile vedere le prestazioni massime di lettura e scrittura da una VM DS14 Standard. Per informazioni dettagliate sulla creazione di una VM DS14 con dischi Premium, vedere [Creare e usare un account di Archiviazione Premium per un disco dati della macchina virtuale](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
-*Preparare la cache* Il disco con memorizzazione nella cache dell'host di tipo ReadOnly sarà in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
+*Preparazione della cache* Il disco con memorizzazione nella cache dell'host di tipo ReadOnly sarà in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
 
 >**Importante:** è necessario preparare la cache prima di eseguire il benchmarking, ogni volta che la VM viene riavviata.
 
 #### Iometer   
-Scaricare lo strumento Iometer sulla VM mediante [questo collegamento](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download).
+Scaricare lo strumento Iometer nella VM da [questo collegamento](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download).
 
 *File di test* Iometer usa un file di test archiviato nel volume in cui eseguire i test di benchmarking. Gestisce le operazioni di lettura e scrittura sul file di test per misurare i valori di IOPS e velocità effettiva del disco. Iometer crea questo file di test se non ne è stato fornito uno. Creare un file di test di 200 GB denominato iobw.tst nei volumi CacheReads e NoCacheWrites.
 
@@ -369,18 +369,18 @@ Dopo la preparazione del disco della cache, procedere con gli scenari di test el
 
 | Scenario di test | Volume di destinazione | Nome | Risultato |
 |--------------------|---------------|-------------------|--------------|
-| Max IOPS di lettura | CacheReads | RandomWrites\_8K | 50\.000 IOPS |
-| Max IOPS di scrittura | NoCacheWrites | RandomReads\_8K | 64\.000 IOPS |
-| Max IOPS combinate | CacheReads | RandomWrites\_8K | 100\.000 IOPS |
+| Max. IOPS di lettura | CacheReads | RandomWrites\_8K | 50\.000 IOPS |
+| Max. IOPS di scrittura | NoCacheWrites | RandomReads\_8K | 64\.000 IOPS |
+| Max. IOPS combinate | CacheReads | RandomWrites\_8K | 100\.000 IOPS |
 | | NoCacheWrites | RandomReads\_8K | |
-| Max letture MB/sec | CacheReads | RandomWrites\_64K | 524 MB/sec |
-| Max scritture MB/sec | NoCacheWrites | RandomReads\_64K | 524 MB/sec |
+| Max. letture MB/sec | CacheReads | RandomWrites\_64K | 524 MB/sec |
+| Max. scritture MB/sec | NoCacheWrites | RandomReads\_64K | 524 MB/sec |
 | MB/sec combinati | CacheReads | RandomWrites\_64K | 1000 MB/sec |
 | | NoCacheWrites | RandomReads\_64K | |
 
 Le schermate seguenti illustrano i risultati dei test di Iometer per scenari combinati di IOPS e velocità effettiva.
 
-*Valori massimi per IOPS combinate di lettura e scrittura* ![](media/storage-premium-storage-performance/image9.png)
+*Valori massimi per IOPS di letture e scritture combinate* ![](media/storage-premium-storage-performance/image9.png)
 
 *Velocità effettiva massima di letture e scritture combinate* ![](media/storage-premium-storage-performance/image10.png)
 
@@ -522,11 +522,12 @@ Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazi
 
 Altre informazioni sull'Archiviazione Premium di Azure:
 
-- [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/)  
+- [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage-preview-portal.md)  
 
 Per gli utenti di SQL Server sono disponibili articoli sulle procedure consigliate per le prestazioni per SQL Server:
 
-- [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
+- [Procedure consigliate relative alle prestazioni per SQL Server nelle 
+- macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
 - [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

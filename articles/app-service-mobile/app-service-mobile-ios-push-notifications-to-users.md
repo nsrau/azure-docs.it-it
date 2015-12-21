@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Inviare notifiche multipiattaforma a un utente specifico in iOS" 
 	description="Informazioni su come inviare notifiche push a tutti i dispositivi di un utente specifico."
-	services="app-service\mobile" 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="ios" 
 	authors="ysxu" 
 	manager="dwrede" 
@@ -18,9 +18,7 @@
 
 # Inviare notifiche multipiattaforma a un utente specifico
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Questo argomento descrive come inviare notifiche a tutti i dispositivi registrati di un utente specifico dal proprio back-end mobile. È stato introdotto il concetto di [modelli], che offre alle applicazioni client la libertà di specificare i formati di payload e segnaposto di variabili al momento della registrazione. L'operazione di invio raggiunge tutte le piattaforme grazie a questi segnaposto, abilitando le notifiche multipiattaforma.
 
@@ -65,38 +63,11 @@ Prima di iniziare questa esercitazione, è necessario aver già completato le es
             }
         }];
 
+	È importante autenticare l'utente prima di eseguirne la registrazione per le notifiche push. Se si registra un utente autenticato, infatti, viene automaticamente aggiunto un tag con l'ID utente.
+
 ##<a name="backend"></a>Aggiornare il back-end del servizio per inviare notifiche a un utente specifico
 
-1. In Visual Studio aggiornare la definizione del metodo `PostTodoItem` con il codice seguente:  
-
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-
-            // get notification hubs credentials associated with this mobile app
-            string notificationHubName = this.Services.Settings.NotificationHubName;
-            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
-
-            // get the current user id and create tag to identify user
-            ServiceUser authenticatedUser = this.User as ServiceUser;
-            string userTag = "_UserId:" + authenticatedUser.Id;
-
-            // build dictionary for template
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
-
-            try
-            {
-            	await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
+[AZURE.INCLUDE [app-service-mobile-push-notifications-to-users](../../includes/app-service-mobile-push-notifications-to-users.md)]
 
 ##<a name="test"></a>Test dell'app
 
@@ -105,7 +76,7 @@ Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi del
 <!-- URLs. -->
 [Introduzione all'autenticazione]: app-service-mobile-ios-get-started-users.md
 [Introduzione alle notifiche push]: app-service-mobile-ios-get-started-push.md
-[modelli]: https://msdn.microsoft.com/it-IT/library/dn530748.aspx
+[modelli]: https://msdn.microsoft.com/library/dn530748.aspx
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

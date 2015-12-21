@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="12/03/2015" 
 	ms.author="tomfitz"/>
 
 # Creare un’app Web più Cache Redis utilizzando un modello
@@ -125,4 +125,4 @@ Si noti che l'app Web è configurata con proprietà di impostazione dell’app c
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

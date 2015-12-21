@@ -13,22 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/10/2015" 
 	ms.author="billmath"/>
 
 # Problemi di Azure Multi-Factor Authentication
+>[AZURE.IMPORTANT]Per contribuire a migliorare questa pagina, se non si trova una risposta al problema riscontrato è possibile fornire commenti e suggerimenti dettagliati in modo che venga aggiunta.
+
 Le informazioni seguenti sono utili per risolvere alcuni problemi comuni che si possono verificare.
 
 
 - [Errori relativi all'ID di correlazione](#correlation-id-errors)
 - [Il telefono è stato perso o rubato](#i-have-lost-my-phone-or-it-was-stolen?)
 - [Si vuole cambiare il numero di telefono](#i-want-to-change-my-phone-number)
+- [È necessario cambiare il numero di telefono per usare un nuovo telefono](#i-have-a-new-phone-and-need-to-change-my-phone-number)
 - [Non si riceve alcun codice sul telefono](#i-am-not-receiving-a-code-on-my-phone)
 - [Le password dell'app non funzionano](#app-passwords-are-not-working)
 - [Come si rimuove Azure Authenticator dal dispositivo precedente per passare a un nuovo dispositivo?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+- [Nessuna risposta al problema riscontrato](#i-didn't-find-an-answer-to-my-problem)
 
 ##Errori relativi all'ID di correlazione
-Se dopo aver eseguito i passaggi seguenti i problemi non vengono risolti, è possibile pubblicare una domanda nei [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [cercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/it-IT/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) o [contattare il personale del supporto tecnico](https://support.microsoft.com/it-IT), che analizzerà il problema nel più breve tempo possibile.
+Se dopo aver eseguito i passaggi riportati di seguito i problemi non vengono risolti, è possibile pubblicare una domanda nei [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [cercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/it-IT/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) o [contattare il personale del supporto tecnico](https://support.microsoft.com/it-IT), che analizzerà il problema nel più breve tempo possibile.
 
 Quando si contatta il personale di supporto, è consigliabile includere le informazioni seguenti:
 
@@ -113,10 +117,29 @@ Se si usa Multi-Factor Authentication con Azure, è consigliabile modificare le 
 3. Dalla casella di riepilogo selezionare Verifica aggiuntiva di sicurezza. ![Azure](./media/multi-factor-authentication-end-user-manage/azure1.png)
 4. Verrà visualizzata una pagina che consente di modificare le impostazioni. ![Verifica](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
 
-##Non si riceve alcun codice sul telefono
+##È necessario cambiare il numero di telefono per usare un nuovo telefono
+
+Se è disponibile un nuovo telefono ed è necessario modificare il numero di contatto principale usato dall'autenticazione a più fattori, è possibile procedere in due modi.
+
+Il primo consiste nell'usare un metodo di autenticazione secondario. Se è stato specificato un numero di telefono di autenticazione secondario, sarà possibile accedere mediante tale numero. ![Impostazione](./media/multi-factor-authentication-end-user-manage/altphone.png) Come si può notare nella schermata precedente, sono stati configurati due numeri di telefono, uno che termina con 67 e un altro che termina con 30.
+  
+Per accedere usando il numero di telefono alternativo, accedere seguendo la procedura normale, quindi scegliere semplicemente **Usa un'opzione di verifica diversa**. ![Verifica diversa](./media/multi-factor-authentication-end-user-manage/differentverification.png)
+
+Selezionare quindi l'altro numero di telefono. In questo caso si seleziona **Chiama al numero +X XXXXXXXX30**
+
+![Telefono alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
+
+>[AZURE.IMPORTANT]È importante configurare un numero di telefono di autenticazione secondario. Poiché il numero di telefono primario e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è l'unico modo che consente di accedere di nuovo all'account in caso di perdita o furto del telefono.
+
+Il secondo consiste nel contattare l'amministratore o la persona che ha configurato l'autenticazione a più fattori. Questa operazione è necessaria unicamente se non è stato configurato un numero di telefono di autenticazione secondario. In caso contrario, sarà necessario contattare l'amministratore o la persona che ha configurato l'autenticazione a più fattori e richiedere la cancellazione delle impostazioni. All'accesso successivo verrà quindi richiesto di ripetere la [configurazione dell'autenticazione a più fattori](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
+
+##Non si riceve un codice o una chiamata sul telefono
 
 È prima di tutto necessario effettuare le verifiche seguenti:
 
+
+
+- Se si è scelto di ricevere una chiamata sul telefono cellulare, assicurarsi che il segnale cellulare sia adeguato. La velocità e la disponibilità del recapito possono variare in base alla posizione e al provider di servizi.
 - Se si è scelto di ricevere codici di verifica tramite messaggio di testo nel telefono cellulare, assicurarsi che il piano di servizio e il dispositivo supportino il recapito di messaggi di testo. La velocità e la disponibilità del recapito possono variare in base alla posizione e al provider di servizi. Assicurarsi anche che il segnale cellulare sia adeguato quando si prova a ricevere questi codici.
 - Se si è scelto di ricevere una verifica tramite l'app per dispositivi mobili, assicurarsi che il segnale cellulare sia buono. Si noti anche che la velocità e la disponibilità del recapito possono variare in base alla posizione e al provider di servizi. 
 
@@ -125,7 +148,6 @@ Se si usa uno smartphone, è consigliabile usare l'[app Azure Authenticator](mul
 È possibile cambiare la modalità di ricezione dei codici di verifica tramite messaggi di testo e l'app per dispositivi mobili scegliendo **Usa un'opzione di verifica diversa** all'accesso.
 
 ![Verifica diversa](./media/multi-factor-authentication-end-user-manage/differentverification.png)
-
 
 In alcuni casi il recapito di uno di questi servizi è più affidabile rispetto all'altro.
 
@@ -137,6 +159,13 @@ Se si è configurato un telefono di backup, è consigliabile riprovare seleziona
 Assicurarsi prima di tutto di avere immesso correttamente la password dell'app. Se non funziona ancora, provare ad accedere e [creare una nuova password per l'app](multi-factor-authentication-end-user-app-passwords.md). Se il problema persiste, contattare l'amministratore e richiedere l'[eliminazione delle password esistenti per l'app](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords), quindi creare una nuova password e usarla.
 
 ##Come si rimuove Azure Authenticator dal dispositivo precedente per passare a un nuovo dispositivo?
-Quando si disinstalla l'app dal dispositivo o si sovrascrive la memoria del dispositivo, l'attivazione sul back-end non verrà rimossa. È consigliabile eseguire i passaggi illustrati nella sezione relativa allo [spostamento in un nuovo dispositivo](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
+Quando si disinstalla l'app dal dispositivo o si sovrascrive la memoria del dispositivo, l'attivazione sul back-end non verrà rimossa. È consigliabile eseguire i passaggi illustrati nella sezione relativa al [passaggio a un nuovo dispositivo](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
 
-<!---HONumber=AcomDC_1203_2015-->
+##Nessuna risposta al problema riscontrato
+Se non si trova una risposta al problema in questa pagina, è possibile inserire una domanda nei [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [cercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/it-IT/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) o [contattare il personale del supporto tecnico](https://support.microsoft.com/it-IT).
+
+È anche possibile contattare l'amministratore o la persona che ha configurato l'autenticazione a più fattori per assistenza.
+
+Lasciando commenti e suggerimenti dettagliati su questa pagina sarà possibile aggiornarla e continuare a migliorarla con altre informazioni.
+
+<!---HONumber=AcomDC_1210_2015-->

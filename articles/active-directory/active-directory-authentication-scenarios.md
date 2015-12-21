@@ -204,7 +204,7 @@ La sessione dell'utente scade al termine del periodo di validità del token emes
 ### Applicazione a singola pagina (SPA)
 
 
-Questa sezione descrive l'autenticazione per un'applicazione a singola pagina che usa Azure AD per proteggere il back-end dell'API Web. Le applicazioni a singola pagina sono in genere strutturate come un livello di presentazione JavaScript (front-end) eseguito nel browser e un back-end dell'API Web eseguito in un server e che implementa la logica di business dell'applicazione. In questo scenario, quando l'utente accede, il front-end JavaScript usa l'anteprima di [Active Directory Authentication Library per JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) e il protocollo di concessione implicita OAuth 2.0 per ottenere un token ID (id\_token) da Azure AD. Il token viene memorizzato nella cache e il client lo associa alla richiesta come token di connessione quando si effettuano chiamate al relativo back-end dell'API Web, protetto tramite il middleware OWIN.
+Questa sezione descrive l'autenticazione per un'applicazione a singola pagina che usa Azure AD per proteggere il back-end dell'API Web. Le applicazioni a singola pagina sono in genere strutturate come un livello di presentazione JavaScript (front-end) eseguito nel browser e un back-end dell'API Web eseguito in un server e che implementa la logica di business dell'applicazione. In questo scenario, quando l'utente accede, il front-end JavaScript usa [Active Directory Authentication Library per JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) e il protocollo di concessione implicita OAuth 2.0 per ottenere un token ID (id\_token) da Azure AD. Il token viene memorizzato nella cache e il client lo associa alla richiesta come token di connessione quando si effettuano chiamate al relativo back-end dell'API Web, protetto tramite il middleware OWIN.
 
 
 #### Diagramma
@@ -467,4 +467,4 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

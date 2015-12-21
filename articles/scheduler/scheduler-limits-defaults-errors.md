@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="07/28/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione
@@ -59,18 +59,23 @@ Le operazioni API possono inoltre restituire informazioni aggiuntive sugli error
 
 ## Vedere anche
 
- [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione](scheduler-concepts-terms.md)
 
- [Introduzione all'uso dell'Utilità di pianificazione nel portale di gestione](scheduler-get-started-portal.md)
+ [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
+ 
+ [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 
- [Piani e fatturazione nell'Utilità di pianificazione di Azure](scheduler-plans-billing.md)
+ [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
 
- [Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure](scheduler-advanced-complexity.md)
+ [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
 
- [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione](https://msdn.microsoft.com/library/dn528946)
+ [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/dn528946)
 
- [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione](scheduler-high-availability-reliability.md)
+ [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
 
- [Autenticazione in uscita dell'Utilità di pianificazione](scheduler-outbound-authentication.md)
+ [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione di Azure](scheduler-high-availability-reliability.md)
 
-<!---HONumber=Oct15_HO3-->
+ [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
+ 
+  
+
+<!---HONumber=AcomDC_1210_2015-->

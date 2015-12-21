@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità | Microsoft Azure"
+	pageTitle="Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità | Microsoft Azure"
 	description="Consente di definire le attività della gestione ibrida delle identità in base alle opzioni disponibili per ogni fase del ciclo di vita."
 	documentationCenter=""
 	services="active-directory"
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="femila"/>
 
 
@@ -93,4 +93,4 @@ Esaminare la tabella seguente per un confronto tra le opzioni di sincronizzazion
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

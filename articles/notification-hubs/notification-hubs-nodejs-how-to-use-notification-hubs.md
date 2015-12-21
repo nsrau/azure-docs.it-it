@@ -67,9 +67,9 @@ L'oggetto **NotificationHubService** consente di lavorare con gli hub di notific
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-Il valore **connectionstring** della connessione può essere recuperato dal portale di gestione di Azure, eseguendo la procedura seguente:
+Il valore **connectionstring** della connessione può essere recuperato dal [portale di Azure classico], eseguendo la procedura seguente:
 
-1. Nel portale di gestione di Azure selezionare **Service Bus** e quindi selezionare lo spazio dei nomi che contiene l'hub di notifica.
+1. Nel [portale di Azure classico] selezionare **Bus di servizio** e quindi lo spazio dei nomi che contiene l'hub di notifica.
 
 2. Selezionare **NOTIFICATION HUBS** e quindi selezionare l'hub che si desidera utilizzare.
 
@@ -197,7 +197,7 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso di Hub di notifica
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [portale di Azure classico]: http://manage.windowsazure.com
   [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
@@ -213,4 +213,4 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso di Hub di notifica
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

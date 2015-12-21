@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/29/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Registrazione di un'API gestita da Microsoft o gestita dal reparto IT
@@ -24,11 +24,11 @@ Tramite le API gestite dal reparto IT, è possibile controllare e monitorare ogn
 
 Per utilizzare le API **gestite da Microsoft** o le API **gestite dal reparto IT**, è necessario "registrare" le API nel portale di Azure. Una volta registrate, è possibile utilizzare queste API nelle app. Sono disponibili le seguenti opzioni:
 
-- Registrazione di un'API gestita da Microsoft o gestita dal reparto IT
-- Registrazione di un'API ospitata all'interno dell'[ambiente del servizio app](powerapps-register-api-hosted-in-app-service.md)
-- Registrazione mediante una [definizione API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md)
+- Registrare un'API gestita da Microsoft o gestita dal reparto IT predefinita (in questo argomento).
+- Registrare un'app Web, un'app per le API e un'app per dispositivi mobili ospitata nell'[ambiente del servizio app](powerapps-register-api-hosted-in-app-service.md).
+- Registrare una delle API Swagger usando una [definizione API di Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
 
-Questo articolo è incentrato sulla **registrazione di API gestite da Microsoft e gestite dal reparto IT**.
+Questo articolo è incentrato sulla **registrazione di API predefinite gestite da Microsoft e gestite dal reparto IT**.
 
 #### Prerequisiti per iniziare
 
@@ -122,10 +122,13 @@ Nella tabella seguente vengono confrontate le funzionalità delle API gestite da
 
 ## Riepilogo e passaggi successivi
 
-In questo argomento si è visto come registrare un'istanza personalizzata delle API disponibili e fornite pronte per l'uso da PowerApps. Per ulteriori informazioni su PowerApps, vedere gli articoli e le risorse correlati seguenti:
+In questo argomento si è visto come registrare un'istanza personalizzata delle API disponibili e fornite pronte per l'uso da PowerApps. Per altre informazioni sulle PowerApps, vedere gli articoli e le risorse correlati seguenti:
 
-- [Configurazione delle API](powerapps-configure-apis.md)
-- [Aggiunta di una nuova API](powerapps-register-from-available-apis.md)
+
+- [Configurare le proprietà dell'API](powerapps-configure-apis.md)
+- [Consentire agli utenti di accedere alle API](powerapps-manage-api-connection-user-access.md)
+- [Iniziare a creare le app in PowerApps](https://powerapps.microsoft.com/tutorials/)
+
 
 <!--References-->
 
@@ -148,4 +151,4 @@ In questo argomento si è visto come registrare un'istanza personalizzata delle 
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

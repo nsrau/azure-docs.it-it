@@ -20,6 +20,8 @@
 È possibile risolvere i problemi relativi a Data factory di Azure usando il portale di Azure classico (oppure) i cmdlet di Azure PowerShell. Questo argomento contiene procedure dettagliate che illustrano come usare il portale di Azure classico per risolvere rapidamente eventuali errori che possono verificarsi con Data factory.
 
 ## Problema: impossibile eseguire i cmdlet di Data factory
+Se si usa una versione di Azure PowerShell precedente a 1.0:
+ 
 Per risolvere questo problema, passare la modalità Azure su **AzureResourceManager**:
 
 Avviare **Azure PowerShell** ed eseguire il comando seguente per passare in modalità **AzureResourceManager**. I cmdlet di Data factory di Azure sono disponibili in modalità **AzureResourceManager**.
@@ -52,9 +54,9 @@ Verificare che SQL Server sia raggiungibile dal computer in cui è installato il
 
 ## Problema: le sezioni di input sono sempre nello stato PendingExecution o PendingValidation
 
-Le sezioni potrebbero essere nello stato **PendingExecution** o **PendingValidation** a causa di una serie di motivi: uno dei più comuni è che la proprietà **external** non viene impostata su **true**. Qualsiasi set di dati che viene generato all'esterno dell'ambito di Data Factory di Azure deve essere contrassegnato con la proprietà **external**. Ciò indica che i dati sono esterni e non sono supportati da alcuna pipeline all'interno della data factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
+Le sezioni potrebbero essere nello stato **PendingExecution** o **PendingValidation** a causa di una serie di motivi: uno dei più comuni è che la proprietà **external** non viene impostata su **true**. Qualsiasi set di dati che viene generato all'esterno dell'ambito di Data factory di Azure deve essere contrassegnato con la proprietà **external**. Ciò indica che i dati sono esterni e non sono supportati da alcuna pipeline all'interno della data factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
 
-Per l'utilizzo della proprietà **external**, vedere l'esempio riportato di seguito. È possibile specificare facoltativamente**externalData*** quando si imposta external su true.
+Per l'uso della proprietà **external**, vedere l'esempio seguente. È possibile specificare facoltativamente **externalData*** quando si imposta external su true.
 
 Per altre informazioni su questa proprietà, vedere l'argomento Tabelle in [Informazioni di riferimento sugli script JSON][json-scripting-reference].
 	
@@ -92,7 +94,7 @@ Per altre informazioni su questa proprietà, vedere l'argomento Tabelle in [Info
 ## Problema: l'operazione di copia ibrida non riesce
 Per ulteriori informazioni:
 
-1. Avviare il programma per la gestione della configurazione del gateway di gestione dei dati nel computer in cui è stato installato il gateway stesso. Verificare che il **Nome del gateway** sia impostato sul nome del gateway logico nel **portale di Azure classico**, che lo **Stato della chiave del gateway** sia **registrato** e che lo **Stato del servizio** sia **Avviato**. 
+1. Avviare il programma per la gestione della configurazione del gateway di gestione dei dati nel computer in cui è stato installato il gateway stesso. Verificare che il **Nome del gateway** sia impostato sul nome del gateway logico nel **portale di Azure classico**, che lo **Stato chiave del gateway** sia **Registrata** e che lo **Stato del servizio** sia **Avviato**. 
 2. Avviare **Visualizzatore eventi**. Espandere **Registri applicazioni e servizi** e fare clic su **Gateway di gestione dati**. Verificare se sono presenti errori correlati al Gateway di gestione di dati. 
 
 ## Problema: il provisioning di HDInsight su richiesta non riesce con errore
@@ -114,7 +116,7 @@ Quando viene eseguita l'attività personalizzata, Data factory di Azure potrà a
 
 Per enumerare e leggere i log per una particolare attività personalizzata, è possibile usare una delle procedure dettagliate illustrate più avanti in questa pagina. Riepilogo:
 
-1.  Nel portale di Azure classico, scegliere **Sfoglia** per trovare la data factory.
+1.  Nel portale di Azure classico scegliere **Sfoglia** per trovare la data factory.
 2.  Usare il pulsante **Diagramma** per visualizzare il diagramma della data factory e fare clic sulla tabella **Set di dati** che segue la specifica **Pipeline** contenente l'attività personalizzata. 
 3.  Nel pannello **Tabella**, fare clic sulla sezione di interesse in **Sezioni con errori** relativa all'intervallo di tempo da esaminare.
 4.  Viene visualizzato il pannello **Sezione dati** in cui sono elencate più **Esecuzioni attività** per la sezione. Fare clic su un'**attività** dall'elenco. 
@@ -177,14 +179,14 @@ In questa procedura dettagliata si presenterà un errore nell'esercitazione dall
 4. Eseguire il comando seguente in **Azure PowerShell** per aggiornare il periodo attivo della pipeline in modo che cerchi di scrivere i dati nella tabella **emp** che non esiste più.
 
          
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
 	Sostituire il valore di **StartDateTime** con il giorno corrente e il valore di **EndDateTime** con il giorno successivo.
 
 
 ### Usare il portale di Azure per risolvere l'errore
 
-1.	Accedere al [Portale di Azure][azure-portal]. 
+1.	Accedere al [portale di Azure][azure-portal]. 
 2.	Fare clic su **ADFTutorialDataFactory** da **Schermata iniziale**. Se il collegamento a Data factory non è visualizzato in **Schermata iniziale**, fare clic sull'hub **SFOGLIA**, quindi scegliere **Tutto**. Fare clic su **Istanze di Data factory** nel pannello **Sfoglia**, quindi fare clic su **ADFTutorialDataFactory**.
 3.	Si noti la visualizzazione della dicitura **Con errori** nel riquadro **Set di dati**. Fare clic su **Con errori**. Viene visualizzato il pannello **Set di dati con errori**.
 
@@ -214,17 +216,12 @@ Per risolvere il problema, creare la tabella **emp** usando lo script SQL nell'a
 
 ### Usare i cmdlet di Azure PowerShell per risolvere l'errore
 1.	Avviare **Azure PowerShell**. 
-2.	Passare alla modalità **AzureResourceManager** perché i cmdlet di Data factory sono disponibili unicamente in questa modalità.
+3. Eseguire il comando Get-AzureRmDataFactorySlice per vedere le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato: Operazione non riuscita.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-3. Eseguire il comando Get-AzureDataFactorySlice per vedere le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato: Operazione non riuscita.
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
-
-	Sostituire **StartDateTime** con il valore StartDateTime specificato per **Set-AzureDataFactoryPipelineActivePeriod**.
+	Sostituire **StartDateTime** con il valore StartDateTime specificato per **Set-AzureRmDataFactoryPipelineActivePeriod**.
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -237,9 +234,9 @@ Per risolvere il problema, creare la tabella **emp** usando lo script SQL nell'a
 		LongRetryCount    		: 0
 
 	Notare l'ora in **Inizio** nella sezione con errori (quella con **Stato** impostato su **Operazione non riuscita**) nell'output. 
-4. Eseguire ora il cmdlet **Get-AzureDataFactoryRun** per ottenere i dettagli sull'esecuzione dell'attività per la sezione.
+4. Eseguire ora il cmdlet **Get-AzureRmDataFactoryRun** per ottenere i dettagli sull'esecuzione dell'attività per la sezione.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
 	Il valore di **StartDateTime** è l'orario di inizio per la sezione con errori/problemi di cui si è preso nota nel passaggio precedente. La data e ora dovrebbe essere racchiusa tra virgolette doppie.
 5. Si otterrà l'output con informazioni dettagliate sull'errore (simile al seguente):
@@ -296,17 +293,12 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
     
 ### Procedura dettagliata: Usare Azure PowerShell per risolvere un errore di un processo Pig o Hive
 1.	Avviare **Azure PowerShell**. 
-2.	Passare alla modalità **AzureResourceManager** perché i cmdlet di Data factory sono disponibili unicamente in questa modalità.
+3. Eseguire il comando Get-AzureRmDataFactorySlice per vedere le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato: Operazione non riuscita.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-3. Eseguire il comando Get-AzureDataFactorySlice per vedere le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato: Operazione non riuscita.
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-
-	Sostituire **StartDateTime** con il valore StartDateTime specificato per **Set-AzureDataFactoryPipelineActivePeriod**.
+	Sostituire **StartDateTime** con il valore StartDateTime specificato per **Set-AzureRmDataFactoryPipelineActivePeriod**.
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory
@@ -320,9 +312,9 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 
 
 	Notare l'ora in **Inizio** nella sezione con errori (quella con **Stato** impostato su **Operazione non riuscita**) nell'output. 
-4. Eseguire ora il cmdlet **Get-AzureDataFactoryRun** per ottenere i dettagli sull'esecuzione dell'attività per la sezione.
+4. Eseguire ora il cmdlet **Get-AzureRmDataFactoryRun** per ottenere i dettagli sull'esecuzione dell'attività per la sezione.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	Il valore di **StartDateTime** è l'orario di inizio per la sezione con errori/problemi di cui si è preso nota nel passaggio precedente. La data e ora dovrebbe essere racchiusa tra virgolette doppie.
 5. Si otterrà l'output con informazioni dettagliate sull'errore (simile al seguente):
@@ -346,7 +338,7 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 		PipelineName        : EnrichGameLogsPipeline
 		Type                :
 
-6. È possibile eseguire il cmdlet **Save-AzureDataFactoryLog** con il valore ID visualizzato nell'output sopra e scaricare i file di log usando l'opzione del cmdlet **-DownloadLogs**.
+6. È possibile eseguire il cmdlet **Save-AzureRmDataFactoryLog** con il valore ID visualizzato nell'output sopra e scaricare i file di log usando l'opzione del cmdlet **-DownloadLogs**.
 
 
 
@@ -382,4 +374,4 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

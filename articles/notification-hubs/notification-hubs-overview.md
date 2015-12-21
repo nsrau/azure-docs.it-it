@@ -39,7 +39,7 @@ Con Hub di notifica che è possibile inviare facilmente notifiche push multipiat
 
 Smartphone e tablet sono in grado di "notificare" agli utenti il verificarsi di un evento. Queste notifiche possono assumere molte forme.
 
-Nelle applicazioni Windows Store e Windows Phone la notifica può essere sotto forma di _avviso popup_, ovvero viene visualizzata una finestra senza modo, con un suono, per segnalare una nuova notifica. Altri tipi di notifica supportati sono le notifiche _riquadro_, _non elaborate_ e _badge_. Per ulteriori informazioni sui tipi di notifiche supportati nei dispositivi Windows, vedere [Riquadri, badge e notifiche](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx).
+Nelle applicazioni Windows Store e Windows Phone la notifica può essere sotto forma di _avviso popup_, ovvero viene visualizzata una finestra senza modo, con un suono, per segnalare una nuova notifica. Altri tipi di notifica supportati sono le notifiche _riquadro_, _non elaborate_ e _badge_. Per altre informazioni sui tipi di notifiche supportati nei dispositivi Windows, vedere [Riquadri, badge e notifiche](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx).
 
 Analogamente, nei dispositivi Apple iOS la notifica push visualizza una finestra di dialogo in cui viene richiesto all'utente se desidera visualizzare o chiudere la notifica. Facendo clic su **Visualizza** è possibile aprire l'applicazione che sta ricevendo il messaggio. Per ulteriori informazioni sulle notifiche di iOS, vedere [Notifiche di iOS](http://go.microsoft.com/fwlink/?LinkId=615245).
 
@@ -123,7 +123,7 @@ Per favorire un’esperienza lineare e uniforme nei servizi di Azure, [App per d
 Gli sviluppatori di app per dispositivi mobili possono usare gli hub di notifica con il seguente flusso di lavoro:
 
 1. Recuperare la gestione del dispositivo PNS
-2. Registrare il dispositivo e i [modelli] con gli hub di notifica mediante il pratico API Register SDK client delle app per dispositivi mobili.
+2. Registrare il dispositivo e i [modelli] con gli hub di notifica mediante l'API Register di Mobile Apps Client SDK.
     + Si noti che le app per dispositivi mobili consentono di eliminare tutti i tag nelle registrazioni per motivi di sicurezza. Usare le hub di notifica dal back-end direttamente per associare tag ai dispositivi.
 3. Invio di notifiche dal back-end dell'app con hub di notifica
 
@@ -161,8 +161,8 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [App per dispositivi mobili del servizio app]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-mobile-value-prop/
-  [modelli]: https://msdn.microsoft.com/it-IT/library/azure/dn530748.aspx
+  [modelli]: https://msdn.microsoft.com/library/azure/dn530748.aspx
   [portale di Azure]: https://portal.azure.com
   [tag]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

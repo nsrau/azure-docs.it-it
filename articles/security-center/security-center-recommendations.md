@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -20,10 +20,10 @@
 
 Questo documento dimostra come le raccomandazioni presenti nel Centro sicurezza di Azure facilitino la protezione delle risorse di Azure.
 
-> [AZURE.NOTE]Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Questa è un'introduzione al servizio con un esempio di distribuzione, non una guida dettagliata.
+> [AZURE.NOTE]Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Questa è un'introduzione al servizio con un esempio di distribuzione, Questa non è una guida dettagliata.
 
-## Informazioni sul Centro sicurezza di Azure
-Il Centro sicurezza di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo maggiori sulla sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
+## Informazioni sul Centro sicurezza PC di Azure
+Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 ##Che cos'è una raccomandazione di sicurezza?
 Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità di sicurezza, crea delle raccomandazioni, che illustrano in dettaglio la procedura di configurazione dei controlli necessari.
@@ -138,4 +138,4 @@ Questo documento ha affrontato il tema delle raccomandazioni relative alla sicur
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

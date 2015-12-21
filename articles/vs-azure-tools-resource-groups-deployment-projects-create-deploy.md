@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure | Microsoft Azure"
-   description="Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure"
+   pageTitle="Creazione e distribuzione di progetti Gruppo di risorse di Azure con Visual Studio | Microsoft Azure"
+   description="Usare Visual Studio per creare un progetto Gruppo di risorse di Azure e distribuire le risorse in Azure."
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure
+# Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
 Il modello di progetto di distribuzione **Gruppo di risorse di Azure** è disponibile in Visual Studio quando è installato Azure SDK 2.6. Il progetto Gruppo di risorse di Azure consente di raggruppare e pubblicare con un'unica operazione di distribuzione più risorse di Azure correlate. Per il funzionamento dei progetti Gruppo di risorse di Azure, viene usata la tecnologia **Gestione risorse di Azure**. **Gestione risorse di Azure** è un servizio API REST che consente di definire gruppi di risorse di Azure, contenenti più risorse di Azure che vengono in genere usate insieme e hanno un ciclo di vita analogo. L'uso dei gruppi di risorse permette di operare su tutte le risorse in un gruppo con una sola chiamata della funzione, invece di chiamare funzioni diverse per ogni singola risorsa. Per altre informazioni sui gruppi di risorse di Azure, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](resource-group-portal.md). Per uno scenario end-to-end più dettagliato relativo alla distribuzione del gruppo di risorse di Azure, vedere [Gruppo di risorse di Azure per Visual Studio](https://azure.microsoft.com/blog/azure-resource-manager-2-5-for-visual-studio/).
 
@@ -49,9 +49,10 @@ In questa procedura viene illustrato come creare un progetto di tipo Gruppo di r
 
     |Nome file|Descrizione|
     |---|---|
-    |Deploy-AzureResourceGroup.ps1|Script di PowerShell che richiama i comandi PowerShell da distribuire in Gestione risorse di Azure.
-
-    **Nota** Questo script di PowerShell viene usato da Visual Studio per distribuire il modello. Eventuali modifiche apportate allo script influiranno anche sulla distribuzione in Visual Studio. Occorre quindi prestare attenzione.| !WebSite.json|File di configurazione che specifica tutti i dettagli da distribuire in Gestione risorse di Azure.| |WebSite.param.dev.json|File dei parametri contenente valori specifici necessari per il file di configurazione.| |AzCopy.exe|Strumento usato dallo script di PowerShell per copiare i file dal percorso di destinazione dell'archivio locale al contenitore dell'account di archiviazione. Questo strumento viene usato solo se si configura il progetto di distribuzione per distribuire il codice insieme al modello.|
+    |Deploy-AzureResourceGroup.ps1|Script di PowerShell che richiama i comandi PowerShell per la distribuzione in Gestione risorse di Azure.<br />**Nota** Questo script PowerShell viene usato da Visual Studio per distribuire il modello. Eventuali modifiche apportate allo script influiranno anche sulla distribuzione in Visual Studio. Occorre quindi prestare attenzione.|
+    !WebSite.json|Modello che definisce l'infrastruttura da distribuire in Azure.|
+    |WebSite.param.dev.json|File di parametri contenente i valori specifici necessari al file di configurazione.|
+    |AzCopy.exe|Strumento usato dallo script di PowerShell per copiare i file dal percorso di destinazione dell'archivio locale al contenitore dell'account di archiviazione. Questo strumento viene usato solo se si configura il progetto di distribuzione per distribuire il codice insieme al modello.|
 
     Tutti i progetti di distribuzione di tipo Gruppo di risorse di Azure contengono questi quattro file di base. Altri progetti potrebbero includere file aggiuntivi per supportare altre funzionalità.
 
@@ -193,6 +194,6 @@ Sono state apportate modifiche anche ad alcuni nomi di variabile e attività di 
 
 ## Passaggi successivi
 
-Per informazioni su come aggiungere risorse al gruppo di risorse di Azure in Visual Studio, vedere [Aggiunta di risorse a un gruppo di risorse di Azure](vs-azure-tools-resource-group-adding-resources.md).
+Per informazioni su come aggiungere risorse al gruppo di risorse di Azure in Visual Studio, vedere [Modifica dei modelli di Gestione risorse con Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Informazioni sul monitoraggio di Gestione traffico
 
-Gestione traffico di Azure esegue il monitoraggio degli endpoint, tra cui i servizi cloud e i siti Web, per assicurarne la disponibilità. Affinché il monitoraggio funzioni correttamente, è necessario configurarlo nello stesso modo per tutti gli endpoint specificati nel profilo di Gestione traffico. Dopo aver configurato il monitoraggio, nel portale di Azure, Gestione traffico visualizza lo stato per endpoint e profilo. È possibile configurare le impostazioni di monitoraggio nel portale di Azure sulla pagina di configurazione per il profilo di Gestione traffico. È possibile specificare le seguenti impostazioni:
+Gestione traffico di Azure esegue il monitoraggio degli endpoint, tra cui i servizi cloud e i siti Web, per assicurarne la disponibilità. Affinché il monitoraggio funzioni correttamente, è necessario configurarlo nello stesso modo per tutti gli endpoint specificati nel profilo di Gestione traffico. Dopo aver configurato il monitoraggio, nel portale di Azure classico, Gestione traffico visualizza lo stato per endpoint e profilo. È possibile configurare le impostazioni di monitoraggio nella pagina Configura del portale di Azure classico per il profilo di Gestione traffico. È possibile specificare le seguenti impostazioni:
 
 - **Protocollo**: scegliere HTTP o HTTPS. È importante notare che il monitoraggio HTTPS non verifica la validità del certificato SSL, ne verifica solo la presenza.
 
@@ -27,7 +27,7 @@ Gestione traffico di Azure esegue il monitoraggio degli endpoint, tra cui i serv
 
 ## Informazioni sullo stato di integrità del monitoraggio
 
-Nel portale di Azure, Gestione traffico di Azure visualizza il profilo e l'integrità del servizio endpoint. La colonna dello stato per il profilo e l'endpoint visualizza lo stato di monitoraggio più recente. È possibile utilizzare tale stato per verificare l'integrità dei profili in base alle impostazioni di monitoraggio di Gestione traffico. Quando il profilo è integro, le query DNS verranno distribuite ai servizi in base alle impostazioni di routing del traffico per il profilo (Round Robin, prestazioni o failover). Se il sistema di monitoraggio di Gestione traffico rileva una modifica nello stato di monitoraggio, la voce relativa allo stato viene aggiornata nel portale di Azure. L'aggiornamento della modifica relativa allo stato può richiedere fino a cinque minuti.
+Nel portale di Azure classico, Gestione traffico di Azure visualizza il profilo e l'integrità del servizio endpoint. La colonna dello stato per il profilo e l'endpoint visualizza lo stato di monitoraggio più recente. È possibile utilizzare tale stato per verificare l'integrità dei profili in base alle impostazioni di monitoraggio di Gestione traffico. Quando il profilo è integro, le query DNS verranno distribuite ai servizi in base alle impostazioni di routing del traffico per il profilo (Round Robin, prestazioni o failover). Se il sistema di monitoraggio di Gestione traffico rileva una modifica nello stato di monitoraggio, la voce relativa allo stato viene aggiornata nel portale di Azure classico. L'aggiornamento della modifica relativa allo stato può richiedere fino a cinque minuti.
 
 ### Stato monitoraggio endpoint
 
@@ -103,7 +103,7 @@ Nella seguente tabella viene descritto il comportamento del monitoraggio di Gest
 
 1. Creare un file con lo stesso nome in ogni endpoint che si pensa di includere nel profilo.
 2. Per ogni endpoint, usare un browser Web per verificare l'accesso al file. L'URL consiste di un nome di dominio dell'endpoint specifico (il servizio cloud o sito Web), il percorso al file e il nome del file. 
-3. Nel portale di Azure, in **Impostazioni di monitoraggio**, nel campo **Percorso relativo e Nome file** specificare il percorso e il nome del file.
+3. Nel portale di Azure classico, in **Impostazioni di monitoraggio**, nel campo **Nome file e percorso relativo** specificare il percorso e il nome del file.
 4. Dopo aver terminato le modifiche alla configurazione, fare clic su **Salva** nella parte inferiore della pagina.
 
 ## Vedere anche
@@ -115,4 +115,4 @@ Nella seguente tabella viene descritto il comportamento del monitoraggio di Gest
 [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

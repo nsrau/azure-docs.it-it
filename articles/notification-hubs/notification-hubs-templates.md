@@ -36,7 +36,7 @@ In questa sezione vengono forniti due esempi dettagliati di come utilizzare mode
 
 Il metodo standard per inviare notifiche push consiste nell'inviare, per ciascuna notifica, uno specifico payload dei servizi di notifica della piattaforma (WNS, servizio APN). Per inviare un avviso al servizio APN, ad esempio, il payload è un oggetto Json nel formato seguente:
 
-	{“aps”: {“alert” : “Hello!” }}
+	{"aps": {"alert" : "Hello!" }}
 
 Per inviare un messaggio di avviso popup simile in un'applicazione di Windows Store, il payload XML è il seguente:
 
@@ -61,7 +61,7 @@ Nell'immagine seguente viene illustrato il processo indicato in precedenza:
 
 Il modello per la registrazione dell'app client iOS è il seguente:
 
-	{“aps”:{“alert”:”$(message)”}}
+	{"aps": {"alert": "$(message)"}}
 
 Il modello corrispondente per l'applicazione client di Windows Store è:
 
@@ -151,4 +151,4 @@ Come spiegato in precedenza, quando si utilizza la concatenazione, le espression
 	  </visual>
 	</tile>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

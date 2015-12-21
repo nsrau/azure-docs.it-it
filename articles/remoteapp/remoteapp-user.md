@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Aggiungere un utente alla raccolta di Azure RemoteApp" 
-    description="Informazioni su come aggiungere utenti alla raccolta di Azure RemoteApp" 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Aggiungere un utente alla raccolta di Azure RemoteApp | Microsoft Azure"
+    description="Informazioni su come aggiungere utenti alla raccolta di Azure RemoteApp"
+    services="remoteapp"
+	documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Come aggiungere un utente alla raccolta di Azure RemoteApp
@@ -36,12 +36,12 @@ Gli utenti di Office 365 sono utenti di Azure Active Directory. Agli utenti che 
 |Account utente |Cloud |Ibrido|
 |--------------|--------|------|
 |Account Microsoft| 	Sì|	No|
-|Azure Active Directory (Azure AD)| | |	
+|Azure Active Directory (Azure AD)| | |
 |Solo cloud Azure AD |Sì |No |
 |Sincronizzazione Active Directory con sincronizzazione password |Sì |Sì |
 |Sincronizzazione Active Directory senza sincronizzazione password|	Sì |No |
 |Sincronizzazione Active Directory con ADFS |Sì |Sì |
-|Provider di identità di terze parti supportati da Azure (ad esempio Ping) |Sì |Sì|	
+|Provider di identità di terze parti supportati da Azure (ad esempio Ping) |Sì |Sì|
 |Autenticazione a più fattori |Sì |Sì |
 
 Per [altre informazioni](remoteapp-ad.md), vedere Configurare Azure Active Directory per RemoteApp.
@@ -51,6 +51,5 @@ Per [altre informazioni](remoteapp-ad.md), vedere Configurare Azure Active Direc
 
 ## Informazioni sugli account utente di Office 365 ProPlus
 Se si usa l'immagine modello di Office 365 ProPlus nella raccolta *o* se è stata creata un'immagine personalizzata che usa Office 365, è possibile solo aggiungere gli utenti di Azure Active Directory che dispongono di sottoscrizioni a Office 365 per il dominio predefinito della sottoscrizione. Per altre informazioni, vedere l'articolo relativo all'[uso di Office 365 con Azure RemoteApp](remoteapp-o365.md).
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

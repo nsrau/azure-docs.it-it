@@ -38,10 +38,7 @@ Per configurare la replica geografica, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
 - Un database SQL di Azure logico: il database primario che si vuole replicare in una area geografica diversa.
-- Azure PowerShell 1.0 Preview. È possibile scaricare e installare i moduli di Azure PowerShell dalla pagina [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
-
-> [AZURE.IMPORTANT]Iniziando con la versione di anteprima di Azure PowerShell 1.0, il cmdlet Switch-AzureMode non è più disponibile e i cmdlet che sono stati nel modulo Azure ResourceManager sono stati rinominati. Gli esempi in questo articolo utilizzano nuove convenzioni di denominazione dell’Anteprima di PowerShell 1.0. Per informazioni dettagliate, vedere [Deprecazione di Switch-AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
-
+- Azure PowerShell 1.0 o versione successiva È possibile scaricare e installare i moduli di Azure PowerShell dalla pagina [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
 
 
@@ -58,7 +55,7 @@ Dopo aver effettuato l'accesso, sullo schermo verranno visualizzate informazioni
 
 ### Selezionare la sottoscrizione ad Azure
 
-Per selezionare la sottoscrizione, è necessario il relativo ID. che può essere copiato dal passaggio precedente oppure, se si hanno più sottoscrizioni e sono necessarie altre informazioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Il cmdlet seguente usa l'ID sottoscrizione per impostare la sottoscrizione corrente:
+Per selezionare la sottoscrizione, è necessario il relativo ID. Questo può essere copiato dal passaggio precedente oppure, se si dispone di più sottoscrizioni e sono necessarie altre informazioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Il cmdlet seguente usa l'ID sottoscrizione per impostare la sottoscrizione corrente:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -213,9 +210,9 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
 
 ## Risorse aggiuntive
 
-- [Blog di approfondimento sulle nuove funzionalità di replica geografica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
 - [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

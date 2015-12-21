@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="12/07/2015"
    ms.author="mmercuri"/>
 
 # Definizione delle dipendenze nei modelli di gestione risorse di Azure
@@ -49,19 +49,21 @@ Se è necessario definire una dipendenza tra una risorsa e le risorse che vengon
 
 La proprietà delle risorse consente di specificare le risorse figlio correlate alla risorsa definita. Le Risorse figlio possono essere solo definite da5 livelli. È importante notare che una relazione implicita non viene creata tra una risorsa figlio e la risorsa padre. Se è necessario che la risorsa figlio sia distribuita dopo la risorsa padre, è necessario dichiarare in modo esplicito tale dipendenza con la proprietà dependsOn.
 
+Ogni risorsa padre accetta solo determinati tipi di risorse come risorse figlio. I tipi di risorse accettate sono specificati nel [schema del modello](https://github.com/Azure/azure-resource-manager-schemas) della risorsa padre. Il nome del tipo di risorsa figlio include il nome del tipo di risorsa padre, ad esempio **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** sono entrambi risorse figlio di **Microsoft.Web/sites**.
+
 ## funzione di riferimento
 
-La funzione di riferimento consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le Espressioni di riferimento in modo implicito dichiarano che una risorsa dipende da un altro. La proprietà rappresentata dal**propertyPath** allegato di seguito è facoltativa, se non è specificato, il riferimento riguarda la risorsa.
+La funzione di riferimento consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le Espressioni di riferimento in modo implicito dichiarano che una risorsa dipende da un altro. Se non diversamente specificato, la proprietà rappresentata da **propertyPath** di seguito è facoltativa, il riferimento riguarda la risorsa.
 
     reference('resourceName').propertyPath
 
 È possibile utilizzare questo elemento o l'elemento dependsOn per specificare le dipendenze, ma non è necessario utilizzare entrambi per la stessa risorsa dipendente. Le linee guida prevedono l’utilizzo del riferimento implicito per evitare il rischio di avere inavvertitamente un elemento dependsOn che arresti il motore di distribuzione tanto che gli aspetti della distribuzione in parallelo siano poi interrotti.
 
-Per altre informazioni, vedere [funzione di riferimento](../resource-group-template-functions/#reference).
+Per altre informazioni, vedere la [funzione del riferimento](../resource-group-template-functions/#reference).
 
 ## Passaggi successivi
 
-- Per altre informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md). 
-- Per un elenco di funzioni disponibili in un modello, vedere [funzioni di modello](resource-group-template-functions.md).
+- Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md). 
+- Per un elenco delle funzioni disponibili in un modello, vedere [Funzioni di modelli](resource-group-template-functions.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

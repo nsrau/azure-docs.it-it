@@ -3,7 +3,7 @@
    description="Fornisce informazioni sul supporto che verrà fornito da Microsoft riguardo al sistema operativo guest di Azure usato da Servizi cloud." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/18/2015"
-   ms.author="adegeo"/>
+   ms.date="12/07/2015"
+   ms.author="yuemlu"/>
 
 # Criteri relativi al supporto e al ritiro del sistema operativo guest di Azure
-Le informazioni di questa pagina si riferiscono al sistema operativo guest di Azure ([sistema operativo guest](https://msdn.microsoft.com/library/azure/ff729422.aspx)) per i ruoli di lavoro e Web di Servizi cloud (PaaS). Non si applica alle macchine virtuali (IaaS).
+Le informazioni di questa pagina si riferiscono al sistema operativo guest di Azure ([sistema operativo guest](cloud-services-guestos-update-matrix.md)) per i ruoli di lavoro e Web di Servizi cloud (PaaS). Non si applica alle macchine virtuali (IaaS).
 
 Microsoft ha pubblicato i [criteri di supporto per il sistema operativo guest](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). Questa pagina contiene informazioni dettagliate sul modo in cui i criteri sono implementati.
 
@@ -81,13 +81,13 @@ Per progettare i Servizi cloud è consigliabile usare la famiglia di sistemi ope
 
 1. Iniziare prima a pianificare la migrazione a una famiglia più recente. 
 2. Configurare distribuzioni di prova temporanee per testare il servizio cloud in esecuzione nella nuova famiglia. 
-3. [Impostare la versione del sistema operativo guest](https://msdn.microsoft.com/library/azure/gg433101.aspx) su "Automatica" (osVersion=* nel file [.CSCFG](https://msdn.microsoft.com/library/azure/gg456324.aspx)) in modo che la migrazione alle nuove versioni del sistema operativo guest venga eseguita automaticamente.
+3. Impostare la versione del sistema operativo guest su **Automatica** (osVersion=* nel file con estensione [cscfg](cloud-services-model-and-package.md#cscfg)) in modo che la migrazione alle nuove versioni del sistema operativo guest venga eseguita automaticamente.
 
 **Che cosa accade se per l'applicazione Web è necessaria una maggiore integrazione con il sistema operativo?**
 
-Se per l'architettura dell'applicazione Web è richiesta una dipendenza maggiore dal sistema operativo sottostante, usare le funzionalità supportate della piattaforma, ad esempio le [attività di avvio](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx) o altri meccanismi di estendibilità eventualmente disponibili in futuro. In alternativa, è anche possibile usare [Macchine virtuali di Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infrastructure as a Service), in cui si è responsabili della manutenzione del sistema operativo sottostante.
+Se per l'architettura dell'applicazione Web è richiesta una dipendenza maggiore dal sistema operativo sottostante, usare le funzionalità supportate della piattaforma, ad esempio le [attività di avvio](cloud-services-startup-tasks.md) o altri meccanismi di estendibilità eventualmente disponibili in futuro. In alternativa, è anche possibile usare [Macchine virtuali di Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infrastructure as a Service), in cui si è responsabili della manutenzione del sistema operativo sottostante.
  
 ## Passaggi successivi
-Esaminare la versione più recente [versioni del sistema operativo Guest](cloud-services-guestos-update-matrix.md).
+Esaminare le [versioni del sistema operativo guest](cloud-services-guestos-update-matrix.md) più recenti.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

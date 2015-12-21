@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/23/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # Esempi di topologie e componenti Storm per Apache Storm in HDInsight
@@ -45,7 +45,7 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
 
 * [Informazioni su come distribuire e gestire le topologie Storm con Storm in HDInsight][6eb0d3b8]
 
-  [2b8c3488]: ../hdinsight-storm-getting-started.md "Informazioni su come creare una topologia Storm nel cluster HDInsight e usare Storm Dashboard per distribuire le topologie di esempio."
+  [2b8c3488]: hdinsight-apache-storm-tutorial-get-started-linux.md "Informazioni su come creare una topologia Storm nel cluster HDInsight e usare Storm Dashboard per distribuire le topologie di esempio."
   [6eb0d3b8]: hdinsight-storm-deploy-monitor-topology.md "Informazioni su come distribuire e gestire le topologie usando Storm Dashboard basato su Web e l'interfaccia utente Storm oppure HDInsight Tools per Visual Studio."
   [16fce2d1]: hdinsight-storm-develop-csharp-visual-studio-topology.md "Informazioni su come creare topologie Storm C# usando HDInsight Tools per Visual Studio."
   [5797064f]: hdinsight-storm-develop-java-topology.md "Informazioni su come creare topologie Storm in Java, usando Maven e creando una topologia di conteggio parole di base."
@@ -60,4 +60,4 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Questo progetto contiene modelli per l'interazione di Spout, Bolt e topologie con diversi servizi Azure come hub eventi, DocumentDB e database SQL."
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

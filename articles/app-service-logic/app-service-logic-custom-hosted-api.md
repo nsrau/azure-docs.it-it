@@ -50,9 +50,9 @@ In questa sezione si creeranno due applicazioni di Azure Active Directory, una p
 
 Ecco ciò che userà l'app per la logica per autenticarsi con Active Directory. È *necessario* eseguire questa operazione una sola volta per la directory. Ad esempio, si può scegliere di usare la stessa identità per tutte le app per la logica, anche se è possibile crearne una univoca per ogni app per la logica, se necessario. A questo scopo, è possibile usare l'interfaccia utente oppure PowerShell.
 
-#### Creare l'identità dell'applicazione tramite il portale di Azure
+#### Creare l'identità dell'applicazione tramite il portale di Azure classico
 
-1. Passare ad [Active Directory nel portale di Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selezionare la directory usata per l'app Web.
+1. Passare ad [Active Directory nel portale di Azure classico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selezionare la directory usata per l'app Web.
 2. Fare clic sulla scheda **Applicazioni**.
 3. In fondo alla pagina fare clic su **Aggiungi** nella barra dei comandi.
 4. Assegnare un Nome all'identità e fare clic sulla freccia Avanti.
@@ -81,7 +81,7 @@ Se l'app Web è già stata distribuita, si può semplicemente abilitarla nel por
 
 A questo punto verrà creata automaticamente un'applicazione. L'ID client di questa applicazione sarà necessario nella parte 3, quindi si dovrà:
 
-1. Passare ad [Active Directory nel portale di Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selezionare la directory. 
+1. Passare ad [Active Directory nel portale di Azure classico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selezionare la directory. 
 2. Cercare l'app nella casella di ricerca.
 3. Fare clic sull'app nell'elenco.
 4. Fare clic sulla scheda **Configura**.
@@ -91,7 +91,7 @@ A questo punto verrà creata automaticamente un'applicazione. L'ID client di que
 
 Prima di tutto, è necessario creare un'applicazione per l'app Web. Dovrà essere diversa dall'applicazione usata per l'app per la logica. Iniziare seguendo i passaggi nella parte 1 precedente, ma ora per **HomePage** e **IdentifierUris** usare l'https://**URL** effettivo dell'app Web.
 
->[AZURE.NOTE]Quando si crea l'applicazione per l'app Web, è necessario usare l'[approccio tramite il portale di Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), perché il cmdlet di PowerShell non configura le autorizzazioni necessarie per l'accesso degli utenti a un sito Web.
+>[AZURE.NOTE]Quando si crea l'applicazione per l'app Web, è necessario usare l'[approccio basato sul portale di Azure classico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), poiché il cmdlet di PowerShell non configura le autorizzazioni necessarie per l'accesso degli utenti a un sito Web.
 
 Una volta che si avranno l'ID client e l'ID tenant, includere il codice seguente come risorsa secondaria dell'app Web nel modello di distribuzione:
 
@@ -170,4 +170,4 @@ Proseguendo, se si vuole implementarla interamente nel codice e sfruttare la fun
 
 Sarà comunque necessario seguire la procedura precedente per creare un'identità dell'applicazione per l'app per la logica e usarla per chiamare l'API.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

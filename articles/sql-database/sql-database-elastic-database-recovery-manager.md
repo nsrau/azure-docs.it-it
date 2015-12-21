@@ -85,7 +85,7 @@ Il [metodo DetectMappingDifferences](https://msdn.microsoft.com/library/azure/mi
 
 ## Per risolvere le differenze nei mapping
 
-Il [metodo ResolveMappingDifferences ](https://msdn.microsoft.com/it-IT/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) seleziona una della mappe partizioni, locale o globale, come origine di dati reali e riconcilia i mapping in entrambi i tipi di mappa partizioni, globale e locale.
+Il [metodo ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) seleziona una delle mappe partizioni, locale o globale, come origine di dati reali e riconcilia i mapping in entrambi i tipi di mappa partizioni, globale e locale.
 
 	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution);
    
@@ -157,4 +157,4 @@ Questo esempio esegue i passaggi seguenti: 1. Rimuove le partizioni dalla mappa 
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

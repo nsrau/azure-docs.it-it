@@ -67,7 +67,7 @@ Quando si conosce l'URL BLOB, è possibile scaricare il VHD utilizzando il [port
   ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### Scaricare il VHD mediante PowerShell
-Oltre al portale di Azure, è possibile utilizzare il cmdlet [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) per scaricare il VHD del sistema operativo.
+Oltre al portale di Azure, è possibile usare il cmdlet [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) per scaricare il VHD del sistema operativo.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -109,7 +109,7 @@ Usando PowerShell, creare un account di archiviazione con il cmdlet [New-AzureSt
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Sarà quindi possibile creare un contenitore all'interno di tale account di archiviazione usando il cmdlet [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx).
+Sarà quindi possibile creare un contenitore in tale account di archiviazione usando il cmdlet [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx).
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
@@ -127,7 +127,7 @@ Creare un contenitore come segue.
 Dopo aver creato l'account di archiviazione e il contenitore, è possibile caricare i VHD preparati. È possibile usare PowerShell, lo strumento da riga di comando per Linux o altri strumenti di gestione di Archiviazione di Azure.
 
 ### Caricare un VHD tramite PowerShell
-Usare il cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx):
+Usare il cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx).
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
@@ -138,4 +138,4 @@ Con lo [strumento da riga di comando per Linux](../virtual-machines/command-line
 - [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

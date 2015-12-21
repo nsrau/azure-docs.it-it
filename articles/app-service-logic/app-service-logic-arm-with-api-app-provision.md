@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare un'app per la logica con un'app per le API" 
+	pageTitle="Creare un'app per la logica con un'app per le API | Microsoft Azure" 
 	description="Usare un modello di Gestione risorse di Azure per distribuire un'app per la logica e un'app per le API." 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="tomfitz"/>
 
 # Creare un'app per la logica e un'app per le API usando un modello
 
-Questo argomento illustra come creare un modello di Gestione risorse di Azure per creare un'app per la logica con un'app per le API del servizio app È possibile usare le app per la logica per progettare flussi di lavoro che esprimano chiaramente il loro scopo tramite un trigger e una serie di passaggi, ciascuno dei quali richiama l'app per le API e, al contempo, gestisce in modo sicuro l'autenticazione e le procedure consigliate, ad esempio l'esecuzione durevole.
+Questo argomento illustra come creare un modello di Gestione risorse di Azure per creare un'app per la logica con un'app per le API del servizio app. È possibile usare le app per la logica per progettare flussi di lavoro che esprimano chiaramente il loro scopo tramite un trigger e una serie di passaggi, ciascuno dei quali richiama l'app per le API e, al contempo, gestisce in modo sicuro l'autenticazione e le procedure consigliate, ad esempio l'esecuzione durevole.
 
-Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+Illustra inoltre le modalità di definizione delle risorse da distribuire e dei parametri specificati durante l'esecuzione della distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
-Per informazioni dettagliate sulle proprietà delle app per la logica, vedere [API di gestione del flusso di lavoro delle app per la logica](https://msdn.microsoft.com/library/azure/dn948513.aspx). Per esempi della definizione stessa, vedere [Creare definizioni dell'app per la logica](app-service-logic-author-definitions.md).
+Per informazioni dettagliate sulle proprietà delle app per la logica, vedere [API di gestione del flusso di lavoro delle app per la logica](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+
+Per esempi della definizione stessa, vedere [Creare definizioni dell'app per la logica](app-service-logic-author-definitions.md).
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
@@ -30,7 +32,7 @@ Per il modello completo, vedere [Modello di app per la logica con app per le API
 
 ## Elementi distribuiti
 
-Con questo modello, verrà effettuato il provisioning di:
+Con questo modello si effettua il provisioning di:
 
 - App per la logica
 - App per le API
@@ -394,4 +396,4 @@ Si noti che l'app per la logica usa il token per chiamare il gateway.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

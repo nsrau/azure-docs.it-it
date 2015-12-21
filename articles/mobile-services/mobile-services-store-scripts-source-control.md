@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
-	ms.author="ggailey777"/>
+	ms.date="12/07/2015"
+	ms.author="glenga"/>
 
 # Archiviare il codice del progetto nel controllo del codice sorgente dei Servizi mobili
 
@@ -136,11 +136,7 @@ Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste 
 
 In questa esercitazione si è appreso ad archiviare gli script nel controllo del codice sorgente. Per altre informazioni sugli script del server e sulle API personalizzate, vedere:
 
-+ [Utilizzo degli script del server in Servizi mobili] 
-	<br/>Ulteriori informazioni su come utilizzare gli script del server, l'utilità di pianificazione dei processi e le API personalizzate.
-
-+ [Chiamare un'API personalizzata dal client] 
-	<br/>Illustra come creare API personalizzate che possono essere chiamate dal client.
++ [Utilizzo degli script del server in Servizi mobili] <br/>Ulteriori informazioni su come utilizzare gli script del server, l'utilità di pianificazione dei processi e le API personalizzate.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -163,4 +159,4 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [moduli]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

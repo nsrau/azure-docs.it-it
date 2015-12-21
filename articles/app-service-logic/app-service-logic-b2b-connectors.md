@@ -155,13 +155,13 @@ Nome istanza TPM | Immettere il nome dell'app per le API **BizTalk Trading Partn
 
 
 ## Aggiungere partner, contratti, certificati e schemi 
-Aprire l'app per le API TPM nel portale di gestione di Azure. Nella sezione **Componenti** aggiungere partner, contratti, certificati e schemi.
+Aprire l'app per le API TPM nel portale di Azure. Nella sezione **Componenti** aggiungere partner, contratti, certificati e schemi.
 
 È anche possibile aggiungere contratti ai connettori AS2 e alle app per le API X12 ed EDIFACT.
 
 
 ## Monitorare le app per le API
-Aprire l'app per le API TPM nel portale di gestione di Azure. Nella sezione **Operazioni** è possibile visualizzare le varie operazioni di gestione. Ad esempio, è possibile:
+Aprire l'app per le API TPM nel portale di Azure. Nella sezione **Operazioni** è possibile visualizzare le varie operazioni di gestione. Ad esempio, è possibile:
 
 - Visualizzare eventi informativi e di errore
 - Visualizzare l'utilizzo della memoria e il conteggio dei thread del processo di lavoro (w3wp)
@@ -206,4 +206,4 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

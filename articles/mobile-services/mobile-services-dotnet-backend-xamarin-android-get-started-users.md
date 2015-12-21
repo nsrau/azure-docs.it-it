@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/01/2015" 
 	ms.author="donnam"/>
 
 # Introduzione all'autenticazione in Servizi mobili
@@ -80,15 +80,12 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 3. Nel metodo **OnCreate** aggiungere la riga di codice seguente dopo il codice che crea l'istanza dell'oggetto `MobileServiceClient`.
 
-		// Get the Mobile Service Table instance to use
-        toDoTable = client.GetTable <ToDoItem> ();
-
-        await Authenticate(); // add this line
+		await Authenticate(); // add this line
 
 	Questa chiamata avvia il processo di autenticazione e ne attende il completamento in modalità asincrona.
 
 
-4. Nel menu **Run** fare clic su **Run** per avviare l'app e accedere con il provider di identità scelto.
+4. Nel menu **Run** fare clic su **Start debugging** per avviare l'app e accedere con il provider di identità scelto.
 
    	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
@@ -115,4 +112,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

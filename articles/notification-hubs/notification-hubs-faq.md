@@ -40,7 +40,7 @@ Diversi clienti utilizzano Hub di notifica. Di seguito ne sono indicati alcuni:
 * Bing App – 10 milioni di dispositivi, invio di 3 milioni di notifiche al giorno
 
 ###4\. Come eseguire l'aggiornamento o il downgrade degli hub di notifica per modificare il livello di servizio?
-Visitare il [portale di Azure], fare clic su Bus di servizio e fare clic su uno spazio dei nomi quindi sull'hub di notifica. Nella scheda di scalabilità, sarà possibile modificare il livello di servizio degli hub di notifica.
+Passare al [portale di Azure classico], fare clic su Bus di servizio e fare clic sullo spazio dei nomi e quindi sull'hub di notifica. Nella scheda di scalabilità, sarà possibile modificare il livello di servizio degli hub di notifica.
 
 ##Progettazione e sviluppo
 ###1\. Quali piattaforme sul lato servizio sono supportate?
@@ -104,16 +104,16 @@ Si consiglia di utilizzare un backend dell'app con:
 Se non si dispone di un back-end all'avvio dell'app nei dispositivi, viene eseguita una nuova registrazione nell'hub di notifica secondario, che alla fine avrà tutti i dispositivi attivi registrati. Lo svantaggio è che ci sarà un periodo di tempo in cui i dispositivi in cui non sono state aperte le app non riceveranno notifiche.
 
 ###2\. È disponibile una funzionalità di log di controllo?
-Tutte le operazioni di gestione degli hub di notifica passano ai log delle operazioni, esposti nel portale di gestione di Azure.
+Tutte le operazioni di gestione degli hub di notifica passano ai log delle operazioni, esposti nel [portale di Azure classico].
 
 ##Monitoraggio e risoluzione dei problemi
 ###1\. Quali funzionalità di risoluzione dei problemi sono disponibili?
-Gli hub di notifica di Azure forniscono numerose funzionalità a scopo di risoluzione dei problemi comuni, in particolare nello scenario più comune relativo alle notifiche eliminate. Visualizzare i dettagli in questo white paper sulla risoluzione dei problemi - [NH - risoluzione dei problemi]
+Gli hub di notifica di Azure forniscono numerose funzionalità a scopo di risoluzione dei problemi comuni, in particolare nello scenario più comune relativo alle notifiche eliminate. Visualizzare i dettagli in questo white paper sulla risoluzione dei problemi - [NH - Risoluzione dei problemi]
 
 ###2\. Sono disponibili le funzionalità di telemetria?
-Gli Hub di notifica di Azure consentono la visualizzazione di dati di telemetria nel portale di gestione di Azure. I dettagli delle metriche disponibili sono reperibili qui: [NH - Metriche]. Si noti che le notifiche sono considerate riuscite quando sono state recapitate al Servizio di notifica Push esterno (servizio APN di Apple, GCM per Google e così via), per cui è responsabilità del PNS recapitare le notifiche ai dispositivi, e il PNS non espone tali metriche. È offerta inoltre la possibilità di esportare i dati di telemetria a livello di codice (nel livello Standard). Vedere questo esempio per ulteriori informazioni - [NH - Esempio di metriche]
+Hub di notifica di Azure consente la visualizzazione di dati di telemetria nel [portale di Azure classico]. I dettagli delle metriche disponibili sono reperibili qui: [NH - Metriche]. Si noti che le notifiche sono considerate riuscite quando sono state recapitate al Servizio di notifica Push esterno (servizio APN di Apple, GCM per Google e così via), per cui è responsabilità del PNS recapitare le notifiche ai dispositivi, e il PNS non espone tali metriche. È offerta inoltre la possibilità di esportare i dati di telemetria a livello di codice (nel livello Standard). Per informazioni dettagliate, vedere questo esempio - [NH - Esempio di metriche]
 
-[portale di Azure]: https://manage.windowsazure.com
+[portale di Azure classico]: https://manage.windowsazure.com
 [Prezzi di Hub di notifica]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Contratto di servizio di Hub di notifica]: http://azure.microsoft.com/support/legal/sla/
 [Caso studio - Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -129,9 +129,9 @@ Gli Hub di notifica di Azure consentono la visualizzazione di dati di telemetria
 [Guida alla registrazione del back-end - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Modello di protezione NH]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [NH - Esercitazione sul push sicuro]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[NH - risoluzione dei problemi]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[NH - Risoluzione dei problemi]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [NH - Metriche]: https://msdn.microsoft.com/library/dn458822.aspx
 [NH - Esempio di metriche]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Esportazione/importazione di registrazioni]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

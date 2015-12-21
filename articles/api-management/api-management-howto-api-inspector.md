@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
@@ -34,7 +34,7 @@ Questa esercitazione illustra come usare Controllo API per tenere traccia delle 
 
 
 
-Per iniziare, fare clic su **Portale per sviluppatori** nel portale di Azure per il servizio Gestione API. È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.
+Per iniziare, fare clic sul **portale per sviluppatori** nel portale di Azure classico per il servizio Gestione API. È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.
 
 >Se non è stata ancora creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
 
@@ -245,7 +245,7 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 [Introduzione alla configurazione API avanzata]: api-management-get-started-advanced.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
@@ -261,4 +261,4 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

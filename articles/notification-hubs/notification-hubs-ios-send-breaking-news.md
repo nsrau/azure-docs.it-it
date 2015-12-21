@@ -379,9 +379,8 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [Usare Hub di notifica per la trasmissione di notizie localizzate]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Usare Hub di notifica per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [linee guida per gli hub di notifica]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

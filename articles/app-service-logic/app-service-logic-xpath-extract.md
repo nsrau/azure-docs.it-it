@@ -1,5 +1,5 @@
 <properties
-   pageTitle="BizTalk XPath Extractor"
+   pageTitle="Uso di BizTalk XPath Extractor in app per la logica in Servizio app di Azure | Microsoft Azure"
    description="BizTalk XPath Extractor"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
@@ -13,30 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/01/2015"
+   ms.date="12/07/2015"
    ms.author="rajram"/>
 
 #BizTalk XPath Extractor
 
 Il connettore BizTalk XPath Extract permette all'app di cercare ed estrarre i dati dal contenuto XML in base a un XPath specifico.
 
-##Uso di BizTalk Xpath Extractor
+## Uso di BizTalk Xpath Extractor
 1. Per usare BizTalk Xpath Extractor, è prima di tutto necessario creare un'istanza dell'app per le API BizTalk Xpath Extractor. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API BizTalk Xpath Extractor da Azure Marketplace.
 
 	>[AZURE.NOTE]Nessuna impostazione di configurazione associata a BizTalk Xpath Extractor.
-2. [Creare una nuova app per la logica]. Aprire "Trigger e azioni" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
-3. Nel riquadro destro della finestra di progettazione sono elencate le app per le API disponibili con cui creare il flusso. Individuare "BizTalk XPath Extractor". Selezionando questa app, Xpath Extractor verrà aggiunto al flusso e ne verrà eseguito il provisioning di un'istanza.
-2. Dopo il provisioning, nella finestra di progettazione viene visualizzata l'azione associata all'app per le API BizTalk XPath Extractor.
+2. [Creare una nuova app per la logica]. Aprire "Trigger e azioni" all'interno dell'app per la logica per visualizzare l'area di progettazione delle app per la logica e configurare il flusso.
+3. Nel riquadro destro dell'area di progettazione sono elencate le app per le API disponibili per la compilazione del flusso. Individuare "BizTalk XPath Extractor". Selezionando questa app, Xpath Extractor viene aggiunto al flusso e ne viene effettuato il provisioning di un'istanza.
+4. Al termine del provisioning, nell'area di progettazione viene visualizzata l'azione associata all'app per le API BizTalk XPath Extractor: ![Azione di selezione di BizTalk XPath Extractor][1]
 
-![Azione di selezione di BizTalk XPath Extractor][1]
+5. Scegliere l'opzione di estrazione tramite XPath, che consente di valutare l'espressione xpath di input in uno specifico XML di input: ![Input di BizTalk XPath Extractor][2]
 
-3. Scegliere "Extract Using XPath"
-
-"Extract Using XPath" valuta l'espressione xpath di input in un XML di input specifico.
-
-![Input di BizTalk XPath Extractor][2]
-
-Parametro|Tipo|Descrizione del parametro
+	Parametro|Tipo|Descrizione del parametro
 ---|---|---
 XPath|stringa|Percorso di query in XML.
 XML di input|stringa|Contenuto XML di input.
@@ -50,4 +44,4 @@ L'azione restituisce l'output sotto forma di stringa - Risultato. Il risultato c
 <!-- Links -->
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

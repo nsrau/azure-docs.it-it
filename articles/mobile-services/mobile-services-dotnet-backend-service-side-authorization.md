@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="10/01/2015"
+	ms.date="12/09/2015"
 	ms.author="krisragh"/>
 
 # Autorizzazione sul lato servizio degli utenti in Servizi mobili
@@ -41,7 +41,7 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 
 2. In Visual Studio, espandere la cartella Controllers, aprire**TodoItemController.cs**e aggiungere la seguente istruzione per l’utilizzo:
 
-		using Microsoft.Azure.Mobile.Server.Security;
+		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
 3. Individuare il metodo **PostTodoItem** e aggiungere il codice seguente all'inizio del metodo.
 
@@ -84,4 +84,4 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 <!-- URLs. -->
 [Aggiungere l'autenticazione all'app di Servizi mobili esistente]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

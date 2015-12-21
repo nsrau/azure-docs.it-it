@@ -14,7 +14,7 @@ L'uso della rete CDN per la memorizzazione dei dati di Azure nella cache offre m
 -   Migliori prestazioni ed esperienza utente ottimale per gli utenti finali che si trovano lontano da un'origine di contenuto e usano applicazioni in cui per il caricamento del contenuto sono necessari numerosi passaggi in Internet.
 -   Elevata scalabilità distribuita, per una gestione migliore dei carichi elevati istantanei, ad esempio nelle fasi iniziali di un evento quale il lancio di un prodotto.
 
-I clienti esistenti della rete CDN possono ora usare la Rete di distribuzione dei contenuti di Azure CDN nel [portale di gestione di Azure]. La rete CDN è una caratteristica aggiuntiva della sottoscrizione e prevede un [piano di fatturazione specifico].
+I clienti esistenti della rete CDN possono ora usare la rete CDN di Azure nel [Portale di Azure classico]. La rete CDN è una caratteristica aggiuntiva della sottoscrizione e prevede un [piano di fatturazione specifico].
 
 <a id="Step1"> </a> <h2>Passaggio 1: Creare un account di archiviazione</h2>
 
@@ -26,7 +26,7 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
 **Per creare un account di archiviazione per una sottoscrizione di Azure**
 
-1.  Accedere al [portale di gestione di Azure].
+1.  Accedere al [portale di Azure classico].
 2.  Nell'angolo in basso a sinistra della schermata fare clic su **Nuovo**. Nella finestra di dialogo **Nuovo** selezionare **Servizi dati**, fare clic su **Archiviazione** e quindi su **Creazione rapida**.
 
     Verrà visualizzata la finestra di dialogo **Crea account di archiviazione**.
@@ -57,7 +57,7 @@ Dopo l'abilitazione dell'accesso della rete CDN a un account di archiviazione o 
 
 **Per creare un nuovo endpoint della rete CDN per l'account di archiviazione**
 
-1. Nel [pannello di navigazione del portale di gestione di Azure] fare clic su **CDN**.
+1. Nel pannello di navigazione del [portale di Azure classico] fare clic su **Rete CDN**.
 
 2. Sulla barra multifunzione fare clic su **Nuovo**. Nella finestra di dialogo **Nuovo** selezionare **Servizi app**, quindi **CDN** e infine **Creazione rapida**.
 
@@ -100,8 +100,7 @@ Nel portale di gestione di Azure non è attualmente supportata una funzionalità
 
   [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
   [Ubicazioni dei nodi della rete CDN di Azure]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-  [pannello di navigazione del portale di gestione di Azure]: https://manage.windowsazure.com/
-  [portale di gestione di Azure]: https://manage.windowsazure.com/
+  [Portale di Azure classico]: https://manage.windowsazure.com/
   [piano di fatturazione specifico]: /pricing/calculator/?scenario=full
   [Come creare un gruppo di affinità in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
@@ -112,4 +111,4 @@ Nel portale di gestione di Azure non è attualmente supportata una funzionalità
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

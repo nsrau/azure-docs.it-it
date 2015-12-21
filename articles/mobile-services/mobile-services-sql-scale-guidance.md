@@ -7,13 +7,14 @@
 	manager="dwrede"
 	editor="mollybos"/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/08/2015"
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="12/01/2015" 
 	ms.author="donnam;ricksal"/>
 
 # Scalare i servizi mobili supportati dal database SQL di Azure
@@ -46,20 +47,12 @@ Se una delle condizioni precedenti non è vera, considerare la possibilità di m
 
 ### Scelta del livello corretto per il database SQL
 
-È importante comprendere i diversi livelli di database disponibili per assicurarsi di aver scelto il livello corretto in base alle esigenze dell'app. Il database SQL di Azure offre due diverse edizioni del database e tre diversi livelli di servizio:
+È importante comprendere i diversi livelli di database disponibili per assicurarsi di aver scelto il livello corretto in base alle esigenze dell'app. Il database SQL di Azure offre tre diversi livelli di servizio:
 
-- Edizione Web e Business (ritirata)
-- Livelli di servizio Basic, Standard e Premium
+- Basic
+- Standard
+- Premium
 
-Mentre le edizioni Web e Business sono completamente supportate, verranno ritirate il 12 settembre 2015 come descritto in [Domande frequenti sull'interruzione delle edizioni Web e Business](http://msdn.microsoft.com/library/azure/dn741330.aspx). In preparazione per questa modifica, i nuovi clienti sono invitati a iniziare a usare i livelli di servizio Basic, Standard e Premium. Essi forniscono una serie di funzionalità di monitoraggio che agevolano la comprensione e la risoluzione dei problemi relativi alle prestazione del database. Tutti i nuovi servizi mobili vengono creati utilizzando uno dei nuovi livelli di servizio.
-
-Per convertire un servizio mobile che usa l’edizione Web e Business ai livelli di servizio Basic, Standard o Premium, seguire questa procedura.
-
-1. Aprire il [portale di Azure classico].
-2. Selezionare **+NUOVO** sulla barra degli strumenti e quindi **Servizi dati**, **Database SQL**, **Creazione rapida**.
-3. Immettere un nome di database e quindi selezionare **Nuovo server di database SQL** nel campo **Server**. Verrà creato un server che usa il nuovo livello di servizio Basic, Standard e Premium.
-4. Compilare il resto dei campi e selezionare **Crea database SQL**. Verrà creato un database da 100 MB di livello Basic.
-5. Configurare il servizio mobile per l'uso del database creato. Passare alla scheda **Configura** del servizio e selezionare **Cambia database** sulla barra degli strumenti. Nella schermata successiva selezionare **Utilizza un database SQL esistente** nel campo **Database SQL** e quindi selezionare **Avanti**. Nella schermata successiva assicurarsi di selezionare il database creato nel passaggio 5, quindi selezionare **OK**.
 
 Ecco alcuni consigli per la scelta del livello corretto per il database:
 
@@ -67,23 +60,24 @@ Ecco alcuni consigli per la scelta del livello corretto per il database:
 - **Standard**: usare per servizi di produzione in cui si prevede l'esecuzione di numerose query di database simultanee
 - **Premium**: usare per servizi di produzione su vasta scala con numerose query simultanee, carico massimo e bassa latenza prevista per ogni richiesta.
 
-Per altre informazioni sulle situazioni in cui usare ogni livello, vedere [Vantaggi dei nuovi livelli di servizio](http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons)
+Per altre informazioni sulle situazioni in cui usare ogni livello, vedere [Vantaggi dei nuovi livelli di servizio]
 
 ### Analisi delle metriche di database
 
 Dopo aver acquisito familiarità con i diversi livelli di database, è possibile passare all'analisi delle metriche delle prestazioni del database, per comprendere la scalabilità all'interno dei livelli e tra di essi.
 
-1. Aprire il [portale di Azure classico].
+1. Avviare il [portale di Azure classico].
 2. Nella scheda Servizi mobili selezionare il servizio da usare.
 3. Selezionare la scheda **Configura**.
 4. Selezionare il nome del **Database SQL** nella sezione **Impostazioni database**. Verrà visualizzata la scheda del database SQL di Azure nel portale.
 5. Passare alla scheda **Monitoraggio**.
 6. Verificare che siano visualizzate le metriche pertinenti usando il pulsante **Aggiungi metriche**. Includere quanto segue:
     - *Percentuale CPU* (disponibile solo nei livelli Basic/Standard/Premium)
-    - *Percentuale di letture dati fisiche* (disponibile solo nei livelli Basic/Standard/Premium)
-    - *Percentuale di scritture nei log* (disponibile solo nei livelli Basic/Standard/Premium)
-    - *Archiviazione*
-7. Esaminare le metriche nella finestra temporale in cui si sono verificati i problemi del servizio.
+
+    - *Percentuale I/O dei dati* (disponibile solo nei livelli Basic/Standard/Premium)
+    - *Percentuale I/O del log* (disponibile solo nei livelli Basic/Standard/Premium)
+    - *Archiviazione* 
+7. Esaminare le metriche nella finestra temporale in cui si sono verificati i problemi del servizio. 
 
     ![Portale di Azure classico - Metriche del database SQL][PortalSqlMetrics]
 
@@ -105,9 +99,16 @@ Spesso è utile configurare avvisi per le metriche chiave del database, come mis
 
 1. Passare alla scheda **Monitoraggio** del database per cui configurare gli avvisi
 2. Verificare che siano visualizzate le metriche pertinenti, come descritto nella sezione precedente
-3. Selezionare la metrica per cui configurare un avviso e selezionare **Aggiungi regola** ![Portale di Azure classico - Avvisi di SQL][PortalSqlAddAlert]
-4. Specificare un nome e una descrizione per l'avviso ![Portale di Azure classico - Nome e descrizione degli avvisi di SQL][PortalSqlAddAlert2]
-5. Specificare il valore da usare come soglia di avviso. È consigliabile impostare **80%**, per disporre di un tempo di reazione sufficiente. Assicurarsi anche di specificare un indirizzo di posta elettronica controllato attivamente. ![Portale di Azure classico - Soglia ed e-mail degli avvisi di SQL][PortalSqlAddAlert3]
+3. Selezionare la metrica per cui si vuole configurare un avviso e selezionare **Aggiungi regola**
+
+    ![Azure Management Portal - SQL Alert][PortalSqlAddAlert]
+
+4. Specificare un nome e una descrizione per l'avviso ![Azure Management Portal - SQL Alert Name and Description][PortalSqlAddAlert2]
+
+5. Specificare il valore da usare come soglia di avviso. È consigliabile impostare **80%**, per disporre di un tempo di reazione sufficiente. Assicurarsi di specificare un indirizzo di posta elettronica controllato attivamente.
+ 
+    ![Azure Management Portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
+
 
 Per altre informazioni sulla diagnostica dei problemi SQL, vedere [Diagnostica avanzata](#AdvancedDiagnosing) più avanti in questo documento.
 
@@ -189,8 +190,10 @@ Ecco alcune linee guida da tenere in considerazione per le query sul database:
     - Non eseguire join nel codice dell'app
     - Non eseguire join nel codice del servizio mobile. Quando si usa il back-end JavaScript, tenere presente che l'[oggetto tabella](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx) non gestisce i join. Usare l'[oggetto mssql](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx) per assicurarsi che il join venga eseguito nel database. Per altre informazioni, vedere [Creare un join tra tabelle relazionali](mobile-services-how-to-use-server-scripts.md#joins). Se si usa il back-end .NET e le query vengono eseguite tramite LINQ, i join vengono gestiti automaticamente a livello di database da Entity Framework.
 - **Implementare il paging.** L'esecuzione di query sul database può a volte risultare nella restituzione al client di un numero molto elevato di record. Per minimizzare le dimensioni e la latenza delle operazioni, valutare la possibilità di implementare il paging.
-    - Per impostazione predefinita, il servizio mobile limiterà le query in arrivo a una pagina di dimensioni pari a 50 righe ed è possibile richiedere manualmente fino a 1.000 record. Per altre informazioni, vedere "Restituire i dati in pagine" per [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library/#paging) e [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
-    - Per le query eseguite dal codice del servizio mobile non sono previste dimensioni di pagina predefinite. Se l'app non implementa il paging, o come misura preventiva, valutare l'applicazione di limiti predefiniti alle query. Nel back-end JavaScript usare l'operatore **take** sull'[oggetto query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Se si usa il back-end .NET, considerare l'uso del [metodo Take](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) come parte della query LINQ.
+
+    - Per impostazione predefinita, il servizio mobile limiterà le query in arrivo a una pagina di dimensioni pari a 50 righe ed è possibile richiedere manualmente fino a 1.000 record. Per altre informazioni, vedere "Restituire i dati in pagine" per [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library#paging) e [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
+    - Per le query eseguite dal codice del servizio mobile non sono previste dimensioni di pagina predefinite. Se l'app non implementa il paging, o come misura preventiva, valutare l'applicazione di limiti predefiniti alle query. Nel back-end JavaScript usare l'operatore **take** sull'[oggetto query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Se si usa il back-end .NET, considerare l'uso del [metodo Take] come parte della query LINQ.  
+
 
 Per altre informazioni sul miglioramento della progettazione delle query e sull'analisi dei piani di query, vedere [Progettazione avanzata delle query](#AdvancedQuery) più avanti in questo documento.
 
@@ -208,7 +211,7 @@ Si immagini uno scenario in cui si invia una notifica push a tutti i clienti per
 Questa sezione illustra alcune attività di diagnostica avanzate che possono risultare utili se le soluzioni precedenti non consentono di risolvere completamente il problema.
 
 ### Prerequisiti
-Per eseguire alcune delle attività di diagnostica descritte in questa sezione è necessario disporre di accesso a uno strumento di gestione per i database SQL, ad esempio **SQL Server Management Studio** o usare le funzionalità di gestione integrate nel **portale di Azure classico**.
+Per eseguire alcune delle attività di diagnostica descritte in questa sezione, è necessario disporre dell'accesso a uno strumento di gestione per i database SQL, ad esempio **SQL Server Management Studio** o usare le funzionalità di gestione integrate nel **portale di Azure classico**.
 
 SQL Server Management Studio è un'applicazione Windows gratuita che offre funzionalità avanzate. Se non si dispone di un computer Windows (ad esempio se si usa un Mac), si può eseguire il provisioning di una macchina virtuale in Azure come illustrato in [Creazione di una macchina virtuale che esegue Windows Server](../virtual-machines-windows-tutorial.md) e connettersi alla macchina virtuale in modalità remota. Se si prevede di usare la VM principalmente per eseguire SQL Server Management Studio, un'istanza **Basic A0** (in precedenza "Molto piccola") dovrebbe essere sufficiente.
 
@@ -217,7 +220,7 @@ Il portale di Azure classico offre un'esperienza di gestione integrata, più lim
 Di seguito è illustrata la procedura per ottenere le informazioni di connessione per il database SQL che supporta il servizio mobile e quindi usare uno dei due strumenti per eseguire la connessione. È possibile scegliere uno qualsiasi dei due strumenti.
 
 #### Ottenere le informazioni per la connessione SQL
-1. Aprire il [portale di Azure classico].
+1. Avviare il [portale di Azure classico].
 2. Nella scheda Servizi mobili selezionare il servizio da usare.
 3. Selezionare la scheda **Configura**.
 4. Selezionare il nome del **Database SQL** nella sezione **Impostazioni database**. Verrà visualizzata la scheda del database SQL di Azure nel portale.
@@ -262,13 +265,14 @@ In alternativa, se si usa il portale di gestione database SQL, selezionare il da
 
 ![SQL Database Management Portal - new query][PortalSqlManagementNewQuery]
 
-Per eseguire qualsiasi delle query seguenti, incollarla nella finestra e selezionare **Esegui**.
+Per eseguire una delle query seguenti, incollarla nella finestra e selezionare **Esegui**.
 
 ![SQL Database Management Portal - run query][PortalSqlManagementRunQuery]
 
 #### Metriche avanzate
 
-Se si usano i livelli Basic, Standard e Premium, nel portale di Azure classico sono immediatamente disponibili alcune metriche. Se tuttavia si usano i livelli Web e Business, solo la metrica Archiviazione è disponibile tramite il portale. Per fortuna è possibile ottenere facilmente queste e altre metriche usando la vista di gestione **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, indipendentemente dal livello in uso. Considerare la query seguente:
+
+Se si usano i livelli Basic, Standard e Premium, nel portale di gestione sono immediatamente disponibili alcune metriche. È possibile ottenere facilmente queste e altre metriche usando la vista di gestione **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, indipendentemente dal livello in uso. Considerare la query seguente:
 
     SELECT TOP 10 *
     FROM sys.resource_stats
@@ -290,7 +294,7 @@ La vista **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.asp
 
 > [AZURE.NOTE]Eseguire la query sul database **master** del server, la vista **sys.event\_log** è presente solo in questo database.
 
-<a name="AdvancedIndexing" />
+<a name="AdvancedIndexing" ></a>
 ### Indicizzazione avanzata
 
 Una tabella o una vista può contenere i tipi di indice seguenti:
@@ -371,12 +375,13 @@ La query di esempio seguente esegue un join tra le tabelle per ottenere un elenc
       AND migs_adv.index_advantage > 10
     ORDER BY migs_adv.index_advantage DESC;
 
-Per altre informazioni, vedere [Monitoraggio di database SQL mediante le viste a gestione dinamica][] e [DMV di indici mancanti](sys-missing-index-stats).
+Per altre informazioni, vedere [Monitoraggio di database SQL mediante le viste a gestione dinamica][] e [DMV di indici mancanti][].
 
-<a name="AdvancedQuery" />
-### Progettazione avanzata delle query
+<a name="AdvancedQuery" ></a>
+### Progettazione avanzata delle query 
 
-Spesso è difficile diagnosticare quali siano le query con il costo più elevato per il database.
+Spesso è difficile individuare le query con il costo più elevato per il database.
+
 
 #### Ricerca delle prime n query
 
@@ -456,6 +461,9 @@ Per analizzare il piano di query nel **portale di gestione database SQL**, usare
 [Monitoraggio di database SQL mediante le viste a gestione dinamica]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
 [Prestazioni e scalabilità del database SQL di Azure]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
 [Risoluzione dei problemi relativi al database SQL di Azure]: http://msdn.microsoft.com/library/azure/ee730906.aspx
+[Vantaggi dei nuovi livelli di servizio]: http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons
+
+[metodo Take]: http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx
 
 <!-- MSDN -->
 [Creazione e modifica di vincoli PRIMARY KEY]: http://technet.microsoft.com/library/ms181043(v=sql.105).aspx
@@ -470,7 +478,7 @@ Per analizzare il piano di query nel **portale di gestione database SQL**, usare
 [Linee guida per la progettazione di indici univoci]: http://technet.microsoft.com/library/ms187019(v=sql.105).aspx
 [Linee guida per la progettazione di indici cluster]: http://technet.microsoft.com/library/ms190639(v=sql.105).aspx
 
-[sys-missing-index-stats]: http://technet.microsoft.com/library/ms345421.aspx
+[DMV di indici mancanti]: http://technet.microsoft.com/library/ms345421.aspx
 
 <!-- EF -->
 [Considerazioni sulle prestazioni per Entity Framework 5]: http://msdn.microsoft.com/data/hh949853
@@ -480,4 +488,4 @@ Per analizzare il piano di query nel **portale di gestione database SQL**, usare
 <!-- BLOG LINKS -->
 [Costo delle chiavi]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

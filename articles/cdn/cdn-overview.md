@@ -20,7 +20,7 @@
 
 La rete per la distribuzione di contenuti (rete CDN) di Azure memorizza nella cache il contenuto statico e i BLOB di Azure usati dai servizi cloud in posizioni strategiche per offrire livelli massimi di larghezza di banda per la distribuzione del contenuto agli utenti.
 
-I clienti esistenti della rete CDN possono ora gestire gli endpoint della rete CDN attraverso il [portale di gestione di Microsoft Azure](https://portal.azure.com).
+I clienti esistenti della rete CDN possono ora gestire gli endpoint della rete CDN attraverso il [portale di Microsoft Azure](https://portal.azure.com).
 
 
 La rete CDN offre agli sviluppatori una soluzione globale per distribuire contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione di tale contenuto nella cache in nodi fisici ubicati in tutto il mondo. Per un elenco aggiornato delle località in cui si trovano i nodi della rete CDN, vedere [Località POP della rete per la distribuzione di contenuti (CDN) di Azure](cdn-pop-locations.md).
@@ -48,15 +48,15 @@ Il livello della rete CDN Standard comprende le seguenti caratteristiche:
 - [Supporto di HTTPS](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Bilanciamento del carico
 - Protezione DDOS
-- Eliminazione veloce
+- [Eliminazione veloce](cdn-purge-endpoint.md)
 
  
 ## Funzionalità Premium
 
-Il livello della rete CDN Premium comprende tutte le funzionalità del livello Standard e in più prevede queste funzionalità aggiuntive:
+Il livello Premium della rete CDN comprende tutte le funzionalità del livello Standard oltre alle funzionalità aggiuntive seguenti:
 
 - [Motore di distribuzione di contenuti personalizzabile, basato su regole](cdn-rules-engine.md)
 - [Report HTTP avanzati](cdn-advanced-http-reports.md)
 - [Statistiche in tempo reale](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

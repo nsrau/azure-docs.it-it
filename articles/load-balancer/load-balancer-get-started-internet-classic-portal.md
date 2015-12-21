@@ -1,6 +1,7 @@
+
 <properties 
-   pageTitle="Introduzione alla creazione del servizio di bilanciamento del carico per Internet nel modello di distribuzione classica tramite il portale di Azure | Microsoft Azure"
-   description="Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante il portale di Azure"
+   pageTitle="Introduzione alla creazione del servizio di bilanciamento del carico Internet nel modello di distribuzione classica tramite il portale di Azure classico | Microsoft Azure"
+   description="Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante il portale di Azure classico"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,10 +15,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
-# Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nel portale di Azure
+# Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nel portale di Azure classico
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -34,7 +35,7 @@ Per bilanciare il carico del traffico di rete Internet tra le macchine virtuali 
 
 **Per configurare un set con carico bilanciato per le macchine virtuali**
 
-1. Nel portale di Azure fare clic su **Macchine virtuali** e quindi sul nome di una macchina virtuale nel set con carico bilanciato.
+1. Nel portale di Azure classico fare clic su **Macchine virtuali** e quindi sul nome di una macchina virtuale nel set con carico bilanciato.
 2.	Far clic su **Endpoints**, quindi su **Add**.
 
 4.	Nella pagina **Aggiungi un endpoint a una macchina virtuale** fare clic sulla freccia destra.
@@ -66,4 +67,4 @@ Per bilanciare il carico del traffico di rete Internet tra le macchine virtuali 
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/24/2015"
+   ms.date="12/03/2015"
    ms.author="hascipio; avikova" />
 
 # Test dell'offerta del servizio dati in gestione temporanea
-Dopo aver completato i primi due passaggi della [Creazione di un account venditore Microsoft nel dashboard venditori](marketplace-publishing-accounts-creation-registration.md) e della [Creazione del servizio dati dell’offerta nel portale di pubblicazione](marketplace-publishing-data-service-creation.md), si è pronti per rendere disponibile l'offerta in Azure Marketplace. Questo argomento illustra il primo passaggio intermedio denominato "Gestione temporanea"
+Dopo aver completato i primi due passaggi della [creazione di un account per il Dashboard venditori](marketplace-publishing-accounts-creation-registration.md) e della [creazione dell'offerta del servizio dati nel portale di pubblicazione](marketplace-publishing-data-service-creation.md), si è pronti per rendere disponibile l'offerta in Azure Marketplace. Questo argomento illustra il primo passaggio intermedio denominato "Gestione temporanea"
 
 Per gestione temporanea si intende la distribuzione dell'offerta in un ambiente "sandbox" privato, in cui è possibile testarne e verificarne le funzionalità prima di eseguirne il push in produzione. L'offerta verrà visualizzata nella gestione temporanea esattamente come verrebbe mostrata a un cliente che l'ha distribuita.
 
@@ -86,4 +86,4 @@ Se si è soddisfatti e pronti per la pubblicazione dell'offerta, leggere la docu
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

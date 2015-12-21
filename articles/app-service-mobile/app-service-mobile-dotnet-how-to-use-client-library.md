@@ -18,22 +18,21 @@
 
 # Come usare il client gestito per App per dispositivi mobili di Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-libbra](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-libbra](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica 
 
-Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con App per dispositivi mobili, si consiglia di completare prima l'esercitazione [Introduzione a App per dispositivi mobili](app-service-mobile-windows-store-dotnet-get-started.md). In questa Guida, l'attenzione è posta sull’SDK gestito sul lato client. Per ulteriori informazioni sull’SDK sul lato client per il back-end .NET, vedere [Utilizzare back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con App per dispositivi mobili, si consiglia di completare prima l'esercitazione [Introduzione a App per dispositivi mobili](app-service-mobile-windows-store-dotnet-get-started.md). In questa Guida, l'attenzione è posta sull’SDK gestito sul lato client. Per altre informazioni sugli SDK lato server per le app per dispositivi mobili, vedere [Usare l'SDK del server back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) o [Come usare Node.js SDK back-end](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
 ## Documentazione di riferimento
 
-La documentazione di riferimento per il client SDK è disponibile qui: [Riferimento al Client .NET di App per dispositivi mobili di Azure](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.aspx).
+La documentazione di riferimento per il client SDK è disponibile qui: [Riferimento al client .NET di app per dispositivi mobili di Azure](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.aspx).
 
 ##<a name="setup"></a>Installazione e prerequisiti
 
-Si presuppone che si abbia già creato e pubblicato il progetto di back-end di App per dispositivi mobili, che include a una tabella. Nel codice usato in questo argomento la tabella è denominata `TodoItem` e si presenta con le colonne seguenti: `Id`, `Text` e `Complete`. Si tratta della stessa tabella creata quando si completa l’[esercitazione della guida rapida](app-service-mobile-windows-store-dotnet-get-started.md)
+Si presuppone che si abbia già creato e pubblicato il progetto di back-end di App per dispositivi mobili, che include a una tabella. Nel codice usato in questo argomento la tabella è denominata `TodoItem` e si presenta con le colonne seguenti: `Id`, `Text` e `Complete`. Si tratta della stessa tabella creata quando si completa l'[esercitazione della guida introduttiva](app-service-mobile-windows-store-dotnet-get-started.md)
 
 Il tipo sul lato client tipizzato in C# è il seguente:
 
@@ -49,19 +48,21 @@ Il tipo sul lato client tipizzato in C# è il seguente:
 		public bool Complete { get; set; }
 	}
 
-Si noti che il [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) viene utilizzato per definire il mapping di *PropertyName* tra il tipo di client e la tabella.
+Si noti che il valore di [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) viene usato per definire il mapping di *PropertyName* tra il tipo di client e la tabella.
 
-##<a name="create-client"></a>Procedura: creare il client di App per dispositivi mobili
+Per informazioni su come creare nuove tabelle nel back-end delle app per dispositivi mobili, vedere [Procedura: Definire un controller tabelle](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (back-end .NET) o [Definire le tabelle usando uno schema dinamico](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (back-end Node.js). Per un back-end Node.js è anche possibile usare l'impostazione **Easy tables** nel [portale di Azure](https://portal.azure.com).
 
-Il codice seguente consente di creare l'oggetto `MobileServiceClient` usato per accedere al back-end dell’App per dispositivi mobili.
+##<a name="create-client"></a>Procedura: Creare il client di app per dispositivi mobili
+
+Il codice seguente consente di creare l'oggetto `MobileServiceClient` usato per accedere al back-end dell'app per dispositivi mobili.
 
 	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
-Nel codice precedente sostituire `MOBILE_APP_URL` con l'URL del back-end dell’App per dispositivi mobili, che si trova nel pannello per il backend dell’App per dispositivi mobili nel [portale di Azure](https://portal.azure.com).
+Nel codice precedente sostituire `MOBILE_APP_URL` con l'URL del back-end dell'app per dispositivi mobili, che si trova nel pannello per il back-end dell'app per dispositivi mobili nel [portale di Azure](https://portal.azure.com).
 
 ##<a name="instantiating"></a>Procedura: Creare un riferimento alla tabella
 
-Tutti i codici che accedono o modificano i dati nella tabella del back-end chiamano funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare il metodo [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) su un'istanza dell'oggetto `MobileServiceClient`, come di seguito illustrato:
+Tutti i codici che accedono o modificano i dati nella tabella del back-end chiamano funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare il metodo [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) su un'istanza dell'oggetto `MobileServiceClient`, come illustrato di seguito:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -73,7 +74,7 @@ Questo è il modello tipizzato di serializzazione. Viene supportato anche un mod
 
 Nelle query non tipizzate, è necessario specificare la stringa di query OData sottostante.
 
-##<a name="querying"></a>Procedura: eseguire query sui dati da App per dispositivi mobili
+##<a name="querying"></a>Procedura: Eseguire query sui dati dall'app per dispositivi mobili
 
 Questa sezione descrive come eseguire query nel back-end di App per dispositivi mobili, incluse le funzionalità seguenti:
 
@@ -207,7 +208,7 @@ Per cercare oggetti dal database caratterizzati da un particolare ID, è possibi
 	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
 	TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
-### <a name="lookingup"></a>Procedura: eseguire query non tipizzate
+### <a name="lookingup"></a>Procedura: Eseguire query non tipizzate
 
 Quando si esegue una query utilizzando un oggetto tabella non tipizzato, è necessario specificare esplicitamente la stringa di query OData, come nel seguente esempio:
 
@@ -216,9 +217,9 @@ Quando si esegue una query utilizzando un oggetto tabella non tipizzato, è nece
 
 Si ottengono valori JSON utilizzabili come contenitore delle proprietà. Per ulteriori informazioni su JToken e Json.NET, vedere [Json.NET](http://json.codeplex.com/).
 
-##<a name="inserting"></a>Procedura: inserire dati in un back-end di App per dispositivi mobili
+##<a name="inserting"></a>Procedura: Inserire dati in un back-end di App per dispositivi mobili
 
-Tutti i tipi di client devono contenere un membro denominato **Id**, che per impostazione predefinita è una stringa. Questo **Id** è necessario per eseguire le operazioni CRUD e per gli offline. Nel codice seguente viene illustrato come inserire nuove righe in una tabella. Il parametro contiene i dati da inserire come oggetto .NET.
+Tutti i tipi di client devono contenere un membro denominato **Id**, che per impostazione predefinita è una stringa. Questo **Id** è necessario per eseguire le operazioni CRUD e offline. Nel codice seguente viene illustrato come inserire nuove righe in una tabella. Il parametro contiene i dati da inserire come oggetto .NET.
 
 	await todoTable.InsertAsync(todoItem);
 
@@ -252,23 +253,18 @@ Gli ID stringa offrono i seguenti vantaggi:
 
 Quando un valore ID di stringa non è impostato su un record inserito, App per dispositivi mobili genera un valore univoco per l'ID. È possibile usare il metodo `Guid.NewGuid()` per generare valori ID personalizzati sul client o nel back-end.
 
-##<a name="modifying"></a>Procedura: modificare i dati in un back-end di App per dispositivi mobili
+##<a name="modifying"></a>Procedura: Modificare i dati in un back-end di App per dispositivi mobili
 
 Nel codice seguente viene illustrato come aggiornare con nuove informazioni un'istanza esistente con lo stesso ID. Il parametro contiene i dati da aggiornare come oggetto .NET.
 
 	await todoTable.UpdateAsync(todoItem);
 
-Per inserire dati non tipizzati è possibile sfruttare Json.NET come segue:
-	JObject jo = new JObject();
-	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
-	jo.Add("Text", "Hello World");
-	jo.Add("Complete", false);
-	var inserted = await table.UpdateAsync(jo);
+Per inserire dati non tipizzati è possibile sfruttare Json.NET come segue: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
 
-Si noti che quando si effettua un aggiornamento, è necessario specificare un ID. Questo è il modo in cui il back-end identifica l'istanza da aggiornare. È possibile ottenere l'ID dal risultato della chiamata `InsertAsync`. Quando si tenta di aggiornare un elemento senza fornire il valore "Id", un `ArgumentException` viene generato.
+Si noti che quando si effettua un aggiornamento, è necessario specificare un ID. Questo è il modo in cui il back-end identifica l'istanza da aggiornare. È possibile ottenere l'ID dal risultato della chiamata `InsertAsync`. Quando si prova ad aggiornare un elemento senza fornire il valore "Id", viene generata un'eccezione `ArgumentException`.
 
 
-##<a name="deleting"></a>Procedura: eliminare dati in un back-end di App per dispositivi mobili
+##<a name="deleting"></a>Procedura: Eliminare dati in un back-end di App per dispositivi mobili
 
 Nel codice seguente viene illustrato come eliminare un'istanza esistente. L'istanza è identificata dal campo "Id" impostato in `todoItem`.
 
@@ -280,7 +276,7 @@ Per eliminare dati non tipizzati, è possibile utilizzare Json.NET come illustra
 	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	await table.DeleteAsync(jo);
 
-Si noti che quando si effettua una richiesta di eliminazione, è necessario specificare un ID. Altre proprietà non vengono passate al servizio o vengono ignorate nel servizio. Il risultato di una chiamata `DeleteAsync` equivale normalmente a `null`. È possibile ottenere l'ID da passare dal risultato della chiamata `InsertAsync`. Quando si tenta di eliminare un elemento senza impostare il campo "Id", un `MobileServiceInvalidOperationException` viene restituito dal back-end.
+Si noti che quando si effettua una richiesta di eliminazione, è necessario specificare un ID. Altre proprietà non vengono passate al servizio o vengono ignorate nel servizio. Il risultato di una chiamata `DeleteAsync` equivale in genere a `null`. È possibile ottenere l'ID da passare dal risultato della chiamata `InsertAsync`. Quando si prova a eliminare un elemento senza impostare il campo "Id", il back-end restituisce un'eccezione `MobileServiceInvalidOperationException`.
 
 ##<a name="#custom-api"></a>Procedura: Chiamare un'API personalizzata
 
@@ -310,15 +306,9 @@ Il client di App per dispositivi mobili consente di registrarsi per le notifiche
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 		}
 
-Si noti che in questo esempio due tag sono inclusi con la registrazione. Per ulteriori informazioni sulle app di Windows, compresa la modalità di registrazione per le registrazioni del modello, vedere [Aggiungere notifiche push all'app](app-service-mobile-windows-store-dotnet-get-started-push.md).
+Si noti che in questo esempio due tag sono inclusi con la registrazione. Per altre informazioni sulle app di Windows, compresa la modalità di registrazione per le registrazioni del modello, vedere [Aggiungere notifiche push all'app](app-service-mobile-windows-store-dotnet-get-started-push.md).
 
-<!--- Remove until Xamarin.Android push is supported.
-Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
-
->[AZURE.NOTE] Quando è necessario inviare notifiche a specifici utenti registrati, è importante richiedere l'autenticazione prima della registrazione e quindi verificare che l'utente sia autorizzato a registrarsi con un tag specifico. È necessario ad esempio assicurarsi che un utente non si registri con un tag che è l'ID di un altro utente. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
--->
-
-Le app Xamarin richiedono codice aggiuntivo per poter registrare un’app in esecuzione su iOS o Android, rispettivamente, con i servizi APNS (Apple Push Notification Service) e GCM (Google Cloud Messaging). Pour plus d'informations, consultez **Ajout de notifications Push à votre application** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
+Le app Xamarin richiedono codice aggiuntivo per poter registrare un’app in esecuzione su iOS o Android, rispettivamente, con i servizi APNS (Apple Push Notification Service) e GCM (Google Cloud Messaging). Per altre informazioni, vedere **Aggiungere notifiche push all'app di Servizi mobili** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 ## Procedura: registrare modelli push per inviare notifiche multipiattaforma
 
@@ -349,19 +339,19 @@ I modelli sono di tipo JObject e possono contenere più modelli nel formato JSON
             return templates;
         }
 
-Il metodo **RegisterAsync()** accetta inoltre riquadri secondari:
+Il metodo **RegisterAsync()** accetta anche riquadri secondari:
 
         MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
 
-Si noti che tutti i tag verranno eliminati immediatamente per la sicurezza. Per aggiungere tag all’istallazione o modelli all’interno di istallazioni, vedere [Lavorare con l’SDK del server back-end .NET per App per dispositivi mobili di Azure].
+Si noti che tutti i tag verranno eliminati immediatamente per la sicurezza. Per aggiungere tag all'istallazione o modelli all'interno di istallazioni, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure].
 
-Per inviare notifiche utilizzando questi modelli registrati, utilizzare le [API di Hub di notifica](https://msdn.microsoft.com/library/azure/dn495101.aspx).
+Per inviare notifiche mediante questi modelli registrati, usare le [API di Hub di notifica](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
 ##<a name="optimisticconcurrency"></a>Procedura: Usare la concorrenza ottimistica
 
 In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. Il *controllo della concorrenza ottimistica* presuppone che per ogni transazione sia possibile eseguire il commit, quindi non procede al blocco delle risorse. Prima di effettuare il commit di una transazione, il controllo della concorrenza ottimistica verifica che i dati non siano stati modificati da un'altra transazione. Se i dati sono stati modificati, verrà eseguito il rollback di tale transazione.
 
-App per dispositivi mobili supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, usando la colonna di proprietà di sistema `__version` definita per ogni tabella nel back-end di App per dispositivi mobili. Ogni volta che un record viene aggiornato, App per dispositivi mobili imposta la proprietà `__version` per quel record su un nuovo valore. Durante ogni richiesta di aggiornamento, la proprietà `__version` del record inclusa nella richiesta viene confrontata con la stessa proprietà relativa al record sul server. Se la versione passata con la richiesta non corrisponde a quella del back-end, la libreria client genera una `MobileServicePreconditionFailedException<T>`. Il tipo incluso nell'eccezione corrisponde al record del back-end e contiene la versione del record presente sul server. L'applicazione può quindi usare questa informazione per decidere se eseguire nuovamente la richiesta di aggiornamento con il valore `__version` corretto dal back-end per effettuare il commit delle modifiche.
+App per dispositivi mobili supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, usando la colonna di proprietà di sistema `__version` definita per ogni tabella nel back-end di App per dispositivi mobili. Ogni volta che un record viene aggiornato, App per dispositivi mobili imposta la proprietà `__version` per quel record su un nuovo valore. Durante ogni richiesta di aggiornamento, la proprietà `__version` del record inclusa nella richiesta viene confrontata con la stessa proprietà relativa al record sul server. Se la versione passata con la richiesta non corrisponde a quella del back-end, la libreria client genera una eccezione `MobileServicePreconditionFailedException<T>`. Il tipo incluso nell'eccezione corrisponde al record del back-end e contiene la versione del record presente sul server. L'applicazione può quindi usare questa informazione per decidere se eseguire nuovamente la richiesta di aggiornamento con il valore `__version` corretto dal back-end per effettuare il commit delle modifiche.
 
 Per abilitare la concorrenza ottimistica, l'applicazione definisce una colonna sulla classe di tabella per la proprietà di sistema `__version`. La definizione seguente ne è un esempio.
 
@@ -447,7 +437,7 @@ Nel codice seguente viene illustrato come risolvere un conflitto di scrittura, q
 Per altre informazioni, vedere [Sincronizzazione di dati offline in App per dispositivi mobili di Azure](app-service-mobile-offline-data-sync.md).
 
 
-##<a name="binding"></a>Procedura: associare dati di App per dispositivi mobili a un'interfaccia utente Windows
+##<a name="binding"></a>Procedura: Associare dati di App per dispositivi mobili a un'interfaccia utente Windows
 
 Questa sezione illustra come visualizzare gli oggetti dati restituiti usando elementi dell'interfaccia utente in un'app Windows. Per eseguire una query sugli elementi incompleti in `todoTable` e visualizzarli in un semplice elenco, è possibile avviare il codice di esempio seguente per associare l'origine dell'elenco a una query. Mediante `MobileServiceCollection` è possibile creare una raccolta di associazione compatibile con App per dispositivi mobili.
 
@@ -463,7 +453,7 @@ Questa sezione illustra come visualizzare gli oggetti dati restituiti usando ele
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Alcuni controlli nel runtime gestito supportano un'interfaccia denominata [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Questa interfaccia consente ai controlli di richiedere dati aggiuntivi nello scorrimento verso il basso. Per questa interfaccia, per le app universali di Windows 8.1 è disponibile un supporto incorporato tramite `MobileServiceIncrementalLoadingCollection`, che gestisce automaticamente le chiamate dai controlli. Per usare `MobileServiceIncrementalLoadingCollection` nelle app di Windows, seguire questa procedura:
+Alcuni controlli del runtime gestito supportano un'interfaccia denominata [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Questa interfaccia consente ai controlli di richiedere dati aggiuntivi nello scorrimento verso il basso. Per questa interfaccia, per le app universali di Windows 8.1 è disponibile un supporto incorporato tramite `MobileServiceIncrementalLoadingCollection`, che gestisce automaticamente le chiamate dai controlli. Per usare `MobileServiceIncrementalLoadingCollection` nelle app di Windows, seguire questa procedura:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -482,17 +472,17 @@ Quando si usa la raccolta creata tramite la chiamata a `ToCollectionAsync` o `To
 
 Infine, si supponga che la tabella sia costituita da molti campi, ma si desideri visualizzarne solo alcuni nel controllo. È possibile seguire le indicazioni riportate nella sezione "[Selezionare colonne specifiche](#selecting)" precedente per scegliere specifiche colonne da visualizzare nell'interfaccia utente.
 
-## <a name="package-sid"></a>Procedura: ottenere un SID pacchetto di Windows Store
+## <a name="package-sid"></a>Procedura: Ottenere un SID pacchetto di Windows Store
 
 Per le app di Windows, è necessario un SID pacchetto per l'abilitazione delle notifiche push e per alcune modalità di autenticazione. Per ottenere questo valore:
 
 1. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse sul progetto app di Windows Store, quindi scegliere **Store** > **Associa applicazione a Store**.
-2. Nella procedura guidata fare clic su **Avanti**, accedere con l'account Microsoft, immettere un nome per l'app in **Riserva un nuovo nome dell’app** e quindi fare clic su **Riserva**.
+2. Nella procedura guidata fare clic su **Avanti**, accedere con l'account Microsoft, immettere un nome per l'app in **Riserva nuovo nome applicazione** e quindi fare clic su **Riserva**.
 3. Dopo la creazione della registrazione dell'app, selezionare il nuovo nome dell'app, fare clic su **Avanti** e quindi su **Associa**. Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
-4. Accedere al [Windows Dev Center](https://dev.windows.com/it-IT/overview) con l'account Microsoft. In **Le mie app**, fare clic sulla registrazione dell’app appena creata.
-5. Fare clic su **Gestione dell’app** > **Identità dell’app**, e poi scorrere fino a trovare il **SID pacchetto**.
+4. Accedere al [Windows Dev Center](https://dev.windows.com/it-IT/overview) con l'account Microsoft. In **App personali ** fare clic sulla registrazione dell'app appena creata.
+5. Fare clic su **Gestione app** > ** Identità app** e quindi scorrere fino a trovare il **SID pacchetto**.
 
-In molti usi del SID pacchetto, questo viene considerato come un URI, nel qual caso sarà necessario utilizzare _ms-app: / /_ come schema. Prendere nota della versione del SID pacchetto formato tramite la concatenazione di questo valore come prefisso.
+In molti casi il SID pacchetto questo viene considerato come un URI e sarà necessario usare _ms-app: / /_ come schema. Prendere nota della versione del SID pacchetto formato tramite la concatenazione di questo valore come prefisso.
 
 <!--- We want to just point to the authentication topic when it's done
 ##<a name="authentication"></a>How to: Authenticate users
@@ -692,7 +682,7 @@ Questa sezione illustra i modi in cui è possibile personalizzare le intestazion
 
 ### <a name="headers"></a>Procedura: Personalizzare le intestazioni delle richieste
 
-Per supportare lo scenario specifico dell'app, potrebbe essere necessario personalizzare la comunicazione con il back-end di App per dispositivi mobili. È possibile ad esempio aggiungere un'intestazione personalizzata a tutte le richieste in uscita oppure modificare i codici di stato delle risposte. A questo scopo, è possibile specificare un gestore [DelegatingHandler] personalizzato, come illustrato nell'esempio seguente:
+Per supportare lo scenario specifico dell'app, potrebbe essere necessario personalizzare la comunicazione con il back-end di App per dispositivi mobili. È possibile ad esempio aggiungere un'intestazione personalizzata a tutte le richieste in uscita oppure modificare i codici di stato delle risposte. A questo scopo, è possibile specificare un gestore [DelegatingHandler], personalizzato, come illustrato nell'esempio seguente:
 
     public async Task CallClientWithHandler()
     {
@@ -746,7 +736,7 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 
 <!-- URLs. -->
 [Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
-[Lavorare con l’SDK del server back-end .NET per App per dispositivi mobili di Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [LoginAsync method]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
@@ -766,4 +756,4 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

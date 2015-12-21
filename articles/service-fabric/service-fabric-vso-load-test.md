@@ -3,7 +3,7 @@
     description="Informazioni su come eseguire test di stress dell'infrastruttura di servizi Azure usando Visual Studio Online."
     services="service-fabric"
     documentationCenter="na"
-    authors="cawa"
+    authors="cawams"
     manager="timlt"
     editor="" />
 
@@ -140,4 +140,4 @@ Il test di carico di Visual Studio Online fornisce le API che consentono di gest
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

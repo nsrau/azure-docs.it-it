@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Creazione di un processo B2B nel servizio app di Microsoft Azure" 
-   description="Panoramica sulla creazione di un processo Business to Business" 
+   pageTitle="Creazione di un processo B2B in Servizio app di Azure | Microsoft Azure" 
+   description="Panoramica sulla creazione di un processo Busines-to-Business" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/01/2015"
+   ms.date="12/07/2015"
    ms.author="rajram"/>
 
 
@@ -35,7 +35,7 @@ Questa esercitazione illustra le funzionalità seguenti:
 
 
 ## Prima di iniziare
-Questa esercitazione presuppone che l'utente abbia una conoscenza di base dei Servizi app di Azure e sia in grado di creare app per le API e comporre un flusso.
+Questa esercitazione presuppone che l'utente abbia una conoscenza di base dei servizi app di Azure e sia in grado di creare app per le API e comporre un flusso.
 
 
 ## Passaggi per la creazione dello scenario aziendale
@@ -44,7 +44,7 @@ Questa esercitazione presuppone che l'utente abbia una conoscenza di base dei Se
 1. Creare un'istanza del **connettore BLOB di Archiviazione di Azure**. A questo scopo sono necessarie le credenziali di un account di archiviazione di Azure. Prima di iniziare, assicurarsi che sia disponibile.
 2. Creare un'istanza dell'app per le **API BizTalk Trading Partner Management**. Per il funzionamento dell'app per le API è necessario un database SQL vuoto. Prima di iniziare, assicurarsi che sia disponibile.
 3. Creare un'istanza del **connettore AS2**. Anche per il funzionamento di questo connettore è necessario un database SQL vuoto. Prima di iniziare, assicurarsi che sia disponibile. Inoltre, se si vogliono archiviare i messaggi come parte dell'elaborazione AS2, è possibile fornire le credenziali per un BLOB di Azure durante la creazione del connettore.
-4. Configurare il servizio TPM (Trading Partner Management) da creare:
+4. Configurare il servizio TPM (Trading Partner Management) da creare:  
 	1. Passare all'istanza del servizio TPM creato nel passaggio precedente.
 	2. Usare l'opzione **Partner** in *Componenti* per **aggiungere** un nuovo partner di nome **Contoso** e aggiungere l'identità AS2 necessaria nel relativo profilo.
 	3. Usare l'opzione **Partner** in *Componenti* per **aggiungere** un nuovo partner di nome **Northwind** e aggiungere l'identità AS2 necessaria nel relativo profilo.
@@ -52,13 +52,9 @@ Questa esercitazione presuppone che l'utente abbia una conoscenza di base dei Se
 
 
 ## Creare un flusso/processo aziendale
-1. Creare un nuovo flusso in cui il primo passaggio è AS2. Trascinare il **connettore AS2** e scegliere l'istanza già creata. Scegliere la funzionalità trigger
-
-![][1]
-
-2. Trascinare quindi il **connettore BLOB di Archiviazione di Azure** e scegliere l'istanza già creata. Scegliere la funzionalità azione e selezionare Carica BLOB. Configurare in base alle proprie esigenze
-
-3. A questo punto, creare o distribuire il flusso
+1. Creare un nuovo flusso in cui il primo passaggio è AS2. Trascinare il **connettore AS2** e scegliere l'istanza già creata. Scegliere la funzionalità trigger: ![][1]  
+2. Trascinare quindi il **connettore BLOB di Archiviazione di Azure** e scegliere l'istanza già creata. Scegliere la funzionalità azione e selezionare **Carica BLOB**. Configurare in base alle proprie esigenze.
+3. A questo punto, creare o distribuire il flusso.
 
 
 ## Elaborazione dei messaggi e risoluzione dei problemi
@@ -69,8 +65,8 @@ Questa esercitazione presuppone che l'utente abbia una conoscenza di base dei Se
 ![][2]
 
 <!--Image references-->
-[1]: ./media/app-service-logic-create-a-b2b-process/Flow.jpg
-[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
+[1]: ./media/app-service-logic-create-a-b2b-process/Flow.png
+[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

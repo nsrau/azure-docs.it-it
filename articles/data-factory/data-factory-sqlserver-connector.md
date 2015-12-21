@@ -397,7 +397,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | username | Specificare il nome utente se si usa l'autenticazione Windows. | No |
 | password | Specificare la password per l'account utente specificato per il nome utente. | No |
 
-È possibile crittografare le credenziali utilizzando il cmdlet **New-AzureDataFactoryEncryptValue** e utilizzarle nella stringa di connessione, come illustrato nell'esempio seguente (proprietà **EncryptedCredential**):
+È possibile crittografare le credenziali usando il cmdlet **New-AzureRmDataFactoryEncryptValue** e usarle nella stringa di connessione, come illustrato nell'esempio seguente (proprietà **EncryptedCredential**):
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -543,4 +543,4 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

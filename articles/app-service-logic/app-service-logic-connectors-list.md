@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="12/03/2015"
 	ms.author="mandia"/>
 
 
@@ -67,12 +67,12 @@ Nome | Descrizione
 [BizTalk X12](app-service-logic-connector-x12.md) | Riceve e invia messaggi mediante il protocollo X12 in comunicazioni Business to Business.
 [BizTalk XML Validator](app-service-logic-xml-validator.md) | Convalida i dati XML rispetto a schemi XML predefiniti. È possibile usare gli schemi esistenti o generare schemi basati su un'istanza di file flat, su un'istanza JSON o su connettori esistenti.
 [BizTalk XPath Extractor](app-service-logic-xpath-extract.md) | Cerca ed estrae dati dal contenuto XML in base a un'espressione XPath specificata.
-DB2 | Si connette a un database IBM DB2, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Può mappare le operazioni API Web e API OData ai comandi Informix Structured Query Language. <br/><br/>Nessun trigger. Le azioni includono la selezione, l'inserimento, l'aggiornamento e l'eliminazione di tabelle, nonché istruzioni personalizzate<br/><br/>Questo connettore include anche il client Microsoft per DRDA per la connessione a un server Informix con una rete TCP/IP.
+[DB2](app-service-logic-connector-db2.md) | Si connette a un database IBM DB2, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Può mappare le operazioni API Web e API OData ai comandi Informix Structured Query Language. <br/><br/>Nessun trigger. Le azioni includono la selezione, l'inserimento, l'aggiornamento e l'eliminazione di tabelle, nonché istruzioni personalizzate<br/><br/>Questo connettore include anche il client Microsoft per DRDA per la connessione a un server Informix con una rete TCP/IP.
 [File](app-service-logic-connector-file.md) | Usando questo connettore, è possibile connettersi al file system o rete locale e completare varie attività sui file, come ad esempio, caricare, eliminare, elencare file e molto altro.
 [FTP<br/>FTPS](app-service-logic-connector-ftp.md) | Si connette a un server FTP/FTPS ed esegue diverse attività FTP, incluso caricare, ottenere, eliminare file e molto altro.
-Informix | Si connette a un database IBM Informix, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Può mappare le operazioni API Web e API OData ai comandi Informix Structured Query Language.<br/><br/>Nessun trigger. Le azioni includono la selezione, l'inserimento, l'aggiornamento e l'eliminazione di tabelle, nonché istruzioni personalizzate.<br/><br/>Se l'uso è in locale, è possibile usare VPN o Azure ExpressRoute. Questo connettore include anche un client Microsoft per DRDA per la connessione a un server Informix mediante una rete TCP/IP.
+[Informix](app-service-logic-connector-informix.md) | Si connette a un database IBM Informix, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Può mappare le operazioni API Web e API OData ai comandi Informix Structured Query Language.<br/><br/>Nessun trigger. Le azioni includono la selezione, l'inserimento, l'aggiornamento e l'eliminazione di tabelle, nonché istruzioni personalizzate.<br/><br/>Se l'uso è in locale, è possibile usare VPN o Azure ExpressRoute. Questo connettore include anche un client Microsoft per DRDA per la connessione a un server Informix mediante una rete TCP/IP.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Si connette a un database di SQL Server locale o a un database SQL di Azure. È possibile creare, aggiornare, ottenere ed eliminare le voci in una tabella di database SQL.
-MQ | Si connette a un database IBM WebSphere MQ Server versione 8, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Se l'uso è in locale, è possibile usare VPN o Azure ExpressRoute. Il connettore include anche il client Microsoft per MQ.<br/><br/>Nessun trigger. Nessuna azione.<br/><br/>**Nota** Non può essere usato attualmente con app per la logica.
+MQ | Si connette a un database IBM WebSphere MQ Server versione 8, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Se l'uso è in locale, è possibile usare VPN o Azure ExpressRoute. Il connettore include anche il client Microsoft per MQ.<br/><br/>Nessun trigger. Nessuna azione.<br/><br/>**Nota** Non può essere attualmente usato con app per la logica.
 [Oracle Database](app-service-logic-connector-oracle.md) | Si connette al database Oracle locale e può creare, aggiornare, ottenere ed eliminare voci in una tabella di database.
 [POP3](app-service-logic-connector-pop3.md) (Post Office Protocol)| Si connette a un server POP3 per recuperare i messaggi di posta elettronica con allegati.
 [SAP](app-service-logic-connector-sap.md) | Si connette a un server SAP locale e chiama RFC, BAPI e tRFC oltre a inviare IDOC.
@@ -89,9 +89,9 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 È anche possibile usare i connettori come azioni nell'ambito dell'app per la logica. Le azioni sono utili per cercare nell'app per la logica i dati da usare nell'esecuzione. Può essere necessario ad esempio cercare in un database SQL altre informazioni su un cliente quando si elabora un ordine. In alternativa, potrebbe essere necessario scrivere, aggiornare o eliminare dati in una destinazione. A tale scopo, usare le azioni fornite dai connettori. Le azioni vengono mappate a operazioni nelle app per le API (come definito dai relativi metadati Swagger).
 
 ## Creare connettori e app per le API personalizzati
-[Informazioni di riferimento su connettori e app per le API](http://aka.ms/appservicesconnectorreference) [Trigger delle app per le API di Azure App Service](../app-service-api/app-service-api-dotnet-triggers.md) [ Informazioni di riferimento sulle app per la logica](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+[Connettori e riferimento alle app per le API](http://aka.ms/appservicesconnectorreference) [Trigger delle app per le API del servizio app di Azure](../app-service-api/app-service-api-dotnet-triggers.md) [Informazioni di riferimento sulle app per la logica](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 ## Altre informazioni su connettori e app per le API
-[Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso di gestione connessione ibrida in Azure App Service](app-service-logic-hybrid-connection-manager.md) [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
+[Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md) [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

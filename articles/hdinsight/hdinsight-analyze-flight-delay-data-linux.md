@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #Analizzare i dati sui ritardi dei voli con Hive in HDInsight
@@ -31,7 +31,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - __Un cluster HDInsight__. Per la procedura sulla creazione di un nuovo cluster HDInsight basato su Linux, vedere [Introduzione all'uso di Hadoop con Hive in HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-- Un __database SQL di Azure__. Come archivio dati di destinazione verrà usato un database SQL di Azure. Se non è ancora disponibile un database SQL, vedere l'articolo relativo alla [creazione e configurazione di un database SQL di Azure](../sql-database/sql-database-create-configure.md) per crearne uno.
+- Un __database SQL di Azure__. Come archivio dati di destinazione verrà usato un database SQL di Azure. Se non è ancora disponibile un database SQL, vedere l'articolo relativo alla [creazione di un database SQL di Azure](../sql-database/sql-database-create.md).
 
 - L'__interfaccia della riga di comando di Azure__. Se l'interfaccia della riga di comando di Azure non è installata, vedere l'articolo relativo all'[installazione e configurazione dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per altri passaggi.
 
@@ -63,7 +63,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	
 	* [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 	
 3. Dopo la connessione, usare il comando seguente per decomprimere il file con estensione zip:
 
@@ -285,7 +285,6 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -305,4 +304,4 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

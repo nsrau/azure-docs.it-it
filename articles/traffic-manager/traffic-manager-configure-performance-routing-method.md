@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Configurare un metodo di routing del traffico delle prestazioni
@@ -21,8 +21,8 @@ Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) c
 
 ## Eseguire il routing del traffico in base alla latenza più bassa in un set di endpoint:
 
-1. Nel riquadro sinistro del portale di Azure fare clic sull'icona **Gestione traffico** per aprire il relativo riquadro. Se non è ancora stato creato il profilo di Gestione traffico, vedere [Gestire i profili di Gestione traffico](traffic-manager-manage-profiles.md) per i passaggi necessari per la creazione di un profilo di base di Gestione traffico.
-2. Nel riquadro di Gestione traffico nel portale di Azure individuare il profilo di Gestione traffico in cui sono contenute le impostazioni che si desidera modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
+1. Nel riquadro sinistro del portale di Azure classico fare clic sull'icona **Gestione traffico** per aprire il relativo riquadro. Se non è ancora stato creato il profilo di Gestione traffico, vedere [Gestire i profili di Gestione traffico](traffic-manager-manage-profiles.md) per i passaggi necessari per la creazione di un profilo di base di Gestione traffico.
+2. Nel riquadro di Gestione traffico del portale di Azure classico individuare il profilo di Gestione traffico in cui sono contenute le impostazioni da modificare e quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
 3. Nella parte superiore della pagina del profilo fare clic su **Endpoint** e verificare che siano presenti gli endpoint servizio che si desidera includere nella configurazione. Per i passaggi necessari per aggiungere o rimuovere endpoint dal profilo, vedere [Gestire gli endpoint in Gestione traffico](traffic-manager-endpoints.md).
 4. Nella parte superiore della pagina del profilo fare clic su **Configura** per aprire la pagina di configurazione.
 5. Per **Impostazioni del metodo di routing del traffico**, verificare che il metodo di bilanciamento del carico sia **Prestazioni*. In caso contrario, fare clic su **Prestazioni** nell'elenco a discesa.
@@ -49,4 +49,4 @@ Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) c
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

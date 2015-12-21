@@ -66,11 +66,11 @@ Il risultato ```1``` indica un database crittografato, ```0``` indica un databas
 
  
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/it-IT/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

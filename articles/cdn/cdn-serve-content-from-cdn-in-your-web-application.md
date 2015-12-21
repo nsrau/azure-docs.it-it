@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 # Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web #
@@ -263,7 +263,7 @@ Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure Ã
 
 		@Html.Raw(Styles.Render("~/Content/css").ToString().Insert(0, "http://<yourCDNName>.vo.msecnd.net"))
 
-## Ulteriori informazioni ##
+## Altre informazioni ##
 - [Panoramica della Rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md)
 - [Usare la rete CDN di Azure in Azure App Service](../cdn-websites-with-cdn.md)
 - [Integrare un servizio cloud con la rete CDN di Azure](cdn-cloud-service-with-cdn.md)
@@ -271,4 +271,4 @@ Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure Ã
 - [Uso della rete CDN per Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

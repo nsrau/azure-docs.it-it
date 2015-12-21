@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/08/2015" 
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,9 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+
+> [AZURE.NOTE]Per poter creare un account di Servizi multimediali di Azure, è necessario un account di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 ##Panoramica 
 
@@ -32,7 +34,7 @@ Questi articoli illustrano come usare i cmdlet di PowerShell per gestire gli acc
 
 ##Installare i cmdlet di PowerShell di Microsoft Azure
 
-Per installare i cmdlet di PowerShell di Azure più recenti, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per installare i cmdlet di Azure PowerShell più recenti, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ##Selezionare la sottoscrizione Azure
 
@@ -74,14 +76,14 @@ In questo esempio viene usato un account di archiviazione esistente. Il cmdlet [
 
 ##Creare un nuovo account di Servizi multimediali
 
-Per creare un nuovo account di Servizi multimediali di Azure, usare il cmdlet [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) che fornisce il nome dell'account, il percorso del data center in cui verrà creato e il nome dell'account di archiviazione.
+Per creare un nuovo account di Servizi multimediali di Azure, usare il cmdlet [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) che fornisce il nome dell'account di Servizi multimediali, il percorso del data center in cui verrà creato e il nome dell'account di archiviazione.
 
 
 	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
 
 ##Ottenere gli account di Servizi multimediali
 
-Una volta creato uno o più account di Servizi multimediali, è possibile elencare le informazioni tramite il cmdlet [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx).
+Dopo aver creato uno o più account di Servizi multimediali, è possibile elencare le informazioni tramite il cmdlet [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx).
 
 	
 	PS C:\> Get-AzureMediaServicesAccount
@@ -119,4 +121,4 @@ Per eliminare l'account di Servizi multimediali di Azure, usare il cmdlet [Remov
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

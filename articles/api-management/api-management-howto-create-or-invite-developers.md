@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Come gestire gli account utente in Gestione API di Azure
@@ -22,7 +22,7 @@ In Gestione API gli sviluppatori sono gli utenti delle API esposte con Gestione 
 
 ## <a name="create-developer"> </a>Creare un nuovo sviluppatore
 
-Per creare un nuovo sviluppatore, fare clic su **Gestisci** nel portale di Azure per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API. Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
+Per creare un nuovo sviluppatore, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API. Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
 
 ![Portale di pubblicazione][api-management-management-console]
 
@@ -91,4 +91,4 @@ Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed ef
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 [Configurare modelli di posta elettronica]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

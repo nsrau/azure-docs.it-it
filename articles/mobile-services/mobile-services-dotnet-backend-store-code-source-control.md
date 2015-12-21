@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Archiviare il codice del progetto nel controllo del codice sorgente dei Servizi mobili
@@ -65,7 +65,7 @@ Una volta creato il repository locale, è possibile pubblicare il progetto di se
 
 ##<a name="deploy-scripts"></a>Pubblicare il progetto mediante Git
 
-1. Creare un nuovo progetto di servizio mobile back-end .NET in Visual Studio 2013 o spostare un progetto esistente nel nuovo repository locale.
+1. Creare un nuovo progetto di servizio mobile back-end .NET in Visual Studio 2013 o spostare un progetto esistente nel nuovo repository locale.  
 
 	Per un test veloce, scaricare e salvare il progetto di guida introduttiva di Servizi mobili in questa cartella.
 
@@ -104,4 +104,4 @@ A questo punto, il progetto di servizio mobile viene gestito nel controllo del c
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-ios-get-started.md
 [Come modificare un modello di dati in un servizio mobile back-end .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

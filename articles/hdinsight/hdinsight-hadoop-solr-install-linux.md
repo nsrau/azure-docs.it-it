@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # Installare e usare Solr nei cluster Hadoop di HDInsight
@@ -57,7 +57,7 @@ Uno script di esempio per l'installazione di Solr in un cluster HDInsight è dis
 
 3. Nella parte inferiore di **Azioni script** usare il pulsante **Seleziona** per salvare la configurazione. Usare infine il pulsante **Seleziona** nella parte inferiore del pannello **Configurazione facoltativa** per salvare le informazioni relative alla configurazione facoltativa.
 
-4. Continuare il provisioning del cluster come descritto in [Effettuare il provisioning di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continuare il provisioning del cluster come descritto nell'argomento relativo all'[esecuzione del provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="usesolr"></a>Come si usa Solr in HDInsight?
 
@@ -302,10 +302,8 @@ Per altre informazioni sulle operazioni di backup e ripristino di Solr, vedere l
 
 
 
-
-[hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

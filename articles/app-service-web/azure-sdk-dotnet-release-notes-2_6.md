@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="juliako"/>
 
 
@@ -62,6 +62,8 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
 
 	In questo momento Archiviazione di Azure versione 2011-08-18 è pianificato per essere rimosso il 1 agosto 2016. Le migrazioni di Cache nel ruolo da Azure SDK 2.5 o versioni precedenti alla versione 2.6 devono essere complete a questo punto. Per ulteriori informazioni sul ritiro di Azure Storage versione 2011-08-18, vedere [Aggiornamento della rimozione della versione del servizio di archiviazione di Microsoft Azure: estensione al 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
+>[AZURE.IMPORTANT]Microsoft annuncia per il 30 novembre 2016 il ritiro del Servizio cache gestita di Azure e di Cache nel ruolo di Azure. Si consiglia di eseguire la migrazione a Cache Redis di Azure in preparazione a tale ritiro. Per altre informazioni sulle date e indicazioni per la migrazione, vedere [Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me).
+
 ##Strumenti di Azure App Service
 
 Gli elementi seguenti sono stati aggiornati nella versione Azure SDK 2.6.
@@ -106,4 +108,4 @@ Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di d
 
 [Informazioni sul Supporto e il Ritiro di Azure SDK per .NET e API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

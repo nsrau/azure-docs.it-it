@@ -22,13 +22,13 @@ I dispositivi mobili del servizio app offrono un nuovo modo per creare applicazi
 
 Questo argomento descrive come eseguire la migrazione di un'applicazione back-end .NET esistente da Servizi mobili di Azure a una nuova app per dispositivi mobili del servizio app. Durante una migrazione, l'applicazione Servizi mobili esistente può continuare a funzionare.
 
-Quando si esegue l'aggiornamento di un back-end per dispositivi mobili al Servizio app di Azure, esso ha accesso a tutte le funzionalità del servizio app e la fatturazione viene eseguita in base ai [prezzi del servizio app], non ai prezzi di Servizi mobili.
+Quando si esegue l'aggiornamento di un back-end per dispositivi mobili a Servizio app di Azure, questo ha accesso a tutte le funzionalità del servizio app e la fatturazione viene eseguita in base ai [prezzi del servizio app], non a quelli di Servizi mobili.
 
 ##Eseguire la migrazione o aggiornare
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]È consigliabile [eseguire una migrazione](app-service-mobile-dotnet-backend-migrating-from-mobile-services.md) prima di effettuare un aggiornamento. In questo modo, è possibile inserire entrambe le versioni dell'applicazione nello stesso piano del servizio app, senza sostenere costi aggiuntivi.
+>[AZURE.TIP]Prima di procedere a un aggiornamento, è consigliabile [eseguire una migrazione](app-service-mobile-migrating-from-mobile-services.md). In questo modo, è possibile inserire entrambe le versioni dell'applicazione nello stesso piano del servizio app, senza sostenere costi aggiuntivi.
 
 ###Miglioramenti dell’SDK del server .NET di App per dispositivi mobili
 
@@ -48,19 +48,19 @@ In molti casi, l'aggiornamento sarà semplice come passare al nuovo SDK del serv
 
 >[AZURE.TIP]Si consiglia di leggere e comprendere integralmente il resto di questo argomento prima di avviare un aggiornamento. Prendere nota delle funzionalità usate che sono indicate di seguito.
 
-Gli SDK del client di Servizi mobili **non** sono compatibili con il nuovo SDK del server di app per dispositivi mobili. Per garantire la continuità del servizio per l'app, non devono essere pubblicate modifiche in un sito che attualmente serve client pubblicati. È invece necessario creare una nuova app per dispositivi mobili che opera come duplicato. È possibile inserire questa applicazione nello stesso piano di servizio app per evitare di sostenere costi finanziari aggiuntivi.
+Gli SDK del client di Servizi mobili **non** sono compatibili con il nuovo SDK del server di app per dispositivi mobili. Per garantire la continuità del servizio per l'app, non devono essere pubblicate modifiche in un sito che usa client pubblicati. È invece necessario creare una nuova app per dispositivi mobili che agisce da duplicato. È possibile inserire questa applicazione nello stesso piano di servizio app per evitare di sostenere costi finanziari aggiuntivi.
 
-Si avranno quindi due versioni dell'applicazione: una che rimane invariata e serve le app pubblicate in circostanze normali e l'altra che è possibile aggiornare e usare come destinazione con una nuova versione del client. È possibile spostare e testare il codice in base alle esigenze, ma è necessario assicurarsi che tutte le correzioni di bug apportate vengano applicate a entrambe le versioni. Quando si ritiene di avere aggiornato alla versione più recente il numero desiderato di app client in circostanze normali, è possibile eliminare l'app migrata originale, se lo si desidera.
+Si avranno quindi due versioni dell'applicazione: una che rimane invariata e usa le app pubblicate e l'altra che è possibile aggiornare e usare come destinazione con una nuova versione del client. È possibile spostare e testare il codice in base alle esigenze, ma è necessario assicurarsi che tutte le correzioni di bug apportate vengano applicate a entrambe le versioni. Quando si ritiene di avere aggiornato alla versione più recente il numero desiderato di app client in circostanze normali, è possibile eliminare l'app migrata originale, se lo si desidera.
 
 La struttura completa del processo di aggiornamento è la seguente:
 
 1. Creare una nuova app per dispositivi mobili
-2. Aggiornare il progetto per l'uso del nuovo SDK server
+2. Aggiornare il progetto per l'uso dei nuovi SDK del server
 3. Rilasciare una nuova versione dell'applicazione client
 4. (Facoltativo) Eliminare l'istanza migrata originale
 
 ##<a name="mobile-app-version"></a>Creazione di una seconda istanza dell'applicazione
-Il primo passaggio per l'aggiornamento prevede la creazione della risorsa di app per dispositivi mobili che ospiterà la nuova versione dell'applicazione. Se già stata eseguita la migrazione di un servizio mobile esistente, è consigliabile creare questa versione nello stesso piano di hosting. Aprire il [portale di Azure] e passare all'applicazione migrata. Prendere nota del piano di servizio app in cui è in esecuzione.
+Il primo passaggio per l'aggiornamento prevede la creazione della risorsa di app per dispositivi mobili che ospiterà la nuova versione dell'applicazione. Se è già stata eseguita la migrazione di un servizio mobile esistente, è consigliabile creare questa versione nello stesso piano di hosting. Aprire il [portale di Azure] e passare all'applicazione migrata. Prendere nota del piano di servizio app in cui è in esecuzione.
 
 Creare quindi la seconda istanza dell'applicazione seguendo le [istruzioni per la creazione di back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Quando viene richiesto di selezionare il piano di servizio app o "piano di hosting", scegliere il piano dell'applicazione migrata.
 
@@ -218,7 +218,7 @@ Analogamente, la registrazione viene ora effettuata mediante la scrittura di tra
 
 ##<a name="authentication"></a>Considerazioni sull'autenticazione
 
-I componenti di autenticazione di Servizi mobili ora sono stati spostati nella funzionalità di autenticazione/autorizzazione del servizio app. Per informazioni sull'abilitazione di questa funzionalità per il sito, vedere l'argomento [Aggiungere l'autenticazione all'app mobile](app-service-mobile-ios-get-started-users.md).
+I componenti di autenticazione di Servizi mobili sono ora stati spostati nella funzionalità di autenticazione/autorizzazione del servizio app. Per informazioni sull'abilitazione di questa funzionalità per il sito, vedere l'argomento [Aggiungere l'autenticazione all'app mobile](app-service-mobile-ios-get-started-users.md).
 
 Per alcuni provider, come AAD, Facebook e Google, dovrebbe essere possibile sfruttare la registrazione esistente dall'applicazione di copia. È sufficiente passare al portale del provider di identità e aggiungere un nuovo URL di reindirizzamento alla registrazione. Configurare quindi l'autenticazione/autorizzazione del servizio app con l'ID client e il segreto.
 
@@ -242,22 +242,22 @@ Se l'app stabilisce dipendenze sugli ID utente, è importante sfruttare la stess
 Se l'app usa una soluzione di autenticazione personalizzata, è necessario assicurarsi che il sito aggiornato abbia accesso al sistema. Seguire le nuove istruzioni per l'autenticazione personalizzata nella [panoramica di .NET Server SDK] per integrare la soluzione. Si noti che i componenti dell'autenticazione personalizzata sono ancora in versione di anteprima.
 
 ##<a name="updating-clients"></a>Aggiornamento dei client
-Dopo aver reso operativo un back-end dell'app per dispositivi mobili, è possibile lavorare su una nuova versione dell'applicazione client che lo usi. App per dispositivi mobili include anche una nuova versione degli SDK client e, come nel caso dell'aggiornamento del server descritto in precedenza, sarà necessario rimuovere tutti i riferimenti agli SDK di Servizi mobili prima di installare le versioni di App per dispositivi mobili.
+Dopo aver reso operativo un back-end dell'app per dispositivi mobili, è possibile lavorare su una nuova versione dell'applicazione client che ne faccia uso. App per dispositivi mobili include anche una nuova versione degli SDK del client e, come nel caso dell'aggiornamento del server descritto in precedenza, sarà necessario rimuovere tutti i riferimenti agli SDK di Servizi mobili prima di installare le versioni di App per dispositivi mobili.
 
-Una delle principali modifiche tra le versioni è che i costruttori non richiedono più una chiave applicazione. Ora è sufficiente passare l'URL dell'app per dispositivi mobili. Ad esempio, nei client .NET, il costruttore `MobileServiceClient` ora è:
+Una delle principali modifiche tra le versioni è rappresentata dai costruttori che non richiedono più una chiave applicazione. Ora è sufficiente passare l'URL dell'app per dispositivi mobili. Ad esempio, nei client .NET, il costruttore `MobileServiceClient` ora è:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://contoso.azurewebsites.net", // URL of the Mobile App
         );
 
-Per altre informazioni sull'installazione dei nuovi SDK e l'uso della nuova struttura, visitare i collegamenti seguenti:
+Per altre informazioni sull'installazione dei nuovi SDK e sull'uso della nuova struttura, visitare i collegamenti seguenti:
 
 - [iOS versione 3.0.0 o successiva](app-service-mobile-ios-how-to-use-client-library.md)
 - [.NET (Windows/Xamarin) versione 2.0.0 o successiva](app-service-mobile-dotnet-how-to-use-client-library.md) 
 
-Se l'applicazione fa uso delle notifiche push, prendere nota delle specifiche istruzioni di registrazione per ogni piattaforma, perché sono state apportate alcune modifiche anche in questo ambito.
+Se l'applicazione usa le notifiche push, prendere nota delle specifiche istruzioni di registrazione per ogni piattaforma, perché sono state apportate alcune modifiche anche in questo ambito.
 
-Quando la nuova versione del client è pronta, provarla con il progetto server aggiornato. Dopo avere verificato che funzioni correttamente, è possibile rilasciare una nuova versione dell'applicazione per i clienti. Al termine, una volta che i clienti hanno avuto l'opportunità di ricevere gli aggiornamenti, è possibile eliminare la versione di Servizi mobili dell'app. A questo punto, sono stati aggiornati completamente a un'App per dispositivi mobili del servizio app utilizzando l’SDK più recente del server di App per dispositivi mobili.
+Quando la nuova versione del client è pronta, provarla con il progetto server aggiornato. Dopo averne verificato il funzionamento, è possibile rilasciare una nuova versione dell'applicazione per i clienti. Infine, quando i clienti avranno ricevuto gli aggiornamenti, sarà possibile eliminare la versione di Servizi mobili dell'app. A questo punto, sono stati aggiornati completamente a un'App per dispositivi mobili del servizio app utilizzando l’SDK più recente del server di App per dispositivi mobili.
 
 <!-- URLs. -->
 
@@ -271,11 +271,10 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Utilità di pianificazione di Azure]: /it-IT/documentation/services/scheduler/
 [processo Web]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [Come usare l'SDK del server .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [prezzi del servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
 [panoramica di .NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

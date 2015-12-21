@@ -249,9 +249,9 @@ I processi Mahout non rimuovono i dati temporanei creati durante l'elaborazione 
 
 A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usare i dati in HDInsight:
 
-* [Hive con HDInsight](../hadoop-use-hive.md)
-* [Pig con HDInsight](../hadoop-use-pig.md)
-* [MapReduce con HDInsight](../hadoop-use-mapreduce.md)
+* [Hive con HDInsight](hadoop-use-hive.md)
+* [Pig con HDInsight](hadoop-use-pig.md)
+* [MapReduce con HDInsight](hadoop-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/
@@ -267,4 +267,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

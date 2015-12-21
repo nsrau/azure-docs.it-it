@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare definizioni di app per la logica" 
-	description="Informazioni su come scrivere la definizione JSON per le app per la logica." 
+	pageTitle="Creare definizioni di app per la logica | Microsoft Azure" 
+	description="Informazioni su come scrivere la definizione JSON per le app per la logica" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="12/07/2015"
 	ms.author="stepsic"/>
 	
-#Creare definizioni di app per la logica
+# Creare definizioni di app per la logica
 Questo argomento illustra come usare le definizioni di [app per la logica dei servizi app](app-service-logic-what-are-logic-apps.md), che costituiscono un semplice linguaggio JSON dichiarativo. Se ancora non è stato fatto, leggere prima di tutto l'articolo su [come creare una nuova app per la logica](../app-service-create-a-logic-app.md). È anche possibile leggere il [materiale di riferimento completo del linguaggio di definizione su MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
 ## Più passaggi che si ripetono in un elenco
 
-Un modello comune consiste nell'usare un solo passaggio per ottenere un elenco di elementi e quindi avere una serie di due o più azioni da eseguire nell'elenco.
+Un modello comune consiste nell'eseguire un passaggio per ottenere un elenco di elementi e quindi definire una serie di due o più azioni da eseguire nell'elenco.
 
 ![Ripetere in elenchi](./media/app-service-logic-author-definitions/repeatoverlists.png)
 
-In questo esempio vengono eseguite 3 azioni:
+In questo esempio vengono eseguite tre azioni:
 
 1. Un'azione ottiene un elenco di articoli. Restituisce un oggetto che contiene una matrice.
 
-2. Un'azione passa alla proprietà del collegamento di ogni articolo e restituisce la posizione effettiva dell'articolo.
+2. Un'azione accede alla proprietà di collegamento di ogni articolo e restituisce la posizione effettiva dell'articolo.
 
 3. Un'azione scorre tutti i risultati della seconda azione per scaricare gli articoli effettivi.
 
@@ -79,7 +79,7 @@ All'interno dell'azione è possibile usare la funzione [`repeatItem()`](https://
 
 ## Mapping degli elementi di un elenco a una configurazione diversa
 
-A questo punto, si vuole ottenere un contenuto completamente diverso in base al valore di una proprietà. È possibile creare una mappa di valori a destinazioni come parametro.
+A questo punto, si vuole ottenere un contenuto completamente diverso in base al valore di una proprietà. È possibile creare una mappa di valori alle relative destinazioni come parametro.
 
 ```
 {
@@ -234,14 +234,14 @@ Nell'app per la logica figlio si userà quindi la funzione [`triggerBody()`](htt
 }
 ```
 
-Altre informazioni sono disponibili nell'articolo relativo all'[azione di tipo app per la logica su MSDN](https://msdn.microsoft.com/it-IT/library/azure/dn948511.aspx).
+Altre informazioni sono disponibili nell'articolo relativo all'[azione di tipo app per la logica su MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx).
 
 >[AZURE.NOTE]La finestra di progettazione di app per la logica non supporta le azioni di tipo app per la logica, quindi sarà necessario modificare la definizione manualmente.
 
 
 ## Passaggio di gestione degli errori in caso di problemi
 
-In genere, è opportuno poter scrivere una *procedura di correzione*, cioè la logica che viene eseguita se, **e solo se**, una o più chiamate non riescono. In questo esempio, i dati vengono recuperati da diverse posizioni, ma se la chiamata non riesce, è opportuno INSERIRE un messaggio in qualche punto, in modo da poter ricostruire l'errore in seguito.
+In genere, è opportuno saper scrivere una *procedura di correzione*, cioè la logica che viene eseguita se, **e solo se**, una o più chiamate hanno esito negativo. In questo esempio, i dati vengono recuperati da diverse posizioni, ma se la chiamata ha esito negativo, è opportuno INSERIRE un messaggio in un punto qualsiasi, in modo da poter ricostruire l'errore in un secondo momento.
 
 ```
 {
@@ -287,7 +287,7 @@ In genere, è opportuno poter scrivere una *procedura di correzione*, cioè la l
 }
 ```
 
-In questo caso si usano due condizioni, perché nel primo passaggio l'azione viene ripetuta in un elenco. Se fosse disponibile una singola azione, sarebbe necessaria una sola condizione (la prima). Tenere presente che nella procedura di correzione è anche possibile usare gli *input* dell'azione non riuscita. In questo caso, l'URL non riuscito viene passato al secondo passaggio.
+In questo caso si usano due condizioni, perché nel primo passaggio l'azione viene ripetuta in un elenco. Se fosse disponibile una singola azione, sarebbe necessaria una sola condizione (la prima). Tenere presente che nella procedura di correzione è possibile anche usare gli *input* dell'azione non riuscita. In questo caso, l'URL non riuscito viene passato al secondo passaggio.
 
 ![Correzione](./media/app-service-logic-author-definitions/remediation.png)
 
@@ -723,4 +723,4 @@ In ogni ambiente è quindi possibile fornire un valore diverso per il parametro 
 
 Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

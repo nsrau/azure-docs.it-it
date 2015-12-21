@@ -18,9 +18,7 @@
 
 # Aggiungere notifiche push all'app Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Panoramica
 In questa esercitazione si aggiungeranno notifiche push al progetto di [avvio rapido di Android ] per attivare l'invio di una notifica push ogni volta che viene inserito un record. Questa esercitazione è basata sull'esercitazione relativa all'[avvio rapido di Android ], che deve essere completata per prima. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -29,9 +27,9 @@ In questa esercitazione si aggiungeranno notifiche push al progetto di [avvio ra
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* [Account Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) con un indirizzo di posta elettronica verificato
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Completare l'[esercitazione relativa alla guida introduttiva](../app-service-mobile-android-get-started.md).
+* [Account Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) con un indirizzo di posta elettronica verificato.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) (non necessario per un progetto di back-end Node.js).
+* Completare l'[esercitazione di avvio rapido](../app-service-mobile-android-get-started.md).
 
 ##<a name="create-hub"></a>Creare un hub di notifica
 
@@ -82,4 +80,4 @@ Se il test verrà eseguito con un dispositivo meno recente, fare riferimento all
 <!-- URLs -->
 [avvio rapido di Android ]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015-->

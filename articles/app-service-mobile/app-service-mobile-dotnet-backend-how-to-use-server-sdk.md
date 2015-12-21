@@ -14,10 +14,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/18/2015"
+	ms.date="12/03/2015"
 	ms.author="glenga"/>
 
 # Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure
+
+[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]&nbsp;
+
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Questo argomento mostra come usare l'SDK del server back-end .NET in scenari chiave di App per dispositivi mobili del servizio app di Azure. Azure Mobile Apps SDK aiuta a lavorare con i client mobili dall'applicazione ASP.NET.
 
@@ -25,9 +29,9 @@ Questo argomento mostra come usare l'SDK del server back-end .NET in scenari chi
 
 ## Documentazione di riferimento
 
-La documentazione di riferimento per il server SDK è disponibile qui: [Riferimento .NET di App per dispositivi mobili di Azure](https://msdn.microsoft.com/library/azure/dn961176.aspx).
+La documentazione di riferimento per l'SDK del server è disponibile qui: [Riferimento .NET di App per dispositivi mobili di Azure](https://msdn.microsoft.com/library/azure/dn961176.aspx).
 
-## <a name="create-app"></a>Procedura: creare un backend .NET per l'applicazione per dispositivi mobili
+## <a name="create-app"></a>Procedura: Creare un back-end .NET per l'applicazione per dispositivi mobili
 
 Se si inizia un nuovo progetto, è possibile creare un'applicazione del servizio app usando il [portale di Azure] o Visual Studio. Questa sezione illustra come usare uno dei due per creare il back-end per una nuova applicazione per dispositivi mobili che ospita l'API per un semplice elenco attività. È possibile eseguirlo localmente o pubblicare il progetto nell'app per dispositivi mobili del servizio app basata sul cloud.
 
@@ -47,7 +51,7 @@ Se si devono aggiungere funzionalità per dispositivi mobili a un progetto esist
 
 Per creare un progetto App per dispositivi mobili in Visual Studio, sarà necessario installare [Azure SDK per .NET](https://azure.microsoft.com/downloads/), versione 2.8.1 o successiva. Una volta installato l'SDK, creare una nuova applicazione ASP.NET:
 
-1. Aprire la finestra di dialogo **Nuovo progetto** (da *File* > **Nuovo** > **Progetto**).
+1. Aprire la finestra di dialogo **Nuovo progetto** da *File* > **Nuovo** > **Progetto**.
 
 2. Espandere **Modelli** > **Visual C#** e selezionare **Web**.
 
@@ -61,7 +65,7 @@ Per creare un progetto App per dispositivi mobili in Visual Studio, sarà necess
 
 ## <a name="install-sdk"></a>Procedura: Scaricare e inizializzare l'SDK
 
-L'SDK è disponibile in [NuGet.org]. Il pacchetto include le funzionalità di base necessarie per iniziare a usare l'SDK. Per inizializzare l'SDK, è necessario eseguire alcune operazioni nell'oggetto **HttpConfiguration**.
+L'SDK è disponibile in [NuGet.org]. Il pacchetto include le funzionalità di base necessarie per iniziare a usare l'SDK. Per inizializzare l'SDK, è necessario eseguire alcune operazioni sull'oggetto **HttpConfiguration**.
 
 ###Installare l'SDK
 
@@ -89,13 +93,13 @@ Nel metodo `Configuration()` della classe di avvio OWIN configurare il progetto 
 	    app.UseWebApi(config);
 	}
 
-Per abilitare le singole funzionalità, è necessario chiamare i metodi di estensione nell'oggetto **MobileAppConfiguration** prima di chiamare **ApplyTo**. Ad esempio, il codice seguente aggiunge le route predefinite a tutti i controller API che hanno l’attributo `[MobileAppController]` durante l'inizializzazione:
+Per abilitare le singole funzionalità, è necessario chiamare i metodi di estensione nell'oggetto **MobileAppConfiguration** prima di chiamare **ApplyTo**. Ad esempio, il codice seguente aggiunge le route predefinite a tutti i controller API che hanno l'attributo `[MobileAppController]` durante l'inizializzazione:
 
 	new MobileAppConfiguration()
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-Si noti che `MapApiControllers` solo i controller delle mappe con l'attributo `[MobileAppController]`.
+Si noti che `MapApiControllers` esegue solo il mapping dei controller con l'attributo `[MobileAppController]`.
 
 Molti metodi di estensione delle funzionalità sono disponibili tramite pacchetti NuGet aggiuntivi che è possibile includere, descritti nella sezione seguente.
 
@@ -130,7 +134,7 @@ I pacchetti di estensione basati su NuGet seguenti forniscono diverse funzionali
 
 - [Microsoft.Azure.Mobile.Server.Notifications] consente le notifiche push e definisce un endpoint di registrazione push. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddPushNotifications**.
 
-- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) crea un controller che fornisce i dati ai web browser legacy dall'app per dispositivi mobili. Viene aggiunta alla configurazione chiamando il metodo di estensione **MapLegacyCrossDomainController**.
+- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) crea un controller che fornisce i dati ai Web browser legacy dall'app per dispositivi mobili. Viene aggiunta alla configurazione chiamando il metodo di estensione **MapLegacyCrossDomainController**.
 
 - [Microsoft.Azure.Mobile.Server.Login] fornisce il supporto di anteprima per l'autenticazione personalizzata con il metodo MobileAppLoginHandler.CreateToken(). Si tratta di un metodo statico che non è necessario abilitare nella configurazione.
 
@@ -162,7 +166,7 @@ Per un esempio di un controller di tabella che usa Entity Framework per accedere
 
 ## Procedura: Definire un controller API personalizzato
 
-Il controller API personalizzato fornisce le funzionalità di base per il back-end dell'app per dispositivi mobili esponendo un endpoint. È possibile registrare un controller di API specifico per dispositivi mobili utilizzando l'attributo `MobileAppControllerAttribute`. Questo attributo registra la route e configura anche il serializzatore JSON delle app per dispositivi mobili.
+Il controller API personalizzato fornisce le funzionalità di base per il back-end dell'app per dispositivi mobili esponendo un endpoint. È possibile registrare un controller di API specifico per dispositivi mobili usando l'attributo `MobileAppControllerAttribute`. Questo attributo registra la route e configura anche il serializzatore JSON delle app per dispositivi mobili.
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sulla cartella Controller e quindi scegliere **Aggiungi** > **Controller**, selezionare **Controller API Web 2&mdash;Vuoto** e fare clic su **Aggiungi**.
 
@@ -207,13 +211,13 @@ I controller a cui non è applicato **MobileAppControllerAttribute** continuano 
 
 Per informazioni su come autenticare i client nel back-end di app per dispositivi mobili, vedere l'articolo [Aggiungere l'autenticazione all'app](app-service-mobile-ios-get-started-users.md).
 
-## <a name="custom-auth"></a>Procedura: usare l'autenticazione personalizzata per la propria applicazione
+## <a name="custom-auth"></a>Procedura: Usare l'autenticazione personalizzata per la propria applicazione
 
-È possibile scegliere di fornire il proprio sistema di accesso se non si vuole usare uno dei provider di autenticazione/autorizzazione del servizio app. A tale scopo, installare il pacchetto [Microsoft.Azure.Mobile.Server.Login].
+È possibile scegliere di fornire il proprio sistema di accesso se non si vuole usare uno dei provider di autenticazione/autorizzazione del servizio app. A questo scopo, installare il pacchetto [Microsoft.Azure.Mobile.Server.Login].
 
-Sarà necessario fornire la propria logica per determinare se un utente deve essere registrato. È possibile, ad esempio, confrontare le password con salting e hashing in un database. Nell'esempio seguente, il metodo `isValidAssertion()` è responsabile di questi controlli e viene definito altrove.
+Sarà necessario fornire la propria logica per determinare se un utente deve essere registrato. È possibile, ad esempio, confrontare le password con salting e hashing in un database. Nell'esempio seguente il metodo `isValidAssertion()` è responsabile di questi controlli e viene definito altrove.
 
-L'autenticazione personalizzata viene esposta creando un nuovo ApiController ed esponendo le azioni di registrazione e accesso come quella seguente. Il client può tentare l'accesso raccogliendo le informazioni pertinenti dall'utente e inviando un POST HTTPS all'API con le informazioni utente nel corpo. Una volta convalidate tali informazioni, può essere rilasciato un token con il metodo `MobileAppLoginHandler.CreateToken()`.
+L'autenticazione personalizzata viene esposta creando un nuovo ApiController ed esponendo le azioni di registrazione e accesso come quella seguente. Il client può tentare l'accesso raccogliendo le informazioni pertinenti dall'utente e inviando un POST HTTPS all'API con le informazioni utente nel corpo. Dopo la convalida di queste informazioni, è possibile rilasciare un token con il metodo `MobileAppLoginHandler.CreateToken()`.
 
 Ecco un esempio di azione di accesso:
 
@@ -289,9 +293,9 @@ Il metodo `MobileAppLoginHandler.CreateToken()` include un parametro _audience_ 
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-A questo punto, è possibile usare il client di Hub di notifica per inviare notifiche push ai dispositivi registrati. Per altre informazioni, vedere l'articolo [Aggiunta di notifiche push all'app](app-service-mobile-ios-get-started-push.md). Per altre informazioni su tutte le operazioni disponibili con Hub di notifica, vedere [Panoramica dell'Hub di notifica di Azure](../notification-hubs/notification-hubs-overview.md).
+A questo punto, è possibile usare il client di Hub di notifica per inviare notifiche push ai dispositivi registrati. Per altre informazioni, vedere l'articolo [Aggiungere notifiche push all'app iOS](app-service-mobile-ios-get-started-push.md). Per altre informazioni su tutte le operazioni disponibili con Hub di notifica, vedere [Panoramica dell'Hub di notifica di Azure](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>Procedura: aggiungere tag all'installazione di un dispositivo per abilitare il push dei tag
+##<a name="tags"></a>Procedura: Aggiungere tag all'installazione di un dispositivo per abilitare il push dei tag
 
 Dopo avere eseguito il passaggio precedente **Procedura: Definire un controller API personalizzato**, è possibile configurare un'API personalizzata nel back-end che userà Hub di notifica per aggiungere tag all'installazione di un dispositivo specifico. Assicurarsi di passare l'ID installazione memorizzato nella risorsa di archiviazione locale client assieme ai tag che si desidera aggiungere (l'aggiunta è facoltativa perché è anche possibile specificare i tag direttamente nel back-end). Il frammento di codice seguente deve essere aggiunto al controller che userà gli hub di notifica per aggiungere un tag all'ID di installazione di un dispositivo.
 
@@ -356,4 +360,4 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

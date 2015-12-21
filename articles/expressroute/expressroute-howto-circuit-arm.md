@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="12/04/2015"
    ms.author="cherylmc"/>
 
 # Creare e modificare un circuito ExpressRoute tramite Gestione risorse di Azure e PowerShell
@@ -219,7 +219,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 7. **Collegare una rete virtuale a un circuito ExpressRoute.**
 
-	Collegare ora una rete virtuale a un circuito ExpressRoute. Per istruzioni dettagliate, vedere la pagina relativa al [collegamento di circuiti ExpressRoute a reti virtuali](expressroute-howto-linkvnet-arm.md). Se è necessario creare una rete virtuale per ExpressRoute, vedere la pagina relativa alla [creazione di una rete virtuale per ExpressRoute](expressroute-howto-createvnet-classic.md) per istruzioni specifiche.
+	Collegare ora una rete virtuale a un circuito ExpressRoute. È possibile usare [questo modello](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) quando si usa la modalità di distribuzione di Gestione risorse di Azure. Si sta attualmente lavorando ai passaggi di PowerShell.
 
 ##  Ottenere lo stato di un circuito ExpressRoute
 
@@ -349,12 +349,12 @@ Il circuito verrà ridimensionato sul lato di Microsoft. È necessario contattar
 
 Si noti che è necessario scollegare tutte le reti virtuali da ExpressRoute perché l'operazione abbia esito positivo. Se l'operazione non riesce, controllare se sono presenti reti virtuali collegate al circuito.
 
-Se lo stato di provisioning del provider di servizi del circuito ExpressRoute è abilitato, lo stato verrà modificato in *disabling*. Collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning e inviato una notifica.
+Se lo stato di provisioning del provider di servizi del circuito ExpressRoute è abilitato, lo stato verrà modificato in *disabilitato*. Collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning e inviato una notifica.
 
-Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su *not provisioned*) prima dell'esecuzione del cmdlet precedente, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
+Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su *senza provisioning*) prima dell'esecuzione del cmdlet precedente, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
 
 ## Passaggi successivi
 
 - [Configurare il routing](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->
