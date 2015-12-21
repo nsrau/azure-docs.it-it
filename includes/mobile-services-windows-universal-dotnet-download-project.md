@@ -1,7 +1,7 @@
 
 Questa esercitazione è basata sull'app [GetStartedWithMobileServices](http://go.microsoft.com/fwlink/p/?LinkID=510826) che è un progetto di app di Windows universale in Visual Studio 2013. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.
 
-1. Scaricare la versione in C# dell'app di esempio GetStartedWithMobileServices da [Developer Code Samples site]. 
+1. Scaricare la versione in C# dell'app di esempio GetStartedWithMobileServices da [sito degli esempi di codice di Developer Network]. 
 
 2. In Visual Studio 2013 aprire il progetto scaricato ed esaminare il file MainPage.xaml.cs. rilevato nella cartella di progetto GetStartedWithData.Shared.
 
